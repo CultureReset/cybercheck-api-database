@@ -88,23 +88,43 @@ app.post('/api/upload-image', (req, res) => {
     res.status(503).json({ error: 'Image upload: use Supabase Storage on production' });
 });
 
-// Site data — read/write site-data.json (dashboard → website)
+// Site data — read/write via Supabase (Vercel filesystem is read-only)
 const SITE_DATA_PATH = path.join(__dirname, 'site-data.json');
-app.get('/api/site-data', (req, res) => {
+const SITE_DATA_KEY = 'circle-boats';
+
+app.get('/api/site-data', async (req, res) => {
+    try {
+        // Try Supabase first (saved data)
+        const { data: row } = await supabase
+            .from('site_data_store')
+            .select('value')
+            .eq('key', SITE_DATA_KEY)
+            .single();
+        if (row && row.value) {
+            res.set('Cache-Control', 'no-store');
+            return res.json(row.value);
+        }
+    } catch (e) { /* fall through to file */ }
+    // Fallback: read bundled site-data.json
     try {
         const data = JSON.parse(fs.readFileSync(SITE_DATA_PATH, 'utf8'));
         res.set('Cache-Control', 'no-store');
-        res.json(data);
+        return res.json(data);
     } catch (e) {
         res.status(500).json({ error: 'Could not load site data' });
     }
 });
-app.post('/api/site-data', (req, res) => {
+
+app.post('/api/site-data', async (req, res) => {
     try {
-        fs.writeFileSync(SITE_DATA_PATH, JSON.stringify(req.body, null, 2));
+        const { error } = await supabase
+            .from('site_data_store')
+            .upsert({ key: SITE_DATA_KEY, value: req.body, updated_at: new Date().toISOString() });
+        if (error) throw error;
         res.json({ success: true });
     } catch (e) {
-        res.status(500).json({ error: 'Could not save site data' });
+        console.error('site-data save error:', e);
+        res.status(500).json({ error: 'Could not save site data: ' + e.message });
     }
 });
 
