@@ -1,0 +1,422 @@
+{
+  "business": {
+    "name": "Beachside Circle Boats",
+    "tagline": "The Easiest Way to Get on the Water",
+    "description": "Rent a portable, eco-friendly circle boat. No license needed, no experience required. Just show up and cruise.",
+    "phone": "(601) 325-1205",
+    "email": "beachsideboats@myyahoo.com",
+    "address": "25856 Canal Road, Unit A, Orange Beach, AL 36561",
+    "hours": "Mon–Sat 8:00 AM – 6:00 PM, Sunday 9:00 AM – 5:00 PM",
+    "hoursNote": "Weather permitting. Call for availability.",
+    "location": "Orange Beach, Alabama"
+  },
+  "hero": {
+    "location": "Orange Beach, Alabama",
+    "title": "The Easiest Way to Get on the Water",
+    "subtitle": "Rent a portable, eco-friendly circle boat. No experience required. Just show up and cruise.",
+    "ctaText": "Book Now",
+    "ctaUrl": "#rentals"
+  },
+  "about": {
+    "title": "About Beachside Circle Boats",
+    "subtitle": "Experience a new way to explore Orange Beach",
+    "description": "Beachside Circle Boats brings a whole new way to experience Orange Beach. Our portable, eco-friendly electric circle boats are perfect for cruising the intercoastal waterways — no gas, no noise, just pure fun on the water.",
+    "perfectFor": "Families, couples, birthday parties, group outings, fishing, or just relaxing on the water. No boating license needed!",
+    "features": [
+      {
+        "icon": "⚡",
+        "title": "Eco-Friendly",
+        "description": "Zero emissions, zero noise pollution. 35lb thrust electric motors."
+      },
+      {
+        "icon": "💪",
+        "title": "Stable & Safe",
+        "description": "Low center of gravity. Life jackets included. No license needed."
+      },
+      {
+        "icon": "🎒",
+        "title": "Portable",
+        "description": "Inflatable design. We can bring boats to your private dock or event."
+      },
+      {
+        "icon": "🌊",
+        "title": "Gulf Coast Views",
+        "description": "Explore Orange Beach coastline and intercoastal waterways."
+      }
+    ]
+  },
+  "products": [
+    {
+      "name": "Single Seater",
+      "description": "Solo cruiser. 57 lbs, portable, 35lb electric motor. Fits one adult up to 300 lbs.",
+      "image": "/beachside-site/images/uploads/1772658985063-wosq7fign1g.jpg",
+      "specs": "70\" diameter • Max 300 lbs • 5-speed motor",
+      "featured": false,
+      "halfDayAM": 150,
+      "halfDayPM": 150,
+      "allDay": 225
+    },
+    {
+      "name": "Double Seater",
+      "description": "Bring a friend. 65 lbs, extra-wide seats, enhanced stability. Fits two adults up to 450 lbs combined.",
+      "image": "/beachside-site/images/uploads/1772658994697-9l1gf6fyxs5.jpg",
+      "specs": "89\" x 70\" • Max 450 lbs • 5-speed motor",
+      "featured": true,
+      "halfDayAM": 200,
+      "halfDayPM": 200,
+      "allDay": 275
+    }
+  ],
+  "group_rate": {
+    "title": "Group Rates Available",
+    "description": "Rent 5 or more single seaters and save. No group rate on doubles. Call to book.",
+    "price": 200,
+    "priceLabel": "each / All Day",
+    "ctaText": "Call to Book",
+    "ctaUrl": "tel:6013251205"
+  },
+  "docks": [
+    {
+      "name": "Mini Dock",
+      "badge": "Most Popular",
+      "size": "8'4\" x 44\"",
+      "capacity": "100 lb",
+      "description": "The full-size floating platform. Tow it behind your GoBoat for extra room to sunbathe, do yoga, spread out a picnic, or store all your beach gear. Plenty of space for two adults to lounge comfortably.",
+      "image": "images/goboat/mini-dock-tow.jpg",
+      "halfDay": 25,
+      "allDay": 50,
+      "features": [
+        "Large flat platform for lounging & sunbathing",
+        "Holds coolers, chairs, bags & umbrellas",
+        "EVA foam non-slip surface",
+        "Quick-connect tow rope included"
+      ]
+    },
+    {
+      "name": "X Dock",
+      "badge": null,
+      "size": "5' x 5'",
+      "capacity": "75 lb",
+      "description": "The compact square dock built for utility. Designed to hold a full-size cooler (up to 58 quarts), tackle boxes, or a portable grill. Frees up all the legroom in your GoBoat so passengers ride in comfort.",
+      "image": "/beachside-site/images/uploads/1772658917946-684q6paczee.jpg",
+      "halfDay": 25,
+      "allDay": 50,
+      "features": [
+        "Holds a 58-qt cooler with room to spare",
+        "Square shape — stable & stackable",
+        "Raised edge rails prevent items from sliding",
+        "Lightweight & easy to tow"
+      ]
+    },
+    {
+      "name": "Doggie Dock",
+      "badge": "Pet Friendly",
+      "size": "5'4\" x 43\"",
+      "capacity": "85 lb",
+      "description": "Built for your four-legged crew. Features a weighted mesh ramp so dogs can climb in and out of the water on their own. Non-slip surface keeps paws steady, and the dock stays flat even with a jumping pup.",
+      "image": "/beachside-site/images/uploads/1772658931328-yydss0nnypr.jpg",
+      "halfDay": 25,
+      "allDay": 50,
+      "features": [
+        "Weighted mesh entry/exit ramp for dogs",
+        "Non-slip grip surface for wet paws",
+        "Stable — won't flip when dogs jump on/off",
+        "Pairs great with our Pup Pack add-on"
+      ]
+    }
+  ],
+  "whats_included": [
+    "Life Jacket",
+    "Safety Briefing",
+    "Full Battery Charge",
+    "5-Speed Motor",
+    "Paddle",
+    "Whistle",
+    "Cup Holders"
+  ],
+  "addons": [
+    {
+      "icon": "🍺",
+      "name": "Cooler Pack",
+      "description": "Loaded cooler with ice, water, and your choice of drinks.",
+      "price": 35,
+      "unit": "per cooler"
+    },
+    {
+      "icon": "🥤",
+      "name": "Drink & Ice",
+      "description": "Water, Gatorade, sodas, juice. Bag of ice included.",
+      "price": 15,
+      "unit": "6 drinks + ice"
+    },
+    {
+      "icon": "🍟",
+      "name": "Snack Pack",
+      "description": "Chips, trail mix, granola bars, fruit snacks.",
+      "price": 20,
+      "unit": "per pack"
+    },
+    {
+      "icon": "🐶",
+      "name": "Pup Pack",
+      "description": "Dog treats, water bowl, and a doggie life vest.",
+      "price": 15,
+      "unit": "per pup"
+    },
+    {
+      "icon": "🎵",
+      "name": "Bluetooth Speaker",
+      "description": "Waterproof JBL speaker to set the vibe.",
+      "price": 15,
+      "unit": "per trip"
+    },
+    {
+      "icon": "📷",
+      "name": "GoPro Rental",
+      "description": "GoPro Hero with waterproof mount.",
+      "price": 30,
+      "unit": "per trip"
+    },
+    {
+      "icon": "🎣",
+      "name": "Fishing Gear",
+      "description": "Rod, reel, tackle, and bait. Everything included.",
+      "price": 25,
+      "unit": "per person"
+    },
+    {
+      "icon": "☀️",
+      "name": "Sun & Safety Kit",
+      "description": "Reef-safe sunscreen, hat, dry bag, first aid.",
+      "price": 10,
+      "unit": "per kit"
+    }
+  ],
+  "steps": [
+    {
+      "step": 1,
+      "title": "Book Online",
+      "description": "Choose your boat, pick your date, and reserve in seconds."
+    },
+    {
+      "step": 2,
+      "title": "Show Up",
+      "description": "Head to our Orange Beach location on Canal Road."
+    },
+    {
+      "step": 3,
+      "title": "Quick Briefing",
+      "description": "5-minute safety walkthrough. No license needed."
+    },
+    {
+      "step": 4,
+      "title": "Hit the Water",
+      "description": "Cruise at your own pace and make memories."
+    }
+  ],
+  "features": [
+    {
+      "icon": "⚡",
+      "title": "Electric & Eco-Friendly",
+      "description": "35lb thrust electric motors. Zero emissions, zero noise pollution."
+    },
+    {
+      "icon": "💪",
+      "title": "Stable & Safe",
+      "description": "Low center of gravity, incredibly stable. Life jackets included."
+    },
+    {
+      "icon": "🛶",
+      "title": "Portable",
+      "description": "Inflatable design. We can bring boats to your event or private dock."
+    },
+    {
+      "icon": "🏋",
+      "title": "No License Needed",
+      "description": "Anyone can drive. No boating license required. We teach you in 5 min."
+    },
+    {
+      "icon": "🌊",
+      "title": "Gulf Coast Views",
+      "description": "Explore Orange Beach coastline and intercoastal waterways."
+    },
+    {
+      "icon": "🎉",
+      "title": "Perfect for Events",
+      "description": "Birthdays, date nights, bachelor parties, team outings."
+    }
+  ],
+  "reviews": {
+    "rating": 5,
+    "source": "Google Reviews",
+    "items": [
+      {
+        "name": "Marcus T.",
+        "initial": "M",
+        "timeAgo": "2 weeks ago",
+        "stars": 5,
+        "text": "Best boat rental experience in Orange Beach! The circle boats are so unique and fun. My kids absolutely loved it. Staff was super friendly and helpful getting us set up. Will definitely be back next summer!"
+      },
+      {
+        "name": "Sarah K.",
+        "initial": "S",
+        "timeAgo": "1 month ago",
+        "stars": 5,
+        "text": "We rented the double seater for a half day and it was incredible! So easy to operate and the electric motor is whisper quiet. Perfect for a chill day on the water. The portable dock was a game changer too."
+      },
+      {
+        "name": "Jake R.",
+        "initial": "J",
+        "timeAgo": "3 weeks ago",
+        "stars": 5,
+        "text": "Took my dog out on the circle boat with the doggie dock attachment. He loved it! It's the only boat rental I've found that's actually pet-friendly in a practical way. Great concept, great people."
+      },
+      {
+        "name": "Amanda L.",
+        "initial": "A",
+        "timeAgo": "1 month ago",
+        "stars": 5,
+        "text": "We booked the all-day rental for our family reunion and everyone had an absolute blast. The boats are safe, clean, and so much fun. Already booked again for Memorial Day weekend. 10/10 recommend!"
+      },
+      {
+        "name": "Derek W.",
+        "initial": "D",
+        "timeAgo": "2 months ago",
+        "stars": 5,
+        "text": "These circle boats are something else! Never seen anything like them. Super stable, easy to drive, and the electric motor has plenty of power. The inflatable design means you can take it anywhere. A+ experience."
+      },
+      {
+        "name": "Rachel M.",
+        "initial": "R",
+        "timeAgo": "3 weeks ago",
+        "stars": 5,
+        "text": "Perfect date night idea! We took the double seater out for a sunset cruise and it was magical. So peaceful and romantic. The staff even helped us pick the best time for sunset views. Can't wait to go again!"
+      }
+    ]
+  },
+  "contact": {
+    "formTitle": "Send a Message",
+    "interests": [
+      "Single Seater — Half Day ($150)",
+      "Single Seater — All Day ($225)",
+      "Double Seater — Half Day ($200)",
+      "Double Seater — All Day ($275)",
+      "Dock Rental ($50)",
+      "Group Rate (5+ Singles — $200/each)",
+      "Add-ons",
+      "Private Event",
+      "General Question"
+    ]
+  },
+  "footer": {
+    "businessName": "Beachside Circle Boats",
+    "tagline": "Beachside Circle Boat Rentals and Sales LLC. Eco-friendly circle boat rentals in Orange Beach, Alabama.",
+    "links": [
+      {
+        "label": "Rentals & Pricing",
+        "href": "#rentals"
+      },
+      {
+        "label": "How It Works",
+        "href": "#how"
+      },
+      {
+        "label": "About",
+        "href": "#about"
+      },
+      {
+        "label": "Gallery",
+        "href": "#gallery"
+      },
+      {
+        "label": "📍 Bio Links",
+        "href": "/beachside-site/links.html"
+      }
+    ],
+    "services": [
+      "Single Seater Rental",
+      "Double Seater Rental",
+      "Docks",
+      "Add-ons"
+    ]
+  },
+  "gallery": [
+    "/beachside-site/images/goboat/goboat-hero.jpg",
+    "/beachside-site/images/goboat/goboat-bumpers.jpg",
+    "/beachside-site/images/goboat/goboat-onwater1.jpg",
+    "/beachside-site/images/goboat/goboat-beach.jpg",
+    "/beachside-site/images/goboat/goboat-woody.jpg",
+    "/beachside-site/images/goboat/goboat-fishing.jpg",
+    "/beachside-site/images/goboat/goboat-motor.jpg",
+    "/beachside-site/images/goboat/mini-dock-tow.jpg",
+    "/beachside-site/images/goboat/goboat-onwater2.jpg",
+    "/beachside-site/images/goboat/goboat-onwater3.jpg",
+    "/beachside-site/images/goboat/goboat-closeup.jpg",
+    "/beachside-site/images/goboat/goboat-setup1.jpg",
+    "/beachside-site/images/goboat/goboat-setup2.jpg",
+    "/beachside-site/images/goboat/goboat-accessories.jpg",
+    "/beachside-site/images/goboat/goboat-review1.jpg",
+    "/beachside-site/images/goboat/goboat-main.jpg"
+  ],
+  "locations": [
+    {
+      "id": "loc1",
+      "name": "Main Launch — Canal Road",
+      "address": "25856 Canal Road, Unit A, Orange Beach, AL 36561",
+      "description": "Our main launch site. Easy parking, quick access to the intercoastal waterway.",
+      "mapUrl": "https://maps.google.com/?q=25856+Canal+Road+Orange+Beach+AL+36561"
+    }
+  ],
+  "social": {},
+  "links_page": {
+    "links": [
+      {
+        "id": "booking",
+        "enabled": true,
+        "icon": "📅",
+        "label": "Book Now",
+        "sub": "Check availability & reserve"
+      },
+      {
+        "id": "fleet",
+        "enabled": true,
+        "icon": "🚤",
+        "label": "Rental Packages & Pricing",
+        "sub": "Single, Double & Dock Add-ons"
+      },
+      {
+        "id": "gallery",
+        "enabled": true,
+        "icon": "📸",
+        "label": "View Photos",
+        "sub": "Our boats on the water"
+      },
+      {
+        "id": "reviews",
+        "enabled": true,
+        "icon": "⭐",
+        "label": "Customer Reviews",
+        "sub": "See what customers say"
+      },
+      {
+        "id": "about",
+        "enabled": true,
+        "icon": "ℹ️",
+        "label": "About Us",
+        "sub": "Our story & what we offer"
+      },
+      {
+        "id": "website",
+        "enabled": true,
+        "icon": "🌐",
+        "label": "Visit Full Website",
+        "sub": "beachsidecircleboats.com",
+        "url": "index.html"
+      }
+    ]
+  },
+  "theme": {
+    "primary": "#00ada8",
+    "primaryDark": "#009590"
+  }
+}
