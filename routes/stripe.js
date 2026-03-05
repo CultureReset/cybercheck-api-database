@@ -46,12 +46,14 @@ router.get('/connect-callback', async (req, res) => {
     const stripe = getStripe();
     const { code, state, error } = req.query;
 
+    const dashboardBase = process.env.DASHBOARD_URL || 'https://cybercheck-login.vercel.app';
+
     if (error) {
-        return res.redirect('/dashboard/#connections?stripe_error=' + encodeURIComponent(error));
+        return res.redirect(dashboardBase + '/#connections?stripe_error=' + encodeURIComponent(error));
     }
 
     if (!stripe) {
-        return res.redirect('/dashboard/#connections?stripe_error=stripe_not_configured');
+        return res.redirect(dashboardBase + '/#connections?stripe_error=stripe_not_configured');
     }
 
     // Decode state to get siteId
@@ -92,10 +94,10 @@ router.get('/connect-callback', async (req, res) => {
         });
 
         // Redirect back to dashboard with success
-        res.redirect('/dashboard/#connections?stripe_connected=true&account_id=' + connectedAccountId);
+        res.redirect(dashboardBase + '/#connections?stripe_connected=true&account_id=' + connectedAccountId);
     } catch (err) {
         console.error('Stripe Connect error:', err);
-        res.redirect('/dashboard/#connections?stripe_error=' + encodeURIComponent(err.message));
+        res.redirect(dashboardBase + '/#connections?stripe_error=' + encodeURIComponent(err.message));
     }
 });
 
@@ -149,7 +151,7 @@ router.post('/create-payment-intent', async (req, res) => {
         return res.status(400).json({ error: 'Business has not connected Stripe yet' });
     }
 
-    const feePercent = parseFloat(process.env.PLATFORM_FEE_PERCENT || '3');
+    const feePercent = parseFloat(process.env.PLATFORM_FEE_PERCENT || '1');
     const amountCents = Math.round(amount * 100);
     const applicationFee = Math.round(amountCents * (feePercent / 100));
 
