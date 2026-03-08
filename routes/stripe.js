@@ -132,44 +132,62 @@ router.post('/create-payment-intent', async (req, res) => {
     }
 
     const { booking_id, amount, description, payment_method_id, site_id } = req.body;
-    const targetSiteId = site_id || req.siteId;
 
-    if (!amount || !targetSiteId) {
-        return res.status(400).json({ error: 'amount and site_id required' });
+    if (!amount) {
+        return res.status(400).json({ error: 'amount required' });
     }
 
-    // Get connected Stripe account for this business
-    const { data: connection } = await supabase
-        .from('connections')
-        .select('account_id')
-        .eq('site_id', targetSiteId)
-        .eq('provider', 'stripe')
-        .eq('status', 'connected')
-        .single();
+    // Resolve site_id — may be a UUID or a subdomain string
+    let targetSiteId = req.siteId || null;
+    if (site_id) {
+        // Check if it looks like a UUID
+        if (/^[0-9a-f-]{36}$/.test(site_id)) {
+            targetSiteId = site_id;
+        } else {
+            // Treat as subdomain — look up the site_id
+            const { data: biz } = await supabase
+                .from('businesses')
+                .select('site_id')
+                .eq('subdomain', site_id)
+                .single();
+            targetSiteId = biz?.site_id || null;
+        }
+    }
 
-    if (!connection || !connection.account_id) {
-        return res.status(400).json({ error: 'Business has not connected Stripe yet' });
+    // Get connected Stripe account for this business (optional — falls back to direct charge)
+    let connection = null;
+    if (targetSiteId) {
+        const { data } = await supabase
+            .from('connections')
+            .select('account_id')
+            .eq('site_id', targetSiteId)
+            .eq('provider', 'stripe')
+            .eq('status', 'connected')
+            .single();
+        connection = data;
     }
 
     const feePercent = parseFloat(process.env.PLATFORM_FEE_PERCENT || '1');
     const amountCents = Math.round(amount * 100);
-    const applicationFee = Math.round(amountCents * (feePercent / 100));
 
     try {
         const params = {
             amount: amountCents,
             currency: 'usd',
             description: description || 'Booking payment',
-            application_fee_amount: applicationFee,
-            transfer_data: {
-                destination: connection.account_id
-            },
             metadata: {
                 booking_id: booking_id || '',
-                site_id: targetSiteId,
-                platform_fee_percent: feePercent.toString()
+                site_id: targetSiteId || ''
             }
         };
+
+        // If business has a connected Stripe account, route money to them with platform fee
+        if (connection && connection.account_id) {
+            const applicationFee = Math.round(amountCents * (feePercent / 100));
+            params.application_fee_amount = applicationFee;
+            params.transfer_data = { destination: connection.account_id };
+            params.metadata.platform_fee_percent = feePercent.toString();
+        }
 
         // If payment_method_id provided, attach and confirm immediately
         if (payment_method_id) {
