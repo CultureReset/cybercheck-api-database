@@ -92,27 +92,110 @@ app.post('/api/upload-image', (req, res) => {
 const SITE_DATA_PATH = path.join(__dirname, 'site-data.json');
 const SITE_DATA_KEY = 'circle-boats';
 
+// Convert structured hours object → readable string for website display
+function formatHoursString(hours) {
+    if (!hours || typeof hours !== 'object') return '';
+    const order = ['monday','tuesday','wednesday','thursday','friday','saturday','sunday'];
+    const abbr  = { monday:'Mon', tuesday:'Tue', wednesday:'Wed', thursday:'Thu', friday:'Fri', saturday:'Sat', sunday:'Sun' };
+    const open  = order.filter(d => hours[d] && !hours[d].closed);
+    if (!open.length) return '';
+    return open.map(d => `${abbr[d]} ${hours[d].open}–${hours[d].close}`).join(', ');
+}
+
 app.get('/api/site-data', async (req, res) => {
+    // 1. Load bundled fallback JSON (always succeeds — ships with the repo)
+    let base = {};
     try {
-        // Try Supabase first (saved data)
-        const { data: row } = await supabase
+        base = JSON.parse(fs.readFileSync(SITE_DATA_PATH, 'utf8'));
+    } catch (e) {
+        console.warn('Could not read site-data.json:', e.message);
+    }
+
+    try {
+        // 2. Check site_data_store for any full-blob saves (legacy / manual)
+        const { data: stored } = await supabase
             .from('site_data_store')
             .select('value')
             .eq('key', SITE_DATA_KEY)
             .single();
-        if (row && row.value) {
-            res.set('Cache-Control', 'no-store');
-            return res.json(row.value);
+        if (stored && stored.value) {
+            base = stored.value;
         }
-    } catch (e) { /* fall through to file */ }
-    // Fallback: read bundled site-data.json
-    try {
-        const data = JSON.parse(fs.readFileSync(SITE_DATA_PATH, 'utf8'));
-        res.set('Cache-Control', 'no-store');
-        return res.json(data);
+
+        // 3. Overlay live data from proper Supabase tables —
+        //    these are the tables the dashboard actually writes to.
+        const siteId = req.query.site_id || SITE_DATA_KEY;
+        const [bizRes, contentRes, mediaRes] = await Promise.all([
+            supabase.from('businesses').select('*').eq('site_id', siteId).single(),
+            supabase.from('site_content').select('*').eq('site_id', siteId).single(),
+            supabase.from('media').select('*').eq('site_id', siteId).order('uploaded_at', { ascending: false })
+        ]);
+
+        const biz     = bizRes.data;
+        const content = contentRes.data;
+        const media   = mediaRes.data || [];
+
+        if (biz || content) {
+            if (!base.business) base.business = {};
+
+            // From businesses table
+            if (biz) {
+                if (biz.name)      base.business.name      = biz.name;
+                if (biz.logo_url)  base.business.logo_url  = biz.logo_url;
+                if (biz.cover_url) base.business.cover_url = biz.cover_url;
+            }
+
+            // From site_content table
+            if (content) {
+                if (content.about_text)    base.business.description = content.about_text;
+                if (content.contact_phone) base.business.phone       = content.contact_phone;
+                if (content.contact_email) base.business.email       = content.contact_email;
+                if (content.logo_url)      base.business.logo_url    = content.logo_url;
+
+                // Build full address string
+                if (content.address) {
+                    base.business.address = [content.address, content.city, content.state, content.zip]
+                        .filter(Boolean).join(', ');
+                }
+
+                // Convert structured hours → readable string for website
+                if (content.hours && Object.keys(content.hours).length > 0) {
+                    base.business.hours = formatHoursString(content.hours);
+                    base.business._hours_structured = content.hours;
+                }
+
+                // Location tag (city, state)
+                if (content.city && content.state) {
+                    const loc = content.city + ', ' + content.state;
+                    base.business.location = loc;
+                    if (!base.hero) base.hero = {};
+                    base.hero.location = loc;
+                }
+
+                // Social links
+                if (content.social_links && Object.keys(content.social_links).length > 0) {
+                    base.social = Object.assign({}, base.social || {}, content.social_links);
+                }
+
+                // Theme color
+                if (content.theme_color) {
+                    if (!base.theme) base.theme = {};
+                    base.theme.primary = content.theme_color;
+                }
+            }
+        }
+
+        // 4. Gallery from media table (only if records exist)
+        if (media.length > 0) {
+            base.gallery = media.map(m => m.url);
+        }
+
     } catch (e) {
-        res.status(500).json({ error: 'Could not load site data' });
+        console.warn('Supabase overlay failed, serving base data:', e.message);
     }
+
+    res.set('Cache-Control', 'no-store');
+    return res.json(base);
 });
 
 app.post('/api/site-data', async (req, res) => {
