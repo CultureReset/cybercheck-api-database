@@ -290,15 +290,22 @@ BEGIN
       AND fleet_type_id = p_fleet_type_id
       AND condition = 'good';
 
-    -- Count already booked qty for this slot+date (lock the rows to prevent race conditions)
-    SELECT COALESCE(SUM(qty), 0) INTO v_booked
-    FROM bookings
+    -- Lock matching rows first, then aggregate (FOR UPDATE cannot be used with aggregates)
+    PERFORM id FROM bookings
     WHERE site_id = p_site_id
       AND fleet_type_id = p_fleet_type_id
       AND time_slot_id = p_time_slot_id
       AND booking_date = p_booking_date
       AND status IN ('pending', 'confirmed', 'checked_in')
     FOR UPDATE;
+
+    SELECT COALESCE(SUM(qty), 0) INTO v_booked
+    FROM bookings
+    WHERE site_id = p_site_id
+      AND fleet_type_id = p_fleet_type_id
+      AND time_slot_id = p_time_slot_id
+      AND booking_date = p_booking_date
+      AND status IN ('pending', 'confirmed', 'checked_in');
 
     -- Count active holds (exclude this session's hold if converting)
     SELECT COALESCE(SUM(qty), 0) INTO v_held
@@ -381,15 +388,22 @@ BEGIN
       AND fleet_type_id = p_fleet_type_id
       AND condition = 'good';
 
-    -- Count booked
-    SELECT COALESCE(SUM(qty), 0) INTO v_booked
-    FROM bookings
+    -- Lock matching rows first, then aggregate
+    PERFORM id FROM bookings
     WHERE site_id = p_site_id
       AND fleet_type_id = p_fleet_type_id
       AND time_slot_id = p_time_slot_id
       AND booking_date = p_booking_date
       AND status IN ('pending', 'confirmed', 'checked_in')
     FOR UPDATE;
+
+    SELECT COALESCE(SUM(qty), 0) INTO v_booked
+    FROM bookings
+    WHERE site_id = p_site_id
+      AND fleet_type_id = p_fleet_type_id
+      AND time_slot_id = p_time_slot_id
+      AND booking_date = p_booking_date
+      AND status IN ('pending', 'confirmed', 'checked_in');
 
     -- Count existing holds (exclude this session to allow re-hold)
     SELECT COALESCE(SUM(qty), 0) INTO v_held
