@@ -1,4 +1,5 @@
 const express = require('express');
+const crypto  = require('crypto');
 const { authRequired } = require('../middleware/auth');
 const supabase = require('../db');
 
@@ -8,6 +9,55 @@ const router = express.Router();
 function getStripe() {
     if (!process.env.STRIPE_SECRET_KEY) return null;
     return require('stripe')(process.env.STRIPE_SECRET_KEY);
+}
+
+// ─── AES-256-GCM encryption for business Stripe keys ───────────────────────
+// Generate your encryption key: node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+// Add to Vercel as STRIPE_KEY_ENCRYPTION_KEY
+function encryptKey(plaintext) {
+    const hexKey = process.env.STRIPE_KEY_ENCRYPTION_KEY;
+    if (!hexKey) throw new Error('STRIPE_KEY_ENCRYPTION_KEY not set in environment');
+    const key = Buffer.from(hexKey, 'hex');
+    const iv  = crypto.randomBytes(16);
+    const cipher = crypto.createCipheriv('aes-256-gcm', key, iv);
+    const enc = Buffer.concat([cipher.update(plaintext, 'utf8'), cipher.final()]);
+    const tag = cipher.getAuthTag();
+    return iv.toString('hex') + ':' + tag.toString('hex') + ':' + enc.toString('hex');
+}
+
+function decryptKey(stored) {
+    const hexKey = process.env.STRIPE_KEY_ENCRYPTION_KEY;
+    if (!hexKey) throw new Error('STRIPE_KEY_ENCRYPTION_KEY not set in environment');
+    const [ivHex, tagHex, encHex] = stored.split(':');
+    const key     = Buffer.from(hexKey, 'hex');
+    const iv      = Buffer.from(ivHex, 'hex');
+    const tag     = Buffer.from(tagHex, 'hex');
+    const encBuf  = Buffer.from(encHex, 'hex');
+    const decipher = crypto.createDecipheriv('aes-256-gcm', key, iv);
+    decipher.setAuthTag(tag);
+    return Buffer.concat([decipher.update(encBuf), decipher.final()]).toString('utf8');
+}
+
+// Get a Stripe instance for a specific business.
+// Priority: 1) their manually-saved encrypted key, 2) platform key
+async function getStripeForSite(siteId) {
+    if (siteId) {
+        const { data } = await supabase
+            .from('connections')
+            .select('access_token')
+            .eq('site_id', siteId)
+            .eq('provider', 'stripe_key')
+            .eq('status', 'connected')
+            .single();
+        if (data?.access_token) {
+            try {
+                return require('stripe')(decryptKey(data.access_token));
+            } catch (e) {
+                console.error('Failed to decrypt Stripe key for site', siteId, e.message);
+            }
+        }
+    }
+    return getStripe();
 }
 
 // ============================================
@@ -106,18 +156,74 @@ router.get('/connect-callback', async (req, res) => {
 // Dashboard checks if Stripe is connected for this business
 // ============================================
 router.get('/status', authRequired, async (req, res) => {
-    const { data } = await supabase
-        .from('connections')
-        .select('account_id, account_name, status, connected_at')
-        .eq('site_id', req.siteId)
-        .eq('provider', 'stripe')
-        .single();
+    const [{ data: connectData }, { data: keyData }] = await Promise.all([
+        supabase.from('connections').select('account_id, account_name, status, connected_at')
+            .eq('site_id', req.siteId).eq('provider', 'stripe').single(),
+        supabase.from('connections').select('status, connected_at')
+            .eq('site_id', req.siteId).eq('provider', 'stripe_key').single()
+    ]);
 
     res.json({
-        connected: !!(data && data.status === 'connected'),
-        accountId: data?.account_id || null,
-        connectedAt: data?.connected_at || null
+        connected:    !!(connectData && connectData.status === 'connected'),
+        accountId:    connectData?.account_id || null,
+        connectedAt:  connectData?.connected_at || null,
+        manualKey:    !!(keyData && keyData.status === 'connected'),
+        manualKeyAt:  keyData?.connected_at || null
     });
+});
+
+// ============================================
+// POST /api/stripe/save-key
+// Business owner saves their Stripe secret key (encrypted)
+// ============================================
+router.post('/save-key', authRequired, async (req, res) => {
+    const { secret_key } = req.body;
+    if (!secret_key || !secret_key.startsWith('sk_')) {
+        return res.status(400).json({ error: 'Invalid Stripe secret key — must start with sk_test_ or sk_live_' });
+    }
+    if (!process.env.STRIPE_KEY_ENCRYPTION_KEY) {
+        return res.status(503).json({ error: 'STRIPE_KEY_ENCRYPTION_KEY not configured on server' });
+    }
+
+    // Verify the key is valid by making a lightweight Stripe API call
+    try {
+        const testStripe = require('stripe')(secret_key);
+        await testStripe.balance.retrieve();
+    } catch (err) {
+        return res.status(400).json({ error: 'Stripe key is invalid or has no permissions: ' + err.message });
+    }
+
+    try {
+        const encrypted = encryptKey(secret_key);
+        const isLive = secret_key.startsWith('sk_live_');
+
+        await supabase.from('connections').upsert({
+            site_id:      req.siteId,
+            provider:     'stripe_key',
+            access_token: encrypted,
+            account_name: isLive ? 'Live Key' : 'Test Key',
+            status:       'connected',
+            connected_at: new Date().toISOString(),
+            updated_at:   new Date().toISOString()
+        }, { onConflict: 'site_id,provider' });
+
+        res.json({ success: true, mode: isLive ? 'live' : 'test' });
+    } catch (err) {
+        console.error('save-key error:', err);
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// ============================================
+// DELETE /api/stripe/delete-key
+// Remove a saved manual Stripe key
+// ============================================
+router.delete('/delete-key', authRequired, async (req, res) => {
+    await supabase.from('connections')
+        .delete()
+        .eq('site_id', req.siteId)
+        .eq('provider', 'stripe_key');
+    res.json({ success: true });
 });
 
 // ============================================
@@ -126,11 +232,6 @@ router.get('/status', authRequired, async (req, res) => {
 // Creates PaymentIntent with connected account destination + platform fee
 // ============================================
 router.post('/create-payment-intent', async (req, res) => {
-    const stripe = getStripe();
-    if (!stripe) {
-        return res.status(503).json({ error: 'Stripe not configured' });
-    }
-
     const { booking_id, amount, description, payment_method_id, site_id } = req.body;
 
     if (!amount) {
@@ -140,11 +241,9 @@ router.post('/create-payment-intent', async (req, res) => {
     // Resolve site_id — may be a UUID or a subdomain string
     let targetSiteId = req.siteId || null;
     if (site_id) {
-        // Check if it looks like a UUID
         if (/^[0-9a-f-]{36}$/.test(site_id)) {
             targetSiteId = site_id;
         } else {
-            // Treat as subdomain — look up the site_id
             const { data: biz } = await supabase
                 .from('businesses')
                 .select('site_id')
@@ -154,7 +253,13 @@ router.post('/create-payment-intent', async (req, res) => {
         }
     }
 
-    // Get connected Stripe account for this business (optional — falls back to direct charge)
+    // Get the right Stripe instance — business's own key takes priority over platform key
+    const stripe = await getStripeForSite(targetSiteId);
+    if (!stripe) {
+        return res.status(503).json({ error: 'Stripe not configured — add your Stripe key in Dashboard → Connections' });
+    }
+
+    // Get Stripe Connect account (only used if business connected via OAuth, not manual key)
     let connection = null;
     if (targetSiteId) {
         const { data } = await supabase
