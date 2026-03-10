@@ -132,7 +132,7 @@ app.get('/api/site-data', async (req, res) => {
             supabase.from('businesses').select('*').eq('site_id', siteId).single(),
             supabase.from('site_content').select('*').eq('site_id', siteId).single(),
             supabase.from('media').select('*').eq('site_id', siteId).order('uploaded_at', { ascending: false }),
-            supabase.from('reviews').select('id, customer_name, rating, text, photos, created_at').eq('site_id', siteId).eq('status', 'published').order('created_at', { ascending: false })
+            supabase.from('reviews').select('id, customer_name, rating, text, photos, owner_reply, created_at').eq('site_id', siteId).eq('status', 'published').order('created_at', { ascending: false })
         ]);
 
         const biz     = bizRes.data;
