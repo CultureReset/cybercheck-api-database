@@ -6,12 +6,12 @@ const router = express.Router();
 // All public routes need a site_id from domain resolution middleware
 // If no site_id, the request needs a ?subdomain= param as fallback
 function requireSite(req, res, next) {
-    if (!req.siteId && (req.query.subdomain || (req.body && req.body.subdomain))) {
+    if (!req.siteId && req.query.subdomain) {
         // Fallback: look up by subdomain query param
         supabase
             .from('businesses')
             .select('site_id, name, type, status')
-            .eq('subdomain', req.query.subdomain || req.body.subdomain)
+            .eq('subdomain', req.query.subdomain)
             .single()
             .then(({ data }) => {
                 if (!data || data.status !== 'active') {
@@ -49,10 +49,7 @@ router.get('/profile', async (req, res) => {
         .eq('site_id', req.siteId)
         .single();
 
-    const profile = { ...business, ...content };
-    // Alias for consistency — some clients use tagline, DB column is hero_text
-    if (profile.hero_text !== undefined) profile.tagline = profile.hero_text;
-    res.json(profile);
+    res.json({ ...business, ...content });
 });
 
 // ============================================
@@ -602,120 +599,25 @@ router.post('/chat', async (req, res) => {
     });
 });
 
-
-// ============================================
-// GET /api/public/waiver — Fetch waiver to sign
-// Supports ?token=X (from dashboard link) or falls back to template
-// ============================================
-router.get('/waiver', async (req, res) => {
-    const { token } = req.query;
-
-    // Token-based lookup: link was generated for a specific booking
-    if (token) {
-        const { data: waiver } = await supabase
-            .from('waivers')
-            .select('id, waiver_text, customer_name, booking_id, signed')
-            .eq('token', token)
-            .single();
-
-        if (!waiver) return res.status(404).json({ error: 'Waiver link not found or expired' });
-        if (waiver.signed) return res.status(410).json({ error: 'Waiver already signed' });
-
-        // Fetch the waiver template text if this record has none yet
-        let waiverText = waiver.waiver_text;
-        if (!waiverText) {
-            const { data: tmpl } = await supabase
-                .from('waivers')
-                .select('waiver_text')
-                .eq('site_id', req.siteId)
-                .is('booking_id', null)
-                .limit(1)
-                .single();
-            waiverText = tmpl?.waiver_text || '';
-        }
-
-        return res.json({
-            waiver_text: waiverText,
-            customer_name: waiver.customer_name || '',
-            booking_id: waiver.booking_id,
-            token
-        });
-    }
-
-    // No token: return generic template for the business
-    const { data } = await supabase
-        .from('waivers')
-        .select('id, waiver_text, customer_name, signed_at')
-        .eq('site_id', req.siteId)
-        .is('booking_id', null)
-        .order('signed_at', { ascending: false })
-        .limit(1)
-        .single();
-
-    if (!data) return res.status(404).json({ error: 'No waiver template found' });
-    res.json({ waiver_text: data.waiver_text, title: data.customer_name || 'Waiver' });
-});
-
 // ============================================
 // POST /api/public/waiver — Sign waiver
-// Body may include token (from link) or booking_id directly
 // ============================================
 router.post('/waiver', async (req, res) => {
-    const { token, booking_id, customer_name, customer_email, signature_data, waiver_text } = req.body;
+    const { booking_id, customer_name, customer_email, signature_data, waiver_text } = req.body;
 
     if (!customer_name || !signature_data) {
         return res.status(400).json({ error: 'Customer name and signature required' });
     }
 
-    // Token path: update the pre-created waiver record
-    if (token) {
-        const { data: existing } = await supabase
-            .from('waivers')
-            .select('id, booking_id, signed')
-            .eq('token', token)
-            .single();
-
-        if (!existing) return res.status(404).json({ error: 'Waiver link not found' });
-        if (existing.signed) return res.status(410).json({ error: 'Waiver already signed' });
-
-        const { data, error } = await supabase
-            .from('waivers')
-            .update({
-                customer_name,
-                customer_email: customer_email || null,
-                signature_data,
-                waiver_text: waiver_text || null,
-                signed: true,
-                signed_at: new Date().toISOString(),
-                ip_address: req.ip
-            })
-            .eq('id', existing.id)
-            .select()
-            .single();
-
-        if (error) return res.status(500).json({ error: error.message });
-
-        if (existing.booking_id) {
-            await supabase.from('bookings')
-                .update({ waiver_signed: true })
-                .eq('id', existing.booking_id);
-        }
-
-        return res.json({ success: true, waiver_id: data.id });
-    }
-
-    // Direct path: insert new waiver row
     const { data, error } = await supabase
         .from('waivers')
         .insert({
             site_id: req.siteId,
-            booking_id: booking_id || null,
+            booking_id,
             customer_name,
-            customer_email: customer_email || null,
+            customer_email,
             signature_data,
-            waiver_text: waiver_text || null,
-            signed: true,
-            signed_at: new Date().toISOString(),
+            waiver_text,
             ip_address: req.ip
         })
         .select()
@@ -723,14 +625,17 @@ router.post('/waiver', async (req, res) => {
 
     if (error) return res.status(500).json({ error: error.message });
 
+    // Update booking waiver status
     if (booking_id) {
-        await supabase.from('bookings')
+        await supabase
+            .from('bookings')
             .update({ waiver_signed: true })
             .eq('id', booking_id)
             .eq('site_id', req.siteId);
     }
 
-    res.status(201).json({ success: true, waiver_id: data.id });
+    // TODO: Emit event: waiver.signed
+    res.status(201).json(data);
 });
 
 // ============================================
@@ -830,122 +735,6 @@ router.post('/order', async (req, res) => {
 
     // TODO: Emit event: order.created
     res.status(201).json(data);
-});
-
-
-
-// ============================================
-// POST /api/public/loyalty/signup — Enroll customer in loyalty program
-// ============================================
-router.post('/loyalty/signup', async (req, res) => {
-    const { email, name, phone } = req.body;
-
-    if (!email) {
-        return res.status(400).json({ error: 'Email required' });
-    }
-
-    const { data: existing } = await supabase
-        .from('customers')
-        .select('id, name, email, total_bookings, total_spent')
-        .eq('site_id', req.siteId)
-        .eq('email', email)
-        .single();
-
-    if (existing) {
-        return res.json({
-            success: true,
-            message: 'Already enrolled',
-            customer_id: existing.id,
-            points: Math.floor(existing.total_spent || 0)
-        });
-    }
-
-    const { data: newCustomer, error } = await supabase
-        .from('customers')
-        .insert({
-            site_id: req.siteId,
-            name: name || null,
-            email: email,
-            phone: phone || null,
-            total_bookings: 0,
-            total_spent: 0,
-            tags: ['loyalty']
-        })
-        .select('id')
-        .single();
-
-    if (error) return res.status(500).json({ error: error.message });
-
-    res.status(201).json({
-        success: true,
-        message: 'Enrolled in loyalty program',
-        customer_id: newCustomer.id,
-        points: 0
-    });
-});
-
-// ============================================
-// GET /api/public/loyalty/balance — Check loyalty balance by email
-// ============================================
-router.get('/loyalty/balance', async (req, res) => {
-    const email = req.query.email;
-    if (!email) return res.status(400).json({ error: 'email query param required' });
-
-    const { data: customer } = await supabase
-        .from('customers')
-        .select('name, total_bookings, total_spent, tags')
-        .eq('site_id', req.siteId)
-        .eq('email', email)
-        .single();
-
-    if (!customer) {
-        return res.status(404).json({ error: 'Customer not found' });
-    }
-
-    res.json({
-        name: customer.name,
-        total_bookings: customer.total_bookings,
-        total_spent: customer.total_spent,
-        points: Math.floor(customer.total_spent || 0)
-    });
-});
-
-// ============================================
-// POST /api/public/loyalty/redeem — Redeem loyalty points
-// ============================================
-router.post('/loyalty/redeem', async (req, res) => {
-    const { email, points_to_redeem } = req.body;
-
-    if (!email || !points_to_redeem) {
-        return res.status(400).json({ error: 'email and points_to_redeem required' });
-    }
-
-    const { data: customer } = await supabase
-        .from('customers')
-        .select('id, name, total_spent')
-        .eq('site_id', req.siteId)
-        .eq('email', email)
-        .single();
-
-    if (!customer) {
-        return res.status(404).json({ error: 'Customer not found' });
-    }
-
-    const available = Math.floor(customer.total_spent || 0);
-    if (points_to_redeem > available) {
-        return res.status(400).json({
-            error: 'Insufficient points',
-            available: available,
-            requested: points_to_redeem
-        });
-    }
-
-    res.json({
-        success: true,
-        points_redeemed: points_to_redeem,
-        points_remaining: available - points_to_redeem,
-        discount_value: points_to_redeem * 0.10
-    });
 });
 
 module.exports = router;

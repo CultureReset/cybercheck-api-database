@@ -7,25 +7,6 @@ const router = express.Router();
 // All dashboard routes require authentication
 router.use(authRequired);
 
-// ─── Helpers ──────────────────────────────────────────────────────────────────
-
-// Flatten Supabase join objects into top-level fields on a booking row
-function flattenBooking(b) {
-    if (!b) return b;
-    const out = { ...b };
-    if (b.fleet_types) {
-        out.fleet_type_name = b.fleet_types.name || null;
-        delete out.fleet_types;
-    }
-    if (b.rental_time_slots) {
-        out.time_slot_name = b.rental_time_slots.name || null;
-        out.time_slot_start = b.rental_time_slots.start_time || null;
-        out.time_slot_end   = b.rental_time_slots.end_time   || null;
-        delete out.rental_time_slots;
-    }
-    return out;
-}
-
 // ============================================
 // PROFILE
 // ============================================
@@ -51,33 +32,16 @@ router.get('/profile', async (req, res) => {
 router.put('/profile', async (req, res) => {
     const { business: bizUpdates, content: contentUpdates } = req.body;
 
-    if (!bizUpdates && !contentUpdates) {
-        return res.status(400).json({ error: 'Body must have "business" and/or "content" keys. Flat body format is not supported.' });
-    }
-
     if (bizUpdates) {
-        // Filter out undefined so we don't null out fields not included in the update
-        const allowedBizFields = ['name', 'type', 'logo_url', 'cover_url'];
-        const bizData = {};
-        for (const key of allowedBizFields) {
-            if (bizUpdates[key] !== undefined) bizData[key] = bizUpdates[key];
-        }
-        if (Object.keys(bizData).length > 0) {
-            bizData.updated_at = new Date().toISOString();
-            await supabase
-                .from('businesses')
-                .update(bizData)
-                .eq('site_id', req.siteId);
-        }
+        const { name, type, logo_url, cover_url } = bizUpdates;
+        await supabase
+            .from('businesses')
+            .update({ name, type, logo_url, cover_url, updated_at: new Date().toISOString() })
+            .eq('site_id', req.siteId);
     }
 
     if (contentUpdates) {
         delete contentUpdates.site_id;
-        // Accept tagline as alias for hero_text
-        if (contentUpdates.tagline !== undefined && contentUpdates.hero_text === undefined) {
-            contentUpdates.hero_text = contentUpdates.tagline;
-        }
-        delete contentUpdates.tagline;
         contentUpdates.updated_at = new Date().toISOString();
 
         await supabase
@@ -884,25 +848,6 @@ router.post('/pricing', async (req, res) => {
     res.status(201).json(data);
 });
 
-
-// PUT /api/dashboard/pricing/:id — update a pricing entry
-router.put('/pricing/:id', async (req, res) => {
-    const updates = { ...req.body };
-    delete updates.site_id;
-    delete updates.id;
-
-    const { data, error } = await supabase
-        .from('rental_pricing')
-        .update(updates)
-        .eq('id', req.params.id)
-        .eq('site_id', req.siteId)
-        .select()
-        .single();
-
-    if (error) return res.status(500).json({ error: error.message });
-    res.json(data);
-});
-
 router.delete('/pricing/:id', async (req, res) => {
     const { error } = await supabase
         .from('rental_pricing')
@@ -912,35 +857,6 @@ router.delete('/pricing/:id', async (req, res) => {
 
     if (error) return res.status(500).json({ error: error.message });
     res.json({ success: true });
-});
-
-// PUT /api/dashboard/pricing — bulk update pricing for a fleet type
-// Body: { fleet_type_id, prices: [{time_slot_id, price_per_unit, deposit_required, deposit_amount}] }
-router.put('/pricing', async (req, res) => {
-    const { fleet_type_id, prices } = req.body;
-    if (!fleet_type_id || !Array.isArray(prices)) {
-        return res.status(400).json({ error: 'fleet_type_id and prices[] required' });
-    }
-
-    const results = [];
-    for (const p of prices) {
-        const row = {
-            site_id: req.siteId,
-            fleet_type_id,
-            time_slot_id: p.time_slot_id || null,
-            price_per_unit: p.price_per_unit,
-            deposit_required: p.deposit_required || false,
-            deposit_amount: p.deposit_amount || 0
-        };
-        const { data, error } = await supabase
-            .from('rental_pricing')
-            .upsert(row, { onConflict: 'site_id,fleet_type_id,time_slot_id' })
-            .select()
-            .single();
-        if (error) return res.status(500).json({ error: error.message });
-        results.push(data);
-    }
-    res.json(results);
 });
 
 // ============================================
@@ -1044,7 +960,7 @@ router.delete('/group-rates/:id', async (req, res) => {
 router.get('/bookings', async (req, res) => {
     let query = supabase
         .from('bookings')
-        .select('*, fleet_types(name), rental_time_slots(name, start_time, end_time)')
+        .select('*')
         .eq('site_id', req.siteId)
         .order('booking_date', { ascending: true });
 
@@ -1055,21 +971,7 @@ router.get('/bookings', async (req, res) => {
 
     const { data, error } = await query;
     if (error) return res.status(500).json({ error: error.message });
-    res.json((data || []).map(flattenBooking));
-});
-
-
-// GET /api/dashboard/bookings/:id — single booking by ID
-router.get('/bookings/:id', async (req, res) => {
-    const { data, error } = await supabase
-        .from('bookings')
-        .select('*, fleet_types(name), rental_time_slots(name, start_time, end_time)')
-        .eq('id', req.params.id)
-        .eq('site_id', req.siteId)
-        .single();
-
-    if (error) return res.status(404).json({ error: 'Booking not found' });
-    res.json(flattenBooking(data));
+    res.json(data || []);
 });
 
 router.post('/bookings', async (req, res) => {
@@ -1306,109 +1208,6 @@ router.get('/waivers', async (req, res) => {
 
     res.json(data || []);
 });
-
-// GET /api/dashboard/waivers/template — get the waiver template
-router.get('/waivers/template', async (req, res) => {
-    const { data } = await supabase
-        .from('waivers')
-        .select('*')
-        .eq('site_id', req.siteId)
-        .is('booking_id', null)
-        .order('signed_at', { ascending: false })
-        .limit(1)
-        .single();
-
-    if (!data) return res.status(404).json({ error: 'No waiver template found' });
-    res.json(data);
-});
-
-// PUT /api/dashboard/waivers/template — create or replace the waiver template text
-router.put('/waivers/template', async (req, res) => {
-    const { waiver_text, title } = req.body;
-    if (!waiver_text) return res.status(400).json({ error: 'waiver_text required' });
-
-    // Fetch existing template row (booking_id IS NULL = master template)
-    const { data: existing } = await supabase
-        .from('waivers')
-        .select('id')
-        .eq('site_id', req.siteId)
-        .is('booking_id', null)
-        .limit(1)
-        .single();
-
-    if (existing) {
-        const { data, error } = await supabase
-            .from('waivers')
-            .update({ waiver_text, customer_name: title || null })
-            .eq('id', existing.id)
-            .select()
-            .single();
-        if (error) return res.status(500).json({ error: error.message });
-        return res.json(data);
-    }
-
-    const { data, error } = await supabase
-        .from('waivers')
-        .insert({ site_id: req.siteId, waiver_text, customer_name: title || null })
-        .select()
-        .single();
-    if (error) return res.status(500).json({ error: error.message });
-    res.status(201).json(data);
-});
-
-// GET /api/dashboard/waivers/booking/:booking_id — get signed waiver for a booking
-router.get('/waivers/booking/:booking_id', async (req, res) => {
-    const { data } = await supabase
-        .from('waivers')
-        .select('*')
-        .eq('site_id', req.siteId)
-        .eq('booking_id', req.params.booking_id)
-        .order('signed_at', { ascending: false })
-        .limit(1)
-        .single();
-
-    if (!data) return res.status(404).json({ error: 'No waiver found for this booking' });
-    res.json(data);
-});
-
-// POST /api/dashboard/waivers/link — generate a signed waiver link for a booking
-router.post('/waivers/link', async (req, res) => {
-    const { booking_id } = req.body;
-    if (!booking_id) return res.status(400).json({ error: 'booking_id required' });
-
-    const crypto = require('crypto');
-    const token = crypto.randomBytes(24).toString('hex');
-
-    const { data: booking } = await supabase
-        .from('bookings')
-        .select('id, customer_name')
-        .eq('id', booking_id)
-        .eq('site_id', req.siteId)
-        .single();
-
-    if (!booking) return res.status(404).json({ error: 'Booking not found' });
-
-    // Store the token in the waivers table so public endpoint can look it up
-    await supabase.from('waivers').upsert({
-        site_id: req.siteId,
-        booking_id,
-        customer_name: booking.customer_name || null,
-        token,
-        signed: false
-    }, { onConflict: 'booking_id' }).catch(() => {});
-
-    const { data: biz } = await supabase
-        .from('businesses')
-        .select('subdomain')
-        .eq('site_id', req.siteId)
-        .single();
-
-    const baseUrl = process.env.PUBLIC_SITE_BASE_URL || ('https://' + (biz?.subdomain || 'site') + '.cybercheck.com');
-    const link = baseUrl + '/waiver?token=' + token + '&booking=' + booking_id;
-
-    res.json({ link, token, booking_id });
-});
-
 
 // ============================================
 // COUPONS
@@ -1902,41 +1701,7 @@ router.get('/activity', async (req, res) => {
         .order('created_at', { ascending: false })
         .limit(100);
 
-    // If activity_log has entries, return them
-    if (data && data.length > 0) return res.json(data);
-
-    // Fallback: synthesize activity from recent bookings + customers
-    const [{ data: recentBookings }, { data: recentCustomers }] = await Promise.all([
-        supabase.from('bookings').select('id, customer_name, status, created_at, total')
-            .eq('site_id', req.siteId).order('created_at', { ascending: false }).limit(30),
-        supabase.from('customers').select('id, name, email, created_at')
-            .eq('site_id', req.siteId).order('created_at', { ascending: false }).limit(20)
-    ]);
-
-    const synthetic = [];
-    for (const b of recentBookings || []) {
-        synthetic.push({
-            id: b.id,
-            action: 'booking.created',
-            entity_type: 'booking',
-            entity_id: b.id,
-            details: { customer_name: b.customer_name, status: b.status, total: b.total },
-            created_at: b.created_at
-        });
-    }
-    for (const c of recentCustomers || []) {
-        synthetic.push({
-            id: c.id,
-            action: 'customer.created',
-            entity_type: 'customer',
-            entity_id: c.id,
-            details: { name: c.name, email: c.email },
-            created_at: c.created_at
-        });
-    }
-
-    synthetic.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
-    res.json(synthetic.slice(0, 100));
+    res.json(data || []);
 });
 
 // ============================================
@@ -1986,20 +1751,6 @@ router.post('/publish', async (req, res) => {
 // MESSAGING SETTINGS
 // ============================================
 
-const MESSAGING_DEFAULTS = {
-    booking_confirmation_sms: true,
-    booking_confirmation_template: 'Hi {{customer_name}}, your booking at {{business_name}} on {{date}} ({{time_slot}}) is confirmed! Total: ${{total}}. Questions? Reply to this message.',
-    owner_notification_sms: true,
-    owner_notification_template: 'New booking: {{customer_name}} on {{date}} ({{time_slot}}), {{boat_count}} {{boat_type}}. Total: ${{total}}. Phone: {{customer_phone}}.',
-    cancellation_sms: false,
-    cancellation_template: 'Hi {{customer_name}}, your booking at {{business_name}} on {{date}} has been cancelled. Contact us with any questions.',
-    loyalty_enabled: false,
-    loyalty_points_per_dollar: 1,
-    loyalty_points_per_booking: 0,
-    loyalty_redemption_threshold: 100,
-    loyalty_reward_value: 10
-};
-
 router.get('/messaging-settings', async (req, res) => {
     const { data } = await supabase
         .from('site_content')
@@ -2007,9 +1758,7 @@ router.get('/messaging-settings', async (req, res) => {
         .eq('site_id', req.siteId)
         .single();
 
-    const settings = data?.messaging_settings || {};
-    // Return defaults merged with any saved settings so it's never empty
-    res.json({ ...MESSAGING_DEFAULTS, ...settings });
+    res.json(data?.messaging_settings || {});
 });
 
 router.put('/messaging-settings', async (req, res) => {
@@ -2126,223 +1875,6 @@ router.get('/sms/campaigns', async (req, res) => {
         .limit(50);
 
     res.json(data || []);
-});
-
-
-
-// ============================================
-// LOYALTY REWARDS (dashboard management)
-// ============================================
-
-// GET /api/dashboard/loyalty/settings
-router.get('/loyalty/settings', async (req, res) => {
-    const { data } = await supabase
-        .from('site_content')
-        .select('messaging_settings')
-        .eq('site_id', req.siteId)
-        .single();
-
-    const settings = data?.messaging_settings || {};
-    res.json({
-        enabled: settings.loyalty_enabled || false,
-        points_per_dollar: settings.loyalty_points_per_dollar || 1,
-        points_per_booking: settings.loyalty_points_per_booking || 0,
-        redemption_threshold: settings.loyalty_redemption_threshold || 100,
-        reward_value: settings.loyalty_reward_value || 10
-    });
-});
-
-// PUT /api/dashboard/loyalty/settings
-router.put('/loyalty/settings', async (req, res) => {
-    const { data: existing } = await supabase
-        .from('site_content')
-        .select('messaging_settings')
-        .eq('site_id', req.siteId)
-        .single();
-
-    const current = existing?.messaging_settings || {};
-    const updated = {
-        ...current,
-        loyalty_enabled: req.body.enabled !== undefined ? req.body.enabled : (current.loyalty_enabled || false),
-        loyalty_points_per_dollar: req.body.points_per_dollar || current.loyalty_points_per_dollar || 1,
-        loyalty_points_per_booking: req.body.points_per_booking || current.loyalty_points_per_booking || 0,
-        loyalty_redemption_threshold: req.body.redemption_threshold || current.loyalty_redemption_threshold || 100,
-        loyalty_reward_value: req.body.reward_value || current.loyalty_reward_value || 10
-    };
-
-    const { error } = await supabase
-        .from('site_content')
-        .update({ messaging_settings: updated, updated_at: new Date().toISOString() })
-        .eq('site_id', req.siteId);
-
-    if (error) return res.status(500).json({ error: error.message });
-    res.json(updated);
-});
-
-// GET /api/dashboard/loyalty/members
-router.get('/loyalty/members', async (req, res) => {
-    const { data, error } = await supabase
-        .from('customers')
-        .select('id, name, email, phone, total_bookings, total_spent, tags, created_at')
-        .eq('site_id', req.siteId)
-        .order('total_spent', { ascending: false });
-
-    if (error) return res.status(500).json({ error: error.message });
-
-    const members = (data || []).map(c => ({
-        ...c,
-        points: Math.floor(c.total_spent || 0)
-    }));
-
-    res.json(members);
-});
-
-// GET /api/dashboard/loyalty/summary-preview
-router.get('/loyalty/summary-preview', async (req, res) => {
-    const weekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString();
-
-    const { data: customers } = await supabase
-        .from('customers')
-        .select('id, total_spent, total_bookings')
-        .eq('site_id', req.siteId);
-
-    const { data: recentBookings } = await supabase
-        .from('bookings')
-        .select('id, total, status')
-        .eq('site_id', req.siteId)
-        .gte('created_at', weekAgo);
-
-    const totalMembers = (customers || []).length;
-    const totalPoints = (customers || []).reduce((sum, c) => sum + Math.floor(c.total_spent || 0), 0);
-    const weeklyBookings = (recentBookings || []).length;
-    const weeklyRevenue = (recentBookings || []).reduce((sum, b) => sum + (b.total || 0), 0);
-
-    res.json({
-        total_members: totalMembers,
-        total_points_outstanding: totalPoints,
-        weekly_bookings: weeklyBookings,
-        weekly_revenue: weeklyRevenue,
-        generated_at: new Date().toISOString()
-    });
-});
-
-// POST /api/dashboard/loyalty/earn — add points to a customer after a booking
-// Body: { customer_id, booking_id, amount, booking_total }
-router.post('/loyalty/earn', async (req, res) => {
-    const { customer_id, booking_id, booking_total } = req.body;
-    if (!customer_id) return res.status(400).json({ error: 'customer_id required' });
-
-    // Get loyalty settings
-    const { data: content } = await supabase
-        .from('site_content')
-        .select('messaging_settings')
-        .eq('site_id', req.siteId)
-        .single();
-
-    const settings = content?.messaging_settings || {};
-    if (!settings.loyalty_enabled) {
-        return res.status(400).json({ error: 'Loyalty program is not enabled' });
-    }
-
-    const ptsPerDollar = settings.loyalty_points_per_dollar || 1;
-    const ptsPerBooking = settings.loyalty_points_per_booking || 0;
-    const earned = Math.floor((booking_total || 0) * ptsPerDollar) + ptsPerBooking;
-
-    // Log to activity_log so history endpoint can read it
-    await supabase.from('activity_log').insert({
-        site_id: req.siteId,
-        action: 'loyalty.earned',
-        entity_type: 'customer',
-        entity_id: customer_id,
-        details: { points_earned: earned, booking_id: booking_id || null, booking_total }
-    }).catch(() => {});
-
-    // Update customer's total_spent so points reflect correctly
-    const { data: customer } = await supabase
-        .from('customers')
-        .select('id, name, total_spent')
-        .eq('id', customer_id)
-        .eq('site_id', req.siteId)
-        .single();
-
-    if (!customer) return res.status(404).json({ error: 'Customer not found' });
-
-    const newPoints = Math.floor((customer.total_spent || 0) * ptsPerDollar) + ptsPerBooking;
-
-    res.json({
-        success: true,
-        customer_id,
-        points_earned: earned,
-        total_points: newPoints
-    });
-});
-
-// GET /api/dashboard/loyalty/history/:customer_id — points history for a customer
-router.get('/loyalty/history/:customer_id', async (req, res) => {
-    const [{ data: logs }, { data: customer }] = await Promise.all([
-        supabase.from('activity_log')
-            .select('*')
-            .eq('site_id', req.siteId)
-            .eq('entity_id', req.params.customer_id)
-            .in('action', ['loyalty.earned', 'loyalty.redeemed'])
-            .order('created_at', { ascending: false })
-            .limit(100),
-        supabase.from('customers')
-            .select('id, name, email, total_spent, total_bookings')
-            .eq('id', req.params.customer_id)
-            .eq('site_id', req.siteId)
-            .single()
-    ]);
-
-    if (!customer) return res.status(404).json({ error: 'Customer not found' });
-
-    // If no activity log entries, synthesize from bookings
-    let history = logs || [];
-    if (history.length === 0) {
-        const { data: bookings } = await supabase
-            .from('bookings')
-            .select('id, total, booking_date, created_at, status')
-            .eq('site_id', req.siteId)
-            .eq('customer_id', req.params.customer_id)
-            .order('created_at', { ascending: false })
-            .limit(50);
-
-        history = (bookings || []).map(b => ({
-            action: 'loyalty.earned',
-            details: { points_earned: Math.floor(b.total || 0), booking_id: b.id, booking_total: b.total },
-            created_at: b.created_at
-        }));
-    }
-
-    res.json({
-        customer_id: req.params.customer_id,
-        customer_name: customer.name,
-        total_points: Math.floor(customer.total_spent || 0),
-        history
-    });
-});
-
-// ============================================
-// STRIPE STATUS (dashboard check)
-// ============================================
-
-// GET /api/dashboard/stripe-status
-router.get('/stripe-status', async (req, res) => {
-    const [{ data: connectData }, { data: keyData }] = await Promise.all([
-        supabase.from('connections').select('account_id, account_name, status, connected_at')
-            .eq('site_id', req.siteId).eq('provider', 'stripe').single(),
-        supabase.from('connections').select('status, connected_at')
-            .eq('site_id', req.siteId).eq('provider', 'stripe_key').single()
-    ]);
-
-    res.json({
-        connected: !!(connectData && connectData.status === 'connected'),
-        accountId: connectData?.account_id || null,
-        connectedAt: connectData?.connected_at || null,
-        manualKey: !!(keyData && keyData.status === 'connected'),
-        manualKeyAt: keyData?.connected_at || null,
-        platform_key_configured: !!process.env.STRIPE_SECRET_KEY
-    });
 });
 
 module.exports = router;

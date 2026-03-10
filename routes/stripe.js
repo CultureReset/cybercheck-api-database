@@ -367,10 +367,106 @@ router.post('/disconnect', authRequired, async (req, res) => {
 // GET /api/stripe/publishable-key
 // Public route — customer site fetches this to init Stripe.js
 // ============================================
-router.get('/publishable-key', (req, res) => {
+router.get('/publishable-key', (_req, res) => {
     res.json({
         publishableKey: process.env.STRIPE_PUBLISHABLE_KEY || null
     });
+});
+
+
+// ============================================
+// POST /api/stripe/refund — Process a refund
+// ============================================
+router.post("/refund", authRequired, async (req, res) => {
+    const { payment_intent_id, amount, booking_id, reason } = req.body;
+
+    if (!payment_intent_id) {
+        return res.status(400).json({ error: "payment_intent_id required" });
+    }
+
+    const stripe = await getStripeForSite(req.siteId);
+    if (!stripe) {
+        return res.status(503).json({ error: "Stripe not configured" });
+    }
+
+    try {
+        const params = { payment_intent: payment_intent_id };
+        if (amount) params.amount = Math.round(amount * 100);
+        if (reason) params.reason = reason;
+
+        const refund = await stripe.refunds.create(params);
+
+        if (booking_id) {
+            const status = amount ? "partially_refunded" : "refunded";
+            await supabase
+                .from("bookings")
+                .update({ payment_status: status, updated_at: new Date().toISOString() })
+                .eq("id", booking_id)
+                .eq("site_id", req.siteId);
+        }
+
+        res.json({
+            success: true,
+            refund_id: refund.id,
+            amount: refund.amount / 100,
+            status: refund.status
+        });
+    } catch (err) {
+        console.error("Refund error:", err);
+        res.status(500).json({ error: err.message });
+    }
+});
+// ============================================
+// POST /api/stripe/webhook — Stripe event handler
+// Alias that mirrors /api/webhooks/stripe for compatibility
+// ============================================
+router.post('/webhook', express.raw({ type: 'application/json' }), async (req, res) => {
+    let event;
+
+    if (process.env.STRIPE_WEBHOOK_SECRET && process.env.STRIPE_SECRET_KEY) {
+        const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+        const sig = req.headers['stripe-signature'];
+        try {
+            event = stripe.webhooks.constructEvent(req.body, sig, process.env.STRIPE_WEBHOOK_SECRET);
+        } catch (err) {
+            console.error('Stripe webhook signature failed:', err.message);
+            return res.status(400).json({ error: 'Invalid signature' });
+        }
+    } else {
+        try {
+            event = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
+        } catch (err) {
+            return res.status(400).json({ error: 'Invalid JSON' });
+        }
+    }
+
+    const type = event.type;
+    const data = event.data?.object;
+    console.log(`Stripe webhook (stripe route): ${type}`);
+
+    if (type === 'payment_intent.succeeded') {
+        const bookingId = data.metadata?.booking_id;
+        if (bookingId) {
+            await supabase.from('bookings').update({
+                payment_status: 'paid',
+                payment_id: data.id,
+                payment_provider: 'stripe',
+                status: 'confirmed'
+            }).eq('id', bookingId);
+        }
+    } else if (type === 'payment_intent.payment_failed') {
+        const bookingId = data.metadata?.booking_id;
+        if (bookingId) {
+            await supabase.from('bookings').update({ payment_status: 'failed' }).eq('id', bookingId);
+        }
+    } else if (type === 'charge.refunded') {
+        const bookingId = data.metadata?.booking_id;
+        if (bookingId) {
+            await supabase.from('bookings').update({ payment_status: 'refunded', status: 'cancelled' }).eq('id', bookingId);
+        }
+    }
+
+    res.json({ received: true });
 });
 
 module.exports = router;
