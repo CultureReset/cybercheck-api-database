@@ -779,17 +779,18 @@ router.get('/reviews-by-token', async (req, res) => {
 });
 
 // ============================================
-// POST /api/public/review — Submit review (with token support)
+// POST /api/public/review — Submit review (with token support & photo uploads)
 // ============================================
 router.post('/review', async (req, res) => {
-    const { token, rating, review_text, review_method, question_answers, photos } = req.body;
-    let reviewId, siteId, bookingId, customerName, customerEmail;
+    const { token, rating, review_text, review_method } = req.body;
+    let reviewId, siteId, bookingId, customerName, customerEmail, customerPhone, ownerPhone;
+    const uploadedPhotos = [];
 
     // If token provided: verify & load review metadata
     if (token) {
         const { data: review } = await supabase
             .from('reviews')
-            .select('id, site_id, booking_id, customer_name, customer_email')
+            .select('id, site_id, booking_id, customer_name, customer_email, phone')
             .eq('review_token', token)
             .eq('token_used', false)
             .single();
@@ -801,8 +802,8 @@ router.post('/review', async (req, res) => {
         bookingId = review.booking_id;
         customerName = review.customer_name;
         customerEmail = review.customer_email;
+        customerPhone = review.phone;
     } else {
-        // Fallback: require customer_name, use req.siteId
         customerName = req.body.customer_name || 'Anonymous';
         customerEmail = req.body.customer_email || null;
         siteId = req.siteId;
@@ -812,8 +813,42 @@ router.post('/review', async (req, res) => {
         return res.status(400).json({ error: 'Rating must be 1-5' });
     }
 
+    // Get owner phone for SMS notification
+    try {
+        const { data: content } = await supabase
+            .from('site_content')
+            .select('owner_phone')
+            .eq('site_id', siteId)
+            .single();
+        ownerPhone = content?.owner_phone;
+    } catch (e) {
+        console.warn('Could not fetch owner phone:', e.message);
+    }
+
+    // Handle photo uploads
+    if (req.files && Array.isArray(req.files)) {
+        for (const file of req.files) {
+            try {
+                const fileName = `${siteId}/${Date.now()}-${Math.random().toString(36).substr(2, 9)}-${file.originalname}`;
+                const { data, error: uploadErr } = await supabase.storage
+                    .from('review-photos')
+                    .upload(fileName, file.buffer, { contentType: file.mimetype });
+
+                if (uploadErr) throw uploadErr;
+
+                const { data: { publicUrl } } = supabase.storage
+                    .from('review-photos')
+                    .getPublicUrl(fileName);
+
+                uploadedPhotos.push(publicUrl);
+            } catch (e) {
+                console.warn('Failed to upload photo:', e.message);
+            }
+        }
+    }
+
     // If token-based, update existing review; otherwise insert new
-    let error;
+    let error, newReviewId;
     if (token && reviewId) {
         // Update review with token
         const { error: updateErr } = await supabase
@@ -823,63 +858,74 @@ router.post('/review', async (req, res) => {
                 text: review_text,
                 review_method: review_method || 'text',
                 original_voice_text: review_method === 'voice' ? review_text : null,
-                photos: photos || [],
+                photos: uploadedPhotos,
                 status: 'pending',
-                token_used: true
+                token_used: true,
+                submitted_at: new Date().toISOString()
             })
             .eq('id', reviewId);
         error = updateErr;
+        newReviewId = reviewId;
     } else {
         // Insert new review
-        const { error: insertErr } = await supabase
+        const { data: inserted, error: insertErr } = await supabase
             .from('reviews')
             .insert({
                 site_id: siteId,
                 customer_name: customerName,
                 customer_email: customerEmail,
+                phone: customerPhone,
                 rating,
                 text: review_text,
                 review_method: review_method || 'text',
                 original_voice_text: review_method === 'voice' ? review_text : null,
-                photos: photos || [],
+                photos: uploadedPhotos,
                 booking_id: bookingId || null,
-                status: 'pending'
-            });
+                status: 'pending',
+                submitted_at: new Date().toISOString()
+            })
+            .select();
         error = insertErr;
+        if (inserted && inserted.length > 0) {
+            newReviewId = inserted[0].id;
+        }
     }
 
     if (error) return res.status(500).json({ error: error.message });
 
-    // Store custom question answers
-    if (question_answers && typeof question_answers === 'object') {
-        const answers = Object.entries(question_answers).map(([qId, answer]) => ({
-            review_id: reviewId || null,
-            question_id: qId,
-            answer: String(answer)
-        }));
-
-        // If we just inserted, get the new ID
-        if (!reviewId) {
-            const { data: newReview } = await supabase
-                .from('reviews')
-                .select('id')
-                .eq('customer_email', customerEmail)
-                .eq('site_id', siteId)
-                .order('created_at', { ascending: false })
-                .limit(1)
-                .single();
-
-            if (newReview) {
-                answers.forEach(a => a.review_id = newReview.id);
-            }
+    // Store custom question answers (parse from FormData)
+    const questionAnswers = [];
+    for (const key in req.body) {
+        if (key.startsWith('question_')) {
+            const qId = key.replace('question_', '');
+            questionAnswers.push({
+                review_id: newReviewId,
+                question_id: qId,
+                answer: String(req.body[key])
+            });
         }
+    }
 
-        await supabase.from('review_answers').insert(answers).catch(e => {
+    if (questionAnswers.length > 0) {
+        await supabase.from('review_answers').insert(questionAnswers).catch(e => {
             console.warn('Could not store question answers:', e.message);
         });
     }
 
-    // TODO: Send SMS to owner with review notification
+    // Send SMS to owner if they have a phone number
+    if (ownerPhone) {
+        try {
+            const smsBody = `New review from ${customerName}! ⭐${rating} ${uploadedPhotos.length > 0 ? '+ photos' : ''} — Check dashboard to approve.`;
+            await fetch('http://localhost:3001/api/sms/send', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ to: ownerPhone, body: smsBody })
+            }).catch(e => console.warn('SMS send failed:', e.message));
+        } catch (e) {
+            console.warn('Could not send owner SMS:', e.message);
+        }
+    }
+
     res.status(201).json({ success: true, message: 'Thank you! Your review has been submitted.' });
 });
 
