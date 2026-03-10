@@ -1294,6 +1294,83 @@ router.delete('/reviews/:id', async (req, res) => {
 });
 
 // ============================================
+// REVIEW QUESTIONS — Custom per-business questions
+// ============================================
+
+// GET /api/dashboard/review-questions — Get all custom questions for business
+router.get('/review-questions', async (req, res) => {
+    const { data } = await supabase
+        .from('review_questions')
+        .select('*')
+        .eq('site_id', req.siteId)
+        .order('display_order', { ascending: true });
+
+    res.json(data || []);
+});
+
+// POST /api/dashboard/review-questions — Add new custom question
+router.post('/review-questions', async (req, res) => {
+    const { question_text, question_type, display_order } = req.body;
+
+    if (!question_text || !question_type) {
+        return res.status(400).json({ error: 'question_text and question_type required' });
+    }
+
+    if (!['stars', 'yesno', 'text', 'rating'].includes(question_type)) {
+        return res.status(400).json({ error: 'Invalid question_type' });
+    }
+
+    const { data, error } = await supabase
+        .from('review_questions')
+        .insert({
+            site_id: req.siteId,
+            question_text,
+            question_type,
+            display_order: display_order || 0,
+            enabled: true
+        })
+        .select()
+        .single();
+
+    if (error) return res.status(500).json({ error: error.message });
+    res.status(201).json(data);
+});
+
+// PUT /api/dashboard/review-questions/:id — Update custom question
+router.put('/review-questions/:id', async (req, res) => {
+    const { question_text, question_type, display_order, enabled } = req.body;
+
+    const { data, error } = await supabase
+        .from('review_questions')
+        .update({
+            question_text,
+            question_type,
+            display_order,
+            enabled,
+            updated_at: new Date().toISOString()
+        })
+        .eq('id', req.params.id)
+        .eq('site_id', req.siteId)
+        .select()
+        .single();
+
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
+// DELETE /api/dashboard/review-questions/:id — Delete custom question
+router.delete('/review-questions/:id', async (req, res) => {
+    const { error } = await supabase
+        .from('review_questions')
+        .delete()
+        .eq('id', req.params.id)
+        .eq('site_id', req.siteId);
+
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ============================================
 // WAIVERS
 // ============================================
 

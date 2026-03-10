@@ -734,38 +734,153 @@ router.post('/waiver', async (req, res) => {
 });
 
 // ============================================
-// POST /api/public/review — Submit review
+// ============================================
+// GET /api/public/reviews?token=X — Load review page data (booking + custom questions)
+// ============================================
+router.get('/reviews-by-token', async (req, res) => {
+    const { token } = req.query;
+    if (!token) return res.status(400).json({ error: 'Token required' });
+
+    // Find review request by token
+    const { data: review } = await supabase
+        .from('reviews')
+        .select('id, site_id, booking_id, customer_name, customer_email')
+        .eq('review_token', token)
+        .eq('token_used', false)
+        .single();
+
+    if (!review) return res.status(404).json({ error: 'Invalid or expired review link' });
+
+    // Get booking details
+    const { data: booking } = await supabase
+        .from('bookings')
+        .select('id, booking_date, booking_time, party_size, total, notes')
+        .eq('id', review.booking_id)
+        .single();
+
+    // Get custom review questions for this business
+    const { data: questions } = await supabase
+        .from('review_questions')
+        .select('id, question_text, question_type, display_order')
+        .eq('site_id', review.site_id)
+        .eq('enabled', true)
+        .order('display_order', { ascending: true });
+
+    res.json({
+        review_id: review.id,
+        booking: booking ? {
+            date: booking.booking_date,
+            time: booking.booking_time,
+            guests: booking.party_size,
+            service: booking.notes
+        } : null,
+        questions: questions || []
+    });
+});
+
+// ============================================
+// POST /api/public/review — Submit review (with token support)
 // ============================================
 router.post('/review', async (req, res) => {
-    const { customer_name, customer_email, rating, text, photos, booking_id } = req.body;
+    const { token, rating, review_text, review_method, question_answers, photos } = req.body;
+    let reviewId, siteId, bookingId, customerName, customerEmail;
 
-    if (!customer_name || !rating) {
-        return res.status(400).json({ error: 'Name and rating required' });
+    // If token provided: verify & load review metadata
+    if (token) {
+        const { data: review } = await supabase
+            .from('reviews')
+            .select('id, site_id, booking_id, customer_name, customer_email')
+            .eq('review_token', token)
+            .eq('token_used', false)
+            .single();
+
+        if (!review) return res.status(400).json({ error: 'Invalid or expired review link' });
+
+        reviewId = review.id;
+        siteId = review.site_id;
+        bookingId = review.booking_id;
+        customerName = review.customer_name;
+        customerEmail = review.customer_email;
+    } else {
+        // Fallback: require customer_name, use req.siteId
+        customerName = req.body.customer_name || 'Anonymous';
+        customerEmail = req.body.customer_email || null;
+        siteId = req.siteId;
     }
 
-    if (rating < 1 || rating > 5) {
+    if (!rating || rating < 1 || rating > 5) {
         return res.status(400).json({ error: 'Rating must be 1-5' });
     }
 
-    const { data, error } = await supabase
-        .from('reviews')
-        .insert({
-            site_id: req.siteId,
-            customer_name,
-            customer_email,
-            rating,
-            text,
-            photos: photos || [],
-            booking_id,
-            status: 'pending'
-        })
-        .select()
-        .single();
+    // If token-based, update existing review; otherwise insert new
+    let error;
+    if (token && reviewId) {
+        // Update review with token
+        const { error: updateErr } = await supabase
+            .from('reviews')
+            .update({
+                rating,
+                text: review_text,
+                review_method: review_method || 'text',
+                original_voice_text: review_method === 'voice' ? review_text : null,
+                photos: photos || [],
+                status: 'pending',
+                token_used: true
+            })
+            .eq('id', reviewId);
+        error = updateErr;
+    } else {
+        // Insert new review
+        const { error: insertErr } = await supabase
+            .from('reviews')
+            .insert({
+                site_id: siteId,
+                customer_name: customerName,
+                customer_email: customerEmail,
+                rating,
+                text: review_text,
+                review_method: review_method || 'text',
+                original_voice_text: review_method === 'voice' ? review_text : null,
+                photos: photos || [],
+                booking_id: bookingId || null,
+                status: 'pending'
+            });
+        error = insertErr;
+    }
 
     if (error) return res.status(500).json({ error: error.message });
 
-    // TODO: Emit event: review.submitted
-    res.status(201).json({ success: true, message: 'Review submitted for approval!' });
+    // Store custom question answers
+    if (question_answers && typeof question_answers === 'object') {
+        const answers = Object.entries(question_answers).map(([qId, answer]) => ({
+            review_id: reviewId || null,
+            question_id: qId,
+            answer: String(answer)
+        }));
+
+        // If we just inserted, get the new ID
+        if (!reviewId) {
+            const { data: newReview } = await supabase
+                .from('reviews')
+                .select('id')
+                .eq('customer_email', customerEmail)
+                .eq('site_id', siteId)
+                .order('created_at', { ascending: false })
+                .limit(1)
+                .single();
+
+            if (newReview) {
+                answers.forEach(a => a.review_id = newReview.id);
+            }
+        }
+
+        await supabase.from('review_answers').insert(answers).catch(e => {
+            console.warn('Could not store question answers:', e.message);
+        });
+    }
+
+    // TODO: Send SMS to owner with review notification
+    res.status(201).json({ success: true, message: 'Thank you! Your review has been submitted.' });
 });
 
 // ============================================

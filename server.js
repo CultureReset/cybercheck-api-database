@@ -74,6 +74,9 @@ app.use('/api/stripe', require('./routes/stripe'));
 // Analytics (page views, conversions, tracking)
 app.use('/api/analytics', require('./routes/analytics'));
 
+// SMS Inbox — two-way messaging, booking confirmations, promo blasts
+app.use('/api/sms', require('./routes/sms'));
+
 // Webhooks registered above (before express.json for raw body access)
 
 // Root — API status
@@ -125,15 +128,17 @@ app.get('/api/site-data', async (req, res) => {
         // 3. Overlay live data from proper Supabase tables —
         //    these are the tables the dashboard actually writes to.
         const siteId = req.query.site_id || SITE_DATA_KEY;
-        const [bizRes, contentRes, mediaRes] = await Promise.all([
+        const [bizRes, contentRes, mediaRes, reviewsRes] = await Promise.all([
             supabase.from('businesses').select('*').eq('site_id', siteId).single(),
             supabase.from('site_content').select('*').eq('site_id', siteId).single(),
-            supabase.from('media').select('*').eq('site_id', siteId).order('uploaded_at', { ascending: false })
+            supabase.from('media').select('*').eq('site_id', siteId).order('uploaded_at', { ascending: false }),
+            supabase.from('reviews').select('id, customer_name, rating, text, photos, created_at').eq('site_id', siteId).eq('status', 'published').order('created_at', { ascending: false })
         ]);
 
         const biz     = bizRes.data;
         const content = contentRes.data;
         const media   = mediaRes.data || [];
+        const reviews = reviewsRes.data || [];
 
         if (biz || content) {
             if (!base.business) base.business = {};
@@ -188,6 +193,16 @@ app.get('/api/site-data', async (req, res) => {
         // 4. Gallery from media table (only if records exist)
         if (media.length > 0) {
             base.gallery = media.map(m => m.url);
+        }
+
+        // 5. Published reviews (displayed on website)
+        if (reviews.length > 0) {
+            const avgRating = reviews.reduce((sum, r) => sum + (r.rating || 0), 0) / reviews.length;
+            base.reviews = reviews;
+            base.reviews_summary = {
+                avg_rating: Math.round(avgRating * 10) / 10,
+                total: reviews.length
+            };
         }
 
     } catch (e) {
