@@ -30,6 +30,46 @@ function flattenBooking(b) {
 // PROFILE
 // ============================================
 
+// ============================================
+// GET /api/dashboard/overview — Dashboard home stats
+// ============================================
+router.get('/overview', async (req, res) => {
+    const today = new Date().toISOString().split('T')[0];
+
+    const [bookingsRes, todayRes, revenueRes, customersRes] = await Promise.all([
+        supabase.from('bookings').select('id', { count: 'exact', head: true })
+            .eq('site_id', req.siteId)
+            .not('status', 'eq', 'cancelled'),
+        supabase.from('bookings').select('id', { count: 'exact', head: true })
+            .eq('site_id', req.siteId)
+            .eq('booking_date', today)
+            .not('status', 'eq', 'cancelled'),
+        supabase.from('bookings').select('total')
+            .eq('site_id', req.siteId)
+            .eq('payment_status', 'paid'),
+        supabase.from('customers').select('id', { count: 'exact', head: true })
+            .eq('site_id', req.siteId)
+    ]);
+
+    const totalRevenue = (revenueRes.data || []).reduce((sum, b) => sum + (b.total || 0), 0);
+
+    const { data: recent } = await supabase
+        .from('bookings')
+        .select('id, customer_name, booking_date, total, status, payment_status, created_at')
+        .eq('site_id', req.siteId)
+        .order('created_at', { ascending: false })
+        .limit(5);
+
+    res.json({
+        total_bookings: bookingsRes.count || 0,
+        bookings_today: todayRes.count || 0,
+        total_revenue: Math.round(totalRevenue * 100) / 100,
+        total_customers: customersRes.count || 0,
+        recent_bookings: recent || []
+    });
+});
+
+// ============================================
 // GET /api/dashboard/profile
 router.get('/profile', async (req, res) => {
     const { data: business } = await supabase

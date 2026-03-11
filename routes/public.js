@@ -912,15 +912,13 @@ router.post('/review', async (req, res) => {
         });
     }
 
-    // Send SMS to owner if they have a phone number
-    if (ownerPhone) {
+    // Send SMS to owner if they have a phone number (non-blocking)
+    if (ownerPhone && process.env.TWILIO_ACCOUNT_SID) {
         try {
             const smsBody = `New review from ${customerName}! ⭐${rating} ${uploadedPhotos.length > 0 ? '+ photos' : ''} — Check dashboard to approve.`;
-            await fetch('http://localhost:3001/api/sms/send', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ to: ownerPhone, body: smsBody })
-            }).catch(e => console.warn('SMS send failed:', e.message));
+            // TODO: Use internal SMS service or queue to avoid blocking response
+            // For now, fire-and-forget to Twilio (production should use async job queue)
+            sendSmsAsync(ownerPhone, smsBody).catch(e => console.warn('SMS send failed:', e.message));
         } catch (e) {
             console.warn('Could not send owner SMS:', e.message);
         }
@@ -1106,6 +1104,91 @@ router.post('/loyalty/redeem', async (req, res) => {
         points_redeemed: points_to_redeem,
         points_remaining: available - points_to_redeem,
         discount_value: points_to_redeem * 0.10
+    });
+});
+
+// ============================================
+// GET /api/public/site-data — Business info for website header/footer
+// ============================================
+router.get('/site-data', async (req, res) => {
+    const { data: content } = await supabase
+        .from('site_content')
+        .select('hero_text, hero_subtext, contact_phone, contact_email, address, city, state, zip, hours, social_links, logo_url, cover_url, theme_color, seo_title, seo_description')
+        .eq('site_id', req.siteId)
+        .single();
+
+    const { data: business } = await supabase
+        .from('businesses')
+        .select('name, type, subdomain')
+        .eq('site_id', req.siteId)
+        .single();
+
+    res.json({ ...business, ...content });
+});
+
+// ============================================
+// GET /api/public/locations — Launch locations
+// ============================================
+router.get('/locations', async (req, res) => {
+    const { data: content } = await supabase
+        .from('site_content')
+        .select('address, city, state, zip, lat, lng')
+        .eq('site_id', req.siteId)
+        .single();
+
+    // Return as an array of locations (single location for now; multi-location support planned)
+    res.json([{
+        id: 'main',
+        name: 'Main Launch',
+        address: content?.address || '',
+        city: content?.city || '',
+        state: content?.state || '',
+        zip: content?.zip || '',
+        lat: content?.lat || null,
+        lng: content?.lng || null,
+        is_default: true
+    }]);
+});
+
+// ============================================
+// GET /api/public/docks — Towable dock add-ons
+// ============================================
+router.get('/docks', async (req, res) => {
+    const { data } = await supabase
+        .from('rental_addons')
+        .select('id, name, description, price, icon, per_unit')
+        .eq('site_id', req.siteId)
+        .eq('active', true)
+        .ilike('category', '%dock%')
+        .order('price', { ascending: true });
+
+    res.json(data || []);
+});
+
+// ============================================
+// GET /api/public/links-page — Linktree-style links page data
+// ============================================
+router.get('/links-page', async (req, res) => {
+    const { data: content } = await supabase
+        .from('site_content')
+        .select('social_links, logo_url, hero_text, contact_phone, contact_email')
+        .eq('site_id', req.siteId)
+        .single();
+
+    const { data: business } = await supabase
+        .from('businesses')
+        .select('name, subdomain')
+        .eq('site_id', req.siteId)
+        .single();
+
+    res.json({
+        name: business?.name || '',
+        subdomain: business?.subdomain || '',
+        logo_url: content?.logo_url || '',
+        tagline: content?.hero_text || '',
+        phone: content?.contact_phone || '',
+        email: content?.contact_email || '',
+        social: content?.social_links || {}
     });
 });
 
