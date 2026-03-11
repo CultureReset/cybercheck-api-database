@@ -1192,4 +1192,19 @@ router.get('/links-page', async (req, res) => {
     });
 });
 
+// ============================================
+// GET /api/public/addons
+// ============================================
+router.get('/addons', async (req, res) => {
+    const { data, error } = await supabase
+        .from('rental_addons')
+        .select('id, name, description, price, category, icon, per_unit, image_url')
+        .eq('site_id', req.siteId)
+        .order('category')
+        .order('name');
+
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data || []);
+});
+
 module.exports = router;
