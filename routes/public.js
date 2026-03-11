@@ -320,15 +320,24 @@ router.get('/availability', async (req, res) => {
     });
 
     const booked = {};
+    const bookedNoSlot = {}; // bookings with no time_slot_id count against all slots
     (bookings || []).forEach(b => {
-        const key = `${b.fleet_type_id}_${b.time_slot_id}`;
-        booked[key] = (booked[key] || 0) + (b.qty || 1);
+        if (b.time_slot_id) {
+            const key = `${b.fleet_type_id}_${b.time_slot_id}`;
+            booked[key] = (booked[key] || 0) + (b.qty || 1);
+        } else {
+            bookedNoSlot[b.fleet_type_id] = (bookedNoSlot[b.fleet_type_id] || 0) + (b.qty || 1);
+        }
     });
 
     // Add holds to booked count
     (holds || []).forEach(h => {
-        const key = `${h.fleet_type_id}_${h.time_slot_id}`;
-        booked[key] = (booked[key] || 0) + (h.qty || 1);
+        if (h.time_slot_id) {
+            const key = `${h.fleet_type_id}_${h.time_slot_id}`;
+            booked[key] = (booked[key] || 0) + (h.qty || 1);
+        } else {
+            bookedNoSlot[h.fleet_type_id] = (bookedNoSlot[h.fleet_type_id] || 0) + (h.qty || 1);
+        }
     });
 
     // Check blocked dates
@@ -346,7 +355,7 @@ router.get('/availability', async (req, res) => {
         (timeSlots || []).forEach(ts => {
             const key = `${ft.id}_${ts.id}`;
             const total = inventory[ft.id] || 0;
-            const used = booked[key] || 0;
+            const used = (booked[key] || 0) + (bookedNoSlot[ft.id] || 0);
             const remaining = Math.max(0, total - used);
 
             availability.push({
