@@ -2462,4 +2462,146 @@ router.get('/stripe-status', async (req, res) => {
     });
 });
 
+// ============================================
+// GET /api/dashboard/calendar?month=YYYY-MM
+// ============================================
+router.get('/calendar', async (req, res) => {
+    const { month } = req.query;
+    if (!month) return res.status(400).json({ error: 'month query parameter required (YYYY-MM)' });
+
+    const start = `${month}-01`;
+    const end = new Date(new Date(start).getFullYear(), new Date(start).getMonth() + 1, 0)
+        .toISOString().split('T')[0];
+
+    const { data: bookings, error } = await supabase
+        .from('bookings')
+        .select('id, booking_date, status, total, qty, customer_name, fleet_types(name)')
+        .eq('site_id', req.siteId)
+        .gte('booking_date', start)
+        .lte('booking_date', end)
+        .not('status', 'eq', 'cancelled')
+        .order('booking_date');
+
+    if (error) return res.status(500).json({ error: error.message });
+
+    // Group by date
+    const byDate = {};
+    (bookings || []).forEach(b => {
+        const d = b.booking_date;
+        if (!byDate[d]) byDate[d] = { date: d, bookings: [], count: 0, revenue: 0 };
+        byDate[d].bookings.push({
+            id: b.id,
+            customer_name: b.customer_name,
+            status: b.status,
+            total: b.total,
+            qty: b.qty,
+            fleet_type_name: b.fleet_types?.name || null
+        });
+        byDate[d].count++;
+        byDate[d].revenue += b.total || 0;
+    });
+
+    res.json({ month, days: Object.values(byDate) });
+});
+
+// ============================================
+// GET /api/dashboard/analytics?range=30
+// ============================================
+router.get('/analytics', async (req, res) => {
+    const days = parseInt(req.query.range) || 30;
+    const since = new Date(Date.now() - days * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+
+    const [bookingsRes, revenueRes, customersRes] = await Promise.all([
+        supabase.from('bookings').select('id, booking_date, total, status, fleet_type_id, fleet_types(name)')
+            .eq('site_id', req.siteId)
+            .gte('booking_date', since)
+            .not('status', 'eq', 'cancelled'),
+        supabase.from('bookings').select('booking_date, total')
+            .eq('site_id', req.siteId)
+            .eq('payment_status', 'paid')
+            .gte('booking_date', since),
+        supabase.from('customers').select('id, created_at')
+            .eq('site_id', req.siteId)
+            .gte('created_at', new Date(Date.now() - days * 24 * 60 * 60 * 1000).toISOString())
+    ]);
+
+    const bookings = bookingsRes.data || [];
+    const paid = revenueRes.data || [];
+
+    // Revenue by date
+    const revenueByDate = {};
+    paid.forEach(b => {
+        revenueByDate[b.booking_date] = (revenueByDate[b.booking_date] || 0) + (b.total || 0);
+    });
+
+    // Bookings by fleet type
+    const byFleet = {};
+    bookings.forEach(b => {
+        const name = b.fleet_types?.name || 'Unknown';
+        byFleet[name] = (byFleet[name] || 0) + 1;
+    });
+
+    res.json({
+        range_days: days,
+        since,
+        total_bookings: bookings.length,
+        total_revenue: paid.reduce((s, b) => s + (b.total || 0), 0),
+        new_customers: (customersRes.data || []).length,
+        revenue_by_date: Object.entries(revenueByDate).map(([date, revenue]) => ({ date, revenue })),
+        bookings_by_fleet: Object.entries(byFleet).map(([name, count]) => ({ name, count }))
+    });
+});
+
+// ============================================
+// GET /api/dashboard/media
+// POST /api/dashboard/media
+// DELETE /api/dashboard/media/:id
+// ============================================
+router.get('/media', async (req, res) => {
+    const { data, error } = await supabase
+        .from('media_library')
+        .select('id, url, caption, type, sort_order, created_at')
+        .eq('site_id', req.siteId)
+        .order('sort_order')
+        .order('created_at', { ascending: false });
+
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data || []);
+});
+
+router.post('/media', async (req, res) => {
+    const { url, caption, type } = req.body;
+    if (!url) return res.status(400).json({ error: 'url required' });
+
+    const { data: existing } = await supabase
+        .from('media_library')
+        .select('sort_order')
+        .eq('site_id', req.siteId)
+        .order('sort_order', { ascending: false })
+        .limit(1)
+        .single();
+
+    const sort_order = (existing?.sort_order || 0) + 1;
+
+    const { data, error } = await supabase
+        .from('media_library')
+        .insert({ site_id: req.siteId, url, caption: caption || '', type: type || 'image', sort_order })
+        .select()
+        .single();
+
+    if (error) return res.status(500).json({ error: error.message });
+    res.status(201).json(data);
+});
+
+router.delete('/media/:id', async (req, res) => {
+    const { error } = await supabase
+        .from('media_library')
+        .delete()
+        .eq('id', req.params.id)
+        .eq('site_id', req.siteId);
+
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
 module.exports = router;
