@@ -531,4 +531,105 @@ router.put('/support/tickets/:id', async (req, res) => {
     res.json(data);
 });
 
+// ============================================
+// TEST AI CONNECTION — POST /api/admin/test-ai
+// ============================================
+router.post('/test-ai', adminRequired, async (req, res) => {
+    const { provider, api_key } = req.body;
+    if (!provider || !api_key) {
+        return res.status(400).json({ success: false, error: 'provider and api_key required' });
+    }
+
+    try {
+        if (provider === 'anthropic') {
+            const response = await fetch('https://api.anthropic.com/v1/messages', {
+                method: 'POST',
+                headers: {
+                    'x-api-key': api_key,
+                    'anthropic-version': '2023-06-01',
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify({
+                    model: 'claude-haiku-4-5-20251001',
+                    max_tokens: 10,
+                    messages: [{ role: 'user', content: 'Say "ok"' }]
+                })
+            });
+            const data = await response.json();
+            if (data.error) return res.json({ success: false, error: data.error.message });
+            return res.json({ success: true, provider: 'anthropic', model: data.model });
+
+        } else if (provider === 'grok') {
+            const response = await fetch('https://api.x.ai/v1/chat/completions', {
+                method: 'POST',
+                headers: {
+                    'Authorization': 'Bearer ' + api_key,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    model: 'grok-beta',
+                    max_tokens: 10,
+                    messages: [{ role: 'user', content: 'Say "ok"' }]
+                })
+            });
+            const data = await response.json();
+            if (data.error) return res.json({ success: false, error: data.error.message });
+            return res.json({ success: true, provider: 'grok', model: data.model });
+
+        } else if (provider === 'openai') {
+            const response = await fetch('https://api.openai.com/v1/chat/completions', {
+                method: 'POST',
+                headers: {
+                    'Authorization': 'Bearer ' + api_key,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    model: 'gpt-3.5-turbo',
+                    max_tokens: 10,
+                    messages: [{ role: 'user', content: 'Say "ok"' }]
+                })
+            });
+            const data = await response.json();
+            if (data.error) return res.json({ success: false, error: data.error.message });
+            return res.json({ success: true, provider: 'openai', model: data.model });
+
+        } else {
+            return res.status(400).json({ success: false, error: 'Unknown provider: ' + provider });
+        }
+    } catch (err) {
+        return res.status(500).json({ success: false, error: err.message });
+    }
+});
+
+// ============================================
+// SAVE API KEY — POST /api/admin/save-api-key
+// ============================================
+router.post('/save-api-key', adminRequired, async (req, res) => {
+    const { provider, ...keyData } = req.body;
+    if (!provider) return res.status(400).json({ error: 'provider required' });
+
+    // Store in Supabase platform_settings table
+    const { error } = await supabase
+        .from('platform_settings')
+        .upsert({ key: 'api_key_' + provider, value: keyData, updated_at: new Date().toISOString() }, { onConflict: 'key' });
+
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ============================================
+// TEST OAUTH — POST /api/admin/test-oauth
+// ============================================
+router.post('/test-oauth', adminRequired, async (req, res) => {
+    const hasStripe = !!process.env.STRIPE_SECRET_KEY;
+    const hasTwilio = !!(process.env.TWILIO_ACCOUNT_SID && process.env.TWILIO_AUTH_TOKEN);
+    res.json({
+        success: hasStripe && hasTwilio,
+        message: [
+            !hasStripe ? 'STRIPE_SECRET_KEY missing' : null,
+            !hasTwilio ? 'Twilio credentials missing' : null
+        ].filter(Boolean).join(', ') || 'All OAuth credentials configured'
+    });
+});
+
 module.exports = router;
