@@ -992,4 +992,73 @@ router.post('/gcr/import-csv', adminRequired, async (req, res) => {
     res.json({ success: true, site_id: siteId, action: existing ? 'updated' : 'created' });
 });
 
+// ============================================
+// GCR EVENTS — admin manage all events across businesses
+// ============================================
+
+router.get('/gcr/events', requireAdmin, async (req, res) => {
+    const { site_id, upcoming } = req.query;
+    let query = supabase.from('events').select('*, businesses(name)').order('event_date', { ascending: true });
+    if (site_id) query = query.eq('site_id', site_id);
+    if (upcoming === 'true') query = query.gte('event_date', new Date().toISOString().split('T')[0]);
+    const { data, error } = await query;
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data || []);
+});
+
+router.post('/gcr/events', requireAdmin, async (req, res) => {
+    const { site_id, name, description, event_date, event_time, location, image_url, active } = req.body;
+    if (!site_id || !name) return res.status(400).json({ error: 'site_id and name required' });
+    const { data, error } = await supabase.from('events').insert({ site_id, name, description, event_date: event_date || null, event_time: event_time || null, location: location || null, image_url: image_url || null, active: active !== false }).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.status(201).json(data);
+});
+
+router.put('/gcr/events/:id', requireAdmin, async (req, res) => {
+    const updates = { ...req.body }; delete updates.site_id; delete updates.id;
+    const { data, error } = await supabase.from('events').update(updates).eq('id', req.params.id).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
+router.delete('/gcr/events/:id', requireAdmin, async (req, res) => {
+    const { error } = await supabase.from('events').delete().eq('id', req.params.id);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ============================================
+// GCR SPECIALS — admin manage all specials across businesses
+// ============================================
+
+router.get('/gcr/specials', requireAdmin, async (req, res) => {
+    const { site_id } = req.query;
+    let query = supabase.from('specials').select('*, businesses(name)').order('sort_order').order('created_at', { ascending: false });
+    if (site_id) query = query.eq('site_id', site_id);
+    const { data, error } = await query;
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data || []);
+});
+
+router.post('/gcr/specials', requireAdmin, async (req, res) => {
+    const { site_id, name, description, discount_text, day_of_week, time_range, active } = req.body;
+    if (!site_id || !name) return res.status(400).json({ error: 'site_id and name required' });
+    const { data, error } = await supabase.from('specials').insert({ site_id, name, description, discount_text: discount_text || null, day_of_week: day_of_week || null, time_range: time_range || null, active: active !== false }).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.status(201).json(data);
+});
+
+router.put('/gcr/specials/:id', requireAdmin, async (req, res) => {
+    const updates = { ...req.body }; delete updates.site_id; delete updates.id;
+    const { data, error } = await supabase.from('specials').update(updates).eq('id', req.params.id).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
+router.delete('/gcr/specials/:id', requireAdmin, async (req, res) => {
+    const { error } = await supabase.from('specials').delete().eq('id', req.params.id);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
 module.exports = router;
