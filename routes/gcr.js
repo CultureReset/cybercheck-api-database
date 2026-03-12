@@ -9,29 +9,111 @@ const router = express.Router();
 router.get('/businesses', async (req, res) => {
     let query = supabase
         .from('businesses')
-        .select('site_id, name, type, subdomain, domain, logo_url, cover_url, status, site_content(address, city, state, zip, lat, lng, hours, theme_color, seo_description)')
+        .select(`site_id, name, type, subdomain, domain, logo_url, cover_url, status,
+            emoji, tagline, featured, tags, price_range, rating, review_count,
+            happy_hour, kids_friendly, pet_friendly, live_music, outdoor, reservations,
+            alcohol, booking_required, delivery, takeout, sort_order, gcr_listed, gcr_verified,
+            site_content(address, city, state, zip, lat, lng, hours, theme_color, seo_description, about_text, contact_phone, website_url, social_links)`)
         .eq('status', 'active')
+        .eq('gcr_listed', true)
+        .order('sort_order', { ascending: true })
         .order('name', { ascending: true });
 
-    if (req.query.type) query = query.eq('type', req.query.type);
+    if (req.query.type || req.query.category) query = query.eq('type', req.query.type || req.query.category);
     if (req.query.search) query = query.ilike('name', `%${req.query.search}%`);
-    if (req.query.city) query = query.eq('site_content.city', req.query.city);
+    if (req.query.featured === 'true') query = query.eq('featured', true);
 
-    const limit = Math.min(parseInt(req.query.limit) || 20, 100);
+    const limit = Math.min(parseInt(req.query.limit) || 200, 500);
     const offset = parseInt(req.query.offset) || 0;
     query = query.range(offset, offset + limit - 1);
 
-    const { data, error, count } = await query;
+    const { data, error } = await query;
     if (error) return res.status(500).json({ error: error.message });
 
-    // Flatten site_content into business object
     const businesses = (data || []).map(b => {
         const content = b.site_content || {};
         delete b.site_content;
-        return { ...b, ...content };
+        return {
+            ...b,
+            category: b.type,   // alias for GCR compatibility
+            id: b.site_id,
+            slug: b.subdomain || b.site_id,
+            address: content.address || '',
+            city: content.city || '',
+            state: content.state || '',
+            zip: content.zip || '',
+            lat: content.lat || null,
+            lng: content.lng || null,
+            hours: content.hours || {},
+            phone: content.contact_phone || '',
+            website: content.website_url || '',
+            description: content.about_text || content.seo_description || '',
+            social: content.social_links || {},
+            priceRange: b.price_range || '',
+            reviewCount: b.review_count || 0,
+            happyHour: b.happy_hour || null,
+            kidsFriendly: b.kids_friendly || false,
+            petFriendly: b.pet_friendly || false,
+            liveMusic: b.live_music || false,
+        };
     });
 
-    res.json({ businesses, total: count, limit, offset });
+    res.json({ businesses, total: businesses.length, limit, offset });
+});
+
+// ============================================
+// GET /api/gcr/events — public events feed
+// ============================================
+router.get('/events', async (req, res) => {
+    let query = supabase
+        .from('events')
+        .select('*, businesses(name, emoji, type, subdomain)')
+        .eq('active', true)
+        .order('event_date', { ascending: true });
+
+    if (req.query.site_id) query = query.eq('site_id', req.query.site_id);
+    if (req.query.upcoming === 'true') query = query.gte('event_date', new Date().toISOString().split('T')[0]);
+
+    const { data, error } = await query;
+    if (error) return res.status(500).json({ error: error.message });
+
+    const events = (data || []).map(e => ({
+        ...e,
+        date: e.event_date,
+        time: e.event_time,
+        businessName: e.businesses?.name || '',
+        businessEmoji: e.businesses?.emoji || '🏪',
+        category: e.businesses?.type || '',
+        slug: e.businesses?.subdomain || e.site_id,
+    }));
+
+    res.json(events);
+});
+
+// ============================================
+// GET /api/gcr/specials — public specials feed
+// ============================================
+router.get('/specials', async (req, res) => {
+    let query = supabase
+        .from('specials')
+        .select('*, businesses(name, emoji, type, subdomain)')
+        .eq('active', true)
+        .order('sort_order', { ascending: true });
+
+    if (req.query.site_id) query = query.eq('site_id', req.query.site_id);
+
+    const { data, error } = await query;
+    if (error) return res.status(500).json({ error: error.message });
+
+    const specials = (data || []).map(s => ({
+        ...s,
+        businessName: s.businesses?.name || '',
+        businessEmoji: s.businesses?.emoji || '🏪',
+        category: s.businesses?.type || '',
+        slug: s.businesses?.subdomain || s.site_id,
+    }));
+
+    res.json(specials);
 });
 
 // ============================================
