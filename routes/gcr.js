@@ -420,4 +420,57 @@ router.get('/nearby', async (req, res) => {
     res.json(results);
 });
 
+// ============================================
+// POST /api/gcr/tourist/register — GCR Loyalty Signup → SMS
+// ============================================
+router.post('/tourist/register', async (req, res) => {
+    const { name, phone, interests, visitor_type, checkin, checkout, sms_consent } = req.body;
+
+    if (!name || !phone) {
+        return res.status(400).json({ error: 'name and phone required' });
+    }
+
+    // Insert tourist session
+    const { data: session, error: sessionError } = await supabase
+        .from('tourist_sessions')
+        .insert({
+            name,
+            phone,
+            interests: interests || [],
+            visitor_type: visitor_type || 'tourist',
+            checkin: checkin || null,
+            checkout: checkout || null
+        })
+        .select()
+        .single();
+
+    if (sessionError) {
+        console.error('Tourist session error:', sessionError);
+        return res.status(500).json({ error: sessionError.message });
+    }
+
+    const chatUrl = `https://cybercheck-login.vercel.app/chat/${session.session_id}`;
+
+    // Send SMS via Twilio (if configured)
+    if (process.env.TWILIO_ACCOUNT_SID && process.env.TWILIO_AUTH_TOKEN && process.env.TWILIO_PHONE_NUMBER) {
+        try {
+            const twilio = require('twilio')(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
+            await twilio.messages.create({
+                to: phone,
+                from: process.env.TWILIO_PHONE_NUMBER,
+                body: `Hey ${name}! Your Gulf Coast trip guide is ready 🌊 Ask me about restaurants, boat rentals, and activities → ${chatUrl}`
+            });
+        } catch (smsErr) {
+            console.error('SMS send error:', smsErr.message);
+            // Don't fail the request if SMS fails
+        }
+    }
+
+    res.json({
+        success: true,
+        session_id: session.session_id,
+        chat_url: chatUrl
+    });
+});
+
 module.exports = router;

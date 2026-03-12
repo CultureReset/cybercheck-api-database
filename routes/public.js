@@ -484,7 +484,7 @@ router.post('/bookings', async (req, res) => {
     let data, error;
 
     if (booking.fleet_type_id && booking.time_slot_id && booking.booking_date) {
-        // ATOMIC: check availability + insert in one transaction (prevents overbooking)
+        // Try atomic RPC first (prevents overbooking), fall back to direct insert if RPC missing/timeout
         const { data: result, error: rpcError } = await supabase.rpc('create_booking_if_available', {
             p_site_id: req.siteId,
             p_fleet_type_id: booking.fleet_type_id,
@@ -507,16 +507,16 @@ router.post('/bookings', async (req, res) => {
         });
 
         if (rpcError) {
-            error = rpcError;
+            // RPC failed — fall back to direct insert
+            console.warn('RPC create_booking_if_available failed, falling back to direct insert:', rpcError.message);
+            booking.customer_id = customerId;
+            const insertResult = await supabase.from('bookings').insert(booking).select().single();
+            data = insertResult.data;
+            error = insertResult.error;
         } else if (!result.success) {
             return res.status(409).json({ error: result.error, available: result.available });
         } else {
-            // Fetch the full booking record
-            const { data: fullBooking } = await supabase
-                .from('bookings')
-                .select()
-                .eq('id', result.booking_id)
-                .single();
+            const { data: fullBooking } = await supabase.from('bookings').select().eq('id', result.booking_id).single();
             data = fullBooking;
         }
     } else {
@@ -594,23 +594,201 @@ router.post('/contact', async (req, res) => {
 });
 
 // ============================================
-// POST /api/public/chat — AI chatbot message
+// POST /api/public/chat — Tourist AI chat (Grok) or business public chat
+// Accepts: { session_id, message } for tourist sessions
+//          { site_id, message, conversation_id } for business page chatbots
 // ============================================
 router.post('/chat', async (req, res) => {
-    const { message, conversation_id } = req.body;
+    const { message, session_id, site_id, conversation_id } = req.body;
 
     if (!message) {
         return res.status(400).json({ error: 'Message required' });
     }
 
-    // TODO: Implement AI chat with business context
-    // For now, return a placeholder
+    // ---- Tourist session chat (Grok) ----
+    if (session_id) {
+        const { data: session } = await supabase
+            .from('tourist_sessions')
+            .select('*')
+            .eq('session_id', session_id)
+            .single();
+
+        if (!session) {
+            return res.status(404).json({ error: 'Session not found' });
+        }
+
+        // Load conversation history
+        const { data: history } = await supabase
+            .from('tourist_conversations')
+            .select('role, content')
+            .eq('session_id', session.id)
+            .order('created_at', { ascending: true })
+            .limit(20);
+
+        // Load relevant businesses based on interests
+        let businessContext = '';
+        const interests = session.interests || [];
+        if (interests.length > 0) {
+            const categoryMap = {
+                'food': 'restaurants', 'dining': 'restaurants', 'restaurants': 'restaurants',
+                'boats': 'things-to-do', 'rentals': 'things-to-do', 'activities': 'things-to-do',
+                'nightlife': 'nightlife', 'bars': 'nightlife',
+                'shopping': 'shopping', 'coffee': 'coffee-sweets'
+            };
+            const types = [...new Set(interests.map(i => categoryMap[i.toLowerCase()] || 'other'))];
+            const { data: bizList } = await supabase
+                .from('businesses')
+                .select('name, type, site_content(city, state, address, contact_phone, seo_description, hours)')
+                .eq('status', 'active')
+                .eq('gcr_listed', true)
+                .in('type', types)
+                .limit(15);
+
+            if (bizList && bizList.length > 0) {
+                businessContext = '\n\nLocal businesses:\n' + bizList.map(b => {
+                    const c = b.site_content || {};
+                    return `- ${b.name} (${b.type}): ${c.seo_description || ''} | ${c.address || ''} | ${c.contact_phone || ''} | Hours: ${c.hours || 'call ahead'}`;
+                }).join('\n');
+            }
+        }
+
+        const systemPrompt = `You are a friendly Gulf Coast trip assistant for Orange Beach and Gulf Shores, Alabama. You know everything about local restaurants, boat rentals, fishing charters, activities, and events.
+
+Tourist info:
+- Name: ${session.name}
+- Visitor type: ${session.visitor_type || 'tourist'}
+- Interests: ${(session.interests || []).join(', ') || 'general'}
+- Trip dates: ${session.checkin || 'unknown'} to ${session.checkout || 'unknown'}
+${businessContext}
+
+Be helpful, enthusiastic, and specific. Recommend real places. Keep responses concise and friendly. If asked to book something, tell them you can help them plan and they can call the business directly.`;
+
+        const messages = [
+            ...(history || []).map(h => ({ role: h.role, content: h.content })),
+            { role: 'user', content: message }
+        ];
+
+        // Save user message
+        await supabase.from('tourist_conversations').insert({
+            session_id: session.id,
+            role: 'user',
+            content: message
+        });
+
+        // Call Grok API
+        if (!process.env.GROK_API_KEY) {
+            return res.json({ reply: "I'm getting set up! Check back soon for personalized Gulf Coast recommendations.", session_id });
+        }
+
+        try {
+            const grokRes = await fetch('https://api.x.ai/v1/chat/completions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + process.env.GROK_API_KEY
+                },
+                body: JSON.stringify({
+                    model: 'grok-2-latest',
+                    messages: [{ role: 'system', content: systemPrompt }, ...messages],
+                    max_tokens: 500,
+                    temperature: 0.8
+                })
+            });
+            const grokData = await grokRes.json();
+            const reply = grokData.choices?.[0]?.message?.content || "I had trouble getting that. Try asking again!";
+
+            // Save assistant response
+            await supabase.from('tourist_conversations').insert({
+                session_id: session.id,
+                role: 'assistant',
+                content: reply
+            });
+
+            return res.json({ reply, session_id });
+        } catch (err) {
+            console.error('Grok error:', err.message);
+            return res.status(500).json({ error: 'AI service error', session_id });
+        }
+    }
+
+    // ---- Business page public chatbot (fallback) ----
     res.json({
-        reply: "Thanks for your message! I'm being set up to help answer questions about this business. Please try again soon or contact us directly.",
+        reply: "Thanks for your message! Please call us directly or use our booking form.",
         conversation_id: conversation_id || crypto.randomUUID()
     });
 });
 
+
+// ============================================
+// GET /api/public/waivers/:token — path-based alias
+// ============================================
+router.get('/waivers/:token', async (req, res) => {
+    const token = req.params.token;
+    const { data: waiver } = await supabase
+        .from('waivers')
+        .select('id, waiver_text, customer_name, booking_id, signed')
+        .eq('token', token)
+        .single();
+
+    if (!waiver) return res.status(404).json({ error: 'Waiver link not found or expired' });
+    if (waiver.signed) return res.status(410).json({ error: 'Waiver already signed' });
+
+    let waiverText = waiver.waiver_text;
+    if (!waiverText) {
+        const { data: tmpl } = await supabase
+            .from('waivers')
+            .select('waiver_text')
+            .eq('site_id', req.siteId)
+            .is('booking_id', null)
+            .limit(1)
+            .single();
+        waiverText = tmpl?.waiver_text || '';
+    }
+
+    res.json({ waiver_text: waiverText, customer_name: waiver.customer_name || '', booking_id: waiver.booking_id, token });
+});
+
+// POST /api/public/waivers/:token/sign
+router.post('/waivers/:token/sign', async (req, res) => {
+    const token = req.params.token;
+    const { customer_name, customer_email, signature_data, waiver_text } = req.body;
+
+    if (!customer_name || !signature_data) {
+        return res.status(400).json({ error: 'Customer name and signature required' });
+    }
+
+    const { data: existing } = await supabase
+        .from('waivers')
+        .select('id, booking_id, signed')
+        .eq('token', token)
+        .single();
+
+    if (!existing) return res.status(404).json({ error: 'Waiver link not found' });
+    if (existing.signed) return res.status(410).json({ error: 'Waiver already signed' });
+
+    const { data, error } = await supabase
+        .from('waivers')
+        .update({
+            customer_name,
+            customer_email: customer_email || null,
+            signature_data,
+            waiver_text: waiver_text || null,
+            signed: true,
+            signed_at: new Date().toISOString(),
+            ip_address: req.ip
+        })
+        .eq('id', existing.id)
+        .select()
+        .single();
+
+    if (error) return res.status(500).json({ error: error.message });
+
+    if (existing.booking_id) {
+        await supabase.from('bookings').update({ waiver_signed: true }).eq('id', existing.booking_id);
+    }
+
+    res.json({ success: true, waiver_id: data.id });
+});
 
 // ============================================
 // GET /api/public/waiver — Fetch waiver to sign
@@ -741,6 +919,92 @@ router.post('/waiver', async (req, res) => {
 
     res.status(201).json({ success: true, waiver_id: data.id });
 });
+// ============================================
+// GET /api/public/waivers/:token — Alias for /waiver?token=:token
+// ============================================
+router.get('/waivers/:token', async (req, res) => {
+    const { token } = req.params;
+    
+    // Redirect to query-based endpoint
+    req.query.token = token;
+    
+    const { data: waiver } = await supabase
+        .from('waivers')
+        .select('id, waiver_text, customer_name, booking_id, signed')
+        .eq('token', token)
+        .single();
+
+    if (!waiver) return res.status(404).json({ error: 'Waiver link not found or expired' });
+    if (waiver.signed) return res.status(410).json({ error: 'Waiver already signed' });
+
+    // Fetch the waiver template text if this record has none yet
+    let waiverText = waiver.waiver_text;
+    if (!waiverText) {
+        const { data: tmpl } = await supabase
+            .from('waivers')
+            .select('waiver_text')
+            .eq('site_id', req.siteId)
+            .is('booking_id', null)
+            .limit(1)
+            .single();
+        waiverText = tmpl?.waiver_text || '';
+    }
+
+    return res.json({
+        waiver_text: waiverText,
+        customer_name: waiver.customer_name || '',
+        booking_id: waiver.booking_id,
+        token
+    });
+});
+
+// ============================================
+// POST /api/public/waivers/:token/sign — Alias for POST /waiver with token in path
+// ============================================
+router.post('/waivers/:token/sign', async (req, res) => {
+    const { token } = req.params;
+    const { customer_name, customer_email, signature_data, waiver_text } = req.body;
+
+    if (!customer_name || !signature_data) {
+        return res.status(400).json({ error: 'Customer name and signature required' });
+    }
+
+    const { data: existing } = await supabase
+        .from('waivers')
+        .select('id, booking_id, signed')
+        .eq('token', token)
+        .single();
+
+    if (!existing) return res.status(404).json({ error: 'Waiver link not found' });
+    if (existing.signed) return res.status(410).json({ error: 'Waiver already signed' });
+
+    const { data, error } = await supabase
+        .from('waivers')
+        .update({
+            customer_name,
+            customer_email: customer_email || null,
+            signature_data,
+            waiver_text: waiver_text || null,
+            signed: true,
+            signed_at: new Date().toISOString(),
+            ip_address: req.ip
+        })
+        .eq('token', token)
+        .select()
+        .single();
+
+    if (error) return res.status(500).json({ error: error.message });
+
+    if (existing.booking_id) {
+        await supabase.from('bookings')
+            .update({ waiver_signed: true })
+            .eq('id', existing.booking_id)
+            .eq('site_id', req.siteId);
+    }
+
+    return res.json({ success: true, waiver_id: data.id });
+});
+
 
 // ============================================
 // ============================================

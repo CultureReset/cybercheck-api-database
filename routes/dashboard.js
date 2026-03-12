@@ -46,7 +46,8 @@ router.get('/overview', async (req, res) => {
             .not('status', 'eq', 'cancelled'),
         supabase.from('bookings').select('total')
             .eq('site_id', req.siteId)
-            .eq('payment_status', 'paid'),
+            .not('status', 'eq', 'cancelled')
+            .not('status', 'eq', 'pending'),
         supabase.from('customers').select('id', { count: 'exact', head: true })
             .eq('site_id', req.siteId)
     ]);
@@ -1175,7 +1176,23 @@ router.put('/bookings/:id', async (req, res) => {
         .single();
 
     if (error) return res.status(500).json({ error: error.message });
-    // TODO: Emit event based on status change
+    // Log status change to activity log
+    if (updates.status && req.body.status !== undefined) {
+        try {
+            const oldStatus = (await supabase.from('bookings').select('status').eq('id', req.params.id).single()).data?.status;
+            if (oldStatus && oldStatus !== updates.status) {
+                await supabase.from('activity_log').insert({
+                    site_id: req.siteId,
+                    booking_id: req.params.id,
+                    event_type: 'booking.updated',
+                    details: { old_status: oldStatus, new_status: updates.status },
+                    created_at: new Date().toISOString()
+                }).catch(() => {});
+            }
+        } catch (e) {
+            // Silently fail activity logging
+        }
+    }
     res.json(data);
 });
 
@@ -1489,25 +1506,23 @@ router.get('/waivers/booking/:booking_id', async (req, res) => {
 });
 
 // POST /api/dashboard/waivers/link — generate a signed waiver link for a booking
-router.post('/waivers/link', async (req, res) => {
-    const { booking_id } = req.body;
-    if (!booking_id) return res.status(400).json({ error: 'booking_id required' });
-
+// GET /api/dashboard/waivers/link — get waiver link for a booking (query: ?booking_id=)
+async function generateWaiverLink(siteId, booking_id) {
     const crypto = require('crypto');
+    const { sendSms } = require('../utils/sms');
     const token = crypto.randomBytes(24).toString('hex');
 
     const { data: booking } = await supabase
         .from('bookings')
-        .select('id, customer_name')
+        .select('id, customer_name, customer_phone')
         .eq('id', booking_id)
-        .eq('site_id', req.siteId)
+        .eq('site_id', siteId)
         .single();
 
-    if (!booking) return res.status(404).json({ error: 'Booking not found' });
+    if (!booking) return { error: 'Booking not found' };
 
-    // Store the token in the waivers table so public endpoint can look it up
     await supabase.from('waivers').upsert({
-        site_id: req.siteId,
+        site_id: siteId,
         booking_id,
         customer_name: booking.customer_name || null,
         token,
@@ -1517,13 +1532,41 @@ router.post('/waivers/link', async (req, res) => {
     const { data: biz } = await supabase
         .from('businesses')
         .select('subdomain')
-        .eq('site_id', req.siteId)
+        .eq('site_id', siteId)
         .single();
 
     const baseUrl = process.env.PUBLIC_SITE_BASE_URL || ('https://' + (biz?.subdomain || 'site') + '.cybercheck.com');
     const link = baseUrl + '/waiver?token=' + token + '&booking=' + booking_id;
 
-    res.json({ link, token, booking_id });
+    // Send SMS to customer if phone is available
+    if (booking.customer_phone) {
+        const name = booking.customer_name ? `, ${booking.customer_name.split(' ')[0]}` : '';
+        await sendSms(
+            booking.customer_phone,
+            `Hi${name}! Please sign your waiver before your rental: ${link}`,
+            siteId,
+            'waiver_link',
+            booking_id
+        ).catch(e => console.warn('Waiver SMS failed:', e.message));
+    }
+
+    return { link, token, booking_id, sms_sent: !!booking.customer_phone };
+}
+
+router.get('/waivers/link', async (req, res) => {
+    const { booking_id } = req.query;
+    if (!booking_id) return res.status(400).json({ error: 'booking_id query parameter required' });
+    const result = await generateWaiverLink(req.siteId, booking_id);
+    if (result.error) return res.status(404).json({ error: result.error });
+    res.json(result);
+});
+
+router.post('/waivers/link', async (req, res) => {
+    const { booking_id } = req.body;
+    if (!booking_id) return res.status(400).json({ error: 'booking_id required' });
+    const result = await generateWaiverLink(req.siteId, booking_id);
+    if (result.error) return res.status(404).json({ error: result.error });
+    res.json(result);
 });
 
 
@@ -2599,6 +2642,79 @@ router.delete('/media/:id', async (req, res) => {
         .delete()
         .eq('id', req.params.id)
         .eq('site_id', req.siteId);
+
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ============================================
+// AVAILABILITY / BLOCK DATES
+// ============================================
+
+// GET /api/dashboard/availability/blocks?month=YYYY-MM
+router.get('/availability/blocks', async (req, res) => {
+    let query = supabase
+        .from('availability_blocks')
+        .select('*')
+        .eq('site_id', req.siteId)
+        .order('block_date');
+
+    if (req.query.month) {
+        const [year, month] = req.query.month.split('-');
+        const start = `${year}-${month}-01`;
+        const end = new Date(year, month, 0).toISOString().split('T')[0]; // last day of month
+        query = query.gte('block_date', start).lte('block_date', end);
+    }
+
+    const { data, error } = await query;
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data || []);
+});
+
+// POST /api/dashboard/availability/block
+router.post('/availability/block', async (req, res) => {
+    const { block_date, start_time, end_time, fleet_type_id, reason } = req.body;
+    if (!block_date) return res.status(400).json({ error: 'block_date required' });
+
+    const { data, error } = await supabase
+        .from('availability_blocks')
+        .insert({
+            site_id: req.siteId,
+            block_date,
+            start_time: start_time || null,
+            end_time: end_time || null,
+            fleet_type_id: fleet_type_id || null,
+            reason: reason || null
+        })
+        .select()
+        .single();
+
+    if (error) return res.status(500).json({ error: error.message });
+    res.status(201).json(data);
+});
+
+// DELETE /api/dashboard/availability/block/:id
+router.delete('/availability/block/:id', async (req, res) => {
+    const { error } = await supabase
+        .from('availability_blocks')
+        .delete()
+        .eq('id', req.params.id)
+        .eq('site_id', req.siteId);
+
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// DELETE /api/dashboard/availability/block?date=YYYY-MM-DD (clear all blocks for a date)
+router.delete('/availability/blocks', async (req, res) => {
+    const { date } = req.query;
+    if (!date) return res.status(400).json({ error: 'date query parameter required' });
+
+    const { error } = await supabase
+        .from('availability_blocks')
+        .delete()
+        .eq('site_id', req.siteId)
+        .eq('block_date', date);
 
     if (error) return res.status(500).json({ error: error.message });
     res.json({ success: true });
