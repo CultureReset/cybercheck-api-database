@@ -636,4 +636,65 @@ router.post('/tourist/register', async (req, res) => {
     });
 });
 
+// ============================================
+// POST /api/gcr/chat — GCR AI voice/text search
+// ============================================
+router.post('/chat', async (req, res) => {
+    const { message, history = [] } = req.body;
+    if (!message) return res.status(400).json({ error: 'Message required' });
+
+    if (!process.env.OPENAI_API_KEY) {
+        return res.json({ reply: "AI is being set up — check back soon!" });
+    }
+
+    const { data: businesses } = await supabase
+        .from('businesses')
+        .select(`name, type, subdomain, tagline, area, tags, happy_hour, kids_friendly, pet_friendly, live_music, outdoor, alcohol, price_range, rating, site_content(contact_phone, address, city, hours, website_url)`)
+        .eq('gcr_listed', true).eq('status', 'active').order('name');
+
+    const bizContext = (businesses || []).map(b => {
+        const c = b.site_content || {};
+        const flags = [
+            b.happy_hour    === true && 'happy hour',
+            b.live_music    === true && 'live music',
+            b.kids_friendly === true && 'kid-friendly',
+            b.pet_friendly  === true && 'pet-friendly',
+            b.outdoor       === true && 'outdoor seating',
+            b.alcohol       === true && 'full bar',
+        ].filter(Boolean).join(', ');
+        return `• ${b.name} [${b.type}] ${b.area || ''} — ${b.tagline || ''} | ${flags} | ${b.price_range || ''} | phone: ${c.contact_phone || 'n/a'}`;
+    }).join('\n');
+
+    const systemPrompt = `You are a local Gulf Coast expert for Orange Beach and Gulf Shores, Alabama — like a knowledgeable friend who knows every spot. You help tourists and visitors find exactly what they're looking for.
+
+Here are all the local businesses you know:
+${bizContext}
+
+Rules:
+- Recommend 2-3 specific businesses from the list above that best match the request
+- Include the phone number when available
+- Keep responses conversational and under 100 words
+- If too many results, ask ONE follow-up question to narrow it down
+- Never make up details not in the list
+- Be enthusiastic and local`;
+
+    try {
+        const openaiRes = await fetch('https://api.openai.com/v1/chat/completions', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + process.env.OPENAI_API_KEY },
+            body: JSON.stringify({
+                model: 'gpt-4o-mini',
+                messages: [{ role: 'system', content: systemPrompt }, ...history.slice(-6), { role: 'user', content: message }],
+                max_tokens: 300, temperature: 0.7
+            })
+        });
+        const data = await openaiRes.json();
+        if (!openaiRes.ok) throw new Error(data.error?.message || 'OpenAI error');
+        res.json({ reply: data.choices?.[0]?.message?.content || "Try rephrasing!" });
+    } catch (err) {
+        console.error('GCR chat error:', err.message);
+        res.json({ reply: "Something went wrong — try again!" });
+    }
+});
+
 module.exports = router;
