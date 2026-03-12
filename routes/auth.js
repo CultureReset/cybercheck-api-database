@@ -294,8 +294,6 @@ router.post('/forgot-password', async (req, res) => {
         .update({ reset_token: resetToken, reset_expires: resetExpires })
         .eq('id', user.id);
 
-    console.log(`Password reset token for ${email}: ${resetToken}`);
-
     res.json({ success: true, message: 'If that email exists, a reset link has been sent.' });
 });
 
