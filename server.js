@@ -14,7 +14,14 @@ const PORT = process.env.PORT || 3000;
 // CORS — allow dashboard + dev origins
 var corsOrigins = process.env.CORS_ORIGINS
     ? process.env.CORS_ORIGINS.split(',').map(function(s) { return s.trim(); })
-    : ['http://localhost:3000', 'http://localhost:5173', 'http://localhost:8080', 'http://127.0.0.1:5500', 'http://127.0.0.1:5501'];
+    : [
+        'http://localhost:3000', 'http://localhost:5173', 'http://localhost:8080',
+        'http://127.0.0.1:5500', 'http://127.0.0.1:5501',
+        'https://gulf-coast-radar-launch.vercel.app',
+        'https://gulf-coast-radar.vercel.app',
+        'https://gulfcoastradar.com',
+        'https://www.gulfcoastradar.com'
+      ];
 
 app.use(cors({
     origin: function(origin, callback) {
