@@ -13,15 +13,22 @@ router.get('/businesses', async (req, res) => {
             emoji, tagline, featured, tags, price_range, rating, review_count,
             happy_hour, kids_friendly, pet_friendly, live_music, outdoor, reservations,
             alcohol, booking_required, delivery, takeout, sort_order, gcr_listed, gcr_verified,
+            subcategory, waterfront, beachfront,
             site_content(address, city, state, zip, lat, lng, hours, theme_color, seo_description, about_text, contact_phone, website_url, social_links)`)
         .eq('status', 'active')
         .eq('gcr_listed', true)
+        .order('featured', { ascending: false })
         .order('sort_order', { ascending: true })
         .order('name', { ascending: true });
 
     if (req.query.type || req.query.category) query = query.eq('type', req.query.type || req.query.category);
-    if (req.query.search) query = query.ilike('name', `%${req.query.search}%`);
-    if (req.query.featured === 'true') query = query.eq('featured', true);
+    if (req.query.subcategory)                query = query.eq('subcategory', req.query.subcategory);
+    if (req.query.search)                     query = query.ilike('name', `%${req.query.search}%`);
+    if (req.query.featured === 'true')        query = query.eq('featured', true);
+    if (req.query.pet_friendly === 'true')    query = query.eq('pet_friendly', true);
+    if (req.query.kids_friendly === 'true')   query = query.eq('kids_friendly', true);
+    if (req.query.live_music === 'true')      query = query.eq('live_music', true);
+    if (req.query.waterfront === 'true')      query = query.eq('waterfront', true);
 
     const limit = Math.min(parseInt(req.query.limit) || 200, 500);
     const offset = parseInt(req.query.offset) || 0;
@@ -35,9 +42,10 @@ router.get('/businesses', async (req, res) => {
         delete b.site_content;
         return {
             ...b,
-            category: b.type,   // alias for GCR compatibility
-            id: b.site_id,
-            slug: b.subdomain || b.site_id,
+            category:    b.type,        // alias for GCR compatibility
+            subcategory: b.subcategory || null,
+            id:          b.site_id,
+            slug:        b.subdomain || b.site_id,
             address: content.address || '',
             city: content.city || '',
             state: content.state || '',
@@ -98,7 +106,7 @@ router.get('/specials', async (req, res) => {
         .from('specials')
         .select('*, businesses(name, emoji, type, subdomain)')
         .eq('active', true)
-        .order('sort_order', { ascending: true });
+        .order('created_at', { ascending: false });
 
     if (req.query.site_id) query = query.eq('site_id', req.query.site_id);
 
@@ -210,7 +218,80 @@ router.post('/search', async (req, res) => {
 });
 
 // ============================================
-// GET /api/gcr/business/:id — Single business detail
+// GET /api/gcr/businesses/:slug — Full business profile by slug
+// Returns: business + site_content + fleet + pricing + addons + services + reviews + specials + events
+// Used by: gcr/business.html?id=:slug
+// ============================================
+router.get('/businesses/:slug', async (req, res) => {
+    const slug = req.params.slug;
+
+    // Look up by subdomain (slug)
+    const { data: business, error: bizErr } = await supabase
+        .from('businesses')
+        .select(`site_id, name, type, subdomain, domain, logo_url, cover_url, status,
+            emoji, tagline, featured, tags, price_range, rating, review_count,
+            happy_hour, kids_friendly, pet_friendly, live_music, outdoor, reservations,
+            alcohol, booking_required, delivery, takeout, waterfront, beachfront,
+            subcategory, sort_order, gcr_listed, gcr_verified`)
+        .eq('subdomain', slug)
+        .eq('status', 'active')
+        .single();
+
+    if (bizErr || !business) {
+        return res.status(404).json({ error: 'Business not found' });
+    }
+
+    const siteId = business.site_id;
+
+    const [content, services, fleet, pricing, addons, groupRates, reviews, specials, events] = await Promise.all([
+        supabase.from('site_content').select('*').eq('site_id', siteId).single(),
+        supabase.from('services').select('*').eq('site_id', siteId).eq('active', true).order('sort_order'),
+        supabase.from('fleet_types').select('*').eq('site_id', siteId).eq('active', true).order('sort_order'),
+        supabase.from('rental_pricing').select('*, rental_time_slots(name)').eq('site_id', siteId).eq('active', true),
+        supabase.from('rental_addons').select('*').eq('site_id', siteId).eq('active', true).order('sort_order'),
+        supabase.from('rental_group_rates').select('*').eq('site_id', siteId).eq('active', true),
+        supabase.from('reviews').select('*').eq('site_id', siteId).eq('active', true).order('created_at', { ascending: false }),
+        supabase.from('specials').select('*').eq('site_id', siteId).eq('active', true).order('sort_order'),
+        supabase.from('events').select('*').eq('site_id', siteId).eq('active', true).order('event_date', { ascending: true }),
+    ]);
+
+    const c = content.data || {};
+
+    res.json({
+        ...business,
+        id:          siteId,
+        slug:        business.subdomain,
+        // flattened site_content
+        address:     c.address || '',
+        city:        c.city    || '',
+        state:       c.state   || '',
+        zip:         c.zip     || '',
+        lat:         c.lat     || null,
+        lng:         c.lng     || null,
+        phone:       c.contact_phone || '',
+        email:       c.contact_email || '',
+        website:     c.website_url   || '',
+        description: c.about_text    || c.seo_description || '',
+        hours:       c.hours         || {},
+        hours_note:  c.hours_note    || '',
+        social:      c.social_links  || {},
+        hero_text:   c.hero_text     || '',
+        hero_subtext:c.hero_subtext  || '',
+        // related data
+        services:    services.data    || [],
+        whats_included: (c.whats_included) || [],
+        fleet:       fleet.data       || [],
+        pricing:     (pricing.data || []).map(p => ({ ...p, slot_label: p.slot_label || (p.rental_time_slots && p.rental_time_slots.name) || null })),
+        addons:      addons.data      || [],
+        group_rates: groupRates.data  || [],
+        reviews:     reviews.data     || [],
+        specials:    specials.data    || [],
+        events:      events.data      || [],
+    });
+});
+
+// ============================================
+// GET /api/gcr/business/:id — Single business detail (by UUID — legacy)
 // ============================================
 router.get('/business/:id', async (req, res) => {
     const { data: business } = await supabase

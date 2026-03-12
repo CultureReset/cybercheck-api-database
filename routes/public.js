@@ -718,6 +718,89 @@ Be helpful, enthusiastic, and specific. Recommend real places. Keep responses co
     });
 });
 
+// ============================================
+// POST /api/public/gcr-chat — GCR voice/text AI search
+// Accepts: { message, history: [{role, content}] }
+// Uses OpenAI GPT-4o + all Supabase businesses as context
+// ============================================
+router.post('/gcr-chat', async (req, res) => {
+    const { message, history = [] } = req.body;
+    if (!message) return res.status(400).json({ error: 'Message required' });
+
+    if (!process.env.OPENAI_API_KEY) {
+        return res.json({ reply: "AI is being set up — check back soon!" });
+    }
+
+    // Load all GCR businesses with their key details
+    const { data: businesses } = await supabase
+        .from('businesses')
+        .select(`
+            name, type, subdomain, tagline, area, tags,
+            happy_hour, kids_friendly, pet_friendly, live_music,
+            outdoor, alcohol, price_range, rating,
+            site_content(contact_phone, address, city, hours, website_url)
+        `)
+        .eq('gcr_listed', true)
+        .eq('status', 'active')
+        .order('name');
+
+    // Build compact business context for AI
+    const bizContext = (businesses || []).map(b => {
+        const c = b.site_content || {};
+        const flags = [
+            b.happy_hour   === true && 'happy hour',
+            b.live_music   === true && 'live music',
+            b.kids_friendly === true && 'kid-friendly',
+            b.pet_friendly === true && 'pet-friendly',
+            b.outdoor      === true && 'outdoor seating',
+            b.alcohol      === true && 'full bar',
+        ].filter(Boolean).join(', ');
+        return `• ${b.name} [${b.type}] ${b.area || ''} — ${b.tagline || ''} | ${flags} | ${b.price_range || ''} | phone: ${c.contact_phone || 'n/a'}`;
+    }).join('\n');
+
+    const systemPrompt = `You are a local Gulf Coast expert for Orange Beach and Gulf Shores, Alabama — like a knowledgeable friend who knows every spot. You help tourists and visitors find exactly what they're looking for.
+
+Here are all the local businesses you know:
+${bizContext}
+
+Rules:
+- Recommend 2-3 specific businesses from the list above that best match the request
+- Include the phone number when available so they can call/book
+- Keep responses conversational and under 100 words
+- If results are too many, ask ONE follow-up question to narrow it down (party size, budget, time)
+- Never make up details not in the list
+- Be enthusiastic and local — "Flora-Bama is legendary", not just "Flora-Bama is a bar"`;
+
+    try {
+        const openaiRes = await fetch('https://api.openai.com/v1/chat/completions', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + process.env.OPENAI_API_KEY
+            },
+            body: JSON.stringify({
+                model: 'gpt-4o-mini',
+                messages: [
+                    { role: 'system', content: systemPrompt },
+                    ...history.slice(-6),
+                    { role: 'user', content: message }
+                ],
+                max_tokens: 300,
+                temperature: 0.7
+            })
+        });
+
+        const data = await openaiRes.json();
+        if (!openaiRes.ok) throw new Error(data.error?.message || 'OpenAI error');
+
+        const reply = data.choices?.[0]?.message?.content || "I had trouble with that — try rephrasing!";
+        res.json({ reply });
+    } catch (err) {
+        console.error('GCR chat error:', err.message);
+        res.status(500).json({ error: 'AI error', reply: "Something went wrong — try again!" });
+    }
+});
+
 
 // ============================================
 // GET /api/public/waivers/:token — path-based alias
