@@ -1113,6 +1113,42 @@ router.get('/bookings/:id', async (req, res) => {
     res.json(flattenBooking(data));
 });
 
+async function sendBookingConfirmations(booking, siteId) {
+    try {
+        const { sendSms, fillTemplate, buildTemplateData } = require('../utils/sms');
+
+        // messaging_settings is a JSONB column inside site_content — NOT a separate table
+        const { data: siteContent } = await supabase
+            .from('site_content')
+            .select('messaging_settings, owner_phone')
+            .eq('site_id', siteId)
+            .maybeSingle();
+
+        const settings = siteContent?.messaging_settings || {};
+        const prefs = { ...MESSAGING_DEFAULTS, ...settings };
+        const templateData = await buildTemplateData(booking, siteId);
+
+        // Customer confirmation SMS
+        if (prefs.booking_confirmation_sms && booking.customer_phone) {
+            const msg = fillTemplate(prefs.booking_confirmation_template, templateData);
+            sendSms(booking.customer_phone, msg, siteId, 'booking_confirmation', booking.id)
+                .catch(e => console.warn('Booking confirm SMS failed:', e.message));
+        }
+
+        // Owner notification SMS — notification_phone from settings takes priority over owner_phone column
+        if (prefs.owner_notification_sms) {
+            const ownerPhone = settings.notification_phone || siteContent?.owner_phone || null;
+            if (ownerPhone) {
+                const msg = fillTemplate(prefs.owner_notification_template, templateData);
+                sendSms(ownerPhone, msg, siteId, 'booking_owner_notify', booking.id)
+                    .catch(e => console.warn('Owner notify SMS failed:', e.message));
+            }
+        }
+    } catch (e) {
+        console.warn('sendBookingConfirmations error:', e.message);
+    }
+}
+
 router.post('/bookings', async (req, res) => {
     const booking = { ...req.body, site_id: req.siteId };
     delete booking.id;
@@ -1148,6 +1184,7 @@ router.post('/bookings', async (req, res) => {
             .eq('id', result.booking_id)
             .single();
 
+        sendBookingConfirmations(fullBooking, req.siteId); // fire and forget
         return res.status(201).json(fullBooking);
     }
 
@@ -1159,6 +1196,7 @@ router.post('/bookings', async (req, res) => {
         .single();
 
     if (error) return res.status(500).json({ error: error.message });
+    sendBookingConfirmations(data, req.siteId); // fire and forget
     res.status(201).json(data);
 });
 
@@ -2890,20 +2928,22 @@ router.post('/ai-chat', async (req, res) => {
     // Fetch all business data in parallel
     const [
         bizRes, contentRes, bookingsThisWeek, bookingsLastWeek,
-        revenueRes, customersRes, servicesRes, fleetRes,
-        reviewsRes, specialsRes, upcomingRes
+        revenueRes, customersRes, fleetRes, timeSlotsRes,
+        pricingRes, addonsRes, reviewsRes, upcomingRes, faqsRes
     ] = await Promise.all([
-        supabase.from('businesses').select('name, type, subdomain, tagline, plan').eq('id', siteId).single(),
-        supabase.from('site_content').select('contact_phone, address, city, hours, hours_note, description').eq('site_id', siteId).maybeSingle(),
+        supabase.from('businesses').select('name, type, subdomain, tagline, plan').eq('site_id', siteId).single(),
+        supabase.from('site_content').select('contact_phone, address, city, state, hours, hours_note, about_text, whats_included, steps, features, locations, group_rate').eq('site_id', siteId).maybeSingle(),
         supabase.from('bookings').select('id', { count: 'exact', head: true }).eq('site_id', siteId).gte('booking_date', weekAgo).not('status', 'eq', 'cancelled'),
         supabase.from('bookings').select('id', { count: 'exact', head: true }).eq('site_id', siteId).gte('booking_date', twoWeeksAgo).lt('booking_date', weekAgo).not('status', 'eq', 'cancelled'),
         supabase.from('bookings').select('total').eq('site_id', siteId).gte('booking_date', weekAgo).not('status', 'eq', 'cancelled'),
         supabase.from('customers').select('id', { count: 'exact', head: true }).eq('site_id', siteId),
-        supabase.from('services').select('name, price, duration, description').eq('site_id', siteId).eq('active', true),
-        supabase.from('fleet_types').select('name, capacity, price_per_hour, quantity').eq('site_id', siteId),
-        supabase.from('reviews').select('rating, comment, customer_name, created_at').eq('site_id', siteId).order('created_at', { ascending: false }).limit(5),
-        supabase.from('specials').select('title, description, day_of_week').eq('site_id', siteId).eq('active', true),
-        supabase.from('bookings').select('customer_name, booking_date, total, status').eq('site_id', siteId).gte('booking_date', today).order('booking_date').limit(10)
+        supabase.from('fleet_types').select('name, description, specs, image_url').eq('site_id', siteId).eq('available', true).order('sort_order', { ascending: true }),
+        supabase.from('rental_time_slots').select('id, name, start_time, end_time').eq('site_id', siteId).eq('active', true),
+        supabase.from('rental_pricing').select('fleet_type_id, time_slot_id, price').eq('site_id', siteId),
+        supabase.from('rental_addons').select('name, description, price, per_unit').eq('site_id', siteId).eq('available', true),
+        supabase.from('reviews').select('rating, text, customer_name, created_at').eq('site_id', siteId).eq('status', 'published').order('created_at', { ascending: false }).limit(5),
+        supabase.from('bookings').select('customer_name, booking_date, total, status').eq('site_id', siteId).gte('booking_date', today).order('booking_date').limit(10),
+        supabase.from('faqs').select('question, answer').eq('site_id', siteId).eq('active', true).limit(20)
     ]);
 
     const biz = bizRes.data || {};
@@ -2913,11 +2953,21 @@ router.post('/ai-chat', async (req, res) => {
         ? ((reviewsRes.data || []).reduce((s, r) => s + r.rating, 0) / reviewsRes.data.length).toFixed(1)
         : 'No reviews yet';
 
+    // Build price lookup for fleet context
+    const priceMap = {};
+    (pricingRes.data || []).forEach(p => { priceMap[`${p.fleet_type_id}_${p.time_slot_id}`] = p.price; });
+    const timeSlots = timeSlotsRes.data || [];
+
     // Build human-readable context
     let context = `BUSINESS: ${biz.name || 'Unknown'} (${biz.type || 'business'})`;
-    if (content.address) context += `\nAddress: ${content.address}, ${content.city || ''}`;
+    if (content.address) context += `\nAddress: ${content.address}${content.city ? ', ' + content.city : ''}${content.state ? ', ' + content.state : ''}`;
     if (content.contact_phone) context += `\nPhone: ${content.contact_phone}`;
-    if (content.hours) context += `\nHours: ${content.hours}`;
+    if (content.about_text) context += `\nAbout: ${content.about_text}`;
+    if (content.hours) {
+        const h = content.hours;
+        const hoursStr = typeof h === 'string' ? h : Object.entries(h).filter(([,v]) => v && !v.closed).map(([d,v]) => `${d}: ${v.open}-${v.close}`).join(', ');
+        context += `\nHours: ${hoursStr}`;
+    }
 
     context += `\n\nTHIS WEEK'S STATS:`;
     context += `\n• Bookings this week: ${bookingsThisWeek.count || 0} (last week: ${bookingsLastWeek.count || 0})`;
@@ -2925,24 +2975,56 @@ router.post('/ai-chat', async (req, res) => {
     context += `\n• Total customers: ${customersRes.count || 0}`;
     context += `\n• Average rating: ${avgRating}`;
 
-    if ((servicesRes.data || []).length) {
-        context += `\n\nSERVICES:`;
-        servicesRes.data.forEach(s => { context += `\n• ${s.name} — $${s.price}${s.duration ? ' (' + s.duration + ' min)' : ''}`; });
+    if ((fleetRes.data || []).length) {
+        context += `\n\nFLEET & PRICING:`;
+        fleetRes.data.forEach(f => {
+            const specs = f.specs || {};
+            let prices = [];
+            timeSlots.forEach(ts => {
+                const price = priceMap[`${f.id}_${ts.id}`] || specs[ts.name] || null;
+                if (price) prices.push(`${ts.name}: $${price}`);
+            });
+            if (!prices.length && specs.halfDayAM) prices.push(`Half Day AM: $${specs.halfDayAM}`);
+            if (!prices.length && specs.halfDayPM) prices.push(`Half Day PM: $${specs.halfDayPM}`);
+            if (!prices.length && specs.allDay)    prices.push(`All Day: $${specs.allDay}`);
+            context += `\n\u2022 ${f.name}${f.description ? ' \u2014 ' + f.description : ''}`;
+            if (prices.length) context += ` | Prices: ${prices.join(', ')}`;
+            if (specs.specsText) context += ` | Specs: ${specs.specsText}`;
+        });
     }
 
-    if ((fleetRes.data || []).length) {
-        context += `\n\nFLEET:`;
-        fleetRes.data.forEach(f => { context += `\n• ${f.name} — $${f.price_per_hour}/hr, capacity: ${f.capacity}, qty: ${f.quantity}`; });
+
+    if ((addonsRes.data || []).length) {
+        context += `\n\nADD-ONS AVAILABLE:`;
+        addonsRes.data.forEach(a => { context += `\n\u2022 ${a.name} \u2014 $${a.price}${a.per_unit ? ' per ' + a.per_unit : ''}${a.description ? ': ' + a.description : ''}`; });
     }
+
+
+    if (Array.isArray(content.whats_included) && content.whats_included.length) {
+        context += `\n\nWHAT'S INCLUDED: ${content.whats_included.map(i => i.title || i).join(', ')}`;
+    }
+
+
+    if (Array.isArray(content.locations) && content.locations.length) {
+        context += `\n\nLAUNCH LOCATIONS:`;
+        content.locations.forEach(l => { context += `\n• ${l.name}: ${l.address || ''}${l.description ? ' — ' + l.description : ''}`; });
+    }
+
+
+    if (content.group_rate && (content.group_rate.title || content.group_rate.price)) {
+        context += `\n\nGROUP RATES: ${content.group_rate.title || ''} — ${content.group_rate.description || ''} (from $${content.group_rate.price || 0})`;
+    }
+
+
+    if ((faqsRes.data || []).length) {
+        context += `\n\nFAQs:`;
+        faqsRes.data.forEach(q => { context += `\n• Q: ${q.question}\n  A: ${q.answer}`; });
+    }
+
 
     if ((reviewsRes.data || []).length) {
         context += `\n\nRECENT REVIEWS:`;
-        reviewsRes.data.forEach(r => { context += `\n• ${r.rating}★ from ${r.customer_name || 'Anonymous'}: "${(r.comment || '').slice(0, 100)}"`; });
-    }
-
-    if ((specialsRes.data || []).length) {
-        context += `\n\nACTIVE SPECIALS:`;
-        specialsRes.data.forEach(s => { context += `\n• ${s.title}${s.day_of_week ? ' (' + s.day_of_week + ')' : ''}: ${s.description || ''}`; });
+        reviewsRes.data.forEach(r => { context += `\n• ${r.rating}★ from ${r.customer_name || 'Anonymous'}: "${(r.text || '').slice(0, 100)}"`; });
     }
 
     if ((upcomingRes.data || []).length) {

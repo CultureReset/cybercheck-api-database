@@ -111,7 +111,7 @@ router.get('/connect-callback', async (req, res) => {
     try {
         stateData = JSON.parse(Buffer.from(state, 'base64').toString());
     } catch (e) {
-        return res.redirect('/dashboard/#connections?stripe_error=invalid_state');
+        return res.redirect(dashboardBase + '/#connections?stripe_error=invalid_state');
     }
 
     try {
