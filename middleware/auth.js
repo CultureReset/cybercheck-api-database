@@ -23,25 +23,40 @@ function authRequired(req, res, next) {
     }
 
     // Try Supabase JWT
-    supabase.auth.getUser(token).then(({ data, error }) => {
+    supabase.auth.getUser(token).then(async ({ data, error }) => {
         if (error || !data.user) {
             return res.status(401).json({ error: 'Invalid token' });
         }
-        // Look up site_id from users table
-        return supabase
+
+        // Look up site_id — first by auth_id (fast path)
+        let { data: user } = await supabase
             .from('users')
-            .select('site_id, role')
+            .select('id, site_id, role')
             .eq('auth_id', data.user.id)
-            .single()
-            .then(({ data: user, error: userErr }) => {
-                if (userErr || !user) {
-                    return res.status(401).json({ error: 'User not found' });
-                }
-                req.userId = data.user.id;
-                req.siteId = user.site_id;
-                req.role = user.role || 'owner';
-                next();
-            });
+            .maybeSingle();
+
+        // Fallback: look up by email (handles rows created before auth_id was linked)
+        if (!user && data.user.email) {
+            const { data: byEmail } = await supabase
+                .from('users')
+                .select('id, site_id, role')
+                .eq('email', data.user.email)
+                .maybeSingle();
+            if (byEmail) {
+                user = byEmail;
+                // Auto-link auth_id so future lookups use fast path
+                await supabase.from('users').update({ auth_id: data.user.id }).eq('id', byEmail.id);
+            }
+        }
+
+        if (!user) {
+            return res.status(401).json({ error: 'User not found' });
+        }
+
+        req.userId = data.user.id;
+        req.siteId = user.site_id;
+        req.role = user.role || 'owner';
+        next();
     }).catch(() => res.status(401).json({ error: 'Invalid token' }));
 }
 
