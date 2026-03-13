@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "node --watch server.js"
+    "dev": "node --watch server.js",
+    "check": "node agents/check-platform.js",
+    "check:db": "node agents/check-db.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.39.0",

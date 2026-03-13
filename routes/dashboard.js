@@ -2604,4 +2604,95 @@ router.delete('/media/:id', async (req, res) => {
     res.json({ success: true });
 });
 
+// ============================================
+// AI TRAINING — business_details, logistics, atmosphere, qa_pairs
+// ============================================
+
+// GET all AI profile data in one call
+router.get('/ai-profile', async (req, res) => {
+    const [details, logistics, atmosphere] = await Promise.all([
+        supabase.from('business_details').select('*').eq('site_id', req.siteId).maybeSingle(),
+        supabase.from('business_logistics').select('*').eq('site_id', req.siteId).maybeSingle(),
+        supabase.from('business_atmosphere').select('*').eq('site_id', req.siteId).maybeSingle(),
+    ]);
+    res.json({
+        details: details.data || {},
+        logistics: logistics.data || {},
+        atmosphere: atmosphere.data || {},
+    });
+});
+
+// PUT (upsert) all AI profile data
+router.put('/ai-profile', async (req, res) => {
+    const { details, logistics, atmosphere } = req.body;
+    const siteId = req.siteId;
+
+    const ops = [];
+
+    if (details !== undefined) {
+        ops.push(supabase.from('business_details').upsert({ ...details, site_id: siteId }, { onConflict: 'site_id' }));
+    }
+    if (logistics !== undefined) {
+        ops.push(supabase.from('business_logistics').upsert({ ...logistics, site_id: siteId }, { onConflict: 'site_id' }));
+    }
+    if (atmosphere !== undefined) {
+        ops.push(supabase.from('business_atmosphere').upsert({ ...atmosphere, site_id: siteId }, { onConflict: 'site_id' }));
+    }
+
+    const results = await Promise.all(ops);
+    const err = results.find(r => r.error);
+    if (err) return res.status(500).json({ error: err.error.message });
+
+    res.json({ success: true });
+});
+
+// GET all Q&A pairs
+router.get('/qa-pairs', async (req, res) => {
+    const { data, error } = await supabase
+        .from('qa_pairs')
+        .select('*')
+        .eq('site_id', req.siteId)
+        .order('sort_order', { ascending: true });
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data || []);
+});
+
+// POST create Q&A pair
+router.post('/qa-pairs', async (req, res) => {
+    const { question, answer, category } = req.body;
+    if (!question || !answer) return res.status(400).json({ error: 'question and answer required' });
+    const { data, error } = await supabase
+        .from('qa_pairs')
+        .insert({ site_id: req.siteId, question, answer, category: category || 'general' })
+        .select()
+        .single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
+// PUT update Q&A pair
+router.put('/qa-pairs/:id', async (req, res) => {
+    const { question, answer, category } = req.body;
+    const { data, error } = await supabase
+        .from('qa_pairs')
+        .update({ question, answer, category })
+        .eq('id', req.params.id)
+        .eq('site_id', req.siteId)
+        .select()
+        .single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
+// DELETE Q&A pair
+router.delete('/qa-pairs/:id', async (req, res) => {
+    const { error } = await supabase
+        .from('qa_pairs')
+        .delete()
+        .eq('id', req.params.id)
+        .eq('site_id', req.siteId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
 module.exports = router;
