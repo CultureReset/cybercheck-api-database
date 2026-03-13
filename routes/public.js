@@ -543,29 +543,29 @@ router.post('/bookings', async (req, res) => {
     try {
         const { sendSms, fillTemplate, buildTemplateData } = require('../utils/sms');
 
-        // Get messaging settings + owner phone for this business
-        const { data: siteContent } = await supabase
-            .from('site_content')
-            .select('messaging_settings, contact_phone')
-            .eq('site_id', req.siteId)
-            .single();
+        // Get messaging settings (notification phone) + fallback to site contact_phone
+        const [{ data: msgSettings }, { data: siteContent }] = await Promise.all([
+            supabase.from('messaging_settings').select('notification_phone, booking_confirmation_enabled, booking_confirmation_template').eq('site_id', req.siteId).maybeSingle(),
+            supabase.from('site_content').select('contact_phone').eq('site_id', req.siteId).single()
+        ]);
 
-        const settings = siteContent?.messaging_settings || {};
+        const settings = msgSettings || {};
         const templateData = await buildTemplateData(data, req.siteId);
 
         // SMS to customer
-        if (settings.notifyCustomerOnBooking !== false && data.customer_phone) {
+        if (settings.booking_confirmation_enabled !== false && data.customer_phone) {
             const defaultCustomerTpl = '[{{business_name}}] Hi {{customer_name}}! Your booking is confirmed.\n\nDate: {{date}}\nTime: {{time_slot}}\nTotal: ${{total}}\n\nQuestions? Reply to this number!\n\n🏖️ Get exclusive deals & rewards while you\'re in town!\nSign up for Gulf Coast Radar Trip Pass:\ngulfcoastradar.com/trip-pass';
-            const customerMsg = fillTemplate(settings.customerBookingTemplate || defaultCustomerTpl, templateData);
+            const customerMsg = fillTemplate(settings.booking_confirmation_template || defaultCustomerTpl, templateData);
             sendSms(data.customer_phone, customerMsg, req.siteId, 'booking_confirmation', data.id)
                 .catch(err => console.error('Customer SMS failed:', err));
         }
 
-        // SMS to business owner
-        if (settings.notifyOwnerOnBooking !== false && siteContent?.contact_phone) {
+        // SMS to business owner — use notification_phone from messaging settings, fallback to contact_phone
+        const ownerPhone = settings.notification_phone || siteContent?.contact_phone || null;
+        if (ownerPhone) {
             const defaultOwnerTpl = 'NEW BOOKING!\n\nCustomer: {{customer_name}}\nPhone: {{customer_phone}}\nDate: {{date}}\nTime: {{time_slot}}\nTotal: ${{total}}\nPayment: {{payment_status}}';
-            const ownerMsg = fillTemplate(settings.ownerBookingTemplate || defaultOwnerTpl, templateData);
-            sendSms(siteContent.contact_phone, ownerMsg, req.siteId, 'booking_owner_notify', data.id)
+            const ownerMsg = fillTemplate(defaultOwnerTpl, templateData);
+            sendSms(ownerPhone, ownerMsg, req.siteId, 'booking_owner_notify', data.id)
                 .catch(err => console.error('Owner SMS failed:', err));
         }
     } catch (smsErr) {
