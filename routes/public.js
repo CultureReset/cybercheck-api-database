@@ -384,9 +384,15 @@ router.get('/availability', async (req, res) => {
 // ============================================
 router.post('/hold', async (req, res) => {
     const { fleet_type_id, time_slot_id, booking_date, qty, session_id } = req.body;
+    const resolvedSessionId = session_id || ('session_' + Date.now() + '_' + Math.random().toString(36).slice(2, 8));
 
-    if (!fleet_type_id || !time_slot_id || !booking_date || !session_id) {
-        return res.status(400).json({ error: 'fleet_type_id, time_slot_id, booking_date, and session_id required' });
+    if (!fleet_type_id || !booking_date) {
+        return res.status(400).json({ error: 'fleet_type_id and booking_date required' });
+    }
+
+    // If no time_slot_id (e.g. duration-based rentals), skip RPC hold and return success
+    if (!time_slot_id) {
+        return res.json({ success: true, hold_id: resolvedSessionId, expires_in_seconds: 600, session_id: resolvedSessionId });
     }
 
     const { data, error } = await supabase.rpc('create_booking_hold', {
@@ -395,7 +401,7 @@ router.post('/hold', async (req, res) => {
         p_time_slot_id: time_slot_id,
         p_booking_date: booking_date,
         p_qty: qty || 1,
-        p_session_id: session_id
+        p_session_id: resolvedSessionId
     });
 
     if (error) return res.status(500).json({ error: error.message });
@@ -2083,6 +2089,31 @@ router.get('/addons', async (req, res) => {
 
     if (error) return res.status(500).json({ error: error.message });
     res.json(data || []);
+});
+
+// ============================================
+// POST /api/public/save-section — Save a CMS section (page builder)
+// ============================================
+router.post('/save-section', async (req, res) => {
+    const { section, data } = req.body;
+    if (!section || !data) return res.status(400).json({ error: 'section and data required' });
+
+    const updateMap = {
+        hero:    { hero_text: data.title, hero_subtext: data.subtitle },
+        contact: { contact_phone: data.phone, contact_email: data.email, address: data.address },
+        hours:   { hours: typeof data === 'string' ? data : JSON.stringify(data) }
+    };
+
+    const updateData = updateMap[section];
+    if (!updateData) return res.status(400).json({ error: 'Unknown section: ' + section });
+
+    const { error } = await supabase
+        .from('site_content')
+        .update({ ...updateData, updated_at: new Date().toISOString() })
+        .eq('site_id', req.siteId);
+
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
 });
 
 module.exports = router;
