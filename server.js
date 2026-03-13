@@ -102,7 +102,7 @@ app.post('/api/upload-image', (req, res) => {
 
 // Site data — read/write via Supabase (Vercel filesystem is read-only)
 const SITE_DATA_PATH = path.join(__dirname, 'site-data.json');
-const SITE_DATA_KEY = 'circle-boats';
+const SITE_DATA_KEY = '22222222-2222-2222-2222-222222222222';
 
 // Convert structured hours object → readable string for website display
 function formatHoursString(hours) {
@@ -199,12 +199,67 @@ app.get('/api/site-data', async (req, res) => {
             }
         }
 
-        // 4. Gallery from media table (only if records exist)
+        // 4. Fleet/pricing overlay — keeps website prices in sync with dashboard
+        const [fleetRes, timeSlotsRes, pricingRes, addonsRes] = await Promise.all([
+            supabase.from('fleet_types').select('id, name, description, specs, image_url').eq('site_id', siteId).eq('available', true).order('sort_order', { ascending: true }),
+            supabase.from('rental_time_slots').select('id, name').eq('site_id', siteId).eq('active', true).order('sort_order', { ascending: true }),
+            supabase.from('rental_pricing').select('fleet_type_id, time_slot_id, price').eq('site_id', siteId),
+            supabase.from('rental_addons').select('id, name, description, price, icon, category, per_unit').eq('site_id', siteId).eq('available', true).order('sort_order', { ascending: true })
+        ]);
+
+        const fleetTypes = fleetRes.data || [];
+        const timeSlots  = timeSlotsRes.data || [];
+        const pricing    = pricingRes.data || [];
+        const addons     = addonsRes.data || [];
+
+        if (fleetTypes.length > 0 && timeSlots.length > 0) {
+            // Build a price lookup: { fleet_type_id_slot_id: price }
+            const priceMap = {};
+            pricing.forEach(p => { priceMap[`${p.fleet_type_id}_${p.time_slot_id}`] = p.price; });
+
+            // Map time slot names → product price keys
+            const slotByName = {};
+            timeSlots.forEach(ts => {
+                const n = ts.name.toLowerCase();
+                if (n.includes('am') || n.includes('morning'))     slotByName.halfDayAM = ts.id;
+                else if (n.includes('pm') || n.includes('afternoon')) slotByName.halfDayPM = ts.id;
+                else if (n.includes('all') || n.includes('full'))   slotByName.allDay = ts.id;
+            });
+
+            base.products = fleetTypes.map(ft => {
+                const specs = ft.specs || {};
+                const halfDayAMPrice = (slotByName.halfDayAM && priceMap[`${ft.id}_${slotByName.halfDayAM}`]) || specs.halfDayAM || 0;
+                const halfDayPMPrice = (slotByName.halfDayPM && priceMap[`${ft.id}_${slotByName.halfDayPM}`]) || specs.halfDayPM || halfDayAMPrice;
+                const allDayPrice    = (slotByName.allDay    && priceMap[`${ft.id}_${slotByName.allDay}`])    || specs.allDay    || 0;
+                return {
+                    name:       ft.name,
+                    description: ft.description || '',
+                    image:      ft.image_url || null,
+                    specs:      specs.specsText || '',
+                    featured:   specs.featured || false,
+                    halfDayAM:  halfDayAMPrice,
+                    halfDayPM:  halfDayPMPrice,
+                    allDay:     allDayPrice
+                };
+            });
+        }
+
+        if (addons.length > 0) {
+            base.addons = addons.map(a => ({
+                icon:        a.icon || '🎁',
+                name:        a.name,
+                description: a.description || '',
+                price:       a.price,
+                unit:        a.per_unit || a.category || ''
+            }));
+        }
+
+        // 5. Gallery from media table (only if records exist)
         if (media.length > 0) {
             base.gallery = media.map(m => m.url);
         }
 
-        // 5. Published reviews (displayed on website)
+        // 6. Published reviews (displayed on website)
         if (reviews.length > 0) {
             const avgRating = reviews.reduce((sum, r) => sum + (r.rating || 0), 0) / reviews.length;
             base.reviews = reviews;
