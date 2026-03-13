@@ -75,7 +75,7 @@ router.get('/connect-url', authRequired, async (req, res) => {
     })).toString('base64');
 
     const redirectUri = process.env.STRIPE_CONNECT_REDIRECT_URI ||
-        (req.headers.origin || 'http://localhost:3000') + '/dashboard/#connections';
+        'https://cybercheck-login.vercel.app/#connections';
 
     const url = 'https://connect.stripe.com/oauth/authorize?' +
         'response_type=code&' +
@@ -372,6 +372,18 @@ router.post('/disconnect', authRequired, async (req, res) => {
 router.get('/publishable-key', (_req, res) => {
     res.json({
         publishableKey: process.env.STRIPE_PUBLISHABLE_KEY || null
+    });
+});
+
+// ============================================
+// GET /api/stripe/config
+// Public route — returns publishable key + platform config for checkout
+// ============================================
+router.get('/config', (_req, res) => {
+    res.json({
+        publishableKey: process.env.STRIPE_PUBLISHABLE_KEY || null,
+        platformFeePercent: parseFloat(process.env.PLATFORM_FEE_PERCENT || '1'),
+        currency: 'usd'
     });
 });
 

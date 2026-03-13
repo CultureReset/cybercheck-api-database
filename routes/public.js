@@ -1608,6 +1608,52 @@ router.get('/reviews-by-token', async (req, res) => {
 });
 
 // ============================================
+// POST /api/public/reviews/submit — submit a review (simplified path)
+// ============================================
+router.post('/reviews/submit', async (req, res) => {
+    const { token, rating, review_text, customer_name, customer_email } = req.body;
+
+    if (!rating || rating < 1 || rating > 5) {
+        return res.status(400).json({ error: 'Rating must be 1-5' });
+    }
+
+    if (token) {
+        const { data: review } = await supabase
+            .from('reviews')
+            .select('id')
+            .eq('review_token', token)
+            .eq('token_used', false)
+            .single();
+
+        if (!review) return res.status(400).json({ error: 'Invalid or expired review link' });
+
+        const { error } = await supabase
+            .from('reviews')
+            .update({ rating, text: review_text, status: 'pending', token_used: true, submitted_at: new Date().toISOString() })
+            .eq('id', review.id);
+
+        if (error) return res.status(500).json({ error: error.message });
+        return res.json({ success: true });
+    }
+
+    const siteId = req.siteId;
+    if (!siteId) return res.status(400).json({ error: 'subdomain required' });
+
+    const { error } = await supabase.from('reviews').insert({
+        site_id: siteId,
+        customer_name: customer_name || 'Anonymous',
+        customer_email: customer_email || null,
+        rating,
+        text: review_text,
+        status: 'pending',
+        submitted_at: new Date().toISOString()
+    });
+
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ============================================
 // POST /api/public/review — Submit review (with token support & photo uploads)
 // ============================================
 router.post('/review', async (req, res) => {

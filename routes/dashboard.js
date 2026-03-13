@@ -1351,6 +1351,90 @@ router.delete('/reviews/:id', async (req, res) => {
 });
 
 // ============================================
+// GET /api/dashboard/reviews/pending
+// Returns bookings that haven't had a review request sent yet
+// ============================================
+router.get('/reviews/pending', async (req, res) => {
+    const { data, error } = await supabase
+        .from('bookings')
+        .select('id, customer_name, customer_phone, customer_email, booking_date, status, total')
+        .eq('site_id', req.siteId)
+        .in('status', ['confirmed', 'checked_in', 'completed'])
+        .not('id', 'in', supabase.from('reviews').select('booking_id').eq('site_id', req.siteId).not('booking_id', 'is', null));
+
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data || []);
+});
+
+// ============================================
+// POST /api/dashboard/reviews/send-request
+// Send a review request SMS/email to a customer after their booking
+// ============================================
+router.post('/reviews/send-request', async (req, res) => {
+    const { booking_id } = req.body;
+    if (!booking_id) return res.status(400).json({ error: 'booking_id required' });
+
+    const { sendSms } = require('../utils/sms');
+    const crypto = require('crypto');
+
+    const { data: booking, error: bookingErr } = await supabase
+        .from('bookings')
+        .select('id, customer_name, customer_phone, customer_email')
+        .eq('id', booking_id)
+        .eq('site_id', req.siteId)
+        .single();
+
+    if (bookingErr || !booking) return res.status(404).json({ error: 'Booking not found' });
+
+    // Check if review request already sent
+    const { data: existing } = await supabase
+        .from('reviews')
+        .select('id')
+        .eq('booking_id', booking_id)
+        .eq('site_id', req.siteId)
+        .single();
+
+    if (existing) return res.status(409).json({ error: 'Review request already sent for this booking' });
+
+    const token = crypto.randomBytes(24).toString('hex');
+
+    const { data: biz } = await supabase
+        .from('businesses')
+        .select('subdomain, name')
+        .eq('site_id', req.siteId)
+        .single();
+
+    const baseUrl = process.env.PUBLIC_SITE_BASE_URL || ('https://' + (biz?.subdomain || 'site') + '.cybercheck.com');
+    const reviewLink = `${baseUrl}/review?token=${token}`;
+
+    await supabase.from('reviews').insert({
+        site_id: req.siteId,
+        booking_id,
+        customer_name: booking.customer_name,
+        customer_email: booking.customer_email,
+        phone: booking.customer_phone,
+        review_token: token,
+        token_used: false,
+        status: 'pending'
+    });
+
+    let sms_sent = false;
+    if (booking.customer_phone) {
+        const name = booking.customer_name ? `, ${booking.customer_name.split(' ')[0]}` : '';
+        await sendSms(
+            booking.customer_phone,
+            `Hi${name}! Thanks for visiting ${biz?.name || 'us'}. We'd love your feedback: ${reviewLink}`,
+            req.siteId,
+            'review_request',
+            booking_id
+        ).catch(e => console.warn('Review SMS failed:', e.message));
+        sms_sent = true;
+    }
+
+    res.json({ success: true, review_link: reviewLink, sms_sent });
+});
+
+// ============================================
 // REVIEW QUESTIONS — Custom per-business questions
 // ============================================
 
