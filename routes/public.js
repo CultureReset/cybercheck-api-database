@@ -348,7 +348,9 @@ router.get('/availability', async (req, res) => {
         .eq('specific_date', date)
         .eq('blocked', true);
 
-    const blockedSet = new Set((blocked || []).map(b => b.service_id));
+    // blockAll = whole-date block (no specific fleet); blockedSet = specific fleet type blocked
+    const blockAll = (blocked || []).some(b => !b.service_id);
+    const blockedSet = new Set((blocked || []).filter(b => b.service_id).map(b => b.service_id));
 
     const availability = [];
     (fleetTypes || []).forEach(ft => {
@@ -368,7 +370,7 @@ router.get('/availability', async (req, res) => {
                 total,
                 booked: used,
                 available: remaining,
-                blocked: blockedSet.has(ft.id)
+                blocked: blockAll || blockedSet.has(ft.id)
             });
         });
     });
@@ -446,22 +448,24 @@ router.post('/bookings', async (req, res) => {
         payment_status: 'unpaid'
     };
 
-    // Upsert customer
+    // Upsert customer — single query instead of check+insert to reduce latency
     let customerId = null;
-    if (booking.customer_email) {
+    const customerKey = booking.customer_email || booking.customer_phone;
+    if (customerKey) {
+        const matchCol = booking.customer_email ? 'email' : 'phone';
         const { data: existingCustomer } = await supabase
             .from('customers')
             .select('id')
             .eq('site_id', req.siteId)
-            .eq('email', booking.customer_email)
-            .single();
+            .eq(matchCol, customerKey)
+            .maybeSingle();
 
         if (existingCustomer) {
             customerId = existingCustomer.id;
-            await supabase.rpc('increment_customer_bookings', {
+            supabase.rpc('increment_customer_bookings', {
                 customer_uuid: existingCustomer.id,
                 amount: booking.total || 0
-            }).catch(() => {});
+            }).catch(() => {});  // fire-and-forget
         } else {
             const { data: newCustomer } = await supabase
                 .from('customers')
@@ -469,13 +473,12 @@ router.post('/bookings', async (req, res) => {
                     site_id: req.siteId,
                     name: booking.customer_name,
                     phone: booking.customer_phone,
-                    email: booking.customer_email,
+                    email: booking.customer_email || null,
                     total_bookings: 1,
                     total_spent: booking.total || 0
                 })
                 .select('id')
                 .single();
-
             if (newCustomer) customerId = newCustomer.id;
         }
     }
@@ -507,12 +510,9 @@ router.post('/bookings', async (req, res) => {
         });
 
         if (rpcError) {
-            // RPC failed — fall back to direct insert
-            console.warn('RPC create_booking_if_available failed, falling back to direct insert:', rpcError.message);
-            booking.customer_id = customerId;
-            const insertResult = await supabase.from('bookings').insert(booking).select().single();
-            data = insertResult.data;
-            error = insertResult.error;
+            // RPC failed — return error, never bypass inventory check with direct insert
+            console.error('RPC create_booking_if_available failed:', rpcError.message);
+            return res.status(500).json({ error: 'Booking system temporarily unavailable. Please try again in a moment.' });
         } else if (!result.success) {
             return res.status(409).json({ error: result.error, available: result.available });
         } else {
@@ -1876,15 +1876,18 @@ router.post('/loyalty/signup', async (req, res) => {
 // GET /api/public/loyalty/balance — Check loyalty balance by email
 // ============================================
 router.get('/loyalty/balance', async (req, res) => {
-    const email = req.query.email;
-    if (!email) return res.status(400).json({ error: 'email query param required' });
+    const { email, phone } = req.query;
+    if (!email && !phone) return res.status(400).json({ error: 'email or phone query param required' });
 
-    const { data: customer } = await supabase
+    let query = supabase
         .from('customers')
         .select('name, total_bookings, total_spent, tags')
-        .eq('site_id', req.siteId)
-        .eq('email', email)
-        .single();
+        .eq('site_id', req.siteId);
+
+    if (email) query = query.eq('email', email);
+    else query = query.eq('phone', phone);
+
+    const { data: customer } = await query.maybeSingle();
 
     if (!customer) {
         return res.status(404).json({ error: 'Customer not found' });

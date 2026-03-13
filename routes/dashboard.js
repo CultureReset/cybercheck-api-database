@@ -1538,10 +1538,10 @@ async function generateWaiverLink(siteId, booking_id) {
     const baseUrl = process.env.PUBLIC_SITE_BASE_URL || ('https://' + (biz?.subdomain || 'site') + '.cybercheck.com');
     const link = baseUrl + '/waiver?token=' + token + '&booking=' + booking_id;
 
-    // Send SMS to customer if phone is available
+    // Send SMS to customer — fire and forget, don't block the response
     if (booking.customer_phone) {
         const name = booking.customer_name ? `, ${booking.customer_name.split(' ')[0]}` : '';
-        await sendSms(
+        sendSms(
             booking.customer_phone,
             `Hi${name}! Please sign your waiver before your rental: ${link}`,
             siteId,
