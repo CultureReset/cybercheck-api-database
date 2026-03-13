@@ -20,7 +20,9 @@ var corsOrigins = process.env.CORS_ORIGINS
         'https://gulf-coast-radar-launch.vercel.app',
         'https://gulf-coast-radar.vercel.app',
         'https://gulfcoastradar.com',
-        'https://www.gulfcoastradar.com'
+        'https://www.gulfcoastradar.com',
+        'https://cybercheck-login.vercel.app',
+        'https://circle-boats-main.vercel.app'
       ];
 
 app.use(cors({

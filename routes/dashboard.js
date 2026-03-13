@@ -2720,4 +2720,121 @@ router.delete('/availability/blocks', async (req, res) => {
     res.json({ success: true });
 });
 
+// ============================================
+// POST /api/dashboard/ai-chat — Business owner AI assistant
+// ============================================
+router.post('/ai-chat', async (req, res) => {
+    const { message, history = [] } = req.body;
+    if (!message) return res.status(400).json({ error: 'Message required' });
+
+    if (!process.env.OPENAI_API_KEY) {
+        return res.json({ reply: "AI assistant is being set up — check back soon!" });
+    }
+
+    const siteId = req.siteId;
+    const today = new Date().toISOString().split('T')[0];
+    const weekAgo = new Date(Date.now() - 7 * 86400000).toISOString().split('T')[0];
+    const twoWeeksAgo = new Date(Date.now() - 14 * 86400000).toISOString().split('T')[0];
+
+    // Fetch all business data in parallel
+    const [
+        bizRes, contentRes, bookingsThisWeek, bookingsLastWeek,
+        revenueRes, customersRes, servicesRes, fleetRes,
+        reviewsRes, specialsRes, upcomingRes
+    ] = await Promise.all([
+        supabase.from('businesses').select('name, type, subdomain, tagline, plan').eq('id', siteId).single(),
+        supabase.from('site_content').select('contact_phone, address, city, hours, hours_note, description').eq('site_id', siteId).maybeSingle(),
+        supabase.from('bookings').select('id', { count: 'exact', head: true }).eq('site_id', siteId).gte('booking_date', weekAgo).not('status', 'eq', 'cancelled'),
+        supabase.from('bookings').select('id', { count: 'exact', head: true }).eq('site_id', siteId).gte('booking_date', twoWeeksAgo).lt('booking_date', weekAgo).not('status', 'eq', 'cancelled'),
+        supabase.from('bookings').select('total').eq('site_id', siteId).gte('booking_date', weekAgo).not('status', 'eq', 'cancelled'),
+        supabase.from('customers').select('id', { count: 'exact', head: true }).eq('site_id', siteId),
+        supabase.from('services').select('name, price, duration, description').eq('site_id', siteId).eq('active', true),
+        supabase.from('fleet_types').select('name, capacity, price_per_hour, quantity').eq('site_id', siteId),
+        supabase.from('reviews').select('rating, comment, customer_name, created_at').eq('site_id', siteId).order('created_at', { ascending: false }).limit(5),
+        supabase.from('specials').select('title, description, day_of_week').eq('site_id', siteId).eq('active', true),
+        supabase.from('bookings').select('customer_name, booking_date, total, status').eq('site_id', siteId).gte('booking_date', today).order('booking_date').limit(10)
+    ]);
+
+    const biz = bizRes.data || {};
+    const content = contentRes.data || {};
+    const weekRevenue = (revenueRes.data || []).reduce((s, b) => s + (b.total || 0), 0);
+    const avgRating = (reviewsRes.data || []).length > 0
+        ? ((reviewsRes.data || []).reduce((s, r) => s + r.rating, 0) / reviewsRes.data.length).toFixed(1)
+        : 'No reviews yet';
+
+    // Build human-readable context
+    let context = `BUSINESS: ${biz.name || 'Unknown'} (${biz.type || 'business'})`;
+    if (content.address) context += `\nAddress: ${content.address}, ${content.city || ''}`;
+    if (content.contact_phone) context += `\nPhone: ${content.contact_phone}`;
+    if (content.hours) context += `\nHours: ${content.hours}`;
+
+    context += `\n\nTHIS WEEK'S STATS:`;
+    context += `\n• Bookings this week: ${bookingsThisWeek.count || 0} (last week: ${bookingsLastWeek.count || 0})`;
+    context += `\n• Revenue this week: $${Math.round(weekRevenue)}`;
+    context += `\n• Total customers: ${customersRes.count || 0}`;
+    context += `\n• Average rating: ${avgRating}`;
+
+    if ((servicesRes.data || []).length) {
+        context += `\n\nSERVICES:`;
+        servicesRes.data.forEach(s => { context += `\n• ${s.name} — $${s.price}${s.duration ? ' (' + s.duration + ' min)' : ''}`; });
+    }
+
+    if ((fleetRes.data || []).length) {
+        context += `\n\nFLEET:`;
+        fleetRes.data.forEach(f => { context += `\n• ${f.name} — $${f.price_per_hour}/hr, capacity: ${f.capacity}, qty: ${f.quantity}`; });
+    }
+
+    if ((reviewsRes.data || []).length) {
+        context += `\n\nRECENT REVIEWS:`;
+        reviewsRes.data.forEach(r => { context += `\n• ${r.rating}★ from ${r.customer_name || 'Anonymous'}: "${(r.comment || '').slice(0, 100)}"`; });
+    }
+
+    if ((specialsRes.data || []).length) {
+        context += `\n\nACTIVE SPECIALS:`;
+        specialsRes.data.forEach(s => { context += `\n• ${s.title}${s.day_of_week ? ' (' + s.day_of_week + ')' : ''}: ${s.description || ''}`; });
+    }
+
+    if ((upcomingRes.data || []).length) {
+        context += `\n\nUPCOMING BOOKINGS:`;
+        upcomingRes.data.forEach(b => { context += `\n• ${b.booking_date} — ${b.customer_name || 'Unknown'} ($${b.total || 0}) [${b.status}]`; });
+    }
+
+    const systemPrompt = `You are the AI business assistant for ${biz.name || 'this business'}. You're a smart, friendly advisor who knows everything about the owner's business.
+
+YOUR DATA (use this to answer questions — never make up numbers):
+${context}
+
+WHAT YOU CAN HELP WITH:
+- Business questions ("How many bookings this week?" "What's my revenue?")
+- Comparisons ("Am I doing better than last week?")
+- Marketing help ("Write me an Instagram post" "Help me respond to this review")
+- Pricing advice ("Should I raise my prices?" "What should I charge for a new service?")
+- Strategy ("How can I get more bookings?" "What days are slowest?")
+
+STYLE:
+- Be direct and specific — use the actual numbers from their data
+- Keep it concise (2-4 sentences unless they ask for something longer like a social post)
+- Be encouraging but honest
+- If you don't have enough data to answer, say so
+- Always be actionable — give them something they can DO`;
+
+    try {
+        const openaiRes = await fetch('https://api.openai.com/v1/chat/completions', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + process.env.OPENAI_API_KEY },
+            body: JSON.stringify({
+                model: 'gpt-4o-mini',
+                messages: [{ role: 'system', content: systemPrompt }, ...history.slice(-10), { role: 'user', content: message }],
+                max_tokens: 500, temperature: 0.7
+            })
+        });
+        const data = await openaiRes.json();
+        if (!openaiRes.ok) throw new Error(data.error?.message || 'OpenAI error');
+        res.json({ reply: data.choices?.[0]?.message?.content || "Try rephrasing!" });
+    } catch (err) {
+        console.error('Dashboard AI chat error:', err.message);
+        res.json({ reply: "Something went wrong — try again!" });
+    }
+});
+
 module.exports = router;
