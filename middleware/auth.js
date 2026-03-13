@@ -1,10 +1,5 @@
 const jwt = require('jsonwebtoken');
-const { createClient } = require('@supabase/supabase-js');
-
-const _supabaseAdmin = createClient(
-    process.env.SUPABASE_URL,
-    process.env.SUPABASE_SERVICE_KEY
-);
+const supabase = require('../db');
 
 // Verify JWT and attach site_id to request
 // Accepts both Express JWTs (JWT_SECRET) and Supabase JWTs
@@ -28,12 +23,12 @@ function authRequired(req, res, next) {
     }
 
     // Try Supabase JWT
-    _supabaseAdmin.auth.getUser(token).then(({ data, error }) => {
+    supabase.auth.getUser(token).then(({ data, error }) => {
         if (error || !data.user) {
             return res.status(401).json({ error: 'Invalid token' });
         }
         // Look up site_id from users table
-        return _supabaseAdmin
+        return supabase
             .from('users')
             .select('site_id, role')
             .eq('auth_id', data.user.id)
