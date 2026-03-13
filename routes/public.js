@@ -348,7 +348,9 @@ router.get('/availability', async (req, res) => {
         .eq('specific_date', date)
         .eq('blocked', true);
 
-    const blockedSet = new Set((blocked || []).map(b => b.service_id));
+    // blockAll = whole-date block (no specific fleet); blockedSet = specific fleet type blocked
+    const blockAll = (blocked || []).some(b => !b.service_id);
+    const blockedSet = new Set((blocked || []).filter(b => b.service_id).map(b => b.service_id));
 
     const availability = [];
     (fleetTypes || []).forEach(ft => {
@@ -368,7 +370,7 @@ router.get('/availability', async (req, res) => {
                 total,
                 booked: used,
                 available: remaining,
-                blocked: blockedSet.has(ft.id)
+                blocked: blockAll || blockedSet.has(ft.id)
             });
         });
     });
@@ -446,22 +448,24 @@ router.post('/bookings', async (req, res) => {
         payment_status: 'unpaid'
     };
 
-    // Upsert customer
+    // Upsert customer — single query instead of check+insert to reduce latency
     let customerId = null;
-    if (booking.customer_email) {
+    const customerKey = booking.customer_email || booking.customer_phone;
+    if (customerKey) {
+        const matchCol = booking.customer_email ? 'email' : 'phone';
         const { data: existingCustomer } = await supabase
             .from('customers')
             .select('id')
             .eq('site_id', req.siteId)
-            .eq('email', booking.customer_email)
-            .single();
+            .eq(matchCol, customerKey)
+            .maybeSingle();
 
         if (existingCustomer) {
             customerId = existingCustomer.id;
-            await supabase.rpc('increment_customer_bookings', {
+            supabase.rpc('increment_customer_bookings', {
                 customer_uuid: existingCustomer.id,
                 amount: booking.total || 0
-            }).catch(() => {});
+            }).catch(() => {});  // fire-and-forget
         } else {
             const { data: newCustomer } = await supabase
                 .from('customers')
@@ -469,13 +473,12 @@ router.post('/bookings', async (req, res) => {
                     site_id: req.siteId,
                     name: booking.customer_name,
                     phone: booking.customer_phone,
-                    email: booking.customer_email,
+                    email: booking.customer_email || null,
                     total_bookings: 1,
                     total_spent: booking.total || 0
                 })
                 .select('id')
                 .single();
-
             if (newCustomer) customerId = newCustomer.id;
         }
     }
@@ -484,7 +487,7 @@ router.post('/bookings', async (req, res) => {
     let data, error;
 
     if (booking.fleet_type_id && booking.time_slot_id && booking.booking_date) {
-        // ATOMIC: check availability + insert in one transaction (prevents overbooking)
+        // Try atomic RPC first (prevents overbooking), fall back to direct insert if RPC missing/timeout
         const { data: result, error: rpcError } = await supabase.rpc('create_booking_if_available', {
             p_site_id: req.siteId,
             p_fleet_type_id: booking.fleet_type_id,
@@ -507,16 +510,13 @@ router.post('/bookings', async (req, res) => {
         });
 
         if (rpcError) {
-            error = rpcError;
+            // RPC failed — return error, never bypass inventory check with direct insert
+            console.error('RPC create_booking_if_available failed:', rpcError.message);
+            return res.status(500).json({ error: 'Booking system temporarily unavailable. Please try again in a moment.' });
         } else if (!result.success) {
             return res.status(409).json({ error: result.error, available: result.available });
         } else {
-            // Fetch the full booking record
-            const { data: fullBooking } = await supabase
-                .from('bookings')
-                .select()
-                .eq('id', result.booking_id)
-                .single();
+            const { data: fullBooking } = await supabase.from('bookings').select().eq('id', result.booking_id).single();
             data = fullBooking;
         }
     } else {
@@ -549,7 +549,7 @@ router.post('/bookings', async (req, res) => {
 
         // SMS to customer
         if (settings.notifyCustomerOnBooking !== false && data.customer_phone) {
-            const defaultCustomerTpl = '[{{business_name}}] Hi {{customer_name}}! Your booking is confirmed.\n\nDate: {{date}}\nTime: {{time_slot}}\nTotal: ${{total}}\n\nQuestions? Reply to this number!';
+            const defaultCustomerTpl = '[{{business_name}}] Hi {{customer_name}}! Your booking is confirmed.\n\nDate: {{date}}\nTime: {{time_slot}}\nTotal: ${{total}}\n\nQuestions? Reply to this number!\n\n🏖️ Get exclusive deals & rewards while you\'re in town!\nSign up for Gulf Coast Radar Trip Pass:\ngulfcoastradar.com/trip-pass';
             const customerMsg = fillTemplate(settings.customerBookingTemplate || defaultCustomerTpl, templateData);
             sendSms(data.customer_phone, customerMsg, req.siteId, 'booking_confirmation', data.id)
                 .catch(err => console.error('Customer SMS failed:', err));
@@ -594,23 +594,757 @@ router.post('/contact', async (req, res) => {
 });
 
 // ============================================
-// POST /api/public/chat — AI chatbot message
+// POST /api/public/chat — Tourist AI chat (Grok) or business public chat
+// Accepts: { session_id, message } for tourist sessions
+//          { site_id, message, conversation_id } for business page chatbots
 // ============================================
 router.post('/chat', async (req, res) => {
-    const { message, conversation_id } = req.body;
+    const { message, session_id, site_id, conversation_id } = req.body;
 
     if (!message) {
         return res.status(400).json({ error: 'Message required' });
     }
 
-    // TODO: Implement AI chat with business context
-    // For now, return a placeholder
-    res.json({
-        reply: "Thanks for your message! I'm being set up to help answer questions about this business. Please try again soon or contact us directly.",
-        conversation_id: conversation_id || crypto.randomUUID()
-    });
+    // ---- Tourist session chat (Grok) ----
+    if (session_id) {
+        const { data: session } = await supabase
+            .from('tourist_sessions')
+            .select('*')
+            .eq('session_id', session_id)
+            .single();
+
+        if (!session) {
+            return res.status(404).json({ error: 'Session not found' });
+        }
+
+        // Load conversation history
+        const { data: history } = await supabase
+            .from('tourist_conversations')
+            .select('role, content')
+            .eq('session_id', session.id)
+            .order('created_at', { ascending: true })
+            .limit(20);
+
+        // Load relevant businesses based on interests
+        let businessContext = '';
+        const interests = session.interests || [];
+        if (interests.length > 0) {
+            const categoryMap = {
+                'food': 'restaurants', 'dining': 'restaurants', 'restaurants': 'restaurants',
+                'boats': 'things-to-do', 'rentals': 'things-to-do', 'activities': 'things-to-do',
+                'nightlife': 'nightlife', 'bars': 'nightlife',
+                'shopping': 'shopping', 'coffee': 'coffee-sweets'
+            };
+            const types = [...new Set(interests.map(i => categoryMap[i.toLowerCase()] || 'other'))];
+            const { data: bizList } = await supabase
+                .from('businesses')
+                .select('name, type, site_content(city, state, address, contact_phone, seo_description, hours)')
+                .eq('status', 'active')
+                .eq('gcr_listed', true)
+                .in('type', types)
+                .limit(15);
+
+            if (bizList && bizList.length > 0) {
+                businessContext = '\n\nLocal businesses:\n' + bizList.map(b => {
+                    const c = b.site_content || {};
+                    return `- ${b.name} (${b.type}): ${c.seo_description || ''} | ${c.address || ''} | ${c.contact_phone || ''} | Hours: ${c.hours || 'call ahead'}`;
+                }).join('\n');
+            }
+        }
+
+        const systemPrompt = `You are a friendly Gulf Coast trip assistant for Orange Beach and Gulf Shores, Alabama. You know everything about local restaurants, boat rentals, fishing charters, activities, and events.
+
+Tourist info:
+- Name: ${session.name}
+- Visitor type: ${session.visitor_type || 'tourist'}
+- Interests: ${(session.interests || []).join(', ') || 'general'}
+- Trip dates: ${session.checkin || 'unknown'} to ${session.checkout || 'unknown'}
+${businessContext}
+
+Be helpful, enthusiastic, and specific. Recommend real places. Keep responses concise and friendly. You can help them plan their trip and point them to the right businesses.`;
+
+        const messages = [
+            ...(history || []).map(h => ({ role: h.role, content: h.content })),
+            { role: 'user', content: message }
+        ];
+
+        // Save user message
+        await supabase.from('tourist_conversations').insert({
+            session_id: session.id,
+            role: 'user',
+            content: message
+        });
+
+        // Call Grok API
+        if (!process.env.GROK_API_KEY) {
+            return res.json({ reply: "I'm getting set up! Check back soon for personalized Gulf Coast recommendations.", session_id });
+        }
+
+        try {
+            const grokRes = await fetch('https://api.x.ai/v1/chat/completions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + process.env.GROK_API_KEY
+                },
+                body: JSON.stringify({
+                    model: 'grok-2-latest',
+                    messages: [{ role: 'system', content: systemPrompt }, ...messages],
+                    max_tokens: 500,
+                    temperature: 0.8
+                })
+            });
+            const grokData = await grokRes.json();
+            const reply = grokData.choices?.[0]?.message?.content || "I had trouble getting that. Try asking again!";
+
+            // Save assistant response
+            await supabase.from('tourist_conversations').insert({
+                session_id: session.id,
+                role: 'assistant',
+                content: reply
+            });
+
+            return res.json({ reply, session_id });
+        } catch (err) {
+            console.error('Grok error:', err.message);
+            return res.status(500).json({ error: 'AI service error', session_id });
+        }
+    }
+
+    // ---- Business page AI agent (function calling) ----
+    if (!site_id) {
+        return res.json({ reply: "Thanks for your message! Please call us directly or use our booking form." });
+    }
+
+    if (!process.env.OPENAI_API_KEY) {
+        return res.json({ reply: "Our assistant is being set up — please call us directly!" });
+    }
+
+    const history = req.body.history || [];
+
+    // Resolve site_id (could be subdomain string or UUID)
+    let siteQuery = supabase.from('businesses').select('id, name, type, subdomain, tagline');
+    if (site_id.length > 30) siteQuery = siteQuery.eq('id', site_id);
+    else siteQuery = siteQuery.eq('subdomain', site_id);
+    const { data: biz } = await siteQuery.single();
+
+    if (!biz) return res.json({ reply: "Sorry, I couldn't find this business." });
+
+    // Load ALL business data for context — the AI should know everything the website knows
+    const [contentRes, servicesRes, fleetRes, faqRes, reviewsRes, detailsRes, logisticsRes, atmosphereRes] = await Promise.all([
+        supabase.from('site_content').select('contact_phone, address, city, hours, hours_note, description, website_url').eq('site_id', biz.id).maybeSingle(),
+        supabase.from('services').select('id, name, price, duration, description, whats_included').eq('site_id', biz.id).eq('active', true),
+        supabase.from('fleet_types').select('id, name, capacity, price_per_hour, quantity, description').eq('site_id', biz.id),
+        supabase.from('qa_pairs').select('question, answer, category').eq('site_id', biz.id).limit(30),
+        supabase.from('reviews').select('rating, comment, customer_name').eq('site_id', biz.id).order('created_at', { ascending: false }).limit(5),
+        supabase.from('business_details').select('*').eq('site_id', biz.id).maybeSingle(),
+        supabase.from('business_logistics').select('*').eq('site_id', biz.id).maybeSingle(),
+        supabase.from('business_atmosphere').select('*').eq('site_id', biz.id).maybeSingle()
+    ]);
+
+    const c = contentRes.data || {};
+    const details = detailsRes.data || {};
+    const logistics = logisticsRes.data || {};
+    const atmo = atmosphereRes.data || {};
+
+    let ctx = `BUSINESS: ${biz.name}\nType: ${biz.type}\nTagline: ${biz.tagline || ''}`;
+    if (c.address) ctx += `\nAddress: ${c.address}, ${c.city || ''}`;
+    if (c.contact_phone) ctx += `\nPhone: ${c.contact_phone}`;
+    if (c.hours) ctx += `\nHours: ${c.hours}`;
+    if (c.hours_note) ctx += ` (${c.hours_note})`;
+    if (c.description) ctx += `\nAbout: ${c.description}`;
+    if (c.website_url) ctx += `\nWebsite: ${c.website_url}`;
+
+    // Business personality & insider info
+    if (details.elevator_pitch || details.vibe_description || details.who_its_for) {
+        ctx += '\n\nABOUT THIS PLACE:';
+        if (details.elevator_pitch) ctx += `\n${details.elevator_pitch}`;
+        if (details.vibe_description) ctx += `\nVibe: ${details.vibe_description}`;
+        if (details.who_its_for) ctx += `\nBest for: ${details.who_its_for}`;
+        if (details.what_to_expect) ctx += `\nWhat to expect: ${details.what_to_expect}`;
+        if (details.signature_dish) ctx += `\nSignature dish: ${details.signature_dish}`;
+        if (details.signature_drink) ctx += `\nSignature drink: ${details.signature_drink}`;
+        if (details.must_try && details.must_try.length) ctx += `\nMust try: ${details.must_try.join(', ')}`;
+        if (details.insider_tip) ctx += `\nInsider tip: ${details.insider_tip}`;
+        if (details.pro_tip) ctx += `\nPro tip: ${details.pro_tip}`;
+        if (details.best_time_of_day) ctx += `\nBest time to visit: ${details.best_time_of_day}`;
+        if (details.avg_wait_time) ctx += `\nTypical wait: ${details.avg_wait_time}`;
+        if (details.avg_visit_duration) ctx += `\nTypical visit: ${details.avg_visit_duration}`;
+        if (details.years_in_business) ctx += `\nIn business ${details.years_in_business} years`;
+        if (details.owner_name) ctx += `\nOwner: ${details.owner_name}`;
+        if (details.awards && details.awards.length) ctx += `\nAwards: ${details.awards.join(', ')}`;
+    }
+
+    // Logistics — parking, accessibility, directions
+    if (logistics.parking_type || logistics.directions_note || logistics.wheelchair_accessible !== undefined) {
+        ctx += '\n\nGETTING HERE & ACCESS:';
+        if (logistics.parking_type) ctx += `\nParking: ${logistics.parking_type}${logistics.parking_notes ? ' — ' + logistics.parking_notes : ''}`;
+        if (logistics.parking_lot_size) ctx += ` (${logistics.parking_lot_size} lot)`;
+        if (logistics.directions_note) ctx += `\nDirections: ${logistics.directions_note}`;
+        if (logistics.landmark) ctx += `\nLandmark: ${logistics.landmark}`;
+        if (logistics.distance_from_beach) ctx += `\nDistance from beach: ${logistics.distance_from_beach}`;
+        if (logistics.distance_from_wharf) ctx += `\nDistance from The Wharf: ${logistics.distance_from_wharf}`;
+        if (logistics.wheelchair_accessible) ctx += `\nWheelchair accessible: Yes`;
+        if (logistics.stroller_friendly) ctx += `\nStroller friendly: Yes`;
+        if (logistics.waterfront_access) ctx += `\nWaterfront access: Yes`;
+        if (logistics.dock_available) ctx += `\nDock available: Yes`;
+        if (logistics.boat_accessible) ctx += `\nBoat accessible: Yes`;
+        if (logistics.golf_cart_parking) ctx += `\nGolf cart parking: Yes`;
+        if (logistics.reservations) ctx += `\nReservations: ${logistics.reservations}`;
+    }
+
+    // Atmosphere
+    if (atmo.noise_level || atmo.dress_code || atmo.live_music) {
+        ctx += '\n\nATMOSPHERE:';
+        if (atmo.noise_level) ctx += `\nNoise level: ${atmo.noise_level}`;
+        if (atmo.dress_code) ctx += `\nDress code: ${atmo.dress_code}`;
+        if (atmo.seating_types && atmo.seating_types.length) ctx += `\nSeating: ${atmo.seating_types.join(', ')}`;
+        if (atmo.live_music) ctx += `\nLive music: Yes${atmo.live_music_schedule ? ' — ' + atmo.live_music_schedule : ''}${atmo.live_music_genre ? ' (' + atmo.live_music_genre + ')' : ''}`;
+        if (atmo.outdoor_seating) ctx += `\nOutdoor seating: Yes${atmo.covered_outdoor ? ' (covered)' : ''}`;
+        if (atmo.ocean_view) ctx += `\nOcean view: Yes`;
+        if (atmo.bay_view) ctx += `\nBay view: Yes`;
+        if (atmo.sunset_view) ctx += `\nSunset view: Yes`;
+        if (atmo.wifi) ctx += `\nFree WiFi: Yes`;
+        if (atmo.sports_tv) ctx += `\nSports TVs: Yes`;
+        if (atmo.trivia_night) ctx += `\nTrivia night: ${atmo.trivia_night}`;
+        if (atmo.karaoke) ctx += `\nKaraoke: Yes`;
+        if (atmo.fire_pit) ctx += `\nFire pit: Yes`;
+        if (atmo.arcade_games) ctx += `\nArcade games: Yes`;
+        if (atmo.pool_table) ctx += `\nPool table: Yes`;
+    }
+
+    if ((servicesRes.data || []).length) {
+        ctx += '\n\nSERVICES/PACKAGES:';
+        servicesRes.data.forEach(s => {
+            ctx += `\n- ${s.name} (id: ${s.id}): $${s.price}${s.duration ? ' (' + s.duration + ' min)' : ''}`;
+            if (s.description) ctx += ` — ${s.description}`;
+            if (s.whats_included) ctx += ` | Includes: ${s.whats_included}`;
+        });
+    }
+
+    if ((fleetRes.data || []).length) {
+        ctx += '\n\nFLEET/RENTALS:';
+        fleetRes.data.forEach(f => {
+            ctx += `\n- ${f.name} (id: ${f.id}): $${f.price_per_hour}/hr, fits ${f.capacity} people, ${f.quantity} available`;
+            if (f.description) ctx += ` — ${f.description}`;
+        });
+    }
+
+    if ((faqRes.data || []).length) {
+        ctx += '\n\nFAQs:';
+        faqRes.data.forEach(q => { ctx += `\nQ: ${q.question}\nA: ${q.answer}`; });
+    }
+
+    if ((reviewsRes.data || []).length) {
+        const avg = (reviewsRes.data.reduce((s, r) => s + r.rating, 0) / reviewsRes.data.length).toFixed(1);
+        ctx += `\n\nREVIEWS (avg ${avg} stars):`;
+        reviewsRes.data.forEach(r => { ctx += `\n- ${r.rating}★ ${r.customer_name || ''}: "${(r.comment || '').slice(0, 80)}"`; });
+    }
+
+    // ── OpenAI Function Calling tools ──
+    const tools = [
+        {
+            type: 'function',
+            function: {
+                name: 'check_availability',
+                description: 'Check what boats/rentals are available on a specific date. Call this when a customer mentions a date or asks about availability.',
+                parameters: {
+                    type: 'object',
+                    properties: {
+                        date: { type: 'string', description: 'Date in YYYY-MM-DD format' }
+                    },
+                    required: ['date']
+                }
+            }
+        },
+        {
+            type: 'function',
+            function: {
+                name: 'create_booking_hold',
+                description: 'Reserve a spot for 10 minutes while the customer confirms. Call this after the customer confirms date, fleet type, and time slot.',
+                parameters: {
+                    type: 'object',
+                    properties: {
+                        fleet_type_id: { type: 'string', description: 'UUID of the fleet type' },
+                        time_slot_id: { type: 'string', description: 'UUID of the time slot' },
+                        booking_date: { type: 'string', description: 'Date in YYYY-MM-DD format' },
+                        qty: { type: 'integer', description: 'Number of boats/units', default: 1 }
+                    },
+                    required: ['fleet_type_id', 'time_slot_id', 'booking_date']
+                }
+            }
+        },
+        {
+            type: 'function',
+            function: {
+                name: 'create_booking',
+                description: 'Finalize a booking after collecting customer name, phone/email, and confirming details. This creates the actual booking and sends SMS confirmation.',
+                parameters: {
+                    type: 'object',
+                    properties: {
+                        fleet_type_id: { type: 'string', description: 'UUID of the fleet type' },
+                        time_slot_id: { type: 'string', description: 'UUID of the time slot' },
+                        booking_date: { type: 'string', description: 'Date in YYYY-MM-DD format' },
+                        qty: { type: 'integer', description: 'Number of boats/units', default: 1 },
+                        party_size: { type: 'integer', description: 'Total number of people' },
+                        customer_name: { type: 'string', description: 'Customer full name' },
+                        customer_phone: { type: 'string', description: 'Customer phone number' },
+                        customer_email: { type: 'string', description: 'Customer email (optional)' },
+                        notes: { type: 'string', description: 'Any special requests or notes' }
+                    },
+                    required: ['fleet_type_id', 'time_slot_id', 'booking_date', 'customer_name', 'customer_phone']
+                }
+            }
+        },
+        {
+            type: 'function',
+            function: {
+                name: 'send_sms',
+                description: 'Send an SMS message to the customer (e.g. booking link, directions, confirmation details).',
+                parameters: {
+                    type: 'object',
+                    properties: {
+                        phone: { type: 'string', description: 'Phone number to send to' },
+                        message_text: { type: 'string', description: 'SMS message body' }
+                    },
+                    required: ['phone', 'message_text']
+                }
+            }
+        }
+    ];
+
+    // ── Tool executor ──
+    async function executeTool(name, args) {
+        switch (name) {
+            case 'check_availability': {
+                const { date } = args;
+                const [bookingsRes, fleetItemsRes, timeSlotsRes, fleetTypesRes, holdsRes, blockedRes] = await Promise.all([
+                    supabase.from('bookings').select('fleet_type_id, time_slot_id, qty, status').eq('site_id', biz.id).eq('booking_date', date).in('status', ['pending', 'confirmed', 'checked_in']),
+                    supabase.from('fleet_items').select('fleet_type_id, condition').eq('site_id', biz.id).eq('condition', 'good'),
+                    supabase.from('rental_time_slots').select('id, name, start_time, end_time').eq('site_id', biz.id).eq('active', true),
+                    supabase.from('fleet_types').select('id, name, capacity, price_per_hour').eq('site_id', biz.id).eq('available', true),
+                    supabase.from('booking_holds').select('fleet_type_id, time_slot_id, qty').eq('site_id', biz.id).eq('booking_date', date).gt('expires_at', new Date().toISOString()),
+                    supabase.from('availability').select('service_id, blocked').eq('site_id', biz.id).eq('specific_date', date).eq('blocked', true)
+                ]);
+
+                const inventory = {};
+                (fleetItemsRes.data || []).forEach(i => { inventory[i.fleet_type_id] = (inventory[i.fleet_type_id] || 0) + 1; });
+
+                const booked = {};
+                const bookedNoSlot = {};
+                (bookingsRes.data || []).forEach(b => {
+                    if (b.time_slot_id) {
+                        const key = `${b.fleet_type_id}_${b.time_slot_id}`;
+                        booked[key] = (booked[key] || 0) + (b.qty || 1);
+                    } else {
+                        bookedNoSlot[b.fleet_type_id] = (bookedNoSlot[b.fleet_type_id] || 0) + (b.qty || 1);
+                    }
+                });
+                (holdsRes.data || []).forEach(h => {
+                    if (h.time_slot_id) {
+                        const key = `${h.fleet_type_id}_${h.time_slot_id}`;
+                        booked[key] = (booked[key] || 0) + (h.qty || 1);
+                    } else {
+                        bookedNoSlot[h.fleet_type_id] = (bookedNoSlot[h.fleet_type_id] || 0) + (h.qty || 1);
+                    }
+                });
+
+                const blockedSet = new Set((blockedRes.data || []).map(b => b.service_id));
+                const availability = [];
+                (fleetTypesRes.data || []).forEach(ft => {
+                    (timeSlotsRes.data || []).forEach(ts => {
+                        const key = `${ft.id}_${ts.id}`;
+                        const total = inventory[ft.id] || 0;
+                        const used = (booked[key] || 0) + (bookedNoSlot[ft.id] || 0);
+                        const remaining = Math.max(0, total - used);
+                        if (!blockedSet.has(ft.id)) {
+                            availability.push({
+                                fleet_type_id: ft.id, fleet_type_name: ft.name,
+                                time_slot_id: ts.id, time_slot_name: ts.name,
+                                start_time: ts.start_time, end_time: ts.end_time,
+                                price_per_hour: ft.price_per_hour, capacity: ft.capacity,
+                                available: remaining
+                            });
+                        }
+                    });
+                });
+
+                return JSON.stringify({ date, availability });
+            }
+
+            case 'create_booking_hold': {
+                const sessionId = `ai-chat-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+                const { data, error } = await supabase.rpc('create_booking_hold', {
+                    p_site_id: biz.id,
+                    p_fleet_type_id: args.fleet_type_id,
+                    p_time_slot_id: args.time_slot_id,
+                    p_booking_date: args.booking_date,
+                    p_qty: args.qty || 1,
+                    p_session_id: sessionId
+                });
+                if (error) return JSON.stringify({ success: false, error: error.message });
+                return JSON.stringify({ ...data, session_id: sessionId });
+            }
+
+            case 'create_booking': {
+                const sessionId = `ai-book-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+
+                // Look up fleet type for pricing
+                const { data: ft } = await supabase.from('fleet_types').select('price_per_hour, name').eq('id', args.fleet_type_id).single();
+                const price = ft?.price_per_hour || 0;
+                const qty = args.qty || 1;
+                const subtotal = price * qty;
+                const tax = Math.round(subtotal * 0.1 * 100) / 100; // 10% tax estimate
+                const total = subtotal + tax;
+
+                // Upsert customer
+                let customerId = null;
+                if (args.customer_email) {
+                    const { data: existing } = await supabase.from('customers').select('id').eq('site_id', biz.id).eq('email', args.customer_email).single();
+                    if (existing) {
+                        customerId = existing.id;
+                    } else {
+                        const { data: newCust } = await supabase.from('customers').insert({
+                            site_id: biz.id, name: args.customer_name, phone: args.customer_phone,
+                            email: args.customer_email, total_bookings: 1, total_spent: total
+                        }).select('id').single();
+                        if (newCust) customerId = newCust.id;
+                    }
+                } else if (args.customer_phone) {
+                    const { data: existing } = await supabase.from('customers').select('id').eq('site_id', biz.id).eq('phone', args.customer_phone).single();
+                    if (existing) {
+                        customerId = existing.id;
+                    } else {
+                        const { data: newCust } = await supabase.from('customers').insert({
+                            site_id: biz.id, name: args.customer_name, phone: args.customer_phone,
+                            total_bookings: 1, total_spent: total
+                        }).select('id').single();
+                        if (newCust) customerId = newCust.id;
+                    }
+                }
+
+                // Atomic booking
+                const { data: result, error: rpcError } = await supabase.rpc('create_booking_if_available', {
+                    p_site_id: biz.id,
+                    p_fleet_type_id: args.fleet_type_id,
+                    p_time_slot_id: args.time_slot_id,
+                    p_booking_date: args.booking_date,
+                    p_qty: qty,
+                    p_service_id: null,
+                    p_booking_time: null,
+                    p_party_size: args.party_size || qty * 2,
+                    p_addons: '[]',
+                    p_subtotal: subtotal,
+                    p_tax: tax,
+                    p_total: total,
+                    p_customer_id: customerId,
+                    p_customer_name: args.customer_name,
+                    p_customer_phone: args.customer_phone,
+                    p_customer_email: args.customer_email || null,
+                    p_notes: args.notes || null,
+                    p_hold_session_id: null
+                });
+
+                if (rpcError) return JSON.stringify({ success: false, error: rpcError.message });
+                if (!result.success) return JSON.stringify({ success: false, error: result.error, available: result.available });
+
+                // Send confirmation SMS (non-blocking)
+                try {
+                    const { sendSms, fillTemplate, buildTemplateData } = require('../utils/sms');
+                    const { data: fullBooking } = await supabase.from('bookings').select().eq('id', result.booking_id).single();
+                    const { data: siteContent } = await supabase.from('site_content').select('messaging_settings, contact_phone').eq('site_id', biz.id).single();
+                    const settings = siteContent?.messaging_settings || {};
+                    const templateData = await buildTemplateData(fullBooking, biz.id);
+
+                    if (args.customer_phone) {
+                        const tpl = '[{{business_name}}] Hi {{customer_name}}! Your booking is confirmed.\n\nDate: {{date}}\nTime: {{time_slot}}\nTotal: ${{total}}\n\nQuestions? Reply to this number!\n\n🏖️ Get exclusive deals & rewards while you\'re in town!\nSign up for Gulf Coast Radar Trip Pass:\ngulfcoastradar.com/trip-pass';
+                        const msg = fillTemplate(settings.customerBookingTemplate || tpl, templateData);
+                        sendSms(args.customer_phone, msg, biz.id, 'booking_confirmation', result.booking_id).catch(() => {});
+                    }
+                    if (siteContent?.contact_phone) {
+                        const tpl = 'NEW BOOKING (via AI chat)!\n\nCustomer: {{customer_name}}\nPhone: {{customer_phone}}\nDate: {{date}}\nTime: {{time_slot}}\nTotal: ${{total}}';
+                        const msg = fillTemplate(settings.ownerBookingTemplate || tpl, templateData);
+                        sendSms(siteContent.contact_phone, msg, biz.id, 'booking_owner_notify', result.booking_id).catch(() => {});
+                    }
+                } catch (smsErr) { console.error('AI booking SMS error:', smsErr); }
+
+                return JSON.stringify({
+                    success: true,
+                    booking_id: result.booking_id,
+                    fleet_type: ft?.name || args.fleet_type_id,
+                    date: args.booking_date,
+                    customer: args.customer_name,
+                    total: total
+                });
+            }
+
+            case 'send_sms': {
+                try {
+                    const { sendSms } = require('../utils/sms');
+                    await sendSms(args.phone, args.message_text, biz.id, 'ai_chat_sms');
+                    return JSON.stringify({ success: true });
+                } catch (err) {
+                    return JSON.stringify({ success: false, error: err.message });
+                }
+            }
+
+            default:
+                return JSON.stringify({ error: 'Unknown tool' });
+        }
+    }
+
+    const systemPrompt = `You are the AI assistant for ${biz.name}. You know EVERYTHING about this business — answer any question a customer could possibly ask. You can also check real-time availability, create bookings, and send SMS confirmations.
+
+${ctx}
+
+RULES:
+- Be friendly, warm, helpful — like talking to a real person who works here
+- Answer ANY question using the data above: hours, pricing, age requirements, restrictions, parking, accessibility, dress code, what to bring, weather tips, directions, vibe, menu, reviews, policies — ANYTHING
+- Keep responses short and conversational (2-3 sentences). Be specific, not generic.
+- If a customer asks about age restrictions, requirements, rules, policies, safety, etc. — answer from the FAQs and business data. If not covered, say "I'd recommend checking with us directly" and offer to connect them
+- YOU handle bookings directly — never tell people to call
+- Booking flow:
+  1. Customer wants to book → ask what date
+  2. Call check_availability to see what's open
+  3. Tell them what's available with prices
+  4. Customer picks boat/service + time → confirm details
+  5. Ask for their name and phone number
+  6. Call create_booking to finalize — this sends them an SMS confirmation automatically
+- If a date is fully booked, suggest the next available day
+- If a slot they want is taken, show alternatives
+- Today's date is ${new Date().toISOString().split('T')[0]}
+- When customer says relative dates like "Saturday" or "this weekend", convert to YYYY-MM-DD
+- You can send_sms to text a customer a booking link, directions, or any info they ask for
+- After ANY completed booking, mention: "Check out Gulf Coast Radar for more local deals, live music, and things to do while you're in town! gulfcoastradar.com"
+- If someone asks about other things to do in the area, restaurants, entertainment — mention Gulf Coast Radar as the local guide
+- If the data above doesn't cover a very specific question, say "Great question! Let me get the right answer for you —" and offer to take their name/number so the owner can follow up`;
+
+    try {
+        // Build initial messages
+        const messages = [
+            { role: 'system', content: systemPrompt },
+            ...history.slice(-10),
+            { role: 'user', content: message }
+        ];
+
+        // Tool-calling loop: keep going until the model returns a text response (max 5 rounds)
+        let finalReply = null;
+        for (let round = 0; round < 5; round++) {
+            const openaiRes = await fetch('https://api.openai.com/v1/chat/completions', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + process.env.OPENAI_API_KEY },
+                body: JSON.stringify({
+                    model: 'gpt-4o-mini',
+                    messages,
+                    tools,
+                    tool_choice: 'auto',
+                    max_tokens: 400,
+                    temperature: 0.7
+                })
+            });
+            const aiData = await openaiRes.json();
+            if (!openaiRes.ok) throw new Error(aiData.error?.message || 'OpenAI error');
+
+            const choice = aiData.choices?.[0];
+            if (!choice) throw new Error('No response from AI');
+
+            const msg = choice.message;
+            messages.push(msg); // add assistant message (with tool_calls or content)
+
+            // If no tool calls, we're done
+            if (!msg.tool_calls || msg.tool_calls.length === 0) {
+                finalReply = msg.content || "I'm here to help! What would you like to know?";
+                break;
+            }
+
+            // Execute each tool call and add results
+            for (const tc of msg.tool_calls) {
+                let toolArgs;
+                try { toolArgs = JSON.parse(tc.function.arguments); } catch { toolArgs = {}; }
+                console.log(`AI tool call: ${tc.function.name}(${JSON.stringify(toolArgs)})`);
+
+                const result = await executeTool(tc.function.name, toolArgs);
+                messages.push({
+                    role: 'tool',
+                    tool_call_id: tc.id,
+                    content: result
+                });
+            }
+        }
+
+        if (!finalReply) finalReply = "I ran into an issue — could you try again?";
+
+        // Check for booking_intent in the reply (backwards compat with frontend)
+        let booking_intent = null;
+        const bookingMatch = finalReply.match(/\[BOOKING:(.*?)\]/);
+        if (bookingMatch) {
+            try { booking_intent = JSON.parse(bookingMatch[1]); } catch(e) {}
+            finalReply = finalReply.replace(/\[BOOKING:.*?\]/, '').trim();
+        }
+
+        const response = { reply: finalReply };
+        if (booking_intent) response.booking_intent = booking_intent;
+        res.json(response);
+    } catch (err) {
+        console.error('Business chat error:', err.message);
+        res.json({ reply: "Something went wrong — try again!" });
+    }
 });
 
+// ============================================
+// POST /api/public/gcr-chat — GCR voice/text AI search
+// Accepts: { message, history: [{role, content}] }
+// Uses OpenAI GPT-4o + all Supabase businesses as context
+// ============================================
+router.post('/gcr-chat', async (req, res) => {
+    const { message, history = [] } = req.body;
+    if (!message) return res.status(400).json({ error: 'Message required' });
+
+    if (!process.env.OPENAI_API_KEY) {
+        return res.json({ reply: "AI is being set up — check back soon!" });
+    }
+
+    // Load all GCR businesses with their key details
+    const { data: businesses } = await supabase
+        .from('businesses')
+        .select(`
+            name, type, subdomain, tagline, area, tags,
+            happy_hour, kids_friendly, pet_friendly, live_music,
+            outdoor, alcohol, price_range, rating,
+            site_content(contact_phone, address, city, hours, website_url)
+        `)
+        .eq('gcr_listed', true)
+        .eq('status', 'active')
+        .order('name');
+
+    // Build compact business context for AI
+    const bizContext = (businesses || []).map(b => {
+        const c = b.site_content || {};
+        const flags = [
+            b.happy_hour   === true && 'happy hour',
+            b.live_music   === true && 'live music',
+            b.kids_friendly === true && 'kid-friendly',
+            b.pet_friendly === true && 'pet-friendly',
+            b.outdoor      === true && 'outdoor seating',
+            b.alcohol      === true && 'full bar',
+        ].filter(Boolean).join(', ');
+        return `• ${b.name} [${b.type}] ${b.area || ''} — ${b.tagline || ''} | ${flags} | ${b.price_range || ''} | phone: ${c.contact_phone || 'n/a'}`;
+    }).join('\n');
+
+    const systemPrompt = `You are a local Gulf Coast expert for Orange Beach and Gulf Shores, Alabama — like a knowledgeable friend who knows every spot. You help tourists and visitors find exactly what they're looking for.
+
+Here are all the local businesses you know:
+${bizContext}
+
+Rules:
+- Recommend 2-3 specific businesses from the list above that best match the request
+- Include the phone number when available so they can call/book
+- Keep responses conversational and under 100 words
+- If results are too many, ask ONE follow-up question to narrow it down (party size, budget, time)
+- Never make up details not in the list
+- Be enthusiastic and local — "Flora-Bama is legendary", not just "Flora-Bama is a bar"`;
+
+    try {
+        const openaiRes = await fetch('https://api.openai.com/v1/chat/completions', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + process.env.OPENAI_API_KEY
+            },
+            body: JSON.stringify({
+                model: 'gpt-4o-mini',
+                messages: [
+                    { role: 'system', content: systemPrompt },
+                    ...history.slice(-6),
+                    { role: 'user', content: message }
+                ],
+                max_tokens: 300,
+                temperature: 0.7
+            })
+        });
+
+        const data = await openaiRes.json();
+        if (!openaiRes.ok) throw new Error(data.error?.message || 'OpenAI error');
+
+        const reply = data.choices?.[0]?.message?.content || "I had trouble with that — try rephrasing!";
+        res.json({ reply });
+    } catch (err) {
+        console.error('GCR chat error:', err.message);
+        res.status(500).json({ error: 'AI error', reply: "Something went wrong — try again!" });
+    }
+});
+
+
+// ============================================
+// GET /api/public/waivers/:token — path-based alias
+// ============================================
+router.get('/waivers/:token', async (req, res) => {
+    const token = req.params.token;
+    const { data: waiver } = await supabase
+        .from('waivers')
+        .select('id, waiver_text, customer_name, booking_id, signed')
+        .eq('token', token)
+        .single();
+
+    if (!waiver) return res.status(404).json({ error: 'Waiver link not found or expired' });
+    if (waiver.signed) return res.status(410).json({ error: 'Waiver already signed' });
+
+    let waiverText = waiver.waiver_text;
+    if (!waiverText) {
+        const { data: tmpl } = await supabase
+            .from('waivers')
+            .select('waiver_text')
+            .eq('site_id', req.siteId)
+            .is('booking_id', null)
+            .limit(1)
+            .single();
+        waiverText = tmpl?.waiver_text || '';
+    }
+
+    res.json({ waiver_text: waiverText, customer_name: waiver.customer_name || '', booking_id: waiver.booking_id, token });
+});
+
+// POST /api/public/waivers/:token/sign
+router.post('/waivers/:token/sign', async (req, res) => {
+    const token = req.params.token;
+    const { customer_name, customer_email, signature_data, waiver_text } = req.body;
+
+    if (!customer_name || !signature_data) {
+        return res.status(400).json({ error: 'Customer name and signature required' });
+    }
+
+    const { data: existing } = await supabase
+        .from('waivers')
+        .select('id, booking_id, signed')
+        .eq('token', token)
+        .single();
+
+    if (!existing) return res.status(404).json({ error: 'Waiver link not found' });
+    if (existing.signed) return res.status(410).json({ error: 'Waiver already signed' });
+
+    const { data, error } = await supabase
+        .from('waivers')
+        .update({
+            customer_name,
+            customer_email: customer_email || null,
+            signature_data,
+            waiver_text: waiver_text || null,
+            signed: true,
+            signed_at: new Date().toISOString(),
+            ip_address: req.ip
+        })
+        .eq('id', existing.id)
+        .select()
+        .single();
+
+    if (error) return res.status(500).json({ error: error.message });
+
+    if (existing.booking_id) {
+        await supabase.from('bookings').update({ waiver_signed: true }).eq('id', existing.booking_id);
+    }
+
+    res.json({ success: true, waiver_id: data.id });
+});
 
 // ============================================
 // GET /api/public/waiver — Fetch waiver to sign
@@ -741,6 +1475,92 @@ router.post('/waiver', async (req, res) => {
 
     res.status(201).json({ success: true, waiver_id: data.id });
 });
+// ============================================
+// GET /api/public/waivers/:token — Alias for /waiver?token=:token
+// ============================================
+router.get('/waivers/:token', async (req, res) => {
+    const { token } = req.params;
+    
+    // Redirect to query-based endpoint
+    req.query.token = token;
+    
+    const { data: waiver } = await supabase
+        .from('waivers')
+        .select('id, waiver_text, customer_name, booking_id, signed')
+        .eq('token', token)
+        .single();
+
+    if (!waiver) return res.status(404).json({ error: 'Waiver link not found or expired' });
+    if (waiver.signed) return res.status(410).json({ error: 'Waiver already signed' });
+
+    // Fetch the waiver template text if this record has none yet
+    let waiverText = waiver.waiver_text;
+    if (!waiverText) {
+        const { data: tmpl } = await supabase
+            .from('waivers')
+            .select('waiver_text')
+            .eq('site_id', req.siteId)
+            .is('booking_id', null)
+            .limit(1)
+            .single();
+        waiverText = tmpl?.waiver_text || '';
+    }
+
+    return res.json({
+        waiver_text: waiverText,
+        customer_name: waiver.customer_name || '',
+        booking_id: waiver.booking_id,
+        token
+    });
+});
+
+// ============================================
+// POST /api/public/waivers/:token/sign — Alias for POST /waiver with token in path
+// ============================================
+router.post('/waivers/:token/sign', async (req, res) => {
+    const { token } = req.params;
+    const { customer_name, customer_email, signature_data, waiver_text } = req.body;
+
+    if (!customer_name || !signature_data) {
+        return res.status(400).json({ error: 'Customer name and signature required' });
+    }
+
+    const { data: existing } = await supabase
+        .from('waivers')
+        .select('id, booking_id, signed')
+        .eq('token', token)
+        .single();
+
+    if (!existing) return res.status(404).json({ error: 'Waiver link not found' });
+    if (existing.signed) return res.status(410).json({ error: 'Waiver already signed' });
+
+    const { data, error } = await supabase
+        .from('waivers')
+        .update({
+            customer_name,
+            customer_email: customer_email || null,
+            signature_data,
+            waiver_text: waiver_text || null,
+            signed: true,
+            signed_at: new Date().toISOString(),
+            ip_address: req.ip
+        })
+        .eq('token', token)
+        .select()
+        .single();
+
+    if (error) return res.status(500).json({ error: error.message });
+
+    if (existing.booking_id) {
+        await supabase.from('bookings')
+            .update({ waiver_signed: true })
+            .eq('id', existing.booking_id)
+            .eq('site_id', req.siteId);
+    }
+
+    return res.json({ success: true, waiver_id: data.id });
+});
+
 
 // ============================================
 // ============================================
@@ -1056,15 +1876,18 @@ router.post('/loyalty/signup', async (req, res) => {
 // GET /api/public/loyalty/balance — Check loyalty balance by email
 // ============================================
 router.get('/loyalty/balance', async (req, res) => {
-    const email = req.query.email;
-    if (!email) return res.status(400).json({ error: 'email query param required' });
+    const { email, phone } = req.query;
+    if (!email && !phone) return res.status(400).json({ error: 'email or phone query param required' });
 
-    const { data: customer } = await supabase
+    let query = supabase
         .from('customers')
         .select('name, total_bookings, total_spent, tags')
-        .eq('site_id', req.siteId)
-        .eq('email', email)
-        .single();
+        .eq('site_id', req.siteId);
+
+    if (email) query = query.eq('email', email);
+    else query = query.eq('phone', phone);
+
+    const { data: customer } = await query.maybeSingle();
 
     if (!customer) {
         return res.status(404).json({ error: 'Customer not found' });

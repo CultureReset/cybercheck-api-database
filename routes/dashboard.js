@@ -46,7 +46,8 @@ router.get('/overview', async (req, res) => {
             .not('status', 'eq', 'cancelled'),
         supabase.from('bookings').select('total')
             .eq('site_id', req.siteId)
-            .eq('payment_status', 'paid'),
+            .not('status', 'eq', 'cancelled')
+            .not('status', 'eq', 'pending'),
         supabase.from('customers').select('id', { count: 'exact', head: true })
             .eq('site_id', req.siteId)
     ]);
@@ -1175,7 +1176,23 @@ router.put('/bookings/:id', async (req, res) => {
         .single();
 
     if (error) return res.status(500).json({ error: error.message });
-    // TODO: Emit event based on status change
+    // Log status change to activity log
+    if (updates.status && req.body.status !== undefined) {
+        try {
+            const oldStatus = (await supabase.from('bookings').select('status').eq('id', req.params.id).single()).data?.status;
+            if (oldStatus && oldStatus !== updates.status) {
+                await supabase.from('activity_log').insert({
+                    site_id: req.siteId,
+                    booking_id: req.params.id,
+                    event_type: 'booking.updated',
+                    details: { old_status: oldStatus, new_status: updates.status },
+                    created_at: new Date().toISOString()
+                }).catch(() => {});
+            }
+        } catch (e) {
+            // Silently fail activity logging
+        }
+    }
     res.json(data);
 });
 
@@ -1489,25 +1506,23 @@ router.get('/waivers/booking/:booking_id', async (req, res) => {
 });
 
 // POST /api/dashboard/waivers/link — generate a signed waiver link for a booking
-router.post('/waivers/link', async (req, res) => {
-    const { booking_id } = req.body;
-    if (!booking_id) return res.status(400).json({ error: 'booking_id required' });
-
+// GET /api/dashboard/waivers/link — get waiver link for a booking (query: ?booking_id=)
+async function generateWaiverLink(siteId, booking_id) {
     const crypto = require('crypto');
+    const { sendSms } = require('../utils/sms');
     const token = crypto.randomBytes(24).toString('hex');
 
     const { data: booking } = await supabase
         .from('bookings')
-        .select('id, customer_name')
+        .select('id, customer_name, customer_phone')
         .eq('id', booking_id)
-        .eq('site_id', req.siteId)
+        .eq('site_id', siteId)
         .single();
 
-    if (!booking) return res.status(404).json({ error: 'Booking not found' });
+    if (!booking) return { error: 'Booking not found' };
 
-    // Store the token in the waivers table so public endpoint can look it up
     await supabase.from('waivers').upsert({
-        site_id: req.siteId,
+        site_id: siteId,
         booking_id,
         customer_name: booking.customer_name || null,
         token,
@@ -1517,13 +1532,41 @@ router.post('/waivers/link', async (req, res) => {
     const { data: biz } = await supabase
         .from('businesses')
         .select('subdomain')
-        .eq('site_id', req.siteId)
+        .eq('site_id', siteId)
         .single();
 
     const baseUrl = process.env.PUBLIC_SITE_BASE_URL || ('https://' + (biz?.subdomain || 'site') + '.cybercheck.com');
     const link = baseUrl + '/waiver?token=' + token + '&booking=' + booking_id;
 
-    res.json({ link, token, booking_id });
+    // Send SMS to customer — fire and forget, don't block the response
+    if (booking.customer_phone) {
+        const name = booking.customer_name ? `, ${booking.customer_name.split(' ')[0]}` : '';
+        sendSms(
+            booking.customer_phone,
+            `Hi${name}! Please sign your waiver before your rental: ${link}`,
+            siteId,
+            'waiver_link',
+            booking_id
+        ).catch(e => console.warn('Waiver SMS failed:', e.message));
+    }
+
+    return { link, token, booking_id, sms_sent: !!booking.customer_phone };
+}
+
+router.get('/waivers/link', async (req, res) => {
+    const { booking_id } = req.query;
+    if (!booking_id) return res.status(400).json({ error: 'booking_id query parameter required' });
+    const result = await generateWaiverLink(req.siteId, booking_id);
+    if (result.error) return res.status(404).json({ error: result.error });
+    res.json(result);
+});
+
+router.post('/waivers/link', async (req, res) => {
+    const { booking_id } = req.body;
+    if (!booking_id) return res.status(400).json({ error: 'booking_id required' });
+    const result = await generateWaiverLink(req.siteId, booking_id);
+    if (result.error) return res.status(404).json({ error: result.error });
+    res.json(result);
 });
 
 
@@ -2605,6 +2648,79 @@ router.delete('/media/:id', async (req, res) => {
 });
 
 // ============================================
+// AVAILABILITY / BLOCK DATES
+// ============================================
+
+// GET /api/dashboard/availability/blocks?month=YYYY-MM
+router.get('/availability/blocks', async (req, res) => {
+    let query = supabase
+        .from('availability_blocks')
+        .select('*')
+        .eq('site_id', req.siteId)
+        .order('block_date');
+
+    if (req.query.month) {
+        const [year, month] = req.query.month.split('-');
+        const start = `${year}-${month}-01`;
+        const end = new Date(year, month, 0).toISOString().split('T')[0];
+        query = query.gte('block_date', start).lte('block_date', end);
+    }
+
+    const { data, error } = await query;
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data || []);
+});
+
+// POST /api/dashboard/availability/block
+router.post('/availability/block', async (req, res) => {
+    const { block_date, start_time, end_time, fleet_type_id, reason } = req.body;
+    if (!block_date) return res.status(400).json({ error: 'block_date required' });
+
+    const { data, error } = await supabase
+        .from('availability_blocks')
+        .insert({
+            site_id: req.siteId,
+            block_date,
+            start_time: start_time || null,
+            end_time: end_time || null,
+            fleet_type_id: fleet_type_id || null,
+            reason: reason || null
+        })
+        .select()
+        .single();
+
+    if (error) return res.status(500).json({ error: error.message });
+    res.status(201).json(data);
+});
+
+// DELETE /api/dashboard/availability/block/:id
+router.delete('/availability/block/:id', async (req, res) => {
+    const { error } = await supabase
+        .from('availability_blocks')
+        .delete()
+        .eq('id', req.params.id)
+        .eq('site_id', req.siteId);
+
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// DELETE /api/dashboard/availability/block?date=YYYY-MM-DD (clear all blocks for a date)
+router.delete('/availability/blocks', async (req, res) => {
+    const { date } = req.query;
+    if (!date) return res.status(400).json({ error: 'date query parameter required' });
+
+    const { error } = await supabase
+        .from('availability_blocks')
+        .delete()
+        .eq('site_id', req.siteId)
+        .eq('block_date', date);
+
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ============================================
 // AI TRAINING — business_details, logistics, atmosphere, qa_pairs
 // ============================================
 
@@ -2626,33 +2742,20 @@ router.get('/ai-profile', async (req, res) => {
 router.put('/ai-profile', async (req, res) => {
     const { details, logistics, atmosphere } = req.body;
     const siteId = req.siteId;
-
     const ops = [];
-
-    if (details !== undefined) {
-        ops.push(supabase.from('business_details').upsert({ ...details, site_id: siteId }, { onConflict: 'site_id' }));
-    }
-    if (logistics !== undefined) {
-        ops.push(supabase.from('business_logistics').upsert({ ...logistics, site_id: siteId }, { onConflict: 'site_id' }));
-    }
-    if (atmosphere !== undefined) {
-        ops.push(supabase.from('business_atmosphere').upsert({ ...atmosphere, site_id: siteId }, { onConflict: 'site_id' }));
-    }
-
+    if (details !== undefined) ops.push(supabase.from('business_details').upsert({ ...details, site_id: siteId }, { onConflict: 'site_id' }));
+    if (logistics !== undefined) ops.push(supabase.from('business_logistics').upsert({ ...logistics, site_id: siteId }, { onConflict: 'site_id' }));
+    if (atmosphere !== undefined) ops.push(supabase.from('business_atmosphere').upsert({ ...atmosphere, site_id: siteId }, { onConflict: 'site_id' }));
     const results = await Promise.all(ops);
     const err = results.find(r => r.error);
     if (err) return res.status(500).json({ error: err.error.message });
-
     res.json({ success: true });
 });
 
 // GET all Q&A pairs
 router.get('/qa-pairs', async (req, res) => {
     const { data, error } = await supabase
-        .from('qa_pairs')
-        .select('*')
-        .eq('site_id', req.siteId)
-        .order('sort_order', { ascending: true });
+        .from('qa_pairs').select('*').eq('site_id', req.siteId).order('sort_order', { ascending: true });
     if (error) return res.status(500).json({ error: error.message });
     res.json(data || []);
 });
@@ -2662,10 +2765,7 @@ router.post('/qa-pairs', async (req, res) => {
     const { question, answer, category } = req.body;
     if (!question || !answer) return res.status(400).json({ error: 'question and answer required' });
     const { data, error } = await supabase
-        .from('qa_pairs')
-        .insert({ site_id: req.siteId, question, answer, category: category || 'general' })
-        .select()
-        .single();
+        .from('qa_pairs').insert({ site_id: req.siteId, question, answer, category: category || 'general' }).select().single();
     if (error) return res.status(500).json({ error: error.message });
     res.json(data);
 });
@@ -2674,12 +2774,7 @@ router.post('/qa-pairs', async (req, res) => {
 router.put('/qa-pairs/:id', async (req, res) => {
     const { question, answer, category } = req.body;
     const { data, error } = await supabase
-        .from('qa_pairs')
-        .update({ question, answer, category })
-        .eq('id', req.params.id)
-        .eq('site_id', req.siteId)
-        .select()
-        .single();
+        .from('qa_pairs').update({ question, answer, category }).eq('id', req.params.id).eq('site_id', req.siteId).select().single();
     if (error) return res.status(500).json({ error: error.message });
     res.json(data);
 });
@@ -2687,12 +2782,126 @@ router.put('/qa-pairs/:id', async (req, res) => {
 // DELETE Q&A pair
 router.delete('/qa-pairs/:id', async (req, res) => {
     const { error } = await supabase
-        .from('qa_pairs')
-        .delete()
-        .eq('id', req.params.id)
-        .eq('site_id', req.siteId);
+        .from('qa_pairs').delete().eq('id', req.params.id).eq('site_id', req.siteId);
     if (error) return res.status(500).json({ error: error.message });
     res.json({ success: true });
+});
+
+// ============================================
+// POST /api/dashboard/ai-chat — Business owner AI assistant
+// ============================================
+router.post('/ai-chat', async (req, res) => {
+    const { message, history = [] } = req.body;
+    if (!message) return res.status(400).json({ error: 'Message required' });
+
+    if (!process.env.OPENAI_API_KEY) {
+        return res.json({ reply: "AI assistant is being set up — check back soon!" });
+    }
+
+    const siteId = req.siteId;
+    const today = new Date().toISOString().split('T')[0];
+    const weekAgo = new Date(Date.now() - 7 * 86400000).toISOString().split('T')[0];
+    const twoWeeksAgo = new Date(Date.now() - 14 * 86400000).toISOString().split('T')[0];
+
+    // Fetch all business data in parallel
+    const [
+        bizRes, contentRes, bookingsThisWeek, bookingsLastWeek,
+        revenueRes, customersRes, servicesRes, fleetRes,
+        reviewsRes, specialsRes, upcomingRes
+    ] = await Promise.all([
+        supabase.from('businesses').select('name, type, subdomain, tagline, plan').eq('id', siteId).single(),
+        supabase.from('site_content').select('contact_phone, address, city, hours, hours_note, description').eq('site_id', siteId).maybeSingle(),
+        supabase.from('bookings').select('id', { count: 'exact', head: true }).eq('site_id', siteId).gte('booking_date', weekAgo).not('status', 'eq', 'cancelled'),
+        supabase.from('bookings').select('id', { count: 'exact', head: true }).eq('site_id', siteId).gte('booking_date', twoWeeksAgo).lt('booking_date', weekAgo).not('status', 'eq', 'cancelled'),
+        supabase.from('bookings').select('total').eq('site_id', siteId).gte('booking_date', weekAgo).not('status', 'eq', 'cancelled'),
+        supabase.from('customers').select('id', { count: 'exact', head: true }).eq('site_id', siteId),
+        supabase.from('services').select('name, price, duration, description').eq('site_id', siteId).eq('active', true),
+        supabase.from('fleet_types').select('name, capacity, price_per_hour, quantity').eq('site_id', siteId),
+        supabase.from('reviews').select('rating, comment, customer_name, created_at').eq('site_id', siteId).order('created_at', { ascending: false }).limit(5),
+        supabase.from('specials').select('title, description, day_of_week').eq('site_id', siteId).eq('active', true),
+        supabase.from('bookings').select('customer_name, booking_date, total, status').eq('site_id', siteId).gte('booking_date', today).order('booking_date').limit(10)
+    ]);
+
+    const biz = bizRes.data || {};
+    const content = contentRes.data || {};
+    const weekRevenue = (revenueRes.data || []).reduce((s, b) => s + (b.total || 0), 0);
+    const avgRating = (reviewsRes.data || []).length > 0
+        ? ((reviewsRes.data || []).reduce((s, r) => s + r.rating, 0) / reviewsRes.data.length).toFixed(1)
+        : 'No reviews yet';
+
+    // Build human-readable context
+    let context = `BUSINESS: ${biz.name || 'Unknown'} (${biz.type || 'business'})`;
+    if (content.address) context += `\nAddress: ${content.address}, ${content.city || ''}`;
+    if (content.contact_phone) context += `\nPhone: ${content.contact_phone}`;
+    if (content.hours) context += `\nHours: ${content.hours}`;
+
+    context += `\n\nTHIS WEEK'S STATS:`;
+    context += `\n• Bookings this week: ${bookingsThisWeek.count || 0} (last week: ${bookingsLastWeek.count || 0})`;
+    context += `\n• Revenue this week: $${Math.round(weekRevenue)}`;
+    context += `\n• Total customers: ${customersRes.count || 0}`;
+    context += `\n• Average rating: ${avgRating}`;
+
+    if ((servicesRes.data || []).length) {
+        context += `\n\nSERVICES:`;
+        servicesRes.data.forEach(s => { context += `\n• ${s.name} — $${s.price}${s.duration ? ' (' + s.duration + ' min)' : ''}`; });
+    }
+
+    if ((fleetRes.data || []).length) {
+        context += `\n\nFLEET:`;
+        fleetRes.data.forEach(f => { context += `\n• ${f.name} — $${f.price_per_hour}/hr, capacity: ${f.capacity}, qty: ${f.quantity}`; });
+    }
+
+    if ((reviewsRes.data || []).length) {
+        context += `\n\nRECENT REVIEWS:`;
+        reviewsRes.data.forEach(r => { context += `\n• ${r.rating}★ from ${r.customer_name || 'Anonymous'}: "${(r.comment || '').slice(0, 100)}"`; });
+    }
+
+    if ((specialsRes.data || []).length) {
+        context += `\n\nACTIVE SPECIALS:`;
+        specialsRes.data.forEach(s => { context += `\n• ${s.title}${s.day_of_week ? ' (' + s.day_of_week + ')' : ''}: ${s.description || ''}`; });
+    }
+
+    if ((upcomingRes.data || []).length) {
+        context += `\n\nUPCOMING BOOKINGS:`;
+        upcomingRes.data.forEach(b => { context += `\n• ${b.booking_date} — ${b.customer_name || 'Unknown'} ($${b.total || 0}) [${b.status}]`; });
+    }
+
+    const systemPrompt = `You are the AI business assistant for ${biz.name || 'this business'}. You're a smart, friendly advisor who knows everything about the owner's business.
+
+YOUR DATA (use this to answer questions — never make up numbers):
+${context}
+
+WHAT YOU CAN HELP WITH:
+- Business questions ("How many bookings this week?" "What's my revenue?")
+- Comparisons ("Am I doing better than last week?")
+- Marketing help ("Write me an Instagram post" "Help me respond to this review")
+- Pricing advice ("Should I raise my prices?" "What should I charge for a new service?")
+- Strategy ("How can I get more bookings?" "What days are slowest?")
+
+STYLE:
+- Be direct and specific — use the actual numbers from their data
+- Keep it concise (2-4 sentences unless they ask for something longer like a social post)
+- Be encouraging but honest
+- If you don't have enough data to answer, say so
+- Always be actionable — give them something they can DO`;
+
+    try {
+        const openaiRes = await fetch('https://api.openai.com/v1/chat/completions', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + process.env.OPENAI_API_KEY },
+            body: JSON.stringify({
+                model: 'gpt-4o-mini',
+                messages: [{ role: 'system', content: systemPrompt }, ...history.slice(-10), { role: 'user', content: message }],
+                max_tokens: 500, temperature: 0.7
+            })
+        });
+        const data = await openaiRes.json();
+        if (!openaiRes.ok) throw new Error(data.error?.message || 'OpenAI error');
+        res.json({ reply: data.choices?.[0]?.message?.content || "Try rephrasing!" });
+    } catch (err) {
+        console.error('Dashboard AI chat error:', err.message);
+        res.json({ reply: "Something went wrong — try again!" });
+    }
 });
 
 module.exports = router;

@@ -178,8 +178,10 @@ router.get('/status', authRequired, async (req, res) => {
 // ============================================
 router.post('/save-key', authRequired, async (req, res) => {
     const { secret_key } = req.body;
-    if (!secret_key || !secret_key.startsWith('sk_')) {
-        return res.status(400).json({ error: 'Invalid Stripe secret key — must start with sk_test_ or sk_live_' });
+    // Validate Stripe secret key format: sk_test_... or sk_live_... (min 32 chars)
+    const validKeyFormat = /^sk_(test|live)_.{20,}$/.test(secret_key);
+    if (!secret_key || !validKeyFormat) {
+        return res.status(400).json({ error: 'Invalid Stripe secret key format. Must be sk_test_... or sk_live_... with at least 50+ chars total.' });
     }
     if (!process.env.STRIPE_KEY_ENCRYPTION_KEY) {
         return res.status(503).json({ error: 'STRIPE_KEY_ENCRYPTION_KEY not configured on server' });

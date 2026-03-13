@@ -9,29 +9,119 @@ const router = express.Router();
 router.get('/businesses', async (req, res) => {
     let query = supabase
         .from('businesses')
-        .select('site_id, name, type, subdomain, domain, logo_url, cover_url, status, site_content(address, city, state, zip, lat, lng, hours, theme_color, seo_description)')
+        .select(`site_id, name, type, subdomain, domain, logo_url, cover_url, status,
+            emoji, tagline, featured, tags, price_range, rating, review_count,
+            happy_hour, kids_friendly, pet_friendly, live_music, outdoor, reservations,
+            alcohol, booking_required, delivery, takeout, sort_order, gcr_listed, gcr_verified,
+            subcategory, waterfront, beachfront,
+            site_content(address, city, state, zip, lat, lng, hours, theme_color, seo_description, about_text, contact_phone, website_url, social_links)`)
         .eq('status', 'active')
+        .eq('gcr_listed', true)
+        .order('featured', { ascending: false })
+        .order('sort_order', { ascending: true })
         .order('name', { ascending: true });
 
-    if (req.query.type) query = query.eq('type', req.query.type);
-    if (req.query.search) query = query.ilike('name', `%${req.query.search}%`);
-    if (req.query.city) query = query.eq('site_content.city', req.query.city);
+    if (req.query.type || req.query.category) query = query.eq('type', req.query.type || req.query.category);
+    if (req.query.subcategory)                query = query.eq('subcategory', req.query.subcategory);
+    if (req.query.search)                     query = query.ilike('name', `%${req.query.search}%`);
+    if (req.query.featured === 'true')        query = query.eq('featured', true);
+    if (req.query.pet_friendly === 'true')    query = query.eq('pet_friendly', true);
+    if (req.query.kids_friendly === 'true')   query = query.eq('kids_friendly', true);
+    if (req.query.live_music === 'true')      query = query.eq('live_music', true);
+    if (req.query.waterfront === 'true')      query = query.eq('waterfront', true);
 
-    const limit = Math.min(parseInt(req.query.limit) || 20, 100);
+    const limit = Math.min(parseInt(req.query.limit) || 200, 500);
     const offset = parseInt(req.query.offset) || 0;
     query = query.range(offset, offset + limit - 1);
 
-    const { data, error, count } = await query;
+    const { data, error } = await query;
     if (error) return res.status(500).json({ error: error.message });
 
-    // Flatten site_content into business object
     const businesses = (data || []).map(b => {
         const content = b.site_content || {};
         delete b.site_content;
-        return { ...b, ...content };
+        return {
+            ...b,
+            category:    b.type,        // alias for GCR compatibility
+            subcategory: b.subcategory || null,
+            id:          b.site_id,
+            slug:        b.subdomain || b.site_id,
+            address: content.address || '',
+            city: content.city || '',
+            state: content.state || '',
+            zip: content.zip || '',
+            lat: content.lat || null,
+            lng: content.lng || null,
+            hours: content.hours || {},
+            phone: content.contact_phone || '',
+            website: content.website_url || '',
+            description: content.about_text || content.seo_description || '',
+            social: content.social_links || {},
+            priceRange: b.price_range || '',
+            reviewCount: b.review_count || 0,
+            happyHour: b.happy_hour || null,
+            kidsFriendly: b.kids_friendly || false,
+            petFriendly: b.pet_friendly || false,
+            liveMusic: b.live_music || false,
+        };
     });
 
-    res.json({ businesses, total: count, limit, offset });
+    res.json({ businesses, total: businesses.length, limit, offset });
+});
+
+// ============================================
+// GET /api/gcr/events — public events feed
+// ============================================
+router.get('/events', async (req, res) => {
+    let query = supabase
+        .from('events')
+        .select('*, businesses(name, emoji, type, subdomain)')
+        .eq('active', true)
+        .order('event_date', { ascending: true });
+
+    if (req.query.site_id) query = query.eq('site_id', req.query.site_id);
+    if (req.query.upcoming === 'true') query = query.gte('event_date', new Date().toISOString().split('T')[0]);
+
+    const { data, error } = await query;
+    if (error) return res.status(500).json({ error: error.message });
+
+    const events = (data || []).map(e => ({
+        ...e,
+        date: e.event_date,
+        time: e.event_time,
+        businessName: e.businesses?.name || '',
+        businessEmoji: e.businesses?.emoji || '🏪',
+        category: e.businesses?.type || '',
+        slug: e.businesses?.subdomain || e.site_id,
+    }));
+
+    res.json(events);
+});
+
+// ============================================
+// GET /api/gcr/specials — public specials feed
+// ============================================
+router.get('/specials', async (req, res) => {
+    let query = supabase
+        .from('specials')
+        .select('*, businesses(name, emoji, type, subdomain)')
+        .eq('active', true)
+        .order('created_at', { ascending: false });
+
+    if (req.query.site_id) query = query.eq('site_id', req.query.site_id);
+
+    const { data, error } = await query;
+    if (error) return res.status(500).json({ error: error.message });
+
+    const specials = (data || []).map(s => ({
+        ...s,
+        businessName: s.businesses?.name || '',
+        businessEmoji: s.businesses?.emoji || '🏪',
+        category: s.businesses?.type || '',
+        slug: s.businesses?.subdomain || s.site_id,
+    }));
+
+    res.json(specials);
 });
 
 // ============================================
@@ -128,7 +218,80 @@ router.post('/search', async (req, res) => {
 });
 
 // ============================================
-// GET /api/gcr/business/:id — Single business detail
+// GET /api/gcr/businesses/:slug — Full business profile by slug
+// Returns: business + site_content + fleet + pricing + addons + services + reviews + specials + events
+// Used by: gcr/business.html?id=:slug
+// ============================================
+router.get('/businesses/:slug', async (req, res) => {
+    const slug = req.params.slug;
+
+    // Look up by subdomain (slug)
+    const { data: business, error: bizErr } = await supabase
+        .from('businesses')
+        .select(`site_id, name, type, subdomain, domain, logo_url, cover_url, status,
+            emoji, tagline, featured, tags, price_range, rating, review_count,
+            happy_hour, kids_friendly, pet_friendly, live_music, outdoor, reservations,
+            alcohol, booking_required, delivery, takeout, waterfront, beachfront,
+            subcategory, sort_order, gcr_listed, gcr_verified`)
+        .eq('subdomain', slug)
+        .eq('status', 'active')
+        .single();
+
+    if (bizErr || !business) {
+        return res.status(404).json({ error: 'Business not found' });
+    }
+
+    const siteId = business.site_id;
+
+    const [content, services, fleet, pricing, addons, groupRates, reviews, specials, events] = await Promise.all([
+        supabase.from('site_content').select('*').eq('site_id', siteId).single(),
+        supabase.from('services').select('*').eq('site_id', siteId).eq('active', true).order('sort_order'),
+        supabase.from('fleet_types').select('*').eq('site_id', siteId).eq('active', true).order('sort_order'),
+        supabase.from('rental_pricing').select('*, rental_time_slots(name)').eq('site_id', siteId).eq('active', true),
+        supabase.from('rental_addons').select('*').eq('site_id', siteId).eq('active', true).order('sort_order'),
+        supabase.from('rental_group_rates').select('*').eq('site_id', siteId).eq('active', true),
+        supabase.from('reviews').select('*').eq('site_id', siteId).eq('active', true).order('created_at', { ascending: false }),
+        supabase.from('specials').select('*').eq('site_id', siteId).eq('active', true).order('sort_order'),
+        supabase.from('events').select('*').eq('site_id', siteId).eq('active', true).order('event_date', { ascending: true }),
+    ]);
+
+    const c = content.data || {};
+
+    res.json({
+        ...business,
+        id:          siteId,
+        slug:        business.subdomain,
+        // flattened site_content
+        address:     c.address || '',
+        city:        c.city    || '',
+        state:       c.state   || '',
+        zip:         c.zip     || '',
+        lat:         c.lat     || null,
+        lng:         c.lng     || null,
+        phone:       c.contact_phone || '',
+        email:       c.contact_email || '',
+        website:     c.website_url   || '',
+        description: c.about_text    || c.seo_description || '',
+        hours:       c.hours         || {},
+        hours_note:  c.hours_note    || '',
+        social:      c.social_links  || {},
+        hero_text:   c.hero_text     || '',
+        hero_subtext:c.hero_subtext  || '',
+        // related data
+        services:    services.data    || [],
+        whats_included: (c.whats_included) || [],
+        fleet:       fleet.data       || [],
+        pricing:     (pricing.data || []).map(p => ({ ...p, slot_label: p.slot_label || (p.rental_time_slots && p.rental_time_slots.name) || null })),
+        addons:      addons.data      || [],
+        group_rates: groupRates.data  || [],
+        reviews:     reviews.data     || [],
+        specials:    specials.data    || [],
+        events:      events.data      || [],
+    });
+});
+
+// ============================================
+// GET /api/gcr/business/:id — Single business detail (by UUID — legacy)
 // ============================================
 router.get('/business/:id', async (req, res) => {
     const { data: business } = await supabase
@@ -418,6 +581,134 @@ router.get('/nearby', async (req, res) => {
     results.sort((a, b) => a.distance_miles - b.distance_miles);
 
     res.json(results);
+});
+
+// ============================================
+// POST /api/gcr/tourist/register — GCR Loyalty Signup → SMS
+// ============================================
+router.post('/tourist/register', async (req, res) => {
+    const { name, phone, interests, visitor_type, checkin, checkout, sms_consent } = req.body;
+
+    if (!name || !phone) {
+        return res.status(400).json({ error: 'name and phone required' });
+    }
+
+    // Insert tourist session
+    const { data: session, error: sessionError } = await supabase
+        .from('tourist_sessions')
+        .insert({
+            name,
+            phone,
+            interests: interests || [],
+            visitor_type: visitor_type || 'tourist',
+            checkin: checkin || null,
+            checkout: checkout || null
+        })
+        .select()
+        .single();
+
+    if (sessionError) {
+        console.error('Tourist session error:', sessionError);
+        return res.status(500).json({ error: sessionError.message });
+    }
+
+    const chatUrl = `https://cybercheck-login.vercel.app/chat/${session.session_id}`;
+
+    // Send SMS via Twilio (if configured)
+    if (process.env.TWILIO_ACCOUNT_SID && process.env.TWILIO_AUTH_TOKEN && process.env.TWILIO_PHONE_NUMBER) {
+        try {
+            const twilio = require('twilio')(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
+            await twilio.messages.create({
+                to: phone,
+                from: process.env.TWILIO_PHONE_NUMBER,
+                body: `Hey ${name}! Your Gulf Coast trip guide is ready 🌊 Ask me about restaurants, boat rentals, and activities → ${chatUrl}`
+            });
+        } catch (smsErr) {
+            console.error('SMS send error:', smsErr.message);
+            // Don't fail the request if SMS fails
+        }
+    }
+
+    res.json({
+        success: true,
+        session_id: session.session_id,
+        chat_url: chatUrl
+    });
+});
+
+// ============================================
+// POST /api/gcr/chat — GCR AI voice/text search
+// ============================================
+router.post('/chat', async (req, res) => {
+    const { message, history = [] } = req.body;
+    if (!message) return res.status(400).json({ error: 'Message required' });
+
+    if (!process.env.OPENAI_API_KEY) {
+        return res.json({ reply: "AI is being set up — check back soon!" });
+    }
+
+    const { data: businesses } = await supabase
+        .from('businesses')
+        .select(`name, type, subdomain, tagline, area, tags, happy_hour, kids_friendly, pet_friendly, live_music, outdoor, alcohol, price_range, rating, site_content(contact_phone, address, city, hours, website_url)`)
+        .eq('gcr_listed', true).eq('status', 'active').order('name');
+
+    const bizContext = (businesses || []).map(b => {
+        const c = b.site_content || {};
+        const flags = [
+            b.happy_hour    === true && 'happy hour',
+            b.live_music    === true && 'live music',
+            b.kids_friendly === true && 'kid-friendly',
+            b.pet_friendly  === true && 'pet-friendly',
+            b.outdoor       === true && 'outdoor seating',
+            b.alcohol       === true && 'full bar',
+        ].filter(Boolean).join(', ');
+        return `• ${b.name} [${b.type}] ${b.area || ''} — ${b.tagline || ''} | ${flags} | ${b.price_range || ''} | phone: ${c.contact_phone || 'n/a'}`;
+    }).join('\n');
+
+    const systemPrompt = `You are the Gulf Coast Concierge — a friendly, enthusiastic local who's lived on the Alabama Gulf Coast your whole life. You talk like a real person, not a search engine. Think of yourself as the tourist's best friend who knows every spot.
+
+Your personality:
+- Warm, casual, fun — like texting a friend who lives there
+- Use short sentences. Be direct. Drop in local flavor ("that place is LEGENDARY", "trust me on this one", "locals don't even tell tourists about this spot")
+- Never sound robotic or list-like
+
+CONVERSATION STYLE:
+- ALWAYS ask a follow-up question at the end of your response to keep the conversation going
+- Examples: "How many people in your group?", "Are you more of a fried seafood or raw oyster person?", "What time were y'all thinking?", "Got kids with you?", "What's the vibe — chill dinner or something lively?"
+- If they say something vague like "where should I eat" — ask 2 quick questions before recommending: "What kind of food are y'all feeling? And is this a date night, family thing, or group situation?"
+- If they've already told you details (kids, budget, etc.) in the conversation history, REMEMBER them and don't re-ask
+
+RECOMMENDATIONS:
+- Give 1-2 specific spots, not a list of 5
+- Say WHY it's the right pick for them specifically
+- Include the phone number so they can call
+- Add a local tip: "Get there before 6 or you'll wait 45 min", "Sit on the patio if you can", "Ask for the off-menu shrimp basket"
+
+Here are the businesses you know about:
+${bizContext}
+
+HARD RULES:
+- Only recommend places from the list above — never make up a business
+- Keep each response under 80 words (short texts, not essays)
+- If you don't have a match, say so honestly and suggest what's close`;
+
+    try {
+        const openaiRes = await fetch('https://api.openai.com/v1/chat/completions', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + process.env.OPENAI_API_KEY },
+            body: JSON.stringify({
+                model: 'gpt-4o-mini',
+                messages: [{ role: 'system', content: systemPrompt }, ...history.slice(-10), { role: 'user', content: message }],
+                max_tokens: 250, temperature: 0.85
+            })
+        });
+        const data = await openaiRes.json();
+        if (!openaiRes.ok) throw new Error(data.error?.message || 'OpenAI error');
+        res.json({ reply: data.choices?.[0]?.message?.content || "Try rephrasing!" });
+    } catch (err) {
+        console.error('GCR chat error:', err.message);
+        res.json({ reply: "Something went wrong — try again!" });
+    }
 });
 
 module.exports = router;
