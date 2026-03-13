@@ -196,6 +196,23 @@ app.get('/api/site-data', async (req, res) => {
                     if (!base.theme) base.theme = {};
                     base.theme.primary = content.theme_color;
                 }
+
+                // 6. Website content sections from site_content JSONB columns
+                const wcFields = ['whats_included', 'steps', 'features', 'footer', 'links_page', 'locations', 'group_rate', 'docks', 'hero_cta_text', 'hero_cta_url'];
+                wcFields.forEach(field => {
+                    if (content[field] !== undefined && content[field] !== null) {
+                        if (field === 'hero_cta_text' || field === 'hero_cta_url') {
+                            if (!base.hero) base.hero = {};
+                            if (field === 'hero_cta_text') base.hero.ctaText = content.hero_cta_text;
+                            if (field === 'hero_cta_url')  base.hero.ctaUrl  = content.hero_cta_url;
+                        } else {
+                            const isEmpty = Array.isArray(content[field])
+                                ? content[field].length === 0
+                                : (typeof content[field] === 'object' ? Object.keys(content[field]).length === 0 : !content[field]);
+                            if (!isEmpty) base[field] = content[field];
+                        }
+                    }
+                });
             }
         }
 

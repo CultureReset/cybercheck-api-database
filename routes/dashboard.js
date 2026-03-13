@@ -2988,4 +2988,56 @@ STYLE:
     }
 });
 
+// ============================================
+// WEBSITE CONTENT SECTIONS — generic GET/PUT per section
+// Sections stored as JSONB columns in site_content
+// ============================================
+
+const WC_ALLOWED_SECTIONS = [
+    'whats_included', 'steps', 'features', 'footer',
+    'links_page', 'locations', 'group_rate', 'docks',
+    'hero_cta_text', 'hero_cta_url'
+];
+
+// GET /api/dashboard/website-content — all sections at once
+router.get('/website-content', async (req, res) => {
+    const { data } = await supabase
+        .from('site_content')
+        .select('whats_included, steps, features, footer, links_page, locations, group_rate, docks, hero_cta_text, hero_cta_url')
+        .eq('site_id', req.siteId)
+        .single();
+    res.json(data || {});
+});
+
+// PUT /api/dashboard/website-content/:section — save one section
+router.put('/website-content/:section', async (req, res) => {
+    const { section } = req.params;
+    if (!WC_ALLOWED_SECTIONS.includes(section)) {
+        return res.status(400).json({ error: 'Unknown section: ' + section });
+    }
+    const value = req.body.value !== undefined ? req.body.value : req.body;
+    const { error } = await supabase
+        .from('site_content')
+        .upsert({ site_id: req.siteId, [section]: value, updated_at: new Date().toISOString() });
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true, section });
+});
+
+// PUT /api/dashboard/website-content — save multiple sections at once
+router.put('/website-content', async (req, res) => {
+    const updates = {};
+    for (const key of WC_ALLOWED_SECTIONS) {
+        if (req.body[key] !== undefined) updates[key] = req.body[key];
+    }
+    if (Object.keys(updates).length === 0) {
+        return res.status(400).json({ error: 'No valid sections in body' });
+    }
+    updates.updated_at = new Date().toISOString();
+    const { error } = await supabase
+        .from('site_content')
+        .upsert({ site_id: req.siteId, ...updates });
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true, updated: Object.keys(updates) });
+});
+
 module.exports = router;
