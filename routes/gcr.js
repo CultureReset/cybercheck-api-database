@@ -662,7 +662,7 @@ router.post('/chat', async (req, res) => {
             b.outdoor       === true && 'outdoor seating',
             b.alcohol       === true && 'full bar',
         ].filter(Boolean).join(', ');
-        return `• ${b.name} [${b.type}] ${b.area || ''} — ${b.tagline || ''} | ${flags} | ${b.price_range || ''} | phone: ${c.contact_phone || 'n/a'}`;
+        return `• ${b.name} [${b.type}] ${b.area || ''} — ${b.tagline || ''} | ${flags} | ${b.price_range || ''}`;
     }).join('\n');
 
     const systemPrompt = `You are the Gulf Coast Concierge — a friendly, enthusiastic local who's lived on the Alabama Gulf Coast your whole life. You talk like a real person, not a search engine. Think of yourself as the tourist's best friend who knows every spot.
@@ -681,7 +681,7 @@ CONVERSATION STYLE:
 RECOMMENDATIONS:
 - Give 1-2 specific spots, not a list of 5
 - Say WHY it's the right pick for them specifically
-- Include the phone number so they can call
+- DO NOT include phone numbers or suggest they call — they're talking to you!
 - Add a local tip: "Get there before 6 or you'll wait 45 min", "Sit on the patio if you can", "Ask for the off-menu shrimp basket"
 
 Here are the businesses you know about:
@@ -708,6 +708,61 @@ HARD RULES:
     } catch (err) {
         console.error('GCR chat error:', err.message);
         res.json({ reply: "Something went wrong — try again!" });
+    }
+});
+
+// ============================================
+// POST /api/gcr/search-structured — Public structured search
+// ============================================
+router.post('/search-structured', async (req, res) => {
+    const { query } = req.body;
+    if (!query) return res.status(400).json({ error: 'Query required' });
+
+    try {
+        // Extract search parameters from query using simple keyword matching
+        const keywords = query.toLowerCase().split(/\s+/);
+        const hasLiveMusic = keywords.some(k => ['live', 'music', 'entertainment'].includes(k));
+        const hasGlutenFree = keywords.some(k => ['gluten', 'free', 'gf'].includes(k));
+        const hasKidsFriendly = keywords.some(k => ['kids', 'family', 'children'].includes(k));
+        const hasVegan = keywords.some(k => ['vegan', 'vegetarian'].includes(k));
+        const hasSeafood = keywords.some(k => ['seafood', 'fish', 'shrimp', 'crab'].includes(k));
+        const hasHappyHour = keywords.some(k => ['happy', 'hour', 'deals'].includes(k));
+
+        // Build query for menu items or businesses
+        let query_obj = supabase.from('menu_items').select('*').eq('available', true);
+
+        if (hasGlutenFree) query_obj = query_obj.filter('allergens', 'not.cs', '["gluten"]');
+        if (hasVegan) query_obj = query_obj.filter('tags', 'cs', '["vegan"]');
+        if (hasSeafood) {
+            keywords.forEach(k => {
+                if (['seafood', 'fish', 'shrimp', 'crab'].includes(k)) {
+                    query_obj = query_obj.or(`name.ilike.%${k}%,description.ilike.%${k}%`);
+                }
+            });
+        }
+
+        const { data: results, error } = await query_obj.limit(10);
+        if (error) throw error;
+
+        const formatted = (results || []).map(item => ({
+            id: item.id,
+            name: item.name,
+            description: item.description,
+            price: item.price,
+            category: item.category,
+            tags: item.tags || [],
+            allergens: item.allergens || []
+        }));
+
+        res.json({
+            query,
+            filters: { hasLiveMusic, hasGlutenFree, hasKidsFriendly, hasVegan, hasSeafood, hasHappyHour },
+            results: formatted,
+            count: formatted.length
+        });
+    } catch (err) {
+        console.error('GCR search error:', err.message);
+        res.json({ query, results: [], error: err.message });
     }
 });
 
