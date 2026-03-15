@@ -229,34 +229,37 @@ app.get('/api/site-data', async (req, res) => {
         const pricing    = pricingRes.data || [];
         const addons     = addonsRes.data || [];
 
-        if (fleetTypes.length > 0 && timeSlots.length > 0) {
-            // Build a price lookup: { fleet_type_id_slot_id: price }
+        if (fleetTypes.length > 0) {
+            // Build a price lookup from rental_pricing table (if configured)
             const priceMap = {};
             pricing.forEach(p => { priceMap[`${p.fleet_type_id}_${p.time_slot_id}`] = p.price; });
 
-            // Map time slot names → product price keys
+            // Map time slot names → product price keys (optional — falls back to specs)
             const slotByName = {};
             timeSlots.forEach(ts => {
                 const n = ts.name.toLowerCase();
-                if (n.includes('am') || n.includes('morning'))     slotByName.halfDayAM = ts.id;
+                if (n.includes('am') || n.includes('morning'))        slotByName.halfDayAM = ts.id;
                 else if (n.includes('pm') || n.includes('afternoon')) slotByName.halfDayPM = ts.id;
-                else if (n.includes('all') || n.includes('full'))   slotByName.allDay = ts.id;
+                else if (n.includes('all') || n.includes('full'))     slotByName.allDay    = ts.id;
             });
 
             base.products = fleetTypes.map(ft => {
-                const specs = ft.specs || {};
+                const specs = (ft.specs && typeof ft.specs === 'object') ? ft.specs : {};
+                // Prefer rental_pricing table, fall back to specs JSONB prices
                 const halfDayAMPrice = (slotByName.halfDayAM && priceMap[`${ft.id}_${slotByName.halfDayAM}`]) || specs.halfDayAM || 0;
                 const halfDayPMPrice = (slotByName.halfDayPM && priceMap[`${ft.id}_${slotByName.halfDayPM}`]) || specs.halfDayPM || halfDayAMPrice;
                 const allDayPrice    = (slotByName.allDay    && priceMap[`${ft.id}_${slotByName.allDay}`])    || specs.allDay    || 0;
                 return {
-                    name:       ft.name,
+                    key:         ft.name.toLowerCase().split(' ')[0], // 'single', 'double', etc.
+                    name:        ft.name,
                     description: ft.description || '',
-                    image:      ft.image_url || null,
-                    specs:      specs.specsText || '',
-                    featured:   specs.featured || false,
-                    halfDayAM:  halfDayAMPrice,
-                    halfDayPM:  halfDayPMPrice,
-                    allDay:     allDayPrice
+                    image:       ft.image_url || null,
+                    specs:       specs.specsText || '',
+                    featured:    specs.featured || false,
+                    qty:         specs.qty || 0,
+                    halfDayAM:   halfDayAMPrice,
+                    halfDayPM:   halfDayPMPrice,
+                    allDay:      allDayPrice
                 };
             });
         }
