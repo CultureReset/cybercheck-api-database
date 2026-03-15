@@ -471,7 +471,7 @@ router.post('/bookings', async (req, res) => {
             supabase.rpc('increment_customer_bookings', {
                 customer_uuid: existingCustomer.id,
                 amount: booking.total || 0
-            }).catch(() => {});  // fire-and-forget
+            }).then(() => {}).catch(() => {});  // fire-and-forget
         } else {
             const { data: newCustomer } = await supabase
                 .from('customers')
