@@ -340,17 +340,22 @@ router.get('/availability', async (req, res) => {
         }
     });
 
-    // Check blocked dates
-    const { data: blocked } = await supabase
-        .from('availability')
-        .select('service_id, blocked')
-        .eq('site_id', req.siteId)
-        .eq('specific_date', date)
-        .eq('blocked', true);
+    // Check blocked dates — check both legacy 'availability' table and new 'availability_blocks' table
+    const [{ data: blockedLegacy }, { data: blockedNew }] = await Promise.all([
+        supabase.from('availability').select('service_id, blocked')
+            .eq('site_id', req.siteId).eq('specific_date', date).eq('blocked', true),
+        supabase.from('availability_blocks').select('fleet_type_id')
+            .eq('site_id', req.siteId).eq('block_date', date)
+    ]);
 
     // blockAll = whole-date block (no specific fleet); blockedSet = specific fleet type blocked
-    const blockAll = (blocked || []).some(b => !b.service_id);
-    const blockedSet = new Set((blocked || []).filter(b => b.service_id).map(b => b.service_id));
+    const blockAllLegacy = (blockedLegacy || []).some(b => !b.service_id);
+    const blockAllNew = (blockedNew || []).some(b => !b.fleet_type_id);
+    const blockAll = blockAllLegacy || blockAllNew;
+    const blockedSet = new Set([
+        ...(blockedLegacy || []).filter(b => b.service_id).map(b => b.service_id),
+        ...(blockedNew || []).filter(b => b.fleet_type_id).map(b => b.fleet_type_id)
+    ]);
 
     const availability = [];
     (fleetTypes || []).forEach(ft => {
@@ -1811,7 +1816,37 @@ router.post('/review', async (req, res) => {
 });
 
 // ============================================
-// GET /api/public/loyalty/:email — Check loyalty points
+// GET /api/public/loyalty/balance — Check loyalty balance by email or phone
+// MUST be before /loyalty/:email to prevent route collision
+// ============================================
+router.get('/loyalty/balance', async (req, res) => {
+    const { email, phone } = req.query;
+    if (!email && !phone) return res.status(400).json({ error: 'email or phone query param required' });
+
+    let query = supabase
+        .from('customers')
+        .select('name, total_bookings, total_spent, tags')
+        .eq('site_id', req.siteId);
+
+    if (email) query = query.eq('email', email);
+    else query = query.eq('phone', phone);
+
+    const { data: customer } = await query.maybeSingle();
+
+    if (!customer) {
+        return res.status(404).json({ error: 'Customer not found' });
+    }
+
+    res.json({
+        name: customer.name,
+        total_bookings: customer.total_bookings,
+        total_spent: customer.total_spent,
+        points: Math.floor(customer.total_spent || 0)
+    });
+});
+
+// ============================================
+// GET /api/public/loyalty/:email — Check loyalty points (legacy)
 // ============================================
 router.get('/loyalty/:email', async (req, res) => {
     const { data: customer } = await supabase
@@ -1825,12 +1860,11 @@ router.get('/loyalty/:email', async (req, res) => {
         return res.status(404).json({ error: 'Customer not found' });
     }
 
-    // TODO: Pull from loyalty_points table when it exists
     res.json({
         name: customer.name,
         total_bookings: customer.total_bookings,
         total_spent: customer.total_spent,
-        points: Math.floor(customer.total_spent || 0) // 1 point per dollar for now
+        points: Math.floor(customer.total_spent || 0)
     });
 });
 
@@ -1923,35 +1957,6 @@ router.post('/loyalty/signup', async (req, res) => {
         message: 'Enrolled in loyalty program',
         customer_id: newCustomer.id,
         points: 0
-    });
-});
-
-// ============================================
-// GET /api/public/loyalty/balance — Check loyalty balance by email
-// ============================================
-router.get('/loyalty/balance', async (req, res) => {
-    const { email, phone } = req.query;
-    if (!email && !phone) return res.status(400).json({ error: 'email or phone query param required' });
-
-    let query = supabase
-        .from('customers')
-        .select('name, total_bookings, total_spent, tags')
-        .eq('site_id', req.siteId);
-
-    if (email) query = query.eq('email', email);
-    else query = query.eq('phone', phone);
-
-    const { data: customer } = await query.maybeSingle();
-
-    if (!customer) {
-        return res.status(404).json({ error: 'Customer not found' });
-    }
-
-    res.json({
-        name: customer.name,
-        total_bookings: customer.total_bookings,
-        total_spent: customer.total_spent,
-        points: Math.floor(customer.total_spent || 0)
     });
 });
 
