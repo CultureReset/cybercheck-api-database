@@ -74,8 +74,8 @@ router.get('/connect-url', authRequired, async (req, res) => {
         userId: req.userId
     })).toString('base64');
 
-    const redirectUri = process.env.STRIPE_CONNECT_REDIRECT_URI ||
-        'https://cybercheck-api-database.vercel.app/api/stripe/connect-callback';
+    const redirectUri = (process.env.STRIPE_CONNECT_REDIRECT_URI ||
+        'https://cybercheck-api-database.vercel.app/api/stripe/connect-callback').trim();
 
     const url = 'https://connect.stripe.com/oauth/authorize?' +
         'response_type=code&' +
@@ -111,7 +111,7 @@ router.get('/connect-callback', async (req, res) => {
     try {
         stateData = JSON.parse(Buffer.from(state, 'base64').toString());
     } catch (e) {
-        return res.redirect('/dashboard/#connections?stripe_error=invalid_state');
+        return res.redirect(dashboardBase + '/#connections?stripe_error=invalid_state');
     }
 
     try {
