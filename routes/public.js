@@ -539,41 +539,43 @@ router.post('/bookings', async (req, res) => {
 
     if (error) return res.status(500).json({ error: error.message });
 
-    // Send booking confirmation SMS (non-blocking — don't fail the booking if SMS fails)
-    try {
-        const { sendSms, fillTemplate, buildTemplateData } = require('../utils/sms');
-
-        // Get messaging settings + owner phone for this business
-        const { data: siteContent } = await supabase
-            .from('site_content')
-            .select('messaging_settings, contact_phone')
-            .eq('site_id', req.siteId)
-            .single();
-
-        const settings = siteContent?.messaging_settings || {};
-        const templateData = await buildTemplateData(data, req.siteId);
-
-        // SMS to customer
-        if (settings.notifyCustomerOnBooking !== false && data.customer_phone) {
-            const defaultCustomerTpl = '[{{business_name}}] Hi {{customer_name}}! Your booking is confirmed.\n\nDate: {{date}}\nTime: {{time_slot}}\nTotal: ${{total}}\n\nQuestions? Reply to this number!\n\n🏖️ Get exclusive deals & rewards while you\'re in town!\nSign up for Gulf Coast Radar Trip Pass:\ngulfcoastradar.com/trip-pass';
-            const customerMsg = fillTemplate(settings.customerBookingTemplate || defaultCustomerTpl, templateData);
-            sendSms(data.customer_phone, customerMsg, req.siteId, 'booking_confirmation', data.id)
-                .catch(err => console.error('Customer SMS failed:', err));
-        }
-
-        // SMS to business owner
-        if (settings.notifyOwnerOnBooking !== false && siteContent?.contact_phone) {
-            const defaultOwnerTpl = 'NEW BOOKING!\n\nCustomer: {{customer_name}}\nPhone: {{customer_phone}}\nDate: {{date}}\nTime: {{time_slot}}\nTotal: ${{total}}\nPayment: {{payment_status}}';
-            const ownerMsg = fillTemplate(settings.ownerBookingTemplate || defaultOwnerTpl, templateData);
-            sendSms(siteContent.contact_phone, ownerMsg, req.siteId, 'booking_owner_notify', data.id)
-                .catch(err => console.error('Owner SMS failed:', err));
-        }
-    } catch (smsErr) {
-        console.error('SMS notification error:', smsErr);
-    }
-
-    // TODO: Emit event: booking.created (for future event bus)
+    // Respond immediately — don't block on SMS
     res.status(201).json(data);
+
+    // Send SMS notifications after response (fire-and-forget, won't cause timeout)
+    setImmediate(async () => {
+        try {
+            const { sendSms, fillTemplate, buildTemplateData } = require('../utils/sms');
+
+            // Get messaging settings + owner phone for this business
+            const { data: siteContent } = await supabase
+                .from('site_content')
+                .select('messaging_settings, contact_phone')
+                .eq('site_id', req.siteId)
+                .single();
+
+            const settings = siteContent?.messaging_settings || {};
+            const templateData = await buildTemplateData(data, req.siteId);
+
+            // SMS to customer
+            if (settings.notifyCustomerOnBooking !== false && data.customer_phone) {
+                const defaultCustomerTpl = '[{{business_name}}] Hi {{customer_name}}! Your booking is confirmed.\n\nDate: {{date}}\nTime: {{time_slot}}\nTotal: ${{total}}\n\nQuestions? Reply to this number!\n\n🏖️ Get exclusive deals & rewards while you\'re in town!\nSign up for Gulf Coast Radar Trip Pass:\ngulfcoastradar.com/trip-pass';
+                const customerMsg = fillTemplate(settings.customerBookingTemplate || defaultCustomerTpl, templateData);
+                await sendSms(data.customer_phone, customerMsg, req.siteId, 'booking_confirmation', data.id)
+                    .catch(err => console.error('Customer SMS failed:', err));
+            }
+
+            // SMS to business owner
+            if (settings.notifyOwnerOnBooking !== false && siteContent?.contact_phone) {
+                const defaultOwnerTpl = 'NEW BOOKING!\n\nCustomer: {{customer_name}}\nPhone: {{customer_phone}}\nDate: {{date}}\nTime: {{time_slot}}\nTotal: ${{total}}\nPayment: {{payment_status}}';
+                const ownerMsg = fillTemplate(settings.ownerBookingTemplate || defaultOwnerTpl, templateData);
+                await sendSms(siteContent.contact_phone, ownerMsg, req.siteId, 'booking_owner_notify', data.id)
+                    .catch(err => console.error('Owner SMS failed:', err));
+            }
+        } catch (smsErr) {
+            console.error('SMS notification error:', smsErr);
+        }
+    });
 });
 
 // ============================================
