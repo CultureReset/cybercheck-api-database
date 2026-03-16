@@ -1033,9 +1033,11 @@ router.put('/addons/sync', async (req, res) => {
         sort_order: i
     }));
 
-    const { data, error } = await supabase.from('rental_addons').insert(rows).select();
-    if (error) return res.status(500).json({ error: error.message });
-    res.json(data);
+    for (const row of rows) {
+        const { error } = await supabase.from('rental_addons').insert(row);
+        if (error) return res.status(500).json({ error: error.message });
+    }
+    res.json({ success: true, count: rows.length });
 });
 
 router.put('/addons/:id', async (req, res) => {
