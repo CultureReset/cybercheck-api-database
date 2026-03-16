@@ -1033,9 +1033,20 @@ router.put('/addons/sync', async (req, res) => {
         sort_order: i
     }));
 
-    for (const row of rows) {
-        const { error } = await supabase.from('rental_addons').insert(row);
-        if (error) return res.status(500).json({ error: error.message });
+    // Bypass Supabase JS client (schema cache bug) — use REST API directly
+    const insertRes = await fetch(`${process.env.SUPABASE_URL}/rest/v1/rental_addons`, {
+        method: 'POST',
+        headers: {
+            'apikey': process.env.SUPABASE_SERVICE_KEY,
+            'Authorization': `Bearer ${process.env.SUPABASE_SERVICE_KEY}`,
+            'Content-Type': 'application/json',
+            'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify(rows)
+    });
+    if (!insertRes.ok) {
+        const err = await insertRes.json().catch(() => ({}));
+        return res.status(500).json({ error: err.message || err.error || insertRes.status });
     }
     res.json({ success: true, count: rows.length });
 });
