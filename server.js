@@ -245,10 +245,11 @@ app.get('/api/site-data', async (req, res) => {
 
             base.products = fleetTypes.map(ft => {
                 const specs = (ft.specs && typeof ft.specs === 'object') ? ft.specs : {};
-                // Prefer rental_pricing table, fall back to specs JSONB prices
-                const halfDayAMPrice = (slotByName.halfDayAM && priceMap[`${ft.id}_${slotByName.halfDayAM}`]) || specs.halfDayAM || 0;
-                const halfDayPMPrice = (slotByName.halfDayPM && priceMap[`${ft.id}_${slotByName.halfDayPM}`]) || specs.halfDayPM || halfDayAMPrice;
-                const allDayPrice    = (slotByName.allDay    && priceMap[`${ft.id}_${slotByName.allDay}`])    || specs.allDay    || 0;
+                // Prefer specs JSONB prices (written by Website Content dashboard),
+                // fall back to rental_pricing table only when specs has no price set
+                const halfDayAMPrice = specs.halfDayAM || (slotByName.halfDayAM && priceMap[`${ft.id}_${slotByName.halfDayAM}`]) || 0;
+                const halfDayPMPrice = specs.halfDayPM || (slotByName.halfDayPM && priceMap[`${ft.id}_${slotByName.halfDayPM}`]) || halfDayAMPrice;
+                const allDayPrice    = specs.allDay    || (slotByName.allDay    && priceMap[`${ft.id}_${slotByName.allDay}`])    || 0;
                 return {
                     key:         ft.name.toLowerCase().split(' ')[0], // 'single', 'double', etc.
                     name:        ft.name,
