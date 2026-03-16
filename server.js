@@ -198,7 +198,7 @@ app.get('/api/site-data', async (req, res) => {
                 }
 
                 // 6. Website content sections from site_content JSONB columns
-                const wcFields = ['whats_included', 'steps', 'features', 'footer', 'links_page', 'locations', 'group_rate', 'docks', 'hero_cta_text', 'hero_cta_url'];
+                const wcFields = ['whats_included', 'steps', 'features', 'footer', 'links_page', 'locations', 'group_rate', 'docks', 'qna', 'hero_cta_text', 'hero_cta_url'];
                 wcFields.forEach(field => {
                     if (content[field] !== undefined && content[field] !== null) {
                         if (field === 'hero_cta_text' || field === 'hero_cta_url') {

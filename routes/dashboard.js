@@ -3116,7 +3116,7 @@ STYLE:
 
 const WC_ALLOWED_SECTIONS = [
     'whats_included', 'steps', 'features', 'footer',
-    'links_page', 'locations', 'group_rate', 'docks',
+    'links_page', 'locations', 'group_rate', 'docks', 'qna',
     'hero_cta_text', 'hero_cta_url'
 ];
 
@@ -3124,7 +3124,7 @@ const WC_ALLOWED_SECTIONS = [
 router.get('/website-content', async (req, res) => {
     const { data } = await supabase
         .from('site_content')
-        .select('whats_included, steps, features, footer, links_page, locations, group_rate, docks, hero_cta_text, hero_cta_url')
+        .select('whats_included, steps, features, footer, links_page, locations, group_rate, docks, qna, hero_cta_text, hero_cta_url')
         .eq('site_id', req.siteId)
         .single();
     res.json(data || {});
