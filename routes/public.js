@@ -547,21 +547,25 @@ router.post('/bookings', async (req, res) => {
     // Respond immediately — don't block on SMS (prevents 504 timeout)
     res.status(201).json(data);
 
-    // Send SMS notifications after response (fire-and-forget, won't cause timeout)
+    // Send SMS + email notifications after response (fire-and-forget, won't cause timeout)
     setImmediate(async () => {
         try {
             const { sendSms, fillTemplate, buildTemplateData } = require('../utils/sms');
+            const { sendEmail, customerConfirmationHtml, ownerNotificationHtml } = require('../utils/email');
 
-            // Get messaging settings (notification phone) + fallback to site contact_phone
-            const [{ data: msgSettings }, { data: siteContent }] = await Promise.all([
-                supabase.from('messaging_settings').select('notification_phone, booking_confirmation_enabled, booking_confirmation_template').eq('site_id', req.siteId).maybeSingle(),
-                supabase.from('site_content').select('contact_phone').eq('site_id', req.siteId).single()
+            // Get messaging settings + contact info in one shot
+            const [{ data: msgSettings }, { data: siteContent }, { data: business }] = await Promise.all([
+                supabase.from('messaging_settings').select('notification_phone, notification_email, booking_confirmation_enabled, booking_confirmation_template').eq('site_id', req.siteId).maybeSingle(),
+                supabase.from('site_content').select('contact_phone, contact_email').eq('site_id', req.siteId).single(),
+                supabase.from('businesses').select('name, email').eq('site_id', req.siteId).single()
             ]);
 
             const settings = msgSettings || {};
             const templateData = await buildTemplateData(data, req.siteId);
+            // Attach notes to templateData for email templates
+            templateData.notes = data.notes || '';
 
-            // SMS to customer
+            // ── Customer SMS ──
             if (settings.booking_confirmation_enabled !== false && data.customer_phone) {
                 const defaultCustomerTpl = '[{{business_name}}] Hi {{customer_name}}! Your booking is confirmed.\n\nDate: {{date}}\nTime: {{time_slot}}\nTotal: ${{total}}\n\nQuestions? Reply to this number!\n\n🏖️ Get exclusive deals & rewards while you\'re in town!\nSign up for Gulf Coast Radar Trip Pass:\ngulfcoastradar.com/trip-pass';
                 const customerMsg = fillTemplate(settings.booking_confirmation_template || defaultCustomerTpl, templateData);
@@ -569,7 +573,17 @@ router.post('/bookings', async (req, res) => {
                     .catch(err => console.error('Customer SMS failed:', err));
             }
 
-            // SMS to business owner — use notification_phone from messaging settings, fallback to contact_phone
+            // ── Customer Email ──
+            if (data.customer_email) {
+                sendEmail({
+                    to: data.customer_email,
+                    subject: 'Booking Confirmed — ' + (templateData.business_name || 'Your Reservation'),
+                    html: customerConfirmationHtml(templateData),
+                    replyTo: siteContent?.contact_email || business?.email || undefined
+                }).catch(err => console.error('Customer email failed:', err));
+            }
+
+            // ── Owner SMS ──
             const ownerPhone = settings.notification_phone || siteContent?.contact_phone || null;
             if (ownerPhone) {
                 const defaultOwnerTpl = 'NEW BOOKING!\n\nCustomer: {{customer_name}}\nPhone: {{customer_phone}}\nDate: {{date}}\nTime: {{time_slot}}\nTotal: ${{total}}\nPayment: {{payment_status}}';
@@ -577,8 +591,20 @@ router.post('/bookings', async (req, res) => {
                 sendSms(ownerPhone, ownerMsg, req.siteId, 'booking_owner_notify', data.id)
                     .catch(err => console.error('Owner SMS failed:', err));
             }
-        } catch (smsErr) {
-            console.error('SMS notification error:', smsErr);
+
+            // ── Owner Email ──
+            const ownerEmail = settings.notification_email || siteContent?.contact_email || business?.email || null;
+            if (ownerEmail) {
+                sendEmail({
+                    to: ownerEmail,
+                    subject: 'New Booking — ' + (templateData.customer_name || 'Customer') + ' · ' + templateData.date,
+                    html: ownerNotificationHtml(templateData),
+                    replyTo: data.customer_email || undefined
+                }).catch(err => console.error('Owner email failed:', err));
+            }
+
+        } catch (notifyErr) {
+            console.error('Notification error:', notifyErr);
         }
     });
 });
