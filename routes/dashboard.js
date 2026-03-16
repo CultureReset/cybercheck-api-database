@@ -1012,6 +1012,32 @@ router.post('/addons', async (req, res) => {
     res.status(201).json(data);
 });
 
+// PUT /api/dashboard/addons/sync — replace all addons for this site in one call
+// MUST be before /addons/:id so Express doesn't treat "sync" as an id
+router.put('/addons/sync', async (req, res) => {
+    const addons = req.body;
+    if (!Array.isArray(addons)) return res.status(400).json({ error: 'Expected array' });
+
+    await supabase.from('rental_addons').delete().eq('site_id', req.siteId);
+
+    if (addons.length === 0) return res.json([]);
+
+    const rows = addons.map((a, i) => ({
+        site_id: req.siteId,
+        name: a.name,
+        description: a.description || '',
+        price: a.price || 0,
+        icon: a.icon || '🎁',
+        per_unit: a.unit || '',
+        available: true,
+        sort_order: i
+    }));
+
+    const { data, error } = await supabase.from('rental_addons').insert(rows).select();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
 router.put('/addons/:id', async (req, res) => {
     const updates = { ...req.body };
     delete updates.site_id;
@@ -1038,31 +1064,6 @@ router.delete('/addons/:id', async (req, res) => {
 
     if (error) return res.status(500).json({ error: error.message });
     res.json({ success: true });
-});
-
-// PUT /api/dashboard/addons/sync — replace all addons for this site in one call
-router.put('/addons/sync', async (req, res) => {
-    const addons = req.body;
-    if (!Array.isArray(addons)) return res.status(400).json({ error: 'Expected array' });
-
-    await supabase.from('rental_addons').delete().eq('site_id', req.siteId);
-
-    if (addons.length === 0) return res.json([]);
-
-    const rows = addons.map((a, i) => ({
-        site_id: req.siteId,
-        name: a.name,
-        description: a.description || '',
-        price: a.price || 0,
-        icon: a.icon || '🎁',
-        per_unit: a.unit || '',
-        available: true,
-        sort_order: i
-    }));
-
-    const { data, error } = await supabase.from('rental_addons').insert(rows).select();
-    if (error) return res.status(500).json({ error: error.message });
-    res.json(data);
 });
 
 // ============================================
