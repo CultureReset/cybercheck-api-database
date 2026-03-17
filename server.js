@@ -275,9 +275,14 @@ app.get('/api/site-data', async (req, res) => {
             }));
         }
 
-        // 5. Gallery from media table (only if records exist)
+        // 5. Gallery from media table — respect saved order from site_data_store
         if (media.length > 0) {
-            base.gallery = media.map(m => m.url);
+            const savedOrder = base.gallery || [];
+            const mediaUrls = media.map(m => m.url);
+            const ordered = savedOrder.filter(url => mediaUrls.includes(url));
+            const newUrls = mediaUrls.filter(url => !savedOrder.includes(url));
+            base.gallery = [...ordered, ...newUrls];
+            // gallery_sections survives from site_data_store (not overridden here)
         }
 
         // 6. Published reviews (displayed on website)
