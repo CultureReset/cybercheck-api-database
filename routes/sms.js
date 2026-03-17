@@ -360,4 +360,86 @@ router.post('/blast', async (req, res) => {
 });
 
 
+// ═══════════════════════════════════════════════════════════════════════════════
+// GET /api/sms/send-reminders — Vercel Cron: send 24h reminder SMS
+// Runs every 15 minutes via cron. Secured by CRON_SECRET env var.
+// ═══════════════════════════════════════════════════════════════════════════════
+router.get('/send-reminders', async (req, res) => {
+    // Verify Vercel cron secret
+    const secret = process.env.CRON_SECRET;
+    if (secret && req.headers['authorization'] !== 'Bearer ' + secret) {
+        return res.status(401).json({ error: 'Unauthorized' });
+    }
+
+    const twilio = getTwilio();
+    if (!twilio) return res.json({ skipped: true, reason: 'twilio_not_configured' });
+
+    try {
+        // Find confirmed bookings happening tomorrow (within a 15-min window from now + 24h)
+        const now = new Date();
+        const windowStart = new Date(now.getTime() + 23 * 60 * 60 * 1000);
+        const windowEnd   = new Date(now.getTime() + 25 * 60 * 60 * 1000);
+        const dateStart   = windowStart.toISOString().split('T')[0];
+        const dateEnd     = windowEnd.toISOString().split('T')[0];
+
+        const { data: bookings, error } = await supabase
+            .from('bookings')
+            .select('id, site_id, customer_name, customer_phone, booking_date, fleet_type, time_slot')
+            .gte('booking_date', dateStart)
+            .lte('booking_date', dateEnd)
+            .eq('status', 'confirmed')
+            .is('reminder_sent', null)
+            .not('customer_phone', 'is', null);
+
+        if (error) throw error;
+        if (!bookings || !bookings.length) return res.json({ sent: 0, message: 'No reminders due' });
+
+        let sent = 0, failed = 0;
+
+        for (const b of bookings) {
+            try {
+                // Get business Twilio number
+                const { data: siteContent } = await supabase
+                    .from('site_content')
+                    .select('twilio_number')
+                    .eq('site_id', b.site_id)
+                    .single();
+
+                if (!siteContent?.twilio_number) { failed++; continue; }
+
+                const msg = `Reminder: Your ${b.fleet_type || 'boat'} rental is tomorrow${b.time_slot ? ' at ' + b.time_slot : ''}! Please arrive 15 min early. Questions? Reply here.`;
+
+                await twilio.messages.create({
+                    body: msg,
+                    from: siteContent.twilio_number,
+                    to: b.customer_phone
+                });
+
+                // Mark reminder sent
+                await supabase.from('bookings').update({ reminder_sent: new Date().toISOString() }).eq('id', b.id);
+
+                await storeMessage({
+                    siteId:        b.site_id,
+                    customerPhone: b.customer_phone,
+                    customerName:  b.customer_name || null,
+                    direction:     'outbound',
+                    body:          msg,
+                    messageType:   'booking_reminder',
+                    related_id:    b.id
+                });
+
+                sent++;
+            } catch (err) {
+                console.error('Reminder failed for booking', b.id, err.message);
+                failed++;
+            }
+        }
+
+        res.json({ sent, failed, total: bookings.length });
+    } catch (err) {
+        console.error('send-reminders error:', err.message);
+        res.status(500).json({ error: err.message });
+    }
+});
+
 module.exports = router;

@@ -12,6 +12,12 @@
       "dest": "server.js"
     }
   ],
+  "crons": [
+    {
+      "path": "/api/sms/send-reminders",
+      "schedule": "*/15 * * * *"
+    }
+  ],
   "env": {
     "NODE_ENV": "production"
   }
