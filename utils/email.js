@@ -11,7 +11,7 @@ const FROM_DEFAULT = process.env.EMAIL_FROM || 'bookings@gulfcoastradar.com';
  * Send an email via Resend
  * @param {object} opts - { to, subject, html, replyTo }
  */
-async function sendEmail({ to, subject, html, replyTo }) {
+async function sendEmail({ to, subject, html, replyTo, attachments }) {
     const apiKey = process.env.RESEND_API_KEY;
     if (!apiKey) {
         console.warn('RESEND_API_KEY not set — email not sent to:', to);
@@ -31,7 +31,8 @@ async function sendEmail({ to, subject, html, replyTo }) {
                 to: Array.isArray(to) ? to : [to],
                 subject,
                 html,
-                reply_to: replyTo || undefined
+                reply_to: replyTo || undefined,
+                attachments: attachments || undefined
             })
         });
         const json = await res.json();
@@ -158,4 +159,48 @@ function esc(str) {
     return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
-module.exports = { sendEmail, customerConfirmationHtml, ownerNotificationHtml };
+/**
+ * Generate .ics calendar invite content
+ * d: { date, time_slot, boat_type, business_name, location }
+ */
+function generateIcsContent(d) {
+    // Parse start/end from time_slot e.g. "9:00 AM – 1:00 PM" or "Half Day AM"
+    const dateStr = (d.date || '').replace(/-/g, '');
+    const slot = (d.time_slot || '').toLowerCase();
+    let startHour = 9, endHour = 13;
+    if (slot.includes('pm') && !slot.includes('am')) { startHour = 13; endHour = 17; }
+    else if (slot.includes('all day') || slot.includes('full')) { startHour = 9; endHour = 17; }
+    // Try to parse explicit times like "9:00 AM"
+    const timeMatch = (d.time_slot || '').match(/(\d+):(\d+)\s*(AM|PM)/i);
+    if (timeMatch) {
+        let h = parseInt(timeMatch[1]);
+        if (timeMatch[3].toUpperCase() === 'PM' && h !== 12) h += 12;
+        if (timeMatch[3].toUpperCase() === 'AM' && h === 12) h = 0;
+        startHour = h;
+        endHour = h + 4;
+    }
+    const pad = n => String(n).padStart(2, '0');
+    const dtStart = dateStr + 'T' + pad(startHour) + '0000';
+    const dtEnd   = dateStr + 'T' + pad(endHour)   + '0000';
+    const uid = 'booking-' + Date.now() + '@circleboat';
+    const summary = (d.boat_type || 'Boat Rental') + ' — ' + (d.business_name || 'Circle Boats');
+    const location = d.location || 'Orange Beach, AL';
+    return [
+        'BEGIN:VCALENDAR',
+        'VERSION:2.0',
+        'PRODID:-//CyberCheck//Booking//EN',
+        'METHOD:REQUEST',
+        'BEGIN:VEVENT',
+        'UID:' + uid,
+        'DTSTART;TZID=America/Chicago:' + dtStart,
+        'DTEND;TZID=America/Chicago:' + dtEnd,
+        'SUMMARY:' + summary,
+        'LOCATION:' + location,
+        'DESCRIPTION:Your booking is confirmed. Arrive 15 min early for check-in.',
+        'STATUS:CONFIRMED',
+        'END:VEVENT',
+        'END:VCALENDAR'
+    ].join('\r\n');
+}
+
+module.exports = { sendEmail, customerConfirmationHtml, ownerNotificationHtml, generateIcsContent };

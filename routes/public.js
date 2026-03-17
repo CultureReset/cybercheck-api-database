@@ -551,7 +551,7 @@ router.post('/bookings', async (req, res) => {
     setImmediate(async () => {
         try {
             const { sendSms, fillTemplate, buildTemplateData } = require('../utils/sms');
-            const { sendEmail, customerConfirmationHtml, ownerNotificationHtml } = require('../utils/email');
+            const { sendEmail, customerConfirmationHtml, ownerNotificationHtml, generateIcsContent } = require('../utils/email');
 
             // Get messaging settings + contact info in one shot
             const [{ data: msgSettings }, { data: siteContent }, { data: business }] = await Promise.all([
@@ -575,11 +575,16 @@ router.post('/bookings', async (req, res) => {
 
             // ── Customer Email ──
             if (data.customer_email) {
+                const icsAttachment = [{
+                    filename: 'booking.ics',
+                    content: Buffer.from(generateIcsContent(templateData)).toString('base64')
+                }];
                 sendEmail({
                     to: data.customer_email,
                     subject: 'Booking Confirmed — ' + (templateData.business_name || 'Your Reservation'),
                     html: customerConfirmationHtml(templateData),
-                    replyTo: siteContent?.contact_email || business?.email || undefined
+                    replyTo: siteContent?.contact_email || business?.email || undefined,
+                    attachments: icsAttachment
                 }).catch(err => console.error('Customer email failed:', err));
             }
 
