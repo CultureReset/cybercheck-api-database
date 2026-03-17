@@ -22,14 +22,54 @@ function getTwilio() {
     return require('twilio')(sid, token);
 }
 
-// ── Helper: look up which business owns a Twilio number ───────────────────────
-async function siteByTwilioNumber(twilioNumber) {
-    const { data } = await supabase
-        .from('site_content')
-        .select('site_id, owner_phone, twilio_number')
-        .eq('twilio_number', twilioNumber)
-        .single();
-    return data;
+// Platform-wide shared Twilio number (one number for all businesses)
+function getFromNumber() {
+    return process.env.TWILIO_PHONE_NUMBER || process.env.TWILIO_FROM_NUMBER;
+}
+
+// ── Helper: route inbound message to correct business ─────────────────────────
+// Since one shared number serves all businesses, we identify the business by
+// looking up the most recent outbound message sent to this customer's phone.
+// Falls back to customers table if no message history found.
+async function siteByInboundPhone(customerPhone) {
+    // 1. Find the most recent outbound message to this phone
+    const { data: lastMsg } = await supabase
+        .from('messages')
+        .select('site_id')
+        .eq('customer_phone', customerPhone)
+        .eq('direction', 'outbound')
+        .order('created_at', { ascending: false })
+        .limit(1)
+        .maybeSingle();
+
+    if (lastMsg?.site_id) {
+        const { data: site } = await supabase
+            .from('site_content')
+            .select('site_id, owner_phone')
+            .eq('site_id', lastMsg.site_id)
+            .single();
+        return site;
+    }
+
+    // 2. Fallback: check customers table
+    const { data: customer } = await supabase
+        .from('customers')
+        .select('site_id')
+        .eq('phone', customerPhone)
+        .order('created_at', { ascending: false })
+        .limit(1)
+        .maybeSingle();
+
+    if (customer?.site_id) {
+        const { data: site } = await supabase
+            .from('site_content')
+            .select('site_id, owner_phone')
+            .eq('site_id', customer.site_id)
+            .single();
+        return site;
+    }
+
+    return null;
 }
 
 // ── Helper: look up customer name from phone ──────────────────────────────────
@@ -77,10 +117,10 @@ router.post('/inbound', express.urlencoded({ extended: false }), async (req, res
     // Always respond with empty TwiML immediately (Twilio requires fast response)
     res.type('text/xml').send('<?xml version="1.0"?><Response></Response>');
 
-    // Look up which business this number belongs to
-    const site = await siteByTwilioNumber(to);
+    // Route to correct business via message history (shared platform number)
+    const site = await siteByInboundPhone(from);
     if (!site) {
-        console.warn('SMS inbound: no business found for number', to);
+        console.warn('SMS inbound: no business found for customer', from);
         return;
     }
 
@@ -103,13 +143,14 @@ router.post('/inbound', express.urlencoded({ extended: false }), async (req, res
     // Forward to owner's cell so they know someone replied
     if (site.owner_phone) {
         const twilio = getTwilio();
-        if (twilio) {
+        const fromNum = getFromNumber();
+        if (twilio && fromNum) {
             const displayName = customer?.name || from;
             const preview = body.length > 120 ? body.substring(0, 120) + '...' : body;
             twilio.messages.create({
                 body: `💬 ${displayName}: ${preview}\n\nReply in your dashboard`,
-                from: to,               // from the business number
-                to:   site.owner_phone  // to the owner's personal cell
+                from: fromNum,
+                to:   site.owner_phone
             }).catch(err => console.error('Forward to owner failed:', err.message));
         }
     }
@@ -126,24 +167,14 @@ router.post('/reply', async (req, res) => {
         return res.status(400).json({ error: 'customer_phone, body, site_id required' });
     }
 
-    // Get the business Twilio number
-    const { data: siteContent } = await supabase
-        .from('site_content')
-        .select('twilio_number')
-        .eq('site_id', site_id)
-        .single();
-
-    if (!siteContent?.twilio_number) {
-        return res.status(400).json({ error: 'No Twilio number configured for this business' });
-    }
-
     const twilio = getTwilio();
-    if (!twilio) return res.status(503).json({ error: 'Twilio not configured' });
+    const fromNum = getFromNumber();
+    if (!twilio || !fromNum) return res.status(503).json({ error: 'Twilio not configured' });
 
     try {
         const msg = await twilio.messages.create({
             body,
-            from: siteContent.twilio_number,
+            from: fromNum,
             to:   customer_phone
         });
 
@@ -259,23 +290,14 @@ router.post('/send', async (req, res) => {
         return res.status(400).json({ error: 'site_id, to, body required' });
     }
 
-    const { data: siteContent } = await supabase
-        .from('site_content')
-        .select('twilio_number')
-        .eq('site_id', site_id)
-        .single();
-
-    if (!siteContent?.twilio_number) {
-        return res.status(400).json({ error: 'No Twilio number configured' });
-    }
-
     const twilio = getTwilio();
-    if (!twilio) return res.status(503).json({ error: 'Twilio not configured' });
+    const fromNum = getFromNumber();
+    if (!twilio || !fromNum) return res.status(503).json({ error: 'Twilio not configured' });
 
     try {
         const msg = await twilio.messages.create({
             body,
-            from: siteContent.twilio_number,
+            from: fromNum,
             to
         });
 
@@ -311,18 +333,9 @@ router.post('/blast', async (req, res) => {
         return res.status(400).json({ error: 'site_id, phones[], body required' });
     }
 
-    const { data: siteContent } = await supabase
-        .from('site_content')
-        .select('twilio_number')
-        .eq('site_id', site_id)
-        .single();
-
-    if (!siteContent?.twilio_number) {
-        return res.status(400).json({ error: 'No Twilio number configured' });
-    }
-
     const twilio = getTwilio();
-    if (!twilio) return res.status(503).json({ error: 'Twilio not configured' });
+    const fromNum = getFromNumber();
+    if (!twilio || !fromNum) return res.status(503).json({ error: 'Twilio not configured' });
 
     let sent = 0, failed = 0;
 
@@ -331,7 +344,7 @@ router.post('/blast', async (req, res) => {
         try {
             const msg = await twilio.messages.create({
                 body,
-                from: siteContent.twilio_number,
+                from: fromNum,
                 to:   phone
             });
 
@@ -372,7 +385,8 @@ router.get('/send-reminders', async (req, res) => {
     }
 
     const twilio = getTwilio();
-    if (!twilio) return res.json({ skipped: true, reason: 'twilio_not_configured' });
+    const fromNum = getFromNumber();
+    if (!twilio || !fromNum) return res.json({ skipped: true, reason: 'twilio_not_configured' });
 
     try {
         // Find confirmed bookings happening tomorrow (within a 15-min window from now + 24h)
@@ -398,20 +412,11 @@ router.get('/send-reminders', async (req, res) => {
 
         for (const b of bookings) {
             try {
-                // Get business Twilio number
-                const { data: siteContent } = await supabase
-                    .from('site_content')
-                    .select('twilio_number')
-                    .eq('site_id', b.site_id)
-                    .single();
-
-                if (!siteContent?.twilio_number) { failed++; continue; }
-
                 const msg = `Reminder: Your ${b.fleet_type || 'boat'} rental is tomorrow${b.time_slot ? ' at ' + b.time_slot : ''}! Please arrive 15 min early. Questions? Reply here.`;
 
                 await twilio.messages.create({
                     body: msg,
-                    from: siteContent.twilio_number,
+                    from: fromNum,
                     to: b.customer_phone
                 });
 
