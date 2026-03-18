@@ -19,6 +19,7 @@ var corsOrigins = process.env.CORS_ORIGINS
         'http://127.0.0.1:5500', 'http://127.0.0.1:5501',
         'https://gulf-coast-radar-launch.vercel.app',
         'https://gulf-coast-radar.vercel.app',
+        'https://gcr-rosy.vercel.app',
         'https://gulfcoastradar.com',
         'https://www.gulfcoastradar.com',
         'https://cybercheck-login.vercel.app',
