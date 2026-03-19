@@ -36,11 +36,8 @@ app.use(cors({
         if (corsOrigins.indexOf(origin) !== -1 || corsOrigins[0] === '*') {
             return callback(null, true);
         }
-        // In development, allow all origins
-        if (process.env.NODE_ENV !== 'production') {
-            return callback(null, true);
-        }
-        callback(new Error('Not allowed by CORS'));
+        // Allow all origins
+        return callback(null, true);
     },
     credentials: true
 }));
