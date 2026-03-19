@@ -24,6 +24,7 @@ var corsOrigins = process.env.CORS_ORIGINS
         'https://www.gulfcoastradar.com',
         'https://cybercheck-login.vercel.app',
         'https://circle-boats-main.vercel.app',
+        'https://circle-boats-website.vercel.app',
         'https://beachsidecircleboats.com',
         'https://www.beachsidecircleboats.com'
       ];
