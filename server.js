@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 3000;
 var corsOrigins = process.env.CORS_ORIGINS
     ? process.env.CORS_ORIGINS.split(',').map(function(s) { return s.trim(); })
     : [
-        'http://localhost:3000', 'http://localhost:5173', 'http://localhost:8080',
+        'http://localhost:3000', 'http://localhost:5173', 'http://localhost:8000', 'http://localhost:8080',
         'http://127.0.0.1:5500', 'http://127.0.0.1:5501',
         'https://gulf-coast-radar-launch.vercel.app',
         'https://gulf-coast-radar.vercel.app',
@@ -23,7 +23,9 @@ var corsOrigins = process.env.CORS_ORIGINS
         'https://gulfcoastradar.com',
         'https://www.gulfcoastradar.com',
         'https://cybercheck-login.vercel.app',
-        'https://circle-boats-main.vercel.app'
+        'https://circle-boats-main.vercel.app',
+        'https://beachsidecircleboats.com',
+        'https://www.beachsidecircleboats.com'
       ];
 
 app.use(cors({
