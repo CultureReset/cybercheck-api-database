@@ -1029,6 +1029,7 @@ router.put('/addons/sync', async (req, res) => {
         price: a.price || 0,
         icon: a.icon || '🎁',
         per_unit: a.unit || '',
+        image_url: a.image_url || a.image || null,
         available: true,
         sort_order: i
     }));
@@ -3106,6 +3107,123 @@ STYLE:
     } catch (err) {
         console.error('Dashboard AI chat error:', err.message);
         res.json({ reply: "Something went wrong — try again!" });
+    }
+});
+
+// ============================================
+// POST /api/dashboard/search-structured — Natural language search with structured results
+// ============================================
+router.post('/search-structured', async (req, res) => {
+    const { query } = req.body;
+    if (!query) return res.status(400).json({ error: 'Query required' });
+
+    if (!process.env.OPENAI_API_KEY) {
+        return res.json({ results: [], error: "AI search not configured" });
+    }
+
+    const siteId = req.siteId;
+
+    try {
+        // Step 1: Use OpenAI to extract search parameters from natural language
+        const paramExtractionPrompt = `Extract search parameters from this user query. Return ONLY valid JSON (no markdown, no explanation).
+
+Query: "${query}"
+
+Return this exact JSON structure:
+{
+  "keywords": ["keyword1", "keyword2"],
+  "tags": ["tag1", "tag2"],
+  "allergen_exclude": ["allergen1"],
+  "categories": ["category1"],
+  "price_max": null,
+  "search_type": "menu_items"
+}
+
+Valid search_type values: menu_items, events, services, fleet_types
+Valid tags: gluten-free, vegan, vegetarian, organic, dairy-free, nut-free, spicy, fresh, grilled, crab, shrimp, fish, chicken, beef, pasta, salad, dessert, appetizer, entree, live music, happy hour, outdoor, waterfront, beachfront, kid-friendly
+Valid categories: appetizer, entree, side, dessert, beverage, special`;
+
+        const paramRes = await fetch('https://api.openai.com/v1/chat/completions', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + process.env.OPENAI_API_KEY },
+            body: JSON.stringify({
+                model: 'gpt-4o-mini',
+                messages: [{ role: 'user', content: paramExtractionPrompt }],
+                max_tokens: 200,
+                temperature: 0
+            })
+        });
+
+        const paramData = await paramRes.json();
+        let params;
+        try {
+            const content = paramData.choices?.[0]?.message?.content || '{}';
+            params = JSON.parse(content);
+        } catch (e) {
+            console.error('Failed to parse OpenAI params:', e.message);
+            params = { keywords: [query], search_type: 'menu_items' };
+        }
+
+        // Step 2: Build Supabase query based on extracted parameters
+        let dbQuery = supabase.from('menu_items').select('*').eq('site_id', siteId).eq('available', true);
+
+        // Filter by keywords
+        if (params.keywords?.length) {
+            const keywordFilter = params.keywords.map(k => `name.ilike.%${k}%`).join(',');
+            dbQuery = dbQuery.or(keywordFilter);
+        }
+
+        // Filter by tags
+        if (params.tags?.length) {
+            params.tags.forEach(tag => {
+                dbQuery = dbQuery.filter('tags', 'cs', `["${tag}"]`);
+            });
+        }
+
+        // Exclude allergens
+        if (params.allergen_exclude?.length) {
+            params.allergen_exclude.forEach(allergen => {
+                dbQuery = dbQuery.filter('allergens', 'not.cs', `["${allergen}"]`);
+            });
+        }
+
+        // Filter by category
+        if (params.categories?.length) {
+            const catFilter = params.categories.map(c => `category.eq.${c}`).join(',');
+            dbQuery = dbQuery.or(catFilter);
+        }
+
+        // Filter by price
+        if (params.price_max) {
+            dbQuery = dbQuery.lte('price', params.price_max);
+        }
+
+        const { data: results, error } = await dbQuery.limit(10);
+
+        if (error) throw error;
+
+        // Step 3: Format results for response
+        const formatted = results.map(item => ({
+            id: item.id,
+            name: item.name,
+            description: item.description,
+            price: item.price,
+            category: item.category,
+            tags: item.tags || [],
+            allergens: item.allergens || [],
+            image_url: item.image_url
+        }));
+
+        res.json({
+            query,
+            extracted_params: params,
+            results: formatted,
+            count: formatted.length
+        });
+
+    } catch (err) {
+        console.error('Structured search error:', err.message);
+        res.json({ query, results: [], error: err.message });
     }
 });
 

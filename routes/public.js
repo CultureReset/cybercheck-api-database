@@ -247,7 +247,7 @@ router.get('/fleet', async (req, res) => {
 
     const { data: addons } = await supabase
         .from('rental_addons')
-        .select('id, name, description, price, category, icon, per_unit')
+        .select('id, name, description, price, category, icon, per_unit, image_url')
         .eq('site_id', req.siteId)
         .eq('available', true)
         .order('sort_order', { ascending: true });
