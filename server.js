@@ -222,7 +222,7 @@ app.get('/api/site-data', async (req, res) => {
             supabase.from('fleet_types').select('id, name, description, specs, image_url').eq('site_id', siteId).eq('available', true).order('sort_order', { ascending: true }),
             supabase.from('rental_time_slots').select('id, name').eq('site_id', siteId).eq('active', true).order('sort_order', { ascending: true }),
             supabase.from('rental_pricing').select('fleet_type_id, time_slot_id, price').eq('site_id', siteId),
-            supabase.from('rental_addons').select('id, name, description, price, icon, category, per_unit').eq('site_id', siteId).eq('available', true).order('sort_order', { ascending: true })
+            supabase.from('rental_addons').select('id, name, description, price, icon, category, per_unit, image_url').eq('site_id', siteId).eq('available', true).order('sort_order', { ascending: true })
         ]);
 
         const fleetTypes = fleetRes.data || [];
@@ -268,7 +268,9 @@ app.get('/api/site-data', async (req, res) => {
 
         if (addons.length > 0) {
             base.addons = addons.map(a => ({
+                id:          a.id,
                 icon:        a.icon || '🎁',
+                image_url:   a.image_url || null,
                 name:        a.name,
                 description: a.description || '',
                 price:       a.price,
