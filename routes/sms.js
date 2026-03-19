@@ -447,4 +447,125 @@ router.get('/send-reminders', async (req, res) => {
     }
 });
 
+// ═══════════════════════════════════════════════════════════════════════════════
+// POST /api/sms/send-day-of-waivers
+// Automated: called each morning (cron or manual) — sends waiver SMS links
+// to every customer whose booking is TODAY and hasn't had a waiver sent yet.
+//
+// Protected by CRON_SECRET header to prevent abuse.
+// Body: { site_id? } — optional; if omitted, runs across all sites
+// ═══════════════════════════════════════════════════════════════════════════════
+router.post('/send-day-of-waivers', async (req, res) => {
+    // Simple shared secret check
+    const cronSecret = process.env.CRON_SECRET;
+    if (cronSecret && req.headers['x-cron-secret'] !== cronSecret) {
+        return res.status(401).json({ error: 'Unauthorized' });
+    }
+
+    const twilio  = getTwilio();
+    const fromNum = getFromNumber();
+    if (!twilio || !fromNum) {
+        return res.status(503).json({ error: 'Twilio not configured' });
+    }
+
+    try {
+        const todayStr = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
+
+        // Find today's confirmed bookings with a phone number that have NOT
+        // had a waiver SMS sent yet (waiver_sms_sent_at is null) and whose
+        // waiver is not already signed.
+        let query = supabase
+            .from('bookings')
+            .select('id, site_id, customer_name, customer_phone, booking_date')
+            .eq('booking_date', todayStr)
+            .eq('status', 'confirmed')
+            .not('customer_phone', 'is', null)
+            .is('waiver_sms_sent_at', null);
+
+        if (req.body?.site_id) {
+            query = query.eq('site_id', req.body.site_id);
+        }
+
+        const { data: bookings, error: fetchErr } = await query;
+        if (fetchErr) throw fetchErr;
+        if (!bookings || bookings.length === 0) {
+            return res.json({ sent: 0, failed: 0, total: 0 });
+        }
+
+        const crypto = require('crypto');
+        let sent = 0, failed = 0;
+
+        for (const b of bookings) {
+            // Skip if waiver already signed for this booking
+            const { data: existingWaiver } = await supabase
+                .from('waivers')
+                .select('id, signed')
+                .eq('booking_id', b.id)
+                .maybeSingle();
+
+            if (existingWaiver?.signed) {
+                // Waiver already signed — just mark sms as sent so we don't recheck
+                await supabase.from('bookings').update({ waiver_sms_sent_at: new Date().toISOString() }).eq('id', b.id);
+                continue;
+            }
+
+            try {
+                // Create (or reuse) a waiver record with a fresh token
+                const token = crypto.randomBytes(24).toString('hex');
+
+                if (existingWaiver) {
+                    // Update existing record with new token
+                    await supabase.from('waivers').update({ token, signed: false }).eq('id', existingWaiver.id);
+                } else {
+                    await supabase.from('waivers').insert({
+                        site_id:       b.site_id,
+                        booking_id:    b.id,
+                        customer_name: b.customer_name || null,
+                        token,
+                        signed:        false
+                    });
+                }
+
+                // Build waiver link — use PUBLIC_SITE_BASE_URL env or fall back to domain
+                const { data: biz } = await supabase
+                    .from('businesses')
+                    .select('subdomain, custom_domain')
+                    .eq('site_id', b.site_id)
+                    .single();
+
+                const domain = biz?.custom_domain || (biz?.subdomain ? `https://${biz.subdomain}.cybercheck.com` : 'https://circle-boats-main-.vercel.app');
+                const waiverUrl = `${process.env.PUBLIC_SITE_BASE_URL || domain}/waiver-form.html?token=${token}`;
+
+                const firstName = b.customer_name ? b.customer_name.split(' ')[0] : 'there';
+                const msg = `Hi ${firstName}! Your rental is TODAY. Please sign your release waiver before arriving:\n${waiverUrl}\n\nSee you on the water! 🛶`;
+
+                await twilio.messages.create({ body: msg, from: fromNum, to: b.customer_phone });
+
+                // Record the message
+                await storeMessage({
+                    siteId:        b.site_id,
+                    customerPhone: b.customer_phone,
+                    customerName:  b.customer_name || null,
+                    direction:     'outbound',
+                    body:          msg,
+                    messageType:   'waiver_link'
+                });
+
+                // Mark waiver SMS as sent on booking
+                await supabase.from('bookings').update({ waiver_sms_sent_at: new Date().toISOString() }).eq('id', b.id);
+
+                sent++;
+            } catch (err) {
+                console.error('Day-of waiver SMS failed for booking', b.id, err.message);
+                failed++;
+            }
+        }
+
+        res.json({ sent, failed, total: bookings.length });
+    } catch (err) {
+        console.error('send-day-of-waivers error:', err.message);
+        res.status(500).json({ error: err.message });
+    }
+});
+
 module.exports = router;

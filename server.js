@@ -365,13 +365,71 @@ setInterval(async () => {
     }
 }, 2 * 60 * 1000);
 
+// Day-of waiver SMS — fires once per hour, sends only if 7–9 AM local time
+// On serverless (Vercel) this runs during warm instances; for reliable daily
+// delivery set up an external cron hitting POST /api/sms/send-day-of-waivers
+// with header x-cron-secret matching CRON_SECRET env var.
+let _waiversSentToday = null;
+async function maybeSendDayOfWaivers() {
+    try {
+        const now  = new Date();
+        const day  = now.toISOString().slice(0, 10);
+        const hour = now.getHours();
+        if (_waiversSentToday === day) return;   // already ran today
+        if (hour < 7 || hour > 9) return;        // only run 7–9 AM
+
+        _waiversSentToday = day;
+        const secret = process.env.CRON_SECRET || '';
+        const url    = `http://localhost:${process.env.PORT || 3000}/api/sms/send-day-of-waivers`;
+        const result = await fetch(url, {
+            method:  'POST',
+            headers: { 'Content-Type': 'application/json', 'x-cron-secret': secret }
+        });
+        const body = await result.json().catch(() => ({}));
+        console.log(`Day-of waivers: sent=${body.sent || 0}, failed=${body.failed || 0}`);
+    } catch (err) {
+        console.warn('Day-of waiver job error:', err.message);
+    }
+}
+
+setInterval(maybeSendDayOfWaivers, 60 * 60 * 1000);
+
 // ============================================
 // START
 // ============================================
 
+async function runMigrations() {
+    // Ensure image_url column exists on rental_addons (safe to run repeatedly)
+    try {
+        await fetch(`${process.env.SUPABASE_URL}/rest/v1/rpc/run_migration`, {
+            method: 'POST',
+            headers: {
+                'apikey': process.env.SUPABASE_SERVICE_KEY,
+                'Authorization': `Bearer ${process.env.SUPABASE_SERVICE_KEY}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ query: 'ALTER TABLE rental_addons ADD COLUMN IF NOT EXISTS image_url text;' })
+        }).catch(() => {});
+
+        // Direct REST approach as fallback — query the column to detect its existence
+        const testRes = await fetch(
+            `${process.env.SUPABASE_URL}/rest/v1/rental_addons?select=image_url&limit=1`,
+            { headers: { 'apikey': process.env.SUPABASE_SERVICE_KEY, 'Authorization': `Bearer ${process.env.SUPABASE_SERVICE_KEY}` } }
+        );
+        if (!testRes.ok) {
+            console.warn('Migration check: image_url column may be missing from rental_addons — run: ALTER TABLE rental_addons ADD COLUMN IF NOT EXISTS image_url text;');
+        } else {
+            console.log('Migration check: rental_addons.image_url OK');
+        }
+    } catch (e) {
+        console.warn('Migration check failed:', e.message);
+    }
+}
+
 app.listen(PORT, () => {
     console.log(`CyberCheck API running on port ${PORT}`);
     console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
+    runMigrations();
 });
 
 module.exports = app;
