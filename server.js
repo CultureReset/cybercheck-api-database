@@ -289,7 +289,7 @@ app.get('/api/site-data', async (req, res) => {
             const mediaUrls = media.map(m => m.url);
             const ordered = savedOrder.filter(url => mediaUrls.includes(url));
             const newUrls = mediaUrls.filter(url => !savedOrder.includes(url));
-            base.gallery = [...ordered, ...newUrls];
+            base.gallery = [...new Set([...ordered, ...newUrls])]; // deduplicate
             // gallery_sections survives from site_data_store (not overridden here)
         }
 
