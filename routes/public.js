@@ -301,7 +301,7 @@ router.get('/availability', async (req, res) => {
     // Get fleet types
     const { data: fleetTypes } = await supabase
         .from('fleet_types')
-        .select('id, name')
+        .select('id, name, specs')
         .eq('site_id', req.siteId)
         .eq('available', true);
 
@@ -361,7 +361,9 @@ router.get('/availability', async (req, res) => {
     (fleetTypes || []).forEach(ft => {
         (timeSlots || []).forEach(ts => {
             const key = `${ft.id}_${ts.id}`;
-            const total = inventory[ft.id] || 0;
+            // Use fleet_items count when tracked; fall back to specs.qty when no physical items configured
+            const specsQty = (ft.specs && typeof ft.specs === 'object') ? (ft.specs.qty || 0) : 0;
+            const total = inventory[ft.id] !== undefined ? inventory[ft.id] : specsQty;
             const used = (booked[key] || 0) + (bookedNoSlot[ft.id] || 0);
             const remaining = Math.max(0, total - used);
 
