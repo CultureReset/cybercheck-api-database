@@ -1,0 +1,1239 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2709
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset134 PingFangSC-Regular;\f2\fnil\fcharset0 LucidaGrande;
+\f3\fnil\fcharset0 AppleColorEmoji;\f4\fnil\fcharset0 AppleSymbols;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww9820\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 gitvoicehub/\
+
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  frontend/                    # Next.js app\
+\uc0\u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  app/\
+\uc0\u9474    \u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  page.tsx            # Landing page\
+\uc0\u9474    \u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  auth/\
+\uc0\u9474    \u9474    \u9474    \u9492 \u9472 \u9472  login/          # Phone auth\
+\uc0\u9474    \u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  dashboard/          # Main dashboard\
+\uc0\u9474    \u9474    \u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  page.tsx        # Overview\
+\uc0\u9474    \u9474    \u9474    \u9492 \u9472 \u9472  connections/    # Connection manager\
+\uc0\u9474    \u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  marketplace/        # Browse tools\
+\uc0\u9474    \u9474    \u9492 \u9472 \u9472  onboarding/         # First-time setup\
+\uc0\u9474    \u9474 \
+\uc0\u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  components/\
+\uc0\u9474    \u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  auth/               # Auth forms\
+\uc0\u9474    \u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  connections/        # Tool cards, OAuth buttons\
+\uc0\u9474    \u9474    \u9492 \u9472 \u9472  marketplace/        # App cards, search\
+\uc0\u9474    \u9474 \
+\uc0\u9474    \u9492 \u9472 \u9472  lib/\
+\uc0\u9474        \u9492 \u9472 \u9472  api.ts              # API client for backend\
+\uc0\u9474 \
+
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  backend/                     # Express.js API\
+\uc0\u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  src/\
+\uc0\u9474    \u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  routes/\
+\uc0\u9474    \u9474    \u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  auth.js         # Phone auth routes\
+\uc0\u9474    \u9474    \u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  oauth.js        # OAuth flow routes\
+\uc0\u9474    \u9474    \u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  integrations.js # List/manage connections\
+\uc0\u9474    \u9474    \u9474    \u9492 \u9472 \u9472  users.js        # User management\
+\uc0\u9474    \u9474    \u9474 \
+\uc0\u9474    \u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  middleware/\
+\uc0\u9474    \u9474    \u9474    \u9492 \u9472 \u9472  auth.js         # JWT verification\
+\uc0\u9474    \u9474    \u9474 \
+\uc0\u9474    \u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  config/\
+\uc0\u9474    \u9474    \u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  integrations.js # OAuth configs (reuse existing)\
+\uc0\u9474    \u9474    \u9474    \u9492 \u9472 \u9472  database.js     # DB client (you have this)\
+\uc0\u9474    \u9474    \u9474 \
+\uc0\u9474    \u9474    \u9492 \u9472 \u9472  index.js            # Express server\
+\uc0\u9474    \u9474 \
+\uc0\u9474    \u9492 \u9472 \u9472  .env                     # API keys, secrets\
+\uc0\u9474 \
+\uc0\u9492 \u9472 \u9472  shared/\
+    \uc0\u9492 \u9472 \u9472  types/                   # TypeScript types\
+\
+\
+\
+gitvoicehub/\
+
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  frontend/                    # Next.js app\
+\uc0\u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  app/\
+\uc0\u9474    \u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  page.tsx            # Landing page\
+\uc0\u9474    \u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  auth/\
+\uc0\u9474    \u9474    \u9474    \u9492 \u9472 \u9472  login/          # Phone auth\
+\uc0\u9474    \u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  dashboard/          # Main dashboard\
+\uc0\u9474    \u9474    \u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  page.tsx        # Overview\
+\uc0\u9474    \u9474    \u9474    \u9492 \u9472 \u9472  connections/    # Connection manager\
+\uc0\u9474    \u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  marketplace/        # Browse tools\
+\uc0\u9474    \u9474    \u9492 \u9472 \u9472  onboarding/         # First-time setup\
+\uc0\u9474    \u9474 \
+\uc0\u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  components/\
+\uc0\u9474    \u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  auth/               # Auth forms\
+\uc0\u9474    \u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  connections/        # Tool cards, OAuth buttons\
+\uc0\u9474    \u9474    \u9492 \u9472 \u9472  marketplace/        # App cards, search\
+\uc0\u9474    \u9474 \
+\uc0\u9474    \u9492 \u9472 \u9472  lib/\
+\uc0\u9474        \u9492 \u9472 \u9472  api.ts              # API client for backend\
+\uc0\u9474 \
+
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  backend/                     # Express.js API\
+\uc0\u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  src/\
+\uc0\u9474    \u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  routes/\
+\uc0\u9474    \u9474    \u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  auth.js         # Phone auth routes\
+\uc0\u9474    \u9474    \u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  oauth.js        # OAuth flow routes\
+\uc0\u9474    \u9474    \u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  integrations.js # List/manage connections\
+\uc0\u9474    \u9474    \u9474    \u9492 \u9472 \u9472  users.js        # User management\
+\uc0\u9474    \u9474    \u9474 \
+\uc0\u9474    \u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  middleware/\
+\uc0\u9474    \u9474    \u9474    \u9492 \u9472 \u9472  auth.js         # JWT verification\
+\uc0\u9474    \u9474    \u9474 \
+\uc0\u9474    \u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  config/\
+\uc0\u9474    \u9474    \u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  integrations.js # OAuth configs (reuse existing)\
+\uc0\u9474    \u9474    \u9474    \u9492 \u9472 \u9472  database.js     # DB client (you have this)\
+\uc0\u9474    \u9474    \u9474 \
+\uc0\u9474    \u9474    \u9492 \u9472 \u9472  index.js            # Express server\
+\uc0\u9474    \u9474 \
+\uc0\u9474    \u9492 \u9472 \u9472  .env                     # API keys, secrets\
+\uc0\u9474 \
+\uc0\u9492 \u9472 \u9472  shared/\
+    \uc0\u9492 \u9472 \u9472  types/                   # TypeScript types\
+\
+\
+\
+gitvoicehub/\
+
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  frontend/                    # Next.js app\
+\uc0\u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  app/\
+\uc0\u9474    \u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  page.tsx            # Landing page\
+\uc0\u9474    \u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  auth/\
+\uc0\u9474    \u9474    \u9474    \u9492 \u9472 \u9472  login/          # Phone auth\
+\uc0\u9474    \u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  dashboard/          # Main dashboard\
+\uc0\u9474    \u9474    \u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  page.tsx        # Overview\
+\uc0\u9474    \u9474    \u9474    \u9492 \u9472 \u9472  connections/    # Connection manager\
+\uc0\u9474    \u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  marketplace/        # Browse tools\
+\uc0\u9474    \u9474    \u9492 \u9472 \u9472  onboarding/         # First-time setup\
+\uc0\u9474    \u9474 \
+\uc0\u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  components/\
+\uc0\u9474    \u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  auth/               # Auth forms\
+\uc0\u9474    \u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  connections/        # Tool cards, OAuth buttons\
+\uc0\u9474    \u9474    \u9492 \u9472 \u9472  marketplace/        # App cards, search\
+\uc0\u9474    \u9474 \
+\uc0\u9474    \u9492 \u9472 \u9472  lib/\
+\uc0\u9474        \u9492 \u9472 \u9472  api.ts              # API client for backend\
+\uc0\u9474 \
+
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  backend/                     # Express.js API\
+\uc0\u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  src/\
+\uc0\u9474    \u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  routes/\
+\uc0\u9474    \u9474    \u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  auth.js         # Phone auth routes\
+\uc0\u9474    \u9474    \u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  oauth.js        # OAuth flow routes\
+\uc0\u9474    \u9474    \u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  integrations.js # List/manage connections\
+\uc0\u9474    \u9474    \u9474    \u9492 \u9472 \u9472  users.js        # User management\
+\uc0\u9474    \u9474    \u9474 \
+\uc0\u9474    \u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  middleware/\
+\uc0\u9474    \u9474    \u9474    \u9492 \u9472 \u9472  auth.js         # JWT verification\
+\uc0\u9474    \u9474    \u9474 \
+\uc0\u9474    \u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  config/\
+\uc0\u9474    \u9474    \u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  integrations.js # OAuth configs (reuse existing)\
+\uc0\u9474    \u9474    \u9474    \u9492 \u9472 \u9472  database.js     # DB client (you have this)\
+\uc0\u9474    \u9474    \u9474 \
+\uc0\u9474    \u9474    \u9492 \u9472 \u9472  index.js            # Express server\
+\uc0\u9474    \u9474 \
+\uc0\u9474    \u9492 \u9472 \u9472  .env                     # API keys, secrets\
+\uc0\u9474 \
+\uc0\u9492 \u9472 \u9472  shared/\
+    \uc0\u9492 \u9472 \u9472  types/                   # TypeScript types\
+\
+\
+\uc0\u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488 \
+\uc0\u9474          User Interaction Layer          \u9474 \
+\uc0\u9474   (Voice/SMS/Text - Twilio + ElevenLabs) \u9474 \
+\uc0\u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 
+\f1 \'a9\'d0
+\f0 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496 \
+                   
+\f2 \uc0\u8595 
+\f0 \
+\uc0\u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488 \
+\uc0\u9474     Open Source AI Router (Your Cloud)   \u9474 \
+\uc0\u9474   - Intent understanding (Llama/Mistral) \u9474 \
+\uc0\u9474   - Context from business data           \u9474 \
+\uc0\u9474   - Routing decision                     \u9474 \
+\uc0\u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 
+\f1 \'a9\'d0
+\f0 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496 \
+                   
+\f2 \uc0\u8595 
+\f0 \
+\uc0\u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488 \
+\uc0\u9474        Specialized AI Providers          \u9474 \
+\uc0\u9474   Claude | GPT-4 | Grok | Image AI      \u9474 \
+\uc0\u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 
+\f1 \'a9\'d0
+\f0 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496 \
+                   
+\f2 \uc0\u8595 
+\f0 \
+\uc0\u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488 \
+\uc0\u9474          OAuth Tool Integrations         \u9474 \
+\uc0\u9474   Gmail | HubSpot | Toast | Stripe etc.  \u9474 \
+\uc0\u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 
+\f1 \'a9\'d0
+\f0 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496 \
+                   
+\f2 \uc0\u8595 
+\f0 \
+         Response via Voice/Text\
+\
+\
+\
+\uc0\u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488 \
+\uc0\u9474                     GITVOICEHUB PLATFORM                      \u9474 \
+\uc0\u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496 \
+                              \uc0\u9474 \
+        \uc0\u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 
+\f1 \'a9\'d8
+\f0 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488 \
+        
+\f2 \uc0\u8595 
+\f0                                            
+\f2 \uc0\u8595 
+\f0 \
+\uc0\u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488                 \u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488 \
+\uc0\u9474    PRIVATE AI         \u9474                 \u9474    CUSTOMER AI        \u9474 \
+\uc0\u9474    (Business Owner)   \u9474                 \u9474    (Public)           \u9474 \
+
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 
+\f1 \'a9\'c8
+\f0                 
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 
+\f1 \'a9\'c8
+\f0 \
+\uc0\u9474  - Dedicated phone #  \u9474                 \u9474  - QR codes           \u9474 \
+\uc0\u9474  - Caller ID verify   \u9474                 \u9474  - Website widget     \u9474 \
+\uc0\u9474  - SMS access         \u9474                 \u9474  - Business phone     \u9474 \
+\uc0\u9474  - Web dashboard      \u9474                 \u9474  - No auth needed     \u9474 \
+\uc0\u9474  - All business data  \u9474                 \u9474  - Public info only   \u9474 \
+\uc0\u9474  - OAuth to tools     \u9474                 \u9474  - Menu, hours, etc.  \u9474 \
+\uc0\u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496                 \u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496 \
+\
+\
+\
+\uc0\u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488 \
+\uc0\u9474  Header: Logo | Features | Pricing | Login       \u9474 \
+
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 
+\f1 \'a9\'c8
+\f0 \
+\uc0\u9474                                                  \u9474 \
+\uc0\u9474      Hero Section:                               \u9474 \
+\uc0\u9474      "Your AI-Powered Business Assistant"        \u9474 \
+\uc0\u9474      "Connect all your tools. Control with       \u9474 \
+\uc0\u9474       your voice. Train your own AI."            \u9474 \
+\uc0\u9474                                                  \u9474 \
+\uc0\u9474      [Start Free Trial] [Watch Demo]             \u9474 \
+\uc0\u9474                                                  \u9474 \
+
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 
+\f1 \'a9\'c8
+\f0 \
+\uc0\u9474                                                  \u9474 \
+\uc0\u9474      Features Grid:                              \u9474 \
+\uc0\u9474      \u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488  \u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488  \u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488           \u9474 \
+\uc0\u9474      \u9474 Voice AI\u9474  \u9474 Customer\u9474  \u9474 28+     \u9474           \u9474 \
+\uc0\u9474      \u9474 Control \u9474  \u9474 AI Chat \u9474  \u9474 Tools   \u9474           \u9474 \
+\uc0\u9474      \u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496  \u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496  \u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496           \u9474 \
+\uc0\u9474      \u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488  \u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488  \u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488           \u9474 \
+\uc0\u9474      \u9474 Smart   \u9474  \u9474 Multi-AI\u9474  \u9474 BYOK    \u9474           \u9474 \
+\uc0\u9474      \u9474 Hosting \u9474  \u9474 Routing \u9474  \u9474 Support \u9474           \u9474 \
+\uc0\u9474      \u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496  \u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496  \u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496           \u9474 \
+\uc0\u9474                                                  \u9474 \
+
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 
+\f1 \'a9\'c8
+\f0 \
+\uc0\u9474                                                  \u9474 \
+\uc0\u9474      How It Works (3 Steps):                    \u9474 \
+\uc0\u9474      1. Connect Your Tools 
+\f2 \uc0\u8594 
+\f0  2. Train Your AI   \uc0\u9474 \
+\uc0\u9474      
+\f2 \uc0\u8594 
+\f0  3. Control Everything by Voice            \uc0\u9474 \
+\uc0\u9474                                                  \u9474 \
+
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 
+\f1 \'a9\'c8
+\f0 \
+\uc0\u9474                                                  \u9474 \
+\uc0\u9474      Use Cases:                                  \u9474 \
+\uc0\u9474      - Restaurants (QR menu, reservations)       \u9474 \
+\uc0\u9474      - Real Estate (CRM, calendar, leads)        \u9474 \
+\uc0\u9474      - E-commerce (inventory, orders, support)   \u9474 \
+\uc0\u9474                                                  \u9474 \
+
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 
+\f1 \'a9\'c8
+\f0 \
+\uc0\u9474                                                  \u9474 \
+\uc0\u9474      Pricing:                                    \u9474 \
+\uc0\u9474      Pay-as-you-go like electricity              \u9474 \
+\uc0\u9474      AI usage + voice minutes + hosting          \u9474 \
+\uc0\u9474      [See Pricing Details]                       \u9474 \
+\uc0\u9474                                                  \u9474 \
+
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 
+\f1 \'a9\'c8
+\f0 \
+\uc0\u9474  Footer: About | Docs | Support | Terms         \u9474 \
+\uc0\u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496 \
+\
+\
+\uc0\u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488 \
+\uc0\u9474                                                  \u9474 \
+\uc0\u9474           [GitVoiceHub Logo]                     \u9474 \
+\uc0\u9474                                                  \u9474 \
+\uc0\u9474      \u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488      \u9474 \
+\uc0\u9474      \u9474                                     \u9474      \u9474 \
+\uc0\u9474      \u9474   Sign in or create account:       \u9474      \u9474 \
+\uc0\u9474      \u9474                                     \u9474      \u9474 \
+\uc0\u9474      \u9474   [Continue with Google]           \u9474      \u9474 \
+\uc0\u9474      \u9474   [Continue with Microsoft]        \u9474      \u9474 \
+\uc0\u9474      \u9474   [Continue with Facebook]         \u9474      \u9474 \
+\uc0\u9474      \u9474                                     \u9474      \u9474 \
+\uc0\u9474      \u9474   \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472  OR \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472         \u9474      \u9474 \
+\uc0\u9474      \u9474                                     \u9474      \u9474 \
+\uc0\u9474      \u9474   Phone: [+1 (___) ___-____]       \u9474      \u9474 \
+\uc0\u9474      \u9474   [Send Code]                       \u9474      \u9474 \
+\uc0\u9474      \u9474                                     \u9474      \u9474 \
+\uc0\u9474      \u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496      \u9474 \
+\uc0\u9474                                                  \u9474 \
+\uc0\u9474      By continuing, you agree to Terms          \u9474 \
+\uc0\u9474                                                  \u9474 \
+\uc0\u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496 \
+\
+\
+\
+\uc0\u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488 \
+\uc0\u9474  [Logo] GitVoiceHub          
+\f3 \uc0\u55357 \u56420 
+\f0  John's Tacos 
+\f2 \uc0\u9660 
+\f0   \uc0\u9474 \
+
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 
+\f1 \'a9\'c8
+\f0 \
+\uc0\u9474  Overview\u9474 Connections\u9474 AI Config\u9474 Customer AI\u9474      \u9474 \
+\uc0\u9474          \u9474            \u9474          \u9474 Analytics  \u9474 More \u9474 \
+
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 
+\f1 \'a9\'c8
+\f0 \
+\uc0\u9474                                                  \u9474 \
+\uc0\u9474   OVERVIEW TAB                                   \u9474 \
+\uc0\u9474                                                  \u9474 \
+\uc0\u9474   \u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488   \u9474 \
+\uc0\u9474   \u9474  
+\f3 \uc0\u55357 \u56594 
+\f0  Your Private AI                       \uc0\u9474   \u9474 \
+\uc0\u9474   \u9474  Phone: +1-555-123-4567                   \u9474   \u9474 \
+\uc0\u9474   \u9474  Status: \u9679  Active                         \u9474   \u9474 \
+\uc0\u9474   \u9474  [Test AI] [Call Now]                     \u9474   \u9474 \
+\uc0\u9474   \u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496   \u9474 \
+\uc0\u9474                                                  \u9474 \
+\uc0\u9474   \u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488   \u9474 \
+\uc0\u9474   \u9474  
+\f3 \uc0\u55357 \u56421 
+\f0  Customer AI                           \uc0\u9474   \u9474 \
+\uc0\u9474   \u9474  QR Code: [Download] [Print]             \u9474   \u9474 \
+\uc0\u9474   \u9474  Website Widget: [Get Code]               \u9474   \u9474 \
+\uc0\u9474   \u9474  Business Phone: +1-555-987-6543          \u9474   \u9474 \
+\uc0\u9474   \u9474  Today: 47 conversations                  \u9474   \u9474 \
+\uc0\u9474   \u9474  [Test Customer AI]                       \u9474   \u9474 \
+\uc0\u9474   \u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496   \u9474 \
+\uc0\u9474                                                  \u9474 \
+\uc0\u9474   Connected Tools:                               \u9474 \
+\uc0\u9474   \u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488  \u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488  \u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488              \u9474 \
+\uc0\u9474   \u9474 
+\f2 \uc0\u10003 
+\f0  Toast \uc0\u9474  \u9474 
+\f2 \uc0\u10003 
+\f0  Gmail \uc0\u9474  \u9474 
+\f2 \uc0\u10003 
+\f0 Square\uc0\u9474              \u9474 \
+\uc0\u9474   \u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496  \u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496  \u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496              \u9474 \
+\uc0\u9474   [Manage Connections]                           \u9474 \
+\uc0\u9474                                                  \u9474 \
+\uc0\u9474   Quick Stats (Last 7 Days):                    \u9474 \
+\uc0\u9474   \'95 312 AI conversations                         \u9474 \
+\uc0\u9474   \'95 47 phone calls handled                       \u9474 \
+\uc0\u9474   \'95 $1,847 in sales (from Toast)                \u9474 \
+\uc0\u9474   \'95 23 new leads (from forms)                    \u9474 \
+\uc0\u9474                                                  \u9474 \
+\uc0\u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496 \
+\
+\
+\
+\
+\uc0\u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488 \
+\uc0\u9474  Overview\u9474 CONNECTIONS\u9474 AI Config\u9474 Customer AI\u9474 More \u9474 \
+
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 
+\f1 \'a9\'c8
+\f0 \
+\uc0\u9474                                                  \u9474 \
+\uc0\u9474   Connected (8)                                  \u9474 \
+\uc0\u9474   \u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488     \u9474 \
+\uc0\u9474   \u9474  
+\f3 \uc0\u55357 \u56551 
+\f0  Gmail                               \uc0\u9474     \u9474 \
+\uc0\u9474   \u9474  Connected as: john@tacos.com           \u9474     \u9474 \
+\uc0\u9474   \u9474  Status: \u9679  Active | Last sync: 2m ago   \u9474     \u9474 \
+\uc0\u9474   \u9474  [Disconnect] [Settings]                \u9474     \u9474 \
+\uc0\u9474   \u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496     \u9474 \
+\uc0\u9474                                                  \u9474 \
+\uc0\u9474   \u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488     \u9474 \
+\uc0\u9474   \u9474  
+\f3 \uc0\u55356 \u57173 
+\f0  Toast POS                           \uc0\u9474     \u9474 \
+\uc0\u9474   \u9474  Connected as: John's Tacos             \u9474     \u9474 \
+\uc0\u9474   \u9474  Status: \u9679  Active | Last sync: 5m ago   \u9474     \u9474 \
+\uc0\u9474   \u9474  Today's sales: $1,234                  \u9474     \u9474 \
+\uc0\u9474   \u9474  [Disconnect] [Settings]                \u9474     \u9474 \
+\uc0\u9474   \u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496     \u9474 \
+\uc0\u9474                                                  \u9474 \
+\uc0\u9474   Available (20)                                 \u9474 \
+\uc0\u9474   \u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488  \u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488  \u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488              \u9474 \
+\uc0\u9474   \u9474 HubSpot \u9474  \u9474 Shopify \u9474  \u9474 Slack   \u9474              \u9474 \
+\uc0\u9474   \u9474 [Connect\u9474  \u9474 [Connect\u9474  \u9474 [Connect\u9474              \u9474 \
+\uc0\u9474   \u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496  \u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496  \u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496              \u9474 \
+\uc0\u9474                                                  \u9474 \
+\uc0\u9474   [View All Tools]                               \u9474 \
+\uc0\u9474                                                  \u9474 \
+\uc0\u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496 \
+\
+\
+\
+\
+\uc0\u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488 \
+\uc0\u9474  Overview\u9474 Connections\u9474 AI CONFIG\u9474 Customer AI\u9474 More \u9474 \
+
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 
+\f1 \'a9\'c8
+\f0 \
+\uc0\u9474                                                  \u9474 \
+\uc0\u9474   
+\f3 \uc0\u55357 \u56594 
+\f0  Private AI Configuration                    \uc0\u9474 \
+\uc0\u9474                                                  \u9474 \
+\uc0\u9474   Access Control:                                \u9474 \
+\uc0\u9474   Your phone: +1-555-999-0000 [Verified 
+\f2 \uc0\u10003 
+\f0 ]      \uc0\u9474 \
+\uc0\u9474   Private number: +1-555-123-4567                \u9474 \
+\uc0\u9474   [Add backup phone]                             \u9474 \
+\uc0\u9474                                                  \u9474 \
+\uc0\u9474   AI Providers:                                  \u9474 \
+\uc0\u9474   \u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488       \u9474 \
+\uc0\u9474   \u9474  
+\f2 \uc0\u9675 
+\f0  Use GitVoiceHub AI (pay per use)  \uc0\u9474       \u9474 \
+\uc0\u9474   \u9474  
+\f2 \uc0\u9675 
+\f0  Bring Your Own Keys (BYOK)        \uc0\u9474       \u9474 \
+\uc0\u9474   \u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496       \u9474 \
+\uc0\u9474                                                  \u9474 \
+\uc0\u9474   [If BYOK selected]                             \u9474 \
+\uc0\u9474   OpenAI API Key: [\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95] [Update]         \u9474 \
+\uc0\u9474   Claude API Key: [\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95] [Update]         \u9474 \
+\uc0\u9474   Grok API Key: [Add]                            \u9474 \
+\uc0\u9474                                                  \u9474 \
+\uc0\u9474   Capabilities (What can your AI do?):           \u9474 \
+\uc0\u9474   
+\f4 \uc0\u9745 
+\f0  Read emails                                  \uc0\u9474 \
+\uc0\u9474   
+\f4 \uc0\u9745 
+\f0  Check sales/revenue                          \uc0\u9474 \
+\uc0\u9474   
+\f4 \uc0\u9745 
+\f0  View calendar                                \uc0\u9474 \
+\uc0\u9474   
+\f4 \uc0\u9745 
+\f0  Send messages                                \uc0\u9474 \
+\uc0\u9474   
+\f4 \uc0\u9745 
+\f0  Create social media posts                   \uc0\u9474 \
+\uc0\u9474   
+\f4 \uc0\u9745 
+\f0  Generate images                              \uc0\u9474 \
+\uc0\u9474   
+\f4 \uc0\u9744 
+\f0  Make purchases (requires confirmation)      \uc0\u9474 \
+\uc0\u9474                                                  \u9474 \
+\uc0\u9474   Voice Settings:                                \u9474 \
+\uc0\u9474   Voice: [Alloy (Natural)] 
+\f2 \uc0\u9660 
+\f0                      \uc0\u9474 \
+\uc0\u9474   Speed: [1.0x] 
+\f2 \uc0\u9660 
+\f0                                 \uc0\u9474 \
+\uc0\u9474   [Test Voice]                                   \u9474 \
+\uc0\u9474                                                  \u9474 \
+\uc0\u9474   Training Data:                                 \u9474 \
+\uc0\u9474   Your AI learns from:                           \u9474 \
+\uc0\u9474   \'95 Connected tool data (emails, sales, etc.)    \u9474 \
+\uc0\u9474   \'95 Past conversations                           \u9474 \
+\uc0\u9474   \'95 Documents you upload                         \u9474 \
+\uc0\u9474                                                  \u9474 \
+\uc0\u9474   [Upload training documents]                    \u9474 \
+\uc0\u9474                                                  \u9474 \
+\uc0\u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496 \
+\
+\
+\
+\uc0\u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488 \
+\uc0\u9474  Overview\u9474 Connections\u9474 AI Config\u9474 CUSTOMER AI\u9474 More \u9474 \
+
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 
+\f1 \'a9\'c8
+\f0 \
+\uc0\u9474                                                  \u9474 \
+\uc0\u9474   
+\f3 \uc0\u55357 \u56421 
+\f0  Customer-Facing AI Configuration            \uc0\u9474 \
+\uc0\u9474                                                  \u9474 \
+\uc0\u9474   Business Info:                                 \u9474 \
+\uc0\u9474   Name: John's Tacos                             \u9474 \
+\uc0\u9474   Type: Restaurant                               \u9474 \
+\uc0\u9474   Phone: +1-555-987-6543 (AI Receptionist)       \u9474 \
+\uc0\u9474   Website: johnstacos.com                        \u9474 \
+\uc0\u9474   [Edit]                                         \u9474 \
+\uc0\u9474                                                  \u9474 \
+\uc0\u9474   Menu Management:                               \u9474 \
+\uc0\u9474   \u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488     \u9474 \
+\uc0\u9474   \u9474  Current Menu: 47 items                 \u9474     \u9474 \
+\uc0\u9474   \u9474  Last updated: 2 days ago               \u9474     \u9474 \
+\uc0\u9474   \u9474  [View Menu] [Edit Items] [Upload New]  \u9474     \u9474 \
+\uc0\u9474   \u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496     \u9474 \
+\uc0\u9474                                                  \u9474 \
+\uc0\u9474   QR Codes:                                      \u9474 \
+\uc0\u9474   \u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488  \u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488  \u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488                    \u9474 \
+\uc0\u9474   \u9474 Table \u9474  \u9474 Table \u9474  \u9474 General\u9474                    \u9474 \
+\uc0\u9474   \u9474   1   \u9474  \u9474   2   \u9474  \u9474  Menu  \u9474                    \u9474 \
+\uc0\u9474   \u9474 [
+\f2 \uc0\u8595 
+\f0 ]   \uc0\u9474  \u9474 [
+\f2 \uc0\u8595 
+\f0 ]   \uc0\u9474  \u9474  [
+\f2 \uc0\u8595 
+\f0 ]   \uc0\u9474                    \u9474 \
+\uc0\u9474   \u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496  \u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496  \u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496                    \u9474 \
+\uc0\u9474   [Generate More QR Codes]                       \u9474 \
+\uc0\u9474                                                  \u9474 \
+\uc0\u9474   Website Widget:                                \u9474 \
+\uc0\u9474   <script src="https://gitvoicehub.com/...      \u9474 \
+\uc0\u9474   [Copy Code] [Customize]                        \u9474 \
+\uc0\u9474                                                  \u9474 \
+\uc0\u9474   AI Receptionist Settings:                      \u9474 \
+\uc0\u9474   When customers call +1-555-987-6543:           \u9474 \
+\uc0\u9474   Greeting: "Thank you for calling John's        \u9474 \
+\uc0\u9474   Tacos! I'm your AI assistant. How can I       \u9474 \
+\uc0\u9474   help you today?"                               \u9474 \
+\uc0\u9474   [Edit Greeting]                                \u9474 \
+\uc0\u9474                                                  \u9474 \
+\uc0\u9474   Can answer:                                    \u9474 \
+\uc0\u9474   
+\f4 \uc0\u9745 
+\f0  Menu questions                               \uc0\u9474 \
+\uc0\u9474   
+\f4 \uc0\u9745 
+\f0  Hours and location                           \uc0\u9474 \
+\uc0\u9474   
+\f4 \uc0\u9745 
+\f0  Take reservations                            \uc0\u9474 \
+\uc0\u9474   
+\f4 \uc0\u9745 
+\f0  Dietary restrictions                         \uc0\u9474 \
+\uc0\u9474   
+\f4 \uc0\u9744 
+\f0  Take orders (coming soon)                    \uc0\u9474 \
+\uc0\u9474                                                  \u9474 \
+\uc0\u9474   Analytics (Last 30 Days):                      \u9474 \
+\uc0\u9474   \'95 1,247 conversations                          \u9474 \
+\uc0\u9474   \'95 89% satisfaction rate                        \u9474 \
+\uc0\u9474   \'95 Top questions:                               \u9474 \
+\uc0\u9474     1. "What are your hours?" (234)              \u9474 \
+\uc0\u9474     2. "Is anything gluten-free?" (187)          \u9474 \
+\uc0\u9474     3. "Do you take reservations?" (156)         \u9474 \
+\uc0\u9474                                                  \u9474 \
+\uc0\u9474   Unanswered Questions:                          \u9474 \
+\uc0\u9474   \'95 "Do you cater?" (12 times)                   \u9474 \
+\uc0\u9474   \'95 "Do you have vegan options?" (8 times)       \u9474 \
+\uc0\u9474   [Train AI on these]                            \u9474 \
+\uc0\u9474                                                  \u9474 \
+\uc0\u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496 \
+\
+\
+\
+\uc0\u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488 \
+\uc0\u9474  
+\f2 \uc0\u8592 
+\f0  Back to Dashboard                             \uc0\u9474 \
+
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 
+\f1 \'a9\'c8
+\f0 \
+\uc0\u9474                                                  \u9474 \
+\uc0\u9474   Menu Editor                                    \u9474 \
+\uc0\u9474                                                  \u9474 \
+\uc0\u9474   [+ Add Item] [Import from POS] [Upload PDF]   \u9474 \
+\uc0\u9474                                                  \u9474 \
+\uc0\u9474   Search: [____________] 
+\f3 \uc0\u55357 \u56589 
+\f0                       \uc0\u9474 \
+\uc0\u9474                                                  \u9474 \
+\uc0\u9474   \u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488     \u9474 \
+\uc0\u9474   \u9474  Shrimp Tacos                           \u9474     \u9474 \
+\uc0\u9474   \u9474  $14.99                                 \u9474     \u9474 \
+\uc0\u9474   \u9474                                         \u9474     \u9474 \
+\uc0\u9474   \u9474  Description:                           \u9474     \u9474 \
+\uc0\u9474   \u9474  Grilled shrimp with cabbage slaw, pico \u9474     \u9474 \
+\uc0\u9474   \u9474  de gallo, chipotle aioli, cilantro     \u9474     \u9474 \
+\uc0\u9474   \u9474                                         \u9474     \u9474 \
+\uc0\u9474   \u9474  Chef's notes (voice):                  \u9474     \u9474 \
+\uc0\u9474   \u9474  
+\f3 \uc0\u55356 \u57252 
+\f0  "We marinate the shrimp for 2 hours\uc0\u9474     \u9474 \
+\uc0\u9474   \u9474  in lime and garlic..."                 \u9474     \u9474 \
+\uc0\u9474   \u9474                                         \u9474     \u9474 \
+\uc0\u9474   \u9474  Allergens: 
+\f4 \uc0\u9745 
+\f0  Shellfish 
+\f4 \uc0\u9744 
+\f0  Dairy        \uc0\u9474     \u9474 \
+\uc0\u9474   \u9474  Dietary: 
+\f4 \uc0\u9744 
+\f0  Vegan 
+\f4 \uc0\u9744 
+\f0  Vegetarian          \uc0\u9474     \u9474 \
+\uc0\u9474   \u9474           
+\f4 \uc0\u9745 
+\f0  Gluten-Free                 \uc0\u9474     \u9474 \
+\uc0\u9474   \u9474                                         \u9474     \u9474 \
+\uc0\u9474   \u9474  Available: 
+\f4 \uc0\u9745 
+\f0  Yes 
+\f4 \uc0\u9744 
+\f0  Out of Stock       \uc0\u9474     \u9474 \
+\uc0\u9474   \u9474                                         \u9474     \u9474 \
+\uc0\u9474   \u9474  [Edit] [Delete] [Record Chef Note]     \u9474     \u9474 \
+\uc0\u9474   \u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496     \u9474 \
+\uc0\u9474                                                  \u9474 \
+\uc0\u9474   [... more menu items ...]                     \u9474 \
+\uc0\u9474                                                  \u9474 \
+\uc0\u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496 \
+\
+\
+\uc0\u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488 \
+\uc0\u9474   John's Tacos 
+\f3 \uc0\u55356 \u57204 
+\f0     \uc0\u9474 \
+\uc0\u9474   Chef Portal         \u9474 \
+
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 
+\f1 \'a9\'c8
+\f0 \
+\uc0\u9474                       \u9474 \
+\uc0\u9474   Today's Specials:   \u9474 \
+\uc0\u9474   [+ Add Special]     \u9474 \
+\uc0\u9474                       \u9474 \
+\uc0\u9474   Out of Stock:       \u9474 \
+\uc0\u9474   
+\f4 \uc0\u9745 
+\f0  Salmon            \uc0\u9474 \
+\uc0\u9474   
+\f4 \uc0\u9744 
+\f0  Shrimp            \uc0\u9474 \
+\uc0\u9474   
+\f4 \uc0\u9744 
+\f0  Avocado           \uc0\u9474 \
+\uc0\u9474   [Update]            \u9474 \
+\uc0\u9474                       \u9474 \
+\uc0\u9474   Quick Actions:      \u9474 \
+\uc0\u9474   [
+\f3 \uc0\u55356 \u57252 
+\f0  Add Voice Note] \uc0\u9474 \
+\uc0\u9474   [
+\f3 \uc0\u55357 \u56568 
+\f0  Add Photo]      \uc0\u9474 \
+\uc0\u9474   [
+\f3 \uc0\u55357 \u56541 
+\f0  Edit Menu]      \uc0\u9474 \
+\uc0\u9474                       \u9474 \
+\uc0\u9474   AI Questions:       \u9474 \
+\uc0\u9474   "Is the fish fresh?"\u9474 \
+\uc0\u9474   (Asked 3 times)     \u9474 \
+\uc0\u9474   [Answer]            \u9474 \
+\uc0\u9474                       \u9474 \
+\uc0\u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496 \
+\
+\
+\uc0\u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488 \
+\uc0\u9474   [Restaurant Logo]   \u9474 \
+\uc0\u9474   John's Tacos 
+\f3 \uc0\u55356 \u57134 
+\f0      \uc0\u9474 \
+
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 
+\f1 \'a9\'c8
+\f0 \
+\uc0\u9474                       \u9474 \
+\uc0\u9474   
+\f3 \uc0\u55357 \u56395 
+\f0  Hi! I'm your AI  \uc0\u9474 \
+\uc0\u9474   menu assistant.     \u9474 \
+\uc0\u9474                       \u9474 \
+\uc0\u9474   Ask me anything     \u9474 \
+\uc0\u9474   about our menu!     \u9474 \
+\uc0\u9474                       \u9474 \
+
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 
+\f1 \'a9\'c8
+\f0 \
+\uc0\u9474                       \u9474 \
+\uc0\u9474   [Chat interface]    \u9474 \
+\uc0\u9474                       \u9474 \
+\uc0\u9474   Customer: What's    \u9474 \
+\uc0\u9474   in the shrimp tacos?\u9474 \
+\uc0\u9474                       \u9474 \
+\uc0\u9474   AI: Our shrimp      \u9474 \
+\uc0\u9474   tacos have grilled  \u9474 \
+\uc0\u9474   shrimp, cabbage...  \u9474 \
+\uc0\u9474                       \u9474 \
+\uc0\u9474   [Type message...]   \u9474 \
+\uc0\u9474   [
+\f3 \uc0\u55356 \u57252 
+\f0  Speak]          \uc0\u9474 \
+\uc0\u9474                       \u9474 \
+\uc0\u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496 \
+\
+\
+\
+\uc0\u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488 \
+\uc0\u9474                     ADMIN LAYER                          \u9474 \
+\uc0\u9474   Admin Dashboard - Manage all users, businesses, data  \u9474 \
+\uc0\u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496 \
+                            
+\f2 \uc0\u8595 
+\f0 \
+\uc0\u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488 \
+\uc0\u9474                     USER LAYER                           \u9474 \
+\uc0\u9474   User Dashboard - Manage profile, tools, OAuth         \u9474 \
+\uc0\u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496 \
+                            
+\f2 \uc0\u8595 
+\f0 \
+\uc0\u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488 \
+\uc0\u9474                  DATA LAYER (GCR)                        \u9474 \
+\uc0\u9474   Centralized data store - User data + Admin data       \u9474 \
+\uc0\u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496 \
+                            
+\f2 \uc0\u8595 
+\f0 \
+        \uc0\u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 
+\f1 \'a9\'d8
+\f0 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488 \
+        
+\f2 \uc0\u8595 
+\f0                                        
+\f2 \uc0\u8595 
+\f0 \
+\uc0\u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488                   \u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488 \
+\uc0\u9474   PUBLIC LAYER   \u9474                   \u9474   AGENT LAYER    \u9474 \
+\uc0\u9474   (Frontend)     \u9474                   \u9474   (OpenClaw.ai)  \u9474 \
+
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 
+\f1 \'a9\'c8
+\f0                   
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 
+\f1 \'a9\'c8
+\f0 \
+\uc0\u9474  - Websites      \u9474                   \u9474  - Agents        \u9474 \
+\uc0\u9474  - Landing pages \u9474                   \u9474  - Automations   \u9474 \
+\uc0\u9474  - Booking       \u9474                   \u9474  - Workflows     \u9474 \
+\uc0\u9474  - Ordering      \u9474                   \u9474  - VMs           \u9474 \
+\uc0\u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496                   \u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496 \
+        
+\f2 \uc0\u8595 
+\f0                                        
+\f2 \uc0\u8595 
+\f0 \
+\uc0\u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488 \
+\uc0\u9474                   MIDDLEWARE LAYER                       \u9474 \
+\uc0\u9474   API Router - Directs requests to correct service      \u9474 \
+\uc0\u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496 \
+        
+\f2 \uc0\u8595 
+\f0                                        
+\f2 \uc0\u8595 
+\f0 \
+\uc0\u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488                   \u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488 \
+\uc0\u9474   MARKETPLACE    \u9474                   \u9474   PHONE/SMS      \u9474 \
+\uc0\u9474   (App Store)    \u9474                   \u9474   (Twilio)       \u9474 \
+
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 
+\f1 \'a9\'c8
+\f0                   
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 
+\f1 \'a9\'c8
+\f0 \
+\uc0\u9474  - Tools         \u9474                   \u9474  - Voice calls   \u9474 \
+\uc0\u9474  - Add-ons       \u9474                   \u9474  - SMS links     \u9474 \
+\uc0\u9474  - Dev APIs      \u9474                   \u9474  - Profile login \u9474 \
+\uc0\u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496                   \u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496 \
+\
+\
+gitvoicehub/\
+
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  admin-dashboard/          # Admin controls\
+\uc0\u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  frontend/             # Next.js\
+\uc0\u9474    \u9492 \u9472 \u9472  backend/              # Express API\
+\uc0\u9474 \
+
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  user-dashboard/           # User self-service\
+\uc0\u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  frontend/             # Next.js\
+\uc0\u9474    \u9492 \u9472 \u9472  backend/              # Express API\
+\uc0\u9474 \
+
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  data-layer/ (GCR)         # Centralized data\
+\uc0\u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  api/                  # GraphQL or REST\
+\uc0\u9474    \u9492 \u9472 \u9472  database/             # PostgreSQL\
+\uc0\u9474 \
+
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  public-pages/             # Customer-facing\
+\uc0\u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  frontend/             # Next.js (SSR)\
+\uc0\u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  website-builder/      # CMS/Builder\
+\uc0\u9474    \u9492 \u9472 \u9472  templates/            # Pre-built templates\
+\uc0\u9474 \
+
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  agent-platform/           # Agent orchestration\
+\uc0\u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  agent-manager/        # CRUD for agents\
+\uc0\u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  workflow-engine/      # Execute workflows\
+\uc0\u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  vm-controller/        # Spin up VMs (OpenClaw)\
+\uc0\u9474    \u9492 \u9472 \u9472  marketplace/          # Agent marketplace\
+\uc0\u9474 \
+
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  middleware/               # API router\
+\uc0\u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  router/               # Route requests\
+\uc0\u9474    \u9492 \u9472 \u9472  rate-limiter/         # Prevent abuse\
+\uc0\u9474 \
+
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  marketplace/              # App store\
+\uc0\u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  frontend/             # Browse tools\
+\uc0\u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  developer-portal/     # Dev accounts\
+\uc0\u9474    \u9492 \u9472 \u9472  api-registry/         # Published APIs\
+\uc0\u9474 \
+
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  phone-platform/           # Twilio integration\
+\uc0\u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  voice-handler/        # Handle calls\
+\uc0\u9474    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  sms-handler/          # Handle SMS\
+\uc0\u9474    \u9492 \u9472 \u9472  link-generator/       # Profile access links\
+\uc0\u9474 \
+\uc0\u9492 \u9472 \u9472  shared/                   # Shared libraries\
+    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  auth/                 # Authentication\
+    
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472  types/                # TypeScript types\
+    \uc0\u9492 \u9472 \u9472  utils/                # Common functions\
+\
+\
+\{\
+  "id": "agent_toast_sales",\
+  "name": "Get Toast Sales",\
+  "description": "Retrieves sales data from Toast POS",\
+  "creator": "user_admin",\
+  "public": true,\
+  "inputs": [\
+    \{ "name": "timeframe", "type": "string", "required": true \},\
+    \{ "name": "oauth_token", "type": "string", "required": true \}\
+  ],\
+  "outputs": [\
+    \{ "name": "total_sales", "type": "number" \},\
+    \{ "name": "order_count", "type": "number" \},\
+    \{ "name": "top_item", "type": "string" \}\
+  ],\
+  "code": "function(inputs) \{ /* API call to Toast */ \}"\
+\}\
+\
+\uc0\u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488 \
+\uc0\u9474   Create New Agent                       \u9474 \
+
+\f1 \'a9\'c0
+\f0 \uc0\u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 
+\f1 \'a9\'c8
+\f0 \
+\uc0\u9474                                          \u9474 \
+\uc0\u9474   Name: [Get Gmail Unread Count        ]\u9474 \
+\uc0\u9474                                          \u9474 \
+\uc0\u9474   Description:                           \u9474 \
+\uc0\u9474   [Counts unread emails in Gmail inbox ]\u9474 \
+\uc0\u9474                                          \u9474 \
+\uc0\u9474   Type:                                  \u9474 \
+\uc0\u9474   
+\f2 \uc0\u9675 
+\f0  HTTP Request                         \uc0\u9474 \
+\uc0\u9474   
+\f2 \uc0\u9675 
+\f0  Code (JavaScript)                    \uc0\u9474 \
+\uc0\u9474   
+\f2 \uc0\u9675 
+\f0  Composite (Multiple agents)         \uc0\u9474 \
+\uc0\u9474   
+\f2 \uc0\u9675 
+\f0  Marketplace API                      \uc0\u9474 \
+\uc0\u9474                                          \u9474 \
+\uc0\u9474   [If HTTP Request selected]             \u9474 \
+\uc0\u9474                                          \u9474 \
+\uc0\u9474   Method: [GET 
+\f2 \uc0\u9660 
+\f0 ]                        \uc0\u9474 \
+\uc0\u9474   URL: [https://gmail.googleapis.com/... \u9474 \
+\uc0\u9474                                          \u9474 \
+\uc0\u9474   Headers:                               \u9474 \
+\uc0\u9474   Authorization: Bearer \{\{oauth_token\}\}  \u9474 \
+\uc0\u9474                                          \u9474 \
+\uc0\u9474   Output Mapping:                        \u9474 \
+\uc0\u9474   unread_count: response.unreadCount     \u9474 \
+\uc0\u9474                                          \u9474 \
+\uc0\u9474   Cost per execution: [$0.01          ] \u9474 \
+\uc0\u9474                                          \u9474 \
+\uc0\u9474   Visibility:                            \u9474 \
+\uc0\u9474   
+\f4 \uc0\u9745 
+\f0  Make public (others can use)        \uc0\u9474 \
+\uc0\u9474                                          \u9474 \
+\uc0\u9474   [Test Agent] [Save] [Publish]         \u9474 \
+\uc0\u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496 \
+\
+\
+\
+Code Editor:\
+\uc0\u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488 \
+\uc0\u9474  async function execute(inputs) \{       \u9474 \
+\uc0\u9474    const response = await fetch(...);   \u9474 \
+\uc0\u9474    return \{ unread_count: response.n \}; \u9474 \
+\uc0\u9474  \}                                       \u9474 \
+\uc0\u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496 \
+\
+\
+\uc0\u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488 \
+\uc0\u9474            YOUR PLATFORM (gitvoicehub.com)                   \u9474 \
+\uc0\u9474   - Agent definitions (JSON configs)                         \u9474 \
+\uc0\u9474   - Workflow orchestration                                   \u9474 \
+\uc0\u9474   - User dashboards                                          \u9474 \
+\uc0\u9474   - Marketplace                                              \u9474 \
+\uc0\u9474   - OAuth token management                                   \u9474 \
+\uc0\u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496 \
+                            
+\f2 \uc0\u8595 
+\f0  
+\f2 \uc0\u8593 
+\f0 \
+              (WebSocket/MQTT for commands & results)\
+                            
+\f2 \uc0\u8595 
+\f0  
+\f2 \uc0\u8593 
+\f0 \
+\uc0\u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488 \
+\uc0\u9474         USER'S DEVICE (OpenClaw Agent Runtime)               \u9474 \
+\uc0\u9474   - Runs on: Computer, Pi, Cloud VM, or YOUR Speaker        \u9474 \
+\uc0\u9474   - Executes agents locally                                  \u9474 \
+\uc0\u9474   - Stores OAuth tokens locally (secure)                     \u9474 \
+\uc0\u9474   - Connects to user's tools (Toast, Gmail, etc.)           \u9474 \
+\uc0\u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496 \
+                            
+\f2 \uc0\u8595 
+\f0  
+\f2 \uc0\u8593 
+\f0 \
+                 (Direct API calls from device)\
+                            
+\f2 \uc0\u8595 
+\f0  
+\f2 \uc0\u8593 
+\f0 \
+\uc0\u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488 \
+\uc0\u9474                CONNECTED TOOLS & APIS                        \u9474 \
+\uc0\u9474   Toast POS, Gmail, HubSpot, Square, Shopify, etc.         \u9474 \
+\uc0\u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496 \
+\
+\
+\uc0\u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488 \
+\uc0\u9474    GITVOICEHUB SMART SPEAKER      \u9474 \
+\uc0\u9474                                   \u9474 \
+\uc0\u9474    [Speaker Grill]                \u9474 \
+\uc0\u9474    
+\f3 \uc0\u9899 
+\f0  Microphone Array (4-6 mics) \uc0\u9474 \
+\uc0\u9474    
+\f3 \uc0\u55357 \u56481 
+\f0  LED Ring (status indicator) \uc0\u9474 \
+\uc0\u9474                                   \u9474 \
+\uc0\u9474    Inside:                        \u9474 \
+\uc0\u9474    - Raspberry Pi 4 or 5          \u9474 \
+\uc0\u9474    - 4GB RAM                      \u9474 \
+\uc0\u9474    - 32GB SD card                 \u9474 \
+\uc0\u9474    - WiFi + Bluetooth             \u9474 \
+\uc0\u9474    - Optional: 4G modem           \u9474 \
+\uc0\u9474    - Pre-installed:               \u9474 \
+\uc0\u9474      \'95 OpenClaw runtime           \u9474 \
+\uc0\u9474      \'95 Your platform client       \u9474 \
+\uc0\u9474      \'95 Voice recognition (Whisper)\u9474 \
+\uc0\u9474      \'95 Text-to-speech (Piper)     \u9474 \
+\uc0\u9474                                   \u9474 \
+\uc0\u9474    Ports:                         \u9474 \
+\uc0\u9474    - USB-C power                  \u9474 \
+\uc0\u9474    - Ethernet (optional)          \u9474 \
+\uc0\u9474    - 3.5mm audio out              \u9474 \
+\uc0\u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496 \
+\
+\
+\uc0\u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488 \
+\uc0\u9474               GITVOICEHUB PLATFORM (gitvoicehub.com)         \u9474 \
+\uc0\u9474                                                              \u9474 \
+\uc0\u9474   \u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488   \u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488   \u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488      \u9474 \
+\uc0\u9474   \u9474    Admin     \u9474   \u9474      User     \u9474   \u9474   Developer   \u9474      \u9474 \
+\uc0\u9474   \u9474   Dashboard  \u9474   \u9474    Dashboard  \u9474   \u9474     Portal    \u9474      \u9474 \
+\uc0\u9474   \u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496   \u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496   \u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496      \u9474 \
+\uc0\u9474                                                              \u9474 \
+\uc0\u9474   \u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488     \u9474 \
+\uc0\u9474   \u9474          Orchestration Layer (WebSocket)           \u9474     \u9474 \
+\uc0\u9474   \u9474   - Send commands to devices                       \u9474     \u9474 \
+\uc0\u9474   \u9474   - Receive results                                \u9474     \u9474 \
+\uc0\u9474   \u9474   - Monitor device status                          \u9474     \u9474 \
+\uc0\u9474   \u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496     \u9474 \
+\uc0\u9474                                                              \u9474 \
+\uc0\u9474   \u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488     \u9474 \
+\uc0\u9474   \u9474          Data Layer (PostgreSQL)                   \u9474     \u9474 \
+\uc0\u9474   \u9474   - Agent definitions                              \u9474     \u9474 \
+\uc0\u9474   \u9474   - User profiles                                  \u9474     \u9474 \
+\uc0\u9474   \u9474   - Device registry                                \u9474     \u9474 \
+\uc0\u9474   \u9474   - Execution logs                                 \u9474     \u9474 \
+\uc0\u9474   \u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496     \u9474 \
+\uc0\u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496 \
+                            
+\f2 \uc0\u8595 
+\f0  
+\f2 \uc0\u8593 
+\f0 \
+              (Commands & Results via WebSocket/MQTT)\
+                            
+\f2 \uc0\u8595 
+\f0  
+\f2 \uc0\u8593 
+\f0 \
+\uc0\u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488 \
+\uc0\u9474                   USER'S EXECUTION LAYER                     \u9474 \
+\uc0\u9474                      (User's Choice)                         \u9474 \
+\uc0\u9474                                                              \u9474 \
+\uc0\u9474   \u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488   \u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488   \u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488        \u9474 \
+\uc0\u9474   \u9474 Your Speaker \u9474   \u9474  Their Cloud \u9474   \u9474  Their Device\u9474        \u9474 \
+\uc0\u9474   \u9474   ($299)     \u9474   \u9474   VM (BYOC)  \u9474   \u9474  (Computer)  \u9474        \u9474 \
+\uc0\u9474   \u9474              \u9474   \u9474              \u9474   \u9474              \u9474        \u9474 \
+\uc0\u9474   \u9474  OpenClaw    \u9474   \u9474  OpenClaw    \u9474   \u9474  OpenClaw    \u9474        \u9474 \
+\uc0\u9474   \u9474  + Voice     \u9474   \u9474  Runtime     \u9474   \u9474  Runtime     \u9474        \u9474 \
+\uc0\u9474   \u9474  + WiFi      \u9474   \u9474              \u9474   \u9474              \u9474        \u9474 \
+\uc0\u9474   \u9474  + Optional  \u9474   \u9474  OR Your VM  \u9474   \u9474              \u9474        \u9474 \
+\uc0\u9474   \u9474    Starlink  \u9474   \u9474  (Managed)   \u9474   \u9474              \u9474        \u9474 \
+\uc0\u9474   \u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496   \u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496   \u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496        \u9474 \
+\uc0\u9474                                                              \u9474 \
+\uc0\u9474   \u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488     \u9474 \
+\uc0\u9474   \u9474   Local Agent Execution                            \u9474     \u9474 \
+\uc0\u9474   \u9474   - OAuth tokens (encrypted)                       \u9474     \u9474 \
+\uc0\u9474   \u9474   - Agent cache                                    \u9474     \u9474 \
+\uc0\u9474   \u9474   - Direct API calls to tools                      \u9474     \u9474 \
+\uc0\u9474   \u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496     \u9474 \
+\uc0\u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496 \
+                            
+\f2 \uc0\u8595 
+\f0  
+\f2 \uc0\u8593 
+\f0 \
+                 (Direct API calls - no proxy)\
+                            
+\f2 \uc0\u8595 
+\f0  
+\f2 \uc0\u8593 
+\f0 \
+\uc0\u9484 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9488 \
+\uc0\u9474                CONNECTED TOOLS & SERVICES                    \u9474 \
+\uc0\u9474   Toast, Gmail, HubSpot, Square, Shopify, Stripe, etc.     \u9474 \
+\uc0\u9492 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9472 \u9496 \
+\
+}
