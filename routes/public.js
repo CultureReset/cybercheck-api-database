@@ -635,7 +635,23 @@ router.post('/contact', async (req, res) => {
         metadata: { name, email, phone }
     });
 
-    // TODO: Send email notification to business
+    // Send SMS to owner's notification number
+    try {
+        const { sendSms } = require('../utils/sms');
+        const [{ data: settings }, { data: siteContent }] = await Promise.all([
+            supabase.from('messaging_settings').select('notification_phone').eq('site_id', req.siteId).maybeSingle(),
+            supabase.from('site_content').select('contact_phone').eq('site_id', req.siteId).maybeSingle(),
+        ]);
+        const ownerPhone = settings?.notification_phone || siteContent?.contact_phone || null;
+        if (ownerPhone) {
+            const interest = req.body.interest ? ` | Interested in: ${req.body.interest}` : '';
+            const smsBody = `New message from ${name}${phone ? ' (' + phone + ')' : ''}${interest}
+
+${message.slice(0, 300)}`;
+            sendSms(ownerPhone, smsBody, req.siteId, 'contact_form_notify').catch(() => {});
+        }
+    } catch(e) { /* SMS is non-blocking */ }
+
     res.json({ success: true, message: 'Message sent!' });
 });
 
