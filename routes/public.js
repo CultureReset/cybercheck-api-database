@@ -45,7 +45,7 @@ router.get('/profile', async (req, res) => {
 
     const { data: content } = await supabase
         .from('site_content')
-        .select('hero_text, hero_subtext, hero_video_url, about_text, contact_phone, contact_email, address, city, state, zip, lat, lng, hours, social_links, logo_url, cover_url, theme_color, seo_title, seo_description')
+        .select('hero_text, hero_subtext, hero_video_url, about_text, contact_phone, contact_email, address, city, state, zip, lat, lng, hours, social_links, logo_url, cover_url, theme_color, seo_title, seo_description, ga4_id, facebook_pixel_id')
         .eq('site_id', req.siteId)
         .single();
 
@@ -661,6 +661,52 @@ router.post('/track', async (req, res) => {
     } catch(e) {
         res.json({ ok: true }); // never block the page
     }
+});
+
+// ============================================
+// POST /api/public/events — Session event tracking (clicks, scrolls, etc)
+// ============================================
+router.post('/events', async (req, res) => {
+    const { events } = req.body; // accepts array of events
+    if (!events || !events.length) return res.json({ ok: true });
+    const ip = req.headers['x-forwarded-for']?.split(',')[0]?.trim() || req.ip || null;
+    const rows = events.map(e => ({
+        site_id:     req.siteId,
+        session_id:  e.session_id || null,
+        event_type:  e.event_type || 'unknown',
+        event_label: e.event_label || null,
+        metadata:    e.metadata || null,
+        page_path:   e.page_path || '/',
+        duration_ms: e.duration_ms || null,
+        device_type: e.device_type || null,
+        ip_address:  ip,
+    }));
+    try {
+        await supabase.from('session_events').insert(rows);
+    } catch(e) { /* non-blocking */ }
+    res.json({ ok: true });
+});
+
+// ============================================
+// POST /api/public/funnel — Booking funnel step tracking
+// ============================================
+router.post('/funnel', async (req, res) => {
+    const { session_id, booking_ref, step, step_name, metadata, time_on_step_ms, device_type } = req.body;
+    const ip = req.headers['x-forwarded-for']?.split(',')[0]?.trim() || req.ip || null;
+    try {
+        await supabase.from('booking_funnel').insert({
+            site_id:         req.siteId,
+            session_id:      session_id || null,
+            booking_ref:     booking_ref || null,
+            step:            step || null,
+            step_name:       step_name || null,
+            metadata:        metadata || null,
+            time_on_step_ms: time_on_step_ms || null,
+            device_type:     device_type || null,
+            ip_address:      ip,
+        });
+    } catch(e) { /* non-blocking */ }
+    res.json({ ok: true });
 });
 
 // ============================================
