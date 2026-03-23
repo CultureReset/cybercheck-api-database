@@ -1338,7 +1338,34 @@ router.get('/customers', async (req, res) => {
 
     const { data, error } = await query;
     if (error) return res.status(500).json({ error: error.message });
-    res.json(data || []);
+
+    const customers = data || [];
+    if (customers.length === 0) return res.json([]);
+
+    // Fetch signed waivers + customer bookings to match by email or booking_id
+    const [{ data: waivers }, { data: custBookings }] = await Promise.all([
+        supabase.from('waivers').select('customer_email, signed_at, booking_id').eq('site_id', req.siteId).not('signed_at', 'is', null),
+        supabase.from('bookings').select('id, customer_email').eq('site_id', req.siteId),
+    ]);
+
+    // Map booking_id -> customer_email from bookings table
+    const bookingEmailMap = {};
+    (custBookings || []).forEach(b => { if (b.id && b.customer_email) bookingEmailMap[b.id] = b.customer_email.toLowerCase(); });
+
+    // Build set of signed emails (by direct email or via booking)
+    const signedEmails = {};
+    (waivers || []).forEach(w => {
+        const email = (w.customer_email || bookingEmailMap[w.booking_id] || '').toLowerCase();
+        if (email) signedEmails[email] = w.signed_at;
+    });
+
+    const result = customers.map(c => ({
+        ...c,
+        waiver_signed: !!(c.email && signedEmails[c.email.toLowerCase()]),
+        waiver_signed_at: (c.email && signedEmails[c.email.toLowerCase()]) || null,
+    }));
+
+    res.json(result);
 });
 
 router.post('/customers', async (req, res) => {
