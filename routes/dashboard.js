@@ -47,7 +47,8 @@ router.get('/overview', async (req, res) => {
         supabase.from('bookings').select('total')
             .eq('site_id', req.siteId)
             .not('status', 'eq', 'cancelled')
-            .not('status', 'eq', 'pending'),
+            .not('status', 'eq', 'pending')
+            .not('status', 'eq', 'refunded'),
         supabase.from('customers').select('id', { count: 'exact', head: true })
             .eq('site_id', req.siteId)
     ]);
@@ -98,7 +99,7 @@ router.put('/profile', async (req, res) => {
 
     if (bizUpdates) {
         // Filter out undefined so we don't null out fields not included in the update
-        const allowedBizFields = ['name', 'type', 'logo_url', 'cover_url'];
+        const allowedBizFields = ['name', 'type', 'logo_url', 'cover_url', 'custom_domain'];
         const bizData = {};
         for (const key of allowedBizFields) {
             if (bizUpdates[key] !== undefined) bizData[key] = bizUpdates[key];
@@ -2685,6 +2686,7 @@ router.get('/calendar', async (req, res) => {
         .gte('booking_date', start)
         .lte('booking_date', end)
         .not('status', 'eq', 'cancelled')
+        .not('status', 'eq', 'refunded')
         .order('booking_date');
 
     if (error) return res.status(500).json({ error: error.message });
@@ -2720,7 +2722,8 @@ router.get('/analytics', async (req, res) => {
         supabase.from('bookings').select('id, booking_date, total, status, fleet_type_id, fleet_types(name)')
             .eq('site_id', req.siteId)
             .gte('booking_date', since)
-            .not('status', 'eq', 'cancelled'),
+            .not('status', 'eq', 'cancelled')
+            .not('status', 'eq', 'refunded'),
         supabase.from('bookings').select('booking_date, total')
             .eq('site_id', req.siteId)
             .eq('payment_status', 'paid')
@@ -2973,9 +2976,10 @@ router.post('/ai-chat', async (req, res) => {
     ] = await Promise.all([
         supabase.from('businesses').select('name, type, subdomain, tagline, plan').eq('site_id', siteId).single(),
         supabase.from('site_content').select('contact_phone, address, city, state, hours, hours_note, about_text, whats_included, steps, features, locations, group_rate').eq('site_id', siteId).maybeSingle(),
-        supabase.from('bookings').select('id', { count: 'exact', head: true }).eq('site_id', siteId).gte('booking_date', weekAgo).not('status', 'eq', 'cancelled'),
-        supabase.from('bookings').select('id', { count: 'exact', head: true }).eq('site_id', siteId).gte('booking_date', twoWeeksAgo).lt('booking_date', weekAgo).not('status', 'eq', 'cancelled'),
-        supabase.from('bookings').select('total').eq('site_id', siteId).gte('booking_date', weekAgo).not('status', 'eq', 'cancelled'),
+        supabase.from('bookings').select('id', { count: 'exact', head: true }).eq('site_id', siteId).gte('booking_date', weekAgo).not('status', 'eq', 'cancelled').not('status', 'eq', 'refunded'),
+        supabase.from('bookings').select('id', { count: 'exact', head: true }).eq('site_id', siteId).gte('booking_date', twoWeeksAgo).lt('booking_date', weekAgo).not('status', 'eq', 'cancelled').not('status', 'eq', 'refunded'),
+        supabase.from('bookings').select('total').eq('site_id', siteId).gte('booking_date', weekAgo).not('status', 'eq', 'cancelled')
+            .not('status', 'eq', 'refunded'),
         supabase.from('customers').select('id', { count: 'exact', head: true }).eq('site_id', siteId),
         supabase.from('fleet_types').select('name, description, specs, image_url').eq('site_id', siteId).eq('available', true).order('sort_order', { ascending: true }),
         supabase.from('rental_time_slots').select('id, name, start_time, end_time').eq('site_id', siteId).eq('active', true),
