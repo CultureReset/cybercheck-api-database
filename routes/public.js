@@ -617,6 +617,53 @@ router.post('/bookings', async (req, res) => {
 });
 
 // ============================================
+// POST /api/public/track — Page view + conversion tracking
+// ============================================
+router.post('/track', async (req, res) => {
+    const { type, page_path, page_title, referrer, utm_source, utm_medium, utm_campaign, utm_term, utm_content, device_type, browser, os, session_id, duration_seconds, conversion_type, conversion_value, booking_id, customer_email, customer_name } = req.body;
+
+    try {
+        if (type === 'pageview' || !type) {
+            await supabase.from('page_views').insert({
+                site_id: req.siteId,
+                page_path:   page_path || '/',
+                page_title:  page_title || null,
+                referrer:    referrer || null,
+                utm_source:  utm_source || null,
+                utm_medium:  utm_medium || null,
+                utm_campaign: utm_campaign || null,
+                utm_term:    utm_term || null,
+                utm_content: utm_content || null,
+                device_type: device_type || null,
+                browser:     browser || null,
+                os:          os || null,
+                session_id:  session_id || null,
+                ip_address:  req.headers['x-forwarded-for']?.split(',')[0]?.trim() || req.ip || null,
+                duration_seconds: duration_seconds || null,
+            });
+        } else if (type === 'conversion') {
+            await supabase.from('conversions').insert({
+                site_id:          req.siteId,
+                conversion_type:  conversion_type || 'booking',
+                conversion_value: conversion_value || null,
+                revenue:          conversion_value || null,
+                booking_id:       booking_id || null,
+                customer_email:   customer_email || null,
+                customer_name:    customer_name || null,
+                utm_source:       utm_source || null,
+                utm_medium:       utm_medium || null,
+                utm_campaign:     utm_campaign || null,
+                referrer:         referrer || null,
+                session_id:       session_id || null,
+            });
+        }
+        res.json({ ok: true });
+    } catch(e) {
+        res.json({ ok: true }); // never block the page
+    }
+});
+
+// ============================================
 // POST /api/public/contact — Submit contact form
 // ============================================
 router.post('/contact', async (req, res) => {
