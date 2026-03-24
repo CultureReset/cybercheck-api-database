@@ -2312,4 +2312,58 @@ router.post('/save-section', async (req, res) => {
     res.json({ success: true });
 });
 
+// ============================================
+// POST /api/public/resend-confirmation — Resend booking confirmation SMS + email
+// ============================================
+router.post('/resend-confirmation', async (req, res) => {
+    const { booking_id } = req.body;
+
+    if (!booking_id) {
+        return res.status(400).json({ error: 'booking_id required' });
+    }
+
+    try {
+        const { sendSms, fillTemplate, buildTemplateData } = require('../utils/sms');
+        const { sendEmail, customerConfirmationHtml, generateIcsContent } = require('../utils/email');
+
+        // Fetch booking
+        const { data: bookingData } = await supabase
+            .from('bookings')
+            .select('*')
+            .eq('id', booking_id)
+            .single();
+
+        if (!bookingData) {
+            return res.status(404).json({ error: 'Booking not found' });
+        }
+
+        // Build template data
+        const templateData = await buildTemplateData(bookingData, bookingData.site_id);
+
+        // Resend customer SMS
+        if (bookingData.customer_phone) {
+            const defaultTpl = '[{{business_name}}] Hi {{customer_name}}! Your booking is confirmed.\n\nDate: {{date}}\nTime: {{time_slot}}\nTotal: ${{total}}\n\nQuestions? Reply to this number!';
+            const msg = fillTemplate(defaultTpl, templateData);
+            await sendSms(bookingData.customer_phone, msg, bookingData.site_id, 'booking_confirmation', booking_id)
+                .catch(err => console.error('Resend SMS failed:', err));
+        }
+
+        // Resend customer email
+        if (bookingData.customer_email) {
+            const icsAttachment = [{ filename: 'booking.ics', content: Buffer.from(generateIcsContent(templateData)).toString('base64') }];
+            await sendEmail({
+                to: bookingData.customer_email,
+                subject: 'Booking Confirmed — ' + (templateData.business_name || 'Your Reservation'),
+                html: customerConfirmationHtml(templateData),
+                attachments: icsAttachment
+            }).catch(err => console.error('Resend email failed:', err));
+        }
+
+        res.json({ success: true, message: 'Confirmations resent to customer' });
+    } catch (err) {
+        console.error('Resend confirmation error:', err.message);
+        res.status(500).json({ error: err.message });
+    }
+});
+
 module.exports = router;
