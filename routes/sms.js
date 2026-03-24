@@ -398,7 +398,7 @@ router.get('/send-reminders', async (req, res) => {
 
         const { data: bookings, error } = await supabase
             .from('bookings')
-            .select('id, site_id, customer_name, customer_phone, booking_date, fleet_type, time_slot')
+            .select('id, site_id, customer_name, customer_phone, booking_date, booking_time, fleet_types(name)')
             .gte('booking_date', dateStart)
             .lte('booking_date', dateEnd)
             .eq('status', 'confirmed')
@@ -412,7 +412,8 @@ router.get('/send-reminders', async (req, res) => {
 
         for (const b of bookings) {
             try {
-                const msg = `Reminder: Your ${b.fleet_type || 'boat'} rental is tomorrow${b.time_slot ? ' at ' + b.time_slot : ''}! Please arrive 15 min early. Questions? Reply here.`;
+                const rentalType = (b.fleet_types && b.fleet_types.name) || 'boat';
+                const msg = `Reminder: Your ${rentalType} rental is tomorrow${b.booking_time ? ' at ' + b.booking_time : ''}! Please arrive 15 min early. Questions? Reply here.`;
 
                 await twilio.messages.create({
                     body: msg,
