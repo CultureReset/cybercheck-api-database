@@ -738,11 +738,11 @@ router.post('/contact', async (req, res) => {
         const ownerEmailRaw = settings?.notification_email || siteContent?.contact_email || business?.email || null;
         const ownerEmail = ownerEmailRaw ? ownerEmailRaw.split(',').map(e => e.trim()).filter(Boolean) : null;
         if (ownerEmail && ownerEmail.length) {
-            const interest = req.body.interest ? `<p><strong>Interested in:</strong> ${interest}</p>` : '';
+            const interestHtml = req.body.interest ? `<p><strong>Interested in:</strong> ${req.body.interest}</p>` : '';
             sendEmail({
                 to: ownerEmail,
                 subject: `New Contact Form Message from ${name}`,
-                html: `<p><strong>From:</strong> ${name}</p>${phone ? `<p><strong>Phone:</strong> ${phone}</p>` : ''}${email ? `<p><strong>Email:</strong> ${email}</p>` : ''}${interest}<p><strong>Message:</strong></p><p>${message.replace(/\n/g, '<br>')}</p>`,
+                html: `<p><strong>From:</strong> ${name}</p>${phone ? `<p><strong>Phone:</strong> ${phone}</p>` : ''}${email ? `<p><strong>Email:</strong> ${email}</p>` : ''}${interestHtml}<p><strong>Message:</strong></p><p>${message.replace(/\n/g, '<br>')}</p>`,
                 replyTo: email || undefined
             }).catch(() => {});
         }
