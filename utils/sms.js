@@ -216,15 +216,19 @@ function normalizePhone(phone) {
 }
 
 async function logSms(siteId, to, message, type, status, relatedId, sid) {
-    await supabase.from('sms_log').insert({
-        site_id: siteId,
-        to_phone: to,
-        message: message,
-        type: type,
-        status: status,
-        related_id: relatedId || null,
-        metadata: sid ? { twilio_sid: sid } : {}
-    }).catch(err => console.error('SMS log error:', err.message));
+    try {
+        await supabase.from('sms_log').insert({
+            site_id: siteId,
+            to_phone: to,
+            message: message,
+            type: type,
+            status: status,
+            related_id: relatedId || null,
+            metadata: sid ? { twilio_sid: sid } : {}
+        });
+    } catch (err) {
+        console.error('SMS log error:', err.message);
+    }
 }
 
 module.exports = { sendSms, fillTemplate, buildTemplateData, normalizePhone };
