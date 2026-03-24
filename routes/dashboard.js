@@ -3266,7 +3266,7 @@ Valid categories: appetizer, entree, side, dessert, beverage, special`;
 const WC_ALLOWED_SECTIONS = [
     'whats_included', 'steps', 'features', 'footer',
     'links_page', 'locations', 'group_rate', 'docks', 'qna',
-    'hero_cta_text', 'hero_cta_url'
+    'hero_cta_text', 'hero_cta_url', 'promotions'
 ];
 
 // GET /api/dashboard/website-content — all sections at once
