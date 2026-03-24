@@ -17,8 +17,9 @@ function getClient() {
  * @param {string} siteId - Business site_id for logging
  * @param {string} type - 'booking_confirmation', 'booking_owner_notify', 'campaign', 'cancellation'
  * @param {string} relatedId - Optional booking_id or campaign_id
+ * @param {string} from - Optional custom from number (overrides default)
  */
-async function sendSms(to, body, siteId, type = 'outgoing', relatedId = null) {
+async function sendSms(to, body, siteId, type = 'outgoing', relatedId = null, from = null) {
     const client = getClient();
 
     if (!client) {
@@ -46,10 +47,12 @@ async function sendSms(to, body, siteId, type = 'outgoing', relatedId = null) {
         return { success: false, reason: 'opted_out' };
     }
 
+    const fromNumber = from || process.env.TWILIO_PHONE_NUMBER;
+
     try {
         const message = await client.messages.create({
             body: body,
-            from: process.env.TWILIO_PHONE_NUMBER,
+            from: fromNumber,
             to: normalizedTo
         });
 
@@ -133,6 +136,48 @@ async function buildTemplateData(booking, siteId) {
         ? [content.address, content.city, content.state, content.zip].filter(Boolean).join(', ')
         : '';
 
+    // Get tracking data from conversions table
+    let utm_source = 'Direct';
+    let utm_medium = 'Direct';
+    let utm_campaign = '(none)';
+    let referrer = 'Direct';
+    let device_type = 'Unknown';
+    let session_duration_mins = 0;
+    let page_source = 'Homepage';
+
+    try {
+        const { data: conversion } = await supabase
+            .from('conversions')
+            .select('utm_source, utm_medium, utm_campaign, referrer, session_id')
+            .eq('booking_id', booking.id)
+            .maybeSingle();
+
+        if (conversion) {
+            utm_source = conversion.utm_source || 'Direct';
+            utm_medium = conversion.utm_medium || 'Direct';
+            utm_campaign = conversion.utm_campaign || '(none)';
+            referrer = conversion.referrer || 'Direct';
+
+            // Get device type and session duration from page_views
+            if (conversion.session_id) {
+                const { data: pageViews } = await supabase
+                    .from('page_views')
+                    .select('device_type, duration_seconds, page_path')
+                    .eq('session_id', conversion.session_id)
+                    .order('created_at', { ascending: true })
+                    .limit(10);
+
+                if (pageViews && pageViews.length > 0) {
+                    device_type = pageViews[0].device_type || 'Unknown';
+                    session_duration_mins = Math.ceil(pageViews[pageViews.length - 1].duration_seconds / 60) || 0;
+                    page_source = pageViews[0].page_path || 'Homepage';
+                }
+            }
+        }
+    } catch (err) {
+        console.warn('Error fetching tracking data:', err.message);
+    }
+
     return {
         customer_name: booking.customer_name || '',
         customer_phone: booking.customer_phone || '',
@@ -147,7 +192,14 @@ async function buildTemplateData(booking, siteId) {
         total: booking.total ? Number(booking.total).toFixed(2) : '0.00',
         location: location,
         payment_status: booking.payment_status === 'paid' ? 'Paid' : 'Pending',
-        confirmation_number: booking.id ? 'BCB-' + String(booking.id).replace(/-/g, '').substring(0, 8).toUpperCase() : ''
+        confirmation_number: booking.id ? 'BCB-' + String(booking.id).replace(/-/g, '').substring(0, 8).toUpperCase() : '',
+        utm_source: utm_source,
+        utm_medium: utm_medium,
+        utm_campaign: utm_campaign,
+        referrer: referrer,
+        device_type: device_type,
+        session_duration_mins: String(session_duration_mins),
+        page_source: page_source
     };
 }
 

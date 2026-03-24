@@ -736,12 +736,6 @@ router.post('/contact', async (req, res) => {
             sendSms(ownerPhone, smsBody, req.siteId, 'contact_form_notify').catch(() => {});
         }
 
-        // Customer SMS confirmation
-        if (phone) {
-            const businessName2 = business?.name || 'us';
-            const customerSms = `Hi ${name}! We received your message and will get back to you shortly. Thanks for contacting ${businessName2}!`;
-            sendSms(phone, customerSms, req.siteId, 'contact_form_confirm').catch(() => {});
-        }
         const ownerEmailRaw = settings?.notification_email || siteContent?.contact_email || business?.email || null;
         console.log('[contact] siteId:', req.siteId, '| notification_email:', settings?.notification_email, '| ownerEmailRaw:', ownerEmailRaw);
         const ownerEmail = ownerEmailRaw ? ownerEmailRaw.split(',').map(e => e.trim()).filter(Boolean) : null;
@@ -761,17 +755,23 @@ router.post('/contact', async (req, res) => {
             console.log('[contact] no owner email found, skipping owner email');
         }
 
-        // Customer confirmation email
+        // Customer SMS confirmation
+        if (phone) {
+            const customerSms = `Hi ${name}! We received your message and will get back to you shortly. Thanks for contacting ${businessName}!`;
+            sendSms(phone, customerSms, req.siteId, 'contact_form_confirm').catch(() => {});
+        }
+
+        // Customer confirmation email (subject and message mention business name)
         if (email) {
             const customerResult = await sendEmail({
                 to: email,
                 subject: `We got your message — ${businessName}`,
                 html: `<p>Hi <strong>${name}</strong>,</p>
-<p>Thanks for reaching out! We received your message and will get back to you as soon as possible.</p>
+<p>Thanks for reaching out to <strong>${businessName}</strong>! We received your message and will get back to you as soon as possible.</p>
 ${interestHtml}
 <p><strong>Your message:</strong></p>
 <p style="background:#f9fafb;padding:12px;border-radius:8px;border-left:3px solid #00ada8;">${message.replace(/\n/g, '<br>')}</p>
-<p>Talk soon,<br><strong>${businessName}</strong></p>`,
+<p>Best regards,<br><strong>${businessName}</strong></p>`,
                 replyTo: ownerEmail ? ownerEmail[0] : undefined
             });
             console.log('[contact] customer email result:', JSON.stringify(customerResult));

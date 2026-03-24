@@ -9,15 +9,17 @@ const FROM_DEFAULT = process.env.EMAIL_FROM || 'bookings@gulfcoastradar.com';
 
 /**
  * Send an email via Resend
- * @param {object} opts - { to, subject, html, replyTo }
+ * @param {object} opts - { to, subject, html, replyTo, from }
  */
-async function sendEmail({ to, subject, html, replyTo, attachments }) {
+async function sendEmail({ to, subject, html, replyTo, attachments, from }) {
     const apiKey = process.env.RESEND_API_KEY;
     if (!apiKey) {
         console.warn('RESEND_API_KEY not set — email not sent to:', to);
         return { success: false, reason: 'not_configured' };
     }
     if (!to) return { success: false, reason: 'no_recipient' };
+
+    const fromAddress = from || FROM_DEFAULT;
 
     try {
         const res = await fetch(RESEND_API, {
@@ -27,7 +29,7 @@ async function sendEmail({ to, subject, html, replyTo, attachments }) {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                from: FROM_DEFAULT,
+                from: fromAddress,
                 to: Array.isArray(to) ? to : [to],
                 subject,
                 html,
@@ -126,10 +128,15 @@ function ownerNotificationHtml(d) {
 
         <!-- Body -->
         <tr><td style="padding:32px;">
-          <table width="100%" style="background:#f9fafb;border-radius:10px;padding:20px;border:1px solid #e5e7eb;" cellpadding="0" cellspacing="0">
+          <h3 style="margin:0 0 12px;color:#111827;font-size:14px;font-weight:600;">Customer Details</h3>
+          <table width="100%" style="background:#f9fafb;border-radius:10px;padding:20px;border:1px solid #e5e7eb;margin-bottom:20px;" cellpadding="0" cellspacing="0">
             ${row('👤 Customer', d.customer_name)}
             ${d.customer_phone ? row('📞 Phone', d.customer_phone) : ''}
             ${d.customer_email ? row('📧 Email', d.customer_email) : ''}
+          </table>
+
+          <h3 style="margin:20px 0 12px;color:#111827;font-size:14px;font-weight:600;">Booking Details</h3>
+          <table width="100%" style="background:#f9fafb;border-radius:10px;padding:20px;border:1px solid #e5e7eb;margin-bottom:20px;" cellpadding="0" cellspacing="0">
             ${row('📅 Date', d.date)}
             ${row('⏰ Time', d.time_slot)}
             ${d.boat_type ? row('🚤 Rental', d.boat_type) : ''}
@@ -139,6 +146,18 @@ function ownerNotificationHtml(d) {
             ${row('💳 Total', '$' + d.total)}
             ${row('💰 Payment', d.payment_status)}
           </table>
+
+          <h3 style="margin:20px 0 12px;color:#111827;font-size:14px;font-weight:600;">Booking Source</h3>
+          <table width="100%" style="background:#fef3c7;border-radius:10px;padding:20px;border:1px solid #fcd34d;" cellpadding="0" cellspacing="0">
+            ${row('🔍 Source', d.utm_source)}
+            ${row('📢 Medium', d.utm_medium)}
+            ${d.utm_campaign !== '(none)' ? row('📊 Campaign', d.utm_campaign) : ''}
+            ${row('🌐 Referrer', d.referrer)}
+            ${row('📱 Device', d.device_type)}
+            ${row('⏱️ Time on Site', d.session_duration_mins + ' min')}
+            ${row('🔗 Landing Page', d.page_source)}
+          </table>
+
           ${d.notes ? `<p style="margin:20px 0 0;color:#374151;font-size:14px;"><strong>Customer notes:</strong> ${esc(d.notes)}</p>` : ''}
         </td></tr>
 
