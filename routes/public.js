@@ -612,8 +612,9 @@ router.post('/bookings', async (req, res) => {
             }
 
             // ── Owner Email ──
-            const ownerEmail = settings.notification_email || siteContent?.contact_email || business?.email || null;
-            if (ownerEmail) {
+            const ownerEmailRaw = settings.notification_email || siteContent?.contact_email || business?.email || null;
+            const ownerEmail = ownerEmailRaw ? ownerEmailRaw.split(',').map(e => e.trim()).filter(Boolean) : null;
+            if (ownerEmail && ownerEmail.length) {
                 sendEmail({
                     to: ownerEmail,
                     subject: 'New Booking — ' + (templateData.customer_name || 'Customer') + ' · ' + templateData.date,
