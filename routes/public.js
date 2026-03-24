@@ -736,6 +736,12 @@ router.post('/contact', async (req, res) => {
             sendSms(ownerPhone, smsBody, req.siteId, 'contact_form_notify').catch(() => {});
         }
 
+        // Customer SMS confirmation
+        if (phone) {
+            const businessName2 = business?.name || 'us';
+            const customerSms = `Hi ${name}! We received your message and will get back to you shortly. Thanks for contacting ${businessName2}!`;
+            sendSms(phone, customerSms, req.siteId, 'contact_form_confirm').catch(() => {});
+        }
         const ownerEmailRaw = settings?.notification_email || siteContent?.contact_email || business?.email || null;
         console.log('[contact] siteId:', req.siteId, '| notification_email:', settings?.notification_email, '| ownerEmailRaw:', ownerEmailRaw);
         const ownerEmail = ownerEmailRaw ? ownerEmailRaw.split(',').map(e => e.trim()).filter(Boolean) : null;
@@ -755,13 +761,7 @@ router.post('/contact', async (req, res) => {
             console.log('[contact] no owner email found, skipping owner email');
         }
 
-        // Customer SMS confirmation
-        if (phone) {
-            const customerSms = `Hi ${name}! We received your message and will get back to you shortly. Thanks for contacting ${businessName}!`;
-            sendSms(phone, customerSms, req.siteId, 'contact_form_confirm').catch(() => {});
-        }
-
-        // Customer confirmation email (subject and message mention business name)
+        // Customer confirmation email
         if (email) {
             const customerResult = await sendEmail({
                 to: email,
