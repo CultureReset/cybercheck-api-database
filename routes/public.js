@@ -439,6 +439,18 @@ router.delete('/hold', async (req, res) => {
 // ============================================
 // POST /api/public/bookings — Create booking (atomic availability check)
 // ============================================
+// POST /api/public/bookings/:id/payment-failed — mark booking as payment failed
+// ============================================
+router.post('/bookings/:id/payment-failed', async (req, res) => {
+    await supabase
+        .from('bookings')
+        .update({ payment_status: 'failed', status: 'cancelled', updated_at: new Date().toISOString() })
+        .eq('id', req.params.id)
+        .eq('site_id', req.siteId);
+    res.json({ success: true });
+});
+
+// ============================================
 router.post('/bookings', async (req, res) => {
     const booking = {
         site_id: req.siteId,

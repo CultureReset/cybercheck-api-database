@@ -39,15 +39,16 @@ router.get('/overview', async (req, res) => {
     const [bookingsRes, todayRes, revenueRes, customersRes] = await Promise.all([
         supabase.from('bookings').select('id', { count: 'exact', head: true })
             .eq('site_id', req.siteId)
-            .not('status', 'eq', 'cancelled'),
+            .not('status', 'eq', 'cancelled')
+            .not('payment_status', 'eq', 'failed'),
         supabase.from('bookings').select('id', { count: 'exact', head: true })
             .eq('site_id', req.siteId)
             .eq('booking_date', today)
-            .not('status', 'eq', 'cancelled'),
+            .not('status', 'eq', 'cancelled')
+            .not('payment_status', 'eq', 'failed'),
         supabase.from('bookings').select('total')
             .eq('site_id', req.siteId)
-            .not('status', 'eq', 'cancelled')
-            .not('status', 'eq', 'pending')
+            .eq('payment_status', 'paid')
             .not('status', 'eq', 'refunded'),
         supabase.from('customers').select('id', { count: 'exact', head: true })
             .eq('site_id', req.siteId)
@@ -69,6 +70,21 @@ router.get('/overview', async (req, res) => {
         total_customers: customersRes.count || 0,
         recent_bookings: recent || []
     });
+});
+
+// ============================================
+// GET /api/dashboard/declined-bookings — failed payment bookings for retargeting
+// ============================================
+router.get('/declined-bookings', async (req, res) => {
+    const { data, error } = await supabase
+        .from('bookings')
+        .select('id, customer_name, customer_phone, customer_email, booking_date, total, created_at')
+        .eq('site_id', req.siteId)
+        .eq('payment_status', 'failed')
+        .order('created_at', { ascending: false })
+        .limit(100);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data || []);
 });
 
 // ============================================
