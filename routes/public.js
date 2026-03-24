@@ -736,17 +736,21 @@ router.post('/contact', async (req, res) => {
             sendSms(ownerPhone, smsBody, req.siteId, 'contact_form_notify').catch(() => {});
         }
         const ownerEmailRaw = settings?.notification_email || siteContent?.contact_email || business?.email || null;
+        console.log('[contact] siteId:', req.siteId, '| notification_email:', settings?.notification_email, '| ownerEmailRaw:', ownerEmailRaw);
         const ownerEmail = ownerEmailRaw ? ownerEmailRaw.split(',').map(e => e.trim()).filter(Boolean) : null;
         if (ownerEmail && ownerEmail.length) {
             const interestHtml = req.body.interest ? `<p><strong>Interested in:</strong> ${req.body.interest}</p>` : '';
-            sendEmail({
+            const emailResult = await sendEmail({
                 to: ownerEmail,
                 subject: `New Contact Form Message from ${name}`,
                 html: `<p><strong>From:</strong> ${name}</p>${phone ? `<p><strong>Phone:</strong> ${phone}</p>` : ''}${email ? `<p><strong>Email:</strong> ${email}</p>` : ''}${interestHtml}<p><strong>Message:</strong></p><p>${message.replace(/\n/g, '<br>')}</p>`,
                 replyTo: email || undefined
-            }).catch(() => {});
+            });
+            console.log('[contact] email result:', JSON.stringify(emailResult));
+        } else {
+            console.log('[contact] no owner email found, skipping email send');
         }
-    } catch(e) { /* non-blocking */ }
+    } catch(e) { console.error('[contact] error:', e.message); }
 
     res.json({ success: true, message: 'Message sent!' });
 });
