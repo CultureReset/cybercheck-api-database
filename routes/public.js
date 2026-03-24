@@ -584,7 +584,7 @@ router.post('/bookings', async (req, res) => {
             // ── Owner SMS ──
             const ownerPhone = settings.notification_phone || siteContent?.contact_phone || null;
             if (ownerPhone) {
-                const defaultOwnerTpl = 'NEW BOOKING!\n\nCustomer: {{customer_name}}\nPhone: {{customer_phone}}\nDate: {{date}}\nTime: {{time_slot}}\nTotal: ${{total}}\nPayment: {{payment_status}}';
+                const defaultOwnerTpl = 'NEW BOOKING! #{{confirmation_number}}\n\nCustomer: {{customer_name}}\nPhone: {{customer_phone}}\nEmail: {{customer_email}}\n\nDate: {{date}}\nTime: {{time_slot}}\nRental: {{boat_type}} x{{boat_count}}\nAdd-ons: {{addons}}\nGuests: {{guest_count}}\n\nTotal: ${{total}}\nPayment: {{payment_status}}';
                 const ownerMsg = fillTemplate(defaultOwnerTpl, templateData);
                 sendSms(ownerPhone, ownerMsg, req.siteId, 'booking_owner_notify', data.id)
                     .catch(err => console.error('Owner SMS failed:', err));
