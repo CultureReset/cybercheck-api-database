@@ -720,22 +720,33 @@ router.post('/contact', async (req, res) => {
         metadata: { name, email, phone }
     });
 
-    // Send SMS to owner's notification number
+    // Send email + SMS to owner
     try {
         const { sendSms } = require('../utils/sms');
-        const [{ data: settings }, { data: siteContent }] = await Promise.all([
-            supabase.from('messaging_settings').select('notification_phone').eq('site_id', req.siteId).maybeSingle(),
-            supabase.from('site_content').select('contact_phone').eq('site_id', req.siteId).maybeSingle(),
+        const { sendEmail } = require('../utils/email');
+        const [{ data: settings }, { data: siteContent }, { data: business }] = await Promise.all([
+            supabase.from('messaging_settings').select('notification_phone, notification_email').eq('site_id', req.siteId).maybeSingle(),
+            supabase.from('site_content').select('contact_phone, contact_email').eq('site_id', req.siteId).maybeSingle(),
+            supabase.from('businesses').select('name, email').eq('site_id', req.siteId).single(),
         ]);
         const ownerPhone = settings?.notification_phone || siteContent?.contact_phone || null;
         if (ownerPhone) {
             const interest = req.body.interest ? ` | Interested in: ${req.body.interest}` : '';
-            const smsBody = `New message from ${name}${phone ? ' (' + phone + ')' : ''}${interest}
-
-${message.slice(0, 300)}`;
+            const smsBody = `New message from ${name}${phone ? ' (' + phone + ')' : ''}${interest}\n\n${message.slice(0, 300)}`;
             sendSms(ownerPhone, smsBody, req.siteId, 'contact_form_notify').catch(() => {});
         }
-    } catch(e) { /* SMS is non-blocking */ }
+        const ownerEmailRaw = settings?.notification_email || siteContent?.contact_email || business?.email || null;
+        const ownerEmail = ownerEmailRaw ? ownerEmailRaw.split(',').map(e => e.trim()).filter(Boolean) : null;
+        if (ownerEmail && ownerEmail.length) {
+            const interest = req.body.interest ? `<p><strong>Interested in:</strong> ${interest}</p>` : '';
+            sendEmail({
+                to: ownerEmail,
+                subject: `New Contact Form Message from ${name}`,
+                html: `<p><strong>From:</strong> ${name}</p>${phone ? `<p><strong>Phone:</strong> ${phone}</p>` : ''}${email ? `<p><strong>Email:</strong> ${email}</p>` : ''}${interest}<p><strong>Message:</strong></p><p>${message.replace(/\n/g, '<br>')}</p>`,
+                replyTo: email || undefined
+            }).catch(() => {});
+        }
+    } catch(e) { /* non-blocking */ }
 
     res.json({ success: true, message: 'Message sent!' });
 });
