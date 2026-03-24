@@ -146,7 +146,8 @@ async function buildTemplateData(booking, siteId) {
         guest_count: String(booking.party_size || booking.qty || 1),
         total: booking.total ? Number(booking.total).toFixed(2) : '0.00',
         location: location,
-        payment_status: booking.payment_status === 'paid' ? 'Paid' : 'Pending'
+        payment_status: booking.payment_status === 'paid' ? 'Paid' : 'Pending',
+        confirmation_number: booking.id ? 'BCB-' + String(booking.id).replace(/-/g, '').substring(0, 8).toUpperCase() : ''
     };
 }
 

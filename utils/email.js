@@ -70,6 +70,12 @@ function customerConfirmationHtml(d) {
           <p style="margin:0 0 20px;color:#374151;font-size:15px;">Hi <strong>${esc(d.customer_name)}</strong>,</p>
           <p style="margin:0 0 24px;color:#374151;font-size:15px;">Your booking is confirmed. Here are the details:</p>
 
+          <!-- Confirmation number -->
+          ${d.confirmation_number ? `<div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:16px;text-align:center;margin-bottom:20px;">
+            <p style="margin:0 0 4px;color:#166534;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;">Confirmation Number</p>
+            <p style="margin:0;color:#166534;font-size:26px;font-weight:800;letter-spacing:3px;">${esc(d.confirmation_number)}</p>
+          </div>` : ''}
+
           <!-- Details box -->
           <table width="100%" style="background:#f9fafb;border-radius:10px;padding:20px;border:1px solid #e5e7eb;" cellpadding="0" cellspacing="0">
             ${row('📅 Date', d.date)}
