@@ -77,6 +77,7 @@
   },
   "docks": [
     {
+      "id": "mini-dock",
       "name": "Mini Dock",
       "badge": "Most Popular",
       "size": "8'4\" x 44\"",
@@ -93,6 +94,7 @@
       ]
     },
     {
+      "id": "x-dock",
       "name": "X Dock",
       "badge": null,
       "size": "5' x 5'",
@@ -109,6 +111,7 @@
       ]
     },
     {
+      "id": "doggie-dock",
       "name": "Doggie Dock",
       "badge": "Pet Friendly",
       "size": "5'4\" x 43\"",
