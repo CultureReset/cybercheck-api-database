@@ -2241,6 +2241,20 @@ router.get('/addons', async (req, res) => {
 });
 
 // ============================================
+// GET /api/public/modules — ordered module list for site template + embed
+// ============================================
+router.get('/modules', async (req, res) => {
+    const { data, error } = await supabase
+        .from('site_content')
+        .select('modules')
+        .eq('site_id', req.siteId)
+        .single();
+
+    if (error && error.code !== 'PGRST116') return res.status(500).json({ error: error.message });
+    res.json(data?.modules || null);
+});
+
+// ============================================
 // POST /api/public/save-section — Save a CMS section (page builder)
 // ============================================
 router.post('/save-section', async (req, res) => {

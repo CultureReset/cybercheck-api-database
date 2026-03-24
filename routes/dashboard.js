@@ -3310,4 +3310,139 @@ router.put('/website-content', async (req, res) => {
     res.json({ success: true, updated: Object.keys(updates) });
 });
 
+// ============================================
+// MODULES — GET/PUT /api/dashboard/modules
+// ============================================
+
+router.get('/modules', async (req, res) => {
+    const { data, error } = await supabase
+        .from('site_content')
+        .select('modules')
+        .eq('site_id', req.siteId)
+        .single();
+
+    if (error && error.code !== 'PGRST116') return res.status(500).json({ error: error.message });
+    res.json({ modules: data?.modules || null });
+});
+
+router.put('/modules', async (req, res) => {
+    const { modules } = req.body;
+    if (!Array.isArray(modules)) return res.status(400).json({ error: 'modules must be an array' });
+
+    const { error } = await supabase
+        .from('site_content')
+        .upsert({ site_id: req.siteId, modules, updated_at: new Date().toISOString() });
+
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ============================================
+// FAQ — CRUD /api/dashboard/faqs
+// ============================================
+
+router.get('/faqs', async (req, res) => {
+    const { data, error } = await supabase
+        .from('faqs')
+        .select('*')
+        .eq('site_id', req.siteId)
+        .order('sort_order', { ascending: true });
+
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data || []);
+});
+
+router.post('/faqs', async (req, res) => {
+    const { question, answer } = req.body;
+    if (!question || !answer) return res.status(400).json({ error: 'question and answer required' });
+
+    const { data: existing } = await supabase
+        .from('faqs')
+        .select('sort_order')
+        .eq('site_id', req.siteId)
+        .order('sort_order', { ascending: false })
+        .limit(1)
+        .single();
+
+    const nextSort = (existing?.sort_order || 0) + 1;
+
+    const { data, error } = await supabase
+        .from('faqs')
+        .insert({ site_id: req.siteId, question, answer, sort_order: nextSort })
+        .select()
+        .single();
+
+    if (error) return res.status(500).json({ error: error.message });
+    res.status(201).json(data);
+});
+
+router.put('/faqs/:id', async (req, res) => {
+    const { question, answer, sort_order } = req.body;
+    const updates = {};
+    if (question !== undefined) updates.question = question;
+    if (answer !== undefined) updates.answer = answer;
+    if (sort_order !== undefined) updates.sort_order = sort_order;
+
+    const { data, error } = await supabase
+        .from('faqs')
+        .update(updates)
+        .eq('id', req.params.id)
+        .eq('site_id', req.siteId)
+        .select()
+        .single();
+
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
+router.delete('/faqs/:id', async (req, res) => {
+    const { error } = await supabase
+        .from('faqs')
+        .delete()
+        .eq('id', req.params.id)
+        .eq('site_id', req.siteId);
+
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ============================================
+// ONBOARDING PROGRESS — GET/PUT /api/dashboard/onboarding
+// ============================================
+
+router.get('/onboarding', async (req, res) => {
+    const { data, error } = await supabase
+        .from('onboarding_progress')
+        .select('*')
+        .eq('site_id', req.siteId)
+        .single();
+
+    if (error && error.code !== 'PGRST116') return res.status(500).json({ error: error.message });
+    res.json(data || {
+        step1_done: false, step2_done: false, step3_done: false,
+        step4_done: false, step5_done: false, step6_done: false,
+        completed_at: null
+    });
+});
+
+router.put('/onboarding', async (req, res) => {
+    const allowed = ['step1_done','step2_done','step3_done','step4_done','step5_done','step6_done'];
+    const updates = { site_id: req.siteId };
+    for (const key of allowed) {
+        if (req.body[key] !== undefined) updates[key] = !!req.body[key];
+    }
+
+    // Auto-set completed_at if all 6 steps are done
+    if (updates.step6_done) updates.completed_at = new Date().toISOString();
+
+    const { data, error } = await supabase
+        .from('onboarding_progress')
+        .upsert(updates)
+        .select()
+        .single();
+
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
 module.exports = router;
