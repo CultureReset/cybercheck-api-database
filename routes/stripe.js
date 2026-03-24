@@ -320,6 +320,50 @@ router.post('/create-payment-intent', async (req, res) => {
                 .eq('id', booking_id);
         }
 
+        // Send customer SMS + email after confirmed payment (fire-and-forget)
+        if (paymentIntent.status === 'succeeded' && booking_id && targetSiteId) {
+            setImmediate(async () => {
+                try {
+                    const { sendSms, fillTemplate, buildTemplateData } = require('../utils/sms');
+                    const { sendEmail, customerConfirmationHtml, generateIcsContent } = require('../utils/email');
+
+                    const [{ data: bookingData }, { data: msgSettings }, { data: siteContent }, { data: business }] = await Promise.all([
+                        supabase.from('bookings').select('*').eq('id', booking_id).single(),
+                        supabase.from('messaging_settings').select('notification_email, booking_confirmation_enabled, booking_confirmation_template').eq('site_id', targetSiteId).maybeSingle(),
+                        supabase.from('site_content').select('contact_email').eq('site_id', targetSiteId).single(),
+                        supabase.from('businesses').select('name, email').eq('site_id', targetSiteId).single()
+                    ]);
+
+                    if (!bookingData) return;
+                    const settings = msgSettings || {};
+                    const templateData = await buildTemplateData(bookingData, targetSiteId);
+                    templateData.notes = bookingData.notes || '';
+
+                    // Customer SMS
+                    if (settings.booking_confirmation_enabled !== false && bookingData.customer_phone) {
+                        const defaultTpl = '[{{business_name}}] Hi {{customer_name}}! Your booking is confirmed.\n\nDate: {{date}}\nTime: {{time_slot}}\nTotal: ${{total}}\n\nQuestions? Reply to this number!\n\n🏖️ Get exclusive deals & rewards while you\'re in town!\ngulfcoastradar.com/trip-pass';
+                        const msg = fillTemplate(settings.booking_confirmation_template || defaultTpl, templateData);
+                        sendSms(bookingData.customer_phone, msg, targetSiteId, 'booking_confirmation', booking_id)
+                            .catch(err => console.error('Customer SMS failed:', err));
+                    }
+
+                    // Customer Email
+                    if (bookingData.customer_email) {
+                        const icsAttachment = [{ filename: 'booking.ics', content: Buffer.from(generateIcsContent(templateData)).toString('base64') }];
+                        sendEmail({
+                            to: bookingData.customer_email,
+                            subject: 'Booking Confirmed — ' + (templateData.business_name || 'Your Reservation'),
+                            html: customerConfirmationHtml(templateData),
+                            replyTo: siteContent?.contact_email || business?.email || undefined,
+                            attachments: icsAttachment
+                        }).catch(err => console.error('Customer email failed:', err));
+                    }
+                } catch (notifyErr) {
+                    console.error('Post-payment notification error:', notifyErr);
+                }
+            });
+        }
+
         res.json({
             client_secret: paymentIntent.client_secret,
             payment_intent_id: paymentIntent.id,

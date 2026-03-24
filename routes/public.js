@@ -579,28 +579,7 @@ router.post('/bookings', async (req, res) => {
             // Attach notes to templateData for email templates
             templateData.notes = data.notes || '';
 
-            // ── Customer SMS ──
-            if (settings.booking_confirmation_enabled !== false && data.customer_phone) {
-                const defaultCustomerTpl = '[{{business_name}}] Hi {{customer_name}}! Your booking is confirmed.\n\nDate: {{date}}\nTime: {{time_slot}}\nTotal: ${{total}}\n\nQuestions? Reply to this number!\n\n🏖️ Get exclusive deals & rewards while you\'re in town!\nSign up for Gulf Coast Radar Trip Pass:\ngulfcoastradar.com/trip-pass';
-                const customerMsg = fillTemplate(settings.booking_confirmation_template || defaultCustomerTpl, templateData);
-                sendSms(data.customer_phone, customerMsg, req.siteId, 'booking_confirmation', data.id)
-                    .catch(err => console.error('Customer SMS failed:', err));
-            }
-
-            // ── Customer Email ──
-            if (data.customer_email) {
-                const icsAttachment = [{
-                    filename: 'booking.ics',
-                    content: Buffer.from(generateIcsContent(templateData)).toString('base64')
-                }];
-                sendEmail({
-                    to: data.customer_email,
-                    subject: 'Booking Confirmed — ' + (templateData.business_name || 'Your Reservation'),
-                    html: customerConfirmationHtml(templateData),
-                    replyTo: siteContent?.contact_email || business?.email || undefined,
-                    attachments: icsAttachment
-                }).catch(err => console.error('Customer email failed:', err));
-            }
+            // ── Customer SMS + Email — sent after payment confirms (see stripe.js) ──
 
             // ── Owner SMS ──
             const ownerPhone = settings.notification_phone || siteContent?.contact_phone || null;
