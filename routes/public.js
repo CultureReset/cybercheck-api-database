@@ -738,17 +738,36 @@ router.post('/contact', async (req, res) => {
         const ownerEmailRaw = settings?.notification_email || siteContent?.contact_email || business?.email || null;
         console.log('[contact] siteId:', req.siteId, '| notification_email:', settings?.notification_email, '| ownerEmailRaw:', ownerEmailRaw);
         const ownerEmail = ownerEmailRaw ? ownerEmailRaw.split(',').map(e => e.trim()).filter(Boolean) : null;
+        const businessName = business?.name || 'Us';
+        const interestHtml = req.body.interest ? `<p><strong>Interested in:</strong> ${req.body.interest}</p>` : '';
+
+        // Owner email
         if (ownerEmail && ownerEmail.length) {
-            const interestHtml = req.body.interest ? `<p><strong>Interested in:</strong> ${req.body.interest}</p>` : '';
             const emailResult = await sendEmail({
                 to: ownerEmail,
                 subject: `New Contact Form Message from ${name}`,
                 html: `<p><strong>From:</strong> ${name}</p>${phone ? `<p><strong>Phone:</strong> ${phone}</p>` : ''}${email ? `<p><strong>Email:</strong> ${email}</p>` : ''}${interestHtml}<p><strong>Message:</strong></p><p>${message.replace(/\n/g, '<br>')}</p>`,
                 replyTo: email || undefined
             });
-            console.log('[contact] email result:', JSON.stringify(emailResult));
+            console.log('[contact] owner email result:', JSON.stringify(emailResult));
         } else {
-            console.log('[contact] no owner email found, skipping email send');
+            console.log('[contact] no owner email found, skipping owner email');
+        }
+
+        // Customer confirmation email
+        if (email) {
+            const customerResult = await sendEmail({
+                to: email,
+                subject: `We got your message — ${businessName}`,
+                html: `<p>Hi <strong>${name}</strong>,</p>
+<p>Thanks for reaching out! We received your message and will get back to you as soon as possible.</p>
+${interestHtml}
+<p><strong>Your message:</strong></p>
+<p style="background:#f9fafb;padding:12px;border-radius:8px;border-left:3px solid #00ada8;">${message.replace(/\n/g, '<br>')}</p>
+<p>Talk soon,<br><strong>${businessName}</strong></p>`,
+                replyTo: ownerEmail ? ownerEmail[0] : undefined
+            });
+            console.log('[contact] customer email result:', JSON.stringify(customerResult));
         }
     } catch(e) { console.error('[contact] error:', e.message); }
 
