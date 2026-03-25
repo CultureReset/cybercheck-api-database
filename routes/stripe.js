@@ -468,18 +468,18 @@ router.get('/config', (_req, res) => {
 router.post('/send-key-link', authRequired, async (req, res) => {
     const { sendEmail } = require('../utils/email');
 
-    // Get business name + owner email
-    const [{ data: business }, { data: userRecord }] = await Promise.all([
-        supabase.from('businesses').select('name').eq('site_id', req.siteId).single(),
-        supabase.from('users').select('email').eq('site_id', req.siteId).eq('role', 'owner').maybeSingle()
-    ]);
-
-    const email = userRecord?.email;
-    if (!email) {
-        return res.status(400).json({ error: 'Business email not found — make sure your account has an email address.' });
-    }
-
     try {
+        // Get business name + owner email
+        const [{ data: business }, { data: userRecord }] = await Promise.all([
+            supabase.from('businesses').select('name').eq('site_id', req.siteId).maybeSingle(),
+            supabase.from('users').select('email').eq('site_id', req.siteId).eq('role', 'owner').maybeSingle()
+        ]);
+
+        const email = userRecord?.email;
+        if (!email) {
+            return res.status(400).json({ error: 'Business email not found — make sure your account has an email address.' });
+        }
+
         // Generate 32-byte token
         const token = crypto.randomBytes(32).toString('hex');
         const expiresAt = new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString();
