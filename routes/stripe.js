@@ -209,6 +209,35 @@ router.post('/save-key', authRequired, async (req, res) => {
             updated_at:   new Date().toISOString()
         }, { onConflict: 'site_id,provider' });
 
+        // Get business info for email
+        const { data: business } = await supabase
+            .from('businesses')
+            .select('email, name')
+            .eq('site_id', req.siteId)
+            .single();
+
+        // Send verification email (fire-and-forget)
+        if (business?.email) {
+            setImmediate(() => {
+                const { sendEmail } = require('../utils/email');
+                const html = `
+                    <h2>Stripe Key Added</h2>
+                    <p>Hi ${business.name || 'Business Owner'},</p>
+                    <p>A Stripe ${isLive ? 'Live' : 'Test'} key was just added to your account.</p>
+                    <p><strong>Mode:</strong> ${isLive ? 'Live (Real Transactions)' : 'Test (Development)'}</p>
+                    <p><strong>Added:</strong> ${new Date().toLocaleString()}</p>
+                    <p>If you did not do this, please revoke the key immediately in your dashboard.</p>
+                    <p>Questions? Reply to this email.</p>
+                    <p>— CyberCheck Payments Team</p>
+                `;
+                sendEmail({
+                    to: business.email,
+                    subject: `Stripe Key Added - ${isLive ? 'Live' : 'Test'} Mode`,
+                    html
+                }).catch(err => console.error('Stripe key email failed:', err));
+            });
+        }
+
         res.json({ success: true, mode: isLive ? 'live' : 'test' });
     } catch (err) {
         console.error('save-key error:', err);
@@ -431,6 +460,207 @@ router.get('/config', (_req, res) => {
     });
 });
 
+
+// ============================================
+// POST /api/stripe/send-key-link
+// Dashboard owner sends secure setup link to business email
+// ============================================
+router.post('/send-key-link', authRequired, async (req, res) => {
+    const { sendEmail } = require('../utils/email');
+
+    // Get business info
+    const { data: business } = await supabase
+        .from('businesses')
+        .select('email, name')
+        .eq('site_id', req.siteId)
+        .single();
+
+    if (!business?.email) {
+        return res.status(400).json({ error: 'Business email not found' });
+    }
+
+    try {
+        // Generate 32-byte token
+        const token = crypto.randomBytes(32).toString('hex');
+        const expiresAt = new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString();
+
+        // Store token in connections table
+        await supabase.from('connections').upsert({
+            site_id: req.siteId,
+            provider: 'stripe_setup_token',
+            access_token: token,
+            account_name: business.email,
+            token_expires_at: expiresAt,
+            status: 'pending',
+            updated_at: new Date().toISOString()
+        }, { onConflict: 'site_id,provider' });
+
+        // Send email with secure link
+        const setupLink = `https://cybercheck-login.vercel.app/enter-stripe-key.html?token=${encodeURIComponent(token)}`;
+        const html = `
+            <h2>Stripe Setup Link</h2>
+            <p>Hi ${business.name || 'Business Owner'},</p>
+            <p>Click the link below to securely add your Stripe account to process payments:</p>
+            <p><a href="${setupLink}" style="background:#3b82f6;color:white;padding:10px 20px;border-radius:6px;text-decoration:none;display:inline-block;">Add Stripe Account</a></p>
+            <p style="font-size:0.9em;color:#666;">This link expires in 24 hours and can only be used once.</p>
+            <p>Questions? Reply to this email.</p>
+            <p>— CyberCheck Payments Team</p>
+        `;
+
+        const emailResult = await sendEmail({
+            to: business.email,
+            subject: 'Add Your Stripe Account',
+            html
+        });
+
+        if (!emailResult.success) {
+            return res.status(500).json({ error: 'Failed to send email: ' + emailResult.reason });
+        }
+
+        res.json({ success: true, email: business.email });
+    } catch (err) {
+        console.error('send-key-link error:', err);
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// ============================================
+// GET /api/stripe/key-link/:token
+// Validate setup token (called by enter-stripe-key.html)
+// ============================================
+router.get('/key-link/:token', async (req, res) => {
+    const { token } = req.params;
+
+    try {
+        const { data } = await supabase
+            .from('connections')
+            .select('site_id, account_name, token_expires_at')
+            .eq('provider', 'stripe_setup_token')
+            .eq('access_token', token)
+            .single();
+
+        if (!data) {
+            return res.json({ valid: false, error: 'Token not found' });
+        }
+
+        // Check if expired
+        if (new Date(data.token_expires_at) < new Date()) {
+            return res.json({ valid: false, error: 'Token expired' });
+        }
+
+        // Get business name
+        const { data: business } = await supabase
+            .from('businesses')
+            .select('name')
+            .eq('site_id', data.site_id)
+            .single();
+
+        res.json({
+            valid: true,
+            business_name: business?.name || 'Your Business',
+            site_id: data.site_id
+        });
+    } catch (err) {
+        console.error('key-link validation error:', err);
+        res.json({ valid: false, error: 'Error validating token' });
+    }
+});
+
+// ============================================
+// POST /api/stripe/submit-key-via-link
+// Business submits Stripe key via secure link (called by enter-stripe-key.html)
+// ============================================
+router.post('/submit-key-via-link', async (req, res) => {
+    const { token, secret_key } = req.body;
+
+    if (!token || !secret_key) {
+        return res.status(400).json({ error: 'Token and secret_key required' });
+    }
+
+    // Validate key format
+    const validKeyFormat = /^sk_(test|live)_.{20,}$/.test(secret_key);
+    if (!validKeyFormat) {
+        return res.status(400).json({ error: 'Invalid Stripe secret key format' });
+    }
+
+    try {
+        // Validate token exists and not expired
+        const { data: setupToken } = await supabase
+            .from('connections')
+            .select('site_id, account_name, token_expires_at')
+            .eq('provider', 'stripe_setup_token')
+            .eq('access_token', token)
+            .single();
+
+        if (!setupToken) {
+            return res.status(400).json({ error: 'Token not found or invalid' });
+        }
+
+        if (new Date(setupToken.token_expires_at) < new Date()) {
+            return res.status(400).json({ error: 'Token expired' });
+        }
+
+        // Verify the key is valid
+        try {
+            const testStripe = require('stripe')(secret_key);
+            await testStripe.balance.retrieve();
+        } catch (err) {
+            return res.status(400).json({ error: 'Stripe key is invalid: ' + err.message });
+        }
+
+        const siteId = setupToken.site_id;
+        const isLive = secret_key.startsWith('sk_live_');
+
+        // Encrypt the key
+        const encrypted = encryptKey(secret_key);
+
+        // Save encrypted key to connections
+        await supabase.from('connections').upsert({
+            site_id: siteId,
+            provider: 'stripe_key',
+            access_token: encrypted,
+            account_name: isLive ? 'Live Key' : 'Test Key',
+            status: 'connected',
+            connected_at: new Date().toISOString(),
+            updated_at: new Date().toISOString()
+        }, { onConflict: 'site_id,provider' });
+
+        // Delete the setup token (burn it)
+        await supabase
+            .from('connections')
+            .delete()
+            .eq('site_id', siteId)
+            .eq('provider', 'stripe_setup_token');
+
+        // Send confirmation email
+        const { sendEmail } = require('../utils/email');
+        const { data: business } = await supabase
+            .from('businesses')
+            .select('name')
+            .eq('site_id', siteId)
+            .single();
+
+        const confirmHtml = `
+            <h2>Stripe Key Added</h2>
+            <p>Hi ${business?.name || 'Business Owner'},</p>
+            <p>Your Stripe ${isLive ? 'Live' : 'Test'} key has been securely added.</p>
+            <p>Payments will now process directly to your account.</p>
+            <p>Questions? Reply to this email.</p>
+            <p>— CyberCheck Payments Team</p>
+        `;
+
+        sendEmail({
+            to: setupToken.account_name,
+            subject: `Stripe Key Added - ${isLive ? 'Live' : 'Test'} Mode`,
+            html: confirmHtml
+        }).catch(err => console.error('Confirmation email failed:', err));
+
+        res.json({ success: true, mode: isLive ? 'live' : 'test' });
+    } catch (err) {
+        console.error('submit-key-via-link error:', err);
+        res.status(500).json({ error: err.message });
+    }
+});
 
 // ============================================
 // POST /api/stripe/refund — Process a refund
