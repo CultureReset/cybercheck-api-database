@@ -475,7 +475,7 @@ router.post('/send-key-link', authRequired, async (req, res) => {
             supabase.from('users').select('email').eq('site_id', req.siteId).eq('role', 'owner').maybeSingle()
         ]);
 
-        const email = userRecord?.email;
+        const email = req.userEmail || userRecord?.email;
         if (!email) {
             return res.status(400).json({ error: 'Business email not found — make sure your account has an email address.' });
         }
