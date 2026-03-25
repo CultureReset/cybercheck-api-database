@@ -5,7 +5,7 @@
 // ============================================
 
 const RESEND_API = 'https://api.resend.com/emails';
-const FROM_DEFAULT = process.env.EMAIL_FROM || 'bookings@gulfcoastradar.com';
+const FROM_DEFAULT = process.env.EMAIL_FROM || 'onboarding@resend.dev';
 
 /**
  * Send an email via Resend
