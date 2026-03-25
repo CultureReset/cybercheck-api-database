@@ -54,7 +54,6 @@ function authRequired(req, res, next) {
         }
 
         req.userId = data.user.id;
-        req.userEmail = data.user.email || null;
         req.siteId = user.site_id;
         req.role = user.role || 'owner';
         next();
