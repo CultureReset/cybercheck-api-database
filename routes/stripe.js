@@ -509,6 +509,7 @@ router.post('/send-key-link', authRequired, async (req, res) => {
 
         const emailResult = await sendEmail({
             to: email,
+            from: process.env.EMAIL_FROM || 'onboarding@resend.dev',
             subject: 'Add Your Stripe Account',
             html
         });
