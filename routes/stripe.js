@@ -468,15 +468,15 @@ router.get('/config', (_req, res) => {
 router.post('/send-key-link', authRequired, async (req, res) => {
     const { sendEmail } = require('../utils/email');
 
-    // Get business info
-    const { data: business } = await supabase
-        .from('businesses')
-        .select('email, name')
-        .eq('site_id', req.siteId)
-        .single();
+    // Get business name + owner email
+    const [{ data: business }, { data: userRecord }] = await Promise.all([
+        supabase.from('businesses').select('name').eq('site_id', req.siteId).single(),
+        supabase.from('users').select('email').eq('site_id', req.siteId).eq('role', 'owner').maybeSingle()
+    ]);
 
-    if (!business?.email) {
-        return res.status(400).json({ error: 'Business email not found' });
+    const email = userRecord?.email;
+    if (!email) {
+        return res.status(400).json({ error: 'Business email not found — make sure your account has an email address.' });
     }
 
     try {
@@ -489,7 +489,7 @@ router.post('/send-key-link', authRequired, async (req, res) => {
             site_id: req.siteId,
             provider: 'stripe_setup_token',
             access_token: token,
-            account_name: business.email,
+            account_name: email,
             token_expires_at: expiresAt,
             status: 'pending',
             updated_at: new Date().toISOString()
@@ -499,7 +499,7 @@ router.post('/send-key-link', authRequired, async (req, res) => {
         const setupLink = `https://cybercheck-login.vercel.app/enter-stripe-key.html?token=${encodeURIComponent(token)}`;
         const html = `
             <h2>Stripe Setup Link</h2>
-            <p>Hi ${business.name || 'Business Owner'},</p>
+            <p>Hi ${business?.name || 'Business Owner'},</p>
             <p>Click the link below to securely add your Stripe account to process payments:</p>
             <p><a href="${setupLink}" style="background:#3b82f6;color:white;padding:10px 20px;border-radius:6px;text-decoration:none;display:inline-block;">Add Stripe Account</a></p>
             <p style="font-size:0.9em;color:#666;">This link expires in 24 hours and can only be used once.</p>
@@ -508,7 +508,7 @@ router.post('/send-key-link', authRequired, async (req, res) => {
         `;
 
         const emailResult = await sendEmail({
-            to: business.email,
+            to: email,
             subject: 'Add Your Stripe Account',
             html
         });
@@ -517,7 +517,7 @@ router.post('/send-key-link', authRequired, async (req, res) => {
             return res.status(500).json({ error: 'Failed to send email: ' + emailResult.reason });
         }
 
-        res.json({ success: true, email: business.email });
+        res.json({ success: true, email });
     } catch (err) {
         console.error('send-key-link error:', err);
         res.status(500).json({ error: err.message });
