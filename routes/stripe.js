@@ -596,13 +596,14 @@ router.post('/submit-key-via-link', async (req, res) => {
             return res.status(400).json({ error: 'Token expired' });
         }
 
-        // Verify the key is valid
-        try {
-            const testStripe = require('stripe')(secret_key);
-            await testStripe.balance.retrieve();
-        } catch (err) {
-            return res.status(400).json({ error: 'Stripe key is invalid: ' + err.message });
-        }
+        // NOTE: Stripe verification temporarily disabled for testing
+        // TODO: Re-enable once platform account is reinstated
+        // try {
+        //     const testStripe = require('stripe')(secret_key);
+        //     await testStripe.balance.retrieve();
+        // } catch (err) {
+        //     return res.status(400).json({ error: 'Stripe key is invalid: ' + err.message });
+        // }
 
         const siteId = setupToken.site_id;
         const isLive = secret_key.startsWith('sk_live_');
