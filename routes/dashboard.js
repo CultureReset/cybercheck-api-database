@@ -3461,4 +3461,47 @@ router.put('/onboarding', async (req, res) => {
     res.json(data);
 });
 
+// POST /api/dashboard/resend-confirmation
+router.post('/resend-confirmation', async (req, res) => {
+    const { booking_id } = req.body;
+    if (!booking_id) return res.status(400).json({ error: 'booking_id required' });
+
+    try {
+        const { sendSms, fillTemplate, buildTemplateData } = require('../utils/sms');
+        const { sendEmail, customerConfirmationHtml, generateIcsContent } = require('../utils/email');
+
+        const { data: bookingData } = await supabase
+            .from('bookings')
+            .select('*')
+            .eq('id', booking_id)
+            .eq('site_id', req.siteId)
+            .single();
+
+        if (!bookingData) return res.status(404).json({ error: 'Booking not found' });
+
+        const templateData = await buildTemplateData(bookingData, req.siteId);
+
+        if (bookingData.customer_phone) {
+            const tpl = '[{{business_name}}] Hi {{customer_name}}! Your booking is confirmed.\n\nDate: {{date}}\nTime: {{time_slot}}\nTotal: ${{total}}\n\nQuestions? Reply to this number!';
+            await sendSms(bookingData.customer_phone, fillTemplate(tpl, templateData), req.siteId, 'booking_confirmation', booking_id)
+                .catch(err => console.error('Resend SMS failed:', err));
+        }
+
+        if (bookingData.customer_email) {
+            const ics = [{ filename: 'booking.ics', content: Buffer.from(generateIcsContent(templateData)).toString('base64') }];
+            await sendEmail({
+                to: bookingData.customer_email,
+                subject: 'Booking Confirmed — ' + (templateData.business_name || 'Your Reservation'),
+                html: customerConfirmationHtml(templateData),
+                attachments: ics
+            }).catch(err => console.error('Resend email failed:', err));
+        }
+
+        res.json({ success: true, message: 'Confirmations resent to customer' });
+    } catch (err) {
+        console.error('Resend confirmation error:', err.message);
+        res.status(500).json({ error: err.message });
+    }
+});
+
 module.exports = router;
