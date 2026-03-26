@@ -81,6 +81,9 @@ app.use('/api/gcr', require('./routes/gcr'));
 // Stripe Connect + Payments
 app.use('/api/stripe', require('./routes/stripe'));
 
+// Square Payments
+app.use('/api/square', require('./routes/square'));
+
 // Google Business Profile — OAuth flow (public) + dashboard API (auth-gated inside route)
 const googleBusinessRouter = require('./routes/google-business');
 app.use('/api/google-business',          googleBusinessRouter);   // /auth + /callback (public)

@@ -2411,4 +2411,46 @@ router.post('/resend-confirmation', async (req, res) => {
     }
 });
 
+// ============================================
+// GET /api/payment-config (public, requireSite)
+// Returns active payment processor config for checkout page
+// ============================================
+router.get('/payment-config', requireSite, async (req, res) => {
+    try {
+        const [{ data: processorData }, { data: stripeModeData }, { data: squareAppData }, { data: squareLocData }, { data: squareModeData }] = await Promise.all([
+            supabase.from('connections').select('account_name').eq('site_id', req.siteId).eq('provider', 'payment_processor').maybeSingle(),
+            supabase.from('connections').select('account_name').eq('site_id', req.siteId).eq('provider', 'stripe_mode').maybeSingle(),
+            supabase.from('connections').select('account_name').eq('site_id', req.siteId).eq('provider', 'square_app_id').maybeSingle(),
+            supabase.from('connections').select('account_name').eq('site_id', req.siteId).eq('provider', 'square_location_id').maybeSingle(),
+            supabase.from('connections').select('account_name').eq('site_id', req.siteId).eq('provider', 'square_mode').maybeSingle()
+        ]);
+
+        const processor = processorData?.account_name || 'stripe';
+        const stripeMode = stripeModeData?.account_name || 'live';
+
+        // Pick Stripe publishable key based on mode
+        let stripePublicKey = null;
+        if (stripeMode === 'test') {
+            stripePublicKey = process.env.STRIPE_PUBLISHABLE_KEY_TEST || process.env.STRIPE_PUBLISHABLE_KEY || null;
+        } else {
+            stripePublicKey = process.env.STRIPE_PUBLISHABLE_KEY_LIVE || process.env.STRIPE_PUBLISHABLE_KEY || null;
+        }
+
+        const feePercent = parseFloat(process.env.SQUARE_PLATFORM_FEE_PERCENT || process.env.PLATFORM_FEE_PERCENT || '1');
+
+        res.json({
+            processor,
+            stripePublicKey,
+            stripeMode,
+            squareAppId: squareAppData?.account_name || null,
+            squareLocationId: squareLocData?.account_name || null,
+            squareMode: squareModeData?.account_name || 'production',
+            platformFeePercent: feePercent
+        });
+    } catch (err) {
+        console.error('payment-config error:', err.message);
+        res.status(500).json({ error: err.message });
+    }
+});
+
 module.exports = router;
