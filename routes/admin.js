@@ -993,6 +993,25 @@ router.post('/gcr/import-csv', adminRequired, async (req, res) => {
 });
 
 // ============================================
+// GCR BUSINESSES — list all gcr-listed businesses
+// ============================================
+
+router.get('/gcr/businesses', adminRequired, async (req, res) => {
+    const { search, category, status } = req.query;
+    let query = supabase
+        .from('businesses')
+        .select('site_id, name, type, status, subdomain, emoji, featured, gcr_listed, instagram, facebook, tiktok')
+        .eq('gcr_listed', true)
+        .order('name', { ascending: true });
+    if (status) query = query.eq('status', status);
+    if (category) query = query.eq('type', category);
+    if (search) query = query.ilike('name', `%${search}%`);
+    const { data, error } = await query;
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data || []);
+});
+
+// ============================================
 // GCR EVENTS — admin manage all events across businesses
 // ============================================
 
