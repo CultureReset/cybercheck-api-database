@@ -308,7 +308,8 @@ router.get('/callback', async (req, res) => {
                 client_id: appId,
                 client_secret: secret,
                 code,
-                grant_type: 'authorization_code'
+                grant_type: 'authorization_code',
+                redirect_uri: 'https://cybercheck-api-database.vercel.app/api/square/callback'
             })
         });
 
