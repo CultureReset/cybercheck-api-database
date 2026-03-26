@@ -326,11 +326,30 @@ router.get('/callback', async (req, res) => {
         const now = new Date().toISOString();
         const merchantId = tokenData.merchant_id || '';
 
-        await Promise.all([
+        // Fetch primary location ID from Square API
+        let locationId = '';
+        try {
+            const { Client, Environment } = require('square');
+            const env = mode === 'sandbox' ? Environment.Sandbox : Environment.Production;
+            const tempClient = new Client({ accessToken: tokenData.access_token, environment: env });
+            const locRes = await tempClient.locationsApi.listLocations();
+            const locs = locRes.result.locations || [];
+            const primary = locs.find(l => l.status === 'ACTIVE') || locs[0];
+            if (primary) locationId = primary.id;
+        } catch (e) {
+            console.warn('Could not fetch Square location:', e.message);
+        }
+
+        const upserts = [
             supabase.from('connections').upsert({ site_id: siteId, provider: 'square_key', access_token: encrypted, account_name: 'Square Key', status: 'connected', connected_at: now, updated_at: now }, { onConflict: 'site_id,provider' }),
             supabase.from('connections').upsert({ site_id: siteId, provider: 'square_mode', account_name: mode || 'production', status: 'connected', updated_at: now }, { onConflict: 'site_id,provider' }),
-            supabase.from('connections').upsert({ site_id: siteId, provider: 'square_merchant_id', account_name: merchantId, status: 'connected', updated_at: now }, { onConflict: 'site_id,provider' })
-        ]);
+            supabase.from('connections').upsert({ site_id: siteId, provider: 'square_merchant_id', account_name: merchantId, status: 'connected', updated_at: now }, { onConflict: 'site_id,provider' }),
+            supabase.from('connections').upsert({ site_id: siteId, provider: 'square_app_id', account_name: appId, status: 'connected', updated_at: now }, { onConflict: 'site_id,provider' })
+        ];
+        if (locationId) {
+            upserts.push(supabase.from('connections').upsert({ site_id: siteId, provider: 'square_location_id', account_name: locationId, status: 'connected', updated_at: now }, { onConflict: 'site_id,provider' }));
+        }
+        await Promise.all(upserts);
 
         res.redirect(dashboardBase + '#connections?square_connected=true');
     } catch (err) {
