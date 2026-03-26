@@ -263,7 +263,8 @@ router.get('/connect-url', authRequired, async (req, res) => {
 
         const scopes = 'PAYMENTS_WRITE,PAYMENTS_READ,MERCHANT_PROFILE_READ';
         const state = req.siteId; // use site_id as state to identify business on callback
-        const url = `${baseUrl}?client_id=${appId}&scope=${scopes}&session=false&state=${state}`;
+        const redirectUri = 'https://cybercheck-api-database.vercel.app/api/square/callback';
+        const url = `${baseUrl}?client_id=${appId}&scope=${scopes}&session=false&state=${state}&redirect_uri=${encodeURIComponent(redirectUri)}`;
 
         res.json({ url, mode });
     } catch (err) {
