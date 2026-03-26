@@ -240,5 +240,101 @@ router.post('/create-payment', async (req, res) => {
     }
 });
 
+// ============================================
+// GET /api/square/connect-url (authRequired)
+// Returns Square OAuth URL for client to authorize
+// ============================================
+router.get('/connect-url', authRequired, async (req, res) => {
+    try {
+        const { data: platformData } = await supabase
+            .from('platform_settings')
+            .select('value')
+            .eq('key', 'api_key_square')
+            .single();
+
+        if (!platformData?.value?.appId) {
+            return res.status(503).json({ error: 'Square not configured by platform admin yet' });
+        }
+
+        const { appId, mode } = platformData.value;
+        const baseUrl = mode === 'sandbox'
+            ? 'https://connect.squareupsandbox.com/oauth2/authorize'
+            : 'https://connect.squareup.com/oauth2/authorize';
+
+        const scopes = 'PAYMENTS_WRITE,PAYMENTS_READ,MERCHANT_PROFILE_READ';
+        const state = req.siteId; // use site_id as state to identify business on callback
+        const url = `${baseUrl}?client_id=${appId}&scope=${scopes}&session=false&state=${state}`;
+
+        res.json({ url, mode });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// ============================================
+// GET /api/square/callback (public)
+// Square OAuth callback — exchanges code for token, saves to connections
+// ============================================
+router.get('/callback', async (req, res) => {
+    const { code, state: siteId, error } = req.query;
+
+    if (error) {
+        return res.redirect('/dashboard#connections?square_error=' + encodeURIComponent(error));
+    }
+    if (!code || !siteId) {
+        return res.redirect('/dashboard#connections?square_error=missing_code');
+    }
+
+    try {
+        const { data: platformData } = await supabase
+            .from('platform_settings')
+            .select('value')
+            .eq('key', 'api_key_square')
+            .single();
+
+        if (!platformData?.value?.appId || !platformData?.value?.secret) {
+            return res.redirect('/dashboard#connections?square_error=platform_not_configured');
+        }
+
+        const { appId, secret, mode } = platformData.value;
+        const tokenUrl = mode === 'sandbox'
+            ? 'https://connect.squareupsandbox.com/oauth2/token'
+            : 'https://connect.squareup.com/oauth2/token';
+
+        const tokenRes = await fetch(tokenUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Square-Version': '2024-01-18' },
+            body: JSON.stringify({
+                client_id: appId,
+                client_secret: secret,
+                code,
+                grant_type: 'authorization_code'
+            })
+        });
+
+        const tokenData = await tokenRes.json();
+        if (!tokenRes.ok || !tokenData.access_token) {
+            const msg = tokenData.message || 'Token exchange failed';
+            return res.redirect('/dashboard#connections?square_error=' + encodeURIComponent(msg));
+        }
+
+        // Save token + merchant info to connections
+        const encrypted = encryptKey(tokenData.access_token);
+        const now = new Date().toISOString();
+        const merchantId = tokenData.merchant_id || '';
+
+        await Promise.all([
+            supabase.from('connections').upsert({ site_id: siteId, provider: 'square_key', access_token: encrypted, account_name: 'Square Key', status: 'connected', connected_at: now, updated_at: now }, { onConflict: 'site_id,provider' }),
+            supabase.from('connections').upsert({ site_id: siteId, provider: 'square_mode', account_name: mode || 'production', status: 'connected', updated_at: now }, { onConflict: 'site_id,provider' }),
+            supabase.from('connections').upsert({ site_id: siteId, provider: 'square_merchant_id', account_name: merchantId, status: 'connected', updated_at: now }, { onConflict: 'site_id,provider' })
+        ]);
+
+        res.redirect('/dashboard#connections?square_connected=true');
+    } catch (err) {
+        console.error('Square OAuth callback error:', err);
+        res.redirect('/dashboard#connections?square_error=' + encodeURIComponent(err.message));
+    }
+});
+
 module.exports = router;
 module.exports.getSquareForSite = getSquareForSite;
