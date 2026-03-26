@@ -746,7 +746,9 @@ router.put('/businesses/:id/full', adminRequired, async (req, res) => {
                     description: item.description || null,
                     price: item.price || null,
                     category: item.category || 'Menu',
-                    available: true,
+                    tags: item.tags || [],
+                    allergens: item.allergens || [],
+                    available: item.available !== false,
                     sort_order: i
                 }))
             );
@@ -984,7 +986,7 @@ router.post('/gcr/import-csv', adminRequired, async (req, res) => {
         if (items.length) {
             await supabase.from('menu_items').delete().eq('site_id', siteId);
             await supabase.from('menu_items').insert(
-                items.map((name, i) => ({ site_id: siteId, name, category: 'Highlights', available: true, sort_order: i }))
+                items.map((name, i) => ({ site_id: siteId, name, category: 'Highlights', tags: [], allergens: [], available: true, sort_order: i }))
             );
         }
     }
@@ -1078,6 +1080,51 @@ router.delete('/gcr/specials/:id', adminRequired, async (req, res) => {
     const { error } = await supabase.from('specials').delete().eq('id', req.params.id);
     if (error) return res.status(500).json({ error: error.message });
     res.json({ success: true });
+});
+
+// ============================================
+// GET /api/admin/gcr/business-data/:siteId — fetch all data for full editor
+// ============================================
+router.get('/gcr/business-data/:siteId', adminRequired, async (req, res) => {
+    const { siteId } = req.params;
+    const [bizRes, contentRes, menuRes, specialsRes, eventsRes, mediaRes] = await Promise.all([
+        supabase.from('businesses').select('*').eq('site_id', siteId).single(),
+        supabase.from('site_content').select('*').eq('site_id', siteId).single(),
+        supabase.from('menu_items').select('*').eq('site_id', siteId).order('sort_order'),
+        supabase.from('specials').select('*').eq('site_id', siteId).order('sort_order'),
+        supabase.from('events').select('*').eq('site_id', siteId).order('event_date'),
+        supabase.from('media').select('*').eq('site_id', siteId).order('uploaded_at', { ascending: false })
+    ]);
+    res.json({
+        business: bizRes.data || {},
+        content: contentRes.data || {},
+        menu: menuRes.data || [],
+        specials: specialsRes.data || [],
+        events: eventsRes.data || [],
+        media: mediaRes.data || []
+    });
+});
+
+// ============================================
+// POST /api/admin/upload-photo — upload photo to Supabase Storage
+// ============================================
+const multer = require('multer');
+const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 10 * 1024 * 1024 } });
+
+router.post('/upload-photo', adminRequired, upload.single('file'), async (req, res) => {
+    if (!req.file) return res.status(400).json({ error: 'No file uploaded' });
+    const { site_id, folder } = req.body;
+    const ext = req.file.originalname.split('.').pop();
+    const fileName = `${site_id || 'admin'}/${Date.now()}.${ext}`;
+    const bucket = 'media';
+    const { data, error } = await supabase.storage.from(bucket).upload(fileName, req.file.buffer, { contentType: req.file.mimetype, upsert: false });
+    if (error) return res.status(500).json({ error: error.message });
+    const { data: { publicUrl } } = supabase.storage.from(bucket).getPublicUrl(fileName);
+    // Save to media table if site_id provided
+    if (site_id) {
+        await supabase.from('media').insert({ site_id, url: publicUrl, filename: req.file.originalname, file_type: 'image', folder: folder || 'gallery', file_size: req.file.size });
+    }
+    res.json({ url: publicUrl });
 });
 
 module.exports = router;
