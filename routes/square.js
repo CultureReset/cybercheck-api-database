@@ -176,11 +176,9 @@ router.post('/create-payment', async (req, res) => {
         return res.status(503).json({ error: 'Square not configured — add Square credentials in Dashboard → Connections' });
     }
 
-    // Add platform fee on top
-    const feePercent = parseFloat(process.env.SQUARE_PLATFORM_FEE_PERCENT || process.env.PLATFORM_FEE_PERCENT || '1');
+    // Amount already includes all fees (service fee + processing fee) calculated on the frontend
     const amountCents = Math.round(parseFloat(amount) * 100);
-    const feeCents = Math.round(amountCents * (feePercent / 100));
-    const totalCents = amountCents + feeCents;
+    const totalCents = amountCents;
 
     try {
         const idempotencyKey = crypto.randomUUID();
@@ -230,8 +228,7 @@ router.post('/create-payment', async (req, res) => {
             success: true,
             payment_id: payment.id,
             status: payment.status,
-            amount: totalCents,
-            fee: feeCents
+            amount: totalCents
         });
     } catch (err) {
         console.error('Square create-payment error:', err);
