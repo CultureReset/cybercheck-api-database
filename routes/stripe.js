@@ -42,8 +42,16 @@ function decryptKey(stored) {
 // Priority: 1) their manually-saved encrypted key, 2) platform key
 async function getStripeForSite(siteId) {
     if (siteId) {
-        const isTestMode = process.env.STRIPE_MODE === 'test' || process.env.NODE_ENV !== 'production';
+        // Check which mode this site is in (live or test)
+        const { data: modeData } = await supabase
+            .from('connections')
+            .select('account_name')
+            .eq('site_id', siteId)
+            .eq('provider', 'stripe_mode')
+            .single();
+        const isTestMode = modeData?.account_name === 'test';
         const provider = isTestMode ? 'stripe_key_test' : 'stripe_key';
+
         const { data } = await supabase
             .from('connections')
             .select('access_token')
@@ -158,11 +166,15 @@ router.get('/connect-callback', async (req, res) => {
 // Dashboard checks if Stripe is connected for this business
 // ============================================
 router.get('/status', authRequired, async (req, res) => {
-    const [{ data: connectData }, { data: keyData }] = await Promise.all([
+    const [{ data: connectData }, { data: keyData }, { data: keyTestData }, { data: modeData }] = await Promise.all([
         supabase.from('connections').select('account_id, account_name, status, connected_at')
             .eq('site_id', req.siteId).eq('provider', 'stripe').single(),
         supabase.from('connections').select('status, connected_at')
-            .eq('site_id', req.siteId).eq('provider', 'stripe_key').single()
+            .eq('site_id', req.siteId).eq('provider', 'stripe_key').single(),
+        supabase.from('connections').select('status, connected_at')
+            .eq('site_id', req.siteId).eq('provider', 'stripe_key_test').single(),
+        supabase.from('connections').select('account_name')
+            .eq('site_id', req.siteId).eq('provider', 'stripe_mode').single()
     ]);
 
     res.json({
@@ -170,8 +182,33 @@ router.get('/status', authRequired, async (req, res) => {
         accountId:    connectData?.account_id || null,
         connectedAt:  connectData?.connected_at || null,
         manualKey:    !!(keyData && keyData.status === 'connected'),
-        manualKeyAt:  keyData?.connected_at || null
+        manualKeyAt:  keyData?.connected_at || null,
+        testKey:      !!(keyTestData && keyTestData.status === 'connected'),
+        stripeMode:   modeData?.account_name || 'live'
     });
+});
+
+// ============================================
+// POST /api/stripe/set-mode
+// Switch business between live and test mode
+// ============================================
+router.post('/set-mode', authRequired, async (req, res) => {
+    const { mode } = req.body;
+    if (mode !== 'live' && mode !== 'test') {
+        return res.status(400).json({ error: 'Mode must be live or test' });
+    }
+    try {
+        await supabase.from('connections').upsert({
+            site_id:      req.siteId,
+            provider:     'stripe_mode',
+            account_name: mode,
+            status:       'connected',
+            updated_at:   new Date().toISOString()
+        }, { onConflict: 'site_id,provider' });
+        res.json({ success: true, mode });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
 });
 
 // ============================================
