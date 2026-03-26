@@ -278,11 +278,12 @@ router.get('/connect-url', authRequired, async (req, res) => {
 router.get('/callback', async (req, res) => {
     const { code, state: siteId, error } = req.query;
 
+    const dashboardBase = 'https://cybercheck-login.vercel.app/index.html';
     if (error) {
-        return res.redirect('/dashboard#connections?square_error=' + encodeURIComponent(error));
+        return res.redirect(dashboardBase + '#connections?square_error=' + encodeURIComponent(error));
     }
     if (!code || !siteId) {
-        return res.redirect('/dashboard#connections?square_error=missing_code');
+        return res.redirect(dashboardBase + '#connections?square_error=missing_code');
     }
 
     try {
@@ -293,7 +294,7 @@ router.get('/callback', async (req, res) => {
             .single();
 
         if (!platformData?.value?.appId || !platformData?.value?.secret) {
-            return res.redirect('/dashboard#connections?square_error=platform_not_configured');
+            return res.redirect(dashboardBase + '#connections?square_error=platform_not_configured');
         }
 
         const { appId, secret, mode } = platformData.value;
@@ -330,7 +331,7 @@ router.get('/callback', async (req, res) => {
             supabase.from('connections').upsert({ site_id: siteId, provider: 'square_merchant_id', account_name: merchantId, status: 'connected', updated_at: now }, { onConflict: 'site_id,provider' })
         ]);
 
-        res.redirect('/dashboard#connections?square_connected=true');
+        res.redirect(dashboardBase + '#connections?square_connected=true');
     } catch (err) {
         console.error('Square OAuth callback error:', err);
         res.redirect('/dashboard#connections?square_error=' + encodeURIComponent(err.message));
