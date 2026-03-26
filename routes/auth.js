@@ -166,15 +166,19 @@ router.post('/login', async (req, res) => {
             return res.status(401).json({ error: 'Invalid email or password' });
         }
 
-        // Check business is active
-        const { data: business } = await supabase
-            .from('businesses')
-            .select('site_id, name, type, status, domain, subdomain, plan')
-            .eq('site_id', user.site_id)
-            .single();
+        // Admin users don't have a business — skip business check
+        let business = null;
+        if (user.role !== 'admin') {
+            const { data: biz } = await supabase
+                .from('businesses')
+                .select('site_id, name, type, status, domain, subdomain, plan')
+                .eq('site_id', user.site_id)
+                .single();
 
-        if (!business || business.status === 'suspended') {
-            return res.status(403).json({ error: 'Account is suspended' });
+            if (!biz || biz.status === 'suspended') {
+                return res.status(403).json({ error: 'Account is suspended' });
+            }
+            business = biz;
         }
 
         const token = jwt.sign(
@@ -186,14 +190,14 @@ router.post('/login', async (req, res) => {
         res.json({
             token,
             user: { id: user.id, name: user.name, email: user.email, role: user.role },
-            business: {
+            business: business ? {
                 site_id: business.site_id,
                 name: business.name,
                 type: business.type,
                 domain: business.domain,
                 subdomain: business.subdomain,
                 plan: business.plan
-            }
+            } : null
         });
     } catch (err) {
         console.error('Login error:', err);
