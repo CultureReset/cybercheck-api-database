@@ -42,11 +42,13 @@ function decryptKey(stored) {
 // Priority: 1) their manually-saved encrypted key, 2) platform key
 async function getStripeForSite(siteId) {
     if (siteId) {
+        const isTestMode = process.env.STRIPE_MODE === 'test' || process.env.NODE_ENV !== 'production';
+        const provider = isTestMode ? 'stripe_key_test' : 'stripe_key';
         const { data } = await supabase
             .from('connections')
             .select('access_token')
             .eq('site_id', siteId)
-            .eq('provider', 'stripe_key')
+            .eq('provider', provider)
             .eq('status', 'connected')
             .single();
         if (data?.access_token) {
@@ -201,7 +203,7 @@ router.post('/save-key', authRequired, async (req, res) => {
 
         await supabase.from('connections').upsert({
             site_id:      req.siteId,
-            provider:     'stripe_key',
+            provider:     isLive ? 'stripe_key' : 'stripe_key_test',
             access_token: encrypted,
             account_name: isLive ? 'Live Key' : 'Test Key',
             status:       'connected',
