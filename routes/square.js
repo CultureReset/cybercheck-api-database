@@ -316,8 +316,8 @@ router.get('/callback', async (req, res) => {
 
         const tokenData = await tokenRes.json();
         if (!tokenRes.ok || !tokenData.access_token) {
-            const msg = tokenData.message || 'Token exchange failed';
-            return res.redirect('/dashboard#connections?square_error=' + encodeURIComponent(msg));
+            const msg = tokenData.message || tokenData.errors?.[0]?.detail || 'Token exchange failed';
+            return res.redirect(dashboardBase + '#connections?square_error=' + encodeURIComponent(msg));
         }
 
         // Save token + merchant info to connections
@@ -334,7 +334,7 @@ router.get('/callback', async (req, res) => {
         res.redirect(dashboardBase + '#connections?square_connected=true');
     } catch (err) {
         console.error('Square OAuth callback error:', err);
-        res.redirect('/dashboard#connections?square_error=' + encodeURIComponent(err.message));
+        res.redirect(dashboardBase + '#connections?square_error=' + encodeURIComponent(err.message));
     }
 });
 
