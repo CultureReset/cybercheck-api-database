@@ -3,7 +3,7 @@ const router = express.Router();
 const crypto = require('crypto');
 const supabase = require('../db');
 const { authRequired } = require('../middleware/auth');
-const { Client, Environment } = require('square');
+// Square SDK removed — using direct REST API calls to avoid Vercel serverless issues
 
 // ─── Reuse encryption from stripe.js ─────────────────────────────────────────
 function encryptKey(plaintext) {
@@ -42,13 +42,17 @@ async function getSquareForSite(siteId) {
 
     if (!keyData?.access_token) return null;
 
-    const environment = modeData?.account_name === 'sandbox' ? Environment.Sandbox : Environment.Production;
-    const client = new Client({ accessToken: decryptKey(keyData.access_token), environment });
+    const mode = modeData?.account_name || 'production';
+    const accessToken = decryptKey(keyData.access_token);
+    const baseUrl = mode === 'sandbox'
+        ? 'https://connect.squareupsandbox.com'
+        : 'https://connect.squareup.com';
     return {
-        client,
+        accessToken,
+        baseUrl,
         locationId: locData?.account_name || null,
         appId: appData?.account_name || null,
-        mode: modeData?.account_name || 'production'
+        mode
     };
 }
 
@@ -67,10 +71,14 @@ router.post('/save-credentials', authRequired, async (req, res) => {
     }
 
     try {
-        // Verify the access token works
-        const env = (mode === 'sandbox') ? Environment.Sandbox : Environment.Production;
-        const testClient = new Client({ accessToken: access_token, environment: env });
-        await testClient.locationsApi.listLocations();
+        // Verify the access token works via direct REST
+        const verifyUrl = mode === 'sandbox'
+            ? 'https://connect.squareupsandbox.com/v2/locations'
+            : 'https://connect.squareup.com/v2/locations';
+        const verifyRes = await fetch(verifyUrl, {
+            headers: { 'Authorization': 'Bearer ' + access_token, 'Square-Version': '2024-01-18' }
+        });
+        if (!verifyRes.ok) throw new Error('Invalid Square access token');
 
         const encrypted = encryptKey(access_token);
         const now = new Date().toISOString();
@@ -183,16 +191,28 @@ router.post('/create-payment', async (req, res) => {
 
     try {
         const idempotencyKey = crypto.randomUUID();
-        const response = await squareData.client.paymentsApi.createPayment({
-            sourceId: source_id,
-            idempotencyKey,
-            amountMoney: { amount: BigInt(totalCents), currency: 'USD' },
-            locationId: squareData.locationId,
-            note: description || 'Booking payment',
-            referenceId: booking_id || undefined
+        const payRes = await fetch(`${squareData.baseUrl}/v2/payments`, {
+            method: 'POST',
+            headers: {
+                'Authorization': 'Bearer ' + squareData.accessToken,
+                'Content-Type': 'application/json',
+                'Square-Version': '2024-01-18'
+            },
+            body: JSON.stringify({
+                source_id,
+                idempotency_key: idempotencyKey,
+                amount_money: { amount: totalCents, currency: 'USD' },
+                location_id: squareData.locationId,
+                note: description || 'Booking payment',
+                reference_id: booking_id || undefined
+            })
         });
-
-        const payment = response.result.payment;
+        const payData = await payRes.json();
+        if (!payRes.ok || !payData.payment) {
+            const msg = payData.errors?.[0]?.detail || payData.errors?.[0]?.code || 'Payment failed';
+            return res.status(400).json({ success: false, error: msg });
+        }
+        const payment = payData.payment;
 
         // Update booking
         if (booking_id) {
