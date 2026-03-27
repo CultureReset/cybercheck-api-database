@@ -243,7 +243,7 @@ router.get('/businesses/:slug', async (req, res) => {
 
     const siteId = business.site_id;
 
-    const [content, services, fleet, pricing, addons, groupRates, reviews, specials, events] = await Promise.all([
+    const [content, services, fleet, pricing, addons, groupRates, reviews, specials, events, menuItems] = await Promise.all([
         supabase.from('site_content').select('*').eq('site_id', siteId).single(),
         supabase.from('services').select('*').eq('site_id', siteId).eq('active', true).order('sort_order'),
         supabase.from('fleet_types').select('*').eq('site_id', siteId).eq('active', true).order('sort_order'),
@@ -253,16 +253,31 @@ router.get('/businesses/:slug', async (req, res) => {
         supabase.from('reviews').select('*').eq('site_id', siteId).eq('active', true).order('created_at', { ascending: false }),
         supabase.from('specials').select('*').eq('site_id', siteId).eq('active', true).order('sort_order'),
         supabase.from('events').select('*').eq('site_id', siteId).eq('active', true).order('event_date', { ascending: true }),
+        supabase.from('menu_items').select('name, description, price, category, tags').eq('site_id', siteId).eq('available', true).order('sort_order'),
     ]);
 
     const c = content.data || {};
+
+    // Group menu_items by category into { appetizers: [{name,desc,price}], entrees: [...] }
+    const menu = {};
+    (menuItems.data || []).forEach(item => {
+        const key = (item.category || 'other').toLowerCase().replace(/\s+/g, '_').replace(/[^a-z0-9_]/g, '');
+        if (!menu[key]) menu[key] = [];
+        menu[key].push({ name: item.name, desc: item.description || '', price: item.price || '', tags: item.tags || [] });
+    });
+
+    // Build full address string
+    const addressParts = [c.address, c.city, c.state].filter(Boolean);
+    const fullAddress = addressParts.length > 1
+        ? `${c.address || ''}, ${c.city || ''}, ${c.state || ''} ${c.zip || ''}`.trim().replace(/,\s*$/, '')
+        : c.address || '';
 
     res.json({
         ...business,
         id:          siteId,
         slug:        business.subdomain,
         // flattened site_content
-        address:     c.address || '',
+        address:     fullAddress,
         city:        c.city    || '',
         state:       c.state   || '',
         zip:         c.zip     || '',
@@ -277,6 +292,9 @@ router.get('/businesses/:slug', async (req, res) => {
         social:      c.social_links  || {},
         hero_text:   c.hero_text     || '',
         hero_subtext:c.hero_subtext  || '',
+        gallery:     c.gallery       || [],
+        qna:         c.qna           || [],
+        features:    c.features      || [],
         // related data
         services:    services.data    || [],
         whats_included: (c.whats_included) || [],
@@ -287,6 +305,7 @@ router.get('/businesses/:slug', async (req, res) => {
         reviews:     reviews.data     || [],
         specials:    specials.data    || [],
         events:      events.data      || [],
+        menu:        Object.keys(menu).length ? menu : null,
     });
 });
 
