@@ -3,6 +3,7 @@ const router = express.Router();
 const crypto = require('crypto');
 const supabase = require('../db');
 const { authRequired } = require('../middleware/auth');
+const { Client, Environment } = require('square');
 
 // ─── Reuse encryption from stripe.js ─────────────────────────────────────────
 function encryptKey(plaintext) {
@@ -41,7 +42,6 @@ async function getSquareForSite(siteId) {
 
     if (!keyData?.access_token) return null;
 
-    const { Client, Environment } = require('square');
     const environment = modeData?.account_name === 'sandbox' ? Environment.Sandbox : Environment.Production;
     const client = new Client({ accessToken: decryptKey(keyData.access_token), environment });
     return {
@@ -68,7 +68,6 @@ router.post('/save-credentials', authRequired, async (req, res) => {
 
     try {
         // Verify the access token works
-        const { Client, Environment } = require('square');
         const env = (mode === 'sandbox') ? Environment.Sandbox : Environment.Production;
         const testClient = new Client({ accessToken: access_token, environment: env });
         await testClient.locationsApi.listLocations();
@@ -326,7 +325,6 @@ router.get('/callback', async (req, res) => {
         // Fetch primary location ID from Square API
         let locationId = '';
         try {
-            const { Client, Environment } = require('square');
             const env = mode === 'sandbox' ? Environment.Sandbox : Environment.Production;
             const tempClient = new Client({ accessToken: tokenData.access_token, environment: env });
             const locRes = await tempClient.locationsApi.listLocations();
