@@ -254,12 +254,17 @@ router.post('/refresh-location', authRequired, async (req, res) => {
         if (!keyData?.access_token) return res.status(400).json({ error: 'Square not connected' });
 
         const token = decryptKey(keyData.access_token);
-        const env = modeData?.account_name === 'sandbox' ? Environment.Sandbox : Environment.Production;
-        const tempClient = new Client({ accessToken: token, environment: env });
-        const locRes = await tempClient.locationsApi.listLocations();
-        const locs = locRes.result.locations || [];
+        const mode = modeData?.account_name || 'production';
+        const locUrl = mode === 'sandbox'
+            ? 'https://connect.squareupsandbox.com/v2/locations'
+            : 'https://connect.squareup.com/v2/locations';
+        const locRes = await fetch(locUrl, {
+            headers: { 'Authorization': 'Bearer ' + token, 'Square-Version': '2024-01-18' }
+        });
+        const locData = await locRes.json();
+        const locs = locData.locations || [];
         const primary = locs.find(l => l.status === 'ACTIVE') || locs[0];
-        if (!primary) return res.status(404).json({ error: 'No Square locations found' });
+        if (!primary) return res.status(404).json({ error: locData.errors?.[0]?.detail || 'No Square locations found' });
 
         const now = new Date().toISOString();
         await supabase.from('connections').delete().eq('site_id', req.siteId).eq('provider', 'square_location_id');
@@ -370,13 +375,17 @@ router.get('/callback', async (req, res) => {
         const now = new Date().toISOString();
         const merchantId = tokenData.merchant_id || '';
 
-        // Fetch primary location ID from Square API
+        // Fetch primary location ID directly from Square REST API (avoid SDK overhead in serverless)
         let locationId = '';
         try {
-            const env = mode === 'sandbox' ? Environment.Sandbox : Environment.Production;
-            const tempClient = new Client({ accessToken: tokenData.access_token, environment: env });
-            const locRes = await tempClient.locationsApi.listLocations();
-            const locs = locRes.result.locations || [];
+            const locUrl = mode === 'sandbox'
+                ? 'https://connect.squareupsandbox.com/v2/locations'
+                : 'https://connect.squareup.com/v2/locations';
+            const locRes = await fetch(locUrl, {
+                headers: { 'Authorization': 'Bearer ' + tokenData.access_token, 'Square-Version': '2024-01-18' }
+            });
+            const locData = await locRes.json();
+            const locs = locData.locations || [];
             const primary = locs.find(l => l.status === 'ACTIVE') || locs[0];
             if (primary) locationId = primary.id;
         } catch (e) {
