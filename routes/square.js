@@ -300,10 +300,9 @@ router.get('/connect-url', authRequired, async (req, res) => {
             : 'https://connect.squareup.com/oauth2/authorize';
 
         const scopes = 'PAYMENTS_WRITE,PAYMENTS_READ,MERCHANT_PROFILE_READ';
-        const redirectUri = 'https://cybercheck-api-database.vercel.app/api/square/callback';
         // Encode siteId + role so callback knows where to redirect after OAuth
         const state = Buffer.from(JSON.stringify({ siteId: req.siteId, role: req.role || 'owner' })).toString('base64url');
-        const url = `${baseUrl}?client_id=${appId}&scope=${scopes}&session=false&state=${state}&redirect_uri=${encodeURIComponent(redirectUri)}`;
+        const url = `${baseUrl}?client_id=${appId}&scope=${scopes}&session=false&state=${state}`;
 
         res.json({ url, mode });
     } catch (err) {
@@ -362,8 +361,7 @@ router.get('/callback', async (req, res) => {
                 client_id: appId,
                 client_secret: secret,
                 code,
-                grant_type: 'authorization_code',
-                redirect_uri: 'https://cybercheck-api-database.vercel.app/api/square/callback'
+                grant_type: 'authorization_code'
             })
         });
 
