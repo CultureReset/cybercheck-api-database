@@ -242,6 +242,35 @@ router.post('/create-payment', async (req, res) => {
 });
 
 // ============================================
+// POST /api/square/refresh-location (authRequired)
+// Fetch location ID from Square and save it
+// ============================================
+router.post('/refresh-location', authRequired, async (req, res) => {
+    try {
+        const { data: keyData } = await supabase.from('connections').select('access_token').eq('site_id', req.siteId).eq('provider', 'square_key').eq('status', 'connected').maybeSingle();
+        const { data: modeData } = await supabase.from('connections').select('account_name').eq('site_id', req.siteId).eq('provider', 'square_mode').maybeSingle();
+        if (!keyData?.access_token) return res.status(400).json({ error: 'Square not connected' });
+
+        const token = decryptKey(keyData.access_token);
+        const env = modeData?.account_name === 'sandbox' ? Environment.Sandbox : Environment.Production;
+        const tempClient = new Client({ accessToken: token, environment: env });
+        const locRes = await tempClient.locationsApi.listLocations();
+        const locs = locRes.result.locations || [];
+        const primary = locs.find(l => l.status === 'ACTIVE') || locs[0];
+        if (!primary) return res.status(404).json({ error: 'No Square locations found' });
+
+        const now = new Date().toISOString();
+        await supabase.from('connections').delete().eq('site_id', req.siteId).eq('provider', 'square_location_id');
+        await supabase.from('connections').insert({ site_id: req.siteId, provider: 'square_location_id', account_name: primary.id, status: 'connected', updated_at: now });
+
+        res.json({ success: true, locationId: primary.id });
+    } catch (err) {
+        console.error('refresh-location error:', err);
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// ============================================
 // GET /api/square/connect-url (authRequired)
 // Returns Square OAuth URL for client to authorize
 // ============================================
