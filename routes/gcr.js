@@ -251,7 +251,7 @@ router.get('/businesses/:slug', async (req, res) => {
         supabase.from('rental_addons').select('*').eq('site_id', siteId).eq('active', true).order('sort_order'),
         supabase.from('rental_group_rates').select('*').eq('site_id', siteId).eq('active', true),
         supabase.from('reviews').select('*').eq('site_id', siteId).eq('active', true).order('created_at', { ascending: false }),
-        supabase.from('specials').select('*').eq('site_id', siteId).eq('active', true).order('sort_order'),
+        supabase.from('specials').select('*').eq('site_id', siteId).eq('active', true).order('created_at'),
         supabase.from('events').select('*').eq('site_id', siteId).eq('active', true).order('event_date', { ascending: true }),
         supabase.from('menu_items').select('name, description, price, category, tags').eq('site_id', siteId).eq('available', true).order('sort_order'),
     ]);
