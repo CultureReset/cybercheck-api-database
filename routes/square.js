@@ -142,7 +142,7 @@ router.post('/set-processor', authRequired, async (req, res) => {
 // ============================================
 router.delete('/disconnect', authRequired, async (req, res) => {
     try {
-        await supabase.from('connections').delete().eq('site_id', req.siteId).in('provider', ['square_key', 'square_app_id', 'square_location_id', 'square_mode']);
+        await supabase.from('connections').delete().eq('site_id', req.siteId).in('provider', ['square_key', 'square_app_id', 'square_location_id', 'square_mode', 'square_merchant_id']);
         res.json({ success: true });
     } catch (err) {
         res.status(500).json({ error: err.message });
@@ -352,16 +352,22 @@ router.get('/callback', async (req, res) => {
             console.warn('Could not fetch Square location:', e.message);
         }
 
-        const upserts = [
-            supabase.from('connections').upsert({ site_id: siteId, provider: 'square_key', access_token: encrypted, account_name: 'Square Key', status: 'connected', connected_at: now, updated_at: now }, { onConflict: 'site_id,provider' }),
-            supabase.from('connections').upsert({ site_id: siteId, provider: 'square_mode', account_name: mode || 'production', status: 'connected', updated_at: now }, { onConflict: 'site_id,provider' }),
-            supabase.from('connections').upsert({ site_id: siteId, provider: 'square_merchant_id', account_name: merchantId, status: 'connected', updated_at: now }, { onConflict: 'site_id,provider' }),
-            supabase.from('connections').upsert({ site_id: siteId, provider: 'square_app_id', account_name: appId, status: 'connected', updated_at: now }, { onConflict: 'site_id,provider' })
+        // Delete old Square rows first to avoid duplicate inserts (upsert requires unique constraint)
+        await supabase.from('connections').delete().eq('site_id', siteId).in('provider', [
+            'square_key', 'square_mode', 'square_merchant_id', 'square_app_id', 'square_location_id'
+        ]);
+
+        // Insert fresh Square connection data
+        const rows = [
+            { site_id: siteId, provider: 'square_key', access_token: encrypted, account_name: 'Square Key', status: 'connected', connected_at: now, updated_at: now },
+            { site_id: siteId, provider: 'square_mode', account_name: mode || 'production', status: 'connected', updated_at: now },
+            { site_id: siteId, provider: 'square_merchant_id', account_name: merchantId, status: 'connected', updated_at: now },
+            { site_id: siteId, provider: 'square_app_id', account_name: appId, status: 'connected', updated_at: now }
         ];
         if (locationId) {
-            upserts.push(supabase.from('connections').upsert({ site_id: siteId, provider: 'square_location_id', account_name: locationId, status: 'connected', updated_at: now }, { onConflict: 'site_id,provider' }));
+            rows.push({ site_id: siteId, provider: 'square_location_id', account_name: locationId, status: 'connected', updated_at: now });
         }
-        await Promise.all(upserts);
+        await supabase.from('connections').insert(rows);
 
         res.redirect(dashboardBase + '#connections?square_connected=true');
     } catch (err) {
