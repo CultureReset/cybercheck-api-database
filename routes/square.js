@@ -263,7 +263,8 @@ router.get('/connect-url', authRequired, async (req, res) => {
             : 'https://connect.squareup.com/oauth2/authorize';
 
         const scopes = 'PAYMENTS_WRITE,PAYMENTS_READ,MERCHANT_PROFILE_READ';
-        const state = req.siteId; // use site_id as state to identify business on callback
+        // Encode siteId + role so callback knows where to redirect after OAuth
+        const state = Buffer.from(JSON.stringify({ siteId: req.siteId, role: req.role || 'owner' })).toString('base64url');
         const redirectUri = 'https://cybercheck-api-database.vercel.app/api/square/callback';
         const url = `${baseUrl}?client_id=${appId}&scope=${scopes}&session=false&state=${state}&redirect_uri=${encodeURIComponent(redirectUri)}`;
 
@@ -278,9 +279,22 @@ router.get('/connect-url', authRequired, async (req, res) => {
 // Square OAuth callback — exchanges code for token, saves to connections
 // ============================================
 router.get('/callback', async (req, res) => {
-    const { code, state: siteId, error } = req.query;
+    const { code, state: rawState, error } = req.query;
 
-    const dashboardBase = 'https://cybercheck-login.vercel.app/index.html';
+    // Decode state — new format is base64url JSON {siteId, role}, old format is plain siteId string
+    let siteId, role = 'owner';
+    try {
+        const decoded = JSON.parse(Buffer.from(rawState, 'base64url').toString());
+        siteId = decoded.siteId;
+        role = decoded.role || 'owner';
+    } catch (e) {
+        siteId = rawState; // backward compat: plain siteId
+    }
+
+    const clientBase = 'https://cybercheck-login.vercel.app/index.html';
+    const adminBase  = 'https://cybercheck-login.vercel.app/admin.html';
+    const dashboardBase = role === 'admin' ? adminBase : clientBase;
+
     if (error) {
         return res.redirect(dashboardBase + '#connections?square_error=' + encodeURIComponent(error));
     }
