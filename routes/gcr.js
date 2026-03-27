@@ -59,7 +59,7 @@ router.get('/businesses', async (req, res) => {
             social: content.social_links || {},
             priceRange: b.price_range || '',
             reviewCount: b.review_count || 0,
-            happyHour: b.happy_hour || null,
+            happyHour: b.happy_hour === true || b.happy_hour === 'true',
             kidsFriendly: b.kids_friendly || false,
             petFriendly: b.pet_friendly || false,
             liveMusic: b.live_music || false,
@@ -80,7 +80,7 @@ router.get('/events', async (req, res) => {
         .order('event_date', { ascending: true });
 
     if (req.query.site_id) query = query.eq('site_id', req.query.site_id);
-    if (req.query.upcoming === 'true') query = query.gte('event_date', new Date().toISOString().split('T')[0]);
+    if (req.query.upcoming === 'true') { const today = new Date().toISOString().split('T')[0]; query = query.or(`event_date.gte.${today},recurring.eq.true`); }
 
     const { data, error } = await query;
     if (error) return res.status(500).json({ error: error.message });
@@ -142,6 +142,7 @@ router.post('/search', async (req, res) => {
             site_content(address, city, state, zip, lat, lng, hours, theme_color, seo_description, contact_phone)
         `)
         .eq('status', 'active')
+        .eq('gcr_listed', true)
         .ilike('name', `%${searchQuery}%`);
 
     if (type) dbQuery = dbQuery.eq('type', type);
@@ -165,6 +166,7 @@ router.post('/search', async (req, res) => {
                 site_content(address, city, state, zip, lat, lng, hours, theme_color, seo_description, contact_phone)
             `)
             .eq('status', 'active')
+            .eq('gcr_listed', true)
             .in('site_id', descSiteIds);
 
         additionalResults = byDescBiz || [];
@@ -186,6 +188,7 @@ router.post('/search', async (req, res) => {
                 site_content(address, city, state, zip, lat, lng, hours, theme_color, seo_description, contact_phone)
             `)
             .eq('status', 'active')
+            .eq('gcr_listed', true)
             .in('site_id', serviceSiteIds);
 
         additionalResults = [...additionalResults, ...(byService || [])];
@@ -491,7 +494,8 @@ router.get('/categories', async (req, res) => {
     const { data } = await supabase
         .from('businesses')
         .select('type')
-        .eq('status', 'active');
+        .eq('status', 'active')
+        .eq('gcr_listed', true);
 
     const counts = {};
     (data || []).forEach(b => {
