@@ -98,11 +98,11 @@ router.post('/save-credentials', authRequired, async (req, res) => {
 // ============================================
 router.get('/status', authRequired, async (req, res) => {
     const [{ data: keyData }, { data: modeData }, { data: appData }, { data: locData }, { data: procData }] = await Promise.all([
-        supabase.from('connections').select('status, connected_at').eq('site_id', req.siteId).eq('provider', 'square_key').single(),
-        supabase.from('connections').select('account_name').eq('site_id', req.siteId).eq('provider', 'square_mode').single(),
-        supabase.from('connections').select('account_name').eq('site_id', req.siteId).eq('provider', 'square_app_id').single(),
-        supabase.from('connections').select('account_name').eq('site_id', req.siteId).eq('provider', 'square_location_id').single(),
-        supabase.from('connections').select('account_name').eq('site_id', req.siteId).eq('provider', 'payment_processor').single()
+        supabase.from('connections').select('status, connected_at').eq('site_id', req.siteId).eq('provider', 'square_key').maybeSingle(),
+        supabase.from('connections').select('account_name').eq('site_id', req.siteId).eq('provider', 'square_mode').maybeSingle(),
+        supabase.from('connections').select('account_name').eq('site_id', req.siteId).eq('provider', 'square_app_id').maybeSingle(),
+        supabase.from('connections').select('account_name').eq('site_id', req.siteId).eq('provider', 'square_location_id').maybeSingle(),
+        supabase.from('connections').select('account_name').eq('site_id', req.siteId).eq('provider', 'payment_processor').maybeSingle()
     ]);
 
     res.json({
@@ -247,8 +247,10 @@ router.post('/create-payment', async (req, res) => {
 // ============================================
 router.post('/refresh-location', authRequired, async (req, res) => {
     try {
-        const { data: keyData } = await supabase.from('connections').select('access_token').eq('site_id', req.siteId).eq('provider', 'square_key').maybeSingle();
-        const { data: modeData } = await supabase.from('connections').select('account_name').eq('site_id', req.siteId).eq('provider', 'square_mode').maybeSingle();
+        const { data: keyRows } = await supabase.from('connections').select('access_token').eq('site_id', req.siteId).eq('provider', 'square_key').limit(1);
+        const { data: modeRows } = await supabase.from('connections').select('account_name').eq('site_id', req.siteId).eq('provider', 'square_mode').limit(1);
+        const keyData = keyRows?.[0] || null;
+        const modeData = modeRows?.[0] || null;
         if (!keyData?.access_token) return res.status(400).json({ error: 'Square not connected' });
 
         const token = decryptKey(keyData.access_token);
