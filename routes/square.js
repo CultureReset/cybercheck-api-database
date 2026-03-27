@@ -98,7 +98,7 @@ router.post('/save-credentials', authRequired, async (req, res) => {
 // ============================================
 router.get('/status', authRequired, async (req, res) => {
     const [{ data: keyData }, { data: modeData }, { data: appData }, { data: locData }, { data: procData }] = await Promise.all([
-        supabase.from('connections').select('status, connected_at').eq('site_id', req.siteId).eq('provider', 'square_key').maybeSingle(),
+        supabase.from('connections').select('status, connected_at, account_name').eq('site_id', req.siteId).eq('provider', 'square_key').maybeSingle(),
         supabase.from('connections').select('account_name').eq('site_id', req.siteId).eq('provider', 'square_mode').maybeSingle(),
         supabase.from('connections').select('account_name').eq('site_id', req.siteId).eq('provider', 'square_app_id').maybeSingle(),
         supabase.from('connections').select('account_name').eq('site_id', req.siteId).eq('provider', 'square_location_id').maybeSingle(),
@@ -108,6 +108,7 @@ router.get('/status', authRequired, async (req, res) => {
     res.json({
         connected: !!(keyData && keyData.status === 'connected'),
         connectedAt: keyData?.connected_at || null,
+        merchantName: keyData?.account_name || null,
         mode: modeData?.account_name || 'production',
         appId: appData?.account_name || null,
         locationId: locData?.account_name || null,
@@ -379,6 +380,7 @@ router.get('/callback', async (req, res) => {
 
         // Fetch primary location ID directly from Square REST API (avoid SDK overhead in serverless)
         let locationId = '';
+        let merchantName = '';
         try {
             const locUrl = mode === 'sandbox'
                 ? 'https://connect.squareupsandbox.com/v2/locations'
@@ -389,13 +391,16 @@ router.get('/callback', async (req, res) => {
             const locData = await locRes.json();
             const locs = locData.locations || [];
             const primary = locs.find(l => l.status === 'ACTIVE') || locs[0];
-            if (primary) locationId = primary.id;
+            if (primary) {
+                locationId = primary.id;
+                merchantName = primary.business_name || primary.name || '';
+            }
         } catch (e) {
             console.warn('Could not fetch Square location:', e.message);
         }
 
         const upserts = [
-            supabase.from('connections').upsert({ site_id: siteId, provider: 'square_key', access_token: encrypted, account_name: 'Square Key', status: 'connected', connected_at: now, updated_at: now }, { onConflict: 'site_id,provider' }),
+            supabase.from('connections').upsert({ site_id: siteId, provider: 'square_key', access_token: encrypted, account_name: merchantName || 'Square', status: 'connected', connected_at: now, updated_at: now }, { onConflict: 'site_id,provider' }),
             supabase.from('connections').upsert({ site_id: siteId, provider: 'square_mode', account_name: mode || 'production', status: 'connected', updated_at: now }, { onConflict: 'site_id,provider' }),
             supabase.from('connections').upsert({ site_id: siteId, provider: 'square_merchant_id', account_name: merchantId, status: 'connected', updated_at: now }, { onConflict: 'site_id,provider' }),
             supabase.from('connections').upsert({ site_id: siteId, provider: 'square_app_id', account_name: appId, status: 'connected', updated_at: now }, { onConflict: 'site_id,provider' })
