@@ -602,6 +602,20 @@ router.post('/test-ai', adminRequired, async (req, res) => {
 });
 
 // ============================================
+// SET BUSINESS CONNECTION — POST /api/admin/set-connection
+// Manually set any connection row for a business
+// ============================================
+router.post('/set-connection', adminRequired, async (req, res) => {
+    const { site_id, provider, value } = req.body;
+    if (!site_id || !provider || !value) return res.status(400).json({ error: 'site_id, provider, value required' });
+    const now = new Date().toISOString();
+    await supabase.from('connections').delete().eq('site_id', site_id).eq('provider', provider);
+    const { error } = await supabase.from('connections').insert({ site_id, provider, account_name: value, status: 'connected', connected_at: now, updated_at: now });
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ============================================
 // SAVE API KEY — POST /api/admin/save-api-key
 // ============================================
 router.post('/save-api-key', adminRequired, async (req, res) => {
@@ -943,6 +957,7 @@ router.post('/gcr/import-csv', adminRequired, async (req, res) => {
         site_id: siteId,
         tagline: row.tagline || null,
         seo_description: row.about || row.description || null,
+        about_text: row.about || row.description || null,
         price_range: row.priceRange || row.price_range || null,
         address: row.address || null,
         city: row.city || (row.city_state ? row.city_state.split(',')[0].trim() : null),
