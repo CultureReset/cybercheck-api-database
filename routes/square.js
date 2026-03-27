@@ -154,6 +154,7 @@ router.delete('/disconnect', authRequired, async (req, res) => {
 // Process a Square payment for a booking
 // ============================================
 router.post('/create-payment', async (req, res) => {
+  try {
     const { source_id, amount, booking_id, site_id, description } = req.body;
 
     if (!source_id) return res.status(400).json({ error: 'source_id required' });
@@ -232,8 +233,12 @@ router.post('/create-payment', async (req, res) => {
     } catch (err) {
         console.error('Square create-payment error:', err);
         const msg = err.errors?.[0]?.detail || err.message;
-        res.status(500).json({ error: msg });
+        res.status(500).json({ success: false, error: msg });
     }
+  } catch (outerErr) {
+    console.error('Square create-payment outer error:', outerErr);
+    if (!res.headersSent) res.status(500).json({ success: false, error: outerErr.message || 'Server error' });
+  }
 });
 
 // ============================================
