@@ -309,6 +309,11 @@ router.get('/businesses/:slug', async (req, res) => {
         specials:    specials.data    || [],
         events:      events.data      || [],
         menu:        Object.keys(menu).length ? menu : null,
+        schedules:   c.schedules     || [],
+        highlights:  c.highlights    || [],
+        restrictions:c.restrictions  || [],
+        whatToBring: c.what_to_bring || [],
+        happyHour:   c.happy_hour    || null,
     });
 });
 
