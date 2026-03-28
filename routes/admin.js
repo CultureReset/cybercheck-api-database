@@ -1137,6 +1137,193 @@ router.get('/gcr/business-data/:siteId', adminRequired, async (req, res) => {
 const multer = require('multer');
 const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 10 * 1024 * 1024 } });
 
+// ============================================
+// POST /api/admin/scrape-url — Fetch and extract text from any URL
+// ============================================
+
+router.post('/scrape-url', async (req, res) => {
+    const { url } = req.body;
+    if (!url) return res.status(400).json({ error: 'URL required' });
+
+    try {
+        const r = await fetch(url, {
+            headers: {
+                'User-Agent': 'Mozilla/5.0 (compatible; GCR-Admin-Bot/1.0)',
+                'Accept': 'text/html,application/xhtml+xml',
+            },
+            redirect: 'follow',
+            signal: AbortSignal.timeout(15000),
+        });
+        if (!r.ok) throw new Error(`HTTP ${r.status} from ${url}`);
+        const html = await r.text();
+
+        // Strip HTML tags and extract readable text
+        const text = html
+            .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+            .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+            .replace(/<nav[\s\S]*?<\/nav>/gi, ' ')
+            .replace(/<footer[\s\S]*?<\/footer>/gi, ' ')
+            .replace(/<header[\s\S]*?<\/header>/gi, ' ')
+            .replace(/<[^>]+>/g, ' ')
+            .replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&nbsp;/g, ' ').replace(/&#39;/g, "'").replace(/&quot;/g, '"')
+            .replace(/\s{3,}/g, '\n\n')
+            .trim()
+            .slice(0, 15000);  // Cap at 15k chars to keep AI prompt manageable
+
+        res.json({ url, text, length: text.length });
+    } catch (err) {
+        res.status(500).json({ error: 'Scrape failed: ' + err.message });
+    }
+});
+
+// ============================================
+// POST /api/admin/ai-save-business — Save AI-organized business data to Supabase
+// Body: { business: {...structured data from ai-organize...} }
+// ============================================
+
+router.post('/ai-save-business', async (req, res) => {
+    const { business: d } = req.body;
+    if (!d || !d.name) return res.status(400).json({ error: 'business.name is required' });
+
+    const subdomain = (d.subdomain || d.name).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
+    try {
+        // Upsert into businesses table
+        const bizRow = {
+            name:             d.name,
+            type:             d.type || 'other',
+            subdomain:        subdomain,
+            tagline:          d.tagline || null,
+            emoji:            d.emoji   || null,
+            tags:             d.tags    || [],
+            price_range:      d.price_range || null,
+            happy_hour:       !!d.happy_hour,
+            live_music:       !!d.live_music,
+            waterfront:       !!d.waterfront,
+            kids_friendly:    !!d.kids_friendly,
+            pet_friendly:     !!d.pet_friendly,
+            outdoor:          !!d.outdoor,
+            alcohol:          !!d.alcohol,
+            booking_required: !!d.booking_required,
+            status:           'active',
+            gcr_listed:       true,
+            gcr_verified:     false,
+        };
+
+        // Check if business already exists
+        const { data: existing } = await supabase.from('businesses').select('site_id').eq('subdomain', subdomain).single();
+
+        let siteId;
+        if (existing) {
+            siteId = existing.site_id;
+            await supabase.from('businesses').update(bizRow).eq('site_id', siteId);
+        } else {
+            const { data: inserted, error: bizErr } = await supabase.from('businesses').insert(bizRow).select('site_id').single();
+            if (bizErr) throw new Error('businesses insert: ' + bizErr.message);
+            siteId = inserted.site_id;
+        }
+
+        // Upsert site_content
+        const social = d.social || {};
+        const contentRow = {
+            site_id:       siteId,
+            about_text:    d.description || null,
+            contact_phone: d.phone       || null,
+            website_url:   d.website     || null,
+            address:       d.address     || null,
+            city:          d.city        || null,
+            state:         d.state       || null,
+            zip:           d.zip         || null,
+            hours:         d.hours       || null,
+            social_links:  Object.keys(social).length ? social : null,
+            features:      d.features    || [],
+            perfect_for:   d.perfect_for || [],
+            highlights:    d.highlights  || [],
+            restrictions:  d.restrictions || [],
+            what_to_bring: d.what_to_bring || [],
+            schedules:     d.schedules   || [],
+            happy_hour:    d.happy_hour  || null,
+            bar_menu:      d.bar_menu    || null,
+        };
+
+        const { error: contentErr } = await supabase.from('site_content').upsert(contentRow, { onConflict: 'site_id' });
+        if (contentErr) throw new Error('site_content upsert: ' + contentErr.message);
+
+        // Insert menu items (delete existing first if updating)
+        if (d.menu_items && d.menu_items.length) {
+            if (existing) await supabase.from('menu_items').delete().eq('site_id', siteId);
+            const menuRows = d.menu_items.map((item, i) => ({
+                site_id:     siteId,
+                name:        item.name,
+                description: item.description || null,
+                price:       item.price ? String(item.price).replace('$','') : null,
+                category:    item.category || 'Menu',
+                available:   true,
+                sort_order:  i,
+            }));
+            const { error: menuErr } = await supabase.from('menu_items').insert(menuRows);
+            if (menuErr) throw new Error('menu_items insert: ' + menuErr.message);
+        }
+
+        // Insert specials
+        if (d.specials && d.specials.length) {
+            if (existing) await supabase.from('specials').delete().eq('site_id', siteId);
+            const specialRows = d.specials.map(s => ({
+                site_id:       siteId,
+                name:          s.name,
+                description:   s.description || null,
+                type:          s.type || 'daily_special',
+                days:          s.days || [],
+                start_time:    s.start_time || null,
+                end_time:      s.end_time   || null,
+                discount_text: s.discount_text || null,
+                active:        true,
+            }));
+            await supabase.from('specials').insert(specialRows);
+        }
+
+        // Insert events
+        if (d.events && d.events.length) {
+            if (existing) await supabase.from('events').delete().eq('site_id', siteId);
+            const eventRows = d.events.map(e => ({
+                site_id:     siteId,
+                title:       e.title || e.name,
+                description: e.description || null,
+                event_date:  e.event_date  || null,
+                event_time:  e.event_time  || null,
+                active:      true,
+            }));
+            await supabase.from('events').insert(eventRows);
+        }
+
+        // Insert fleet
+        if (d.fleet && d.fleet.length) {
+            if (existing) await supabase.from('fleet_types').delete().eq('site_id', siteId);
+            const fleetRows = d.fleet.map((f, i) => ({
+                site_id:        siteId,
+                name:           f.name,
+                description:    f.description || null,
+                capacity:       f.capacity || null,
+                price_per_hour: f.price_per_hour || null,
+                active:         true,
+                sort_order:     i,
+            }));
+            await supabase.from('fleet_types').insert(fleetRows);
+        }
+
+        res.json({
+            success: true,
+            site_id: siteId,
+            slug: subdomain,
+            message: `${d.name} saved to Supabase (${existing ? 'updated' : 'created'}). Profile at /business.html?id=${subdomain}`,
+        });
+
+    } catch (err) {
+        console.error('ai-save-business error:', err.message);
+        res.status(500).json({ error: err.message });
+    }
+});
+
 router.post('/upload-photo', adminRequired, upload.single('file'), async (req, res) => {
     if (!req.file) return res.status(400).json({ error: 'No file uploaded' });
     const { site_id, folder } = req.body;
@@ -1153,4 +1340,379 @@ router.post('/upload-photo', adminRequired, upload.single('file'), async (req, r
     res.json({ url: publicUrl });
 });
 
+// ============================================
+// GET /api/admin/ai-settings — Get AI config
+// PUT /api/admin/ai-settings — Save AI config
+// ============================================
+
+router.get('/ai-settings', async (req, res) => {
+    const { data, error } = await supabase.from('ai_settings').select('*').eq('id', 1).single();
+    if (error) return res.status(500).json({ error: error.message });
+    // Mask API keys in response
+    const masked = { ...data };
+    if (masked.chat_api_key) masked.chat_api_key = masked.chat_api_key.slice(0, 8) + '••••••••';
+    if (masked.embed_api_key) masked.embed_api_key = masked.embed_api_key.slice(0, 8) + '••••••••';
+    res.json(masked);
+});
+
+router.put('/ai-settings', async (req, res) => {
+    const allowed = ['chat_provider','chat_model','chat_api_key','embed_provider','embed_model','embed_api_key','embed_dimensions','rag_enabled','voice_enabled','system_prompt'];
+    const update = {};
+    allowed.forEach(k => { if (req.body[k] !== undefined) update[k] = req.body[k]; });
+    // Don't overwrite keys if they're masked (client sent back a masked value)
+    if (update.chat_api_key && update.chat_api_key.includes('••••')) delete update.chat_api_key;
+    if (update.embed_api_key && update.embed_api_key.includes('••••')) delete update.embed_api_key;
+    update.updated_at = new Date().toISOString();
+
+    const { data, error } = await supabase.from('ai_settings').upsert({ id: 1, ...update }).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true, data });
+});
+
+// ============================================
+// GET /api/admin/rag-status — Index status
+// ============================================
+
+router.get('/rag-status', async (req, res) => {
+    const { data: indexed, error } = await supabase
+        .from('business_embeddings')
+        .select('slug, business_name, chunk_type, updated_at')
+        .order('updated_at', { ascending: false });
+
+    if (error) return res.status(500).json({ error: error.message });
+
+    // Summarize by business
+    const bySlug = {};
+    (indexed || []).forEach(row => {
+        if (!bySlug[row.slug]) bySlug[row.slug] = { name: row.business_name, slug: row.slug, chunks: 0, last_indexed: row.updated_at };
+        bySlug[row.slug].chunks++;
+        if (row.updated_at > bySlug[row.slug].last_indexed) bySlug[row.slug].last_indexed = row.updated_at;
+    });
+
+    // Total businesses in GCR
+    const { count: totalBiz } = await supabase.from('businesses').select('site_id', { count: 'exact' }).eq('gcr_listed', true).eq('status', 'active');
+
+    res.json({
+        indexed_businesses: Object.keys(bySlug).length,
+        total_gcr_businesses: totalBiz || 0,
+        total_chunks: (indexed || []).length,
+        businesses: Object.values(bySlug).sort((a, b) => b.last_indexed.localeCompare(a.last_indexed)),
+    });
+});
+
+// ============================================
+// POST /api/admin/ai-organize — Parse raw business text into structured data
+// Body: { raw_text, business_type? }
+// Returns: structured JSON matching the DB schema for admin to review + approve
+// ============================================
+
+router.post('/ai-organize', async (req, res) => {
+    const { raw_text, business_type } = req.body;
+    if (!raw_text || raw_text.trim().length < 20) {
+        return res.status(400).json({ error: 'raw_text is required (at least 20 characters)' });
+    }
+
+    // Load AI settings
+    const { data: settings } = await supabase.from('ai_settings').select('*').eq('id', 1).single();
+    const cfg = settings || {};
+
+    const provider  = cfg.chat_provider || 'anthropic';
+    const model     = cfg.chat_model    || 'claude-sonnet-4-6';
+    const apiKey    = cfg.chat_api_key  || process.env.ANTHROPIC_API_KEY || process.env.CLAUDE_API_KEY || process.env.OPENAI_API_KEY;
+
+    if (!apiKey) {
+        return res.status(503).json({ error: 'No AI API key configured. Go to AI Settings to add one.' });
+    }
+
+    const systemPrompt = `You are a data extraction assistant for Gulf Coast Radar, a tourism directory for Orange Beach and Gulf Shores, Alabama.
+
+Your job is to extract structured business information from raw text (website copy, scraped HTML, PDFs, or pasted content) and output ONLY valid JSON matching the exact schema below. No explanation, no markdown — just the raw JSON object.
+
+SCHEMA:
+{
+  "name": "string — business display name",
+  "type": "one of: restaurants | things-to-do | nightlife | coffee-sweets | shopping | hotels | services | other",
+  "subdomain": "string — lowercase slug (e.g. cobalt-the-restaurant)",
+  "tagline": "string — short one-liner",
+  "emoji": "single emoji that fits the business",
+  "description": "string — 2-3 sentence about section",
+  "phone": "string — phone number",
+  "address": "string — street address",
+  "city": "string",
+  "state": "string — 2 letter abbreviation",
+  "zip": "string",
+  "website": "string — website URL",
+  "price_range": "$ | $$ | $$$ | $$$$",
+  "hours": { "Monday": "open–close or Closed", "Tuesday": "...", "Wednesday": "...", "Thursday": "...", "Friday": "...", "Saturday": "...", "Sunday": "..." },
+  "social": { "instagram": "url", "facebook": "url", "google_maps": "url" },
+  "features": ["array of feature strings like 'Waterfront', 'Pet Friendly', 'Live Music'"],
+  "perfect_for": ["array like 'Date night', 'Families', 'Groups'"],
+  "happy_hour": "string time range OR { schedule: 'string', deals: [{name, desc, price}] } OR null",
+  "menu_items": [{ "name": "string", "description": "string", "price": "number or null", "category": "section name like 'Starters' or 'Lunch' or 'Dinner'" }],
+  "bar_menu": [{ "category": "string", "items": [{ "name": "string", "desc": "string", "price": "string" }] }] or null,
+  "specials": [{ "name": "string", "description": "string", "type": "daily_special|happy_hour|weekly", "days": ["Monday","Friday"], "start_time": "HH:MM", "end_time": "HH:MM", "discount_text": "string" }],
+  "events": [{ "title": "string", "description": "string", "event_date": "YYYY-MM-DD or null", "event_time": "HH:MM or null" }],
+  "fleet": [{ "name": "string", "description": "string", "capacity": number_or_null, "price_per_hour": number_or_null }],
+  "schedules": [{ "name": "slot name", "time": "departure time", "tickets": [{ "name": "Adult|Child|Senior", "price": "dollar amount" }] }],
+  "highlights": ["array of included items or experience highlights"],
+  "restrictions": ["array of guest info or restriction strings"],
+  "what_to_bring": ["array of items guests should bring"],
+  "tags": ["array of relevant tags for search"],
+  "kids_friendly": true or false,
+  "pet_friendly": true or false,
+  "live_music": true or false,
+  "waterfront": true or false,
+  "outdoor": true or false,
+  "alcohol": true or false,
+  "booking_required": true or false
+}
+
+Only include fields that have actual data in the source. Use null for unknown fields. Never invent data that isn't present.${business_type ? `\n\nThis business is type: ${business_type}` : ''}`;
+
+    const userMessage = `Extract all structured data from the following business information:\n\n${raw_text.slice(0, 12000)}`;
+
+    try {
+        let answer = '';
+
+        if (provider === 'anthropic') {
+            const r = await fetch('https://api.anthropic.com/v1/messages', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'x-api-key': apiKey, 'anthropic-version': '2023-06-01' },
+                body: JSON.stringify({ model, max_tokens: 4096, system: systemPrompt, messages: [{ role: 'user', content: userMessage }] }),
+            });
+            if (!r.ok) { const e = await r.text(); throw new Error(`Anthropic ${r.status}: ${e}`); }
+            const d = await r.json();
+            answer = d.content?.[0]?.text || '';
+        } else if (provider === 'openai' || provider === 'groq' || provider === 'grok') {
+            const baseUrl = provider === 'groq' ? 'https://api.groq.com/openai/v1'
+                         : provider === 'grok'  ? 'https://api.x.ai/v1'
+                         : 'https://api.openai.com/v1';
+            const r = await fetch(`${baseUrl}/chat/completions`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` },
+                body: JSON.stringify({ model: model || 'gpt-4o', messages: [{ role: 'system', content: systemPrompt }, { role: 'user', content: userMessage }], max_tokens: 4096, response_format: { type: 'json_object' } }),
+            });
+            if (!r.ok) { const e = await r.text(); throw new Error(`${provider} ${r.status}: ${e}`); }
+            const d = await r.json();
+            answer = d.choices?.[0]?.message?.content || '';
+        } else {
+            return res.status(400).json({ error: `Unsupported provider: ${provider}` });
+        }
+
+        // Parse the JSON response
+        let structured;
+        try {
+            // Strip markdown code fences if present
+            const cleaned = answer.replace(/^```(?:json)?\s*/i, '').replace(/\s*```\s*$/, '').trim();
+            structured = JSON.parse(cleaned);
+        } catch (parseErr) {
+            return res.status(422).json({ error: 'AI returned invalid JSON', raw: answer.slice(0, 500) });
+        }
+
+        res.json({ success: true, structured });
+
+    } catch (err) {
+        console.error('ai-organize error:', err.message);
+        res.status(500).json({ error: err.message });
+    }
+});
+
+
+// ============================================
+// GCR BUSINESS EDITOR — Full data loader
+// ============================================
+
+router.get('/gcr/business-data/:siteId', async (req, res) => {
+    const { siteId } = req.params;
+    const [biz, content, menu, specials, events, fleet, addons, reviews, media] = await Promise.all([
+        supabase.from('businesses').select('*').eq('site_id', siteId).single(),
+        supabase.from('site_content').select('*').eq('site_id', siteId).single(),
+        supabase.from('menu_items').select('*').eq('site_id', siteId).order('sort_order'),
+        supabase.from('specials').select('*').eq('site_id', siteId).order('created_at'),
+        supabase.from('events').select('*').eq('site_id', siteId).order('event_date'),
+        supabase.from('fleet_types').select('*').eq('site_id', siteId).order('sort_order'),
+        supabase.from('rental_addons').select('*').eq('site_id', siteId).order('sort_order'),
+        supabase.from('reviews').select('*').eq('site_id', siteId).order('created_at', { ascending: false }),
+        supabase.from('business_media').select('*').eq('site_id', siteId).order('sort_order'),
+    ]);
+    res.json({
+        business: biz.data || {},
+        content: content.data || {},
+        menu: menu.data || [],
+        specials: specials.data || [],
+        events: events.data || [],
+        fleet: fleet.data || [],
+        addons: addons.data || [],
+        reviews: reviews.data || [],
+        media: media.data || [],
+    });
+});
+
+// Save basic + location + flags
+router.put('/businesses/:siteId/full', async (req, res) => {
+    const { siteId } = req.params;
+    const { business, content } = req.body;
+    const errs = [];
+    if (business) {
+        const { error } = await supabase.from('businesses').update({ ...business, updated_at: new Date().toISOString() }).eq('site_id', siteId);
+        if (error) errs.push(error.message);
+    }
+    if (content) {
+        const { error } = await supabase.from('site_content').upsert({ ...content, site_id: siteId, updated_at: new Date().toISOString() }, { onConflict: 'site_id' });
+        if (error) errs.push(error.message);
+    }
+    if (errs.length) return res.status(500).json({ error: errs.join('; ') });
+    res.json({ success: true });
+});
+
+// Save fleet (delete all + reinsert)
+router.post('/businesses/:siteId/fleet', async (req, res) => {
+    const { siteId } = req.params;
+    const { items } = req.body; // array
+    await supabase.from('fleet_types').delete().eq('site_id', siteId);
+    if (items && items.length) {
+        const rows = items.map((it, i) => ({ ...it, site_id: siteId, sort_order: i, active: it.active !== false }));
+        const { error } = await supabase.from('fleet_types').insert(rows);
+        if (error) return res.status(500).json({ error: error.message });
+    }
+    res.json({ success: true });
+});
+
+// Save addons (delete all + reinsert)
+router.post('/businesses/:siteId/addons', async (req, res) => {
+    const { siteId } = req.params;
+    const { items } = req.body;
+    await supabase.from('rental_addons').delete().eq('site_id', siteId);
+    if (items && items.length) {
+        const rows = items.map((it, i) => ({ ...it, site_id: siteId, sort_order: i, active: it.active !== false }));
+        const { error } = await supabase.from('rental_addons').insert(rows);
+        if (error) return res.status(500).json({ error: error.message });
+    }
+    res.json({ success: true });
+});
+
+// Save schedule/pricing JSON to site_content
+router.put('/businesses/:siteId/schedule', async (req, res) => {
+    const { siteId } = req.params;
+    const { schedules, pricing_notes } = req.body;
+    const { error } = await supabase.from('site_content').upsert({
+        site_id: siteId,
+        schedules: schedules || [],
+        pricing_notes: pricing_notes || '',
+        updated_at: new Date().toISOString()
+    }, { onConflict: 'site_id' });
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// Save highlights / restrictions / what_to_bring
+router.put('/businesses/:siteId/highlights', async (req, res) => {
+    const { siteId } = req.params;
+    const { highlights, restrictions, what_to_bring } = req.body;
+    const { error } = await supabase.from('site_content').upsert({
+        site_id: siteId,
+        highlights: highlights || [],
+        restrictions: restrictions || [],
+        what_to_bring: what_to_bring || [],
+        updated_at: new Date().toISOString()
+    }, { onConflict: 'site_id' });
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// Add photo URL (or handle base64 upload) to business_media
+router.post('/businesses/:siteId/photos', async (req, res) => {
+    const { siteId } = req.params;
+    const { url, caption, section, linked_id } = req.body;
+    if (!url) return res.status(400).json({ error: 'url required' });
+    const { data, error } = await supabase.from('business_media').insert({
+        site_id: siteId,
+        url,
+        caption: caption || '',
+        section: section || 'gallery', // 'gallery' | 'menu' | 'event' | 'fleet'
+        linked_id: linked_id || null,  // menu_item id, event id, etc.
+    }).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true, photo: data });
+});
+
+// Delete a photo
+router.delete('/businesses/:siteId/photos/:photoId', async (req, res) => {
+    const { siteId, photoId } = req.params;
+    const { error } = await supabase.from('business_media').delete().eq('id', photoId).eq('site_id', siteId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// Approve / reject a review
+router.put('/businesses/:siteId/reviews/:reviewId', async (req, res) => {
+    const { siteId, reviewId } = req.params;
+    const { active } = req.body;
+    const { error } = await supabase.from('reviews').update({ active }).eq('id', reviewId).eq('site_id', siteId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+router.delete('/businesses/:siteId/reviews/:reviewId', async (req, res) => {
+    const { siteId, reviewId } = req.params;
+    const { error } = await supabase.from('reviews').delete().eq('id', reviewId).eq('site_id', siteId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// Save a single menu item (upsert)
+router.post('/businesses/:siteId/menu', async (req, res) => {
+    const { siteId } = req.params;
+    const item = { ...req.body, site_id: siteId };
+    const { data, error } = item.id
+        ? await supabase.from('menu_items').update(item).eq('id', item.id).select().single()
+        : await supabase.from('menu_items').insert(item).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true, item: data });
+});
+
+router.delete('/businesses/:siteId/menu/:itemId', async (req, res) => {
+    const { siteId, itemId } = req.params;
+    const { error } = await supabase.from('menu_items').delete().eq('id', itemId).eq('site_id', siteId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// Save a single special (upsert)
+router.post('/businesses/:siteId/specials', async (req, res) => {
+    const { siteId } = req.params;
+    const item = { ...req.body, site_id: siteId };
+    const { data, error } = item.id
+        ? await supabase.from('specials').update(item).eq('id', item.id).select().single()
+        : await supabase.from('specials').insert(item).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true, item: data });
+});
+
+router.delete('/businesses/:siteId/specials/:itemId', async (req, res) => {
+    const { siteId, itemId } = req.params;
+    const { error } = await supabase.from('specials').delete().eq('id', itemId).eq('site_id', siteId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// Save a single event (upsert)
+router.post('/businesses/:siteId/events', async (req, res) => {
+    const { siteId } = req.params;
+    const item = { ...req.body, site_id: siteId };
+    const { data, error } = item.id
+        ? await supabase.from('events').update(item).eq('id', item.id).select().single()
+        : await supabase.from('events').insert(item).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true, item: data });
+});
+
+router.delete('/businesses/:siteId/events/:itemId', async (req, res) => {
+    const { siteId, itemId } = req.params;
+    const { error } = await supabase.from('events').delete().eq('id', itemId).eq('site_id', siteId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
 module.exports = router;
+

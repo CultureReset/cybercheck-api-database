@@ -261,13 +261,17 @@ router.get('/businesses/:slug', async (req, res) => {
 
     const c = content.data || {};
 
-    // Group menu_items by category into { appetizers: [{name,desc,price}], entrees: [...] }
-    const menu = {};
+    // Group menu_items by category → array of {category, meal, items[]}
+    const menuMap = {};
+    const MEAL_NAMES = ['brunch','lunch','dinner','kids','gluten-free','gluten free'];
     (menuItems.data || []).forEach(item => {
-        const key = (item.category || 'other').toLowerCase().replace(/\s+/g, '_').replace(/[^a-z0-9_]/g, '');
-        if (!menu[key]) menu[key] = [];
-        menu[key].push({ name: item.name, desc: item.description || '', price: item.price || '', tags: item.tags || [] });
+        const displayCat = item.category || 'Menu';
+        const catKey = displayCat.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,'');
+        const meal = MEAL_NAMES.includes(displayCat.toLowerCase()) ? displayCat.toLowerCase().replace(/\s+/g,'-') : 'other';
+        if (!menuMap[catKey]) menuMap[catKey] = { category: displayCat, meal, items: [] };
+        menuMap[catKey].items.push({ name: item.name, desc: item.description || '', price: item.price ? `$${parseFloat(item.price).toFixed(2).replace('.00','')}` : '', tags: item.tags || [] });
     });
+    const menu = Object.values(menuMap);
 
     // Build full address string
     const addressParts = [c.address, c.city, c.state].filter(Boolean);
@@ -300,20 +304,27 @@ router.get('/businesses/:slug', async (req, res) => {
         features:    c.features      || [],
         // related data
         services:    services.data    || [],
-        whats_included: (c.whats_included) || [],
+        whats_included: c.whats_included || [],
         fleet:       fleet.data       || [],
         pricing:     (pricing.data || []).map(p => ({ ...p, slot_label: p.slot_label || (p.rental_time_slots && p.rental_time_slots.name) || null })),
         addons:      addons.data      || [],
         group_rates: groupRates.data  || [],
-        reviews:     reviews.data     || [],
+        reviews:     (reviews.data || []).map(r => ({
+            author: r.customer_name || r.author || 'Guest',
+            rating: r.rating || 5,
+            text:   r.text || r.body || '',
+            date:   r.created_at ? new Date(r.created_at).toLocaleDateString('en-US',{month:'long',year:'numeric'}) : '',
+        })),
         specials:    specials.data    || [],
         events:      events.data      || [],
-        menu:        Object.keys(menu).length ? menu : null,
-        schedules:   c.schedules     || [],
-        highlights:  c.highlights    || [],
-        restrictions:c.restrictions  || [],
-        whatToBring: c.what_to_bring || [],
-        happyHour:   c.happy_hour    || null,
+        menu:        menu.length ? menu : null,
+        barMenu:     c.bar_menu       || null,
+        schedules:   c.schedules      || [],
+        highlights:  c.highlights     || [],
+        restrictions:c.restrictions   || [],
+        whatToBring: c.what_to_bring  || [],
+        happyHour:   c.happy_hour     || null,
+        perfectFor:  c.perfect_for    || [],
     });
 });
 
@@ -792,6 +803,299 @@ router.post('/search-structured', async (req, res) => {
         console.error('GCR search error:', err.message);
         res.json({ query, results: [], error: err.message });
     }
+});
+
+// ============================================
+// RAG helpers — shared by /ask and /reindex
+// ============================================
+async function getAISettings() {
+    const { data } = await supabase.from('ai_settings').select('*').eq('id', 1).single();
+    return data || {};
+}
+
+async function embedText(text, settings) {
+    const apiKey = settings.embed_api_key || process.env.OPENAI_API_KEY || process.env.EMBED_API_KEY;
+    const model  = settings.embed_model || 'text-embedding-3-small';
+    if (!apiKey) throw new Error('No embedding API key configured');
+
+    const res = await fetch('https://api.openai.com/v1/embeddings', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` },
+        body: JSON.stringify({ model, input: text }),
+    });
+    if (!res.ok) { const e = await res.text(); throw new Error(`Embed API ${res.status}: ${e}`); }
+    const data = await res.json();
+    return data.data[0].embedding;
+}
+
+async function chatCompletion(systemPrompt, userMessage, settings) {
+    const provider = settings.chat_provider || 'anthropic';
+    const model    = settings.chat_model    || 'claude-sonnet-4-6';
+    const apiKey   = settings.chat_api_key  || process.env.ANTHROPIC_API_KEY || process.env.CLAUDE_API_KEY;
+
+    if (provider === 'anthropic') {
+        if (!apiKey) throw new Error('No Anthropic API key configured');
+        const res = await fetch('https://api.anthropic.com/v1/messages', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'x-api-key': apiKey,
+                'anthropic-version': '2023-06-01',
+            },
+            body: JSON.stringify({
+                model,
+                max_tokens: 1024,
+                system: systemPrompt,
+                messages: [{ role: 'user', content: userMessage }],
+            }),
+        });
+        if (!res.ok) { const e = await res.text(); throw new Error(`Anthropic API ${res.status}: ${e}`); }
+        const data = await res.json();
+        return data.content?.[0]?.text || '';
+    }
+
+    if (provider === 'openai') {
+        const openaiKey = settings.chat_api_key || process.env.OPENAI_API_KEY;
+        if (!openaiKey) throw new Error('No OpenAI API key configured');
+        const res = await fetch('https://api.openai.com/v1/chat/completions', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${openaiKey}` },
+            body: JSON.stringify({
+                model: model || 'gpt-4o-mini',
+                messages: [{ role: 'system', content: systemPrompt }, { role: 'user', content: userMessage }],
+                max_tokens: 1024,
+            }),
+        });
+        if (!res.ok) { const e = await res.text(); throw new Error(`OpenAI API ${res.status}: ${e}`); }
+        const data = await res.json();
+        return data.choices?.[0]?.message?.content || '';
+    }
+
+    if (provider === 'grok') {
+        const grokKey = settings.chat_api_key || process.env.GROK_API_KEY || process.env.XAI_API_KEY;
+        if (!grokKey) throw new Error('No Grok API key configured');
+        const res = await fetch('https://api.x.ai/v1/chat/completions', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${grokKey}` },
+            body: JSON.stringify({
+                model: model || 'grok-3-mini',
+                messages: [{ role: 'system', content: systemPrompt }, { role: 'user', content: userMessage }],
+                max_tokens: 1024,
+            }),
+        });
+        if (!res.ok) { const e = await res.text(); throw new Error(`Grok API ${res.status}: ${e}`); }
+        const data = await res.json();
+        return data.choices?.[0]?.message?.content || '';
+    }
+
+    if (provider === 'groq') {
+        const groqKey = settings.chat_api_key || process.env.GROQ_API_KEY;
+        if (!groqKey) throw new Error('No Groq API key configured');
+        const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${groqKey}` },
+            body: JSON.stringify({
+                model: model || 'llama-3.3-70b-versatile',
+                messages: [{ role: 'system', content: systemPrompt }, { role: 'user', content: userMessage }],
+                max_tokens: 1024,
+            }),
+        });
+        if (!res.ok) { const e = await res.text(); throw new Error(`Groq API ${res.status}: ${e}`); }
+        const data = await res.json();
+        return data.choices?.[0]?.message?.content || '';
+    }
+
+    throw new Error(`Unknown chat provider: ${provider}`);
+}
+
+// ============================================
+// POST /api/gcr/ask — RAG question answering
+// Body: { question, slug?, limit? }
+// ============================================
+router.post('/ask', async (req, res) => {
+    const { question, slug: filterSlug, limit = 8 } = req.body;
+    if (!question) return res.status(400).json({ error: 'Question required' });
+
+    try {
+        const settings = await getAISettings();
+
+        if (settings.rag_enabled === false) {
+            return res.status(503).json({ error: 'RAG is disabled' });
+        }
+
+        // Embed the question
+        const queryVector = await embedText(question, settings);
+
+        // Vector similarity search
+        const { data: chunks, error: vecErr } = await supabase.rpc('match_business_chunks', {
+            query_embedding: JSON.stringify(queryVector),
+            match_count: limit,
+            filter_slug: filterSlug || null,
+        });
+
+        if (vecErr) {
+            console.error('Vector search error:', vecErr.message);
+            return res.status(500).json({ error: 'Search failed: ' + vecErr.message });
+        }
+
+        if (!chunks || chunks.length === 0) {
+            return res.json({
+                answer: "I don't have specific information about that in my database yet. Try browsing the Gulf Coast Radar listings!",
+                sources: [],
+            });
+        }
+
+        // Build context from top chunks
+        const context = chunks.map(c => c.content).join('\n\n---\n\n');
+
+        const systemPrompt = settings.system_prompt ||
+            'You are a friendly local guide for Gulf Coast Radar, the ultimate tourism directory for Orange Beach and Gulf Shores, Alabama. Answer questions using only the business information provided. Be specific, helpful, and enthusiastic.';
+
+        const userMessage = `Here is information about local businesses:\n\n${context}\n\n---\n\nQuestion: ${question}\n\nAnswer based only on the information provided above. If the answer isn't in the provided information, say so.`;
+
+        const answer = await chatCompletion(systemPrompt, userMessage, settings);
+
+        // Deduplicate sources
+        const seen = new Set();
+        const sources = chunks
+            .filter(c => { if (seen.has(c.slug)) return false; seen.add(c.slug); return true; })
+            .map(c => ({ name: c.business_name, slug: c.slug, relevance: Math.round(c.similarity * 100) / 100 }));
+
+        res.json({ answer, sources });
+
+    } catch (err) {
+        console.error('GCR /ask error:', err.message);
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// ============================================
+// POST /api/gcr/reindex/:slug — Re-embed a single business (admin use)
+// ============================================
+router.post('/reindex/:slug', async (req, res) => {
+    // Light auth check: require an admin token or a shared reindex secret
+    const authHeader = req.headers.authorization || '';
+    const secret = process.env.REINDEX_SECRET || process.env.JWT_SECRET;
+    if (!authHeader.includes(secret) && req.body.secret !== secret) {
+        // Also accept a valid JWT admin token
+        try {
+            const jwt = require('jsonwebtoken');
+            const token = authHeader.replace('Bearer ', '');
+            const payload = jwt.verify(token, process.env.JWT_SECRET);
+            if (payload.role !== 'admin') throw new Error('Not admin');
+        } catch {
+            return res.status(403).json({ error: 'Unauthorized' });
+        }
+    }
+
+    const slug = req.params.slug;
+
+    // Fetch the business
+    const { data: business, error: bizErr } = await supabase
+        .from('businesses')
+        .select('site_id, name, type, subdomain, tagline, tags, price_range, happy_hour, live_music, waterfront, kids_friendly, pet_friendly')
+        .eq('subdomain', slug)
+        .eq('status', 'active')
+        .single();
+
+    if (bizErr || !business) return res.status(404).json({ error: 'Business not found' });
+
+    const siteId = business.site_id;
+    const name   = business.name;
+
+    const settings = await getAISettings();
+    const apiKey = settings.embed_api_key || process.env.OPENAI_API_KEY || process.env.EMBED_API_KEY;
+    if (!apiKey) return res.status(503).json({ error: 'Embedding API key not configured' });
+
+    // Fetch all data
+    const [content, fleet, pricing, groupRates, reviews, specials, events, menuItems] = await Promise.all([
+        supabase.from('site_content').select('*').eq('site_id', siteId).single(),
+        supabase.from('fleet_types').select('*').eq('site_id', siteId).eq('active', true),
+        supabase.from('rental_pricing').select('*, rental_time_slots(name)').eq('site_id', siteId).eq('active', true),
+        supabase.from('rental_group_rates').select('*').eq('site_id', siteId).eq('active', true),
+        supabase.from('reviews').select('*').eq('site_id', siteId).eq('active', true).order('created_at', { ascending: false }).limit(10),
+        supabase.from('specials').select('*').eq('site_id', siteId).eq('active', true),
+        supabase.from('events').select('*').eq('site_id', siteId).eq('active', true).order('event_date', { ascending: true }).limit(20),
+        supabase.from('menu_items').select('name, description, price, category, tags').eq('site_id', siteId).eq('available', true).order('sort_order'),
+    ]);
+
+    const c = content.data || {};
+
+    // Build text chunks (inline — same logic as build-rag-index.js)
+    function fmtMenu(items) {
+        if (!items || !items.length) return null;
+        const bycat = {};
+        items.forEach(i => { const k = i.category || 'Menu'; if (!bycat[k]) bycat[k] = []; bycat[k].push(i); });
+        return [`MENU for ${name}:`, ...Object.entries(bycat).flatMap(([cat, its]) => [cat+':', ...its.map(i => `  - ${i.name}${i.price ? ' $'+i.price : ''}${i.description ? ' — '+i.description : ''}`)])].join('\n');
+    }
+    function fmtHappyHour(hh) {
+        if (!hh) return null;
+        if (typeof hh === 'string') return `HAPPY HOUR at ${name}: ${hh}`;
+        const lines = [`HAPPY HOUR at ${name}:`, hh.schedule ? `Schedule: ${hh.schedule}` : ''];
+        if (Array.isArray(hh.deals)) hh.deals.forEach(d => lines.push(`  - ${d.name}: ${d.price || ''}`));
+        return lines.filter(Boolean).join('\n');
+    }
+
+    const pricingData = (pricing.data || []).map(p => ({ ...p, slot_label: p.slot_label || (p.rental_time_slots && p.rental_time_slots.name) || null }));
+    const priceBySlot = {};
+    pricingData.forEach(p => { const s = p.slot_label || 'General'; if (!priceBySlot[s]) priceBySlot[s] = []; priceBySlot[s].push(`${p.name || 'Ticket'}: $${p.price}`); });
+    const pricingText = Object.keys(priceBySlot).length
+        ? [`PRICING/TICKETS at ${name}:`, ...Object.entries(priceBySlot).flatMap(([s, ts]) => [s+':', ...ts.map(t => '  - '+t)])].join('\n')
+        : null;
+
+    const features = (c.features || []).map(f => typeof f === 'string' ? f : [f.label, f.value].filter(Boolean).join(': ')).join(', ');
+    const profileText = [`BUSINESS: ${name}`, `Type: ${business.type}`, c.about_text ? `Description: ${c.about_text}` : '', features ? `Features: ${features}` : '', business.tagline ? `Tagline: ${business.tagline}` : ''].filter(Boolean).join('\n');
+
+    const hoursEntries = c.hours && typeof c.hours === 'object' ? Object.entries(c.hours) : [];
+    const hoursText = hoursEntries.length ? [`HOURS for ${name}:`, ...hoursEntries.map(([d,v]) => `  ${d}: ${typeof v === 'object' ? (v.open||'')+'–'+(v.close||'') : v}`)].join('\n') : null;
+
+    const highlightItems = [...(c.highlights || []), ...(c.whats_included || [])];
+    const highlightsText = highlightItems.length ? [`HIGHLIGHTS at ${name}:`, ...highlightItems.map(h => `  - ${h}`)].join('\n') : null;
+
+    const reviewsList = (reviews.data || []).slice(0, 5);
+    const reviewsText = reviewsList.length ? [`REVIEWS for ${name}:`, ...reviewsList.map(r => `  ${'★'.repeat(r.rating||5)} ${r.customer_name||'Guest'}: "${r.text||''}"`)].join('\n') : null;
+
+    const specialsList = specials.data || [];
+    const specialsText = specialsList.length ? [`SPECIALS at ${name}:`, ...specialsList.map(s => `  - ${s.name}: ${s.description||''}`)].join('\n') : null;
+
+    const eventsList = events.data || [];
+    const eventsText = eventsList.length ? [`EVENTS at ${name}:`, ...eventsList.map(e => `  - ${e.title||e.name} on ${e.event_date||''}: ${e.description||''}`)].join('\n') : null;
+
+    const fleetList = fleet.data || [];
+    const fleetText = fleetList.length ? [`FLEET at ${name}:`, ...fleetList.map(f => `  - ${f.name}${f.capacity?' cap:'+f.capacity:''}${f.price_per_hour?' $'+f.price_per_hour+'/hr':''}: ${f.description||''}`)].join('\n') : null;
+
+    const chunks = [
+        { type: 'profile',    text: profileText },
+        { type: 'hours',      text: hoursText },
+        { type: 'menu',       text: fmtMenu(menuItems.data) },
+        { type: 'happy_hour', text: fmtHappyHour(c.happy_hour) },
+        { type: 'specials',   text: specialsText },
+        { type: 'events',     text: eventsText },
+        { type: 'fleet',      text: fleetText },
+        { type: 'pricing',    text: pricingText },
+        { type: 'highlights', text: highlightsText },
+        { type: 'reviews',    text: reviewsText },
+    ].filter(ch => ch.text && ch.text.trim().length > 20);
+
+    // Delete old embeddings
+    await supabase.from('business_embeddings').delete().eq('site_id', siteId);
+
+    let indexed = 0;
+    for (const chunk of chunks) {
+        try {
+            const vector = await embedText(chunk.text, settings);
+            await supabase.from('business_embeddings').insert({
+                site_id: siteId, slug: business.subdomain, business_name: name,
+                chunk_type: chunk.type, content: chunk.text,
+                embedding: JSON.stringify(vector), updated_at: new Date().toISOString(),
+            });
+            indexed++;
+        } catch (e) {
+            console.error(`Embed failed for ${chunk.type}:`, e.message);
+        }
+    }
+
+    res.json({ success: true, slug, chunks_indexed: indexed, chunks_total: chunks.length });
 });
 
 module.exports = router;
