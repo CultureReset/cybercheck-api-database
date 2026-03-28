@@ -1102,21 +1102,32 @@ router.delete('/gcr/specials/:id', adminRequired, async (req, res) => {
 // ============================================
 router.get('/gcr/business-data/:siteId', adminRequired, async (req, res) => {
     const { siteId } = req.params;
-    const [bizRes, contentRes, menuRes, specialsRes, eventsRes, mediaRes] = await Promise.all([
+    const [bizRes, contentRes, menuRes, specialsRes, eventsRes, mediaRes, fleetRes, addonsRes, reviewsRes] = await Promise.all([
         supabase.from('businesses').select('*').eq('site_id', siteId).single(),
         supabase.from('site_content').select('*').eq('site_id', siteId).single(),
         supabase.from('menu_items').select('*').eq('site_id', siteId).order('sort_order'),
         supabase.from('specials').select('*').eq('site_id', siteId).order('sort_order'),
         supabase.from('events').select('*').eq('site_id', siteId).order('event_date'),
-        supabase.from('media').select('*').eq('site_id', siteId).order('uploaded_at', { ascending: false })
+        supabase.from('media').select('*').eq('site_id', siteId).order('uploaded_at', { ascending: false }),
+        supabase.from('fleet_types').select('*').eq('site_id', siteId).order('sort_order'),
+        supabase.from('rental_addons').select('*').eq('site_id', siteId).order('sort_order'),
+        supabase.from('reviews').select('*').eq('site_id', siteId).order('created_at', { ascending: false })
     ]);
+    const content = contentRes.data || {};
     res.json({
-        business: bizRes.data || {},
-        content: contentRes.data || {},
-        menu: menuRes.data || [],
-        specials: specialsRes.data || [],
-        events: eventsRes.data || [],
-        media: mediaRes.data || []
+        business:     bizRes.data    || {},
+        content,
+        menu:         menuRes.data   || [],
+        specials:     specialsRes.data || [],
+        events:       eventsRes.data || [],
+        media:        mediaRes.data  || [],
+        fleet:        fleetRes.data  || [],
+        addons:       addonsRes.data || [],
+        reviews:      reviewsRes.data|| [],
+        schedules:    content.schedules    || [],
+        highlights:   content.highlights   || [],
+        restrictions: content.restrictions || [],
+        whatToBring:  content.what_to_bring|| [],
     });
 });
 
