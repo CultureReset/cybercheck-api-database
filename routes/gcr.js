@@ -235,7 +235,7 @@ router.get('/businesses/:slug', async (req, res) => {
             emoji, tagline, featured, tags, price_range, rating, review_count,
             happy_hour, kids_friendly, pet_friendly, live_music, outdoor, reservations,
             alcohol, booking_required, delivery, takeout, waterfront, beachfront,
-            subcategory, sort_order, gcr_listed, gcr_verified`)
+            subcategory, sort_order, gcr_listed, gcr_verified, instagram, facebook, tiktok`)
         .eq('subdomain', slug)
         .eq('status', 'active')
         .single();
@@ -246,7 +246,7 @@ router.get('/businesses/:slug', async (req, res) => {
 
     const siteId = business.site_id;
 
-    const [content, services, fleet, pricing, addons, groupRates, reviews, specials, events, menuItems] = await Promise.all([
+    const [content, services, fleet, pricing, addons, groupRates, reviews, specials, events, menuItems, mediaItems] = await Promise.all([
         supabase.from('site_content').select('*').eq('site_id', siteId).single(),
         supabase.from('services').select('*').eq('site_id', siteId).eq('active', true).order('sort_order'),
         supabase.from('fleet_types').select('*').eq('site_id', siteId).eq('active', true).order('sort_order'),
@@ -256,22 +256,32 @@ router.get('/businesses/:slug', async (req, res) => {
         supabase.from('reviews').select('*').eq('site_id', siteId).eq('active', true).order('created_at', { ascending: false }),
         supabase.from('specials').select('*').eq('site_id', siteId).eq('active', true).order('created_at'),
         supabase.from('events').select('*').eq('site_id', siteId).eq('active', true).order('event_date', { ascending: true }),
-        supabase.from('menu_items').select('name, description, price, category, tags').eq('site_id', siteId).eq('available', true).order('sort_order'),
+        supabase.from('menu_items').select('name, description, price, category, item_type, tags').eq('site_id', siteId).eq('available', true).order('sort_order'),
+        supabase.from('business_media').select('url, caption, section, sort_order').eq('site_id', siteId).order('sort_order'),
     ]);
 
     const c = content.data || {};
 
     // Group menu_items by category → array of {category, meal, items[]}
     const menuMap = {};
+    const barMap = {};
     const MEAL_NAMES = ['brunch','lunch','dinner','kids','gluten-free','gluten free'];
     (menuItems.data || []).forEach(item => {
+        const isDrink = item.item_type === 'drink';
         const displayCat = item.category || 'Menu';
         const catKey = displayCat.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,'');
-        const meal = MEAL_NAMES.includes(displayCat.toLowerCase()) ? displayCat.toLowerCase().replace(/\s+/g,'-') : 'other';
-        if (!menuMap[catKey]) menuMap[catKey] = { category: displayCat, meal, items: [] };
-        menuMap[catKey].items.push({ name: item.name, desc: item.description || '', price: item.price ? `$${parseFloat(item.price).toFixed(2).replace('.00','')}` : '', tags: item.tags || [] });
+        const formatted = { name: item.name, desc: item.description || '', price: item.price ? `$${parseFloat(item.price).toFixed(2).replace('.00','')}` : '', tags: item.tags || [] };
+        if (isDrink) {
+            if (!barMap[catKey]) barMap[catKey] = { category: displayCat, items: [] };
+            barMap[catKey].items.push(formatted);
+        } else {
+            const meal = MEAL_NAMES.includes(displayCat.toLowerCase()) ? displayCat.toLowerCase().replace(/\s+/g,'-') : 'other';
+            if (!menuMap[catKey]) menuMap[catKey] = { category: displayCat, meal, items: [] };
+            menuMap[catKey].items.push(formatted);
+        }
     });
     const menu = Object.values(menuMap);
+    const barMenuFromTable = Object.values(barMap);
 
     // Build full address string
     const addressParts = [c.address, c.city, c.state].filter(Boolean);
@@ -296,10 +306,18 @@ router.get('/businesses/:slug', async (req, res) => {
         description: c.about_text    || c.seo_description || '',
         hours:       c.hours         || {},
         hours_note:  c.hours_note    || '',
-        social:      c.social_links  || {},
+        social: {
+            ...(c.social_links || {}),
+            instagram: business.instagram || c.social_links?.instagram || '',
+            facebook:  business.facebook  || c.social_links?.facebook  || '',
+            tiktok:    business.tiktok    || c.social_links?.tiktok    || '',
+            google_maps: c.google_maps   || '',
+        },
         hero_text:   c.hero_text     || '',
         hero_subtext:c.hero_subtext  || '',
-        gallery:     c.gallery       || [],
+        gallery:     (mediaItems.data || []).length
+            ? (mediaItems.data || []).map(m => ({ url: m.url, caption: m.caption || '', section: m.section || 'gallery' }))
+            : (c.gallery || []),
         qna:         c.qna           || [],
         features:    c.features      || [],
         // related data
@@ -318,13 +336,19 @@ router.get('/businesses/:slug', async (req, res) => {
         specials:    specials.data    || [],
         events:      events.data      || [],
         menu:        menu.length ? menu : null,
-        barMenu:     c.bar_menu       || null,
+        barMenu:     barMenuFromTable.length ? barMenuFromTable : (c.bar_menu || null),
         schedules:   c.schedules      || [],
         highlights:  c.highlights     || [],
         restrictions:c.restrictions   || [],
         whatToBring: c.what_to_bring  || [],
         happyHour:   c.happy_hour     || null,
         perfectFor:  c.perfect_for    || [],
+        packages:    c.packages       || [],
+        games:       c.games          || [],
+        bookABay:    c.book_a_bay     || null,
+        league:      c.league         || null,
+        faq:         c.faq            || [],
+        custom_sections: c.custom_sections || [],
     });
 });
 
