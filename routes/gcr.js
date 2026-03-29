@@ -99,6 +99,45 @@ router.get('/events', async (req, res) => {
 });
 
 // ============================================
+// GET /api/gcr/happy-hours — businesses with full happy hour deals
+// ============================================
+router.get('/happy-hours', async (req, res) => {
+    const { data, error } = await supabase
+        .from('businesses')
+        .select(`site_id, name, emoji, type, subdomain, rating, tags,
+            site_content(happy_hour, address, city, state, contact_phone, hours, google_maps),
+            business_media(url, section, sort_order)`)
+        .eq('status', 'active')
+        .eq('gcr_listed', true)
+        .not('site_content.happy_hour', 'is', null);
+
+    if (error) return res.status(500).json({ error: error.message });
+
+    const results = (data || [])
+        .filter(b => b.site_content?.happy_hour)
+        .map(b => {
+            const c = b.site_content || {};
+            const media = (b.business_media || []).sort((a,b) => a.sort_order - b.sort_order);
+            const cover = media.find(m => m.section === 'cover')?.url || media[0]?.url || null;
+            return {
+                slug:      b.subdomain,
+                name:      b.name,
+                emoji:     b.emoji || '🏪',
+                type:      b.type || '',
+                rating:    b.rating || null,
+                tags:      b.tags || [],
+                address:   c.address || '',
+                city:      c.city || '',
+                phone:     c.contact_phone || '',
+                google_maps: c.google_maps || '',
+                cover,
+                happyHour: c.happy_hour,
+            };
+        });
+
+    res.json(results);
+});
+
 // GET /api/gcr/specials — public specials feed
 // ============================================
 router.get('/specials', async (req, res) => {
