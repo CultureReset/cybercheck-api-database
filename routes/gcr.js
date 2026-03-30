@@ -1282,15 +1282,26 @@ router.get('/entities', async (req, res) => {
 router.get('/entity/:slug', async (req, res) => {
     const { slug } = req.params;
 
-    // Fetch entity
-    const { data: entity, error: entErr } = await gcrDb
+    // Try exact match first
+    let { data: entity, error: entErr } = await gcrDb
         .from('entity')
         .select('*')
         .eq('slug', slug)
         .eq('is_active', true)
         .single();
 
-    if (entErr || !entity) return res.status(404).json({ error: 'Entity not found' });
+    // If not found, try partial match (slug starts with)
+    if (!entity && entErr) {
+        const { data: entities } = await gcrDb
+            .from('entity')
+            .select('*')
+            .ilike('slug', slug + '%')
+            .eq('is_active', true)
+            .limit(1);
+        if (entities?.length) entity = entities[0];
+    }
+
+    if (!entity) return res.status(404).json({ error: 'Entity not found' });
 
     // Fetch features, perfect_for, tags, sections in parallel
     const [featuresRes, perfectForRes, tagsRes, sectionsRes] = await Promise.all([
