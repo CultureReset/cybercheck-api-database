@@ -1165,7 +1165,8 @@ router.post('/reindex/:slug', async (req, res) => {
 // GCR ENTITY API — New normalized schema (separate Supabase DB)
 // ============================================================
 
-const gcrDb = require('../gcr-db');
+const getGcrDb = require('../gcr-db');
+let gcrDb; try { gcrDb = getGcrDb(); } catch(e) { console.warn('GCR DB not initialized:', e.message); }
 
 // Helper: fetch all content for a section based on its type
 async function fetchSectionContent(section) {

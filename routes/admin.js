@@ -1718,7 +1718,8 @@ router.delete('/businesses/:siteId/events/:itemId', async (req, res) => {
 // GCR ENTITY ADMIN — Full CRUD for new entity/section schema
 // ============================================================
 
-const gcrDb = require('../gcr-db');
+const getGcrDb = require('../gcr-db');
+let gcrDb; try { gcrDb = getGcrDb(); } catch(e) { console.warn('GCR DB not initialized:', e.message); }
 
 // ── Entity CRUD ──────────────────────────────────────────────
 

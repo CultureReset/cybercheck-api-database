@@ -1,8 +1,15 @@
 const { createClient } = require('@supabase/supabase-js');
 
-const gcrSupabase = createClient(
-    process.env.GCR_SUPABASE_URL,
-    process.env.GCR_SUPABASE_KEY
-);
+let _client = null;
 
-module.exports = gcrSupabase;
+function getGcrDb() {
+    if (!_client) {
+        const url = process.env.GCR_SUPABASE_URL;
+        const key = process.env.GCR_SUPABASE_KEY;
+        if (!url || !key) throw new Error('GCR_SUPABASE_URL and GCR_SUPABASE_KEY env vars not set');
+        _client = createClient(url, key);
+    }
+    return _client;
+}
+
+module.exports = getGcrDb;
