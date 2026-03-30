@@ -4,10 +4,9 @@ const supabase = require('../db');
 const router = express.Router();
 
 // ============================================
-// GET /api/gcr/businesses — DISABLED, use /api/gcr/entities
+// GET /api/gcr/businesses — Browse all businesses
 // ============================================
 router.get('/businesses', async (req, res) => {
-    return res.json({ businesses: [], entities: [], total: 0 });
     let query = supabase
         .from('businesses')
         .select(`site_id, name, type, subdomain, domain, logo_url, cover_url, status,
@@ -1252,7 +1251,28 @@ router.get('/entities', async (req, res) => {
 
     const { data, error } = await query;
     if (error) return res.status(500).json({ error: error.message });
-    res.json({ entities: data || [] });
+
+    // Map entity fields to match old business format so pages don't break
+    const mapped = (data || []).map(e => ({
+        ...e,
+        // Old field aliases
+        site_id:      e.id,
+        subdomain:    e.slug,
+        type:         e.entity_subtype,
+        category:     e.entity_subtype,
+        emoji:        e.icon,
+        cover_url:    e.hero_image_url,
+        logo_url:     e.hero_image_url,
+        tagline:      e.subtitle,
+        status:       e.is_active ? 'active' : 'hidden',
+        gcr_listed:   e.is_active,
+        featured:     false,
+        address:      e.address_line_1 || '',
+        priceRange:   e.price_range || '',
+        reviewCount:  e.review_count || 0,
+    }));
+
+    res.json({ entities: mapped, businesses: mapped, total: mapped.length });
 });
 
 // ============================================
