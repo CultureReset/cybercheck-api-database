@@ -1714,5 +1714,377 @@ router.delete('/businesses/:siteId/events/:itemId', async (req, res) => {
     res.json({ success: true });
 });
 
+// ============================================================
+// GCR ENTITY ADMIN — Full CRUD for new entity/section schema
+// ============================================================
+
+const gcrDb = require('../gcr-db');
+
+// ── Entity CRUD ──────────────────────────────────────────────
+
+// GET /api/admin/gcr/entities
+router.get('/gcr/entities', async (req, res) => {
+    const { data, error } = await gcrDb
+        .from('entity')
+        .select('id, slug, name, subtitle, entity_type, entity_subtype, icon, rating, review_count, city, state, is_active, hero_image_url, created_at')
+        .order('name');
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ entities: data || [] });
+});
+
+// POST /api/admin/gcr/entities
+router.post('/gcr/entities', async (req, res) => {
+    const { entity, features, perfect_for, tags } = req.body;
+    if (!entity || !entity.slug || !entity.name) {
+        return res.status(400).json({ error: 'slug and name are required' });
+    }
+
+    const { data: created, error } = await gcrDb.from('entity').insert({ ...entity, is_active: true }).select('id').single();
+    if (error) return res.status(500).json({ error: error.message });
+
+    const entityId = created.id;
+
+    // Insert features, perfect_for, tags if provided
+    if (features?.length) {
+        await gcrDb.from('entity_features').insert(features.map((f, i) => ({ entity_id: entityId, label: f.label || f, sort_order: f.sort_order || i })));
+    }
+    if (perfect_for?.length) {
+        await gcrDb.from('entity_perfect_for').insert(perfect_for.map((p, i) => ({ entity_id: entityId, label: p.label || p, sort_order: p.sort_order || i })));
+    }
+    if (tags?.length) {
+        await gcrDb.from('entity_tags').insert(tags.map((t, i) => ({ entity_id: entityId, tag: t.tag || t, tag_category: t.tag_category || null, sort_order: i })));
+    }
+
+    // Auto-create location + hours sections
+    const defaultSections = [
+        { entity_id: entityId, section_key: 'location', section_label: 'Location', section_type: 'location', sort_order: 99 },
+        { entity_id: entityId, section_key: 'hours', section_label: 'Hours', section_type: 'hours', sort_order: 98 },
+    ];
+    await gcrDb.from('entity_sections').insert(defaultSections);
+
+    res.json({ success: true, id: entityId });
+});
+
+// PUT /api/admin/gcr/entities/:id
+router.put('/gcr/entities/:id', async (req, res) => {
+    const { id } = req.params;
+    const { entity } = req.body;
+    const { error } = await gcrDb.from('entity').update({ ...entity, updated_at: new Date().toISOString() }).eq('id', id);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// DELETE /api/admin/gcr/entities/:id (soft delete)
+router.delete('/gcr/entities/:id', async (req, res) => {
+    const { id } = req.params;
+    const { error } = await gcrDb.from('entity').update({ is_active: false, updated_at: new Date().toISOString() }).eq('id', id);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ── Features / Perfect For / Tags ─────────────────────────────
+
+// POST /api/admin/gcr/entities/:id/features
+router.post('/gcr/entities/:id/features', async (req, res) => {
+    const { id } = req.params;
+    const { label, sort_order } = req.body;
+    const { data, error } = await gcrDb.from('entity_features').insert({ entity_id: id, label, sort_order: sort_order || 0 }).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true, feature: data });
+});
+
+router.delete('/gcr/entities/:id/features/:featureId', async (req, res) => {
+    const { id, featureId } = req.params;
+    const { error } = await gcrDb.from('entity_features').delete().eq('id', featureId).eq('entity_id', id);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// POST /api/admin/gcr/entities/:id/perfect-for
+router.post('/gcr/entities/:id/perfect-for', async (req, res) => {
+    const { id } = req.params;
+    const { label, sort_order } = req.body;
+    const { data, error } = await gcrDb.from('entity_perfect_for').insert({ entity_id: id, label, sort_order: sort_order || 0 }).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true, item: data });
+});
+
+router.delete('/gcr/entities/:id/perfect-for/:itemId', async (req, res) => {
+    const { id, itemId } = req.params;
+    const { error } = await gcrDb.from('entity_perfect_for').delete().eq('id', itemId).eq('entity_id', id);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// POST /api/admin/gcr/entities/:id/tags — Add a tag
+router.post('/gcr/entities/:id/tags', async (req, res) => {
+    const { id } = req.params;
+    const { tag, tag_category } = req.body;
+    if (!tag) return res.status(400).json({ error: 'tag is required' });
+    const { data, error } = await gcrDb.from('entity_tags').insert({ entity_id: id, tag: tag.toLowerCase().trim(), tag_category: tag_category || null }).select().single();
+    if (error && error.code === '23505') return res.status(409).json({ error: 'Tag already exists' });
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true, tag: data });
+});
+
+router.delete('/gcr/entities/:id/tags/:tagId', async (req, res) => {
+    const { id, tagId } = req.params;
+    const { error } = await gcrDb.from('entity_tags').delete().eq('id', tagId).eq('entity_id', id);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ── Sections CRUD ────────────────────────────────────────────
+
+// GET /api/admin/gcr/entities/:id/sections — all sections + content
+router.get('/gcr/entities/:id/sections', async (req, res) => {
+    const { id } = req.params;
+    const { data: sections, error } = await gcrDb
+        .from('entity_sections')
+        .select('id, section_key, section_label, section_type, sort_order')
+        .eq('entity_id', id)
+        .order('sort_order');
+
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ sections: sections || [] });
+});
+
+// POST /api/admin/gcr/entities/:id/sections — add section
+router.post('/gcr/entities/:id/sections', async (req, res) => {
+    const { id } = req.params;
+    const { section_key, section_label, section_type, sort_order } = req.body;
+    const { data, error } = await gcrDb.from('entity_sections').insert({
+        entity_id: id, section_key, section_label, section_type, sort_order: sort_order || 0,
+    }).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true, section: data });
+});
+
+// PUT /api/admin/gcr/entities/:id/sections/:sectionId — update section meta
+router.put('/gcr/entities/:id/sections/:sectionId', async (req, res) => {
+    const { sectionId } = req.params;
+    const { section_label, sort_order } = req.body;
+    const { error } = await gcrDb.from('entity_sections').update({ section_label, sort_order }).eq('id', sectionId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// DELETE /api/admin/gcr/entities/:id/sections/:sectionId
+router.delete('/gcr/entities/:id/sections/:sectionId', async (req, res) => {
+    const { sectionId } = req.params;
+    // Cascade deletes all content rows via FK
+    const { error } = await gcrDb.from('entity_sections').delete().eq('id', sectionId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ── Section Content: Rich Text ────────────────────────────────
+
+// PUT /api/admin/gcr/sections/:sectionId/rich-text
+router.put('/gcr/sections/:sectionId/rich-text', async (req, res) => {
+    const { sectionId } = req.params;
+    const { body_text } = req.body;
+    const { error } = await gcrDb.from('section_rich_text').upsert({ section_id: sectionId, body_text }, { onConflict: 'section_id' });
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ── Section Content: Bullets ──────────────────────────────────
+
+// GET /api/admin/gcr/sections/:sectionId/bullets
+router.get('/gcr/sections/:sectionId/bullets', async (req, res) => {
+    const { sectionId } = req.params;
+    const { data, error } = await gcrDb.from('section_bullets').select('*').eq('section_id', sectionId).order('sort_order');
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ bullets: data || [] });
+});
+
+// POST /api/admin/gcr/sections/:sectionId/bullets
+router.post('/gcr/sections/:sectionId/bullets', async (req, res) => {
+    const { sectionId } = req.params;
+    const { bullet_text, sort_order } = req.body;
+    const { data, error } = await gcrDb.from('section_bullets').insert({ section_id: sectionId, bullet_text, sort_order: sort_order || 0 }).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true, bullet: data });
+});
+
+// PUT /api/admin/gcr/sections/:sectionId/bullets/:bulletId
+router.put('/gcr/sections/:sectionId/bullets/:bulletId', async (req, res) => {
+    const { bulletId } = req.params;
+    const { bullet_text, sort_order } = req.body;
+    const { error } = await gcrDb.from('section_bullets').update({ bullet_text, sort_order }).eq('id', bulletId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+router.delete('/gcr/sections/:sectionId/bullets/:bulletId', async (req, res) => {
+    const { bulletId } = req.params;
+    const { error } = await gcrDb.from('section_bullets').delete().eq('id', bulletId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ── Section Content: Groups + Items ──────────────────────────
+
+// GET /api/admin/gcr/sections/:sectionId/groups
+router.get('/gcr/sections/:sectionId/groups', async (req, res) => {
+    const { sectionId } = req.params;
+    const [groupsRes, itemsRes] = await Promise.all([
+        gcrDb.from('section_groups').select('*').eq('section_id', sectionId).order('sort_order'),
+        gcrDb.from('section_items').select('*').eq('section_id', sectionId).order('sort_order'),
+    ]);
+    const groups = (groupsRes.data || []).map(g => ({
+        ...g,
+        items: (itemsRes.data || []).filter(i => i.group_id === g.id),
+    }));
+    res.json({ groups, ungrouped: (itemsRes.data || []).filter(i => !i.group_id) });
+});
+
+// POST /api/admin/gcr/sections/:sectionId/groups
+router.post('/gcr/sections/:sectionId/groups', async (req, res) => {
+    const { sectionId } = req.params;
+    const { title, subtitle, note_text, sort_order } = req.body;
+    const { data, error } = await gcrDb.from('section_groups').insert({ section_id: sectionId, title, subtitle, note_text, sort_order: sort_order || 0 }).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true, group: data });
+});
+
+// PUT /api/admin/gcr/sections/:sectionId/groups/:groupId
+router.put('/gcr/sections/:sectionId/groups/:groupId', async (req, res) => {
+    const { groupId } = req.params;
+    const { title, subtitle, note_text, sort_order } = req.body;
+    const { error } = await gcrDb.from('section_groups').update({ title, subtitle, note_text, sort_order }).eq('id', groupId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+router.delete('/gcr/sections/:sectionId/groups/:groupId', async (req, res) => {
+    const { groupId } = req.params;
+    const { error } = await gcrDb.from('section_groups').delete().eq('id', groupId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// POST /api/admin/gcr/sections/:sectionId/items
+router.post('/gcr/sections/:sectionId/items', async (req, res) => {
+    const { sectionId } = req.params;
+    const item = { ...req.body, section_id: sectionId };
+    const { data, error } = await gcrDb.from('section_items').insert(item).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true, item: data });
+});
+
+// PUT /api/admin/gcr/sections/:sectionId/items/:itemId
+router.put('/gcr/sections/:sectionId/items/:itemId', async (req, res) => {
+    const { itemId } = req.params;
+    const { error } = await gcrDb.from('section_items').update(req.body).eq('id', itemId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+router.delete('/gcr/sections/:sectionId/items/:itemId', async (req, res) => {
+    const { itemId } = req.params;
+    const { error } = await gcrDb.from('section_items').delete().eq('id', itemId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ── Section Content: Cards ────────────────────────────────────
+
+router.get('/gcr/sections/:sectionId/cards', async (req, res) => {
+    const { sectionId } = req.params;
+    const { data, error } = await gcrDb.from('section_cards').select('*').eq('section_id', sectionId).order('sort_order');
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ cards: data || [] });
+});
+
+router.post('/gcr/sections/:sectionId/cards', async (req, res) => {
+    const { sectionId } = req.params;
+    const { data, error } = await gcrDb.from('section_cards').insert({ ...req.body, section_id: sectionId }).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true, card: data });
+});
+
+router.put('/gcr/sections/:sectionId/cards/:cardId', async (req, res) => {
+    const { cardId } = req.params;
+    const { error } = await gcrDb.from('section_cards').update(req.body).eq('id', cardId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+router.delete('/gcr/sections/:sectionId/cards/:cardId', async (req, res) => {
+    const { cardId } = req.params;
+    const { error } = await gcrDb.from('section_cards').delete().eq('id', cardId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ── Section Content: Photos ───────────────────────────────────
+
+router.get('/gcr/sections/:sectionId/photos', async (req, res) => {
+    const { sectionId } = req.params;
+    const { data, error } = await gcrDb.from('section_photos').select('*').eq('section_id', sectionId).order('sort_order');
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ photos: data || [] });
+});
+
+router.post('/gcr/sections/:sectionId/photos', async (req, res) => {
+    const { sectionId } = req.params;
+    const { image_url, caption, alt_text, sort_order } = req.body;
+    if (!image_url) return res.status(400).json({ error: 'image_url required' });
+    const { data, error } = await gcrDb.from('section_photos').insert({ section_id: sectionId, image_url, caption, alt_text, sort_order: sort_order || 0 }).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true, photo: data });
+});
+
+router.delete('/gcr/sections/:sectionId/photos/:photoId', async (req, res) => {
+    const { photoId } = req.params;
+    const { error } = await gcrDb.from('section_photos').delete().eq('id', photoId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ── Section Content: Location ─────────────────────────────────
+
+router.put('/gcr/sections/:sectionId/location', async (req, res) => {
+    const { sectionId } = req.params;
+    const { error } = await gcrDb.from('section_location').upsert({ ...req.body, section_id: sectionId }, { onConflict: 'section_id' });
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ── Image Upload ──────────────────────────────────────────────
+// POST /api/admin/gcr/upload-image — upload file to Supabase Storage, return public URL
+// Also supports adding image via URL directly to a section's photos
+
+const multer = require('multer');
+const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 10 * 1024 * 1024 } });
+
+router.post('/gcr/upload-image', upload.single('file'), async (req, res) => {
+    if (!req.file) return res.status(400).json({ error: 'No file provided' });
+    const ext = req.file.originalname.split('.').pop().toLowerCase();
+    const fileName = `gcr/${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
+    const { data, error } = await gcrDb.storage.from('entity-media').upload(fileName, req.file.buffer, { contentType: req.file.mimetype, upsert: false });
+    if (error) return res.status(500).json({ error: error.message });
+    const { data: { publicUrl } } = gcrDb.storage.from('entity-media').getPublicUrl(fileName);
+    res.json({ success: true, url: publicUrl });
+});
+
+// ── Section Content: Hours ────────────────────────────────────
+
+// PUT /api/admin/gcr/sections/:sectionId/hours — replace all hours rows
+router.put('/gcr/sections/:sectionId/hours', async (req, res) => {
+    const { sectionId } = req.params;
+    const { hours } = req.body; // array of { day_of_week, open_time, close_time, is_closed, note_text }
+    if (!Array.isArray(hours)) return res.status(400).json({ error: 'hours must be an array' });
+
+    await gcrDb.from('section_hours').delete().eq('section_id', sectionId);
+
+    const rows = hours.map((h, i) => ({ section_id: sectionId, day_of_week: h.day_of_week, open_time: h.open_time || null, close_time: h.close_time || null, is_closed: h.is_closed || false, note_text: h.note_text || null, sort_order: i }));
+    const { error } = await gcrDb.from('section_hours').insert(rows);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
 module.exports = router;
 

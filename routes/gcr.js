@@ -1161,4 +1161,134 @@ router.post('/reindex/:slug', async (req, res) => {
     res.json({ success: true, slug, chunks_indexed: indexed, chunks_total: chunks.length });
 });
 
+// ============================================================
+// GCR ENTITY API — New normalized schema (separate Supabase DB)
+// ============================================================
+
+const gcrDb = require('../gcr-db');
+
+// Helper: fetch all content for a section based on its type
+async function fetchSectionContent(section) {
+    const sid = section.id;
+    const type = section.section_type;
+
+    if (type === 'rich_text') {
+        const { data } = await gcrDb.from('section_rich_text').select('body_text').eq('section_id', sid).single();
+        return { ...section, content: data };
+    }
+
+    if (type === 'bullets') {
+        const { data } = await gcrDb.from('section_bullets').select('id, bullet_text, sort_order').eq('section_id', sid).order('sort_order');
+        return { ...section, bullets: data || [] };
+    }
+
+    if (type === 'grouped_items') {
+        const { data: groups } = await gcrDb.from('section_groups').select('id, title, subtitle, note_text, sort_order').eq('section_id', sid).order('sort_order');
+        const { data: items } = await gcrDb.from('section_items').select('id, group_id, item_name, item_description, price_label, price_text, price_numeric, price_min, price_max, unit_label, item_type, sort_order').eq('section_id', sid).order('sort_order');
+
+        const groupsWithItems = (groups || []).map(g => ({
+            ...g,
+            items: (items || []).filter(i => i.group_id === g.id),
+        }));
+        // Items with no group
+        const ungrouped = (items || []).filter(i => !i.group_id);
+        return { ...section, groups: groupsWithItems, ungrouped_items: ungrouped };
+    }
+
+    if (type === 'cards') {
+        const { data } = await gcrDb.from('section_cards').select('id, title, subtitle, description, badge_text, price_text, image_url, link_url, sort_order').eq('section_id', sid).order('sort_order');
+        return { ...section, cards: data || [] };
+    }
+
+    if (type === 'gallery') {
+        const { data } = await gcrDb.from('section_photos').select('id, image_url, caption, alt_text, sort_order').eq('section_id', sid).order('sort_order');
+        return { ...section, photos: data || [] };
+    }
+
+    if (type === 'reviews') {
+        const { data } = await gcrDb.from('section_reviews').select('id, author_name, rating, review_text, review_date, source, sort_order').eq('section_id', sid).order('sort_order');
+        return { ...section, reviews: data || [] };
+    }
+
+    if (type === 'hours') {
+        const { data } = await gcrDb.from('section_hours').select('id, day_of_week, open_time, close_time, is_closed, note_text, sort_order').eq('section_id', sid).order('sort_order');
+        return { ...section, hours: data || [] };
+    }
+
+    if (type === 'location') {
+        const { data } = await gcrDb.from('section_location').select('*').eq('section_id', sid).single();
+        return { ...section, location: data };
+    }
+
+    return section;
+}
+
+// ============================================
+// GET /api/gcr/entities — List all GCR entities
+// ============================================
+router.get('/entities', async (req, res) => {
+    let query = gcrDb
+        .from('entity')
+        .select('id, slug, name, subtitle, entity_type, entity_subtype, icon, phone, rating, review_count, city, state, hero_image_url, is_active')
+        .eq('is_active', true)
+        .order('name');
+
+    if (req.query.subtype) query = query.eq('entity_subtype', req.query.subtype);
+    if (req.query.city)    query = query.ilike('city', `%${req.query.city}%`);
+    if (req.query.search)  query = query.ilike('name', `%${req.query.search}%`);
+
+    // Tag-based filtering — if ?tag=happy_hour, return only entities with that tag
+    if (req.query.tag) {
+        const { data: tagMatches } = await gcrDb
+            .from('entity_tags')
+            .select('entity_id')
+            .ilike('tag', `%${req.query.tag}%`);
+        const ids = (tagMatches || []).map(t => t.entity_id);
+        if (ids.length) query = query.in('id', ids);
+        else return res.json({ entities: [] });
+    }
+
+    const { data, error } = await query;
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ entities: data || [] });
+});
+
+// ============================================
+// GET /api/gcr/entity/:slug — Full entity profile
+// Returns entity + features + perfect_for + tags + all sections with content
+// ============================================
+router.get('/entity/:slug', async (req, res) => {
+    const { slug } = req.params;
+
+    // Fetch entity
+    const { data: entity, error: entErr } = await gcrDb
+        .from('entity')
+        .select('*')
+        .eq('slug', slug)
+        .eq('is_active', true)
+        .single();
+
+    if (entErr || !entity) return res.status(404).json({ error: 'Entity not found' });
+
+    // Fetch features, perfect_for, tags, sections in parallel
+    const [featuresRes, perfectForRes, tagsRes, sectionsRes] = await Promise.all([
+        gcrDb.from('entity_features').select('id, label, sort_order').eq('entity_id', entity.id).order('sort_order'),
+        gcrDb.from('entity_perfect_for').select('id, label, sort_order').eq('entity_id', entity.id).order('sort_order'),
+        gcrDb.from('entity_tags').select('id, tag, tag_category, sort_order').eq('entity_id', entity.id).order('sort_order'),
+        gcrDb.from('entity_sections').select('id, section_key, section_label, section_type, sort_order').eq('entity_id', entity.id).order('sort_order'),
+    ]);
+
+    // Fetch content for each section
+    const sections = sectionsRes.data || [];
+    const sectionsWithContent = await Promise.all(sections.map(sec => fetchSectionContent(sec)));
+
+    res.json({
+        entity,
+        features:    featuresRes.data   || [],
+        perfect_for: perfectForRes.data || [],
+        tags:        tagsRes.data       || [],
+        sections:    sectionsWithContent,
+    });
+});
+
 module.exports = router;
