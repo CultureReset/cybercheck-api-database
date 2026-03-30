@@ -1,0 +1,99 @@
+{
+  "business_name": "BoloRestaurant.com",
+  "tagline": null,
+  "type": "Online Casino",
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": null,
+    "city": null,
+    "state": null,
+    "zip": null
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": "7/24 customer support available"
+  },
+  "about": {
+    "description": "This website is not a restaurant. The domain bolorestaurant.com contains content for 7Slots online casino platform, featuring slot games, table games, Bonanza games, and various promotional offers.",
+    "elevator_pitch": "7Slots is an online casino platform offering slot machines, table games, and Bonanza games with bonuses and 24/7 customer support.",
+    "vibe": "Online gambling platform with entertainment focus",
+    "best_for": [],
+    "established": null,
+    "reservations": null,
+    "insider_tip": "Platform offers welcome bonuses that double first deposits and provides mobile access for gaming from anywhere"
+  },
+  "tags": [
+    "online casino",
+    "slots",
+    "gambling",
+    "bonuses",
+    "gaming platform"
+  ],
+  "features": [
+    "Mobile gaming",
+    "24/7 customer support",
+    "Multiple payment methods",
+    "Two-factor authentication",
+    "SSL encryption",
+    "Free spins",
+    "Bonus tournaments",
+    "Live chat support",
+    "Multi-language support"
+  ],
+  "price_range": null,
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://www.bolorestaurant.com"
+  },
+  "specials": [
+    {
+      "name": "Welcome Bonus",
+      "description": "Double your first deposit (100% match bonus)",
+      "days": [],
+      "time": null
+    },
+    {
+      "name": "Deposit Bonus",
+      "description": "Extra percentage return on specific deposits",
+      "days": [],
+      "time": null
+    },
+    {
+      "name": "Free Spins",
+      "description": "Complimentary spins on slot games",
+      "days": [],
+      "time": null
+    }
+  ],
+  "events": [
+    {
+      "name": "Special Tournaments",
+      "description": "Regular casino tournaments with extra winning opportunities",
+      "recurring": true,
+      "day": null,
+      "time": null
+    }
+  ],
+  "menu": null,
+  "note": "This domain appears to be domain hijacked or misused - bolorestaurant.com is hosting online casino content rather than restaurant information. No restaurant data is available.",
+  "url": "https://www.bolorestaurant.com",
+  "scraped_at": "2026-03-21T19:23:27.973Z",
+  "extracted_at": "2026-03-23T03:32:38.694Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://bolorestaurant.com/7slots-casino.jpg",
+    "https://bolorestaurant.com/slot-oyunlari.png",
+    "https://bolorestaurant.com/guvenli-para-yatirma-ve-cekme-yontemleri.jpg"
+  ],
+  "sources": [
+    "https://www.bolorestaurant.com"
+  ]
+}

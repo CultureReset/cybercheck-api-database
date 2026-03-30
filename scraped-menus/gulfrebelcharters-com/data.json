@@ -1,0 +1,463 @@
+{
+  "business_name": "Gulf Rebel Charters",
+  "tagline": "Fishing for over 60 years off the Alabama Gulf Coast",
+  "type": "Fishing Charter",
+  "contact": {
+    "phone": "(251) 981-3119",
+    "email": "gulfrebel@yahoo.com",
+    "address": "4680 Burkart Lane",
+    "city": "Orange Beach",
+    "state": "AL",
+    "zip": "36561"
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": "Red Snapper trips available 7 days a week during season. Departure times vary and custom trips available."
+  },
+  "about": {
+    "description": "Family-owned and operated charter business in Orange Beach, Alabama with over 60 years of fishing experience. Offers family-friendly half-day, full-day, and overnight charter trips with custom options available. Built and maintained private reefs for over 50 years.",
+    "elevator_pitch": "Gulf Rebel Charters is a family-owned offshore fishing charter company in Orange Beach, Alabama offering Red Snapper, Tuna, Wahoo, and specialty fishing trips with over 60 years of experience.",
+    "vibe": "Professional, family-friendly, experienced, accommodating to all skill levels",
+    "best_for": [
+      "families",
+      "groups",
+      "sports teams",
+      "corporate retreats",
+      "family reunions",
+      "kids",
+      "large parties"
+    ],
+    "capacity": "6+ persons per boat depending on vessel",
+    "duration_options": [
+      "6 hours",
+      "8 hours",
+      "10 hours",
+      "12 hours",
+      "24 hours",
+      "36 hours",
+      "half day",
+      "full day",
+      "overnight"
+    ],
+    "departure_location": "4680 Burkart Lane, Orange Beach, AL 36561",
+    "what_provided": [
+      "fishing rods",
+      "bait",
+      "private reef access",
+      "live bait",
+      "Big Green Egg grill",
+      "air conditioning"
+    ],
+    "what_to_bring": [
+      "sunscreen",
+      "cooler",
+      "appropriate clothing"
+    ],
+    "age_restriction": null,
+    "weight_restriction": null,
+    "reservations": "Recommended - trips book up fast, especially Red Snapper season",
+    "cancellation_policy": null,
+    "insider_tip": "Red Snapper trips book up very quickly. Red Snapper season typically runs June 1st through late September. Private reefs maintained for 50+ years make finding fish reliable."
+  },
+  "tags": [
+    "fishing",
+    "offshore fishing",
+    "deep sea fishing",
+    "red snapper",
+    "tuna",
+    "wahoo",
+    "amberjack",
+    "grouper",
+    "family fun",
+    "charter",
+    "Alabama",
+    "Gulf Coast",
+    "private reefs",
+    "shrimping",
+    "bottom fishing",
+    "pelagic fish"
+  ],
+  "features": [
+    "private reefs",
+    "family-friendly",
+    "accommodates large groups",
+    "custom trip planning",
+    "live bait available",
+    "Big Green Egg grill on board",
+    "air conditioning",
+    "multiple vessel options",
+    "experienced crew",
+    "professional operation"
+  ],
+  "social_links": {
+    "instagram": "Gulf Rebel Charters",
+    "facebook": null,
+    "tripadvisor": null,
+    "website": "https://www.gulfrebelcharters.com",
+    "tiktok": "Gulf Rebel Charters"
+  },
+  "specials": [
+    {
+      "name": "2026 Season Open",
+      "description": "Triggerfish, Vermilion Snapper, Grouper, Reef Fish & Pelagics are wide open. Red Snapper season expected to open late May, traditionally June 1st through late September.",
+      "days": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "time": null
+    },
+    {
+      "name": "Red Snapper Season",
+      "description": "7 days a week fishing available during Federal Red Snapper season",
+      "days": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "time": null
+    }
+  ],
+  "events": [
+    {
+      "name": "AGC Bonanza Fishing Tournament",
+      "description": "Participated in tournament with successful catch results"
+    }
+  ],
+  "packages": [
+    {
+      "name": "Red Snapper Fishing Trip - 6 Hour",
+      "type": "fishing",
+      "description": "Red Snapper fishing trip on private reefs, available 7 days a week during season",
+      "duration": "6 hours",
+      "price": null,
+      "price_type": null,
+      "price_note": "Contact for pricing",
+      "min_people": 1,
+      "max_people": null,
+      "what_included": [
+        "fishing rods",
+        "bait",
+        "access to private reefs",
+        "experienced crew"
+      ],
+      "departure_times": [],
+      "days_available": "7 days a week (June 1st - late September)",
+      "booking_url": null,
+      "notes": "Federal Red Snapper season starts June 1st, 2025. Trips book up fast."
+    },
+    {
+      "name": "Red Snapper Fishing Trip - 8 Hour",
+      "type": "fishing",
+      "description": "Red Snapper fishing trip on private reefs, available 7 days a week during season",
+      "duration": "8 hours",
+      "price": null,
+      "price_type": null,
+      "price_note": "Contact for pricing",
+      "min_people": 1,
+      "max_people": null,
+      "what_included": [
+        "fishing rods",
+        "bait",
+        "access to private reefs",
+        "experienced crew"
+      ],
+      "departure_times": [],
+      "days_available": "7 days a week (June 1st - late September)",
+      "booking_url": null,
+      "notes": "Federal Red Snapper season starts June 1st, 2025."
+    },
+    {
+      "name": "Red Snapper Fishing Trip - 10 Hour",
+      "type": "fishing",
+      "description": "Red Snapper fishing trip on private reefs, available 7 days a week during season",
+      "duration": "10 hours",
+      "price": null,
+      "price_type": null,
+      "price_note": "Contact for pricing",
+      "min_people": 1,
+      "max_people": null,
+      "what_included": [
+        "fishing rods",
+        "bait",
+        "access to private reefs",
+        "experienced crew"
+      ],
+      "departure_times": [],
+      "days_available": "7 days a week (June 1st - late September)",
+      "booking_url": null,
+      "notes": "Federal Red Snapper season starts June 1st, 2025."
+    },
+    {
+      "name": "Red Snapper Fishing Trip - 12 Hour",
+      "type": "fishing",
+      "description": "Red Snapper fishing trip on private reefs, available 7 days a week during season",
+      "duration": "12 hours",
+      "price": null,
+      "price_type": null,
+      "price_note": "Contact for pricing",
+      "min_people": 1,
+      "max_people": null,
+      "what_included": [
+        "fishing rods",
+        "bait",
+        "access to private reefs",
+        "experienced crew"
+      ],
+      "departure_times": [],
+      "days_available": "7 days a week (June 1st - late September)",
+      "booking_url": null,
+      "notes": "Federal Red Snapper season starts June 1st, 2025."
+    },
+    {
+      "name": "Half Day Fishing Charter",
+      "type": "fishing",
+      "description": "Family-friendly half-day charter trips for various species including Red Snapper, Wahoo, Tuna, and Grouper",
+      "duration": "varies",
+      "price": null,
+      "price_type": null,
+      "price_note": "Contact for pricing",
+      "min_people": 1,
+      "max_people": null,
+      "what_included": [
+        "fishing rods",
+        "bait",
+        "experienced crew"
+      ],
+      "departure_times": [
+        "Varies - custom times available"
+      ],
+      "days_available": "Year-round (species vary by season)",
+      "booking_url": null,
+      "notes": "Custom departure times available"
+    },
+    {
+      "name": "Full Day Fishing Charter",
+      "type": "fishing",
+      "description": "Full-day offshore fishing charter for large groups and families",
+      "duration": "full day",
+      "price": null,
+      "price_type": null,
+      "price_note": "Contact for pricing",
+      "min_people": 1,
+      "max_people": null,
+      "what_included": [
+        "fishing rods",
+        "bait",
+        "experienced crew",
+        "Big Green Egg grill",
+        "air conditioning"
+      ],
+      "departure_times": [
+        "Varies - custom times available"
+      ],
+      "days_available": "Year-round",
+      "booking_url": null,
+      "notes": "Great for sports teams, corporate retreats, family reunions. Custom trips available."
+    },
+    {
+      "name": "Overnight Fishing Charter",
+      "type": "fishing",
+      "description": "Extended overnight fishing charter for dedicated anglers",
+      "duration": "24+ hours",
+      "price": null,
+      "price_type": null,
+      "price_note": "Contact for pricing",
+      "min_people": 1,
+      "max_people": null,
+      "what_included": [
+        "fishing rods",
+        "bait",
+        "experienced crew"
+      ],
+      "departure_times": [
+        "Varies - custom times available"
+      ],
+      "days_available": "Year-round",
+      "booking_url": null,
+      "notes": "Extended trips available including 24-hour and 36-hour options"
+    },
+    {
+      "name": "Tuna Fishing Trip",
+      "type": "fishing",
+      "description": "Offshore tuna fishing trips for Yellowfin, Blackfin, and Big Eye Tuna",
+      "duration": "full day to overnight",
+      "price": null,
+      "price_type": null,
+      "price_note": "Contact for pricing",
+      "min_people": 1,
+      "max_people": null,
+      "what_included": [
+        "fishing rods",
+        "bait",
+        "experienced crew"
+      ],
+      "departure_times": [
+        "Varies"
+      ],
+      "days_available": "Seasonal",
+      "booking_url": null,
+      "notes": "Noted catches include Yellowfin up to 150+ lbs and large Blackfin schools"
+    },
+    {
+      "name": "Wahoo Fishing Trip",
+      "type": "fishing",
+      "description": "Offshore fishing for Wahoo and mixed pelagic species",
+      "duration": "varies",
+      "price": null,
+      "price_type": null,
+      "price_note": "Contact for pricing",
+      "min_people": 1,
+      "max_people": null,
+      "what_included": [
+        "fishing rods",
+        "bait",
+        "experienced crew"
+      ],
+      "departure_times": [
+        "Varies"
+      ],
+      "days_available": "Year-round",
+      "booking_url": null,
+      "notes": "Wahoo reach speeds up to 60 mph. Fun topwater popper fishing available."
+    },
+    {
+      "name": "Deep Drop Fishing Trip",
+      "type": "fishing",
+      "description": "Deep water fishing trips targeting deep sea species like Grouper",
+      "duration": "varies",
+      "price": null,
+      "price_type": null,
+      "price_note": "Contact for pricing",
+      "min_people": 1,
+      "max_people": null,
+      "what_included": [
+        "fishing rods",
+        "bait",
+        "experienced crew"
+      ],
+      "departure_times": [
+        "Varies"
+      ],
+      "days_available": "Seasonal",
+      "booking_url": null,
+      "notes": null
+    },
+    {
+      "name": "Nearshore/Inshore Fishing - 24' Blazer Bay",
+      "type": "fishing",
+      "description": "Nearshore and inshore fishing trips on smaller boat for 6 persons or less",
+      "duration": "varies",
+      "price": null,
+      "price_type": null,
+      "price_note": "Contact for pricing",
+      "min_people": 1,
+      "max_people": 6,
+      "what_included": [
+        "fishing rods",
+        "bait",
+        "experienced crew"
+      ],
+      "departure_times": [
+        "Varies"
+      ],
+      "days_available": "Year-round",
+      "booking_url": null,
+      "notes": "Recently put into service. Good for shorter trips and smaller groups."
+    },
+    {
+      "name": "Shrimping Trip",
+      "type": "fishing",
+      "description": "Fresh shrimp harvesting trips",
+      "duration": "varies",
+      "price": null,
+      "price_type": null,
+      "price_note": "Contact for pricing",
+      "min_people": 1,
+      "max_people": null,
+      "what_included": [
+        "shrimping equipment",
+        "experienced crew"
+      ],
+      "departure_times": [
+        "Varies"
+      ],
+      "days_available": "Seasonal",
+      "booking_url": null,
+      "notes": "Fresh shrimp available for purchase on the dock"
+    },
+    {
+      "name": "Custom Charter Trip",
+      "type": "fishing",
+      "description": "Fully customizable charter trips built to suit specific group needs",
+      "duration": "custom",
+      "price": null,
+      "price_type": null,
+      "price_note": "Contact for pricing",
+      "min_people": 1,
+      "max_people": null,
+      "what_included": [
+        "fishing rods",
+        "bait",
+        "experienced crew"
+      ],
+      "departure_times": [
+        "Custom times available"
+      ],
+      "days_available": "Year-round",
+      "booking_url": null,
+      "notes": "Gulf Rebel will build custom trips to suit your specific needs and preferences"
+    },
+    {
+      "name": "Burial At Sea Trips",
+      "type": "other",
+      "description": "Specialized service for burial at sea ceremonies",
+      "duration": "varies",
+      "price": null,
+      "price_type": null,
+      "price_note": "Contact for pricing",
+      "min_people": null,
+      "max_people": null,
+      "what_included": [
+        "boat charter",
+        "experienced crew"
+      ],
+      "departure_times": [
+        "Custom"
+      ],
+      "days_available": "By arrangement",
+      "booking_url": null,
+      "notes": "Specialized service - contact for details"
+    }
+  ],
+  "url": "https://www.gulfrebelcharters.com",
+  "scraped_at": "2026-03-21T19:50:43.430Z",
+  "extracted_at": "2026-03-23T03:45:21.146Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://lirp.cdn-website.com/c650fa71/dms3rep/multi/opt/Gulf+Rebel-1920w.png",
+    "https://lirp.cdn-website.com/c650fa71/dms3rep/multi/opt/snapper-2021-1920w.jpg",
+    "https://lirp.cdn-website.com/c650fa71/dms3rep/multi/opt/img-9-1920w.jpg",
+    "https://irt-cdn.multiscreensite.com/814abcedccf84126a35f142e1bed0cb9/dms3rep/multi/desktop/WHITE-BACKGROUND-2100x1500.jpg",
+    "https://lirp.cdn-website.com/c650fa71/dms3rep/multi/opt/Gulf+Rebel-392w.png",
+    "https://lirp.cdn-website.com/c650fa71/dms3rep/multi/opt/Gulf+Rebel-338w.png"
+  ],
+  "sources": [
+    "https://www.gulfrebelcharters.com",
+    "https://www.gulfrebelcharters.com/contact"
+  ]
+}

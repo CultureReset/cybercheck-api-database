@@ -1,0 +1,442 @@
+{
+  "business_name": "cobaltrestaurant.net",
+  "url": "https://cobaltrestaurant.net",
+  "scraped_at": "2026-03-21T19:26:20.607Z",
+  "pages": [
+    {
+      "url": "https://cobaltrestaurant.net",
+      "title": "Home - Cobalt, The Restaurant",
+      "text": "Skip to content\n\n\t\n \n \n \n \n \n \n \n \n\n\t\n \n \n\n \n \n\n \n \n \n \n \n \n \n \n\n \n \n Search for:\n \n \n \n \n \n \n\n \n \n\n \n \n HomeMenuMain RestaurantCobalt Cabana at Caribe ResortHappy HourLive Music & EventsCateringAboutMeet the TeamCheck Us OutHealth and SafetyContact\t\n \n \n \n \n \n\nHomeMenuMain RestaurantCobalt Cabana at Caribe ResortHappy HourLive Music & EventsCateringAboutMeet the TeamCheck Us OutHealth and SafetyContact\n\n \n\n \n \n \n \n \n \n \n \n \n \n\t\n \n \n \n\n COBALT THE RESTAURANT\n\n \n \n \n\n \n \n \n\t\n\n \n \n\n \n Homedhonsvick2026-03-02T17:12:32+00:00 \n Welcome to Cobalt the Restaurant\nCome experience contemporary coastal cuisine at its best. Cobalt the Restaurant, located in Orange Beach, features authentic dishes crafted by renowned chefs in three distinct kitchens. Nestled under the Perdido Pass Bridge, next to Caribe Resort, patrons can enjoy a spectacular view of the bay from every table.\nFor those who wish to approach by water, there are numerous boat slips available for small boats as well as medium-sized yachts. However you choose to arrive, Cobalt offers a casual and relaxing atmosphere with waterfront dining, live music, and superior service.\nOpen daily for lunch and dinner.\nContemporary Coastal Cuisine\n\nDine with Us!\nOur extensive menus, combined with our waterfront dining experience, offer a variety of options and have something for everyone. Why not start with our BBQ Gulf Shrimp or Crab and Shrimp Dip? Next, try one of our specialties like Gulf Shrimp and Grits, Pecan Catfish or Bronze Gulf Grouper. Don’t forget desserts – we have several mouthwatering ones to choose from!\n\nHappy Hour\nWe have the best on the Island! Our Happy Hour is served daily from 3 p.m. to 5 p.m. and features specials on draft beer, house wines and awesome appetizers. Savor our Cobalt Caviar, a refreshing blend of black beans, edamame, corn, red onion, Roma tomatoes, and cilantro tossed in a light vinaigrette and served with corn tortilla chips or our Firecracker Shrimp, lightly dusted, fried, and tossed in spicy remoulade sauce. We’ll see you on the patio!\n\nREAD OUR MENUALABAMA COASTAL CATERING\nHOST YOUR EVENTOUR FAMILY\n\n \n \n\t\n \n \n \n \n \n \n \n \n \n\t\n \n \n \n \n Get Social\n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n CONTACT INFO\n\nAddress: 28099 Perdido Beach Blvd, Orange Beach, AL 36561\nPhone: 251-923-5300\nMailing Address: P.O. Box 1215, Orange Beach AL 36561\n\n Hours\nSunday – Thursday 11 a.m. to 9:30 p.m.\nFriday – Saturday 11 a.m. to 10:00 p.m\nSunday Brunch 11 a.m. to 2:00 p.m\n\n \n \n Menu Home Menu Main Restaurant Cobalt Cabana at Caribe Resort Happy Hour Live Music & Events Catering About Meet the Team Check Us Out Health and Safety Contact \n \n \n \n \n \n\n \n\n \n \n \n Page load link\n\n \n \n\n \n \n\n \n \n Go to Top",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebSite",
+              "@id": "https://cobaltrestaurant.net/#website",
+              "url": "https://cobaltrestaurant.net/",
+              "name": "Cobalt, The Restaurant",
+              "description": "Unlike Any Other",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://cobaltrestaurant.net/?s={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://cobaltrestaurant.net/#webpage",
+              "url": "https://cobaltrestaurant.net/",
+              "inLanguage": "en-US",
+              "name": "Home - Cobalt, The Restaurant",
+              "isPartOf": {
+                "@id": "https://cobaltrestaurant.net/#website"
+              },
+              "datePublished": "2019-01-03T17:59:39+00:00",
+              "dateModified": "2026-03-02T17:12:32+00:00"
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "robots": "max-snippet:-1, max-image-preview:large, max-video-preview:-1",
+        "og:locale": "en_US",
+        "og:type": "website",
+        "og:title": "Home - Cobalt, The Restaurant",
+        "og:url": "https://cobaltrestaurant.net/",
+        "og:site_name": "Cobalt, The Restaurant",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Home - Cobalt, The Restaurant",
+        "description": "Welcome to Cobalt the Restaurant\nCome experience contemporary coastal cuisine at its best. Cobalt the Restaurant, located in Orange Beach, features authentic dishes crafted by renowned chefs in three distinct kitchens. Nestled under the Perdido Pass Bridge, next to Caribe Resort, patrons can enjoy a spectacular view",
+        "og:description": "Welcome to Cobalt the Restaurant\nCome experience contemporary coastal cuisine at its best. Cobalt the Restaurant, located in Orange Beach, features authentic dishes crafted by renowned chefs in three distinct kitchens. Nestled under the Perdido Pass Bridge, next to Caribe Resort, patrons can enjoy a spectacular view",
+        "og:image": "https://cobaltrestaurant.net/wp-content/uploads/2019/01/cobalt_small.png",
+        "og:image:width": "200",
+        "og:image:height": "94",
+        "og:image:type": "image/png",
+        "generator": "WordPress 6.5.8",
+        "p:domain_verify": "958899ad9c5918b3d6fd89415dbb84d0"
+      }
+    },
+    {
+      "url": "https://cobaltrestaurant.net/live-music-events",
+      "title": "Live Music & Events - Cobalt, The Restaurant",
+      "text": "Skip to content\n\n\t\n \n \n \n \n \n \n \n \n\n\t\n \n \n\n \n \n\n \n \n \n \n \n \n \n \n\n \n \n Search for:\n \n \n \n \n \n \n\n \n \n\n \n \n HomeMenuMain RestaurantCobalt Cabana at Caribe ResortHappy HourLive Music & EventsCateringAboutMeet the TeamCheck Us OutHealth and SafetyContact\t\n \n \n \n \n \n\nHomeMenuMain RestaurantCobalt Cabana at Caribe ResortHappy HourLive Music & EventsCateringAboutMeet the TeamCheck Us OutHealth and SafetyContact\n\n \n\n \n \n \n \n \n \n \n \n \n \n\t\n \n \n \n\n LIVE MUSIC & EVENTS\n\n \n \n \n\n \n \n \n\t\n\n \n \n\n \n Live Music & EventsMiriam Baker2026-03-19T14:30:17+00:00 \n Join us for our Easter Sunday Brunch Buffett!Reservations are suggested! Our patio will be open for walk-ins weather permitting.\nEaster Brunch Buffet Menu:\nPrime Rib\nOmelet Bar\nEggs Benedict\nCaramelized Fennel and Leek Strata\nHam and Sundried Tomato Strata\nRoasted Pork Tenderloin topped with Sautéed Lemon Kale, Spiced Pecans, and Pesto Aioli\nColcannon Mashed Potatoes\nFrench Toast\nBlackened Mahi topped with Spinach Florentine\nCreamy Roasted Red Bell Pepper Baked Orzo\nRatatouille over Herb Pilaf\nShrimp Gravy\nGrits\nHoney-Glazed Carrots\nFruit Salad\nGarden Salad\nMacaroni Salad\nElote Salad\nAssorted cookies\nAmbrosia\nCrème Brûlée\nBrownies\nBlackberry Cobbler\nKey Lime Tarts\nLemon Bars\nLive MusicOur live music will begin in March of 2026. We will continue to have live music for Sunday Brunch from 11 a.m. to 2 p.m.\nTimes are subject to change. Dates are weather permitting.\n\n \n \n\t\n \n \n \n \n \n \n \n \n \n\t\n \n \n \n \n Get Social\n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n CONTACT INFO\n\nAddress: 28099 Perdido Beach Blvd, Orange Beach, AL 36561\nPhone: 251-923-5300\nMailing Address: P.O. Box 1215, Orange Beach AL 36561\n\n Hours\nSunday – Thursday 11 a.m. to 9:30 p.m.\nFriday – Saturday 11 a.m. to 10:00 p.m\nSunday Brunch 11 a.m. to 2:00 p.m\n\n \n \n Menu Home Menu Main Restaurant Cobalt Cabana at Caribe Resort Happy Hour Live Music & Events Catering About Meet the Team Check Us Out Health and Safety Contact \n \n \n \n \n \n\n \n\n \n \n \n Page load link\n\n \n \n\n \n \n\n \n \n Go to Top",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebSite",
+              "@id": "https://cobaltrestaurant.net/#website",
+              "url": "https://cobaltrestaurant.net/",
+              "name": "Cobalt, The Restaurant",
+              "description": "Unlike Any Other",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://cobaltrestaurant.net/?s={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://cobaltrestaurant.net/live-music-events/#webpage",
+              "url": "https://cobaltrestaurant.net/live-music-events/",
+              "inLanguage": "en-US",
+              "name": "Live Music &amp; Events - Cobalt, The Restaurant",
+              "isPartOf": {
+                "@id": "https://cobaltrestaurant.net/#website"
+              },
+              "datePublished": "2024-08-26T21:26:34+00:00",
+              "dateModified": "2026-03-19T14:30:17+00:00"
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "robots": "max-snippet:-1, max-image-preview:large, max-video-preview:-1",
+        "og:locale": "en_US",
+        "og:type": "article",
+        "og:title": "Live Music & Events - Cobalt, The Restaurant",
+        "og:url": "https://cobaltrestaurant.net/live-music-events/",
+        "og:site_name": "Cobalt, The Restaurant",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Live Music & Events - Cobalt, The Restaurant",
+        "description": "Join us for our Easter Sunday Brunch Buffett! \nReservations are suggested! Our patio will be open for walk-ins weather permitting.\nEaster Brunch Buffet Menu:\n\nPrime Rib\nOmelet Bar\nEggs Benedict\nCaramelized Fennel and Leek Strata\nHam and Sundried Tomato Strata\nRoasted Pork Tenderloin topped with Sautéed Lemon Kale, Spiced Pecans, and Pesto Aioli\nColcannon Mashed",
+        "og:description": "Join us for our Easter Sunday Brunch Buffett! \nReservations are suggested! Our patio will be open for walk-ins weather permitting.\nEaster Brunch Buffet Menu:\n\nPrime Rib\nOmelet Bar\nEggs Benedict\nCaramelized Fennel and Leek Strata\nHam and Sundried Tomato Strata\nRoasted Pork Tenderloin topped with Sautéed Lemon Kale, Spiced Pecans, and Pesto Aioli\nColcannon Mashed",
+        "article:modified_time": "2026-03-19T14:30:17+00:00",
+        "og:image": "https://cobaltrestaurant.net/wp-content/uploads/2019/01/cobalt_small.png",
+        "og:image:width": "200",
+        "og:image:height": "94",
+        "og:image:type": "image/png",
+        "generator": "WordPress 6.5.8",
+        "p:domain_verify": "958899ad9c5918b3d6fd89415dbb84d0"
+      }
+    },
+    {
+      "url": "https://cobaltrestaurant.net/happy-hour",
+      "title": "Happy Hour - Cobalt, The Restaurant",
+      "text": "Skip to content\n\n\t\n \n \n \n \n \n \n \n \n\n\t\n \n \n\n \n \n\n \n \n \n \n \n \n \n \n\n \n \n Search for:\n \n \n \n \n \n \n\n \n \n\n \n \n HomeMenuMain RestaurantCobalt Cabana at Caribe ResortHappy HourLive Music & EventsCateringAboutMeet the TeamCheck Us OutHealth and SafetyContact\t\n \n \n \n \n \n\nHomeMenuMain RestaurantCobalt Cabana at Caribe ResortHappy HourLive Music & EventsCateringAboutMeet the TeamCheck Us OutHealth and SafetyContact\n\n \n\n \n \n \n \n \n \n \n \n \n \n\t\n \n \n \n\n HAPPY HOUR\n\n \n \n \n\n \n \n \n\t\n\n \n \n\n \n Happy Hourdhonsvick2026-03-02T17:12:57+00:00 \n \nHappy Hour\nWe have the best on the Island! Our Happy Hour is served daily from 3 p.m. to 5 p.m. and features specials on draft beer, house wines and awesome appetizers. Savor our Cobalt Caviar, a refreshing blend of black beans, edamame, corn, red onion, roma tomatoes and cilantro tossed in a light vinaigrette and served with corn tortilla chips or Firecracker Shrimp, lightly dusted, fried and tossed in spicy remoulade sauce. We’ll see you on the deck!\n\n \n\n \n \n\t\n \n \n \n \n \n \n \n \n \n\t\n \n \n \n \n Get Social\n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n CONTACT INFO\n\nAddress: 28099 Perdido Beach Blvd, Orange Beach, AL 36561\nPhone: 251-923-5300\nMailing Address: P.O. Box 1215, Orange Beach AL 36561\n\n Hours\nSunday – Thursday 11 a.m. to 9:30 p.m.\nFriday – Saturday 11 a.m. to 10:00 p.m\nSunday Brunch 11 a.m. to 2:00 p.m\n\n \n \n Menu Home Menu Main Restaurant Cobalt Cabana at Caribe Resort Happy Hour Live Music & Events Catering About Meet the Team Check Us Out Health and Safety Contact \n \n \n \n \n \n\n \n\n \n \n \n Page load link\n\n \n \n\n \n \n\n \n \n Go to Top",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebSite",
+              "@id": "https://cobaltrestaurant.net/#website",
+              "url": "https://cobaltrestaurant.net/",
+              "name": "Cobalt, The Restaurant",
+              "description": "Unlike Any Other",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://cobaltrestaurant.net/?s={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://cobaltrestaurant.net/happy-hour/#webpage",
+              "url": "https://cobaltrestaurant.net/happy-hour/",
+              "inLanguage": "en-US",
+              "name": "Happy Hour - Cobalt, The Restaurant",
+              "isPartOf": {
+                "@id": "https://cobaltrestaurant.net/#website"
+              },
+              "datePublished": "2021-08-11T18:24:50+00:00",
+              "dateModified": "2026-03-02T17:12:57+00:00"
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "robots": "max-snippet:-1, max-image-preview:large, max-video-preview:-1",
+        "og:locale": "en_US",
+        "og:type": "article",
+        "og:title": "Happy Hour - Cobalt, The Restaurant",
+        "og:url": "https://cobaltrestaurant.net/happy-hour/",
+        "og:site_name": "Cobalt, The Restaurant",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Happy Hour - Cobalt, The Restaurant",
+        "description": "Happy Hour\nWe have the best on the Island! Our Happy Hour is served daily from 3 p.m. to 5 p.m. and features specials on draft beer, house wines and awesome appetizers. Savor our Cobalt Caviar, a refreshing blend of",
+        "og:description": "Happy Hour\nWe have the best on the Island! Our Happy Hour is served daily from 3 p.m. to 5 p.m. and features specials on draft beer, house wines and awesome appetizers. Savor our Cobalt Caviar, a refreshing blend of",
+        "article:modified_time": "2026-03-02T17:12:57+00:00",
+        "og:image": "https://cobaltrestaurant.net/wp-content/uploads/2019/01/cobalt_small.png",
+        "og:image:width": "200",
+        "og:image:height": "94",
+        "og:image:type": "image/png",
+        "generator": "WordPress 6.5.8",
+        "p:domain_verify": "958899ad9c5918b3d6fd89415dbb84d0"
+      }
+    },
+    {
+      "url": "https://cobaltrestaurant.net/cabana_menu",
+      "title": "Cabana Menu at Caribe Resort - Cobalt, The Restaurant",
+      "text": "Skip to content\n\n\t\n \n \n \n \n \n \n \n \n\n\t\n \n \n\n \n \n\n \n \n \n \n \n \n \n \n\n \n \n Search for:\n \n \n \n \n \n \n\n \n \n\n \n \n HomeMenuMain RestaurantCobalt Cabana at Caribe ResortHappy HourLive Music & EventsCateringAboutMeet the TeamCheck Us OutHealth and SafetyContact\t\n \n \n \n \n \n\nHomeMenuMain RestaurantCobalt Cabana at Caribe ResortHappy HourLive Music & EventsCateringAboutMeet the TeamCheck Us OutHealth and SafetyContact\n\n \n\n \n \n \n \n \n \n \n \n \n \n\t\n \n \n \n\n CABANA MENU AT CARIBE RESORT\n\n \n \n \n\n \n \n \n\t\n\n \n \n\n \n Cabana Menu at Caribe Resortdhonsvick2022-03-08T16:44:48+00:00 \n \nPoolside Service\nFor visitors vacationing at Caribe Resort, located right next door overlooking Perdido Bay, the Cobalt Cabana offers a variety of food and beverages. Located poolside between C and D towers, swim over and take a look.\n\nOUR FAMILY\n\n \n \n\t\n \n \n \n \n \n \n \n \n \n\t\n \n \n \n \n Get Social\n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n CONTACT INFO\n\nAddress: 28099 Perdido Beach Blvd, Orange Beach, AL 36561\nPhone: 251-923-5300\nMailing Address: P.O. Box 1215, Orange Beach AL 36561\n\n Hours\nSunday – Thursday 11 a.m. to 9:30 p.m.\nFriday – Saturday 11 a.m. to 10:00 p.m\nSunday Brunch 11 a.m. to 2:00 p.m\n\n \n \n Menu Home Menu Main Restaurant Cobalt Cabana at Caribe Resort Happy Hour Live Music & Events Catering About Meet the Team Check Us Out Health and Safety Contact \n \n \n \n \n \n\n \n\n \n \n \n Page load link\n\n \n \n\n \n \n\n \n \n Go to Top",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebSite",
+              "@id": "https://cobaltrestaurant.net/#website",
+              "url": "https://cobaltrestaurant.net/",
+              "name": "Cobalt, The Restaurant",
+              "description": "Unlike Any Other",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://cobaltrestaurant.net/?s={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://cobaltrestaurant.net/cabana_menu/#webpage",
+              "url": "https://cobaltrestaurant.net/cabana_menu/",
+              "inLanguage": "en-US",
+              "name": "Cabana Menu at Caribe Resort - Cobalt, The Restaurant",
+              "isPartOf": {
+                "@id": "https://cobaltrestaurant.net/#website"
+              },
+              "datePublished": "2022-03-07T22:34:55+00:00",
+              "dateModified": "2022-03-08T16:44:48+00:00",
+              "description": "For visitors vacationing at Caribe Resort, located right next door overlooking Perdido Bay, the Cobalt Cabana offers a variety of food and beverages. Located poolside between C and D towers, swim over and take a look."
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "robots": "max-snippet:-1, max-image-preview:large, max-video-preview:-1",
+        "description": "Poolside Service\nFor visitors vacationing at Caribe Resort, located right next door overlooking Perdido Bay, the Cobalt Cabana offers a variety of food and beverages. Located poolside between C and D towers, swim over and take a look.",
+        "og:locale": "en_US",
+        "og:type": "article",
+        "og:title": "Cabana Menu at Caribe Resort - Cobalt, The Restaurant",
+        "og:description": "Poolside Service\nFor visitors vacationing at Caribe Resort, located right next door overlooking Perdido Bay, the Cobalt Cabana offers a variety of food and beverages. Located poolside between C and D towers, swim over and take a look.",
+        "og:url": "https://cobaltrestaurant.net/cabana_menu/",
+        "og:site_name": "Cobalt, The Restaurant",
+        "og:image": "https://cobaltrestaurant.net/wp-content/uploads/2019/01/cobalt_small.png",
+        "og:image:secure_url": "https://cobaltrestaurant.net/wp-content/uploads/2022/03/pool.jpg",
+        "og:image:width": "200",
+        "og:image:height": "94",
+        "twitter:card": "summary_large_image",
+        "twitter:description": "For visitors vacationing at Caribe Resort, located right next door overlooking Perdido Bay, the Cobalt Cabana offers a variety of food and beverages. Located poolside between C and D towers, swim over and take a look.",
+        "twitter:title": "Cabana Menu at Caribe Resort - Cobalt, The Restaurant",
+        "twitter:image": "https://cobaltrestaurant.net/wp-content/uploads/2022/03/pool.jpg",
+        "article:modified_time": "2022-03-08T16:44:48+00:00",
+        "og:image:type": "image/png",
+        "generator": "WordPress 6.5.8",
+        "p:domain_verify": "958899ad9c5918b3d6fd89415dbb84d0"
+      }
+    },
+    {
+      "url": "https://cobaltrestaurant.net/menu",
+      "title": "Menu - Cobalt, The Restaurant",
+      "text": "Skip to content\n\n\t\n \n \n \n \n \n \n \n \n\n\t\n \n \n\n \n \n\n \n \n \n \n \n \n \n \n\n \n \n Search for:\n \n \n \n \n \n \n\n \n \n\n \n \n HomeMenuMain RestaurantCobalt Cabana at Caribe ResortHappy HourLive Music & EventsCateringAboutMeet the TeamCheck Us OutHealth and SafetyContact\t\n \n \n \n \n \n\nHomeMenuMain RestaurantCobalt Cabana at Caribe ResortHappy HourLive Music & EventsCateringAboutMeet the TeamCheck Us OutHealth and SafetyContact\n\n \n\n \n \n \n \n \n \n \n \n \n \n\t\n \n \n \n\n MENU\n\n \n \n \n\n \n \n \n\t\n\n \n \n\n \n Menudhonsvick2022-05-17T20:55:12+00:00 \n \nCoastal Cuisine\nOur open and airy dining room features such masterpieces as our Shrimp Fra Diavolo sautéed with roasted mushrooms, chargrilled lemon, fresh spinach and arugula, a Tuna and Avocado Stack served in a sweet Asian sauce and our legendary Firecracker Shrimp with a spicy remoulade. Seafood is caught daily and culinary magic created while you wait.\n\nCLICK ON “MORE MENUS” TO VIEW OUR FULL SELECTION\n\nOUR FAMILY\n\n \n \n\t\n \n \n \n \n \n \n \n \n \n\t\n \n \n \n \n Get Social\n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n CONTACT INFO\n\nAddress: 28099 Perdido Beach Blvd, Orange Beach, AL 36561\nPhone: 251-923-5300\nMailing Address: P.O. Box 1215, Orange Beach AL 36561\n\n Hours\nSunday – Thursday 11 a.m. to 9:30 p.m.\nFriday – Saturday 11 a.m. to 10:00 p.m\nSunday Brunch 11 a.m. to 2:00 p.m\n\n \n \n Menu Home Menu Main Restaurant Cobalt Cabana at Caribe Resort Happy Hour Live Music & Events Catering About Meet the Team Check Us Out Health and Safety Contact \n \n \n \n \n \n\n \n\n \n \n \n Page load link\n\n \n \n\n \n \n\n \n \n Go to Top",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebSite",
+              "@id": "https://cobaltrestaurant.net/#website",
+              "url": "https://cobaltrestaurant.net/",
+              "name": "Cobalt, The Restaurant",
+              "description": "Unlike Any Other",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://cobaltrestaurant.net/?s={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://cobaltrestaurant.net/menu/#webpage",
+              "url": "https://cobaltrestaurant.net/menu/",
+              "inLanguage": "en-US",
+              "name": "Menu - Cobalt, The Restaurant",
+              "isPartOf": {
+                "@id": "https://cobaltrestaurant.net/#website"
+              },
+              "datePublished": "2019-01-03T18:12:01+00:00",
+              "dateModified": "2022-05-17T20:55:12+00:00"
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "robots": "max-snippet:-1, max-image-preview:large, max-video-preview:-1",
+        "og:locale": "en_US",
+        "og:type": "article",
+        "og:title": "Menu - Cobalt, The Restaurant",
+        "og:url": "https://cobaltrestaurant.net/menu/",
+        "og:site_name": "Cobalt, The Restaurant",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Menu - Cobalt, The Restaurant",
+        "description": "Coastal Cuisine\nOur open and airy dining room features such masterpieces as our Shrimp Fra Diavolo sautéed with roasted mushrooms, chargrilled lemon, fresh spinach and arugula, a Tuna and Avocado Stack served in a sweet",
+        "og:description": "Coastal Cuisine\nOur open and airy dining room features such masterpieces as our Shrimp Fra Diavolo sautéed with roasted mushrooms, chargrilled lemon, fresh spinach and arugula, a Tuna and Avocado Stack served in a sweet",
+        "article:modified_time": "2022-05-17T20:55:12+00:00",
+        "og:image": "https://cobaltrestaurant.net/wp-content/uploads/2019/01/cobalt_small.png",
+        "og:image:width": "200",
+        "og:image:height": "94",
+        "og:image:type": "image/png",
+        "generator": "WordPress 6.5.8",
+        "p:domain_verify": "958899ad9c5918b3d6fd89415dbb84d0"
+      }
+    },
+    {
+      "url": "https://cobaltrestaurant.net/meet-the-team",
+      "title": "About - Cobalt, The Restaurant",
+      "text": "Skip to content\n\n\t\n \n \n \n \n \n \n \n \n\n\t\n \n \n\n \n \n\n \n \n \n \n \n \n \n \n\n \n \n Search for:\n \n \n \n \n \n \n\n \n \n\n \n \n HomeMenuMain RestaurantCobalt Cabana at Caribe ResortHappy HourLive Music & EventsCateringAboutMeet the TeamCheck Us OutHealth and SafetyContact\t\n \n \n \n \n \n\nHomeMenuMain RestaurantCobalt Cabana at Caribe ResortHappy HourLive Music & EventsCateringAboutMeet the TeamCheck Us OutHealth and SafetyContact\n\n \n\n \n \n \n \n \n \n \n \n \n \n\t\n \n \n \n\n MEET THE TEAM\n\n \n \n \n\n \n \n \n\t\n\n \n \n\n \n Aboutdhonsvick2023-12-15T16:13:26+00:00 \n \nBrian and Jodi Harsany\nBrian and Jodi Harsany’s interpretation with this unique restaurant affords local and visitors the opportunity to experience coastal cuisine at its finest. For over ten years, Cobalt has provided the ultimate in waterfront dining with its unparalleled views, first-rate service and exceptional catering.\n\nChef Reed Moody\nChef Reed Moody, Executive Chef, loves to cook and this love started him in the kitchen at a young age. He attended Faulkner State and studied Culinary Arts. In his role as Executive Chef he looks forward to continuing Cobalt’s tradition of great food along the Gulf Coast and also expanding our reach with the use of fresh and local ingredients.\n\nChef Nick Norman\nChef Nick Norman, Chef de Cuisine, is a Pensacola native and has been with us since 2012. He loves experimenting with Latin cuisine and cultivating these elements into the dishes here at Cobalt. In addition, he loves the challenge of alcohol and food fusion with unique pairings and intense flavor profiles.\n\nChef Rush Golden\nChef Rush Golden, Sous Chef, has been with our family of restaurants for the last nine years, mostly recently at GTs On The Bay. His love of Southern cooking puts a spin on Gulf Coast favorites and we are excited to have him here at Cobalt. He enjoys the restaurant business because there’s always something new to learn and he is constantly thinking of ways he can improve.\n\nChef Jeffrey Palmer\nChef Jeffrey Palmer, Sous Chef, has been with us since 2018. He became one of our Sous Chefs in 2022. You can indulge in the vibrant world of international cuisines as this Jamaican chef takes you on a flavor-filled adventure! He loves to unleash tantalizing flavors while fearlessly exploring the exotic realms of Caribbean cuisines.\n\nJOIN OUR FAMILY\nCONTACT US FOR JOB OPPORTUNITIES \n \n \n\t\n \n \n \n \n \n \n \n \n \n\t\n \n \n \n \n Get Social\n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n CONTACT INFO\n\nAddress: 28099 Perdido Beach Blvd, Orange Beach, AL 36561\nPhone: 251-923-5300\nMailing Address: P.O. Box 1215, Orange Beach AL 36561\n\n Hours\nSunday – Thursday 11 a.m. to 9:30 p.m.\nFriday – Saturday 11 a.m. to 10:00 p.m\nSunday Brunch 11 a.m. to 2:00 p.m\n\n \n \n Menu Home Menu Main Restaurant Cobalt Cabana at Caribe Resort Happy Hour Live Music & Events Catering About Meet the Team Check Us Out Health and Safety Contact \n \n \n \n \n \n\n \n\n \n \n \n Page load link\n\n \n \n\n \n \n\n \n \n Go to Top",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebSite",
+              "@id": "https://cobaltrestaurant.net/#website",
+              "url": "https://cobaltrestaurant.net/",
+              "name": "Cobalt, The Restaurant",
+              "description": "Unlike Any Other",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://cobaltrestaurant.net/?s={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://cobaltrestaurant.net/meet-the-team/#webpage",
+              "url": "https://cobaltrestaurant.net/meet-the-team/",
+              "inLanguage": "en-US",
+              "name": "About - Cobalt, The Restaurant",
+              "isPartOf": {
+                "@id": "https://cobaltrestaurant.net/#website"
+              },
+              "datePublished": "2019-01-03T18:12:53+00:00",
+              "dateModified": "2023-12-15T16:13:26+00:00"
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "robots": "max-snippet:-1, max-image-preview:large, max-video-preview:-1",
+        "og:locale": "en_US",
+        "og:type": "article",
+        "og:title": "About - Cobalt, The Restaurant",
+        "og:url": "https://cobaltrestaurant.net/meet-the-team/",
+        "og:site_name": "Cobalt, The Restaurant",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "About - Cobalt, The Restaurant",
+        "description": "Brian and Jodi Harsany\nBrian and Jodi Harsany’s interpretation with this unique restaurant affords local and visitors the opportunity to experience coastal cuisine at its finest. For over ten years, Cobalt has provided the ultimate in waterfront dining with its",
+        "og:description": "Brian and Jodi Harsany\nBrian and Jodi Harsany’s interpretation with this unique restaurant affords local and visitors the opportunity to experience coastal cuisine at its finest. For over ten years, Cobalt has provided the ultimate in waterfront dining with its",
+        "article:modified_time": "2023-12-15T16:13:26+00:00",
+        "og:image": "https://cobaltrestaurant.net/wp-content/uploads/2019/01/cobalt_small.png",
+        "og:image:width": "200",
+        "og:image:height": "94",
+        "og:image:type": "image/png",
+        "generator": "WordPress 6.5.8",
+        "p:domain_verify": "958899ad9c5918b3d6fd89415dbb84d0"
+      }
+    },
+    {
+      "url": "https://cobaltrestaurant.net/contact-2",
+      "title": "Contact - Cobalt, The Restaurant",
+      "text": "Skip to content\n\n\t\n \n \n \n \n \n \n \n \n\n\t\n \n \n\n \n \n\n \n \n \n \n \n \n \n \n\n \n \n Search for:\n \n \n \n \n \n \n\n \n \n\n \n \n HomeMenuMain RestaurantCobalt Cabana at Caribe ResortHappy HourLive Music & EventsCateringAboutMeet the TeamCheck Us OutHealth and SafetyContact\t\n \n \n \n \n \n\nHomeMenuMain RestaurantCobalt Cabana at Caribe ResortHappy HourLive Music & EventsCateringAboutMeet the TeamCheck Us OutHealth and SafetyContact\n\n \n\n \n \n \n \n \n \n \n \n \n \n\t\n \n \n \n\n CONTACT US\n\n \n \n \n\n \n \n \n\t\n\n \n \n\n \n Contactdhonsvick2023-12-01T17:19:05+00:00 \n Contact Us\nNestled under the Perdido Bay Bridge, next to Caribe Resort, Cobalt offers a casual and relaxing atmosphere with waterfront dining, live music and superior service.\nHours\nSunday – Thursday 11 a.m. to 9:30 p.m.\nFriday – Saturday 11 a.m. to 10:00 p.m\nSunday Brunch 11 a.m. to 2:00 p.m\n\n \n \n\t\n \n \n \n \n \n \n \n \n \n\t\n \n \n \n \n Get Social\n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n CONTACT INFO\n\nAddress: 28099 Perdido Beach Blvd, Orange Beach, AL 36561\nPhone: 251-923-5300\nMailing Address: P.O. Box 1215, Orange Beach AL 36561\n\n Hours\nSunday – Thursday 11 a.m. to 9:30 p.m.\nFriday – Saturday 11 a.m. to 10:00 p.m\nSunday Brunch 11 a.m. to 2:00 p.m\n\n \n \n Menu Home Menu Main Restaurant Cobalt Cabana at Caribe Resort Happy Hour Live Music & Events Catering About Meet the Team Check Us Out Health and Safety Contact \n \n \n \n \n \n\n \n\n \n \n \n Page load link\n\n \n \n\n \n \n\n \n \n Go to Top",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebSite",
+              "@id": "https://cobaltrestaurant.net/#website",
+              "url": "https://cobaltrestaurant.net/",
+              "name": "Cobalt, The Restaurant",
+              "description": "Unlike Any Other",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://cobaltrestaurant.net/?s={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://cobaltrestaurant.net/contact-2/#webpage",
+              "url": "https://cobaltrestaurant.net/contact-2/",
+              "inLanguage": "en-US",
+              "name": "Contact - Cobalt, The Restaurant",
+              "isPartOf": {
+                "@id": "https://cobaltrestaurant.net/#website"
+              },
+              "datePublished": "2019-01-03T18:26:53+00:00",
+              "dateModified": "2023-12-01T17:19:05+00:00"
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "robots": "max-snippet:-1, max-image-preview:large, max-video-preview:-1",
+        "og:locale": "en_US",
+        "og:type": "article",
+        "og:title": "Contact - Cobalt, The Restaurant",
+        "og:url": "https://cobaltrestaurant.net/contact-2/",
+        "og:site_name": "Cobalt, The Restaurant",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Contact - Cobalt, The Restaurant",
+        "description": "Contact Us\nNestled under the Perdido Bay Bridge, next to Caribe Resort, Cobalt offers a casual and relaxing atmosphere with waterfront dining, live music and superior service.\nHours\nSunday - Thursday 11 a.m. to 9:30 p.m.\n\nFriday - Saturday 11 a.m. to 10:00 p.m\n\nSunday Brunch 11 a.m. to 2:00 p.m",
+        "og:description": "Contact Us\nNestled under the Perdido Bay Bridge, next to Caribe Resort, Cobalt offers a casual and relaxing atmosphere with waterfront dining, live music and superior service.\nHours\nSunday - Thursday 11 a.m. to 9:30 p.m.\n\nFriday - Saturday 11 a.m. to 10:00 p.m\n\nSunday Brunch 11 a.m. to 2:00 p.m",
+        "article:modified_time": "2023-12-01T17:19:05+00:00",
+        "og:image": "https://cobaltrestaurant.net/wp-content/uploads/2019/01/cobalt_small.png",
+        "og:image:width": "200",
+        "og:image:height": "94",
+        "og:image:type": "image/png",
+        "generator": "WordPress 6.5.8",
+        "p:domain_verify": "958899ad9c5918b3d6fd89415dbb84d0"
+      }
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": [
+    "https://cobaltrestaurant.net/wp-content/uploads/2019/01/cobalt_small.png",
+    "https://cobaltrestaurant.net/wp-content/uploads/2019/01/cobalt.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2020/03/shrimp-grits-2.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2020/03/IMG_5222.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2020/03/buzzcatz-e1646685461124.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2020/03/lunas-e1646685447219.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2020/03/gts_mobile.png",
+    "https://cobaltrestaurant.net/wp-content/uploads/2021/08/gsob_sports-1.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2021/08/gsob_tourism.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2020/03/cosmos.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2020/03/caribe_realty.png",
+    "https://cobaltrestaurant.net/wp-content/uploads/2020/03/caribe_marina_logo.png",
+    "https://cobaltrestaurant.net/wp-content/uploads/2020/03/caribe.png",
+    "https://cobaltrestaurant.net/wp-content/uploads/2022/03/OB-logo-e1646685484813.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2019/01/cobalt_logo-300x140.png",
+    "https://cobaltrestaurant.net/wp-content/uploads/2026/03/EasterCobaltWeb-1024x576.png",
+    "https://cobaltrestaurant.net/wp-content/uploads/2021/08/happy.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2022/03/pool.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2021/08/gsob_sports.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2019/01/Cobalt_1124x782.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2020/03/redfish-7.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2020/03/platter-7.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2020/03/margherita-12.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2020/03/creole-3.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2022/05/pork_entree_9.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2020/03/crab-claws-4.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2021/08/new-poboy.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2020/03/choc-4.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2020/03/zydeco-4.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2020/03/catfish-4.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2020/03/beast-2.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2022/01/harsany-luna-rev.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2019/01/reed.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2023/08/NickNorman.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2020/03/rush.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2023/12/JeffreyPalmer.jpg"
+  ]
+}

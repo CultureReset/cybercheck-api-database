@@ -1,0 +1,303 @@
+{
+  "business_name": "The Fun Boats™ - Dolphin Cruises",
+  "tagline": "Have More Fun On Vacation",
+  "type": "Dolphin Cruise",
+  "contact": {
+    "phone": "(251) 971-1893",
+    "email": "thefunboats@gmail.com",
+    "address": "3900 Bayou Road",
+    "city": "Orange Beach",
+    "state": "AL",
+    "zip": null
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": "Daytime and sunset cruises available; during off-season typically only one boat goes out"
+  },
+  "about": {
+    "description": "The Fun Boats™ offers 2-hour dolphin cruises out of Orange Beach, AL, combining a dolphin watching experience, an educational hands-on sea-life experience, and an optional water fight between two boats. Guests can choose to get wet or stay dry — both boats have an indoor cabin for those who prefer to stay dry. Daytime and sunset cruise options are available. The captain and crew share history of the area and marine life, and snacks and drinks are available for purchase on board. The business describes itself as a family-friendly, Christian business.",
+    "elevator_pitch": "The only dolphin cruise that combines wildlife watching, hands-on sea-life education, and an epic boat-to-boat water fight — all for one low price in Orange Beach.",
+    "established": null,
+    "owner": "Captain Dean",
+    "vibe": "Family-friendly, fun, educational, Christian, interactive",
+    "best_for": [
+      "families",
+      "groups",
+      "kids",
+      "grandparents",
+      "couples"
+    ],
+    "capacity": null,
+    "duration_options": [
+      "2 hours"
+    ],
+    "departure_location": "3900 Bayou Road, Orange Beach, AL (note: 2 identical boats at same marina load from different parking lots — check your confirmation for correct address)",
+    "what_provided": [
+      "life jackets",
+      "restrooms on board",
+      "inside and outside seating",
+      "drinks and snacks for purchase",
+      "sea-life handling experience"
+    ],
+    "what_to_bring": [
+      "sunscreen",
+      "change of clothes if participating in water fight"
+    ],
+    "age_restriction": "Infants under age 2 admitted at $15 (+tax); ages 2-11 at $21 (+tax); ages 12+ at $26 (+tax)",
+    "weight_restriction": null,
+    "reservations": "Book online; boats fill quickly; gift cards available",
+    "insider_tip": "Two identical boats load from different parking lots at the same marina — pay close attention to the address emailed or texted to you after booking.",
+    "cancellation_policy": "Refund or reschedule offered in the event of bad weather"
+  },
+  "tags": [
+    "dolphin cruise",
+    "family fun",
+    "water fight",
+    "sea life",
+    "sunset cruise",
+    "Orange Beach",
+    "Gulf Coast",
+    "educational",
+    "Christian business",
+    "boat tour"
+  ],
+  "hashtags": [
+    "#orangebeach",
+    "#dolphincruise",
+    "#thefunboats",
+    "#waterfight",
+    "#familyfun",
+    "#gulfcoast",
+    "#sunsetcruise",
+    "#sealife",
+    "#alabama",
+    "#dolphinfun"
+  ],
+  "categories": [
+    "Dolphin Cruise",
+    "Boat Tour",
+    "Family Attraction",
+    "Water Activity",
+    "Educational Experience"
+  ],
+  "features": [
+    "shared trips",
+    "daytime cruises",
+    "sunset cruises",
+    "optional water fight",
+    "stay dry cabin option",
+    "sea-life hands-on experience",
+    "restroom on board",
+    "inside and outside seating",
+    "life jackets provided",
+    "snacks and drinks for purchase",
+    "can go in the Gulf",
+    "gift cards available",
+    "weather refund or reschedule policy",
+    "two-boat fleet",
+    "family-friendly",
+    "Christian business"
+  ],
+  "social_links": {
+    "instagram": "https://www.instagram.com/the_fun_boats_dolphin_cruises",
+    "facebook": "https://www.facebook.com/DolphinFunCruise",
+    "youtube": "https://www.youtube.com/channel/UCEVBfIqg_SU3qDR-nMihSeg",
+    "tripadvisor": null,
+    "website": "https://www.dolphinfun.net"
+  },
+  "specials": [
+    {
+      "name": "Gift Cards Available",
+      "description": "Gift cards available for purchase for dolphin cruise experiences.",
+      "days": [],
+      "time": null
+    }
+  ],
+  "events": [
+    {
+      "name": "Daytime Dolphin Fun Cruise",
+      "description": "2-hour daytime cruise including dolphin watching, hands-on sea-life experience, and optional water fight. Ages 12+: $26, Ages 2-11: $21, Infants under 2: $15 (all +tax).",
+      "recurring": true,
+      "day": null,
+      "time": null
+    },
+    {
+      "name": "Sunset Dolphin Cruise",
+      "description": "2-hour sunset cruise combining dolphin watching, sea-life experience, and water fight against the backdrop of a Gulf Coast sunset. Ages 12+: $30, Ages 11 and under including infants: $21 (+tax).",
+      "recurring": true,
+      "day": null,
+      "time": "Sunset"
+    }
+  ],
+  "packages": [
+    {
+      "name": "Daytime Dolphin Fun Cruise - Adult/Teen",
+      "type": "dolphin cruise",
+      "description": "2-Hour Dolphin Fun Cruise with Water Wars and a One-of-a-Kind Sea-Life Experience. Get wet or stay dry, your choice. Includes dolphin cruise, educational sea-life experience, and water fight. Both boats have a cabin for those who choose to stay dry. Water fight is completely optional.",
+      "duration": "2 hours",
+      "price": 26,
+      "price_type": "per person",
+      "price_note": "plus tax; prices subject to change",
+      "min_people": null,
+      "max_people": null,
+      "what_included": [
+        "dolphin cruise",
+        "sea-life experience",
+        "water fight (optional)",
+        "inside/outside seating",
+        "restrooms",
+        "life jackets for all passengers"
+      ],
+      "what_not_included": [
+        "drinks (available for purchase)",
+        "snacks (available for purchase)"
+      ],
+      "departure_times": null,
+      "days_available": "Daily",
+      "age_min": 12,
+      "weight_max": null,
+      "booking_url": "https://dolphincruises.net/",
+      "notes": "Ages 12 and up. Typically during the off-season only one boat goes out. Two identical boats at the same marina that load in different parking lots."
+    },
+    {
+      "name": "Daytime Dolphin Fun Cruise - Child",
+      "type": "dolphin cruise",
+      "description": "2-Hour Dolphin Fun Cruise with Water Wars and a One-of-a-Kind Sea-Life Experience. Get wet or stay dry, your choice. Includes dolphin cruise, educational sea-life experience, and water fight. Both boats have a cabin for those who choose to stay dry. Water fight is completely optional.",
+      "duration": "2 hours",
+      "price": 21,
+      "price_type": "per person",
+      "price_note": "plus tax; prices subject to change",
+      "min_people": null,
+      "max_people": null,
+      "what_included": [
+        "dolphin cruise",
+        "sea-life experience",
+        "water fight (optional)",
+        "inside/outside seating",
+        "restrooms",
+        "life jackets for all passengers"
+      ],
+      "what_not_included": [
+        "drinks (available for purchase)",
+        "snacks (available for purchase)"
+      ],
+      "departure_times": null,
+      "days_available": "Daily",
+      "age_min": 2,
+      "weight_max": null,
+      "booking_url": "https://dolphincruises.net/",
+      "notes": "Ages 2 to 11. Typically during the off-season only one boat goes out. Two identical boats at the same marina that load in different parking lots."
+    },
+    {
+      "name": "Daytime Dolphin Fun Cruise - Infant",
+      "type": "dolphin cruise",
+      "description": "2-Hour Dolphin Fun Cruise with Water Wars and a One-of-a-Kind Sea-Life Experience. Get wet or stay dry, your choice. Includes dolphin cruise, educational sea-life experience, and water fight. Both boats have a cabin for those who choose to stay dry. Water fight is completely optional.",
+      "duration": "2 hours",
+      "price": 15,
+      "price_type": "per person",
+      "price_note": "plus tax; prices subject to change",
+      "min_people": null,
+      "max_people": null,
+      "what_included": [
+        "dolphin cruise",
+        "sea-life experience",
+        "water fight (optional)",
+        "inside/outside seating",
+        "restrooms",
+        "life jackets for all passengers"
+      ],
+      "what_not_included": [
+        "drinks (available for purchase)",
+        "snacks (available for purchase)"
+      ],
+      "departure_times": null,
+      "days_available": "Daily",
+      "age_min": 0,
+      "weight_max": null,
+      "booking_url": "https://dolphincruises.net/",
+      "notes": "Infants under age 2. Typically during the off-season only one boat goes out. Two identical boats at the same marina that load in different parking lots."
+    },
+    {
+      "name": "Sunset Dolphin Cruise - Adult/Teen",
+      "type": "dolphin cruise",
+      "description": "2-Hour sunset dolphin cruise combined with the ambiance of a beautiful Gulf Coast Sunset. Includes educational sea-life experience, water wars, and dolphin watching. Get wet or stay dry, your choice. Both boats have a cabin for those who choose to stay dry.",
+      "duration": "2 hours",
+      "price": 30,
+      "price_type": "per person",
+      "price_note": "plus tax; prices subject to change",
+      "min_people": null,
+      "max_people": null,
+      "what_included": [
+        "dolphin cruise",
+        "sea-life experience",
+        "water fight (optional)",
+        "Gulf Coast sunset viewing",
+        "inside/outside seating",
+        "restrooms",
+        "life jackets for all passengers"
+      ],
+      "what_not_included": [
+        "drinks (available for purchase)",
+        "snacks (available for purchase)"
+      ],
+      "departure_times": null,
+      "days_available": "Daily",
+      "age_min": 12,
+      "weight_max": null,
+      "booking_url": "https://dolphincruises.net/",
+      "notes": "Ages 12 and up. Typically during the off-season only one boat goes out. Two identical boats at the same marina that load in different parking lots."
+    },
+    {
+      "name": "Sunset Dolphin Cruise - Child/Infant",
+      "type": "dolphin cruise",
+      "description": "2-Hour sunset dolphin cruise combined with the ambiance of a beautiful Gulf Coast Sunset. Includes educational sea-life experience, water wars, and dolphin watching. Get wet or stay dry, your choice. Both boats have a cabin for those who choose to stay dry.",
+      "duration": "2 hours",
+      "price": 21,
+      "price_type": "per person",
+      "price_note": "plus tax; prices subject to change",
+      "min_people": null,
+      "max_people": null,
+      "what_included": [
+        "dolphin cruise",
+        "sea-life experience",
+        "water fight (optional)",
+        "Gulf Coast sunset viewing",
+        "inside/outside seating",
+        "restrooms",
+        "life jackets for all passengers"
+      ],
+      "what_not_included": [
+        "drinks (available for purchase)",
+        "snacks (available for purchase)"
+      ],
+      "departure_times": null,
+      "days_available": "Daily",
+      "age_min": 0,
+      "weight_max": null,
+      "booking_url": "https://dolphincruises.net/",
+      "notes": "Ages 11 and under including infants. Typically during the off-season only one boat goes out. Two identical boats at the same marina that load in different parking lots."
+    }
+  ],
+  "url": "https://www.dolphinfun.net",
+  "scraped_at": "2026-03-21T19:28:16.659Z",
+  "extracted_at": "2026-03-21T20:38:59.654Z",
+  "sources": [
+    "https://www.dolphinfun.net"
+  ],
+  "gallery": [
+    "https://dolphincruises.net/wp-content/uploads/2025/01/The-Fun-Boats-Dolphin-Cruises-Gulf-Shores-Orange-Beach449338514_986584046803759_5858454002096788871_n-872x1024.jpg",
+    "https://dolphincruises.net/wp-content/uploads/2022/05/Sunset-Dolphin-The-Dolphin-Fun-Boats-1024x1024.jpg",
+    "https://dolphincruises.net/wp-content/uploads/bb-plugin/cache/The-Fun-Boats-Dolphin-Cruises-Gulf-Shores-Orange-Beachimage3-rotated-portrait-18f7b6c9410637e3fc0b36eb8d997148-.jpeg",
+    "https://dolphincruises.net/wp-content/uploads/bb-plugin/cache/The-Fun-Boats-Dolphin-Cruises-Gulf-Shores-Orange-Beach453608389_1007195514742612_5757190916289698756_n-1024x683-portrait-db73e95903cc3b61b3b19a8a1a39030f-.jpg",
+    "https://dolphincruises.net/wp-content/uploads/bb-plugin/cache/The-Fun-Boats-Dolphin-Cruises-Gulf-Shores-Orange-Beach453717622_1007199954742168_1334447104549710901_n-1024x768-portrait-891325b618d3cfa30f79e79b4eb95632-.jpg",
+    "https://dolphincruises.net/wp-content/uploads/bb-plugin/cache/The-Fun-Boats-Dolphin-Cruises-Gulf-Shores-Orange-Beach461505836_1052923196836510_685342751108824629_n-820x1024-portrait-0a2cbf2b4f244c4f88cbd5b5d024fc7a-.jpg",
+    "https://dolphincruises.net/wp-content/uploads/bb-plugin/cache/The-Fun-Boats-Dolphin-Cruises-Gulf-Shores-Orange-Beach461826676_1052918446836985_2808823378242584965_n-portrait-28cd43340ef939bb7a05cf255721076c-.jpg",
+    "https://static.tacdn.com/img2/travelers_choice/widgets/tchotel_2024_L.png"
+  ]
+}

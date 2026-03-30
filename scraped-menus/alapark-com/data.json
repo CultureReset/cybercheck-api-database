@@ -1,0 +1,52 @@
+{
+  "business_name": "alapark.com",
+  "tagline": null,
+  "type": null,
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": null,
+    "city": null,
+    "state": null,
+    "zip": null
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": null
+  },
+  "about": {
+    "description": null,
+    "elevator_pitch": null,
+    "vibe": null,
+    "best_for": [],
+    "established": null,
+    "reservations": null,
+    "insider_tip": null
+  },
+  "tags": [],
+  "features": [],
+  "price_range": null,
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://www.alapark.com"
+  },
+  "specials": [],
+  "events": [],
+  "menu": {
+    "categories": []
+  },
+  "note": "No content provided in the text field. Unable to extract restaurant data from alapark.com",
+  "url": "https://www.alapark.com/parks/gulf-state-park",
+  "scraped_at": "2026-03-22T01:25:42.221Z",
+  "extracted_at": "2026-03-23T03:28:13.968Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [],
+  "sources": []
+}

@@ -1,0 +1,49 @@
+{
+  "business_name": "Del's Ice Cream",
+  "url": "https://www.delsicecream.com/",
+  "scraped_at": "2026-03-22T02:45:37.834Z",
+  "scraper": "chrome-visible",
+  "pages": [
+    {
+      "url": "https://www.delsicecream.com",
+      "title": "HOME | Del's Ice Cream",
+      "text": "top of page\n\nHOME\n\nABOUT\n\nLog In\n\n25405 Perdido Beach Blvd, Suite 1, Orange Beach, AL\n\n \n\n251-273-6553 ​\n\n \n\nMON - SUN: 11 AM - 10:30 PM​​​\n\n_______________________________\n\n​\n\n​​​400 Gulf Shores Pkwy, Gulf Shores, AL​​​\n\n​​​\n\n251-317-4042\n\n​\n\nMON - SUN: 11 AM - 10:30 PM\n\n_________________________________\n\n​\n\n610 W Beach Blvd, Gulf Shores, AL\n\n​\n\n883 - 983 - 2680\n\n​\n\nMON - SUN: 11 AM - 10 PM\n\n​\n\nFresh n' Tasty!\n\nDel's Homemade Ice cream serves Cammies Old Dutch, award winning ice cream! We offer 36 delicious, unique, homemade ice cream flavors in store and rotate through 80 different flavors daily! Del's offers Sundaes, Banana splits, milkshake, and floats, as well as some signature options. Del's Homemade Ice cream also offers dairy free, and sugar free options! This is an ice-cream experience like never before! A must see and must eat in Orange beach and Gulf Shores, Alabama!\n\nENJOY\n\nDAIRY FREE\n\n#DELLSICECREAMOB\n\nHOURS\n\n \n\nOPEN DAILY \n\n251-273-6553\n\nMAILING LIST\nSUBSCRIBE\n\nThanks for submitting!\n\n25405 Perdido Beach Blvd, Suite 1, Orange Beach\n\n©2020 by Tomas Pecinka. Proudly created with Wix.com\n\nbottom of page",
+      "structuredData": [],
+      "meta": {
+        "description": "Homemade Ice Cream, Milkshakes, Bana Splits, Sundaes"
+      },
+      "links": [
+        "https://www.delsicecream.com/",
+        "https://www.delsicecream.com/about",
+        "http://wix.com/?utm_campaign=vir_created_with"
+      ]
+    },
+    {
+      "url": "https://www.delsicecream.com/about",
+      "title": "ABOUT | Del's Ice Cream",
+      "text": "top of page\n\nHOME\n\nABOUT\n\nLog In\n\n25405 Perdido Beach Blvd, Suite 1, Orange Beach, AL\n\n \n\n251-273-6553 ​\n\n \n\nMON - SUN: 11 AM - 10:30 PM​​​\n\n_______________________________\n\n​\n\n​​​400 Gulf Shores Pkwy, Gulf Shores, AL​​​\n\n​​​\n\n251-317-4042\n\n​\n\nMON - SUN: 11 AM - 10:30 PM\n\n_________________________________\n\n​\n\n610 W Beach Blvd, Gulf Shores, AL\n\n​\n\n883 - 983 - 2680\n\n​\n\nMON - SUN: 11 AM - 10 PM\n\n​\n\ndel's\n\nABOUT\nOUR PLACE\n\nWe just love ice cream!\n\nHOURS\n\n \n\nOPEN DAILY \n\n251-273-6553\n\nMAILING LIST\nSUBSCRIBE\n\nThanks for submitting!\n\n25405 Perdido Beach Blvd, Suite 1, Orange Beach\n\n©2020 by Tomas Pecinka. Proudly created with Wix.com\n\nbottom of page",
+      "structuredData": [],
+      "meta": {
+        "description": ""
+      },
+      "links": [
+        "https://www.delsicecream.com/",
+        "https://www.delsicecream.com/about",
+        "http://wix.com/?utm_campaign=vir_created_with"
+      ]
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": [
+    "https://static.wixstatic.com/media/f388f4_ff246a11761545f2b04d3d2b671a11ca~mv2.png/v1/crop/x_683,y_155,w_1638,h_2689/fill/w_470,h_770,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/DELSICECREAM_LOGO-01.png",
+    "https://static.wixstatic.com/media/f388f4_11bbdb3d43c7403a84a3445c7a369241~mv2.png/v1/fill/w_1192,h_265,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/DEL'SWEB_SMALLHEADER-01_edited.png",
+    "https://static.wixstatic.com/media/f388f4_235a49e6eab74cfcb912ebdb629006fd~mv2.jpeg/v1/fill/w_1440,h_1162,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f388f4_235a49e6eab74cfcb912ebdb629006fd~mv2.jpeg",
+    "https://static.wixstatic.com/media/f388f4_40a60ba74515467dbf805a3359d99a46~mv2.png/v1/fill/w_496,h_105,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/ourflavors-01.png",
+    "https://static.wixstatic.com/media/f388f4_ebe77d0aa9ee49ad92c280e229588c3b~mv2.png/v1/fill/w_1045,h_536,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/ourflavors-01.png",
+    "https://static.wixstatic.com/media/baac51_809fe275413a451fbe5e2904700e26ea.png/v1/fill/w_49,h_28,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/baac51_809fe275413a451fbe5e2904700e26ea.png",
+    "https://static.wixstatic.com/media/f388f4_53c7cec4e40b414a9db4914099011d20~mv2.png/v1/fill/w_858,h_484,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/sugarfree-01-01.png",
+    "https://static.wixstatic.com/media/baac51_863daade1baf47a8995907cb1f24d57c.png/v1/fill/w_47,h_27,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/baac51_863daade1baf47a8995907cb1f24d57c.png",
+    "https://static.wixstatic.com/media/baac51_ec98ba3fb62b4140be49e8c2fde05a73.png/v1/fill/w_49,h_21,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/baac51_ec98ba3fb62b4140be49e8c2fde05a73.png"
+  ]
+}

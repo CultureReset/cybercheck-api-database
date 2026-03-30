@@ -1,0 +1,216 @@
+{
+  "business_name": "osobearpoint.com",
+  "url": "https://www.osobearpoint.com",
+  "scraped_at": "2026-03-21T20:27:32.042Z",
+  "pages": [
+    {
+      "url": "https://www.osobearpoint.com",
+      "title": "Best Seafood in Orange Beach, AL | OSO at Bear Point Harbor - Orange Beach | Seafood near me",
+      "text": "Our Story Menu Catering We're Hiring Gift Cards \nMore\n MusicContact Us \nSign in\n Account \nProfile\n\nRewards\n\nOrders\n\nLogout\n Order online \nMenu\n \nSign in\nAccount\nProfile\n\nRewards\n\nOrders\n\nLogout\n Our Story Menu Catering We're Hiring Gift Cards Music Contact Us Best Seafood in Orange Beach Where Coastal Flavors Meet Vibrant Culinary Adventure Order online Welcome to OSO at Bear Point Harbor - Orange BeachAt OSO, “bear” isn’t just a name it’s a flavor adventure. Inspired by the vibrant coastlines from Florida to Mexico, our Coastal Cuisine brings fresh, bold, and unforgettable tastes to your table. From locally sourced seafood to inventive dishes bursting with flavor, every meal is a celebration of the coast. For a different but equally delicious experience, check out our sister restaurant Bolo down Canal Road, where hand-cut steaks, fresh seafood.Bold Flavors, Coastal SoulAt OSO at Bear Point Harbor, every bite tells a story from the sun-soaked shores of Florida to the vibrant spices of Mexico. Our Coastal Cuisine blends fresh, locally inspired ingredients with bold seasonings to create dishes that excite your palate and leave you craving more. From the first taste to the last, OSO delivers a culinary experience full of depth, richness, and unforgettable flavor.Explore Our Menu Order From Our WebsiteCraving the bold, fresh flavors of OSO at Bear Point Harbor? Now you can enjoy our Coastal Cuisine from the comfort of home. Whether it’s a casual dinner or a special gathering, our menu is just a click away delivering the taste of the coast straight to your table.Order Now Coastal CreationsFeast your eyes on the vibrant flavors of OSO at Bear Point Harbor. Our gallery showcases fresh, bold dishes inspired by the coast from Florida to Mexico.Image galleryCloseCloseBring Coastal Flavors to Your Next EventElevate your gatherings with OSO’s Coastal Cuisine, delivering bold, fresh flavors from Florida to Mexico straight to your table. From intimate dinners to large celebrations, our catering brings the taste and spirit of the coast to any occasion.Bear the Flavor at Your Event Experience OSO In PersonStep inside OSO at Bear Point Harbor and discover a dining experience as vibrant as our Coastal Cuisine. From the lively harbor views to the warm, inviting atmosphere, every detail is designed to make your meal unforgettable. Savor bold flavors, fresh ingredients, and the perfect blend of Florida and Mexican-inspired cuisine in a setting that feels both relaxed and celebratory.What our guests are saying★★★★★Oysters were amazing, grouper bites were to die for. Everything came out quick, hot, and super fresh. The drinks were perfect.\nView more\n Jeffery A.★★★★★We absolutely love this place! It's been on our list of places to eat the past two times we've visited the area. The food is delicious and service is great. The tuna bowl is amazing. The fish tacos and gumbo are fabulous as well. If it's warm enough definitely sit outside.\nView more\nNicole W★★★★★Unique locals place.great food, good service and spectacular sunset's. Still best place for sunset dining.\nView more\nGeorge A.FeaturingCateringHappy-HoursGreat CocktailsDine-InDelivery Take Out OSO at Bear Point Harbor - Orange Beach RewardsJoin our rewards program, earn points every time you order online and redeem your points for free food!Join OSO at Bear Point Harbor Beach Rewards Frequently Asked QuestionsWhat are you known for?We are known for Coffee, Oysters, Burritos, Breakfast, Fish, Fries, Fish Tacos, Fried Shrimp, Gumbo, Crab, Fried Fish, Oyster, French Fries, Shrimp, and Fish Taco\nWhat meals do you serve?We serve Breakfast, Lunch, and Dinner\nDo you offer delivery or takeout?Yes, we offer Takeout\nWhere are you located?We are located in Orange Beach, AL at 5749 Bay La Launch Avenue\nWhat areas do you serve?We serve the following areas: \nJosephine, Caswell, Perdido Beach, Orange Beach, Gulf Beach Heights, Perdido Key, Elberta, Perdido Bay, Miflin, Romar Beach, Treasure Hill Park, Seaglades, Perdido Heights, Paradise Beach, Lillian, Foley, Quinavista, Gulf Shores, Oak. Our location OSO at Bear Point Harbor - Orange Beach Orange Beach, AL \nAddress\n 5749 Bay La Launch Avenue Orange Beach, AL 36561 \nContacts\n (251) 345-6738 osorestaurants@gmail.com \nGet directions\n Today: 11:00 AM - 10:00 PM \nSee hours\n Order online \nStore\n \nPickup\n \nDelivery\n Sunday 11:00 AM - 9:00 PM Monday 11:00 AM - 9:00 PM Tuesday 11:00 AM - 9:00 PM Wednesday 11:00 AM - 9:00 PM Thursday 11:00 AM - 9:00 PM Friday 11:00 AM - 10:00 PM Saturday 11:00 AM - 10:00 PM Today: 11:00 AM - 10:00 PM See info Hide hours Order online Order online Order with App \nOrder online\n Our Story Menu Catering We're Hiring Gift Cards Music Contact Us Order online \nDownload our app\n\nEarn points for free food\n\nEarn points for free food\n Terms of Service Accessibility \n© 2026 Oso Restaurants LLC. All rights reserved.\n Made with Owner \nGet the best experience on our mobile app\n \nSave time, earn rewards, get notified about new deals, and more\n \nOpen the OSO App",
+      "structuredData": [
+        [
+          {
+            "@context": "https://schema.org",
+            "@type": "Restaurant",
+            "name": "OSO at Bear Point Harbor - Orange Beach",
+            "priceRange": "$$",
+            "servesCuisine": [
+              "Seafood",
+              "Breakfast",
+              "Live-music-bar",
+              "Bar"
+            ],
+            "logo": "https://static-content.owner.com/funnel/images/e519f999-6a35-4e29-854d-70e689004a6b?v=4158862960",
+            "hasMenu": "https://osobearpoint.com/menu",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "5749 Bay La Launch Avenue",
+              "addressLocality": "Orange Beach",
+              "addressRegion": "AL",
+              "postalCode": "36561",
+              "addressCountry": "US"
+            },
+            "telephone": "(251) 345-6738",
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "https://schema.org/Sunday",
+                "opens": "11:00",
+                "closes": "21:00"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "https://schema.org/Monday",
+                "opens": "11:00",
+                "closes": "21:00"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "https://schema.org/Tuesday",
+                "opens": "11:00",
+                "closes": "21:00"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "https://schema.org/Wednesday",
+                "opens": "11:00",
+                "closes": "21:00"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "https://schema.org/Thursday",
+                "opens": "11:00",
+                "closes": "21:00"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "https://schema.org/Friday",
+                "opens": "11:00",
+                "closes": "22:00"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "https://schema.org/Saturday",
+                "opens": "11:00",
+                "closes": "22:00"
+              }
+            ],
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "itemListElement": [
+                "Seafood",
+                "Bar",
+                "Bar Food",
+                "Burgers",
+                "Flatbread",
+                "French Dip",
+                "French Fries",
+                "Fried Pickles",
+                "Fries",
+                "Nachos",
+                "Quesadillas",
+                "Wings",
+                "Breakfast",
+                "Burritos",
+                "Coffee",
+                "Crab",
+                "Fish",
+                "Fish Taco",
+                "Fish Tacos",
+                "Fried Fish",
+                "Fried Shrimp",
+                "Gumbo",
+                "Oyster",
+                "Oysters",
+                "Shrimp",
+                "Lunch",
+                "Dinner",
+                "Takeout"
+              ]
+            },
+            "areaServed": [
+              "Josephine",
+              "Caswell",
+              "Perdido Beach",
+              "Orange Beach",
+              "Gulf Beach Heights",
+              "Perdido Key",
+              "Elberta",
+              "Perdido Bay",
+              "Miflin",
+              "Romar Beach",
+              "Treasure Hill Park",
+              "Seaglades",
+              "Perdido Heights",
+              "Paradise Beach",
+              "Lillian",
+              "Foley",
+              "Quinavista",
+              "Gulf Shores",
+              "Oak"
+            ],
+            "geo": {
+              "@type": "GeoCoordinates",
+              "longitude": -87.5259481,
+              "latitude": 30.3093009
+            },
+            "url": "https://osobearpoint.com/"
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "url": "https://osobearpoint.com/",
+            "inLanguage": "en",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What are you known for?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "We are known for Coffee, Oysters, Burritos, Breakfast, Fish, Fries, Fish Tacos, Fried Shrimp, Gumbo, Crab, Fried Fish, Oyster, French Fries, Shrimp, and Fish Taco"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What meals do you serve?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "We serve Breakfast, Lunch, and Dinner"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do you offer delivery or takeout?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, we offer Takeout"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Where are you located?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "We are located in **Orange Beach, AL** at **5749 Bay La Launch Avenue**"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What areas do you serve?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "We serve the following areas: Josephine, Caswell, Perdido Beach, Orange Beach, Gulf Beach Heights, Perdido Key, Elberta, Perdido Bay, Miflin, Romar Beach, Treasure Hill Park, Seaglades, Perdido Heights, Paradise Beach, Lillian, Foley, Quinavista, Gulf Shores, Oak"
+                }
+              }
+            ]
+          }
+        ]
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1.0",
+        "cloudflare-account-ownership-verification": "Xqi4JlBxP2suEax8DYUg",
+        "description": "OSO at Bear Point Harbor - Orange Beach: the best Seafood in Orange Beach, AL. Order directly online today for takeout or delivery. Save money, support local business!",
+        "theme-color": "#db594b",
+        "brand-id": "7YtWyder64Ty",
+        "owner-brand-id": "7YtWyder64Ty",
+        "google-site-verification": "Risb7MeYHXOwxJFtzCTXUjGSb0FxBqTt4Fux5c-tHlQ",
+        "og:title": "Best Seafood in Orange Beach, AL | OSO at Bear Point Harbor - Orange Beach | Seafood near me",
+        "og:description": "OSO at Bear Point Harbor - Orange Beach: the best Seafood in Orange Beach, AL. Order directly online today for takeout or delivery. Save money, support local business!",
+        "og:url": "https://osobearpoint.com/",
+        "og:type": "website",
+        "og:image": "https://static-content.owner.com/funnel/images/7cc35e03-a182-4e0b-80c3-c37ce2f1a487?v=3350031655",
+        "og:image:alt": "OSO at Bear Point Harbor - Orange Beach",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Best Seafood in Orange Beach, AL | OSO at Bear Point Harbor - Orange Beach | Seafood near me",
+        "twitter:description": "OSO at Bear Point Harbor - Orange Beach: the best Seafood in Orange Beach, AL. Order directly online today for takeout or delivery. Save money, support local business!",
+        "twitter:image": "https://static-content.owner.com/funnel/images/7cc35e03-a182-4e0b-80c3-c37ce2f1a487?v=3350031655"
+      }
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": [
+    "https://osobearpoint.com/pluto-images/brands/funnel/reviews-section-images/tJIBWf8quS9QVWq25MOpEQinBBfTOdDr/khXoR6Z3I8hC3gZ3NXFgWWH7.png?w=32&h=32&fit=cover",
+    "https://osobearpoint.com/pluto-images/directus/b8f4b064-1c8a-4bf7-80ea-8718c426401d.png?h=40&fit=cover"
+  ]
+}

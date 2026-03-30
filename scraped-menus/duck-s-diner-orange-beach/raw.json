@@ -1,0 +1,21 @@
+{
+  "business_name": "Duck's Diner Orange Beach",
+  "url": "http://www.ducksdiner.com/",
+  "scraped_at": "2026-03-22T02:45:49.719Z",
+  "scraper": "chrome-visible",
+  "pages": [
+    {
+      "url": "http://www.ducksdiner.com",
+      "title": "",
+      "text": "",
+      "structuredData": [],
+      "meta": {
+        "description": ""
+      },
+      "links": []
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": []
+}

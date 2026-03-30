@@ -1,0 +1,138 @@
+{
+  "business_name": "The Point Restaurant",
+  "tagline": "Catch your favorite dish at The Point",
+  "type": "Restaurant | Bar",
+  "contact": {
+    "phone": "(850) 492-3577",
+    "email": null,
+    "address": "14340 Innerarity Point Rd",
+    "city": "Pensacola",
+    "state": "FL",
+    "zip": "32507"
+  },
+  "hours": {
+    "monday": "Closed",
+    "tuesday": "11:00am - 9:00pm",
+    "wednesday": "11:00am - 9:00pm",
+    "thursday": "11:00am - 9:00pm",
+    "friday": "11:00am - 9:00pm",
+    "saturday": "11:00am - 9:00pm",
+    "sunday": "12:00pm - 9:00pm",
+    "notes": "Hours vary depending upon the season"
+  },
+  "about": {
+    "description": "The Point Restaurant dates back to the 1950s with fresh caught Mullet. In 60 years of serving the best seafood, they've perfected the southern seafood dining experience. Menu features local Royal Reds, Oysters, Crab Claws, Alligator Bites, Burgers, Bar Foods, Fresh Catch items, Chef Specials, and desserts. The Courtyard features live bands and a full bar nestled under ancient oak trees with personal fireplaces, gathering style seating, picnic tables, and a stage.",
+    "elevator_pitch": "A legendary 60-year-old seafood restaurant in Pensacola with fresh catches, live music, and a full-service courtyard bar.",
+    "vibe": "Southern seafood dining with live entertainment under ancient oak trees, casual and festive atmosphere",
+    "best_for": [
+      "seafood lovers",
+      "live music enthusiasts",
+      "families",
+      "group gatherings",
+      "events"
+    ],
+    "established": "1950s",
+    "reservations": null,
+    "insider_tip": "Bubba And Them, the ONLY bluegrass band in town, has been performing at The Point for over 20 years"
+  },
+  "tags": [
+    "seafood",
+    "casual dining",
+    "southern cuisine",
+    "fresh catch",
+    "oysters",
+    "crab",
+    "royal reds",
+    "alligator",
+    "burgers",
+    "full bar",
+    "live music",
+    "bluegrass",
+    "events venue"
+  ],
+  "features": [
+    "full bar",
+    "outdoor seating",
+    "live music",
+    "live bands",
+    "stage",
+    "fireplace",
+    "picnic tables",
+    "courtyard",
+    "ancient oak trees",
+    "fresh seafood",
+    "chef specials",
+    "desserts"
+  ],
+  "price_range": "$$",
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://thepointperdido.com"
+  },
+  "specials": [],
+  "events": [
+    {
+      "name": "Live Music",
+      "description": "Live bands perform nightly at The Point. Bubba And Them, a bluegrass band, has been a regular fixture for over 20 years. Other local bands featured regularly.",
+      "recurring": true,
+      "day": "Nightly",
+      "time": null
+    }
+  ],
+  "menu": {
+    "categories": [
+      {
+        "name": "Hot Appetizers",
+        "type": "appetizers",
+        "items": []
+      },
+      {
+        "name": "Fresh Seafood",
+        "type": "lunch|dinner",
+        "items": []
+      },
+      {
+        "name": "Sweet Desserts",
+        "type": "desserts",
+        "items": []
+      }
+    ]
+  },
+  "url": "https://thepointperdido.com",
+  "scraped_at": "2026-03-22T18:49:36.085Z",
+  "extracted_at": "2026-03-23T04:14:40.608Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "http://thepointperdido.com/wp-content/uploads/2018/02/Best-Season-Perdido.jpg",
+    "http://thepointperdido.com/wp-content/uploads/2018/04/crab-claws-1.jpg",
+    "http://thepointperdido.com/wp-content/uploads/2018/04/royal-reds-1.jpg",
+    "http://thepointperdido.com/wp-content/uploads/2018/04/brownie-1-e1524425865401.jpg",
+    "https://thepointperdido.com/wp-content/uploads/2018/04/crab-claws-1-150x150.jpg",
+    "https://thepointperdido.com/wp-content/uploads/2018/04/royal-reds-1-150x150.jpg",
+    "https://thepointperdido.com/wp-content/uploads/2018/03/Soda-150x150.png",
+    "https://thepointperdido.com/wp-content/uploads/2018/03/fried-_pickles-150x150.jpg",
+    "https://thepointperdido.com/wp-content/uploads/2018/03/brownie-150x150.jpg",
+    "https://thepointperdido.com/wp-content/uploads/2018/04/Point-Perdido-Crab-Cakes-150x150.jpg",
+    "http://thepointperdido.com/wp-content/uploads/2018/04/the-point-back.jpg",
+    "https://thepointperdido.com/wp-content/uploads/2026/01/Point-menu-1-scaled.webp",
+    "https://thepointperdido.com/wp-content/uploads/2026/01/Point-menu-2-scaled.webp",
+    "https://thepointperdido.com/wp-content/uploads/2026/01/Point-menu-3-scaled.webp",
+    "https://thepointperdido.com/wp-content/uploads/2018/04/crab-claws-1.jpg",
+    "https://thepointperdido.com/wp-content/uploads/2018/04/royal-reds-1.jpg",
+    "https://thepointperdido.com/wp-content/uploads/2018/03/Soda.png",
+    "https://thepointperdido.com/wp-content/uploads/2018/03/fried-_pickles.jpg",
+    "https://thepointperdido.com/wp-content/uploads/2018/03/brownie.jpg",
+    "https://thepointperdido.com/wp-content/uploads/2018/04/Point-Perdido-Crab-Cakes.jpg"
+  ],
+  "sources": [
+    "https://thepointperdido.com",
+    "https://thepointperdido.com/menu",
+    "https://thepointperdido.com/wp-content/uploads/2018/04/crab-claws-1.jpg",
+    "https://thepointperdido.com/wp-content/uploads/2018/04/royal-reds-1.jpg",
+    "https://thepointperdido.com/wp-content/uploads/2018/03/Soda.png",
+    "https://thepointperdido.com/wp-content/uploads/2018/03/fried-_pickles.jpg",
+    "https://thepointperdido.com/wp-content/uploads/2018/03/brownie.jpg",
+    "https://thepointperdido.com/wp-content/uploads/2018/04/Point-Perdido-Crab-Cakes.jpg"
+  ]
+}

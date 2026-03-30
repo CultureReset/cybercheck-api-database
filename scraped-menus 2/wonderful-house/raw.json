@@ -1,0 +1,103 @@
+{
+  "business_name": "Wonderful House",
+  "url": "https://wonderfulhouseonline.com/",
+  "scraped_at": "2026-03-21T14:49:18.896Z",
+  "pages": [
+    {
+      "url": "https://wonderfulhouseonline.com",
+      "title": "Order Authentic Chinese Online | Wonderful House - Pickup Available",
+      "text": "Skip to main contentWonderful HouseOrder OnlineFort Morgan’s Premier Chinese RestaurantSavor our Mongolian Beef, Sesame Chicken, and Crab Rangoon, crafted with fresh ingredients for lunch and dinner. Customers love our bold flavors and friendly service, serving Fort Morgan, Brush, and Wiggins. Order online for quick takeout and enjoy Wonderful House’s delicious Chinese cuisine that brings joy to every meal!Order OnlineView MenuAbout Wonderful HouseI’m thrilled to welcome you to Wonderful House at 629 Main St, Fort Morgan, CO 80701, in the heart of downtown. We serve dishes like Sweet & Sour Chicken, Beef Lo Mein, and Egg Drop Soup, all made with care. Customers rave about our generous portions and inviting atmosphere, earning us a great reputation. Enjoy our authentic Chinese meals through convenient takeout!LocationWonderful HouseCLOSED NOW• Closes at 09:30 pm629 Main St, Fort Morgan, CO 807019708678899Hours of Operation (Takeout)MondayClosedTuesday - Sunday11:00 am - 09:30 pmOrder OnlineView MenuWonderful HouseMenuTerms and ConditionsPrivacy PolicyCookies PolicyAccessibilityOrder Onlineword word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word wordmmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Restaurant",
+              "@id": "https://www.wonderfulhouseonline.com",
+              "name": "Wonderful House",
+              "alternateName": "Wonderful House",
+              "logo": "https://ik.imagekit.io/awwybhhmo/assets/favicons/Chinese/001-lantern.svg",
+              "description": "Enjoy the best authentic and delicious chinese at Wonderful House. View our hours, explore our menu, and order online for convenient pickup or delivery near you!",
+              "priceRange": "$$",
+              "servesCuisine": [
+                "Chinese"
+              ],
+              "url": "https://www.wonderfulhouseonline.com",
+              "hasMenu": "https://www.wonderfulhouseonline.com/menu",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "629 Main St",
+                "addressLocality": "Fort Morgan",
+                "addressRegion": "CO",
+                "postalCode": "80701",
+                "addressCountry": "US"
+              }
+            },
+            {
+              "@type": "Restaurant",
+              "name": "Wonderful House",
+              "priceRange": "$$",
+              "servesCuisine": "Chinese",
+              "openingHoursSpecification": {
+                "@type": "OpeningHoursSpecification",
+                "openingHours": [
+                  "Su,Tu,We,Th,Fr,Sa 11:00-21:30"
+                ]
+              },
+              "hasMenu": "https://www.wonderfulhouseonline.com/1xwuvj85/wonderful-house-fort-morgan-80701/order-online#menu-section",
+              "acceptsReservations": "No",
+              "description": "Enjoy the best authentic and delicious chinese at Wonderful House in Fort Morgan. View our hours, explore our menu, and order online for convenient pickup or delivery near you!",
+              "url": "https://www.wonderfulhouseonline.com/1xwuvj85/wonderful-house-fort-morgan-80701/order-online",
+              "@id": "https://www.wonderfulhouseonline.com/1xwuvj85/wonderful-house-fort-morgan-80701/order-online",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "629 Main St",
+                "addressLocality": "Fort Morgan",
+                "addressRegion": "CO",
+                "postalCode": "80701",
+                "addressCountry": "US"
+              },
+              "telephone": "(970) 867-8899",
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "40.2551119",
+                "longitude": "-103.8018611"
+              },
+              "potentialAction": {
+                "@type": "OrderAction",
+                "target": "https://www.wonderfulhouseonline.com/1xwuvj85/wonderful-house-fort-morgan-80701/order-online",
+                "actionStatus": "PotentialActionStatus"
+              },
+              "parentOrganization": {
+                "@id": "https://www.wonderfulhouseonline.com"
+              }
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1, maximum-scale=5",
+        "description": "Experience the best authentic and delicious Chinese at Wonderful House. View our hours, explore our menu, and order online for convenient pickup near you!",
+        "og:title": "Order Authentic Chinese Online | Wonderful House - Pickup Available",
+        "og:description": "Experience the best authentic and delicious Chinese at Wonderful House. View our hours, explore our menu, and order online for convenient pickup near you!",
+        "og:image:type": "image/png",
+        "og:image": "https://www.wonderfulhouseonline.com/s0tj6jli/opengraph-image-959cal/og-image?0b56cf29834ff804",
+        "og:image:width": "1200",
+        "og:image:height": "600",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Order Authentic Chinese Online | Wonderful House - Pickup Available",
+        "twitter:description": "Experience the best authentic and delicious Chinese at Wonderful House. View our hours, explore our menu, and order online for convenient pickup near you!",
+        "twitter:image:type": "image/png",
+        "twitter:image": "https://www.wonderfulhouseonline.com/s0tj6jli/opengraph-image-959cal/og-image?0b56cf29834ff804",
+        "twitter:image:width": "1200",
+        "twitter:image:height": "600"
+      }
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": [
+    "https://www.wonderfulhouseonline.com/_next/image?url=https%3A%2F%2Fik.imagekit.io%2Fawwybhhmo%2Fsatellite_images%2Fasian%2Fred%2Fhero%2F1.jpg%3Ftr%3D&w=3840&q=75",
+    "https://www.wonderfulhouseonline.com/_next/image?url=https%3A%2F%2Fik.imagekit.io%2Fawwybhhmo%2Fsatellite_images%2Fasian%2Fred%2Fabout_us%2F6.jpg%3Ftr%3D&w=3840&q=75"
+  ]
+}

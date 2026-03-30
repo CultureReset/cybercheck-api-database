@@ -1,0 +1,30 @@
+{
+  "business_name": "Cheeseburger Randy’s",
+  "url": "https://cheeseburgerrandys.com/",
+  "scraped_at": "2026-03-21T14:00:34.281Z",
+  "pages": [
+    {
+      "url": "https://cheeseburgerrandys.com",
+      "title": "Cheeseburger Randy's",
+      "text": "Cheeseburger Randy'sCheeseburger Randy'sCheeseburger Randy'sCheeseburger Randy'sCheeseburger Randy'sCheeseburger Randy'sCheeseburger Randy'sCheeseburger Randy'sComing SoonComing SoonComing SoonComing SoonComing SoonComing SoonComing SoonComing Soon Cheeseburger Randy's209 S Alston St, Foley, AL 36535, USACopyright © 2025 Cheeseburger Randy's - All Rights Reserved.Powered by",
+      "structuredData": [],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "author": "Cheeseburger Randy's",
+        "generator": "Starfield Technologies; Go Daddy Website Builder 8.0.0000",
+        "og:url": "http://cheeseburgerrandys.com/",
+        "og:site_name": "Cheeseburger Randy's",
+        "og:title": "Cheeseburger Randy's",
+        "og:type": "website",
+        "og:locale": "en_US",
+        "twitter:card": "summary",
+        "twitter:title": "Cheeseburger Randy's",
+        "twitter:description": "Coming Soon",
+        "theme-color": "#ffffff"
+      }
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": []
+}

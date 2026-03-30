@@ -1,0 +1,131 @@
+{
+  "business_name": "Pizza At The Pass",
+  "tagline": "Delicious Pizza, Beer, Daiquiris, & Quick Bites",
+  "type": "Restaurant",
+  "contact": {
+    "phone": "251.240.0500",
+    "email": "info@PizzaAtThePass.com",
+    "address": "27267 Perdido Beach Blvd C2",
+    "city": "Orange Beach",
+    "state": "Alabama",
+    "zip": "36561"
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": "Open today 12:00 pm – 08:00 pm"
+  },
+  "about": {
+    "description": "Great food for the whole family featuring thin crust pizza with whole milk buffalo mozzarella, traditional and boneless wings, fresh Greek salad, and garlic cheese toast. Made with fresh ingredients including house-made Greek sauce.",
+    "elevator_pitch": "Family-friendly pizza restaurant with fresh ingredients, thin crust pizza, wings, and Greek specialties located at SanRoc Cay Marina.",
+    "vibe": "Casual family dining with outdoor seating and playground at marina location",
+    "best_for": [
+      "families",
+      "casual dining",
+      "takeout"
+    ],
+    "established": null,
+    "reservations": null,
+    "insider_tip": "Ample outdoor seating throughout SanRoc with a playground; plates and utensils available upon request for takeout orders"
+  },
+  "tags": [
+    "pizza",
+    "casual",
+    "family-friendly",
+    "fresh ingredients",
+    "wings",
+    "Greek food",
+    "beer",
+    "daiquiris"
+  ],
+  "features": [
+    "dine-in",
+    "takeout",
+    "delivery",
+    "outdoor seating",
+    "playground",
+    "online ordering",
+    "full bar"
+  ],
+  "price_range": "$$",
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://www.pizzaatthepass.com"
+  },
+  "specials": [],
+  "events": [],
+  "menu": {
+    "categories": [
+      {
+        "name": "Featured Items",
+        "type": "lunch",
+        "items": [
+          {
+            "name": "Thin Crust Pizza",
+            "description": "Made with whole milk buffalo mozzarella",
+            "price": null,
+            "tags": [
+              "signature"
+            ],
+            "allergens": [
+              "dairy"
+            ]
+          },
+          {
+            "name": "Traditional Wings",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Boneless Wings",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Greek Salad",
+            "description": "Fresh vegetables",
+            "price": null,
+            "tags": [
+              "fresh"
+            ],
+            "allergens": [
+              "dairy"
+            ]
+          },
+          {
+            "name": "Garlic Cheese Toast",
+            "description": "Must-have appetizer",
+            "price": null,
+            "tags": [
+              "appetizer"
+            ],
+            "allergens": [
+              "dairy"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "url": "https://www.pizzaatthepass.com/",
+  "scraped_at": "2026-03-22T18:31:44.897Z",
+  "extracted_at": "2026-03-23T04:04:05.310Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://img1.wsimg.com/isteam/ip/3c131e79-b78f-4ab3-86fb-3bb22840f231/PizzaPassNobackgroundLogoPaint3dpaint.png/:/rs=h:195,cg:true,m/qt=q:95",
+    "https://img1.wsimg.com/isteam/ip/3c131e79-b78f-4ab3-86fb-3bb22840f231/blob-0025.png/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=h:1000,cg:true"
+  ],
+  "sources": [
+    "https://www.pizzaatthepass.com"
+  ]
+}

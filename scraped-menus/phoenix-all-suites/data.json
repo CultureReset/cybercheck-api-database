@@ -1,0 +1,154 @@
+{
+  "business_name": "Phoenix All Suites",
+  "tagline": "Luxury of a condo with the amenities of a hotel",
+  "type": "Hotel",
+  "contact": {
+    "phone": "1-800-211-7892",
+    "email": null,
+    "address": "201 E. Beach Blvd. / 533 W. Beach Blvd.",
+    "city": "Gulf Shores",
+    "state": "AL",
+    "zip": "36542"
+  },
+  "location": {
+    "beachfront": true,
+    "bay_view": false,
+    "description": "Beachfront on Gulf of Mexico with direct beach access in Gulf Shores, Alabama"
+  },
+  "about": {
+    "description": "Two beachfront hotels in Gulf Shores offering condo-style amenities with hotel service. Features one-bedroom suites with fully-equipped kitchens, balconies overlooking the Gulf of Mexico, and convenient access to beaches, restaurants, and downtown Gulf Shores.",
+    "elevator_pitch": "Luxury beachfront hotels combining condo-style amenities with hotel service in Gulf Shores, Alabama.",
+    "total_units": null,
+    "floors": null,
+    "year_built": null,
+    "pet_friendly": null,
+    "minimum_stay": null,
+    "check_in": null,
+    "check_out": null,
+    "age_restriction": null
+  },
+  "amenities": {
+    "pools": [
+      "outdoor pool",
+      "kiddie pool"
+    ],
+    "hot_tubs": false,
+    "fitness_center": false,
+    "tennis_courts": false,
+    "pickleball_courts": false,
+    "private_beach_access": true,
+    "parking": "covered parking (one spot per suite)",
+    "elevators": null,
+    "gated": false,
+    "bbq_grills": false,
+    "business_center": false,
+    "spa": false,
+    "restaurant_on_site": false,
+    "bar_on_site": false,
+    "kids_splash_pad": false,
+    "other": [
+      "free Wi-Fi throughout condos and lobby",
+      "on-site laundry room",
+      "handicap accessible",
+      "balconies overlooking Gulf of Mexico"
+    ]
+  },
+  "unit_types": [
+    {
+      "name": "One-Bedroom Suite",
+      "bedrooms": 1,
+      "bathrooms": 1.5,
+      "sleeps": null,
+      "view": "Gulf of Mexico",
+      "sq_ft": null,
+      "starting_price": null,
+      "features": [
+        "fully-equipped kitchen",
+        "King size bed",
+        "sofa sleeper",
+        "child-size bunk beds",
+        "balcony",
+        "Gulf view"
+      ]
+    }
+  ],
+  "tags": [
+    "beachfront",
+    "family-friendly",
+    "luxury",
+    "Gulf Shores",
+    "condo-style",
+    "vacation rental"
+  ],
+  "features": [
+    "covered parking",
+    "private beach access",
+    "fully-equipped kitchens",
+    "on-site laundry",
+    "free Wi-Fi",
+    "handicap accessible",
+    "convenient to restaurants and shopping"
+  ],
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://www.phoenixallsuites.com"
+  },
+  "dining": [],
+  "specials": [],
+  "properties": [
+    {
+      "name": "Phoenix All Suites Hotel",
+      "address": "201 E. Beach Blvd.",
+      "city": "Gulf Shores",
+      "state": "AL",
+      "zip": "36542",
+      "phone": "1-800-594-9685"
+    },
+    {
+      "name": "Phoenix All Suites West Hotel",
+      "address": "533 W. Beach Blvd.",
+      "city": "Gulf Shores",
+      "state": "AL",
+      "zip": "36542",
+      "phone": "1-800-309-4882"
+    }
+  ],
+  "url": "https://www.phoenixallsuites.com",
+  "scraped_at": "2026-03-21T22:21:33.863Z",
+  "extracted_at": "2026-03-23T03:58:39.674Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://www.phoenixallsuites.com/assets/images/pas_logo.png",
+    "https://www.phoenixallsuites.com/uploads/l_190605125839-pas-amenities-2.jpg",
+    "https://www.phoenixallsuites.com/uploads/l_PAS-Amenitiesand-7_085411.jpg",
+    "https://www.phoenixallsuites.com/uploads/l_PAS-Amenitiesand-2_085352.jpg",
+    "https://www.phoenixallsuites.com/uploads/l_190605125842-pas-amenities-4.jpg",
+    "https://www.phoenixallsuites.com/uploads/l_PAS-10stack-0213_085852.jpg",
+    "https://www.phoenixallsuites.com/uploads/l_PAS-10stack-0215_085606.jpg",
+    "https://www.phoenixallsuites.com/uploads/l_PAS-10stack-02121_090813.jpg",
+    "https://www.phoenixallsuites.com/uploads/l_PAS-10stack-02111_085755.jpg",
+    "https://www.phoenixallsuites.com/uploads/l_PAS-10stack-0216_085952.jpg",
+    "https://www.phoenixallsuites.com/uploads/l_190605125845-pas-amenities-7.jpg",
+    "https://www.phoenixallsuites.com/uploads/l_190605125848-pas-amenities-10.jpg",
+    "https://www.phoenixallsuites.com/uploads/l_190605125852-pas-amenities-11.jpg",
+    "https://www.phoenixallsuites.com/uploads/l_190605125853-pas-amenities-12.jpg",
+    "https://www.phoenixallsuites.com/uploads/l_190605125854-pas-amenities-13.jpg",
+    "https://www.phoenixallsuites.com/uploads/l_190605125858-pas-amenities-17.jpg",
+    "https://www.phoenixallsuites.com/uploads/l_190605125859-pas-amenities-18.jpg",
+    "https://www.phoenixallsuites.com/uploads/l_190605125900-pas-amenities-19.jpg",
+    "https://www.phoenixallsuites.com/uploads/l_PAS-10stack-0217_091032.jpg",
+    "https://www.phoenixallsuites.com/uploads/l_190605125901-pas-amenities-20.jpg",
+    "https://www.phoenixallsuites.com/uploads/l_190605125904-pas-amenities-22.jpg",
+    "https://www.phoenixallsuites.com/uploads/l_190605010106-pas-207-10.jpg",
+    "https://www.phoenixallsuites.com/uploads/t_PAS-10stack-0215_085606.jpg",
+    "https://www.phoenixallsuites.com/uploads/m_PAS-10stack-0213_085852.jpg",
+    "https://www.phoenixallsuites.com/uploads/PhoenixAllSuitesHotel1br1.5basleeps6gfv634_115831.jpg",
+    "https://www.phoenixallsuites.com/uploads/PhoenixAllSuitesHotel1br1basleeps4Handicap_115832.jpg"
+  ],
+  "sources": [
+    "https://www.phoenixallsuites.com",
+    "https://www.phoenixallsuites.com/locations",
+    "https://www.phoenixallsuites.com/contact"
+  ]
+}

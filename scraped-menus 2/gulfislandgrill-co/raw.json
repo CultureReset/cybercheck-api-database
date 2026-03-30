@@ -1,0 +1,94 @@
+{
+  "business_name": "gulfislandgrill.co",
+  "url": "https://gulfislandgrill.co",
+  "scraped_at": "2026-03-21T19:35:15.996Z",
+  "pages": [
+    {
+      "url": "https://gulfislandgrill.co",
+      "title": "Gulf Island Grill | Seafood Restaurant Near Me | United States",
+      "text": "top of pageGULF iSLAND GRiLL\n\n \n \n \n \n \n\n \n \n \n \n \n\nHOMEABOUT USMENUTHE EXPERIENCECONTACT USCONTACT USWORK WITH USMore...Use tab to navigate through the menu items.SEAFOOD & COCKTAILSsee our menuABOUT USGrillin' on the beach since 2003! Established in 2003 by Freddie and Pat Peninger, Gulf Island Grill is known for its unique tropical flavors and world famous smoked ribs! We provide dine-in or carry out. From snowbirds to spring breakers, we guarantee you'll be satisfied.\n \n \n \n\nFresh seafood and savory burgers served everydaySEE THE MENUFrom margaritas to bushwackers Our drink menu has a variety of tropical cocktails, creamy bushwackers, and local craft beers to choose from! HAPPENINGSTHE EXPERIENCEAMANDA S.Jennifer b.David j.Nov. 15, 2025July 25, 2025June 22, 2025\"Our server Ellie was great!!! We had the fried shrimp and The Grill Salad and our food was delicious and fresh. Best shrimp I’ve had here!! We’ll be back\"\"This is our all-time favorite spot for lunch!...\"\"Enjoyed our experience here!..Best bushwhacker no doubt! \"Hey again! Tag us #GulfIslandGrill\n \n \n \n \n \n\nSTAY IN TOUCH!Contact\n \n \n \n\n251-968-4440\n\nor message us on Facebook!CONTACT USLocation & Hours\n \n \n \n\nAddress: 244 E Beach Blvd, Gulf Shores, AL 36542OPEN 7 DAYS A WEEK\n\n11AM - TILL© 2020 by Gulf Island Grill. Proudly created with Wix.combottom of page",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Restaurant",
+          "name": "Gulf Island Grill",
+          "url": "https://www.gulfislandgrill.co/",
+          "telephone": "251-968-4440",
+          "priceRange": "$10-$50",
+          "menu": "https://www.gulfislandgrill.co/menu",
+          "servesCuisine": "Seafood and cocktails",
+          "acceptsReservations": "false",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "244 E Beach Blvd",
+            "addressLocality": "Gulf Shores",
+            "addressRegion": "AL",
+            "postalCode": "36542",
+            "addressCountry": "US"
+          },
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+            ],
+            "opens": "10:30",
+            "closes": "08:00"
+          }
+        },
+        {
+          "@context": "https://schema.org/",
+          "@type": "LocalBusiness",
+          "name": "Gulf Island Grill Co.",
+          "url": "https://www.gulfislandgrill.co",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "US",
+            "addressLocality": "Gulf Shores",
+            "addressRegion": "AL",
+            "postalCode": "36542",
+            "streetAddress": "244 East Beach Boulevard"
+          },
+          "telephone": "2519786922"
+        },
+        {
+          "@context": "https://schema.org/",
+          "@type": "WebSite",
+          "name": "Gulf Island Grill",
+          "url": "https://www.gulfislandgrill.co"
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "generator": "Wix.com Website Builder",
+        "format-detection": "telephone=no",
+        "skype_toolbar": "skype_toolbar_parser_compatible",
+        "description": "Gulf Island Grill is an island-themed seafood menu & cocktails served in an informal, wood-adorned eatery near the beach.",
+        "og:title": "Gulf Island Grill | Seafood Restaurant Near Me | United States",
+        "og:description": "Gulf Island Grill is an island-themed seafood menu & cocktails served in an informal, wood-adorned eatery near the beach.",
+        "og:url": "https://www.gulfislandgrill.co",
+        "og:site_name": "Gulf Island Grill",
+        "og:type": "website",
+        "google-site-verification": "QlB9RFIT6nId5nTbN8grvewhhLDxoq4c5Phcc-MqDxQ",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Gulf Island Grill | Seafood Restaurant Near Me | United States",
+        "twitter:description": "Gulf Island Grill is an island-themed seafood menu & cocktails served in an informal, wood-adorned eatery near the beach."
+      }
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": [
+    "https://static.wixstatic.com/media/3839d0_de474834f9704502b777337231af186b~mv2.jpg/v1/fill/w_960,h_501,al_c,q_85,enc_avif,quality_auto/3839d0_de474834f9704502b777337231af186b~mv2.jpg",
+    "https://static.wixstatic.com/media/3839d0_89e30f9d7b1340f996051164b152b3bb~mv2.jpg/v1/fill/w_435,h_275,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/87793626_10158145962468979_2983930109443.jpg",
+    "https://static.wixstatic.com/media/3839d0_4353b1cb12ca4d2780e3d969161f6dcb~mv2.jpg/v1/fill/w_435,h_275,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/88054179_10158140051998979_2443373350999.jpg",
+    "https://static.wixstatic.com/media/3839d0_eec2fd00a5d447f4b901c69cb5eee132~mv2.jpg/v1/fill/w_824,h_421,q_90,enc_avif,quality_auto/3839d0_eec2fd00a5d447f4b901c69cb5eee132~mv2.jpg",
+    "https://static.wixstatic.com/media/3839d0_68944d06887f4fcd8317e478dec7f2f2~mv2.jpg/v1/fill/w_604,h_421,q_90,enc_avif,quality_auto/3839d0_68944d06887f4fcd8317e478dec7f2f2~mv2.jpg",
+    "https://static.wixstatic.com/media/3839d0_221189c91db746b0b86f1ef970549ca0~mv2.jpg/v1/fill/w_147,h_82,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/3839d0_221189c91db746b0b86f1ef970549ca0~mv2.jpg"
+  ]
+}

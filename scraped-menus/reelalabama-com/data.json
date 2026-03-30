@@ -1,0 +1,57 @@
+{
+  "business_name": "reelalabama.com",
+  "tagline": null,
+  "type": "Not a Restaurant",
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": null,
+    "city": null,
+    "state": null,
+    "zip": null
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": null
+  },
+  "about": {
+    "description": "reelalabama.com is a parked domain courtesy of GoDaddy.com. The site contains a .Realty comprehensive search directory for finding resources across multiple industries and topics, including real estate legal guidance.",
+    "elevator_pitch": "A search directory platform providing real estate legal resources and information across multiple industries.",
+    "vibe": "Professional, informational",
+    "best_for": [],
+    "established": null,
+    "reservations": null,
+    "insider_tip": null
+  },
+  "tags": [
+    "real estate",
+    "legal advice",
+    "directory",
+    "search platform"
+  ],
+  "features": [],
+  "price_range": null,
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://www.reelalabama.com"
+  },
+  "specials": [],
+  "events": [],
+  "menu": null,
+  "note": "This is not a restaurant website. It is a parked domain with a real estate legal information directory.",
+  "url": "https://www.reelalabama.com",
+  "scraped_at": "2026-03-21T19:29:13.022Z",
+  "extracted_at": "2026-03-23T04:04:32.958Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [],
+  "sources": [
+    "https://www.reelalabama.com"
+  ]
+}

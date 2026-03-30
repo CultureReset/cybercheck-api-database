@@ -1,0 +1,602 @@
+{
+  "business_name": "The Sloop",
+  "tagline": "The Dive Bar That Goes Overboard",
+  "type": "Bar & Grill",
+  "contact": {
+    "phone": "251-500-1007",
+    "email": "biz@thesloop.biz",
+    "address": "103 West Canal Drive",
+    "city": "Gulf Shores",
+    "state": "AL",
+    "zip": "36542"
+  },
+  "hours": {
+    "monday": "11am-12am",
+    "tuesday": "11am-12am",
+    "wednesday": "11am-12am",
+    "thursday": "11am-12am",
+    "friday": "11am-12am",
+    "saturday": "11am-12am",
+    "sunday": "11am-12am",
+    "notes": "No to-go orders during peak hours: 11:30am-2:00pm (lunch) and 6:30pm-8:30pm (dinner). Party size limited to 8 or less during peak hours."
+  },
+  "about": {
+    "description": "The Sloop Galley and Spirits began as an idea from two local restauranteurs with over 40 years of restaurant experience. The location and timing came together in the summer of 2019. The Sloop prides itself on fresh quality foods made in house and exceptional service. One of the partners, James Gallen, from the Philadelphia area decided to incorporate original Philly cheesesteaks on the menus as they are not offered in the south. The other partner, BR Mock, decorated the establishment with authentic sailing tools, pictures, and memorabilia from his days sailing. The Sloop is a locals eatery and watering hole. We do welcome families and children but please remember that we are a sports bar with great homemade items. We do enjoy our island visitors as well! Due to our size limitation we can only handle seating of 8 or less during peak hours.",
+    "elevator_pitch": "Gulf Shores' saltiest pirate-themed dive bar serving authentic Philly cheesesteaks, house-brined wings, and fresh homemade food alongside live music and every sports package you could want.",
+    "established": "2019",
+    "owner": "James Gallen and BR Mock",
+    "chef": null,
+    "vibe": "Salty pirate dive bar with nautical charm and energy",
+    "best_for": [
+      "sports watching",
+      "live music",
+      "casual dining",
+      "locals",
+      "families",
+      "groups"
+    ],
+    "age_restriction": null,
+    "dress_code": null,
+    "parking": null,
+    "accessibility": null,
+    "reservations": "No reservations. Seating is first come, first serve.",
+    "insider_tip": "Order the famous cheesesteak on an authentic J.J. Cassone roll or try it stuffed in egg rolls — a Philly tradition rarely found in the South. Check Facebook for daily specials.",
+    "awards": [],
+    "press": []
+  },
+  "tags": [
+    "dive bar",
+    "sports bar",
+    "live music",
+    "cheesesteaks",
+    "wings",
+    "nachos",
+    "burgers",
+    "seafood",
+    "american",
+    "homemade",
+    "local",
+    "pirate themed",
+    "casual dining",
+    "family friendly",
+    "beach bar",
+    "gulf shores",
+    "alabama",
+    "salads",
+    "sandwiches",
+    "hoagies",
+    "to-go available",
+    "kids menu"
+  ],
+  "hashtags": [
+    "#thesloop",
+    "#gulfshoresbar",
+    "#gulfshorescal",
+    "#gulfshoresrestaurant",
+    "#alabamabar",
+    "#divebar",
+    "#cheesesteaks",
+    "#phillycheesesteak",
+    "#sportsbar",
+    "#livemusic",
+    "#gulfshoreslivemusicic",
+    "#gulfshoresdining",
+    "#beachbar",
+    "#piratedivebar",
+    "#alabama",
+    "#homemadefood",
+    "#nachos",
+    "#wings",
+    "#gulfshorespresents",
+    "#visitgulfshores"
+  ],
+  "categories": [
+    "Restaurant",
+    "Bar",
+    "Dive Bar",
+    "Sports Bar",
+    "Live Music Venue",
+    "Grill"
+  ],
+  "cuisine_types": [
+    "American",
+    "Italian-American",
+    "Seafood",
+    "Cheesesteaks"
+  ],
+  "atmosphere": [
+    "Casual",
+    "Lively",
+    "Sports Bar",
+    "Dive Bar",
+    "Nautical",
+    "Family-Friendly"
+  ],
+  "features": [
+    "live music",
+    "sports packages",
+    "full bar",
+    "takeout",
+    "kids menu",
+    "daily specials",
+    "merch store",
+    "gift cards",
+    "to-go menu",
+    "dine-in"
+  ],
+  "price_range": "$$",
+  "neighborhood": "Gulf Shores",
+  "social_links": {
+    "instagram": null,
+    "facebook": "https://www.facebook.com/thesloopGS/",
+    "twitter": null,
+    "tiktok": null,
+    "youtube": null,
+    "yelp": "https://www.yelp.com/biz/the-sloop-gulf-shores?osq=the+sloop",
+    "tripadvisor": null,
+    "opentable": null,
+    "google_maps": null,
+    "website": "https://www.thesloop.biz"
+  },
+  "specials": [
+    {
+      "name": "Daily Specials",
+      "description": "Rotating daily specials viewable on Facebook, including the Sloop Du Jour rotating daily soup.",
+      "days": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "time": null
+    }
+  ],
+  "events": [
+    {
+      "name": "Live Music",
+      "description": "Live performances by the best local bands in Gulf Shores, AL. Stay updated, invite your friends and let them know you're coming on Facebook. To request a gig, email music@thesloop.biz.",
+      "recurring": true,
+      "day": null,
+      "time": null,
+      "frequency": "Regular schedule posted on live music calendar"
+    }
+  ],
+  "menu": {
+    "categories": [
+      {
+        "name": "Snacks & Appetizers",
+        "type": "dinner",
+        "description": "Starters and shareable snacks. Items marked X are not available to-go.",
+        "subcategories": [
+          "Snacks",
+          "Fries & Chips"
+        ],
+        "items": [
+          {
+            "name": "Sloop Du Jour",
+            "description": "Rotating daily soup, thoughtfully prepared by the captain. Toast points available for an additional $2.",
+            "price": 6,
+            "subcategory": "Snacks",
+            "tags": [
+              "daily special",
+              "rotating"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Cheesesteak Egg Rolls",
+            "description": "Choice of chicken or steak with cherry peppers, cheese whiz, and sloop slaw, hand rolled to order, fried golden brown, served with hot honey mustard. Not available to-go.",
+            "price": 15,
+            "subcategory": "Snacks",
+            "tags": [
+              "popular",
+              "signature",
+              "not available to-go"
+            ],
+            "allergens": [
+              "gluten",
+              "dairy"
+            ]
+          },
+          {
+            "name": "Wings",
+            "description": "One pound of house brined wings, fried and tossed in buffalo, bbq, or have them naked, served with carrot sticks, celery, and choice of ranch or bleu cheese.",
+            "price": 13,
+            "subcategory": "Snacks",
+            "tags": [
+              "popular"
+            ],
+            "allergens": [
+              "dairy"
+            ]
+          },
+          {
+            "name": "Sizzlin Shrimp",
+            "description": "One dozen gulf shrimp sautéed in garlic butter, lemon, capers, grape tomatoes, red onions, and sriracha, served with toast points. Not available to-go.",
+            "price": 15,
+            "subcategory": "Snacks",
+            "tags": [
+              "spicy",
+              "seafood",
+              "not available to-go"
+            ],
+            "allergens": [
+              "shellfish",
+              "gluten",
+              "dairy"
+            ]
+          },
+          {
+            "name": "Baked Stuffed Shrooms",
+            "description": "Philly cream cheese with sausage, stuffed in button mushrooms, baked with chablis, roasted garlic, parmesan cheese, and green onions, served with toast points. Not available to-go. Small or Large.",
+            "price": 9,
+            "subcategory": "Snacks",
+            "tags": [
+              "not available to-go"
+            ],
+            "allergens": [
+              "dairy",
+              "gluten"
+            ]
+          },
+          {
+            "name": "Nachos",
+            "description": "Choice of steak, chicken or shrimp (+$2) double layered on tortillas with cheddar jack cheese, diced red onions, tomatoes, roasted poblano peppers, and queso, served with homemade guacamole, salsa and sour cream. Not available to-go.",
+            "price": 16,
+            "subcategory": "Snacks",
+            "tags": [
+              "popular",
+              "not available to-go",
+              "shareable"
+            ],
+            "allergens": [
+              "dairy",
+              "gluten"
+            ]
+          },
+          {
+            "name": "Chips and Salsa",
+            "description": "Fried to order tortilla chips and house made 'so fresh' salsa. Add guacamole $4 / roasted poblano queso $4.",
+            "price": 7,
+            "subcategory": "Snacks",
+            "tags": [
+              "vegetarian"
+            ],
+            "allergens": [
+              "gluten"
+            ]
+          },
+          {
+            "name": "Boat O' Fries",
+            "description": "House cut-to-order Kennebec potatoes, fried golden & crispy. Add chili & cheese whiz for $4.",
+            "price": 5,
+            "subcategory": "Fries & Chips",
+            "tags": [
+              "vegetarian"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Basket O' Chips",
+            "description": "Large order of house sliced Kennebec potato chips.",
+            "price": 4,
+            "subcategory": "Fries & Chips",
+            "tags": [
+              "vegetarian"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Cheesesteak Party Fries",
+            "description": "A double portion of hand cut fries topped with a cheesesteak. Choose from cheese whiz (recommended), provolone, or american. Extra cheese $.75. Add for free: onions, mushrooms, bell peppers, hot cherry peppers.",
+            "price": 10,
+            "subcategory": "Fries & Chips",
+            "tags": [
+              "popular",
+              "signature"
+            ],
+            "allergens": [
+              "gluten",
+              "dairy"
+            ]
+          },
+          {
+            "name": "Buffalo Party Fries",
+            "description": "A double portion of house cut fries, topped with buffalo sauce, mozzarella, and choice of ranch or bleu cheese.",
+            "price": 10,
+            "subcategory": "Fries & Chips",
+            "tags": [
+              "spicy"
+            ],
+            "allergens": [
+              "dairy"
+            ]
+          },
+          {
+            "name": "Quesadilla",
+            "description": "Choice of grilled chicken or steak with cheddar jack cheese, diced red onions, tomatoes, and roasted poblano peppers, toasted in flour tortilla, served with sides of homemade guacamole, sour cream, and 'so fresh' salsa. Not available to-go.",
+            "price": 14,
+            "subcategory": "Snacks",
+            "tags": [
+              "not available to-go"
+            ],
+            "allergens": [
+              "gluten",
+              "dairy"
+            ]
+          },
+          {
+            "name": "Cheesecake Egg Rolls",
+            "description": "Home made cheesecake, hand rolled and flash fried, served with vanilla ice cream, strawberries & Hershey's chocolate sauce. Not available to-go.",
+            "price": 10,
+            "subcategory": "Snacks",
+            "tags": [
+              "dessert",
+              "not available to-go"
+            ],
+            "allergens": [
+              "gluten",
+              "dairy",
+              "eggs"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Salads",
+        "type": "lunch",
+        "description": "Hand chopped fresh salads. Add grilled or blackened chicken $5, grilled or blackened shrimp $6, steak or chicken cheesesteak $6.",
+        "subcategories": [],
+        "items": [
+          {
+            "name": "House Salad",
+            "description": "Chopped romaine, cherry tomatoes, spiraled carrots, red onions and parmesan cheese. Small or Large.",
+            "price": 8,
+            "subcategory": null,
+            "tags": [
+              "vegetarian"
+            ],
+            "allergens": [
+              "dairy"
+            ]
+          },
+          {
+            "name": "Caesar Salad",
+            "description": "Chopped romaine lettuce, grape tomatoes, parmesan cheese, caesar dressing, and cassone croutons. Small or Large.",
+            "price": 8,
+            "subcategory": null,
+            "tags": [
+              "vegetarian"
+            ],
+            "allergens": [
+              "gluten",
+              "dairy",
+              "eggs"
+            ]
+          },
+          {
+            "name": "Romaine Wedge",
+            "description": "Crisp romaine lettuce topped with cherry tomatoes, spiraled carrots, red onions, bacon and bleu cheese crumbles. Small or Large.",
+            "price": 8,
+            "subcategory": null,
+            "tags": [],
+            "allergens": [
+              "dairy"
+            ]
+          },
+          {
+            "name": "Antipasto Italiano",
+            "description": "Provolone, prosciutto, capocollo, genoa salami, and pepperoni atop crispy romaine with bell peppers, mushrooms, tomatoes, and red onions. Try it with lemon garlic vinaigrette.",
+            "price": 15,
+            "subcategory": null,
+            "tags": [],
+            "allergens": [
+              "dairy",
+              "gluten"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Cheesesteaks, Hoagies & Sandwiches",
+        "type": "lunch",
+        "description": "Sandwiches proudly prepared on world famous J.J. Cassone rolls in 5¾\" or 11½\" sizes — with a lagniappe of house sliced Kennebec potato chips. Add-ons: $3 - bacon, capocollo, salami, pepperoni, prosciutto, guacamole, fried egg. $.75 - extra cheese(s), lettuce, tomato, jalapeno, sauces.",
+        "subcategories": [
+          "Cheesesteaks",
+          "Hoagies",
+          "Sandwiches",
+          "Burgers"
+        ],
+        "items": [
+          {
+            "name": "Cheesesteak",
+            "description": "Choice of premium, thinly sliced steak or chicken topped with your choice of american, provolone, or cheese whiz. Add for free: sautéed onions, mushrooms, bell peppers, hot cherry peppers. Make it a super yacht with blackened shrimp and queso for $4 small / $6 large.",
+            "price": 9,
+            "subcategory": "Cheesesteaks",
+            "tags": [
+              "popular",
+              "signature"
+            ],
+            "allergens": [
+              "gluten",
+              "dairy"
+            ]
+          },
+          {
+            "name": "Italiano",
+            "description": "Prosciutto, capocollo, genoa salami, pepperoni, provolone dressed with tomatoes, romaine lettuce, red onions, evoo, balsamic and a house blend of italian seasonings. Add sweet peppers, hot peppers, or green olives for $.75 each.",
+            "price": 9,
+            "subcategory": "Hoagies",
+            "tags": [],
+            "allergens": [
+              "gluten",
+              "dairy"
+            ]
+          },
+          {
+            "name": "Hotwing Hoagie",
+            "description": "Chicken cheesesteak with buffalo sauce, mozzarella cheese, hot cherry peppers, lettuce and tomatoes dressed with your choice of ranch or bleu cheese.",
+            "price": 9,
+            "subcategory": "Hoagies",
+            "tags": [
+              "spicy"
+            ],
+            "allergens": [
+              "gluten",
+              "dairy"
+            ]
+          },
+          {
+            "name": "Spicy Sausage and Peppers",
+            "description": "Spicy Italian sausage with bell peppers, sautéed onions, provolone cheese, house marinara, Italian seasonings, and parmesan.",
+            "price": 9,
+            "subcategory": "Hoagies",
+            "tags": [
+              "spicy"
+            ],
+            "allergens": [
+              "gluten",
+              "dairy"
+            ]
+          },
+          {
+            "name": "Saucy Meatball",
+            "description": "Beef and pork blend meatballs in our house marinara topped with melted provolone, Italian seasonings, and parmesan.",
+            "price": 9,
+            "subcategory": "Hoagies",
+            "tags": [],
+            "allergens": [
+              "gluten",
+              "dairy"
+            ]
+          },
+          {
+            "name": "Twin Cheeseburger",
+            "description": "Two 4oz. certified angus beef patties grilled to order on a brioche bun, dressed with lettuce, tomatoes, red onions, pickles, and your choice of cheese - white american, provolone, cheese whiz, mozzarella, cheddar jack. Top your burger with a cheesesteak for $6.",
+            "price": 14,
+            "subcategory": "Burgers",
+            "tags": [
+              "popular"
+            ],
+            "allergens": [
+              "gluten",
+              "dairy"
+            ]
+          },
+          {
+            "name": "Chicken Sandwich",
+            "description": "Choice of grilled or blackened chicken breast on a brioche bun with lettuce, tomatoes, red onions, pickles, and choice of cheese - white american, provolone, cheese whiz, mozzarella, cheddar jack.",
+            "price": 13,
+            "subcategory": "Sandwiches",
+            "tags": [],
+            "allergens": [
+              "gluten",
+              "dairy"
+            ]
+          },
+          {
+            "name": "Sloop Dog",
+            "description": "Grilled foot long Nathan's all beef hot dog topped with ol' fashioned chili, cheddar jack, cheese whiz, and diced red onions.",
+            "price": 15,
+            "subcategory": "Sandwiches",
+            "tags": [
+              "signature"
+            ],
+            "allergens": [
+              "gluten",
+              "dairy"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Kids Menu",
+        "type": "kids",
+        "description": "Served with house cut-to-order fries.",
+        "subcategories": [],
+        "items": [
+          {
+            "name": "Grilled Cheese",
+            "description": "Melty american, provolone, cheddar jack and mozzarella cheeses on toasted J.J. Cassone roll.",
+            "price": 7,
+            "subcategory": null,
+            "tags": [
+              "vegetarian",
+              "kids"
+            ],
+            "allergens": [
+              "gluten",
+              "dairy"
+            ]
+          },
+          {
+            "name": "Burger",
+            "description": "One 4oz certified angus beef patty grilled to order with american cheese on brioche bun.",
+            "price": 10,
+            "subcategory": null,
+            "tags": [
+              "kids"
+            ],
+            "allergens": [
+              "gluten",
+              "dairy"
+            ]
+          },
+          {
+            "name": "Chicken Fingers",
+            "description": "Breaded fried chicken breast tenders with choice of ranch, bbq, or buffalo.",
+            "price": 10,
+            "subcategory": null,
+            "tags": [
+              "kids"
+            ],
+            "allergens": [
+              "gluten",
+              "dairy"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Live Music Events",
+        "type": "events",
+        "description": "Regular live music performances by the best local bands in Gulf Shores, AL. Check the live music calendar for upcoming shows. To request a gig, email music@thesloop.biz.",
+        "subcategories": [],
+        "items": []
+      }
+    ]
+  },
+  "url": "https://www.thesloop.biz",
+  "scraped_at": "2026-03-21T12:25:56.723Z",
+  "sources": [
+    "https://www.thesloop.biz",
+    "https://www.thesloop.biz/live-music",
+    "https://www.thesloop.biz/live-music#page",
+    "https://www.thesloop.biz/menu",
+    "https://www.thesloop.biz/menu#page",
+    "https://www.thesloop.biz/about",
+    "https://www.thesloop.biz/contact",
+    "https://www.thesloop.biz/about#page",
+    "https://www.thesloop.biz/contact#page",
+    "https://www.thesloop.biz/s/SloopDineInMenu.pdf",
+    "https://www.thesloop.biz/s/SloopToGoMenu.pdf"
+  ],
+  "gallery": [
+    "https://images.squarespace-cdn.com/content/v1/6148edbcdbbc4f6cf151c5c7/4613af7d-d22f-40f1-ac1f-d07bcfd510ad/Square.png?format=1500w",
+    "https://images.squarespace-cdn.com/content/v1/6148edbcdbbc4f6cf151c5c7/e4e82704-1a14-4e38-b9fc-b2a25a436798/SloopFront1080.jpg",
+    "https://images.squarespace-cdn.com/content/v1/6148edbcdbbc4f6cf151c5c7/e2d4b6c6-462d-4bb0-a97d-c4fbdde9dc40/SloopFront.jpg",
+    "https://images.squarespace-cdn.com/content/v1/6148edbcdbbc4f6cf151c5c7/d81cb066-c0e2-448f-b5f6-f76436a23345/SloopInside.jpg",
+    "https://images.squarespace-cdn.com/content/v1/6148edbcdbbc4f6cf151c5c7/577238d0-c143-4685-b2b4-c7a8d871a6c8/SloopOutside.jpg",
+    "https://images.squarespace-cdn.com/content/v1/6148edbcdbbc4f6cf151c5c7/67f93929-92de-4611-8763-9763444af79a/SloopEggRolls.jpg",
+    "https://images.squarespace-cdn.com/content/v1/6148edbcdbbc4f6cf151c5c7/f7b5a740-5f7e-4cd7-9a2a-4655b94cd4f7/SloopCheesesteak.jpg",
+    "https://images.squarespace-cdn.com/content/v1/6148edbcdbbc4f6cf151c5c7/a1436791-7e20-447e-892f-fcb1a9b72179/Hats.webp",
+    "https://images.squarespace-cdn.com/content/v1/6148edbcdbbc4f6cf151c5c7/e451f87f-0850-429b-ad38-74a9e1b34a33/Shirts.webp",
+    "https://images.squarespace-cdn.com/content/v1/6148edbcdbbc4f6cf151c5c7/375f757a-c127-4c61-8daf-8e88c34f2823/GiftCard.webp",
+    "https://images.squarespace-cdn.com/content/v1/6148edbcdbbc4f6cf151c5c7/dd06ee06-6056-447c-8a42-ca7949f1cd89/WaterwayVillage.png",
+    "https://images.squarespace-cdn.com/content/v1/6148edbcdbbc4f6cf151c5c7/3130d382-3255-4679-a078-5d45fc081ec0/ARHA+LOGO_376_reversed.png",
+    "https://images.squarespace-cdn.com/content/v1/6148edbcdbbc4f6cf151c5c7/88c61b37-3bd8-495b-95f1-3785863deccb/IMG_0521+copy+2.JPG"
+  ]
+}

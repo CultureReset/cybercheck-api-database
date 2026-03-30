@@ -1,0 +1,76 @@
+{
+  "business_name": "Soul Bowlz",
+  "tagline": null,
+  "type": "Restaurant",
+  "contact": [
+    {
+      "phone": null,
+      "email": null,
+      "address": "68 N Bancroft St",
+      "city": "Fairhope",
+      "state": "AL",
+      "zip": "36532"
+    },
+    {
+      "phone": null,
+      "email": null,
+      "address": "1545 Gulf Shores Pkwy",
+      "city": "Gulf Shores",
+      "state": "AL",
+      "zip": "36542"
+    },
+    {
+      "phone": null,
+      "email": null,
+      "address": "4413 Old Shell Rd",
+      "city": "Mobile",
+      "state": "AL",
+      "zip": "36608"
+    }
+  ],
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": null
+  },
+  "about": {
+    "description": null,
+    "elevator_pitch": null,
+    "vibe": null,
+    "best_for": [],
+    "established": null,
+    "reservations": null,
+    "insider_tip": null
+  },
+  "tags": [],
+  "features": [],
+  "price_range": null,
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://soulbowlz.com"
+  },
+  "specials": [],
+  "events": [],
+  "menu": {
+    "categories": []
+  },
+  "url": "https://soulbowlz.com/",
+  "scraped_at": "2026-03-22T18:35:00.532Z",
+  "extracted_at": "2026-03-23T04:08:23.361Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://images.squarespace-cdn.com/content/v1/59506bb7bf629a4fd221744b/45938e21-c196-401b-9298-7eb90f763f3b/43115428-logo.png",
+    "https://images.squarespace-cdn.com/content/v1/59506bb7bf629a4fd221744b/074dee32-924c-4e86-82c9-661133085e97/fairhope.jpg",
+    "https://images.squarespace-cdn.com/content/v1/59506bb7bf629a4fd221744b/cb8335b3-a085-4a4b-b068-db44a8585012/gulf+shores.jpg",
+    "https://images.squarespace-cdn.com/content/v1/59506bb7bf629a4fd221744b/dd25f091-776d-43f7-ab03-95f201c25319/old+shell.jpg"
+  ],
+  "sources": [
+    "https://soulbowlz.com"
+  ]
+}

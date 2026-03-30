@@ -1,0 +1,236 @@
+{
+  "business_name": "The Tin Top Restaurant & Oyster Bar",
+  "tagline": "Gulf Seafood • Prime Steaks • Classic Southern",
+  "type": "Restaurant",
+  "contact": {
+    "phone": "+1-251-949-5086",
+    "email": "info@tintoprestaurant.com",
+    "address": "17451 County Rd. 49 S.",
+    "city": "Bon Secour",
+    "state": "AL",
+    "zip": "36511"
+  },
+  "hours": {
+    "monday": "11:00 AM - 10:00 PM",
+    "tuesday": "11:00 AM - 10:00 PM",
+    "wednesday": "11:00 AM - 10:00 PM",
+    "thursday": "11:00 AM - 10:00 PM",
+    "friday": "11:00 AM - 10:00 PM",
+    "saturday": "11:00 AM - 10:00 PM",
+    "sunday": "10:00 AM - 9:00 PM",
+    "notes": null
+  },
+  "about": {
+    "description": "Located in Bon Secour, Tin Top Restaurant & Oyster Bar serves fresh Gulf seafood and premium aged steaks in a casual, river-front setting.",
+    "elevator_pitch": "A casual riverfront restaurant in Bon Secour specializing in fresh Gulf seafood, premium steaks, and classic Southern cuisine.",
+    "vibe": "Casual, relaxed river-front dining atmosphere",
+    "best_for": [
+      "families",
+      "casual dining",
+      "seafood lovers",
+      "steakhouse enthusiasts"
+    ],
+    "established": null,
+    "reservations": "False",
+    "insider_tip": null
+  },
+  "tags": [
+    "seafood",
+    "oysters",
+    "steakhouse",
+    "American",
+    "Southern",
+    "casual",
+    "riverfront",
+    "Gulf Coast"
+  ],
+  "features": [
+    "oyster bar",
+    "river-front setting",
+    "full bar",
+    "happy hour"
+  ],
+  "price_range": "$$",
+  "social_links": {
+    "instagram": null,
+    "facebook": "https://www.facebook.com/TinTopBonSecour",
+    "website": "https://tintoprestaurant.com"
+  },
+  "specials": [
+    {
+      "name": "Happy Hour Specials",
+      "description": "Drink specials and select menu items",
+      "days": [],
+      "time": null
+    },
+    {
+      "name": "Weekly Specials",
+      "description": "Rotating seafood plates, chef favorites, and featured nights",
+      "days": [],
+      "time": null
+    }
+  ],
+  "events": [],
+  "menu": {
+    "categories": [
+      {
+        "name": "Main Menu",
+        "type": "dinner",
+        "items": []
+      },
+      {
+        "name": "Lunch Menu",
+        "type": "lunch",
+        "items": [
+          {
+            "name": "Soups",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Salads",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Po' Boys",
+            "description": null,
+            "price": null,
+            "tags": [
+              "seafood"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Sandwiches",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Brunch Menu",
+        "type": "brunch",
+        "items": [
+          {
+            "name": "Fresh Seafood",
+            "description": null,
+            "price": null,
+            "tags": [
+              "seafood"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Classic Brunch Plates",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Local Favorites",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Children's Menu",
+        "type": "kids",
+        "items": [
+          {
+            "name": "Kid-Friendly Meals",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Happy Hour Specials",
+        "type": "specials",
+        "items": []
+      },
+      {
+        "name": "Weekly Specials",
+        "type": "specials",
+        "items": []
+      }
+    ]
+  },
+  "url": "https://tintoprestaurant.com",
+  "scraped_at": "2026-03-21T20:18:45.123Z",
+  "extracted_at": "2026-03-23T04:15:32.424Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "http://tintoprestaurant.com/wp-content/uploads/2025/10/The-Tin-Top-Restaurant-Logo-164.png",
+    "https://tintoprestaurant.com/wp-content/uploads/2025/10/menu-icon-sm.png",
+    "https://tintoprestaurant.com/wp-content/uploads/2025/10/gift-card-icon-sm.png",
+    "https://tintoprestaurant.com/wp-content/uploads/2025/10/The-Tin-Top-Restaurant-Oyster-Bar-pic1.webp",
+    "https://tintoprestaurant.com/wp-content/uploads/2025/10/Steak-Carlisle.jpg",
+    "https://tintoprestaurant.com/wp-content/uploads/2025/10/TinTopSeafoodRoyal-Reds.png",
+    "https://tintoprestaurant.com/wp-content/uploads/2025/10/The-Tin-Top-Gift-Shop.jpg",
+    "https://tintoprestaurant.com/wp-content/uploads/2025/10/AYCECATFISH_.jpg",
+    "https://tintoprestaurant.com/wp-content/uploads/2025/10/HalfTinTopHalfDirtyOysters_002.jpg",
+    "https://tintoprestaurant.com/wp-content/uploads/2025/10/HalfMuffuletta_.jpg",
+    "https://tintoprestaurant.com/wp-content/uploads/2025/10/HalflbSauteedCrabClaws002.jpg",
+    "https://tintoprestaurant.com/wp-content/uploads/2025/10/HalflbReds002.jpg",
+    "https://tintoprestaurant.com/wp-content/uploads/2025/10/GrilledOysters_.jpg",
+    "https://tintoprestaurant.com/wp-content/uploads/2025/10/FreshCatchGrilled.jpg",
+    "https://tintoprestaurant.com/wp-content/uploads/2025/10/Ceasar-Salad-with-Tuna.jpg",
+    "https://tintoprestaurant.com/wp-content/uploads/2025/10/Pan-Seared-Tuna.jpg",
+    "https://tintoprestaurant.com/wp-content/uploads/2025/10/Sashimi.jpg",
+    "https://tintoprestaurant.com/wp-content/uploads/2025/10/Seafood-Stuffed-Porterhouse-Pork-Chop.jpg",
+    "https://tintoprestaurant.com/wp-content/uploads/2025/10/Spinach-Salad.jpg",
+    "https://tintoprestaurant.com/wp-content/uploads/2025/10/Stuffed-Crab.jpg",
+    "https://tintoprestaurant.com/wp-content/uploads/2025/10/The-Dirty-Dozen.jpg",
+    "https://tintoprestaurant.com/wp-content/uploads/2025/10/West-Indies-Salad.jpg",
+    "https://tintoprestaurant.com/wp-content/uploads/2025/10/white-chocolate-pudding.jpg",
+    "https://tintoprestaurant.com/wp-content/uploads/2025/10/BeefShrimpKabobs.jpg",
+    "https://tintoprestaurant.com/wp-content/uploads/2025/10/BlackenedFishLunch_.jpg",
+    "https://tintoprestaurant.com/wp-content/uploads/2025/10/BlackenedMahiTacos_.jpg",
+    "https://tintoprestaurant.com/wp-content/uploads/2025/10/The-Tin-Top-Restaurant-Logo-236.png",
+    "https://tintoprestaurant.com/wp-content/uploads/2025/10/The-Tin-Top-Restaurant-Oyster-Bar-Menus-bp.jpg",
+    "https://tintoprestaurant.com/wp-content/uploads/2025/10/The-Tin-Top-Restaurant-Oyster-Bar-Gift-Cards-sign-tree2.jpg",
+    "https://tintoprestaurant.com/wp-content/uploads/2025/10/The-Tin-Top-Restaurant-Oyster-Bar-venue-lights.jpg",
+    "https://tintoprestaurant.com/wp-content/uploads/2025/10/OLD-The-Tin-Top-Restaurant-Original-Hall1.png",
+    "https://tintoprestaurant.com/wp-content/uploads/2025/10/OLD-The-Tin-Top-Restaurant-Original-BLDG1.png",
+    "https://tintoprestaurant.com/wp-content/uploads/2025/10/OLD-The-Tin-Top-Restaurant-InteriorPic1.jpg",
+    "https://tintoprestaurant.com/wp-content/uploads/2025/10/OLD-The-Tin-Top-Restaurant-Drinks1.png",
+    "https://tintoprestaurant.com/wp-content/uploads/2025/10/OLD-The-Tin-Top-Restaurant-cooking1.jpg",
+    "https://tintoprestaurant.com/wp-content/uploads/2025/10/OLD2-The-Tin-Top-Restaurant-Oyster-Bar-venue.jpg",
+    "https://tintoprestaurant.com/wp-content/uploads/2025/10/The-Tin-Top-Restaurant-Oyster-Bar-pic2.webp",
+    "https://tintoprestaurant.com/wp-content/uploads/2025/10/The-Tin-Top-Restaurant-Oyster-Bar-venue.jpg",
+    "https://tintoprestaurant.com/wp-content/uploads/2025/10/Tin-Top-Restaurant-river-view.jpg",
+    "https://tintoprestaurant.com/wp-content/uploads/2025/10/TinTopRestaurant-newbldg.jpg",
+    "https://tintoprestaurant.com/wp-content/uploads/2025/10/Tin-Top-Restaurant-Riverside.jpg"
+  ],
+  "sources": [
+    "https://tintoprestaurant.com",
+    "https://tintoprestaurant.com/tin-top-restaurant-menus/happy-hour-specials",
+    "https://tintoprestaurant.com/tin-top-restaurant-menus/weekly-specials",
+    "https://tintoprestaurant.com/tin-top-restaurant-menus/childrens-menu",
+    "https://tintoprestaurant.com/tin-top-restaurant-menus/brunch-menu",
+    "https://tintoprestaurant.com/tin-top-restaurant-menus/lunch-menu-served-til-4pm",
+    "https://tintoprestaurant.com/tin-top-restaurant-menus/main-menu",
+    "https://tintoprestaurant.com/tin-top-restaurant-menus",
+    "https://tintoprestaurant.com/menus/weekly-specials",
+    "https://tintoprestaurant.com/menus/happy-hour",
+    "https://tintoprestaurant.com/menus/kids",
+    "https://tintoprestaurant.com/menus/brunch",
+    "https://tintoprestaurant.com/menus/lunch",
+    "https://tintoprestaurant.com/menus/main-menu",
+    "https://tintoprestaurant.com/contact-tin-top-restaurant",
+    "https://tintoprestaurant.com/about-tin-top-restaurant"
+  ]
+}

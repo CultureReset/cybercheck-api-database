@@ -1,0 +1,223 @@
+{
+  "business_name": "Waffles R Wild",
+  "tagline": "Taking waffles to a new level",
+  "type": "Restaurant | Bar",
+  "contact": {
+    "phone": "(251) 943-2271",
+    "email": "wafflesrwild@gmail.com",
+    "address": "100 South OWA Blvd",
+    "city": "Foley",
+    "state": "AL",
+    "zip": "36535"
+  },
+  "hours": {
+    "monday": "8:00am – 8:00pm",
+    "tuesday": "8:00am – 8:00pm",
+    "wednesday": "8:00am – 8:00pm",
+    "thursday": "8:00am – 8:00pm",
+    "friday": "8:00am – 9:00pm",
+    "saturday": "8:00am – 9:00pm",
+    "sunday": "8:00am – 8:00pm",
+    "notes": "Open every day"
+  },
+  "about": {
+    "description": "Waffles R Wild was created by Owner Danielle and her parents Michael and Roxanne. Started as a dream and idea that became reality in January 2018, built piece by piece from the ground up. Michael's construction knowledge and Danielle's culinary background and restaurant management experience made it possible for the food truck to be running in less than six months. The business now operates a brick and mortar location at OWA in Foley, AL, and features The Speakeasy - a 1930s prohibition-themed Bar & Grill with great food, craft cocktails, and weekly entertainment.",
+    "elevator_pitch": "A creative waffle restaurant and bar serving innovative waffle sandwiches, fried chicken waffles, waffle pizzas, desserts, and craft cocktails in a 1930s-themed speakeasy setting.",
+    "vibe": "Casual to upscale dining with 1930s speakeasy theme, great entertainment, family-friendly atmosphere with bar options for adults",
+    "best_for": [
+      "families",
+      "breakfast",
+      "brunch",
+      "date night",
+      "special events",
+      "catering"
+    ],
+    "established": "2018",
+    "reservations": "Yes - Call (251) 943-2271",
+    "insider_tip": "Saturday and Sunday breakfast is a specialty; weekly entertainment events available"
+  },
+  "tags": [
+    "waffles",
+    "casual dining",
+    "full bar",
+    "craft cocktails",
+    "family-friendly",
+    "food truck origin",
+    "fried chicken",
+    "desserts",
+    "breakfast",
+    "brunch",
+    "themed restaurant"
+  ],
+  "features": [
+    "full bar",
+    "beer selection",
+    "wine",
+    "cider",
+    "craft cocktails",
+    "weekly entertainment",
+    "catering service",
+    "reservations accepted",
+    "call ahead ordering",
+    "1930s speakeasy theme",
+    "outdoor seating (OWA location)"
+  ],
+  "price_range": "$$",
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://wafflesrwild.com"
+  },
+  "specials": [
+    {
+      "name": "Saturday & Sunday Breakfast",
+      "description": "Special breakfast menu available on weekends",
+      "days": [
+        "Saturday",
+        "Sunday"
+      ],
+      "time": "8:00am opening"
+    }
+  ],
+  "events": [
+    {
+      "name": "Weekly Events",
+      "description": "There is always fun times going on here with entertainment",
+      "recurring": true,
+      "day": "Multiple days per week",
+      "time": null
+    }
+  ],
+  "menu": {
+    "categories": [
+      {
+        "name": "Waffles",
+        "type": "lunch",
+        "items": [
+          {
+            "name": "Waffle Sandwiches",
+            "description": null,
+            "price": null,
+            "tags": [
+              "waffles"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Buttermilk Hand-Breaded Fried Chicken Waffles",
+            "description": null,
+            "price": null,
+            "tags": [
+              "waffles",
+              "chicken",
+              "fried"
+            ],
+            "allergens": [
+              "wheat",
+              "eggs"
+            ]
+          },
+          {
+            "name": "Waffle Pizzas",
+            "description": null,
+            "price": null,
+            "tags": [
+              "waffles",
+              "pizza"
+            ],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Desserts",
+        "type": "desserts",
+        "items": [
+          {
+            "name": "Dessert Waffles",
+            "description": null,
+            "price": null,
+            "tags": [
+              "waffles",
+              "desserts"
+            ],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Drinks",
+        "type": "drinks",
+        "items": [
+          {
+            "name": "Beer",
+            "description": null,
+            "price": null,
+            "tags": [
+              "beer"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Wine",
+            "description": null,
+            "price": null,
+            "tags": [
+              "wine"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Cider",
+            "description": null,
+            "price": null,
+            "tags": [
+              "cider"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Craft Cocktails",
+            "description": null,
+            "price": null,
+            "tags": [
+              "cocktails",
+              "craft"
+            ],
+            "allergens": []
+          }
+        ]
+      }
+    ]
+  },
+  "url": "https://wafflesrwild.com",
+  "scraped_at": "2026-03-21T20:30:39.815Z",
+  "extracted_at": "2026-03-23T04:18:02.954Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://wafflesrwild.com/wp-content/uploads/2020/05/wafflesrwildlogo1.jpg",
+    "https://wafflesrwild.com/wp-content/uploads/2024/06/Waffles-R-Wild-Logo-Character-48x48-Sign_FINAL_240301_091126-1.jpg",
+    "https://wafflesrwild.com/wp-content/uploads/2025/09/thumbnail.jpg",
+    "https://wafflesrwild.com/wp-content/uploads/2024/03/Wedding-Menu-template-1-Made-with-PosterMyWall-1.jpg",
+    "https://wafflesrwild.com/wp-content/uploads/2020/05/waffledesert.jpg",
+    "https://wafflesrwild.com/wp-content/uploads/2024/07/20240706_1328160-scaled.jpg",
+    "https://wafflesrwild.com/wp-content/uploads/2024/06/cropped-Waffles-R-Wild-Logo-Character-48x48-Sign_FINAL_240301_091126-1.jpg",
+    "https://wafflesrwild.com/wp-content/uploads/2024/08/Untitled-5.png",
+    "https://wafflesrwild.com/wp-content/uploads/2024/08/Untitled-6.png",
+    "https://wafflesrwild.com/wp-content/uploads/2024/02/Speakeasy-menu-2024-Page-8-pdf.jpg",
+    "https://wafflesrwild.com/wp-content/uploads/2025/09/IMG_20250927_153729.jpg",
+    "https://wafflesrwild.com/wp-content/uploads/2025/09/IMG_20250927_153720-scaled.png",
+    "https://wafflesrwild.com/wp-content/uploads/2024/06/20240502_122834-1.jpg",
+    "https://wafflesrwild.com/wp-content/uploads/2020/05/Food-truck-award.jpg",
+    "https://wafflesrwild.com/wp-content/uploads/2020/05/misc9-scaled-e1589034484242.jpg",
+    "https://wafflesrwild.com/wp-content/uploads/2024/07/20240706_143537-1-rotated.jpg"
+  ],
+  "sources": [
+    "https://wafflesrwild.com",
+    "https://wafflesrwild.com/project/beer-list",
+    "https://wafflesrwild.com/speakeasy",
+    "https://wafflesrwild.com/events",
+    "https://wafflesrwild.com/about",
+    "https://wafflesrwild.com/contact"
+  ]
+}

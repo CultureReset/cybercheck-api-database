@@ -1,0 +1,168 @@
+{
+  "business_name": "Crico's Pizza & Subs",
+  "tagline": "The Best Pizza & Subs At The Beach Since 1998!",
+  "type": "Restaurant",
+  "contact": {
+    "phone": "(251) 948-3100",
+    "email": null,
+    "address": "309 Gulf Shores Parkway",
+    "city": "Gulf Shores",
+    "state": "AL",
+    "zip": "36542"
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": "Not provided on website"
+  },
+  "about": {
+    "description": "Crico's Pizza and Subs in Gulf Shores, AL, is a beloved local eatery renowned for its delicious pizzas and mouthwatering subs. Nestled in the heart of Gulf Shores, this cozy establishment offers a welcoming atmosphere where patrons can enjoy freshly prepared meals with friends and family. From traditional pepperoni pizzas to specialty pies loaded with gourmet toppings, Crico's caters to every pizza lover's cravings. Their subs range from classic Italian combos to hearty meatball subs.",
+    "elevator_pitch": "Beloved local pizza and sub restaurant on the Alabama Gulf Coast serving quality food with friendly service since 1998.",
+    "vibe": "Cozy, welcoming neighborhood eatery",
+    "best_for": [
+      "families",
+      "casual dining",
+      "tourists",
+      "locals"
+    ],
+    "established": "1998",
+    "reservations": null,
+    "insider_tip": "Call ahead for carryout or delivery - estimated wait time around 35 minutes"
+  },
+  "tags": [
+    "pizza",
+    "subs",
+    "Italian",
+    "casual",
+    "family-friendly",
+    "Alabama Gulf Coast"
+  ],
+  "features": [
+    "carryout",
+    "delivery",
+    "dine-in"
+  ],
+  "price_range": "$$",
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://cricospizza.com"
+  },
+  "specials": [],
+  "events": [],
+  "menu": {
+    "categories": [
+      {
+        "name": "Pizzas",
+        "type": "lunch",
+        "items": [
+          {
+            "name": "Pepperoni Pizza",
+            "description": "Traditional pepperoni pizza",
+            "price": null,
+            "tags": [
+              "traditional"
+            ],
+            "allergens": [
+              "gluten",
+              "dairy"
+            ]
+          },
+          {
+            "name": "Buffalo Chicken Pizza with Bacon and Jalapeños",
+            "description": "Specialty pizza with buffalo chicken, bacon, and jalapeños",
+            "price": null,
+            "tags": [
+              "specialty",
+              "spicy"
+            ],
+            "allergens": [
+              "gluten",
+              "dairy"
+            ]
+          },
+          {
+            "name": "All Meat Pizza",
+            "description": "Pizza loaded with various meats",
+            "price": null,
+            "tags": [
+              "specialty"
+            ],
+            "allergens": [
+              "gluten",
+              "dairy",
+              "meat"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Subs",
+        "type": "lunch",
+        "items": [
+          {
+            "name": "Italian Sub",
+            "description": "Classic Italian combination sub",
+            "price": null,
+            "tags": [
+              "classic"
+            ],
+            "allergens": [
+              "gluten",
+              "dairy",
+              "meat"
+            ]
+          },
+          {
+            "name": "Beef and Cheese Sub",
+            "description": "Sub prepared with beef and cheese",
+            "price": null,
+            "tags": [],
+            "allergens": [
+              "gluten",
+              "dairy",
+              "meat"
+            ]
+          },
+          {
+            "name": "Meatball Sub",
+            "description": "Hearty meatball sub",
+            "price": null,
+            "tags": [
+              "hearty"
+            ],
+            "allergens": [
+              "gluten",
+              "dairy",
+              "meat"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "url": "https://cricospizza.com",
+  "scraped_at": "2026-03-22T01:45:26.834Z",
+  "extracted_at": "2026-03-23T03:37:29.383Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://lirp.cdn-website.com/4e633a43/dms3rep/multi/opt/Cricos-Pizza-Subs-Logo-436w.jpg",
+    "https://lirp.cdn-website.com/4e633a43/dms3rep/multi/opt/Cricos-Pizza-Subs-Logo-293w.jpg",
+    "https://lirp.cdn-website.com/4e633a43/dms3rep/multi/opt/cricos-pizza-2304w.jpg",
+    "https://lirp.cdn-website.com/4e633a43/dms3rep/multi/opt/Pizza-2025-1568h.jpg",
+    "https://lirp.cdn-website.com/4e633a43/dms3rep/multi/opt/Subs-2025-1533h.jpg",
+    "https://lirp.cdn-website.com/4e633a43/dms3rep/multi/opt/Cricostix-2025-1574h.jpg",
+    "https://lirp.cdn-website.com/4e633a43/dms3rep/multi/opt/Salads-2025-1250h.jpg",
+    "https://lirp.cdn-website.com/4e633a43/dms3rep/multi/opt/Sides-2025-1257h.jpg",
+    "https://lirp.cdn-website.com/4e633a43/dms3rep/multi/opt/Cricos-Pizza-Subs-Logo-422w.jpg"
+  ],
+  "sources": [
+    "https://cricospizza.com",
+    "https://www.cricospizza.com"
+  ]
+}

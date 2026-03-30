@@ -1,0 +1,254 @@
+{
+  "business_name": "Jim 'N Nick's BBQ Restaurant",
+  "tagline": "World Class Bar-B-Q",
+  "type": "Restaurant",
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": null,
+    "city": null,
+    "state": null,
+    "zip": null
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": null
+  },
+  "about": {
+    "description": "Jim 'N Nick's celebrates the artistry of slow cooked Bar-B-Q with recipes handed down for generations.",
+    "elevator_pitch": "World-class barbecue featuring slow-cooked meats with time-honored family recipes.",
+    "vibe": "Casual BBQ restaurant with a focus on traditional, authentic barbecue",
+    "best_for": [
+      "families",
+      "casual dining",
+      "barbecue lovers"
+    ],
+    "established": null,
+    "reservations": null,
+    "insider_tip": "Known for their cheesy biscuits"
+  },
+  "tags": [
+    "barbecue",
+    "slow-cooked",
+    "casual",
+    "family-friendly",
+    "pork",
+    "ribs",
+    "chicken",
+    "turkey",
+    "burgers"
+  ],
+  "features": [
+    "catering available",
+    "multiple locations",
+    "dine-in"
+  ],
+  "price_range": "$$",
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://www.jimnnicks.com"
+  },
+  "specials": [],
+  "events": [],
+  "locations": [
+    {
+      "city": "Alabaster",
+      "state": "AL",
+      "address": "295 Alabaster Blvd"
+    },
+    {
+      "city": "Auburn",
+      "state": "AL",
+      "address": "1920 S. College St"
+    },
+    {
+      "city": "Birmingham",
+      "state": "AL",
+      "address": "1908 11th Ave S"
+    },
+    {
+      "city": "Cullman",
+      "state": "AL",
+      "address": "1851 Cherokee Ave SW"
+    },
+    {
+      "city": "Dothan",
+      "state": "AL",
+      "address": "3320 Montgomery Highway"
+    },
+    {
+      "city": "Foley",
+      "state": "AL",
+      "address": "2500 South McKenzie Street"
+    }
+  ],
+  "service_areas": [
+    "Alabama",
+    "Florida",
+    "Georgia",
+    "North Carolina",
+    "South Carolina",
+    "Tennessee"
+  ],
+  "menu": {
+    "categories": [
+      {
+        "name": "BBQ Meats",
+        "type": "lunch",
+        "items": [
+          {
+            "name": "Pork",
+            "description": null,
+            "price": null,
+            "tags": [
+              "bbq"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Ribs",
+            "description": null,
+            "price": null,
+            "tags": [
+              "bbq"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Hot Links",
+            "description": null,
+            "price": null,
+            "tags": [
+              "bbq"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Chicken",
+            "description": null,
+            "price": null,
+            "tags": [
+              "bbq"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Turkey",
+            "description": null,
+            "price": null,
+            "tags": [
+              "bbq"
+            ],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Sides & Appetizers",
+        "type": "lunch",
+        "items": [
+          {
+            "name": "Cheesy Biscuits",
+            "description": null,
+            "price": null,
+            "tags": [
+              "specialty",
+              "signature"
+            ],
+            "allergens": [
+              "dairy",
+              "gluten"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Burgers",
+        "type": "lunch",
+        "items": [
+          {
+            "name": "Burgers",
+            "description": null,
+            "price": null,
+            "tags": [
+              "bbq"
+            ],
+            "allergens": [
+              "gluten"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "catering": {
+    "available": true,
+    "description": "Catering services available",
+    "url": "https://www.jimnnicks.com/catering/"
+  },
+  "url": "https://www.jimnnicks.com",
+  "scraped_at": "2026-03-21T20:44:02.971Z",
+  "extracted_at": "2026-03-23T03:50:31.014Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://www.jimnnicks.com/wp-content/uploads/jnn_website_home_menu.jpeg",
+    "https://www.jimnnicks.com/wp-content/uploads/retail_seasonings_sauces_490x400.jpg",
+    "https://www.jimnnicks.com/wp-content/uploads/merch-gift-card_490x400.jpg",
+    "https://www.jimnnicks.com/wp-content/uploads/merch-black-hat_490x400.jpg",
+    "https://www.jimnnicks.com/wp-content/uploads/Ribs-catering.jpg",
+    "https://www.jimnnicks.com/wp-content/uploads/Chicken-Catering.jpg",
+    "https://www.jimnnicks.com/wp-content/uploads/Spread-Catering.jpg",
+    "https://www.jimnnicks.com/wp-content/uploads/Tabletop-Catering-1024x1024.jpg",
+    "https://www.jimnnicks.com/wp-content/uploads/wedding-Catering-1024x1024.jpg",
+    "https://www.jimnnicks.com/wp-content/uploads/cropped-PIG.png"
+  ],
+  "sources": [
+    "https://www.jimnnicks.com",
+    "https://www.jimnnicks.com/menu",
+    "https://www.jimnnicks.com/locations",
+    "https://www.jimnnicks.com/catering",
+    "https://www.jimnnicks.com/contact",
+    "https://www.jimnnicks.com/locations/al",
+    "https://www.jimnnicks.com/locations/fl",
+    "https://www.jimnnicks.com/locations/ga",
+    "https://www.jimnnicks.com/locations/nc",
+    "https://www.jimnnicks.com/locations/sc",
+    "https://www.jimnnicks.com/locations/tn",
+    "https://www.jimnnicks.com/locations//al",
+    "https://www.jimnnicks.com/locations/al/alabaster/295-alabaster-blvd",
+    "https://www.jimnnicks.com/locations/al/auburn/1920-s-college-st",
+    "https://www.jimnnicks.com/locations/al/birmingham/1908-11th-ave-s",
+    "https://www.jimnnicks.com/locations/al/cullman/1851-cherokee-ave-sw",
+    "https://www.jimnnicks.com/locations/al/dothan/3320-montgomery-highway",
+    "https://www.jimnnicks.com/locations/al/foley/2500-mckenzie-street",
+    "https://www.jimnnicks.com/locations/al/gardendale/915-odum-road",
+    "https://www.jimnnicks.com/locations/al/homewood/220-oxmoor-road",
+    "https://www.jimnnicks.com/locations/al/hoover",
+    "https://www.jimnnicks.com/locations/al/huntsville/4935-university-drive-nw",
+    "https://www.jimnnicks.com/locations/al/jasper/1804-hwy-78-east",
+    "https://www.jimnnicks.com/locations/al/jones-valley/2001-cecil-ashburn-drive-se",
+    "https://www.jimnnicks.com/locations/al/madison/8198-hwy-72-west",
+    "https://www.jimnnicks.com/locations/al/montgomery/6415-atlanta-hwy",
+    "https://www.jimnnicks.com/locations/al/oxford/50-oxford-exchange-boulevard",
+    "https://www.jimnnicks.com/locations/al/prattville/2250-cobbs-ford-rd",
+    "https://www.jimnnicks.com/locations/al/trussville/1660-gadsden-hwy",
+    "https://www.jimnnicks.com/locations/al/tuscaloosa/305-21st-ave",
+    "https://www.jimnnicks.com/locations//fl",
+    "https://www.jimnnicks.com/locations/fl/niceville/14073-emerald-coast-pkwy",
+    "https://www.jimnnicks.com/locations/fl/pensacola/7011-north-davis-highway",
+    "https://www.jimnnicks.com/locations/fl/pace/4625-us-90-e",
+    "https://www.jimnnicks.com/locations//ga",
+    "https://www.jimnnicks.com/locations/ga/athens/1787-oconee-connector",
+    "https://www.jimnnicks.com/locations/ga/augusta/275-robert-c-daniel-jr-parkway",
+    "https://www.jimnnicks.com/locations/ga/columbus/5674-whittlesey-blvd",
+    "https://www.jimnnicks.com/locations/ga/conyers/2275-georgia-highway-20",
+    "https://www.jimnnicks.com/locations/ga/covington/11300-town-center-drive"
+  ]
+}

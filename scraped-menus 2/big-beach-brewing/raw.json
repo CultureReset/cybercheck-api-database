@@ -1,0 +1,73 @@
+{
+  "business_name": "Big Beach Brewing",
+  "url": "https://bigbeachbrewing.com/",
+  "scraped_at": "2026-03-21T15:15:20.213Z",
+  "pages": [
+    {
+      "url": "https://bigbeachbrewing.com",
+      "title": "Big Beach Brewing Company | Gulf Shores, AL",
+      "text": "top of page300 E. 24th Ave. Gulf Shores, AL251.948.BEERHomeBreweryBeer + Wine on TapPhoto GalleryLive Music + EventsThe BreweryContactLocation + HoursShopMoreUse tab to navigate through the menu items.got that 21 years under your belt?YesNoThank you for visiting Big Beach Brewing Company's siteBrewery:\n \n \n \n\n \n \n \n\n \n \n \n \n\n300 E. 24th Ave.\nGulf Shores, AL 36542\n\n251.948.BEER (2337)\n\ninfo@bigbeachbrewing.comFollow usFacebookInstagramTripAdvisorHOURS:\n​\n\nMonday: Noon-10pm\n\nTuesday: Noon-10pm\n\nWednesday: Noon-10pm\n\nThursday: Noon-10pm\n\nFriday: Noon-11pm\n\nSaturday: Noon-11pm\n\nSunday: Noon-10pm\n\nbottom of page",
+      "structuredData": [
+        {
+          "@context": "https://schema.org/",
+          "@type": "LocalBusiness",
+          "name": "Big Beach Brewing Company",
+          "url": "https://www.bigbeachbrewing.com",
+          "image": "https://static.wixstatic.com/media/7c16f9_49e76cc22c384c3ab34170d310193741~mv2.png",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "US",
+            "addressLocality": "Gulf Shores",
+            "addressRegion": "AL",
+            "postalCode": "36542",
+            "streetAddress": "300 East 24th Avenue"
+          },
+          "telephone": "2516095468"
+        },
+        {
+          "@context": "https://schema.org/",
+          "@type": "WebSite",
+          "name": "big-beach-brewing-co",
+          "url": "https://www.bigbeachbrewing.com"
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "generator": "Wix.com Website Builder",
+        "format-detection": "telephone=no",
+        "skype_toolbar": "skype_toolbar_parser_compatible",
+        "description": "Alabama's southernmost brewery, Big Beach Brewing Company, is located in Gulf Shores, Alabama. ",
+        "og:title": "Big Beach Brewing Company | Gulf Shores, AL",
+        "og:description": "Alabama's southernmost brewery, Big Beach Brewing Company, is located in Gulf Shores, Alabama. ",
+        "og:image": "https://static.wixstatic.com/media/7c16f9_02023c8e03a14849a416be12592e92a3%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/7c16f9_02023c8e03a14849a416be12592e92a3%7Emv2.jpg",
+        "og:image:width": "2500",
+        "og:image:height": "1330",
+        "og:url": "https://www.bigbeachbrewing.com",
+        "og:site_name": "big-beach-brewing-co",
+        "og:type": "website",
+        "fb_admins_meta_tag": "bigbeachbrewing",
+        "google-site-verification": "CqTJ-nTuNV824-L2sFy8drO0QdsjIqBnXsHBRIruguU",
+        "keywords": "Big Beach Brewing, Brewery, Gulf Coast, Gulf Shores, Orange Beach",
+        "fb:admins": "bigbeachbrewing",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Big Beach Brewing Company | Gulf Shores, AL",
+        "twitter:description": "Alabama's southernmost brewery, Big Beach Brewing Company, is located in Gulf Shores, Alabama. ",
+        "twitter:image": "https://static.wixstatic.com/media/7c16f9_02023c8e03a14849a416be12592e92a3%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/7c16f9_02023c8e03a14849a416be12592e92a3%7Emv2.jpg"
+      }
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": [
+    "https://static.wixstatic.com/media/7c16f9_c5a19ed259234312a4164fc6ff92b8a6~mv2.jpg/v1/fill/w_948,h_800,al_c,q_85,enc_avif,quality_auto/7c16f9_c5a19ed259234312a4164fc6ff92b8a6~mv2.jpg",
+    "https://static.wixstatic.com/media/7c16f9_6e5ffac57d1d4be099f9d26a66c34ce6~mv2.png/v1/fill/w_150,h_146,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/HOPLOGO_TINTACKER_RT.png",
+    "https://static.wixstatic.com/media/7c16f9_5f269b10c9a54d5692f45f9b880e88b5~mv2.png/v1/fill/w_222,h_221,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/HOPLOGO_TINTACKER-01.png",
+    "https://static.wixstatic.com/media/e316f544f9094143b9eac01f1f19e697.png/v1/fill/w_45,h_45,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/e316f544f9094143b9eac01f1f19e697.png",
+    "https://static.wixstatic.com/media/c090bd269d424abf8f035befe86158de.png/v1/fill/w_45,h_45,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/c090bd269d424abf8f035befe86158de.png",
+    "https://static.wixstatic.com/media/11062b_8d01f81c92b14c0dab40c952ef35ee99~mv2.png/v1/fill/w_45,h_45,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_8d01f81c92b14c0dab40c952ef35ee99~mv2.png",
+    "https://static.wixstatic.com/media/7c16f9_8ccf053740c047dc841e8477e9880d05~mv2.jpg/v1/fill/w_100,h_100,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/7c16f9_8ccf053740c047dc841e8477e9880d05~mv2.jpg",
+    "https://static.wixstatic.com/media/7c16f9_5f64c6d6ad314bf89bbbc016b6b68273~mv2.png/v1/fill/w_160,h_69,al_c,q_85,enc_avif,quality_auto/7c16f9_5f64c6d6ad314bf89bbbc016b6b68273~mv2.png",
+    "https://static.wixstatic.com/media/7c16f9_c458ea8dd71344cb873b197334b26c68~mv2.jpg/v1/fill/w_69,h_119,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/7c16f9_c458ea8dd71344cb873b197334b26c68~mv2.jpg",
+    "https://static.wixstatic.com/media/7c16f9_270c5839fd314e079d26cf1443d41877~mv2.png/v1/fill/w_201,h_60,al_c,q_85,enc_avif,quality_auto/logo-horz-sq.png"
+  ]
+}

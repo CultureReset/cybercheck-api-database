@@ -1,0 +1,415 @@
+{
+  "business_name": "Milkshake Momma",
+  "tagline": "A larger-than-life milkshake bar and restaurant concept where calories don't count",
+  "type": "Restaurant",
+  "contact": {
+    "phone": "(251) 228-4970",
+    "email": "milkshakemommaenterprises@gmail.com",
+    "address": "25908 Canal Rd",
+    "city": "Orange Beach",
+    "state": "AL",
+    "zip": null
+  },
+  "hours": {
+    "monday": "Closed",
+    "tuesday": "11AM - 7:00PM",
+    "wednesday": "11AM - 7:00PM",
+    "thursday": "11AM - 7:00PM",
+    "friday": "11AM - 8PM",
+    "saturday": "11AM - 8PM",
+    "sunday": "12PM - 5PM",
+    "notes": null
+  },
+  "about": {
+    "description": "Milkshake Momma was founded in 2019 in Crawford, Alabama as part of Southern Roots Country Store and Cafe. The business is known for Freak Shakes and Southern-style comfort foods. Founded by Sylvia Nolan, the concept has expanded to multiple locations including Columbus, GA and Orange Beach, AL. The company emphasizes community engagement, outstanding customer service, and a family-friendly atmosphere.",
+    "elevator_pitch": "A Southern-style milkshake bar and restaurant concept serving indulgent Freak Shakes and authentic comfort food in a fun, family-friendly environment.",
+    "vibe": "Fun, vibrant, community-focused, casual dining with a playful and larger-than-life atmosphere",
+    "best_for": [
+      "families",
+      "casual dining",
+      "comfort food lovers",
+      "milkshake enthusiasts"
+    ],
+    "established": "2019",
+    "reservations": null,
+    "insider_tip": "The Freak Shakes created such a buzz that they became the signature item, with the founder Sylvia Nolan earning the nickname 'Milkshake Momma'"
+  },
+  "tags": [
+    "milkshakes",
+    "comfort food",
+    "burgers",
+    "hot dogs",
+    "Southern cuisine",
+    "casual dining",
+    "family-friendly",
+    "fried chicken"
+  ],
+  "features": [],
+  "price_range": "$$",
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "http://milkshakemomma.com/"
+  },
+  "specials": [],
+  "events": [],
+  "menu": {
+    "categories": [
+      {
+        "name": "Burgers",
+        "type": "lunch",
+        "items": [
+          {
+            "name": "Jacked Up Burger",
+            "description": "Two 4oz hand patted all beef burgers, grilled cheese sandwich center, jalapenos, mayo, mustard, ketchup, lettuce, tomato, onion, pickle on toasted bun. Served with fries.",
+            "price": null,
+            "tags": [
+              "beef"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "John Wayne Burger",
+            "description": "Two 4oz hand patted all beef burgers topped with cheese, mayo, mustard, ketchup, lettuce, tomato, onion, pickles on toasted bun. Served with fries.",
+            "price": null,
+            "tags": [
+              "beef"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "John Jr.",
+            "description": "One 4oz hand patted all beef burger topped with cheese, mayo, mustard, ketchup, lettuce, tomato, onion, pickles on toasted bun. Served with fries.",
+            "price": null,
+            "tags": [
+              "beef"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Smashed & Hungover",
+            "description": "4oz smash burger topped with house made pimento cheese, bacon, mayo, pickles on toasted bun. Served with fries.",
+            "price": null,
+            "tags": [
+              "beef",
+              "bacon"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Burnyard Burger",
+            "description": "Single 4oz patted beef burger, 2 chicken tenders, topped with cheese, lettuce, tomato, onions, pickles and choice of sauce. Served with fries.",
+            "price": null,
+            "tags": [
+              "beef",
+              "chicken"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Hella Chili Burger",
+            "description": "4oz hand patted all beef burger topped with home made chili and shredded cheddar cheese on bun. Served with fries.",
+            "price": null,
+            "tags": [
+              "beef",
+              "chili"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Cowboy Up",
+            "description": "4oz hand patted all beef burger topped with thinly sliced philly, white American cheese, bell peppers and onions. Served with fries.",
+            "price": null,
+            "tags": [
+              "beef",
+              "philly"
+            ],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Hot Dogs",
+        "type": "lunch",
+        "items": [
+          {
+            "name": "Scrambled Dog",
+            "description": "2 regular all beef hot dogs chopped up with bun, covered in house made chili, topped with onions, slaw, pickles and oyster crackers. Served with fries or tots.",
+            "price": null,
+            "tags": [
+              "hot dog",
+              "chili"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Big Don",
+            "description": "1lb all beef hot dog, smothered in house made chili, topped with onions, slaw, pickles. Served with fries or tots.",
+            "price": null,
+            "tags": [
+              "hot dog",
+              "chili"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Fiddle Stix Dog",
+            "description": "Footlong hot dog, topped with mustard, house made chili, shredded cheese, french fries on top. Served with fries or tots.",
+            "price": null,
+            "tags": [
+              "hot dog",
+              "chili"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Good Ol' Boy",
+            "description": "6 inch plain all beef hot dog, topped with mustard, ketchup, onions, and pickles. Served with fries or tots.",
+            "price": null,
+            "tags": [
+              "hot dog"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Outlaw Chili Dog",
+            "description": "6 foot hot dog, topped with mustard, house made chili, onions, slaw, pickles. Served with fries or tots.",
+            "price": null,
+            "tags": [
+              "hot dog",
+              "chili"
+            ],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Other Grub",
+        "type": "lunch",
+        "items": [
+          {
+            "name": "Chicken Coop Basket",
+            "description": "5 chicken tenders, fries and a slice of Texas toast. Can be made as wrap.",
+            "price": null,
+            "tags": [
+              "chicken"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Cowboy Philly Sammy",
+            "description": "Thinly sliced steak blended with sauteed bell pepper and onions, topped with white American cheese, served on Texas toast. Can be made as quesadilla or wrap.",
+            "price": null,
+            "tags": [
+              "philly"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Beach Chic",
+            "description": "2 chicken tenders topped with lettuce, tomato and drizzled in house made ranch dressing. Choice of bun or wrap.",
+            "price": null,
+            "tags": [
+              "chicken"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Hot Chic",
+            "description": "2 buffaloed chicken tenders topped with hot honey drizzle, lettuce, tomato, ranch and pickles. Choice of bun or wrap.",
+            "price": null,
+            "tags": [
+              "chicken",
+              "spicy"
+            ],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Funkey Fries",
+        "type": "lunch",
+        "items": [
+          {
+            "name": "Loaded Fries",
+            "description": "Basket of fries topped with chili, cheese, jalapenos.",
+            "price": null,
+            "tags": [
+              "fries",
+              "vegetarian"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Cowboy Fries",
+            "description": "Basket of fries topped with philly steak, bell peppers, onions, and cheese.",
+            "price": null,
+            "tags": [
+              "fries"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Hot Chic Fries",
+            "description": "Basket of fries topped with cheese, battered chicken bites, buffalo sauce, and ranch dressing drizzle.",
+            "price": null,
+            "tags": [
+              "fries",
+              "chicken",
+              "spicy"
+            ],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Lil Tikes",
+        "type": "kids",
+        "items": [
+          {
+            "name": "Hot Dog",
+            "description": "Served with fries and drink.",
+            "price": null,
+            "tags": [
+              "hot dog"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Tenders",
+            "description": "Served with fries and drink.",
+            "price": null,
+            "tags": [
+              "chicken"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Grilled Cheese",
+            "description": "Served with fries and drink.",
+            "price": null,
+            "tags": [
+              "vegetarian"
+            ],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Salads",
+        "type": "lunch",
+        "items": [
+          {
+            "name": "Coop Salad",
+            "description": "Grilled or fried chicken tenders, lettuce, tomato, shredded cheese.",
+            "price": null,
+            "tags": [
+              "chicken",
+              "salad"
+            ],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Drinks",
+        "type": "drinks",
+        "items": [
+          {
+            "name": "Fountain Drink",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Iced Tea",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Bottled Water",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Bottled Soda",
+            "description": "Dairy Free options available.",
+            "price": null,
+            "tags": [],
+            "allergens": []
+          }
+        ]
+      }
+    ]
+  },
+  "url": "http://milkshakemomma.com/",
+  "scraped_at": "2026-03-22T16:42:06.761Z",
+  "extracted_at": "2026-03-23T03:53:22.938Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://static.wixstatic.com/media/ea8948_82b283c62c084305afd7012c34e90313~mv2.png/v1/fill/w_156,h_80,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/name%20only.png",
+    "https://static.wixstatic.com/media/4057345bcf57474b96976284050c00df.png/v1/fill/w_29,h_29,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/4057345bcf57474b96976284050c00df.png",
+    "https://static.wixstatic.com/media/e1aa082f7c0747168d9cf43e77046142.png/v1/fill/w_29,h_29,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/e1aa082f7c0747168d9cf43e77046142.png",
+    "https://static.wixstatic.com/media/11062b_4b88b89fe4694d949be4919c81f194b4~mv2.png/v1/fill/w_29,h_29,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_4b88b89fe4694d949be4919c81f194b4~mv2.png",
+    "https://static.wixstatic.com/media/ea8948_22877a79b11942a8912ed65317836b53~mv2.png/v1/fill/w_2880,h_1728,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/ea8948_22877a79b11942a8912ed65317836b53~mv2.png",
+    "https://static.wixstatic.com/media/ea8948_21da8c988f8d428d9d9d0109706a550a~mv2.png/v1/crop/x_59,y_0,w_1170,h_1100/fill/w_914,h_859,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/character%20only.png",
+    "https://static.wixstatic.com/media/ea8948_64928ca20f304359a38ee499459ffbc7~mv2.jpg/v1/fill/w_1400,h_1468,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/ea8948_64928ca20f304359a38ee499459ffbc7~mv2.jpg",
+    "https://static.wixstatic.com/media/ea8948_82b283c62c084305afd7012c34e90313~mv2.png/v1/fill/w_214,h_109,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/name%20only.png",
+    "https://static.wixstatic.com/media/ea8948_6add973b6e5240d59b9c0f2d3c86bbe0~mv2.png/v1/fill/w_49,h_35,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/ea8948_6add973b6e5240d59b9c0f2d3c86bbe0~mv2.png",
+    "https://static.wixstatic.com/media/710be2_50a7b1178df747b2b359d638bfff68b4~mv2.jpg/v1/fill/w_118,h_69,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/710be2_50a7b1178df747b2b359d638bfff68b4~mv2.jpg",
+    "https://static.wixstatic.com/media/ea8948_b735dab78e3b428eac1312f643e85c46~mv2.png/v1/fill/w_49,h_33,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/ea8948_b735dab78e3b428eac1312f643e85c46~mv2.png",
+    "https://static.wixstatic.com/media/710be2_1890cfbefd184b188537440f8dd05b58~mv2.jpg/v1/fill/w_118,h_78,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/710be2_1890cfbefd184b188537440f8dd05b58~mv2.jpg",
+    "https://static.wixstatic.com/media/ea8948_22877a79b11942a8912ed65317836b53~mv2.png/v1/fill/w_49,h_33,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/ea8948_22877a79b11942a8912ed65317836b53~mv2.png",
+    "https://static.wixstatic.com/media/710be2_cacb663b21244110abcc50c6888302c4~mv2.png/v1/fill/w_49,h_33,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/710be2_cacb663b21244110abcc50c6888302c4~mv2.png",
+    "https://static.wixstatic.com/media/bfe68e_73464c8f646646b79d012f7e0cf7a428~mv2.jpg/v1/fit/w_480,h_720,q_90,enc_avif,quality_auto/bfe68e_73464c8f646646b79d012f7e0cf7a428~mv2.jpg",
+    "https://static.wixstatic.com/media/bfe68e_d74dd9b80c454232abaeeabeeeddde30~mv2.jpg/v1/fit/w_480,h_720,q_90,enc_avif,quality_auto/bfe68e_d74dd9b80c454232abaeeabeeeddde30~mv2.jpg",
+    "https://static.wixstatic.com/media/ea8948_22877a79b11942a8912ed65317836b53~mv2.png/v1/fill/w_16,h_11,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/ea8948_22877a79b11942a8912ed65317836b53~mv2.png",
+    "https://static.wixstatic.com/media/ea8948_def6720ecbd74c69aa7b7ee97f3e3137~mv2.png/v1/fill/w_214,h_109,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/name%20only-white.png",
+    "https://static.wixstatic.com/media/e0678ef25486466ba65ef6ad47b559e1.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/e0678ef25486466ba65ef6ad47b559e1.png",
+    "https://static.wixstatic.com/media/da7ef6dd1302486c9a67baebe4b364bc.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/da7ef6dd1302486c9a67baebe4b364bc.png",
+    "https://static.wixstatic.com/media/11062b_7edd292d29b34c309100535a26dc5033~mv2.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_7edd292d29b34c309100535a26dc5033~mv2.png",
+    "https://static.wixstatic.com/media/ea8948_22877a79b11942a8912ed65317836b53~mv2.png/v1/fill/w_2880,h_1374,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/ea8948_22877a79b11942a8912ed65317836b53~mv2.png",
+    "https://static.wixstatic.com/media/0fdef751204647a3bbd7eaa2827ed4f9.png/v1/fill/w_24,h_24,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0fdef751204647a3bbd7eaa2827ed4f9.png",
+    "https://static.wixstatic.com/media/01c3aff52f2a4dffa526d7a9843d46ea.png/v1/fill/w_24,h_24,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/01c3aff52f2a4dffa526d7a9843d46ea.png",
+    "https://static.wixstatic.com/media/11062b_7fc95bac711041dcb9691b6a09192a84~mv2.png/v1/fill/w_24,h_24,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_7fc95bac711041dcb9691b6a09192a84~mv2.png",
+    "https://static.parastorage.com/services/restaurant-menus-showcase-ooi/fe37e436ffe73e3bb0a727c470282ab6782bce4c257ea438135d1263/media/menus_side_image.7077f229.jpeg",
+    "https://static.wixstatic.com/media/710be2_33d0a3e7a8b049768d9cfc3182137b11~mv2.jpeg/v1/fill/w_574,h_574,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/710be2_33d0a3e7a8b049768d9cfc3182137b11~mv2.jpeg",
+    "https://static.wixstatic.com/media/710be2_d164f3e6606b4aaf897a68c5bf39e10f~mv2.jpg/v1/fill/w_574,h_574,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/710be2_d164f3e6606b4aaf897a68c5bf39e10f~mv2.jpg",
+    "https://static.wixstatic.com/media/710be2_08e25a1f57bb4649adb7dee0d94ba5a2~mv2.png/v1/fill/w_574,h_574,al_c,lg_1,q_85,enc_auto/710be2_08e25a1f57bb4649adb7dee0d94ba5a2~mv2.png",
+    "https://static.wixstatic.com/media/710be2_661ad9c3a3bd4d1089b322391bc6c1a6~mv2.jpg/v1/fill/w_574,h_574,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/710be2_661ad9c3a3bd4d1089b322391bc6c1a6~mv2.jpg",
+    "https://static.wixstatic.com/media/710be2_5c9ba6a2c008422c929849a794f00c43~mv2.jpg/v1/fill/w_574,h_574,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/710be2_5c9ba6a2c008422c929849a794f00c43~mv2.jpg",
+    "https://static.wixstatic.com/media/710be2_6cd6e2be90664c519ebd2583f1df4f7f~mv2.jpg/v1/fill/w_574,h_574,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/710be2_6cd6e2be90664c519ebd2583f1df4f7f~mv2.jpg",
+    "https://static.wixstatic.com/media/710be2_89766469a08a455ea60fa8ca44f38954~mv2.jpg/v1/fill/w_574,h_574,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/710be2_89766469a08a455ea60fa8ca44f38954~mv2.jpg",
+    "https://static.wixstatic.com/media/710be2_34c5899700f54ed69b27cb4bd3aab196~mv2.jpg/v1/fill/w_147,h_196,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_auto/710be2_34c5899700f54ed69b27cb4bd3aab196~mv2.jpg",
+    "https://static.wixstatic.com/media/710be2_485438eab08f41d0be28b797117d8236~mv2.jpg/v1/fill/w_147,h_98,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_auto/710be2_485438eab08f41d0be28b797117d8236~mv2.jpg",
+    "https://static.wixstatic.com/media/710be2_c28f6edb1ca04edbb261312bfae03594~mv2.jpg/v1/fill/w_147,h_196,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_auto/710be2_c28f6edb1ca04edbb261312bfae03594~mv2.jpg",
+    "https://static.wixstatic.com/media/710be2_4b3f391a69b04646befdfdacbf2b43b0~mv2.jpg/v1/fill/w_121,h_84,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_auto/710be2_4b3f391a69b04646befdfdacbf2b43b0~mv2.jpg",
+    "https://static.wixstatic.com/media/710be2_edc23135efc74ddaba7a3c75bc7c41d9~mv2.jpg/v1/fill/w_147,h_98,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_auto/710be2_edc23135efc74ddaba7a3c75bc7c41d9~mv2.jpg",
+    "https://static.wixstatic.com/media/710be2_839d4547378641819e8e6cbf2d30bb4f~mv2.jpg/v1/fill/w_147,h_98,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_auto/710be2_839d4547378641819e8e6cbf2d30bb4f~mv2.jpg",
+    "https://static.wixstatic.com/media/710be2_2f3d80fbb644429180b0a4758d7343b3~mv2.jpg/v1/fill/w_147,h_196,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_auto/710be2_2f3d80fbb644429180b0a4758d7343b3~mv2.jpg",
+    "https://static.wixstatic.com/media/710be2_236582adb72d4ba1a4ad215db4224c27~mv2.jpg/v1/fill/w_147,h_196,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_auto/710be2_236582adb72d4ba1a4ad215db4224c27~mv2.jpg",
+    "https://static.wixstatic.com/media/710be2_e3e47599e4164414a3f17b5ed0eead43~mv2.jpg/v1/fill/w_147,h_196,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_auto/710be2_e3e47599e4164414a3f17b5ed0eead43~mv2.jpg",
+    "https://static.wixstatic.com/media/710be2_48549670a7fe44f69f51c80969d1bee9~mv2.jpg/v1/fill/w_147,h_196,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_auto/710be2_48549670a7fe44f69f51c80969d1bee9~mv2.jpg",
+    "https://static.wixstatic.com/media/710be2_08e25a1f57bb4649adb7dee0d94ba5a2~mv2.png/v1/fill/w_125,h_125,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_auto/710be2_08e25a1f57bb4649adb7dee0d94ba5a2~mv2.png",
+    "https://static.wixstatic.com/media/710be2_b8230e14de154ae987b937ec10a24eab~mv2.jpg/v1/fill/w_147,h_196,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_auto/710be2_b8230e14de154ae987b937ec10a24eab~mv2.jpg",
+    "https://static.wixstatic.com/media/710be2_aa7854e6d47946e9a9ed0bb1e8860016~mv2.png/v1/fill/w_49,h_49,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_auto/710be2_aa7854e6d47946e9a9ed0bb1e8860016~mv2.png",
+    "https://static.wixstatic.com/media/710be2_fbee2b196b394da08fc3b3b94f5bd6ce~mv2.jpg/v1/fill/w_147,h_98,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_auto/710be2_fbee2b196b394da08fc3b3b94f5bd6ce~mv2.jpg",
+    "https://static.wixstatic.com/media/710be2_049147b14f054799925888290ffa20a1~mv2.jpg/v1/fill/w_110,h_73,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_auto/710be2_049147b14f054799925888290ffa20a1~mv2.jpg",
+    "https://static.wixstatic.com/media/710be2_236494eb35a5461e955122ffb4559988~mv2.jpg/v1/fill/w_147,h_196,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_auto/710be2_236494eb35a5461e955122ffb4559988~mv2.jpg",
+    "https://static.wixstatic.com/media/710be2_7c24ce475ad542b1a213f9a3d1cd1fc6~mv2.jpg/v1/fill/w_2880,h_1374,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/710be2_7c24ce475ad542b1a213f9a3d1cd1fc6~mv2.jpg"
+  ],
+  "sources": [
+    "http://milkshakemomma.com",
+    "https://www.milkshakemomma.com/contact",
+    "https://www.milkshakemomma.com/menu",
+    "https://www.milkshakemomma.com/about",
+    "https://www.milkshakemomma.com",
+    "https://www.milkshakemomma.com/locations",
+    "https://www.milkshakemomma.com/franchise"
+  ]
+}

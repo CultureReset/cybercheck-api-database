@@ -1,0 +1,58 @@
+{
+  "business_name": "royal-eats.com",
+  "url": "http://www.royal-eats.com",
+  "scraped_at": "2026-03-21T20:37:15.598Z",
+  "pages": [
+    {
+      "url": "http://www.royal-eats.com",
+      "title": "ROYAL EATS",
+      "text": "Manage your consent preferencesWhen you visit this site, we may store or access information on your browser, mostly through cookies. These help the site function as intended, remember your preferences, and provide a more personalized experience. The information typically does not directly identify you, but it can improve how the site works for you. You can choose which types of cookies to allow. However, blocking certain cookies may affect how the site functions or limit the services we can provide.EssentialOnEssential cookies and services enable core website features and provide a seamless user experience. Essential cookies and services are used to facilitate features such as navigation, remember user preferences, and ensure the security of the website.VendorsMarketingOnMarketing cookies and services support delivering personalized advertisements, promotions, and offers that are relevant to you. They help optimize ad delivery, measure campaign effectiveness, and enable advertisers to reach specific target audiences.VendorsAnalyticsOnAnalytics cookies and services are for collecting aggregated data and statistical information. This data helps us analyze and optimize site performance, identify popular content, detect navigation issues, and make informed decisions to enhance the user experience.VendorsFunctionalOnFunctional cookies and services remember your preferences and choices, such as language preferences, font sizes, region selections, and customized layouts. They enable this website to offer enhanced and personalized functionalities.SaveOpt out of allOpt in to allPrivacy PolicyPowered bySkip to Main contentROYAL EATS LLCAbout UsGalleryContactLoyaltyGift CardsMoreEmail MarketingAbout UsGalleryContactLoyaltyGift CardsEmail Marketing0Order NowSign inWelcome to Royal EatsStep right up to a magical fusion of Southern comfort and carnival flair! Experience our unique twist on classic Southern dishes in a vibrant, festive way.Order NowSouthern Comfort Meets FunIndulge in our signature dishes that combine traditional Southern recipes with playful carnival twists.View GalleryOur StoryLearn about the passion and creativity behind Royal Eats' unique dining experience.About UsOrder OnlineEnjoy our carnival-inspired Southern dishes from the comfort of your home.Order NowGet in TouchQuestions? Special requests? We'd love to hear from you!Contact UsView Our MenuOrder NowPhoto GallerySee PhotosContact InfoGet in TouchROYAL EATS LLC Location and Hours00000000001004 Mckenzie Street, Foley, AL 36535Open now • Closes at 8PMAll hoursView menuOrder onlineTerms of Service|Privacy Statement|Cookie SettingsOrder Now",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "@id": "https://royal-eats.com/",
+          "url": "https://royal-eats.com/",
+          "name": "ROYAL EATS LLC",
+          "brand": "ROYAL EATS LLC",
+          "subOrganization": [
+            {
+              "@type": "Restaurant",
+              "@id": "https://royal-eats.com/order/royal-eats-llc-3865-chesterfield-ln",
+              "sameAs": "https://royal-eats.com/order/royal-eats-llc-3865-chesterfield-ln",
+              "name": "1004 N. McKenzie Street Foley AL 36535",
+              "telephone": "0000000000",
+              "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "US",
+                "postalCode": "36535",
+                "addressRegion": "AL",
+                "addressLocality": "Foley",
+                "streetAddress": "1004 Mckenzie Street"
+              }
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width,initial-scale=1,maximum-scale=5,user-scalable=yes",
+        "author": "Toast, Inc.",
+        "og:url": "https://royal-eats.com/",
+        "og:image": "https://d1w7312wesee68.cloudfront.net/restaurantImages/6a44c3c6-2258-4e1d-9028-04680db5112a/thumbnail_royaleats.jpg",
+        "description": "FOOD FUSION FLAVOR",
+        "og:description": "FOOD FUSION FLAVOR",
+        "og:title": "ROYAL EATS",
+        "msapplication-TileColor": "#b91d47",
+        "theme-color": "#ffffff"
+      }
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": [
+    "https://d28f3w0x9i80nq.cloudfront.net/restaurantImages/6a44c3c6-2258-4e1d-9028-04680db5112a/thumbnail_royaleats.jpg",
+    "https://d1w7312wesee68.cloudfront.net/a2yIeuNsBRaebQq7WmJbXTC8W2jer1VQ0Zv_CHfejGc/ext:webp/quality:85/plain/s3://toast-sites-resources-prod/restaurantImages/6a44c3c6-2258-4e1d-9028-04680db5112a/thumbnail_royaleats.jpg",
+    "https://d1w7312wesee68.cloudfront.net/loN8qaguNyAWbu68PuybuNbeLkFNeDN4k_UNpeCMWqs/ext:webp/quality:85/plain/s3://toast-sites-resources-prod/stockImages/silverware-holder.jpeg",
+    "https://d1w7312wesee68.cloudfront.net/HP9BbddXZ6RcYwPjY28ULm-tFD2fSJAQE39IDyaRiZE/ext:webp/quality:85/c:4032:3024:ce:0:0/plain/s3://toast-sites-resources-prod/restaurantImages/6a44c3c6-2258-4e1d-9028-04680db5112a/BURGER.jpeg"
+  ]
+}

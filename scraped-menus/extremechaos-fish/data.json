@@ -1,0 +1,155 @@
+{
+  "business_name": "Extreme Chaos Fishing Charters",
+  "tagline": "Orange Beach Charter Fishing",
+  "type": "Fishing Charter Service",
+  "contact": {
+    "phone": "(228) 365-2352",
+    "email": "ExtremeChaosCharters@gmail.com",
+    "address": "26619 Perdido Beach Blvd",
+    "city": "Orange Beach",
+    "state": "AL",
+    "zip": "36561"
+  },
+  "hours": {
+    "monday": "06:00 - 20:00",
+    "tuesday": "06:00 - 20:00",
+    "wednesday": "06:00 - 20:00",
+    "thursday": "06:00 - 20:00",
+    "friday": "06:00 - 20:00",
+    "saturday": "06:00 - 20:00",
+    "sunday": "Closed",
+    "notes": null
+  },
+  "about": {
+    "description": "Extreme Chaos Fishing Charters offers inshore, nearshore, and offshore fishing adventures in Orange Beach, Alabama. Led by Captain Doug Maines (aka 'Captain Chaos'), the company provides expert-guided fishing trips targeting various saltwater species including Red Snapper, Vermilion Snapper, Triggerfish, King Mackerel, Redfish, and more. The service includes all fishing gear, bait, safety equipment, fish cleaning, and expert guidance.",
+    "elevator_pitch": "Expert-guided charter fishing trips in Orange Beach, Alabama with Captain Doug Maines offering inshore, nearshore, and offshore fishing experiences for all skill levels.",
+    "vibe": "Adventure-focused, family-friendly, professional fishing charter with experienced captain and crew dedicated to creating memorable fishing experiences.",
+    "best_for": [
+      "families",
+      "first-time anglers",
+      "experienced fishermen",
+      "kids",
+      "group adventures"
+    ],
+    "established": null,
+    "reservations": "Online booking available; phone booking accepted at (228) 365-2352",
+    "insider_tip": "2026 Snapper Season starts in May with limited availability - call early to book your charter."
+  },
+  "tags": [
+    "fishing charter",
+    "saltwater fishing",
+    "Orange Beach",
+    "Gulf Coast",
+    "adventure",
+    "family-friendly",
+    "catch and release",
+    "snapper season"
+  ],
+  "features": [
+    "Expert captain and crew",
+    "Fishing gear provided",
+    "Bait provided",
+    "Fish cleaning included",
+    "Safety equipment provided",
+    "Multiple trip duration options",
+    "Catch and release option",
+    "Keep-what-you-catch option",
+    "Scenic views"
+  ],
+  "price_range": "$$",
+  "social_links": {
+    "instagram": "https://www.instagram.com/extremechaoscharters",
+    "facebook": "https://www.facebook.com/profile.php?id=100063583989616",
+    "website": "https://extremechaos.fish"
+  },
+  "specials": [],
+  "events": [],
+  "menu": {
+    "categories": [
+      {
+        "name": "Inshore Fishing Charters",
+        "type": "specials",
+        "items": [
+          {
+            "name": "Inshore Fishing - 2 Hours",
+            "description": "Tranquil inshore fishing in calm waters. Perfect for catching Redfish, Trout, and Flounder. Great for kids and first-time anglers. Catch & Release trip.",
+            "price": 400,
+            "tags": [
+              "inshore",
+              "2 hours",
+              "up to 4 people",
+              "catch and release",
+              "kids-friendly"
+            ],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Nearshore Fishing Charters",
+        "type": "specials",
+        "items": [
+          {
+            "name": "Inshore-Nearshore Fishing - 6 Hours",
+            "description": "Venture farther from shore to target Snapper, King Mackerel, and Amberjack. Adventure awaits with horizon views.",
+            "price": 800,
+            "tags": [
+              "nearshore",
+              "6 hours",
+              "2 people",
+              "keep what you catch"
+            ],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Offshore Bottom Fishing Charters",
+        "type": "specials",
+        "items": [
+          {
+            "name": "Offshore Bottom Fishing - 4 Hours",
+            "description": "Fish the deep waters for trophy fish including Red Snapper, Triggerfish, Vermillion Snapper, and Amberjack. Keep what you catch.",
+            "price": 1200,
+            "tags": [
+              "offshore",
+              "4 hours",
+              "up to 4 people",
+              "keep what you catch",
+              "deep sea"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Offshore Bottom Fishing - 6 Hours",
+            "description": "Extended offshore adventure for ultimate angling experience. Target trophy fish in deep blue waters. Keep what you catch.",
+            "price": 1400,
+            "tags": [
+              "offshore",
+              "6 hours",
+              "up to 4 people",
+              "keep what you catch",
+              "most popular",
+              "adventure"
+            ],
+            "allergens": []
+          }
+        ]
+      }
+    ]
+  },
+  "url": "https://extremechaos.fish",
+  "scraped_at": "2026-03-21T19:51:06.099Z",
+  "extracted_at": "2026-03-23T03:40:44.047Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://extremechaos.fish/wp-content/uploads/2023/10/Extreme-Chaos-Fishing-Charters-The-Boat-e1696353927198-1024x615.webp",
+    "https://extremechaos.fish/wp-content/uploads/2023/10/Orange-Beach-Inshore-Fishing-Charters-1024x1024.webp",
+    "https://extremechaos.fish/wp-content/uploads/2023/10/Orange-Beach-Nearshore-Fishing-Charters-1024x1024.webp",
+    "https://extremechaos.fish/wp-content/uploads/2023/10/Orange-Beach-Alabama-Offshore-Fishing-Charters-1024x1024.webp"
+  ],
+  "sources": [
+    "https://extremechaos.fish",
+    "https://extremechaos.fish/contact"
+  ]
+}

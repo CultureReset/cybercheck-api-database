@@ -1,0 +1,527 @@
+{
+  "business_name": "Tandoor Indian Cuisine",
+  "url": "https://www.tandoorindiancuisineal.com/",
+  "scraped_at": "2026-03-21T14:20:38.059Z",
+  "pages": [
+    {
+      "url": "https://www.tandoorindiancuisineal.com",
+      "title": "Order Authentic Indian Online | Tandoor Indian Cuisine - Pickup or Delivery Available",
+      "text": "Skip to main contentTandoor Indian CuisineOrder OnlineSpice Up Your Day, The Tandoor WayExperience the vibrant flavors of India right in Mobile, AL. Enjoy our authentic Indian cuisine with convenient delivery and takeout options. Discover the perfect blend of spices and aromas. Order online now for a culinary journey that delights your senses!Order OnlineView MenuTandoor: Authentic Indian FlavorsTandoor Indian Cuisine is the place for delicious, local indian cuisine. With a variety of food, there's an option for everyone, so you and your family will never have to feel hungry again. With the convenience of ordering online for pick-up or having your food delivered right to you Tandoor Indian Cuisine has a seamless way to get you what you want when you want.LocationTandoor Indian CuisineCLOSED NOW• Closes at 09:30 pm3674 Airport Boulevard, Mobile, AL 366082513416171PickupDeliveryHours of Operation (Takeout)MondayClosedTuesday - Sunday11:00 am - 09:30 pmOrder OnlineView MenuTandoor Indian CuisineMenuTerms and ConditionsPrivacy PolicyCookies PolicyAccessibilityOrder Onlineword word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word wordmmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Restaurant",
+              "@id": "https://www.tandoorindiancuisineal.com",
+              "name": "Tandoor Indian Cuisine",
+              "alternateName": "Tandoor Indian Cuisine",
+              "logo": "https://ik.imagekit.io/awwybhhmo/assets/favicons/Uncategorized/restaurant__1_.svg",
+              "description": "Enjoy the best authentic and delicious indian at Tandoor Indian Cuisine. View our hours, explore our menu, and order online for convenient pickup or delivery near you!",
+              "priceRange": "$$",
+              "servesCuisine": [
+                "Indian"
+              ],
+              "url": "https://www.tandoorindiancuisineal.com",
+              "hasMenu": "https://www.tandoorindiancuisineal.com/menu",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "3674 Airport Boulevard",
+                "addressLocality": "Mobile",
+                "addressRegion": "AL",
+                "postalCode": "36608",
+                "addressCountry": "US"
+              }
+            },
+            {
+              "@type": "Restaurant",
+              "name": "Tandoor Indian Cuisine",
+              "priceRange": "$$",
+              "servesCuisine": "Indian",
+              "openingHoursSpecification": {
+                "@type": "OpeningHoursSpecification",
+                "openingHours": [
+                  "Su,Tu,We,Th,Fr,Sa 11:00-21:30"
+                ]
+              },
+              "hasMenu": "https://www.tandoorindiancuisineal.com/isafy89p/tandoor-indian-cuisine-mobile-36608/order-online#menu-section",
+              "acceptsReservations": "No",
+              "description": "Enjoy the best authentic and delicious indian at Tandoor Indian Cuisine in Mobile. View our hours, explore our menu, and order online for convenient pickup or delivery near you!",
+              "url": "https://www.tandoorindiancuisineal.com/isafy89p/tandoor-indian-cuisine-mobile-36608/order-online",
+              "@id": "https://www.tandoorindiancuisineal.com/isafy89p/tandoor-indian-cuisine-mobile-36608/order-online",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "3674 Airport Boulevard",
+                "addressLocality": "Mobile",
+                "addressRegion": "AL",
+                "postalCode": "36608",
+                "addressCountry": "US"
+              },
+              "telephone": "(251) 341-6171",
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "30.6769775",
+                "longitude": "-88.1337964"
+              },
+              "potentialAction": {
+                "@type": "OrderAction",
+                "target": "https://www.tandoorindiancuisineal.com/isafy89p/tandoor-indian-cuisine-mobile-36608/order-online",
+                "actionStatus": "PotentialActionStatus"
+              },
+              "parentOrganization": {
+                "@id": "https://www.tandoorindiancuisineal.com"
+              }
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1, maximum-scale=5",
+        "description": "Experience the best authentic and delicious Indian at Tandoor Indian Cuisine. View our hours, explore our menu, and order online for convenient pickup or delivery near you!",
+        "og:title": "Order Authentic Indian Online | Tandoor Indian Cuisine - Pickup or Delivery Available",
+        "og:description": "Experience the best authentic and delicious Indian at Tandoor Indian Cuisine. View our hours, explore our menu, and order online for convenient pickup or delivery near you!",
+        "og:image:type": "image/png",
+        "og:image": "https://www.tandoorindiancuisineal.com/e94wktik/opengraph-image-959cal/og-image?0b56cf29834ff804",
+        "og:image:width": "1200",
+        "og:image:height": "600",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Order Authentic Indian Online | Tandoor Indian Cuisine - Pickup or Delivery Available",
+        "twitter:description": "Experience the best authentic and delicious Indian at Tandoor Indian Cuisine. View our hours, explore our menu, and order online for convenient pickup or delivery near you!",
+        "twitter:image:type": "image/png",
+        "twitter:image": "https://www.tandoorindiancuisineal.com/e94wktik/opengraph-image-959cal/og-image?0b56cf29834ff804",
+        "twitter:image:width": "1200",
+        "twitter:image:height": "600"
+      }
+    },
+    {
+      "url": "https://www.tandoorindiancuisineal.com/isafy89p/tandoor-indian-cuisine-mobile-36608/order-online",
+      "title": "Best Indian in Mobile, AL | Tandoor Indian Cuisine | Order Online",
+      "text": "Skip to main content0MenuMenu availability may vary based on the time of your order.All Day MenuAPPETIZERSSOUPSFROM THE TANDOORNON VEGETABLE CURRIESMODERN VEG INDIAN ENTREESTHE FRESH CATCHINDONESIA CHINESE DISHESGOAT OR LAMB DELICACIESBREADS FROM THE TANDOORDESSERTBEVERAGESBIRYANISide OrdersMenuAll Day MenuAPPETIZERSSOUPSFROM THE TANDOORNON VEGETABLE CURRIESMODERN VEG INDIAN ENTREESTHE FRESH CATCHINDONESIA CHINESE DISHESGOAT OR LAMB DELICACIESBREADS FROM THE TANDOORDESSERTBEVERAGESBIRYANISide OrdersAPPETIZERSONIONS BHAJIYASliced onions mix with delicious spices and gram flour deep fried.$12.99VEGETABLES PAKORASAssorted vegetables “garden free” dipped into delicately spiced gram flour batter and deep fried.$12.99🤩PopularVEG SAMOSAPotatoes and peas stuffed into crispy conical shaped dough and Indian spicy.$5.99CHICKEN SAMOSAMinced chicken stuffed into crispy conical shaped dough and Indian spicy.$8.99LAMB SAMOSAMinced lamb stuffed into crispy conical shaped dough and Indian spicy.$9.99SHRIMP PAKORAShrimp marinated in yogurt and spice dipped in gram flour batter deep fried$17.99PANEER PAKORAMarinated vin Indian spicy dipped in gram flour batter deep fried.$14.99GOAN CALAMARICrisp calamari Indian sauce$16.99HOT WINGS 6 piecesCrispy wings deep fried.$14.99HARA BHARA KABAB 6 piecesPan fried patties of spinach potatoes, homemade cheese and roasted Chana lentils$14.99CHICKEN LOLLIPOPS 5 piecesChicken wings are spicy marinated with ginger garlic paste and Indian spicy deep fried.$17.99IMLI BAINGANSavory eggplant fritters,gram flour Batter with tamarind sauce$13.99CHILI CHICKENExtra spicy indo Chinese style,spicy chicken in onion ginger, garlic or soya sauce.$17.99CRISPY SPRING ROLLSShredded cabbage, carrots, corn, peas, bell paper, sweet chili dipping sauce.$12.99CAULIFLOWER MANCHURIANCrispy cauliflower indo Chinese style spicy in chops onion, ginger, garlic or soya sauce, deep fried.$15.99SHRIMP DYNAMITEBattered shrimp deep fried with sriracha mayo sauce.$17.99AMBI JHEENGASweet and spicy shrimp in a mango sauce, onion tomato masala.$17.99CHICKEN CHILIExtra spicy indo Chinese style spicy chicken in onion ginger garlic or soya sauce.$15.99PANEER CHILIHomemade cottage cheese deep fried with pepper onion garlic ginger with soya sauce.$14.99SOUPSMULLIGATAWNY SOUPVegetable yellow lentil puree seasoned with spices.$7.99CHICKEN SOUPTraditional Indian soup with chicken stock and Indian spices.$9.99TOMATO SOUPFresh tomato cooked with ginger garlic fresh cream and Indian spicy.$7.99HOT AND SOUR VEG SOUPSoup is made with red and green chillies ginger carrots beans soy sauce white vinegar it is viewed in Indian as being a Chinese soup.$7.99HOT AND SOUR CHICKEN SOUPSoup is made with red and green chillies ginger carrots beans soy sauce white vinegar it is viewed in Indian as being a Chinese soup.$9.99MANCHOW SOUPDelightful indo Chinese thick soup which gets onion ginger garlic green beans cabbage coriander fresh green onion served with fried noodles.$7.99MANCHOW CHICKEN SOUPDelightful indo Chinese thick soup which gets onion ginger garlic green beans cabbage coriander fresh green onion served with fried noodles.$9.99FROM THE TANDOORNON VEGETABLE CURRIESCollected from all over India. All main dishes served with saffron basmati rice.MODERN VEG INDIAN ENTREESTHE FRESH CATCHWahoo and tiger prawns used for all the following dishesINDONESIA CHINESE DISHESWith sauces, all served with riceGOAT OR LAMB DELICACIESServed with basmati riceBREADS FROM THE TANDOORDESSERTBEVERAGESBIRYANISide OrdersTandoor Indian CuisineStore InformationClosedSee More3674 Airport Boulevard, Mobile, AL 36608(251) 341-6171Order MethodPickupAbout 40 minDeliveryAbout 30 minPickupToday, ASAPScheduleStart New OrderTandoor Indian Cuisine3674 Airport Boulevard, Mobile, AL 36608(251) 341-6171MenuTerms and ConditionsPrivacy PolicyCookies PolicyAccessibilityword word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word wordmmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Restaurant",
+          "name": "Tandoor Indian Cuisine",
+          "priceRange": "$$",
+          "servesCuisine": "Indian",
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "openingHours": [
+              "Su,Tu,We,Th,Fr,Sa 11:00-21:30"
+            ]
+          },
+          "hasMenu": "https://www.tandoorindiancuisineal.com/isafy89p/tandoor-indian-cuisine-mobile-36608/order-online#menu-section",
+          "acceptsReservations": "No",
+          "description": "Enjoy the best authentic and delicious indian at Tandoor Indian Cuisine in Mobile. View our hours, explore our menu, and order online for convenient pickup or delivery near you!",
+          "url": "https://www.tandoorindiancuisineal.com/isafy89p/tandoor-indian-cuisine-mobile-36608/order-online",
+          "@id": "https://www.tandoorindiancuisineal.com/isafy89p/tandoor-indian-cuisine-mobile-36608/order-online",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "3674 Airport Boulevard",
+            "addressLocality": "Mobile",
+            "addressRegion": "AL",
+            "postalCode": "36608",
+            "addressCountry": "US"
+          },
+          "telephone": "(251) 341-6171",
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "30.6769775",
+            "longitude": "-88.1337964"
+          },
+          "potentialAction": {
+            "@type": "OrderAction",
+            "target": "https://www.tandoorindiancuisineal.com/isafy89p/tandoor-indian-cuisine-mobile-36608/order-online",
+            "actionStatus": "PotentialActionStatus"
+          },
+          "parentOrganization": {
+            "@id": "https://www.tandoorindiancuisineal.com"
+          }
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1, maximum-scale=5",
+        "description": "Enjoy the best authentic and delicious Indian at Tandoor Indian Cuisine in Mobile. View our hours, explore our menu, and order online for convenient pickup or delivery near you!",
+        "og:title": "Best Indian in Mobile, AL | Tandoor Indian Cuisine | Order Online",
+        "og:description": "Enjoy the best authentic and delicious Indian at Tandoor Indian Cuisine in Mobile. View our hours, explore our menu, and order online for convenient pickup or delivery near you!",
+        "og:image:type": "image/png",
+        "og:image": "https://www.tandoorindiancuisineal.com/isafy89p/opengraph-image-co490f/og-image?76459acebae51a80",
+        "og:image:width": "1200",
+        "og:image:height": "600",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Best Indian in Mobile, AL | Tandoor Indian Cuisine | Order Online",
+        "twitter:description": "Enjoy the best authentic and delicious Indian at Tandoor Indian Cuisine in Mobile. View our hours, explore our menu, and order online for convenient pickup or delivery near you!",
+        "twitter:image:type": "image/png",
+        "twitter:image": "https://www.tandoorindiancuisineal.com/isafy89p/opengraph-image-co490f/og-image?76459acebae51a80",
+        "twitter:image:width": "1200",
+        "twitter:image:height": "600"
+      }
+    },
+    {
+      "url": "https://www.tandoorindiancuisineal.com/isafy89p/tandoor-indian-cuisine-mobile-36608/menu",
+      "title": "Best Indian in Mobile, AL | Tandoor Indian Cuisine | Menu",
+      "text": "Skip to main contentTandoor Indian CuisineTo start your order, press the Order Online button below 👇Viewing Online MenuSome interactions may be disabled.Order OnlineStore InformationClosed3674 Airport Boulevard, Mobile, AL 36608(251) 341-6171MenuMenu availability may vary based on the time of your order.All Day MenuAPPETIZERSSOUPSFROM THE TANDOORNON VEGETABLE CURRIESMODERN VEG INDIAN ENTREESTHE FRESH CATCHINDONESIA CHINESE DISHESGOAT OR LAMB DELICACIESBREADS FROM THE TANDOORDESSERTBEVERAGESBIRYANISide OrdersMenuAll Day MenuAPPETIZERSSOUPSFROM THE TANDOORNON VEGETABLE CURRIESMODERN VEG INDIAN ENTREESTHE FRESH CATCHINDONESIA CHINESE DISHESGOAT OR LAMB DELICACIESBREADS FROM THE TANDOORDESSERTBEVERAGESBIRYANISide OrdersAPPETIZERSONIONS BHAJIYASliced onions mix with delicious spices and gram flour deep fried.$12.99VEGETABLES PAKORASAssorted vegetables “garden free” dipped into delicately spiced gram flour batter and deep fried.$12.99🤩PopularVEG SAMOSAPotatoes and peas stuffed into crispy conical shaped dough and Indian spicy.$5.99CHICKEN SAMOSAMinced chicken stuffed into crispy conical shaped dough and Indian spicy.$8.99LAMB SAMOSAMinced lamb stuffed into crispy conical shaped dough and Indian spicy.$9.99SHRIMP PAKORAShrimp marinated in yogurt and spice dipped in gram flour batter deep fried$17.99PANEER PAKORAMarinated vin Indian spicy dipped in gram flour batter deep fried.$14.99GOAN CALAMARICrisp calamari Indian sauce$16.99HOT WINGS 6 piecesCrispy wings deep fried.$14.99HARA BHARA KABAB 6 piecesPan fried patties of spinach potatoes, homemade cheese and roasted Chana lentils$14.99CHICKEN LOLLIPOPS 5 piecesChicken wings are spicy marinated with ginger garlic paste and Indian spicy deep fried.$17.99IMLI BAINGANSavory eggplant fritters,gram flour Batter with tamarind sauce$13.99CHILI CHICKENExtra spicy indo Chinese style,spicy chicken in onion ginger, garlic or soya sauce.$17.99CRISPY SPRING ROLLSShredded cabbage, carrots, corn, peas, bell paper, sweet chili dipping sauce.$12.99CAULIFLOWER MANCHURIANCrispy cauliflower indo Chinese style spicy in chops onion, ginger, garlic or soya sauce, deep fried.$15.99SHRIMP DYNAMITEBattered shrimp deep fried with sriracha mayo sauce.$17.99AMBI JHEENGASweet and spicy shrimp in a mango sauce, onion tomato masala.$17.99CHICKEN CHILIExtra spicy indo Chinese style spicy chicken in onion ginger garlic or soya sauce.$15.99PANEER CHILIHomemade cottage cheese deep fried with pepper onion garlic ginger with soya sauce.$14.99SOUPSMULLIGATAWNY SOUPVegetable yellow lentil puree seasoned with spices.$7.99CHICKEN SOUPTraditional Indian soup with chicken stock and Indian spices.$9.99TOMATO SOUPFresh tomato cooked with ginger garlic fresh cream and Indian spicy.$7.99HOT AND SOUR VEG SOUPSoup is made with red and green chillies ginger carrots beans soy sauce white vinegar it is viewed in Indian as being a Chinese soup.$7.99HOT AND SOUR CHICKEN SOUPSoup is made with red and green chillies ginger carrots beans soy sauce white vinegar it is viewed in Indian as being a Chinese soup.$9.99MANCHOW SOUPDelightful indo Chinese thick soup which gets onion ginger garlic green beans cabbage coriander fresh green onion served with fried noodles.$7.99MANCHOW CHICKEN SOUPDelightful indo Chinese thick soup which gets onion ginger garlic green beans cabbage coriander fresh green onion served with fried noodles.$9.99FROM THE TANDOORNON VEGETABLE CURRIESCollected from all over India. All main dishes served with saffron basmati rice.MODERN VEG INDIAN ENTREESTHE FRESH CATCHWahoo and tiger prawns used for all the following dishesINDONESIA CHINESE DISHESWith sauces, all served with riceGOAT OR LAMB DELICACIESServed with basmati riceBREADS FROM THE TANDOORDESSERTBEVERAGESBIRYANISide OrdersTandoor Indian Cuisine3674 Airport Boulevard, Mobile, AL 36608(251) 341-6171MenuTerms and ConditionsPrivacy PolicyCookies PolicyAccessibilityOrder Onlineword word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word wordmmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Restaurant",
+          "name": "Tandoor Indian Cuisine",
+          "priceRange": "$$",
+          "servesCuisine": "Indian",
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "openingHours": [
+              "Su,Tu,We,Th,Fr,Sa 11:00-21:30"
+            ]
+          },
+          "hasMenu": "https://www.tandoorindiancuisineal.com/isafy89p/tandoor-indian-cuisine-mobile-36608/order-online#menu-section",
+          "acceptsReservations": "No",
+          "description": "Enjoy the best authentic and delicious indian at Tandoor Indian Cuisine in Mobile. View our hours, explore our menu, and order online for convenient pickup or delivery near you!",
+          "url": "https://www.tandoorindiancuisineal.com/isafy89p/tandoor-indian-cuisine-mobile-36608/order-online",
+          "@id": "https://www.tandoorindiancuisineal.com/isafy89p/tandoor-indian-cuisine-mobile-36608/order-online",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "3674 Airport Boulevard",
+            "addressLocality": "Mobile",
+            "addressRegion": "AL",
+            "postalCode": "36608",
+            "addressCountry": "US"
+          },
+          "telephone": "(251) 341-6171",
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "30.6769775",
+            "longitude": "-88.1337964"
+          },
+          "potentialAction": {
+            "@type": "OrderAction",
+            "target": "https://www.tandoorindiancuisineal.com/isafy89p/tandoor-indian-cuisine-mobile-36608/order-online",
+            "actionStatus": "PotentialActionStatus"
+          },
+          "parentOrganization": {
+            "@id": "https://www.tandoorindiancuisineal.com"
+          }
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1, maximum-scale=5",
+        "description": "Enjoy the best authentic and delicious Indian at Tandoor Indian Cuisine in Mobile. View our hours, explore our menu, and order online for convenient pickup or delivery near you!",
+        "og:title": "Best Indian in Mobile, AL | Tandoor Indian Cuisine | Menu",
+        "og:description": "Enjoy the best authentic and delicious Indian at Tandoor Indian Cuisine in Mobile. View our hours, explore our menu, and order online for convenient pickup or delivery near you!",
+        "og:image:type": "image/png",
+        "og:image": "https://www.tandoorindiancuisineal.com/isafy89p/opengraph-image-co490f/og-image?76459acebae51a80",
+        "og:image:width": "1200",
+        "og:image:height": "600",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Best Indian in Mobile, AL | Tandoor Indian Cuisine | Menu",
+        "twitter:description": "Enjoy the best authentic and delicious Indian at Tandoor Indian Cuisine in Mobile. View our hours, explore our menu, and order online for convenient pickup or delivery near you!",
+        "twitter:image:type": "image/png",
+        "twitter:image": "https://www.tandoorindiancuisineal.com/isafy89p/opengraph-image-co490f/og-image?76459acebae51a80",
+        "twitter:image:width": "1200",
+        "twitter:image:height": "600"
+      }
+    },
+    {
+      "url": "https://www.tandoorindiancuisineal.com/isafy89p/tandoor-indian-cuisine-mobile-36608/menu?menu=All+Day+Menu",
+      "title": "Best Indian in Mobile, AL | Tandoor Indian Cuisine | Menu",
+      "text": "Skip to main contentTandoor Indian CuisineTo start your order, press the Order Online button below 👇Viewing Online MenuSome interactions may be disabled.Order OnlineStore InformationClosed3674 Airport Boulevard, Mobile, AL 36608(251) 341-6171MenuMenu availability may vary based on the time of your order.All Day MenuAPPETIZERSSOUPSFROM THE TANDOORNON VEGETABLE CURRIESMODERN VEG INDIAN ENTREESTHE FRESH CATCHINDONESIA CHINESE DISHESGOAT OR LAMB DELICACIESBREADS FROM THE TANDOORDESSERTBEVERAGESBIRYANISide OrdersMenuAll Day MenuAPPETIZERSSOUPSFROM THE TANDOORNON VEGETABLE CURRIESMODERN VEG INDIAN ENTREESTHE FRESH CATCHINDONESIA CHINESE DISHESGOAT OR LAMB DELICACIESBREADS FROM THE TANDOORDESSERTBEVERAGESBIRYANISide OrdersAPPETIZERSONIONS BHAJIYASliced onions mix with delicious spices and gram flour deep fried.$12.99VEGETABLES PAKORASAssorted vegetables “garden free” dipped into delicately spiced gram flour batter and deep fried.$12.99🤩PopularVEG SAMOSAPotatoes and peas stuffed into crispy conical shaped dough and Indian spicy.$5.99CHICKEN SAMOSAMinced chicken stuffed into crispy conical shaped dough and Indian spicy.$8.99LAMB SAMOSAMinced lamb stuffed into crispy conical shaped dough and Indian spicy.$9.99SHRIMP PAKORAShrimp marinated in yogurt and spice dipped in gram flour batter deep fried$17.99PANEER PAKORAMarinated vin Indian spicy dipped in gram flour batter deep fried.$14.99GOAN CALAMARICrisp calamari Indian sauce$16.99HOT WINGS 6 piecesCrispy wings deep fried.$14.99HARA BHARA KABAB 6 piecesPan fried patties of spinach potatoes, homemade cheese and roasted Chana lentils$14.99CHICKEN LOLLIPOPS 5 piecesChicken wings are spicy marinated with ginger garlic paste and Indian spicy deep fried.$17.99IMLI BAINGANSavory eggplant fritters,gram flour Batter with tamarind sauce$13.99CHILI CHICKENExtra spicy indo Chinese style,spicy chicken in onion ginger, garlic or soya sauce.$17.99CRISPY SPRING ROLLSShredded cabbage, carrots, corn, peas, bell paper, sweet chili dipping sauce.$12.99CAULIFLOWER MANCHURIANCrispy cauliflower indo Chinese style spicy in chops onion, ginger, garlic or soya sauce, deep fried.$15.99SHRIMP DYNAMITEBattered shrimp deep fried with sriracha mayo sauce.$17.99AMBI JHEENGASweet and spicy shrimp in a mango sauce, onion tomato masala.$17.99CHICKEN CHILIExtra spicy indo Chinese style spicy chicken in onion ginger garlic or soya sauce.$15.99PANEER CHILIHomemade cottage cheese deep fried with pepper onion garlic ginger with soya sauce.$14.99SOUPSMULLIGATAWNY SOUPVegetable yellow lentil puree seasoned with spices.$7.99CHICKEN SOUPTraditional Indian soup with chicken stock and Indian spices.$9.99TOMATO SOUPFresh tomato cooked with ginger garlic fresh cream and Indian spicy.$7.99HOT AND SOUR VEG SOUPSoup is made with red and green chillies ginger carrots beans soy sauce white vinegar it is viewed in Indian as being a Chinese soup.$7.99HOT AND SOUR CHICKEN SOUPSoup is made with red and green chillies ginger carrots beans soy sauce white vinegar it is viewed in Indian as being a Chinese soup.$9.99MANCHOW SOUPDelightful indo Chinese thick soup which gets onion ginger garlic green beans cabbage coriander fresh green onion served with fried noodles.$7.99MANCHOW CHICKEN SOUPDelightful indo Chinese thick soup which gets onion ginger garlic green beans cabbage coriander fresh green onion served with fried noodles.$9.99FROM THE TANDOORNON VEGETABLE CURRIESCollected from all over India. All main dishes served with saffron basmati rice.MODERN VEG INDIAN ENTREESTHE FRESH CATCHWahoo and tiger prawns used for all the following dishesINDONESIA CHINESE DISHESWith sauces, all served with riceGOAT OR LAMB DELICACIESServed with basmati riceBREADS FROM THE TANDOORDESSERTBEVERAGESBIRYANISide OrdersTandoor Indian Cuisine3674 Airport Boulevard, Mobile, AL 36608(251) 341-6171MenuTerms and ConditionsPrivacy PolicyCookies PolicyAccessibilityOrder Onlineword word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word wordmmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Restaurant",
+          "name": "Tandoor Indian Cuisine",
+          "priceRange": "$$",
+          "servesCuisine": "Indian",
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "openingHours": [
+              "Su,Tu,We,Th,Fr,Sa 11:00-21:30"
+            ]
+          },
+          "hasMenu": "https://www.tandoorindiancuisineal.com/isafy89p/tandoor-indian-cuisine-mobile-36608/order-online#menu-section",
+          "acceptsReservations": "No",
+          "description": "Enjoy the best authentic and delicious indian at Tandoor Indian Cuisine in Mobile. View our hours, explore our menu, and order online for convenient pickup or delivery near you!",
+          "url": "https://www.tandoorindiancuisineal.com/isafy89p/tandoor-indian-cuisine-mobile-36608/order-online",
+          "@id": "https://www.tandoorindiancuisineal.com/isafy89p/tandoor-indian-cuisine-mobile-36608/order-online",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "3674 Airport Boulevard",
+            "addressLocality": "Mobile",
+            "addressRegion": "AL",
+            "postalCode": "36608",
+            "addressCountry": "US"
+          },
+          "telephone": "(251) 341-6171",
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "30.6769775",
+            "longitude": "-88.1337964"
+          },
+          "potentialAction": {
+            "@type": "OrderAction",
+            "target": "https://www.tandoorindiancuisineal.com/isafy89p/tandoor-indian-cuisine-mobile-36608/order-online",
+            "actionStatus": "PotentialActionStatus"
+          },
+          "parentOrganization": {
+            "@id": "https://www.tandoorindiancuisineal.com"
+          }
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1, maximum-scale=5",
+        "description": "Enjoy the best authentic and delicious Indian at Tandoor Indian Cuisine in Mobile. View our hours, explore our menu, and order online for convenient pickup or delivery near you!",
+        "og:title": "Best Indian in Mobile, AL | Tandoor Indian Cuisine | Menu",
+        "og:description": "Enjoy the best authentic and delicious Indian at Tandoor Indian Cuisine in Mobile. View our hours, explore our menu, and order online for convenient pickup or delivery near you!",
+        "og:image:type": "image/png",
+        "og:image": "https://www.tandoorindiancuisineal.com/isafy89p/opengraph-image-co490f/og-image?76459acebae51a80",
+        "og:image:width": "1200",
+        "og:image:height": "600",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Best Indian in Mobile, AL | Tandoor Indian Cuisine | Menu",
+        "twitter:description": "Enjoy the best authentic and delicious Indian at Tandoor Indian Cuisine in Mobile. View our hours, explore our menu, and order online for convenient pickup or delivery near you!",
+        "twitter:image:type": "image/png",
+        "twitter:image": "https://www.tandoorindiancuisineal.com/isafy89p/opengraph-image-co490f/og-image?76459acebae51a80",
+        "twitter:image:width": "1200",
+        "twitter:image:height": "600"
+      }
+    },
+    {
+      "url": "https://www.tandoorindiancuisineal.com/isafy89p/tandoor-indian-cuisine-mobile-36608/menu?menu=All+Day+Menu&category=Side+Orders",
+      "title": "Best Indian in Mobile, AL | Tandoor Indian Cuisine | Menu",
+      "text": "Skip to main contentTandoor Indian CuisineTo start your order, press the Order Online button below 👇Viewing Online MenuSome interactions may be disabled.Order OnlineStore InformationClosed3674 Airport Boulevard, Mobile, AL 36608(251) 341-6171MenuMenu availability may vary based on the time of your order.All Day MenuAPPETIZERSSOUPSFROM THE TANDOORNON VEGETABLE CURRIESMODERN VEG INDIAN ENTREESTHE FRESH CATCHINDONESIA CHINESE DISHESGOAT OR LAMB DELICACIESBREADS FROM THE TANDOORDESSERTBEVERAGESBIRYANISide OrdersMenuAll Day MenuAPPETIZERSSOUPSFROM THE TANDOORNON VEGETABLE CURRIESMODERN VEG INDIAN ENTREESTHE FRESH CATCHINDONESIA CHINESE DISHESGOAT OR LAMB DELICACIESBREADS FROM THE TANDOORDESSERTBEVERAGESBIRYANISide OrdersAPPETIZERSSOUPSFROM THE TANDOORNON VEGETABLE CURRIESCollected from all over India. All main dishes served with saffron basmati rice.MODERN VEG INDIAN ENTREESTHE FRESH CATCHWahoo and tiger prawns used for all the following dishesINDONESIA CHINESE DISHESWith sauces, all served with riceGOAT OR LAMB DELICACIESServed with basmati riceBREADS FROM THE TANDOORDESSERTBEVERAGESBIRYANIVegetable BiryaniVegetables cooked with mild spices and basmati rice. Garnished with cilantro, nuts, and raisins.$17.99Chicken BiryaniChicken, basmati rice cooked with saffron, and spices. Garnished with cilantro, nuts, and raisins.$18.99Lamb BiryaniLamb, basmati rice cooked with saffron, and spices. Garnished with cilantro, nuts, and raisins.$20.99Shrimp BiryaniShrimp cooked in a special curry sauce with basmati rice. Garnished with cilantro, nuts, and raisins.$21.99Goat BiryaniGoat cooked in a special curry sauce with basmati rice. Garnished with cilantro, nuts, and raisins.$20.99Side OrdersMango Chutney$2.99Raita$2.99Plain Yogurt$2.99Green Salad$6.99Papadam$2.99Tandoor Indian Cuisine3674 Airport Boulevard, Mobile, AL 36608(251) 341-6171MenuTerms and ConditionsPrivacy PolicyCookies PolicyAccessibilityOrder Onlineword word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word wordmmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Restaurant",
+          "name": "Tandoor Indian Cuisine",
+          "priceRange": "$$",
+          "servesCuisine": "Indian",
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "openingHours": [
+              "Su,Tu,We,Th,Fr,Sa 11:00-21:30"
+            ]
+          },
+          "hasMenu": "https://www.tandoorindiancuisineal.com/isafy89p/tandoor-indian-cuisine-mobile-36608/order-online#menu-section",
+          "acceptsReservations": "No",
+          "description": "Enjoy the best authentic and delicious indian at Tandoor Indian Cuisine in Mobile. View our hours, explore our menu, and order online for convenient pickup or delivery near you!",
+          "url": "https://www.tandoorindiancuisineal.com/isafy89p/tandoor-indian-cuisine-mobile-36608/order-online",
+          "@id": "https://www.tandoorindiancuisineal.com/isafy89p/tandoor-indian-cuisine-mobile-36608/order-online",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "3674 Airport Boulevard",
+            "addressLocality": "Mobile",
+            "addressRegion": "AL",
+            "postalCode": "36608",
+            "addressCountry": "US"
+          },
+          "telephone": "(251) 341-6171",
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "30.6769775",
+            "longitude": "-88.1337964"
+          },
+          "potentialAction": {
+            "@type": "OrderAction",
+            "target": "https://www.tandoorindiancuisineal.com/isafy89p/tandoor-indian-cuisine-mobile-36608/order-online",
+            "actionStatus": "PotentialActionStatus"
+          },
+          "parentOrganization": {
+            "@id": "https://www.tandoorindiancuisineal.com"
+          }
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1, maximum-scale=5",
+        "description": "Enjoy the best authentic and delicious Indian at Tandoor Indian Cuisine in Mobile. View our hours, explore our menu, and order online for convenient pickup or delivery near you!",
+        "og:title": "Best Indian in Mobile, AL | Tandoor Indian Cuisine | Menu",
+        "og:description": "Enjoy the best authentic and delicious Indian at Tandoor Indian Cuisine in Mobile. View our hours, explore our menu, and order online for convenient pickup or delivery near you!",
+        "og:image:type": "image/png",
+        "og:image": "https://www.tandoorindiancuisineal.com/isafy89p/opengraph-image-co490f/og-image?76459acebae51a80",
+        "og:image:width": "1200",
+        "og:image:height": "600",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Best Indian in Mobile, AL | Tandoor Indian Cuisine | Menu",
+        "twitter:description": "Enjoy the best authentic and delicious Indian at Tandoor Indian Cuisine in Mobile. View our hours, explore our menu, and order online for convenient pickup or delivery near you!",
+        "twitter:image:type": "image/png",
+        "twitter:image": "https://www.tandoorindiancuisineal.com/isafy89p/opengraph-image-co490f/og-image?76459acebae51a80",
+        "twitter:image:width": "1200",
+        "twitter:image:height": "600"
+      }
+    },
+    {
+      "url": "https://www.tandoorindiancuisineal.com/isafy89p/tandoor-indian-cuisine-mobile-36608/order-online?menu=All+Day+Menu",
+      "title": "Best Indian in Mobile, AL | Tandoor Indian Cuisine | Order Online",
+      "text": "Skip to main content0MenuMenu availability may vary based on the time of your order.All Day MenuAPPETIZERSSOUPSFROM THE TANDOORNON VEGETABLE CURRIESMODERN VEG INDIAN ENTREESTHE FRESH CATCHINDONESIA CHINESE DISHESGOAT OR LAMB DELICACIESBREADS FROM THE TANDOORDESSERTBEVERAGESBIRYANISide OrdersMenuAll Day MenuAPPETIZERSSOUPSFROM THE TANDOORNON VEGETABLE CURRIESMODERN VEG INDIAN ENTREESTHE FRESH CATCHINDONESIA CHINESE DISHESGOAT OR LAMB DELICACIESBREADS FROM THE TANDOORDESSERTBEVERAGESBIRYANISide OrdersAPPETIZERSONIONS BHAJIYASliced onions mix with delicious spices and gram flour deep fried.$12.99VEGETABLES PAKORASAssorted vegetables “garden free” dipped into delicately spiced gram flour batter and deep fried.$12.99🤩PopularVEG SAMOSAPotatoes and peas stuffed into crispy conical shaped dough and Indian spicy.$5.99CHICKEN SAMOSAMinced chicken stuffed into crispy conical shaped dough and Indian spicy.$8.99LAMB SAMOSAMinced lamb stuffed into crispy conical shaped dough and Indian spicy.$9.99SHRIMP PAKORAShrimp marinated in yogurt and spice dipped in gram flour batter deep fried$17.99PANEER PAKORAMarinated vin Indian spicy dipped in gram flour batter deep fried.$14.99GOAN CALAMARICrisp calamari Indian sauce$16.99HOT WINGS 6 piecesCrispy wings deep fried.$14.99HARA BHARA KABAB 6 piecesPan fried patties of spinach potatoes, homemade cheese and roasted Chana lentils$14.99CHICKEN LOLLIPOPS 5 piecesChicken wings are spicy marinated with ginger garlic paste and Indian spicy deep fried.$17.99IMLI BAINGANSavory eggplant fritters,gram flour Batter with tamarind sauce$13.99CHILI CHICKENExtra spicy indo Chinese style,spicy chicken in onion ginger, garlic or soya sauce.$17.99CRISPY SPRING ROLLSShredded cabbage, carrots, corn, peas, bell paper, sweet chili dipping sauce.$12.99CAULIFLOWER MANCHURIANCrispy cauliflower indo Chinese style spicy in chops onion, ginger, garlic or soya sauce, deep fried.$15.99SHRIMP DYNAMITEBattered shrimp deep fried with sriracha mayo sauce.$17.99AMBI JHEENGASweet and spicy shrimp in a mango sauce, onion tomato masala.$17.99CHICKEN CHILIExtra spicy indo Chinese style spicy chicken in onion ginger garlic or soya sauce.$15.99PANEER CHILIHomemade cottage cheese deep fried with pepper onion garlic ginger with soya sauce.$14.99SOUPSMULLIGATAWNY SOUPVegetable yellow lentil puree seasoned with spices.$7.99CHICKEN SOUPTraditional Indian soup with chicken stock and Indian spices.$9.99TOMATO SOUPFresh tomato cooked with ginger garlic fresh cream and Indian spicy.$7.99HOT AND SOUR VEG SOUPSoup is made with red and green chillies ginger carrots beans soy sauce white vinegar it is viewed in Indian as being a Chinese soup.$7.99HOT AND SOUR CHICKEN SOUPSoup is made with red and green chillies ginger carrots beans soy sauce white vinegar it is viewed in Indian as being a Chinese soup.$9.99MANCHOW SOUPDelightful indo Chinese thick soup which gets onion ginger garlic green beans cabbage coriander fresh green onion served with fried noodles.$7.99MANCHOW CHICKEN SOUPDelightful indo Chinese thick soup which gets onion ginger garlic green beans cabbage coriander fresh green onion served with fried noodles.$9.99FROM THE TANDOORNON VEGETABLE CURRIESCollected from all over India. All main dishes served with saffron basmati rice.MODERN VEG INDIAN ENTREESTHE FRESH CATCHWahoo and tiger prawns used for all the following dishesINDONESIA CHINESE DISHESWith sauces, all served with riceGOAT OR LAMB DELICACIESServed with basmati riceBREADS FROM THE TANDOORDESSERTBEVERAGESBIRYANISide OrdersTandoor Indian CuisineStore InformationClosedSee More3674 Airport Boulevard, Mobile, AL 36608(251) 341-6171Order MethodPickupAbout 40 minDeliveryAbout 30 minPickupToday, ASAPScheduleStart New OrderTandoor Indian Cuisine3674 Airport Boulevard, Mobile, AL 36608(251) 341-6171MenuTerms and ConditionsPrivacy PolicyCookies PolicyAccessibilityword word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word wordmmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Restaurant",
+          "name": "Tandoor Indian Cuisine",
+          "priceRange": "$$",
+          "servesCuisine": "Indian",
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "openingHours": [
+              "Su,Tu,We,Th,Fr,Sa 11:00-21:30"
+            ]
+          },
+          "hasMenu": "https://www.tandoorindiancuisineal.com/isafy89p/tandoor-indian-cuisine-mobile-36608/order-online#menu-section",
+          "acceptsReservations": "No",
+          "description": "Enjoy the best authentic and delicious indian at Tandoor Indian Cuisine in Mobile. View our hours, explore our menu, and order online for convenient pickup or delivery near you!",
+          "url": "https://www.tandoorindiancuisineal.com/isafy89p/tandoor-indian-cuisine-mobile-36608/order-online",
+          "@id": "https://www.tandoorindiancuisineal.com/isafy89p/tandoor-indian-cuisine-mobile-36608/order-online",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "3674 Airport Boulevard",
+            "addressLocality": "Mobile",
+            "addressRegion": "AL",
+            "postalCode": "36608",
+            "addressCountry": "US"
+          },
+          "telephone": "(251) 341-6171",
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "30.6769775",
+            "longitude": "-88.1337964"
+          },
+          "potentialAction": {
+            "@type": "OrderAction",
+            "target": "https://www.tandoorindiancuisineal.com/isafy89p/tandoor-indian-cuisine-mobile-36608/order-online",
+            "actionStatus": "PotentialActionStatus"
+          },
+          "parentOrganization": {
+            "@id": "https://www.tandoorindiancuisineal.com"
+          }
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1, maximum-scale=5",
+        "description": "Enjoy the best authentic and delicious Indian at Tandoor Indian Cuisine in Mobile. View our hours, explore our menu, and order online for convenient pickup or delivery near you!",
+        "og:title": "Best Indian in Mobile, AL | Tandoor Indian Cuisine | Order Online",
+        "og:description": "Enjoy the best authentic and delicious Indian at Tandoor Indian Cuisine in Mobile. View our hours, explore our menu, and order online for convenient pickup or delivery near you!",
+        "og:image:type": "image/png",
+        "og:image": "https://www.tandoorindiancuisineal.com/isafy89p/opengraph-image-co490f/og-image?76459acebae51a80",
+        "og:image:width": "1200",
+        "og:image:height": "600",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Best Indian in Mobile, AL | Tandoor Indian Cuisine | Order Online",
+        "twitter:description": "Enjoy the best authentic and delicious Indian at Tandoor Indian Cuisine in Mobile. View our hours, explore our menu, and order online for convenient pickup or delivery near you!",
+        "twitter:image:type": "image/png",
+        "twitter:image": "https://www.tandoorindiancuisineal.com/isafy89p/opengraph-image-co490f/og-image?76459acebae51a80",
+        "twitter:image:width": "1200",
+        "twitter:image:height": "600"
+      }
+    },
+    {
+      "url": "https://www.tandoorindiancuisineal.com/isafy89p/tandoor-indian-cuisine-mobile-36608/order-online?menu=All+Day+Menu&category=Side+Orders",
+      "title": "Best Indian in Mobile, AL | Tandoor Indian Cuisine | Order Online",
+      "text": "Skip to main content0MenuMenu availability may vary based on the time of your order.All Day MenuAPPETIZERSSOUPSFROM THE TANDOORNON VEGETABLE CURRIESMODERN VEG INDIAN ENTREESTHE FRESH CATCHINDONESIA CHINESE DISHESGOAT OR LAMB DELICACIESBREADS FROM THE TANDOORDESSERTBEVERAGESBIRYANISide OrdersMenuAll Day MenuAPPETIZERSSOUPSFROM THE TANDOORNON VEGETABLE CURRIESMODERN VEG INDIAN ENTREESTHE FRESH CATCHINDONESIA CHINESE DISHESGOAT OR LAMB DELICACIESBREADS FROM THE TANDOORDESSERTBEVERAGESBIRYANISide OrdersAPPETIZERSONIONS BHAJIYASliced onions mix with delicious spices and gram flour deep fried.$12.99VEGETABLES PAKORASAssorted vegetables “garden free” dipped into delicately spiced gram flour batter and deep fried.$12.99🤩PopularVEG SAMOSAPotatoes and peas stuffed into crispy conical shaped dough and Indian spicy.$5.99CHICKEN SAMOSAMinced chicken stuffed into crispy conical shaped dough and Indian spicy.$8.99LAMB SAMOSAMinced lamb stuffed into crispy conical shaped dough and Indian spicy.$9.99SHRIMP PAKORAShrimp marinated in yogurt and spice dipped in gram flour batter deep fried$17.99PANEER PAKORAMarinated vin Indian spicy dipped in gram flour batter deep fried.$14.99GOAN CALAMARICrisp calamari Indian sauce$16.99HOT WINGS 6 piecesCrispy wings deep fried.$14.99HARA BHARA KABAB 6 piecesPan fried patties of spinach potatoes, homemade cheese and roasted Chana lentils$14.99CHICKEN LOLLIPOPS 5 piecesChicken wings are spicy marinated with ginger garlic paste and Indian spicy deep fried.$17.99IMLI BAINGANSavory eggplant fritters,gram flour Batter with tamarind sauce$13.99CHILI CHICKENExtra spicy indo Chinese style,spicy chicken in onion ginger, garlic or soya sauce.$17.99CRISPY SPRING ROLLSShredded cabbage, carrots, corn, peas, bell paper, sweet chili dipping sauce.$12.99CAULIFLOWER MANCHURIANCrispy cauliflower indo Chinese style spicy in chops onion, ginger, garlic or soya sauce, deep fried.$15.99SHRIMP DYNAMITEBattered shrimp deep fried with sriracha mayo sauce.$17.99AMBI JHEENGASweet and spicy shrimp in a mango sauce, onion tomato masala.$17.99CHICKEN CHILIExtra spicy indo Chinese style spicy chicken in onion ginger garlic or soya sauce.$15.99PANEER CHILIHomemade cottage cheese deep fried with pepper onion garlic ginger with soya sauce.$14.99SOUPSMULLIGATAWNY SOUPVegetable yellow lentil puree seasoned with spices.$7.99CHICKEN SOUPTraditional Indian soup with chicken stock and Indian spices.$9.99TOMATO SOUPFresh tomato cooked with ginger garlic fresh cream and Indian spicy.$7.99HOT AND SOUR VEG SOUPSoup is made with red and green chillies ginger carrots beans soy sauce white vinegar it is viewed in Indian as being a Chinese soup.$7.99HOT AND SOUR CHICKEN SOUPSoup is made with red and green chillies ginger carrots beans soy sauce white vinegar it is viewed in Indian as being a Chinese soup.$9.99MANCHOW SOUPDelightful indo Chinese thick soup which gets onion ginger garlic green beans cabbage coriander fresh green onion served with fried noodles.$7.99MANCHOW CHICKEN SOUPDelightful indo Chinese thick soup which gets onion ginger garlic green beans cabbage coriander fresh green onion served with fried noodles.$9.99FROM THE TANDOORTANDOORI CHICKENMarinated with yogurt, ginger and garlic or Indian spice$22.99CHEF SPECIAL PLATTER NON VEGCooking clay oven, fish, lamb seek, lamb chops, chicken tangri kabab, Serve with mint sauce.$27.99SHARABI CHICKEN TIKKABoneless chicken Thigh marinated black rum and Indian spicy with gram flour yogurt with Kashmiri Chili serve mint sauce.$19.99MURGH MALAI KEBABMarinated chicken thigh cooked with cream cheese and yogurt$19.99CHICKEN KHASTA KEBABChicken breast cooked with cream cheese,yogurt,ginger, garlic and semolina.$19.99CHICKEN TIKKA DryGinger, garlic, yogurt, tandoori masala, Kashmiri chil$19.99CHICKEN NARANGIBoneless chicken marinated yogurt orange sauce and Indian spice.$19.99TANDOORI LAMB CHOPSLamb chops marinated with yogurt and Indian spicy ginger garlic paste and kashmiri chili.$23.99Black paper ChickenChicken leg piece marinated with ginger garlic paste with black pepper and yogurt fresh cream.$19.99TANDOORI PANEER TIKKA 6 piecesHomemade cottage cheese marinated with yogurt Kashmiri chili fresh cream and Indian spicy$18.99TANDOORI ACHARI PANEER TIKKAFresh pickle marinated with Indian spicy yogurt.$18.99TANDOORI VEGETABLE SEEKH KABABKima vegetable potato bread cream with Indian spicy cooking with skewers$16.99TANDOORI PHALDARI CHATFresh fruit apple, pineapple, pears, potato marinated yogurt and Indian spicy.$18.99CHICKEN SEEK KABABChicken minced wrapped around a skewer and chopped garlic onion green chili coriander cooked in a clay oven$18.99LAMB SEEKH KABABLamb minced wrapped around a skewer and chopped garlic onion green chili coriander cheese cooked with a clay oven$21.99TANDOORI SALMONSalmon marinated with ginger garlic Indian spices and hang yogurt.$23.99TANDOORI SHRIMPShrimp marinated with hang yogurt and garlic ginger paste with Indian spices$22.99NON VEGETABLE CURRIESCollected from all over India. All main dishes served with saffron basmati rice.🤩PopularBUTTER CHICKEN MASALA(mild) Tandoori chicken cooked in a rich tomato-based creamy gravy.$19.99ZAFRANI MURGH(mild) Tender chicken breast pieces cooked in a creamy saffron flavored gravy$19.99CHICKEN KHORMA(mild) A rich creamy cashew nut sauce$19.99NEELGIRL CHICKEN KHORMA(mild-medium) Chicken cooked in coconut and cilantro-flavored sauce.$19.99CHICKEN CHETTINAD(very hot) For those hotter curry lovers cooked in a creamy sauce with peppercorns.$19.99🤩PopularCHICKEN TIKKA MASALA(spicy-medium) Same base as butter chicken masala spicier with chunks of tomato added has less butter.$19.99MADRAS CHICKEN(medium-hot) Cooked in a delicate hint of coconut in a medium hot curry sauce.$19.99KASHMIRI CHICKENA medium spicy curry with a sweet taste of honey cooked with secret Kashmiri spices cashews and raisins$19.99CHICKEN VINDALOO(very hot) Meat cooked with potatoes in a “hot” spicy gravy sauce contains vinegar to quiet that “tang”.$19.99CHICKEN JALFREZI(very hot) Tender pieces of meat cooked with onion and green peppers dry cooked - no sauce$19.99CHICKEN BHUNA(spicy) Spices wrapped around chicken and dry cooked - no sauce.$19.99CHICKEN DO-PYAZA(medium) Chicken cooked in traditional Indian spices with lots of Onions - no sauce.$19.99🤩PopularCHICKEN SAAGWALA(medium) Tender chicken pieces cooked with creamed spinach sauce.$19.99CHICKEN ROGAN JOSHCooked in a medium rich gravy$19.99CHICKEN PASANDA(mild) Cashew based sauce infused with tomato, a touch of honey nuts and raisins.$19.99CHICKEN DANSAK(medium) Tender breasted chicken cooked with lentils.$19.99LEMON CHICKEN(mild) Chicken breast cooked in a delicate creamy lemon sauce with green peppers.$19.99MODERN VEG INDIAN ENTREESTHE FRESH CATCHWahoo and tiger prawns used for all the following dishesINDONESIA CHINESE DISHESWith sauces, all served with riceGOAT OR LAMB DELICACIESServed with basmati riceBREADS FROM THE TANDOORDESSERTBEVERAGESBIRYANIVegetable BiryaniVegetables cooked with mild spices and basmati rice. Garnished with cilantro, nuts, and raisins.$17.99Chicken BiryaniChicken, basmati rice cooked with saffron, and spices. Garnished with cilantro, nuts, and raisins.$18.99Lamb BiryaniLamb, basmati rice cooked with saffron, and spices. Garnished with cilantro, nuts, and raisins.$20.99Shrimp BiryaniShrimp cooked in a special curry sauce with basmati rice. Garnished with cilantro, nuts, and raisins.$21.99Goat BiryaniGoat cooked in a special curry sauce with basmati rice. Garnished with cilantro, nuts, and raisins.$20.99Side OrdersMango Chutney$2.99Raita$2.99Plain Yogurt$2.99Green Salad$6.99Papadam$2.99Tandoor Indian CuisineStore InformationClosedSee More3674 Airport Boulevard, Mobile, AL 36608(251) 341-6171Order MethodPickupAbout 40 minDeliveryAbout 30 minPickupToday, ASAPScheduleStart New OrderTandoor Indian Cuisine3674 Airport Boulevard, Mobile, AL 36608(251) 341-6171MenuTerms and ConditionsPrivacy PolicyCookies PolicyAccessibilityword word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word wordmmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Restaurant",
+          "name": "Tandoor Indian Cuisine",
+          "priceRange": "$$",
+          "servesCuisine": "Indian",
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "openingHours": [
+              "Su,Tu,We,Th,Fr,Sa 11:00-21:30"
+            ]
+          },
+          "hasMenu": "https://www.tandoorindiancuisineal.com/isafy89p/tandoor-indian-cuisine-mobile-36608/order-online#menu-section",
+          "acceptsReservations": "No",
+          "description": "Enjoy the best authentic and delicious indian at Tandoor Indian Cuisine in Mobile. View our hours, explore our menu, and order online for convenient pickup or delivery near you!",
+          "url": "https://www.tandoorindiancuisineal.com/isafy89p/tandoor-indian-cuisine-mobile-36608/order-online",
+          "@id": "https://www.tandoorindiancuisineal.com/isafy89p/tandoor-indian-cuisine-mobile-36608/order-online",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "3674 Airport Boulevard",
+            "addressLocality": "Mobile",
+            "addressRegion": "AL",
+            "postalCode": "36608",
+            "addressCountry": "US"
+          },
+          "telephone": "(251) 341-6171",
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "30.6769775",
+            "longitude": "-88.1337964"
+          },
+          "potentialAction": {
+            "@type": "OrderAction",
+            "target": "https://www.tandoorindiancuisineal.com/isafy89p/tandoor-indian-cuisine-mobile-36608/order-online",
+            "actionStatus": "PotentialActionStatus"
+          },
+          "parentOrganization": {
+            "@id": "https://www.tandoorindiancuisineal.com"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Restaurant",
+          "name": "Tandoor Indian Cuisine",
+          "priceRange": "$$",
+          "servesCuisine": "Indian",
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "openingHours": [
+              "Su,Tu,We,Th,Fr,Sa 11:00-21:30"
+            ]
+          },
+          "hasMenu": "https://www.tandoorindiancuisineal.com/isafy89p/tandoor-indian-cuisine-mobile-36608/order-online#menu-section",
+          "acceptsReservations": "No",
+          "description": "Enjoy the best authentic and delicious indian at Tandoor Indian Cuisine in Mobile. View our hours, explore our menu, and order online for convenient pickup or delivery near you!",
+          "url": "https://www.tandoorindiancuisineal.com/isafy89p/tandoor-indian-cuisine-mobile-36608/order-online",
+          "@id": "https://www.tandoorindiancuisineal.com/isafy89p/tandoor-indian-cuisine-mobile-36608/order-online",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "3674 Airport Boulevard",
+            "addressLocality": "Mobile",
+            "addressRegion": "AL",
+            "postalCode": "36608",
+            "addressCountry": "US"
+          },
+          "telephone": "(251) 341-6171",
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "30.6769775",
+            "longitude": "-88.1337964"
+          },
+          "potentialAction": {
+            "@type": "OrderAction",
+            "target": "https://www.tandoorindiancuisineal.com/isafy89p/tandoor-indian-cuisine-mobile-36608/order-online",
+            "actionStatus": "PotentialActionStatus"
+          },
+          "parentOrganization": {
+            "@id": "https://www.tandoorindiancuisineal.com"
+          }
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1, maximum-scale=5",
+        "description": "Enjoy the best authentic and delicious Indian at Tandoor Indian Cuisine in Mobile. View our hours, explore our menu, and order online for convenient pickup or delivery near you!",
+        "og:title": "Best Indian in Mobile, AL | Tandoor Indian Cuisine | Order Online",
+        "og:description": "Enjoy the best authentic and delicious Indian at Tandoor Indian Cuisine in Mobile. View our hours, explore our menu, and order online for convenient pickup or delivery near you!",
+        "og:image:type": "image/png",
+        "og:image": "https://www.tandoorindiancuisineal.com/isafy89p/opengraph-image-co490f/og-image?76459acebae51a80",
+        "og:image:width": "1200",
+        "og:image:height": "600",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Best Indian in Mobile, AL | Tandoor Indian Cuisine | Order Online",
+        "twitter:description": "Enjoy the best authentic and delicious Indian at Tandoor Indian Cuisine in Mobile. View our hours, explore our menu, and order online for convenient pickup or delivery near you!",
+        "twitter:image:type": "image/png",
+        "twitter:image": "https://www.tandoorindiancuisineal.com/isafy89p/opengraph-image-co490f/og-image?76459acebae51a80",
+        "twitter:image:width": "1200",
+        "twitter:image:height": "600"
+      }
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": [
+    "https://www.tandoorindiancuisineal.com/_next/image?url=https%3A%2F%2Fik.imagekit.io%2Fawwybhhmo%2Fsatellite_images%2Findian%2Fblue%2Fhero%2F3.jpg%3Ftr%3D&w=3840&q=75",
+    "https://www.tandoorindiancuisineal.com/_next/image?url=https%3A%2F%2Fik.imagekit.io%2Fawwybhhmo%2Fsatellite_images%2Findian%2Fbeyondmenu%2Fabout_us%2F11.jpg%3Ftr%3D&w=3840&q=75"
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "business_name": "Tee Off at The Wharf Powered by Topgolf Swing Suite",
+  "tagline": "IT'S TIME TO PAR-TEE",
+  "type": "Entertainment Venue / Bar & Grill",
+  "contact": {
+    "phone": "251.228.4899",
+    "email": null,
+    "address": "4619 Main Street SUITE A102",
+    "city": "Orange Beach",
+    "state": "Alabama",
+    "zip": "36561"
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": "Hours not provided on website"
+  },
+  "about": {
+    "description": "Tee Off at The Wharf is an entertainment venue featuring Topgolf Swing Suites for golf simulation and various other sports simulators, combined with a full-service bar and grill.",
+    "elevator_pitch": "A premier entertainment destination offering indoor golf simulators, multi-sport gaming, and dining at The Wharf in Orange Beach.",
+    "vibe": "Fun, social, modern entertainment complex with gaming, food, and drinks",
+    "best_for": [
+      "corporate events",
+      "party groups",
+      "date night",
+      "family outings",
+      "golf enthusiasts"
+    ],
+    "established": null,
+    "reservations": "Swing Suites require reservations - Call for Reservation",
+    "insider_tip": "Now open with Swing Suite reservations available for golf and party packages"
+  },
+  "tags": [
+    "golf simulator",
+    "topgolf",
+    "sports entertainment",
+    "bar and grill",
+    "party venue",
+    "group events"
+  ],
+  "features": [
+    "Swing Suites (golf simulators)",
+    "Multi-sport simulators (Football, Baseball, Soccer, Hockey, Dodgeball, Carnival)",
+    "Full bar",
+    "Restaurant & grill",
+    "Party packages",
+    "Golf league"
+  ],
+  "price_range": "$$",
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://www.teeoffatthewharf.com"
+  },
+  "specials": [],
+  "events": [
+    {
+      "name": "Golf League",
+      "description": "Recurring golf league events",
+      "recurring": true,
+      "day": null,
+      "time": null
+    }
+  ],
+  "menu": {
+    "categories": [
+      {
+        "name": "Restaurant Menu",
+        "type": "lunch|dinner",
+        "items": []
+      },
+      {
+        "name": "Bar Menu",
+        "type": "drinks",
+        "items": []
+      }
+    ]
+  },
+  "url": "https://teeoffatthewharf.com",
+  "scraped_at": "2026-03-21T20:14:10.348Z",
+  "extracted_at": "2026-03-23T04:10:52.663Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://images.squarespace-cdn.com/content/v1/67db0104b59684246cdd9c09/bcb7e2b1-9db9-4024-a46b-1557855d7dd4/TeeOff_DesignDeck.png?format=1500w",
+    "https://images.squarespace-cdn.com/content/v1/67db0104b59684246cdd9c09/683a127c-4533-4385-a913-55e41b444b1f/IMG_3594.JPG",
+    "https://images.squarespace-cdn.com/content/v1/67db0104b59684246cdd9c09/2f4c891b-3d8a-46c9-b8a9-6b7cf3643a50/border.png",
+    "https://images.squarespace-cdn.com/content/v1/67db0104b59684246cdd9c09/ba17f42f-88a1-46b3-96a3-a26ef9d3a779/IMG_3408.jpg",
+    "https://images.squarespace-cdn.com/content/v1/67db0104b59684246cdd9c09/44e8e494-abf9-43d1-8590-1ad6fd311466/IMG_6455.JPEG",
+    "https://images.squarespace-cdn.com/content/v1/67db0104b59684246cdd9c09/908f3957-9e47-42d3-b974-7f71d81ea640/IMG_3700.JPG",
+    "https://images.squarespace-cdn.com/content/v1/67db0104b59684246cdd9c09/59ca7f29-1976-4102-9690-40f99934b9a4/TeeOff_DesignDecklogo.png",
+    "https://images.squarespace-cdn.com/content/v1/67db0104b59684246cdd9c09/84ac4d38-d22d-41b5-b1ce-b58c7ca980ca/TeeOff_DesignDeck.png"
+  ],
+  "sources": [
+    "https://teeoffatthewharf.com"
+  ]
+}

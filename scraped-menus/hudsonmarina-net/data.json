@@ -1,0 +1,54 @@
+{
+  "business_name": "hudsonmarina.net",
+  "tagline": null,
+  "type": null,
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": null,
+    "city": null,
+    "state": null,
+    "zip": null
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": null
+  },
+  "about": {
+    "description": null,
+    "elevator_pitch": null,
+    "vibe": null,
+    "best_for": [],
+    "established": null,
+    "reservations": null,
+    "insider_tip": null
+  },
+  "tags": [],
+  "features": [],
+  "price_range": null,
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://hudsonmarina.net"
+  },
+  "specials": [],
+  "events": [],
+  "menu": {
+    "categories": []
+  },
+  "extraction_note": "403 Forbidden error - page content not accessible",
+  "url": "https://hudsonmarina.net",
+  "scraped_at": "2026-03-21T19:47:42.204Z",
+  "extracted_at": "2026-03-23T03:46:58.018Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [],
+  "sources": [
+    "https://hudsonmarina.net"
+  ]
+}

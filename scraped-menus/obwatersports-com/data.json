@@ -1,0 +1,261 @@
+{
+  "business_name": "OB Watersports",
+  "tagline": "Orange Beach Pontoon Boat Rentals",
+  "type": "Boat Rental",
+  "contact": {
+    "phone": "251-981-2527",
+    "email": null,
+    "address": "27194 Marina Road",
+    "city": "Orange Beach",
+    "state": "Alabama",
+    "zip": "36561"
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": "Hours not specified on website"
+  },
+  "about": {
+    "description": "OB Watersports offers pontoon boat rentals in Orange Beach, Alabama. They provide a fleet of well-maintained boats including luxury tritoons, family-friendly tritoons, pontoons with slides, and center console boats. All boats are U.S. Coast Guard inspected and approved. Located conveniently in the heart of Orange Beach, they offer full-day and half-day rentals for families and groups.",
+    "elevator_pitch": "OB Watersports offers high-quality pontoon and tritoon boat rentals in Orange Beach, Alabama with excellent customer service and well-maintained vessels.",
+    "vibe": "Family-friendly, professional, welcoming, relaxed water recreation experience",
+    "best_for": [
+      "families",
+      "groups",
+      "fishing",
+      "island hopping",
+      "bay exploration",
+      "parties"
+    ],
+    "capacity": "8-12 passengers depending on boat type",
+    "duration_options": [
+      "half day",
+      "full day"
+    ],
+    "departure_location": "27194 Marina Road, Orange Beach, AL 36561",
+    "what_provided": [
+      "Bluetooth-enabled radio on all boats",
+      "Boat license",
+      "Free Lily Pad Mat",
+      "Free 70QT Cooler with ice included"
+    ],
+    "what_to_bring": null,
+    "age_restriction": null,
+    "weight_restriction": null,
+    "reservations": "Book online through FareHarbor",
+    "cancellation_policy": null,
+    "insider_tip": "All rentals include a free Lily Pad Mat and 70QT Cooler with ice (Lily pad mats are limited and available while supplies last)"
+  },
+  "tags": [
+    "boat rental",
+    "pontoon",
+    "tritoon",
+    "family fun",
+    "water sports",
+    "fishing",
+    "island hopping",
+    "bay exploration",
+    "party boat",
+    "Gulf access"
+  ],
+  "features": [
+    "U.S. Coast Guard inspected and approved",
+    "Bluetooth-enabled radio",
+    "Free cooler with ice",
+    "Free lily pad mat",
+    "Slides on select boats",
+    "Multiple boat sizes",
+    "Gulf access available",
+    "Captain chairs on premium models"
+  ],
+  "social_links": {
+    "instagram": null,
+    "facebook": "https://www.facebook.com/obwatersports",
+    "tripadvisor": null,
+    "website": "https://www.obwatersports.com"
+  },
+  "specials": [
+    {
+      "name": "Free Lily Pad Mat and 70QT Cooler with Ice",
+      "description": "Included on every rental",
+      "days": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "time": null
+    }
+  ],
+  "events": [],
+  "packages": [
+    {
+      "name": "Luxury Tritoon",
+      "type": "rental",
+      "description": "First class comfort with Bluetooth-enabled radio, ultra-comfortable seating, 150HP Suzuki outboard motor, and boat license provided",
+      "duration": "half day or full day",
+      "price": null,
+      "price_type": "per boat",
+      "price_note": "Pricing not provided on website",
+      "min_people": 1,
+      "max_people": 12,
+      "what_included": [
+        "Bluetooth-enabled radio",
+        "Boat license",
+        "Free Lily Pad Mat",
+        "Free 70QT Cooler with ice"
+      ],
+      "departure_times": null,
+      "days_available": "Daily",
+      "booking_url": "https://www.obwatersports.com",
+      "notes": "Length: 23', 150HP Suzuki outboard motor"
+    },
+    {
+      "name": "Tritoon Boat",
+      "type": "rental",
+      "description": "Family fun tritoon with Bluetooth-enabled radio, comfortable seating, fuel-efficient outboard motor, and boat license provided",
+      "duration": "half day or full day",
+      "price": null,
+      "price_type": "per boat",
+      "price_note": "Pricing not provided on website",
+      "min_people": 1,
+      "max_people": 12,
+      "what_included": [
+        "Bluetooth-enabled radio",
+        "Boat license",
+        "Free Lily Pad Mat",
+        "Free 70QT Cooler with ice"
+      ],
+      "departure_times": null,
+      "days_available": "Daily",
+      "booking_url": "https://www.obwatersports.com",
+      "notes": "Length: 23', fuel-efficient outboard motor"
+    },
+    {
+      "name": "Premium Tritoon Boat",
+      "type": "rental",
+      "description": "Cruise in style with 2024 Qwest, Bluetooth-enabled radio, 2 captain's chairs, comfortable seating, Suzuki 115 HP, and boat license provided",
+      "duration": "half day or full day",
+      "price": null,
+      "price_type": "per boat",
+      "price_note": "Pricing not provided on website",
+      "min_people": 1,
+      "max_people": 12,
+      "what_included": [
+        "Bluetooth-enabled radio",
+        "2 Captain's Chairs",
+        "Boat license",
+        "Free Lily Pad Mat",
+        "Free 70QT Cooler with ice"
+      ],
+      "departure_times": null,
+      "days_available": "Daily",
+      "booking_url": "https://www.obwatersports.com",
+      "notes": "Length: 23', 2024 Qwest model, Suzuki 115 HP"
+    },
+    {
+      "name": "Pontoon with Slide",
+      "type": "rental",
+      "description": "All day fun party barge with double rear-mounted slides, Bluetooth-enabled radio, fuel-efficient 115HP outboard motor, and boat license provided",
+      "duration": "half day or full day",
+      "price": null,
+      "price_type": "per boat",
+      "price_note": "Pricing not provided on website",
+      "min_people": 1,
+      "max_people": 12,
+      "what_included": [
+        "Double rear-mounted slides",
+        "Bluetooth-enabled radio",
+        "Boat license",
+        "Free Lily Pad Mat",
+        "Free 70QT Cooler with ice"
+      ],
+      "departure_times": null,
+      "days_available": "Daily",
+      "booking_url": "https://www.obwatersports.com",
+      "notes": "Length: 30', 115HP outboard motor, ice machine available"
+    },
+    {
+      "name": "Center Console",
+      "type": "rental",
+      "description": "Sporty boat for fishing and gulf exploration with Bluetooth-enabled radio, 250HP Yamaha outboard motor, allowed in gulf (weather permitting), and boat license provided",
+      "duration": "half day or full day",
+      "price": null,
+      "price_type": "per boat",
+      "price_note": "Pricing not provided on website",
+      "min_people": 1,
+      "max_people": 8,
+      "what_included": [
+        "Bluetooth-enabled radio",
+        "Boat license",
+        "Free Lily Pad Mat",
+        "Free 70QT Cooler with ice"
+      ],
+      "departure_times": null,
+      "days_available": "Daily",
+      "booking_url": "https://www.obwatersports.com",
+      "notes": "Length: 25', 250HP Yamaha outboard motor, gulf access available"
+    },
+    {
+      "name": "Luxury Tritoon with Slide",
+      "type": "rental",
+      "description": "Luxury plus lots of fun with rear-mounted slide, Bluetooth-enabled radio, 150HP Suzuki outboard motor, ultra-comfortable seating, and boat license provided",
+      "duration": "half day or full day",
+      "price": null,
+      "price_type": "per boat",
+      "price_note": "Pricing not provided on website",
+      "min_people": 1,
+      "max_people": 12,
+      "what_included": [
+        "Rear-mounted slide",
+        "Bluetooth-enabled radio",
+        "Boat license",
+        "Free Lily Pad Mat",
+        "Free 70QT Cooler with ice"
+      ],
+      "departure_times": null,
+      "days_available": "Daily",
+      "booking_url": "https://www.obwatersports.com",
+      "notes": "Length: 23', 150HP Suzuki outboard motor"
+    }
+  ],
+  "ratings": {
+    "average_rating": 5,
+    "total_reviews": 9,
+    "platform": "Google"
+  },
+  "notable_mentions": [
+    "All boats are U.S. Coast Guard inspected and approved",
+    "Staff praised for helpfulness and friendliness",
+    "Staff member Thomas specifically mentioned for excellent service",
+    "Boats noted as well-maintained, brand new, and in excellent condition",
+    "Activities include bay exploration, island hopping, fishing, water play",
+    "Family-friendly atmosphere"
+  ],
+  "url": "https://www.obwatersports.com",
+  "scraped_at": "2026-03-21T19:28:51.077Z",
+  "extracted_at": "2026-03-23T03:54:32.382Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://obwatersports.com/wp-content/uploads/sites/6864/2023/09/hero-transparent-bg-116.png?w=1000&h=1000&zoom=2",
+    "https://obwatersports.com/wp-content/uploads/sites/6864/2023/09/red-tritoon.png?auto=compress%2Cformat&amp",
+    "https://obwatersports.com/wp-content/uploads/sites/6864/2023/09/tritoon-main.png?auto=compress%2Cformat&amp",
+    "https://obwatersports.com/wp-content/uploads/sites/6864/2024/04/2.png",
+    "https://obwatersports.com/wp-content/uploads/sites/6864/2023/09/party-barge-main.png?auto=compress%2Cformat&amp",
+    "https://obwatersports.com/wp-content/uploads/sites/6864/2023/09/center-console.png?auto=compress%2Cformat&amp",
+    "https://obwatersports.com/wp-content/uploads/sites/6864/2023/09/tritoon-slide-main.png?auto=compress%2Cformat&amp",
+    "https://obwatersports.com/wp-content/uploads/sites/6864/2023/09/hero-transparent-bg-1171.png?w=1000&h=1000&zoom=2",
+    "https://obwatersports.com/wp-content/uploads/sites/6864/2023/09/New-Project3.png?auto=compress%2Cformat&amp"
+  ],
+  "sources": [
+    "https://www.obwatersports.com"
+  ]
+}

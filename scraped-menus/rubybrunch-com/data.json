@@ -1,0 +1,89 @@
+{
+  "business_name": "Ruby Brunch",
+  "tagline": "Love Brunch?",
+  "type": "Restaurant",
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": null,
+    "city": null,
+    "state": null,
+    "zip": null
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": null
+  },
+  "about": {
+    "description": "A brunch-focused restaurant serving sweet, savory, and syrupy dishes with legendary fresh-baked biscuits crafted from scratch daily.",
+    "elevator_pitch": "Ruby Brunch specializes in all-day brunch with legendary fresh-baked biscuits and signature cane-syrup butter.",
+    "vibe": "Casual brunch destination",
+    "best_for": [
+      "brunch lovers"
+    ],
+    "established": null,
+    "reservations": "Waitlist available",
+    "insider_tip": "Ruby Brunch serves over 40,000 biscuits a week - their buttery biscuits with house-made cane-syrup butter are legendary."
+  },
+  "tags": [
+    "brunch",
+    "casual",
+    "biscuits",
+    "comfort food"
+  ],
+  "features": [
+    "online ordering",
+    "catering",
+    "gift cards",
+    "waitlist system"
+  ],
+  "price_range": null,
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://www.rubybrunch.com"
+  },
+  "specials": [],
+  "events": [],
+  "menu": {
+    "categories": [
+      {
+        "name": "Brunch",
+        "type": "brunch",
+        "items": [
+          {
+            "name": "Fresh-Baked Biscuits",
+            "description": "Legendary biscuits crafted from scratch and baked fresh all day, every day. Served with signature house-made cane-syrup butter.",
+            "price": null,
+            "tags": [
+              "signature",
+              "fresh-baked"
+            ],
+            "allergens": []
+          }
+        ]
+      }
+    ]
+  },
+  "url": "https://www.rubybrunch.com",
+  "scraped_at": "2026-03-22T18:32:43.595Z",
+  "extracted_at": "2026-03-23T04:05:20.882Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://6015d8ac.delivery.rocketcdn.me/wp-content/uploads/2025/01/rubylogo-whitebg.png",
+    "https://6015d8ac.delivery.rocketcdn.me/wp-content/uploads/2024/08/brunch-lifestyle-67-scaled.jpg",
+    "https://6015d8ac.delivery.rocketcdn.me/wp-content/uploads/2026/03/Bar-Punch-Up-Table-Scape-Hands-scaled.jpg",
+    "https://6015d8ac.delivery.rocketcdn.me/wp-content/uploads/2025/10/Untitled-1200-x-800-px-5.png",
+    "https://6015d8ac.delivery.rocketcdn.me/wp-content/uploads/2024/05/Ruby-Slipper-12-24-16-1-scaled.jpg",
+    "https://rubybrunch.com/wp-content/plugins/wpfront-scroll-top/includes/assets/icons/1.png"
+  ],
+  "sources": [
+    "https://www.rubybrunch.com"
+  ]
+}

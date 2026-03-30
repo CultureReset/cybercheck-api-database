@@ -1,0 +1,21 @@
+{
+  "business_name": "janinospizza.com",
+  "url": "https://janinospizza.com",
+  "scraped_at": "2026-03-21T19:36:45.196Z",
+  "pages": [
+    {
+      "url": "https://janinospizza.com",
+      "title": "903363.silverwhitebirds.co",
+      "text": "This site can’t be reached\n \n \n 903363.silverwhitebirds.co took too long to respond.\n \n\n \n \n Try:\n \n \n Checking the connection\n \n Checking the proxy and the firewall\n \n \n \n \n\n ERR_TIMED_OUT\n\n \n \n \n \n \n \n \n Reload\n \n \n \n \n \n \n Details\n \n \n \n \n \n \n \n Check your Internet connection\n Check any cables and reboot any routers, modems, or other network\n devices you may be using.\n \n \n \n Allow Chromium to access the network in your firewall or antivirus\n settings.\n If it is already listed as a program allowed to access the network, try\n removing it from the list and adding it again.\n \n \n \n If you use a proxy server…\n Go to Applications > System Settings > Network, select the\n active network, click the Details… button, and deselect any proxies\n that may have been selected.\n \n \n \n \n \n \n \n \n \n 903363.silverwhitebirds.co took too long to respond.",
+      "structuredData": [],
+      "meta": {
+        "color-scheme": "light dark",
+        "theme-color": "#fff",
+        "viewport": "width=device-width, initial-scale=1.0,\n                                 maximum-scale=1.0, user-scalable=no"
+      }
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": []
+}

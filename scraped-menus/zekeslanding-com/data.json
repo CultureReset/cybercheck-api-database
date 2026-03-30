@@ -1,0 +1,349 @@
+{
+  "business_name": "Zeke's Landing Marina",
+  "tagline": "Fishing Charters & Cruises in Orange Beach, AL",
+  "type": "Marina & Restaurant",
+  "contact": {
+    "phone": "(251) 981-4044",
+    "email": "info@zekeslanding.com",
+    "address": "26619 Perdido Beach Boulevard",
+    "city": "Orange Beach",
+    "state": "Alabama",
+    "zip": "36561"
+  },
+  "hours": {
+    "monday": "Dock Store: 6:00 AM - 9:00 PM, Charter Office: 6:00 AM - 7:00 PM, Restaurant: 11:00 AM - 9:00 PM",
+    "tuesday": "Dock Store: 6:00 AM - 9:00 PM, Charter Office: 6:00 AM - 7:00 PM, Restaurant: 11:00 AM - 9:00 PM",
+    "wednesday": "Dock Store: 6:00 AM - 9:00 PM, Charter Office: 6:00 AM - 7:00 PM, Restaurant: 11:00 AM - 9:00 PM",
+    "thursday": "Dock Store: 6:00 AM - 9:00 PM, Charter Office: 6:00 AM - 7:00 PM, Restaurant: 11:00 AM - 9:00 PM",
+    "friday": "Dock Store: 6:00 AM - 9:00 PM, Charter Office: 6:00 AM - 7:00 PM, Restaurant: 11:00 AM - 9:00 PM",
+    "saturday": "Dock Store: 6:00 AM - 9:00 PM, Charter Office: 6:00 AM - 7:00 PM, Restaurant: 11:00 AM - 9:00 PM",
+    "sunday": "Dock Store: 6:00 AM - 9:00 PM, Charter Office: 6:00 AM - 7:00 PM, Restaurant: 11:00 AM - 9:00 PM",
+    "notes": "Open 7 days a week, closed only on Thanksgiving, Christmas, and New Year's Day"
+  },
+  "about": {
+    "description": "Zeke's Landing and Marina sits just across the street from some of the most beautiful beaches in the country. A mere 10-minute boat ride from the Gulf of Mexico. Zeke's boasts a long history of excellence in the charter fishing industry and proudly hosts the largest charter fleet on the Gulf. The facility offers a variety of dry dock options, premier customer service, and an environmentally friendly approach to operating a marina.",
+    "elevator_pitch": "Orange Beach's premier fishing charter marina with the largest fleet on Alabama's Gulf Coast, offering inshore and offshore fishing, cruises, dining, and dry storage.",
+    "vibe": "Family-friendly, adventurous, nautical, welcoming to all experience levels",
+    "best_for": [
+      "fishing enthusiasts",
+      "families with children",
+      "dolphin watching",
+      "sunset cruises",
+      "bachelor/bachelorette parties",
+      "group events",
+      "water adventures"
+    ],
+    "established": null,
+    "reservations": "Available for restaurant and private charters",
+    "insider_tip": "Zeke's restaurant offers 'hook and cook' service - catch your fish and have the restaurant prepare it. Best place to watch sunsets on the Alabama Gulf Coast."
+  },
+  "tags": [
+    "fishing charters",
+    "marina",
+    "saltwater fishing",
+    "inshore fishing",
+    "offshore fishing",
+    "dolphin cruises",
+    "sunset cruises",
+    "family-friendly",
+    "party boat",
+    "bottom fishing",
+    "restaurant",
+    "dry storage",
+    "boat dock",
+    "Gulf of Mexico",
+    "back bay cruising"
+  ],
+  "features": [
+    "50+ charter boats",
+    "Inshore fishing charters",
+    "Offshore fishing charters",
+    "Private charters",
+    "Party boat charters",
+    "Dolphin cruises",
+    "Sunset cruises",
+    "Bay cruises",
+    "Billfish tournaments",
+    "Dry dock storage",
+    "Dock store",
+    "Restaurant and bar",
+    "Event venue (The Port)",
+    "Fuel service",
+    "Bait and tackle",
+    "Fishing licenses provided",
+    "Restrooms",
+    "Bluetooth sound systems",
+    "Boat rental services",
+    "Web camera",
+    "Virtual tour",
+    "Gift cards available",
+    "Cruisin' Tikis rentals"
+  ],
+  "price_range": "$$",
+  "social_links": {
+    "instagram": "@zekesmarina",
+    "facebook": "Zeke's Landing",
+    "tripadvisor": "Zeke's Landing Marina",
+    "youtube": "Zeke's Landing",
+    "website": "https://www.zekeslanding.com"
+  },
+  "specials": [
+    {
+      "name": "Shared Expense Deep Sea Fishing",
+      "description": "Join a remarkable fishing trip shared with others to enjoy your trip without footing the entire bill",
+      "days": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "time": null,
+      "price_from": 250,
+      "duration": "6-36 Hours",
+      "capacity": "Up to 15 Passengers",
+      "tag": "GREAT VALUE"
+    }
+  ],
+  "events": [
+    {
+      "name": "Charter Boat Billfish Tournament",
+      "description": "Tournament fishing event for billfish",
+      "recurring": false,
+      "day": null,
+      "time": null
+    },
+    {
+      "name": "Bachelor/Bachelorette Party",
+      "description": "Private charter events for bachelor and bachelorette parties",
+      "recurring": false,
+      "day": null,
+      "time": null
+    },
+    {
+      "name": "The Port Event Venue",
+      "description": "Newly renovated event venue for special occasions and celebrations",
+      "recurring": false,
+      "day": null,
+      "time": null
+    }
+  ],
+  "charters": [
+    {
+      "name": "Zeke's Tiki Queen",
+      "type": "Back Bay Cruising",
+      "description": "Unforgettable cruise on serene back bays searching for dolphins, manatees, and coastal birds",
+      "price_from": 50,
+      "price_private": 500,
+      "duration": "1.5 - 6 Hours",
+      "capacity": "Up to 18 Passengers",
+      "ages": "All Ages",
+      "amenities": [
+        "Accommodates up to 18 passengers",
+        "Bluetooth",
+        "Restroom"
+      ],
+      "cancellation_policy": "21 days advance: full refund, 72 hours-21 days: forfeit unless rescheduled within 90 days, Less than 72 hours: forfeit, Weather cancellations: full refund or reschedule"
+    },
+    {
+      "name": "Sunset Cruise",
+      "type": "Cruising",
+      "description": "Orange Beach sunset cruise aboard a 28 foot Parker with cabin and bathroom, starting in Cotton Bayou, down Old River, and around Ono Island",
+      "price_from": 600,
+      "duration": "2.5 Hours",
+      "capacity": "Up to 6 Passengers",
+      "ages": "All Ages",
+      "boat_specs": "28 foot Parker with cabin and bathroom"
+    },
+    {
+      "name": "Dolphin Cruise",
+      "type": "Wildlife Cruise",
+      "description": "Witness dolphins in their natural habitat against pristine turquoise waters for cherished memories",
+      "price_from": 18,
+      "duration": "1.5 Hours",
+      "capacity": "Varied",
+      "ages": "All Ages"
+    },
+    {
+      "name": "Shared Expense Deep Sea Fishing",
+      "type": "Offshore Fishing",
+      "description": "Share a remarkable fishing trip with others to enjoy without footing the entire bill",
+      "price_from": 250,
+      "duration": "6 - 36 Hours",
+      "capacity": "Up to 15 Passengers",
+      "ages": "All Ages",
+      "tag": "GREAT VALUE"
+    },
+    {
+      "name": "Zeke's Lady Party Boat Fishing Charters",
+      "type": "Party Boat Fishing",
+      "description": "Unforgettable fishing experience aboard the premier party fishing boat departing daily",
+      "price_from": 125,
+      "duration": "6 - 8 Hours",
+      "capacity": "Up to 45 Passengers",
+      "ages": "All Ages"
+    },
+    {
+      "name": "Sea Hunter Offshore Fishing Charter",
+      "type": "Offshore Fishing",
+      "description": "62' Resmondo boat charter with all equipment provided including bait, tackle, rods and reels, and fishing licenses",
+      "price_from": 2850,
+      "duration": "6 - 44 Hours",
+      "capacity": "Up to 28 Passengers",
+      "ages": "All Ages",
+      "boat_specs": "62' Resmondo",
+      "tag": "MOST POPULAR",
+      "includes": [
+        "Bait",
+        "Tackle",
+        "Rods and reels",
+        "Fishing licenses"
+      ]
+    },
+    {
+      "name": "Inshore Fishing Private Charters",
+      "type": "Inshore Fishing",
+      "description": "Fishing in serene back bay areas and close to picturesque shoreline, ideal for families with small children or those prone to sea sickness"
+    },
+    {
+      "name": "Offshore Fishing Private Charters",
+      "type": "Offshore Fishing",
+      "description": "Target larger fish on private offshore charters with the largest charter fleet on the island"
+    },
+    {
+      "name": "Cruisin' Tikis",
+      "type": "Recreational Cruise",
+      "description": "Tiki-themed cruise experience"
+    }
+  ],
+  "amenities": [
+    "Dry dock storage",
+    "Dock store (fuel, bait, ice, snacks, drinks, beer, sunscreen, apparel)",
+    "Restaurant",
+    "Restrooms",
+    "Bluetooth speakers",
+    "Cabins on select boats",
+    "Event venue",
+    "Gift card purchases",
+    "Web camera",
+    "Virtual tour",
+    "Hook and cook service at restaurant"
+  ],
+  "reviews": [
+    {
+      "author": "April C.",
+      "source": "Google",
+      "rating": 5,
+      "quote": "Captain Colby was amazing! He shared his knowledge of the area, fishing hot spots, and was very patient with our kids. Our family had a great fishing experience, great catches for the day, and made lots of great memories! Highly recommend them, we will definitely be back!"
+    },
+    {
+      "author": "Kim R.",
+      "source": "Tripadvisor",
+      "rating": 5,
+      "quote": "Such an amazing adventure! The captain and mate made sure our trip was a memorable experience. We caught our snapper limit, along with some bonus fish. My son reeled in an amberjack and fought a huge snapper that he lost to a shark! We had zero complaints about this trip and crew. We'll be back!"
+    },
+    {
+      "author": "Bart B.",
+      "source": "Facebook",
+      "rating": 5,
+      "quote": "Zeke's Landing is the best marina on the Alabama Gulf Coast! I've been fishing out of this marina since the 1980's. Lots of great memories made here. Zeke's restaurant also offers 'hook and cook'. It's truly a 5-star experience every time. The best place to watch sunsets, too!"
+    },
+    {
+      "author": "Dan W.",
+      "source": "Tripadvisor",
+      "rating": 5,
+      "quote": "My son and I had a wonderful experience. Captain Ricky was great and definitely put us on the fish, and deckhands Jamie and Rhett were terrific. We did an 8-hour trip and loved it. Would highly recommend it and hope to do it again one day!"
+    }
+  ],
+  "aggregate_rating": {
+    "rating": 5,
+    "review_count": 4
+  },
+  "menu": {
+    "categories": []
+  },
+  "additional_info": {
+    "restaurant_phone": "(251) 280-8008",
+    "largest_charter_fleet": "Over 50 professional charter boats",
+    "distance_to_gulf": "10-minute boat ride from Gulf of Mexico",
+    "fish_species": [
+      "Snapper",
+      "Grouper",
+      "Amberjack",
+      "Triggerfish",
+      "King mackerel",
+      "Cobia",
+      "Billfish",
+      "Yellowfin tuna"
+    ],
+    "captains_mentioned": [
+      "Captain Colby",
+      "Captain Ricky"
+    ],
+    "deckhands_mentioned": [
+      "Jamie",
+      "Rhett"
+    ],
+    "email_signup": "Available for deals, events, and special offers",
+    "awards": "Best of Baldwin 2026"
+  },
+  "url": "https://www.zekeslanding.com",
+  "scraped_at": "2026-03-21T19:27:21.765Z",
+  "extracted_at": "2026-03-23T04:19:50.271Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://www.zekeslanding.com/wp-content/uploads/sites/7671/2025/02/Logo2.png?h=120&zoom=2",
+    "https://www.zekeslanding.com/wp-content/uploads/sites/7671/2025/02/Logo2.png?w=1200&zoom=2",
+    "https://www.zekeslanding.com/wp-content/uploads/sites/7671/2025/02/2025-logos.png?w=1200&zoom=2",
+    "https://platform.swellcx.com/widget/images/launcher-icon-default.png",
+    "https://www.zekeslanding.com/wp-content/uploads/sites/7671/2025/01/Dry-Storage1-e1738341341758.png?w=600&zoom=2",
+    "https://www.zekeslanding.com/wp-content/uploads/sites/7671/2025/01/Dock-Store-e1738341353229.png?w=600&zoom=2",
+    "https://www.zekeslanding.com/wp-content/uploads/sites/7671/2025/01/DryStorageFly.00_00_29_27.Still001.jpg?resize=400%2C225&zoom=2",
+    "https://www.zekeslanding.com/wp-content/uploads/sites/7671/2025/01/DJI_0036.jpg?resize=400%2C225&zoom=2",
+    "https://www.zekeslanding.com/wp-content/uploads/sites/7671/2025/01/dji_fly_20230516_151712_4_1684268666340_photo.jpg?resize=400%2C225&zoom=2",
+    "https://www.zekeslanding.com/wp-content/uploads/sites/7671/2025/01/ZekesTikiQueen-768x809-1.jpg?resize=360%2C240&zoom=2",
+    "https://www.zekeslanding.com/wp-content/uploads/sites/7671/2025/01/image_67195137-768x1024-1.jpg?resize=360%2C240&zoom=2",
+    "https://www.zekeslanding.com/wp-content/uploads/sites/7671/2025/01/image_67531521-768x1024-1.jpg?resize=360%2C240&zoom=2",
+    "https://www.zekeslanding.com/wp-content/uploads/sites/7671/2025/01/image_67198465-768x1024-1.jpg?resize=360%2C240&zoom=2",
+    "https://www.zekeslanding.com/wp-content/uploads/sites/7671/2025/01/image_67507713-768x1024-1.jpg?resize=360%2C240&zoom=2",
+    "https://www.zekeslanding.com/wp-content/uploads/sites/7671/2025/01/Zekes-Tiki-Queen-image-1.jpg?resize=360%2C240&zoom=2",
+    "https://www.zekeslanding.com/wp-content/uploads/sites/7671/2025/01/Private-Sunset-Cruise-image-1.jpg?resize=360%2C240&zoom=2",
+    "https://www.zekeslanding.com/wp-content/uploads/sites/7671/2025/01/Private-Sunset-Cruise-image-2.jpg?resize=360%2C240&zoom=2",
+    "https://www.zekeslanding.com/wp-content/uploads/sites/7671/2025/01/Private-Sunset-Cruise-image-3.jpg?resize=360%2C240&zoom=2",
+    "https://www.zekeslanding.com/wp-content/uploads/sites/7671/2025/02/IMG_6544.jpg?resize=360%2C240&zoom=2",
+    "https://www.zekeslanding.com/wp-content/uploads/sites/7671/2025/02/dolphintales.jpg?resize=360%2C240&zoom=2",
+    "https://www.zekeslanding.com/wp-content/uploads/sites/7671/2025/01/IMG_7695.jpg?resize=360%2C240&zoom=2",
+    "https://www.zekeslanding.com/wp-content/uploads/sites/7671/2025/01/Shared-Expense-Deep-Sea-Fishing-image-2.jpg?resize=360%2C240&zoom=2",
+    "https://www.zekeslanding.com/wp-content/uploads/sites/7671/2025/01/Zekes-Lady-Party-Boat-image-1.jpg?resize=360%2C240&zoom=2",
+    "https://www.zekeslanding.com/wp-content/uploads/sites/7671/2025/01/Zekes-Lady-Party-Boat-image-2.jpg?resize=360%2C240&zoom=2",
+    "https://www.zekeslanding.com/wp-content/uploads/sites/7671/2025/01/462772192_974101774757329_620480679491765244_n.jpg?resize=360%2C240&zoom=2",
+    "https://www.zekeslanding.com/wp-content/uploads/sites/7671/2025/01/DJI_20241020070742_0008_D-Edit-scaled-1.jpg?resize=360%2C240&zoom=2",
+    "https://www.zekeslanding.com/wp-content/uploads/sites/7671/2025/01/449504960_904009775099863_4254075727236716377_n.jpg?resize=360%2C240&zoom=2",
+    "https://www.zekeslanding.com/wp-content/uploads/sites/7671/2025/01/450377488_907260231441484_2646504950678155405_n-1152x1536-1.jpg?resize=360%2C240&zoom=2",
+    "https://www.zekeslanding.com/wp-content/uploads/sites/7671/2025/01/462606482_974101778090662_439569452337297127_n.jpg?resize=360%2C240&zoom=2",
+    "https://www.zekeslanding.com/wp-content/uploads/sites/7671/2025/01/Sea-Hunter-image-1.jpg?resize=360%2C240&zoom=2",
+    "https://www.zekeslanding.com/wp-content/uploads/sites/7671/2025/01/Sea-Hunter-6-e1605889956578.jpg?resize=360%2C240&zoom=2",
+    "https://www.zekeslanding.com/wp-content/uploads/sites/7671/2025/01/sea-hunter-1.jpg?resize=360%2C240&zoom=2",
+    "https://www.zekeslanding.com/wp-content/uploads/sites/7671/2025/01/sea-hunter-2.jpg?resize=360%2C240&zoom=2",
+    "https://www.zekeslanding.com/wp-content/uploads/sites/7671/2025/01/Sea-Hunter-3.jpg?resize=360%2C240&zoom=2",
+    "https://www.zekeslanding.com/wp-content/uploads/sites/7671/2025/01/Sea-Hunter-4-e1605890023325.jpg?resize=360%2C240&zoom=2",
+    "https://www.zekeslanding.com/wp-content/uploads/sites/7671/2025/01/Sea-Hunter-5-e1605890002182.jpg?resize=360%2C240&zoom=2",
+    "https://www.zekeslanding.com/wp-content/uploads/sites/7671/2025/05/image1.jpg?resize=360%2C240&zoom=2",
+    "https://www.zekeslanding.com/wp-content/uploads/sites/7671/2025/05/F9DDE5C3-89D6-4FEC-9688-6E9A75B5B301.jpg?resize=360%2C240&zoom=2",
+    "https://www.zekeslanding.com/wp-content/uploads/sites/7671/2025/05/image.jpg?resize=360%2C240&zoom=2"
+  ],
+  "sources": [
+    "https://www.zekeslanding.com",
+    "https://www.zekeslanding.com/about-us",
+    "https://www.zekeslanding.com/contact",
+    "https://www.zekeslanding.com/charters/zekes-tiki-queen",
+    "https://www.zekeslanding.com/charters/sunset-cruise",
+    "https://www.zekeslanding.com/dolphin-cruise",
+    "https://www.zekeslanding.com/shared-expense-deep-sea-fishing",
+    "https://www.zekeslanding.com/charters/zekes-lady",
+    "https://www.zekeslanding.com/charters/sea-hunter-offshore-fishing-charter",
+    "https://www.zekeslanding.com/cruisin-tikis"
+  ]
+}

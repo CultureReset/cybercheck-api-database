@@ -1,0 +1,210 @@
+{
+  "business_name": "Island Tower",
+  "tagline": null,
+  "type": "Condo Resort",
+  "contact": {
+    "phone": "1-800-211-7892",
+    "email": null,
+    "address": "521 West Beach Blvd",
+    "city": "Gulf Shores",
+    "state": "AL",
+    "zip": "36542"
+  },
+  "location": {
+    "beachfront": true,
+    "bay_view": false,
+    "description": "Beachfront on Gulf of Mexico, located just a few blocks west of Hwy 59, conveniently located and comfortably secluded just off the beaten path at the end of Hwy 59"
+  },
+  "about": {
+    "description": "Island Tower Gulf Shores offers stunning views of the beachfront and Gulf of Mexico from room balconies. Located just a few blocks west of Hwy 59, the Island Tower resort condominiums are both conveniently located and comfortably secluded just off the beaten path. The property features two pools, hot tub, and sauna for relaxation. A family-friendly beach vacation destination with all the basics and more covered.",
+    "elevator_pitch": "Beachfront Gulf Shores condo resort with stunning Gulf views, two pools, hot tub, sauna, and convenient access to dining and attractions.",
+    "total_units": null,
+    "floors": null,
+    "year_built": null,
+    "pet_friendly": null,
+    "minimum_stay": null,
+    "check_in": null,
+    "check_out": null,
+    "age_restriction": null
+  },
+  "amenities": {
+    "pools": [
+      "outdoor pool",
+      "indoor pool"
+    ],
+    "hot_tubs": true,
+    "fitness_center": true,
+    "tennis_courts": false,
+    "pickleball_courts": false,
+    "private_beach_access": true,
+    "parking": "on-site parking, on-site covered parking",
+    "elevators": true,
+    "gated": false,
+    "bbq_grills": true,
+    "business_center": false,
+    "spa": false,
+    "restaurant_on_site": false,
+    "bar_on_site": false,
+    "kids_splash_pad": false,
+    "other": [
+      "sauna",
+      "beach chair rentals",
+      "racquetball",
+      "infinity pool",
+      "washer/dryer in units",
+      "television",
+      "smoke detector",
+      "carbon monoxide detector"
+    ]
+  },
+  "unit_types": [
+    {
+      "name": "1 Bedroom",
+      "bedrooms": 1,
+      "bathrooms": null,
+      "sleeps": null,
+      "view": "gulf front",
+      "sq_ft": null,
+      "starting_price": null,
+      "features": [
+        "full kitchen",
+        "balcony with Gulf view",
+        "washer/dryer"
+      ]
+    },
+    {
+      "name": "2 Bedroom",
+      "bedrooms": 2,
+      "bathrooms": null,
+      "sleeps": null,
+      "view": "gulf front",
+      "sq_ft": null,
+      "starting_price": null,
+      "features": [
+        "full kitchen",
+        "balcony with Gulf view",
+        "washer/dryer"
+      ]
+    },
+    {
+      "name": "3 Bedroom",
+      "bedrooms": 3,
+      "bathrooms": null,
+      "sleeps": null,
+      "view": "gulf front",
+      "sq_ft": null,
+      "starting_price": null,
+      "features": [
+        "full kitchen",
+        "balcony with Gulf view",
+        "washer/dryer"
+      ]
+    }
+  ],
+  "tags": [
+    "beachfront",
+    "family-friendly",
+    "gulf front",
+    "pools",
+    "hot tub",
+    "sauna",
+    "Gulf Shores",
+    "vacation rental",
+    "condo resort"
+  ],
+  "features": [
+    "beachfront access",
+    "multiple pools",
+    "on-site parking",
+    "covered parking",
+    "elevators",
+    "full kitchens",
+    "washer/dryer in units",
+    "fitness room",
+    "beach chair rentals",
+    "racquetball court",
+    "hot tub",
+    "sauna",
+    "infinity pool",
+    "on-site management"
+  ],
+  "social_links": {
+    "instagram": "https://www.instagram.com/brett_robinson_vacations",
+    "facebook": "https://www.facebook.com/BrettRobinsonVacations",
+    "website": "https://www.brett-robinson.com/beach-condo/island-tower/"
+  },
+  "dining": [
+    {
+      "name": "Downtown Gulf Shores",
+      "type": "Multiple Restaurants",
+      "description": "Close proximity to fantastic dining choices in downtown Gulf Shores area"
+    }
+  ],
+  "specials": [
+    {
+      "name": "Seasonal Discounts",
+      "description": "Seasonal discounts available on select dates",
+      "dates": "Varies by season"
+    },
+    {
+      "name": "Snowbird Specials",
+      "description": "Discounts for longer stays during off-season",
+      "dates": "Winter months"
+    },
+    {
+      "name": "Last-Minute Deals",
+      "description": "Last-minute deals on select Gulf Shores rentals",
+      "dates": "Limited time offers"
+    },
+    {
+      "name": "Group Rates",
+      "description": "Special rates available for large groups (4+ bedrooms sleep up to 22 guests)",
+      "dates": "Varies"
+    }
+  ],
+  "url": "https://www.brett-robinson.com/beach-condo/island-tower/",
+  "scraped_at": "2026-03-21T21:30:55.796Z",
+  "extracted_at": "2026-03-23T03:48:46.974Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://www.brett-robinson.com/assets/images/BRV-25-95-Vacations-Logo-GS-OB-PK-Horizontal-V2.png",
+    "https://www.brett-robinson.com/uploads/BRV-26-25--Easter-30-Days-WebpageGraphic_184150.jpg",
+    "https://www.brett-robinson.com/uploads/BRV-26-27--Mothers-Day-60-Days-WebpageGraphic_185358.jpg",
+    "https://www.brett-robinson.com/uploads/BRV-26-11-Memorial-Day-Stays-V1-WebpageGraphic_150618.jpg",
+    "https://www.brett-robinson.com/uploads/BRV-26-14-4-Bedroom-WebpageGraphic-V4_105813.jpg",
+    "https://www.brett-robinson.com/uploads/lFullSizeRender_110222.jpg",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024446PM_144957.png",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024255PM_144955.png",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024250PM_144952.png",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024550PM_145000.png",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024658PM_145003.png",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024800PM_145005.png",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024929PM_150512.png",
+    "https://www.brett-robinson.com/uploads/45dcbabd-14da-4c03-86b9-e33b1bec1699_152424.png",
+    "https://www.brett-robinson.com/uploads/f7c22236-e96b-4131-a6ef-3b8c161f6d60_152431.png",
+    "https://www.brett-robinson.com/uploads/114f4761-0d52-45a5-adf7-626f0144ccf1_152427.png",
+    "https://www.brett-robinson.com/uploads/7ea53f3d-a24b-4d65-96fa-e5f6adaf272d_152421.png",
+    "https://www.brett-robinson.com/uploads/b96b1f24-e333-42bc-9e47-d77fd57855e4_152429.png",
+    "https://www.brett-robinson.com/uploads/732961ba-7d13-4aa9-9294-690e2e1f3420_153528.png",
+    "https://www.brett-robinson.com/uploads/31e08f79-9b97-4008-a4c9-aac831c9b812_153520.png",
+    "https://www.brett-robinson.com/uploads/bad38faf-f976-4ddb-bf87-78b7a03d52df_153530.png",
+    "https://www.brett-robinson.com/uploads/9c90c840-9dd2-46b1-bc95-cc5c75810af3_153523.png",
+    "https://www.brett-robinson.com/uploads/9703bb55-7293-4a01-ad02-34e7793ffbd7_153525.png"
+  ],
+  "sources": [
+    "https://www.brett-robinson.com/beach-condo/island-tower",
+    "https://www.brett-robinson.com/specials-and-promotions",
+    "https://www.brett-robinson.com/specials-and-promotions/4bedrooms?icid=4+bedrooms&startDate=2026-06-28&endDate=2026-07-01",
+    "https://www.brett-robinson.com/specials-and-promotions/charming-beachfront-stays-for-a-tranquil-getaway?icid=Hidden-Gems&startDate=2026-06-28&endDate=2026-07-01",
+    "https://www.brett-robinson.com/specials-and-promotions/memorial90?icid=Memorial-Day-90&startDate=2026-05-21&endDate=2026-05-24",
+    "https://www.brett-robinson.com/specials-and-promotions/mothers-day-1?icid=Mothers-Day&startDate=2026-05-07&endDate=2026-05-09",
+    "https://www.brett-robinson.com/specials-and-promotions/spring-informationalb?icid=Spring-InformationalB&startDate=2026-03-05&endDate=2026-03-08",
+    "https://www.brett-robinson.com/specials-and-promotions/easter?icid=Easter&startDate=2026-04-02&endDate=2026-04-05",
+    "https://www.brett-robinson.com/history-of-brettrobinson",
+    "https://www.brett-robinson.com/gulf-shores-orange-beach-events",
+    "https://www.brett-robinson.com/about-brett-robinson",
+    "https://www.brett-robinson.com/office-locations",
+    "https://www.brett-robinson.com/contact",
+    "https://www.brett-robinson.com/driving-directions"
+  ]
+}

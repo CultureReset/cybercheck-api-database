@@ -1,0 +1,25 @@
+{
+  "business_name": "Stephi Cocktails & Cuisine",
+  "url": "http://stephicuisine.com/",
+  "scraped_at": "2026-03-22T18:35:09.119Z",
+  "scraper": "chrome-visible",
+  "pages": [
+    {
+      "url": "http://stephicuisine.com",
+      "title": "DNS resolution error | stephicuisine.com | Cloudflare",
+      "text": "Error 1001 Ray ID: 9e074b500d859acc • 2026-03-22 18:35:05 UTC\nDNS resolution error\nWhat happened?\n\nYou've requested a page on a website (stephicuisine.com) that is on the Cloudflare network. Cloudflare is currently unable to resolve your requested domain (stephicuisine.com). There are two potential causes of this:\n\nMost likely: if the owner just signed up for Cloudflare it can take a few minutes for the website's information to be distributed to our global network.\nLess likely: something is wrong with this site's configuration. Usually this happens when accounts have been signed up with a partner organization (e.g., a hosting provider) and the provider's DNS fails.\n\nPlease see https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-1xxx-errors/error-1001/ for more details.\n\nWas this page helpful? Yes No\n\nCloudflare Ray ID: 9e074b500d859acc • Your IP: Click to reveal • Performance & security by Cloudflare",
+      "structuredData": [],
+      "meta": {
+        "description": ""
+      },
+      "links": [
+        "https://www.cloudflare.com/5xx-error-landing/",
+        "https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-1xxx-errors/error-1001/",
+        "https://www.cloudflare.com/5xx-error-landing"
+      ]
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": []
+}

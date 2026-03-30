@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dockside Guide</title>
+    <style>
+        :root {
+            --ocean-dark: #0a3a52;
+            --ocean-blue: #0d47a1;
+            --ocean-light: #1976d2;
+            --sand: #f4d9b8;
+            --sand-light: #fef5ed;
+            --sand-dark: #d4a373;
+            --sea: #006494;
+            --sea-light: #4db8ff;
+            --coral: #ff6b5b;
+            --lagoon: #1dd1a1;
+            --text-dark: #1a1a1a;
+            --text-muted: #666666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: linear-gradient(180deg, #e0f7ff 0%, #b3e5fc 20%, #81d4fa 40%, #4fc3f7 60%, #29b6f6 80%, #0288d1 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: transparent;
+            padding: 48px 20px;
+        }
+
+        .profile-header {
+            text-align: center;
+            margin-bottom: 32px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .profile-avatar {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            overflow: hidden;
+            box-shadow: 0 12px 32px rgba(0, 100, 150, 0.4);
+            border: 4px solid var(--lagoon);
+            background: linear-gradient(135deg, #fff9c4 0%, #ffe082 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 56px;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .profile-avatar::before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.4), transparent 70%);
+            pointer-events: none;
+        }
+
+        .profile-name {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--ocean-dark);
+            margin-bottom: 10px;
+            text-shadow: 0 3px 6px rgba(255,255,255,0.6);
+            letter-spacing: -0.5px;
+        }
+
+        .profile-tagline {
+            font-size: 14px;
+            color: var(--ocean-dark);
+            font-weight: 700;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            opacity: 0.85;
+        }
+
+        .profile-bio {
+            font-size: 15px;
+            color: var(--text-dark);
+            line-height: 1.7;
+            max-width: 480px;
+            margin: 0 auto 20px;
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 12px;
+        }
+
+        .social-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.3), rgba(255,255,255,0.1));
+            border: 2px solid rgba(255,255,255,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .social-icon:hover {
+            background: linear-gradient(135deg, var(--lagoon), var(--sea-light));
+            border-color: var(--lagoon);
+            transform: translateY(-4px) scale(1.1);
+            box-shadow: 0 8px 16px rgba(29, 209, 161, 0.3);
+        }
+
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 40px;
+        }
+
+        .link-item {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 24px 28px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.15));
+            border-radius: 22px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border: 2.5px solid rgba(255,255,255,0.5);
+            cursor: pointer;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .link-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0, 100, 150, 0.3);
+            border-color: rgba(255,255,255,0.7);
+            backdrop-filter: blur(20px);
+        }
+
+        .link-item.eat-btn {
+            background: linear-gradient(135deg, rgba(255, 107, 91, 0.4), rgba(255, 152, 0, 0.25));
+            border: 2.5px solid rgba(255, 107, 91, 0.5);
+        }
+
+        .link-item.eat-btn:hover {
+            background: linear-gradient(135deg, rgba(255, 107, 91, 0.7), rgba(255, 152, 0, 0.5));
+            border-color: rgba(255, 107, 91, 0.8);
+            color: var(--ocean-dark);
+        }
+
+        .link-item.stay-btn {
+            background: linear-gradient(135deg, rgba(29, 209, 161, 0.4), rgba(76, 175, 80, 0.25));
+            border: 2.5px solid rgba(29, 209, 161, 0.5);
+        }
+
+        .link-item.stay-btn:hover {
+            background: linear-gradient(135deg, rgba(29, 209, 161, 0.7), rgba(76, 175, 80, 0.5));
+            border-color: rgba(29, 209, 161, 0.8);
+            color: var(--ocean-dark);
+        }
+
+        .link-item.boat-btn {
+            background: linear-gradient(135deg, rgba(79, 195, 247, 0.4), rgba(0, 188, 212, 0.25));
+            border: 2.5px solid rgba(79, 195, 247, 0.5);
+        }
+
+        .link-item.boat-btn:hover {
+            background: linear-gradient(135deg, rgba(79, 195, 247, 0.7), rgba(0, 188, 212, 0.5));
+            border-color: rgba(79, 195, 247, 0.8);
+            color: var(--ocean-dark);
+        }
+
+        .link-icon {
+            font-size: 36px;
+            flex-shrink: 0;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        }
+
+        .link-text {
+            flex: 1;
+        }
+
+        .link-title {
+            font-size: 17px;
+            font-weight: 800;
+            color: var(--ocean-dark);
+            margin-bottom: 6px;
+            letter-spacing: -0.2px;
+        }
+
+        .link-sub {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-muted);
+            opacity: 0.9;
+        }
+
+        .link-count {
+            background: rgba(29, 209, 161, 0.3);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            flex-shrink: 0;
+            color: var(--ocean-dark);
+            border: 1px solid rgba(29, 209, 161, 0.5);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 32px;
+            color: rgba(0,0,0,0.5);
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .footer p {
+            margin: 4px 0;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, #e0f7ff 0%, #b3e5fc 20%, #81d4fa 40%, #4fc3f7 60%, #29b6f6 80%, #0288d1 100%);
+            background-attachment: fixed;
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #ffffff 0%, #fafbff 100%);
+            border-radius: 28px;
+            padding: 0;
+            max-width: 620px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 25px 70px rgba(0, 100, 150, 0.35);
+            border: 3px solid rgba(29, 209, 161, 0.15);
+            backdrop-filter: blur(20px);
+        }
+
+        .modal-content > * {
+            padding: 0 40px;
+        }
+
+        .modal-content > .modal-header,
+        .modal-content > .modal-subtitle {
+            padding-top: 40px;
+        }
+
+        .modal-content > .directory-grid {
+            padding: 20px 40px 40px 40px;
+        }
+
+        .modal-close {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            font-size: 32px;
+            cursor: pointer;
+            background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+            border: 2px solid rgba(255,255,255,0.3);
+            color: var(--ocean-dark);
+            width: 52px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s;
+            z-index: 1001;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            backdrop-filter: blur(10px);
+        }
+
+        .modal-close:hover {
+            background: linear-gradient(135deg, var(--lagoon), var(--sea-light));
+            border-color: var(--lagoon);
+            color: white;
+            transform: scale(1.15);
+        }
+
+        .modal-header {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            padding-right: 40px;
+            color: var(--ocean-dark);
+            letter-spacing: -0.5px;
+        }
+
+        .modal-subtitle {
+            font-size: 12px;
+            color: var(--ocean-dark);
+            font-weight: 800;
+            margin-bottom: 28px;
+            text-transform: uppercase;
+            letter-spacing: 2.2px;
+            opacity: 0.8;
+        }
+
+        .directory-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .directory-tile {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 18px 22px;
+            background: white;
+            border-radius: 16px;
+            text-decoration: none;
+            color: var(--text-dark);
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border: 2px solid #f0f0f0;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 100, 150, 0.08);
+        }
+
+        .directory-tile:hover {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+            border-color: var(--lagoon);
+            transform: translateY(-6px) translateX(4px);
+            box-shadow: 0 12px 28px rgba(0, 100, 150, 0.2);
+        }
+
+        .directory-icon {
+            font-size: 24px;
+            flex-shrink: 0;
+            filter: drop-shadow(0 1px 2px rgba(0,0,0,0.05));
+        }
+
+        .directory-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .directory-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--ocean-dark);
+            margin-bottom: 2px;
+        }
+
+        .directory-location {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .directory-arrow {
+            font-size: 18px;
+            color: rgba(0,0,0,0.15);
+            flex-shrink: 0;
+            transition: all 0.3s;
+        }
+
+        .directory-tile:hover .directory-arrow {
+            color: var(--ocean-dark);
+            transform: translateX(3px);
+        }
+
+        .contact-box {
+            margin-top: 24px;
+            padding: 20px 22px;
+            background: linear-gradient(135deg, rgba(29, 209, 161, 0.12), rgba(79, 195, 247, 0.12));
+            border-radius: 16px;
+            border: 2px solid rgba(29, 209, 161, 0.25);
+            box-shadow: 0 4px 12px rgba(29, 209, 161, 0.08);
+        }
+
+        .contact-title {
+            color: var(--ocean-dark);
+            font-weight: 800;
+            font-size: 14px;
+            margin-bottom: 12px;
+            letter-spacing: 0.3px;
+        }
+
+        .contact-info {
+            color: var(--text-muted);
+            font-size: 13px;
+            line-height: 1.8;
+            font-weight: 500;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 15px;
+            }
+
+            .profile-name {
+                font-size: 28px;
+            }
+
+            .profile-avatar {
+                width: 120px;
+                height: 120px;
+            }
+
+            .modal-content {
+                padding: 30px;
+            }
+
+            .modal-close {
+                width: 44px;
+                height: 44px;
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile-header">
+            <div class="profile-avatar">
+                <img src="https://images.squarespace-cdn.com/content/v1/6490bb331637b06efee596a1/00046adc-1b82-428b-a76a-369be75808c8/DOCKSIDE+GUIDE_SealLogo_URL_NAVY_YELLOW.png" alt="Dockside Guide Logo">
+            </div>
+            <div class="profile-name">Dockside Guide</div>
+            <div class="profile-tagline">🌊 Waterfront Living 🏝️</div>
+            <div class="profile-bio">Discover the best boat-accessible businesses along the Gulf Coast</div>
+        </div>
+
+        <div class="social-icons">
+            <a href="#" class="social-icon" title="Instagram">📸</a>
+            <a href="#" class="social-icon" title="Facebook">👍</a>
+            <a href="#" class="social-icon" title="Contact">📧</a>
+        </div>
+
+        <div class="links-container">
+            <div class="link-item eat-btn" onclick="openModal('eat')">
+                <span class="link-icon">🍽️</span>
+                <div class="link-text">
+                    <div class="link-title">Dockside Dining</div>
+                    <div class="link-sub">Waterfront Restaurants</div>
+                </div>
+                <span class="link-count">31</span>
+            </div>
+
+            <div class="link-item stay-btn" onclick="openModal('stay')">
+                <span class="link-icon">🏠</span>
+                <div class="link-text">
+                    <div class="link-title">Dockside Quarters</div>
+                    <div class="link-sub">Waterfront Lodging</div>
+                </div>
+                <span class="link-count">7</span>
+            </div>
+
+            <div class="link-item boat-btn" onclick="openModal('boat')">
+                <span class="link-icon">⚓</span>
+                <div class="link-text">
+                    <div class="link-title">Dockside Lifestyle</div>
+                    <div class="link-sub">Boating & Apparel</div>
+                </div>
+                <span class="link-count">2</span>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>🌅 Find Your Waterfront Escape 🌊</p>
+            <p style="margin-top: 8px; font-size: 11px;">info@docksideguide.com | 888-433-DOCK</p>
+        </div>
+    </div>
+
+    <!-- Eat Modal -->
+    <div class="modal" id="eatModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('eat')">&times;</button>
+            <div class="modal-header">🍽️ Dockside Dining</div>
+            <div class="modal-subtitle">Boat-Accessible Restaurants</div>
+            <div class="directory-grid" id="eatGrid"></div>
+        </div>
+    </div>
+
+    <!-- Stay Modal -->
+    <div class="modal" id="stayModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('stay')">&times;</button>
+            <div class="modal-header">🏠 Dockside Quarters</div>
+            <div class="modal-subtitle">Waterfront Accommodations</div>
+            <div class="directory-grid" id="stayGrid"></div>
+        </div>
+    </div>
+
+    <!-- Boat Modal -->
+    <div class="modal" id="boatModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('boat')">&times;</button>
+            <div class="modal-header">⚓ Dockside Lifestyle</div>
+            <div class="modal-subtitle">Boating & Lifestyle Brands</div>
+            <div class="directory-grid" id="boatGrid"></div>
+        </div>
+    </div>
+
+    <!-- Business Detail Modal -->
+    <div class="modal" id="detailModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('detail')">&times;</button>
+            <div class="modal-header" id="detailName"></div>
+            <div class="modal-subtitle" id="detailType"></div>
+            <div class="directory-grid" id="detailInfo"></div>
+        </div>
+    </div>
+
+    <script>
+        const businesses = {
+            eat: {
+                "Restaurants": [
+                    { name: "The Blind Tiger", location: "Fairhope, Alabama", desc: "Waterfront dining with boat access", image: "https://images.unsplash.com/photo-1517521231527-c8ff086f5265?w=400&h=300&fit=crop" },
+                    { name: "Pirates Cove", location: "Elberta, Alabama", desc: "Casual seafood spot with marina access", image: "https://images.unsplash.com/photo-1504674900941-f983ee71b547?w=400&h=300&fit=crop" },
+                    { name: "Zeke's Restaurant", location: "Gulf Coast", desc: "Local favorite with dockside location", image: "https://images.unsplash.com/photo-1555396273-c2a5ad9ea65a?w=400&h=300&fit=crop" },
+                    { name: "The Oar House", location: "Pensacola, Florida", desc: "Waterfront restaurant with boat access", image: "https://images.unsplash.com/photo-1550966871-ee2a9281c6b9?w=400&h=300&fit=crop" },
+                    { name: "Bushwacker's Landing", location: "Perdido Key, Florida", desc: "Casual dining at the waterfront", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop" },
+                    { name: "Bluegill Restaurant", location: "Spanish Fort", desc: "Waterfront dining experience", image: "https://images.unsplash.com/photo-1537457866556-6b692f2cf069?w=400&h=300&fit=crop" },
+                    { name: "GTs on the Bay", location: "Orange Beach", desc: "Bay-view casual dining", image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=300&fit=crop" },
+                    { name: "Hub Stacey's at The Point", location: "Pensacola", desc: "Waterfront dining venue", image: "https://images.unsplash.com/photo-1571407159214-30e3cb1e7f3c?w=400&h=300&fit=crop" },
+                    { name: "Jesse's on the Bay", location: "Gulf Shores", desc: "Bay-view dining and bar", image: "https://images.unsplash.com/photo-1552566626-f1c993e83f25?w=400&h=300&fit=crop" },
+                    { name: "Jesse's Restaurant", location: "Magnolia Springs", desc: "Local favorite restaurant", image: "https://images.unsplash.com/photo-1554866585-cb42ddfc68a0?w=400&h=300&fit=crop" },
+                    { name: "OSO Bear Point Harbor", location: "Orange Beach", desc: "Harbor-view dining", image: "https://images.unsplash.com/photo-1514432324607-2e467f4af445?w=400&h=300&fit=crop" },
+                    { name: "The Point Restaurant", location: "Pensacola", desc: "Waterfront point dining", image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=300&fit=crop" }
+                ],
+                "Seafood": [
+                    { name: "The Tin Top Restaurant & Oyster Bar", location: "Gulf Coast", desc: "Fresh oysters and seafood specialties", image: "https://images.unsplash.com/photo-1580959375944-abd7e991f971?w=400&h=300&fit=crop" },
+                    { name: "Dockside Seafood", location: "Dauphin Island", desc: "Fresh seafood market and restaurant", image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=300&fit=crop" },
+                    { name: "Jaime's Local Seafood Shack", location: "Pensacola", desc: "Casual local seafood spot", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop" },
+                    { name: "Original Oyster House", location: "Spanish Fort", desc: "Fresh oyster house", image: "https://images.unsplash.com/photo-1580959375944-abd7e991f971?w=400&h=300&fit=crop" },
+                    { name: "Oyster Bar Restaurant and Marina", location: "Pensacola", desc: "Oyster bar with full marina", image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=300&fit=crop" },
+                    { name: "The Pelican Reef", location: "Theodore", desc: "Reef-themed seafood restaurant", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop" }
+                ],
+                "Grills & BBQ": [
+                    { name: "Big Daddy's Grill", location: "Fairhope", desc: "BBQ and grill specialties", image: "https://images.unsplash.com/photo-1555939594-58d7cb561c1a?w=400&h=300&fit=crop" },
+                    { name: "Flora-Bama Ole River Grill", location: "Pensacola", desc: "River-view grill with boat access", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop" },
+                    { name: "Shipp's Dockside Grill", location: "Orange Beach", desc: "Dockside grill specialties", image: "https://images.unsplash.com/photo-1555939594-58d7cb561c1a?w=400&h=300&fit=crop" }
+                ],
+                "Bars & Lounges": [
+                    { name: "Avenue Pub", location: "Orange Beach", desc: "Pub-style dining with waterfront views", image: "https://images.unsplash.com/photo-1552566626-f1c993e83f25?w=400&h=300&fit=crop" },
+                    { name: "Barometer Tiki & Raw Bar", location: "Orange Beach", desc: "Tropical tiki bar with raw bar", image: "https://images.unsplash.com/photo-1514432324607-2e467f4af445?w=400&h=300&fit=crop" },
+                    { name: "Lulu's Gulf Shores", location: "Gulf Shores", desc: "Beach bar and grill", image: "https://images.unsplash.com/photo-1552566626-f1c993e83f25?w=400&h=300&fit=crop" }
+                ],
+                "Fine Dining": [
+                    { name: "Cobalt The Restaurant", location: "Orange Beach", desc: "Upscale waterfront dining", image: "https://images.unsplash.com/photo-1504674900941-f983ee71b547?w=400&h=300&fit=crop" },
+                    { name: "The Grand Hotel Golf Resort and Spa", location: "Point Clear", desc: "Resort dining with waterfront access", image: "https://images.unsplash.com/photo-1550966871-ee2a9281c6b9?w=400&h=300&fit=crop" },
+                    { name: "Flora-Bama Yacht Club", location: "Pensacola", desc: "Yacht club dining experience", image: "https://images.unsplash.com/photo-1517521231527-c8ff086f5265?w=400&h=300&fit=crop" }
+                ],
+                "Cajun Cuisine": [
+                    { name: "Louisiana Lagniappe", location: "Orange Beach", desc: "Louisiana-style cuisine", image: "https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop" },
+                    { name: "Ralph and Kacoo's", location: "Spanish Fort", desc: "New Orleans-style restaurant", image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop" }
+                ]
+            },
+            stay: {
+                "Resorts": [
+                    { name: "The Dock House", location: "Orange Beach, Alabama", desc: "Waterfront lodging with direct boat access", image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=300&fit=crop" }
+                ],
+                "Vacation Rentals": [
+                    { name: "Liquid Life Vacation Rentals", location: "Orange Beach, Alabama", desc: "Vacation rentals with dock access", image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=400&h=300&fit=crop" },
+                    { name: "My Beach Getaways", location: "Orange Beach, Alabama", desc: "Beach vacation rental properties", image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=300&fit=crop" },
+                    { name: "Perdido Realty Vacations", location: "Pensacola, Florida", desc: "Premium vacation properties", image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=400&h=300&fit=crop" }
+                ],
+                "Property Management": [
+                    { name: "Prickett Properties", location: "Orange Beach, Alabama", desc: "Featured waterfront properties", image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400&h=300&fit=crop" },
+                    { name: "Water & Wood Properties", location: "Fairhope, Alabama", desc: "Luxury waterfront accommodations", image: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=400&h=300&fit=crop" }
+                ],
+                "Campgrounds": [
+                    { name: "KOA Gulf Shores/Pensacola", location: "Lillian, Alabama", desc: "Campground with water amenities", image: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=400&h=300&fit=crop" }
+                ]
+            },
+            boat: {
+                "Lifestyle Brands": [
+                    { name: "7 South", location: "Fairhope, Alabama", desc: "Boating lifestyle brand and apparel", image: "https://images.unsplash.com/photo-1516905041604-da2b735ee808?w=400&h=300&fit=crop" }
+                ],
+                "Apparel": [
+                    { name: "Tipsy Threads", location: "National", desc: "Boating apparel and merchandise", image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=300&fit=crop" }
+                ]
+            }
+        };
+
+        let currentModal = null;
+        let currentCategory = null;
+
+        function openModal(type) {
+            currentModal = type;
+            const modal = document.getElementById(type + 'Modal');
+            const gridId = type + 'Grid';
+            const grid = document.getElementById(gridId);
+
+            modal.classList.add('active');
+            grid.innerHTML = '';
+
+            const categories = Object.keys(businesses[type]);
+            categories.forEach((subcat) => {
+                const count = businesses[type][subcat].length;
+                const tile = document.createElement('div');
+                tile.className = 'directory-tile';
+                tile.innerHTML = `
+                    <div class="directory-icon">📂</div>
+                    <div class="directory-info">
+                        <div class="directory-name">${subcat}</div>
+                        <div class="directory-location">${count} ${count === 1 ? 'business' : 'businesses'}</div>
+                    </div>
+                    <div class="directory-arrow">→</div>
+                `;
+                tile.onclick = () => openSubcategory(type, subcat);
+                grid.appendChild(tile);
+            });
+        }
+
+        function openSubcategory(category, subcategory) {
+            currentCategory = { cat: category, subcat: subcategory };
+            const modal = document.getElementById('detailModal');
+            const grid = document.getElementById('detailInfo');
+
+            document.getElementById('detailName').textContent = subcategory;
+            const categoryEmoji = {eat: '🍽️', stay: '🏠', boat: '⚓'};
+            document.getElementById('detailType').textContent = `${categoryEmoji[category]} ${subcategory}`;
+
+            modal.classList.add('active');
+            grid.innerHTML = '';
+
+            businesses[category][subcategory].forEach((b) => {
+                const tile = document.createElement('div');
+                tile.className = 'directory-tile';
+                const img = b.image ? `<img src="${b.image}" alt="${b.name}" style="width:40px; height:40px; border-radius:8px; object-fit:cover;">` : '<div class="directory-icon">📍</div>';
+                tile.innerHTML = `
+                    ${img}
+                    <div class="directory-info">
+                        <div class="directory-name">${b.name}</div>
+                        <div class="directory-location">${b.location}</div>
+                    </div>
+                    <div class="directory-arrow">→</div>
+                `;
+                tile.onclick = () => openBusinessDetail(b);
+                grid.appendChild(tile);
+            });
+        }
+
+        function openBusinessDetail(business) {
+            const modal = document.getElementById('detailModal');
+            const grid = document.getElementById('detailInfo');
+
+            document.getElementById('detailName').textContent = business.name;
+            document.getElementById('detailType').textContent = business.location;
+
+            const img = business.image ? `<img src="${business.image}" alt="${business.name}" style="width:100%; height:250px; object-fit:cover; border-radius:12px; margin-bottom:20px;">` : '';
+
+            grid.innerHTML = `
+                ${img}
+                <div class="directory-tile">
+                    <div class="directory-icon">📍</div>
+                    <div class="directory-info">
+                        <div class="directory-name">Location</div>
+                        <div class="directory-location">${business.location}</div>
+                    </div>
+                </div>
+                <div class="directory-tile">
+                    <div class="directory-icon">ℹ️</div>
+                    <div class="directory-info">
+                        <div class="directory-name">About</div>
+                        <div class="directory-location">${business.desc}</div>
+                    </div>
+                </div>
+                <div class="directory-tile">
+                    <div class="directory-icon">⛵</div>
+                    <div class="directory-info">
+                        <div class="directory-name">Boat Access</div>
+                        <div class="directory-location">✅ Dockside location with boat facilities</div>
+                    </div>
+                </div>
+                <div class="contact-box">
+                    <div class="contact-title">📞 Contact Dockside Guide</div>
+                    <div class="contact-info">
+                        Email: info@docksideguide.com<br>
+                        Phone: 888-433-DOCK<br>
+                        Web: docksideguide.com
+                    </div>
+                </div>
+            `;
+        }
+
+        function closeModal(type) {
+            document.getElementById(type + 'Modal').classList.remove('active');
+        }
+
+        // Close on background click
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

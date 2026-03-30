@@ -1,0 +1,109 @@
+{
+  "business_name": "Carmelo",
+  "tagline": "Classic & Innovative Italian Cuisine",
+  "type": "Restaurant",
+  "contact": {
+    "phone": "(251) 200-4375",
+    "email": "info@kolhospitality.com",
+    "address": "25747 Perdido Beach Bvd Suite 1",
+    "city": "Orange Beach",
+    "state": "AL",
+    "zip": null
+  },
+  "hours": {
+    "monday": "3pm - 9pm",
+    "tuesday": "3pm - 9pm",
+    "wednesday": "3pm - 9pm",
+    "thursday": "3pm - 9pm",
+    "friday": "3pm - 10pm",
+    "saturday": "3pm - 10pm",
+    "sunday": "3pm - 9pm",
+    "notes": null
+  },
+  "about": {
+    "description": "Located in Orange Beach, Alabama is a purveyor of fine Italian dining. Italian hospitality and innovated Italian cuisine that is guaranteed to grow your appetite. Enjoy choosing the perfect wine from our expansive collection to complement your meal as you sit in our dining room that combines contemporary decor with vintage Italian staples.",
+    "elevator_pitch": "A fine Italian dining establishment in Orange Beach featuring classic and innovative Italian cuisine with an expansive wine collection.",
+    "vibe": "Contemporary decor with vintage Italian staples in an upscale dining atmosphere",
+    "best_for": [
+      "date night",
+      "special occasions",
+      "wine lovers"
+    ],
+    "established": null,
+    "reservations": "Available - Make a Reservation",
+    "insider_tip": null
+  },
+  "tags": [
+    "Italian",
+    "fine dining",
+    "wine bar",
+    "upscale"
+  ],
+  "features": [
+    "full bar",
+    "wine collection",
+    "reservations",
+    "online ordering",
+    "live music"
+  ],
+  "price_range": "$$$",
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://www.carmeloitalian.com"
+  },
+  "specials": [],
+  "events": [
+    {
+      "name": "Wine Dinner",
+      "description": "Wine Dinner featuring Live Music from Jesse Hill",
+      "recurring": false,
+      "day": "March 19th",
+      "time": null
+    }
+  ],
+  "menu": {
+    "categories": [
+      {
+        "name": "Dinner Menu",
+        "type": "dinner",
+        "items": []
+      },
+      {
+        "name": "Wine & Bar Menu",
+        "type": "drinks",
+        "items": []
+      }
+    ]
+  },
+  "url": "https://carmeloitalian.com",
+  "scraped_at": "2026-03-21T19:24:11.259Z",
+  "extracted_at": "2026-03-23T03:33:38.557Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://images.squarespace-cdn.com/content/v1/63596e9282189a0adf6a9ea2/4a6a32f2-b082-4120-afd5-415ba78b9ce1/Asset+white+logo.png?format=1500w",
+    "https://images.squarespace-cdn.com/content/v1/63596e9282189a0adf6a9ea2/dcd6b004-7b84-4398-859a-b20a85d9d1cd/FA0A6804.jpg",
+    "https://images.squarespace-cdn.com/content/v1/63596e9282189a0adf6a9ea2/4d06dcaa-5607-405e-9de1-23182367906c/raphael-nogueira-pIFFTVW5TSs-unsplash.jpg",
+    "https://images.squarespace-cdn.com/content/v1/63596e9282189a0adf6a9ea2/6c9c2d80-5c37-4c39-a3d5-d0c7007479f4/Carmelo-1.jpg",
+    "https://images.squarespace-cdn.com/content/v1/63596e9282189a0adf6a9ea2/33388346-f968-4b5f-9e30-99f972b5844d/Carmelo-1-3.jpg",
+    "https://images.squarespace-cdn.com/content/v1/63596e9282189a0adf6a9ea2/a07ce0c9-9442-4c8c-9910-d15d92d971a8/Carmelo-1-5.jpg",
+    "https://images.squarespace-cdn.com/content/v1/63596e9282189a0adf6a9ea2/f3e72e6e-079d-4a89-828e-979549abc579/347840546_1277133026570244_6498357928752648447_n.jpeg",
+    "https://images.squarespace-cdn.com/content/v1/63596e9282189a0adf6a9ea2/2f2ca814-5eeb-4eac-9759-b116f9ba5f4f/348222474_262985799737146_5329534631613282511_n.jpeg",
+    "https://images.squarespace-cdn.com/content/v1/63596e9282189a0adf6a9ea2/332fc919-b836-4847-a7d2-0b1b2b1b4e47/348586346_772042041183850_354763477860612259_n.jpeg",
+    "https://images.squarespace-cdn.com/content/v1/63596e9282189a0adf6a9ea2/61249601-5cee-4206-be39-8d7d47d91e98/348971281_269883852092543_4013547183455954267_n.jpeg",
+    "https://images.squarespace-cdn.com/content/v1/63596e9282189a0adf6a9ea2/2cab39e5-a2aa-44b3-9507-e32d8d4017eb/350649164_830683832027717_419456714001525668_n.jpeg",
+    "https://images.squarespace-cdn.com/content/v1/63596e9282189a0adf6a9ea2/485a40b9-1958-4192-8ece-1fa7bd013990/350531773_964201048258569_7701012348042165326_n.jpeg",
+    "https://images.squarespace-cdn.com/content/v1/63596e9282189a0adf6a9ea2/2e831594-79f6-4c56-a976-d64e488cd2ba/354466363_187512074273612_2479717042007417179_n.jpeg",
+    "https://images.squarespace-cdn.com/content/v1/63596e9282189a0adf6a9ea2/dfd3abd1-08eb-40cf-834a-0f8a672738d6/351488805_633522538660352_3716286862487834073_n.jpeg",
+    "https://images.squarespace-cdn.com/content/v1/63596e9282189a0adf6a9ea2/221d3058-e55c-4553-8e20-25e3d4b17576/350827239_1438477866897144_2621298103787899012_n.jpeg",
+    "https://images.squarespace-cdn.com/content/v1/63596e9282189a0adf6a9ea2/78ca1085-88aa-455a-89d5-e3ad78e437ae/352530000_1681068052338287_6840652584869806949_n.jpeg",
+    "https://images.squarespace-cdn.com/content/v1/63596e9282189a0adf6a9ea2/82a07377-a8e7-4f61-a294-a8c89aeea4ef/350795352_619969583396427_2431493052486902063_n.jpeg",
+    "https://images.squarespace-cdn.com/content/v1/63596e9282189a0adf6a9ea2/0815481b-3728-4f48-ab5c-628b8e46637b/353846016_186138267744326_7992855212545922930_n.jpeg",
+    "https://images.squarespace-cdn.com/content/v1/63596e9282189a0adf6a9ea2/ff6a1f38-ed72-4f91-b33d-862e2fc3992e/355248984_189467807411372_15635431375073878_n.jpeg",
+    "https://images.squarespace-cdn.com/content/v1/63596e9282189a0adf6a9ea2/a9daec39-9f76-479a-9b33-908c62ea0a4e/355327529_189979867360166_8949226544037409868_n.jpeg",
+    "https://images.squarespace-cdn.com/content/v1/63596e9282189a0adf6a9ea2/3e4fb10a-44ff-4efb-a9a9-7ca7db71654e/FA0A9367.jpg"
+  ],
+  "sources": [
+    "https://carmeloitalian.com"
+  ]
+}

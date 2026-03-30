@@ -1,0 +1,393 @@
+{
+  "business_name": "gtsonthebay.com",
+  "url": "https://gtsonthebay.com",
+  "scraped_at": "2026-03-21T19:35:04.224Z",
+  "pages": [
+    {
+      "url": "https://gtsonthebay.com",
+      "title": "Home - GTs on the Bay",
+      "text": "Skip to content\n\n\t\n \n \n \n \n \n \n \n \n\n\t\n \n \n\n \n \n\n \n \n \n \n \n \n\n \n \n Search for:\n \n \n \n \n \n \n\n \n \n\n \n \n HomeMenuHappy HourLive Music & EventsAboutMeet the TeamCheck Us OutHealth and SafetyContact\t\n \n \n \n \n \n\nHomeMenuHappy HourLive Music & EventsAboutMeet the TeamCheck Us OutHealth and SafetyContact\n\n \n\n \n \n \n \n \n \n \n \n \n \n\t\n \n \n \n\n GOOD FOOD. GOOD FRIENDS. GOOD TIMES.\n\n \n \n \n\n \n \n \n\t\n\n \n \n\n \n Homedhonsvick2026-03-02T17:23:41+00:00 \n Welcome to GTs On The Bay\nGTs On The Bay sits overlooking Wolf Bay on Canal Road in the heart of Orange Beach. With stunning views and bay front dining, GTs features a diverse and one-of-kind menu. Guests can savor unique culinary choices and a blend of local favorites, in addition to special creations with a family friendly atmosphere. Enjoy a stone hearth pizza oven and fresh made salad bar as well as craft beers and daily happy hour. Soon to be favorites such as our Cajun empanadas, chicken carbonara and fish tacos will delight locals and visitors alike.\nExperience Bayview Dining\n\nLet’s do Lunch!\nThere’s no better way to break up the workday than spending your lunch break with us! Try our Good Time Lunch Special and enjoy the waterfront dining experience you deserve. Choose from Fried Fish with French Fries and Slaw, Shrimp Creole over Jasmine Rice, or our Fried Chicken Breast with Meunière Sauce. Join us today between 11 a.m. and 4 p.m. to refuel and recharge—your table is waiting!\n\nDon’t Skip the Salad Bar\n\nMade fresh daily, our salad bar features crisp romaine lettuce, spring mix, and iceberg lettuce, along with options such as our house-made chicken and pasta salad. With endless toppings and dressings, create your perfect salad. Add a small, large, or endless salad trip to your meal, or choose our soup and salad combo from the $11 Good Times Lunch menu. Don’t miss out—make your plate today!\n\nStay for Dinner\nWhy not make tonight special? Our extensive dinner menu has something for everyone. Start with Cajun Empanadas or Firecracker Shrimp, then choose a specialty like Shrimp-n-Grits, Pepper-Seared Tuna, or our GTs Grouper. You won’t want to leave without tasting one of our delightful desserts, sure to satisfy your sweet tooth. Experience a memorable evening with us!\n\nHappy Hour\nWe have the best on the Island! Our Happy Hour is served daily from 3 p.m. to 5 p.m. and features specials on draft beer, house wines, and awesome appetizers such as our Firecracker Shrimp, Gingered Calamari, or our GTs Dip. What are you waiting for?\n\nREAD OUR MENUALABAMA COASTAL CATERING\nLEARN MOREOUR FAMILY\n\n \n \n\t\n \n \n \n \n \n \n \n \n \n\t\n \n \n \n \n \n \n Get Social\n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n CONTACT INFO\n\nAddress: 26189 Canal Rd, Orange Beach, AL 36561\nPhone: 251-980-8400\nMailing Address: P.O. Box 1215, Orange Beach AL 36561\n\n HOURS\n\nSunday – Thursday 11 a.m. to 9:30 p.m.\nFriday – Saturday 11 a.m. to 10:00 p.m\nSunday Brunch 11 a.m. to 2:00 p.m\n\n \n \n Navigation Home Menu Happy Hour Live Music & Events About Meet the Team Check Us Out Health and Safety Contact \n \n \n \n \n \n\n \n\n \n \n \n Page load link\n\n \n \n\n \n \n\n \n \n Go to Top",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebSite",
+              "@id": "https://gtsonthebay.com/#website",
+              "url": "https://gtsonthebay.com/",
+              "name": "GTs on the Bay",
+              "description": "Unlike Any Other",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://gtsonthebay.com/?s={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://gtsonthebay.com/#webpage",
+              "url": "https://gtsonthebay.com/",
+              "inLanguage": "en-US",
+              "name": "Home - GTs on the Bay",
+              "isPartOf": {
+                "@id": "https://gtsonthebay.com/#website"
+              },
+              "datePublished": "2019-01-03T17:59:39+00:00",
+              "dateModified": "2026-03-02T17:23:41+00:00"
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "robots": "max-snippet:-1, max-image-preview:large, max-video-preview:-1",
+        "og:locale": "en_US",
+        "og:type": "website",
+        "og:title": "Home - GTs on the Bay",
+        "og:url": "https://gtsonthebay.com/",
+        "og:site_name": "GTs on the Bay",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Home - GTs on the Bay",
+        "description": "Welcome to GTs On The Bay\nGTs On The Bay sits overlooking Wolf Bay on Canal Road in the heart of Orange Beach. With stunning views and bay front dining, GTs features a diverse and one-of-kind menu. Guests can savor unique culinary choices and a blend of local favorites, in addition to special",
+        "og:description": "Welcome to GTs On The Bay\nGTs On The Bay sits overlooking Wolf Bay on Canal Road in the heart of Orange Beach. With stunning views and bay front dining, GTs features a diverse and one-of-kind menu. Guests can savor unique culinary choices and a blend of local favorites, in addition to special",
+        "og:image": "https://gtsonthebay.com/wp-content/uploads/2020/02/logo.png",
+        "og:image:width": "335",
+        "og:image:height": "345",
+        "og:image:type": "image/png",
+        "generator": "WordPress 6.5.8",
+        "p:domain_verify": "958899ad9c5918b3d6fd89415dbb84d0"
+      }
+    },
+    {
+      "url": "https://gtsonthebay.com/live-music-events",
+      "title": "Live Music & Events - GTs on the Bay",
+      "text": "Skip to content\n\n\t\n \n \n \n \n \n \n \n \n\n\t\n \n \n\n \n \n\n \n \n \n \n \n \n\n \n \n Search for:\n \n \n \n \n \n \n\n \n \n\n \n \n HomeMenuHappy HourLive Music & EventsAboutMeet the TeamCheck Us OutHealth and SafetyContact\t\n \n \n \n \n \n\nHomeMenuHappy HourLive Music & EventsAboutMeet the TeamCheck Us OutHealth and SafetyContact\n\n \n\n \n \n \n \n \n \n \n \n \n \n\t\n \n \n \n\n Live Music & Events\n\n \n \n \n\n \n \n \n\t\n\n \n \n\n \n Live Music & EventsMiriam Baker2026-03-18T17:11:24+00:00\n \n \n \nReservations are suggested!\nOur covered patio will be available for walk-ins weather permitting.\nEaster Brunch Menu (Salad Bar Included):\nBacon and Asparagus Benedict​\nScrambled Eggs​\nGrilled Chicken with Creole Cream​\nRoasted Pork Loin​\nHash Brown Casserole​\nBourbon-Glazed Salmon​\nShrimp and Grits​\nBreakfast Sausage​\nBrussels Sprout Casserole​\nBiscuits and Sausage Gravy​\nCinnamon Roll Casserole​\nBlackberry Cobbler​\nMixed Berry Bread Pudding​\nFresh Fruit​\nAssorted Macaroons and Petit Fours\n\nJOIN US FOR LIVE MUSIC!Our live music is available from March to October. We will also have live music Saturday lunch and Sunday brunch from 11 a.m. to 2 p.m.\nTimes are subject to change. Dates are weather permitting.\n\n \n \n\t\n \n \n \n \n \n \n \n \n \n\t\n \n \n \n \n \n \n Get Social\n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n CONTACT INFO\n\nAddress: 26189 Canal Rd, Orange Beach, AL 36561\nPhone: 251-980-8400\nMailing Address: P.O. Box 1215, Orange Beach AL 36561\n\n HOURS\n\nSunday – Thursday 11 a.m. to 9:30 p.m.\nFriday – Saturday 11 a.m. to 10:00 p.m\nSunday Brunch 11 a.m. to 2:00 p.m\n\n \n \n Navigation Home Menu Happy Hour Live Music & Events About Meet the Team Check Us Out Health and Safety Contact \n \n \n \n \n \n\n \n\n \n \n \n Page load link\n\n \n \n\n \n \n\n \n \n Go to Top",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebSite",
+              "@id": "https://gtsonthebay.com/#website",
+              "url": "https://gtsonthebay.com/",
+              "name": "GTs on the Bay",
+              "description": "Unlike Any Other",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://gtsonthebay.com/?s={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://gtsonthebay.com/live-music-events/#webpage",
+              "url": "https://gtsonthebay.com/live-music-events/",
+              "inLanguage": "en-US",
+              "name": "Live Music &amp; Events - GTs on the Bay",
+              "isPartOf": {
+                "@id": "https://gtsonthebay.com/#website"
+              },
+              "datePublished": "2025-04-03T19:54:35+00:00",
+              "dateModified": "2026-03-18T17:11:24+00:00"
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "robots": "max-snippet:-1, max-image-preview:large, max-video-preview:-1",
+        "og:locale": "en_US",
+        "og:type": "article",
+        "og:title": "Live Music & Events - GTs on the Bay",
+        "og:url": "https://gtsonthebay.com/live-music-events/",
+        "og:site_name": "GTs on the Bay",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Live Music & Events - GTs on the Bay",
+        "description": "Reservations are suggested!\nOur covered patio will be available for walk-ins weather permitting.\nEaster Brunch Menu (Salad Bar Included):\nBacon and Asparagus Benedict​\nScrambled Eggs​\nGrilled Chicken with Creole Cream​\nRoasted Pork Loin​\nHash Brown Casserole​\nBourbon-Glazed Salmon​\nShrimp and Grits​\nBreakfast Sausage​",
+        "og:description": "Reservations are suggested!\nOur covered patio will be available for walk-ins weather permitting.\nEaster Brunch Menu (Salad Bar Included):\nBacon and Asparagus Benedict​\nScrambled Eggs​\nGrilled Chicken with Creole Cream​\nRoasted Pork Loin​\nHash Brown Casserole​\nBourbon-Glazed Salmon​\nShrimp and Grits​\nBreakfast Sausage​",
+        "article:modified_time": "2026-03-18T17:11:24+00:00",
+        "og:image": "https://gtsonthebay.com/wp-content/uploads/2020/02/logo.png",
+        "og:image:width": "335",
+        "og:image:height": "345",
+        "og:image:type": "image/png",
+        "generator": "WordPress 6.5.8",
+        "p:domain_verify": "958899ad9c5918b3d6fd89415dbb84d0"
+      }
+    },
+    {
+      "url": "https://gtsonthebay.com/happy-hour",
+      "title": "Happy Hour - GTs on the Bay",
+      "text": "Skip to content\n\n\t\n \n \n \n \n \n \n \n \n\n\t\n \n \n\n \n \n\n \n \n \n \n \n \n\n \n \n Search for:\n \n \n \n \n \n \n\n \n \n\n \n \n HomeMenuHappy HourLive Music & EventsAboutMeet the TeamCheck Us OutHealth and SafetyContact\t\n \n \n \n \n \n\nHomeMenuHappy HourLive Music & EventsAboutMeet the TeamCheck Us OutHealth and SafetyContact\n\n \n\n \n \n \n \n \n \n \n \n \n \n\t\n \n \n \n\n Happy Hour\n\n \n \n \n\n \n \n \n\t\n\n \n \n\n \n Happy Hourdhonsvick2026-03-02T17:31:53+00:00 \n \nHappy Hour Menu\nWe have the best on the Island! Our Happy Hour is served daily from 3 p.m. to 5 p.m. and features specials on draft beer, including our house-brewed Orange Beach Ale, house wines, and awesome appetizers like our Firecracker Shrimp, Gingered Calamari, or our GTs Dip. What are you waiting for?\n\n \n\nOUR FAMILY\n\n \n \n\t\n \n \n \n \n \n \n \n \n \n\t\n \n \n \n \n \n \n Get Social\n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n CONTACT INFO\n\nAddress: 26189 Canal Rd, Orange Beach, AL 36561\nPhone: 251-980-8400\nMailing Address: P.O. Box 1215, Orange Beach AL 36561\n\n HOURS\n\nSunday – Thursday 11 a.m. to 9:30 p.m.\nFriday – Saturday 11 a.m. to 10:00 p.m\nSunday Brunch 11 a.m. to 2:00 p.m\n\n \n \n Navigation Home Menu Happy Hour Live Music & Events About Meet the Team Check Us Out Health and Safety Contact \n \n \n \n \n \n\n \n\n \n \n \n Page load link\n\n \n \n\n \n \n\n \n \n Go to Top",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebSite",
+              "@id": "https://gtsonthebay.com/#website",
+              "url": "https://gtsonthebay.com/",
+              "name": "GTs on the Bay",
+              "description": "Unlike Any Other",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://gtsonthebay.com/?s={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://gtsonthebay.com/happy-hour/#webpage",
+              "url": "https://gtsonthebay.com/happy-hour/",
+              "inLanguage": "en-US",
+              "name": "Happy Hour - GTs on the Bay",
+              "isPartOf": {
+                "@id": "https://gtsonthebay.com/#website"
+              },
+              "datePublished": "2020-03-12T19:49:19+00:00",
+              "dateModified": "2026-03-02T17:31:53+00:00"
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "robots": "max-snippet:-1, max-image-preview:large, max-video-preview:-1",
+        "og:locale": "en_US",
+        "og:type": "article",
+        "og:title": "Happy Hour - GTs on the Bay",
+        "og:url": "https://gtsonthebay.com/happy-hour/",
+        "og:site_name": "GTs on the Bay",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Happy Hour - GTs on the Bay",
+        "description": "Happy Hour Menu\nWe have the best on the Island! Our Happy Hour is served daily from 3 p.m. to 5 p.m. and features specials on draft beer, including our house-brewed Orange Beach Ale, house wines, and awesome appetizers like our Firecracker Shrimp, Gingered Calamari,",
+        "og:description": "Happy Hour Menu\nWe have the best on the Island! Our Happy Hour is served daily from 3 p.m. to 5 p.m. and features specials on draft beer, including our house-brewed Orange Beach Ale, house wines, and awesome appetizers like our Firecracker Shrimp, Gingered Calamari,",
+        "article:modified_time": "2026-03-02T17:31:53+00:00",
+        "og:image": "https://gtsonthebay.com/wp-content/uploads/2020/02/logo.png",
+        "og:image:width": "335",
+        "og:image:height": "345",
+        "og:image:type": "image/png",
+        "generator": "WordPress 6.5.8",
+        "p:domain_verify": "958899ad9c5918b3d6fd89415dbb84d0"
+      }
+    },
+    {
+      "url": "https://gtsonthebay.com/menu",
+      "title": "Menu - GTs on the Bay",
+      "text": "Skip to content\n\n\t\n \n \n \n \n \n \n \n \n\n\t\n \n \n\n \n \n\n \n \n \n \n \n \n\n \n \n Search for:\n \n \n \n \n \n \n\n \n \n\n \n \n HomeMenuHappy HourLive Music & EventsAboutMeet the TeamCheck Us OutHealth and SafetyContact\t\n \n \n \n \n \n\nHomeMenuHappy HourLive Music & EventsAboutMeet the TeamCheck Us OutHealth and SafetyContact\n\n \n\n \n \n \n \n \n \n \n \n \n \n\t\n \n \n \n\n MENU\n\n \n \n \n\n \n \n \n\t\n\n \n \n\n \n Menudhonsvick2022-04-25T15:36:30+00:00 \n \nFamily-Friendly Dining\nOur spacious dining room extends to an outside deck where families can gather and enjoy live music and great views. Adults and kids of all ages will enjoy the large fish pond in the center dining room. Whether it’s hanging out at the bayside bar or enjoying one the many seafood selections, GTs is definitely a must see and offers nothing short of good times. \n\n CLICK ON \"MORE MENUS\" TO VIEW OUR FULL SELECTION \n\n \n\nOUR FAMILY\n\n \n \n\t\n \n \n \n \n \n \n \n \n \n\t\n \n \n \n \n \n \n Get Social\n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n CONTACT INFO\n\nAddress: 26189 Canal Rd, Orange Beach, AL 36561\nPhone: 251-980-8400\nMailing Address: P.O. Box 1215, Orange Beach AL 36561\n\n HOURS\n\nSunday – Thursday 11 a.m. to 9:30 p.m.\nFriday – Saturday 11 a.m. to 10:00 p.m\nSunday Brunch 11 a.m. to 2:00 p.m\n\n \n \n Navigation Home Menu Happy Hour Live Music & Events About Meet the Team Check Us Out Health and Safety Contact \n \n \n \n \n \n\n \n\n \n \n \n Page load link\n\n \n \n\n \n \n\n \n \n Go to Top",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebSite",
+              "@id": "https://gtsonthebay.com/#website",
+              "url": "https://gtsonthebay.com/",
+              "name": "GTs on the Bay",
+              "description": "Unlike Any Other",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://gtsonthebay.com/?s={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://gtsonthebay.com/menu/#webpage",
+              "url": "https://gtsonthebay.com/menu/",
+              "inLanguage": "en-US",
+              "name": "Menu - GTs on the Bay",
+              "isPartOf": {
+                "@id": "https://gtsonthebay.com/#website"
+              },
+              "datePublished": "2019-01-03T18:12:01+00:00",
+              "dateModified": "2022-04-25T15:36:30+00:00"
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "robots": "max-snippet:-1, max-image-preview:large, max-video-preview:-1",
+        "og:locale": "en_US",
+        "og:type": "article",
+        "og:title": "Menu - GTs on the Bay",
+        "og:url": "https://gtsonthebay.com/menu/",
+        "og:site_name": "GTs on the Bay",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Menu - GTs on the Bay",
+        "description": "Family-Friendly Dining\nOur spacious dining room extends to an outside deck where families can gather and enjoy live music and great views. Adults and kids of all ages will enjoy",
+        "og:description": "Family-Friendly Dining\nOur spacious dining room extends to an outside deck where families can gather and enjoy live music and great views. Adults and kids of all ages will enjoy",
+        "article:modified_time": "2022-04-25T15:36:30+00:00",
+        "og:image": "https://gtsonthebay.com/wp-content/uploads/2020/02/logo.png",
+        "og:image:width": "335",
+        "og:image:height": "345",
+        "og:image:type": "image/png",
+        "generator": "WordPress 6.5.8",
+        "p:domain_verify": "958899ad9c5918b3d6fd89415dbb84d0"
+      }
+    },
+    {
+      "url": "https://gtsonthebay.com/about-2",
+      "title": "About - GTs on the Bay",
+      "text": "Skip to content\n\n\t\n \n \n \n \n \n \n \n \n\n\t\n \n \n\n \n \n\n \n \n \n \n \n \n\n \n \n Search for:\n \n \n \n \n \n \n\n \n \n\n \n \n HomeMenuHappy HourLive Music & EventsAboutMeet the TeamCheck Us OutHealth and SafetyContact\t\n \n \n \n \n \n\nHomeMenuHappy HourLive Music & EventsAboutMeet the TeamCheck Us OutHealth and SafetyContact\n\n \n\n \n \n \n \n \n \n \n \n \n \n\t\n \n \n \n\n MEET THE TEAM\n\n \n \n \n\n \n \n \n\t\n\n \n \n\n \n Aboutdhonsvick2025-09-19T18:14:36+00:00 \n \nUnique Culinary Flair\nIn keeping with their tradition, Brian and Jodi Harsany have once again brought their unique culinary flair to Orange Beach. GTs On The Bay is a diverse and one-of-kind blend of local dishes and soon-to-be favorites. Definitely an unforgettable dining experience focusing on friends, family and food.\n\nChef Brian Navarro\nBrian, an accomplished Executive Chef, traces his culinary roots back to the vibrant culinary landscape of New Orleans. Immersed in the bustling atmosphere of a family-run restaurant from a young age, he honed his skills and developed an unwavering passion for the culinary arts.\nWith an insatiable curiosity and a bold spirit, Brian fearlessly explores the intricacies of various cuisines, infusing each dish with his signature flair. His dedication to the craft shines through in every creation, as he consistently delivers remarkable flavors and visually stunning presentations that delight our clientele.\n\nChef Bryan Jensen\nChef Bryan Jensen, Sous Chef, is known for creating unforgettable dining experiences through the artful fusion of flavors, textures, and cultural influences. Born and raised in Orange Beach, AL, Chef Jensen developed an early fascination with food inspired by the rich culinary heritage of his upbringing. He has been with our restaurant family since 2011, working at our sister restaurant, Cobalt the Restaurant. Chef Bryan joined us here at GTs on the Bay in 2022. He loves experimenting with Asian cuisine and cultivating these elements into the dishes here at GTs.\n\nJOIN OUR FAMILY\nCONTACT US FOR JOB OPPORTUNITIES OUR FAMILY\n\n \n \n\t\n \n \n \n \n \n \n \n \n \n\t\n \n \n \n \n \n \n Get Social\n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n CONTACT INFO\n\nAddress: 26189 Canal Rd, Orange Beach, AL 36561\nPhone: 251-980-8400\nMailing Address: P.O. Box 1215, Orange Beach AL 36561\n\n HOURS\n\nSunday – Thursday 11 a.m. to 9:30 p.m.\nFriday – Saturday 11 a.m. to 10:00 p.m\nSunday Brunch 11 a.m. to 2:00 p.m\n\n \n \n Navigation Home Menu Happy Hour Live Music & Events About Meet the Team Check Us Out Health and Safety Contact \n \n \n \n \n \n\n \n\n \n \n \n Page load link\n\n \n \n\n \n \n\n \n \n Go to Top",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebSite",
+              "@id": "https://gtsonthebay.com/#website",
+              "url": "https://gtsonthebay.com/",
+              "name": "GTs on the Bay",
+              "description": "Unlike Any Other",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://gtsonthebay.com/?s={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://gtsonthebay.com/about-2/#webpage",
+              "url": "https://gtsonthebay.com/about-2/",
+              "inLanguage": "en-US",
+              "name": "About - GTs on the Bay",
+              "isPartOf": {
+                "@id": "https://gtsonthebay.com/#website"
+              },
+              "datePublished": "2019-01-03T18:12:53+00:00",
+              "dateModified": "2025-09-19T18:14:36+00:00"
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "robots": "max-snippet:-1, max-image-preview:large, max-video-preview:-1",
+        "og:locale": "en_US",
+        "og:type": "article",
+        "og:title": "About - GTs on the Bay",
+        "og:url": "https://gtsonthebay.com/about-2/",
+        "og:site_name": "GTs on the Bay",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "About - GTs on the Bay",
+        "description": "Unique Culinary Flair\nIn keeping with their tradition, Brian and Jodi Harsany have once again brought their unique culinary flair to Orange Beach. GTs On The Bay is a diverse and one-of-kind blend of local dishes and soon-to-be favorites. Definitely an unforgettable dining experience focusing on friends, family and",
+        "og:description": "Unique Culinary Flair\nIn keeping with their tradition, Brian and Jodi Harsany have once again brought their unique culinary flair to Orange Beach. GTs On The Bay is a diverse and one-of-kind blend of local dishes and soon-to-be favorites. Definitely an unforgettable dining experience focusing on friends, family and",
+        "article:modified_time": "2025-09-19T18:14:36+00:00",
+        "og:image": "https://gtsonthebay.com/wp-content/uploads/2020/02/logo.png",
+        "og:image:width": "335",
+        "og:image:height": "345",
+        "og:image:type": "image/png",
+        "generator": "WordPress 6.5.8",
+        "p:domain_verify": "958899ad9c5918b3d6fd89415dbb84d0"
+      }
+    },
+    {
+      "url": "https://gtsonthebay.com/contact-2",
+      "title": "Contact - GTs on the Bay",
+      "text": "Skip to content\n\n\t\n \n \n \n \n \n \n \n \n\n\t\n \n \n\n \n \n\n \n \n \n \n \n \n\n \n \n Search for:\n \n \n \n \n \n \n\n \n \n\n \n \n HomeMenuHappy HourLive Music & EventsAboutMeet the TeamCheck Us OutHealth and SafetyContact\t\n \n \n \n \n \n\nHomeMenuHappy HourLive Music & EventsAboutMeet the TeamCheck Us OutHealth and SafetyContact\n\n \n\n \n \n \n \n \n \n \n \n \n \n\t\n \n \n \n\n CONTACT US\n\n \n \n \n\n \n \n \n\t\n\n \n \n\n \n Contactdhonsvick2023-12-01T17:24:22+00:00 \n Contact Us\nGTs On The Bay sits overlooking Wolf Bay on Canal Road in the heart of Orange Beach. Open daily, GTs provides an atmosphere where guests can gather with friends and family and enjoy an unforgettable dining experience.\nHours\nSunday – Thursday 11 a.m. to 9:30 p.m.\nFriday – Saturday 11 a.m. to 10:00 p.m\nSunday Brunch 11 a.m. to 2:00 p.m\nOUR FAMILY\n\n \n \n\t\n \n \n \n \n \n \n \n \n \n\t\n \n \n \n \n \n \n Get Social\n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n CONTACT INFO\n\nAddress: 26189 Canal Rd, Orange Beach, AL 36561\nPhone: 251-980-8400\nMailing Address: P.O. Box 1215, Orange Beach AL 36561\n\n HOURS\n\nSunday – Thursday 11 a.m. to 9:30 p.m.\nFriday – Saturday 11 a.m. to 10:00 p.m\nSunday Brunch 11 a.m. to 2:00 p.m\n\n \n \n Navigation Home Menu Happy Hour Live Music & Events About Meet the Team Check Us Out Health and Safety Contact \n \n \n \n \n \n\n \n\n \n \n \n Page load link\n\n \n \n\n \n \n\n \n \n Go to Top",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebSite",
+              "@id": "https://gtsonthebay.com/#website",
+              "url": "https://gtsonthebay.com/",
+              "name": "GTs on the Bay",
+              "description": "Unlike Any Other",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://gtsonthebay.com/?s={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://gtsonthebay.com/contact-2/#webpage",
+              "url": "https://gtsonthebay.com/contact-2/",
+              "inLanguage": "en-US",
+              "name": "Contact - GTs on the Bay",
+              "isPartOf": {
+                "@id": "https://gtsonthebay.com/#website"
+              },
+              "datePublished": "2019-01-03T18:26:53+00:00",
+              "dateModified": "2023-12-01T17:24:22+00:00"
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "robots": "max-snippet:-1, max-image-preview:large, max-video-preview:-1",
+        "og:locale": "en_US",
+        "og:type": "article",
+        "og:title": "Contact - GTs on the Bay",
+        "og:url": "https://gtsonthebay.com/contact-2/",
+        "og:site_name": "GTs on the Bay",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Contact - GTs on the Bay",
+        "description": "Contact Us\nGTs On The Bay sits overlooking Wolf Bay on Canal Road in the heart of Orange Beach. Open daily, GTs provides an atmosphere where guests can gather with friends and family and enjoy an unforgettable dining experience.\nHours\nSunday - Thursday 11 a.m. to 9:30 p.m.\n\nFriday - Saturday 11 a.m. to 10:00 p.m\n\nSunday Brunch 11 a.m. to 2:00 p.m",
+        "og:description": "Contact Us\nGTs On The Bay sits overlooking Wolf Bay on Canal Road in the heart of Orange Beach. Open daily, GTs provides an atmosphere where guests can gather with friends and family and enjoy an unforgettable dining experience.\nHours\nSunday - Thursday 11 a.m. to 9:30 p.m.\n\nFriday - Saturday 11 a.m. to 10:00 p.m\n\nSunday Brunch 11 a.m. to 2:00 p.m",
+        "article:modified_time": "2023-12-01T17:24:22+00:00",
+        "og:image": "https://gtsonthebay.com/wp-content/uploads/2020/02/logo.png",
+        "og:image:width": "335",
+        "og:image:height": "345",
+        "og:image:type": "image/png",
+        "generator": "WordPress 6.5.8",
+        "p:domain_verify": "958899ad9c5918b3d6fd89415dbb84d0"
+      }
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": [
+    "https://gtsonthebay.com/wp-content/uploads/2020/02/logo.png",
+    "https://gtsonthebay.com/wp-content/uploads/2020/03/gts_mobile.png",
+    "https://gtsonthebay.com/wp-content/uploads/2025/09/FishTank.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2025/06/Patio10.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2025/09/PlaygroundNew.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2025/06/LunchFish7-1.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2025/08/SaladBar.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2025/08/SaladBar2.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2025/08/SaladBar3.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2025/08/SaladBar7.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2025/08/SaladBar6.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2025/08/SaladBar8.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2025/08/SaladBar9.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2020/03/grouper-2.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2025/06/HHPickles6-2.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2020/03/logo-1.png",
+    "https://gtsonthebay.com/wp-content/uploads/2020/03/cosmos.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2020/03/lunas-e1646685303595.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2020/03/buzzcatz-e1646685323867.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2020/03/caribe.png",
+    "https://gtsonthebay.com/wp-content/uploads/2020/03/caribe_marina_logo.png",
+    "https://gtsonthebay.com/wp-content/uploads/2020/03/caribe_realty.png",
+    "https://gtsonthebay.com/wp-content/uploads/2021/08/gsob_tourism.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2021/08/gsob_sports.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2022/03/OB-logo-e1646685351206.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2026/03/EasterGTsWeb-1024x576.png",
+    "https://gtsonthebay.com/wp-content/uploads/2025/09/HHDraftHandles.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2025/09/BeerRoom2.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2025/09/HHPickles6.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2021/08/coconut-pie-6.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2020/03/IMG_4733.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2020/03/creole-8.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2020/03/blondie-2.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2020/02/totchos-3.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2020/02/surf-crab-2.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2020/02/steamer-4.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2020/03/key-lime-6.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2020/02/special-8.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2020/02/ribeye-7.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2020/02/pork-1.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2021/08/poboy-4.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2020/02/GT-burger-6.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2021/08/shrimp-grits-2.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2022/04/tuna-entree-8.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2022/01/harsany-luna-rev.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2020/03/brian3.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2024/07/IMG_0761-1.jpg"
+  ]
+}

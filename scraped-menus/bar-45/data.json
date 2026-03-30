@@ -1,0 +1,291 @@
+{
+  "business_name": "Bar 45",
+  "tagline": "Good Times, Great Food, and the Best Views in Gulf Shores",
+  "type": "Restaurant & Bar",
+  "contact": {
+    "phone": "251-968-3234",
+    "email": null,
+    "address": "4500 Gulf Shores Pkwy",
+    "city": "Gulf Shores",
+    "state": "AL",
+    "zip": "36542"
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": "Hours not specified on website"
+  },
+  "about": {
+    "description": "Bar 45 Restaurant and Bar is a local hangout for great food, cold drinks, and a laid-back vibe located at ONE Club. Whether winding down after golf, catching up with friends, or watching the game, it offers classic favorites and tasty bar bites, cold drafts, creative cocktails, and wine. The venue features happy hour specials and weekly entertainment.",
+    "elevator_pitch": "#1 Sports Bar & Entertainment Venue in Gulf Shores featuring big screen TVs, great draft selections, awesome bar bites, and beautiful golf course views.",
+    "vibe": "Relaxed, lively atmosphere with a laid-back sports bar energy perfect for locals and visitors alike",
+    "best_for": [
+      "happy hour",
+      "casual meals",
+      "group gatherings",
+      "sports watching",
+      "golf outings",
+      "family dinners",
+      "private events",
+      "game nights"
+    ],
+    "established": null,
+    "reservations": "Private events and group bookings available with dedicated event manager",
+    "insider_tip": "Open to everyone—no membership required. Access to resort amenities including pools, golf, and fitness facilities available for events"
+  },
+  "tags": [
+    "sports bar",
+    "casual dining",
+    "happy hour",
+    "bar bites",
+    "full bar",
+    "entertainment venue",
+    "game room",
+    "golf simulator",
+    "laid-back vibe",
+    "family-friendly",
+    "event venue"
+  ],
+  "features": [
+    "Full bar with cold drafts and creative cocktails",
+    "Big screen TVs for sports",
+    "Game room",
+    "Golf simulator with 100+ simulation games",
+    "Media simulator room",
+    "Kids games",
+    "Indoor and outdoor seating options",
+    "Private party tenting",
+    "Poolside cabanas",
+    "Outdoor bar options",
+    "5,000 square foot restaurant",
+    "15,000 square foot clubhouse",
+    "Beautiful golf course views",
+    "Friendly staff",
+    "30+ acres of green space",
+    "Weekly entertainment"
+  ],
+  "price_range": "$$",
+  "social_links": {
+    "instagram": null,
+    "facebook": "https://facebook.com/Bar45GulfShores",
+    "website": "https://oneclubgulfshores.com/bar45"
+  },
+  "specials": [
+    {
+      "name": "Happy Hour Specials",
+      "description": "Regular happy hour specials available",
+      "days": [],
+      "time": null
+    },
+    {
+      "name": "Weekly Entertainment",
+      "description": "Weekly entertainment keeps the energy going whether it's game day or just a Tuesday",
+      "days": [],
+      "time": null
+    }
+  ],
+  "events": [
+    {
+      "name": "Team dinners before the big game",
+      "description": null,
+      "recurring": false,
+      "day": null,
+      "time": null
+    },
+    {
+      "name": "Rehearsal dinners and engagement parties",
+      "description": null,
+      "recurring": false,
+      "day": null,
+      "time": null
+    },
+    {
+      "name": "Fantasy league drafts and game-watching nights",
+      "description": null,
+      "recurring": true,
+      "day": null,
+      "time": null
+    },
+    {
+      "name": "Retirement toasts and graduation bashes",
+      "description": null,
+      "recurring": false,
+      "day": null,
+      "time": null
+    },
+    {
+      "name": "Family reunions",
+      "description": null,
+      "recurring": false,
+      "day": null,
+      "time": null
+    },
+    {
+      "name": "Milestone birthdays",
+      "description": null,
+      "recurring": false,
+      "day": null,
+      "time": null
+    },
+    {
+      "name": "Holiday shindigs and themed parties",
+      "description": null,
+      "recurring": true,
+      "day": null,
+      "time": null
+    },
+    {
+      "name": "Weddings and receptions",
+      "description": null,
+      "recurring": false,
+      "day": null,
+      "time": null
+    },
+    {
+      "name": "Golf outings",
+      "description": null,
+      "recurring": false,
+      "day": null,
+      "time": null
+    },
+    {
+      "name": "Corporate parties",
+      "description": null,
+      "recurring": false,
+      "day": null,
+      "time": null
+    },
+    {
+      "name": "Sports banquets",
+      "description": null,
+      "recurring": false,
+      "day": null,
+      "time": null
+    },
+    {
+      "name": "Bridal showers",
+      "description": null,
+      "recurring": false,
+      "day": null,
+      "time": null
+    }
+  ],
+  "menu": {
+    "categories": [
+      {
+        "name": "Bar Bites & Easy Eats",
+        "type": "drinks",
+        "items": [
+          {
+            "name": "Classic favorites",
+            "description": "Menu filled with classic favorites and tasty bar bites",
+            "price": null,
+            "tags": [
+              "casual",
+              "appetizers"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Sliders",
+            "description": null,
+            "price": null,
+            "tags": [
+              "appetizers"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Flatbreads",
+            "description": null,
+            "price": null,
+            "tags": [
+              "appetizers"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Wings",
+            "description": null,
+            "price": null,
+            "tags": [
+              "appetizers"
+            ],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Beverages",
+        "type": "drinks",
+        "items": [
+          {
+            "name": "Cold drafts",
+            "description": "Great draft selections",
+            "price": null,
+            "tags": [
+              "beer"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Creative cocktails",
+            "description": "Specialty cocktails and signature sips",
+            "price": null,
+            "tags": [
+              "cocktails"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Wine",
+            "description": "Wine for every taste",
+            "price": null,
+            "tags": [
+              "wine"
+            ],
+            "allergens": []
+          }
+        ]
+      }
+    ]
+  },
+  "url": "https://oneclubgulfshores.com/45-restaurant-bar/",
+  "scraped_at": "2026-03-21T14:56:23.589Z",
+  "extracted_at": "2026-03-23T03:30:38.399Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://oneclubgulfshores.com/wp-content/uploads/2023/11/one-logo.png",
+    "https://oneclubgulfshores.com/wp-content/uploads/2025/08/bar-2-1.webp",
+    "https://oneclubgulfshores.com/wp-content/uploads/2025/08/bar-2-1-1.webp",
+    "https://oneclubgulfshores.com/wp-content/uploads/2025/08/img-15-2-1.webp",
+    "https://oneclubgulfshores.com/wp-content/uploads/2025/10/Green-Course.webp",
+    "https://oneclubgulfshores.com/wp-content/uploads/2025/08/Golf_Sim_6.webp",
+    "https://oneclubgulfshores.com/wp-content/uploads/2025/10/2-pool-side-chairs-scaled.webp",
+    "https://oneclubgulfshores.com/wp-content/uploads/2025/10/one-club-exterior-scaled.webp",
+    "https://oneclubgulfshores.com/wp-content/uploads/2023/11/Asset-2.png",
+    "https://oneclubgulfshores.com/wp-content/uploads/2023/11/footer-icons.png",
+    "https://oneclubgulfshores.com/wp-content/uploads/2023/11/bluprint_logo_new_2025.webp",
+    "https://oneclubgulfshores.com/wp-content/uploads/2025/08/295FE247-C764-491C-9ED1-C29437AF168F-2.webp",
+    "https://oneclubgulfshores.com/wp-content/uploads/2025/10/exterior-one-club-palm-trees-scaled.webp",
+    "https://oneclubgulfshores.com/wp-content/uploads/2025/08/slider-Catering-group-dusk.jpg",
+    "https://oneclubgulfshores.com/wp-content/uploads/2025/10/event-setup.webp",
+    "https://oneclubgulfshores.com/wp-content/uploads/2025/08/gallery-events-bridegroom.jpg",
+    "https://oneclubgulfshores.com/wp-content/uploads/2025/08/OC-after-clubhouse-1.webp",
+    "https://oneclubgulfshores.com/wp-content/uploads/2025/10/pool-with-bar-chairs-scaled.webp",
+    "https://oneclubgulfshores.com/wp-content/uploads/2025/08/twilight-golf-2-2.webp"
+  ],
+  "sources": [
+    "https://oneclubgulfshores.com/45-restaurant-bar",
+    "https://oneclubgulfshores.com/specials/?pid=40004",
+    "https://oneclubgulfshores.com/specials",
+    "https://oneclubgulfshores.com/bar45",
+    "https://oneclubgulfshores.com/events",
+    "https://oneclubgulfshores.com/contact"
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "business_name": "Bangkok Thai Cuisine",
+  "tagline": null,
+  "type": "Restaurant",
+  "contact": {
+    "phone": "(251) 344-9995",
+    "email": null,
+    "address": "3821 Airport Blvd",
+    "city": "Mobile",
+    "state": "AL",
+    "zip": "36608"
+  },
+  "hours": {
+    "monday": "Lunch: 11:00 am - 3:30 pm, Dinner: 4:30 pm - 9:00 pm",
+    "tuesday": "Lunch: 11:00 am - 3:30 pm, Dinner: 4:30 pm - 9:00 pm",
+    "wednesday": "Lunch: 11:00 am - 3:30 pm, Dinner: 4:30 pm - 9:00 pm",
+    "thursday": "Lunch: 11:00 am - 3:30 pm, Dinner: 4:30 pm - 9:00 pm",
+    "friday": "Lunch: 11:00 am - 3:30 pm, Dinner: 4:30 pm - 9:00 pm",
+    "saturday": "Lunch: 11:00 am - 3:30 pm, Dinner: 4:30 pm - 10:00 pm",
+    "sunday": "Lunch: 11:00 am - 3:30 pm, Dinner: 4:30 pm - 9:00 pm",
+    "notes": null
+  },
+  "about": {
+    "description": "Thai restaurant offering authentic Thai cuisine",
+    "elevator_pitch": "Authentic Thai restaurant in Mobile, AL serving lunch and dinner with separate menus and pricing.",
+    "vibe": null,
+    "best_for": [],
+    "established": null,
+    "reservations": "Available - call for reservations",
+    "insider_tip": null
+  },
+  "tags": [
+    "Thai",
+    "Asian",
+    "Lunch",
+    "Dinner"
+  ],
+  "features": [
+    "Catering available"
+  ],
+  "price_range": "$$",
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "http://www.bangkokthaicuisinemobile.com"
+  },
+  "specials": [],
+  "events": [],
+  "menu": {
+    "categories": []
+  },
+  "url": "http://www.bangkokthaicuisinemobile.com/",
+  "scraped_at": "2026-03-22T02:34:17.148Z",
+  "extracted_at": "2026-03-23T03:30:24.952Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "http://www.bangkokthaicuisinemobile.com/media/5323/1.jpg?width=320&height=320",
+    "http://www.bangkokthaicuisinemobile.com/media/5324/2.jpg?width=320&height=320",
+    "http://www.bangkokthaicuisinemobile.com/media/5325/3.jpg?width=320&height=320",
+    "http://www.bangkokthaicuisinemobile.com/media/5326/4.jpg?width=320&height=320",
+    "http://www.bangkokthaicuisinemobile.com/media/5327/5.jpg?width=320&height=320",
+    "http://www.bangkokthaicuisinemobile.com/restaurant/assets/img/background/footer-back-1.png",
+    "http://www.bangkokthaicuisinemobile.com/restaurant/assets/img/background/footer-back-2.png",
+    "http://www.bangkokthaicuisinemobile.com/media/5323/1.jpg?width=1080&height=1080",
+    "http://www.bangkokthaicuisinemobile.com/media/5324/2.jpg?width=1080&height=1080",
+    "http://www.bangkokthaicuisinemobile.com/media/5325/3.jpg?width=1080&height=1080",
+    "http://www.bangkokthaicuisinemobile.com/media/5326/4.jpg?width=1080&height=1080",
+    "http://www.bangkokthaicuisinemobile.com/media/5327/5.jpg?width=1080&height=1080"
+  ],
+  "sources": [
+    "http://www.bangkokthaicuisinemobile.com",
+    "http://www.bangkokthaicuisinemobile.com/media/5323/1.jpg?width=1080&height=1080",
+    "http://www.bangkokthaicuisinemobile.com/media/5324/2.jpg?width=1080&height=1080",
+    "http://www.bangkokthaicuisinemobile.com/media/5325/3.jpg?width=1080&height=1080",
+    "http://www.bangkokthaicuisinemobile.com/media/5326/4.jpg?width=1080&height=1080",
+    "http://www.bangkokthaicuisinemobile.com/media/5327/5.jpg?width=1080&height=1080"
+  ]
+}

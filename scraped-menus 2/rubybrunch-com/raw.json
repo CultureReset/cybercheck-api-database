@@ -1,0 +1,180 @@
+{
+  "business_name": "rubybrunch.com",
+  "url": "https://www.rubybrunch.com",
+  "scraped_at": "2026-03-21T20:11:44.379Z",
+  "pages": [
+    {
+      "url": "https://www.rubybrunch.com",
+      "title": "Ruby Slipper & Ruby Sunshine | Brunch Born in New Orleans",
+      "text": "Ruby Brunch\n \n \n \n \n \n\n \n \n \n menu\n \n \n \n \n\n \n \n \n \n Find Your Ruby Brunch\n View Menu\n Gift Cards\n Join The Waitlist!\n Order Online\n Order Catering\n \n \n\n \n \n \n\n \n \n\n \n Click Me!\n\n \n \n menu\n \n \n \n Find Your Ruby\n View Menu\n Order Online\n Order Catering\n Gift cards\n Shop\n Contact Us\n Love Brunch?\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n Home\n Find Your Ruby\n View Menu\n Order Online\n Order Catering\n Gift cards\n Shop\n Careers\n Contact Us\n Love Brunch?\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n\n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n MENUS \n \n \n \n Sweet, Savory, or Syrupy—whatever you're craving, we've got it.Dive into our menu, where it’s all about one thing: Brunch.  \n \n \n \n \n \n \n \n View More\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n BELIEVE IN BETTER BISCUITS \n \n \n \n Our legendary biscuits are crafted from scratch and baked fresh all day, every day. Fun Fact: we serve over 40,000 biscuits a week!  And the best part?  These buttery clouds of goodness come with our signature house-made cane-syrup butter. \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Catering \n \n \n \n You bring the people.  We’ll bring the mimosas. \n \n \n \n \n \n \n INQUIRE NOW\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n Ruby Brunch Footer - Desktop and Mobile\n \n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n \n \n Careers\n Accessibility\n Privacy Policy\n Contact\n Love Brunch? Join The Club.\n \n \n\n \n \n \n View Menu\n Order Online\n Join Waitlist",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://rubybrunch.com/#breadcrumblist",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "@id": "https://rubybrunch.com#listItem",
+                  "position": 1,
+                  "name": "Home"
+                }
+              ]
+            },
+            {
+              "@type": "LocalBusiness",
+              "@id": "https://rubybrunch.com/#localbusiness",
+              "name": "Ruby Slipper & Ruby Sunshine",
+              "brand": {
+                "@id": "https://rubybrunch.com/#organization"
+              },
+              "url": "https://rubybrunch.com/",
+              "image": "https://rubybrunch.com/wp-content/uploads/2025/01/rubylogo-whitebg.png",
+              "logo": "https://rubybrunch.com/#logo",
+              "openingHoursSpecification": [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": [
+                    "https://schema.org/Monday"
+                  ],
+                  "opens": "09:00",
+                  "closes": "17:00"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": [
+                    "https://schema.org/Tuesday"
+                  ],
+                  "opens": "09:00",
+                  "closes": "17:00"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": [
+                    "https://schema.org/Wednesday"
+                  ],
+                  "opens": "09:00",
+                  "closes": "17:00"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": [
+                    "https://schema.org/Thursday"
+                  ],
+                  "opens": "09:00",
+                  "closes": "17:00"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": [
+                    "https://schema.org/Friday"
+                  ],
+                  "opens": "09:00",
+                  "closes": "17:00"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": [
+                    "https://schema.org/Saturday"
+                  ],
+                  "opens": "09:00",
+                  "closes": "17:00"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": [
+                    "https://schema.org/Sunday"
+                  ],
+                  "opens": "09:00",
+                  "closes": "17:00"
+                }
+              ]
+            },
+            {
+              "@type": "Organization",
+              "@id": "https://rubybrunch.com/#organization",
+              "name": "Ruby Slipper & Ruby Sunshine",
+              "description": "Brunch Born in New Orleans",
+              "url": "https://rubybrunch.com/",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://rubybrunch.com/wp-content/uploads/2025/01/rubylogo-whitebg.png",
+                "@id": "https://rubybrunch.com/#organizationLogo",
+                "width": 685,
+                "height": 695
+              },
+              "image": {
+                "@id": "https://rubybrunch.com/#organizationLogo"
+              },
+              "sameAs": [
+                "https://www.facebook.com/Brunchwithruby/",
+                "https://www.instagram.com/brunchwithruby/",
+                "https://www.tiktok.com/@brunchwithruby",
+                "https://www.linkedin.com/company/the-ruby-slipper-cafe"
+              ]
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://rubybrunch.com/#webpage",
+              "url": "https://rubybrunch.com/",
+              "name": "Ruby Slipper & Ruby Sunshine | Brunch Born in New Orleans",
+              "description": "Craveable breakfast, brunch & lunch - fluffy biscuits, beignets, Southern classics, boozy cocktails & warm hospitality. Brunch Born in New Orleans.",
+              "inLanguage": "en-US",
+              "isPartOf": {
+                "@id": "https://rubybrunch.com/#website"
+              },
+              "breadcrumb": {
+                "@id": "https://rubybrunch.com/#breadcrumblist"
+              },
+              "datePublished": "2024-07-27T14:16:26+00:00",
+              "dateModified": "2026-03-19T16:57:43+00:00"
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://rubybrunch.com/#website",
+              "url": "https://rubybrunch.com/",
+              "name": "Ruby Slipper & Ruby Sunshine",
+              "alternateName": "Ruby Brunch",
+              "description": "Brunch Born in New Orleans",
+              "inLanguage": "en-US",
+              "publisher": {
+                "@id": "https://rubybrunch.com/#organization"
+              }
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1.0",
+        "description": "Craveable breakfast, brunch & lunch - fluffy biscuits, beignets, Southern classics, boozy cocktails & warm hospitality. Brunch Born in New Orleans.",
+        "robots": "max-image-preview:large",
+        "generator": "WP Rocket 3.20.6.1",
+        "og:locale": "en_US",
+        "og:site_name": "Ruby Slipper & Ruby Sunshine - Brunch Born in New Orleans",
+        "og:type": "article",
+        "og:title": "Ruby Slipper & Ruby Sunshine - Ruby Slipper & Ruby Sunshine – Brunch Born in New Orleans",
+        "og:description": "MENUS Sweet, Savory, or Syrupy—whatever you're craving, we've got it.Dive into our menu, where it’s all about one thing: Brunch. View More BELIEVE IN BETTER BISCUITS Our legendary biscuits are crafted from scratch and baked fresh all day, every day. Fun Fact: we serve over 40,000 biscuits a week! And the best part? These buttery",
+        "og:url": "https://rubybrunch.com/",
+        "article:published_time": "2024-07-27T14:16:26+00:00",
+        "article:modified_time": "2026-03-19T16:57:43+00:00",
+        "article:publisher": "https://www.facebook.com/Brunchwithruby/",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Ruby Slipper & Ruby Sunshine - Ruby Slipper & Ruby Sunshine – Brunch Born in New Orleans",
+        "twitter:description": "MENUS Sweet, Savory, or Syrupy—whatever you're craving, we've got it.Dive into our menu, where it’s all about one thing: Brunch. View More BELIEVE IN BETTER BISCUITS Our legendary biscuits are crafted from scratch and baked fresh all day, every day. Fun Fact: we serve over 40,000 biscuits a week! And the best part? These buttery",
+        "msapplication-TileImage": "https://6015d8ac.delivery.rocketcdn.me/wp-content/uploads/2022/12/Untitled-design-3-300x300.png"
+      }
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": [
+    "https://6015d8ac.delivery.rocketcdn.me/wp-content/uploads/2025/01/rubylogo-whitebg.png",
+    "https://6015d8ac.delivery.rocketcdn.me/wp-content/uploads/2024/08/brunch-lifestyle-67-scaled.jpg",
+    "https://6015d8ac.delivery.rocketcdn.me/wp-content/uploads/2026/03/Bar-Punch-Up-Table-Scape-Hands-scaled.jpg",
+    "https://6015d8ac.delivery.rocketcdn.me/wp-content/uploads/2025/10/Untitled-1200-x-800-px-5.png",
+    "https://6015d8ac.delivery.rocketcdn.me/wp-content/uploads/2024/05/Ruby-Slipper-12-24-16-1-scaled.jpg",
+    "https://rubybrunch.com/wp-content/plugins/wpfront-scroll-top/includes/assets/icons/1.png"
+  ]
+}

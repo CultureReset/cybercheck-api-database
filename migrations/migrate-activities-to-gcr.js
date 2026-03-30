@@ -22,6 +22,9 @@ const ALREADY_SEEDED = new Set([
     'sunny-lady-dolphin-cruises',
     'tee-off-at-the-wharf-powered-by-topgolf-swing-suites',
     'cobalt-the-restaurant',
+    'beachside-circle-boat-rentals',
+    'circle-boats',
+    'beachside-circle-boats',
 ]);
 
 function slugify(str) {
@@ -206,8 +209,9 @@ async function migrateActivity(biz, content, menuItems, mediaItems, events, spec
             let i = 0;
             for (const [key, val] of Object.entries(hours)) {
                 const day = dayMap[key] || key;
-                const closed = !val || val.toLowerCase() === 'closed';
-                rows.push({ section_id: sid, day_of_week: day, is_closed: closed, note_text: closed ? null : val, sort_order: i++ });
+                const valStr = typeof val === 'string' ? val : (val ? JSON.stringify(val) : '');
+                const closed = !valStr || valStr.toLowerCase() === 'closed';
+                rows.push({ section_id: sid, day_of_week: day, is_closed: closed, note_text: closed ? null : valStr, sort_order: i++ });
             }
             if (rows.length) await gcrDb.from('section_hours').insert(rows);
         }
@@ -227,7 +231,7 @@ async function migrateActivity(biz, content, menuItems, mediaItems, events, spec
 
     // ── 12. Features & Perfect For ────────────────────────────
     if (biz.tags?.length) {
-        const tagRows = biz.tags.map((t, i) => ({ entity_id: entityId, tag: t.toLowerCase().trim(), tag_category: 'search', sort_order: i }));
+        const tagRows = biz.tags.filter(t => typeof t === 'string').map((t, i) => ({ entity_id: entityId, tag: t.toLowerCase().trim(), tag_category: 'search', sort_order: i }));
         await gcrDb.from('entity_tags').upsert(tagRows, { onConflict: 'entity_id,tag', ignoreDuplicates: true });
     }
 
@@ -237,11 +241,10 @@ async function migrateActivity(biz, content, menuItems, mediaItems, events, spec
 async function main() {
     console.log('🚀 Migrating activities from old DB → new GCR DB\n');
 
-    // Fetch all things-to-do businesses from old DB
+    // Fetch ALL gcr_listed businesses from old DB
     const { data: businesses, error } = await oldDb
         .from('businesses')
         .select('*')
-        .eq('type', 'things-to-do')
         .eq('gcr_listed', true);
 
     if (error) { console.error('Failed to fetch businesses:', error.message); return; }

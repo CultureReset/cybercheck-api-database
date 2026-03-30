@@ -1,0 +1,57 @@
+{
+  "business_name": "Bird Dog Chicken Company",
+  "url": "http://www.birddogchickencompany.com/",
+  "scraped_at": "2026-03-22T02:35:19.929Z",
+  "scraper": "chrome-visible",
+  "pages": [
+    {
+      "url": "http://www.birddogchickencompany.com",
+      "title": "Bird Dog Chicken Co.",
+      "text": "HOME\nMENU\nBOUT US\nCONTACT US\nMore Than Chicken!\n\nSandwiches, Breakfast, Fried Shrimp, Salads & Chicken\n\n4575 Orange Beach Blvd\n\nSuite 106\n\nOrange Beach, Al 36561\n\nPhone : 251-303-8555\n\n\n\nMon - Sun\n7:00 am - 9:00 pm\nContact Us\nName:\nEmail:\nPhone:\nMessage:\n© Copyright 2026 Bird Dog Chicken\nShare by:",
+      "structuredData": [],
+      "meta": {
+        "description": "In the mood for fried chicken, wings or fried shrimp while you are at the beach? Come by Bird Dog Chicken for breakfast, lunch and dinner. Eat-in or pick-up, Bird Dog Chicken has something for the entire family."
+      },
+      "links": [
+        "https://www.birddogchickencompany.com/",
+        "https://www.birddogchickencompany.com/",
+        "https://www.birddogchickencompany.com/",
+        "https://www.birddogchickencompany.com/#MENU",
+        "https://www.birddogchickencompany.com/#BOUTUS",
+        "https://www.birddogchickencompany.com/#CONTACTUS"
+      ]
+    },
+    {
+      "url": "https://www.birddogchickencompany.com",
+      "title": "Bird Dog Chicken Co.",
+      "text": "HOME\nMENU\nBOUT US\nCONTACT US\nMore Than Chicken!\n\nSandwiches, Breakfast, Fried Shrimp, Salads & Chicken\n\n4575 Orange Beach Blvd\n\nSuite 106\n\nOrange Beach, Al 36561\n\nPhone : 251-303-8555\n\n\n\nMon - Sun\n7:00 am - 9:00 pm\nContact Us\nName:\nEmail:\nPhone:\nMessage:\n© Copyright 2026 Bird Dog Chicken\nShare by:",
+      "structuredData": [],
+      "meta": {
+        "description": "In the mood for fried chicken, wings or fried shrimp while you are at the beach? Come by Bird Dog Chicken for breakfast, lunch and dinner. Eat-in or pick-up, Bird Dog Chicken has something for the entire family."
+      },
+      "links": [
+        "https://www.birddogchickencompany.com/",
+        "https://www.birddogchickencompany.com/",
+        "https://www.birddogchickencompany.com/",
+        "https://www.birddogchickencompany.com/#MENU",
+        "https://www.birddogchickencompany.com/#BOUTUS",
+        "https://www.birddogchickencompany.com/#CONTACTUS"
+      ]
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": [
+    "https://lirp.cdn-website.com/78c4bdfc/dms3rep/multi/opt/logo+bad-170w.png",
+    "https://lirp.cdn-website.com/78c4bdfc/dms3rep/multi/opt/Bird+Dog+Chicken+Orange+Beach-350w.png",
+    "https://lirp.cdn-website.com/78c4bdfc/dms3rep/multi/opt/Bird+Dog+Chicken+Orange+Beach-1440w.png",
+    "https://lirp.cdn-website.com/78c4bdfc/dms3rep/multi/opt/chicken+wings+transparent-720w.png",
+    "https://lirp.cdn-website.com/78c4bdfc/dms3rep/multi/opt/menu+clear-801h.png",
+    "https://lirp.cdn-website.com/78c4bdfc/dms3rep/multi/opt/Appetizer+Bird+Dog+Chicken+24+b-1034h.png",
+    "https://lirp.cdn-website.com/78c4bdfc/dms3rep/multi/opt/Wings+Tenders+Bird+Dog+24-1061h.png",
+    "https://lirp.cdn-website.com/78c4bdfc/dms3rep/multi/opt/Sandwiches+and+wraps+birdog+24-1297h.png",
+    "https://lirp.cdn-website.com/78c4bdfc/dms3rep/multi/opt/Sauces+and+drinks+Bird+Dog+Chicken+Restaurant+B-1161h.png",
+    "https://lirp.cdn-website.com/78c4bdfc/dms3rep/multi/opt/Breakfast+24-1184h.png",
+    "https://lirp.cdn-website.com/78c4bdfc/dms3rep/multi/opt/Bird+Dog+Chicken+Orange+Beach-480w.png"
+  ]
+}

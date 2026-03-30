@@ -1,0 +1,59 @@
+{
+  "business_name": "Distraction Charters",
+  "tagline": null,
+  "type": "Unknown",
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": null,
+    "city": null,
+    "state": null,
+    "zip": null
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": null
+  },
+  "about": {
+    "description": null,
+    "elevator_pitch": null,
+    "vibe": null,
+    "best_for": [],
+    "capacity": null,
+    "duration_options": [],
+    "departure_location": null,
+    "what_provided": [],
+    "what_to_bring": [],
+    "age_restriction": null,
+    "weight_restriction": null,
+    "reservations": null,
+    "cancellation_policy": null,
+    "insider_tip": null
+  },
+  "tags": [],
+  "features": [],
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "tripadvisor": null,
+    "website": "https://distractioncharters.com"
+  },
+  "specials": [],
+  "events": [],
+  "packages": [],
+  "extraction_note": "Website returned 403 Forbidden error - no business data could be extracted. The page is not accessible.",
+  "url": "https://distractioncharters.com",
+  "scraped_at": "2026-03-21T19:48:14.749Z",
+  "extracted_at": "2026-03-23T03:38:37.069Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [],
+  "sources": [
+    "https://distractioncharters.com"
+  ]
+}

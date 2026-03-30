@@ -1,0 +1,340 @@
+{
+  "business_name": "Hattie's Soul Food Restaurant",
+  "tagline": "Hattie's Soul Food Online Menu. Save Money Ordering Directly Here. Healthy Options. Fast Service. Friendly Team. Top Rated.",
+  "type": "Restaurant",
+  "contact": {
+    "phone": "(251) 202-4929",
+    "email": null,
+    "address": "15397A AL-59",
+    "city": "Foley",
+    "state": "AL",
+    "zip": "36535"
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": "09:00 - 14:00",
+    "wednesday": "09:00 - 14:00",
+    "thursday": "09:00 - 14:00",
+    "friday": "09:00 - 19:00",
+    "saturday": "09:00 - 19:00",
+    "sunday": "09:00 - 16:00",
+    "notes": "Closed Mondays"
+  },
+  "about": {
+    "description": "Hattie's Soul Food Restaurant specializes in authentic soul food, Southern cuisine, and seafood in Foley, Alabama.",
+    "elevator_pitch": "A family-friendly soul food restaurant serving classic Southern comfort food including fried chicken, catfish, and traditional sides.",
+    "vibe": "Casual, welcoming, family-friendly soul food establishment",
+    "best_for": [
+      "families",
+      "casual dining",
+      "comfort food lovers",
+      "seafood enthusiasts"
+    ],
+    "established": null,
+    "reservations": null,
+    "insider_tip": null
+  },
+  "tags": [
+    "soul food",
+    "Southern",
+    "seafood",
+    "fried chicken",
+    "catfish",
+    "sandwiches",
+    "brunch",
+    "American",
+    "comfort food",
+    "casual",
+    "family-friendly",
+    "catering",
+    "takeout",
+    "delivery"
+  ],
+  "features": [
+    "Full bar",
+    "Family-friendly",
+    "Catering available",
+    "Takeout",
+    "Delivery",
+    "Dine-in"
+  ],
+  "price_range": "$$",
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://hattiessoulfood.com"
+  },
+  "specials": [],
+  "events": [],
+  "menu": {
+    "categories": [
+      {
+        "name": "Ice",
+        "type": "drinks",
+        "items": [
+          {
+            "name": "25lb Ice",
+            "description": null,
+            "price": 3,
+            "tags": [],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Beverages",
+        "type": "drinks",
+        "items": [
+          {
+            "name": "Soda",
+            "description": null,
+            "price": 2.99,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Sweet Tea",
+            "description": null,
+            "price": 1.99,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Unsweet Tea",
+            "description": null,
+            "price": 1.99,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Hand Crafted Lemonade No Free Refills",
+            "description": null,
+            "price": 3.99,
+            "tags": [
+              "peach",
+              "strawberry",
+              "pineapple"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Coffee",
+            "description": null,
+            "price": 1.99,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Water",
+            "description": null,
+            "price": 0.5,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Arnold Palmer",
+            "description": null,
+            "price": 2,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "1/2 And 1/2 Tea",
+            "description": null,
+            "price": 1.99,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Club Soda",
+            "description": null,
+            "price": 1.99,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "1 Gallon Unsweet Tea",
+            "description": null,
+            "price": 15.99,
+            "tags": [],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Appetizers",
+        "type": "lunch",
+        "items": [
+          {
+            "name": "Appetizer Basket Of Bread (6)",
+            "description": null,
+            "price": 4.99,
+            "tags": [
+              "bread",
+              "appetizer"
+            ],
+            "allergens": [
+              "gluten"
+            ]
+          },
+          {
+            "name": "Appetizer Chicken Wings (12)",
+            "description": null,
+            "price": 13.99,
+            "tags": [
+              "wings",
+              "chicken",
+              "appetizer"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Appetizer Chicken Wings (8)",
+            "description": null,
+            "price": 9.99,
+            "tags": [
+              "wings",
+              "chicken",
+              "appetizer"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Appetizer 20 Wings",
+            "description": null,
+            "price": 22.99,
+            "tags": [
+              "wings",
+              "chicken",
+              "appetizer"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Appetizer Loaded French Fries",
+            "description": null,
+            "price": 11.99,
+            "tags": [
+              "fries",
+              "appetizer"
+            ],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Entrees",
+        "type": "lunch",
+        "items": [
+          {
+            "name": "3pc Leg Meal",
+            "description": null,
+            "price": 15.99,
+            "tags": [
+              "fried chicken",
+              "meal"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Fried Porkchop Entree",
+            "description": null,
+            "price": 15.99,
+            "tags": [
+              "pork",
+              "fried",
+              "entree"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Smothered Pork Chops Entree",
+            "description": null,
+            "price": 14.99,
+            "tags": [
+              "pork",
+              "smothered",
+              "entree"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Southern Ribeye",
+            "description": null,
+            "price": 25.95,
+            "tags": [
+              "steak",
+              "beef",
+              "entree"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Kathy's Beef Gravy Entree",
+            "description": null,
+            "price": 16.99,
+            "tags": [
+              "beef",
+              "gravy",
+              "entree"
+            ],
+            "allergens": []
+          }
+        ]
+      }
+    ]
+  },
+  "url": "https://hattiessoulfood.com",
+  "scraped_at": "2026-03-21T20:36:52.818Z",
+  "extracted_at": "2026-03-23T03:46:44.708Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://hattiessoulfood.com/pluto-images/brands/funnel/reviews-section-images/rYSPbAUtjkwGvMLIAx0Rf8aAHB1nEcxZ/khXoR6Z3I8hC3gZ3NXFgWWH7.png?w=32&h=32&fit=cover",
+    "https://hattiessoulfood.com/pluto-images/brands/funnel/reviews-section-images/tJIBWf8quS9QVWq25MOpEQinBBfTOdDr/khXoR6Z3I8hC3gZ3NXFgWWH7.png?w=32&h=32&fit=cover",
+    "https://hattiessoulfood.com/pluto-images/brands/funnel/reviews-section-images/YECnB450nmOE7J1oBLKB9twcx13jaiSO/khXoR6Z3I8hC3gZ3NXFgWWH7.png?w=32&h=32&fit=cover",
+    "https://hattiessoulfood.com/pluto-images/directus/b8f4b064-1c8a-4bf7-80ea-8718c426401d.png?h=40&fit=cover",
+    "https://hattiessoulfood.com/pluto-images/delivery-bag-photo.png?w=768&h=768&fit=cover"
+  ],
+  "sources": [
+    "https://hattiessoulfood.com",
+    "https://hattiessoulfood.com/accessibility",
+    "https://hattiessoulfood.com/terms",
+    "https://hattiessoulfood.com/hattiessoulfood",
+    "https://hattiessoulfood.com/places/turkey-branch",
+    "https://hattiessoulfood.com/places/oak",
+    "https://hattiessoulfood.com/places/bon-secour",
+    "https://hattiessoulfood.com/places/elsanor",
+    "https://hattiessoulfood.com/places/yupon",
+    "https://hattiessoulfood.com/places/silverhill",
+    "https://hattiessoulfood.com/places/clay-city",
+    "https://hattiessoulfood.com/places/river-park",
+    "https://hattiessoulfood.com/places/robertsdale",
+    "https://hattiessoulfood.com/places/elberta",
+    "https://hattiessoulfood.com/places/miflin",
+    "https://hattiessoulfood.com/places/marlow",
+    "https://hattiessoulfood.com/places/magnolia-springs",
+    "https://hattiessoulfood.com/places/foley",
+    "https://hattiessoulfood.com/places/summerdale",
+    "https://hattiessoulfood.com/tags/takeout",
+    "https://hattiessoulfood.com/tags/delivery",
+    "https://hattiessoulfood.com/tags/dinner",
+    "https://hattiessoulfood.com/tags/lunch",
+    "https://hattiessoulfood.com/tags/chicken-wings",
+    "https://hattiessoulfood.com/menu?item=appetizer-chicken-wings-12-4EWS",
+    "https://hattiessoulfood.com/menu?item=cornbread-or-rolls-w2h6",
+    "https://hattiessoulfood.com/menu?item=cranberry-sauce-7-oz-W2r5",
+    "https://hattiessoulfood.com/menu?item=gravy-16-oz-lCeL",
+    "https://hattiessoulfood.com/menu?item=baked-mac-cheese-JAE7",
+    "https://hattiessoulfood.com/menu?item=vegetable-baked-beans-26pE",
+    "https://hattiessoulfood.com/menu?item=beef-baked-beans-akQv",
+    "https://hattiessoulfood.com/menu?item=mashed-potato-gravy-qDPR",
+    "https://hattiessoulfood.com/menu?item=bacon-fried-cabbage-fjhj",
+    "https://hattiessoulfood.com/menu?item=candied-yams-RvUq",
+    "https://hattiessoulfood.com/menu?item=collard-greens-Xyru",
+    "https://hattiessoulfood.com/menu?item=squash-casserole-mg3o",
+    "https://hattiessoulfood.com/menu?item=chicken-cornbread-dressing-q3hJ",
+    "https://hattiessoulfood.com/menu?item=hamburger-patty-add-on-Dip4",
+    "https://hattiessoulfood.com/menu?item=half-catfish-1BM6",
+    "https://hattiessoulfood.com/menu?item=catfish-only-aP9q"
+  ]
+}

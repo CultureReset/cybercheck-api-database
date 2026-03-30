@@ -1,0 +1,293 @@
+{
+  "business_name": "Brett/Robinson Vacation Rentals (Vacation Homes Alabama)",
+  "tagline": "Experience the Best in Alabama Gulf Coast Vacation Rentals & Property Management",
+  "type": "Vacation Rental",
+  "contact": {
+    "phone": "1+ (800) 211-7892",
+    "email": "Info@Brett-Robinson.com",
+    "address": "3259 Gulf Shores Parkway",
+    "city": "Gulf Shores",
+    "state": "AL",
+    "zip": "36542"
+  },
+  "mailing_address": {
+    "address": "PO Box 4009",
+    "city": "Gulf Shores",
+    "state": "AL",
+    "zip": "36547"
+  },
+  "acquisitions_contact": {
+    "phone": "1+ 251-699-3622",
+    "email": "acquisitions@brettrobinson.com"
+  },
+  "location": {
+    "beachfront": true,
+    "bay_view": true,
+    "description": "Beachfront and bayfront properties on the Alabama Gulf Coast in Gulf Shores and Orange Beach"
+  },
+  "about": {
+    "description": "For over 40 years, Brett/Robinson has set the standard for vacation rentals and beachfront property management along the Alabama Gulf Coast. Full-service property management company offering reservations, guest services, maintenance, marketing, and communications with a competitive commission structure and flexible options for owners.",
+    "elevator_pitch": "Market leader in Gulf Shores and Orange Beach vacation rentals with over 40 years of beachfront property management expertise.",
+    "total_units": 17,
+    "floors": null,
+    "year_built": null,
+    "pet_friendly": null,
+    "minimum_stay": null,
+    "check_in": null,
+    "check_out": null,
+    "age_restriction": null
+  },
+  "amenities": {
+    "pools": [],
+    "hot_tubs": null,
+    "fitness_center": null,
+    "tennis_courts": null,
+    "pickleball_courts": null,
+    "private_beach_access": true,
+    "parking": null,
+    "elevators": null,
+    "gated": null,
+    "bbq_grills": null,
+    "business_center": null,
+    "spa": null,
+    "restaurant_on_site": null,
+    "bar_on_site": null,
+    "kids_splash_pad": null,
+    "other": [
+      "hot air balloon rides available",
+      "charter fishing trips",
+      "dolphin cruises",
+      "golf weekends"
+    ]
+  },
+  "unit_types": [
+    {
+      "name": "FunSpot 1713",
+      "bedrooms": 5,
+      "bathrooms": 5,
+      "sleeps": 15,
+      "view": null,
+      "sq_ft": null,
+      "starting_price": null,
+      "features": []
+    },
+    {
+      "name": "Pelican Roost 9407",
+      "bedrooms": 4,
+      "bathrooms": 2.5,
+      "sleeps": 15,
+      "view": null,
+      "sq_ft": null,
+      "starting_price": null,
+      "features": []
+    },
+    {
+      "name": "WindSwept",
+      "bedrooms": 4,
+      "bathrooms": 3,
+      "sleeps": 10,
+      "view": null,
+      "sq_ft": null,
+      "starting_price": null,
+      "features": []
+    },
+    {
+      "name": "Pipedreams 333",
+      "bedrooms": 8,
+      "bathrooms": 6.5,
+      "sleeps": 20,
+      "view": null,
+      "sq_ft": null,
+      "starting_price": null,
+      "features": []
+    },
+    {
+      "name": "Blue Hideaway 2888",
+      "bedrooms": 3,
+      "bathrooms": 2.5,
+      "sleeps": 10,
+      "view": null,
+      "sq_ft": null,
+      "starting_price": null,
+      "features": []
+    },
+    {
+      "name": "Conch Out 1405",
+      "bedrooms": 4,
+      "bathrooms": 4,
+      "sleeps": 8,
+      "view": null,
+      "sq_ft": null,
+      "starting_price": null,
+      "features": []
+    },
+    {
+      "name": "Cole's Sailors Seavue Inn 419",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "sleeps": 6,
+      "view": null,
+      "sq_ft": null,
+      "starting_price": null,
+      "features": []
+    },
+    {
+      "name": "Coastal Dreams 1308",
+      "bedrooms": 5,
+      "bathrooms": 5.5,
+      "sleeps": 12,
+      "view": null,
+      "sq_ft": null,
+      "starting_price": null,
+      "features": []
+    },
+    {
+      "name": "Cole's Acting Knowin II 415",
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "sleeps": 8,
+      "view": null,
+      "sq_ft": null,
+      "starting_price": null,
+      "features": []
+    },
+    {
+      "name": "Bayside Bungalow 9531",
+      "bedrooms": 3,
+      "bathrooms": 3,
+      "sleeps": 8,
+      "view": null,
+      "sq_ft": null,
+      "starting_price": null,
+      "features": []
+    },
+    {
+      "name": "Jetty Life 473",
+      "bedrooms": 3,
+      "bathrooms": 4,
+      "sleeps": 13,
+      "view": null,
+      "sq_ft": null,
+      "starting_price": null,
+      "features": []
+    },
+    {
+      "name": "West Side Cottages U",
+      "bedrooms": 3,
+      "bathrooms": 4,
+      "sleeps": 10,
+      "view": null,
+      "sq_ft": null,
+      "starting_price": null,
+      "features": []
+    },
+    {
+      "name": "Pelican House 1",
+      "bedrooms": 3,
+      "bathrooms": 2.5,
+      "sleeps": 8,
+      "view": "Corner Unit",
+      "sq_ft": null,
+      "starting_price": null,
+      "features": []
+    },
+    {
+      "name": "Pipedreams 333 W",
+      "bedrooms": 4,
+      "bathrooms": 3.5,
+      "sleeps": 10,
+      "view": null,
+      "sq_ft": null,
+      "starting_price": null,
+      "features": []
+    },
+    {
+      "name": "West Side Cottages N",
+      "bedrooms": 3,
+      "bathrooms": 4,
+      "sleeps": 10,
+      "view": null,
+      "sq_ft": null,
+      "starting_price": null,
+      "features": []
+    },
+    {
+      "name": "Howell Gulf House 2865",
+      "bedrooms": 4,
+      "bathrooms": 4,
+      "sleeps": 12,
+      "view": null,
+      "sq_ft": null,
+      "starting_price": null,
+      "features": []
+    },
+    {
+      "name": "Pipedreams 333 E",
+      "bedrooms": 4,
+      "bathrooms": 3.5,
+      "sleeps": 10,
+      "view": null,
+      "sq_ft": null,
+      "starting_price": null,
+      "features": []
+    }
+  ],
+  "locations": [
+    "Gulf Shores, AL",
+    "Orange Beach, AL"
+  ],
+  "tags": [
+    "beachfront",
+    "vacation rental",
+    "family",
+    "groups",
+    "couples",
+    "property management",
+    "Alabama Gulf Coast"
+  ],
+  "features": [
+    "over 40 years of experience",
+    "full-service property management",
+    "dedicated local team",
+    "flexible marketing options",
+    "competitive commission structure",
+    "on-site management",
+    "reservations handling",
+    "guest services",
+    "maintenance",
+    "marketing"
+  ],
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://www.vacationhomesalabama.com"
+  },
+  "dining": [],
+  "specials": [
+    {
+      "name": "Spring Break Specials",
+      "description": "Exclusive vacation specials and seasonal promotions",
+      "dates": null
+    },
+    {
+      "name": "Easter Escape",
+      "description": "Exclusive vacation specials and seasonal promotions",
+      "dates": null
+    },
+    {
+      "name": "Weekend Getaways",
+      "description": "Spontaneous weekend by the beach options",
+      "dates": null
+    }
+  ],
+  "url": "https://www.vacationhomesalabama.com",
+  "scraped_at": "2026-03-21T22:21:57.054Z",
+  "extracted_at": "2026-03-23T04:16:19.938Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [],
+  "sources": [
+    "https://www.vacationhomesalabama.com",
+    "https://www.vacationhomesalabama.com/about-us",
+    "https://www.vacationhomesalabama.com/contact"
+  ]
+}

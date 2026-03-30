@@ -1,0 +1,141 @@
+{
+  "business_name": "8 Reale",
+  "tagline": "Orange Beach's BEST kept secret",
+  "type": "Speakeasy Bar",
+  "contact": {
+    "phone": "251-484-0712",
+    "email": "8realespeakeasy@gmail.com",
+    "address": "4851 Wharf Pkway W, Suite D-112",
+    "city": "Orange Beach",
+    "state": "AL",
+    "zip": "36561"
+  },
+  "hours": {
+    "monday": "5pm - Until",
+    "tuesday": "5pm - Until",
+    "wednesday": "5pm - Until",
+    "thursday": "5pm - Until",
+    "friday": "5pm - Until",
+    "saturday": "5pm - Until",
+    "sunday": "5pm - Until",
+    "notes": "Non-Members 5pm - Until (everyday)"
+  },
+  "about": {
+    "description": "8 Reale is a hidden speakeasy-style cocktail bar located in Orange Beach, Alabama. Transporting guests back to the days of Prohibition with a modern twist, it offers an experience centered on ambiance, secrecy, and craftsmanship. Skilled mixologists craft everything from classics like the Old Fashioned and Sidecar to contemporary creations featuring fresh, local ingredients. Access is through a hidden vaulted door, making it a true coastal hideaway.",
+    "elevator_pitch": "A Prohibition-era speakeasy with a modern coastal twist, 8 Reale is Orange Beach's most intriguing hidden gem — entered through a secret vaulted door and renowned for masterfully crafted cocktails.",
+    "established": null,
+    "owner": null,
+    "chef": null,
+    "vibe": "Mysterious, sophisticated, Prohibition-era speakeasy with coastal charm",
+    "best_for": [
+      "date night",
+      "groups",
+      "cocktail enthusiasts",
+      "nightlife",
+      "special occasions"
+    ],
+    "age_restriction": "21+",
+    "dress_code": null,
+    "parking": null,
+    "accessibility": null,
+    "reservations": null,
+    "insider_tip": "Look for the hidden vaulted door — the secret code changes daily, so check 'Today's Secret Code' on their website before you go.",
+    "awards": [],
+    "press": [
+      "Gulf Coast Media - Morgan Freeman Spotted",
+      "Scenic 98 Coastal Feature",
+      "The Iowa Gallivant Review"
+    ]
+  },
+  "tags": [
+    "speakeasy",
+    "craft cocktails",
+    "hidden bar",
+    "prohibition",
+    "date night",
+    "nightlife",
+    "cocktail classes",
+    "rentals",
+    "secret code",
+    "coastal"
+  ],
+  "hashtags": [
+    "#8Reale",
+    "#OrangeBeach",
+    "#Speakeasy",
+    "#CraftCocktails",
+    "#HiddenBar",
+    "#AlabamaBar",
+    "#CoastalHideaway",
+    "#OrangeBeachNightlife",
+    "#ProhibitionBar",
+    "#GulfCoastBar"
+  ],
+  "categories": [
+    "Bar",
+    "Speakeasy",
+    "Cocktail Bar",
+    "Event Venue"
+  ],
+  "cuisine_types": [
+    "Cocktails",
+    "Craft Beverages"
+  ],
+  "atmosphere": [
+    "Upscale",
+    "Mysterious",
+    "Intimate",
+    "Sophisticated",
+    "Speakeasy"
+  ],
+  "features": [
+    "full bar",
+    "craft cocktails",
+    "cocktail classes",
+    "venue rental",
+    "online store",
+    "secret entry",
+    "membership",
+    "private events"
+  ],
+  "price_range": "$$$",
+  "neighborhood": "The Wharf",
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "twitter": null,
+    "tiktok": null,
+    "youtube": null,
+    "yelp": null,
+    "tripadvisor": null,
+    "opentable": null,
+    "google_maps": null,
+    "website": "http://www.8realeobal.com"
+  },
+  "specials": [],
+  "events": [
+    {
+      "name": "Cocktail Classes",
+      "description": "Hands-on cocktail crafting classes teaching high-end cocktail recipes, ingredient pairings, and the history of classic drinks. All bartending supplies provided.",
+      "recurring": true,
+      "day": null,
+      "time": null,
+      "frequency": "Check website for schedule"
+    }
+  ],
+  "menu": {
+    "categories": []
+  },
+  "url": "http://www.8realeobal.com",
+  "scraped_at": "2026-03-21T20:24:26.696Z",
+  "extracted_at": "2026-03-28T07:14:13.225Z",
+  "sources": [
+    "http://www.8realeobal.com",
+    "https://www.8realeobal.com/classes",
+    "https://www.8realeobal.com/aboutus"
+  ],
+  "gallery": [
+    "https://images.squarespace-cdn.com/content/v1/660351111981e43d4b12f41e/66425b55-cc61-4542-9abf-dea516974084/output-onlinepngtools.png?format=1500w",
+    "https://images.squarespace-cdn.com/content/v1/660351111981e43d4b12f41e/dc05ce8d-493d-49a5-ac3f-abd9698e156f/IMG_1627+%281%29.jpg"
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "business_name": "Tetsujin Japanese Sushi & Hibachi Grill",
+  "url": "https://tetsujinjapanesesal.com/",
+  "scraped_at": "2026-03-21T14:05:33.096Z",
+  "pages": [
+    {
+      "url": "https://tetsujinjapanesesal.com",
+      "title": "Home | Tetsujin Japanese Sushi & Hibachi Grill",
+      "text": "Skip to Navigation\n Skip to Main Content\n\n \n HomeOrder OnlineContact Us\n \n\n \n Carousel slide 1Carousel slide 2\n \n Welcome To Tetsujin Japanese Sushi & Hibachi Grill\n ★★★★★★★★★★★★★★★★★★★★\n Best food, Great value\n Order Online\n \n \n \n \n Our Speciality\n ★★★★★★★★\n \n \n \n \n \n \n Serving with Love\n \n \n \n \n \n \n Tasty Products\n \n \n \n \n \n \n Wide Range Flavors\n \n \n \n \n \n \n \n Have you ever\n Ordered\n Online\n \n 🕝 Pickup Only\n \n Order Online Now\n \n \n \n \n \n \n \n \n \n People are saying\n Everything has just been fantastic! I would recommend this restaurant to anyone.\n \n \n \n \n \n \n \n ➡️\n Open In Maps - New Window\n \n \n 📞\n 251-639-9108\n \n \n \n \n Working Hours\n Sunday12:15 PM - 08:30 PMMondayClosedTuesday11:15 AM - 08:30 PMWednesday11:15 AM - 08:30 PMThursday11:15 AM - 08:30 PMFriday11:15 AM - 08:30 PMSaturday11:15 AM - 08:30 PM\n \n \n \n \n \n \n \n Directions - New Window\n \n \n View larger map - New Window\n \n \n\n \n © Copyright 2026 Tetsujin Japanese Sushi & Hibachi Grill. All Rights Reserved.\n \n 2413 Dawes Rd, Mobile, AL 36695\n \n \n Call us today: 251-639-9108\n \n \n \n Terms & Conditions\n |\n Privacy Policy\n |\n Cookies Policy\n |\n Accessibility",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Restaurant",
+          "name": "Tetsujin Japanese Sushi & Hibachi Grill",
+          "image": "",
+          "@id": "",
+          "url": "https://tetsujinjapanesesal.com",
+          "telephone": "2516399108",
+          "menu": "/order/",
+          "servesCuisine": "Japanese",
+          "acceptsReservations": "false",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "2413 Dawes Rd",
+            "addressLocality": "Mobile",
+            "addressRegion": "AL",
+            "postalCode": "36695",
+            "addressCountry": "US"
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": "Sunday",
+              "opens": "12:15 PM",
+              "closes": "08:30 PM"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": "Tuesday",
+              "opens": "11:15 AM",
+              "closes": "08:30 PM"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": "Wednesday",
+              "opens": "11:15 AM",
+              "closes": "08:30 PM"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": "Thursday",
+              "opens": "11:15 AM",
+              "closes": "08:30 PM"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": "Friday",
+              "opens": "11:15 AM",
+              "closes": "08:30 PM"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": "Saturday",
+              "opens": "11:15 AM",
+              "closes": "08:30 PM"
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1.0, maximum-scale=6.0, minimum-scale=1.0",
+        "description": "Mobile, AL 36695 Japanese food for Pickup -  Order from Tetsujin Japanese Sushi & Hibachi Grill in Mobile, AL 36695, phone: 251-639-9108 ",
+        "keywords": "Mobile, AL 36695 Japanese food for Pickup  Order Japanese food for Pickup,  Best Japanese food for Pickup"
+      }
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": [
+    "https://tetsujinjapanesesal.com/assets/images/slider1.jpg",
+    "http://tetsujinjapanesesal.com/images/slider/slider2.jpg",
+    "http://tetsujinjapanesesal.com/images/1.jpg",
+    "http://tetsujinjapanesesal.com/images/2.jpg",
+    "http://tetsujinjapanesesal.com/images/3.jpg",
+    "http://tetsujinjapanesesal.com/images/4.jpg",
+    "http://tetsujinjapanesesal.com/images/5.jpg",
+    "http://tetsujinjapanesesal.com/images/6.jpg",
+    "https://tetsujinjapanesesal.com/assets/images/9.png",
+    "https://tetsujinjapanesesal.com/assets/images/knife_fork.png",
+    "https://tetsujinjapanesesal.com/assets/images/clock.png"
+  ]
+}

@@ -1,0 +1,336 @@
+{
+  "business_name": "Cobalt, The Restaurant",
+  "tagline": "Unlike Any Other",
+  "type": "Restaurant",
+  "contact": {
+    "phone": "251-923-5300",
+    "email": null,
+    "address": "28099 Perdido Beach Blvd",
+    "city": "Orange Beach",
+    "state": "AL",
+    "zip": "36561"
+  },
+  "hours": {
+    "monday": "11:00 AM - 9:30 PM",
+    "tuesday": "11:00 AM - 9:30 PM",
+    "wednesday": "11:00 AM - 9:30 PM",
+    "thursday": "11:00 AM - 9:30 PM",
+    "friday": "11:00 AM - 10:00 PM",
+    "saturday": "11:00 AM - 10:00 PM",
+    "sunday": "11:00 AM - 9:30 PM",
+    "notes": "Sunday Brunch 11:00 AM - 2:00 PM"
+  },
+  "about": {
+    "description": "Contemporary coastal cuisine restaurant located in Orange Beach, featuring authentic dishes crafted by renowned chefs in three distinct kitchens. Nestled under the Perdido Pass Bridge next to Caribe Resort with spectacular bay views from every table.",
+    "elevator_pitch": "Contemporary coastal cuisine with waterfront dining, live music, and superior service in Orange Beach.",
+    "vibe": "Casual and relaxing waterfront atmosphere with open and airy dining room overlooking Perdido Bay",
+    "best_for": [
+      "waterfront dining",
+      "date night",
+      "families",
+      "special occasions",
+      "brunch",
+      "happy hour"
+    ],
+    "established": null,
+    "reservations": "Suggested for Easter Brunch Buffet",
+    "insider_tip": "Boat slips available for small boats and medium-sized yachts. Patio open for walk-ins weather permitting."
+  },
+  "tags": [
+    "seafood",
+    "coastal cuisine",
+    "waterfront",
+    "casual dining",
+    "happy hour",
+    "live music",
+    "brunch",
+    "catering",
+    "contemporary"
+  ],
+  "features": [
+    "waterfront dining",
+    "bay views",
+    "live music",
+    "happy hour",
+    "patio/deck seating",
+    "boat slips",
+    "three distinct kitchens",
+    "Sunday brunch",
+    "catering available",
+    "poolside cabana service"
+  ],
+  "price_range": "$$",
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://cobaltrestaurant.net"
+  },
+  "specials": [
+    {
+      "name": "Happy Hour",
+      "description": "Specials on draft beer, house wines and appetizers including Cobalt Caviar (black beans, edamame, corn, red onion, roma tomatoes, cilantro with vinaigrette and corn tortilla chips) and Firecracker Shrimp (fried with spicy remoulade sauce)",
+      "days": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "time": "3:00 PM - 5:00 PM"
+    },
+    {
+      "name": "Easter Sunday Brunch Buffet",
+      "description": "Prime Rib, Omelet Bar, Eggs Benedict, Caramelized Fennel and Leek Strata, Ham and Sundried Tomato Strata, Roasted Pork Tenderloin, Colcannon Mashed Potatoes, French Toast, Blackened Mahi, Creamy Roasted Red Bell Pepper Baked Orzo, Ratatouille, Grits, Honey-Glazed Carrots, Fruit Salad, Garden Salad, Macaroni Salad, Elote Salad, Desserts including Crème Brûlée, Brownies, Blackberry Cobbler, Key Lime Tarts, Lemon Bars",
+      "days": [
+        "Sunday"
+      ],
+      "time": "11:00 AM - 2:00 PM"
+    }
+  ],
+  "events": [
+    {
+      "name": "Live Music - Sunday Brunch",
+      "description": "Live music performance during Sunday Brunch service",
+      "recurring": true,
+      "day": "Sunday",
+      "time": "11:00 AM - 2:00 PM"
+    },
+    {
+      "name": "Easter Sunday Brunch Buffet",
+      "description": "Special brunch buffet with extensive menu including prime rib, seafood, omelets, and desserts. Reservations suggested.",
+      "recurring": false,
+      "day": "Easter Sunday",
+      "time": "11:00 AM - 2:00 PM"
+    }
+  ],
+  "menu": {
+    "categories": [
+      {
+        "name": "Signature Dishes",
+        "type": "dinner",
+        "items": [
+          {
+            "name": "BBQ Gulf Shrimp",
+            "description": null,
+            "price": null,
+            "tags": [
+              "appetizer",
+              "seafood"
+            ],
+            "allergens": [
+              "shellfish"
+            ]
+          },
+          {
+            "name": "Crab and Shrimp Dip",
+            "description": null,
+            "price": null,
+            "tags": [
+              "appetizer",
+              "seafood"
+            ],
+            "allergens": [
+              "shellfish",
+              "dairy"
+            ]
+          },
+          {
+            "name": "Gulf Shrimp and Grits",
+            "description": null,
+            "price": null,
+            "tags": [
+              "entree",
+              "seafood",
+              "signature"
+            ],
+            "allergens": [
+              "shellfish",
+              "dairy",
+              "gluten"
+            ]
+          },
+          {
+            "name": "Pecan Catfish",
+            "description": null,
+            "price": null,
+            "tags": [
+              "entree",
+              "seafood",
+              "signature"
+            ],
+            "allergens": [
+              "fish",
+              "tree nuts",
+              "dairy"
+            ]
+          },
+          {
+            "name": "Bronze Gulf Grouper",
+            "description": null,
+            "price": null,
+            "tags": [
+              "entree",
+              "seafood",
+              "signature"
+            ],
+            "allergens": [
+              "fish"
+            ]
+          },
+          {
+            "name": "Shrimp Fra Diavolo",
+            "description": "Sautéed with roasted mushrooms, chargrilled lemon, fresh spinach and arugula",
+            "price": null,
+            "tags": [
+              "entree",
+              "seafood"
+            ],
+            "allergens": [
+              "shellfish",
+              "gluten"
+            ]
+          },
+          {
+            "name": "Tuna and Avocado Stack",
+            "description": "Served in a sweet Asian sauce",
+            "price": null,
+            "tags": [
+              "entree",
+              "seafood"
+            ],
+            "allergens": [
+              "fish",
+              "soy"
+            ]
+          },
+          {
+            "name": "Firecracker Shrimp",
+            "description": "Lightly dusted, fried and tossed in spicy remoulade sauce",
+            "price": null,
+            "tags": [
+              "appetizer",
+              "entree",
+              "seafood",
+              "signature"
+            ],
+            "allergens": [
+              "shellfish",
+              "gluten",
+              "dairy"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Happy Hour Appetizers",
+        "type": "specials",
+        "items": [
+          {
+            "name": "Cobalt Caviar",
+            "description": "Refreshing blend of black beans, edamame, corn, red onion, Roma tomatoes, and cilantro tossed in a light vinaigrette served with corn tortilla chips",
+            "price": null,
+            "tags": [
+              "appetizer",
+              "vegetarian",
+              "vegan"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Firecracker Shrimp",
+            "description": "Lightly dusted, fried and tossed in spicy remoulade sauce",
+            "price": null,
+            "tags": [
+              "appetizer",
+              "seafood"
+            ],
+            "allergens": [
+              "shellfish",
+              "gluten",
+              "dairy"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Beverages - Happy Hour",
+        "type": "drinks",
+        "items": [
+          {
+            "name": "Draft Beer",
+            "description": "Happy Hour specials",
+            "price": null,
+            "tags": [
+              "beer"
+            ],
+            "allergens": [
+              "gluten"
+            ]
+          },
+          {
+            "name": "House Wines",
+            "description": "Happy Hour specials",
+            "price": null,
+            "tags": [
+              "wine"
+            ],
+            "allergens": []
+          }
+        ]
+      }
+    ]
+  },
+  "url": "https://cobaltrestaurant.net",
+  "scraped_at": "2026-03-21T19:26:20.607Z",
+  "extracted_at": "2026-03-23T03:35:46.674Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://cobaltrestaurant.net/wp-content/uploads/2019/01/cobalt_small.png",
+    "https://cobaltrestaurant.net/wp-content/uploads/2019/01/cobalt.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2020/03/shrimp-grits-2.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2020/03/IMG_5222.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2020/03/buzzcatz-e1646685461124.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2020/03/lunas-e1646685447219.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2020/03/gts_mobile.png",
+    "https://cobaltrestaurant.net/wp-content/uploads/2021/08/gsob_sports-1.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2021/08/gsob_tourism.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2020/03/cosmos.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2020/03/caribe_realty.png",
+    "https://cobaltrestaurant.net/wp-content/uploads/2020/03/caribe_marina_logo.png",
+    "https://cobaltrestaurant.net/wp-content/uploads/2020/03/caribe.png",
+    "https://cobaltrestaurant.net/wp-content/uploads/2022/03/OB-logo-e1646685484813.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2019/01/cobalt_logo-300x140.png",
+    "https://cobaltrestaurant.net/wp-content/uploads/2026/03/EasterCobaltWeb-1024x576.png",
+    "https://cobaltrestaurant.net/wp-content/uploads/2021/08/happy.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2022/03/pool.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2021/08/gsob_sports.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2019/01/Cobalt_1124x782.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2020/03/redfish-7.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2020/03/platter-7.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2020/03/margherita-12.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2020/03/creole-3.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2022/05/pork_entree_9.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2020/03/crab-claws-4.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2021/08/new-poboy.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2020/03/choc-4.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2020/03/zydeco-4.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2020/03/catfish-4.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2020/03/beast-2.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2022/01/harsany-luna-rev.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2019/01/reed.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2023/08/NickNorman.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2020/03/rush.jpg",
+    "https://cobaltrestaurant.net/wp-content/uploads/2023/12/JeffreyPalmer.jpg"
+  ],
+  "sources": [
+    "https://cobaltrestaurant.net",
+    "https://cobaltrestaurant.net/live-music-events",
+    "https://cobaltrestaurant.net/happy-hour",
+    "https://cobaltrestaurant.net/cabana_menu",
+    "https://cobaltrestaurant.net/menu",
+    "https://cobaltrestaurant.net/meet-the-team",
+    "https://cobaltrestaurant.net/contact-2"
+  ]
+}

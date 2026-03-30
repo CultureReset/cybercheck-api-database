@@ -1,0 +1,75 @@
+{
+  "business_name": "Bikini Blini Bakery",
+  "tagline": "Gourmet Beach Dogs!",
+  "type": "Bakery",
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": null,
+    "city": null,
+    "state": null,
+    "zip": null
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": null
+  },
+  "about": {
+    "description": "A bakery featuring gourmet beach dogs and bubble blends.",
+    "elevator_pitch": "Bikini Blini Bakery serves gourmet beach dogs and bubble blends.",
+    "vibe": null,
+    "best_for": [],
+    "established": null,
+    "reservations": null,
+    "insider_tip": null
+  },
+  "tags": [
+    "bakery",
+    "casual"
+  ],
+  "features": [],
+  "price_range": null,
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "http://bikiniblini.com"
+  },
+  "specials": [],
+  "events": [
+    {
+      "name": "New Items Coming Soon",
+      "description": "New items coming to the menu",
+      "recurring": false,
+      "day": null,
+      "time": null
+    }
+  ],
+  "menu": {
+    "categories": [
+      {
+        "name": "Gourmet Beach Dogs",
+        "type": "lunch",
+        "items": []
+      },
+      {
+        "name": "Bubble Blends",
+        "type": "drinks",
+        "items": []
+      }
+    ]
+  },
+  "url": "http://bikiniblini.com/",
+  "scraped_at": "2026-03-22T02:35:05.711Z",
+  "extracted_at": "2026-03-23T03:31:38.660Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [],
+  "sources": [
+    "http://bikiniblini.com"
+  ]
+}

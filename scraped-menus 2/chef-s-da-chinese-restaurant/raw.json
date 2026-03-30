@@ -1,0 +1,814 @@
+{
+  "business_name": "Chef's Da Chinese Restaurant",
+  "url": "https://www.chefsda.com/",
+  "scraped_at": "2026-03-21T14:27:14.591Z",
+  "pages": [
+    {
+      "url": "https://www.chefsda.com",
+      "title": "Order Authentic Chinese Online | Chef's Da - Pickup Available",
+      "text": "Skip to main contentChef's DaOrder OnlineA popular destination for local ChineseOne-stop-shop to satisfy those Chinese cuisine cravings. Chef's Da is now online and ready to serve you.Order OnlineView MenuAbout UsDiscover Chef's Da in Fort Morgan, CO, where Asian Fusion meets tradition! Dive into a diverse menu featuring Chinese favorites like Sesame Chicken and General Tso's Chicken, alongside Thai delicacies and fresh Seafood. Enjoy the bold flavors of our Noodles and soothing Soups. Perfect for lunch specials or a satisfying dinner. Embrace the fusion—place your online order now!LocationChef's DaCLOSED NOW• Closes at 09:30 pm209 Main St, Fort Morgan, CO 807019708674000Hours of Operation (Takeout)MondayClosedTuesday - Thursday11:00 am - 09:00 pmFriday - Saturday11:00 am - 09:30 pmSunday11:00 am - 09:00 pmOrder OnlineView MenuChef's DaMenuTerms and ConditionsPrivacy PolicyCookies PolicyAccessibilityOrder Onlineword word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word wordmmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Restaurant",
+              "@id": "https://www.chefsda.com",
+              "name": "Chef's Da",
+              "alternateName": "Chef's Da",
+              "logo": "https://ik.imagekit.io/awwybhhmo/satellite_images/custom/www_chefsda_com/logos/favicon_dbc.png",
+              "description": "Enjoy the best authentic and delicious chinese at Chef's Da. View our hours, explore our menu, and order online for convenient pickup or delivery near you!",
+              "priceRange": "$$",
+              "servesCuisine": [
+                "Chinese"
+              ],
+              "url": "https://www.chefsda.com",
+              "hasMenu": "https://www.chefsda.com/menu",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "209 Main St",
+                "addressLocality": "Fort Morgan",
+                "addressRegion": "CO",
+                "postalCode": "80701",
+                "addressCountry": "US"
+              }
+            },
+            {
+              "@type": "Restaurant",
+              "name": "Chef's Da",
+              "priceRange": "$$",
+              "servesCuisine": "Chinese",
+              "openingHoursSpecification": {
+                "@type": "OpeningHoursSpecification",
+                "openingHours": [
+                  "Su,Tu,We,Th 11:00-21:00",
+                  "Fr,Sa 11:00-21:30"
+                ]
+              },
+              "hasMenu": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online#menu-section",
+              "acceptsReservations": "No",
+              "description": "Enjoy the best authentic and delicious chinese at Chef's Da in Fort Morgan. View our hours, explore our menu, and order online for convenient pickup or delivery near you!",
+              "url": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online",
+              "@id": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "209 Main St",
+                "addressLocality": "Fort Morgan",
+                "addressRegion": "CO",
+                "postalCode": "80701",
+                "addressCountry": "US"
+              },
+              "telephone": "(970) 867-4000",
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "40.2488316",
+                "longitude": "-103.8017932"
+              },
+              "potentialAction": {
+                "@type": "OrderAction",
+                "target": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online",
+                "actionStatus": "PotentialActionStatus"
+              },
+              "parentOrganization": {
+                "@id": "https://www.chefsda.com"
+              }
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1, maximum-scale=5",
+        "description": "Experience the best authentic and delicious Chinese at Chef's Da. View our hours, explore our menu, and order online for convenient pickup near you!",
+        "og:title": "Order Authentic Chinese Online | Chef's Da - Pickup Available",
+        "og:description": "Experience the best authentic and delicious Chinese at Chef's Da. View our hours, explore our menu, and order online for convenient pickup near you!",
+        "og:image:type": "image/png",
+        "og:image": "https://www.chefsda.com/8k6zl32e/opengraph-image-959cal/og-image?0b56cf29834ff804",
+        "og:image:width": "1200",
+        "og:image:height": "600",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Order Authentic Chinese Online | Chef's Da - Pickup Available",
+        "twitter:description": "Experience the best authentic and delicious Chinese at Chef's Da. View our hours, explore our menu, and order online for convenient pickup near you!",
+        "twitter:image:type": "image/png",
+        "twitter:image": "https://www.chefsda.com/8k6zl32e/opengraph-image-959cal/og-image?0b56cf29834ff804",
+        "twitter:image:width": "1200",
+        "twitter:image:height": "600"
+      }
+    },
+    {
+      "url": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online",
+      "title": "Best Chinese in Fort Morgan, CO | Chef's Da | Order Online",
+      "text": "Skip to main content0MenuMenu availability may vary based on the time of your order.All Day MenuAppetizersMu ShuSoup / SideFried RiceChow MeinLo MeinChickenPorkVegetablesEgg Foo YoungPan-Fried NoodleBeefSeafoodChop SueyChef's SpecialFamily DinnerDrinksLunch Menu11:00 AM - 3:00 PMMenusAll Day MenuLunch MenuAppetizersMu ShuSoup / SideFried RiceChow MeinLo MeinChickenPorkVegetablesEgg Foo YoungPan-Fried NoodleBeefSeafoodChop SueyChef's SpecialFamily DinnerDrinksAppetizers🤩PopularChinese Donut(6)Crispy fried dough pastry coated in sweet sugar, typically served as a side or dessert.$5.00🤩PopularSpring Egg Roll$4.50🤩PopularCrab Cheese Wontons$4.95🤩PopularPan Fried Pot Sticker(6)$9.75Fried ShrimpCrispy fried shrimp served.$5.25Deep-Fried Squid$10.75Teriyaki Chicken Skewer(4)$10.25Beef Skewer(4)$10.25Fried Chicken Wings(6)Crispy fried chicken wings, served hot and ready to enjoy.$10.75Pu Pu Platter (for 2)Egg roll, crab cheese wonton, potsticker, fried shrimp, beef skewer & chicken wings.$18.95Mu Shuserved with 4 pancakesMu Shu Tofu$14.95Mu Shu Vegetables$14.95Mu Shu Chicken$14.95Mu Shu Pork$14.95Mu Shu Beef$14.95Mu Shu Shrimp$15.95Mu Shu TripleShrimp, Chicken and Beef)$16.75Soup / SideFried RiceChow MeinLo MeinChickenPorkVegetablesEgg Foo YoungPan-Fried NoodleBeefSeafoodChop SueyChef's SpecialChoice of Chicken or Beef or Pork or Vegetable or Tofu / Shrimp or Combination add $1.00. Served with Steamed Rice. Noodles Served with out Rice.Family DinnerDrinksChef's DaStore InformationClosedSee More209 Main St, Fort Morgan, CO 80701(970) 867-4000Order MethodPickupAbout 15 minDeliveryDoesn't offer deliveryPickupToday, ASAPScheduleSpecials & CouponsFREEFree Egg RollWith purchase of $50 or more.$50.00Needed$50.00NeededFREEFree Chinese Donut(5)With purchase of $60 or more.$60.00Needed$60.00NeededStart New OrderChef's Da209 Main St, Fort Morgan, CO 80701(970) 867-4000MenuTerms and ConditionsPrivacy PolicyCookies PolicyAccessibilityword word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word wordmmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Restaurant",
+          "name": "Chef's Da",
+          "priceRange": "$$",
+          "servesCuisine": "Chinese",
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "openingHours": [
+              "Su,Tu,We,Th 11:00-21:00",
+              "Fr,Sa 11:00-21:30"
+            ]
+          },
+          "hasMenu": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online#menu-section",
+          "acceptsReservations": "No",
+          "description": "Enjoy the best authentic and delicious chinese at Chef's Da in Fort Morgan. View our hours, explore our menu, and order online for convenient pickup or delivery near you!",
+          "url": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online",
+          "@id": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "209 Main St",
+            "addressLocality": "Fort Morgan",
+            "addressRegion": "CO",
+            "postalCode": "80701",
+            "addressCountry": "US"
+          },
+          "telephone": "(970) 867-4000",
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "40.2488316",
+            "longitude": "-103.8017932"
+          },
+          "potentialAction": {
+            "@type": "OrderAction",
+            "target": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online",
+            "actionStatus": "PotentialActionStatus"
+          },
+          "parentOrganization": {
+            "@id": "https://www.chefsda.com"
+          }
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1, maximum-scale=5",
+        "description": "Enjoy the best authentic and delicious Chinese at Chef's Da in Fort Morgan. View our hours, explore our menu, and order online for convenient pickup near you!",
+        "og:title": "Best Chinese in Fort Morgan, CO | Chef's Da | Order Online",
+        "og:description": "Enjoy the best authentic and delicious Chinese at Chef's Da in Fort Morgan. View our hours, explore our menu, and order online for convenient pickup near you!",
+        "og:image:type": "image/png",
+        "og:image": "https://www.chefsda.com/0ouy5tla/opengraph-image-co490f/og-image?76459acebae51a80",
+        "og:image:width": "1200",
+        "og:image:height": "600",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Best Chinese in Fort Morgan, CO | Chef's Da | Order Online",
+        "twitter:description": "Enjoy the best authentic and delicious Chinese at Chef's Da in Fort Morgan. View our hours, explore our menu, and order online for convenient pickup near you!",
+        "twitter:image:type": "image/png",
+        "twitter:image": "https://www.chefsda.com/0ouy5tla/opengraph-image-co490f/og-image?76459acebae51a80",
+        "twitter:image:width": "1200",
+        "twitter:image:height": "600"
+      }
+    },
+    {
+      "url": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/menu",
+      "title": "Best Chinese in Fort Morgan, CO | Chef's Da | Menu",
+      "text": "Skip to main contentChef's DaTo start your order, press the Order Online button below 👇Viewing Online MenuSome interactions may be disabled.Order OnlineStore InformationClosed209 Main St, Fort Morgan, CO 80701(970) 867-4000Specials & CouponsFREEFree Egg RollWith purchase of $50 or more.$50.00Needed$50.00NeededFREEFree Chinese Donut(5)With purchase of $60 or more.$60.00Needed$60.00NeededMenuMenu availability may vary based on the time of your order.All Day MenuAppetizersMu ShuSoup / SideFried RiceChow MeinLo MeinChickenPorkVegetablesEgg Foo YoungPan-Fried NoodleBeefSeafoodChop SueyChef's SpecialFamily DinnerDrinksLunch Menu11:00 AM - 3:00 PMMenusAll Day MenuLunch MenuAppetizersMu ShuSoup / SideFried RiceChow MeinLo MeinChickenPorkVegetablesEgg Foo YoungPan-Fried NoodleBeefSeafoodChop SueyChef's SpecialFamily DinnerDrinksAppetizers🤩PopularChinese Donut(6)Crispy fried dough pastry coated in sweet sugar, typically served as a side or dessert.$5.00🤩PopularSpring Egg Roll$4.50🤩PopularCrab Cheese Wontons$4.95🤩PopularPan Fried Pot Sticker(6)$9.75Fried ShrimpCrispy fried shrimp served.$5.25Deep-Fried Squid$10.75Teriyaki Chicken Skewer(4)$10.25Beef Skewer(4)$10.25Fried Chicken Wings(6)Crispy fried chicken wings, served hot and ready to enjoy.$10.75Pu Pu Platter (for 2)Egg roll, crab cheese wonton, potsticker, fried shrimp, beef skewer & chicken wings.$18.95Mu Shuserved with 4 pancakesMu Shu Tofu$14.95Mu Shu Vegetables$14.95Mu Shu Chicken$14.95Mu Shu Pork$14.95Mu Shu Beef$14.95Mu Shu Shrimp$15.95Mu Shu TripleShrimp, Chicken and Beef)$16.75Soup / SideFried RiceChow MeinLo MeinChickenPorkVegetablesEgg Foo YoungPan-Fried NoodleBeefSeafoodChop SueyChef's SpecialChoice of Chicken or Beef or Pork or Vegetable or Tofu / Shrimp or Combination add $1.00. Served with Steamed Rice. Noodles Served with out Rice.Family DinnerDrinksChef's Da209 Main St, Fort Morgan, CO 80701(970) 867-4000MenuTerms and ConditionsPrivacy PolicyCookies PolicyAccessibilityOrder Onlineword word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word wordmmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Restaurant",
+          "name": "Chef's Da",
+          "priceRange": "$$",
+          "servesCuisine": "Chinese",
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "openingHours": [
+              "Su,Tu,We,Th 11:00-21:00",
+              "Fr,Sa 11:00-21:30"
+            ]
+          },
+          "hasMenu": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online#menu-section",
+          "acceptsReservations": "No",
+          "description": "Enjoy the best authentic and delicious chinese at Chef's Da in Fort Morgan. View our hours, explore our menu, and order online for convenient pickup or delivery near you!",
+          "url": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online",
+          "@id": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "209 Main St",
+            "addressLocality": "Fort Morgan",
+            "addressRegion": "CO",
+            "postalCode": "80701",
+            "addressCountry": "US"
+          },
+          "telephone": "(970) 867-4000",
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "40.2488316",
+            "longitude": "-103.8017932"
+          },
+          "potentialAction": {
+            "@type": "OrderAction",
+            "target": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online",
+            "actionStatus": "PotentialActionStatus"
+          },
+          "parentOrganization": {
+            "@id": "https://www.chefsda.com"
+          }
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1, maximum-scale=5",
+        "description": "Enjoy the best authentic and delicious Chinese at Chef's Da in Fort Morgan. View our hours, explore our menu, and order online for convenient pickup near you!",
+        "og:title": "Best Chinese in Fort Morgan, CO | Chef's Da | Menu",
+        "og:description": "Enjoy the best authentic and delicious Chinese at Chef's Da in Fort Morgan. View our hours, explore our menu, and order online for convenient pickup near you!",
+        "og:image:type": "image/png",
+        "og:image": "https://www.chefsda.com/0ouy5tla/opengraph-image-co490f/og-image?76459acebae51a80",
+        "og:image:width": "1200",
+        "og:image:height": "600",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Best Chinese in Fort Morgan, CO | Chef's Da | Menu",
+        "twitter:description": "Enjoy the best authentic and delicious Chinese at Chef's Da in Fort Morgan. View our hours, explore our menu, and order online for convenient pickup near you!",
+        "twitter:image:type": "image/png",
+        "twitter:image": "https://www.chefsda.com/0ouy5tla/opengraph-image-co490f/og-image?76459acebae51a80",
+        "twitter:image:width": "1200",
+        "twitter:image:height": "600"
+      }
+    },
+    {
+      "url": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/menu?menu=Lunch+Menu",
+      "title": "Best Chinese in Fort Morgan, CO | Chef's Da | Menu",
+      "text": "Skip to main contentChef's DaTo start your order, press the Order Online button below 👇Viewing Online MenuSome interactions may be disabled.Order OnlineStore InformationClosed209 Main St, Fort Morgan, CO 80701(970) 867-4000Specials & CouponsFREEFree Egg RollWith purchase of $50 or more.$50.00Needed$50.00NeededFREEFree Chinese Donut(5)With purchase of $60 or more.$60.00Needed$60.00NeededMenuMenu availability may vary based on the time of your order.All Day MenuLunch Menu11:00 AM - 3:00 PMLunch SpecialMenusAll Day MenuLunch MenuLunch SpecialLunch SpecialServed from 11:00am - 3:00pm. With Egg Roll, Crab Cheese Wonton, Fried Rice & Fortune Cookie.Available: All week daysFrom: 11:00 AM - 3:00 PMMixed Vegetable Delight Lunch$12.25Moo Goo Gai Pan LunchTender chicken, mushrooms, and vegetables in a rich, velvety sauce.$12.25Chicken Vegetables LunchTender chicken and fresh vegetables stir-fried to perfection.$12.25Curry Chicken LunchTender chicken in a rich and aromatic curry sauce, served with steamed rice.$12.25Mongolian Chicken LunchStir-fried chicken, vegetables, and noodles in a sweet and spicy sauce, served hot.$12.25Chicken with Broccoli LunchTender chicken and steamed broccoli in a flavorful sauce.$12.25Szechuan Pork LunchTender pork stir-fried with Szechuan spices, served with steamed vegetables.$12.25Szechuan Chicken LunchCrispy chicken tossed in a spicy Szechuan sauce, served with steamed vegetables.$12.25Chicken with Hot Garlic Sauce Lunch$12.25Pork with Hot Garlic Sauce Lunch$12.25Sweet & Sour Tofu Lunch$12.25Sesame Tofu LunchCrispy fried tofu tossed in a sweet and nutty sesame sauce$12.25Almond Chicken LunchTender chicken breast, lightly breaded and fried.$12.25Cashew Nut Chicken Lunch$12.25Chicken with Mushrooms LunchTender chicken and sautéed mushrooms in a rich, flavorful sauce, served hot and satisfying.$12.25Pineapple Chicken LunchTender chicken, sweet pineapple, and a hint of spice come together in a harmonious balance of flavors.$12.25General Chicken Lunch$12.25Jalapeno Chicken Lunch$12.25Chicken with Black Bean Sauce LunchTender chicken in a rich black bean sauce.$12.25Kung Pao Chicken LunchCrispy chicken, peanuts, and vegetables in a spicy sauce.$12.25Chicken with Snow Peas LunchTender chicken stir-fried with crisp snow peas in a light, flavorful sauce.$12.25Pork with Snow Peas Lunch$12.25Lemon Chicken Lunch$12.25Sesame Chicken LunchCrispy fried chicken tossed in a sweet and spicy sesame sauce$12.25Vegetable Chow Mein LunchStir-fried noodles, mixed vegetables, served in a light sauce.$12.25Chicken Chow Mein LunchStir-fried noodles, chicken, and vegetables, served in a light sauce.$12.25Pepper Steak Lunch$12.75Mongolian Beef LunchTender beef strips stir-fried with vegetables in a sweet and spicy sauce.$12.75Beef with Snow Peas LunchTender beef strips stir-fried with crisp snow peas in a light, flavorful sauce.$12.75Broccoli with Beef LunchTender beef strips stir-fried with crisp broccoli in a flavorful sauce, served hot.$12.75Pineapple Beef Lunch$12.75Tomato Beef Lunch$12.75Jalapeno Beef Lunch$12.75Beef with Hot Garlic Sauce Lunch$12.75Beef with Mushrooms LunchTender beef and sautéed mushrooms in a rich, flavorful sauce, served hot and satisfying.$12.75Kung Pao Beef LunchStir-fried beef, peanuts, and vegetables in a spicy sauce, served with steamed rice.$12.75Szechuan Beef LunchTender beef stir-fried with Szechuan spices.$12.75Hunan Beef LunchStir-fried beef in a spicy Hunan sauce.$12.75Almond Shrimp Lunch$12.75Cashew Nut Shrimp Lunch$12.75Kung Pao Shrimp LunchStir-fried shrimp, peanuts, and vegetables in a spicy sauce.$12.75Sweet & Sour Pork LunchTender pork pieces coated in a tangy sweet and sour sauce.$12.75Sweet & Sour Chicken LunchCrispy fried chicken tossed in a tangy sweet and sour sauce$12.75Sweet & Sour Shrimp LunchCrispy shrimp tossed in a tangy sweet and sour sauce.$12.75Shrimp with Vegetables LunchShrimp and mixed vegetables stir-fried to perfection.$12.75Shrimp with Snow Peas LunchStir-fried shrimp and snow peas in a light, flavorful sauce.$12.75Shrimp with Lobster Sauce LunchTender shrimp tossed in a rich lobster sauce.$12.75Szechuan Shrimp LunchStir-fried shrimp in a spicy Szechuan sauce.$12.75Hunan Shrimp LunchStir-fried shrimp in a spicy Hunan sauce.$12.75Beef Lo Mein LunchTender beef, stir-fried with vegetables and served over lo mein noodles.$12.75Shrimp Lo Mein LunchStir-fried shrimp, vegetables, and noodles in a light sauce.$12.75Combination Lo Mein LunchStir-fried noodles, vegetables, served in a flavorful sauce.$12.75Chef's Da209 Main St, Fort Morgan, CO 80701(970) 867-4000MenuTerms and ConditionsPrivacy PolicyCookies PolicyAccessibilityOrder Onlineword word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word wordmmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Restaurant",
+          "name": "Chef's Da",
+          "priceRange": "$$",
+          "servesCuisine": "Chinese",
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "openingHours": [
+              "Su,Tu,We,Th 11:00-21:00",
+              "Fr,Sa 11:00-21:30"
+            ]
+          },
+          "hasMenu": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online#menu-section",
+          "acceptsReservations": "No",
+          "description": "Enjoy the best authentic and delicious chinese at Chef's Da in Fort Morgan. View our hours, explore our menu, and order online for convenient pickup or delivery near you!",
+          "url": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online",
+          "@id": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "209 Main St",
+            "addressLocality": "Fort Morgan",
+            "addressRegion": "CO",
+            "postalCode": "80701",
+            "addressCountry": "US"
+          },
+          "telephone": "(970) 867-4000",
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "40.2488316",
+            "longitude": "-103.8017932"
+          },
+          "potentialAction": {
+            "@type": "OrderAction",
+            "target": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online",
+            "actionStatus": "PotentialActionStatus"
+          },
+          "parentOrganization": {
+            "@id": "https://www.chefsda.com"
+          }
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1, maximum-scale=5",
+        "description": "Enjoy the best authentic and delicious Chinese at Chef's Da in Fort Morgan. View our hours, explore our menu, and order online for convenient pickup near you!",
+        "og:title": "Best Chinese in Fort Morgan, CO | Chef's Da | Menu",
+        "og:description": "Enjoy the best authentic and delicious Chinese at Chef's Da in Fort Morgan. View our hours, explore our menu, and order online for convenient pickup near you!",
+        "og:image:type": "image/png",
+        "og:image": "https://www.chefsda.com/0ouy5tla/opengraph-image-co490f/og-image?76459acebae51a80",
+        "og:image:width": "1200",
+        "og:image:height": "600",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Best Chinese in Fort Morgan, CO | Chef's Da | Menu",
+        "twitter:description": "Enjoy the best authentic and delicious Chinese at Chef's Da in Fort Morgan. View our hours, explore our menu, and order online for convenient pickup near you!",
+        "twitter:image:type": "image/png",
+        "twitter:image": "https://www.chefsda.com/0ouy5tla/opengraph-image-co490f/og-image?76459acebae51a80",
+        "twitter:image:width": "1200",
+        "twitter:image:height": "600"
+      }
+    },
+    {
+      "url": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/menu?menu=Lunch+Menu&category=Lunch+Special",
+      "title": "Best Chinese in Fort Morgan, CO | Chef's Da | Menu",
+      "text": "Skip to main contentChef's DaTo start your order, press the Order Online button below 👇Viewing Online MenuSome interactions may be disabled.Order OnlineStore InformationClosed209 Main St, Fort Morgan, CO 80701(970) 867-4000Specials & CouponsFREEFree Egg RollWith purchase of $50 or more.$50.00Needed$50.00NeededFREEFree Chinese Donut(5)With purchase of $60 or more.$60.00Needed$60.00NeededMenuMenu availability may vary based on the time of your order.All Day MenuLunch Menu11:00 AM - 3:00 PMLunch SpecialMenusAll Day MenuLunch MenuLunch SpecialLunch SpecialServed from 11:00am - 3:00pm. With Egg Roll, Crab Cheese Wonton, Fried Rice & Fortune Cookie.Available: All week daysFrom: 11:00 AM - 3:00 PMMixed Vegetable Delight Lunch$12.25Moo Goo Gai Pan LunchTender chicken, mushrooms, and vegetables in a rich, velvety sauce.$12.25Chicken Vegetables LunchTender chicken and fresh vegetables stir-fried to perfection.$12.25Curry Chicken LunchTender chicken in a rich and aromatic curry sauce, served with steamed rice.$12.25Mongolian Chicken LunchStir-fried chicken, vegetables, and noodles in a sweet and spicy sauce, served hot.$12.25Chicken with Broccoli LunchTender chicken and steamed broccoli in a flavorful sauce.$12.25Szechuan Pork LunchTender pork stir-fried with Szechuan spices, served with steamed vegetables.$12.25Szechuan Chicken LunchCrispy chicken tossed in a spicy Szechuan sauce, served with steamed vegetables.$12.25Chicken with Hot Garlic Sauce Lunch$12.25Pork with Hot Garlic Sauce Lunch$12.25Sweet & Sour Tofu Lunch$12.25Sesame Tofu LunchCrispy fried tofu tossed in a sweet and nutty sesame sauce$12.25Almond Chicken LunchTender chicken breast, lightly breaded and fried.$12.25Cashew Nut Chicken Lunch$12.25Chicken with Mushrooms LunchTender chicken and sautéed mushrooms in a rich, flavorful sauce, served hot and satisfying.$12.25Pineapple Chicken LunchTender chicken, sweet pineapple, and a hint of spice come together in a harmonious balance of flavors.$12.25General Chicken Lunch$12.25Jalapeno Chicken Lunch$12.25Chicken with Black Bean Sauce LunchTender chicken in a rich black bean sauce.$12.25Kung Pao Chicken LunchCrispy chicken, peanuts, and vegetables in a spicy sauce.$12.25Chicken with Snow Peas LunchTender chicken stir-fried with crisp snow peas in a light, flavorful sauce.$12.25Pork with Snow Peas Lunch$12.25Lemon Chicken Lunch$12.25Sesame Chicken LunchCrispy fried chicken tossed in a sweet and spicy sesame sauce$12.25Vegetable Chow Mein LunchStir-fried noodles, mixed vegetables, served in a light sauce.$12.25Chicken Chow Mein LunchStir-fried noodles, chicken, and vegetables, served in a light sauce.$12.25Pepper Steak Lunch$12.75Mongolian Beef LunchTender beef strips stir-fried with vegetables in a sweet and spicy sauce.$12.75Beef with Snow Peas LunchTender beef strips stir-fried with crisp snow peas in a light, flavorful sauce.$12.75Broccoli with Beef LunchTender beef strips stir-fried with crisp broccoli in a flavorful sauce, served hot.$12.75Pineapple Beef Lunch$12.75Tomato Beef Lunch$12.75Jalapeno Beef Lunch$12.75Beef with Hot Garlic Sauce Lunch$12.75Beef with Mushrooms LunchTender beef and sautéed mushrooms in a rich, flavorful sauce, served hot and satisfying.$12.75Kung Pao Beef LunchStir-fried beef, peanuts, and vegetables in a spicy sauce, served with steamed rice.$12.75Szechuan Beef LunchTender beef stir-fried with Szechuan spices.$12.75Hunan Beef LunchStir-fried beef in a spicy Hunan sauce.$12.75Almond Shrimp Lunch$12.75Cashew Nut Shrimp Lunch$12.75Kung Pao Shrimp LunchStir-fried shrimp, peanuts, and vegetables in a spicy sauce.$12.75Sweet & Sour Pork LunchTender pork pieces coated in a tangy sweet and sour sauce.$12.75Sweet & Sour Chicken LunchCrispy fried chicken tossed in a tangy sweet and sour sauce$12.75Sweet & Sour Shrimp LunchCrispy shrimp tossed in a tangy sweet and sour sauce.$12.75Shrimp with Vegetables LunchShrimp and mixed vegetables stir-fried to perfection.$12.75Shrimp with Snow Peas LunchStir-fried shrimp and snow peas in a light, flavorful sauce.$12.75Shrimp with Lobster Sauce LunchTender shrimp tossed in a rich lobster sauce.$12.75Szechuan Shrimp LunchStir-fried shrimp in a spicy Szechuan sauce.$12.75Hunan Shrimp LunchStir-fried shrimp in a spicy Hunan sauce.$12.75Beef Lo Mein LunchTender beef, stir-fried with vegetables and served over lo mein noodles.$12.75Shrimp Lo Mein LunchStir-fried shrimp, vegetables, and noodles in a light sauce.$12.75Combination Lo Mein LunchStir-fried noodles, vegetables, served in a flavorful sauce.$12.75Chef's Da209 Main St, Fort Morgan, CO 80701(970) 867-4000MenuTerms and ConditionsPrivacy PolicyCookies PolicyAccessibilityOrder Onlineword word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word wordmmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Restaurant",
+          "name": "Chef's Da",
+          "priceRange": "$$",
+          "servesCuisine": "Chinese",
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "openingHours": [
+              "Su,Tu,We,Th 11:00-21:00",
+              "Fr,Sa 11:00-21:30"
+            ]
+          },
+          "hasMenu": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online#menu-section",
+          "acceptsReservations": "No",
+          "description": "Enjoy the best authentic and delicious chinese at Chef's Da in Fort Morgan. View our hours, explore our menu, and order online for convenient pickup or delivery near you!",
+          "url": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online",
+          "@id": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "209 Main St",
+            "addressLocality": "Fort Morgan",
+            "addressRegion": "CO",
+            "postalCode": "80701",
+            "addressCountry": "US"
+          },
+          "telephone": "(970) 867-4000",
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "40.2488316",
+            "longitude": "-103.8017932"
+          },
+          "potentialAction": {
+            "@type": "OrderAction",
+            "target": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online",
+            "actionStatus": "PotentialActionStatus"
+          },
+          "parentOrganization": {
+            "@id": "https://www.chefsda.com"
+          }
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1, maximum-scale=5",
+        "description": "Enjoy the best authentic and delicious Chinese at Chef's Da in Fort Morgan. View our hours, explore our menu, and order online for convenient pickup near you!",
+        "og:title": "Best Chinese in Fort Morgan, CO | Chef's Da | Menu",
+        "og:description": "Enjoy the best authentic and delicious Chinese at Chef's Da in Fort Morgan. View our hours, explore our menu, and order online for convenient pickup near you!",
+        "og:image:type": "image/png",
+        "og:image": "https://www.chefsda.com/0ouy5tla/opengraph-image-co490f/og-image?76459acebae51a80",
+        "og:image:width": "1200",
+        "og:image:height": "600",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Best Chinese in Fort Morgan, CO | Chef's Da | Menu",
+        "twitter:description": "Enjoy the best authentic and delicious Chinese at Chef's Da in Fort Morgan. View our hours, explore our menu, and order online for convenient pickup near you!",
+        "twitter:image:type": "image/png",
+        "twitter:image": "https://www.chefsda.com/0ouy5tla/opengraph-image-co490f/og-image?76459acebae51a80",
+        "twitter:image:width": "1200",
+        "twitter:image:height": "600"
+      }
+    },
+    {
+      "url": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/menu?menu=All+Day+Menu",
+      "title": "Best Chinese in Fort Morgan, CO | Chef's Da | Menu",
+      "text": "Skip to main contentChef's DaTo start your order, press the Order Online button below 👇Viewing Online MenuSome interactions may be disabled.Order OnlineStore InformationClosed209 Main St, Fort Morgan, CO 80701(970) 867-4000Specials & CouponsFREEFree Egg RollWith purchase of $50 or more.$50.00Needed$50.00NeededFREEFree Chinese Donut(5)With purchase of $60 or more.$60.00Needed$60.00NeededMenuMenu availability may vary based on the time of your order.All Day MenuAppetizersMu ShuSoup / SideFried RiceChow MeinLo MeinChickenPorkVegetablesEgg Foo YoungPan-Fried NoodleBeefSeafoodChop SueyChef's SpecialFamily DinnerDrinksLunch Menu11:00 AM - 3:00 PMMenusAll Day MenuLunch MenuAppetizersMu ShuSoup / SideFried RiceChow MeinLo MeinChickenPorkVegetablesEgg Foo YoungPan-Fried NoodleBeefSeafoodChop SueyChef's SpecialFamily DinnerDrinksAppetizers🤩PopularChinese Donut(6)Crispy fried dough pastry coated in sweet sugar, typically served as a side or dessert.$5.00🤩PopularSpring Egg Roll$4.50🤩PopularCrab Cheese Wontons$4.95🤩PopularPan Fried Pot Sticker(6)$9.75Fried ShrimpCrispy fried shrimp served.$5.25Deep-Fried Squid$10.75Teriyaki Chicken Skewer(4)$10.25Beef Skewer(4)$10.25Fried Chicken Wings(6)Crispy fried chicken wings, served hot and ready to enjoy.$10.75Pu Pu Platter (for 2)Egg roll, crab cheese wonton, potsticker, fried shrimp, beef skewer & chicken wings.$18.95Mu Shuserved with 4 pancakesMu Shu Tofu$14.95Mu Shu Vegetables$14.95Mu Shu Chicken$14.95Mu Shu Pork$14.95Mu Shu Beef$14.95Mu Shu Shrimp$15.95Mu Shu TripleShrimp, Chicken and Beef)$16.75Soup / SideFried RiceChow MeinLo MeinChickenPorkVegetablesEgg Foo YoungPan-Fried NoodleBeefSeafoodChop SueyChef's SpecialChoice of Chicken or Beef or Pork or Vegetable or Tofu / Shrimp or Combination add $1.00. Served with Steamed Rice. Noodles Served with out Rice.Family DinnerDrinksChef's Da209 Main St, Fort Morgan, CO 80701(970) 867-4000MenuTerms and ConditionsPrivacy PolicyCookies PolicyAccessibilityOrder Onlineword word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word wordmmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Restaurant",
+          "name": "Chef's Da",
+          "priceRange": "$$",
+          "servesCuisine": "Chinese",
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "openingHours": [
+              "Su,Tu,We,Th 11:00-21:00",
+              "Fr,Sa 11:00-21:30"
+            ]
+          },
+          "hasMenu": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online#menu-section",
+          "acceptsReservations": "No",
+          "description": "Enjoy the best authentic and delicious chinese at Chef's Da in Fort Morgan. View our hours, explore our menu, and order online for convenient pickup or delivery near you!",
+          "url": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online",
+          "@id": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "209 Main St",
+            "addressLocality": "Fort Morgan",
+            "addressRegion": "CO",
+            "postalCode": "80701",
+            "addressCountry": "US"
+          },
+          "telephone": "(970) 867-4000",
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "40.2488316",
+            "longitude": "-103.8017932"
+          },
+          "potentialAction": {
+            "@type": "OrderAction",
+            "target": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online",
+            "actionStatus": "PotentialActionStatus"
+          },
+          "parentOrganization": {
+            "@id": "https://www.chefsda.com"
+          }
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1, maximum-scale=5",
+        "description": "Enjoy the best authentic and delicious Chinese at Chef's Da in Fort Morgan. View our hours, explore our menu, and order online for convenient pickup near you!",
+        "og:title": "Best Chinese in Fort Morgan, CO | Chef's Da | Menu",
+        "og:description": "Enjoy the best authentic and delicious Chinese at Chef's Da in Fort Morgan. View our hours, explore our menu, and order online for convenient pickup near you!",
+        "og:image:type": "image/png",
+        "og:image": "https://www.chefsda.com/0ouy5tla/opengraph-image-co490f/og-image?76459acebae51a80",
+        "og:image:width": "1200",
+        "og:image:height": "600",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Best Chinese in Fort Morgan, CO | Chef's Da | Menu",
+        "twitter:description": "Enjoy the best authentic and delicious Chinese at Chef's Da in Fort Morgan. View our hours, explore our menu, and order online for convenient pickup near you!",
+        "twitter:image:type": "image/png",
+        "twitter:image": "https://www.chefsda.com/0ouy5tla/opengraph-image-co490f/og-image?76459acebae51a80",
+        "twitter:image:width": "1200",
+        "twitter:image:height": "600"
+      }
+    },
+    {
+      "url": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/menu?menu=All+Day+Menu&category=Drinks",
+      "title": "Best Chinese in Fort Morgan, CO | Chef's Da | Menu",
+      "text": "Skip to main contentChef's DaTo start your order, press the Order Online button below 👇Viewing Online MenuSome interactions may be disabled.Order OnlineStore InformationClosed209 Main St, Fort Morgan, CO 80701(970) 867-4000Specials & CouponsFREEFree Egg RollWith purchase of $50 or more.$50.00Needed$50.00NeededFREEFree Chinese Donut(5)With purchase of $60 or more.$60.00Needed$60.00NeededMenuMenu availability may vary based on the time of your order.All Day MenuAppetizersMu ShuSoup / SideFried RiceChow MeinLo MeinChickenPorkVegetablesEgg Foo YoungPan-Fried NoodleBeefSeafoodChop SueyChef's SpecialFamily DinnerDrinksLunch Menu11:00 AM - 3:00 PMMenusAll Day MenuLunch MenuAppetizersMu ShuSoup / SideFried RiceChow MeinLo MeinChickenPorkVegetablesEgg Foo YoungPan-Fried NoodleBeefSeafoodChop SueyChef's SpecialFamily DinnerDrinksAppetizersMu Shuserved with 4 pancakesSoup / SideFried RiceChow MeinLo MeinChickenPorkVegetablesEgg Foo YoungPan-Fried NoodleBeefSeafoodChop SueyChef's SpecialChoice of Chicken or Beef or Pork or Vegetable or Tofu / Shrimp or Combination add $1.00. Served with Steamed Rice. Noodles Served with out Rice.Family Dinner🤩PopularFamily Dinner AAppetizer: (1) Egg Roll, (2) Cheese Wonton. Soup: Egg Drop Soup or Hot & Sour Soup. Entrees: Select(1) per person. Shrimp or Combination add $1.00. Served with Steamed Rice or Fried Rice. Noodles are served without rice.$18.95Family Dinner BAppetizers: (1) Egg Roll, (2) Cheese Wonton, (1) Chicken Wing & (1) Beef Skewer. Soup: Egg Drop Soup, Hot & Sour Soup. Entrees: Select(1) per person. Shrimp or Combination add $1.00. Served with Steamed Rice or Fried Rice. Noodles are served without rice.$21.95DrinksSprite$2.75Mtn Dew$2.75Pepsi$2.75Lemonade$2.75Dr Pepper$2.75Ice Tea$2.75Hot Tea$2.75Thai Ice Tea$4.00Chef's Da209 Main St, Fort Morgan, CO 80701(970) 867-4000MenuTerms and ConditionsPrivacy PolicyCookies PolicyAccessibilityOrder Onlineword word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word wordmmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Restaurant",
+          "name": "Chef's Da",
+          "priceRange": "$$",
+          "servesCuisine": "Chinese",
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "openingHours": [
+              "Su,Tu,We,Th 11:00-21:00",
+              "Fr,Sa 11:00-21:30"
+            ]
+          },
+          "hasMenu": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online#menu-section",
+          "acceptsReservations": "No",
+          "description": "Enjoy the best authentic and delicious chinese at Chef's Da in Fort Morgan. View our hours, explore our menu, and order online for convenient pickup or delivery near you!",
+          "url": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online",
+          "@id": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "209 Main St",
+            "addressLocality": "Fort Morgan",
+            "addressRegion": "CO",
+            "postalCode": "80701",
+            "addressCountry": "US"
+          },
+          "telephone": "(970) 867-4000",
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "40.2488316",
+            "longitude": "-103.8017932"
+          },
+          "potentialAction": {
+            "@type": "OrderAction",
+            "target": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online",
+            "actionStatus": "PotentialActionStatus"
+          },
+          "parentOrganization": {
+            "@id": "https://www.chefsda.com"
+          }
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1, maximum-scale=5",
+        "description": "Enjoy the best authentic and delicious Chinese at Chef's Da in Fort Morgan. View our hours, explore our menu, and order online for convenient pickup near you!",
+        "og:title": "Best Chinese in Fort Morgan, CO | Chef's Da | Menu",
+        "og:description": "Enjoy the best authentic and delicious Chinese at Chef's Da in Fort Morgan. View our hours, explore our menu, and order online for convenient pickup near you!",
+        "og:image:type": "image/png",
+        "og:image": "https://www.chefsda.com/0ouy5tla/opengraph-image-co490f/og-image?76459acebae51a80",
+        "og:image:width": "1200",
+        "og:image:height": "600",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Best Chinese in Fort Morgan, CO | Chef's Da | Menu",
+        "twitter:description": "Enjoy the best authentic and delicious Chinese at Chef's Da in Fort Morgan. View our hours, explore our menu, and order online for convenient pickup near you!",
+        "twitter:image:type": "image/png",
+        "twitter:image": "https://www.chefsda.com/0ouy5tla/opengraph-image-co490f/og-image?76459acebae51a80",
+        "twitter:image:width": "1200",
+        "twitter:image:height": "600"
+      }
+    },
+    {
+      "url": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online?menu=Lunch+Menu",
+      "title": "Best Chinese in Fort Morgan, CO | Chef's Da | Order Online",
+      "text": "Skip to main content0MenuMenu availability may vary based on the time of your order.All Day MenuLunch Menu11:00 AM - 3:00 PMLunch SpecialMenusAll Day MenuLunch MenuLunch SpecialLunch SpecialServed from 11:00am - 3:00pm. With Egg Roll, Crab Cheese Wonton, Fried Rice & Fortune Cookie.Available: All week daysFrom: 11:00 AM - 3:00 PMMixed Vegetable Delight Lunch$12.25Moo Goo Gai Pan LunchTender chicken, mushrooms, and vegetables in a rich, velvety sauce.$12.25Chicken Vegetables LunchTender chicken and fresh vegetables stir-fried to perfection.$12.25Curry Chicken LunchTender chicken in a rich and aromatic curry sauce, served with steamed rice.$12.25Mongolian Chicken LunchStir-fried chicken, vegetables, and noodles in a sweet and spicy sauce, served hot.$12.25Chicken with Broccoli LunchTender chicken and steamed broccoli in a flavorful sauce.$12.25Szechuan Pork LunchTender pork stir-fried with Szechuan spices, served with steamed vegetables.$12.25Szechuan Chicken LunchCrispy chicken tossed in a spicy Szechuan sauce, served with steamed vegetables.$12.25Chicken with Hot Garlic Sauce Lunch$12.25Pork with Hot Garlic Sauce Lunch$12.25Sweet & Sour Tofu Lunch$12.25Sesame Tofu LunchCrispy fried tofu tossed in a sweet and nutty sesame sauce$12.25Almond Chicken LunchTender chicken breast, lightly breaded and fried.$12.25Cashew Nut Chicken Lunch$12.25Chicken with Mushrooms LunchTender chicken and sautéed mushrooms in a rich, flavorful sauce, served hot and satisfying.$12.25Pineapple Chicken LunchTender chicken, sweet pineapple, and a hint of spice come together in a harmonious balance of flavors.$12.25General Chicken Lunch$12.25Jalapeno Chicken Lunch$12.25Chicken with Black Bean Sauce LunchTender chicken in a rich black bean sauce.$12.25Kung Pao Chicken LunchCrispy chicken, peanuts, and vegetables in a spicy sauce.$12.25Chicken with Snow Peas LunchTender chicken stir-fried with crisp snow peas in a light, flavorful sauce.$12.25Pork with Snow Peas Lunch$12.25Lemon Chicken Lunch$12.25Sesame Chicken LunchCrispy fried chicken tossed in a sweet and spicy sesame sauce$12.25Vegetable Chow Mein LunchStir-fried noodles, mixed vegetables, served in a light sauce.$12.25Chicken Chow Mein LunchStir-fried noodles, chicken, and vegetables, served in a light sauce.$12.25Pepper Steak Lunch$12.75Mongolian Beef LunchTender beef strips stir-fried with vegetables in a sweet and spicy sauce.$12.75Beef with Snow Peas LunchTender beef strips stir-fried with crisp snow peas in a light, flavorful sauce.$12.75Broccoli with Beef LunchTender beef strips stir-fried with crisp broccoli in a flavorful sauce, served hot.$12.75Pineapple Beef Lunch$12.75Tomato Beef Lunch$12.75Jalapeno Beef Lunch$12.75Beef with Hot Garlic Sauce Lunch$12.75Beef with Mushrooms LunchTender beef and sautéed mushrooms in a rich, flavorful sauce, served hot and satisfying.$12.75Kung Pao Beef LunchStir-fried beef, peanuts, and vegetables in a spicy sauce, served with steamed rice.$12.75Szechuan Beef LunchTender beef stir-fried with Szechuan spices.$12.75Hunan Beef LunchStir-fried beef in a spicy Hunan sauce.$12.75Almond Shrimp Lunch$12.75Cashew Nut Shrimp Lunch$12.75Kung Pao Shrimp LunchStir-fried shrimp, peanuts, and vegetables in a spicy sauce.$12.75Sweet & Sour Pork LunchTender pork pieces coated in a tangy sweet and sour sauce.$12.75Sweet & Sour Chicken LunchCrispy fried chicken tossed in a tangy sweet and sour sauce$12.75Sweet & Sour Shrimp LunchCrispy shrimp tossed in a tangy sweet and sour sauce.$12.75Shrimp with Vegetables LunchShrimp and mixed vegetables stir-fried to perfection.$12.75Shrimp with Snow Peas LunchStir-fried shrimp and snow peas in a light, flavorful sauce.$12.75Shrimp with Lobster Sauce LunchTender shrimp tossed in a rich lobster sauce.$12.75Szechuan Shrimp LunchStir-fried shrimp in a spicy Szechuan sauce.$12.75Hunan Shrimp LunchStir-fried shrimp in a spicy Hunan sauce.$12.75Beef Lo Mein LunchTender beef, stir-fried with vegetables and served over lo mein noodles.$12.75Shrimp Lo Mein LunchStir-fried shrimp, vegetables, and noodles in a light sauce.$12.75Combination Lo Mein LunchStir-fried noodles, vegetables, served in a flavorful sauce.$12.75Chef's DaStore InformationClosedSee More209 Main St, Fort Morgan, CO 80701(970) 867-4000Order MethodPickupAbout 15 minDeliveryDoesn't offer deliveryPickupToday, ASAPScheduleSpecials & CouponsFREEFree Egg RollWith purchase of $50 or more.$50.00Needed$50.00NeededFREEFree Chinese Donut(5)With purchase of $60 or more.$60.00Needed$60.00NeededStart New OrderChef's Da209 Main St, Fort Morgan, CO 80701(970) 867-4000MenuTerms and ConditionsPrivacy PolicyCookies PolicyAccessibilityword word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word wordmmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Restaurant",
+          "name": "Chef's Da",
+          "priceRange": "$$",
+          "servesCuisine": "Chinese",
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "openingHours": [
+              "Su,Tu,We,Th 11:00-21:00",
+              "Fr,Sa 11:00-21:30"
+            ]
+          },
+          "hasMenu": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online#menu-section",
+          "acceptsReservations": "No",
+          "description": "Enjoy the best authentic and delicious chinese at Chef's Da in Fort Morgan. View our hours, explore our menu, and order online for convenient pickup or delivery near you!",
+          "url": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online",
+          "@id": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "209 Main St",
+            "addressLocality": "Fort Morgan",
+            "addressRegion": "CO",
+            "postalCode": "80701",
+            "addressCountry": "US"
+          },
+          "telephone": "(970) 867-4000",
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "40.2488316",
+            "longitude": "-103.8017932"
+          },
+          "potentialAction": {
+            "@type": "OrderAction",
+            "target": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online",
+            "actionStatus": "PotentialActionStatus"
+          },
+          "parentOrganization": {
+            "@id": "https://www.chefsda.com"
+          }
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1, maximum-scale=5",
+        "description": "Enjoy the best authentic and delicious Chinese at Chef's Da in Fort Morgan. View our hours, explore our menu, and order online for convenient pickup near you!",
+        "og:title": "Best Chinese in Fort Morgan, CO | Chef's Da | Order Online",
+        "og:description": "Enjoy the best authentic and delicious Chinese at Chef's Da in Fort Morgan. View our hours, explore our menu, and order online for convenient pickup near you!",
+        "og:image:type": "image/png",
+        "og:image": "https://www.chefsda.com/0ouy5tla/opengraph-image-co490f/og-image?76459acebae51a80",
+        "og:image:width": "1200",
+        "og:image:height": "600",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Best Chinese in Fort Morgan, CO | Chef's Da | Order Online",
+        "twitter:description": "Enjoy the best authentic and delicious Chinese at Chef's Da in Fort Morgan. View our hours, explore our menu, and order online for convenient pickup near you!",
+        "twitter:image:type": "image/png",
+        "twitter:image": "https://www.chefsda.com/0ouy5tla/opengraph-image-co490f/og-image?76459acebae51a80",
+        "twitter:image:width": "1200",
+        "twitter:image:height": "600"
+      }
+    },
+    {
+      "url": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online?menu=Lunch+Menu&category=Lunch+Special",
+      "title": "Best Chinese in Fort Morgan, CO | Chef's Da | Order Online",
+      "text": "Skip to main content0MenuMenu availability may vary based on the time of your order.All Day MenuLunch Menu11:00 AM - 3:00 PMLunch SpecialMenusAll Day MenuLunch MenuLunch SpecialLunch SpecialServed from 11:00am - 3:00pm. With Egg Roll, Crab Cheese Wonton, Fried Rice & Fortune Cookie.Available: All week daysFrom: 11:00 AM - 3:00 PMMixed Vegetable Delight Lunch$12.25Moo Goo Gai Pan LunchTender chicken, mushrooms, and vegetables in a rich, velvety sauce.$12.25Chicken Vegetables LunchTender chicken and fresh vegetables stir-fried to perfection.$12.25Curry Chicken LunchTender chicken in a rich and aromatic curry sauce, served with steamed rice.$12.25Mongolian Chicken LunchStir-fried chicken, vegetables, and noodles in a sweet and spicy sauce, served hot.$12.25Chicken with Broccoli LunchTender chicken and steamed broccoli in a flavorful sauce.$12.25Szechuan Pork LunchTender pork stir-fried with Szechuan spices, served with steamed vegetables.$12.25Szechuan Chicken LunchCrispy chicken tossed in a spicy Szechuan sauce, served with steamed vegetables.$12.25Chicken with Hot Garlic Sauce Lunch$12.25Pork with Hot Garlic Sauce Lunch$12.25Sweet & Sour Tofu Lunch$12.25Sesame Tofu LunchCrispy fried tofu tossed in a sweet and nutty sesame sauce$12.25Almond Chicken LunchTender chicken breast, lightly breaded and fried.$12.25Cashew Nut Chicken Lunch$12.25Chicken with Mushrooms LunchTender chicken and sautéed mushrooms in a rich, flavorful sauce, served hot and satisfying.$12.25Pineapple Chicken LunchTender chicken, sweet pineapple, and a hint of spice come together in a harmonious balance of flavors.$12.25General Chicken Lunch$12.25Jalapeno Chicken Lunch$12.25Chicken with Black Bean Sauce LunchTender chicken in a rich black bean sauce.$12.25Kung Pao Chicken LunchCrispy chicken, peanuts, and vegetables in a spicy sauce.$12.25Chicken with Snow Peas LunchTender chicken stir-fried with crisp snow peas in a light, flavorful sauce.$12.25Pork with Snow Peas Lunch$12.25Lemon Chicken Lunch$12.25Sesame Chicken LunchCrispy fried chicken tossed in a sweet and spicy sesame sauce$12.25Vegetable Chow Mein LunchStir-fried noodles, mixed vegetables, served in a light sauce.$12.25Chicken Chow Mein LunchStir-fried noodles, chicken, and vegetables, served in a light sauce.$12.25Pepper Steak Lunch$12.75Mongolian Beef LunchTender beef strips stir-fried with vegetables in a sweet and spicy sauce.$12.75Beef with Snow Peas LunchTender beef strips stir-fried with crisp snow peas in a light, flavorful sauce.$12.75Broccoli with Beef LunchTender beef strips stir-fried with crisp broccoli in a flavorful sauce, served hot.$12.75Pineapple Beef Lunch$12.75Tomato Beef Lunch$12.75Jalapeno Beef Lunch$12.75Beef with Hot Garlic Sauce Lunch$12.75Beef with Mushrooms LunchTender beef and sautéed mushrooms in a rich, flavorful sauce, served hot and satisfying.$12.75Kung Pao Beef LunchStir-fried beef, peanuts, and vegetables in a spicy sauce, served with steamed rice.$12.75Szechuan Beef LunchTender beef stir-fried with Szechuan spices.$12.75Hunan Beef LunchStir-fried beef in a spicy Hunan sauce.$12.75Almond Shrimp Lunch$12.75Cashew Nut Shrimp Lunch$12.75Kung Pao Shrimp LunchStir-fried shrimp, peanuts, and vegetables in a spicy sauce.$12.75Sweet & Sour Pork LunchTender pork pieces coated in a tangy sweet and sour sauce.$12.75Sweet & Sour Chicken LunchCrispy fried chicken tossed in a tangy sweet and sour sauce$12.75Sweet & Sour Shrimp LunchCrispy shrimp tossed in a tangy sweet and sour sauce.$12.75Shrimp with Vegetables LunchShrimp and mixed vegetables stir-fried to perfection.$12.75Shrimp with Snow Peas LunchStir-fried shrimp and snow peas in a light, flavorful sauce.$12.75Shrimp with Lobster Sauce LunchTender shrimp tossed in a rich lobster sauce.$12.75Szechuan Shrimp LunchStir-fried shrimp in a spicy Szechuan sauce.$12.75Hunan Shrimp LunchStir-fried shrimp in a spicy Hunan sauce.$12.75Beef Lo Mein LunchTender beef, stir-fried with vegetables and served over lo mein noodles.$12.75Shrimp Lo Mein LunchStir-fried shrimp, vegetables, and noodles in a light sauce.$12.75Combination Lo Mein LunchStir-fried noodles, vegetables, served in a flavorful sauce.$12.75Chef's DaStore InformationClosedSee More209 Main St, Fort Morgan, CO 80701(970) 867-4000Order MethodPickupAbout 15 minDeliveryDoesn't offer deliveryPickupToday, ASAPScheduleSpecials & CouponsFREEFree Egg RollWith purchase of $50 or more.$50.00Needed$50.00NeededFREEFree Chinese Donut(5)With purchase of $60 or more.$60.00Needed$60.00NeededStart New OrderChef's Da209 Main St, Fort Morgan, CO 80701(970) 867-4000MenuTerms and ConditionsPrivacy PolicyCookies PolicyAccessibilityword word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word wordmmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Restaurant",
+          "name": "Chef's Da",
+          "priceRange": "$$",
+          "servesCuisine": "Chinese",
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "openingHours": [
+              "Su,Tu,We,Th 11:00-21:00",
+              "Fr,Sa 11:00-21:30"
+            ]
+          },
+          "hasMenu": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online#menu-section",
+          "acceptsReservations": "No",
+          "description": "Enjoy the best authentic and delicious chinese at Chef's Da in Fort Morgan. View our hours, explore our menu, and order online for convenient pickup or delivery near you!",
+          "url": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online",
+          "@id": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "209 Main St",
+            "addressLocality": "Fort Morgan",
+            "addressRegion": "CO",
+            "postalCode": "80701",
+            "addressCountry": "US"
+          },
+          "telephone": "(970) 867-4000",
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "40.2488316",
+            "longitude": "-103.8017932"
+          },
+          "potentialAction": {
+            "@type": "OrderAction",
+            "target": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online",
+            "actionStatus": "PotentialActionStatus"
+          },
+          "parentOrganization": {
+            "@id": "https://www.chefsda.com"
+          }
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1, maximum-scale=5",
+        "description": "Enjoy the best authentic and delicious Chinese at Chef's Da in Fort Morgan. View our hours, explore our menu, and order online for convenient pickup near you!",
+        "og:title": "Best Chinese in Fort Morgan, CO | Chef's Da | Order Online",
+        "og:description": "Enjoy the best authentic and delicious Chinese at Chef's Da in Fort Morgan. View our hours, explore our menu, and order online for convenient pickup near you!",
+        "og:image:type": "image/png",
+        "og:image": "https://www.chefsda.com/0ouy5tla/opengraph-image-co490f/og-image?76459acebae51a80",
+        "og:image:width": "1200",
+        "og:image:height": "600",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Best Chinese in Fort Morgan, CO | Chef's Da | Order Online",
+        "twitter:description": "Enjoy the best authentic and delicious Chinese at Chef's Da in Fort Morgan. View our hours, explore our menu, and order online for convenient pickup near you!",
+        "twitter:image:type": "image/png",
+        "twitter:image": "https://www.chefsda.com/0ouy5tla/opengraph-image-co490f/og-image?76459acebae51a80",
+        "twitter:image:width": "1200",
+        "twitter:image:height": "600"
+      }
+    },
+    {
+      "url": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online?menu=All+Day+Menu",
+      "title": "Best Chinese in Fort Morgan, CO | Chef's Da | Order Online",
+      "text": "Skip to main content0MenuMenu availability may vary based on the time of your order.All Day MenuAppetizersMu ShuSoup / SideFried RiceChow MeinLo MeinChickenPorkVegetablesEgg Foo YoungPan-Fried NoodleBeefSeafoodChop SueyChef's SpecialFamily DinnerDrinksLunch Menu11:00 AM - 3:00 PMMenusAll Day MenuLunch MenuAppetizersMu ShuSoup / SideFried RiceChow MeinLo MeinChickenPorkVegetablesEgg Foo YoungPan-Fried NoodleBeefSeafoodChop SueyChef's SpecialFamily DinnerDrinksAppetizers🤩PopularChinese Donut(6)Crispy fried dough pastry coated in sweet sugar, typically served as a side or dessert.$5.00🤩PopularSpring Egg Roll$4.50🤩PopularCrab Cheese Wontons$4.95🤩PopularPan Fried Pot Sticker(6)$9.75Fried ShrimpCrispy fried shrimp served.$5.25Deep-Fried Squid$10.75Teriyaki Chicken Skewer(4)$10.25Beef Skewer(4)$10.25Fried Chicken Wings(6)Crispy fried chicken wings, served hot and ready to enjoy.$10.75Pu Pu Platter (for 2)Egg roll, crab cheese wonton, potsticker, fried shrimp, beef skewer & chicken wings.$18.95Mu Shuserved with 4 pancakesMu Shu Tofu$14.95Mu Shu Vegetables$14.95Mu Shu Chicken$14.95Mu Shu Pork$14.95Mu Shu Beef$14.95Mu Shu Shrimp$15.95Mu Shu TripleShrimp, Chicken and Beef)$16.75Soup / SideFried RiceChow MeinLo MeinChickenPorkVegetablesEgg Foo YoungPan-Fried NoodleBeefSeafoodChop SueyChef's SpecialChoice of Chicken or Beef or Pork or Vegetable or Tofu / Shrimp or Combination add $1.00. Served with Steamed Rice. Noodles Served with out Rice.Family DinnerDrinksChef's DaStore InformationClosedSee More209 Main St, Fort Morgan, CO 80701(970) 867-4000Order MethodPickupAbout 15 minDeliveryDoesn't offer deliveryPickupToday, ASAPScheduleSpecials & CouponsFREEFree Egg RollWith purchase of $50 or more.$50.00Needed$50.00NeededFREEFree Chinese Donut(5)With purchase of $60 or more.$60.00Needed$60.00NeededStart New OrderChef's Da209 Main St, Fort Morgan, CO 80701(970) 867-4000MenuTerms and ConditionsPrivacy PolicyCookies PolicyAccessibilityword word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word wordmmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Restaurant",
+          "name": "Chef's Da",
+          "priceRange": "$$",
+          "servesCuisine": "Chinese",
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "openingHours": [
+              "Su,Tu,We,Th 11:00-21:00",
+              "Fr,Sa 11:00-21:30"
+            ]
+          },
+          "hasMenu": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online#menu-section",
+          "acceptsReservations": "No",
+          "description": "Enjoy the best authentic and delicious chinese at Chef's Da in Fort Morgan. View our hours, explore our menu, and order online for convenient pickup or delivery near you!",
+          "url": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online",
+          "@id": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "209 Main St",
+            "addressLocality": "Fort Morgan",
+            "addressRegion": "CO",
+            "postalCode": "80701",
+            "addressCountry": "US"
+          },
+          "telephone": "(970) 867-4000",
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "40.2488316",
+            "longitude": "-103.8017932"
+          },
+          "potentialAction": {
+            "@type": "OrderAction",
+            "target": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online",
+            "actionStatus": "PotentialActionStatus"
+          },
+          "parentOrganization": {
+            "@id": "https://www.chefsda.com"
+          }
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1, maximum-scale=5",
+        "description": "Enjoy the best authentic and delicious Chinese at Chef's Da in Fort Morgan. View our hours, explore our menu, and order online for convenient pickup near you!",
+        "og:title": "Best Chinese in Fort Morgan, CO | Chef's Da | Order Online",
+        "og:description": "Enjoy the best authentic and delicious Chinese at Chef's Da in Fort Morgan. View our hours, explore our menu, and order online for convenient pickup near you!",
+        "og:image:type": "image/png",
+        "og:image": "https://www.chefsda.com/0ouy5tla/opengraph-image-co490f/og-image?76459acebae51a80",
+        "og:image:width": "1200",
+        "og:image:height": "600",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Best Chinese in Fort Morgan, CO | Chef's Da | Order Online",
+        "twitter:description": "Enjoy the best authentic and delicious Chinese at Chef's Da in Fort Morgan. View our hours, explore our menu, and order online for convenient pickup near you!",
+        "twitter:image:type": "image/png",
+        "twitter:image": "https://www.chefsda.com/0ouy5tla/opengraph-image-co490f/og-image?76459acebae51a80",
+        "twitter:image:width": "1200",
+        "twitter:image:height": "600"
+      }
+    },
+    {
+      "url": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online?menu=All+Day+Menu&category=Drinks",
+      "title": "Best Chinese in Fort Morgan, CO | Chef's Da | Order Online",
+      "text": "Skip to main content0MenuMenu availability may vary based on the time of your order.All Day MenuAppetizersMu ShuSoup / SideFried RiceChow MeinLo MeinChickenPorkVegetablesEgg Foo YoungPan-Fried NoodleBeefSeafoodChop SueyChef's SpecialFamily DinnerDrinksLunch Menu11:00 AM - 3:00 PMMenusAll Day MenuLunch MenuAppetizersMu ShuSoup / SideFried RiceChow MeinLo MeinChickenPorkVegetablesEgg Foo YoungPan-Fried NoodleBeefSeafoodChop SueyChef's SpecialFamily DinnerDrinksAppetizers🤩PopularChinese Donut(6)Crispy fried dough pastry coated in sweet sugar, typically served as a side or dessert.$5.00🤩PopularSpring Egg Roll$4.50🤩PopularCrab Cheese Wontons$4.95🤩PopularPan Fried Pot Sticker(6)$9.75Fried ShrimpCrispy fried shrimp served.$5.25Deep-Fried Squid$10.75Teriyaki Chicken Skewer(4)$10.25Beef Skewer(4)$10.25Fried Chicken Wings(6)Crispy fried chicken wings, served hot and ready to enjoy.$10.75Pu Pu Platter (for 2)Egg roll, crab cheese wonton, potsticker, fried shrimp, beef skewer & chicken wings.$18.95Mu Shuserved with 4 pancakesMu Shu Tofu$14.95Mu Shu Vegetables$14.95Mu Shu Chicken$14.95Mu Shu Pork$14.95Mu Shu Beef$14.95Mu Shu Shrimp$15.95Mu Shu TripleShrimp, Chicken and Beef)$16.75Soup / Side🤩PopularHot & Sour SoupClassic comfort soup with a balance of spicy and tangy flavors in a rich broth.$4.00🤩PopularEgg Flower SoupDelicate egg drops and flower-shaped wontons in a light, comforting broth.$4.00🤩PopularWonton SoupTender wontons, served in a light broth.$5.50Combo Noodle SoupShrimp, Beef, and chicken with vegetables.$14.95Udon Noodle SoupShrimp, Beef, and chicken with vegetables.$14.95Steamed RiceClassic comfort food, our Steamed Rice is a simple and satisfying side dish, perfectly cooked to a fluffy texture.$3.00🤩PopularFried RiceCrispy fried rice mixed.$3.00👍🏼Often LikedPlain Lo MeinStir-fried noodles served with a light sauce and mixed vegetables.$4.50Chili Sauce$1.00Other Sauce$3.00Fried RiceVegetable Fried RiceStir-fried rice with a variety of vegetables, served hot and perfect as a side or meal.$14.75🤩PopularChicken Fried RiceCrispy chicken and vegetables in stir-fried rice.$14.75Pork Fried RiceCrispy fried rice mixed with tender pork.$14.75Beef Fried RiceTender beef and vegetables stir-fried with rice.$15.75Shrimp Fried RiceStir-fried shrimp, vegetables, and rice$15.75🤩PopularCombo Fried Rice$15.75Pineapple Fried RiceStir-fried rice, pineapple, and vegetables, served with a hint of sweetness.$15.75Chow MeinLo MeinChickenPorkVegetablesEgg Foo YoungPan-Fried NoodleBeefSeafoodChop SueyChef's SpecialChoice of Chicken or Beef or Pork or Vegetable or Tofu / Shrimp or Combination add $1.00. Served with Steamed Rice. Noodles Served with out Rice.Family Dinner🤩PopularFamily Dinner AAppetizer: (1) Egg Roll, (2) Cheese Wonton. Soup: Egg Drop Soup or Hot & Sour Soup. Entrees: Select(1) per person. Shrimp or Combination add $1.00. Served with Steamed Rice or Fried Rice. Noodles are served without rice.$18.95Family Dinner BAppetizers: (1) Egg Roll, (2) Cheese Wonton, (1) Chicken Wing & (1) Beef Skewer. Soup: Egg Drop Soup, Hot & Sour Soup. Entrees: Select(1) per person. Shrimp or Combination add $1.00. Served with Steamed Rice or Fried Rice. Noodles are served without rice.$21.95DrinksSprite$2.75Mtn Dew$2.75Pepsi$2.75Lemonade$2.75Dr Pepper$2.75Ice Tea$2.75Hot Tea$2.75Thai Ice Tea$4.00Chef's DaStore InformationClosedSee More209 Main St, Fort Morgan, CO 80701(970) 867-4000Order MethodPickupAbout 15 minDeliveryDoesn't offer deliveryPickupToday, ASAPScheduleSpecials & CouponsFREEFree Egg RollWith purchase of $50 or more.$50.00Needed$50.00NeededFREEFree Chinese Donut(5)With purchase of $60 or more.$60.00Needed$60.00NeededStart New OrderChef's Da209 Main St, Fort Morgan, CO 80701(970) 867-4000MenuTerms and ConditionsPrivacy PolicyCookies PolicyAccessibilityword word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word wordmmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1mmMwWLliI0fiflO&1",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Restaurant",
+          "name": "Chef's Da",
+          "priceRange": "$$",
+          "servesCuisine": "Chinese",
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "openingHours": [
+              "Su,Tu,We,Th 11:00-21:00",
+              "Fr,Sa 11:00-21:30"
+            ]
+          },
+          "hasMenu": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online#menu-section",
+          "acceptsReservations": "No",
+          "description": "Enjoy the best authentic and delicious chinese at Chef's Da in Fort Morgan. View our hours, explore our menu, and order online for convenient pickup or delivery near you!",
+          "url": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online",
+          "@id": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "209 Main St",
+            "addressLocality": "Fort Morgan",
+            "addressRegion": "CO",
+            "postalCode": "80701",
+            "addressCountry": "US"
+          },
+          "telephone": "(970) 867-4000",
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "40.2488316",
+            "longitude": "-103.8017932"
+          },
+          "potentialAction": {
+            "@type": "OrderAction",
+            "target": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online",
+            "actionStatus": "PotentialActionStatus"
+          },
+          "parentOrganization": {
+            "@id": "https://www.chefsda.com"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Restaurant",
+          "name": "Chef's Da",
+          "priceRange": "$$",
+          "servesCuisine": "Chinese",
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "openingHours": [
+              "Su,Tu,We,Th 11:00-21:00",
+              "Fr,Sa 11:00-21:30"
+            ]
+          },
+          "hasMenu": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online#menu-section",
+          "acceptsReservations": "No",
+          "description": "Enjoy the best authentic and delicious chinese at Chef's Da in Fort Morgan. View our hours, explore our menu, and order online for convenient pickup or delivery near you!",
+          "url": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online",
+          "@id": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "209 Main St",
+            "addressLocality": "Fort Morgan",
+            "addressRegion": "CO",
+            "postalCode": "80701",
+            "addressCountry": "US"
+          },
+          "telephone": "(970) 867-4000",
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "40.2488316",
+            "longitude": "-103.8017932"
+          },
+          "potentialAction": {
+            "@type": "OrderAction",
+            "target": "https://www.chefsda.com/0ouy5tla/chefs-da-fort-morgan-80701/order-online",
+            "actionStatus": "PotentialActionStatus"
+          },
+          "parentOrganization": {
+            "@id": "https://www.chefsda.com"
+          }
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1, maximum-scale=5",
+        "description": "Enjoy the best authentic and delicious Chinese at Chef's Da in Fort Morgan. View our hours, explore our menu, and order online for convenient pickup near you!",
+        "og:title": "Best Chinese in Fort Morgan, CO | Chef's Da | Order Online",
+        "og:description": "Enjoy the best authentic and delicious Chinese at Chef's Da in Fort Morgan. View our hours, explore our menu, and order online for convenient pickup near you!",
+        "og:image:type": "image/png",
+        "og:image": "https://www.chefsda.com/0ouy5tla/opengraph-image-co490f/og-image?76459acebae51a80",
+        "og:image:width": "1200",
+        "og:image:height": "600",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Best Chinese in Fort Morgan, CO | Chef's Da | Order Online",
+        "twitter:description": "Enjoy the best authentic and delicious Chinese at Chef's Da in Fort Morgan. View our hours, explore our menu, and order online for convenient pickup near you!",
+        "twitter:image:type": "image/png",
+        "twitter:image": "https://www.chefsda.com/0ouy5tla/opengraph-image-co490f/og-image?76459acebae51a80",
+        "twitter:image:width": "1200",
+        "twitter:image:height": "600"
+      }
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": [
+    "https://ik.imagekit.io/awwybhhmo/satellite_images/custom/www_chefsda_com/logos/favicon_dbc.png?tr=",
+    "https://www.chefsda.com/_next/image?url=https%3A%2F%2Fik.imagekit.io%2Fawwybhhmo%2Fsatellite_images%2Fchinese%2Fbeyondmenu%2Fhero%2F30.jpg%3Ftr%3D&w=3840&q=75",
+    "https://www.chefsda.com/_next/image?url=https%3A%2F%2Fik.imagekit.io%2Fawwybhhmo%2Fsatellite_images%2Fchinese%2Fbeyondmenu%2Fabout_us%2F24.jpg%3Ftr%3D&w=3840&q=75",
+    "https://imgprod.beyondmenu.com/26216/Menu/143425/144.jpg",
+    "https://imgprod.beyondmenu.com/26216/Menu/143426/144.jpg",
+    "https://imgprod.beyondmenu.com/26216/Menu/142502/144.jpg",
+    "https://imgprod.beyondmenu.com/26216/Menu/142501/144.jpg",
+    "https://imgprod.beyondmenu.com/26216/Menu/142503/144.jpg",
+    "https://imgprod.beyondmenu.com/26216/Menu/143424/144.jpg",
+    "https://imgprod.beyondmenu.com/26216/Menu/142500/144.jpg",
+    "https://imgprod.beyondmenu.com/26216/Menu/143467/144.jpg",
+    "https://imgprod.beyondmenu.com/26216/Menu/143582/144.jpg",
+    "https://imgprod.beyondmenu.com/26216/Menu/143583/144.jpg",
+    "https://imgprod.beyondmenu.com/26216/Menu/143468/144.jpg",
+    "https://imgprod.beyondmenu.com/26216/Menu/143469/144.jpg",
+    "https://imgprod.beyondmenu.com/26216/Menu/143463/144.jpg",
+    "https://imgprod.beyondmenu.com/26216/Menu/143464/144.jpg",
+    "https://imgprod.beyondmenu.com/26216/Menu/143465/144.jpg",
+    "https://imgprod.beyondmenu.com/26216/Menu/143466/144.jpg",
+    "https://imgprod.beyondmenu.com/26216/Menu/142504/144.jpg",
+    "https://imgprod.beyondmenu.com/26216/Menu/142497/144.jpg"
+  ]
+}

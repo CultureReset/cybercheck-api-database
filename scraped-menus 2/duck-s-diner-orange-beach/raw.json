@@ -1,0 +1,114 @@
+{
+  "business_name": "Duck's Diner Orange Beach",
+  "url": "http://www.ducksdiner.com/",
+  "scraped_at": "2026-03-21T14:37:52.631Z",
+  "pages": [
+    {
+      "url": "http://www.ducksdiner.com",
+      "title": "Home - Welcome To Duck's Diner",
+      "text": "Skip to content\n\n \n Welcome To Duck’s Diner\n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Facebook\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Menu\n \n \n \n \n Home\nGulf Shores\nOrange Beach\nA Duck’s Tale\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n\n\t\n\n \n \n \n\t\n \n \n \n\n\t\n \n \n \n \n \n \n \n Duck's Diner \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Now Two Locations To Serve You! \n \n \n \n \n \n \n \n \n \n \n \n \n \n Gulf Shores Location \n \n \n \n \n \n \n \n \n \n \n \n \n \n Orange Beach Location \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n *10 Time Winner of Gulf Coast Media People's Choice Best Breakfast Award (2013-2024)",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://ducksdiner.com/#breadcrumblist",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "@id": "https://ducksdiner.com#listItem",
+                  "position": 1,
+                  "name": "Home"
+                }
+              ]
+            },
+            {
+              "@type": "Organization",
+              "@id": "https://ducksdiner.com/#organization",
+              "name": "Welcome To Duck's Diner",
+              "description": "Orange Beach, AL",
+              "url": "https://ducksdiner.com/",
+              "telephone": "+18503331395",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://ducksdiner.com/wp-content/uploads/2022/07/Ducks-G-Logo-150x150-1.jpg",
+                "@id": "https://ducksdiner.com/#organizationLogo",
+                "width": 150,
+                "height": 150
+              },
+              "image": {
+                "@id": "https://ducksdiner.com/#organizationLogo"
+              },
+              "sameAs": [
+                "https://www.facebook.com/DucksDinerOrangeBeach"
+              ]
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://ducksdiner.com/#webpage",
+              "url": "https://ducksdiner.com/",
+              "name": "Home - Welcome To Duck's Diner",
+              "description": "Duck's Diner Now Two Locations To Serve You! Gulf Shores Location Orange Beach Location *10 Time Winner of Gulf Coast Media People's Choice Best Breakfast Award (2013-2024)",
+              "inLanguage": "en-US",
+              "isPartOf": {
+                "@id": "https://ducksdiner.com/#website"
+              },
+              "breadcrumb": {
+                "@id": "https://ducksdiner.com/#breadcrumblist"
+              },
+              "datePublished": "2024-08-20T16:51:52+00:00",
+              "dateModified": "2025-01-10T18:42:53+00:00"
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://ducksdiner.com/#website",
+              "url": "https://ducksdiner.com/",
+              "name": "Welcome To Duck's Diner",
+              "description": "Orange Beach, AL",
+              "inLanguage": "en-US",
+              "publisher": {
+                "@id": "https://ducksdiner.com/#organization"
+              }
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "description": "Duck's Diner Now Two Locations To Serve You! Gulf Shores Location Orange Beach Location *10 Time Winner of Gulf Coast Media People's Choice Best Breakfast Award (2013-2024)",
+        "robots": "max-image-preview:large",
+        "google-site-verification": "google-site-verification=z9TG2JJLhZrQWrQnbSPTvnMFuDcG52GRK0chLA_j1e0",
+        "generator": "Elementor 3.35.7; features: additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-auto",
+        "og:locale": "en_US",
+        "og:site_name": "Welcome To Duck's Diner - Orange Beach, AL",
+        "og:type": "article",
+        "og:title": "Home - Welcome To Duck's Diner",
+        "og:description": "Duck's Diner Now Two Locations To Serve You! Gulf Shores Location Orange Beach Location *10 Time Winner of Gulf Coast Media People's Choice Best Breakfast Award (2013-2024)",
+        "og:url": "https://ducksdiner.com/",
+        "article:published_time": "2024-08-20T16:51:52+00:00",
+        "article:modified_time": "2025-01-10T18:42:53+00:00",
+        "article:publisher": "https://www.facebook.com/DucksDinerOrangeBeach",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Home - Welcome To Duck's Diner",
+        "twitter:description": "Duck's Diner Now Two Locations To Serve You! Gulf Shores Location Orange Beach Location *10 Time Winner of Gulf Coast Media People's Choice Best Breakfast Award (2013-2024)"
+      }
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": [
+    "https://ducksdiner.com/wp-content/uploads/2022/07/Ducks-G-Logo-150x150-1.jpg",
+    "https://ducksdiner.com/wp-content/uploads/2024/08/club-for-ss.jpg",
+    "https://ducksdiner.com/wp-content/uploads/2024/08/burger-w-onion-rings-for-ss.jpg",
+    "https://ducksdiner.com/wp-content/uploads/2024/08/dd-gulf-shores-for-ss.jpg",
+    "https://ducksdiner.com/wp-content/uploads/2024/08/drinks-for-ss.jpg",
+    "https://ducksdiner.com/wp-content/uploads/2024/08/omlet-for-ss.jpg",
+    "https://ducksdiner.com/wp-content/uploads/2024/08/dessert-for-ss.jpg",
+    "https://ducksdiner.com/wp-content/uploads/2024/08/burger-1-for-ss.jpg",
+    "https://ducksdiner.com/wp-content/uploads/2024/08/burger-tots-for-ss.jpg",
+    "https://ducksdiner.com/wp-content/uploads/2025/01/gulf-shores-768x536.jpg",
+    "https://ducksdiner.com/wp-content/uploads/2024/08/dd-orange-beach-2-for-ss.jpg",
+    "https://ducksdiner.com/wp-content/plugins/wpfront-scroll-top/includes/assets/icons/21.png"
+  ]
+}

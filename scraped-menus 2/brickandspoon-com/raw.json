@@ -1,0 +1,408 @@
+{
+  "business_name": "brickandspoon.com",
+  "url": "https://brickandspoon.com",
+  "scraped_at": "2026-03-21T19:23:47.796Z",
+  "pages": [
+    {
+      "url": "https://brickandspoon.com",
+      "title": "Brick and Spoon | Brunch Restaurant in the US",
+      "text": "Skip to main content\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n\t\n \n \n \n Menus\n \n \n \n Franchise sub-menu\n Franchise\n \n \n \n \n Overview\n \n \n Contact Us\n \n \n \n \n \n Shop\n \n\n Find A Location Near You\n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n\t\n\n \n Toggle Navigation\n \n \n \n \n\n \n \n \n\t\n \n \n \n Menus\n \n \n \n Franchise sub-menu\n Franchise\n \n \n \n \n Overview\n \n \n Contact Us\n \n \n \n \n \n Shop\n \n\n \n \n Press\n \n \n About Us\n \n \n Catering\n \n\n Careers\n \n \n\n \n \n \n Instagram\n \n \n\n \n\t\n\n \n \n\t\n powered by BentoBox\n\t\n\n \n \n\t\n\n \n\n \n\n \n \n Home\n Main content starts here, tab to start navigating\n \n\n \n \n \n \n \n \n \n\n \n \n \n \n Welcome toAn Upscale Take on Breakfast, Brunch, and Lunch\n \n\n \n \n \n \n \n \n \n Find A Brick & Spoon Near You!\n \n \n \n\t\n \n \n View Map\n\n\t\n\n \n \n\n \n \n Previous Slide\n \n \n \n \n \n \n \n \n \n Slide 1 of 3\n \n \n \n \n \n Slide 2 of 3\n \n \n \n \n \n Slide 3 of 3\n \n \n \n \n \n \n \n \n \n \n \n \n Next Slide\n\n \n \n \n \n \n \n \n \n \n\n\t\n \n \n \n\t\n\n \n \n \n \n \n\n\t\n \n \n Our Food\n We're Allergic To Boring Breakfast\n \n\t\n \n \n View Menus\n\n\t\n\n \n \n\t\n\n \n\n \n \n \n \n \n \n \n Catering\n Let us cater your next event.\n \n \n\t\n \n \n Inquire Now\n\n\t\n\n \n \n\n \n \n \n \n \n \n \n \n \n\n\t\n \n \n \n\t\n\n \n \n \n \n \n\n\t\n \n \n Press\n See What Everyone Has To Say! \n \n\t\n \n \n Hot Off The Press\n\n\t\n\n \n \n\t\n\n \n\n \n \n \n \n \n \n \n Franchising\n Help Us Grow!\n \n \n\t\n \n \n Learn More\n\n\t\n\n \n \n\n \n \n\n \n \n\n\t\n \n \n \n\t\n \n \n Find A Location Near You\n\n\t\n\n \n \n\t\n\n \n\n \n \n\n \n \n \n \n \n \n \n Instagram\n \n \n \n \n Press\n \n \n About Us\n \n \n Catering\n \n Careers\n \n \n \n \n \n \n powered by BentoBox\n\t\n \n \n \n\n \n\t\n\n\t\n\t\n \n \n \n \n \n \n \n leave this field blank\n \n \n \n \n \n \n \n \n\n \n Email Signup\n \n \n \n \n \n \n \n \n\n \n \n \n\n \n \n \n \n \n \n Please, enter a valid first name\n \n \n First Name\n - Required\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n\n \n \n \n \n \n \n Please, enter a valid last name\n \n \n Last Name\n - Required\n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n\n \n \n \n \n \n \n Please, enter a valid email\n \n \n Email\n - Required\n \n \n \n \n \n\n \n \n \n\n \n \n Submit\n Please check errors in the form above\n \n \n Thank you for signing up for email updates!\n \n Close\n \n \n \n \n \n \n This site is protected by reCAPTCHA and the Google\n Privacy Policy and\n Terms of Service apply.\n \n \n \n \n \n \n\n \n\n\t\n\n\t\n \n \n \n\n \n \n\t\n \n \n \n\n \n Order OnlineOrder NowTrack and manage your order online.Order DeliveryOrder Pickup",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "@id": "https://www.brickandspoon.com/#organization",
+          "url": "https://www.brickandspoon.com",
+          "name": "Brick and Spoon",
+          "description": "Brick and Spoon is an upscale take on breakfast, brunch, and lunch with locations across the country!",
+          "logo": "https://images.getbento.com/accounts/4130b16950d3f89d43664b1daf4cf67b/media/images/60451Logo2.png?w=600&fit=max&auto=compress,format&cs=origin&h=600",
+          "subOrganization": [
+            {
+              "@type": "FoodEstablishment",
+              "@id": "https://www.brickandspoon.com/location/texas-city-tx/#foodestablishment",
+              "url": "https://www.brickandspoon.com/location/texas-city-tx/",
+              "name": "Texas City, TX",
+              "description": "",
+              "image": "",
+              "photo": "",
+              "address": {
+                "@type": "PostalAddress",
+                "name": "Texas City, TX",
+                "streetAddress": "10000 Emmett F Lowry Expy Suite 1134",
+                "addressLocality": "Texas City",
+                "addressRegion": "TX",
+                "postalCode": "77591"
+              },
+              "location": {
+                "@type": "PostalAddress",
+                "name": "Texas City, TX",
+                "streetAddress": "10000 Emmett F Lowry Expy Suite 1134",
+                "addressLocality": "Texas City",
+                "addressRegion": "TX",
+                "postalCode": "77591"
+              },
+              "telephone": "(409) 440-8535",
+              "hasMap": "https://www.brickandspoon.com/location/texas-city-tx/",
+              "parentOrganization": {
+                "@type": "Organization",
+                "@id": "https://www.brickandspoon.com/#organization"
+              },
+              "servesCuisine": "Brunch Restaurant",
+              "priceRange": "$$"
+            },
+            {
+              "@type": "FoodEstablishment",
+              "@id": "https://www.brickandspoon.com/location/mobile-al/#foodestablishment",
+              "url": "https://www.brickandspoon.com/location/mobile-al/",
+              "name": "Mobile, AL",
+              "description": "",
+              "image": "",
+              "photo": "",
+              "address": {
+                "@type": "PostalAddress",
+                "name": "Mobile, AL",
+                "streetAddress": "3662 Airport Blvd.",
+                "addressLocality": "Mobile",
+                "addressRegion": "AL",
+                "postalCode": "36608"
+              },
+              "location": {
+                "@type": "PostalAddress",
+                "name": "Mobile, AL",
+                "streetAddress": "3662 Airport Blvd.",
+                "addressLocality": "Mobile",
+                "addressRegion": "AL",
+                "postalCode": "36608"
+              },
+              "telephone": "1-251-378-8378",
+              "hasMap": "https://www.brickandspoon.com/location/mobile-al/",
+              "parentOrganization": {
+                "@type": "Organization",
+                "@id": "https://www.brickandspoon.com/#organization"
+              },
+              "servesCuisine": "Brunch Restaurant",
+              "priceRange": "$$"
+            },
+            {
+              "@type": "FoodEstablishment",
+              "@id": "https://www.brickandspoon.com/location/biloxi-ms/#foodestablishment",
+              "url": "https://www.brickandspoon.com/location/biloxi-ms/",
+              "name": "Biloxi, MS",
+              "description": "",
+              "image": "",
+              "photo": "",
+              "address": {
+                "@type": "PostalAddress",
+                "name": "Biloxi, MS",
+                "streetAddress": "140 Eisenhower Drive",
+                "addressLocality": "Biloxi",
+                "addressRegion": "MS",
+                "postalCode": "39531"
+              },
+              "location": {
+                "@type": "PostalAddress",
+                "name": "Biloxi, MS",
+                "streetAddress": "140 Eisenhower Drive",
+                "addressLocality": "Biloxi",
+                "addressRegion": "MS",
+                "postalCode": "39531"
+              },
+              "telephone": "1-228-388-5162",
+              "hasMap": "https://www.brickandspoon.com/location/biloxi-ms/",
+              "parentOrganization": {
+                "@type": "Organization",
+                "@id": "https://www.brickandspoon.com/#organization"
+              },
+              "servesCuisine": "Brunch Restaurant",
+              "priceRange": "$$"
+            },
+            {
+              "@type": "FoodEstablishment",
+              "@id": "https://www.brickandspoon.com/location/gulfport-ms/#foodestablishment",
+              "url": "https://www.brickandspoon.com/location/gulfport-ms/",
+              "name": "Gulfport, MS",
+              "description": "",
+              "image": "",
+              "photo": "",
+              "address": {
+                "@type": "PostalAddress",
+                "name": "Gulfport, MS",
+                "streetAddress": "15264 Crossroads Pkwy",
+                "addressLocality": "Gulfport",
+                "addressRegion": "MS",
+                "postalCode": "39503"
+              },
+              "location": {
+                "@type": "PostalAddress",
+                "name": "Gulfport, MS",
+                "streetAddress": "15264 Crossroads Pkwy",
+                "addressLocality": "Gulfport",
+                "addressRegion": "MS",
+                "postalCode": "39503"
+              },
+              "telephone": null,
+              "hasMap": "https://www.brickandspoon.com/location/gulfport-ms/",
+              "parentOrganization": {
+                "@type": "Organization",
+                "@id": "https://www.brickandspoon.com/#organization"
+              },
+              "servesCuisine": "Brunch Restaurant",
+              "priceRange": "$$"
+            },
+            {
+              "@type": "FoodEstablishment",
+              "@id": "https://www.brickandspoon.com/location/tupelo-ms-38804/#foodestablishment",
+              "url": "https://www.brickandspoon.com/location/tupelo-ms-38804/",
+              "name": "Tupelo, MS",
+              "description": "",
+              "image": "",
+              "photo": "",
+              "address": {
+                "@type": "PostalAddress",
+                "name": "Tupelo, MS",
+                "streetAddress": "1201 North Gloster St.",
+                "addressLocality": "Tupelo",
+                "addressRegion": "MS",
+                "postalCode": "38804"
+              },
+              "location": {
+                "@type": "PostalAddress",
+                "name": "Tupelo, MS",
+                "streetAddress": "1201 North Gloster St.",
+                "addressLocality": "Tupelo",
+                "addressRegion": "MS",
+                "postalCode": "38804"
+              },
+              "telephone": "1-662-346-4922",
+              "hasMap": "https://www.brickandspoon.com/location/tupelo-ms-38804/",
+              "parentOrganization": {
+                "@type": "Organization",
+                "@id": "https://www.brickandspoon.com/#organization"
+              },
+              "servesCuisine": "Brunch Restaurant",
+              "priceRange": "$$"
+            },
+            {
+              "@type": "FoodEstablishment",
+              "@id": "https://www.brickandspoon.com/location/tuscaloosa-al/#foodestablishment",
+              "url": "https://www.brickandspoon.com/location/tuscaloosa-al/",
+              "name": "Tuscaloosa, AL",
+              "description": "",
+              "image": "",
+              "photo": "",
+              "address": {
+                "@type": "PostalAddress",
+                "name": "Tuscaloosa, AL",
+                "streetAddress": "2318 4th Street",
+                "addressLocality": "Tuscaloosa",
+                "addressRegion": "AL",
+                "postalCode": "35401"
+              },
+              "location": {
+                "@type": "PostalAddress",
+                "name": "Tuscaloosa, AL",
+                "streetAddress": "2318 4th Street",
+                "addressLocality": "Tuscaloosa",
+                "addressRegion": "AL",
+                "postalCode": "35401"
+              },
+              "telephone": "(205) 345-5551",
+              "hasMap": "https://www.brickandspoon.com/location/tuscaloosa-al/",
+              "parentOrganization": {
+                "@type": "Organization",
+                "@id": "https://www.brickandspoon.com/#organization"
+              },
+              "servesCuisine": "Brunch Restaurant",
+              "priceRange": "$$"
+            },
+            {
+              "@type": "FoodEstablishment",
+              "@id": "https://www.brickandspoon.com/location/orlando-fl/#foodestablishment",
+              "url": "https://www.brickandspoon.com/location/orlando-fl/",
+              "name": "Orlando, FL",
+              "description": "",
+              "image": "",
+              "photo": "",
+              "address": {
+                "@type": "PostalAddress",
+                "name": "Orlando, FL",
+                "streetAddress": "933 S Orlando Avenue",
+                "addressLocality": "Maitland",
+                "addressRegion": "FL",
+                "postalCode": "32751"
+              },
+              "location": {
+                "@type": "PostalAddress",
+                "name": "Orlando, FL",
+                "streetAddress": "933 S Orlando Avenue",
+                "addressLocality": "Maitland",
+                "addressRegion": "FL",
+                "postalCode": "32751"
+              },
+              "telephone": "1-407-790-4345",
+              "hasMap": "https://www.brickandspoon.com/location/orlando-fl/",
+              "parentOrganization": {
+                "@type": "Organization",
+                "@id": "https://www.brickandspoon.com/#organization"
+              },
+              "servesCuisine": "Brunch Restaurant",
+              "priceRange": "$$"
+            },
+            {
+              "@type": "FoodEstablishment",
+              "@id": "https://www.brickandspoon.com/location/opelika-al/#foodestablishment",
+              "url": "https://www.brickandspoon.com/location/opelika-al/",
+              "name": "Opelika, AL",
+              "description": "Order Online ChowNow",
+              "image": "",
+              "photo": "",
+              "address": {
+                "@type": "PostalAddress",
+                "name": "Opelika, AL",
+                "streetAddress": "2836 Pepperell Parkway",
+                "addressLocality": "Opelika",
+                "addressRegion": "AL",
+                "postalCode": "36801"
+              },
+              "location": {
+                "@type": "PostalAddress",
+                "name": "Opelika, AL",
+                "streetAddress": "2836 Pepperell Parkway",
+                "addressLocality": "Opelika",
+                "addressRegion": "AL",
+                "postalCode": "36801"
+              },
+              "telephone": "(334) 737-6498",
+              "hasMap": "https://www.brickandspoon.com/location/opelika-al/",
+              "parentOrganization": {
+                "@type": "Organization",
+                "@id": "https://www.brickandspoon.com/#organization"
+              },
+              "servesCuisine": "Brunch Restaurant",
+              "priceRange": "$$"
+            },
+            {
+              "@type": "FoodEstablishment",
+              "@id": "https://www.brickandspoon.com/location/pigeon-forge-tn/#foodestablishment",
+              "url": "https://www.brickandspoon.com/location/pigeon-forge-tn/",
+              "name": "Pigeon Forge, TN",
+              "description": "",
+              "image": "",
+              "photo": "",
+              "address": {
+                "@type": "PostalAddress",
+                "name": "Pigeon Forge, TN",
+                "streetAddress": "136 Community Center Dr. Pigeon",
+                "addressLocality": "Forge",
+                "addressRegion": "TN",
+                "postalCode": "37863"
+              },
+              "location": {
+                "@type": "PostalAddress",
+                "name": "Pigeon Forge, TN",
+                "streetAddress": "136 Community Center Dr. Pigeon",
+                "addressLocality": "Forge",
+                "addressRegion": "TN",
+                "postalCode": "37863"
+              },
+              "telephone": "1-865-365-1942",
+              "hasMap": "https://www.brickandspoon.com/location/pigeon-forge-tn/",
+              "parentOrganization": {
+                "@type": "Organization",
+                "@id": "https://www.brickandspoon.com/#organization"
+              },
+              "servesCuisine": "Brunch Restaurant",
+              "priceRange": "$$"
+            },
+            {
+              "@type": "FoodEstablishment",
+              "@id": "https://www.brickandspoon.com/location/orange-beach-al/#foodestablishment",
+              "url": "https://www.brickandspoon.com/location/orange-beach-al/",
+              "name": "Orange Beach, AL",
+              "description": "",
+              "image": "",
+              "photo": "",
+              "address": {
+                "@type": "PostalAddress",
+                "name": "Orange Beach, AL",
+                "streetAddress": "24705 Canal Road",
+                "addressLocality": "Orange Beach",
+                "addressRegion": "AL",
+                "postalCode": "36561"
+              },
+              "location": {
+                "@type": "PostalAddress",
+                "name": "Orange Beach, AL",
+                "streetAddress": "24705 Canal Road",
+                "addressLocality": "Orange Beach",
+                "addressRegion": "AL",
+                "postalCode": "36561"
+              },
+              "telephone": "(251) 981-7772",
+              "hasMap": "https://www.brickandspoon.com/location/orange-beach-al/",
+              "parentOrganization": {
+                "@type": "Organization",
+                "@id": "https://www.brickandspoon.com/#organization"
+              },
+              "servesCuisine": "Brunch Restaurant",
+              "priceRange": "$$"
+            }
+          ],
+          "sameAs": "https://www.instagram.com/brickandspoon_hq/",
+          "potentialAction": {
+            "@type": "ReserveAction",
+            "object": {
+              "@type": "Reservation",
+              "name": "Table",
+              "url": "https://www.brickandspoon.com/#action-reservations"
+            },
+            "result": {
+              "@type": "Reservation",
+              "name": "Table"
+            },
+            "target": "https://www.brickandspoon.com"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "@id": "https://www.brickandspoon.com/#website",
+          "url": "https://www.brickandspoon.com",
+          "name": "Brick and Spoon"
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "@id": "https://www.brickandspoon.com/#webpage",
+          "url": "https://www.brickandspoon.com",
+          "name": "Brick and Spoon"
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1, shrink-to-fit=no",
+        "keywords": "Bloody Mary, Brunch, Breakfast, Franchise, Eggs, South, Alabama, Louisiana, Mississippi",
+        "description": "Brick and Spoon is an upscale take on breakfast, brunch, and lunch with locations across the country!",
+        "Revisit-After": "5 Days",
+        "Distribution": "Global",
+        "Rating": "General",
+        "og:site_name": "Brick and Spoon | Brunch Restaurant in the US",
+        "og:title": "Brick and Spoon | Brunch Restaurant in the US",
+        "og:type": "website",
+        "og:url": "https://www.brickandspoon.com/",
+        "og:description": "Brick and Spoon is an upscale take on breakfast, brunch, and lunch with locations across the country!",
+        "og:image": "https://images.getbento.com/accounts/4130b16950d3f89d43664b1daf4cf67b/media/images/60451Logo2.png?w=1200&fit=fill&auto=compress,format&cs=origin&h=600&bg=fff&pad=100",
+        "twitter:card": "summary",
+        "twitter:title": "Brick and Spoon | Brunch Restaurant in the US",
+        "twitter:description": "Brick and Spoon is an upscale take on breakfast, brunch, and lunch with locations across the country!",
+        "twitter:image": "https://images.getbento.com/accounts/4130b16950d3f89d43664b1daf4cf67b/media/images/60451Logo2.png?w=1200&fit=fill&auto=compress,format&cs=origin&h=600&bg=fff&pad=100"
+      }
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": [
+    "https://images.getbento.com/accounts/4130b16950d3f89d43664b1daf4cf67b/media/images/60451Logo2.png",
+    "https://images.getbento.com/accounts/4130b16950d3f89d43664b1daf4cf67b/media/images/98984logo.png",
+    "https://images.getbento.com/accounts/4130b16950d3f89d43664b1daf4cf67b/media/tBXacsNWSHWru0T7lVPG_B_S_Word_Mark_Logo_4C.png?w=1000&fit=max&auto=compress,format&h=1000"
+  ]
+}

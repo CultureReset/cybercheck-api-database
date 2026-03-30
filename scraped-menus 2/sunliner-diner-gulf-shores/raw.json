@@ -1,0 +1,132 @@
+{
+  "business_name": "Sunliner Diner - Gulf Shores",
+  "url": "https://www.sunlinerdiner.com/",
+  "scraped_at": "2026-03-21T14:24:57.393Z",
+  "pages": [
+    {
+      "url": "https://www.sunlinerdiner.com",
+      "title": "Sunliner Diner - 50's Themed Breakfast Diner in Gulf Shores",
+      "text": "Skip to content\n \n \n \n \n \n \n \n \n \n \n \n \n\n Menu\nEvents\nAbout Us\nCareers\nLocations\nContact\n \n \n \n \n \n \n \n \n \n \n \n \n \n\t\n \n \n \n \n \n\n\t\n\t\n\t\n \n \n \n\t\n\t\n\t\n \n \n \n\n \n \n\t\n\t\n\t\n \n \n \n\n \n \n\t\n\t\n\t\n \n \n \n\n \n \n\t\n\t\n\t\n \n \n \n\n \n \n\t\n\n\t\n\n \n \n \n\n\t\n\t\n \n\nA Classic 1950s Themed American Diner\nWith our retro newspaper menus, collector cars, hand-spun milkshakes, classic diner cuisine and breakfast all-day, The Sunliner Diner is sure to become your favorite spot to hang out- It’s Guaranteed!  Take a blast to the past with your family and friends, come and see what all the buzz is about- the fun never ends! Visit our Gift Shop to bring your memories of a swell time home with you!\n\nGulf Shores\n\nPigeon Forge\n\nOrange Beach\n\n\t\n\t\n\n\t\n\n\t\n \n \n \n\n \n\n\t\n\t\n \n\n\t\n\n\t\n \n \n \n \n Follow on Instagram\n \n \n\t\n\n \n\t\n \n This error message is only visible to WordPress admins\n There has been a problem with your Instagram Feed. \n \n\n\t\n \n\n \n \n \n \n \n \n \n \n \n Gulf Shores\n\nVIEW MENU\n\n \n Pigeon Forge\n\nVIEW MENU\n\n \n \nOrange Beach\n\nVIEW MENU\n\n \n \n \n \n\nPrivacy Policy\nCopyright Sunliner Diner © 2025. All Rights Reserved.",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://sunlinerdiner.com/",
+              "url": "https://sunlinerdiner.com/",
+              "name": "Sunliner Diner - 50&#039;s Themed Breakfast Diner in Gulf Shores",
+              "isPartOf": {
+                "@id": "https://sunlinerdiner.com/#website"
+              },
+              "primaryImageOfPage": {
+                "@id": "https://sunlinerdiner.com/#primaryimage"
+              },
+              "image": {
+                "@id": "https://sunlinerdiner.com/#primaryimage"
+              },
+              "thumbnailUrl": "https://sunlinerdiner.com/wp-content/uploads/2026/03/cafd482b-460e-4004-8b17-cfb9eebd799e.jpg",
+              "datePublished": "2019-07-22T15:24:04+00:00",
+              "dateModified": "2026-03-19T15:50:19+00:00",
+              "description": "The Sunliner Diner is a 50s Themed Diner Restaurant in Gulf Shores, AL and coming soon to Pigeon Forge, TN. Go vintage and dine with classic cars, Ice cream, burgers and Breakfast all day!",
+              "breadcrumb": {
+                "@id": "https://sunlinerdiner.com/#breadcrumb"
+              },
+              "inLanguage": "en-US",
+              "potentialAction": [
+                {
+                  "@type": "ReadAction",
+                  "target": [
+                    "https://sunlinerdiner.com/"
+                  ]
+                }
+              ]
+            },
+            {
+              "@type": "ImageObject",
+              "inLanguage": "en-US",
+              "@id": "https://sunlinerdiner.com/#primaryimage",
+              "url": "https://sunlinerdiner.com/wp-content/uploads/2026/03/cafd482b-460e-4004-8b17-cfb9eebd799e.jpg",
+              "contentUrl": "https://sunlinerdiner.com/wp-content/uploads/2026/03/cafd482b-460e-4004-8b17-cfb9eebd799e.jpg",
+              "width": 1536,
+              "height": 1024
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://sunlinerdiner.com/#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home"
+                }
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://sunlinerdiner.com/#website",
+              "url": "https://sunlinerdiner.com/",
+              "name": "Sunliner Diner - 50&#039;s Themed Breakfast Diner in Gulf Shores",
+              "description": "A fun new 50&#039;s restaurant in Gulf Shores, Alabama",
+              "potentialAction": [
+                {
+                  "@type": "SearchAction",
+                  "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://sunlinerdiner.com/?s={search_term_string}"
+                  },
+                  "query-input": {
+                    "@type": "PropertyValueSpecification",
+                    "valueRequired": true,
+                    "valueName": "search_term_string"
+                  }
+                }
+              ],
+              "inLanguage": "en-US"
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "google-site-verification": "3j-UJfNoKnZdEbRcDXA4VjdQpnBy8TDnn5Zp4sDyrDk",
+        "theme-color": "#C42032",
+        "facebook-domain-verification": "xwucetg80eecoyggc9wok25vv7u8wo",
+        "_globalsign-domain-verification": "RKlZ2TFNWgQBehZ1cgasVee8Vc-A1cDCvMIzytGvId",
+        "viewport": "width=device-width, initial-scale=1",
+        "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+        "description": "The Sunliner Diner is a 50s Themed Diner Restaurant in Gulf Shores, AL and coming soon to Pigeon Forge, TN. Go vintage and dine with classic cars, Ice cream, burgers and Breakfast all day!",
+        "og:locale": "en_US",
+        "og:type": "website",
+        "og:title": "Sunliner Diner - 50's Themed Breakfast Diner in Gulf Shores",
+        "og:description": "The Sunliner Diner is a 50s Themed Diner Restaurant in Gulf Shores, AL and coming soon to Pigeon Forge, TN. Go vintage and dine with classic cars, Ice cream, burgers and Breakfast all day!",
+        "og:url": "https://sunlinerdiner.com/",
+        "og:site_name": "Sunliner Diner - 50's Themed Breakfast Diner in Gulf Shores",
+        "article:modified_time": "2026-03-19T15:50:19+00:00",
+        "og:image": "https://sunlinerdiner.com/wp-content/uploads/2026/03/DSC_0636.NEF_.jpg",
+        "og:image:width": "1369",
+        "og:image:height": "910",
+        "og:image:type": "image/jpeg",
+        "twitter:card": "summary_large_image",
+        "msvalidate.01": "ABDC0BD8D7BD85C140EC50761A560E66",
+        "generator": "WP Rocket 3.20.5",
+        "msapplication-TileImage": "https://sunlinerdiner.com/wp-content/uploads/2018/01/cropped-SUN-Favicon-270x270.png"
+      }
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": [
+    "https://sunlinerdiner.com/wp-content/uploads/2019/07/SUN-Footer-Logo.png.webp",
+    "https://sunlinerdiner.com/wp-content/uploads/2026/03/unspecified-45.jpeg.webp",
+    "https://sunlinerdiner.com/wp-content/uploads/2026/03/Group-1707480056.jpg.webp",
+    "https://sunlinerdiner.com/wp-content/uploads/2026/03/DSC_0725.jpg.webp",
+    "https://sunlinerdiner.com/wp-content/uploads/2026/03/Logan-Mike-16.jpg.webp",
+    "https://sunlinerdiner.com/wp-content/uploads/2026/03/image00008.jpeg.webp",
+    "https://sunlinerdiner.com/wp-content/uploads/2026/03/cafd482b-460e-4004-8b17-cfb9eebd799e.jpg.webp",
+    "https://sunlinerdiner.com/wp-content/uploads/2026/03/123_1.jpeg.webp",
+    "https://sunlinerdiner.com/wp-content/uploads/2026/03/Image-Dec-4-2025-04_43_48-AM.jpg.webp",
+    "https://sunlinerdiner.com/wp-content/uploads/2026/03/DSC_0725.jpg",
+    "https://sunlinerdiner.com/wp-content/uploads/2026/03/image00008.jpeg",
+    "https://sunlinerdiner.com/wp-content/uploads/2026/03/Kim-Hesebeck-1.jpg"
+  ]
+}

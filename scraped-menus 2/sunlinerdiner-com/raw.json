@@ -1,0 +1,508 @@
+{
+  "business_name": "sunlinerdiner.com",
+  "url": "https://sunlinerdiner.com",
+  "scraped_at": "2026-03-21T20:13:36.706Z",
+  "pages": [
+    {
+      "url": "https://sunlinerdiner.com",
+      "title": "Sunliner Diner - 50's Themed Breakfast Diner in Gulf Shores",
+      "text": "Skip to content\n \n \n \n \n \n \n \n \n \n \n \n \n\n Menu\nEvents\nAbout Us\nCareers\nLocations\nContact\n \n \n \n \n \n \n \n \n \n \n \n \n \n\t\n \n \n \n \n \n\n\t\n\t\n\t\n \n \n \n\t\n\t\n\t\n \n \n \n\n \n \n\t\n\t\n\t\n \n \n \n\n \n \n\t\n\t\n\t\n \n \n \n\n \n \n\t\n\t\n\t\n \n \n \n\n \n \n\t\n\n\t\n\n \n \n \n\n\t\n\t\n \n\nA Classic 1950s Themed American Diner\nWith our retro newspaper menus, collector cars, hand-spun milkshakes, classic diner cuisine and breakfast all-day, The Sunliner Diner is sure to become your favorite spot to hang out- It’s Guaranteed!  Take a blast to the past with your family and friends, come and see what all the buzz is about- the fun never ends! Visit our Gift Shop to bring your memories of a swell time home with you!\n\nGulf Shores\n\nPigeon Forge\n\nOrange Beach\n\n\t\n\t\n\n\t\n\n\t\n \n \n \n\n \n\n\t\n\t\n \n\n\t\n\n\t\n \n \n \n \n Follow on Instagram\n \n \n\t\n\n \n\t\n \n This error message is only visible to WordPress admins\n There has been a problem with your Instagram Feed. \n \n\n\t\n \n\n \n \n \n \n \n \n \n \n \n Gulf Shores\n\nVIEW MENU\n\n \n Pigeon Forge\n\nVIEW MENU\n\n \n \nOrange Beach\n\nVIEW MENU\n\n \n \n \n \n\nPrivacy Policy\nCopyright Sunliner Diner © 2025. All Rights Reserved.",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://sunlinerdiner.com/",
+              "url": "https://sunlinerdiner.com/",
+              "name": "Sunliner Diner - 50&#039;s Themed Breakfast Diner in Gulf Shores",
+              "isPartOf": {
+                "@id": "https://sunlinerdiner.com/#website"
+              },
+              "primaryImageOfPage": {
+                "@id": "https://sunlinerdiner.com/#primaryimage"
+              },
+              "image": {
+                "@id": "https://sunlinerdiner.com/#primaryimage"
+              },
+              "thumbnailUrl": "https://sunlinerdiner.com/wp-content/uploads/2026/03/cafd482b-460e-4004-8b17-cfb9eebd799e.jpg",
+              "datePublished": "2019-07-22T15:24:04+00:00",
+              "dateModified": "2026-03-19T15:50:19+00:00",
+              "description": "The Sunliner Diner is a 50s Themed Diner Restaurant in Gulf Shores, AL and coming soon to Pigeon Forge, TN. Go vintage and dine with classic cars, Ice cream, burgers and Breakfast all day!",
+              "breadcrumb": {
+                "@id": "https://sunlinerdiner.com/#breadcrumb"
+              },
+              "inLanguage": "en-US",
+              "potentialAction": [
+                {
+                  "@type": "ReadAction",
+                  "target": [
+                    "https://sunlinerdiner.com/"
+                  ]
+                }
+              ]
+            },
+            {
+              "@type": "ImageObject",
+              "inLanguage": "en-US",
+              "@id": "https://sunlinerdiner.com/#primaryimage",
+              "url": "https://sunlinerdiner.com/wp-content/uploads/2026/03/cafd482b-460e-4004-8b17-cfb9eebd799e.jpg",
+              "contentUrl": "https://sunlinerdiner.com/wp-content/uploads/2026/03/cafd482b-460e-4004-8b17-cfb9eebd799e.jpg",
+              "width": 1536,
+              "height": 1024
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://sunlinerdiner.com/#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home"
+                }
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://sunlinerdiner.com/#website",
+              "url": "https://sunlinerdiner.com/",
+              "name": "Sunliner Diner - 50&#039;s Themed Breakfast Diner in Gulf Shores",
+              "description": "A fun new 50&#039;s restaurant in Gulf Shores, Alabama",
+              "potentialAction": [
+                {
+                  "@type": "SearchAction",
+                  "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://sunlinerdiner.com/?s={search_term_string}"
+                  },
+                  "query-input": {
+                    "@type": "PropertyValueSpecification",
+                    "valueRequired": true,
+                    "valueName": "search_term_string"
+                  }
+                }
+              ],
+              "inLanguage": "en-US"
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "google-site-verification": "3j-UJfNoKnZdEbRcDXA4VjdQpnBy8TDnn5Zp4sDyrDk",
+        "theme-color": "#C42032",
+        "facebook-domain-verification": "xwucetg80eecoyggc9wok25vv7u8wo",
+        "_globalsign-domain-verification": "RKlZ2TFNWgQBehZ1cgasVee8Vc-A1cDCvMIzytGvId",
+        "viewport": "width=device-width, initial-scale=1",
+        "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+        "description": "The Sunliner Diner is a 50s Themed Diner Restaurant in Gulf Shores, AL and coming soon to Pigeon Forge, TN. Go vintage and dine with classic cars, Ice cream, burgers and Breakfast all day!",
+        "og:locale": "en_US",
+        "og:type": "website",
+        "og:title": "Sunliner Diner - 50's Themed Breakfast Diner in Gulf Shores",
+        "og:description": "The Sunliner Diner is a 50s Themed Diner Restaurant in Gulf Shores, AL and coming soon to Pigeon Forge, TN. Go vintage and dine with classic cars, Ice cream, burgers and Breakfast all day!",
+        "og:url": "https://sunlinerdiner.com/",
+        "og:site_name": "Sunliner Diner - 50's Themed Breakfast Diner in Gulf Shores",
+        "article:modified_time": "2026-03-19T15:50:19+00:00",
+        "og:image": "https://sunlinerdiner.com/wp-content/uploads/2026/03/DSC_0636.NEF_.jpg",
+        "og:image:width": "1369",
+        "og:image:height": "910",
+        "og:image:type": "image/jpeg",
+        "twitter:card": "summary_large_image",
+        "msvalidate.01": "ABDC0BD8D7BD85C140EC50761A560E66",
+        "generator": "WP Rocket 3.20.5",
+        "msapplication-TileImage": "https://sunlinerdiner.com/wp-content/uploads/2018/01/cropped-SUN-Favicon-270x270.png"
+      }
+    },
+    {
+      "url": "https://sunlinerdiner.com/menu",
+      "title": "Menu - Sunliner Diner - 50's Themed Breakfast Diner in Gulf Shores",
+      "text": "Skip to content\n \n \n \n \n \n \n \n \n \n \n \n \n\n Menu\nEvents\nAbout Us\nCareers\nLocations\nContact\n \n \n \n \n \n \n \n \n \n \n \n \n \n\t\n \n \n \n \n \n\t\n \n\n \n\n \n Menu\t\n \n\t\n \n\n\t\n\t\n\t\n \n \n \n\t\n\t\n\t\n \n \n \n\t\n\t\n\t\n \n \n \n\t\n\n \n \n\n\t\n\n \n \n \nDelicious Waffles. Breakfast All Day. Mouthwatering Milkshakes.Your vacation destination.\nThe Sunliner Diner, with three remarkable locations, beautiful Gulf Shores, Alabama,  Orange Beach, Alabama, and Pigeon Forge, TN, is turning back the hands of time to the 1950s! Located just walking distance to the beautiful white sands of Gulf Shores. The Fantastic family fun of Pigeon Forge and the spectacular sunsets of Orange Beach – The Sunliner Diner is the quintessential symbol of American culture, where family and friends can connect over hamburgers, all-day breakfast and milkshakes. Come and have a seat, enjoy a tasty treat- and throw some quarters in the jukebox. Visit our Gift Shop to take your memories of a swell time home with you!\n\nMENU\n\n \n \n \n BREAKFAST \n \n LUNCH & DINNER \n \n\n \n \n \n EGGS–BENEDICT* \n \n EGGS & OMELETTES* \n \n THE SUNLINER GRIDDLE \n \n WAFFLES \n \n LIGHT & HEALTHY \n \n BREAKFAST SIDES \n \n APPETIZERS \n \n SUNLINER SPECIALTIES* \n \n BURGERS* \n \n SALADS \n \n SANDWICHES \n \n LUNCH & DINNER SIDES \n \n Drinks \n \n Milkshake \n \n Cocktails \n \n Splits & Sundaes \n \n\n \n \n \n BREAKFAST \n \n \n SERVED ALL DAY\n \n \n\n \n \n \n \n\n \n \n\n \n \n EGGS–BENEDICT* \n \n \n \n \n \n \n\n \n SHRIMP BENEDICT \n \n \n Two poached eggs, Creole seasoned Gulf shrimp, sliced red tomato\ncovered with Creole hollandaise sauce on top of a Sunliner biscuit.\nServed with hash browns or grits.\n \n \n \n \n\n \n CLASSIC BENEDICT \n \n \n Two poached eggs with Creole hollandaise sauce, smoked ham on top\nof an English muffin. Served with hash browns or grits.\n \n \n \n \n\n \n CHICKEN & WAFFLE BENEDICT \n \n \n Belgian waffle, hand-battered fried boneless chicken breast, two\npoached eggs covered with Creole hollandaise sauce. Topped with\nchopped bell peppers, drizzled with syrup. Served with hash browns or grits.\n \n \n \n \n\n \n AVOCADO BENEDICT \n \n \n Two poached eggs, fresh avocado, and sliced red tomato covered\nwith Creole hollandaise sauce on top of a Sunliner biscuit. Topped with chopped bell peppers and served with hash browns or grits.\nAdd to Beyond Plant-Based Patty.\n \n \n \n \n \n \n\n \n \n \n \n\n \n \n\n \n \n THE SUNLINER GRIDDLE \n \n \n \n \n \n \n\n \n BANANA NUT FRENCH TOAST \n \n \n Texas toast soaked in a sweet custard topped with fresh bananas, candied pecans, two layers of candied bacon, and drizzled with caramel sauce.\n \n \n \n \n\n \n CHOCOLATE CHIP PANCAKES \n \n \n Three light and fluffy buttermilk pancakes filled with chocolate chip morsels.\n \n \n \n \n\n \n BUTTERMILK PANCAKES \n \n \n Three light and fluffy buttermilk pancakes.\n \n \n \n \n\n \n SUNLINER FRENCH TOAST \n \n \n Texas toast soaked in homemade sweet custard, topped with caramel sauce and powdered sugar.\n \n \n \n \n\n \n SEASONAL SPECIALTY PANCAKES \n \n \n Three light and fluffy buttermilk pancakes with your choice of fresh bananas, blueberries, or strawberries on top.\n \n \n \n \n \n \n\n \n \n \n \n\n \n \n\n \n \n WAFFLES \n \n \n \n \n \n \n\n \n DREAM BOAT \n \n \n Your sweet and salty fantasy. Three giant waffles, bacon, sausage, caramel sauce, chocolate sauce, and whipped cream. Topped with chocolate chips and chopped bacon. Making dreams come true!\n \n \n \n \n\n \n BERRY STACK \n \n \n One blueberry waffle and one strawberry waffle topped with blueberries, strawberries, and drizzled with honey. It’s berry delicious!\n \n \n \n \n\n \n BELGIAN WAFFLES \n \n \n Two fluffy, delicious house-made waffles.\n \n \n \n \n\n \n FLAVORED BELGIAN WAFFLES \n \n \n Your choice of two strawberry or blueberry waffles with any of the following toppings: strawberry, blueberry, or chocolate chips.\n \n \n \n \n \n \n\n \n \n \n \n\n \n \n\n \n \n BREAKFAST SIDES \n \n \n \n \n \n \n\n \n Grits \n \n \n \n \n\n \n One Egg* \n \n \n \n \n\n \n Sliced Tomatoes \n \n \n \n \n\n \n Sausage Gravy \n \n \n \n \n\n \n Hash Browns \n \n \n \n \n\n \n Mixed Fruit \n \n \n \n \n\n \n Bacon \n \n \n \n \n\n \n House-Blended Pork Sausage Patties \n \n \n \n \n\n \n Candied Bacon \n \n \n \n \n\n \n Griddled Smoked Ham \n \n \n \n \n\n \n One Pancake \n \n \n \n \n\n \n One Waffle \n \n \n \n \n\n \n One Classic Biscuit \n \n \n \n \n \n \n\n \n \n \n We want to offer our customers the best value possible and keep prices as low as possible. We provide 3% cash discount on all purchases made with cash. This allows us to offset rising process- ing costs while passing the savings directly to our valued guests. When you choose to pay with cash, you automatically enjoy this discount-no extra steps needed!\n \n \n \n\n \n \n \n\n \n \n\n \n \n EGGS & OMELETTES* \n \n \n \n \n \n \n\n \n THE BIG DADDY-O BREAKFAST \n \n \n Three farm fresh eggs made to order, bacon, sausage, smoked ham, and a pancake. Served with your choice of hash browns or grits.\n•Upgrade to a Waffle or French Toast\n \n \n \n \n\n \n WAFFLE CLASSIC \n \n \n One Belgian waffle served with two farm fresh eggs made to order, a choice of bacon, sausage, or smoked ham, and your choice of hash browns or grits.\n \n \n \n \n\n \n BEEGEES BREAKFAST COMBO \n \n \n Two farm-fresh eggs made to order, a choice of bacon, sausage, or smoked ham, and a Sunliner biscuit covered with our sausage gravy. Served with your choice of hash browns or grits.\n \n \n \n \n\n \n SUNRISE BISCUIT & GRAVY \n \n \n A Sunliner biscuit topped with two farm-fresh eggs made to order, our sausage gravy, and served with hash browns or grits.\n \n \n \n \n\n \n CORNED BEEF HASH \n \n \n Tender house-made corned beef hash mixed with bell peppers, onions, hash browns topped with two eggs made to order. Served with a Sunliner biscuit.\n \n \n \n \n\n \n STEAK & EGGS \n \n \n 10 oz New York Strip and two eggs made to order. Served with your choice of hash browns or grits and a Sunliner biscuit.\n \n \n \n \n\n \n COUNTRY FRIED STEAK & EGGS \n \n \n Country fried beef steak covered in sausage gravy. Served with two eggs made to order and a Sunliner biscuit and your choice of hash browns or grits\n \n \n \n \n\n \n COUNTRY FRIED CHICKEN & EGGS \n \n \n Crispy boneless chicken breast covered in sausage gravy. Served with two farm fresh eggs made to order and a Sunliner biscuit and your choice of hash browns or grits.\n \n \n \n \n\n \n CLASSIC BREAKFAST \n \n \n Two farm fresh eggs made to order, choice of bacon, sausage or smoked ham. Served with a Sunliner biscuit and your choice of hash browns or grits.\n \n \n \n \n\n \n SHRIMP OMELETTE \n \n \n Three farm eggs, Gulf shrimp, onions, bell peppers and cheddar cheese. Served with a Sunliner biscuit and your choice of hash browns or grits.\n \n \n \n \n\n \n MEATLOVERS OMELETTE \n \n \n Three farm fresh eggs, bacon, sausage, and smoked ham with cheddar cheese. Served with a Sunliner biscuit and your choice of hash browns or grits.\n \n \n \n \n\n \n HAM & CHEESE OMELETTE \n \n \n Three farm fresh eggs, smoked ham, and cheddar cheese. Served with a Sunliner biscuit and your choice of hash browns or grits.\n \n \n \n \n\n \n WESTERN OMELETTE \n \n \n Three farm fresh eggs, smoked ham, bell peppers, onions, and cheddar cheese. Served with a Sunliner biscuit and your choice of hash browns or grits\n \n \n \n \n\n \n GARDEN OMELETTE \n \n \n Three farm fresh eggs, baby spinach, mushrooms, onions, and feta cheese. Served with a Sunliner biscuit and your choice of hash browns or grits.\n \n \n \n \n \n \n\n \n \n \n \n\n \n \n\n \n \n LIGHT & HEALTHY \n \n \n \n \n \n \n\n \n EGG WHITE OMELETTE* \n \n \n Fresh egg whites made with baby spinach, mushrooms, onion, and feta cheese. Served with a side of fresh fruit.\n \n \n \n \n\n \n AVOCADO TOAST WITH EGGS* \n \n \n Toasted wheat with sliced tomatoes and avocado, topped with sunny side up eggs and drizzled with extra olive oil and freshly cracked black pepper.\n•Sub a Beyond Plant-Based Patty\n \n \n \n \n\n \n RAZZ YOUR BERRIES PARFAIT \n \n \n Greek vanilla yogurt layered with seasonal mixed berries and granola.\n \n \n \n \n\n \n TURKEY AVOCADO REUBEN \n \n \n Roasted turkey breast, fresh avocado, sauerkraut, and Swiss cheese piled high on butter-griddled marble rye toast with 1000 Island dressing. Side of seasonal mixed fruit.\n \n \n \n \n \n \n\n \n \n \n *Consuming raw or undercooked meats, poultry, seafood, shellfish, or eggs may increase your risk of foodborne illness.\n \n \n \n\n \n \n \n\n \n\n \n \n \n LUNCH & DINNER \n \n \n STARTING AT 11AM\n \n \n\n \n \n \n \n\n \n \n\n \n \n APPETIZERS \n \n \n \n \n \n \n\n \n CANDIED BACON \n \n \n Our thick-cut smoked bacon transformed into a sweet and savory treat!\n \n \n \n \n\n \n FRIED PICKLES \n \n \n Deep fried dill pickles served with house-made ranch dressing.\n \n \n \n \n\n \n ONION RINGS \n \n \n Hand cut onions battered and fried golden brown, served with house-made ranch dressing.\n \n \n \n \n\n \n CHEESE FRIES \n \n \n French fries topped with bacon, queso, shredded cheddar cheese, and jalapeños.\n \n \n \n \n \n \n\n \n \n \n \n\n \n \n\n \n \n BURGERS* \n \n \n \n \n \n \n\n \n \n Served with lettuce, tomato, red onions, pickles, and french fries.\n* Substitute Gluten free bun.\n* Substitute a side of onion rings.\n* Substitute a Beyond plant-based patty on any of our signature burgers.\n \n \n \n \n \n \n\n \n \n \n \n\n \n THE JUKEBOX \n \n \n A stack of three griddled burger patties, topped with American, Swiss, cheddar cheese, bacon, onion ring, fried egg, and fried pickles. Drizzled with our Creole hollandaise on a buttered brioche bun. Order it and you can play any song you’d like on the jukebox! Finish it and get a Sunliner surprise!\n \n \n \n \n\n \n THE SUNLINER BURGER \n \n \n A stack of two griddled burger patties, bacon, and cheddar cheese on a buttered brioche bun.\n \n \n \n \n\n \n THE AVOCADO BURGER \n \n \n A stack of two griddled burger patties with avocado, bacon and cheddar cheese on a buttered brioche bun.\n \n \n \n \n\n \n THE CLASSIC BURGER \n \n \n Classic and Delicious! One griddled burger patty served on a buttered brioche bun. Add Cheese\n \n \n \n \n\n \n THE DOUBLE \n \n \n Classic and delicious! Two griddled burger patties served on a buttered brioche bun. Add Cheese\n \n \n \n \n\n \n THE BARNYARD BURGER \n \n \n A stack of two griddled burger patties with bacon, fried onion ring, fried egg, cheddar cheese, and Creole hollandaise on a buttered brioche bun.\n \n \n \n \n \n \n\n \n \n \n \n\n \n \n\n \n \n SANDWICHES \n \n \n \n \n \n \n\n \n \n All sandwiches are served with French fries.\n \n \n \n \n\n \n THE ULTIMATE BLT \n \n \n Thick applewood bacon strips, lettuce, and tomato on butter-griddled Texas toast.\n \n \n \n \n\n \n CLASSIC CLUB \n \n \n Roasted turkey breast, smoked ham, candied bacon, cheddar cheese, fresh ripe tomato, and lettuce, piled high on butter-griddled Texas toast.\n \n \n \n \n\n \n CLASSIC REUBEN \n \n \n Corned beef, sauerkraut, and Swiss cheese piled high on butter-griddled marble rye bread with 1000 Island dressing.\n \n \n \n \n\n \n SUNLINER BUFFALO CHICKEN SANDWICH \n \n \n Hand-breaded fried chicken breast tossed in our signature sauce topped with lettuce, tomato, and pickles on a brioche bun.\n \n \n \n \n\n \n GRILLED CHICKEN SANDWICH \n \n \n Grilled chicken breast, lettuce, tomato, and pickles stacked on our signature buttered brioche bun.\n \n \n \n \n\n \n TRIPLE GRILLED CHEESE \n \n \n American, Swiss, and cheddar cheeses on butter-griddled Texas toast. Cheesylicious!\n• Add bacon\n \n \n \n \n\n \n SUNLINER PATTY MELT \n \n \n Two griddled burger patties stacked with grilled red onions, Swiss cheese, and 1000 Island dressing on toasted marble rye bread.\n \n \n \n \n \n \n\n \n \n \n We want to offer our customers the best value possible and keep prices as low as possible. We provide 3% cash discount on all purchases made with cash. This allows us to offset rising process- ing costs while passing the savings directly to our valued guests. When you choose to pay with cash, you automatically enjoy this discount-no extra steps needed!\n \n \n \n\n \n \n \n\n \n \n\n \n \n SUNLINER SPECIALTIES* \n \n \n \n \n \n \n\n \n CHICKEN & WAFFLES \n \n \n Fluffy and delicious waffle topped with crispy fried chicken. Served with sweet and savory sauces and garnished with bell peppers.\n•Substitute Gulf Shrimp for an additional.\n \n \n \n \n\n \n FISH & CHIPS \n \n \n Beer-battered fried North-Atlantic cod served with fried pickles, french fries, and tartar sauce.\n \n \n \n \n\n \n CHICKEN FETTUCCINI ALFREDO \n \n \n Fettuccine tossed in our homemade alfredo sauce, topped with parmesan cheese served with a bread.\n• Substitute Grilled or Fried Gulf Shrimp.\n• Substitute 10oz New York Strip.\n \n \n \n \n\n \n GULF SHRIMP & GRITS \n \n \n Our famous cheese grits topped with our house-made Creole Conecuh sausage cream sauce, and grilled Gulf shrimp with a bread.\n \n \n \n \n\n \n CHICKEN TENDER BASKET \n \n \n Golden fried, hand-breaded chicken tenders and french fries.\n \n \n \n \n\n \n SUNLINER MEATLOAF \n \n \n Homemade meatloaf made with bacon bits served with green beans and mashed potatoes with gravy.\n \n \n \n \n\n \n COUNTRY FRIED STEAK \n \n \n Country fried beef steak topped with house-made white gravy. Served with green beans and mashed potatoes with gravy.\n \n \n \n \n\n \n COUNTRY FRIED CHICKEN \n \n \n Country fried chicken breast topped with house-made white gravy. Served with green beans and mashed potatoes with gravy.\n \n \n \n \n\n \n NEW YORK STRIP STEAK DINNER \n \n \n 10 oz New York Strip cooked to your liking, served with mashed potatoes and green beans. Add Gulf shrimp.\n \n \n \n \n\n \n GULF SHRIMP PLATTER \n \n \n Hand-breaded fried Gulf shrimp served with a side of french fries, cole slaw, and cocktail sauce.\n \n \n \n \n \n \n\n \n \n \n \n\n \n \n\n \n \n SALADS \n \n \n \n \n \n \n\n \n \n Choice of Dressings: house-made ranch, house-made 1000 Island, house-made vinaigrette, blue cheese, honey mustard, or caesar.\n \n \n \n \n\n \n \n Add a protein for an additional charge:*\n• Grilled or Fried Gulf Shrimp.\n• Grilled or Fried Chicken.\n• Turkey or Ham.\n• 10 oz New York Strip.\n \n \n \n \n\n \n THE SUNLINER CHEF* \n \n \n Bed of leafy greens topped with turkey, ham, bacon, egg, tomato, cucumber, cheddar cheese, seasoned croutons, and choice of dressing.\n \n \n \n \n\n \n THE SUNLINER GARDEN \n \n \n Bed of leafy greens topped with tomato, cucumber, cheddar cheese, seasoned croutons, and choice of dressing.\n \n \n \n \n\n \n THE GREEK \n \n \n Bed of leafy greens topped with tomato, cucumber, shaved red onion, bell peppers, Kalamata olives, and feta cheese. Tossed in our house-made vinaigrette.\n \n \n \n \n\n \n CLASSIC CAESAR \n \n \n Crisp mixed Romaine lettuce tossed in Caesar dressing, topped with croutons, and shaved parmesan cheese.\n \n \n \n \n \n \n\n \n \n \n \n\n \n \n\n \n \n LUNCH & DINNER SIDES \n \n \n \n \n \n \n\n \n Seasonal Mixed Fruit \n \n \n \n \n\n \n Green Beans \n \n \n \n \n\n \n White Gravy \n \n \n \n \n\n \n Sliced Tomatoes \n \n \n \n \n\n \n Mashed Potatoes and Gravy \n \n \n \n \n\n \n Macaroni & Cheese \n \n \n \n \n\n \n French Fries \n \n \n \n \n\n \n Cole Slaw \n \n \n \n \n\n \n Hash Browns \n \n \n \n \n\n \n Onion Rings \n \n \n \n \n\n \n Side Salad \n \n \n \n \n \n \n\n \n \n \n *Consuming raw or undercooked meats, poultry, seafood, shellfish, or eggs may increase your risk of foodborne illness.\n \n \n \n\n \n \n \n\n \n\n \n \n\n \n \n \n \n\n \n \n\n \n \n Drinks \n \n \n \n \n \n \n\n \n OLD FASHIONED SODAS \n \n \n Your choice of vanilla cream, blue raspberry, cotton candy, orange, or\nstrawberry.\n \n \n \n \n\n \n CREAM SODAS \n \n \n Your choice of root beer, vanilla cream, blue raspberry, cotton candy, orange, or strawberry.\n \n \n \n \n\n \n ICE CREAM FLOATS \n \n \n Your choice of root beer, vanilla cream, blue raspberry, cotton candy, orange, or strawberry Sprite.\n \n \n \n \n\n \n ICED COFFEE \n \n \n A sweet and creamy version of our house-blended coffee with your flavor choice: chocolate, caramel, or vanilla. Shaken, not stirred!\n \n \n \n \n\n \n SUNLINER FRAPPE \n \n \n Your choice: chocolate, caramel, or vanilla blended with coffee, ice, and vanilla ice cream.\n• Mix-In Oreo or Reese’s peanut butter cups for an additional\n \n \n \n \n\n \n COKE PRODUCTS \n \n \n \n \n\n \n \n \n \n\n \n \n \n \n\n \n JUICE \n \n \n Orange Juice, Apple Juice, and Cranberry Juice.\n \n \n \n \n\n \n 32oz PITCHER OF JUICE \n \n \n Orange Juice, Apple Juice, and Cranberry Juice.\n \n \n \n \n \n \n\n \n \n \n \n\n \n \n\n \n \n Milkshake \n \n \n \n \n \n \n\n \n \n Signature milkshakes made with premium ice cream handcrafted the old-fashioned way. Add a banana . Make it a malt . Add a house-made brownie\n \n \n \n \n\n \n COOKIES & CREAM \n \n \n Vanilla milkshake with yummy Oreo. Topped with whipped cream, chocolate sauce, and guess what?? More Oreo!\n \n \n \n \n\n \n AUTHENTIC 1950’S SHAKE \n \n \n You choose chocolate, strawberry, or vanilla. Topped with whipped cream and a cherry.\n \n \n \n \n\n \n SUGA SHAKE SUPREME \n \n \n Chocolate milkshake spun with hot fudge and a chocolate brownie topped with whipped cream, a Hershey’s bar, and a cherry\n \n \n \n \n\n \n BIG TICKLE PARTY \n \n \n This is a shake for the adventurer! Let us dazzle and surprise you! You won’t be sorry. You choose chocolate, strawberry, or vanilla ice cream and leave the rest up to us!\n \n \n \n \n\n \n BANANA SPLIT SHAKE \n \n \n Classic banana split transformed! Banana and pineapple blended into strawberry ice cream topped with chocolate syrup, chopped peanuts, banana, whipped cream, and a cherry on top!\n \n \n \n \n\n \n PEANUT BUTTER CUP \n \n \n Reese’s peanut butter cup with vanilla ice cream, topped with whipped cream and a cherry.\n \n \n \n \n \n \n\n \n \n \n \n\n \n \n\n \n \n Splits & Sundaes \n \n \n \n \n \n \n\n \n CLASSIC BANANA SPLIT \n \n \n Vanilla, chocolate, and strawberry ice cream between a split banana, covered with hot fudge, strawberry sauce, and crushed pineapple. Topped with whipped cream, chopped peanuts, and a cherry.\n \n \n \n \n\n \n KING OF SPLITS \n \n \n Two scoops of chocolate ice cream and one scoop of vanilla ice cream between a split banana, covered in hot fudge and peanut butter. Topped with an abundance of Reese’s peanut butter cups, fluffy waffle pieces, fudge, peanut butter, chopped peanuts, whipped cream, and a cherry. Even the King can’t help falling in love with this one!\n \n \n \n \n\n \n HOT FUDGE SUNDAE \n \n \n Vanilla ice cream, whipped cream, hot fudge syrup, chopped peanuts, whipped cream, and a cherry!\n• House-made brownie\n \n \n \n \n\n \n TURTLE SUNDAE \n \n \n Chocolate ice cream topped with caramel sauce, whipped cream, and pecans. Topped with a cherry!\n• House-made brownie\n \n \n \n \n\n \n CARAMEL APPLE SUNDAE \n \n \n Vanilla ice cream, a warm slice of apple pie, and caramel sauce. Topped with caramel, whipped cream, cinnamon, and candied pecans. A twist on the traditional, this sundae is the bee’s knees!\n \n \n \n \n\n \n HAPPY DAY SUNDAE \n \n \n Today is the day! The best day! Friendly day! Family day! Birthday! Game Day! Anniversary Day! It’s a HAPPY DAY!! Celebrate with a Happy Sundae!! So much ice cream, cake, sweets, and yumminess! Made to share!\n \n \n \n \n \n \n\n \n \n \n *Consuming raw or undercooked meats, poultry, seafood, shellfish, or eggs may increase your risk of foodborne illness.\n \n \n \n\n \n \n \n\n \n \n\n \n \n \n \n FOR COOL CATS 12 AND UNDER \n \n \n BREAKFAST \n \n Add mixed fruit \n \n \n \n\n \n \n Pancake, waffle, or French toast, with choice of bacon, sausage, or smoked ham\n \n \n \n \n\n \n \n One egg, choice of bacon, sausage, or smoked ham with hash browns or grits*\n \n \n \n \n \n \n\n \n \n LUNCH & DINNER \n \n STARTING AT 11AM \n \n \n \n\n \n \n Fried Gulf shrimp, waffle, and fries.\n \n \n \n \n\n \n \n Two chicken tenders, a waffle, and fries.\n \n \n \n \n\n \n \n Two chicken tenders and fries.\n \n \n \n \n\n \n \n Grilled cheese and fries.\n \n \n \n \n\n \n \n Hamburger and fries.\n• Add Cheese.\n \n \n \n \n\n \n \n Macaroni n cheese with french fries.\n \n \n \n \n\n \n \n Buttered noodles.\n \n \n \n \n \n \n\n \n \n \n \n\n \n \n\n \n \n Cocktails \n \n \n \n \n \n \n\n \n BUSHWACKER \n \n \n Vanilla milkshake spun with chocolate syrup, Malibu Rum, coffee liqueur topped with whipped cream, chocolate drizzle, and a cherry.\n \n \n \n \n\n \n BLOODY MARY \n \n \n Absolut Vodka and bloody Mary mix garnished with celery, lime, and olives.\n \n \n \n \n\n \n PITCHER OF BLOODY MARY \n \n \n \n \n\n \n MIMOSA \n \n \n Champagne and your choice of orange juice or cranberry juice.\n \n \n \n \n\n \n MIMOSA FLIGHT \n \n \n Orange Mimosa, Cranberry Mimosa, and a Pineapple Mimosa.\n \n \n \n \n\n \n PITCHER OF MIMOSA \n \n \n \n \n\n \n CLASSIC COSMO \n \n \n Absolut Vodka, triple sec, cranberry juice, and lime.\n \n \n \n \n\n \n SCREWDRIVER \n \n \n Absolut Vodka and orange juice.\n \n \n \n \n\n \n WHITE RUSSIAN \n \n \n Vanilla milkshake spun with Absolut Vodka and coffee liqueur topped off with whipped cream, caramel drizzle, and a cherry.\n \n \n \n \n\n \n SUNLINER MARGARITA \n \n \n Silver tequila, triple sec, lime juice, and sweet and sour. Served on the rocks.\n \n \n \n \n\n \n IRISH CREAM COFFEE \n \n \n Irish Cream, our house-blended coffee, topped with whipped cream, and a sweet treat!\n• Blend it with ice cream!\n \n \n \n \n \n \n\n \n \n \n \n\n \n \n\n \n \n \n \n \n \n \n WINE \n \n \n \n\n \n HOUSE RED OR WHITE \n \n \n \n \n \n \n \n\n \n \n BEER \n \n \n \n\n \n MILLER LITE \n \n \n \n \n\n \n CORONA \n \n \n \n \n \n \n\n \n \n \n \n\n \n \n\n \n \n \n \n \n CAKES & PIES \n \n \n \n\n \n \n *Whole cakes and pies sold based on availability\n \n \n \n \n\n \n BIG SLICE OF CAKE \n \n \n Choose from Red Velvet, Carrot Cake, or Cheesecake.\n• Add topping: strawberry, hot fudge, caramel, peanuts\n \n \n \n \n\n \n CHEESECAKE \n \n \n • Add topping: strawberry, hot fudge, caramel, peanuts\n \n \n \n \n\n \n APPLE PIE \n \n \n \n \n \n \n\n \n \n \n \n\n \n \n \n\n \n\n \n\n\t\n\n\t\n\n \n\t\n\n\t\n \n \n \n\n \n\n\t\n\t\n \n\n\t\n\n\t\n \n \n \n \n Follow on Instagram\n \n \n\t\n\n \n\t\n \n This error message is only visible to WordPress admins\n There has been a problem with your Instagram Feed. \n \n\n\t\n \n\n \n \n \n \n \n \n \n \n \n Gulf Shores\n\nVIEW MENU\n\n \n Pigeon Forge\n\nVIEW MENU\n\n \n \nOrange Beach\n\nVIEW MENU\n\n \n \n \n \n\nPrivacy Policy\nCopyright Sunliner Diner © 2025. All Rights Reserved.",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://sunlinerdiner.com/menu/",
+              "url": "https://sunlinerdiner.com/menu/",
+              "name": "Menu - Sunliner Diner - 50&#039;s Themed Breakfast Diner in Gulf Shores",
+              "isPartOf": {
+                "@id": "https://sunlinerdiner.com/#website"
+              },
+              "datePublished": "2019-07-22T16:35:01+00:00",
+              "dateModified": "2026-03-13T15:05:23+00:00",
+              "breadcrumb": {
+                "@id": "https://sunlinerdiner.com/menu/#breadcrumb"
+              },
+              "inLanguage": "en-US",
+              "potentialAction": [
+                {
+                  "@type": "ReadAction",
+                  "target": [
+                    "https://sunlinerdiner.com/menu/"
+                  ]
+                }
+              ]
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://sunlinerdiner.com/menu/#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://sunlinerdiner.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Menu"
+                }
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://sunlinerdiner.com/#website",
+              "url": "https://sunlinerdiner.com/",
+              "name": "Sunliner Diner - 50&#039;s Themed Breakfast Diner in Gulf Shores",
+              "description": "A fun new 50&#039;s restaurant in Gulf Shores, Alabama",
+              "potentialAction": [
+                {
+                  "@type": "SearchAction",
+                  "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://sunlinerdiner.com/?s={search_term_string}"
+                  },
+                  "query-input": {
+                    "@type": "PropertyValueSpecification",
+                    "valueRequired": true,
+                    "valueName": "search_term_string"
+                  }
+                }
+              ],
+              "inLanguage": "en-US"
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "google-site-verification": "2grD776v9E9STVwns29a6yDLCtp87XutnYyzh4wbIVo",
+        "theme-color": "#C42032",
+        "facebook-domain-verification": "xwucetg80eecoyggc9wok25vv7u8wo",
+        "_globalsign-domain-verification": "RKlZ2TFNWgQBehZ1cgasVee8Vc-A1cDCvMIzytGvId",
+        "viewport": "width=device-width, initial-scale=1",
+        "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+        "og:locale": "en_US",
+        "og:type": "article",
+        "og:title": "Menu - Sunliner Diner - 50's Themed Breakfast Diner in Gulf Shores",
+        "og:description": "Delicious Waffles. Breakfast All Day. Mouthwatering Milkshakes.Your vacation destination. The Sunliner Diner, with three remarkable locations, beautiful Gulf Shores, Alabama,  Orange Beach, Alabama, and Pigeon Forge, TN, is turning back the hands of time to the 1950s! Located just walking distance to the beautiful white sands of Gulf Shores. The Fantastic family fun of Pigeon […]",
+        "og:url": "https://sunlinerdiner.com/menu/",
+        "og:site_name": "Sunliner Diner - 50's Themed Breakfast Diner in Gulf Shores",
+        "article:modified_time": "2026-03-13T15:05:23+00:00",
+        "twitter:card": "summary_large_image",
+        "twitter:label1": "Est. reading time",
+        "twitter:data1": "2 minutes",
+        "generator": "WP Rocket 3.20.5",
+        "msapplication-TileImage": "https://sunlinerdiner.com/wp-content/uploads/2018/01/cropped-SUN-Favicon-270x270.png"
+      }
+    },
+    {
+      "url": "https://sunlinerdiner.com/about-us",
+      "title": "About Us - Sunliner Diner - 50's Themed Breakfast Diner in Gulf Shores",
+      "text": "Skip to content\n \n \n \n \n \n \n \n \n \n \n \n \n\n Menu\nEvents\nAbout Us\nCareers\nLocations\nContact\n \n \n \n \n \n \n \n \n \n \n \n \n \n\t\n \n \n \n \n \n\t\n \n \n \n\n \n \n \n Sunliner Diner – Gulf Shores, AL, Pigeon Forge, TN & Orange Beach, AL\n Step Back in Time-Stay for the Sweet Moments\n\n \n \n \n \n\n \n \n \n \n \n \n \n \n Hey there, sugar—welcome to Sunliner Diner! \n We’re so glad you rolled in.\nAround here, we believe in slowing things down, turning up the jukebox, and making every meal feel like a celebration.\nFrom chrome booths and creamy milkshakes to breakfast all day and burgers that’ll make your heart sing, we’ve packed a whole lot of joy into every corner of this 1950s dream.\nWhether you’re sharing pancakes with your little ones or catching up with old friends over a slice of pie,\nSunliner is all about togetherness, nostalgia, and the kind of comfort that never goes out of style.\nSo hop in, baby—your table’s ready, the coffee’s hot, and there’s always room for a little more sweetness in your day.\n\n We’re so happy you’re here.\n The Sunliner Diner Family\n \n \n \n \n \n \n \n \n view our THREE Rockin’ Locations \n \n \n\t\n \n\n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n\n \n\n\t\n \n \n \n\n \n\n\t\n\t\n \n\n\t\n\n\t\n \n \n \n \n Follow on Instagram\n \n \n\t\n\n \n\t\n \n This error message is only visible to WordPress admins\n There has been a problem with your Instagram Feed. \n \n\n\t\n \n\n \n \n \n \n \n \n \n \n \n Gulf Shores\n\nVIEW MENU\n\n \n Pigeon Forge\n\nVIEW MENU\n\n \n \nOrange Beach\n\nVIEW MENU\n\n \n \n \n \n\nPrivacy Policy\nCopyright Sunliner Diner © 2025. All Rights Reserved.",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://sunlinerdiner.com/about-us/",
+              "url": "https://sunlinerdiner.com/about-us/",
+              "name": "About Us - Sunliner Diner - 50&#039;s Themed Breakfast Diner in Gulf Shores",
+              "isPartOf": {
+                "@id": "https://sunlinerdiner.com/#website"
+              },
+              "datePublished": "2025-06-11T12:57:39+00:00",
+              "dateModified": "2025-07-06T20:08:32+00:00",
+              "breadcrumb": {
+                "@id": "https://sunlinerdiner.com/about-us/#breadcrumb"
+              },
+              "inLanguage": "en-US",
+              "potentialAction": [
+                {
+                  "@type": "ReadAction",
+                  "target": [
+                    "https://sunlinerdiner.com/about-us/"
+                  ]
+                }
+              ]
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://sunlinerdiner.com/about-us/#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://sunlinerdiner.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "About Us"
+                }
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://sunlinerdiner.com/#website",
+              "url": "https://sunlinerdiner.com/",
+              "name": "Sunliner Diner - 50&#039;s Themed Breakfast Diner in Gulf Shores",
+              "description": "A fun new 50&#039;s restaurant in Gulf Shores, Alabama",
+              "potentialAction": [
+                {
+                  "@type": "SearchAction",
+                  "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://sunlinerdiner.com/?s={search_term_string}"
+                  },
+                  "query-input": {
+                    "@type": "PropertyValueSpecification",
+                    "valueRequired": true,
+                    "valueName": "search_term_string"
+                  }
+                }
+              ],
+              "inLanguage": "en-US"
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "google-site-verification": "2grD776v9E9STVwns29a6yDLCtp87XutnYyzh4wbIVo",
+        "theme-color": "#C42032",
+        "facebook-domain-verification": "xwucetg80eecoyggc9wok25vv7u8wo",
+        "_globalsign-domain-verification": "RKlZ2TFNWgQBehZ1cgasVee8Vc-A1cDCvMIzytGvId",
+        "viewport": "width=device-width, initial-scale=1",
+        "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+        "og:locale": "en_US",
+        "og:type": "article",
+        "og:title": "About Us - Sunliner Diner - 50's Themed Breakfast Diner in Gulf Shores",
+        "og:url": "https://sunlinerdiner.com/about-us/",
+        "og:site_name": "Sunliner Diner - 50's Themed Breakfast Diner in Gulf Shores",
+        "article:modified_time": "2025-07-06T20:08:32+00:00",
+        "twitter:card": "summary_large_image",
+        "generator": "WP Rocket 3.20.5",
+        "msapplication-TileImage": "https://sunlinerdiner.com/wp-content/uploads/2018/01/cropped-SUN-Favicon-270x270.png"
+      }
+    },
+    {
+      "url": "https://sunlinerdiner.com/locations",
+      "title": "Locations - Sunliner Diner - 50's Themed Breakfast Diner in Gulf Shores",
+      "text": "Skip to content\n \n \n \n \n \n \n \n \n \n \n \n \n\n Menu\nEvents\nAbout Us\nCareers\nLocations\nContact\n \n \n \n \n \n \n \n \n \n \n \n \n \n\t\n \n \n \n \n \n\t\n \n \n \n\n \n \n \n locations\n \n \n \n \n\n \n \n \n Sunliner Diner‑\nThree Retro Diners, One Rock‑’n‑Roll Line‑Up\nCruise into either of our chrome‑trimmed locations and flip through a “newspaper” menu packed with comfort‑food headliners.\n \n \n \n\n \n \n \n \n THREE Rockin’ Locations \n \n \n \n \n \n \n \n \n \n Gulf Shores \n \n Alabama \n \n \n \n \n Address\n 100 E 2nd Ave, Gulf Shores, AL 36542\n\n \n \n Hours\n \n\n \n \n Phone\n (251) 937‑6590\n\n \n \n Web\n sunlinerdiner.com\n\n \n \n Email us\n GMGS@sunlinerDiner.com\n\n \n \n \n \n \n \n \n \n \n \n \n Pigeon Forge \n \n Tennessee \n \n \n \n \n Address\n 2302 Parkway, Pigeon Forge, TN 37863\n\n \n \n Hours\n \n\n \n \n Phone\n (865) 366‑1263\n\n \n \n Web\n sunlinerdiner.com\n\n \n \n Email us\n gm@sunlinerdinerpf.com\n\n \n \n \n \n \n \n \n \n \n \n \n Orange Beach \n \n Alabama \n \n \n \n \n Address\n 26035 Perdido Beach Blvd, Orange Beach, AL 36561\n\n \n \n Hours\n \n\n \n \n Phone\n (251) 280-8446\n\n \n \n Web\n sunlinerdiner.com\n\n \n \n Email us\n GMOB@sunlinerDiner.com\n\n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n Gulf Shores \n \n Menu Highlights\nAll‑Day Breakfast\n\nClassic Benedict – poached eggs, smoked ham, creole hollandaise\nChicken & Waffle Benedict – fried chicken on a Belgian waffle, syrup drizzle\nDream Boat Waffle Stack – three waffles piled with bacon, sausage, chocolate & caramel sauces\n\nVIEW MENU\nLunch & Dinner (after 11 AM)\n\nThe Jukebox Burger – triple‑stack patties, cheeses, bacon, fried green tomato & more\nSunliner Meatloaf – house recipe wrapped in bacon, with mashed potatoes & gravy\nGulf Shrimp & Grits – cheese grits topped with Conecuh‑sausage cream sauce & grilled shrimp\nClassic Rueben on marble rye with house 1000 Island dressing\n\nVIEW MENU\nShakes, Splits & Sundaes\n\nAuthentic 1950s Shake (vanilla, chocolate, or strawberry)\nSuga Shake Supreme – brownie‑loaded chocolate malt\nKing of Splits – “Can’t Help Falling in Love” with this Elvis‑size banana split\n\nVIEW MENU\n \n \n \n \n \n \n \n \n \n \n \n \n View Full Gulf  Shores Menu\n \n \n \n \n\n \n \n \n \n \n Pigeon Forge \n \n Menu Highlights\nMountain‑Sized Breakfast\n\nShrimp Benedict – Gulf shrimp meets Smoky Mountain mornings\nBerry Stack Waffles – blueberry & strawberry waffles crowned with triple berries\nSteak & Eggs – 10 oz New York strip + two eggs any style\n\nVIEW MENU\nMidday & Supper Staples\n\nChicken & Waffles – sweet‑and‑savory favorite with fried chicken breast\nThe Barnyard Burger – double patties, bacon, fried egg, onion ring & cheddar\nChicken Alfredo – fettuccine in house Alfredo; sub shrimp or steak if you’re feelin’ fancy\nSunliner Patty Melt – twin patties, Swiss, grilled onions on marble rye\n\nVIEW MENU\nSweet Endings & Soda Fountain\n\nShake Supreme – brownie‑topped chocolate shake\nBig Tickle Party – mystery‑mix milkshake for the adventurous\nHappy Day Sundae – party‑size sundae loaded with cake & candy\n\nVIEW MENU\n \n \n \n \n \n \n \n \n \n \n \n \n View Full Pigeon  Forge Menu\n \n \n \n \n \n \n\n \n\n\t\n \n \n \n\n \n\n\t\n\t\n \n\n\t\n\n\t\n \n \n \n \n Follow on Instagram\n \n \n\t\n\n \n\t\n \n This error message is only visible to WordPress admins\n There has been a problem with your Instagram Feed. \n \n\n\t\n \n\n \n \n \n \n \n \n \n \n \n Gulf Shores\n\nVIEW MENU\n\n \n Pigeon Forge\n\nVIEW MENU\n\n \n \nOrange Beach\n\nVIEW MENU\n\n \n \n \n \n\nPrivacy Policy\nCopyright Sunliner Diner © 2025. All Rights Reserved.",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://sunlinerdiner.com/locations/",
+              "url": "https://sunlinerdiner.com/locations/",
+              "name": "Locations - Sunliner Diner - 50&#039;s Themed Breakfast Diner in Gulf Shores",
+              "isPartOf": {
+                "@id": "https://sunlinerdiner.com/#website"
+              },
+              "datePublished": "2025-06-03T11:54:50+00:00",
+              "dateModified": "2026-01-26T16:13:00+00:00",
+              "breadcrumb": {
+                "@id": "https://sunlinerdiner.com/locations/#breadcrumb"
+              },
+              "inLanguage": "en-US",
+              "potentialAction": [
+                {
+                  "@type": "ReadAction",
+                  "target": [
+                    "https://sunlinerdiner.com/locations/"
+                  ]
+                }
+              ]
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://sunlinerdiner.com/locations/#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://sunlinerdiner.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Locations"
+                }
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://sunlinerdiner.com/#website",
+              "url": "https://sunlinerdiner.com/",
+              "name": "Sunliner Diner - 50&#039;s Themed Breakfast Diner in Gulf Shores",
+              "description": "A fun new 50&#039;s restaurant in Gulf Shores, Alabama",
+              "potentialAction": [
+                {
+                  "@type": "SearchAction",
+                  "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://sunlinerdiner.com/?s={search_term_string}"
+                  },
+                  "query-input": {
+                    "@type": "PropertyValueSpecification",
+                    "valueRequired": true,
+                    "valueName": "search_term_string"
+                  }
+                }
+              ],
+              "inLanguage": "en-US"
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "google-site-verification": "2grD776v9E9STVwns29a6yDLCtp87XutnYyzh4wbIVo",
+        "theme-color": "#C42032",
+        "facebook-domain-verification": "xwucetg80eecoyggc9wok25vv7u8wo",
+        "_globalsign-domain-verification": "RKlZ2TFNWgQBehZ1cgasVee8Vc-A1cDCvMIzytGvId",
+        "viewport": "width=device-width, initial-scale=1",
+        "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+        "og:locale": "en_US",
+        "og:type": "article",
+        "og:title": "Locations - Sunliner Diner - 50's Themed Breakfast Diner in Gulf Shores",
+        "og:url": "https://sunlinerdiner.com/locations/",
+        "og:site_name": "Sunliner Diner - 50's Themed Breakfast Diner in Gulf Shores",
+        "article:modified_time": "2026-01-26T16:13:00+00:00",
+        "twitter:card": "summary_large_image",
+        "generator": "WP Rocket 3.20.5",
+        "msapplication-TileImage": "https://sunlinerdiner.com/wp-content/uploads/2018/01/cropped-SUN-Favicon-270x270.png"
+      }
+    },
+    {
+      "url": "https://sunlinerdiner.com/contact-us",
+      "title": "Contact Us - Sunliner Diner - 50's Themed Breakfast Diner in Gulf Shores",
+      "text": "Skip to content\n \n \n \n \n \n \n \n \n \n \n \n \n\n Menu\nEvents\nAbout Us\nCareers\nLocations\nContact\n \n \n \n \n \n \n \n \n \n \n \n \n \n\t\n \n \n \n \n \n\t\n \n\n \n\n \n Contact Us\t\n \n\t\n \nGulf Shores\n \n\nVISIT US\n100 E. 2nd Ave.Gulf Shores, AL 36542\n\nCALL US\n251-937-6590\n\nPigeon Forge\n\nVISIT US\n2302 PkwyPigeon Forge, TN 37863\n\nCALL US\n865-366-1263\n\nOrange Beach\n\nVISIT US\n26035 Perdido Beach Blvd, Orange Beach, AL 36561\n\n\t\n\n\t\n\n \n\t\n\n\t\n \n \n \n\n \n\n\t\n\t\n \n\n\t\n\n\t\n \n \n \n \n Follow on Instagram\n \n \n\t\n\n \n\t\n \n This error message is only visible to WordPress admins\n There has been a problem with your Instagram Feed. \n \n\n\t\n \n\n \n \n \n \n \n \n \n \n \n Gulf Shores\n\nVIEW MENU\n\n \n Pigeon Forge\n\nVIEW MENU\n\n \n \nOrange Beach\n\nVIEW MENU\n\n \n \n \n \n\nPrivacy Policy\nCopyright Sunliner Diner © 2025. All Rights Reserved.",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://sunlinerdiner.com/contact-us/",
+              "url": "https://sunlinerdiner.com/contact-us/",
+              "name": "Contact Us - Sunliner Diner - 50&#039;s Themed Breakfast Diner in Gulf Shores",
+              "isPartOf": {
+                "@id": "https://sunlinerdiner.com/#website"
+              },
+              "datePublished": "2019-07-22T18:19:53+00:00",
+              "dateModified": "2025-11-26T13:38:33+00:00",
+              "breadcrumb": {
+                "@id": "https://sunlinerdiner.com/contact-us/#breadcrumb"
+              },
+              "inLanguage": "en-US",
+              "potentialAction": [
+                {
+                  "@type": "ReadAction",
+                  "target": [
+                    "https://sunlinerdiner.com/contact-us/"
+                  ]
+                }
+              ]
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://sunlinerdiner.com/contact-us/#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://sunlinerdiner.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Contact Us"
+                }
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://sunlinerdiner.com/#website",
+              "url": "https://sunlinerdiner.com/",
+              "name": "Sunliner Diner - 50&#039;s Themed Breakfast Diner in Gulf Shores",
+              "description": "A fun new 50&#039;s restaurant in Gulf Shores, Alabama",
+              "potentialAction": [
+                {
+                  "@type": "SearchAction",
+                  "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://sunlinerdiner.com/?s={search_term_string}"
+                  },
+                  "query-input": {
+                    "@type": "PropertyValueSpecification",
+                    "valueRequired": true,
+                    "valueName": "search_term_string"
+                  }
+                }
+              ],
+              "inLanguage": "en-US"
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "google-site-verification": "2grD776v9E9STVwns29a6yDLCtp87XutnYyzh4wbIVo",
+        "theme-color": "#C42032",
+        "facebook-domain-verification": "xwucetg80eecoyggc9wok25vv7u8wo",
+        "_globalsign-domain-verification": "RKlZ2TFNWgQBehZ1cgasVee8Vc-A1cDCvMIzytGvId",
+        "viewport": "width=device-width, initial-scale=1",
+        "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+        "og:locale": "en_US",
+        "og:type": "article",
+        "og:title": "Contact Us - Sunliner Diner - 50's Themed Breakfast Diner in Gulf Shores",
+        "og:description": "Gulf Shores   VISIT US 100 E. 2nd Ave.Gulf Shores, AL 36542 CALL US 251-937-6590 Pigeon Forge VISIT US 2302 PkwyPigeon Forge, TN 37863 CALL US 865-366-1263 Orange Beach VISIT US 26035 Perdido Beach Blvd, Orange Beach, AL 36561",
+        "og:url": "https://sunlinerdiner.com/contact-us/",
+        "og:site_name": "Sunliner Diner - 50's Themed Breakfast Diner in Gulf Shores",
+        "article:modified_time": "2025-11-26T13:38:33+00:00",
+        "twitter:card": "summary_large_image",
+        "twitter:label1": "Est. reading time",
+        "twitter:data1": "1 minute",
+        "generator": "WP Rocket 3.20.5",
+        "msapplication-TileImage": "https://sunlinerdiner.com/wp-content/uploads/2018/01/cropped-SUN-Favicon-270x270.png"
+      }
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": [
+    "https://sunlinerdiner.com/wp-content/uploads/2019/07/SUN-Footer-Logo.png.webp",
+    "https://sunlinerdiner.com/wp-content/uploads/2026/03/unspecified-45.jpeg.webp",
+    "https://sunlinerdiner.com/wp-content/uploads/2026/03/Group-1707480056.jpg.webp",
+    "https://sunlinerdiner.com/wp-content/uploads/2026/03/DSC_0725.jpg.webp",
+    "https://sunlinerdiner.com/wp-content/uploads/2026/03/Logan-Mike-16.jpg.webp",
+    "https://sunlinerdiner.com/wp-content/uploads/2026/03/image00008.jpeg.webp",
+    "https://sunlinerdiner.com/wp-content/uploads/2026/03/cafd482b-460e-4004-8b17-cfb9eebd799e.jpg.webp",
+    "https://sunlinerdiner.com/wp-content/uploads/2026/03/123_1.jpeg.webp",
+    "https://sunlinerdiner.com/wp-content/uploads/2026/03/Image-Dec-4-2025-04_43_48-AM.jpg.webp",
+    "https://sunlinerdiner.com/wp-content/uploads/2026/03/DSC_0725.jpg",
+    "https://sunlinerdiner.com/wp-content/uploads/2026/03/image00008.jpeg",
+    "https://sunlinerdiner.com/wp-content/uploads/2026/03/Kim-Hesebeck-1.jpg",
+    "https://sunlinerdiner.com/wp-content/uploads/2019/08/shakes2-gs.jpg.webp",
+    "https://sunlinerdiner.com/wp-content/uploads/2019/08/juke-box.jpg.webp",
+    "https://sunlinerdiner.com/wp-content/uploads/2019/08/waffles.jpg.webp",
+    "https://sunlinerdiner.com/wp-content/uploads/2026/02/Screenshot_1.png.webp",
+    "https://sunlinerdiner.com/wp-content/uploads/2025/06/SUN-Header-Logo-1.png.webp",
+    "https://sunlinerdiner.com/wp-content/uploads/2025/06/Rectangle-2-1.jpg.webp"
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "business_name": "jessesrestaurant.com",
+  "url": "https://jessesrestaurant.com",
+  "scraped_at": "2026-03-21T20:02:37.082Z",
+  "pages": [
+    {
+      "url": "https://jessesrestaurant.com",
+      "title": "Home - Jesse's Restaurant",
+      "text": "Enter\n \n \n \n \n \n \n \n Fort Morgan \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Enter\n \n \n \n \n \n \n \n Magnolia Springs \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Enter\n \n \n \n \n \n \n \n Fort Morgan \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Enter\n \n \n \n \n \n \n \n Magnolia Springs",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://jessesrestaurant.com/#breadcrumblist",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "@id": "https://jessesrestaurant.com#listItem",
+                  "position": 1,
+                  "name": "Home"
+                }
+              ]
+            },
+            {
+              "@type": "Organization",
+              "@id": "https://jessesrestaurant.com/#organization",
+              "name": "Jesse's Restaurant",
+              "description": "Jesse's Restaurant offers a comfortable and inviting atmosphere that is perfect for a casual fine dining experience. Their menu features flavorful and innovative dishes that are created with fresh, locally sourced ingredients, as well as hand-crafted cocktails and a diverse selection of wines. Jesse's is committed to providing exceptional, personalized service and an unparalleled dining experience that keep their customers coming back for more. Whether you are celebrating a special occasion or simply looking to enjoy a delicious meal with friends and family, Jesse's Restaurant is the perfect destination for a memorable dining experience.",
+              "url": "https://jessesrestaurant.com/"
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://jessesrestaurant.com/#webpage",
+              "url": "https://jessesrestaurant.com/",
+              "name": "Home - Jesse's Restaurant",
+              "description": "Jesse's Restaurant offers a comfortable and inviting atmosphere that is perfect for a casual fine dining experience. Their menu features flavorful and innovative dishes that are created with fresh, locally sourced ingredients, as well as hand-crafted cocktails and a diverse selection of wines. Jesse's is committed to providing exceptional, personalized service and an unparalleled dining experience that keep their customers coming back for more. Whether you are celebrating a special occasion or simply looking to enjoy a delicious meal with friends and family, Jesse's Restaurant is the perfect destination for a memorable dining experience.",
+              "inLanguage": "en-US",
+              "isPartOf": {
+                "@id": "https://jessesrestaurant.com/#website"
+              },
+              "breadcrumb": {
+                "@id": "https://jessesrestaurant.com/#breadcrumblist"
+              },
+              "datePublished": "2021-06-16T09:48:51+00:00",
+              "dateModified": "2023-09-27T21:29:00+00:00"
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://jessesrestaurant.com/#website",
+              "url": "https://jessesrestaurant.com/",
+              "name": "Jesse's Restaurant",
+              "alternateName": "Jesse's Restaurant",
+              "description": "Jesse's Restaurant offers a comfortable and inviting atmosphere that is perfect for a casual fine dining experience. Their menu features flavorful and innovative dishes that are created with fresh, locally sourced ingredients, as well as hand-crafted cocktails and a diverse selection of wines. Jesse's is committed to providing exceptional, personalized service and an unparalleled dining experience that keep their customers coming back for more. Whether you are celebrating a special occasion or simply looking to enjoy a delicious meal with friends and family, Jesse's Restaurant is the perfect destination for a memorable dining experience.",
+              "inLanguage": "en-US",
+              "publisher": {
+                "@id": "https://jessesrestaurant.com/#organization"
+              }
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "description": "Jesse's Restaurant offers a comfortable and inviting atmosphere that is perfect for a casual fine dining experience. Their menu features flavorful and innovative dishes that are created with fresh, locally sourced ingredients, as well as hand-crafted cocktails and a diverse selection of wines. Jesse's is committed to providing exceptional, personalized service and an unparalleled dining experience that keep their customers coming back for more. Whether you are celebrating a special occasion or simply looking to enjoy a delicious meal with friends and family, Jesse's Restaurant is the perfect destination for a memorable dining experience.",
+        "robots": "max-image-preview:large",
+        "generator": "Elementor 3.35.7; features: additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-swap",
+        "og:locale": "en_US",
+        "og:site_name": "Jesse's Restaurant - Jesse's Restaurant offers a comfortable and inviting atmosphere that is perfect for a casual fine dining experience. Their menu features flavorful and innovative dishes that are created with fresh, locally sourced ingredients, as well as hand-crafted cocktails and a diverse selection of wines. Jesse's is committed to providing exceptional, personalized service and an unparalleled dining experience that keep their customers coming back for more. Whether you are celebrating a special occasion or simply looking to enjoy a delicious meal with friends and family, Jesse's Restaurant is the perfect destination for a memorable dining experience.",
+        "og:type": "website",
+        "og:title": "Home - Jesse's Restaurant",
+        "og:description": "Jesse's Restaurant offers a comfortable and inviting atmosphere that is perfect for a casual fine dining experience. Their menu features flavorful and innovative dishes that are created with fresh, locally sourced ingredients, as well as hand-crafted cocktails and a diverse selection of wines. Jesse's is committed to providing exceptional, personalized service and an unparalleled dining experience that keep their customers coming back for more. Whether you are celebrating a special occasion or simply looking to enjoy a delicious meal with friends and family, Jesse's Restaurant is the perfect destination for a memorable dining experience.",
+        "og:url": "https://jessesrestaurant.com/",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Home - Jesse's Restaurant",
+        "twitter:description": "Jesse's Restaurant offers a comfortable and inviting atmosphere that is perfect for a casual fine dining experience. Their menu features flavorful and innovative dishes that are created with fresh, locally sourced ingredients, as well as hand-crafted cocktails and a diverse selection of wines. Jesse's is committed to providing exceptional, personalized service and an unparalleled dining experience that keep their customers coming back for more. Whether you are celebrating a special occasion or simply looking to enjoy a delicious meal with friends and family, Jesse's Restaurant is the perfect destination for a memorable dining experience.",
+        "msapplication-TileImage": "https://jessesrestaurant.com/wp-content/uploads/2023/08/cropped-jesses_icon1-270x270.png",
+        "viewport": "width=device-width, initial-scale=1.0, viewport-fit=cover"
+      }
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": [
+    "https://jessesrestaurant.com/wp-content/uploads/2023/06/Jesses-_Critical_-_OnTheBay-removebg-preview.png",
+    "https://jessesrestaurant.com/wp-content/uploads/2023/06/thumbnail_Jesses-BonW-removebg-preview.png"
+  ]
+}

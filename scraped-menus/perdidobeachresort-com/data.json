@@ -1,0 +1,297 @@
+{
+  "business_name": "Perdido Beach Resort",
+  "tagline": "Gulf Seafood & Prime Steaks",
+  "type": "Resort",
+  "contact": {
+    "phone": "251-981-9811",
+    "email": null,
+    "address": "27200 Perdido Beach Blvd",
+    "city": "Orange Beach",
+    "state": "Alabama",
+    "zip": "36561"
+  },
+  "location": {
+    "beachfront": true,
+    "bay_view": false,
+    "description": "Beachfront resort on the Gulf of Mexico with panoramic Gulf views"
+  },
+  "about": {
+    "description": "Perdido Beach Resort is a beachfront resort in Orange Beach, Alabama featuring multiple dining options, accommodations with various view options (Gulf Front, Beach View, Pass View, Angle View), and comprehensive amenities. The resort offers Club Level accommodations, event facilities, and aquatic adventures.",
+    "elevator_pitch": "A beachfront Gulf Coast resort featuring award-winning dining, diverse accommodations, and comprehensive amenities in Orange Beach, Alabama.",
+    "total_units": null,
+    "floors": null,
+    "year_built": null,
+    "pet_friendly": true,
+    "minimum_stay": null,
+    "check_in": null,
+    "check_out": null,
+    "age_restriction": null
+  },
+  "amenities": {
+    "pools": [
+      "outdoor pool"
+    ],
+    "hot_tubs": null,
+    "fitness_center": true,
+    "tennis_courts": false,
+    "pickleball_courts": false,
+    "private_beach_access": true,
+    "parking": null,
+    "elevators": null,
+    "gated": false,
+    "bbq_grills": null,
+    "business_center": null,
+    "spa": false,
+    "restaurant_on_site": true,
+    "bar_on_site": true,
+    "kids_splash_pad": false,
+    "other": [
+      "aquatic adventures",
+      "event facilities",
+      "banquet facilities",
+      "virtual tour",
+      "resort map"
+    ]
+  },
+  "unit_types": [
+    {
+      "name": "Angle View Room",
+      "bedrooms": null,
+      "bathrooms": null,
+      "sleeps": null,
+      "view": "angle view",
+      "sq_ft": null,
+      "starting_price": null,
+      "features": []
+    },
+    {
+      "name": "Pass View Room",
+      "bedrooms": null,
+      "bathrooms": null,
+      "sleeps": null,
+      "view": "pass view",
+      "sq_ft": null,
+      "starting_price": null,
+      "features": []
+    },
+    {
+      "name": "Beach View Room",
+      "bedrooms": null,
+      "bathrooms": null,
+      "sleeps": null,
+      "view": "beach view",
+      "sq_ft": null,
+      "starting_price": null,
+      "features": []
+    },
+    {
+      "name": "Gulf Front Room",
+      "bedrooms": null,
+      "bathrooms": null,
+      "sleeps": null,
+      "view": "gulf front",
+      "sq_ft": null,
+      "starting_price": null,
+      "features": []
+    },
+    {
+      "name": "Executive Suite",
+      "bedrooms": null,
+      "bathrooms": null,
+      "sleeps": null,
+      "view": null,
+      "sq_ft": null,
+      "starting_price": null,
+      "features": []
+    },
+    {
+      "name": "One Bedroom Suite",
+      "bedrooms": 1,
+      "bathrooms": null,
+      "sleeps": null,
+      "view": null,
+      "sq_ft": null,
+      "starting_price": null,
+      "features": []
+    },
+    {
+      "name": "Two Bedroom Suite",
+      "bedrooms": 2,
+      "bathrooms": null,
+      "sleeps": null,
+      "view": null,
+      "sq_ft": null,
+      "starting_price": null,
+      "features": []
+    },
+    {
+      "name": "Presidential Suite",
+      "bedrooms": null,
+      "bathrooms": null,
+      "sleeps": null,
+      "view": null,
+      "sq_ft": null,
+      "starting_price": null,
+      "features": []
+    },
+    {
+      "name": "Club Level - Pass View",
+      "bedrooms": null,
+      "bathrooms": null,
+      "sleeps": null,
+      "view": "pass view",
+      "sq_ft": null,
+      "starting_price": null,
+      "features": []
+    },
+    {
+      "name": "Club Level - Beach View",
+      "bedrooms": null,
+      "bathrooms": null,
+      "sleeps": null,
+      "view": "beach view",
+      "sq_ft": null,
+      "starting_price": null,
+      "features": []
+    },
+    {
+      "name": "Club Suite - One Bedroom",
+      "bedrooms": 1,
+      "bathrooms": null,
+      "sleeps": null,
+      "view": null,
+      "sq_ft": null,
+      "starting_price": null,
+      "features": []
+    },
+    {
+      "name": "Club Suite - Two Bedroom",
+      "bedrooms": 2,
+      "bathrooms": null,
+      "sleeps": null,
+      "view": null,
+      "sq_ft": null,
+      "starting_price": null,
+      "features": []
+    }
+  ],
+  "tags": [
+    "beachfront",
+    "gulf front",
+    "family-friendly",
+    "luxury dining",
+    "wedding venue",
+    "event space",
+    "award-winning",
+    "seafood restaurant",
+    "steakhouse"
+  ],
+  "features": [
+    "private beach access",
+    "multiple dining options",
+    "event facilities",
+    "banquet facilities",
+    "aquatic adventures",
+    "on-site management",
+    "half marathon event",
+    "rewards program (Paradise Rewards)"
+  ],
+  "social_links": {
+    "instagram": "https://www.instagram.com/perdidobeachresort/",
+    "facebook": "https://www.facebook.com/perdidobeachresort",
+    "twitter": "https://twitter.com/PerdidoBeachRes/",
+    "pinterest": "https://www.pinterest.com/perdidobeachresort/",
+    "youtube": "https://www.youtube.com/channel/UChoT0_yAdda6d7wLRn2iBeg/",
+    "linkedin": "https://www.linkedin.com/company/perdido-beach-resort/",
+    "website": "https://www.perdidobeachresort.com/"
+  },
+  "dining": [
+    {
+      "name": "Voyagers",
+      "type": "Restaurant",
+      "description": "Award-winning Gulf seafood and prime steaks restaurant with panoramic Gulf views. Seasonal menu with local produce, sustainable seafood, and organic meats. Features over 130 wine selections. Open 5 PM to 9 PM, 7 days a week. Led by Executive Chef Brody Olive. Specializes in Gulf Wild brand seafood."
+    },
+    {
+      "name": "Latitude 30",
+      "type": "Restaurant",
+      "description": "Dining option at the resort"
+    },
+    {
+      "name": "Splash Bar and Grille",
+      "type": "Restaurant | Bar",
+      "description": "Casual dining option at the resort"
+    },
+    {
+      "name": "Perdido Beach Pizza Co.",
+      "type": "Restaurant",
+      "description": "Pizza restaurant featuring the best pizza on the island"
+    },
+    {
+      "name": "Ms Nancy's Lobby Lounge",
+      "type": "Lounge | Bar",
+      "description": "Lobby lounge at the resort"
+    },
+    {
+      "name": "Coastal Coffee Co.",
+      "type": "Cafe",
+      "description": "Coffee shop at the resort"
+    }
+  ],
+  "specials": [
+    {
+      "name": "Military Appreciation Offer",
+      "description": "Special offer for military personnel",
+      "dates": null
+    },
+    {
+      "name": "AAA Discount",
+      "description": "AAA member discount available",
+      "dates": null
+    },
+    {
+      "name": "Golden Age",
+      "description": "Senior discount offer",
+      "dates": null
+    },
+    {
+      "name": "Heroes Welcome",
+      "description": "Special offer for heroes",
+      "dates": null
+    },
+    {
+      "name": "Sunday Fun Day",
+      "description": "Sunday special offer",
+      "dates": null
+    },
+    {
+      "name": "Advance Purchase Offer",
+      "description": "Discount for advance bookings",
+      "dates": null
+    }
+  ],
+  "starting_price": "$245",
+  "url": "https://perdidobeachresort.com/voyagers",
+  "scraped_at": "2026-03-21T20:19:01.827Z",
+  "extracted_at": "2026-03-23T03:58:29.843Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://www.perdidobeachresort.com/admin/fm/source/6871_pbr/images/logos/PBR_Logo_Main_2025_invert.png",
+    "https://www.perdidobeachresort.com/admin/fm/source/6871_pbr/6871/images/Voyagers-Sunset-View-No-Glare_1200.jpg",
+    "https://www.perdidobeachresort.com/admin/fm/source/6871_pbr/6871/images/Award-winnning-wine_1.jpg",
+    "https://www.perdidobeachresort.com/admin/fm/source/6871_pbr/6871/images/ChefBrody.jpg",
+    "https://www.perdidobeachresort.com/admin/fm/source/6871_pbr/6871/images/Voyagers_800.jpg",
+    "https://www.perdidobeachresort.com/admin/fm/source/6871_pbr/6871/images/Voyagers-Wine-Wall.jpg",
+    "https://www.perdidobeachresort.com/admin/fm/source/6871_pbr/6871/images/cheesecake-_800.jpg",
+    "https://www.perdidobeachresort.com/admin/fm/source/6871_pbr/6871/images/grouper-_800.jpg",
+    "https://www.perdidobeachresort.com/admin/fm/source/6871_pbr/6871/images/steak_800.jpg",
+    "https://www.perdidobeachresort.com/admin/fm/source/6871_pbr/6871/images/Garlic-Oysters_800.jpg",
+    "https://www.perdidobeachresort.com/admin/fm/source/6871_pbr/6871/images/Voyagers-Website-Seafood-and-Wine_800.png",
+    "https://www.perdidobeachresort.com/admin/fm/source/6871_pbr/6871/images/ceviche_800.jpg",
+    "https://www.perdidobeachresort.com/admin/fm/source/6871_pbr/6871/images/Voyagers-Terrace.jpeg",
+    "https://www.perdidobeachresort.com/admin/fm/source/6871_pbr/6871/images/shareables_800.jpg",
+    "https://www.perdidobeachresort.com/admin/fm/source/6871_pbr/images/logos/PBR_Badge_2025.png"
+  ],
+  "sources": [
+    "https://perdidobeachresort.com/voyagers"
+  ]
+}

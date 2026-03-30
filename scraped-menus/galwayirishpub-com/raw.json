@@ -1,0 +1,21 @@
+{
+  "business_name": "galwayirishpub.com",
+  "url": "http://www.galwayirishpub.com",
+  "scraped_at": "2026-03-22T02:46:14.599Z",
+  "scraper": "chrome-visible",
+  "pages": [
+    {
+      "url": "http://www.galwayirishpub.com",
+      "title": "404 Not Found",
+      "text": "File not found (404 error)\n\nIf you think what you're looking for should be here, please contact the site owner.",
+      "structuredData": [],
+      "meta": {
+        "description": ""
+      },
+      "links": []
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": []
+}

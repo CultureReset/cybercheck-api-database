@@ -1,0 +1,60 @@
+{
+  "business_name": "Sunliner Diner - Gulf Shores",
+  "url": "https://www.sunlinerdiner.com/",
+  "scraped_at": "2026-03-22T18:35:19.334Z",
+  "scraper": "chrome-visible",
+  "pages": [
+    {
+      "url": "https://www.sunlinerdiner.com",
+      "title": "Sunliner Diner - 50's Themed Breakfast Diner in Gulf Shores",
+      "text": "Skip to content\nMENU\nEVENTS\nABOUT US\nCAREERS\nLOCATIONS\nCONTACT\nA Classic 1950s Themed American Diner\n\nWith our retro newspaper menus, collector cars, hand-spun milkshakes, classic diner cuisine and breakfast all-day, The Sunliner Diner is sure to become your favorite spot to hang out- It’s Guaranteed!  Take a blast to the past with your family and friends, come and see what all the buzz is about- the fun never ends! Visit our Gift Shop to bring your memories of a swell time home with you!\n\nGulf Shores\n\nPigeon Forge\n\nOrange Beach\n\nFollow on Instagram\nGulf Shores\n\nVIEW\nMENU\n\nPigeon Forge\n\nVIEW\nMENU\n\nOrange Beach\n\nVIEW\nMENU\n\nPrivacy Policy\n\nCopyright Sunliner Diner © 2025. All Rights Reserved.",
+      "structuredData": [],
+      "meta": {
+        "description": "The Sunliner Diner is a 50s Themed Diner Restaurant in Gulf Shores, AL and coming soon to Pigeon Forge, TN. Go vintage and dine with classic cars, Ice cream, burgers and Breakfast all day!"
+      },
+      "links": [
+        "https://sunlinerdiner.com/#content",
+        "https://sunlinerdiner.com/",
+        "https://sunlinerdiner.com/menu/",
+        "https://docs.google.com/forms/d/e/1FAIpQLSfxWTw8tQsZ-h5amQu9mV1D4OSEXTlvqjvlWDlex9y-pwbQEg/viewform?usp=sf_link",
+        "https://sunlinerdiner.com/about-us/",
+        "https://sunlinerdiner.com/careers/",
+        "https://sunlinerdiner.com/locations/",
+        "https://sunlinerdiner.com/contact-us/",
+        "https://www.facebook.com/sunlinerdiner/",
+        "https://www.instagram.com/sunlinerdiner/",
+        "https://twitter.com/sunlinerdiner",
+        "https://sunlinerdiner.com/menu/",
+        "https://sunlinerdiner.com/menu/",
+        "https://sunlinerdiner.com/menu/",
+        "https://www.instagram.com/sunlinerdiner/",
+        "https://www.google.com/maps/search/?api=1&query=waffle+house+gulf+shores&query_place_id=ChIJe1NkDLcEmogR0hv79DHspL8",
+        "https://sunlinerdiner.com/menu/",
+        "https://www.google.com/maps/place/Sunliner+Diner+Pigeon+Forge/@35.8136666,-83.5787606,15z/data=!4m5!3m4!1s0x0:0x358bce72533222ad!8m2!3d35.8136666!4d-83.5787606",
+        "https://sunlinerdiner.com/menu/",
+        "https://www.google.com/maps/place/26035+Perdido+Beach+Blvd,+Orange+Beach,+AL+36561,+USA/@30.2714268,-87.5826755,17z/data=!3m1!4b1!4m6!3m5!1s0x889a06fe399070c1:0xc9ab57db1af94c8a!8m2!3d30.2714222!4d-87.5801006!16s%2Fg%2F11v5g22p3t?hl=en&entry=ttu&g_ep=EgoyMDI1MTEyMy4xIKXMDSoASAFQAw%3D%3D",
+        "https://sunlinerdiner.com/menu/",
+        "https://www.facebook.com/sunlinerdiner/",
+        "https://www.instagram.com/sunlinerdiner/",
+        "https://twitter.com/sunlinerdiner",
+        "https://sunlinerdiner.com/privacy-policy/"
+      ]
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": [
+    "https://sunlinerdiner.com/wp-content/uploads/2019/07/SUN-Footer-Logo.png.webp",
+    "https://sunlinerdiner.com/wp-content/uploads/2026/03/unspecified-45.jpeg.webp",
+    "https://sunlinerdiner.com/wp-content/uploads/2026/03/Group-1707480056.jpg.webp",
+    "https://sunlinerdiner.com/wp-content/uploads/2026/03/DSC_0725.jpg.webp",
+    "https://sunlinerdiner.com/wp-content/uploads/2026/03/Logan-Mike-16.jpg.webp",
+    "https://sunlinerdiner.com/wp-content/uploads/2026/03/image00008.jpeg.webp",
+    "https://sunlinerdiner.com/wp-content/uploads/2026/03/cafd482b-460e-4004-8b17-cfb9eebd799e.jpg.webp",
+    "https://sunlinerdiner.com/wp-content/uploads/2026/03/123_1.jpeg.webp",
+    "https://sunlinerdiner.com/wp-content/uploads/2026/03/Image-Dec-4-2025-04_43_48-AM.jpg.webp",
+    "https://sunlinerdiner.com/wp-content/uploads/2026/03/DSC_0725.jpg",
+    "https://sunlinerdiner.com/wp-content/uploads/2026/03/image00008.jpeg",
+    "https://sunlinerdiner.com/wp-content/uploads/2026/03/Kim-Hesebeck-1.jpg"
+  ]
+}

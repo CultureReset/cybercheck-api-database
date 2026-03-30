@@ -1,0 +1,21 @@
+{
+  "business_name": "hazelsnook.com",
+  "url": "https://hazelsnook.com",
+  "scraped_at": "2026-03-22T02:46:26.776Z",
+  "scraper": "chrome-visible",
+  "pages": [
+    {
+      "url": "https://hazelsnook.com",
+      "title": "509 Bandwidth Limit Exceeded",
+      "text": "Bandwidth Limit Exceeded\nThe server is temporarily unable to service your request due to the site owner reaching his/her bandwidth limit. Please try again later.",
+      "structuredData": [],
+      "meta": {
+        "description": ""
+      },
+      "links": []
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": []
+}

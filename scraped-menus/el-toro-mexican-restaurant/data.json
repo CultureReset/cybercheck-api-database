@@ -1,0 +1,107 @@
+{
+  "business_name": "El Toro Mexican Restaurant",
+  "tagline": null,
+  "type": "Mexican Restaurant",
+  "contact": {
+    "phone": "(251) 317-2361",
+    "email": null,
+    "address": "3645 Gulf Shores Pkwy",
+    "city": "Gulf Shores",
+    "state": "AL",
+    "zip": "36542"
+  },
+  "hours": {
+    "monday": "11:00 am - 10:00 pm",
+    "tuesday": "11:00 am - 10:00 pm",
+    "wednesday": "11:00 am - 10:00 pm",
+    "thursday": "11:00 am - 10:00 pm",
+    "friday": "11:00 am - 11:00 pm",
+    "saturday": "11:00 am - 10:00 pm",
+    "sunday": "11:00 am - 9:00 pm",
+    "notes": "Hours may vary by location"
+  },
+  "about": {
+    "description": "El Toro Mexican Restaurant is a Mexican dining establishment located in Gulf Shores, Alabama, offering traditional Mexican cuisine.",
+    "elevator_pitch": "A Mexican restaurant in Gulf Shores serving traditional Mexican dishes with online ordering and delivery options.",
+    "vibe": null,
+    "best_for": [],
+    "established": null,
+    "reservations": null,
+    "insider_tip": null
+  },
+  "tags": [
+    "Mexican",
+    "casual dining",
+    "takeout",
+    "delivery"
+  ],
+  "features": [
+    "Online ordering",
+    "Pickup",
+    "Delivery"
+  ],
+  "price_range": "$$",
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://eltoromexicanrestaurantgulfshoresal.com"
+  },
+  "specials": [],
+  "events": [],
+  "menu": {
+    "categories": [
+      {
+        "name": "Popular Items",
+        "type": "specials",
+        "items": [
+          {
+            "name": "39. Steak or Chicken Fajitas",
+            "description": "Strips of sizzling steak or chicken breast with onions, bell peppers and tomatoes. Served with guacamole salad, refried beans and rice",
+            "price": 15.74,
+            "tags": [
+              "fajitas",
+              "entree"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "20. Chicken Quesadillas",
+            "description": "Two quesadillas stuffed with chicken and cheese. Served with a guacamole salad",
+            "price": 13.53,
+            "tags": [
+              "quesadillas",
+              "entree"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "73. Beef Taco Platter",
+            "description": "Two beef tacos topped with lettuce, tomatoes and cheese. Served with rice and beans",
+            "price": 11.01,
+            "tags": [
+              "tacos",
+              "entree"
+            ],
+            "allergens": []
+          }
+        ]
+      }
+    ]
+  },
+  "url": "https://eltoromexicanrestaurantgulfshoresal.com/",
+  "scraped_at": "2026-03-21T14:38:28.952Z",
+  "extracted_at": "2026-03-23T03:40:33.604Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://d2gqo3h0psesgi.cloudfront.net/auto/el-toro-mexican-restaurant-gulf-shores-logo.png",
+    "https://d2gqo3h0psesgi.cloudfront.net/auto/el-toro-mexican-restaurant-gulf-shores-food1.jpg",
+    "https://d2gqo3h0psesgi.cloudfront.net/auto/el-toro-mexican-restaurant-gulf-shores-food2.jpg",
+    "https://d2gqo3h0psesgi.cloudfront.net/auto/el-toro-mexican-restaurant-gulf-shores-food3.jpg",
+    "https://maps.gstatic.com/mapfiles/transparent.png"
+  ],
+  "sources": [
+    "https://eltoromexicanrestaurantgulfshoresal.com",
+    "https://eltoromexicanrestaurantgulfshoresal.com/el-toro-mexican-restaurant-gulf-shores",
+    "https://eltoromexicanrestaurantgulfshoresal.com/el-toro-mexican-restaurant-gulf-shores/locations"
+  ]
+}

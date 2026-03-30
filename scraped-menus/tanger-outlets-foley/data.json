@@ -1,0 +1,96 @@
+{
+  "business_name": "Tanger Outlets Foley",
+  "tagline": null,
+  "type": "Shopping Center",
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": null,
+    "city": "Foley",
+    "state": "AL",
+    "zip": null
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": "Hours & information available on website"
+  },
+  "about": {
+    "description": "Tanger Outlets Foley is an outlet shopping center in Foley, Alabama, featuring multiple retail brand outlets and shopping destinations.",
+    "elevator_pitch": "An outlet shopping center in Foley featuring a variety of brand outlets.",
+    "vibe": "Shopping destination with multiple stores and outlets",
+    "best_for": [
+      "shopping",
+      "outlet deals"
+    ],
+    "established": null,
+    "reservations": null,
+    "insider_tip": "Sign up for TangerClub and text UNLOCK to 826437 for exclusive Deal Days Offers"
+  },
+  "tags": [
+    "outlet shopping",
+    "retail",
+    "brands"
+  ],
+  "features": [
+    "multiple stores",
+    "map available",
+    "visitor info"
+  ],
+  "price_range": null,
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://www.tangeroutlets.com/foley"
+  },
+  "specials": [
+    {
+      "name": "Deal Days Offers",
+      "description": "Exclusive deals available for TangerClub members",
+      "days": [],
+      "time": null
+    }
+  ],
+  "events": [],
+  "menu": {
+    "categories": []
+  },
+  "url": "https://www.tangeroutlets.com/foley",
+  "scraped_at": "2026-03-21T19:52:48.863Z",
+  "extracted_at": "2026-03-23T04:10:11.497Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://www.tanger.com/_next/image?url=https%3A%2F%2Fimages.contentstack.io%2Fv3%2Fassets%2Fblt1b696824a455b27c%2Fblt0bb64d30cb45996e%2F69b1812ba40c80fcbd2ccfc5%2FTDD_March2026_HERO_Slide1_V2.webp%3Fauto%3Dwebp%26quality%3D75&w=3840&q=72",
+    "https://www.tanger.com/_next/image?url=https%3A%2F%2Fimages.contentstack.io%2Fv3%2Fassets%2Fblt1b696824a455b27c%2Fbltc81977d07605c369%2F69b181146b9335a63586dfd9%2FPolo_LRA_031526to032126.webp%3Fauto%3Dwebp%26quality%3D75&w=3840&q=72",
+    "https://www.tanger.com/_next/image?url=https%3A%2F%2Fimages.contentstack.io%2Fv3%2Fassets%2Fblt1b696824a455b27c%2Fbltba2f791cf2f4a049%2F69b18127012a19d612aecd41%2FTC_March2026_Sweepstakes.webp%3Fauto%3Dwebp%26quality%3D75&w=3840&q=72",
+    "https://www.tanger.com/_next/image?url=https%3A%2F%2Fimages.contentstack.io%2Fv3%2Fassets%2Fblt1b696824a455b27c%2Fblt078da7c93a3f1a2b%2F698f2a3ea293e900087d83e0%2FTC_March26_GiftogramGWP.webp%3Fauto%3Dwebp%26quality%3D75&w=3840&q=72",
+    "https://www.tanger.com/_next/image?url=https%3A%2F%2Fassets.r02.coniq.com%2Ftoolbox%2Fimage-proxy%2F53178%2Foffer%2FCrocs_Tanger_Deal_Days_BLUE.jpg&w=3840&q=72",
+    "https://www.tanger.com/_next/image?url=https%3A%2F%2Fassets.r02.coniq.com%2Ftoolbox%2Fimage-proxy%2F53178%2Foffer%2FBLUE_TDD.jpg&w=3840&q=72",
+    "https://www.tanger.com/_next/image?url=https%3A%2F%2Fassets.r02.coniq.com%2Ftoolbox%2Fimage-proxy%2F53178%2Foffer%2FUnder_Armour_Tanger_Deal_Days_BLUE.jpg&w=3840&q=72",
+    "https://www.tanger.com/_next/image?url=https%3A%2F%2Fassets.r02.coniq.com%2Ftoolbox%2Fimage-proxy%2F53178%2Foffer%2FColumbia_Tanger_Deal_Days_BLUE.jpg&w=3840&q=72",
+    "https://www.tanger.com/_next/image?url=https%3A%2F%2Fassets.r02.coniq.com%2Ftoolbox%2Fimage-proxy%2F53178%2Foffer%2F21713%2Fprod_699dd6e5a2be9.jpg&w=3840&q=72",
+    "https://www.tanger.com/_next/image?url=https%3A%2F%2Fassets.r02.coniq.com%2Ftoolbox%2Fimage-proxy%2F53178%2Foffer%2F21715%2Fprod_699dd7bc2333f.jpg&w=3840&q=72",
+    "https://www.tanger.com/_next/image?url=https%3A%2F%2Fassets.r02.coniq.com%2Ftoolbox%2Fimage-proxy%2F53178%2Foffer%2F21717%2Fprod_699dd860287fc.jpg&w=3840&q=72",
+    "https://www.tanger.com/_next/image?url=https%3A%2F%2Fassets.r02.coniq.com%2Ftoolbox%2Fimage-proxy%2F53178%2Foffer%2F21786%2Fprod_69a06c4d317ea.jpg&w=3840&q=72",
+    "https://www.tanger.com/_next/image?url=https%3A%2F%2Fassets.r02.coniq.com%2Ftoolbox%2Fimage-proxy%2F53178%2Foffer%2F21783%2Fprod_69a060e204091.jpg&w=3840&q=72",
+    "https://www.tanger.com/_next/image?url=https%3A%2F%2Fassets.r02.coniq.com%2Ftoolbox%2Fimage-proxy%2F53178%2Foffer%2F21792%2Fprod_69a06f337db2f.jpg&w=3840&q=72",
+    "https://www.tanger.com/_next/image?url=https%3A%2F%2Fimages.contentstack.io%2Fv3%2Fassets%2Fblt1b696824a455b27c%2Fbltac3239d3b6e220c4%2F673cf66e76f7cd305385e70a%2FCoach_Winter24_BrandCard.jpg%3Fauto%3Dwebp%26quality%3D75&w=3840&q=72",
+    "https://www.tanger.com/_next/image?url=https%3A%2F%2Fimages.contentstack.io%2Fv3%2Fassets%2Fblt1b696824a455b27c%2Fblt97ca46afaad797e9%2F685208280a2918c303a0551f%2FColumbia_store_card_061725.jpg%3Fauto%3Dwebp%26quality%3D75&w=3840&q=72",
+    "https://www.tanger.com/_next/image?url=https%3A%2F%2Fimages.contentstack.io%2Fv3%2Fassets%2Fblt1b696824a455b27c%2Fbltbee6625e4e85c4c1%2F66019fcdcf50d9010817b974%2FRectangle_2.jpg%3Fauto%3Dwebp%26quality%3D75&w=3840&q=72",
+    "https://www.tanger.com/_next/image?url=https%3A%2F%2Fimages.contentstack.io%2Fv3%2Fassets%2Fblt1b696824a455b27c%2Fblte6c51e958659a924%2F66019fcd18db08d192004e54%2FRectangle_4.jpg%3Fauto%3Dwebp%26quality%3D75&w=3840&q=72",
+    "https://www.tanger.com/_next/image?url=https%3A%2F%2Fimages.contentstack.io%2Fv3%2Fassets%2Fblt1b696824a455b27c%2Fblt4439d0d28eca7e01%2F66019fce8f4444dba0c3aa1d%2FRectangle_11.jpg%3Fauto%3Dwebp%26quality%3D75&w=3840&q=72",
+    "https://www.tanger.com/_next/image?url=https%3A%2F%2Fimages.contentstack.io%2Fv3%2Fassets%2Fblt1b696824a455b27c%2Fbltf9b32a80581dc3fc%2F66019fce827286060c221a78%2FRectangle_16.jpg%3Fauto%3Dwebp%26quality%3D75&w=3840&q=72",
+    "https://www.tanger.com/_next/image?url=https%3A%2F%2Fassets.r02.coniq.com%2Ftoolbox%2Fimage-proxy%2F53178%2Foffer%2F8949%2Fprod_6761a1ff042bd.jpg&w=3840&q=72",
+    "https://www.tanger.com/_next/image?url=https%3A%2F%2Fassets.r02.coniq.com%2Ftoolbox%2Fimage-proxy%2F53178%2Foffer%2F21931%2Fprod_69b19f8e12f93.jpg&w=3840&q=72",
+    "https://www.tanger.com/_next/image?url=https%3A%2F%2Fassets.r02.coniq.com%2Ftoolbox%2Fimage-proxy%2F53178%2Foffer%2F21958%2Fprod_69aed9d4a3629.jpg&w=3840&q=72",
+    "https://cdn.cookielaw.org/logos/static/ot_company_logo.png"
+  ],
+  "sources": [
+    "https://www.tangeroutlets.com/foley"
+  ]
+}

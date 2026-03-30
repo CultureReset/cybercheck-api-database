@@ -1,0 +1,337 @@
+{
+  "business_name": "Islanders Restaurant & Bar",
+  "tagline": "Experience Island Vibes",
+  "type": "Restaurant & Bar",
+  "contact": {
+    "phone": "+1 251-861-2225",
+    "email": null,
+    "address": "1504 Bienville Blvd",
+    "city": "Dauphin Island",
+    "state": "AL",
+    "zip": "36528"
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": null
+  },
+  "about": {
+    "description": "A hidden gem on Dauphin Island, AL combining New American cuisine with Southern charm and fresh seafood delights. The restaurant offers a diverse menu with vegetarian options, casual and inviting ambiance, and services including delivery, catering, and a full bar.",
+    "elevator_pitch": "New American cuisine meets Southern seafood charm on picturesque Dauphin Island with fresh ingredients and island vibes.",
+    "vibe": "Casual, inviting, tropical, lively atmosphere with ocean views and relaxing island feel",
+    "best_for": [
+      "families",
+      "groups",
+      "vacation dining",
+      "lunch or dinner",
+      "kids",
+      "catering events"
+    ],
+    "established": null,
+    "reservations": "Accepted - can book online or call +1 251-861-2225",
+    "insider_tip": "The bread pudding dessert is highly recommended and the fried seafood platter features perfectly golden fish and shrimp with house-made sauces"
+  },
+  "tags": [
+    "seafood",
+    "New American",
+    "Southern cuisine",
+    "casual dining",
+    "family-friendly",
+    "tropical",
+    "island vibes",
+    "fresh ingredients",
+    "vegetarian options",
+    "craft cocktails"
+  ],
+  "features": [
+    "full bar",
+    "outdoor seating",
+    "live music",
+    "accessible elevator",
+    "delivery",
+    "takeout",
+    "catering",
+    "free Wi-Fi",
+    "children's menu",
+    "credit cards accepted",
+    "Apple Pay",
+    "Android Pay",
+    "cryptocurrency accepted",
+    "ocean views",
+    "seasonal menu",
+    "sustainability focused"
+  ],
+  "price_range": "$$",
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://islandersrestaurantbar.cfd"
+  },
+  "specials": [],
+  "events": [
+    {
+      "name": "Live Music",
+      "description": "Live music entertainment available",
+      "recurring": true,
+      "day": null,
+      "time": null
+    }
+  ],
+  "menu": {
+    "categories": [
+      {
+        "name": "Seafood",
+        "type": "lunch",
+        "items": [
+          {
+            "name": "Mahi Mahi",
+            "description": "Blackened, served with baked potato",
+            "price": null,
+            "tags": [
+              "blackened",
+              "fish of the day"
+            ],
+            "allergens": [
+              "fish"
+            ]
+          },
+          {
+            "name": "Fried Seafood Platter",
+            "description": "Perfectly golden fish and shrimp with house-made sauces",
+            "price": null,
+            "tags": [
+              "signature",
+              "must-try"
+            ],
+            "allergens": [
+              "fish",
+              "shellfish"
+            ]
+          },
+          {
+            "name": "Scallops",
+            "description": null,
+            "price": null,
+            "tags": [
+              "seafood"
+            ],
+            "allergens": [
+              "shellfish"
+            ]
+          },
+          {
+            "name": "Calamari",
+            "description": null,
+            "price": null,
+            "tags": [
+              "seafood"
+            ],
+            "allergens": [
+              "shellfish"
+            ]
+          },
+          {
+            "name": "Sweet Thai Shrimp",
+            "description": "Thai chili breaded shrimp",
+            "price": null,
+            "tags": [
+              "Thai"
+            ],
+            "allergens": [
+              "shellfish",
+              "soy"
+            ]
+          },
+          {
+            "name": "Islanders Seafood Plate",
+            "description": "Blackened Cobia fish",
+            "price": null,
+            "tags": [
+              "signature",
+              "blackened"
+            ],
+            "allergens": [
+              "fish"
+            ]
+          },
+          {
+            "name": "Fish Tacos",
+            "description": "Blackened fish tacos with fantastic flavor",
+            "price": null,
+            "tags": [
+              "blackened"
+            ],
+            "allergens": [
+              "fish",
+              "gluten"
+            ]
+          },
+          {
+            "name": "Fish Basket",
+            "description": "Fish of the day with blackened preparation and baked potato",
+            "price": null,
+            "tags": [
+              "fish of the day"
+            ],
+            "allergens": [
+              "fish"
+            ]
+          },
+          {
+            "name": "Po'boy with Fried Shrimp",
+            "description": "Fried shrimp sandwich",
+            "price": null,
+            "tags": [
+              "sandwich"
+            ],
+            "allergens": [
+              "shellfish",
+              "gluten"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Appetizers & Sides",
+        "type": "lunch",
+        "items": [
+          {
+            "name": "Onion Rings",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": [
+              "gluten"
+            ]
+          },
+          {
+            "name": "Hush Puppies",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": [
+              "gluten"
+            ]
+          },
+          {
+            "name": "Side Salad",
+            "description": "Decent size and quality",
+            "price": null,
+            "tags": [],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Entrees",
+        "type": "dinner",
+        "items": [
+          {
+            "name": "Gumbo",
+            "description": "Not spicy, house specialty",
+            "price": null,
+            "tags": [
+              "Southern"
+            ],
+            "allergens": [
+              "shellfish",
+              "gluten"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Desserts",
+        "type": "desserts",
+        "items": [
+          {
+            "name": "Bread Pudding",
+            "description": "Absolutely delicious, highly recommended dessert, complimentary offered for wait compensation",
+            "price": null,
+            "tags": [
+              "signature",
+              "must-try",
+              "popular"
+            ],
+            "allergens": [
+              "gluten",
+              "dairy",
+              "eggs"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Beverages",
+        "type": "drinks",
+        "items": [
+          {
+            "name": "Craft Cocktails",
+            "description": "Unique cocktails that pair perfectly with meals",
+            "price": null,
+            "tags": [
+              "craft"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Margaritas",
+            "description": "Top shelf margaritas",
+            "price": null,
+            "tags": [
+              "signature"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Beer",
+            "description": "Michelob Ultra and Stella NA available",
+            "price": null,
+            "tags": [
+              "beer"
+            ],
+            "allergens": [
+              "gluten"
+            ]
+          },
+          {
+            "name": "Stoli Vodka Ginger Ale",
+            "description": "Vodka and ginger ale cocktail",
+            "price": null,
+            "tags": [
+              "cocktail"
+            ],
+            "allergens": []
+          }
+        ]
+      }
+    ]
+  },
+  "url": "https://islandersrestaurantbar.cfd/",
+  "scraped_at": "2026-03-21T14:00:24.897Z",
+  "extracted_at": "2026-03-23T03:49:29.265Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://cdn.menu-world.com/islanders-restaurant-bar/photo-1.jpg",
+    "https://cdn.menu-world.com/islanders-restaurant-bar/photo-2.jpg",
+    "https://cdn.menu-world.com/islanders-restaurant-bar/photo-3.jpg",
+    "https://cdn.menu-world.com/islanders-restaurant-bar/photo-4.jpg",
+    "https://cdn.menu-world.com/islanders-restaurant-bar/photo-5.jpg",
+    "https://cdn.menu-world.com/islanders-restaurant-bar/photo-6.jpg",
+    "https://cdn.menu-world.com/islanders-restaurant-bar/photo-7.jpg",
+    "https://cdn.menu-world.com/islanders-restaurant-bar/photo-8.jpg",
+    "https://cdn.menu-world.com/islanders-restaurant-bar/photo-9.jpg",
+    "https://cdn.menu-world.com/islanders-restaurant-bar/photo-10.jpg",
+    "https://cdn.menu-world.com/islanders-restaurant-bar/photo-11.jpg",
+    "https://cdn.menu-world.com/islanders-restaurant-bar/photo-12.jpg",
+    "https://menu-world.com/public/boy.png"
+  ],
+  "sources": [
+    "https://islandersrestaurantbar.cfd"
+  ]
+}

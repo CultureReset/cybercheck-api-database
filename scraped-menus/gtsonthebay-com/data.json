@@ -1,0 +1,610 @@
+{
+  "business_name": "GTs on the Bay",
+  "tagline": "Unlike Any Other",
+  "type": "Restaurant",
+  "contact": {
+    "phone": "251-980-8400",
+    "email": null,
+    "address": "26189 Canal Rd",
+    "city": "Orange Beach",
+    "state": "AL",
+    "zip": "36561"
+  },
+  "hours": {
+    "monday": "11:00 AM - 9:30 PM",
+    "tuesday": "11:00 AM - 9:30 PM",
+    "wednesday": "11:00 AM - 9:30 PM",
+    "thursday": "11:00 AM - 9:30 PM",
+    "friday": "11:00 AM - 10:00 PM",
+    "saturday": "11:00 AM - 10:00 PM",
+    "sunday": "11:00 AM - 9:30 PM",
+    "notes": "Sunday Brunch 11:00 AM - 2:00 PM"
+  },
+  "about": {
+    "description": "GTs On The Bay sits overlooking Wolf Bay on Canal Road in the heart of Orange Beach. With stunning views and bay front dining, GTs features a diverse and one-of-kind menu. Guests can savor unique culinary choices and a blend of local favorites, in addition to special creations with a family friendly atmosphere. Enjoy a stone hearth pizza oven and fresh made salad bar as well as craft beers and daily happy hour.",
+    "elevator_pitch": "Bayfront dining in Orange Beach featuring diverse cuisine, fresh salad bar, stone hearth pizza oven, and craft beers with family-friendly atmosphere.",
+    "vibe": "Casual, family-friendly bayfront dining with live music, outdoor deck seating, and a large fish pond in the center dining room.",
+    "best_for": [
+      "families",
+      "date night",
+      "casual dining",
+      "lunch break",
+      "happy hour",
+      "special occasions"
+    ],
+    "established": null,
+    "reservations": "Suggested for special events",
+    "insider_tip": "Try the Good Time Lunch Special (11 AM - 4 PM) for a waterfront dining experience at affordable prices. Live music available March to October, plus Saturday lunch and Sunday brunch."
+  },
+  "tags": [
+    "seafood",
+    "bayfront",
+    "casual",
+    "family-friendly",
+    "Cajun",
+    "Louisiana cuisine",
+    "happy hour",
+    "live music",
+    "salad bar",
+    "pizza",
+    "craft beer"
+  ],
+  "features": [
+    "full bar",
+    "outdoor seating",
+    "bay views",
+    "covered patio",
+    "stone hearth pizza oven",
+    "fresh salad bar",
+    "live music",
+    "fish pond",
+    "waterfront dining",
+    "family-friendly"
+  ],
+  "price_range": "$$",
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://gtsonthebay.com"
+  },
+  "specials": [
+    {
+      "name": "Good Time Lunch Special",
+      "description": "Choose from Fried Fish with French Fries and Slaw, Shrimp Creole over Jasmine Rice, or Fried Chicken Breast with Meunière Sauce. Includes soup and salad combo option.",
+      "days": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "time": "11:00 AM - 4:00 PM",
+      "price": 11
+    },
+    {
+      "name": "Happy Hour",
+      "description": "Specials on draft beer (including house-brewed Orange Beach Ale), house wines, and awesome appetizers like Firecracker Shrimp, Gingered Calamari, or GTs Dip.",
+      "days": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "time": "3:00 PM - 5:00 PM"
+    }
+  ],
+  "events": [
+    {
+      "name": "Live Music",
+      "description": "Live music available evenings and weekend brunch (Saturday lunch and Sunday brunch 11 AM - 2 PM). Weather permitting.",
+      "recurring": true,
+      "day": "seasonal March to October",
+      "time": "Evenings and 11:00 AM - 2:00 PM weekend brunch"
+    },
+    {
+      "name": "Easter Brunch",
+      "description": "Special brunch menu including Bacon and Asparagus Benedict, Bourbon-Glazed Salmon, Shrimp and Grits, Blackberry Cobbler, Mixed Berry Bread Pudding, and more. Salad bar included.",
+      "recurring": false,
+      "day": "Easter",
+      "time": "11:00 AM - 2:00 PM"
+    },
+    {
+      "name": "Sunday Brunch",
+      "description": "Regular Sunday brunch service with live music.",
+      "recurring": true,
+      "day": "Sunday",
+      "time": "11:00 AM - 2:00 PM"
+    }
+  ],
+  "menu": {
+    "categories": [
+      {
+        "name": "Lunch Specials",
+        "type": "lunch",
+        "items": [
+          {
+            "name": "Fried Fish with French Fries and Slaw",
+            "description": null,
+            "price": 11,
+            "tags": [
+              "seafood"
+            ],
+            "allergens": [
+              "fish"
+            ]
+          },
+          {
+            "name": "Shrimp Creole over Jasmine Rice",
+            "description": null,
+            "price": 11,
+            "tags": [
+              "seafood",
+              "Cajun"
+            ],
+            "allergens": [
+              "shellfish"
+            ]
+          },
+          {
+            "name": "Fried Chicken Breast with Meunière Sauce",
+            "description": null,
+            "price": 11,
+            "tags": [
+              "chicken"
+            ],
+            "allergens": [
+              "eggs",
+              "butter"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Appetizers",
+        "type": "lunch",
+        "items": [
+          {
+            "name": "Cajun Empanadas",
+            "description": null,
+            "price": null,
+            "tags": [
+              "Cajun",
+              "vegetarian"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Firecracker Shrimp",
+            "description": null,
+            "price": null,
+            "tags": [
+              "seafood",
+              "spicy"
+            ],
+            "allergens": [
+              "shellfish"
+            ]
+          },
+          {
+            "name": "Gingered Calamari",
+            "description": null,
+            "price": null,
+            "tags": [
+              "seafood"
+            ],
+            "allergens": [
+              "shellfish"
+            ]
+          },
+          {
+            "name": "GTs Dip",
+            "description": null,
+            "price": null,
+            "tags": [
+              "appetizer"
+            ],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Salad Bar",
+        "type": "lunch",
+        "items": [
+          {
+            "name": "Fresh Salad Bar",
+            "description": "Made fresh daily featuring crisp romaine lettuce, spring mix, and iceberg lettuce, with house-made chicken and pasta salad options. Endless toppings and dressings available.",
+            "price": null,
+            "tags": [
+              "vegetarian",
+              "vegan options"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Soup and Salad Combo",
+            "description": null,
+            "price": 11,
+            "tags": [
+              "vegetarian"
+            ],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Dinner Specialties",
+        "type": "dinner",
+        "items": [
+          {
+            "name": "Shrimp-n-Grits",
+            "description": null,
+            "price": null,
+            "tags": [
+              "seafood",
+              "Southern"
+            ],
+            "allergens": [
+              "shellfish",
+              "grains"
+            ]
+          },
+          {
+            "name": "Pepper-Seared Tuna",
+            "description": null,
+            "price": null,
+            "tags": [
+              "seafood"
+            ],
+            "allergens": [
+              "fish"
+            ]
+          },
+          {
+            "name": "GTs Grouper",
+            "description": null,
+            "price": null,
+            "tags": [
+              "seafood",
+              "specialty"
+            ],
+            "allergens": [
+              "fish"
+            ]
+          },
+          {
+            "name": "Chicken Carbonara",
+            "description": null,
+            "price": null,
+            "tags": [
+              "pasta",
+              "chicken"
+            ],
+            "allergens": [
+              "eggs",
+              "dairy"
+            ]
+          },
+          {
+            "name": "Fish Tacos",
+            "description": null,
+            "price": null,
+            "tags": [
+              "seafood",
+              "Mexican"
+            ],
+            "allergens": [
+              "fish"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Desserts",
+        "type": "desserts",
+        "items": [
+          {
+            "name": "House Desserts",
+            "description": "Delightful desserts to satisfy your sweet tooth",
+            "price": null,
+            "tags": [
+              "dessert"
+            ],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Easter Brunch Menu",
+        "type": "brunch",
+        "items": [
+          {
+            "name": "Bacon and Asparagus Benedict",
+            "description": null,
+            "price": null,
+            "tags": [
+              "brunch"
+            ],
+            "allergens": [
+              "eggs",
+              "butter"
+            ]
+          },
+          {
+            "name": "Scrambled Eggs",
+            "description": null,
+            "price": null,
+            "tags": [
+              "brunch",
+              "vegetarian"
+            ],
+            "allergens": [
+              "eggs"
+            ]
+          },
+          {
+            "name": "Grilled Chicken with Creole Cream",
+            "description": null,
+            "price": null,
+            "tags": [
+              "brunch",
+              "Cajun"
+            ],
+            "allergens": [
+              "dairy"
+            ]
+          },
+          {
+            "name": "Roasted Pork Loin",
+            "description": null,
+            "price": null,
+            "tags": [
+              "brunch"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Hash Brown Casserole",
+            "description": null,
+            "price": null,
+            "tags": [
+              "brunch",
+              "vegetarian"
+            ],
+            "allergens": [
+              "dairy"
+            ]
+          },
+          {
+            "name": "Bourbon-Glazed Salmon",
+            "description": null,
+            "price": null,
+            "tags": [
+              "brunch",
+              "seafood"
+            ],
+            "allergens": [
+              "fish"
+            ]
+          },
+          {
+            "name": "Shrimp and Grits",
+            "description": null,
+            "price": null,
+            "tags": [
+              "brunch",
+              "seafood"
+            ],
+            "allergens": [
+              "shellfish",
+              "dairy"
+            ]
+          },
+          {
+            "name": "Breakfast Sausage",
+            "description": null,
+            "price": null,
+            "tags": [
+              "brunch"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Brussels Sprout Casserole",
+            "description": null,
+            "price": null,
+            "tags": [
+              "brunch",
+              "vegetarian"
+            ],
+            "allergens": [
+              "dairy"
+            ]
+          },
+          {
+            "name": "Biscuits and Sausage Gravy",
+            "description": null,
+            "price": null,
+            "tags": [
+              "brunch"
+            ],
+            "allergens": [
+              "dairy",
+              "grains"
+            ]
+          },
+          {
+            "name": "Cinnamon Roll Casserole",
+            "description": null,
+            "price": null,
+            "tags": [
+              "brunch",
+              "dessert"
+            ],
+            "allergens": [
+              "dairy",
+              "grains",
+              "eggs"
+            ]
+          },
+          {
+            "name": "Blackberry Cobbler",
+            "description": null,
+            "price": null,
+            "tags": [
+              "brunch",
+              "dessert"
+            ],
+            "allergens": [
+              "dairy",
+              "grains"
+            ]
+          },
+          {
+            "name": "Mixed Berry Bread Pudding",
+            "description": null,
+            "price": null,
+            "tags": [
+              "brunch",
+              "dessert"
+            ],
+            "allergens": [
+              "dairy",
+              "eggs",
+              "grains"
+            ]
+          },
+          {
+            "name": "Fresh Fruit",
+            "description": null,
+            "price": null,
+            "tags": [
+              "brunch",
+              "vegan"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Assorted Macaroons and Petit Fours",
+            "description": null,
+            "price": null,
+            "tags": [
+              "brunch",
+              "dessert"
+            ],
+            "allergens": [
+              "nuts",
+              "dairy"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Drinks",
+        "type": "drinks",
+        "items": [
+          {
+            "name": "Orange Beach Ale",
+            "description": "House-brewed craft beer",
+            "price": null,
+            "tags": [
+              "craft beer",
+              "local"
+            ],
+            "allergens": [
+              "grains"
+            ]
+          },
+          {
+            "name": "Draft Beer",
+            "description": null,
+            "price": null,
+            "tags": [
+              "beer"
+            ],
+            "allergens": [
+              "grains"
+            ]
+          },
+          {
+            "name": "House Wines",
+            "description": null,
+            "price": null,
+            "tags": [
+              "wine"
+            ],
+            "allergens": [
+              "sulfites"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "url": "https://gtsonthebay.com",
+  "scraped_at": "2026-03-21T19:35:04.224Z",
+  "extracted_at": "2026-03-23T03:44:08.237Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://gtsonthebay.com/wp-content/uploads/2020/02/logo.png",
+    "https://gtsonthebay.com/wp-content/uploads/2020/03/gts_mobile.png",
+    "https://gtsonthebay.com/wp-content/uploads/2025/09/FishTank.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2025/06/Patio10.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2025/09/PlaygroundNew.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2025/06/LunchFish7-1.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2025/08/SaladBar.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2025/08/SaladBar2.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2025/08/SaladBar3.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2025/08/SaladBar7.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2025/08/SaladBar6.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2025/08/SaladBar8.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2025/08/SaladBar9.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2020/03/grouper-2.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2025/06/HHPickles6-2.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2020/03/logo-1.png",
+    "https://gtsonthebay.com/wp-content/uploads/2020/03/cosmos.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2020/03/lunas-e1646685303595.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2020/03/buzzcatz-e1646685323867.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2020/03/caribe.png",
+    "https://gtsonthebay.com/wp-content/uploads/2020/03/caribe_marina_logo.png",
+    "https://gtsonthebay.com/wp-content/uploads/2020/03/caribe_realty.png",
+    "https://gtsonthebay.com/wp-content/uploads/2021/08/gsob_tourism.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2021/08/gsob_sports.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2022/03/OB-logo-e1646685351206.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2026/03/EasterGTsWeb-1024x576.png",
+    "https://gtsonthebay.com/wp-content/uploads/2025/09/HHDraftHandles.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2025/09/BeerRoom2.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2025/09/HHPickles6.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2021/08/coconut-pie-6.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2020/03/IMG_4733.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2020/03/creole-8.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2020/03/blondie-2.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2020/02/totchos-3.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2020/02/surf-crab-2.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2020/02/steamer-4.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2020/03/key-lime-6.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2020/02/special-8.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2020/02/ribeye-7.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2020/02/pork-1.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2021/08/poboy-4.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2020/02/GT-burger-6.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2021/08/shrimp-grits-2.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2022/04/tuna-entree-8.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2022/01/harsany-luna-rev.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2020/03/brian3.jpg",
+    "https://gtsonthebay.com/wp-content/uploads/2024/07/IMG_0761-1.jpg"
+  ],
+  "sources": [
+    "https://gtsonthebay.com",
+    "https://gtsonthebay.com/live-music-events",
+    "https://gtsonthebay.com/happy-hour",
+    "https://gtsonthebay.com/menu",
+    "https://gtsonthebay.com/about-2",
+    "https://gtsonthebay.com/contact-2"
+  ]
+}

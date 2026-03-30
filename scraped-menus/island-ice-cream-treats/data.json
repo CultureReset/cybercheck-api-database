@@ -1,0 +1,262 @@
+{
+  "business_name": "Island Ice Cream & Treats",
+  "tagline": "A smile in every scoop!",
+  "type": "Ice Cream Shop",
+  "contact": {
+    "phone": "(251) 540-2423",
+    "email": "islandicecreamandtreats@gmail.com",
+    "address": "1154 West Beach Blvd. Suite C",
+    "city": "Gulf Shores",
+    "state": "AL",
+    "zip": "36542"
+  },
+  "hours": {
+    "monday": "1:00 PM - 10:00 PM",
+    "tuesday": "1:00 PM - 10:00 PM",
+    "wednesday": "1:00 PM - 10:00 PM",
+    "thursday": "1:00 PM - 10:00 PM",
+    "friday": "1:00 PM - 10:00 PM",
+    "saturday": "1:00 PM - 10:00 PM",
+    "sunday": "1:00 PM - 10:00 PM",
+    "notes": "Also listed as 11:00 AM - 11:00 PM in structured data"
+  },
+  "about": {
+    "description": "Gulf Shores ice cream shop serving premium Blue Bell ice cream with over 40 flavor options including Italian Ice, yogurt, sherbet, and reduced fat options. Offers milkshakes, smoothies, sundaes, chocolates, and doughnut sandwiches.",
+    "elevator_pitch": "The most flavor options on the beach with over 40 premium ice cream flavors and creative treats.",
+    "vibe": "Family-friendly, casual, beachy, fun atmosphere perfect for vacationers and locals",
+    "best_for": [
+      "families",
+      "beach vacations",
+      "sweet treats",
+      "photo shoots"
+    ],
+    "established": "Summer 2011",
+    "reservations": null,
+    "insider_tip": "Specialties include unique flavors like banana pudding, cotton candy, birthday batter, and Superman ice cream. Sundaes come in souvenir jars to keep!"
+  },
+  "tags": [
+    "ice cream",
+    "desserts",
+    "casual",
+    "family-friendly",
+    "beach destination",
+    "premium ice cream",
+    "doughnut sandwiches",
+    "sundaes",
+    "milkshakes",
+    "smoothies"
+  ],
+  "features": [
+    "Over 40 ice cream flavors",
+    "Dine-in seating",
+    "Carry-out available",
+    "Large assortment of toppings",
+    "Specialty sundaes",
+    "Souvenir jars",
+    "Allergen information available"
+  ],
+  "price_range": "$",
+  "social_links": {
+    "instagram": "https://instagram.com/islandicecream",
+    "facebook": "https://facebook.com/1012050090",
+    "website": "http://www.islandicecreamandtreats.com"
+  },
+  "specials": [
+    {
+      "name": "National Doughnut Day Special",
+      "description": "Doughnut sandwich or sundae promotion",
+      "days": [],
+      "time": null
+    }
+  ],
+  "events": [],
+  "menu": {
+    "categories": [
+      {
+        "name": "Ice Cream Flavors",
+        "type": "desserts",
+        "items": [
+          {
+            "name": "Cotton Candy",
+            "description": "Tastes exactly like the real thing",
+            "price": null,
+            "tags": [
+              "popular",
+              "unique"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Banana Pudding",
+            "description": "Tastes just like banana pudding with vanilla cookie chunks",
+            "price": null,
+            "tags": [
+              "unique",
+              "specialty"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Superman",
+            "description": null,
+            "price": null,
+            "tags": [
+              "kids favorite"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Birthday Batter",
+            "description": null,
+            "price": null,
+            "tags": [
+              "kids favorite"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Cherry",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Key Lime Pie",
+            "description": null,
+            "price": null,
+            "tags": [
+              "adult favorite"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Honey Roasted Peanut Butter",
+            "description": null,
+            "price": null,
+            "tags": [
+              "popular"
+            ],
+            "allergens": [
+              "peanuts"
+            ]
+          },
+          {
+            "name": "Coffee House Cookies & Cream",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": [
+              "dairy"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Specialty Items",
+        "type": "desserts",
+        "items": [
+          {
+            "name": "Doughnut Sandwich",
+            "description": "Ice cream sandwich using doughnuts",
+            "price": null,
+            "tags": [
+              "specialty",
+              "popular"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Milkshakes",
+            "description": "Made with any of 40+ flavors",
+            "price": null,
+            "tags": [
+              "drinks"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Smoothies",
+            "description": null,
+            "price": null,
+            "tags": [
+              "drinks"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Specialty Sundaes",
+            "description": "Served in souvenir jars to keep",
+            "price": null,
+            "tags": [
+              "specialty",
+              "souvenir"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Chocolate Dipped Waffle Cones",
+            "description": null,
+            "price": null,
+            "tags": [
+              "specialty"
+            ],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Products",
+        "type": "specials",
+        "items": [
+          {
+            "name": "Gift Cards",
+            "description": "Available for purchase",
+            "price": null,
+            "tags": [],
+            "allergens": []
+          }
+        ]
+      }
+    ]
+  },
+  "url": "http://www.islandicecreamandtreats.com/",
+  "scraped_at": "2026-03-21T15:07:27.150Z",
+  "extracted_at": "2026-03-23T03:48:36.529Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://images.squarespace-cdn.com/content/v1/536e91e6e4b0582fed52d9c7/1431652461811-9SWZRRIXF6VG0RSW9SQ2/gulf+shores+ice+cream+in+alabama.JPG?format=1500w",
+    "https://images.squarespace-cdn.com/content/v1/536e91e6e4b0582fed52d9c7/1715631310605-0LUWT6LNVCIJZEAXU8KR/IMG_3979-2.jpg?format=1500w",
+    "https://images.squarespace-cdn.com/content/v1/536e91e6e4b0582fed52d9c7/1527880225776-776MOPX27OEXINAXD3N5/image-asset.jpeg?format=100w",
+    "https://images.squarespace-cdn.com/content/v1/536e91e6e4b0582fed52d9c7/1527134864744-0B9M7DHKKV676913YDTX/image-asset.jpeg?format=500w",
+    "https://images.squarespace-cdn.com/content/v1/536e91e6e4b0582fed52d9c7/1526607047963-LTZ1DZ7WAQNE62OM2EMU/image-asset.jpeg?format=500w",
+    "https://images.squarespace-cdn.com/content/v1/536e91e6e4b0582fed52d9c7/1526339535972-WSGOBEDOW4MYUFECV2KQ/image-asset.jpeg?format=500w",
+    "https://images.squarespace-cdn.com/content/v1/536e91e6e4b0582fed52d9c7/1525992010051-43FXGX4HA7LHZ5GPOJ19/image-asset.jpeg?format=500w",
+    "https://images.squarespace-cdn.com/content/v1/536e91e6e4b0582fed52d9c7/1525391584618-YTDRE40AN6QXYM5R9PW4/image-asset.jpeg?format=500w",
+    "https://images.squarespace-cdn.com/content/v1/536e91e6e4b0582fed52d9c7/1521591240029-V7F0YC5OZ6MT48K8ANXX/image-asset.jpeg?format=500w",
+    "https://images.squarespace-cdn.com/content/v1/536e91e6e4b0582fed52d9c7/1521429636923-24J593QA1UISO9LIDT13/image-asset.jpeg?format=500w",
+    "https://images.squarespace-cdn.com/content/v1/536e91e6e4b0582fed52d9c7/1520805180400-NAZTW94XOY1163FEDTLJ/image-asset.jpeg?format=500w",
+    "https://images.squarespace-cdn.com/content/v1/536e91e6e4b0582fed52d9c7/1520722159800-X33SCKREA5U7RIGMD7VQ/image-asset.jpeg?format=500w",
+    "https://images.squarespace-cdn.com/content/v1/536e91e6e4b0582fed52d9c7/1527880225776-776MOPX27OEXINAXD3N5/image-asset.jpeg",
+    "https://images.squarespace-cdn.com/content/v1/536e91e6e4b0582fed52d9c7/1527134864744-0B9M7DHKKV676913YDTX/image-asset.jpeg",
+    "https://images.squarespace-cdn.com/content/v1/536e91e6e4b0582fed52d9c7/1526607047963-LTZ1DZ7WAQNE62OM2EMU/image-asset.jpeg",
+    "https://images.squarespace-cdn.com/content/v1/536e91e6e4b0582fed52d9c7/1526339535972-WSGOBEDOW4MYUFECV2KQ/image-asset.jpeg",
+    "https://images.squarespace-cdn.com/content/v1/536e91e6e4b0582fed52d9c7/1525992010051-43FXGX4HA7LHZ5GPOJ19/image-asset.jpeg",
+    "https://images.squarespace-cdn.com/content/v1/536e91e6e4b0582fed52d9c7/1525391584618-YTDRE40AN6QXYM5R9PW4/image-asset.jpeg",
+    "https://images.squarespace-cdn.com/content/v1/536e91e6e4b0582fed52d9c7/1521591240029-V7F0YC5OZ6MT48K8ANXX/image-asset.jpeg",
+    "https://images.squarespace-cdn.com/content/v1/536e91e6e4b0582fed52d9c7/1521429636923-24J593QA1UISO9LIDT13/image-asset.jpeg",
+    "https://images.squarespace-cdn.com/content/v1/536e91e6e4b0582fed52d9c7/1520805180400-NAZTW94XOY1163FEDTLJ/image-asset.jpeg",
+    "https://images.squarespace-cdn.com/content/v1/536e91e6e4b0582fed52d9c7/1520722159800-X33SCKREA5U7RIGMD7VQ/image-asset.jpeg",
+    "https://images.squarespace-cdn.com/content/v1/536e91e6e4b0582fed52d9c7/1591110882391-7CT15GLLGFFOJQBX52RW/IMG_2177.JPG?format=500w",
+    "https://images.squarespace-cdn.com/content/v1/536e91e6e4b0582fed52d9c7/1591110923306-VMYWQ8GZXE5D9KIJQGSG/IMG_9935.JPG?format=500w",
+    "https://images.squarespace-cdn.com/content/v1/536e91e6e4b0582fed52d9c7/1591110882061-T0ZFG13XTHLYO0VW78I3/IMG_4655+2.JPG?format=500w",
+    "https://images.squarespace-cdn.com/content/v1/536e91e6e4b0582fed52d9c7/1431808112314-SD4VR3CUWPSU6RSEIQFI/Island+Ice+Cream+in+Gulf+Shores+Alabama.jpg?format=1500w",
+    "https://images.squarespace-cdn.com/content/v1/536e91e6e4b0582fed52d9c7/cdc67b40-896f-4fff-9461-1f4d614e82f9/1.png",
+    "https://images.squarespace-cdn.com/content/v1/536e91e6e4b0582fed52d9c7/0f0c0a92-8e28-4954-8614-4eb36bf30abd/2.png",
+    "https://images.squarespace-cdn.com/content/v1/536e91e6e4b0582fed52d9c7/c9f5f5ed-30c7-445f-960a-ff377e178ef9/Island+Ice+Cream+New+Menus++%283%29.png"
+  ],
+  "sources": [
+    "http://www.islandicecreamandtreats.com",
+    "https://www.islandicecreamandtreats.com/menu"
+  ]
+}

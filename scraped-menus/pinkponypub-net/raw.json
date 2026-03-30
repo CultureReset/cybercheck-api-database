@@ -1,0 +1,1261 @@
+{
+  "business_name": "pinkponypub.net",
+  "url": "https://pinkponypub.net",
+  "scraped_at": "2026-03-21T20:06:26.191Z",
+  "pages": [
+    {
+      "url": "https://pinkponypub.net",
+      "title": "Pink Pony Pub & Club | Gulf Shores Restaurant & Bar in AL",
+      "text": "Open from 10:30 AM to 10 PM. Accepting To-Go orders and Dine-In with limited available seating to ensure the safety of our staff and patrons.\n \n\t\n\t\n\t\n\t\n\t\n \n \n \n \n come visit!\n \n 137 E Gulf pl \n gulf shores, al\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n about\n Menu\n \n photos\n contact\n \n \n \n \n \n \n\t\n\t\n\n\t\n\n\t\n Located Directly on gulf shores beach\t\n\n\t\n \n\n \n\t\n \n \n \n \n the sun sets in:\n 3 hours 21 minutes\n \n \n \n \n feeling hungry?\n Menu\n \n \n \n \n We've been\n surviving hurricanes\n since 1956\n \n \n \n\t\n\n \n  Open everyday 10:30am to 10pm - Children welcome until 9pm\nchrome\n \n\nNot Logged in\n\n \n\n \n \n \n \n\n \n\n \n \n \n \n \n \n Featured Drinks!\n \nBob Marley Strawberry, Pina Colada, banana, melon, orange, coconut rum & dark rum. Served in a Pink Pony Pub souvenir glass.\nMalibu Bushwhacker Malibu Rum, Dark Creme de Cocoa, Irish Creme & Vanilla Creme.\nPina Colada A Pink Pony signature frozen drink that includes premium rum, coconut cream & fresh pineapple juice.\n\nSEE THE DRINKS ON OUR MENU \n \n \n \n \n\n\t\n\n\t\n \n \n open everyday\n 11am - 10pm - children welcome until 9pm\n 137 E Gulf pl, gulf shores, al\n (251) 948-6371\n \n \n follow us!\n \n \n \n \n \n \n View the Beach Cam! \n \n \n \n \n \n\t\n\n\t\n \n \n \n home\n about\n menu\n \n photos\n contact\n \n \n \n \n \n \n \n © 2026 Pink pony pub. site by superpath | sitemap.",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BarOrPub",
+          "name": "Pink Pony Pub",
+          "image": "https://pinkponypub.net/_images/logo.png",
+          "@id": "https://pinkponypub.net/",
+          "url": "https://pinkponypub.net/",
+          "telephone": "(251) 948-6371",
+          "priceRange": "$",
+          "menu": "https://pinkponypub.net/menu/",
+          "servesCuisine": "Seafood",
+          "acceptsReservations": "false",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "137 E Gulf Shores Pl",
+            "addressLocality": "Gulf Shores",
+            "addressRegion": "AL",
+            "postalCode": "36542",
+            "addressCountry": "US"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 30.2485551,
+            "longitude": -87.6897651
+          },
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+            ],
+            "opens": "10:30",
+            "closes": "22:00"
+          },
+          "sameAs": [
+            "https://www.facebook.com/PinkPonyPub/",
+            "https://twitter.com/pinkponypub?lang=en",
+            "https://www.instagram.com/pinkponypub/"
+          ]
+        },
+        {
+          "@context": "https://schema.org/",
+          "@type": "WebSite",
+          "name": "Pink Pony Pub",
+          "url": "https://pinkponypub.net/",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "{search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Pink Pony Pub",
+          "url": "https://pinkponypub.net/",
+          "logo": "https://pinkponypub.net/_images/logo.png",
+          "sameAs": [
+            "https://www.facebook.com/PinkPonyPub/",
+            "https://twitter.com/pinkponypub?lang=en",
+            "https://www.instagram.com/pinkponypub/"
+          ]
+        }
+      ],
+      "meta": {
+        "google-site-verification": "eaqBBOIbuP-Y8n9a0Q7VPjtO23JcFoCELO_-9lKg8eI",
+        "viewport": "width=device-width, initial-scale=1",
+        "description": "Pink Pony Pub has been a beachfront staple of Gulf Shores for 50+ years. Click to view our refreshing drinks and delicious meals at our bar & grill.",
+        "googlebot": "index, follow",
+        "robots": "index, follow",
+        "Revisit-After": "25 days",
+        "msvalidate.01": "D4A9C61F759C3B48E0B57F1343F9A2ED",
+        "og:title": "Homepage",
+        "og:url": "http://pinkponypub.net/",
+        "og:type": "website",
+        "og:image": "/www/pages/8/7/1/8/4/9/5/4/4/A/images/5ec54f02e3282aa.jpg",
+        "og:site_name": "Pink Pony Pub"
+      }
+    },
+    {
+      "url": "https://pinkponypub.net/menu",
+      "title": "Menu | Pink Pony Pub | Gulf Shores, AL",
+      "text": "Open from 10:30 AM to 10 PM. Accepting To-Go orders and Dine-In with limited available seating to ensure the safety of our staff and patrons.\n \n\t\n\t\n\t\n\t\n\t\n \n \n \n \n come visit!\n \n 137 E Gulf pl \n gulf shores, al\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n about\n Menu\n \n photos\n contact\n \n \n \n \n \n \n\t\n\t\n\n\tMenu\n\n\t\n \n \n \n \n \n\n \n \n Appetizers\n Salads\n Nachos\n \n\n \n Sandwiches\n Soups\n Burgers\n \n\n \n Seafood\n Pub Favorites\n \n Kids Menu\n \n \n \n \n Sides\n Desserts\n \n \n  \n \n \n \n \n \n \n \n  \n \n From the Bar\n \n \n Beer\n Frozen Drinks & Daquiris\n Cocktails\n \n \n  \n \n \n \n \n \n \n \n \n\t\n\t\n\n\t\n\n\t\n \n\n \n \n \n \n \n\t\n\n\t\n \n \n \n \n the sun sets in:\n 3 hours 21 minutes\n \n \n \n \n feeling hungry?\n Menu\n \n \n \n \n We've been\n surviving hurricanes\n since 1956\n \n \n \n\t\n\n\t\n \n \n open everyday\n 11am - 10pm - children welcome until 9pm\n 137 E Gulf pl, gulf shores, al\n (251) 948-6371\n \n \n follow us!\n \n \n \n \n \n \n View the Beach Cam! \n \n \n \n \n \n\t\n\n\t\n \n \n \n home\n about\n menu\n \n photos\n contact\n \n \n \n \n \n \n \n © 2026 Pink pony pub. site by superpath | sitemap.",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BarOrPub",
+          "name": "Pink Pony Pub",
+          "image": "https://pinkponypub.net/_images/logo.png",
+          "@id": "https://pinkponypub.net/",
+          "url": "https://pinkponypub.net/",
+          "telephone": "(251) 948-6371",
+          "priceRange": "$",
+          "menu": "https://pinkponypub.net/menu/",
+          "servesCuisine": "Seafood",
+          "acceptsReservations": "false",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "137 E Gulf Shores Pl",
+            "addressLocality": "Gulf Shores",
+            "addressRegion": "AL",
+            "postalCode": "36542",
+            "addressCountry": "US"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 30.2485551,
+            "longitude": -87.6897651
+          },
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+            ],
+            "opens": "10:30",
+            "closes": "22:00"
+          },
+          "sameAs": [
+            "https://www.facebook.com/PinkPonyPub/",
+            "https://twitter.com/pinkponypub?lang=en",
+            "https://www.instagram.com/pinkponypub/"
+          ]
+        },
+        {
+          "@context": "https://schema.org/",
+          "@type": "WebSite",
+          "name": "Pink Pony Pub",
+          "url": "https://pinkponypub.net/",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "{search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Pink Pony Pub",
+          "url": "https://pinkponypub.net/",
+          "logo": "https://pinkponypub.net/_images/logo.png",
+          "sameAs": [
+            "https://www.facebook.com/PinkPonyPub/",
+            "https://twitter.com/pinkponypub?lang=en",
+            "https://www.instagram.com/pinkponypub/"
+          ]
+        }
+      ],
+      "meta": {
+        "google-site-verification": "eaqBBOIbuP-Y8n9a0Q7VPjtO23JcFoCELO_-9lKg8eI",
+        "viewport": "width=device-width, initial-scale=1",
+        "description": "Pink Pony Pub's beachfront grill & bar offers cocktails, beer, seafood, burgers, & more. Check out our menu & find us right on Gulf Shores Public Beach!",
+        "googlebot": "index, follow",
+        "robots": "index, follow",
+        "Revisit-After": "25 days",
+        "msvalidate.01": "D4A9C61F759C3B48E0B57F1343F9A2ED",
+        "og:title": "Menu",
+        "og:url": "http://pinkponypub.net/menu/",
+        "og:type": "website",
+        "og:site_name": "Pink Pony Pub"
+      }
+    },
+    {
+      "url": "https://pinkponypub.net/cocktails",
+      "title": "Cocktail Menu | Gulf Shores, AL | Pink Pony Pub",
+      "text": "Open from 10:30 AM to 10 PM. Accepting To-Go orders and Dine-In with limited available seating to ensure the safety of our staff and patrons.\n \n\t\n\t\n\t\n\t\n\t\n \n \n \n \n come visit!\n \n 137 E Gulf pl \n gulf shores, al\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n about\n Menu\n \n photos\n contact\n \n \n \n \n \n \n\t\n\t\n\n\tCocktails\n\t\n\n\t\n \n \n \n\nMai TaiSemi-dry sparkling champagne and fresh orange juice with orange liqueur\n\n1800 Silver Agave MargaritaPremium 1800 Silver Tequila with fresh squeezed lime juice\n\nStrawberry Beach BallStrawberry vodka, peach, pineapple, orange, soda\n\nDark N StormyDark rum, ginger beer, lime \n\nHurricaneLight rum, dark rum, passion fruit, orange, lime\n\nBahama MamaDark rum, coconut rum, orange, pineapple, banana\n\nGin FizzBeefeater gin, lime, sugar, soda\n\nOld FashionedPremium rye and angostura bitters\n\nEspresso MartiniTito's Vodka, espresso, coffee liqueur\n\nIceberg MartiniRaspberry vodka, peach, curacao, pineapple\n\nRum PunchLight rum, lime, orange, pineapple, grenadine\n\nBlue BreezePremium vodka and coconut mixed with tropical fruit juice\n\nRaspberry BlastTito's vodka, raspberry, blackberry, amaretto, sprite\n\nSeven Headed DragonA Pink Pony legend that has a secret recipe and a ferocious bite! \n\nFirewater MojitoMooshine, fresh mint, lime juice, sugar\n\nLemon Drop MartiniLemon vodka, orange liqueur, limoncello\n\n \n \n\n\t\n  \n ←Back To All Menu Items\n \n\t\n\n\t\n \n \n \n \n the sun sets in:\n 3 hours 21 minutes\n \n \n \n \n feeling hungry?\n Menu\n \n \n \n \n We've been\n surviving hurricanes\n since 1956\n \n \n \n\t\n\n\t\n \n \n open everyday\n 11am - 10pm - children welcome until 9pm\n 137 E Gulf pl, gulf shores, al\n (251) 948-6371\n \n \n follow us!\n \n \n \n \n \n \n View the Beach Cam! \n \n \n \n \n \n\t\n\n\t\n \n \n \n home\n about\n menu\n \n photos\n contact\n \n \n \n \n \n \n \n © 2026 Pink pony pub. site by superpath | sitemap.",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BarOrPub",
+          "name": "Pink Pony Pub",
+          "image": "https://pinkponypub.net/_images/logo.png",
+          "@id": "https://pinkponypub.net/",
+          "url": "https://pinkponypub.net/",
+          "telephone": "(251) 948-6371",
+          "priceRange": "$",
+          "menu": "https://pinkponypub.net/menu/",
+          "servesCuisine": "Seafood",
+          "acceptsReservations": "false",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "137 E Gulf Shores Pl",
+            "addressLocality": "Gulf Shores",
+            "addressRegion": "AL",
+            "postalCode": "36542",
+            "addressCountry": "US"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 30.2485551,
+            "longitude": -87.6897651
+          },
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+            ],
+            "opens": "10:30",
+            "closes": "22:00"
+          },
+          "sameAs": [
+            "https://www.facebook.com/PinkPonyPub/",
+            "https://twitter.com/pinkponypub?lang=en",
+            "https://www.instagram.com/pinkponypub/"
+          ]
+        },
+        {
+          "@context": "https://schema.org/",
+          "@type": "WebSite",
+          "name": "Pink Pony Pub",
+          "url": "https://pinkponypub.net/",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "{search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Pink Pony Pub",
+          "url": "https://pinkponypub.net/",
+          "logo": "https://pinkponypub.net/_images/logo.png",
+          "sameAs": [
+            "https://www.facebook.com/PinkPonyPub/",
+            "https://twitter.com/pinkponypub?lang=en",
+            "https://www.instagram.com/pinkponypub/"
+          ]
+        }
+      ],
+      "meta": {
+        "google-site-verification": "eaqBBOIbuP-Y8n9a0Q7VPjtO23JcFoCELO_-9lKg8eI",
+        "viewport": "width=device-width, initial-scale=1",
+        "description": "Stop by the Pink Pony Pub & enjoy your favorite cocktails on our beachfront patio! Check out our extensive cocktail list from our fully-stocked bar here.",
+        "googlebot": "index, follow",
+        "robots": "index, follow",
+        "Revisit-After": "25 days",
+        "msvalidate.01": "D4A9C61F759C3B48E0B57F1343F9A2ED",
+        "og:title": "Cocktails",
+        "og:url": "http://pinkponypub.net/cocktails/",
+        "og:type": "website",
+        "og:site_name": "Pink Pony Pub"
+      }
+    },
+    {
+      "url": "https://pinkponypub.net/frozen-drinks-and-daquiris",
+      "title": "Frozen Drinks & Daiquiris | Gulf Shores, AL | Pink Pony Pub",
+      "text": "Open from 10:30 AM to 10 PM. Accepting To-Go orders and Dine-In with limited available seating to ensure the safety of our staff and patrons.\n \n\t\n\t\n\t\n\t\n\t\n \n \n \n \n come visit!\n \n 137 E Gulf pl \n gulf shores, al\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n about\n Menu\n \n photos\n contact\n \n \n \n \n \n \n\t\n\t\n\n\tFrozen Drinks and Daiquiris\n\t\n\n\t\n \n \n Strawberry DaiquiriA Pink Pony signature frozen drink with fresh strawberries\nPiña ColadaA Pink Pony signature frozen drink that includes premium rum, coconut cream and fresh pineapple juice\nKey Lime ColadaBluechair keylime rum cream, coconut rum, pineapple, orange\nBushwhackerCoconut rum, irish cream, and vanilla\nBob MarleyStrawberry, Piña Colada, banana, melon, orange, coconut rum and dark rum. Served in a Pink Pony Pub souvenir glass (must order two.)\nBeach BananaIrish cream, Bluechair banana cream rum, banana liqueur\n190 Crazy Horse151 overproof rum, grain alcohol, orange cream and orange juice\n1800 MargaritaAvailable frozen or on the rocks. 1800 aged Agave Silver Tequila, Cointreau, lime juice and orange liqueur\nWatermelon RitaPremium silver tequila, watermelon, fresh lime juice\nJamaican SpecialJamaican overproof rum, Malibu rum, strawberry and orange cream\n\t\n  \n ←Back To All Menu Items\n \n\t\n\n\t\n \n \n \n \n the sun sets in:\n 3 hours 21 minutes\n \n \n \n \n feeling hungry?\n Menu\n \n \n \n \n We've been\n surviving hurricanes\n since 1956\n \n \n \n\t\n\n\t\n \n \n open everyday\n 11am - 10pm - children welcome until 9pm\n 137 E Gulf pl, gulf shores, al\n (251) 948-6371\n \n \n follow us!\n \n \n \n \n \n \n View the Beach Cam! \n \n \n \n \n \n\t\n\n\t\n \n \n \n home\n about\n menu\n \n photos\n contact\n \n \n \n \n \n \n \n © 2026 Pink pony pub. site by superpath | sitemap.",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BarOrPub",
+          "name": "Pink Pony Pub",
+          "image": "https://pinkponypub.net/_images/logo.png",
+          "@id": "https://pinkponypub.net/",
+          "url": "https://pinkponypub.net/",
+          "telephone": "(251) 948-6371",
+          "priceRange": "$",
+          "menu": "https://pinkponypub.net/menu/",
+          "servesCuisine": "Seafood",
+          "acceptsReservations": "false",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "137 E Gulf Shores Pl",
+            "addressLocality": "Gulf Shores",
+            "addressRegion": "AL",
+            "postalCode": "36542",
+            "addressCountry": "US"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 30.2485551,
+            "longitude": -87.6897651
+          },
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+            ],
+            "opens": "10:30",
+            "closes": "22:00"
+          },
+          "sameAs": [
+            "https://www.facebook.com/PinkPonyPub/",
+            "https://twitter.com/pinkponypub?lang=en",
+            "https://www.instagram.com/pinkponypub/"
+          ]
+        },
+        {
+          "@context": "https://schema.org/",
+          "@type": "WebSite",
+          "name": "Pink Pony Pub",
+          "url": "https://pinkponypub.net/",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "{search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Pink Pony Pub",
+          "url": "https://pinkponypub.net/",
+          "logo": "https://pinkponypub.net/_images/logo.png",
+          "sameAs": [
+            "https://www.facebook.com/PinkPonyPub/",
+            "https://twitter.com/pinkponypub?lang=en",
+            "https://www.instagram.com/pinkponypub/"
+          ]
+        }
+      ],
+      "meta": {
+        "google-site-verification": "eaqBBOIbuP-Y8n9a0Q7VPjtO23JcFoCELO_-9lKg8eI",
+        "viewport": "width=device-width, initial-scale=1",
+        "description": "Sip frozen drinks & delicious daiquiris on Pink Pony Pub's beachfront patio in Gulf Shores, AL! Click here to view our drink menu.",
+        "googlebot": "index, follow",
+        "robots": "index, follow",
+        "Revisit-After": "25 days",
+        "msvalidate.01": "D4A9C61F759C3B48E0B57F1343F9A2ED",
+        "og:title": "Frozen Drinks and Daiquiris",
+        "og:url": "http://pinkponypub.net/frozen-drinks-and-daquiris/",
+        "og:type": "website",
+        "og:site_name": "Pink Pony Pub"
+      }
+    },
+    {
+      "url": "https://pinkponypub.net/beer",
+      "title": "Our Craft & Local Beer | Pink Pony Pub | Gulf Shores, AL",
+      "text": "Open from 10:30 AM to 10 PM. Accepting To-Go orders and Dine-In with limited available seating to ensure the safety of our staff and patrons.\n \n\t\n\t\n\t\n\t\n\t\n \n \n \n \n come visit!\n \n 137 E Gulf pl \n gulf shores, al\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n about\n Menu\n \n photos\n contact\n \n \n \n \n \n \n\t\n\t\n\n\tBeer\n\t\n\n\t\n \n \n Ask about our wide selection of craft beers.\t\n  \n ←Back To All Menu Items\n \n\t\n\n\t\n \n \n \n \n the sun sets in:\n 3 hours 21 minutes\n \n \n \n \n feeling hungry?\n Menu\n \n \n \n \n We've been\n surviving hurricanes\n since 1956\n \n \n \n\t\n\n\t\n \n \n open everyday\n 11am - 10pm - children welcome until 9pm\n 137 E Gulf pl, gulf shores, al\n (251) 948-6371\n \n \n follow us!\n \n \n \n \n \n \n View the Beach Cam! \n \n \n \n \n \n\t\n\n\t\n \n \n \n home\n about\n menu\n \n photos\n contact\n \n \n \n \n \n \n \n © 2026 Pink pony pub. site by superpath | sitemap.",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BarOrPub",
+          "name": "Pink Pony Pub",
+          "image": "https://pinkponypub.net/_images/logo.png",
+          "@id": "https://pinkponypub.net/",
+          "url": "https://pinkponypub.net/",
+          "telephone": "(251) 948-6371",
+          "priceRange": "$",
+          "menu": "https://pinkponypub.net/menu/",
+          "servesCuisine": "Seafood",
+          "acceptsReservations": "false",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "137 E Gulf Shores Pl",
+            "addressLocality": "Gulf Shores",
+            "addressRegion": "AL",
+            "postalCode": "36542",
+            "addressCountry": "US"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 30.2485551,
+            "longitude": -87.6897651
+          },
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+            ],
+            "opens": "10:30",
+            "closes": "22:00"
+          },
+          "sameAs": [
+            "https://www.facebook.com/PinkPonyPub/",
+            "https://twitter.com/pinkponypub?lang=en",
+            "https://www.instagram.com/pinkponypub/"
+          ]
+        },
+        {
+          "@context": "https://schema.org/",
+          "@type": "WebSite",
+          "name": "Pink Pony Pub",
+          "url": "https://pinkponypub.net/",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "{search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Pink Pony Pub",
+          "url": "https://pinkponypub.net/",
+          "logo": "https://pinkponypub.net/_images/logo.png",
+          "sameAs": [
+            "https://www.facebook.com/PinkPonyPub/",
+            "https://twitter.com/pinkponypub?lang=en",
+            "https://www.instagram.com/pinkponypub/"
+          ]
+        }
+      ],
+      "meta": {
+        "google-site-verification": "eaqBBOIbuP-Y8n9a0Q7VPjtO23JcFoCELO_-9lKg8eI",
+        "viewport": "width=device-width, initial-scale=1",
+        "description": "Find local, domestic, & imported beers at the Pink Pony Pub. Stop by Gulf Shores' favorite beachfront restaurant & bar for a drink and an ocean view today!",
+        "googlebot": "index, follow",
+        "robots": "index, follow",
+        "Revisit-After": "25 days",
+        "msvalidate.01": "D4A9C61F759C3B48E0B57F1343F9A2ED",
+        "og:title": "Beer",
+        "og:url": "http://pinkponypub.net/beer/",
+        "og:type": "website",
+        "og:site_name": "Pink Pony Pub"
+      }
+    },
+    {
+      "url": "https://pinkponypub.net/desserts",
+      "title": "Desserts by the Ocean | Gulf Shores, AL | Pink Pony Pub",
+      "text": "Open from 10:30 AM to 10 PM. Accepting To-Go orders and Dine-In with limited available seating to ensure the safety of our staff and patrons.\n \n\t\n\t\n\t\n\t\n\t\n \n \n \n \n come visit!\n \n 137 E Gulf pl \n gulf shores, al\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n about\n Menu\n \n photos\n contact\n \n \n \n \n \n \n\t\n\t\n\n\tDesserts\n\t\n\n\t\n \n \n DESSERTS\nKEY LIME PIE\n\nVANILLA BEAN ICE CREAM\n \n\nNot Logged in\n\nchrome\nchrome\n\t\n  \n ←Back To All Menu Items\n \n\t\n\n\t\n \n \n \n \n the sun sets in:\n 3 hours 20 minutes\n \n \n \n \n feeling hungry?\n Menu\n \n \n \n \n We've been\n surviving hurricanes\n since 1956\n \n \n \n\t\n\n\t\n \n \n open everyday\n 11am - 10pm - children welcome until 9pm\n 137 E Gulf pl, gulf shores, al\n (251) 948-6371\n \n \n follow us!\n \n \n \n \n \n \n View the Beach Cam! \n \n \n \n \n \n\t\n\n\t\n \n \n \n home\n about\n menu\n \n photos\n contact\n \n \n \n \n \n \n \n © 2026 Pink pony pub. site by superpath | sitemap.",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BarOrPub",
+          "name": "Pink Pony Pub",
+          "image": "https://pinkponypub.net/_images/logo.png",
+          "@id": "https://pinkponypub.net/",
+          "url": "https://pinkponypub.net/",
+          "telephone": "(251) 948-6371",
+          "priceRange": "$",
+          "menu": "https://pinkponypub.net/menu/",
+          "servesCuisine": "Seafood",
+          "acceptsReservations": "false",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "137 E Gulf Shores Pl",
+            "addressLocality": "Gulf Shores",
+            "addressRegion": "AL",
+            "postalCode": "36542",
+            "addressCountry": "US"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 30.2485551,
+            "longitude": -87.6897651
+          },
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+            ],
+            "opens": "10:30",
+            "closes": "22:00"
+          },
+          "sameAs": [
+            "https://www.facebook.com/PinkPonyPub/",
+            "https://twitter.com/pinkponypub?lang=en",
+            "https://www.instagram.com/pinkponypub/"
+          ]
+        },
+        {
+          "@context": "https://schema.org/",
+          "@type": "WebSite",
+          "name": "Pink Pony Pub",
+          "url": "https://pinkponypub.net/",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "{search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Pink Pony Pub",
+          "url": "https://pinkponypub.net/",
+          "logo": "https://pinkponypub.net/_images/logo.png",
+          "sameAs": [
+            "https://www.facebook.com/PinkPonyPub/",
+            "https://twitter.com/pinkponypub?lang=en",
+            "https://www.instagram.com/pinkponypub/"
+          ]
+        }
+      ],
+      "meta": {
+        "google-site-verification": "eaqBBOIbuP-Y8n9a0Q7VPjtO23JcFoCELO_-9lKg8eI",
+        "viewport": "width=device-width, initial-scale=1",
+        "description": "Cool down from a long day at the beach with one of our delicious desserts on our beachfront deck along Gulf Shores. Click to view our dessert menu!",
+        "googlebot": "index, follow",
+        "robots": "index, follow",
+        "Revisit-After": "25 days",
+        "msvalidate.01": "D4A9C61F759C3B48E0B57F1343F9A2ED",
+        "og:title": "Desserts",
+        "og:url": "http://pinkponypub.net/desserts/",
+        "og:type": "website",
+        "og:site_name": "Pink Pony Pub"
+      }
+    },
+    {
+      "url": "https://pinkponypub.net/kids-menu",
+      "title": "Kids Menu | Pink Pony Pub | Gulf Shores, AL",
+      "text": "Open from 10:30 AM to 10 PM. Accepting To-Go orders and Dine-In with limited available seating to ensure the safety of our staff and patrons.\n \n\t\n\t\n\t\n\t\n\t\n \n \n \n \n come visit!\n \n 137 E Gulf pl \n gulf shores, al\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n about\n Menu\n \n photos\n contact\n \n \n \n \n \n \n\t\n\t\n\n\tKids Menu\n\t\n\n\t\n \n \n KID'S\nServed with a hushpuppy and your choice of French fries, tater tots, coleslaw or steamed broccoli\nCHEESEBURGER\nGRILLED CHEESE SANDWICH\nFRIED CHICKEN TENDERS\n \nFRIED SHRIMP\n\nNot Logged in\n\nchrome\nchrome\n\t\n  \n ←Back To All Menu Items\n \n\t\n\n\t\n \n \n \n \n the sun sets in:\n 3 hours 20 minutes\n \n \n \n \n feeling hungry?\n Menu\n \n \n \n \n We've been\n surviving hurricanes\n since 1956\n \n \n \n\t\n\n\t\n \n \n open everyday\n 11am - 10pm - children welcome until 9pm\n 137 E Gulf pl, gulf shores, al\n (251) 948-6371\n \n \n follow us!\n \n \n \n \n \n \n View the Beach Cam! \n \n \n \n \n \n\t\n\n\t\n \n \n \n home\n about\n menu\n \n photos\n contact\n \n \n \n \n \n \n \n © 2026 Pink pony pub. site by superpath | sitemap.",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BarOrPub",
+          "name": "Pink Pony Pub",
+          "image": "https://pinkponypub.net/_images/logo.png",
+          "@id": "https://pinkponypub.net/",
+          "url": "https://pinkponypub.net/",
+          "telephone": "(251) 948-6371",
+          "priceRange": "$",
+          "menu": "https://pinkponypub.net/menu/",
+          "servesCuisine": "Seafood",
+          "acceptsReservations": "false",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "137 E Gulf Shores Pl",
+            "addressLocality": "Gulf Shores",
+            "addressRegion": "AL",
+            "postalCode": "36542",
+            "addressCountry": "US"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 30.2485551,
+            "longitude": -87.6897651
+          },
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+            ],
+            "opens": "10:30",
+            "closes": "22:00"
+          },
+          "sameAs": [
+            "https://www.facebook.com/PinkPonyPub/",
+            "https://twitter.com/pinkponypub?lang=en",
+            "https://www.instagram.com/pinkponypub/"
+          ]
+        },
+        {
+          "@context": "https://schema.org/",
+          "@type": "WebSite",
+          "name": "Pink Pony Pub",
+          "url": "https://pinkponypub.net/",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "{search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Pink Pony Pub",
+          "url": "https://pinkponypub.net/",
+          "logo": "https://pinkponypub.net/_images/logo.png",
+          "sameAs": [
+            "https://www.facebook.com/PinkPonyPub/",
+            "https://twitter.com/pinkponypub?lang=en",
+            "https://www.instagram.com/pinkponypub/"
+          ]
+        }
+      ],
+      "meta": {
+        "google-site-verification": "eaqBBOIbuP-Y8n9a0Q7VPjtO23JcFoCELO_-9lKg8eI",
+        "viewport": "width=device-width, initial-scale=1",
+        "description": "Bring the whole family to enjoy a beachside meal at Pink Pony Pub is in Gulf Shores! Click here to view the kids' menu at our world famous restaurant.",
+        "googlebot": "index, follow",
+        "robots": "index, follow",
+        "Revisit-After": "25 days",
+        "msvalidate.01": "D4A9C61F759C3B48E0B57F1343F9A2ED",
+        "og:title": "Kids Menu",
+        "og:url": "http://pinkponypub.net/kids-menu/",
+        "og:type": "website",
+        "og:site_name": "Pink Pony Pub"
+      }
+    },
+    {
+      "url": "https://pinkponypub.net/seafood",
+      "title": "Seafood Restaurant in Gulf Shores, AL | Menu| Pink Pony Pub",
+      "text": "Open from 10:30 AM to 10 PM. Accepting To-Go orders and Dine-In with limited available seating to ensure the safety of our staff and patrons.\n \n\t\n\t\n\t\n\t\n\t\n \n \n \n \n come visit!\n \n 137 E Gulf pl \n gulf shores, al\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n about\n Menu\n \n photos\n contact\n \n \n \n \n \n \n\t\n\t\n\n\tSeafood\n\t\n\n\t\n \n \n SEAFOOD SPECIALS\nAt Pink Pony Pub, our Seafood Specials showcase the freshest catches from the Gulf, bringing bold coastal flavors straight to your plate. Whether craving a half-pound or full pound of crispy fried blue crab claws or indulging in our peel 'n-eat fresh shrimp paired with homemade cocktail sauce, every bite is packed with quality and flavor. Dive into our oven-baked lump crab cakes with house-made remoulade or savor Gulf oysters—served raw or chargrilled to perfection. With options like grilled, blackened, fried, or steamed fresh Gulf shrimp, our seafood menu promises an unforgettable dining experience.\nFRIED BLUE CRAB CLAWS\nAvailable in both ½ lb and 1 lb portions, our fried blue crab claws are lightly breaded and perfectly fried. These succulent claws offer a sweet, tender bite encased in a golden, crispy shell. Ideal for seafood lovers looking to indulge, they make for a perfect appetizer or a satisfying seafood treat on their own.\nPEEL N EAT SHRIMP\nOur peel-and-eat fresh shrimp are served chilled and come with our homemade cocktail sauce. These plump and juicy Gulf shrimp are full of natural flavor, and the zesty cocktail sauce adds a tangy kick to every bite. They're perfect for enjoying a hands-on, casual seafood experience that lets the quality of the shrimp shine through.\nOVEN BAKED LUMP CRAB CAKES\nBaked to perfection, our lump crab cakes are packed with rich, flaky crab meat and served alongside our house-made remoulade sauce. The oven-baked preparation keeps them crispy on the outside and tender inside, making them a standout dish for anyone who appreciates the delicate flavors of quality crab.\nFRESH GULF SHRIMP\nServed in ½ lb portions, our fresh Gulf shrimp can be prepared to your liking—fried for a crispy exterior, grilled for a smoky flavor, blackened with bold spices, or steamed for a light and natural taste. Whatever preparation you choose, these shrimp highlight Gulf seafood's fresh and versatile nature.\nBAKED OYSTERS\nOne dozen oysters topped with garlic herb butter and broiled till bubbly\nFRESH GULF RAW OYSTERS (ON THE HALF SHELL)\nAvailable in ½ dozen or full dozen servings, our fresh Gulf oysters are served raw on the half shell, delivering the pure, salty taste of the sea. This is a refreshing, authentic Gulf Coast experience for oyster lovers, with a clean and simple presentation that allows the oysters’ natural flavors to shine.\nPINK PONY SEAFOOD FEAST\nA Gulf Coast celebration on one plate!\nFried oysters, Gulf shrimp, Southern-fried fish, hushpuppies, French fries, onion rings, and coleslaw, Served with tartar, remoulade, and fresh lemon wedges.\n \n \n\nNot Logged in\n\nchrome\nchrome\n\t\n  \n ←Back To All Menu Items\n \n\t\n\n\t\n \n \n \n \n the sun sets in:\n 3 hours 20 minutes\n \n \n \n \n feeling hungry?\n Menu\n \n \n \n \n We've been\n surviving hurricanes\n since 1956\n \n \n \n\t\n\n\t\n \n \n open everyday\n 11am - 10pm - children welcome until 9pm\n 137 E Gulf pl, gulf shores, al\n (251) 948-6371\n \n \n follow us!\n \n \n \n \n \n \n View the Beach Cam! \n \n \n \n \n \n\t\n\n\t\n \n \n \n home\n about\n menu\n \n photos\n contact\n \n \n \n \n \n \n \n © 2026 Pink pony pub. site by superpath | sitemap.",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BarOrPub",
+          "name": "Pink Pony Pub",
+          "image": "https://pinkponypub.net/_images/logo.png",
+          "@id": "https://pinkponypub.net/",
+          "url": "https://pinkponypub.net/",
+          "telephone": "(251) 948-6371",
+          "priceRange": "$",
+          "menu": "https://pinkponypub.net/menu/",
+          "servesCuisine": "Seafood",
+          "acceptsReservations": "false",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "137 E Gulf Shores Pl",
+            "addressLocality": "Gulf Shores",
+            "addressRegion": "AL",
+            "postalCode": "36542",
+            "addressCountry": "US"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 30.2485551,
+            "longitude": -87.6897651
+          },
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+            ],
+            "opens": "10:30",
+            "closes": "22:00"
+          },
+          "sameAs": [
+            "https://www.facebook.com/PinkPonyPub/",
+            "https://twitter.com/pinkponypub?lang=en",
+            "https://www.instagram.com/pinkponypub/"
+          ]
+        },
+        {
+          "@context": "https://schema.org/",
+          "@type": "WebSite",
+          "name": "Pink Pony Pub",
+          "url": "https://pinkponypub.net/",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "{search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Pink Pony Pub",
+          "url": "https://pinkponypub.net/",
+          "logo": "https://pinkponypub.net/_images/logo.png",
+          "sameAs": [
+            "https://www.facebook.com/PinkPonyPub/",
+            "https://twitter.com/pinkponypub?lang=en",
+            "https://www.instagram.com/pinkponypub/"
+          ]
+        }
+      ],
+      "meta": {
+        "google-site-verification": "eaqBBOIbuP-Y8n9a0Q7VPjtO23JcFoCELO_-9lKg8eI",
+        "viewport": "width=device-width, initial-scale=1",
+        "description": "Visit the Pink Pony Pub for fresh-caught Gulf Shrimp & local oysters! Enjoy fresh seafood & live music while on our beachfront patio. View our menu here!",
+        "googlebot": "index, follow",
+        "robots": "index, follow",
+        "Revisit-After": "25 days",
+        "msvalidate.01": "D4A9C61F759C3B48E0B57F1343F9A2ED",
+        "og:title": "Seafood",
+        "og:url": "http://pinkponypub.net/seafood/",
+        "og:type": "website",
+        "og:site_name": "Pink Pony Pub"
+      }
+    },
+    {
+      "url": "https://pinkponypub.net/burgers",
+      "title": "Hand-Crafted Burgers | Gulf Shores, AL | Pink Pony Pub",
+      "text": "Open from 10:30 AM to 10 PM. Accepting To-Go orders and Dine-In with limited available seating to ensure the safety of our staff and patrons.\n \n\t\n\t\n\t\n\t\n\t\n \n \n \n \n come visit!\n \n 137 E Gulf pl \n gulf shores, al\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n about\n Menu\n \n photos\n contact\n \n \n \n \n \n \n\t\n\t\n\n\tBurger Menu\n\n\t\n \n FAMOUS BURGERS\nServed with fries, coleslaw, or chips\nTHE PONY BURGER\nHalf lb. Angus patty with American cheese, lettuce, tomato, pickles, and onions. \nTHE PONY DOUBLE CHEESEBURGER\nTwo half lb. patties stacked with American cheese, lettuce, tomato, pickles, and onions.\nWORLD FAMOUS SOURDOUGH CHEESEBURGER*\nGrilled onions, 1000 island, melted swiss on toasted sourdough.\nBURGER OF THE MONTH\nA rotating specialty burger crafted each month by our kitchen team-ask your server what's sizzling now! \nADD EXTRA TOPPINGS\nAdd-ons: Cheese +1 | Mushrooms +1 | Jalapenos +1 | Bacon +1.50\nAdd Onion Rings +2\nchrome\nchrome\n\nNot Logged in\n\n \n\t\n\n\t\n \n \n \n \n the sun sets in:\n 3 hours 20 minutes\n \n \n \n \n feeling hungry?\n Menu\n \n \n \n \n We've been\n surviving hurricanes\n since 1956\n \n \n \n\t\n\n\t\n \n \n open everyday\n 11am - 10pm - children welcome until 9pm\n 137 E Gulf pl, gulf shores, al\n (251) 948-6371\n \n \n follow us!\n \n \n \n \n \n \n View the Beach Cam! \n \n \n \n \n \n\t\n\n\t\n \n \n \n home\n about\n menu\n \n photos\n contact\n \n \n \n \n \n \n \n © 2026 Pink pony pub. site by superpath | sitemap.",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BarOrPub",
+          "name": "Pink Pony Pub",
+          "image": "https://pinkponypub.net/_images/logo.png",
+          "@id": "https://pinkponypub.net/",
+          "url": "https://pinkponypub.net/",
+          "telephone": "(251) 948-6371",
+          "priceRange": "$",
+          "menu": "https://pinkponypub.net/menu/",
+          "servesCuisine": "Seafood",
+          "acceptsReservations": "false",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "137 E Gulf Shores Pl",
+            "addressLocality": "Gulf Shores",
+            "addressRegion": "AL",
+            "postalCode": "36542",
+            "addressCountry": "US"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 30.2485551,
+            "longitude": -87.6897651
+          },
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+            ],
+            "opens": "10:30",
+            "closes": "22:00"
+          },
+          "sameAs": [
+            "https://www.facebook.com/PinkPonyPub/",
+            "https://twitter.com/pinkponypub?lang=en",
+            "https://www.instagram.com/pinkponypub/"
+          ]
+        },
+        {
+          "@context": "https://schema.org/",
+          "@type": "WebSite",
+          "name": "Pink Pony Pub",
+          "url": "https://pinkponypub.net/",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "{search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Pink Pony Pub",
+          "url": "https://pinkponypub.net/",
+          "logo": "https://pinkponypub.net/_images/logo.png",
+          "sameAs": [
+            "https://www.facebook.com/PinkPonyPub/",
+            "https://twitter.com/pinkponypub?lang=en",
+            "https://www.instagram.com/pinkponypub/"
+          ]
+        }
+      ],
+      "meta": {
+        "google-site-verification": "eaqBBOIbuP-Y8n9a0Q7VPjtO23JcFoCELO_-9lKg8eI",
+        "viewport": "width=device-width, initial-scale=1",
+        "description": "What better way to enjoy an afternoon on the beach than with a juicy, handmade burger? Check out Pink Pony Pub's burger selection right here.",
+        "googlebot": "index, follow",
+        "robots": "index, follow",
+        "Revisit-After": "25 days",
+        "msvalidate.01": "D4A9C61F759C3B48E0B57F1343F9A2ED",
+        "og:title": "Burger Menu",
+        "og:url": "http://pinkponypub.net/burgers/",
+        "og:type": "website",
+        "og:site_name": "Pink Pony Pub"
+      }
+    },
+    {
+      "url": "https://pinkponypub.net/sandwiches",
+      "title": "Sandwiches & Po'Boys | Gulf Shores, AL | Pink Pony Pub",
+      "text": "Open from 10:30 AM to 10 PM. Accepting To-Go orders and Dine-In with limited available seating to ensure the safety of our staff and patrons.\n \n\t\n\t\n\t\n\t\n\t\n \n \n \n \n come visit!\n \n 137 E Gulf pl \n gulf shores, al\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n about\n Menu\n \n photos\n contact\n \n \n \n \n \n \n\t\n\t\n\n\tSandwiches & Po'Boys\n\t\n\n\t\n \n \n SANDWICHES & PO'BOYS\nServed with your choice of French fries, tater tots, coleslaw or potato chips. All Po’boys are served on traditional Louisiana French bread\nHONEY ROASTED TURKEY & BACON CLUB\nTurkey, American cheese, lettuce, tomato, mayo, bacon. \n\nPULLED PORK SHOULDER SANDWICH\nSlow-roasted pork with sweet BBQ sauce.\nGULF SHRIMP PO’BOY\nFried, grilled or blackened with lettuce, tomato, pickles and remoulade sauce. \nFRESH CATCH PO'BOY\nFried, grilled, or blackened daily catch with lettuce, tomato, pickles, and remoulade sauce.\n \n\nNot Logged in\n\nchrome\nchrome\n\t\n  \n ←Back To All Menu Items\n \n\t\n\n\t\n \n \n \n \n the sun sets in:\n 3 hours 20 minutes\n \n \n \n \n feeling hungry?\n Menu\n \n \n \n \n We've been\n surviving hurricanes\n since 1956\n \n \n \n\t\n\n\t\n \n \n open everyday\n 11am - 10pm - children welcome until 9pm\n 137 E Gulf pl, gulf shores, al\n (251) 948-6371\n \n \n follow us!\n \n \n \n \n \n \n View the Beach Cam! \n \n \n \n \n \n\t\n\n\t\n \n \n \n home\n about\n menu\n \n photos\n contact\n \n \n \n \n \n \n \n © 2026 Pink pony pub. site by superpath | sitemap.",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BarOrPub",
+          "name": "Pink Pony Pub",
+          "image": "https://pinkponypub.net/_images/logo.png",
+          "@id": "https://pinkponypub.net/",
+          "url": "https://pinkponypub.net/",
+          "telephone": "(251) 948-6371",
+          "priceRange": "$",
+          "menu": "https://pinkponypub.net/menu/",
+          "servesCuisine": "Seafood",
+          "acceptsReservations": "false",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "137 E Gulf Shores Pl",
+            "addressLocality": "Gulf Shores",
+            "addressRegion": "AL",
+            "postalCode": "36542",
+            "addressCountry": "US"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 30.2485551,
+            "longitude": -87.6897651
+          },
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+            ],
+            "opens": "10:30",
+            "closes": "22:00"
+          },
+          "sameAs": [
+            "https://www.facebook.com/PinkPonyPub/",
+            "https://twitter.com/pinkponypub?lang=en",
+            "https://www.instagram.com/pinkponypub/"
+          ]
+        },
+        {
+          "@context": "https://schema.org/",
+          "@type": "WebSite",
+          "name": "Pink Pony Pub",
+          "url": "https://pinkponypub.net/",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "{search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Pink Pony Pub",
+          "url": "https://pinkponypub.net/",
+          "logo": "https://pinkponypub.net/_images/logo.png",
+          "sameAs": [
+            "https://www.facebook.com/PinkPonyPub/",
+            "https://twitter.com/pinkponypub?lang=en",
+            "https://www.instagram.com/pinkponypub/"
+          ]
+        }
+      ],
+      "meta": {
+        "google-site-verification": "eaqBBOIbuP-Y8n9a0Q7VPjtO23JcFoCELO_-9lKg8eI",
+        "viewport": "width=device-width, initial-scale=1",
+        "description": "Who doesn't love a good sandwich or po'boy? Stop by the Pink Pony Pub for your favorite sandwiches & subs! Click here to view our menu.",
+        "googlebot": "index, follow",
+        "robots": "index, follow",
+        "Revisit-After": "25 days",
+        "msvalidate.01": "D4A9C61F759C3B48E0B57F1343F9A2ED",
+        "og:title": "Sandwiches & Po'Boys",
+        "og:url": "http://pinkponypub.net/sandwiches/",
+        "og:type": "website",
+        "og:site_name": "Pink Pony Pub"
+      }
+    },
+    {
+      "url": "https://pinkponypub.net/appetizers",
+      "title": "Appetizers Menu | Restaurant & Bar in Gulf Shores, AL",
+      "text": "Open from 10:30 AM to 10 PM. Accepting To-Go orders and Dine-In with limited available seating to ensure the safety of our staff and patrons.\n \n\t\n\t\n\t\n\t\n\t\n \n \n \n \n come visit!\n \n 137 E Gulf pl \n gulf shores, al\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n about\n Menu\n \n photos\n contact\n \n \n \n \n \n \n\t\n\t\n\n\tPink Pony Pub's Appetizers Menu\n\n\t\n \n APPETIZERS\nAt Pink Pony Pub, a lively restaurant and bar in the heart of Gulf Shores, AL, we serve a mouthwatering selection of appetizers to kick off your meal with a bang. From classic favorites like mozzarella cheese sticks and loaded potato skins to Gulf Coast specialties like smoked tuna dip and gator bites, our menu is packed with bold flavors and fresh ingredients. Whether you're craving fried pickles' crispy goodness or coconut shrimp's tropical twist, there's something for everyone to enjoy. Please stop by, grab a drink, and dig into our delicious starters!\n \nGARLIC CHEESE CURDS\nFried to golden perfection, served with marinara\nMOZZARELLA CHEESE STICKS\nEnjoy our golden, crispy mozzarella cheese sticks, perfectly fried to a golden brown filled with gooey, melted mozzarella. Paired with a tangy marinara sauce for dipping, this classic appetizer is a crowd-pleaser that’s hard to resist.\nLOADED POTATO SKINS\nOur baked potato skins are packed with flavor, stuffed to the brim with crispy smoked bacon and a blend of Monterrey jack and cheddar cheeses. These hearty bites are the ultimate comfort food, offering a rich, cheesy, and savory experience in every bite.\n\nSMOKED TUNA DIP\nSavor the rich, smoky flavors of our locally sourced Gulf tuna, expertly smoked and blended into a creamy dip. Served with a generous portion of warm tortilla chips, this appetizer brings a taste of the coast to your table.\nFRIED GREEN TOMATOES\nOur fresh green tomatoes are hand-battered and fried until crispy, delivering a delightful crunch with every bite. Served alongside our homemade remoulade sauce, this Southern classic offers a zesty and refreshing start to your meal.\nFRIED PICKLES\nCrisp and tangy, our hand-breaded pickle chips are deep-fried to perfection, offering a satisfying crunch that pairs beautifully with cool, creamy ranch dressing. This Southern staple is a must-try for pickle lovers!\nCOCONUT SHRIMP\nFresh jumbo shrimp are given a tropical twist in our homemade pineapple batter, coated in shredded coconut, and fried to a perfect golden brown. Served with sweet and tangy orange marmalade, this appetizer brings the flavors of the tropics to the Gulf Shores.\nGOLDEN FRIED CALAMARI\nOur hand-breaded calamari rings and tentacles are fried to a golden crisp and sprinkled with parmesan cheese. Served with savory marinara sauce, this dish is an irresistible combination of tender seafood and bold flavors.\nBUFFALO CHICKEN CHEESE DIP\nA zesty blend of steamed chicken, cream cheese, and Buffalo hot sauce makes our Buffalo Chicken Cheese Dip a spicy and creamy treat. Scoop it up with warm tortilla chips for a bold start to your meal, perfect for sharing—or not!\nGATOR BITES\nFor a true taste of the Gulf, try our gator bites! Half a pound of tender alligator meat, fried to a crispy golden brown or blackened to perfection, is served with our signature tiger sauce. This unique dish is a local delicacy you won’t want to miss.\n\nNot Logged in\n\nchrome\nchrome\n  \n ←Back To All Menu Items\n \n\t\n\n\t\n \n \n \n \n the sun sets in:\n 3 hours 20 minutes\n \n \n \n \n feeling hungry?\n Menu\n \n \n \n \n We've been\n surviving hurricanes\n since 1956\n \n \n \n\t\n\n\t\n \n \n open everyday\n 11am - 10pm - children welcome until 9pm\n 137 E Gulf pl, gulf shores, al\n (251) 948-6371\n \n \n follow us!\n \n \n \n \n \n \n View the Beach Cam! \n \n \n \n \n \n\t\n\n\t\n \n \n \n home\n about\n menu\n \n photos\n contact\n \n \n \n \n \n \n \n © 2026 Pink pony pub. site by superpath | sitemap.",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BarOrPub",
+          "name": "Pink Pony Pub",
+          "image": "https://pinkponypub.net/_images/logo.png",
+          "@id": "https://pinkponypub.net/",
+          "url": "https://pinkponypub.net/",
+          "telephone": "(251) 948-6371",
+          "priceRange": "$",
+          "menu": "https://pinkponypub.net/menu/",
+          "servesCuisine": "Seafood",
+          "acceptsReservations": "false",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "137 E Gulf Shores Pl",
+            "addressLocality": "Gulf Shores",
+            "addressRegion": "AL",
+            "postalCode": "36542",
+            "addressCountry": "US"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 30.2485551,
+            "longitude": -87.6897651
+          },
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+            ],
+            "opens": "10:30",
+            "closes": "22:00"
+          },
+          "sameAs": [
+            "https://www.facebook.com/PinkPonyPub/",
+            "https://twitter.com/pinkponypub?lang=en",
+            "https://www.instagram.com/pinkponypub/"
+          ]
+        },
+        {
+          "@context": "https://schema.org/",
+          "@type": "WebSite",
+          "name": "Pink Pony Pub",
+          "url": "https://pinkponypub.net/",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "{search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Pink Pony Pub",
+          "url": "https://pinkponypub.net/",
+          "logo": "https://pinkponypub.net/_images/logo.png",
+          "sameAs": [
+            "https://www.facebook.com/PinkPonyPub/",
+            "https://twitter.com/pinkponypub?lang=en",
+            "https://www.instagram.com/pinkponypub/"
+          ]
+        }
+      ],
+      "meta": {
+        "google-site-verification": "eaqBBOIbuP-Y8n9a0Q7VPjtO23JcFoCELO_-9lKg8eI",
+        "viewport": "width=device-width, initial-scale=1",
+        "description": "Stop by Gulf Shores's best beachfront restaurant & bar to enjoy our delicious appetizers. Maybe even stay for the ocean view! Click here to see our menu.",
+        "googlebot": "index, follow",
+        "robots": "index, follow",
+        "Revisit-After": "25 days",
+        "msvalidate.01": "D4A9C61F759C3B48E0B57F1343F9A2ED",
+        "og:title": "Pink Pony Pub's Appetizers Menu",
+        "og:url": "http://pinkponypub.net/appetizers/",
+        "og:type": "website",
+        "og:site_name": "Pink Pony Pub"
+      }
+    },
+    {
+      "url": "https://pinkponypub.net/menu.php",
+      "title": "Menu | Pink Pony Pub | Gulf Shores, AL",
+      "text": "Open from 10:30 AM to 10 PM. Accepting To-Go orders and Dine-In with limited available seating to ensure the safety of our staff and patrons.\n \n\t\n\t\n\t\n\t\n\t\n \n \n \n \n come visit!\n \n 137 E Gulf pl \n gulf shores, al\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n about\n Menu\n \n photos\n contact\n \n \n \n \n \n \n\t\n\t\n\n\tMenu\n\n\t\n \n \n \n \n \n\n \n \n Appetizers\n Salads\n Nachos\n \n\n \n Sandwiches\n Soups\n Burgers\n \n\n \n Seafood\n Pub Favorites\n \n Kids Menu\n \n \n \n \n Sides\n Desserts\n \n \n  \n \n \n \n \n \n \n \n  \n \n From the Bar\n \n \n Beer\n Frozen Drinks & Daquiris\n Cocktails\n \n \n  \n \n \n \n \n \n \n \n \n\t\n\t\n\n\t\n\n\t\n \n\n \n \n \n \n \n\t\n\n\t\n \n \n \n \n the sun sets in:\n 3 hours 20 minutes\n \n \n \n \n feeling hungry?\n Menu\n \n \n \n \n We've been\n surviving hurricanes\n since 1956\n \n \n \n\t\n\n\t\n \n \n open everyday\n 11am - 10pm - children welcome until 9pm\n 137 E Gulf pl, gulf shores, al\n (251) 948-6371\n \n \n follow us!\n \n \n \n \n \n \n View the Beach Cam! \n \n \n \n \n \n\t\n\n\t\n \n \n \n home\n about\n menu\n \n photos\n contact\n \n \n \n \n \n \n \n © 2026 Pink pony pub. site by superpath | sitemap.",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BarOrPub",
+          "name": "Pink Pony Pub",
+          "image": "https://pinkponypub.net/_images/logo.png",
+          "@id": "https://pinkponypub.net/",
+          "url": "https://pinkponypub.net/",
+          "telephone": "(251) 948-6371",
+          "priceRange": "$",
+          "menu": "https://pinkponypub.net/menu/",
+          "servesCuisine": "Seafood",
+          "acceptsReservations": "false",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "137 E Gulf Shores Pl",
+            "addressLocality": "Gulf Shores",
+            "addressRegion": "AL",
+            "postalCode": "36542",
+            "addressCountry": "US"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 30.2485551,
+            "longitude": -87.6897651
+          },
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+            ],
+            "opens": "10:30",
+            "closes": "22:00"
+          },
+          "sameAs": [
+            "https://www.facebook.com/PinkPonyPub/",
+            "https://twitter.com/pinkponypub?lang=en",
+            "https://www.instagram.com/pinkponypub/"
+          ]
+        },
+        {
+          "@context": "https://schema.org/",
+          "@type": "WebSite",
+          "name": "Pink Pony Pub",
+          "url": "https://pinkponypub.net/",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "{search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Pink Pony Pub",
+          "url": "https://pinkponypub.net/",
+          "logo": "https://pinkponypub.net/_images/logo.png",
+          "sameAs": [
+            "https://www.facebook.com/PinkPonyPub/",
+            "https://twitter.com/pinkponypub?lang=en",
+            "https://www.instagram.com/pinkponypub/"
+          ]
+        }
+      ],
+      "meta": {
+        "google-site-verification": "eaqBBOIbuP-Y8n9a0Q7VPjtO23JcFoCELO_-9lKg8eI",
+        "viewport": "width=device-width, initial-scale=1",
+        "description": "Pink Pony Pub's beachfront grill & bar offers cocktails, beer, seafood, burgers, & more. Check out our menu & find us right on Gulf Shores Public Beach!",
+        "googlebot": "index, follow",
+        "robots": "index, follow",
+        "Revisit-After": "25 days",
+        "msvalidate.01": "D4A9C61F759C3B48E0B57F1343F9A2ED",
+        "og:title": "Menu",
+        "og:url": "http://pinkponypub.net/menu.php",
+        "og:type": "website",
+        "og:site_name": "Pink Pony Pub"
+      }
+    },
+    {
+      "url": "https://pinkponypub.net/about",
+      "title": "About Us | The Pink Pony Pub| Gulf Shores, AL",
+      "text": "Open from 10:30 AM to 10 PM. Accepting To-Go orders and Dine-In with limited available seating to ensure the safety of our staff and patrons.\n \n\t\n\t\n\t\n\t\n\t\n \n \n \n \n come visit!\n \n 137 E Gulf pl \n gulf shores, al\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n about\n Menu\n \n photos\n contact\n \n \n \n \n \n \n\t\n\t\n\n\tAbout The Pink Pony Pub\n\n \n\t\n\n\t\n \n \n \n About The Legendary Gulf Shores Beachfront Restaurant & Bar\nIf you can’t spot the Pink Pony Pub when you hit the main drag in Gulf Shores, you’re likely not legal to drive! Our not-so-large beachfront restaurant and bar boast an oh-so-defiantly pink exterior with a belly-up-to-the-bar pony painted outside. Think pink of fresh bubble gum or 90 percent of Barbie’s wardrobe. We’re hard to miss!\nWe think of pink as a declaration that’s more than just our name. When you walk through our doors, you’re in the pink pulsing heart – the old school area – of Gulf Shores. Our legendary restaurant and bar just off the main drag has survived many changes and disasters over the years:\n\nHurricanes Frederic and Ivan\nThe rise of condo mania\nShifting sands w/ vacationers\nSpring breakers hitting the beach\n\nOur historic pink building isn’t likely to wash or fade away soon. It's not a big place, and it's not what you call fancy, but it serves the kind of seafood and burgers you wouldn’t expect at a beach bar. Then you can wash it down with a tasty, frosty beverage.\nHistory of Gulf Shores’ Pink Pony Pub\nOur unique restaurant and bar were originally part of the Calloway family’s Seahorse Cottages in the 1950s. Bruce Mernik's parents, a carpenter by trade, purchased the Seahorse Cottages. When Bruce set to remodel this distinct building into the Pink Pony Pub, we welcomed the change and opened our doors in 1956. Marybelle Mernik, Bruce’s mother, gave us our name in keeping with the Seahorse brand.\nAt that time, Gulf Shores was still a small city with few modest homes and fish shacks. We stayed at a neighborhood bar for over a decade, inviting locals and visitors to enjoy our fresh-from-the-ocean menu and drinks. Despite an ordinance by Gulf Shores making it illegal “for any hurricane to enter in the corporate limits of the Town of Gulf Shores, its police jurisdiction, or the air/space above it,” 1957’s Hurricane Frederic slammed the Gulf Coast, washing away the original Pink Pony and the old wooden pier. Spokespersons for Hurricanes Frederic, Ivan, Dennis, and others have offered simple responses to the hurricanes' ordinance violation: “No comment.” The $1 to $100 or six months hard labor penalties have yet to be paid.\nVisit Gulf Shores Best Seafood Restaurant & Bar today. \nWhile the Pink Pony Pub isn’t much more extensive than when it began, we still serve Gulf Shores’ best food and nightlife. Enjoy soaking up the A/C on a sun break or bask in the sun on the weathered wooden deck that looks out over the surf, and let us serve up some of our favorites at our picnic-style tables under the large beach umbrellas. If you're a sucker for a good sunset, stay out on our patio all night long. Just look at the views you'll see!\nChildren are always welcome, too – at least until 9:00 pm! Our full menu is served up daily, featuring: \n\nBurgers\nFresh-caught Gulf shrimp and oysters\nGumbos\nBuffalo wings\nChicken Fingers\nSandwiches\nAnd more!\n\nCouple these favorites with a drink from our full bar for the perfect meal and experience at the Pink Pony Pub. Whether you're looking for a Fresh Gulf shrimp basket that's fried, grilled, blackened, or steamed, the freshest crab cakes on Gulf Shores, or the best Po'Boys east of New Orleans, we've got what you need! Sit by the beach and enjoy shrimp deals and a happy hour menu that starts the party early. Our beachfront restaurant and bar is ready to give you and your family the beachside experience you've been waiting for, just like we've been doing for decades!\nWe continue to withstand the hard winds of illegally encroaching hurricanes and look forward to many more years of serving up Gulf Shores’ best times! \n \n \n \n \n\t\n\n\t\n\n\t\n \n \n \n \n the sun sets in:\n 3 hours 20 minutes\n \n \n \n \n feeling hungry?\n Menu\n \n \n \n \n We've been\n surviving hurricanes\n since 1956\n \n \n \n\t\n\n\t\n \n \n open everyday\n 11am - 10pm - children welcome until 9pm\n 137 E Gulf pl, gulf shores, al\n (251) 948-6371\n \n \n follow us!\n \n \n \n \n \n \n View the Beach Cam! \n \n \n \n \n \n\t\n\n\t\n \n \n \n home\n about\n menu\n \n photos\n contact\n \n \n \n \n \n \n \n © 2026 Pink pony pub. site by superpath | sitemap.",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BarOrPub",
+          "name": "Pink Pony Pub",
+          "image": "https://pinkponypub.net/_images/logo.png",
+          "@id": "https://pinkponypub.net/",
+          "url": "https://pinkponypub.net/",
+          "telephone": "(251) 948-6371",
+          "priceRange": "$",
+          "menu": "https://pinkponypub.net/menu/",
+          "servesCuisine": "Seafood",
+          "acceptsReservations": "false",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "137 E Gulf Shores Pl",
+            "addressLocality": "Gulf Shores",
+            "addressRegion": "AL",
+            "postalCode": "36542",
+            "addressCountry": "US"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 30.2485551,
+            "longitude": -87.6897651
+          },
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+            ],
+            "opens": "10:30",
+            "closes": "22:00"
+          },
+          "sameAs": [
+            "https://www.facebook.com/PinkPonyPub/",
+            "https://twitter.com/pinkponypub?lang=en",
+            "https://www.instagram.com/pinkponypub/"
+          ]
+        },
+        {
+          "@context": "https://schema.org/",
+          "@type": "WebSite",
+          "name": "Pink Pony Pub",
+          "url": "https://pinkponypub.net/",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "{search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Pink Pony Pub",
+          "url": "https://pinkponypub.net/",
+          "logo": "https://pinkponypub.net/_images/logo.png",
+          "sameAs": [
+            "https://www.facebook.com/PinkPonyPub/",
+            "https://twitter.com/pinkponypub?lang=en",
+            "https://www.instagram.com/pinkponypub/"
+          ]
+        }
+      ],
+      "meta": {
+        "google-site-verification": "eaqBBOIbuP-Y8n9a0Q7VPjtO23JcFoCELO_-9lKg8eI",
+        "viewport": "width=device-width, initial-scale=1",
+        "description": "Enjoy delicious food & live music right on the beach! Our beachfront restaurant & bar is open late & is located right off the main drag in Gulf Shores.",
+        "googlebot": "index, follow",
+        "robots": "index, follow",
+        "Revisit-After": "25 days",
+        "msvalidate.01": "D4A9C61F759C3B48E0B57F1343F9A2ED",
+        "og:title": "About The Pink Pony Pub",
+        "og:url": "http://pinkponypub.net/about/",
+        "og:type": "website",
+        "og:site_name": "Pink Pony Pub"
+      }
+    },
+    {
+      "url": "https://pinkponypub.net/contact",
+      "title": "Contact Us | Pink Pony Pub | Gulf Shores, Alabama",
+      "text": "Open from 10:30 AM to 10 PM. Accepting To-Go orders and Dine-In with limited available seating to ensure the safety of our staff and patrons.\n \n\t\n\t\n\t\n\t\n\t\n \n \n \n \n come visit!\n \n 137 E Gulf pl \n gulf shores, al\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n about\n Menu\n \n photos\n contact\n \n \n \n \n \n \n\t\n\t\n\n\t\n Contact\n\t\n\n\t\n\n \n\t\n \n \n \n \n \n Visit Gulf Shores’ Top Beachfront Restaurant & Bar\n The Pink Pony Pub is a Gulf Shores staple! What started as part of the Calloway family’s Seahorse Cottages has become one of Gulf Shores best restaurants and bars to find great food, great drinks, and great fun at any time of day. \n Our beachfront restaurant has the perfect mixture of sun, sand, and ocean, making it a great spot to enjoy an afternoon during your vacation to the Gulf Coast. If you need a sun break, enjoy our indoor seating, where the air conditioning is always pumping. Choose your seafood favorites from our vast menu while you relax at one of Gulf Shores best beachfront restaurants! \n If you have any questions about The Pink Pony Pub, please use the form below and a member of our team will reach out to you shortly. \n \n \n Pink Pony Pub\n 137 E GULF PL GULF SHORES, AL\n Phone: (251) 948-6371\n \n\n \n \n \n \n \n Name \n \n Email \n \n Phone \n \n \n Message:\n \n \n \n \n \n \n \n \n \n\n \n \n\t\n\n\t\n\n\t\n \n\t\n\t\n\t\n\n\t\n\t\n \n \n \n \n the sun sets in:\n 3 hours 20 minutes\n \n \n \n \n feeling hungry?\n Menu\n \n \n \n \n We've been\n surviving hurricanes\n since 1956\n \n \n \n\t\n\t\n\n\t\n \n \n open everyday\n 11am - 10pm - children welcome until 9pm\n 137 E Gulf pl, gulf shores, al\n (251) 948-6371\n \n \n follow us!\n \n \n \n \n \n \n View the Beach Cam! \n \n \n \n \n \n\t\n\n\t\n \n \n \n home\n about\n menu\n \n photos\n contact\n \n \n \n \n \n \n \n © 2026 Pink pony pub. site by superpath | sitemap.",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BarOrPub",
+          "name": "Pink Pony Pub",
+          "image": "https://pinkponypub.net/_images/logo.png",
+          "@id": "https://pinkponypub.net/",
+          "url": "https://pinkponypub.net/",
+          "telephone": "(251) 948-6371",
+          "priceRange": "$",
+          "menu": "https://pinkponypub.net/menu/",
+          "servesCuisine": "Seafood",
+          "acceptsReservations": "false",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "137 E Gulf Shores Pl",
+            "addressLocality": "Gulf Shores",
+            "addressRegion": "AL",
+            "postalCode": "36542",
+            "addressCountry": "US"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 30.2485551,
+            "longitude": -87.6897651
+          },
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+            ],
+            "opens": "10:30",
+            "closes": "22:00"
+          },
+          "sameAs": [
+            "https://www.facebook.com/PinkPonyPub/",
+            "https://twitter.com/pinkponypub?lang=en",
+            "https://www.instagram.com/pinkponypub/"
+          ]
+        },
+        {
+          "@context": "https://schema.org/",
+          "@type": "WebSite",
+          "name": "Pink Pony Pub",
+          "url": "https://pinkponypub.net/",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "{search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Pink Pony Pub",
+          "url": "https://pinkponypub.net/",
+          "logo": "https://pinkponypub.net/_images/logo.png",
+          "sameAs": [
+            "https://www.facebook.com/PinkPonyPub/",
+            "https://twitter.com/pinkponypub?lang=en",
+            "https://www.instagram.com/pinkponypub/"
+          ]
+        }
+      ],
+      "meta": {
+        "google-site-verification": "eaqBBOIbuP-Y8n9a0Q7VPjtO23JcFoCELO_-9lKg8eI",
+        "viewport": "width=device-width, initial-scale=1",
+        "description": "Stop by for food, fun, & family time at our beachfront restaurant & bar in Gulf Shores, AL! Just look for the hot pink building on Gulf Shores Public Beach.",
+        "googlebot": "index, follow",
+        "robots": "index, follow",
+        "Revisit-After": "25 days",
+        "msvalidate.01": "D4A9C61F759C3B48E0B57F1343F9A2ED",
+        "og:title": "Contact",
+        "og:url": "http://pinkponypub.net/contact/",
+        "og:type": "website",
+        "og:site_name": "Pink Pony Pub"
+      }
+    }
+  ],
+  "pdfUrls": [
+    "https://pinkponypub.net/_pdfs/PinkPonyPubMain_11442c16228%20LROPT.pdf"
+  ],
+  "pdfTexts": [
+    "[PDF: https://pinkponypub.net/_pdfs/PinkPonyPubMain_11442c16228%20LROPT.pdf]\nHONEY ROASTED TURKEY\n& BACON CLUB\nSmoked turkey, cheese, lettuce, tomato,\nmayo and Applewood smoked bacon. 12\nROAST BEEF PO’BOY\nUsda beef chuck slow roasted in rich\ngravy served with lettuce, tomato,\npickles, cheese and mayo. 16\nCHARGRILLED RIBEYE\nSTEAK SANDWICH\nWith Texas campfire dry rub served\nwith lettuce, tomato, sautéed onions,\nSwiss cheese and mayo. 16\nIN-HOUSE SLOW-ROASTED\nPULLED PORK SHOULDER\nServed with sweet BBQ sauce. 10\nGULF SHRIMP PO’BOY\nFried, grilled or blackened with lettuce,\ntomato, pickles and remoulade sauce. 15\nFRESH GULF FISH PO’BOY\nBlackened, grilled or fried with lettuce,\ntomato, pickles and remoulade sauce.\nMarket\nFRIED SOFT SHELL CRAB PO’BOY\nServed with lettuce, tomato, pickles and\nremoulade sauce. 15\nMOZZARELLA CHEESE STICKS\nMozzarella sticks served with\nmarinara. 8\nLOADED POTATO SKINS\nBaked potato skins loaded with\nsmoked bacon and Monterrey jack\nand cheddar cheese. 9\nCHICKEN TENDERS\nFresh chicken cut into tenders\ngrilled or fried. 10\nSMOKED TUNA DIP\nFresh Gulf tuna locally smoked and\nserved with hot tortilla chips. 10\nFRIED GREEN TOMATOES\nFresh green tomatoes battered\nand served with our homemade\nremoulade sauce. 7\nFRIED PICKLES\nHand breaded pickle chips\nserved with ranch dressing. 8\nCOCONUT SHRIMP\nFresh jumbo shrimp tossed in our\nhomemade pineapple batter and\nshredded coconut. Served with\norange marmalade. 12\nGOLDEN FRIED CALAMARI\nHand breaded rings and tentacles\ntopped with parmesan cheese\nand served with marinara. 10\nBUFFALO CHICKEN\nCHEESE DIP\nSteamed chicken blended with\ncream cheese and Buffalo hot sauce\nserved with tortillas. 12\nGATOR BITES\nHalf a pound of alligator meat served\nwith tiger sauce fried or blackened. 15\nServed with sour cream and salsa\nMUCHO NACHO\nTopped with onions, tomatoes, jalapeños,\nand Monterrey jack with ½lb of seasoned\nAngus beef. 19\nCHICKEN NACHO\nSeasoned grilled white chicken, onions,\ntomatoes, jalapeños and Monterrey jack. 19\nCAJUN NACHOS\nTopped with spicy crawfish tails, shrimp,\nmushrooms and peppers. 19\nAPPETIZERS world famous\npink pony\npub nachos Sandwiches\n& Po’boys\nPINK PONY PUB137 East Gulf Place • Gulf Shores, Alabama • 251 948 6371\nServed with your choice of French fries,\ntater tots, coleslaw or potato chips.\nAll Po’boys are served on traditional\nLouisiana French bread\nSOUP of the DAYChefs special of the day. 6\nOn The Beach\nEst 1956\nCLASSIC COBB\nFresh romaine, grilled chicken, crispy\nbacon, avocado, tomatoes, egg, chives\nand blue cheese crumbles served with\nranch. 15\nKALE CAESAR\nParmesan and crispy croutons with kale,\nromaine and cherry tomatoes, served\nwith light lime Caesar dressing. 8\nBUFFALO CHICKEN\nFried or grilled chicken, tossed in our\nhomemade Buffalo sauce with chopped\nromaine, tomatoes, bleu cheese crumbles\nserved with homestyle ranch dressing. 10\nGREEK\nChopped romaine hearts, cherry\ntomatoes, red onions, Kalamata olives,\npepperoncini and feta cheese. 8\nCAESAR\nParmesan, crispy croutons and\nromaine hearts with creamy\nCaesar. 6\nFresh \tSalads\n\n-- 1 of 2 --\n\nConsuming raw or undercooked meat, poultry, seafood, shellfish or eggs may increase risk of foodborne illness, especially if you have certain medical conditions.\n18% Gratuity will be added to parties six (6) or more. Checks not accepted. Menu items and prices subject to change.\nkid’s\nHOMEMADE KEY LIME PIE 7\nFRENCH VANILLA ICE CREAM 4\nServed with a hushpuppy and your\nchoice of French fries, tater tots,\ncoleslaw or steamed broccoli\nCHEESEBURGER 7\nGRILLED CHEESE SANDWICH 5\nFRIED CHICKEN TENDERS 7\ndessert\nSurvived every hurricane\nsince 1956 steps from\nthe Gulf of Mexico\nWWW.PINKPONYPUB.NET\nOpen every day 11am - 2am\nChildren welcome until 9pm\n© US Foods Menu 2018 (16228)\nPink Pony Pub serves only USDA Choice\nribeye beef steaks. Our steaks are never\nfrozen, hand cut to order, seasoned and\ngrilled perfectly over our in-house chargrill\nRIBEYE STEAK\nThis 6oz USDA Choice ribeye is rich,\ntender, juicy and full flavored, with\ngenerous marbling throughout. Served\nwith your choice of salad, French fries,\nhomemade slaw or steamed broccoli. 25\nFIRE-GRILLED SURF AND TURF\n6oz USDA Choice ribeye with jumbo Gulf\nshrimp served with your choice of salad,\nFrench fries, homemade slaw or steamed\nbroccoli. 20\nFRENCH FRIES 3\nSIDE SALAD 5\nSTEAMED\nBROCCOLI 4\nWHITE RICE 4\nHUSHPUPPIES 4\nHOMEMADE\nSLAW 3\nTATER TOTS 4\nAll beef burgers are handmade to\norder, never frozen and served with\nFrench fries, tater tots, coleslaw or\npotato chips.\nTHE PONY BURGER\nA favorite since 1956 with half a\npound certified USDA Angus beef,\nlettuce, tomato, pickles, onions and\nour blend of seasonings rubbed in. 11\nWORLD FAMOUS SOURDOUGH\nCHEESEBURGER\nWith half a pound of certified USDA\nAngus beef, caramelized onions,\nroasted garlic sauce and melted\nSwiss cheese. 11\nExtra Toppings: Applewood Smoked\nBacon, American/Cheddar/Swiss\nCheese, Mushrooms, Fresh Jalapeños,\nCaramelized Onions $1 each\nFRIED BLUE CRAB CLAWS\n½ lb & 1 lb available. Market\nPEEL N EAT FRESH\nGULF SHRIMP\nSeasoned with Old Bay and served\nwith our homemade cocktail sauce. 14\nHOMEMADE OVEN BAKED\nLUMP CRAB CAKES\nServed with house remoulade\nsauce. Market\nFRESH GULF SHRIMP\n½ lb fried, grilled, blackened\nor steamed. \t15\nFRESH HAND-SHUCKED\nLOCAL OYSTERS\n½ Dzn. 13 • 1 Dzn. 22\nGARLIC HERB & CHIVE\nCHARGRILLED OYSTERS\n½ Dzn. 15 • 1 Dzn. 25\nNEW ORLEANS BARBECUE SHRIMP\nA classic! Fresh shrimp cooked in a\nlemony garlic butter sauce served with\nLouisiana French bread. 16\nFRESH CRAB CLAW BASKET\nFried and served with French fries,\nhushpuppies and coleslaw. Market\nFRESH GULF FISH BASKET\nLocal Gulf grouper fried grilled or\nblackened served with French fries,\nhushpuppies and coleslaw. Market\nSHRIMP BASKET\nHalf pound fried blackened or grilled\nserved with French fries, hushpuppies\nand coleslaw. 17\nSHRIMP & CRAB SPAGHETTI\nFresh shrimp, jumbo lump crabmeat and\njalapeños tossed in a garlic parmesan\ncream sauce served with Louisiana\nFrench bread. 17\nGOLDEN FRIED CHICKEN BASKET\nServed with French fries, hushpuppies\nand coleslaw. 15\n100 0\n/0 \tangus beef\nburgers\nseafood\nspecials\npub favorites angus steaks\nsides\n\n-- 2 of 2 --"
+  ],
+  "imageUrls": [
+    "https://pinkponypub.net/_images/logo.png",
+    "https://pinkponypub.net/tyfoon/site/photos/34C8AAFE28/images/3dd6f5ec30794ac.jpg",
+    "https://pinkponypub.net/tyfoon/site/photos/34C8AAFE28/images/7cae530ddfe302f.jpg",
+    "https://pinkponypub.net/tyfoon/site/photos/34C8AAFE28/images/f8410b719f29c4d.jpg",
+    "https://pinkponypub.net/tyfoon/site/photos/34C8AAFE28/images/546e677b203c217.jpg",
+    "https://pinkponypub.net/tyfoon/site/photos/34C8AAFE28/images/3f66d657f01b5ae.jpg",
+    "https://pinkponypub.net/tyfoon/site/photos/34C8AAFE28/images/a43f900546f588e.jpg",
+    "https://pinkponypub.net/_images/footer-banner-1.png",
+    "https://pinkponypub.net/_images/footer-banner-2.png",
+    "https://pinkponypub.net/www/pages/9/1/8/9/6/7/2/7/5/4/images/be8f5d0ceecd75d.jpg",
+    "https://pinkponypub.net/www/pages/9/1/8/9/6/7/2/7/5/4/images/658f25ef83d2920.jpg",
+    "https://pinkponypub.net/www/pages/9/1/8/9/6/7/2/7/5/4/images/156bfcbd9f0ea23.jpg",
+    "https://pinkponypub.net/www/pages/9/1/8/9/6/7/2/7/5/4/images/792ec7ce43ff41f.jpg"
+  ]
+}

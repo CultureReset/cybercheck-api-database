@@ -1,0 +1,19 @@
+{
+  "business_name": "Cowbell Rolled Ice Cream",
+  "url": "http://cowbellrolledicecream.com/",
+  "scraped_at": "2026-03-21T15:06:23.337Z",
+  "pages": [
+    {
+      "url": "http://cowbellrolledicecream.com",
+      "title": "Error 404 (Not Found)!!1",
+      "text": "404. That’s an error.The requested URL was not found on this server. That’s all we know.",
+      "structuredData": [],
+      "meta": {
+        "viewport": "initial-scale=1, minimum-scale=1, width=device-width"
+      }
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": []
+}

@@ -1,0 +1,239 @@
+{
+  "business_name": "mikatojapanese.com",
+  "url": "http://mikatojapanese.com",
+  "scraped_at": "2026-03-21T20:22:41.473Z",
+  "pages": [
+    {
+      "url": "http://mikatojapanese.com",
+      "title": "Mikato Japanese Steakhouse",
+      "text": "Online Ordering Coming SoonHomeContact UsMenuMoreHomeContact UsMenuHomeContact UsMenuHibachi entertainmentHibachi entertainmentHibachi entertainmentHibachi entertainmentAlways interactive and fun for the family!View MenuA TRUE HIBACHI EXPERIENCEA TRUE HIBACHI EXPERIENCEA TRUE HIBACHI EXPERIENCEA TRUE HIBACHI EXPERIENCEBring the kids and they'll remember our charismatic chefs first hand.View MenuHibachi GrillHibachi GrillHibachi GrillHibachi GrillOur chefs want to impress you! Want it a certain way, we can do that!Call now to place your orderSushi At It's FINESTSushi At It's FINESTSushi At It's FINESTSushi At It's FINESTOur Sushi is not only a delicacy, it's an experience at our Sushi Bar!visit the bar and watch our mixologist go above and beyond.visit the bar and watch our mixologist go above and beyond.visit the bar and watch our mixologist go above and beyond.visit the bar and watch our mixologist go above and beyond.Alcoholic beverages are for dine in customers. Not available for online ordering. About Our Fine Dining & Us Lively music, a vibrant crowd, inventive cocktails and the best sushi in  Gulf Shores. You know when you’re in Mikato Japanese Steakhouse because  there’s no other place like it. Order up the freshest sushi caught  daily from the Gulf. Delight in our signature rolls or amazing Japanese  fusion cuisine. Whatever you choose, it’s all served with a big side of  Anything Can Happen. So bring your friends or make new ones. Either way,  you’re in for a great time.  Cocktail BarCocktail BarCocktail Bar Experience rare spirits and handcrafted cocktails curated uniquely for your taste.HibachiCocktail BarCocktail Bar Hibachi-style has come to signify grilled Japanese-style cuisine, the  grills they’re cooked on, and even the restaurants themselves. SushiCocktail BarSushi Sushi, the artful dining experience once uniquely Japanese, has now  evolved to another level beyond the traditional Japanese methods.   View our full dinner menu and call 251.968.2525 to orderReady to order. tap to call or call 251.968.2525 Photo Gallery ReviewsReviews coming soon! Mikato Japanese Steakhouse3800 Gulf Shores Pkwy, Ste 200 Gulf Shores, AL 36542(251) 968-2525Copyright © 2023 Mikato Japanese Steakhouse - All Rights Reserved.Site Designed by: PTC TECHS This website uses cookies.We use cookies to analyze website traffic and optimize your website experience. By accepting our use of cookies, your data will be aggregated with all other user data.Accept",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "image": [
+            "http://img1.wsimg.com/isteam/ip/8e5b8880-3143-4f34-be37-45ab32d0685d/hibachi_mikato_japanese_steakhouse_cook_entert.png"
+          ],
+          "@id": "http://8e5b8880.3143.4f34.be37.45ab32d0685d.com",
+          "url": "mikatojapanese.com",
+          "name": "Mikato Japanese Steakhouse",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "3800 Gulf Shores Pkwy",
+            "addressLocality": "Gulf Shores",
+            "addressRegion": "AL",
+            "postalCode": "36542",
+            "addressCountry": "United States"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "30.300315",
+            "longitude": "-87.681085"
+          },
+          "telephone": "+1 251 968 2525",
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday"
+              ],
+              "opens": "00:00",
+              "closes": "00:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Sunday"
+              ],
+              "opens": "16:00",
+              "closes": "22:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Friday",
+                "Saturday"
+              ],
+              "opens": "16:00",
+              "closes": "23:00"
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "author": "Mikato Japanese Steakhouse",
+        "generator": "Starfield Technologies; Go Daddy Website Builder 8.0.0000",
+        "og:url": "https://mikatojapanese.com/",
+        "og:site_name": "Mikato Japanese Steakhouse",
+        "og:title": "Mikato Japanese Steakhouse",
+        "og:description": "Join us for a meal to remember!",
+        "og:type": "website",
+        "og:image": "https://img1.wsimg.com/isteam/ip/8e5b8880-3143-4f34-be37-45ab32d0685d/hibachi_mikato_japanese_steakhouse_cook_entert.png",
+        "og:locale": "en_US",
+        "twitter:card": "summary",
+        "twitter:title": "Mikato Japanese Steakhouse",
+        "twitter:description": "Join us for a meal to remember!",
+        "twitter:image": "https://img1.wsimg.com/isteam/ip/8e5b8880-3143-4f34-be37-45ab32d0685d/hibachi_mikato_japanese_steakhouse_cook_entert.png",
+        "twitter:image:alt": "Mikato Japanese Steakhouse",
+        "theme-color": "#e82902"
+      }
+    },
+    {
+      "url": "https://mikatojapanese.com",
+      "title": "Mikato Japanese Steakhouse",
+      "text": "Online Ordering Coming SoonHomeContact UsMenuMoreHomeContact UsMenuHomeContact UsMenuHibachi entertainmentHibachi entertainmentHibachi entertainmentHibachi entertainmentAlways interactive and fun for the family!View MenuA TRUE HIBACHI EXPERIENCEA TRUE HIBACHI EXPERIENCEA TRUE HIBACHI EXPERIENCEA TRUE HIBACHI EXPERIENCEBring the kids and they'll remember our charismatic chefs first hand.View MenuHibachi GrillHibachi GrillHibachi GrillHibachi GrillOur chefs want to impress you! Want it a certain way, we can do that!Call now to place your orderSushi At It's FINESTSushi At It's FINESTSushi At It's FINESTSushi At It's FINESTOur Sushi is not only a delicacy, it's an experience at our Sushi Bar!visit the bar and watch our mixologist go above and beyond.visit the bar and watch our mixologist go above and beyond.visit the bar and watch our mixologist go above and beyond.visit the bar and watch our mixologist go above and beyond.Alcoholic beverages are for dine in customers. Not available for online ordering. About Our Fine Dining & Us Lively music, a vibrant crowd, inventive cocktails and the best sushi in  Gulf Shores. You know when you’re in Mikato Japanese Steakhouse because  there’s no other place like it. Order up the freshest sushi caught  daily from the Gulf. Delight in our signature rolls or amazing Japanese  fusion cuisine. Whatever you choose, it’s all served with a big side of  Anything Can Happen. So bring your friends or make new ones. Either way,  you’re in for a great time.  Cocktail BarCocktail BarCocktail Bar Experience rare spirits and handcrafted cocktails curated uniquely for your taste.HibachiCocktail BarCocktail Bar Hibachi-style has come to signify grilled Japanese-style cuisine, the  grills they’re cooked on, and even the restaurants themselves. SushiCocktail BarSushi Sushi, the artful dining experience once uniquely Japanese, has now  evolved to another level beyond the traditional Japanese methods.   View our full dinner menu and call 251.968.2525 to orderReady to order. tap to call or call 251.968.2525 Photo Gallery ReviewsReviews coming soon! Mikato Japanese Steakhouse3800 Gulf Shores Pkwy, Ste 200 Gulf Shores, AL 36542(251) 968-2525Copyright © 2023 Mikato Japanese Steakhouse - All Rights Reserved.Site Designed by: PTC TECHS This website uses cookies.We use cookies to analyze website traffic and optimize your website experience. By accepting our use of cookies, your data will be aggregated with all other user data.Accept",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "image": [
+            "http://img1.wsimg.com/isteam/ip/8e5b8880-3143-4f34-be37-45ab32d0685d/hibachi_mikato_japanese_steakhouse_cook_entert.png"
+          ],
+          "@id": "http://8e5b8880.3143.4f34.be37.45ab32d0685d.com",
+          "url": "mikatojapanese.com",
+          "name": "Mikato Japanese Steakhouse",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "3800 Gulf Shores Pkwy",
+            "addressLocality": "Gulf Shores",
+            "addressRegion": "AL",
+            "postalCode": "36542",
+            "addressCountry": "United States"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "30.300315",
+            "longitude": "-87.681085"
+          },
+          "telephone": "+1 251 968 2525",
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday"
+              ],
+              "opens": "00:00",
+              "closes": "00:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Sunday"
+              ],
+              "opens": "16:00",
+              "closes": "22:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Friday",
+                "Saturday"
+              ],
+              "opens": "16:00",
+              "closes": "23:00"
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "author": "Mikato Japanese Steakhouse",
+        "generator": "Starfield Technologies; Go Daddy Website Builder 8.0.0000",
+        "og:url": "https://mikatojapanese.com/",
+        "og:site_name": "Mikato Japanese Steakhouse",
+        "og:title": "Mikato Japanese Steakhouse",
+        "og:description": "Join us for a meal to remember!",
+        "og:type": "website",
+        "og:image": "https://img1.wsimg.com/isteam/ip/8e5b8880-3143-4f34-be37-45ab32d0685d/hibachi_mikato_japanese_steakhouse_cook_entert.png",
+        "og:locale": "en_US",
+        "twitter:card": "summary",
+        "twitter:title": "Mikato Japanese Steakhouse",
+        "twitter:description": "Join us for a meal to remember!",
+        "twitter:image": "https://img1.wsimg.com/isteam/ip/8e5b8880-3143-4f34-be37-45ab32d0685d/hibachi_mikato_japanese_steakhouse_cook_entert.png",
+        "twitter:image:alt": "Mikato Japanese Steakhouse",
+        "theme-color": "#e82902"
+      }
+    },
+    {
+      "url": "https://mikatojapanese.com/menu",
+      "title": "Menu",
+      "text": "Online Ordering Coming SoonHomeContact UsMenuMoreHomeContact UsMenuHomeContact UsMenu MENU AppetizersEdamame$6.50Lighty salted boiled soybeansSeaweed Salad$6.50  Seasoned SeaweedCrab Salad$8.50 Shredded crab stick with white sauce  Tuna Tataki$15.95  Seared filets of tuna and ponzu sauce  Beef Tataki$14.95Seared filets of beef with ponzu sauce  Spicy Tuna Sashimi$16.95 Chopped tuna in a spicy marinadeGyoza$8.00 Chicken OR Shrimp OR Vegetables OR Pork Potsticker (Steamed or Fried)  Shumai$8.95 Shrimp dumpling, steamed or friedSpring Roll$8.00 Vegetable wraps fried golden brownCrab Rangoon$9.00 Crab meat & cream cheese season dumpling  Calamari$10.95  Batter dipped & deep friedSushi CombinationsAppetizer Sushi$15.95 5 pieces nigiri (chef's choice)  Appetizer Sashimi$16.95 7 pieces sashimi Sushi & Sashimi$65.00A rainbow roll, Tuna roll, 6 pcs nigiri, 9 pcs SashimiMikato Combinations$110.00Bama roll, Mikato roll, super crunch, volcano roll 6 pcs nigiri, 9 pcs sashimi.  Sashimi for Two$85.00 32 pieces of sashimi (Chef's choice)  Sushi RollsAdd a description about this category*California Roll$8.95Add a description about this item*Unagi Roll$9.50 Cooked eel, Cucumber, avocado, and eel sauce on top and crunchy  *Philly Roll$9.50 Smoked Salmon, cream cheese, and avocado *Shrimp & Asparagus Roll $9.00Shrimp Ebi (cooked shrimp) and asparagus*Salmon Skin Roll$8.50 Fried salmon skin, cucumber, and eel sauce on top and crunchy  Alaskan Roll$9.50 Fresh Salmon, avocado, and cucumber *Shrimp Tempura Roll$9.50  Fried Shrimp, cucumber and eel sauce and crunchy   Spicy Tuna Roll$9.50 Spicy tuna and cucumber Sakura Roll$9.50Cooked shrimp, crab meat, and Masago (fish eggs)  *Dynamite Roll$9.50  Cooked scallop, cucumber and spicy mayo*Crawfish Roll$9.50 Cooked spicy crawfish, cucumber, spicy mayo on top  *Veggie Roll$8.50Avocado, cucumber asparagusBig Rolls (8 pcs per order)Add a description about this category*Bama Roll$14.95 Salmon, crab meat, cream cheese, avocado (tempura fried)  *Yum Yum Roll$15.95 Salmon, yellow tail, cream cheese, asparagus (tempura fried)  *Spider Roll$15.95 Fried soft-shell crab, cucumber, eel sauce and crunchy  Combinations (6-8 pcs per order)Add a description about this category*Double Shrimp$15.95Shrimp tempura, cucumber, cream cheese with steamed shrimp on top and eel sauceand spicy mayo. Crunchy*Super Crunch Roll$16.95Shrimp tempura, cucumber topped with crab mix crunch, eel sauce and crunchy  Angel Roll$16.95 Shrimp tempura, cucumber, crabmeat, layered with white tuna Samurai Roll$16.95Fresh salmon, yellow tail, with tuna and avocado on top, eel sauce and spicy mayo  Wasabi Roll$16.95Fresh tuna, yellowtail, topped with wasabi caviar (fish eggs)*Tiger Roll$16.95Crab crunch mix inside topped with shrimp Ebi and avocado, eel sauce spicy mayo and crunchyHurricane Roll$17.95Crab crunch mix inside, topped with tuna, avocado and black caviar (fish eggs) eel sauce and spicy mayo on top and crunchy*Ninja Roll$18.95Fried soft-shell crab, cream cheeses, asparagus, topped with seafood baked eel sauce and spicy mayo and crunchyHot Mama Roll$18.95Shrimp tempura, spicy tuna, cream cheese inside topped with baked spicy crab and asparagus mix, spicy mayo on top and crunchyRed Dragon Roll$18.95Shrimp tempura, crabstick inside topped with spicy tuna and crab meat and red caviar (fish eggs) on top, eel sauce and spicy mayo and crunchyDevil Roll$16.95Tuna, salmon eel, crab meat, Tamargo, cucumber, avocado tempura fried eel sauce and spicy may on top and crunchy*Geisha Roll$18.95Crab crunch mix inside, topped with tuna, avocado and black caviar (fish eggs) eel sauce and spicy mayo on top and crunchy*Flower Maki$18.95Smoked salmon, crab stick, cucumber, avocado, cooked eel wrapped in soy paper topped with shrimp Ebi, white sauce and crunchy*Damn Jeanna Roll$18.95Shrimp tempura, crab meat, avocado, asparagus and cream cheese with a baked seafood, eel sauce and spicy mayo on top and crunchy*Dreaming Roll$18.95Shrimp tempura, crabstick inside with mixed spicy crab and crunchy on top eel sauce and spicy mayoDragonfly Roll$17.95Fried soft-shell crab, asparagus, cream cheese with spicy tuna and fried shrimp on top, eel sauce and spicy mayo and crunchySuperman Roll$16.95Spicy tuna, cream cheese, cucumber topped with avocado and red caviar (fish eggs) eel sauce and spicy mayo on top*Micro Tempura Roll$16.95Tuna, salmon, red snapper, green onions (tempura fried) eel sauce and spicy mayo and crunchy on top*Mega Veggie Roll$16.50Avocado, asparagus, fried carrots, cream cheese inside with baked zucchini on top, eel sauce, spicy mayo and crunchyVegas Roll$17.95Shrimp tempura, tuna, cream cheese topped with baked spicy scallop and spicy crab, eel sauce and spicy mayo*Tokyo Crunch Roll$17.95Salmon, crab meat, cream cheese (tempura fried) topped with crunchy spicy crab, eel sauce and spicy mayo and crunchyCowboy Roll$16.95Steak, cream cheese, avocado, topped with sliced beef and avocado, eel sauce and spicy mayo and crunchy*Dragon Roll$16.95Fried softshell crab and cucumber inside and topped with cooked eel and avocado, eel sauce and crunchy SIDESSides *Extra for each rollBowl of Rice$2.00Bowl of Fried Rice$5.00Bowl of Sushi Rice$3.00Asparagus$1.00Avocado$1.00Cucumber$1.00Noodles$6.00*Tempura the whole roll $2.00*Soy Paper instead of seaweed $2.00Add a footnote if this applies to your business Dinner EntreesAll Entreescomes with soup, salad, Japanese vegetables, steamed rice. Fried Rice additional $4.001.* Teriyaki Chicken$19.952. Sukiyaki Steak$26.50Thin-sliced Sirloin Steak with Special Sukiyaki Sauce & Vegetables3. *Shrimp Dinner$24.954. *Scallop Dinner$27.505. *Sirloin Steak$25.50F5 *Filet Mignon Steak$29.95SL *Teriyaki Salmon $25.50   Tender Grilled Salmon with Special Sauce V Vegetarian Combination$19.506. *Sirloin Steak - Chicken$26.95  (Filet Mignon additional charge)7.\t*Shrimp - Chicken$27.508.\t*Sirloin Steak - Shrimp$28.50  (Filet Mignon additional charge)9.\t*Shrimp - Scallops$28.95  (Filet Mignon additional charge)10.\t*Sirloin Steak - Scallops$29.95  (Filet Mignon additional charge)11.\t*Chef’s Special $33.95  Steak - Shrimp - Chicken  (Filet Mignon additional charge)12.\t*Mikato Dinner Special $42.95 (Filet Mignon additional charge)13.\t*Jumbo Seafood Combination Lobster $44.95 Lobster - Scallops - Shrimp 14.\t*Seafood Lover’s Feast Market Price Two Lobster Tails   Mikato EntreesALL ENTREES....comes with soup, salad, Japanese vegetables, steamed rice. Fried Rice additional $4.00 1.\t*Teriyaki Chicken$19.952.\t*Sukiyaki Steak\t$26.50  Thin-sliced Sirloin Steak with Special Sukiyaki Sauce & Vegetables3.\t*Shrimp Dinner$24.954.\t*Scallop Dinner\t$26.505.\t*Sirloin Steak$24.50F5\t*Filet Mignon Steak$27.95SL *Teriyaki Salmon $24.50 Tender Grilled Salmon with Special Sauce V Vegetarian Combination$18.506.\t*Sirloin Steak - Chicken$26.50  (Filet Mignon additional charge)7.\t*Shrimp - Chicken$25.50  (Filet Mignon additional charge)8.\t*Sirloin Steak - Shrimp$26.95  (Filet Mignon additional charge)9.\t*Shrimp - Scallops$26.9510.\t*Sirloin Steak - Scallops$27.95 (Filet Mignon additional charge)11.\t*Chef’s Special Steak - Shrimp - Chicken$31.9512.\t*Mikato Dinner Special $39.95 Filet Mignon - Lobster Tail - Shrimp 13.\t*Jumbo Seafood Combination $41.95 Lobster - Scallops - Shrimp 14.\t*Seafood Lover’s Feast MARKET PRICE Two Lobster Tails  Add a footnote if this applies to your business Kids MenuChildren’s Dinner Children 12 or Under*Teppan Yaki Chicken$12.00*Teppan Yaki Steak$13.00*Teppan Yaki shrimp$14.00Add fried rice$4.00Add a description about this itemSide Orders Add a description about this category*Side Order Chicken$7.00*Side Order Shrimp$9.00*Side Order Sirloin Steak\t$9.00*Side Order Filet Mignon$12.00*Side Order Scallop$12.00*Side Order Lobster TailMKT PriceSeatingAdults-Please no sharing$10.00Beverages Iced Tea$3.00Coke, Diet Coke, Sprite, Dr. Pepper Refills$3.00Shirley Temple\t$3.00Roy Rogers$3.00Ninja Turtle No Refills $3.50Japanese Green Tea Refills$4.00DessertsCheese Cake$6.95Fried Cheese Cake$9.95Fried Ice Cream$8.95Green Tea Ice Cream$7.50Vanilla Ice Cream$7.50Red Bean Ice Cream$7.50Add a footnote if this applies to your business Thank You Very MuchGratuities shared equally between Chef and Server*Consuming raw or under-cooked meat, poultry, seafood, shellfish or eggs may increase your risk of food borne-illness  For That Special OccasionSake Bar and Outdoor Seating  If you are celebrating a birthday, anniversary, or any special occasion come enjoy the Mikato Festival.Decorated Cheese Cake and Singing $10.00THANK YOUThere will be an 18% gratuity added to parties of eight or more. Your gratuity is shared by your chef and waitress. Should any inconvenience be found, please let us know.\nMikato Japanese Steak Housefor reservations call(251) 968-2525*Consuming raw or under-cooked meat, poultry, seafood, shellfish or eggs may increase your risk of food borne-illness. Mikato Japanese Steakhouse3800 Gulf Shores Pkwy, Ste 200 Gulf Shores, AL 36542(251) 968-2525Copyright © 2023 Mikato Japanese Steakhouse - All Rights Reserved.Site Designed by: PTC TECHS This website uses cookies.We use cookies to analyze website traffic and optimize your website experience. By accepting our use of cookies, your data will be aggregated with all other user data.Accept",
+      "structuredData": [],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "author": "Mikato Japanese Steakhouse",
+        "generator": "Starfield Technologies; Go Daddy Website Builder 8.0.0000",
+        "og:url": "https://mikatojapanese.com/menu",
+        "og:site_name": "Mikato Japanese Steakhouse",
+        "og:title": "Mikato Japanese Steakhouse",
+        "og:description": "Join us for a meal to remember!",
+        "og:type": "website",
+        "og:image": "https://img1.wsimg.com/isteam/ip/8e5b8880-3143-4f34-be37-45ab32d0685d/hibachi_mikato_japanese_steakhouse_cook_entert.png",
+        "og:locale": "en_US",
+        "twitter:card": "summary",
+        "twitter:title": "Mikato Japanese Steakhouse",
+        "twitter:description": "Join us for a meal to remember!",
+        "twitter:image": "https://img1.wsimg.com/isteam/ip/8e5b8880-3143-4f34-be37-45ab32d0685d/hibachi_mikato_japanese_steakhouse_cook_entert.png",
+        "twitter:image:alt": "Mikato Japanese Steakhouse",
+        "theme-color": "#e82902"
+      }
+    },
+    {
+      "url": "https://mikatojapanese.com/contact-us",
+      "title": "Mikato Japanese Steakhouse",
+      "text": "Online Ordering Coming SoonHomeContact UsMenuMoreHomeContact UsMenuHomeContact UsMenu Visit UsSpecial Requests?Do you have dietary concerns? Questions about an upcoming event? Drop us a line, and we'll get back to you soon.Mikato Japanese Steakhouse(251) 968-2525HoursMonClosedTue04:00 pm – 10:00 pmWed04:00 pm – 10:00 pmThu04:00 pm – 10:00 pmFri04:00 pm – 11:00 pmSat04:00 pm – 11:00 pmSun04:00 pm – 10:00 pm Mikato Japanese Steakhouse3800 Gulf Shores Pkwy, Ste 200 Gulf Shores, AL 36542(251) 968-2525Copyright © 2023 Mikato Japanese Steakhouse - All Rights Reserved.Site Designed by: PTC TECHS This website uses cookies.We use cookies to analyze website traffic and optimize your website experience. By accepting our use of cookies, your data will be aggregated with all other user data.Accept",
+      "structuredData": [],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "author": "Mikato Japanese Steakhouse",
+        "generator": "Starfield Technologies; Go Daddy Website Builder 8.0.0000",
+        "og:url": "https://mikatojapanese.com/contact-us",
+        "og:site_name": "Mikato Japanese Steakhouse",
+        "og:title": "Mikato Japanese Steakhouse",
+        "og:description": "Join us for a meal to remember!",
+        "og:type": "website",
+        "og:image": "https://img1.wsimg.com/isteam/ip/8e5b8880-3143-4f34-be37-45ab32d0685d/hibachi_mikato_japanese_steakhouse_cook_entert.png",
+        "og:locale": "en_US",
+        "twitter:card": "summary",
+        "twitter:title": "Mikato Japanese Steakhouse",
+        "twitter:description": "Join us for a meal to remember!",
+        "twitter:image": "https://img1.wsimg.com/isteam/ip/8e5b8880-3143-4f34-be37-45ab32d0685d/hibachi_mikato_japanese_steakhouse_cook_entert.png",
+        "twitter:image:alt": "Mikato Japanese Steakhouse",
+        "theme-color": "#e82902"
+      }
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": [
+    "https://img1.wsimg.com/isteam/ip/8e5b8880-3143-4f34-be37-45ab32d0685d/mikato_japanese_steakhouse_sushi_gulf_-63a317a.png/:/rs=h:75,cg:true,m/qt=q:100/ll",
+    "https://img1.wsimg.com/isteam/ip/8e5b8880-3143-4f34-be37-45ab32d0685d/cover_mikato_japanese_steakhouse_logo_with_slo.png/:/rs=w:600,cg:true,m",
+    "https://img1.wsimg.com/isteam/ip/8e5b8880-3143-4f34-be37-45ab32d0685d/sushi_mikato_japanese_steakhouse_sushi_1.png/:/",
+    "https://img1.wsimg.com/isteam/ip/8e5b8880-3143-4f34-be37-45ab32d0685d/sushi_mikato_japanese_steakhouse_sushi_bar.jpg/:/",
+    "https://img1.wsimg.com/isteam/ip/8e5b8880-3143-4f34-be37-45ab32d0685d/bar_mikato_japanese_steakhouse_mojito-cocktail.jpg/:/",
+    "https://img1.wsimg.com/isteam/ip/8e5b8880-3143-4f34-be37-45ab32d0685d/bar_mikato_japanese_steakhouse_bar_drinks_1.jpg/:/",
+    "https://img1.wsimg.com/isteam/ip/8e5b8880-3143-4f34-be37-45ab32d0685d/bar_mikato_japanese_steakhouse_saki.png/:/cr=t:0%25,l:0%25,w:100%25,h:100%25",
+    "https://img1.wsimg.com/isteam/ip/8e5b8880-3143-4f34-be37-45ab32d0685d/bar_mikato_japanese_steakhouse_mojito-cocktail.jpg/:/rs=w:70,h:70,cg:true,m/cr=w:70,h:70,a:cc",
+    "https://img1.wsimg.com/isteam/ip/8e5b8880-3143-4f34-be37-45ab32d0685d/bar_mikato_japanese_steakhouse_bar_drinks_1.jpg/:/rs=w:70,h:70,cg:true,m/cr=w:70,h:70,a:cc",
+    "https://img1.wsimg.com/isteam/ip/8e5b8880-3143-4f34-be37-45ab32d0685d/bar_mikato_japanese_steakhouse_saki.png/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=w:70,h:70,cg:true,m/cr=w:70,h:70,a:cc",
+    "https://img1.wsimg.com/isteam/ip/8e5b8880-3143-4f34-be37-45ab32d0685d/hibachi_mikato_japanese_steakhouse_coo-84ebf06.png/:/rs=w:70,h:70,cg:true,m/cr=w:70,h:70,a:cc",
+    "https://img1.wsimg.com/isteam/ip/8e5b8880-3143-4f34-be37-45ab32d0685d/hibachi_mikato_japanese_steakhouse_din-cb05c11.png/:/rs=w:70,h:70,cg:true,m/cr=w:70,h:70,a:cc",
+    "https://img1.wsimg.com/isteam/ip/8e5b8880-3143-4f34-be37-45ab32d0685d/hibachi_mikato_japanese_steakhouse_cook.png/:/rs=w:70,h:70,cg:true,m/cr=w:70,h:70,a:cc",
+    "https://img1.wsimg.com/isteam/ip/8e5b8880-3143-4f34-be37-45ab32d0685d/bar_mikato_japanese_steakhouse_bar_dri-f0c3d02.jpg/:/rs=w:70,h:70,cg:true,m/cr=w:70,h:70,a:cc",
+    "https://img1.wsimg.com/isteam/ip/8e5b8880-3143-4f34-be37-45ab32d0685d/bar_mikato_japanese_steakhouse_mojito--27308a0.jpg/:/rs=w:70,h:70,cg:true,m/cr=w:70,h:70,a:cc",
+    "https://img1.wsimg.com/isteam/ip/8e5b8880-3143-4f34-be37-45ab32d0685d/bar_mikato_japanese_steakhouse_saki-37c5f2a.png/:/rs=w:70,h:70,cg:true,m/cr=w:70,h:70,a:cc",
+    "https://img1.wsimg.com/isteam/ip/8e5b8880-3143-4f34-be37-45ab32d0685d/bar_mikato_japanese_steakhouse_bar-988c3c5.jpg/:/rs=w:70,h:70,cg:true,m/cr=w:70,h:70,a:cc",
+    "https://img1.wsimg.com/isteam/ip/8e5b8880-3143-4f34-be37-45ab32d0685d/hibachi_mikato_japanese_steakhouse_front_entra.jpg/:/rs=w:70,h:70,cg:true,m/cr=w:70,h:70,a:cc",
+    "https://img1.wsimg.com/isteam/ip/8e5b8880-3143-4f34-be37-45ab32d0685d/hibachi_mikato_japanese_steakhouse_sticks_smal.png/:/rs=w:70,h:70,cg:true,m/cr=w:70,h:70,a:cc",
+    "https://img1.wsimg.com/isteam/ip/8e5b8880-3143-4f34-be37-45ab32d0685d/sushi_mikato_japanese_steakhouse-c5a26bc.png/:/rs=w:70,h:70,cg:true,m/cr=w:70,h:70,a:cc",
+    "https://img1.wsimg.com/isteam/ip/8e5b8880-3143-4f34-be37-45ab32d0685d/sushi_mikato_japanese_steakhouse_center.jpg/:/rs=w:70,h:70,cg:true,m/cr=w:70,h:70,a:cc",
+    "https://img1.wsimg.com/isteam/ip/8e5b8880-3143-4f34-be37-45ab32d0685d/sushi_mikato_japanese_steakhouse_sushi_2.png/:/rs=w:70,h:70,cg:true,m/cr=w:70,h:70,a:cc"
+  ]
+}

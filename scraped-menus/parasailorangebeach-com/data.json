@@ -1,0 +1,211 @@
+{
+  "business_name": "Chute 'Em Up Parasail",
+  "tagline": "Come Fly With The Best Parasail Company Along The Gulf Coast!",
+  "type": "Parasailing | Water Sports | Adventure Tour",
+  "contact": {
+    "phone": "(251) 981-7673",
+    "email": null,
+    "address": null,
+    "city": "Orange Beach, Gulf Shores, Perdido Key, Fort Morgan",
+    "state": "AL/FL",
+    "zip": null
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": "Operating since 2004"
+  },
+  "about": {
+    "description": "Chute 'Em Up Parasail has been offering amazing parasailing adventures in the Orange Beach area since 2004. Experience incredible views of the Alabama Gulf Coast while soaring up to 800ft above the beautiful Gulf of Mexico. Parasailing over the beautiful beaches lets you catch sights of dolphins, sea turtles, sting rays, tour boats, and tourists below. The company offers parasailing from the beach at multiple Gulf Shores, Fort Morgan, and Perdido Key locations.",
+    "elevator_pitch": "Premier parasailing adventures up to 800ft over the Alabama Gulf Coast with 15 U.S. Coast Guard approved vessels.",
+    "vibe": "Fun, professional, family-friendly water sports experience with entertaining crew members",
+    "best_for": [
+      "families",
+      "groups",
+      "first-time parasailers",
+      "adventure seekers",
+      "all ages"
+    ],
+    "capacity": "15 passengers per boat",
+    "duration_options": [
+      "Single parasail flight"
+    ],
+    "departure_location": "8 locations: Happy Harbor Marina (Orange Beach), Blue Sky Parasail (Gulf Shores), Beach Club Parasail (Gulf Shores), Perdido Key Parasail (Pensacola, FL), Pink Pony Pub (Gulf Shores), Bahama Bob's (Gulf Shores), and 2 additional locations",
+    "what_provided": [
+      "parasail equipment",
+      "life jackets",
+      "banana boat ride pickup",
+      "photo packages available (40-60 high quality images)"
+    ],
+    "what_to_bring": null,
+    "age_restriction": "Ages 3 and up",
+    "weight_restriction": null,
+    "reservations": "Recommended; can accommodate last-minute bookings",
+    "cancellation_policy": null,
+    "insider_tip": "Photo packages highly recommended by reviewers; water dipping experience available"
+  },
+  "tags": [
+    "parasailing",
+    "water sports",
+    "adventure",
+    "family fun",
+    "group activities",
+    "beach activities",
+    "gulf coast",
+    "Orange Beach",
+    "Gulf Shores",
+    "Perdido Key",
+    "Fort Morgan"
+  ],
+  "features": [
+    "U.S. Coast Guard approved vessels",
+    "Largest fleet of parasail boats in the world",
+    "Photo packages with 40-60 high quality images",
+    "Banana boat ride included",
+    "Can accommodate groups of up to 15",
+    "Soar up to 800ft",
+    "Views of dolphins, sea turtles, sting rays",
+    "Multiple convenient locations",
+    "Professional and entertaining crew"
+  ],
+  "social_links": {
+    "instagram": "https://www.instagram.com/chuteemupparasail/",
+    "facebook": "https://www.facebook.com/chuteemupparasail/",
+    "tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g34625-d4268889-Reviews-Chute_Em_Up_Parasail-Orange_Beach_Alabama.html",
+    "website": "https://www.parasailorangebeach.com",
+    "x_twitter": "https://twitter.com/"
+  },
+  "specials": [],
+  "events": [],
+  "packages": [
+    {
+      "name": "Chute 'Em Up Parasail",
+      "type": "parasailing",
+      "description": "Parasailing adventure soaring up to 800ft above the Gulf of Mexico with views of dolphins, sea turtles, sting rays, and the beach. Includes banana boat ride pickup from beach locations.",
+      "duration": "Varies by location",
+      "price": null,
+      "price_type": "per person",
+      "price_note": "Photo package available for additional cost",
+      "min_people": 1,
+      "max_people": 15,
+      "what_included": [
+        "parasail flight",
+        "life jacket",
+        "banana boat ride",
+        "professional crew"
+      ],
+      "departure_times": null,
+      "days_available": "Daily (subject to weather)",
+      "booking_url": "https://www.parasailorangebeach.com",
+      "notes": "Available at 8 different locations; accepts last-minute bookings when available"
+    }
+  ],
+  "reviews": {
+    "overall_rating": 5,
+    "review_count": 7,
+    "source": "TripAdvisor",
+    "highlights": [
+      "Professional and supportive crew",
+      "Great experience for first-time parasailers",
+      "Entertaining guides",
+      "High-quality photo packages",
+      "Kid-friendly",
+      "Flexible with last-minute bookings",
+      "Memorable experiences",
+      "Water dipping feature popular with guests"
+    ],
+    "notable_staff": [
+      "Captain Slade",
+      "Tristan",
+      "Tanner",
+      "Aubrey",
+      "Captain Gabriel",
+      "Everett",
+      "Chase",
+      "Chen"
+    ]
+  },
+  "additional_services": [
+    {
+      "name": "Dolphin Cruises",
+      "description": "Relaxing cruise aboard The Southern Rose with guaranteed dolphin sightings"
+    },
+    {
+      "name": "Boat Rentals",
+      "description": "Pontoon and tritoon boat rentals at OB Watersports location"
+    },
+    {
+      "name": "Jet Ski Dolphin Tours",
+      "description": "20-mile guided jet ski tour observing dolphins and coastal attractions"
+    },
+    {
+      "name": "Waverunner Rentals",
+      "description": "Waverunner rentals in Gulf of Mexico and back bay calm waters"
+    },
+    {
+      "name": "Banana Boat Rides",
+      "description": "Beach-based banana boat rides at Gulf Shores, Fort Morgan, and Perdido Key locations"
+    }
+  ],
+  "locations": [
+    {
+      "name": "Happy Harbor Marina",
+      "address": "27212 Marina Road, Orange Beach, AL 36561",
+      "city": "Orange Beach",
+      "state": "AL",
+      "zip": "36561"
+    },
+    {
+      "name": "Blue Sky Parasail",
+      "address": "401 East Beach Blvd., Gulf Shores, AL 36542",
+      "city": "Gulf Shores",
+      "state": "AL",
+      "zip": "36542"
+    },
+    {
+      "name": "Beach Club Parasail",
+      "address": "925 Beach Club Trail, Gulf Shores, AL 36542",
+      "city": "Gulf Shores",
+      "state": "AL",
+      "zip": "36542"
+    },
+    {
+      "name": "Perdido Key Parasail",
+      "address": "13825 Perdido Key Dr, Pensacola, FL 32507",
+      "city": "Pensacola",
+      "state": "FL",
+      "zip": "32507"
+    },
+    {
+      "name": "Pink Pony Pub",
+      "address": "137 E Gulf Place, Gulf Shores, AL 36542",
+      "city": "Gulf Shores",
+      "state": "AL",
+      "zip": "36542"
+    },
+    {
+      "name": "Bahama Bob's",
+      "address": "601 W Beach Blvd., Gulf Shores, AL 36542",
+      "city": "Gulf Shores",
+      "state": "AL",
+      "zip": "36542"
+    }
+  ],
+  "url": "https://www.parasailorangebeach.com",
+  "scraped_at": "2026-03-21T19:46:49.934Z",
+  "extracted_at": "2026-03-23T03:56:28.600Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://parasailorangebeach.com/wp-content/uploads/sites/6239/2023/02/logo.png?w=320&zoom=2",
+    "https://parasailorangebeach.com/wp-content/uploads/sites/6239/2023/02/logo.png?w=80&h=80&zoom=2",
+    "https://parasailorangebeach.com/wp-content/uploads/sites/6239/2023/02/logo.png?w=400&zoom=2"
+  ],
+  "sources": [
+    "https://www.parasailorangebeach.com"
+  ]
+}

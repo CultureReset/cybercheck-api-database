@@ -1,0 +1,276 @@
+{
+  "business_name": "woodsideatgsp.com",
+  "url": "https://woodsideatgsp.com",
+  "scraped_at": "2026-03-21T20:20:57.420Z",
+  "pages": [
+    {
+      "url": "https://woodsideatgsp.com",
+      "title": "Home - Woodside Restaurant",
+      "text": "We value your privacy We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. By clicking \"Accept All\", you consent to our use of cookies. Customize Reject All Accept All Customize Consent Preferences We use cookies to help you navigate efficiently and perform certain functions. You will find detailed information about all cookies under each consent category below.The cookies that are categorized as \"Necessary\" are stored on your browser as they are essential for enabling the basic functionalities of the site.... Show more NecessaryAlways Active Necessary cookies are required to enable the basic features of this site, such as providing secure log-in or adjusting your consent preferences. These cookies do not store any personally identifiable data. CookiewpEmojiSettingsSupportsDurationsessionDescriptionWordPress sets this cookie when a user interacts with emojis on a WordPress site. It helps determine if the user's browser can display emojis properly.Cookiecookieyes-consentDuration1 yearDescriptionCookieYes sets this cookie to remember users' consent preferences so that their preferences are respected on subsequent visits to this site. It does not collect or store any personal information about the site visitors. Functional Functional cookies help perform certain functionalities like sharing the content of the website on social media platforms, collecting feedback, and other third-party features. No cookies to display. Analytics Analytical cookies are used to understand how visitors interact with the website. These cookies help provide information on metrics such as the number of visitors, bounce rate, traffic source, etc. Cookie_ga_*Duration1 year 1 month 4 daysDescriptionGoogle Analytics sets this cookie to store and count page views.Cookie_gaDuration1 year 1 month 4 daysDescriptionGoogle Analytics sets this cookie to calculate visitor, session and campaign data and track site usage for the site's analytics report. The cookie stores information anonymously and assigns a randomly generated number to recognize unique visitors. Performance Performance cookies are used to understand and analyze the key performance indexes of the website which helps in delivering a better user experience for the visitors. No cookies to display. Advertisement Advertisement cookies are used to provide visitors with customized advertisements based on the pages you visited previously and to analyze the effectiveness of the ad campaigns. No cookies to display. Reject All Save My Preferences Accept All \n\nSkip to content\n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n ORDER ONLINE \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n About\nMenu\nLive Music\nHappy Hour\nFun and Games\n \n \n \n \n About\nMenu\nLive Music\nHappy Hour\nFun and Games\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n ORDER ONLINE \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n About\nMenu\nLive Music\nHappy Hour\nFun and Games\n \n \n \n \n About\nMenu\nLive Music\nHappy Hour\nFun and Games\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Woodside. . . it’s a place for family fun, great food, backyard games, gift shop and the best live local music.Located in the heart of Gulf State Park on State Park Road.Open daily for breakfast, lunch and dinner. Pet-friendly outdoor seating. Food, beer and wine available for carry out. \n \n \n \n CALL 251-923-3100 TO PLACE YOUR ORDER \n \n \n \n \n \n \n View Menu\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n HOURS \n \n \n \n Open Daily 8 am - 8 pm Breakfast: 8 am - 10:45 am  |  Lunch: 10:45 am - 4 pm  |  Dinner: 4 pm - 8 pm \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 251.923.3100 \n \n \n \n kanderson@lodgegsp.com \n \n \n \n Follow Us: @WoodsideRestaurantGSP \n \n \n \n \n \n \n \n 20249 State Park Road\nGulf Shores, Alabama 36542",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://woodsideatgsp.com/",
+              "url": "https://woodsideatgsp.com/",
+              "name": "Home - Woodside Restaurant",
+              "isPartOf": {
+                "@id": "https://woodsideatgsp.com/#website"
+              },
+              "about": {
+                "@id": "https://woodsideatgsp.com/#organization"
+              },
+              "primaryImageOfPage": {
+                "@id": "https://woodsideatgsp.com/#primaryimage"
+              },
+              "image": {
+                "@id": "https://woodsideatgsp.com/#primaryimage"
+              },
+              "thumbnailUrl": "https://woodsideatgsp.com/wp-content/uploads/2022/02/woodside_backyard_1.jpg",
+              "datePublished": "2022-02-04T18:22:23+00:00",
+              "dateModified": "2025-12-26T04:51:32+00:00",
+              "breadcrumb": {
+                "@id": "https://woodsideatgsp.com/#breadcrumb"
+              },
+              "inLanguage": "en-US",
+              "potentialAction": [
+                {
+                  "@type": "ReadAction",
+                  "target": [
+                    "https://woodsideatgsp.com/"
+                  ]
+                }
+              ]
+            },
+            {
+              "@type": "ImageObject",
+              "inLanguage": "en-US",
+              "@id": "https://woodsideatgsp.com/#primaryimage",
+              "url": "https://woodsideatgsp.com/wp-content/uploads/2022/02/woodside_backyard_1.jpg",
+              "contentUrl": "https://woodsideatgsp.com/wp-content/uploads/2022/02/woodside_backyard_1.jpg",
+              "width": 800,
+              "height": 533
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://woodsideatgsp.com/#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home"
+                }
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://woodsideatgsp.com/#website",
+              "url": "https://woodsideatgsp.com/",
+              "name": "Woodside Restaurant",
+              "description": "at Gulf State Park",
+              "publisher": {
+                "@id": "https://woodsideatgsp.com/#organization"
+              },
+              "potentialAction": [
+                {
+                  "@type": "SearchAction",
+                  "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://woodsideatgsp.com/?s={search_term_string}"
+                  },
+                  "query-input": {
+                    "@type": "PropertyValueSpecification",
+                    "valueRequired": true,
+                    "valueName": "search_term_string"
+                  }
+                }
+              ],
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "Organization",
+              "@id": "https://woodsideatgsp.com/#organization",
+              "name": "Woodside Restaurant",
+              "url": "https://woodsideatgsp.com/",
+              "logo": {
+                "@type": "ImageObject",
+                "inLanguage": "en-US",
+                "@id": "https://woodsideatgsp.com/#/schema/logo/image/",
+                "url": "https://woodsideatgsp.com/wp-content/uploads/2022/02/woodside_restaurant_gulf_state_park_logo-p-500.png",
+                "contentUrl": "https://woodsideatgsp.com/wp-content/uploads/2022/02/woodside_restaurant_gulf_state_park_logo-p-500.png",
+                "width": 500,
+                "height": 75,
+                "caption": "Woodside Restaurant"
+              },
+              "image": {
+                "@id": "https://woodsideatgsp.com/#/schema/logo/image/"
+              },
+              "sameAs": [
+                "https://www.instagram.com/woodsidegsp/"
+              ]
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+        "og:locale": "en_US",
+        "og:type": "website",
+        "og:title": "Home - Woodside Restaurant",
+        "og:description": "Woodside. . . it’s a place for family fun, great food, backyard games, gift shop and the best live local music.Located in the heart of Gulf State Park on State Park Road.Open daily for breakfast, lunch and dinner. Pet-friendly outdoor seating. Food, beer and wine available for carry out. CALL 251-923-3100 TO PLACE YOUR ORDER […]",
+        "og:url": "https://woodsideatgsp.com/",
+        "og:site_name": "Woodside Restaurant",
+        "article:modified_time": "2025-12-26T04:51:32+00:00",
+        "og:image": "https://woodsideatgsp.com/wp-content/uploads/2022/02/woodside_backyard_1.jpg",
+        "twitter:card": "summary_large_image",
+        "generator": "Elementor 3.34.4; features: additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-auto",
+        "msapplication-TileImage": "https://woodsideatgsp.com/wp-content/uploads/2022/02/cropped-favicon-270x270.png"
+      }
+    },
+    {
+      "url": "https://woodsideatgsp.com/live-music",
+      "title": "Live Music - Woodside Restaurant",
+      "text": "We value your privacy We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. By clicking \"Accept All\", you consent to our use of cookies. Customize Reject All Accept All Customize Consent Preferences We use cookies to help you navigate efficiently and perform certain functions. You will find detailed information about all cookies under each consent category below.The cookies that are categorized as \"Necessary\" are stored on your browser as they are essential for enabling the basic functionalities of the site.... Show more NecessaryAlways Active Necessary cookies are required to enable the basic features of this site, such as providing secure log-in or adjusting your consent preferences. These cookies do not store any personally identifiable data. CookiewpEmojiSettingsSupportsDurationsessionDescriptionWordPress sets this cookie when a user interacts with emojis on a WordPress site. It helps determine if the user's browser can display emojis properly.Cookiecookieyes-consentDuration1 yearDescriptionCookieYes sets this cookie to remember users' consent preferences so that their preferences are respected on subsequent visits to this site. It does not collect or store any personal information about the site visitors. Functional Functional cookies help perform certain functionalities like sharing the content of the website on social media platforms, collecting feedback, and other third-party features. No cookies to display. Analytics Analytical cookies are used to understand how visitors interact with the website. These cookies help provide information on metrics such as the number of visitors, bounce rate, traffic source, etc. Cookie_ga_*Duration1 year 1 month 4 daysDescriptionGoogle Analytics sets this cookie to store and count page views.Cookie_gaDuration1 year 1 month 4 daysDescriptionGoogle Analytics sets this cookie to calculate visitor, session and campaign data and track site usage for the site's analytics report. The cookie stores information anonymously and assigns a randomly generated number to recognize unique visitors. Performance Performance cookies are used to understand and analyze the key performance indexes of the website which helps in delivering a better user experience for the visitors. No cookies to display. Advertisement Advertisement cookies are used to provide visitors with customized advertisements based on the pages you visited previously and to analyze the effectiveness of the ad campaigns. No cookies to display. Reject All Save My Preferences Accept All \n\nSkip to content\n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n ORDER ONLINE \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n About\nMenu\nLive Music\nHappy Hour\nFun and Games\n \n \n \n \n About\nMenu\nLive Music\nHappy Hour\nFun and Games\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n ORDER ONLINE \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n About\nMenu\nLive Music\nHappy Hour\nFun and Games\n \n \n \n \n About\nMenu\nLive Music\nHappy Hour\nFun and Games\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Live Music \n \n \n \n \n \n \n \n \n \n \n \n Live Music Calendar at Woodside \n \n \n \n \n \n \n \n \n \n \n \n Page 1 / 1Zoom 100% \n \n \n \n \n \n \n Download PDF\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 251.923.3100 \n \n \n \n kanderson@lodgegsp.com \n \n \n \n Follow Us: @WoodsideRestaurantGSP \n \n \n \n \n \n \n \n 20249 State Park Road\nGulf Shores, Alabama 36542",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://woodsideatgsp.com/live-music/",
+              "url": "https://woodsideatgsp.com/live-music/",
+              "name": "Live Music - Woodside Restaurant",
+              "isPartOf": {
+                "@id": "https://woodsideatgsp.com/#website"
+              },
+              "datePublished": "2022-02-04T18:23:23+00:00",
+              "dateModified": "2022-08-30T15:59:07+00:00",
+              "breadcrumb": {
+                "@id": "https://woodsideatgsp.com/live-music/#breadcrumb"
+              },
+              "inLanguage": "en-US",
+              "potentialAction": [
+                {
+                  "@type": "ReadAction",
+                  "target": [
+                    "https://woodsideatgsp.com/live-music/"
+                  ]
+                }
+              ]
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://woodsideatgsp.com/live-music/#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://woodsideatgsp.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Live Music"
+                }
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://woodsideatgsp.com/#website",
+              "url": "https://woodsideatgsp.com/",
+              "name": "Woodside Restaurant",
+              "description": "at Gulf State Park",
+              "publisher": {
+                "@id": "https://woodsideatgsp.com/#organization"
+              },
+              "potentialAction": [
+                {
+                  "@type": "SearchAction",
+                  "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://woodsideatgsp.com/?s={search_term_string}"
+                  },
+                  "query-input": {
+                    "@type": "PropertyValueSpecification",
+                    "valueRequired": true,
+                    "valueName": "search_term_string"
+                  }
+                }
+              ],
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "Organization",
+              "@id": "https://woodsideatgsp.com/#organization",
+              "name": "Woodside Restaurant",
+              "url": "https://woodsideatgsp.com/",
+              "logo": {
+                "@type": "ImageObject",
+                "inLanguage": "en-US",
+                "@id": "https://woodsideatgsp.com/#/schema/logo/image/",
+                "url": "https://woodsideatgsp.com/wp-content/uploads/2022/02/woodside_restaurant_gulf_state_park_logo-p-500.png",
+                "contentUrl": "https://woodsideatgsp.com/wp-content/uploads/2022/02/woodside_restaurant_gulf_state_park_logo-p-500.png",
+                "width": 500,
+                "height": 75,
+                "caption": "Woodside Restaurant"
+              },
+              "image": {
+                "@id": "https://woodsideatgsp.com/#/schema/logo/image/"
+              },
+              "sameAs": [
+                "https://www.instagram.com/woodsidegsp/"
+              ]
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+        "og:locale": "en_US",
+        "og:type": "article",
+        "og:title": "Live Music - Woodside Restaurant",
+        "og:description": "Live Music Live Music Calendar at Woodside Download PDF",
+        "og:url": "https://woodsideatgsp.com/live-music/",
+        "og:site_name": "Woodside Restaurant",
+        "article:modified_time": "2022-08-30T15:59:07+00:00",
+        "twitter:card": "summary_large_image",
+        "generator": "Elementor 3.34.4; features: additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-auto",
+        "msapplication-TileImage": "https://woodsideatgsp.com/wp-content/uploads/2022/02/cropped-favicon-270x270.png"
+      }
+    }
+  ],
+  "pdfUrls": [
+    "https://woodsideatgsp.com/wp-content/uploads/2026/02/Woodside-Menu-3-Pages-Feb-13-2025-1.pdf",
+    "https://woodsideatgsp.com/wp-content/uploads/2024/08/Woodside-HH-Menu-2024.pdf",
+    "https://woodsideatgsp.com/wp-content/uploads/2026/03/Woodside-March-Music.pdf"
+  ],
+  "pdfTexts": [
+    "[PDF: https://woodsideatgsp.com/wp-content/uploads/2026/02/Woodside-Menu-3-Pages-Feb-13-2025-1.pdf]\nSpecials\tOUR\n\u000016\nFried or Grilled, House-made\nPickles, Roasted Tomato, Trail\nSauce, Brioche Bun\nCHICKEN SANDWICH\nHandhelds\n\u00003\nAdd Half Avocado or Crispy\nBrussels Sprouts\nVEGGIE TOPPER\nBBQ & GRILL\n\u000015\nArugula, Toasted Pumkin Seeds,\nGarden Basil, Dried Cherries,\nAgave Lime Vinaigrette\nHEIRLOOM TOMATO\nAND SMOKED\nMOZZARELLA*\n\u000012\nRomaine, Parmesan, Garlic\nand Herb Croutons, Caesar\nDressing\nHOUSE CEASAR\n\u000013\nArugula, Cojita, Corn, Quinoa,\nAvocado, Spiced Tortilla Crisp,\nCilantro, Chili Lime Vinaigrette\nRATTLESNAKE RIDGE\nMenu *\tKids\nS \ta \tl \ta \td \ts\nS \ta \tl \ta \td \ts Sides\n\u00008\nAdd Grilled Chicken or\nGrilled Shrimp\nProtein Topper *\nServed with Chips & Drink\n\u00008\tCheese Burger *\n\u00008\tChicken Fingers\n\u00008\tMac & Cheese\n\u00008\tGrilled Cheese\n\u000019\nTwo Smashed Patties, Cheddar\nCheese, Bacon, Smoked Ketchup,\nLettuce, Onion, House-made\nPickles, Brioche Bun\nMIDDLE LAKE\nDOUBLE BURGER *\n\u000016\nSmoked Turkey Breast, Bacon,\nCheddar Cheese, Lettuce,\nRoasted Tomato, Local Honey\nMustard, Wheatberry Bread\nSMOKE HOUSE CLUB\n\u000014\nHouse-made Pickles, Memphis\nBBQ, Crispy Alabama Hot Slaw,\nBrioche Bun\nPULLED PORK SANDWICH\n\u000017\nLettuce, Tomato, Tarragon\nCitrus Aioli, New Orleans\nFrench Bread\nSEASONED REDFISH\nPO'BOY *\n\u000016\nBrisket, Smoked Gouda,\nHorseradish Cream Sauce,\nSourdough Bread\nBRISKET GRILLED\nCHEESE\n\u000018\nTwo Smashed Patties, Alabama\nWhite BBQ Sauce, Provolone\nCheese, Lettuce, Tomato, Onion,\nFried Banana Peppers, Brioche\nBun\nALABAMA WHITE\nBBQ BURGER * \t\u000018\nChoice of Smoked Meat, Shrimp or\nSeasoned Redfish, Hot Slaw, Corn,\nFried Banana Peppers, Cilantro\nLime Crema, Corn Tortilla\nTACOS *\n\u000023\nCajun Tasso Cream,\nCavatappi Pasta\nSEASONED REDFISH *\n\u000014\nScraps of BBQ Smoked Meats,\nCavatappi Pasta, Triple Cheese\nSauce\nSCRAPS AND CHEESE\n\u000022\nCollard Greens, Crumbled\nCornbread, Garden Herb Jus\nSMOKED HALF\nCHICKEN *\n\u000016\nHouse-made and Smoked Sausages,\nPimento Cheese, Trail-hand Candy,\nCarolina and Memphis BBQ Sauces,\nCreole Mustard, Texas Toast Points\nSAUSAGE BOARD\nWoodside Potato Salad\nCollard Greens\nBrussels Sprouts\nSouthern Green Beans\nAlabama Hot Slaw\nHouse Kettle Chips\nBBQ Baked Beans\nSmoked Pimento Cheese\n\u00006\n\u00006\n\u00008\n\u00006\n\u00004\n\u00003\n\u00006\n\u00006\n\u00004\tCheddar Cheese\nCornbread\n\u00008\n\u00008\n\u00008\n\u00008\n\u00008\n\u00008\n\u00008\n\u00008\n\u00008\nSHACK\nSMOKE\nPlatter Comes with Texas Toast and Choice of Side\nPlatter Half Rack\nPlatter Full Rack\nBoxed\nTo Go Full Rack\nBABY BACK\nRIBS\nTossed in Choice of\nCarolina BBQ Sauce, Memphis BBQ\nSauce,\nor Buffalo Sauce\nPlatter 6\nBoxed Dozen\nSMOKED CHICKEN\nWINGS\nPlatter\nPound\nSLICED BRISKET\nPlatter\nPound\nPULLED PORK\nPlatter\nPound\nSMOKED PULLED\nCHICKEN\n$22\n$30\n$30\n$16\n$20\n$26\n$23\n$20\n$14\n$20\n$14\nTo Go\nSide \\ Pint\nKids Menu * Available for kids 11 & under.\nIf you have any concerns regarding food allergies, please alert your server prior to ordering. *This item may contain raw or undercooked ingredients. Consuming raw or undercooked meats, poultry, shellfish or eggs may increase your risk of foodborne illness.\n\n-- 1 of 3 --\n\nO \tm \te \tl \te \tt \ts\nO \tm \te \tl \te \tt \ts Classics BiscuitsBreakfast Sides\nMenu *\tKids\n\u00008\tCheese Burger *\n\u00008\tChicken Fingers\n\u00008\tMac & Cheese\nGrilled Cheese\n\u000016\nThree Eggs, Red Onion,\nPeppers, Tasso Cream, Garden\nHerbs, Choice of Side\nCAJUN SHRIMP *\n\u000014\nEgg Whites, Spinach, Roasted\nTomato, Cheddar Cheese, Choice\nof Side\nEGG WHITE VEGGIE *\n\u000014\nThree Eggs, Diced Ham,\nSmoked Gouda Pimento\nCheese, Choice of Side\nMUSCLE SHOALS\n\u000014\nThree Eggs, Onions, Peppers,\nSausage, Cheddar Cheese,\nChoice of Side\nSAWGRASS SAUSAGE *\n\u000016\nThree Eggs, Red Onion,\nPeppers, Tasso Cream, Garden\nHerbs, Choice of Side\nCAJUN SHRIMP *\n\u000014\nEgg Whites, Spinach, Roasted\nTomato, Cheddar Cheese, Choice\nof Side\nEGG WHITE VEGGIE *\n\u000014\nThree Eggs, Diced Ham,\nSmoked Gouda Pimento\nCheese, Choice of Side\nMUSCLE SHOALS\n\u000014\nThree Eggs, Onions, Peppers,\nSausage, Cheddar Cheese,\nChoice of Side\nSAWGRASS SAUSAGE *\n\u000016\nThree Eggs, Red Onion,\nPeppers, Tasso Cream, Garden\nHerbs, Choice of Side\nCAJUN SHRIMP *\nWoodside Potato Salad\nCollard Greens\nBrussels Sprouts\nSouthern Green Beans\nAlabama Hot Slaw\nHouse Kettle Chips\nBBQ Baked Beans\nSmoked Pimento Cheese\n\u00006\n\u00006\n\u00008\n\u00006\n\u00004\n\u00003\n\u00006\n\u00006\n\u00004\tCheddar Cheese\nCornbread\nTo Go\nSide \\ Pint\nSHACKPlatter Comes with Texas Toast and Choice of Side\nThree Eggs, Smoked Pork,\nRed Onion, Cheddar Cheese,\nMemphis BBQ, Green Onion,\nChoice of Side\nSMOKED SHACK\nOMELET *\nTwo Scrambled Eggs,\nBiscuit, Brisket Burnt\nEnds, Sausage Gravy,\nChoice of Side\nBRISKET N'\nGRAVY *\nKids Menu * Available for kids 11 & under.\nIf you have any concerns regarding food allergies, please alert your server prior to ordering. *This item may contain raw or undercooked ingredients. Consuming raw or undercooked meats, poultry, shellfish or eggs may increase your risk of foodborne illness.\nSMOKE\n\u000014\nThree Eggs, Red Onion,\nPeppers, Tasso Cream, Garden\nHerbs, Choice of Side\nHOT HONEY SMOKED\nCHICKEN\n\u000015\nChoice of Ham, Sausage, or\nBacon, Two Over Hard Eggs,\nCheddar Cheese, Biscuit, Choice\nof Side\nCLASSIC BREAKFAST *\n\u000014\nScrambled Egg Whites,\nRoasted Tomato, Biscuit,\nChoice of Side\nARMADILLO TRAIL *\n\u000014 \t\u000016\u00008\n\n-- 2 of 3 --\n\nCocktails \tBeerCanned Draft\nCarafes\t~\n\u00009\nNew Amsterdam Vodka or\nJack Daniel's, Lemonade,\nTriple Sec\nLYNCHBURG\nLEMONADE\n\u00009\nNew Amsterdam Vodka, Ginger\nBeer, Lime\nMOSCOW MULE\n\u00009\n360 Peach Vodka, Unsweet Tea,\nBlackberry Shrub, Lemon\nFRONT PORCH TEA\n\u00009\nLunazui Tequila, Lemon, Lime,\nTriple Sec\nMARGARITA\n\u00009\nSmirnoff Vanilla Vodka,\nOrange Juice, Milk\nORANGE DREAMSICLE\n\u00009\nNew Amsterdam Gin, Blackberry\nShrub, Lemon, Tonic Water\nWOODSIDE GIN &\nTONIC\n\u00009\nJack Daniels, Coke, Grenadine\nCRIMSON JACK ATTACK\n\u00009\nLunazui Tequila, Grenadine,\nOrange Juice\nTEQUILA SUNRISE\n\u00009\nVanilla Vodka, Godiva and Milk,\nChocolate Syrup, Graham Cracker,\nToasted Marshmallow\nCAMPFIRE S'MORES\n\u00009\nNew Amsterdam Vodka,\nCharleston Mix\nBLOODY MARY\n\u00009\nNew Amsterdam Vodka,\nBlackberry Shrub, Lemonade,\nPineapple Juice\nBERRY LEMONADE\n\u00009\nCaptain Morgan Rum, Don Q\nRum, Orange Juice, Pineapple\nJuice, Grenadine\nRUM RUNNER\n\u00009\nNew Amsterdam Vodka, Sprite,\nOrange Juice, Pineapple,\nGrenadine\nWILD WOODS PUNCH\n\u000013\tFull Carafe\nMimosa\n1/2 Carafe\nMimosa\n\u00007\n\u000023\tFull Carafe\nBloody Mary\n1/2 Carafe\nBloody Mary\n\u000015\n\u00005\nCoors Light\nMiller Lite\nMichelob Ultra\nDOMESTIC\n\u00006\nWhite Claw\nYuengling\nPREMIUM\n\u00007\nCheap Sunglasses\nGolden Ale\nGoat Island Dunkel\nGoat Island Blood Orange\nGood People Pale Ale\nModelo Especial\nCRAFT\n\u00008\nWitty Monkey Citrus\nWheat Ale\nJuicy Monkey IPA\nSour Berry Monkey\nHIGH GRAVITY\n\u000010\tYazoo\nHefeweizen\nYazoo\nHopry Hazy IPA\nWoodside\nAmerican Lager\n\u000010\n\u000010\nWINE\nGlass 8 \tBottle 32\nBrut, Wycliff\nLuccio Moscato\nSPARKLING\nPinot Noir, Carmel Road\nCabernet, Maddalena\nRED WINE\nSauvigon Blanc, The Champion\nWhite Blend, Josh Seaswept\nPinot Grigio, Ventessa\nRose, Vila Viva\nChardonnay, Butter Chardonnay\nWHITE WINE\nAll Drinks Contain 1 1/2 Ounce of Liquor, Unless Special Ordered.\n\n-- 3 of 3 --",
+    "[PDF: https://woodsideatgsp.com/wp-content/uploads/2024/08/Woodside-HH-Menu-2024.pdf]\nPROVERB CHARDONNAY $6\nPROVERB PINOT GRIGIO $6\nPROVERB PINOT NOIR $6\nPROVERB CABERNET $6\nD R A F T\nYazoo Hefeweizen \t$6\nYazoo HoprY HazY ipa $6\nwoodside american Lager $6\nBeer\tBeer\nWine\tWine\nAll drinks contain 1 1/4 ounces of liquor, unless special ordered.\nCocktails\tCocktails\nMEXICAN MULE $5\nmontezuma tequiLa, Lime Juice, ginger Beer\nGIN & TONIC $5\nBarton’s gin, fever tree tonic\nPEACH MARGARITA $5\nmontezuma tequiLa, peacH scHnapps,\ntres agave margarita mix\nBAY BREEZE $5\nBarton’s vodka , cranBerrY Juice, pineappLe Juice\nPINEAPPLE MARGARITA $5\nmontezuma tequiLa, pineappLe Juice,\ntres agave margarita mix\nPEACH LEMONADE $5\nBarton’s vodka , peacH scHnapps, Lemonade\nRUM RUNNER $5\nwHite rum, dark rum, grenadine,\norange Juice, pineappLe Juice\nVODKA SPRITZER $5\nvodka , simpLe sYrup, Lime Juice, sprite,\ncLuB soda, cranBerrY Juice\nBERRY MARGARITA $5\ntequiLa, BLackBerrY sHruB,\nLime Juice, tres agave margarita mix\nNibbles\tNibbles\n~ With Purchase of Cocktail ~\npLease view our weekLY\nspeciaLs prepared\nwitH\nfresH LocaL ingredients\nIf you have any concerns regarding food allergies, please alert your server prior to ordering.\n*This item may contain raw or undercooked meats, poultry, shellfish or eggs.\nConsuming raw or undercooked meats, poultry, shellfish or eggs may increase or risk\nfoodborne illnesses.\nWoodside Happy Hour\tWoodside Happy Hour\n~ 2PM - 7PM ~\nc a n n e d\ngenesee LigHt $2.50\ngenesee cream aLe $2.50\n\n-- 1 of 1 --",
+    "[PDF: https://woodsideatgsp.com/wp-content/uploads/2026/03/Woodside-March-Music.pdf]\nWOODSIDE RESTAURANT AT GULF STATE PARK\n20249 State Park Road | Gulf Shores, AL 36542 | woodsideatgsp.com | 251-923-3100\nComplimentary shuttle in the park available from 8 am to 8 pm\nOpen for breakfast, lunch and dinner\nMARCH LIVE MUSIC LINEUP\nLIVE MUSIC\nFeaturing Local Musicians\nWhen this is the backyard, Every day is the weekend.\nEnjoy the afternoon or evening and a cold one\nwhile you play cornhole, ping pong and other fun\ngames in our beautiful backyard.\nAlec Yasinsac \t3/1 \t4 pm - 8 pm\nBrent Varner \t3/6 \t4 pm - 8 pm\nBasch Jernigan \t3/7 \t4 pm - 8 pm\nGreg Brown \t3/8 \t4 pm - 8 pm\nAcoustical Soul \t3/13 \t4 pm - 8 pm\nDestiny Brown \t3/14 \t4 pm - 8 pm\nBrayden Scarborough 3/15 \t4 pm - 8 pm\nJesse Bumann \t3/20 \t4 pm - 8 pm\nSavannah Campbell \t3/21 \t4 pm - 8 pm\nJesse Taylor Perry \t3/22 \t4 pm - 8 pm\nHunter Myers \t3/27 \t4 pm - 8 pm\nDavid Wiley \t3/28 \t4 pm - 8 pm\nMatthew Erdman \t3/29 \t4 pm - 8 pm\nWoodside Restaurant\nFAMILY FUN | GREAT FOOD | BACKYARD GAMES\nCRAFT COCKTAILS | GENERAL STORE\n\n-- 1 of 1 --"
+  ],
+  "imageUrls": [
+    "https://woodsideatgsp.com/wp-content/uploads/2022/02/woodside_restaurant_gulf_state_park_logo-p-500.png",
+    "https://woodsideatgsp.com/wp-content/uploads/2022/02/woodside_backyard_1.jpg",
+    "https://woodsideatgsp.com/wp-content/uploads/2022/02/woodside_restaurant_interior.jpg",
+    "https://woodsideatgsp.com/wp-content/uploads/2022/02/gallery_beach_mouse_trail_sandwich.jpg",
+    "https://woodsideatgsp.com/wp-content/uploads/2022/02/5_whole_wings.jpg",
+    "https://woodsideatgsp.com/wp-content/uploads/2022/02/gallery_connect4.jpg",
+    "https://woodsideatgsp.com/wp-content/uploads/2022/02/lowcountry-boil.jpg",
+    "https://woodsideatgsp.com/wp-content/uploads/2022/02/all-american-breakfast-header-1024x691.jpg",
+    "https://woodsideatgsp.com/wp-content/uploads/2022/02/gallery_smores_fam.jpg",
+    "https://woodsideatgsp.com/wp-content/uploads/2022/02/header_billy_club-min-1024x693.jpg",
+    "https://woodsideatgsp.com/wp-content/uploads/2022/02/fun_games_checkers.jpg",
+    "https://woodsideatgsp.com/wp-content/uploads/2022/02/header_catman_hotcakes-min-1024x693.jpg",
+    "https://woodsideatgsp.com/wp-content/uploads/2022/02/gallery_brussel_sprouts.jpg",
+    "https://woodsideatgsp.com/wp-content/uploads/2022/02/fun_games_smores.jpg",
+    "https://woodsideatgsp.com/wp-content/uploads/2022/02/gallery_armadillo_trail_biscuits_gravy.jpg",
+    "https://woodsideatgsp.com/wp-content/uploads/2022/02/gallery_cornhole.jpg",
+    "https://woodsideatgsp.com/wp-content/uploads/2022/02/woodside_restaurant_logo_white-p-500.png"
+  ]
+}

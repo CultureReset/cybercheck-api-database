@@ -1,0 +1,306 @@
+{
+  "business_name": "Icehouse Tap Room",
+  "tagline": "The only place on the Waterfront where there is an uninterrupted sunset view 365 days a year!!",
+  "type": "Bar/Restaurant",
+  "contact": {
+    "phone": "(251) 200-0157",
+    "email": "gm@icehousegs.com",
+    "address": "112 Windmill Ridge Road",
+    "city": "Gulf Shores",
+    "state": "Alabama",
+    "zip": null
+  },
+  "hours": {
+    "monday": "11am - 2am",
+    "tuesday": "11am - 2am",
+    "wednesday": "11am - 2am",
+    "thursday": "11am - 2am",
+    "friday": "11am - 2am",
+    "saturday": "11am - 2am",
+    "sunday": "11am - 2am",
+    "notes": "Kitchen open late, under 21 till 9pm"
+  },
+  "about": {
+    "description": "Icehouse Tap Room is a local neighborhood beach bar and restaurant located on Little Lagoon in Gulf Shores, offering uninterrupted sunset views 365 days a year. Founded in 2000 in Baton Rouge, LA, it has expanded to Gulf Shores. The restaurant features a funky indoor space and beachy outdoor space with over 30 years of family-owned bar and restaurant experience. Not corporate driven, offering full menu with made-to-order items and 24 beers on tap.",
+    "elevator_pitch": "A family-owned beach bar and restaurant with uninterrupted sunset views, 24 craft beers on tap, and late-night dining in Gulf Shores.",
+    "vibe": "Casual, local, laid-back beach atmosphere with funky indoor and beachy outdoor spaces. A gathering place for friends, wanderers, and adventurers.",
+    "best_for": [
+      "friends gathering",
+      "watching sporting events",
+      "live music",
+      "late-night dining",
+      "sunset viewing",
+      "local experience"
+    ],
+    "established": "2000",
+    "reservations": null,
+    "insider_tip": "Open later than most businesses in the area with food service after midnight. Located directly behind the Original Oyster House on Hwy 59, two lights north of The Hangout. Try the house-made BBQ sauce and smoked boudin gumbo."
+  },
+  "tags": [
+    "casual",
+    "beach bar",
+    "restaurant",
+    "craft beer",
+    "local",
+    "live music",
+    "happy hour",
+    "late-night dining",
+    "waterfront",
+    "louisiana cuisine",
+    "award-winning beers"
+  ],
+  "features": [
+    "24 beers on tap",
+    "full bar",
+    "outdoor seating",
+    "waterfront views",
+    "live music daily",
+    "sporting event watch parties",
+    "late-night kitchen",
+    "made-to-order food",
+    "house-made BBQ sauce",
+    "event calendar"
+  ],
+  "price_range": "$$",
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "http://www.icehousegs.com"
+  },
+  "specials": [
+    {
+      "name": "Daytime Happy Hour",
+      "description": "Food and drink specials",
+      "days": [],
+      "time": "daytime"
+    }
+  ],
+  "events": [
+    {
+      "name": "Live Music",
+      "description": "Live Entertainment throughout the week",
+      "recurring": true,
+      "day": "Daily",
+      "time": null
+    },
+    {
+      "name": "Sporting Event Watch Parties",
+      "description": "Watch exciting sporting events",
+      "recurring": true,
+      "day": null,
+      "time": null
+    }
+  ],
+  "menu": {
+    "categories": [
+      {
+        "name": "Main Items",
+        "type": "lunch",
+        "items": [
+          {
+            "name": "Burgers",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Wings",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Louisiana Boudin",
+            "description": "Authentic Louisiana Boudin",
+            "price": null,
+            "tags": [
+              "louisiana"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Salads",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Street Tacos",
+            "description": "Authentic Hispanic street tacos",
+            "price": null,
+            "tags": [
+              "hispanic"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Chimichangas",
+            "description": null,
+            "price": null,
+            "tags": [
+              "hispanic"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Hand-Crafted Sandwiches",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Appetizers",
+        "type": "lunch",
+        "items": [
+          {
+            "name": "Chips & Salsa",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Specials",
+        "type": "specials",
+        "items": [
+          {
+            "name": "Smoked Boudin Gumbo",
+            "description": "Crazy good smoked boudin gumbo, great on cold days",
+            "price": null,
+            "tags": [
+              "louisiana",
+              "gumbo"
+            ],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Sides",
+        "type": "lunch",
+        "items": [
+          {
+            "name": "French Fries",
+            "description": "Crinkle cut french fries",
+            "price": null,
+            "tags": [],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Sauces",
+        "type": "specials",
+        "items": [
+          {
+            "name": "House-Made BBQ Sauce",
+            "description": "Love inspired, house-made sweet, spicy, garlic pepper BBQ sauce. Available to take home.",
+            "price": null,
+            "tags": [
+              "house-made"
+            ],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Drinks",
+        "type": "drinks",
+        "items": [
+          {
+            "name": "Beer on Tap",
+            "description": "24 local and national beers on tap, the most on the island in Gulf Shores",
+            "price": null,
+            "tags": [
+              "craft beer",
+              "local",
+              "award-winning"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Cocktails",
+            "description": "Variety of cocktails",
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Wine",
+            "description": "Variety of wines",
+            "price": null,
+            "tags": [],
+            "allergens": []
+          }
+        ]
+      }
+    ]
+  },
+  "url": "http://www.icehousegs.com",
+  "scraped_at": "2026-03-22T01:47:44.318Z",
+  "extracted_at": "2026-03-23T03:48:00.132Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://static.wixstatic.com/media/8efbd0_86efabec51874524936d3ad93b5e6734~mv2.png/v1/fill/w_105,h_97,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/IceHouse-GS-Logo.png",
+    "https://static.wixstatic.com/media/e1aa082f7c0747168d9cf43e77046142.png/v1/fill/w_39,h_39,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/e1aa082f7c0747168d9cf43e77046142.png",
+    "https://static.wixstatic.com/media/4057345bcf57474b96976284050c00df.png/v1/fill/w_39,h_39,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/4057345bcf57474b96976284050c00df.png",
+    "https://static.wixstatic.com/media/8efbd0_ae6506195ed14870857a872b73195cc2f000.jpg/v1/fill/w_1440,h_716,al_c,q_85,usm_0.33_1.00_0.00,enc_avif,quality_auto/8efbd0_ae6506195ed14870857a872b73195cc2f000.jpg",
+    "https://static.wixstatic.com/media/8efbd0_86efabec51874524936d3ad93b5e6734~mv2.png/v1/fill/w_226,h_190,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/IceHouse-GS-Logo.png",
+    "https://static.wixstatic.com/media/8efbd0_f01cef9881a34c91a98c60897601e1ae~mv2.png/v1/fill/w_322,h_137,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/AdobeStock_283110029.png",
+    "https://static.wixstatic.com/media/8efbd0_c534afb62a294b429b5294a5d1838f16~mv2.jpg/v1/fill/w_123,h_92,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/8efbd0_c534afb62a294b429b5294a5d1838f16~mv2.jpg",
+    "https://static.wixstatic.com/media/8efbd0_0eb2a1ae0feb45219788b0e17ca3da7e~mv2.jpg/v1/fill/w_147,h_196,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/8efbd0_0eb2a1ae0feb45219788b0e17ca3da7e~mv2.jpg",
+    "https://static.wixstatic.com/media/8efbd0_f66476c75a8843288bebab313fe09786~mv2.jpg/v1/fill/w_144,h_108,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/8efbd0_f66476c75a8843288bebab313fe09786~mv2.jpg",
+    "https://static.wixstatic.com/media/8efbd0_b420ea579bf24d51a41d7cc2a0a7b973~mv2.jpg/v1/fill/w_147,h_110,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/8efbd0_b420ea579bf24d51a41d7cc2a0a7b973~mv2.jpg",
+    "https://static.wixstatic.com/media/8efbd0_32fda8ab52c64c0789fc30e837f23bb9~mv2.jpg/v1/fill/w_130,h_173,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/8efbd0_32fda8ab52c64c0789fc30e837f23bb9~mv2.jpg",
+    "https://static.wixstatic.com/media/8efbd0_91d126bdea1e4a7bb6a273198a1c473f~mv2.jpg/v1/fill/w_147,h_110,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/8efbd0_91d126bdea1e4a7bb6a273198a1c473f~mv2.jpg",
+    "https://static.wixstatic.com/media/8efbd0_96536e09551c4dc090c4c2e88688a59d~mv2.jpg/v1/fill/w_130,h_173,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/8efbd0_96536e09551c4dc090c4c2e88688a59d~mv2.jpg",
+    "https://static.wixstatic.com/media/8efbd0_b747f5c5407b407d9b1eed327a5c0f86~mv2.jpg/v1/fill/w_130,h_173,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/8efbd0_b747f5c5407b407d9b1eed327a5c0f86~mv2.jpg",
+    "https://static.wixstatic.com/media/8efbd0_999f693916aa47939b73ae54415c5b38~mv2.jpg/v1/fill/w_147,h_110,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/8efbd0_999f693916aa47939b73ae54415c5b38~mv2.jpg",
+    "https://static.wixstatic.com/media/8efbd0_6c008c4d4b4c415196c22961b70ec3d7~mv2.jpg/v1/fill/w_144,h_108,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/8efbd0_6c008c4d4b4c415196c22961b70ec3d7~mv2.jpg",
+    "https://static.wixstatic.com/media/8efbd0_5fe8051bcb3041799a59db969f0a806a~mv2.jpeg/v1/fit/w_480,h_480,q_90,enc_avif,quality_auto/8efbd0_5fe8051bcb3041799a59db969f0a806a~mv2.jpeg",
+    "https://static.wixstatic.com/media/8efbd0_97298a1b8b2944a8be34e1dfbba828f1~mv2.jpeg/v1/fit/w_480,h_480,q_90,enc_avif,quality_auto/8efbd0_97298a1b8b2944a8be34e1dfbba828f1~mv2.jpeg",
+    "https://static.wixstatic.com/media/8efbd0_5d781a8fbfa647c79217458907e607a6~mv2.jpeg/v1/fit/w_480,h_480,q_90,enc_avif,quality_auto/8efbd0_5d781a8fbfa647c79217458907e607a6~mv2.jpeg",
+    "https://static.wixstatic.com/media/8efbd0_6c12f1cf4e2f4b3d968a0bc116a77ed6~mv2.jpeg/v1/fit/w_480,h_479,q_90,enc_avif,quality_auto/8efbd0_6c12f1cf4e2f4b3d968a0bc116a77ed6~mv2.jpeg",
+    "https://static.wixstatic.com/media/8efbd0_5bb8c393e04543b69806b91576feb591~mv2.jpeg/v1/fit/w_480,h_480,q_90,enc_avif,quality_auto/8efbd0_5bb8c393e04543b69806b91576feb591~mv2.jpeg",
+    "https://static.wixstatic.com/media/8efbd0_13551df9a5034fa69365137495aa28a3~mv2.jpg/v1/fit/w_360,h_360,q_90,enc_avif,quality_auto/8efbd0_13551df9a5034fa69365137495aa28a3~mv2.jpg",
+    "https://static.wixstatic.com/media/8efbd0_ce911058276a42719ccfc12446a65a90~mv2.jpg/v1/fit/w_480,h_480,q_90,enc_avif,quality_auto/8efbd0_ce911058276a42719ccfc12446a65a90~mv2.jpg",
+    "https://static.wixstatic.com/media/8efbd0_5a0316d940a541209912343cdc2a7460~mv2.jpg/v1/fit/w_480,h_480,q_90,enc_avif,quality_auto/8efbd0_5a0316d940a541209912343cdc2a7460~mv2.jpg",
+    "https://static.wixstatic.com/media/8efbd0_bd9b30021304499eb0de42434f70c2c0~mv2.jpg/v1/fit/w_480,h_479,q_90,enc_avif,quality_auto/8efbd0_bd9b30021304499eb0de42434f70c2c0~mv2.jpg",
+    "https://static.wixstatic.com/media/8efbd0_193d50ae3dfc401488c4dbac6616f24d~mv2.jpg/v1/fit/w_480,h_480,q_90,enc_avif,quality_auto/8efbd0_193d50ae3dfc401488c4dbac6616f24d~mv2.jpg",
+    "https://static.wixstatic.com/media/8efbd0_c0978b6dfc7846cc8c2643540aa7ecba~mv2.jpg/v1/fit/w_480,h_480,q_90,enc_avif,quality_auto/8efbd0_c0978b6dfc7846cc8c2643540aa7ecba~mv2.jpg",
+    "https://static.wixstatic.com/media/8efbd0_5ca9a996f11740fab5ce3183a1db4623~mv2.jpg/v1/fit/w_480,h_480,q_90,enc_avif,quality_auto/8efbd0_5ca9a996f11740fab5ce3183a1db4623~mv2.jpg",
+    "https://static.wixstatic.com/media/8efbd0_093542323f734cd0878df7ac28acd604~mv2.jpg/v1/fit/w_360,h_360,q_90,enc_avif,quality_auto/8efbd0_093542323f734cd0878df7ac28acd604~mv2.jpg",
+    "https://static.wixstatic.com/media/8efbd0_0ea0656116174fb98dba98899981f82b~mv2.jpg/v1/fit/w_480,h_479,q_90,enc_avif,quality_auto/8efbd0_0ea0656116174fb98dba98899981f82b~mv2.jpg",
+    "https://static.wixstatic.com/media/8efbd0_6b077a20541546ddb8aacc0ec173f067~mv2.jpg/v1/fit/w_480,h_480,q_90,enc_avif,quality_auto/8efbd0_6b077a20541546ddb8aacc0ec173f067~mv2.jpg",
+    "https://static.wixstatic.com/media/8efbd0_b420ea579bf24d51a41d7cc2a0a7b973~mv2.jpg/v1/fit/w_480,h_480,q_90,enc_avif,quality_auto/8efbd0_b420ea579bf24d51a41d7cc2a0a7b973~mv2.jpg",
+    "https://static.wixstatic.com/media/8efbd0_0eb2a1ae0feb45219788b0e17ca3da7e~mv2.jpg/v1/fit/w_480,h_480,q_90,enc_avif,quality_auto/8efbd0_0eb2a1ae0feb45219788b0e17ca3da7e~mv2.jpg",
+    "https://static.wixstatic.com/media/8efbd0_c534afb62a294b429b5294a5d1838f16~mv2.jpg/v1/fit/w_480,h_480,q_90,enc_avif,quality_auto/8efbd0_c534afb62a294b429b5294a5d1838f16~mv2.jpg",
+    "https://static.wixstatic.com/media/8efbd0_e433562ee754420eaf4b7c435802dc32~mv2.jpg/v1/fit/w_480,h_479,q_90,enc_avif,quality_auto/8efbd0_e433562ee754420eaf4b7c435802dc32~mv2.jpg",
+    "https://static.wixstatic.com/media/8efbd0_e284ee039b734908ac32505615dd0ee7~mv2.jpg/v1/fit/w_360,h_360,q_90,enc_avif,quality_auto/8efbd0_e284ee039b734908ac32505615dd0ee7~mv2.jpg",
+    "https://static.wixstatic.com/media/8efbd0_5d523c5fee9741db973fd968486fcf0f~mv2.jpg/v1/fit/w_360,h_360,q_90,enc_avif,quality_auto/8efbd0_5d523c5fee9741db973fd968486fcf0f~mv2.jpg",
+    "https://static.wixstatic.com/media/8efbd0_03e2df0b0dbd4c7a8357046a49281851~mv2.jpg/v1/fit/w_480,h_480,q_90,enc_avif,quality_auto/8efbd0_03e2df0b0dbd4c7a8357046a49281851~mv2.jpg",
+    "https://static.wixstatic.com/media/8efbd0_c974e1b10faf436eaf12d9f695379480~mv2.jpg/v1/fit/w_360,h_360,q_90,enc_avif,quality_auto/8efbd0_c974e1b10faf436eaf12d9f695379480~mv2.jpg",
+    "https://static.wixstatic.com/media/8efbd0_5747fa1868d24d4bb572b0229b7d625d~mv2.jpg/v1/fit/w_416,h_415,q_90,enc_avif,quality_auto/8efbd0_5747fa1868d24d4bb572b0229b7d625d~mv2.jpg",
+    "https://static.wixstatic.com/media/8efbd0_f1240547415b41c0a4bc8c793d85c758~mv2.jpg/v1/fit/w_480,h_480,q_90,enc_avif,quality_auto/8efbd0_f1240547415b41c0a4bc8c793d85c758~mv2.jpg",
+    "https://static.wixstatic.com/media/11062b_4b08c563cbf5450590a4c026b86df96b~mv2.jpeg/v1/fill/w_123,h_72,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/11062b_4b08c563cbf5450590a4c026b86df96b~mv2.jpeg",
+    "https://static.wixstatic.com/media/36ad44f30c054041aee29dd042431bc9.jpg/v1/fill/w_123,h_82,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/36ad44f30c054041aee29dd042431bc9.jpg",
+    "https://static.wixstatic.com/media/8efbd0_99733bb1850d4891b7e6cc3f67e06799~mv2.jpg/v1/crop/x_0,y_1,w_1200,h_1973/fill/w_900,h_1480,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/GS-MAIN-MENU-10-2025.jpg",
+    "https://static.wixstatic.com/media/8efbd0_df7dfac5195c474196a56ed99bd6fc2f~mv2.jpg/v1/fill/w_900,h_1172,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/8efbd0_df7dfac5195c474196a56ed99bd6fc2f~mv2.jpg",
+    "https://static.wixstatic.com/media/8efbd0_a443e4cc28064c1eade75f204f1caa2f~mv2.jpg/v1/fill/w_600,h_1553,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/GS-Night-Menu.jpg",
+    "https://static.wixstatic.com/media/8efbd0_2c493afefff94ffa91300318a70c4a4d~mv2.jpg/v1/crop/x_0,y_443,w_2048,h_637/fill/w_964,h_289,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/425401809_25501970986060391_3496416260509931027_n.jpg"
+  ],
+  "sources": [
+    "http://www.icehousegs.com",
+    "https://www.icehousegs.com/menu",
+    "https://www.icehousegs.com",
+    "https://www.icehousegs.com/dare"
+  ]
+}

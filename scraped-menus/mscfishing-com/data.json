@@ -1,0 +1,406 @@
+{
+  "business_name": "MSC Fishing Charters",
+  "tagline": "Swordfish, Tuna, & Snapper Fishing Tours in Gulf Shores, Mobile, Dauphin Island",
+  "type": "Fishing Charter",
+  "contact": {
+    "phone": "251-508-1674",
+    "email": "Info@mscfishing.com",
+    "address": "1577 AL-180",
+    "city": "Gulf Shores",
+    "state": "AL",
+    "zip": "36542"
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": "Hours not specified on website; contact for availability"
+  },
+  "about": {
+    "description": "MSC Fishing Charters is a top-rated offshore fishing charter service in Gulf Shores, Alabama, specializing in swordfish, tuna, snapper, and other Gulf species. Founded on a passion for saltwater fishing, the company offers professional, family-friendly offshore fishing experiences with experienced captains and modern equipment. Federally permitted for reef fish and pelagic species.",
+    "elevator_pitch": "Award-winning offshore fishing charters specializing in swordfish, tuna, and snapper in the Gulf of Mexico near Gulf Shores, Alabama.",
+    "vibe": "Professional, passionate, knowledgeable, family-friendly, genuine love for fishing, high-energy but welcoming",
+    "best_for": [
+      "families",
+      "groups",
+      "beginner anglers",
+      "experienced fishermen",
+      "corporate outings",
+      "special occasions"
+    ],
+    "capacity": "Up to approximately 6 passengers based on boat size",
+    "duration_options": [
+      "daytime offshore fishing",
+      "overnight offshore fishing",
+      "12-hour trips",
+      "custom durations"
+    ],
+    "departure_location": "Fort Morgan Marina area, Gulf Shores, AL",
+    "what_provided": [
+      "high-quality rods and reels",
+      "tackle",
+      "live bait",
+      "frozen bait",
+      "artificial lures",
+      "all fishing equipment",
+      "onboard restroom",
+      "custom JL Audio sound system",
+      "FLIR infrared camera",
+      "spacious seating",
+      "fish vacuum sealing service"
+    ],
+    "what_to_bring": [
+      "sunscreen",
+      "seasickness medication if prone",
+      "personal medications",
+      "towels",
+      "camera"
+    ],
+    "age_restriction": "No specific age restriction mentioned; family-friendly for all ages",
+    "weight_restriction": null,
+    "reservations": "Required; book online or call 251-508-1674",
+    "cancellation_policy": "Not specified on website",
+    "insider_tip": "Captain Vlad runs charters out of passion, not necessity, having other successful businesses. The Freeman 37vh is one of the best boats in its class, providing comfort even in rough water. The boat's quad Yamaha 300 engines provide nearly double the fishing time compared to other charters due to fast speeds (45 mph cruising, 65+ mph top speed)."
+  },
+  "tags": [
+    "offshore fishing",
+    "deep sea fishing",
+    "swordfish",
+    "tuna",
+    "snapper",
+    "red snapper",
+    "wahoo",
+    "amberjack",
+    "mahi-mahi",
+    "cobia",
+    "grouper",
+    "gulf of mexico",
+    "alabama fishing",
+    "charter fishing",
+    "family fishing",
+    "tournament fishing",
+    "award-winning"
+  ],
+  "features": [
+    "Freeman 37vh boat",
+    "quad Yamaha 300 outboard engines",
+    "onboard restroom",
+    "GPS and fish finders",
+    "FLIR infrared camera",
+    "JL Audio sound system",
+    "spacious deck",
+    "comfortable seating",
+    "federally permitted",
+    "fish vacuum sealing",
+    "professional captains",
+    "daytime and overnight trips",
+    "all tackle provided",
+    "expert guidance"
+  ],
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "tripadvisor": null,
+    "website": "https://www.mscfishing.com"
+  },
+  "specials": [
+    {
+      "name": "Free Fishing Charter Giveaway",
+      "description": "One lucky subscriber out of every 100 email signups will win a free fishing charter",
+      "days": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "time": null
+    }
+  ],
+  "events": [
+    {
+      "name": "Alabama Deep Sea Fishing Rodeo",
+      "description": "Annual tournament; MSC has won multiple awards including 2nd Place Swordfish Calcutta (2022), 3rd Place Yellowfin Tuna (2022), 1st Place Swordfish (2019)"
+    },
+    {
+      "name": "Fort Morgan Marina Tournaments",
+      "description": "Regular monthly tournaments; MSC won Biggest Wahoo - 104 lbs (March 2024) and Biggest Tuna - 228 lbs (February 2025)"
+    },
+    {
+      "name": "Charter Fishing Association Snapper Tournament",
+      "description": "MSC won 1st Place Red Snapper (2018)"
+    }
+  ],
+  "packages": [
+    {
+      "name": "Daytime Offshore Fishing Charter",
+      "type": "fishing",
+      "description": "Full day offshore fishing trip targeting swordfish, tuna, snapper, wahoo, and other pelagic and reef species. Includes all equipment, tackle, bait, expert guidance, and captain expertise.",
+      "duration": "12 hours",
+      "price": null,
+      "price_type": "per boat",
+      "price_note": "Price range listed as $ (budget-friendly); specific pricing not provided on website",
+      "min_people": 1,
+      "max_people": 6,
+      "what_included": [
+        "rods and reels",
+        "tackle",
+        "live bait",
+        "frozen bait",
+        "artificial lures",
+        "captain and crew expertise",
+        "onboard restroom",
+        "fish vacuum sealing service"
+      ],
+      "departure_times": [
+        "sunrise"
+      ],
+      "days_available": "Daily (weather permitting)",
+      "booking_url": "https://www.mscfishing.com",
+      "notes": "Full 12-hour fishing time (not including travel); boat covers distance quickly due to high-speed engines"
+    },
+    {
+      "name": "Overnight Offshore Fishing Charter",
+      "type": "fishing",
+      "description": "Extended overnight fishing trip for swordfish and other night-feeding species in deep offshore waters. Includes all equipment and expert guidance from experienced captains.",
+      "duration": "overnight / 12+ hours",
+      "price": null,
+      "price_type": "per boat",
+      "price_note": "Price range listed as $ (budget-friendly); specific pricing not provided on website",
+      "min_people": 1,
+      "max_people": 6,
+      "what_included": [
+        "rods and reels",
+        "tackle",
+        "live bait",
+        "frozen bait",
+        "artificial lures",
+        "captain and crew expertise",
+        "onboard restroom",
+        "fish vacuum sealing service"
+      ],
+      "departure_times": [
+        "evening / night departure"
+      ],
+      "days_available": "Daily (weather and season permitting)",
+      "booking_url": "https://www.mscfishing.com",
+      "notes": "Optimal for targeting swordfish and other species that feed at night; 80-100 miles offshore possible"
+    },
+    {
+      "name": "Custom Private Charter",
+      "type": "fishing",
+      "description": "Tailored offshore fishing trip customized to your goals, skill level, target species, and group preferences. Can be daytime, overnight, or custom duration.",
+      "duration": "custom",
+      "price": null,
+      "price_type": "per boat",
+      "price_note": "Contact for quote",
+      "min_people": 1,
+      "max_people": 6,
+      "what_included": [
+        "rods and reels",
+        "tackle",
+        "bait",
+        "expert guidance",
+        "captain expertise",
+        "all equipment"
+      ],
+      "departure_times": [
+        "flexible"
+      ],
+      "days_available": "Daily (weather permitting)",
+      "booking_url": "https://www.mscfishing.com",
+      "notes": "Customized to individual needs; perfect for families, first-timers, or experienced anglers"
+    }
+  ],
+  "awards_and_recognition": [
+    {
+      "year": 2018,
+      "award": "1st Place Red Snapper",
+      "tournament": "1st Annual Charter Fishing Association Snapper Tournament"
+    },
+    {
+      "year": 2019,
+      "award": "1st Place Swordfish",
+      "tournament": "Alabama Deep Sea Fishing Rodeo"
+    },
+    {
+      "year": "March 2019",
+      "award": "Biggest Swordfish - 239 lbs.",
+      "tournament": "Fort Morgan Marina"
+    },
+    {
+      "year": 2022,
+      "award": "2nd Place Swordfish Calcutta",
+      "tournament": "Alabama Deep Sea Fishing Rodeo"
+    },
+    {
+      "year": 2022,
+      "award": "3rd Place Yellowfin Tuna",
+      "tournament": "Alabama Deep Sea Fishing Rodeo"
+    },
+    {
+      "year": "March 2024",
+      "award": "Biggest Wahoo - 104 lbs.",
+      "tournament": "Fort Morgan Marina"
+    },
+    {
+      "year": "February 2025",
+      "award": "Biggest Tuna - 228 lbs.",
+      "tournament": "Fort Morgan Marina"
+    }
+  ],
+  "captains": [
+    {
+      "name": "Captain Cliff Adams",
+      "experience": "30+ years fishing Gulf Shores waters",
+      "credentials": "USCG 50-Ton Master Captain license",
+      "background": "Has navigated vessels up to 54 feet"
+    },
+    {
+      "name": "Captain Vlad Moldoveanu",
+      "experience": "Seasoned saltwater angler",
+      "credentials": null,
+      "background": "Originally from Romania; former kayak tournament angler; passionate about sharing fishing with others"
+    }
+  ],
+  "vessel_specifications": {
+    "name": "Freeman 37vh",
+    "manufacturer": "Freeman Boatworks",
+    "length": "37 feet",
+    "engines": "quad Yamaha 300 outboard engines",
+    "cruising_speed": "45 mph",
+    "top_speed": "65+ mph",
+    "features": [
+      "ventilated catamaran hull",
+      "JL Audio custom sound system",
+      "FLIR infrared camera",
+      "onboard restroom",
+      "spacious deck",
+      "comfortable seating",
+      "GPS",
+      "fish finders",
+      "radar"
+    ],
+    "permits": "Federally permitted for Reef Fish and Pelagic species",
+    "capacity": "6 passengers plus crew"
+  },
+  "service_areas": [
+    "Alabama Port",
+    "Dauphin Island",
+    "Fair Hope",
+    "Fort Morgan",
+    "Gulf Shores",
+    "Gulf Highlands",
+    "Mobile",
+    "Oyster Bay",
+    "Orange Beach",
+    "Perdido Key",
+    "Pensacola",
+    "Pensacola Beach",
+    "Point Clear"
+  ],
+  "target_species": [
+    "Yellowfin Tuna",
+    "Blackfin Tuna",
+    "Red Snapper",
+    "Grouper",
+    "Swordfish",
+    "Wahoo",
+    "Amberjack",
+    "King Mackerel",
+    "Cobia",
+    "Mahi-mahi",
+    "Triggerfish",
+    "Snapper varieties"
+  ],
+  "reviews_summary": {
+    "rating": 5,
+    "number_of_reviews": 36,
+    "review_highlights": [
+      "Captain Vlad's exceptional attitude and genuine passion for fishing",
+      "High success rate catching fish (tuna, wahoo, snapper, etc.)",
+      "Comfortable and well-maintained Freeman boat",
+      "Expert guidance suitable for beginners and experienced anglers",
+      "Full 12-hour fishing time (not including travel)",
+      "Professional, knowledgeable, and hospitable captains",
+      "Fish vacuum sealing service (unique feature)",
+      "Great for families and first-time deep sea anglers"
+    ]
+  },
+  "geo_coordinates": {
+    "latitude": 30.232903934940236,
+    "longitude": -87.99455492883524
+  },
+  "url": "https://www.mscfishing.com",
+  "scraped_at": "2026-03-21T19:52:22.669Z",
+  "extracted_at": "2026-03-23T03:53:48.648Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://www.mscfishing.com/static/sitefiles/images/thumb-msc-fishing-logo_4.png",
+    "https://www.mscfishing.com/templates/fi-fishing/images/logo/thumb-msc-fishing-logo_1.png",
+    "https://www.mscfishing.com/static/sitefiles/content_slider/slider2.jpg",
+    "https://www.mscfishing.com/static/sitefiles/content_slider/mobile-slider2.jpg",
+    "https://www.mscfishing.com/static/sitefiles/content_slider/FreemanBoatcontentsliderwideview.jpg",
+    "https://www.mscfishing.com/static/sitefiles/content_slider/FreemanBoatcontentsliderMobileview.jpg",
+    "https://www.mscfishing.com/static/sitefiles/content_slider/slider_1.jpg",
+    "https://www.mscfishing.com/static/sitefiles/content_slider/mobile_2.jpg",
+    "https://www.mscfishing.com/static/sitefiles/images/powered_by_google_on_white.png",
+    "https://www.mscfishing.com/static/sitefiles/google.png",
+    "https://www.mscfishing.com/static/sitefiles/images/Offshore_Fishing_Charter_Image.png",
+    "https://www.mscfishing.com/static/sitefiles/photogallery/202512151454467_33473_thumb.webp",
+    "https://www.mscfishing.com/static/sitefiles/photogallery/202512151454466_33968_thumb.webp",
+    "https://www.mscfishing.com/static/sitefiles/photogallery/202512151454461_33011_thumb.webp",
+    "https://www.mscfishing.com/static/sitefiles/photogallery/202512151454465_33475_thumb.webp",
+    "https://www.mscfishing.com/static/sitefiles/photogallery/202512151454464_33481_thumb.webp",
+    "https://www.mscfishing.com/static/sitefiles/photogallery/202512151454463_23078_thumb.webp",
+    "https://www.mscfishing.com/static/sitefiles/blog/2menholdingtuna2_thumb.jpg",
+    "https://www.mscfishing.com/static/sitefiles/ai/images/db6e0b45316d44b5bed3dff2de64764a_thumb.jpg",
+    "https://www.mscfishing.com/static/sitefiles/ai/images/04dc7b619ea338e25ce22b18c9673a29_thumb.jpg",
+    "https://www.mscfishing.com/static/sitefiles/images/icon_close-circle_1.png",
+    "https://www.mscfishing.com/static/sitefiles/images/fishman.png",
+    "https://www.mscfishing.com/static/sitefiles/images/site_optuno.png",
+    "https://www.mscfishing.com/static/sitefiles/images/Pop_Up_Image.jpg",
+    "https://www.mscfishing.com/static/sitefiles/pages/innerbanner21.jpg",
+    "https://www.mscfishing.com/static/sitefiles/images/about-us_2.jpg",
+    "https://www.mscfishing.com/static/sitefiles/staff/Cliff_Adams.jpg",
+    "https://www.mscfishing.com/static/sitefiles/staff/Vlad_Moldoveanu.jpg",
+    "https://www.mscfishing.com/static/sitefiles/images/about-us-our-boat.jpg",
+    "https://www.mscfishing.com/static/sitefiles/images/about.jpg",
+    "https://www.mscfishing.com/static/sitefiles/photogallery/IMG_6374_thumb.jpg",
+    "https://www.mscfishing.com/static/sitefiles/photogallery/IMG_6352_thumb.jpg",
+    "https://www.mscfishing.com/static/sitefiles/photogallery/imagejpeg_4_thumb.jpg",
+    "https://www.mscfishing.com/static/sitefiles/photogallery/DJI_0325_thumb.jpg",
+    "https://www.mscfishing.com/static/sitefiles/photogallery/DJI_0323_thumb.jpg",
+    "https://www.mscfishing.com/static/sitefiles/photogallery/1000012223_thumb.jpg",
+    "https://www.mscfishing.com/static/sitefiles/photogallery/1000012216_thumb.jpg",
+    "https://www.mscfishing.com/static/sitefiles/photogallery/1000010746_thumb.jpg",
+    "https://www.mscfishing.com/static/sitefiles/photogallery/1000010694_thumb.jpg",
+    "https://www.mscfishing.com/static/sitefiles/photogallery/1000010693_thumb.jpg",
+    "https://www.mscfishing.com/static/sitefiles/photogallery/1000010692_thumb.jpg",
+    "https://www.mscfishing.com/static/sitefiles/photogallery/1000010691_thumb.jpg",
+    "https://www.mscfishing.com/static/sitefiles/photogallery/1000010685_thumb.jpg",
+    "https://www.mscfishing.com/static/sitefiles/photogallery/1000010684_thumb.jpg",
+    "https://www.mscfishing.com/static/sitefiles/photogallery/1000010682_thumb.jpg",
+    "https://www.mscfishing.com/static/sitefiles/photogallery/1000010681_thumb.jpg",
+    "https://www.mscfishing.com/static/sitefiles/photogallery/1000010680_thumb.jpg",
+    "https://www.mscfishing.com/static/sitefiles/photogallery/1000010573_thumb.jpg",
+    "https://www.mscfishing.com/static/sitefiles/photogallery/1000010523_thumb.jpg",
+    "https://www.mscfishing.com/static/sitefiles/photogallery/1000010509_thumb.jpg"
+  ],
+  "sources": [
+    "https://www.mscfishing.com",
+    "https://www.mscfishing.com/about-us",
+    "https://www.mscfishing.com/about-us/partners",
+    "https://www.mscfishing.com/about-us/service-areas",
+    "https://www.mscfishing.com/about-us/service-areas/mobile",
+    "https://www.mscfishing.com/about-us/service-areas/pensacola",
+    "https://www.mscfishing.com/contact-us",
+    "https://www.mscfishing.com/blog/what-makes-gulf-shores-a-prime-location-for-bottom-fishing"
+  ]
+}

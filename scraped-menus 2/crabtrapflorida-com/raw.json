@@ -1,0 +1,134 @@
+{
+  "business_name": "crabtrapflorida.com",
+  "url": "https://crabtrapflorida.com",
+  "scraped_at": "2026-03-21T19:32:16.343Z",
+  "pages": [
+    {
+      "url": "https://crabtrapflorida.com",
+      "title": "Home - The Crab Trap - Seafood Restaurant in FL",
+      "text": "Skip to main contentWin $500! Enter by writing a dish review to help others. Drawing 4/1.HomeLocationsOur StoryPrivate EventsThe Crab Trap-logoBecome a VIPSign InMore Join Our TeamEventsContact UsThe Crab TrapSun. Sand. Seafood.Everything You Came to the Beach For!Three Waterfront LocationsBeautiful views of the Gulf of Mexico and fresh local seafood make each Crab Trap location a must for famililes year after year.Destin, FloridaSince 1991, The Crab Trap in Destin has been a family tradition for all the right reasons… it's everything you came to the beach for! Gulf-front views, local seafood, and happy service complete the iconic experience. Sandy toes and salty hair is welcomed for lunch and dinner in the dining room, or classic coastal cocktails at the beach bar. It's easy to see why The Crab Trap is a staple in the lives of Emerald Coast locals and visitors.Explore LocationOkaloosa Island, FloridaLocated at the busy Boardwalk, The Crab Trap is known as the first and last stop for visitors. Perched high above the powder white sand over the Gulf, it's the perfect place to begin or end your day at the beach. Be sure to taste their award-winning gumbo, and the \"must have while at the beach\" wild Alaska crab legs. Simply put, The Crab Trap is everything you came to the beach for!Explore LocationPerdido Key, FloridaFound on the \"lost island\" of Perdido Key, Florida, The Crab Trap, Perdido is a waterfront fish-house on the Gulf of Mexico. With a boardwalk leading directly down to the sparkling white sand and emerald water, The Crab Trap is a great spot for a casual lunch, intimate night out, or a family day on the water. Easy parking, a huge playground, and a special menu designed just for kids make The Crab Trap the perfect spot for the whole family.Explore LocationBest of the BeachWhether it's fresh Gulf shrimp or mounds of crab legs you crave, we've got you covered with all the beach favorites!Our StoryYou're at the Beach...Time to Get Crabby 🦀Sink your claws into five different variations of wild, natural, and sustainable crustaceans that'll leave you crab-isfied.Nothing Says Vacation,Like Pina ColadasFrom coladas to daiquiris, frozen cocktails are a must at the beach and our bartenders don't disappoint.Take in The ViewAnd throw back a cocktail (or two)Made with by Popmenu(opens in a new window)Join Trap TalkContact UsCareer OpportunitiesHealth & Safety ProceduresThe Crab TrapWebsite Accessibility AssistanceOpens in a new windowOpens an external siteOpens an external site in a new window",
+      "structuredData": [
+        {
+          "@context": "https://schema.org/",
+          "@type": "Restaurant",
+          "address": {
+            "addressLocality": "Fort Walton Beach",
+            "addressRegion": "FL",
+            "email": "management@crabtrapfwb.com",
+            "postalCode": "32548",
+            "streetAddress": "1450 Miracle Strip Parkway",
+            "telephone": "8503010959"
+          },
+          "email": "management@crabtrapfwb.com",
+          "foundingDate": 1991,
+          "image": "https://popmenucloud.com/cdn-cgi/image/width=1920,height=1920,format=auto,fit=scale-down/zhxjwirs/d6ec8256-cb5f-41c7-a65b-8748deeca784.jpg",
+          "latitude": "30.394168",
+          "logo": "https://popmenucloud.com/cdn-cgi/image/width=300,height=300,format=auto,fit=scale-down/zhxjwirs/57f0f466-960f-42bf-af12-9dd0d97d9d95.png",
+          "longitude": "-86.591325",
+          "name": "The Crab Trap",
+          "openingHours": [
+            "Su 11:00-22:00",
+            "Mo 11:00-22:00",
+            "Tu 11:00-22:00",
+            "We 11:00-22:00",
+            "Th 11:00-22:00",
+            "Fr 11:00-22:00",
+            "Sa 11:00-22:00"
+          ],
+          "priceRange": "$$",
+          "servesCuisine": "Seafood Restaurant",
+          "telephone": "8503010959",
+          "url": "https://www.crabtrapflorida.com"
+        },
+        {
+          "@context": "https://schema.org/",
+          "@type": "Restaurant",
+          "address": {
+            "addressLocality": "Destin",
+            "addressRegion": "FL",
+            "email": "management@crabtrapdestin.com",
+            "postalCode": "32541",
+            "streetAddress": "3500 Scenic Hwy 98 East",
+            "telephone": "8506542722"
+          },
+          "email": "management@crabtrapdestin.com",
+          "foundingDate": 1991,
+          "image": "https://popmenucloud.com/cdn-cgi/image/width=1920,height=1920,format=auto,fit=scale-down/zhxjwirs/d6ec8256-cb5f-41c7-a65b-8748deeca784.jpg",
+          "latitude": "30.380525",
+          "logo": "https://popmenucloud.com/cdn-cgi/image/width=300,height=300,format=auto,fit=scale-down/zhxjwirs/57f0f466-960f-42bf-af12-9dd0d97d9d95.png",
+          "longitude": "-86.408863",
+          "name": "The Crab Trap",
+          "openingHours": [
+            "Su 11:00-22:00",
+            "Mo 11:00-22:00",
+            "Tu 11:00-22:00",
+            "We 11:00-22:00",
+            "Th 11:00-22:00",
+            "Fr 11:00-22:00",
+            "Sa 11:00-22:00"
+          ],
+          "priceRange": "$$",
+          "servesCuisine": "Seafood Restaurant",
+          "telephone": "8506542722",
+          "url": "https://www.crabtrapflorida.com"
+        },
+        {
+          "@context": "https://schema.org/",
+          "@type": "Restaurant",
+          "address": {
+            "addressLocality": "Pensacola",
+            "addressRegion": "FL",
+            "postalCode": "32507",
+            "streetAddress": "16495 Perdido Key Dr",
+            "telephone": "8504928888"
+          },
+          "foundingDate": 1991,
+          "image": "https://popmenucloud.com/cdn-cgi/image/width=1920,height=1920,format=auto,fit=scale-down/zhxjwirs/d6ec8256-cb5f-41c7-a65b-8748deeca784.jpg",
+          "latitude": "30.2852",
+          "logo": "https://popmenucloud.com/cdn-cgi/image/width=300,height=300,format=auto,fit=scale-down/zhxjwirs/57f0f466-960f-42bf-af12-9dd0d97d9d95.png",
+          "longitude": "-87.498191",
+          "name": "The Crab Trap",
+          "openingHours": [
+            "Su 11:00-21:00",
+            "Mo 11:00-21:00",
+            "Tu 11:00-21:00",
+            "We 11:00-21:00",
+            "Th 11:00-21:00",
+            "Fr 11:00-22:00",
+            "Sa 11:00-22:00"
+          ],
+          "priceRange": "$$",
+          "servesCuisine": "Seafood Restaurant",
+          "telephone": "8504928888",
+          "url": "https://www.crabtrapflorida.com"
+        }
+      ],
+      "meta": {
+        "google": "notranslate",
+        "viewport": "width=device-width, initial-scale=1.0, minimum-scale=1.0",
+        "description": "The Crab Trap in Fort Walton Beach, FL. Fresh local seafood and incredible views of the beautiful Gulf of Mexico… The Crab Trap is everything you came to the beach for! With 3 locations along the Florida panhandle, we have become a favorite destination and tradition for visitors and locals alike since the first restaurant opened in 1991 at James Lee Park in Destin.\n\nOur secret to fresh Gulf seafood is from our very own wild fish processing facility, known as the Seafood Commissary. Located at The Boardwalk on Okaloosa Island, the commissary is the hub for all locally-sourced seafood for the Crab Trap and their sister restaurants. With deliveries arriving daily straight from the harbor, each year the commissary prepares over 250,000 lbs of fresh-caught Gulf seafood such as shrimp, grouper, snapper, mahi-mahi, cobia, wahoo, and amberjack. The Crab Trap is fully committed to bringing only the freshest seafood directly from the Gulf to your table.\n\nOur vast menu also includes wild & sustainable Alaska crab, domestic crab claws, and jumbo lump crab meat. Local produce delivers daily to ensure the freshest flavors, and only the best trans-fat-free canola oil is used for frying. And most importantly, every dish is prepared and served to you by the happiest staff in the sunshine state!",
+        "og:description": "The Crab Trap in Fort Walton Beach, FL. Fresh local seafood and incredible views of the beautiful Gulf of Mexico… The Crab Trap is everything you came to the beach for! With 3 locations along the Florida panhandle, we have become a favorite destination and tradition for visitors and locals alike since the first restaurant opened in 1991 at James Lee Park in Destin.\n\nOur secret to fresh Gulf seafood is from our very own wild fish processing facility, known as the Seafood Commissary. Located at The Boardwalk on Okaloosa Island, the commissary is the hub for all locally-sourced seafood for the Crab Trap and their sister restaurants. With deliveries arriving daily straight from the harbor, each year the commissary prepares over 250,000 lbs of fresh-caught Gulf seafood such as shrimp, grouper, snapper, mahi-mahi, cobia, wahoo, and amberjack. The Crab Trap is fully committed to bringing only the freshest seafood directly from the Gulf to your table.\n\nOur vast menu also includes wild & sustainable Alaska crab, domestic crab claws, and jumbo lump crab meat. Local produce delivers daily to ensure the freshest flavors, and only the best trans-fat-free canola oil is used for frying. And most importantly, every dish is prepared and served to you by the happiest staff in the sunshine state!",
+        "og:image": "https://popmenucloud.com/cdn-cgi/image/width=300,height=300,format=auto,fit=pad,background=transparent/zhxjwirs/57f0f466-960f-42bf-af12-9dd0d97d9d95.png",
+        "apple-mobile-web-app-title": "The Crab Trap",
+        "msapplication-TileColor": "#FFFFFF",
+        "msapplication-TileImage": "https://www.crabtrapflorida.com/favicon.png",
+        "theme-color": "#e0020b",
+        "google-site-verification": "bRG8enWZz1sjY_prpUZS56PSKsi1nvje9l980eINbuY"
+      }
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": [
+    "https://popmenucloud.com/cdn-cgi/image/width%3D1200%2Cheight%3D1200%2Cfit%3Dscale-down%2Cformat%3Dauto%2Cquality%3D60/zhxjwirs/0d29410a-17ba-4bd9-a0ac-dfbdae570b23.jpeg",
+    "https://popmenucloud.com/cdn-cgi/image/width%3D1200%2Cheight%3D1200%2Cfit%3Dscale-down%2Cformat%3Dauto%2Cquality%3D60/zhxjwirs/93361c30-46e7-47f8-8228-04871c68af0e.jpeg",
+    "https://popmenucloud.com/cdn-cgi/image/width%3D1200%2Cheight%3D1200%2Cfit%3Dscale-down%2Cformat%3Dauto%2Cquality%3D60/zhxjwirs/1f8d2fb8-b079-4851-9e56-53b629b09362.jpeg",
+    "https://popmenucloud.com/cdn-cgi/image/width%3D1200%2Cheight%3D1200%2Cfit%3Dscale-down%2Cformat%3Dauto%2Cquality%3D60/zhxjwirs/da0664e7-87af-4282-b42b-15b03719cc99.jpeg",
+    "https://popmenucloud.com/cdn-cgi/image/width%3D1200%2Cheight%3D1200%2Cfit%3Dscale-down%2Cformat%3Dauto%2Cquality%3D60/zhxjwirs/632d7b55-0b4c-4b89-820d-d9db829da544.JPG",
+    "https://popmenucloud.com/cdn-cgi/image/width%3D1200%2Cheight%3D1200%2Cfit%3Dscale-down%2Cformat%3Dauto%2Cquality%3D60/zhxjwirs/57f8d589-5e42-4670-ab3a-b0ccb4a825a6.jpeg",
+    "https://popmenucloud.com/cdn-cgi/image/width%3D600%2Cheight%3D600%2Cfit%3Dscale-down%2Cformat%3Dauto%2Cquality%3D60/zhxjwirs/6fcdc814-a3db-4628-b9d1-8d5e856b2994.jpg",
+    "https://popmenucloud.com/cdn-cgi/image/width%3D600%2Cheight%3D600%2Cfit%3Dscale-down%2Cformat%3Dauto%2Cquality%3D60/zhxjwirs/4084f0b6-dd42-4dc3-a2bd-9e87e6ddd395.jpg",
+    "https://popmenucloud.com/cdn-cgi/image/width%3D600%2Cheight%3D600%2Cfit%3Dscale-down%2Cformat%3Dauto%2Cquality%3D60/zhxjwirs/d6ec8256-cb5f-41c7-a65b-8748deeca784.jpg",
+    "https://popmenucloud.com/cdn-cgi/image/width%3D600%2Cheight%3D600%2Cfit%3Dscale-down%2Cformat%3Dauto%2Cquality%3D60/zhxjwirs/676294fd-506d-499d-9e6a-6a7ec2d4e5af.jpeg"
+  ]
+}

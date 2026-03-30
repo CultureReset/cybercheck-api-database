@@ -1,0 +1,72 @@
+{
+  "business_name": "Royal Eats LLC",
+  "tagline": "Step right up to a magical fusion of Southern comfort and carnival flair!",
+  "type": "Restaurant",
+  "contact": {
+    "phone": "0000000000",
+    "email": null,
+    "address": "1004 Mckenzie Street",
+    "city": "Foley",
+    "state": "AL",
+    "zip": "36535"
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": "Open now • Closes at 8PM (specific daily hours not provided)"
+  },
+  "about": {
+    "description": "A unique fusion of Southern comfort and carnival flair offering signature dishes that combine traditional Southern recipes with playful carnival twists.",
+    "elevator_pitch": "Experience Southern comfort food with a vibrant, festive carnival twist.",
+    "vibe": "Vibrant, festive, playful carnival atmosphere with Southern comfort dining",
+    "best_for": [
+      "families",
+      "casual dining",
+      "carnival experience"
+    ],
+    "established": null,
+    "reservations": null,
+    "insider_tip": null
+  },
+  "tags": [
+    "Southern cuisine",
+    "comfort food",
+    "carnival-themed",
+    "casual dining"
+  ],
+  "features": [
+    "online ordering",
+    "gift cards",
+    "loyalty program",
+    "email marketing"
+  ],
+  "price_range": "$$",
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "http://www.royal-eats.com"
+  },
+  "specials": [],
+  "events": [],
+  "menu": {
+    "categories": []
+  },
+  "url": "http://www.royal-eats.com",
+  "scraped_at": "2026-03-22T18:32:28.350Z",
+  "extracted_at": "2026-03-23T04:05:16.786Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://d28f3w0x9i80nq.cloudfront.net/restaurantImages/6a44c3c6-2258-4e1d-9028-04680db5112a/thumbnail_royaleats.jpg",
+    "https://d1w7312wesee68.cloudfront.net/a2yIeuNsBRaebQq7WmJbXTC8W2jer1VQ0Zv_CHfejGc/ext:webp/quality:85/plain/s3://toast-sites-resources-prod/restaurantImages/6a44c3c6-2258-4e1d-9028-04680db5112a/thumbnail_royaleats.jpg",
+    "https://d1w7312wesee68.cloudfront.net/loN8qaguNyAWbu68PuybuNbeLkFNeDN4k_UNpeCMWqs/ext:webp/quality:85/plain/s3://toast-sites-resources-prod/stockImages/silverware-holder.jpeg",
+    "https://d1w7312wesee68.cloudfront.net/HP9BbddXZ6RcYwPjY28ULm-tFD2fSJAQE39IDyaRiZE/ext:webp/quality:85/c:4032:3024:ce:0:0/plain/s3://toast-sites-resources-prod/restaurantImages/6a44c3c6-2258-4e1d-9028-04680db5112a/BURGER.jpeg"
+  ],
+  "sources": [
+    "http://www.royal-eats.com"
+  ]
+}

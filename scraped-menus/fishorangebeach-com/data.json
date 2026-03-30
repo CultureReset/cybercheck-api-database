@@ -1,0 +1,180 @@
+{
+  "business_name": "Intimidator Deep Sea Fishing Charters",
+  "tagline": "Orange Beach Deep Sea Fishing Charters for the Alabama Gulf Coast",
+  "type": "Fishing Charter",
+  "contact": {
+    "phone": "(251) 747-2872",
+    "email": "fishorangebeach@gmail.com",
+    "address": "27075 Marina Road, Orange Beach Marina, Boat Slip E13",
+    "city": "Orange Beach",
+    "state": "AL",
+    "zip": "36561"
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": "Hours vary by trip type. Book online or call for availability."
+  },
+  "about": {
+    "description": "Intimidator Deep Sea Fishing Charters is a professional offshore fishing charter service operating out of Orange Beach Marina. They offer half-day, full-day, and overnight deep sea fishing trips targeting both reef species and big game fish. The operation is led by Captain Johnny Greene and features a 65x19 ft Sportfisherman vessel built specifically for extended offshore fishing charters. They serve Orange Beach, Gulf Shores, Fort Morgan, and Perdido Key.",
+    "elevator_pitch": "Professional offshore deep sea fishing charters with a safety-first crew, modern equipment, and a clear game plan for reef fish and big game pelagics.",
+    "vibe": "Professional, safety-focused, experienced crew with a focus on real fishing rather than casual tourist experiences.",
+    "best_for": [
+      "serious anglers",
+      "fishing enthusiasts",
+      "group fishing trips",
+      "families interested in offshore fishing",
+      "big game hunters"
+    ],
+    "established": "1996",
+    "reservations": "Required. Book online through new booking system or call/text (251) 747-2872. No walk-ons accepted.",
+    "insider_tip": "Text your date, group size, trip type (Day/Full/Overnight), and target fish to (251) 747-2872 for crew recommendations on best booking option."
+  },
+  "tags": [
+    "deep sea fishing",
+    "offshore charter",
+    "reef fishing",
+    "big game fishing",
+    "Gulf Coast",
+    "professional crew",
+    "safety-first"
+  ],
+  "features": [
+    "65x19 ft Sportfisherman vessel",
+    "Air conditioning and heating",
+    "Sleeps 10 passengers plus crew",
+    "Modern offshore electronics",
+    "Satellite TV",
+    "Full galley with refrigerator, microwave, toaster oven",
+    "Big Green Egg Grill",
+    "Bathrooms with showers",
+    "1000 pound per day ice maker",
+    "350 qt YETI cooler",
+    "41 ft Rupp outriggers",
+    "Pompanette 130 class fighting chair",
+    "Custom Tuna Tower",
+    "GPS, Radar, Sonar equipment",
+    "VHF and SSB radios",
+    "Satellite phone",
+    "EPIRB safety equipment",
+    "Twin 600 hp Caterpillar Diesel engines",
+    "Twin 21kw generators",
+    "Fish cleaning station"
+  ],
+  "price_range": "$$$",
+  "social_links": {
+    "instagram": null,
+    "facebook": "facebook.com/intimidatorfishing",
+    "twitter": "twitter.com/intimidator",
+    "youtube": "youtube.com",
+    "tripadvisor": "tripadvisor.com",
+    "website": "https://www.fishorangebeach.com"
+  },
+  "specials": [
+    {
+      "name": "NEW BOOKING SYSTEM",
+      "description": "New online booking system implemented for easier trip reservations",
+      "days": [],
+      "time": null
+    }
+  ],
+  "events": [
+    {
+      "name": "Half Day Trips",
+      "description": "Bottom fishing for reef species including Triggerfish, Vermilion Snapper, Great Amberjack, and other reef fish. Red Snapper and Grouper available seasonally.",
+      "recurring": true,
+      "day": null,
+      "time": null
+    },
+    {
+      "name": "Full Day Trips",
+      "description": "Extended range and more time on productive structures with better odds at quality reef fish when conditions permit.",
+      "recurring": true,
+      "day": null,
+      "time": null
+    },
+    {
+      "name": "Overnight / Multi-Day Trips",
+      "description": "Big game pelagic fishing targeting Yellowfin Tuna, Blue Marlin, Wahoo, Mahi Mahi (Dorado/Dolphin) and other pelagic species. Limited to 4-8 passengers due to USCG requirements. One night offshore for overnights, 2 nights offshore for multi-day trips.",
+      "recurring": true,
+      "day": null,
+      "time": null
+    }
+  ],
+  "menu": null,
+  "additional_info": {
+    "captain": "Johnny Greene",
+    "crew_certifications": "All crew members are CPR and first aid certified and comply with USCG zero tolerance random drug testing",
+    "Coast_Guard_compliance": "USCG inspected for 46 passengers, yearly inspections of safety equipment and hull",
+    "vessel_name": "Intimidator",
+    "services_available": [
+      "Fishing rod and reel rental",
+      "Tackle and bait provided",
+      "Fish storage and ice",
+      "Pre-trip game plan briefing",
+      "Post-booking checklist provided"
+    ],
+    "service_area": [
+      "Orange Beach",
+      "Gulf Shores",
+      "Fort Morgan",
+      "Perdido Key",
+      "Alabama Gulf Coast"
+    ],
+    "merchandise": "Store on-site selling t-shirts, seasonings, and branded hooks",
+    "mailing_address": "P.O. Box 1543, Orange Beach, AL 36561"
+  },
+  "url": "https://www.fishorangebeach.com",
+  "scraped_at": "2026-03-21T19:53:10.774Z",
+  "extracted_at": "2026-03-23T03:41:27.467Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://www.fishorangebeach.com/images/logos/vFinale-Intimidator-logo-2400w-2026-transparent.webp",
+    "https://www.fishorangebeach.com/images/logos/tripavisor-logo.jpg",
+    "https://www.fishorangebeach.com/images/logos/facebook-icon.png",
+    "https://www.fishorangebeach.com/images/logos/twitter-icon.png",
+    "https://www.fishorangebeach.com/images/logos/youtube-icon.png",
+    "https://www.fishorangebeach.com/images/Slide-Show-2026/IMG_2770.webp",
+    "https://www.fishorangebeach.com/images/Slide-Show-2026/IMG_2963.webp",
+    "https://www.fishorangebeach.com/images/Slide-Show-2026/IMG_3395.webp",
+    "https://www.fishorangebeach.com/images/Slide-Show-2026/IMG_3650.webp",
+    "https://www.fishorangebeach.com/images/Slide-Show-2026/IMG_3680.webp",
+    "https://www.fishorangebeach.com/images/Slide-Show-2026/IMG_3874.webp",
+    "https://www.fishorangebeach.com/images/Slide-Show-2026/IMG_4100.webp",
+    "https://www.fishorangebeach.com/images/Slide-Show-2026/IMG_5120.webp",
+    "https://www.fishorangebeach.com/images/Slide-Show-2026/IMG_7072.webp",
+    "https://www.fishorangebeach.com/images/Slide-Show-2026/IMG_8324.webp",
+    "https://www.fishorangebeach.com/images/LAYOUT/rates-160w-RO.jpg",
+    "https://www.fishorangebeach.com/images/layout/Specials-160w-RO.jpg",
+    "https://www.fishorangebeach.com/images/layout/mates-160w-RO.jpg",
+    "https://www.fishorangebeach.com/images/layout/Intimidator-Charter-Boat.jpg",
+    "https://www.fishorangebeach.com/images/LAYOUT/Boat/2019-Boat/Intimidator-salon.jpg",
+    "https://www.fishorangebeach.com/images/LAYOUT/Boat/2019-Boat/Intimidator--Green-egg.jpg",
+    "https://www.fishorangebeach.com/images/LAYOUT/Boat/2019-Boat/Intimidator-bathroom-1.jpg",
+    "https://www.fishorangebeach.com/images/LAYOUT/Boat/2019-Boat/Intimidator-bathroom-2.jpg",
+    "https://www.fishorangebeach.com/images/LAYOUT/Boat/2019-Boat/Intimidator-back-of-boat.jpg",
+    "https://www.fishorangebeach.com/images/LAYOUT/Boat/2019-Boat/Intimidator-back-of-boat-2.jpg",
+    "https://www.fishorangebeach.com/images/LAYOUT/Boat/2019-Boat/Intimidator-bunks.jpg",
+    "https://www.fishorangebeach.com/images/LAYOUT/Boat/2019-Boat/Intimidator-kitchen.jpg",
+    "https://www.fishorangebeach.com/images/layout/Boat/100_0026_1.jpg",
+    "https://www.fishorangebeach.com/images/layout/OB-Marina-facility-2010.jpg",
+    "https://www.fishorangebeach.com/images/layout/Directions/Marina-Road-Orange-Beach.jpg",
+    "https://www.fishorangebeach.com/images/layout/Directions/Orange-Beach-Marina.jpg",
+    "https://www.fishorangebeach.com/images/layout/Directions/Charter-Boat-Parking.jpg",
+    "https://www.fishorangebeach.com/images/layout/Directions/Walk-to-charter-boat.jpg",
+    "https://www.fishorangebeach.com/images/layout/Directions/Dock-Store.jpg",
+    "https://www.fishorangebeach.com/images/layout/Directions/left-side-of-dock-store.jpg",
+    "https://www.fishorangebeach.com/images/layout/Directions/Fish-cleaning-station.jpg"
+  ],
+  "sources": [
+    "https://www.fishorangebeach.com",
+    "https://www.fishorangebeach.com/Deep-Sea-Fishing-Orange-Beach-About-the-Boat.htm",
+    "https://www.fishorangebeach.com/Deep-Sea-Fishing-Orange-Beach-Contact-Us.htm",
+    "https://www.fishorangebeach.com/Deep-Sea-Fishing-Orange-Beach-Directions.htm"
+  ]
+}

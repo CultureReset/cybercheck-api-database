@@ -1,0 +1,27 @@
+{
+  "business_name": "treehouse.gs",
+  "url": "http://www.treehouse.gs",
+  "scraped_at": "2026-03-22T18:51:51.725Z",
+  "scraper": "chrome-visible",
+  "pages": [
+    {
+      "url": "http://www.treehouse.gs",
+      "title": "– Treehouse Cafe",
+      "text": "OPEN MONDAY - SATURDAY\n7:00am to 7:00pm\n\nLocated in The Square Shopping Center\n1538 Gulf Shores Parkway Unit 5,\nGulf Shores, Alabama 36542\n(251) 220-5263\n\nLeave your email to be the first to know when we officially launch!\n\nEmail\nSign up\n\nThis shop will be powered by\n\nEnter using password\n\nAre you the store owner? Log in here",
+      "structuredData": [],
+      "meta": {
+        "description": "Treehouse Cafe"
+      },
+      "links": [
+        "https://shopify.com/",
+        "https://treehouse.gs/admin"
+      ]
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": [
+    "https://treehouse.gs/cdn/shop/files/Treehouse_Menus_1-4-26-5.jpg?v=1768398836&width=3840",
+    "https://treehouse.gs/cdn/shop/files/LunchDinner-1-14-26.jpg?v=1768399475&width=3840"
+  ]
+}

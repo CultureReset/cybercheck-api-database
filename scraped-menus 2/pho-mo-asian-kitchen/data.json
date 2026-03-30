@@ -1,0 +1,133 @@
+{
+  "business_name": "Pho Mo Asian Kitchen",
+  "tagline": "The fastest growing restaurant chain on the Gulf Coast since 2019",
+  "type": "Restaurant",
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": null,
+    "city": "Mobile",
+    "state": "AL",
+    "zip": null
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": null
+  },
+  "about": {
+    "description": "Pho Mo Poke Bowl-Asian Kitchen began on the Gulf Coast in 2019. In spite of the pandemic, the restaurant would not only thrive but expand. Today there are numerous stores, located across the Gulf Coast: Downtown Mobile, Fairhope, and a soon-to-open Gulf Shores location. They pride themselves on providing healthy choices for customers, with a wide variety of menu options.",
+    "elevator_pitch": "A rapidly expanding Asian kitchen offering healthy and diverse menu options across the Gulf Coast since 2019.",
+    "established": "2019",
+    "owner": null,
+    "chef": null,
+    "vibe": "Healthy, casual, fast-growing Asian dining destination",
+    "best_for": [
+      "families",
+      "groups",
+      "healthy eaters",
+      "takeout"
+    ],
+    "age_restriction": null,
+    "dress_code": null,
+    "parking": null,
+    "accessibility": null,
+    "reservations": null,
+    "insider_tip": "Multiple locations available — check for the soon-to-open Gulf Shores location or order online via DoorDash or mobile ordering.",
+    "awards": [],
+    "press": []
+  },
+  "tags": [
+    "asian",
+    "pho",
+    "poke bowls",
+    "healthy",
+    "takeout",
+    "delivery",
+    "fast casual",
+    "gulf coast",
+    "franchise"
+  ],
+  "hashtags": [
+    "#phomo",
+    "#asiankitchen",
+    "#pokebowl",
+    "#gulfcoast",
+    "#mobilealabama",
+    "#fairhope",
+    "#gulfshores",
+    "#healthyfood",
+    "#pho",
+    "#alabamarestaurants"
+  ],
+  "categories": [
+    "Restaurant",
+    "Asian Restaurant",
+    "Fast Casual",
+    "Poke Bowl",
+    "Pho"
+  ],
+  "cuisine_types": [
+    "Asian",
+    "Vietnamese",
+    "Poke",
+    "Japanese-inspired"
+  ],
+  "atmosphere": [
+    "Casual",
+    "Fast Casual",
+    "Family-Friendly",
+    "Healthy"
+  ],
+  "features": [
+    "online ordering",
+    "delivery",
+    "DoorDash",
+    "mobile ordering",
+    "franchise opportunities",
+    "multiple locations"
+  ],
+  "price_range": "$$",
+  "neighborhood": "Downtown Mobile",
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "twitter": null,
+    "tiktok": null,
+    "youtube": null,
+    "yelp": null,
+    "tripadvisor": null,
+    "opentable": null,
+    "google_maps": null,
+    "website": "http://www.phomoasiankitchenandgrill.com"
+  },
+  "specials": [],
+  "events": [],
+  "menu": {
+    "categories": []
+  },
+  "url": "http://www.phomoasiankitchenandgrill.com",
+  "scraped_at": "2026-03-21T13:19:55.603Z",
+  "extracted_at": "2026-03-21T13:26:46.895Z",
+  "sources": [
+    "http://www.phomoasiankitchenandgrill.com"
+  ],
+  "gallery": [
+    "https://phomoasiankitchenandgrill.com/wp-content/uploads/2025/09/White.png",
+    "https://phomoasiankitchenandgrill.com/wp-content/uploads/2025/09/phomoNEWW-640x190.png",
+    "https://phomoasiankitchenandgrill.com/wp-content/uploads/2025/11/six.jpg",
+    "https://phomoasiankitchenandgrill.com/wp-content/uploads/2025/11/seven.jpg",
+    "https://phomoasiankitchenandgrill.com/wp-content/uploads/2025/11/eight.jpg",
+    "https://phomoasiankitchenandgrill.com/wp-content/uploads/2025/11/one.jpg",
+    "https://phomoasiankitchenandgrill.com/wp-content/uploads/2025/11/two.jpg",
+    "https://phomoasiankitchenandgrill.com/wp-content/uploads/2025/11/three.jpg",
+    "https://phomoasiankitchenandgrill.com/wp-content/uploads/2025/11/four.jpg",
+    "https://phomoasiankitchenandgrill.com/wp-content/uploads/2025/11/five.jpg",
+    "https://phomoasiankitchenandgrill.com/wp-content/uploads/2025/03/8D5A4503-scaled.jpg"
+  ]
+}

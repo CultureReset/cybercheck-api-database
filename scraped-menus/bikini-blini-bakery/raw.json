@@ -1,0 +1,23 @@
+{
+  "business_name": "Bikini Blini Bakery",
+  "url": "http://bikiniblini.com/",
+  "scraped_at": "2026-03-22T02:35:05.711Z",
+  "scraper": "chrome-visible",
+  "pages": [
+    {
+      "url": "http://bikiniblini.com",
+      "title": "Bikini Blini",
+      "text": "Gourmet Beach Dogs!\nGourmet Beach Dogs!Gourmet Beach Dogs!Gourmet Beach Dogs!\nBubble Blends!\nBubble Blends!Bubble Blends!Bubble Blends!\nNew Items Coming Soon!\nNew Items Coming Soon!New Items Coming Soon!New Items Coming Soon!\n\nCopyright © 2026 Bikini Blini - All Rights Reserved.\n\nPowered by",
+      "structuredData": [],
+      "meta": {
+        "description": ""
+      },
+      "links": [
+        "https://www.godaddy.com/websites/website-builder?isc=pwugc&utm_source=wsb&utm_medium=applications&utm_campaign=en-us_corp_applications_base"
+      ]
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": []
+}

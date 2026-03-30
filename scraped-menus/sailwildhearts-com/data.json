@@ -1,0 +1,216 @@
+{
+  "business_name": "Sail Wild Hearts",
+  "tagline": "A Gulf Coast Adventure",
+  "type": "Water Tours & Sailing Charters",
+  "contact": {
+    "phone": "251-981-6700",
+    "email": null,
+    "address": "27101 Perdido Beach Blvd. (Hwy 182)",
+    "city": "Orange Beach",
+    "state": "Alabama",
+    "zip": null
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": "Calendar and pricing available on website"
+  },
+  "about": {
+    "description": "Sail Wild Hearts is a 53-foot open-ocean yacht offering sailing excursions in Orange Beach, Perdido Key, and Gulf Shores, Alabama. Docked at Perdido Beach Resort's bayside dock in Orange Beach, the vessel provides various cruise options including dolphin cruises, sunset sails, paddleboard adventures, and private charters.",
+    "elevator_pitch": "Experience Gulf Coast sailing adventures aboard a 53-foot yacht with stunning views of Orange Beach, Perdido Key, and Gulf Shores waters.",
+    "vibe": "Relaxing, family-friendly, adventurous water-based experiences with opportunities to see dolphins and explore pristine waterways in premium comfort",
+    "best_for": [
+      "families",
+      "couples",
+      "groups",
+      "corporate events",
+      "celebrations of life",
+      "marine wildlife viewing"
+    ],
+    "established": null,
+    "reservations": "251-981-6700",
+    "insider_tip": "Winner of Best Boat Tour for the past 6 years and ranked #5 Best Boat Tour in the U.S. in 2025"
+  },
+  "tags": [
+    "sailing",
+    "dolphin cruises",
+    "sunset cruises",
+    "water tours",
+    "family activities",
+    "Gulf Coast",
+    "private charters",
+    "corporate events",
+    "wildlife viewing"
+  ],
+  "features": [
+    "53-foot open-ocean yacht",
+    "spacious deck",
+    "open cabin with shade",
+    "water included",
+    "soft drinks and snacks included",
+    "BYOB wine policy",
+    "dolphin sightings",
+    "private island visits"
+  ],
+  "price_range": "$$",
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://www.sailwildhearts.com"
+  },
+  "specials": [
+    {
+      "name": "10% Military Discount",
+      "description": "Active-duty and retired service members receive 10% discount on passenger fares for themselves and family members with valid military ID (Military ID, VA card, etc.)",
+      "days": [],
+      "time": null
+    }
+  ],
+  "events": [
+    {
+      "name": "Sunset Cruise",
+      "description": "Extraordinary sunset cruise in Orange Beach",
+      "recurring": true,
+      "day": null,
+      "time": null
+    },
+    {
+      "name": "Dolphins & Blue Angels Sail",
+      "description": "Daily dolphin cruise with sailing adventure",
+      "recurring": true,
+      "day": null,
+      "time": null
+    },
+    {
+      "name": "Paddleboard and Kayak Adventure Sail",
+      "description": "Adventure sail with paddleboard and kayak activities",
+      "recurring": true,
+      "day": null,
+      "time": null
+    },
+    {
+      "name": "Family Adventure Sail",
+      "description": "Family-friendly sailing adventure",
+      "recurring": true,
+      "day": null,
+      "time": null
+    },
+    {
+      "name": "Morning Dolphin Cruise",
+      "description": "Dolphin cruise in the morning hours",
+      "recurring": true,
+      "day": null,
+      "time": null
+    },
+    {
+      "name": "Afternoon Dolphin Cruise",
+      "description": "Dolphin cruise in the afternoon hours",
+      "recurring": true,
+      "day": null,
+      "time": null
+    },
+    {
+      "name": "Fireworks Sail",
+      "description": "Special sailing event timed with fireworks",
+      "recurring": true,
+      "day": null,
+      "time": null
+    },
+    {
+      "name": "Corporate Sail",
+      "description": "Private sailing event for corporate groups",
+      "recurring": false,
+      "day": null,
+      "time": null
+    },
+    {
+      "name": "Celebration of Life",
+      "description": "Private charter for memorial and celebration events",
+      "recurring": false,
+      "day": null,
+      "time": null
+    }
+  ],
+  "menu": {
+    "categories": [
+      {
+        "name": "Additional Services",
+        "type": "specials",
+        "items": [
+          {
+            "name": "Parasail",
+            "description": "Parasailing water sports activity",
+            "price": null,
+            "tags": [
+              "water sports"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Pontoon Rental",
+            "description": "Pontoon boat rental for groups",
+            "price": null,
+            "tags": [
+              "water sports",
+              "rental"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Kayak Rental",
+            "description": "Kayak rental for water exploration",
+            "price": null,
+            "tags": [
+              "water sports",
+              "rental"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Paddleboard Rental",
+            "description": "Paddleboard rental for water activities",
+            "price": null,
+            "tags": [
+              "water sports",
+              "rental"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Gift Card",
+            "description": "Gift cards available for all services",
+            "price": null,
+            "tags": [
+              "gift"
+            ],
+            "allergens": []
+          }
+        ]
+      }
+    ]
+  },
+  "url": "https://www.sailwildhearts.com",
+  "scraped_at": "2026-03-21T19:28:00.977Z",
+  "extracted_at": "2026-03-23T04:05:33.989Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://www.sailwildhearts.com/wp-content/uploads/2024/10/Sail-Wild-Hearts-by-PBS.jpg",
+    "https://www.sailwildhearts.com/wp-content/uploads/2024/10/Sail-Wild-Hearts-by-PBS-mobile.jpg",
+    "https://www.sailwildhearts.com/wp-content/uploads/2025/02/Bestofbaldwin2025.webp",
+    "https://www.sailwildhearts.com/wp-content/uploads/2024/06/usa-today-10-best.png",
+    "https://www.sailwildhearts.com/wp-content/uploads/2022/02/in-memory.jpg",
+    "https://www.sailwildhearts.com/wp-content/uploads/2024/10/Sail-Wild-Hearts-by-PBS-mobile@2x.jpg",
+    "https://www.sailwildhearts.com/wp-content/uploads/2024/10/Perdido-Beach-Service.webp",
+    "https://www.sailwildhearts.com/wp-content/uploads/2022/01/military-discount.jpg"
+  ],
+  "sources": [
+    "https://www.sailwildhearts.com",
+    "https://www.sailwildhearts.com/specials",
+    "https://www.sailwildhearts.com/contact"
+  ]
+}

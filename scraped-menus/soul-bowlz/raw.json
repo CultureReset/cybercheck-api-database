@@ -1,0 +1,35 @@
+{
+  "business_name": "Soul Bowlz",
+  "url": "https://soulbowlz.com/",
+  "scraped_at": "2026-03-22T18:35:00.532Z",
+  "scraper": "chrome-visible",
+  "pages": [
+    {
+      "url": "https://soulbowlz.com",
+      "title": "Soul Bowlz - Frozen acai bowls and smoothies.",
+      "text": "Select a Location\n\n68 N Bancroft St\n\nFairhope, AL 36532\n\n1545 Gulf Shores Pkwy\n\nGulf Shores, AL 36542\n\n4413 Old Shell Rd\n\nMobile, AL 36608",
+      "structuredData": [],
+      "meta": {
+        "description": "Soul Bowlz offers nutrient-packed bowls of wholesome goodness with blend \nchoices of acai, pitaya, graviola and acerola. Enjoy a delicious frozen \nacai berry bowl or smoothie at one of our 3 locations in Gulf Shores, AL, \nFairhope, AL, or Mobile, AL."
+      },
+      "links": [
+        "https://soulbowlz.com/",
+        "https://soulbowlz.com/",
+        "https://soulbowlzfairhope0781.s4shops.com/",
+        "https://soulbowlz0445.s4shops.com/",
+        "https://soulbowlzoldshell0871.s4shops.com/",
+        "https://www.instagram.com/soulbowlz/?hl=en",
+        "https://www.facebook.com/Soulbowlz/",
+        "https://soulbowlz.com/#home"
+      ]
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": [
+    "https://images.squarespace-cdn.com/content/v1/59506bb7bf629a4fd221744b/45938e21-c196-401b-9298-7eb90f763f3b/43115428-logo.png",
+    "https://images.squarespace-cdn.com/content/v1/59506bb7bf629a4fd221744b/074dee32-924c-4e86-82c9-661133085e97/fairhope.jpg",
+    "https://images.squarespace-cdn.com/content/v1/59506bb7bf629a4fd221744b/cb8335b3-a085-4a4b-b068-db44a8585012/gulf+shores.jpg",
+    "https://images.squarespace-cdn.com/content/v1/59506bb7bf629a4fd221744b/dd25f091-776d-43f7-ab03-95f201c25319/old+shell.jpg"
+  ]
+}

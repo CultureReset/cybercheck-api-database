@@ -1,0 +1,786 @@
+{
+  "business_name": "Pirate's Bar And Grill",
+  "url": "http://www.piratesbarandgrill.com/",
+  "scraped_at": "2026-03-21T14:48:45.897Z",
+  "pages": [
+    {
+      "url": "http://www.piratesbarandgrill.com",
+      "title": "Restaurants | Dauphin Island | Pirates Bar and Grill",
+      "text": "top of pageCome Enjoy the Island with Us!\n\n​\n\n\"Best Food on Dauphin Island\"100 Orleans drive- Dauphin Island, Alabama\n\n​\n\n     \"At the Isle Dauphine Country Club\"HomeContact UsMenuSpecial Events and CateringPool, Beach, Music, and FunMusic ScheduleMore...Use tab to navigate through the menu items.\n \n \n \n\nLive MusicFrom Our KitchenOUR KITCHENORDER\n\nONLINE\nHandcrafted\nBURGERS\n\n \n \n \n\n \n \n \n\n \n \n \n\nTry One of Our Handcrafted Half-Pound Burgers. All of Our Burgers are Cooked to Order and Loaded with Toppings.We Serve Only Fresh Gulf Seafood. Beware of Other Restaurants that Serve Frozen fish or Shrimp From China.All natural\nINGREDIENTS\nNothing in Our Kitchen Comes Pre-breaded or Pre-cooked.\n\nWe Only Use Real Ingredients & Make Everything from Scratch. AUTHENTIC SOUTHERN FOODWHAT'S NEWOur FavoritesWorld Famous WingsDon't miss Wing Night Every Wednesday Night! Live Music, Wing Specials, and  Great Drink Specials. Fireside in the Winter- Poolside in the Summer!\n\n​\n\nAll Sauces Made in House:\n\nHouse Buffalo, Traditional Buffalo, House Made BBQ, Sweet Thai Chili, Jim Beam Honey Mustard, Pirates Caribbean Jerk.\n\n(Minimum 8 wings, naked only for wing night special)\n\n​Don't Miss Wing WednesdayThe Original Dauphin Island BushwackerFOR\n$13.50Do Not be Fooled by Impostors! Try the Original Dauphin Island Bushwacker- Ice Cream, Several Kinds of Rum, Chocolate, More Rum and a Cherry on Top. We also make a variety of Frozen Drinks, Boat Drinks, & Daquiris. Add a Floater!Have you\nTried Our Flounder Pontchartrain?Pan Seared Local Flounder Topped with Shrimp & Crab White Wine Sauce.OFFICIAL MERCHANDISENO TRIP TO DAUPHIN ISLAND IS COMPLETE WITHOUT A PIRATE'S T-SHIRT!LOCATION & CONTACTLocation & Contact251 861-2969100 Orleans Ave. Dauphin Island, Al 36528      \n\n​\n\nMonday 11am - 9 pm\n\nTuesday 11am - 9 pm\n\nWednesday 11am - 9 pm\n\nThursday 11am - 9 pm\n\nFriday 11am - 9 pm\n\nSaturday 11am - 9pm\n\nSunday 11am - 9pm\n\n* All Hours are Dependent on Weather and Local Conditions*bottom of page",
+      "structuredData": [
+        {
+          "@context": "https://schema.org/",
+          "@type": "Restaurant",
+          "name": "Pirate's Bar and Grill",
+          "image": "https://static.wixstatic.com/media/32f934_4118de2bb13e46e6991af8adc103c57a~mv2.png",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "US",
+            "addressLocality": "Dauphin Island",
+            "addressRegion": "AL",
+            "postalCode": "36528",
+            "streetAddress": "100 Orleans Drive"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "30.24588559999999",
+            "longitude": "-88.11212660000001"
+          },
+          "url": "https://www.piratesbarandgrill.com",
+          "telephone": "251-861-2969",
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": "Sunday",
+              "opens": "07:30",
+              "closes": "21:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": "Wednesday",
+              "opens": "10:30",
+              "closes": "21:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": "Thursday",
+              "opens": "10:30",
+              "closes": "21:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": "Friday",
+              "opens": "07:30",
+              "closes": "21:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": "Saturday",
+              "opens": "07:30",
+              "closes": "21:00"
+            }
+          ],
+          "acceptsReservations": "True"
+        },
+        {
+          "@context": "https://schema.org/",
+          "@type": "WebSite",
+          "name": "piratesbarandgrill",
+          "url": "https://www.piratesbarandgrill.com"
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "generator": "Wix.com Website Builder",
+        "format-detection": "telephone=no",
+        "skype_toolbar": "skype_toolbar_parser_compatible",
+        "description": "Pirate's Bar & Grill Restaurant offers the Best Food, Bushwackers, Frozen Drinks, Views, Beach, Pool access, & Live Music on Dauphin Island. ",
+        "og:title": "Restaurants | Dauphin Island | Pirates Bar and Grill",
+        "og:description": "Pirate's Bar & Grill Restaurant offers the Best Food, Bushwackers, Frozen Drinks, Views, Beach, Pool access, & Live Music on Dauphin Island. ",
+        "og:image": "https://static.wixstatic.com/media/32f934_d8cf8de6c03d4de2885e66172807bedf%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/32f934_d8cf8de6c03d4de2885e66172807bedf%7Emv2.jpg",
+        "og:image:width": "2500",
+        "og:image:height": "1330",
+        "og:url": "https://www.piratesbarandgrill.com",
+        "og:site_name": "piratesbarandgrill",
+        "og:type": "website",
+        "keywords": "Restaurant Dauphin Island, Seafood, Shrimp, Live Music, Bushwackers, places to eat Dauphin Island, Breakfast Dauphin Island, Pirate's Bar and Grill, Pirate's Pleasure, Pirate's Cove Dauphin Island",
+        "fb_admins_meta_tag": "piratesbarandgrill",
+        "google-site-verification": "5N-uBAIhOb6wskHPKxhhAenVPeqee6xXd3ft1ux7iFs",
+        "fb:admins": "piratesbarandgrill",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Restaurants | Dauphin Island | Pirates Bar and Grill",
+        "twitter:description": "Pirate's Bar & Grill Restaurant offers the Best Food, Bushwackers, Frozen Drinks, Views, Beach, Pool access, & Live Music on Dauphin Island. ",
+        "twitter:image": "https://static.wixstatic.com/media/32f934_d8cf8de6c03d4de2885e66172807bedf%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/32f934_d8cf8de6c03d4de2885e66172807bedf%7Emv2.jpg"
+      }
+    },
+    {
+      "url": "https://www.piratesbarandgrill.com/general-5",
+      "title": "Music Schedule | piratesbarandgrill",
+      "text": "top of pageCome Enjoy the Island with Us!\n\n​\n\n\"Best Food on Dauphin Island\"100 Orleans drive- Dauphin Island, Alabama\n\n​\n\n     \"At the Isle Dauphine Country Club\"HomeContact UsMenuSpecial Events and CateringPool, Beach, Music, and FunMusic ScheduleMore...Use tab to navigate through the menu items.\n \n \n \n\nLive MusicCome join us for food, fun, spirits and great music!ButtonWe schedule Live Music every Wednesday Night throughout the year for Wing Night. In the Spring and Summer, we schedule Live Music on Weekend Afternoons & for Special Events. bottom of page",
+      "structuredData": [],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "generator": "Wix.com Website Builder",
+        "format-detection": "telephone=no",
+        "skype_toolbar": "skype_toolbar_parser_compatible",
+        "og:title": "Music Schedule | piratesbarandgrill",
+        "og:image": "https://static.wixstatic.com/media/32f934_d8cf8de6c03d4de2885e66172807bedf%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/32f934_d8cf8de6c03d4de2885e66172807bedf%7Emv2.jpg",
+        "og:image:width": "2500",
+        "og:image:height": "1330",
+        "og:url": "https://www.piratesbarandgrill.com/general-5",
+        "og:site_name": "piratesbarandgrill",
+        "og:type": "website",
+        "fb_admins_meta_tag": "piratesbarandgrill",
+        "google-site-verification": "5N-uBAIhOb6wskHPKxhhAenVPeqee6xXd3ft1ux7iFs",
+        "fb:admins": "piratesbarandgrill",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Music Schedule | piratesbarandgrill",
+        "twitter:image": "https://static.wixstatic.com/media/32f934_d8cf8de6c03d4de2885e66172807bedf%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/32f934_d8cf8de6c03d4de2885e66172807bedf%7Emv2.jpg"
+      }
+    },
+    {
+      "url": "https://www.piratesbarandgrill.com/pool-beach-music-fun",
+      "title": "Live Music | Dauphin Island | Pirates Bar and Grill",
+      "text": "top of pageCome Enjoy the Island with Us!\n\n​\n\n\"Best Food on Dauphin Island\"100 Orleans drive- Dauphin Island, Alabama\n\n​\n\n     \"At the Isle Dauphine Country Club\"HomeContact UsMenuSpecial Events and CateringPool, Beach, Music, and FunMusic ScheduleMore...Use tab to navigate through the menu items.\n \n \n \n\nLive MusicIsle Dauphine Golf CourseThe Isle Dauphine Golf Course is conveniently located Next Door. Come in for a Drink or Lunch after you Play! Please contact Isle Dauphine Golf for More Information. 251 861-3176Pirate's Poolside & Cabana BarDaily Pool & Beach Access $10\n*No Glass in the Pool Area     No Pets Allowed   No Outside Food or Drinks in the Pool Area    Under 3 Free*Walk Down the Boardwalk to the Beach and Enjoy the Day! When you get too hot, walk back up for a BushWacker or Frozen Daquiri. POA Beach Fee may applyBring the Family for a Fun Day at the Pool! Order Food and Drinks from the Cabana & Dine Pool-Side with a Beautiful Gulf ViewOur 59,000 Gallon Saltwater Pool is Beautifully Maintained and under-lit for Night Time SwimmingLive Music PoolsideWe schedule Live Music every Wednesday Night throughout the year for Wing Night. In the Spring and Summer, we schedule Live Music on Weekend Afternoons & for Special Events. Please follow us for Current Events.bottom of page",
+      "structuredData": [],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "generator": "Wix.com Website Builder",
+        "format-detection": "telephone=no",
+        "skype_toolbar": "skype_toolbar_parser_compatible",
+        "description": "Live Music and Frozen Drinks at Pirate's Bar and Grill Pool Side!",
+        "og:title": "Live Music | Dauphin Island | Pirates Bar and Grill",
+        "og:description": "Live Music and Frozen Drinks at Pirate's Bar and Grill Pool Side!",
+        "og:image": "https://static.wixstatic.com/media/32f934_d8cf8de6c03d4de2885e66172807bedf%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/32f934_d8cf8de6c03d4de2885e66172807bedf%7Emv2.jpg",
+        "og:image:width": "2500",
+        "og:image:height": "1330",
+        "og:url": "https://www.piratesbarandgrill.com/pool-beach-music-fun",
+        "og:site_name": "piratesbarandgrill",
+        "og:type": "website",
+        "fb_admins_meta_tag": "piratesbarandgrill",
+        "google-site-verification": "5N-uBAIhOb6wskHPKxhhAenVPeqee6xXd3ft1ux7iFs",
+        "fb:admins": "piratesbarandgrill",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Live Music | Dauphin Island | Pirates Bar and Grill",
+        "twitter:description": "Live Music and Frozen Drinks at Pirate's Bar and Grill Pool Side!",
+        "twitter:image": "https://static.wixstatic.com/media/32f934_d8cf8de6c03d4de2885e66172807bedf%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/32f934_d8cf8de6c03d4de2885e66172807bedf%7Emv2.jpg"
+      }
+    },
+    {
+      "url": "https://www.piratesbarandgrill.com/special-events-and-catering",
+      "title": "Weddings | Dauphin Island | Pirates Bar and Grill",
+      "text": "top of pageCome Enjoy the Island with Us!\n\n​\n\n\"Best Food on Dauphin Island\"100 Orleans drive- Dauphin Island, Alabama\n\n​\n\n     \"At the Isle Dauphine Country Club\"HomeContact UsMenuSpecial Events and CateringPool, Beach, Music, and FunMusic ScheduleMore...Use tab to navigate through the menu items.\n \n \n \n\nLive MusicSpecial Events & CateringWe are excited to announce that the Iconic Isle Dauphine Clubhouse Building is now managed by us! The Isle Building, Beach Area, and Pirate's Poolside are all open for Weddings, Private Parties, and Special Events. Reach out to us for Menu Options and Pricing. We're here to assist with Event Planning, Music, Decorations, and even providing a Wedding Officiant. Let us help you create a successful event! Please fill out this contact form HERE.We provide catering services for off-site events on Dauphin Island. Please reach out to us for menu options, availability, and pricing details.bottom of page",
+      "structuredData": [],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "generator": "Wix.com Website Builder",
+        "format-detection": "telephone=no",
+        "skype_toolbar": "skype_toolbar_parser_compatible",
+        "description": "Dauphin Island Weddings, Family Reunions, Golf Tournaments, Conventions, Catering, Parties, Pool Parties & Special Events",
+        "og:title": "Weddings | Dauphin Island | Pirates Bar and Grill",
+        "og:description": "Dauphin Island Weddings, Family Reunions, Golf Tournaments, Conventions, Catering, Parties, Pool Parties & Special Events",
+        "og:image": "https://static.wixstatic.com/media/32f934_d8cf8de6c03d4de2885e66172807bedf%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/32f934_d8cf8de6c03d4de2885e66172807bedf%7Emv2.jpg",
+        "og:image:width": "2500",
+        "og:image:height": "1330",
+        "og:url": "https://www.piratesbarandgrill.com/special-events-and-catering",
+        "og:site_name": "piratesbarandgrill",
+        "og:type": "website",
+        "fb_admins_meta_tag": "piratesbarandgrill",
+        "google-site-verification": "5N-uBAIhOb6wskHPKxhhAenVPeqee6xXd3ft1ux7iFs",
+        "fb:admins": "piratesbarandgrill",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Weddings | Dauphin Island | Pirates Bar and Grill",
+        "twitter:description": "Dauphin Island Weddings, Family Reunions, Golf Tournaments, Conventions, Catering, Parties, Pool Parties & Special Events",
+        "twitter:image": "https://static.wixstatic.com/media/32f934_d8cf8de6c03d4de2885e66172807bedf%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/32f934_d8cf8de6c03d4de2885e66172807bedf%7Emv2.jpg"
+      }
+    },
+    {
+      "url": "https://www.piratesbarandgrill.com/menus",
+      "title": "APPETIZERS | piratesbarandgrill",
+      "text": "top of pageCome Enjoy the Island with Us!\n\n​\n\n\"Best Food on Dauphin Island\"100 Orleans drive- Dauphin Island, Alabama\n\n​\n\n     \"At the Isle Dauphine Country Club\"HomeContact UsMenuSpecial Events and CateringPool, Beach, Music, and FunMusic ScheduleMore...Use tab to navigate through the menu items.\n \n \n \n\nLive MusicAPPETIZERSSALADS & WRAPSHAND-MADE POBOYS, BURGERS, & SANDWICHESKIDS MENUENTREESSIDESDESSERTLUNCHDRINKS & COCKTAILS APPETIZERSAPPETIZERS★ BIG PHIL'S SEAFOOD GUMBOOur Family RecipeCup$8.95Bowl$11.95HAND BATTERED FRIED PICKLESLarge order of our Hand Battered fried pickles. $13.95LUMP CRAB CAKESMade with Fresh Lump Crab Meat, Pan Seared then Baked Served over a Lemon Curry Aioli. $25.95★ BLUE CRAB CLAWS- (Market Price)Fresh Gulf Crab Claws, served Fried or Sautéed, available in 1 lb. portions. Market PriceTHAI CHILI SHRIMPHand Battered Large Gulf Shrimp, tossed in our Sweet and Spicy Thai Chili Sauce. ½ lb. $ 12.95 or 1 lb $21.951/2 Pound$16.951 Pound$33.95★ BLUE CRAB AND CONECUH SPINACH DIPOur Homemade Four Cheese Spinach Dip, topped with Lump Blue Crab and diced Grilled Conecuh Sausage served with baked Seasoned Pita Chips. $17.95OYSTERS ON THE HALFSHELLServed Raw, Fresh from the Bayou. Market PriceCOCONUT SHRIMPLarge Butterflied Tail-On Coconut Battered Fried Shrimp, served with our House Sour Thai Glaze dipping sauce. $14.95WINGS Ten Bone-in or Boneless Chicken Wings, served with any of our House Made Sauces \n(Traditional Buffalo, Sweet n Spicy House Buffalo, Thai Chili, BBQ, Jim Beam Honey Mustard, or Caribbean Jerk)\n$18.95Candied Pork Belly and ShrimpPan-seared pork belly and gulf shrimp finished with a blood orange glaze.$15.95bottom of page",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "app.breadcrumbs.labels.home",
+              "item": "https://www.piratesbarandgrill.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Menu",
+              "item": "https://www.piratesbarandgrill.com/menus"
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "generator": "Wix.com Website Builder",
+        "format-detection": "telephone=no",
+        "skype_toolbar": "skype_toolbar_parser_compatible",
+        "robots": "index",
+        "og:title": "APPETIZERS",
+        "og:image": "https://static.wixstatic.com/media/32f934_4118de2bb13e46e6991af8adc103c57a~mv2.png/v1/fit/w_2500,h_1330,al_c/32f934_4118de2bb13e46e6991af8adc103c57a~mv2.png",
+        "og:image:width": "2500",
+        "og:image:height": "1330",
+        "og:url": "https://www.piratesbarandgrill.com/menus?menu=appetizers",
+        "og:site_name": "piratesbarandgrill",
+        "og:type": "website",
+        "fb_admins_meta_tag": "piratesbarandgrill",
+        "google-site-verification": "5N-uBAIhOb6wskHPKxhhAenVPeqee6xXd3ft1ux7iFs",
+        "fb:admins": "piratesbarandgrill",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "APPETIZERS",
+        "twitter:image": "https://static.wixstatic.com/media/32f934_4118de2bb13e46e6991af8adc103c57a~mv2.png/v1/fit/w_2500,h_1330,al_c/32f934_4118de2bb13e46e6991af8adc103c57a~mv2.png"
+      }
+    },
+    {
+      "url": "https://www.piratesbarandgrill.com/menus?location=Orleans+Drive&menu=drinks---cocktails",
+      "title": "DRINKS & COCKTAILS | piratesbarandgrill",
+      "text": "top of pageCome Enjoy the Island with Us!\n\n​\n\n\"Best Food on Dauphin Island\"100 Orleans drive- Dauphin Island, Alabama\n\n​\n\n     \"At the Isle Dauphine Country Club\"HomeContact UsMenuSpecial Events and CateringPool, Beach, Music, and FunMusic ScheduleMore...Use tab to navigate through the menu items.\n \n \n \n\nLive MusicAPPETIZERSSALADS & WRAPSHAND-MADE POBOYS, BURGERS, & SANDWICHESKIDS MENUENTREESSIDESDESSERTLUNCHDRINKS & COCKTAILS DRINKS & COCKTAILS REDWine“McManis” Pinot NoirCENTRAL COAST, CALIFORNIA $10 | $30\nREATA \"THREE COUNTY\" PINO NOIRCALIFORNIA $12 | $36\nCANOE RIDGE \"EXPEDITION\" MERLOTHORSE HEAVEN HILLS, WASHINGTON $10 | $30\n“Portillo” MalbecMENDOZA, ARGENTINA $10 | $30\nJOSH CABERNET SAUVIGNONCALIFORNIA $10 | $30\nDECOY CABERNETALEXANDER VALLEY, CALIFORNIA $12 | $38\nCline Ancient Vine ZinfandelALEXANDER VALLEY, CALIFORNIA $12 | $36\nLouis Martini Cabernet SauvignonALEXANDER VALLEY, CALIFORNIA $14 | $45\nWHITEWINEMOVENDO MOSCATO Italy $7 | $24\" SCHMITT SOHNE\" RIESLINGColumbia Valley, Washington $8 | $26GOTAS DEL MAR ALBARINORias Baixas, Spain $12 | $38LINE 39 PINOT GRIGIOCalifornia $9 | $27WHITEHAVEN SAUVIGNON BLANCMarlborough, New Zealand $12 | $38\"MER SOLEIL SILVER\" CHARDONNAYCalifornia $10 | $30JOSH \"CRAFTSMENT'\" CHARDONNAYCalifornia $10 | $30Rabble Rose$11 | $34RESERVEWineDUCKHORN CABERNETNAPA VALLEY, CALFORNIA\n$95SPARKLINGWineLUNETTE PROSECCOItaly $7WYCUFF BRUTCalifornia $6 | $18LA MARCA PROSECCOCalifornia$29VEUVE CLICQUOT \"YELLOW LABEL\" BRUT, NV$95DOM PERIGNON $Market PriceChampagne, France HOUSEWineCABERNET & CHARDONNAY$6SPECIALTY COCKTAILSOn the RocksSINKING SHIPSpiced rum, orange brandy, peach schnapps, orange juice\n$10ISLAND SUNRISECoconut rum, clear rum, orange curacao, pineapple juice, layered with grenadine\n$8.50SUNSET BAYVODKA, PEACH SCHNAPPS, PINEAPPLE, ORANGE AND CRANBERRY JUICE\n$9SPECIALTY COCKTAILSFrozen \n* add a floater to any frozen drink for $3STRAWBERRY DAQUIRIStrawberry puree mix with light rum\n$8.50PINA COLADALight rum, coconut and pineapple puree mixes.\n$8.50CLASSIC MARGARITATequila lime house margarita mix.\n$8.50STRAWBERRY MARGARITATequila, house lime margarita mix, strawberry puree mix.\n$8.50MIAMI VICEBlend of pina colada and strawberry daquiris\n$9.50BIG PHIL'S BUSHWACKEROur signature bushwhacker recipe made with top shelf liquors and your choice of a signature floater.\n$13.50BEERDOMESTICSBudweiser $4.00,\nBud Light $4.00,\nMichelob Ultra\t$4.00,\nMiller Light $4.00\nCoor's Light $4.00,\nYuengling $4.00,\nBlue Moon $5.00\nIMPORTSCorona $4.50,\nCorona Light $4.50,\nHeineken $4.50,\nGuinness Stout $5.00,\nStella Artois $4.50,\nModelo $4.50\nSeltzers, Ciders, and CraftSeltzers, Ciders, and CraftWhite Claw $5.00\t,\nWoodchuck Sangria Cider $5.00\t,\nGoat Island Blood Orange Berlinerweisse $5.00\t\nAce Pineapple Cider. $6.50\nYahoo Gerst Amber Ale $ 6.00\nMonday Night Tuesday Taco Mexican Style Lager $ 6.00\nBraided River Hoppy By Nature. $6.00\nSouthern Prohibition Crowd Control IPA $6.00\t\nSouthern Prohibition Suzy B Blonde Ale. $6.00\n\nWhite Claw. $5.00\nCider Boys Seasonal. $ 5.00\nbottom of page",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "app.breadcrumbs.labels.home",
+              "item": "https://www.piratesbarandgrill.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Menu",
+              "item": "https://www.piratesbarandgrill.com/menus"
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "generator": "Wix.com Website Builder",
+        "format-detection": "telephone=no",
+        "skype_toolbar": "skype_toolbar_parser_compatible",
+        "robots": "index",
+        "og:title": "DRINKS &  COCKTAILS ",
+        "og:image": "https://static.wixstatic.com/media/32f934_4118de2bb13e46e6991af8adc103c57a~mv2.png/v1/fit/w_2500,h_1330,al_c/32f934_4118de2bb13e46e6991af8adc103c57a~mv2.png",
+        "og:image:width": "2500",
+        "og:image:height": "1330",
+        "og:url": "https://www.piratesbarandgrill.com/menus?menu=drinks---cocktails",
+        "og:site_name": "piratesbarandgrill",
+        "og:type": "website",
+        "fb_admins_meta_tag": "piratesbarandgrill",
+        "google-site-verification": "5N-uBAIhOb6wskHPKxhhAenVPeqee6xXd3ft1ux7iFs",
+        "fb:admins": "piratesbarandgrill",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "DRINKS &  COCKTAILS ",
+        "twitter:image": "https://static.wixstatic.com/media/32f934_4118de2bb13e46e6991af8adc103c57a~mv2.png/v1/fit/w_2500,h_1330,al_c/32f934_4118de2bb13e46e6991af8adc103c57a~mv2.png"
+      }
+    },
+    {
+      "url": "https://www.piratesbarandgrill.com/menus?location=Orleans+Drive&menu=lunch",
+      "title": "LUNCH | piratesbarandgrill",
+      "text": "top of pageCome Enjoy the Island with Us!\n\n​\n\n\"Best Food on Dauphin Island\"100 Orleans drive- Dauphin Island, Alabama\n\n​\n\n     \"At the Isle Dauphine Country Club\"HomeContact UsMenuSpecial Events and CateringPool, Beach, Music, and FunMusic ScheduleMore...Use tab to navigate through the menu items.\n \n \n \n\nLive MusicAPPETIZERSSALADS & WRAPSHAND-MADE POBOYS, BURGERS, & SANDWICHESKIDS MENUENTREESSIDESDESSERTLUNCHDRINKS & COCKTAILS LUNCH11AM - 4PMBLT AND GUMBOTexas style blt and a cup of \"big phil's\" famous gumbo.$12.95BASKETSIncludes coleslaw, hushpuppies and choice of one side.FISH BASKET$14.95OYSTER BASKET $14.95CHICKEN TENDER BASKET$14.95Shrimp Basket$14.95bottom of page",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "app.breadcrumbs.labels.home",
+              "item": "https://www.piratesbarandgrill.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Menu",
+              "item": "https://www.piratesbarandgrill.com/menus"
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "generator": "Wix.com Website Builder",
+        "format-detection": "telephone=no",
+        "skype_toolbar": "skype_toolbar_parser_compatible",
+        "description": "11AM - 4PM",
+        "robots": "index",
+        "og:title": "LUNCH",
+        "og:description": "11AM - 4PM",
+        "og:image": "https://static.wixstatic.com/media/32f934_4118de2bb13e46e6991af8adc103c57a~mv2.png/v1/fit/w_2500,h_1330,al_c/32f934_4118de2bb13e46e6991af8adc103c57a~mv2.png",
+        "og:image:width": "2500",
+        "og:image:height": "1330",
+        "og:url": "https://www.piratesbarandgrill.com/menus?menu=lunch",
+        "og:site_name": "piratesbarandgrill",
+        "og:type": "website",
+        "fb_admins_meta_tag": "piratesbarandgrill",
+        "google-site-verification": "5N-uBAIhOb6wskHPKxhhAenVPeqee6xXd3ft1ux7iFs",
+        "fb:admins": "piratesbarandgrill",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "LUNCH",
+        "twitter:description": "11AM - 4PM",
+        "twitter:image": "https://static.wixstatic.com/media/32f934_4118de2bb13e46e6991af8adc103c57a~mv2.png/v1/fit/w_2500,h_1330,al_c/32f934_4118de2bb13e46e6991af8adc103c57a~mv2.png"
+      }
+    },
+    {
+      "url": "https://www.piratesbarandgrill.com/menus?location=Orleans+Drive&menu=dessert",
+      "title": "DESSERT | piratesbarandgrill",
+      "text": "top of pageCome Enjoy the Island with Us!\n\n​\n\n\"Best Food on Dauphin Island\"100 Orleans drive- Dauphin Island, Alabama\n\n​\n\n     \"At the Isle Dauphine Country Club\"HomeContact UsMenuSpecial Events and CateringPool, Beach, Music, and FunMusic ScheduleMore...Use tab to navigate through the menu items.\n \n \n \n\nLive MusicAPPETIZERSSALADS & WRAPSHAND-MADE POBOYS, BURGERS, & SANDWICHESKIDS MENUENTREESSIDESDESSERTLUNCHDRINKS & COCKTAILS DESSERTDESSERTCHEESE CAKE $10.95Cookie Dough Layered Chocolate CakeSubject to market availability.$10.95KEY LIME PIE$10.95bottom of page",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "app.breadcrumbs.labels.home",
+              "item": "https://www.piratesbarandgrill.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Menu",
+              "item": "https://www.piratesbarandgrill.com/menus"
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "generator": "Wix.com Website Builder",
+        "format-detection": "telephone=no",
+        "skype_toolbar": "skype_toolbar_parser_compatible",
+        "robots": "index",
+        "og:title": "DESSERT",
+        "og:image": "https://static.wixstatic.com/media/32f934_4118de2bb13e46e6991af8adc103c57a~mv2.png/v1/fit/w_2500,h_1330,al_c/32f934_4118de2bb13e46e6991af8adc103c57a~mv2.png",
+        "og:image:width": "2500",
+        "og:image:height": "1330",
+        "og:url": "https://www.piratesbarandgrill.com/menus?menu=dessert",
+        "og:site_name": "piratesbarandgrill",
+        "og:type": "website",
+        "fb_admins_meta_tag": "piratesbarandgrill",
+        "google-site-verification": "5N-uBAIhOb6wskHPKxhhAenVPeqee6xXd3ft1ux7iFs",
+        "fb:admins": "piratesbarandgrill",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "DESSERT",
+        "twitter:image": "https://static.wixstatic.com/media/32f934_4118de2bb13e46e6991af8adc103c57a~mv2.png/v1/fit/w_2500,h_1330,al_c/32f934_4118de2bb13e46e6991af8adc103c57a~mv2.png"
+      }
+    },
+    {
+      "url": "https://www.piratesbarandgrill.com/menus?location=Orleans+Drive&menu=sides",
+      "title": "SIDES | piratesbarandgrill",
+      "text": "top of pageCome Enjoy the Island with Us!\n\n​\n\n\"Best Food on Dauphin Island\"100 Orleans drive- Dauphin Island, Alabama\n\n​\n\n     \"At the Isle Dauphine Country Club\"HomeContact UsMenuSpecial Events and CateringPool, Beach, Music, and FunMusic ScheduleMore...Use tab to navigate through the menu items.\n \n \n \n\nLive MusicAPPETIZERSSALADS & WRAPSHAND-MADE POBOYS, BURGERS, & SANDWICHESKIDS MENUENTREESSIDESDESSERTLUNCHDRINKS & COCKTAILS SIDESSIDE DISHESBIG PHIL'S FAMOUS BAKED BEANS$3.95BATTERED FRIED ONION RINGS$3.95FRENCH FRIES$3.95FRIED OKRA$3.95TURNIP GREENS$3.95WILD RICE$3.95BAKED POTATO -(Dinner Only)(Served after 5pm)$4.95LOADED POTATO- (Dinner Only)(Served after 5pm)$4.95HARICOT GARLIC SAUTEED GREEN BEANS$3.95Battered Onion Rings$4.95Side Salad$4.95bottom of page",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "app.breadcrumbs.labels.home",
+              "item": "https://www.piratesbarandgrill.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Menu",
+              "item": "https://www.piratesbarandgrill.com/menus"
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "generator": "Wix.com Website Builder",
+        "format-detection": "telephone=no",
+        "skype_toolbar": "skype_toolbar_parser_compatible",
+        "robots": "index",
+        "og:title": "SIDES",
+        "og:image": "https://static.wixstatic.com/media/32f934_4118de2bb13e46e6991af8adc103c57a~mv2.png/v1/fit/w_2500,h_1330,al_c/32f934_4118de2bb13e46e6991af8adc103c57a~mv2.png",
+        "og:image:width": "2500",
+        "og:image:height": "1330",
+        "og:url": "https://www.piratesbarandgrill.com/menus?menu=sides",
+        "og:site_name": "piratesbarandgrill",
+        "og:type": "website",
+        "fb_admins_meta_tag": "piratesbarandgrill",
+        "google-site-verification": "5N-uBAIhOb6wskHPKxhhAenVPeqee6xXd3ft1ux7iFs",
+        "fb:admins": "piratesbarandgrill",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "SIDES",
+        "twitter:image": "https://static.wixstatic.com/media/32f934_4118de2bb13e46e6991af8adc103c57a~mv2.png/v1/fit/w_2500,h_1330,al_c/32f934_4118de2bb13e46e6991af8adc103c57a~mv2.png"
+      }
+    },
+    {
+      "url": "https://www.piratesbarandgrill.com/menus?location=Orleans+Drive&menu=entrees",
+      "title": "ENTREES | piratesbarandgrill",
+      "text": "top of pageCome Enjoy the Island with Us!\n\n​\n\n\"Best Food on Dauphin Island\"100 Orleans drive- Dauphin Island, Alabama\n\n​\n\n     \"At the Isle Dauphine Country Club\"HomeContact UsMenuSpecial Events and CateringPool, Beach, Music, and FunMusic ScheduleMore...Use tab to navigate through the menu items.\n \n \n \n\nLive MusicAPPETIZERSSALADS & WRAPSHAND-MADE POBOYS, BURGERS, & SANDWICHESKIDS MENUENTREESSIDESDESSERTLUNCHDRINKS & COCKTAILS ENTREESENTREESSeafood & Chicken are Served: Blackened. Grilled (except Crab Cakes & Soft Shells) or Fried w/ two sides and Your Choice of Hush Puppies or Grilled French Bread★ SEAFOOD PENNEPenne pasta, royal red shrimp covered with smoked gouda crème sauce, topped with lump crab and shrimp, served with salad and grilled Gambino French bread. $32.95★ SEAFOOD PLATTERFried Fish, Shrimp, and Oysters served with two sides and Hushpuppies or Grilled Gambino French Bread $28.95★ SEARED AHI TUNAServed on a bed of fresh spinach leaves and sliced red onions drizzled with house made Korean BBQ sauce.$26.95★ FLOUNDER PONTCHARTRAINLightly breaded flounder filet, pan seared and topped with fresh shrimp and crab crème sauce (choice of two sides and hushpuppies or grilled gambino french bread.$28.95★ CREOLE ROYAL RED SAUTEEFresh gulf royal reds with bell peppers, onions, corn on the cob, conecuh sausage, on a bed of wild rice, topped with a white wine pan-sauce, served with grilled gambino french bread.$24.95FRIED FISH DINNERTwo hand battered fish filets fried, served with two sides and hushpuppies or grilled Gambino French Bread.$21.95FRIED SHRIMP DINNERFresh Gulf Shrimp hand battered and fried, served with two sides and hushpuppies or grilled Gambino French Bread $22.95FRIED OYSTER DINNERFresh Gulf Oysters hand battered and fried, served with two sides and hushpuppies or grilled Gambino French Bread $25.95GRILLED MAHI DINNERFresh Grilled Mahi served with two sides and grilled Gambino French Bread $24.95HAMBURGER STEAKChar Grilled 12 oz Hand Made Burger Patty topped with grilled Onions, Peppers, Mushrooms and Brown Gravy, comes with two sides and hushpuppies or grilled Gambino French Bread $19.95RIBEYE14 oz Hand Cut Char Grilled Ribeye served with two sides and hushpuppies or grilled Gambino French Bread $32.95SURF N' TURF14 oz Hand Cut Ribeye topped with Fresh Blackened Gulf Shrimp, served with two sides and hushpuppies or grilled Gambino French Bread $38.95FETTUCCINE ALFREDOServed with a Side Salad with Choice of Dressing & French Bread\nAdd Chicken $4\nAdd Shrimp $5\n$15.95GRILLED CHICKEN DINNERGrilled Chicken Breast Topped with Korean BBQ Sauce Glaze and Pineapple, comes with Rice Pilaf, sauteed Haricot Green Beans and grilled Gambino French Bread $20.95★ FAMILY SEAFOOD PLATTERLarge orders of Fried Fish, Shrimp, and Oysters served with a crab cake and choice of two sides and Hushpuppies or Grilled Gambino French Bread $52.95bottom of page",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "app.breadcrumbs.labels.home",
+              "item": "https://www.piratesbarandgrill.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Menu",
+              "item": "https://www.piratesbarandgrill.com/menus"
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "generator": "Wix.com Website Builder",
+        "format-detection": "telephone=no",
+        "skype_toolbar": "skype_toolbar_parser_compatible",
+        "robots": "index",
+        "og:title": "ENTREES",
+        "og:image": "https://static.wixstatic.com/media/32f934_4118de2bb13e46e6991af8adc103c57a~mv2.png/v1/fit/w_2500,h_1330,al_c/32f934_4118de2bb13e46e6991af8adc103c57a~mv2.png",
+        "og:image:width": "2500",
+        "og:image:height": "1330",
+        "og:url": "https://www.piratesbarandgrill.com/menus?menu=entrees",
+        "og:site_name": "piratesbarandgrill",
+        "og:type": "website",
+        "fb_admins_meta_tag": "piratesbarandgrill",
+        "google-site-verification": "5N-uBAIhOb6wskHPKxhhAenVPeqee6xXd3ft1ux7iFs",
+        "fb:admins": "piratesbarandgrill",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "ENTREES",
+        "twitter:image": "https://static.wixstatic.com/media/32f934_4118de2bb13e46e6991af8adc103c57a~mv2.png/v1/fit/w_2500,h_1330,al_c/32f934_4118de2bb13e46e6991af8adc103c57a~mv2.png"
+      }
+    },
+    {
+      "url": "https://www.piratesbarandgrill.com/menus?location=Orleans+Drive&menu=kids-menu",
+      "title": "KIDS MENU | piratesbarandgrill",
+      "text": "top of pageCome Enjoy the Island with Us!\n\n​\n\n\"Best Food on Dauphin Island\"100 Orleans drive- Dauphin Island, Alabama\n\n​\n\n     \"At the Isle Dauphine Country Club\"HomeContact UsMenuSpecial Events and CateringPool, Beach, Music, and FunMusic ScheduleMore...Use tab to navigate through the menu items.\n \n \n \n\nLive MusicAPPETIZERSSALADS & WRAPSHAND-MADE POBOYS, BURGERS, & SANDWICHESKIDS MENUENTREESSIDESDESSERTLUNCHDRINKS & COCKTAILS KIDS MENUAge 12 and Under (Choice of One Side)KIDS MENU(Age 12 and Under)KIDS GRILLED CHEESE American cheese on texas toast, grilled\n$6.95KIDS FRIED CHICKEN TENDERS(2) hand-battered chicken tenders.$8.95KIDS HAMBURGER1/4 lb. burger cooked to order.$8.95KIDS CHEESEBURGER1/4 lb. cheeseburger cooked to order.$8.95KIDS FRIED FISHHand-battered fresh fried fish.$8.95KIDS FRIED SHRIMP BASKETHand-battered fresh gulf shrimp $8.95bottom of page",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "app.breadcrumbs.labels.home",
+              "item": "https://www.piratesbarandgrill.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Menu",
+              "item": "https://www.piratesbarandgrill.com/menus"
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "generator": "Wix.com Website Builder",
+        "format-detection": "telephone=no",
+        "skype_toolbar": "skype_toolbar_parser_compatible",
+        "description": "Age 12 and Under (Choice of One Side)",
+        "robots": "index",
+        "og:title": "KIDS MENU",
+        "og:description": "Age 12 and Under (Choice of One Side)",
+        "og:image": "https://static.wixstatic.com/media/32f934_4118de2bb13e46e6991af8adc103c57a~mv2.png/v1/fit/w_2500,h_1330,al_c/32f934_4118de2bb13e46e6991af8adc103c57a~mv2.png",
+        "og:image:width": "2500",
+        "og:image:height": "1330",
+        "og:url": "https://www.piratesbarandgrill.com/menus?menu=kids-menu",
+        "og:site_name": "piratesbarandgrill",
+        "og:type": "website",
+        "fb_admins_meta_tag": "piratesbarandgrill",
+        "google-site-verification": "5N-uBAIhOb6wskHPKxhhAenVPeqee6xXd3ft1ux7iFs",
+        "fb:admins": "piratesbarandgrill",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "KIDS MENU",
+        "twitter:description": "Age 12 and Under (Choice of One Side)",
+        "twitter:image": "https://static.wixstatic.com/media/32f934_4118de2bb13e46e6991af8adc103c57a~mv2.png/v1/fit/w_2500,h_1330,al_c/32f934_4118de2bb13e46e6991af8adc103c57a~mv2.png"
+      }
+    },
+    {
+      "url": "https://www.piratesbarandgrill.com/menus?location=Orleans+Drive&menu=hand-made-poboys-burgers--sandwiches",
+      "title": "HAND-MADE POBOYS, BURGERS, & SANDWICHES | piratesbarandgrill",
+      "text": "top of pageCome Enjoy the Island with Us!\n\n​\n\n\"Best Food on Dauphin Island\"100 Orleans drive- Dauphin Island, Alabama\n\n​\n\n     \"At the Isle Dauphine Country Club\"HomeContact UsMenuSpecial Events and CateringPool, Beach, Music, and FunMusic ScheduleMore...Use tab to navigate through the menu items.\n \n \n \n\nLive MusicAPPETIZERSSALADS & WRAPSHAND-MADE POBOYS, BURGERS, & SANDWICHESKIDS MENUENTREESSIDESDESSERTLUNCHDRINKS & COCKTAILS HAND-MADE POBOYS, BURGERS, & SANDWICHESIncludes choice of two sides. HAND-MADE POBOYS, BURGERS, & SANDWICHESPIRATE'S PO-BOYChoice of Fried Shrimp, Fish, or Oyster, on Gambino french bread, topped with lettuce, tomato, onion, and mayo.\nFried Fish 16.95\nShrimp 16.95\nOyster 16.95\nSoft Shell Crab $MPShrimp Po'Boy$16.95Fish Po'Boy$16.95Oyster Po'Boy$18.95BLACKENED SHRIMP BLTFresh blackened gulf shrimp, bacon lettuce, tomato, mayo, and pepper jack cheese served on texas toast. \n$15.95PIRATE BURGER8oz burger patty on a brioche bun dressed with lettuce, tomato, onion, pickles, ketchup, mayo, and mustard.\n$14.95Premium Toppings Grilled Mushrooms$1.50Grilled Onions$1.50Grilled Green Peppers$1.50Show MoreLUAU BURGER8oz burger , our signature rum sauce, bacon, grilled pineapple and onions.\n$16.95WESTERN BURGER8oz burger topped with BBQ sauce bacon, pepper jack cheese, and a fried onion ring. $16.95BUFFALO CHICKEN BACON & RANCH SANDWICHFried chicken breast tossed in our traditional buffalo sauce, topped with ranch and bacon, served on texas toast.$15.95Chicken Club SandwichGrilled chicken breast topped With Bacon. Lettuce. Tomato, and Mayo on a Brioche Bun$15.95PIRATE'S CLUB SANDWICHHam, Turkey, Bacon, American & Swiss Cheese, Lettuce, Tomato,& Mayo on Texas Toast. Choose Two Sides.$14.95RIBEYE SANDWICH10 Oz hand cut ribeye topped with grilled onions, peppers, mushrooms and our signature rum sauce, served on gambino french bread.$24.95BLACKENED MAHI TACOSFresh mahi filets served on flour tortillas topped with lettuce, tomato, cheddar cheese, and house made salsa verde.$17.95bottom of page",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "app.breadcrumbs.labels.home",
+              "item": "https://www.piratesbarandgrill.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Menu",
+              "item": "https://www.piratesbarandgrill.com/menus"
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "generator": "Wix.com Website Builder",
+        "format-detection": "telephone=no",
+        "skype_toolbar": "skype_toolbar_parser_compatible",
+        "description": "Includes choice of two sides. ",
+        "robots": "index",
+        "og:title": "HAND-MADE POBOYS, BURGERS, & SANDWICHES",
+        "og:description": "Includes choice of two sides. ",
+        "og:image": "https://static.wixstatic.com/media/32f934_4118de2bb13e46e6991af8adc103c57a~mv2.png/v1/fit/w_2500,h_1330,al_c/32f934_4118de2bb13e46e6991af8adc103c57a~mv2.png",
+        "og:image:width": "2500",
+        "og:image:height": "1330",
+        "og:url": "https://www.piratesbarandgrill.com/menus?menu=hand-made-poboys-burgers--sandwiches",
+        "og:site_name": "piratesbarandgrill",
+        "og:type": "website",
+        "fb_admins_meta_tag": "piratesbarandgrill",
+        "google-site-verification": "5N-uBAIhOb6wskHPKxhhAenVPeqee6xXd3ft1ux7iFs",
+        "fb:admins": "piratesbarandgrill",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "HAND-MADE POBOYS, BURGERS, & SANDWICHES",
+        "twitter:description": "Includes choice of two sides. ",
+        "twitter:image": "https://static.wixstatic.com/media/32f934_4118de2bb13e46e6991af8adc103c57a~mv2.png/v1/fit/w_2500,h_1330,al_c/32f934_4118de2bb13e46e6991af8adc103c57a~mv2.png"
+      }
+    },
+    {
+      "url": "https://www.piratesbarandgrill.com/menus?location=Orleans+Drive&menu=salads--wraps",
+      "title": "SALADS & WRAPS | piratesbarandgrill",
+      "text": "top of pageCome Enjoy the Island with Us!\n\n​\n\n\"Best Food on Dauphin Island\"100 Orleans drive- Dauphin Island, Alabama\n\n​\n\n     \"At the Isle Dauphine Country Club\"HomeContact UsMenuSpecial Events and CateringPool, Beach, Music, and FunMusic ScheduleMore...Use tab to navigate through the menu items.\n \n \n \n\nLive MusicAPPETIZERSSALADS & WRAPSHAND-MADE POBOYS, BURGERS, & SANDWICHESKIDS MENUENTREESSIDESDESSERTLUNCHDRINKS & COCKTAILS SALADS & WRAPSSALADS & WRAPSCHEF'S SALADLarge green salad topped with Ham, Turkey, Bacon, Cheddar Cheese and Croutons with your choice of dressing $15.95LARGE CAESAR SALADFresh Romain Lettuce tossed in Caesar Dressing topped with Parmesan and Croutons \n$12.95Salad ProtiensAdd Grilled Chicken$4Add Grilled Shrimp$5Add Mahi$8LARGE GREEN SALADLettuce, Tomatoes, Onions, Cucumbers, Croutons, & Shredded Cheddar Cheese.$13.95Salad ProtiensAdd Grilled Chicken$4Add Grilled Shrimp$5Add Mahi$8BLACKENED CHICKEN CAESAR WRAPFresh Blackened Chicken, Romaine Lettuce, Parmesan and Caesar Dressing wrapped in a flour tortilla, comes with one side $15.95BLACKENED SHRIMP CAESAR WRAPBlackened Chicken, Romaine Lettuce, Parmesan and Caesar Dressing wrapped in a flour tortilla, comes with one side$16.95bottom of page",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "app.breadcrumbs.labels.home",
+              "item": "https://www.piratesbarandgrill.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Menu",
+              "item": "https://www.piratesbarandgrill.com/menus"
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "generator": "Wix.com Website Builder",
+        "format-detection": "telephone=no",
+        "skype_toolbar": "skype_toolbar_parser_compatible",
+        "robots": "index",
+        "og:title": "SALADS & WRAPS",
+        "og:image": "https://static.wixstatic.com/media/32f934_4118de2bb13e46e6991af8adc103c57a~mv2.png/v1/fit/w_2500,h_1330,al_c/32f934_4118de2bb13e46e6991af8adc103c57a~mv2.png",
+        "og:image:width": "2500",
+        "og:image:height": "1330",
+        "og:url": "https://www.piratesbarandgrill.com/menus?menu=salads--wraps",
+        "og:site_name": "piratesbarandgrill",
+        "og:type": "website",
+        "fb_admins_meta_tag": "piratesbarandgrill",
+        "google-site-verification": "5N-uBAIhOb6wskHPKxhhAenVPeqee6xXd3ft1ux7iFs",
+        "fb:admins": "piratesbarandgrill",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "SALADS & WRAPS",
+        "twitter:image": "https://static.wixstatic.com/media/32f934_4118de2bb13e46e6991af8adc103c57a~mv2.png/v1/fit/w_2500,h_1330,al_c/32f934_4118de2bb13e46e6991af8adc103c57a~mv2.png"
+      }
+    },
+    {
+      "url": "https://www.piratesbarandgrill.com/menus?location=Orleans+Drive",
+      "title": "APPETIZERS | piratesbarandgrill",
+      "text": "top of pageCome Enjoy the Island with Us!\n\n​\n\n\"Best Food on Dauphin Island\"100 Orleans drive- Dauphin Island, Alabama\n\n​\n\n     \"At the Isle Dauphine Country Club\"HomeContact UsMenuSpecial Events and CateringPool, Beach, Music, and FunMusic ScheduleMore...Use tab to navigate through the menu items.\n \n \n \n\nLive MusicAPPETIZERSSALADS & WRAPSHAND-MADE POBOYS, BURGERS, & SANDWICHESKIDS MENUENTREESSIDESDESSERTLUNCHDRINKS & COCKTAILS APPETIZERSAPPETIZERS★ BIG PHIL'S SEAFOOD GUMBOOur Family RecipeCup$8.95Bowl$11.95HAND BATTERED FRIED PICKLESLarge order of our Hand Battered fried pickles. $13.95LUMP CRAB CAKESMade with Fresh Lump Crab Meat, Pan Seared then Baked Served over a Lemon Curry Aioli. $25.95★ BLUE CRAB CLAWS- (Market Price)Fresh Gulf Crab Claws, served Fried or Sautéed, available in 1 lb. portions. Market PriceTHAI CHILI SHRIMPHand Battered Large Gulf Shrimp, tossed in our Sweet and Spicy Thai Chili Sauce. ½ lb. $ 12.95 or 1 lb $21.951/2 Pound$16.951 Pound$33.95★ BLUE CRAB AND CONECUH SPINACH DIPOur Homemade Four Cheese Spinach Dip, topped with Lump Blue Crab and diced Grilled Conecuh Sausage served with baked Seasoned Pita Chips. $17.95OYSTERS ON THE HALFSHELLServed Raw, Fresh from the Bayou. Market PriceCOCONUT SHRIMPLarge Butterflied Tail-On Coconut Battered Fried Shrimp, served with our House Sour Thai Glaze dipping sauce. $14.95WINGS Ten Bone-in or Boneless Chicken Wings, served with any of our House Made Sauces \n(Traditional Buffalo, Sweet n Spicy House Buffalo, Thai Chili, BBQ, Jim Beam Honey Mustard, or Caribbean Jerk)\n$18.95Candied Pork Belly and ShrimpPan-seared pork belly and gulf shrimp finished with a blood orange glaze.$15.95bottom of page",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "app.breadcrumbs.labels.home",
+              "item": "https://www.piratesbarandgrill.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Menu",
+              "item": "https://www.piratesbarandgrill.com/menus"
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "generator": "Wix.com Website Builder",
+        "format-detection": "telephone=no",
+        "skype_toolbar": "skype_toolbar_parser_compatible",
+        "robots": "index",
+        "og:title": "APPETIZERS",
+        "og:image": "https://static.wixstatic.com/media/32f934_4118de2bb13e46e6991af8adc103c57a~mv2.png/v1/fit/w_2500,h_1330,al_c/32f934_4118de2bb13e46e6991af8adc103c57a~mv2.png",
+        "og:image:width": "2500",
+        "og:image:height": "1330",
+        "og:url": "https://www.piratesbarandgrill.com/menus?menu=appetizers",
+        "og:site_name": "piratesbarandgrill",
+        "og:type": "website",
+        "fb_admins_meta_tag": "piratesbarandgrill",
+        "google-site-verification": "5N-uBAIhOb6wskHPKxhhAenVPeqee6xXd3ft1ux7iFs",
+        "fb:admins": "piratesbarandgrill",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "APPETIZERS",
+        "twitter:image": "https://static.wixstatic.com/media/32f934_4118de2bb13e46e6991af8adc103c57a~mv2.png/v1/fit/w_2500,h_1330,al_c/32f934_4118de2bb13e46e6991af8adc103c57a~mv2.png"
+      }
+    },
+    {
+      "url": "https://www.piratesbarandgrill.com/copy-of-contact-us",
+      "title": "Contact Us | piratesbarandgrill",
+      "text": "top of pageCome Enjoy the Island with Us!\n\n​\n\n\"Best Food on Dauphin Island\"100 Orleans drive- Dauphin Island, Alabama\n\n​\n\n     \"At the Isle Dauphine Country Club\"HomeContact UsMenuSpecial Events and CateringPool, Beach, Music, and FunMusic ScheduleMore...Use tab to navigate through the menu items.\n \n \n \n\nLive MusicLeave us a comment or suggestionThank for contacting our management team. Someone will contact you shortly.Sendbottom of page",
+      "structuredData": [],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "generator": "Wix.com Website Builder",
+        "format-detection": "telephone=no",
+        "skype_toolbar": "skype_toolbar_parser_compatible",
+        "og:title": "Contact Us | piratesbarandgrill",
+        "og:image": "https://static.wixstatic.com/media/32f934_d8cf8de6c03d4de2885e66172807bedf%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/32f934_d8cf8de6c03d4de2885e66172807bedf%7Emv2.jpg",
+        "og:image:width": "2500",
+        "og:image:height": "1330",
+        "og:url": "https://www.piratesbarandgrill.com/copy-of-contact-us",
+        "og:site_name": "piratesbarandgrill",
+        "og:type": "website",
+        "fb_admins_meta_tag": "piratesbarandgrill",
+        "google-site-verification": "5N-uBAIhOb6wskHPKxhhAenVPeqee6xXd3ft1ux7iFs",
+        "fb:admins": "piratesbarandgrill",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Contact Us | piratesbarandgrill",
+        "twitter:image": "https://static.wixstatic.com/media/32f934_d8cf8de6c03d4de2885e66172807bedf%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/32f934_d8cf8de6c03d4de2885e66172807bedf%7Emv2.jpg"
+      }
+    },
+    {
+      "url": "https://www.piratesbarandgrill.com",
+      "title": "Restaurants | Dauphin Island | Pirates Bar and Grill",
+      "text": "top of pageCome Enjoy the Island with Us!\n\n​\n\n\"Best Food on Dauphin Island\"100 Orleans drive- Dauphin Island, Alabama\n\n​\n\n     \"At the Isle Dauphine Country Club\"HomeContact UsMenuSpecial Events and CateringPool, Beach, Music, and FunMusic ScheduleMore...Use tab to navigate through the menu items.\n \n \n \n\nLive MusicFrom Our KitchenOUR KITCHENORDER\n\nONLINE\nHandcrafted\nBURGERS\n\n \n \n \n\n \n \n \n\n \n \n \n\nTry One of Our Handcrafted Half-Pound Burgers. All of Our Burgers are Cooked to Order and Loaded with Toppings.We Serve Only Fresh Gulf Seafood. Beware of Other Restaurants that Serve Frozen fish or Shrimp From China.All natural\nINGREDIENTS\nNothing in Our Kitchen Comes Pre-breaded or Pre-cooked.\n\nWe Only Use Real Ingredients & Make Everything from Scratch. AUTHENTIC SOUTHERN FOODWHAT'S NEWOur FavoritesWorld Famous WingsDon't miss Wing Night Every Wednesday Night! Live Music, Wing Specials, and  Great Drink Specials. Fireside in the Winter- Poolside in the Summer!\n\n​\n\nAll Sauces Made in House:\n\nHouse Buffalo, Traditional Buffalo, House Made BBQ, Sweet Thai Chili, Jim Beam Honey Mustard, Pirates Caribbean Jerk.\n\n(Minimum 8 wings, naked only for wing night special)\n\n​Don't Miss Wing WednesdayThe Original Dauphin Island BushwackerFOR\n$13.50Do Not be Fooled by Impostors! Try the Original Dauphin Island Bushwacker- Ice Cream, Several Kinds of Rum, Chocolate, More Rum and a Cherry on Top. We also make a variety of Frozen Drinks, Boat Drinks, & Daquiris. Add a Floater!Have you\nTried Our Flounder Pontchartrain?Pan Seared Local Flounder Topped with Shrimp & Crab White Wine Sauce.OFFICIAL MERCHANDISENO TRIP TO DAUPHIN ISLAND IS COMPLETE WITHOUT A PIRATE'S T-SHIRT!LOCATION & CONTACTLocation & Contact251 861-2969100 Orleans Ave. Dauphin Island, Al 36528      \n\n​\n\nMonday 11am - 9 pm\n\nTuesday 11am - 9 pm\n\nWednesday 11am - 9 pm\n\nThursday 11am - 9 pm\n\nFriday 11am - 9 pm\n\nSaturday 11am - 9pm\n\nSunday 11am - 9pm\n\n* All Hours are Dependent on Weather and Local Conditions*bottom of page",
+      "structuredData": [
+        {
+          "@context": "https://schema.org/",
+          "@type": "Restaurant",
+          "name": "Pirate's Bar and Grill",
+          "image": "https://static.wixstatic.com/media/32f934_4118de2bb13e46e6991af8adc103c57a~mv2.png",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "US",
+            "addressLocality": "Dauphin Island",
+            "addressRegion": "AL",
+            "postalCode": "36528",
+            "streetAddress": "100 Orleans Drive"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "30.24588559999999",
+            "longitude": "-88.11212660000001"
+          },
+          "url": "https://www.piratesbarandgrill.com",
+          "telephone": "251-861-2969",
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": "Sunday",
+              "opens": "07:30",
+              "closes": "21:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": "Wednesday",
+              "opens": "10:30",
+              "closes": "21:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": "Thursday",
+              "opens": "10:30",
+              "closes": "21:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": "Friday",
+              "opens": "07:30",
+              "closes": "21:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": "Saturday",
+              "opens": "07:30",
+              "closes": "21:00"
+            }
+          ],
+          "acceptsReservations": "True"
+        },
+        {
+          "@context": "https://schema.org/",
+          "@type": "WebSite",
+          "name": "piratesbarandgrill",
+          "url": "https://www.piratesbarandgrill.com"
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "generator": "Wix.com Website Builder",
+        "format-detection": "telephone=no",
+        "skype_toolbar": "skype_toolbar_parser_compatible",
+        "description": "Pirate's Bar & Grill Restaurant offers the Best Food, Bushwackers, Frozen Drinks, Views, Beach, Pool access, & Live Music on Dauphin Island. ",
+        "og:title": "Restaurants | Dauphin Island | Pirates Bar and Grill",
+        "og:description": "Pirate's Bar & Grill Restaurant offers the Best Food, Bushwackers, Frozen Drinks, Views, Beach, Pool access, & Live Music on Dauphin Island. ",
+        "og:image": "https://static.wixstatic.com/media/32f934_d8cf8de6c03d4de2885e66172807bedf%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/32f934_d8cf8de6c03d4de2885e66172807bedf%7Emv2.jpg",
+        "og:image:width": "2500",
+        "og:image:height": "1330",
+        "og:url": "https://www.piratesbarandgrill.com",
+        "og:site_name": "piratesbarandgrill",
+        "og:type": "website",
+        "keywords": "Restaurant Dauphin Island, Seafood, Shrimp, Live Music, Bushwackers, places to eat Dauphin Island, Breakfast Dauphin Island, Pirate's Bar and Grill, Pirate's Pleasure, Pirate's Cove Dauphin Island",
+        "fb_admins_meta_tag": "piratesbarandgrill",
+        "google-site-verification": "5N-uBAIhOb6wskHPKxhhAenVPeqee6xXd3ft1ux7iFs",
+        "fb:admins": "piratesbarandgrill",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Restaurants | Dauphin Island | Pirates Bar and Grill",
+        "twitter:description": "Pirate's Bar & Grill Restaurant offers the Best Food, Bushwackers, Frozen Drinks, Views, Beach, Pool access, & Live Music on Dauphin Island. ",
+        "twitter:image": "https://static.wixstatic.com/media/32f934_d8cf8de6c03d4de2885e66172807bedf%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/32f934_d8cf8de6c03d4de2885e66172807bedf%7Emv2.jpg"
+      }
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": [
+    "https://static.wixstatic.com/media/32f934_7e0f690ef1db4af3bff416b83b7e3d35~mv2.png/v1/fill/w_171,h_191,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/32f934_7e0f690ef1db4af3bff416b83b7e3d35~mv2.png",
+    "https://static.wixstatic.com/media/0ec8f3_6a88858fedac4f4287f707fc415e1127~mv2.jpg/v1/fill/w_900,h_827,al_c,q_85,enc_avif,quality_auto/0ec8f3_6a88858fedac4f4287f707fc415e1127~mv2.jpg",
+    "https://static.wixstatic.com/media/84770f_0d32a522caea440ea73af1b6f62be51c.png/v1/fill/w_333,h_333,al_c,lg_1,q_85,enc_avif,quality_auto/84770f_0d32a522caea440ea73af1b6f62be51c.png",
+    "https://static.wixstatic.com/media/32f934_e8ea12c7280c4f3ca104d1dae0f77822~mv2.png/v1/fill/w_300,h_294,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/32f934_e8ea12c7280c4f3ca104d1dae0f77822~mv2.png",
+    "https://static.wixstatic.com/media/84770f_792bd6836b114c1eb4d101f1e40e6a2c.png/v1/fill/w_317,h_317,al_c,lg_1,q_85,enc_avif,quality_auto/84770f_792bd6836b114c1eb4d101f1e40e6a2c.png",
+    "https://static.wixstatic.com/media/32f934_6641884a53164c10bb37f6178f4d3421~mv2.jpeg/v1/fill/w_1145,h_805,al_c,q_85,enc_avif,quality_auto/32f934_6641884a53164c10bb37f6178f4d3421~mv2.jpeg",
+    "https://static.wixstatic.com/media/32f934_3698cb278945481ebf47d0fc592feed1~mv2.jpg/v1/fill/w_280,h_279,al_c,lg_1,q_80,enc_avif,quality_auto/32f934_3698cb278945481ebf47d0fc592feed1~mv2.jpg",
+    "https://static.wixstatic.com/media/32f934_db336bead1ff42daa3c82c6253c26c14~mv2.jpg/v1/fill/w_492,h_489,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/32f934_db336bead1ff42daa3c82c6253c26c14~mv2.jpg",
+    "https://static.wixstatic.com/media/32f934_f60ef78f413f48cea427fc94e6bb0033~mv2.jpeg/v1/fill/w_492,h_492,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/image0.jpeg",
+    "https://static.wixstatic.com/media/32f934_22f599809f424bda8f24050adfd9dea0~mv2.jpeg/v1/fill/w_414,h_419,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/image1.jpeg",
+    "https://static.wixstatic.com/media/32f934_7c86cbdad5094a9bb72b1ce6262b3d77~mv2.jpeg/v1/fill/w_459,h_419,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/image1%20(1).jpeg",
+    "https://static.wixstatic.com/media/32f934_a0232e54edc74a67986394fc22c7117b~mv2.jpeg/v1/crop/x_0,y_12,w_1170,h_1308/fill/w_393,h_441,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/image3%20(1).jpeg",
+    "https://static.wixstatic.com/media/32f934_bc77cdf1ab0f4c538408183a4fa6fc38~mv2.jpeg/v1/fill/w_456,h_432,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/image2%20(1).jpeg",
+    "https://static.wixstatic.com/media/0ec8f3_ae969e3c904c4c61b9f54988d2d311c1~mv2.jpg/v1/fill/w_1125,h_353,al_c,q_85,enc_avif,quality_auto/0ec8f3_ae969e3c904c4c61b9f54988d2d311c1~mv2.jpg",
+    "https://static.wixstatic.com/media/32f934_edab9027826d41d389cbc132fe1997d8~mv2_d_2000_1402_s_2.jpg/v1/fill/w_234,h_164,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/32f934_edab9027826d41d389cbc132fe1997d8~mv2_d_2000_1402_s_2.jpg",
+    "https://static.wixstatic.com/media/32f934_2f88fafa90ad43ca99b13aa9a2232cf3~mv2.jpg/v1/fill/w_216,h_164,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/32f934_2f88fafa90ad43ca99b13aa9a2232cf3~mv2.jpg",
+    "https://static.wixstatic.com/media/32f934_cbd9d966558a4c4a836bd77234b3d5ad~mv2.jpg/v1/fill/w_300,h_200,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/32f934_cbd9d966558a4c4a836bd77234b3d5ad~mv2.jpg",
+    "https://static.wixstatic.com/media/32f934_55072c9ef8fe47989c9cdceac77ade4f~mv2.jpg/v1/crop/x_0,y_601,w_1063,h_846/fill/w_252,h_200,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/32f934_55072c9ef8fe47989c9cdceac77ade4f~mv2.jpg",
+    "https://static.wixstatic.com/media/32f934_87decdff22524c9a9673f502d71d463a~mv2.jpg/v1/crop/x_0,y_681,w_1152,h_818/fill/w_291,h_201,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/32f934_87decdff22524c9a9673f502d71d463a~mv2.jpg",
+    "https://static.wixstatic.com/media/32f934_fe763e6498144604ad9e956894dbd857~mv2.jpg/v1/crop/x_0,y_296,w_450,h_269/fill/w_432,h_261,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/32f934_fe763e6498144604ad9e956894dbd857~mv2.jpg",
+    "https://static.wixstatic.com/media/32f934_cda2dd326bbe414abaca26892553efb7~mv2.jpg/v1/fill/w_219,h_318,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/32f934_cda2dd326bbe414abaca26892553efb7~mv2.jpg",
+    "https://static.wixstatic.com/media/32f934_60fe64ff7ea74083b8917c0391c3943d~mv2_d_2048_2048_s_2.jpg/v1/fill/w_351,h_341,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/32f934_60fe64ff7ea74083b8917c0391c3943d~mv2_d_2048_2048_s_2.jpg",
+    "https://static.wixstatic.com/media/32f934_bbf7bf5ac3174fa2a09be4b0b4682539~mv2.jpg/v1/crop/x_2,y_256,w_1148,h_1537/fill/w_240,h_297,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/32f934_bbf7bf5ac3174fa2a09be4b0b4682539~mv2.jpg",
+    "https://static.wixstatic.com/media/32f934_c952b053d5934d278f57a3f3c2141835~mv2.jpg/v1/crop/x_0,y_218,w_581,h_631/fill/w_270,h_267,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/32f934_c952b053d5934d278f57a3f3c2141835~mv2.jpg",
+    "https://static.wixstatic.com/media/e316f544f9094143b9eac01f1f19e697.png/v1/fill/w_39,h_39,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/e316f544f9094143b9eac01f1f19e697.png",
+    "https://static.wixstatic.com/media/74d327d3628e4f14800301f1c61013b0.png/v1/fill/w_39,h_39,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/74d327d3628e4f14800301f1c61013b0.png",
+    "https://static.wixstatic.com/media/fb5d18fdfff64a56a7e136d2016a1b7b.png/v1/fill/w_39,h_39,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/fb5d18fdfff64a56a7e136d2016a1b7b.png",
+    "https://static.wixstatic.com/media/32f934_55072c9ef8fe47989c9cdceac77ade4f~mv2.jpg/v1/crop/x_0,y_591,w_1152,h_866/fill/w_276,h_207,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/32f934_55072c9ef8fe47989c9cdceac77ade4f~mv2.jpg",
+    "https://static.wixstatic.com/media/32f934_ee2a683f3bf245ab9e08dfcf85e06025~mv2.jpg/v1/crop/x_0,y_188,w_360,h_267/fill/w_276,h_207,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/32f934_ee2a683f3bf245ab9e08dfcf85e06025~mv2.jpg",
+    "https://static.parastorage.com/services/restaurant-menus-showcase-ooi/fe37e436ffe73e3bb0a727c470282ab6782bce4c257ea438135d1263/media/menus_side_image.7077f229.jpeg"
+  ]
+}

@@ -1,0 +1,312 @@
+{
+  "business_name": "The Curry Modern Indian",
+  "tagline": "Fresh, bold, and modern Indian Cuisine",
+  "type": "Restaurant",
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": null,
+    "city": "Huntsville",
+    "state": "AL",
+    "zip": null
+  },
+  "hours": {
+    "monday": "Closed",
+    "tuesday": "Lunch: 11 AM – 2 PM, Dinner: 5 PM – 9 PM",
+    "wednesday": "Lunch: 11 AM – 2 PM, Dinner: 5 PM – 9 PM",
+    "thursday": "Lunch: 11 AM – 2 PM, Dinner: 5 PM – 9 PM",
+    "friday": "Lunch: 11 AM – 2 PM, Dinner: 5 PM – 9:30 PM",
+    "saturday": "Lunch: 11 AM – 2 PM, Dinner: 5 PM – 9:30 PM",
+    "sunday": "Lunch: 11 AM – 2:30 PM, Dinner: 5 PM – 8 PM",
+    "notes": "Closed Mondays"
+  },
+  "about": {
+    "description": "Est. in 2022, The Curry Modern Indian Restaurant brings fresh, bold, and modern Indian Cuisine to Huntsville, Alabama. Our chefs are masters at Indian Cuisine, providing guests with the highest quality curries, biryanis, dosas, and more.",
+    "elevator_pitch": "Modern Indian restaurant in Huntsville offering authentic regional cuisine with top culinary techniques and picturesque ambiance.",
+    "vibe": "Contemporary Indian dining with authentic flavors, picture-perfect presentation, and friendly service in a beautifully designed space.",
+    "best_for": [
+      "families",
+      "date night",
+      "Indian food enthusiasts",
+      "vegetarian/vegan diners",
+      "brunch",
+      "casual dining"
+    ],
+    "established": "2022",
+    "reservations": null,
+    "insider_tip": "Offers weekend lunch buffet with authentic Indian street food including pani puri and chai. 100% halal certified. Tons of parking available."
+  },
+  "tags": [
+    "Indian",
+    "authentic",
+    "modern",
+    "vegetarian options",
+    "vegan options",
+    "halal",
+    "casual",
+    "lunch buffet",
+    "family-friendly"
+  ],
+  "features": [
+    "dine-in",
+    "online ordering",
+    "weekend buffet",
+    "ample parking",
+    "picturesque ambiance",
+    "full menu"
+  ],
+  "price_range": "$$",
+  "social_links": {
+    "instagram": "https://www.instagram.com/thecurryhsv/",
+    "facebook": "https://www.facebook.com/thecurryhsv/",
+    "website": "https://thecurryrestaurant.com/"
+  },
+  "specials": [
+    {
+      "name": "Weekend Lunch Buffet",
+      "description": "Indian Street Food buffet featuring authentic dishes including pani puri, samosas, and more",
+      "days": [
+        "Saturday",
+        "Sunday"
+      ],
+      "time": "11 AM – 2 PM (Saturday), 11 AM – 2:30 PM (Sunday)"
+    }
+  ],
+  "events": [],
+  "menu": {
+    "categories": [
+      {
+        "name": "Starters",
+        "type": "appetizers",
+        "items": [
+          {
+            "name": "Kale and Onion Pakora",
+            "description": "Crispy fried kale leaves / onions in chickpea flour batter",
+            "price": null,
+            "tags": [
+              "vegetarian",
+              "crispy"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Punjabi Samosa / Saunth Chutney",
+            "description": "Deep-fried spiced potato filled pastry with tamarind & date chutney",
+            "price": null,
+            "tags": [
+              "vegetarian",
+              "fried"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Achari Paneer Tikka",
+            "description": "Cottage cheese cubes marinated in achari masala & baked in tandoor clay oven",
+            "price": null,
+            "tags": [
+              "vegetarian",
+              "tandoor",
+              "paneer"
+            ],
+            "allergens": [
+              "dairy"
+            ]
+          },
+          {
+            "name": "Amritsari Shrimp",
+            "description": "Fried shrimps with a unique combo of spices and herbs in besan batter",
+            "price": null,
+            "tags": [
+              "seafood",
+              "fried"
+            ],
+            "allergens": [
+              "shellfish"
+            ]
+          },
+          {
+            "name": "Tellicherry Pepper Squid and Shrimp",
+            "description": "Fresh cracked black pepper, onion & tomato paste & fried coconut flakes",
+            "price": null,
+            "tags": [
+              "seafood",
+              "spicy"
+            ],
+            "allergens": [
+              "shellfish"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Soups & Salads",
+        "type": "appetizers",
+        "items": [
+          {
+            "name": "Chicken Soup",
+            "description": "Soup with indian spice flavor",
+            "price": null,
+            "tags": [
+              "non-vegetarian",
+              "soup"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Mulligatwany Soup",
+            "description": "Fragrant lentil and veg soup",
+            "price": null,
+            "tags": [
+              "vegetarian",
+              "soup"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Tomato Soup",
+            "description": "Spiced tomato soup",
+            "price": null,
+            "tags": [
+              "vegetarian",
+              "soup"
+            ],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Indian Breads",
+        "type": "lunch",
+        "items": [
+          {
+            "name": "Tandoori Roti",
+            "description": null,
+            "price": null,
+            "tags": [
+              "vegetarian",
+              "bread",
+              "tandoor"
+            ],
+            "allergens": [
+              "wheat"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Vegetarian Curries",
+        "type": "lunch",
+        "items": [
+          {
+            "name": "Malai Kofta",
+            "description": "Veggies and cottage cheese dumplings in a smooth and rich creamy onion sauce",
+            "price": null,
+            "tags": [
+              "vegetarian",
+              "paneer",
+              "curry"
+            ],
+            "allergens": [
+              "dairy"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Sides",
+        "type": "lunch",
+        "items": [
+          {
+            "name": "Kurkure Bhindi",
+            "description": "Spicy and crisp baby okra slices make a great side and a snack",
+            "price": null,
+            "tags": [
+              "vegetarian",
+              "spicy",
+              "crispy"
+            ],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Desserts",
+        "type": "desserts",
+        "items": [
+          {
+            "name": "Gulab / Rabadi Jamun",
+            "description": "Fried fluffy balls made of milk solids in aromatic sugar syrup",
+            "price": null,
+            "tags": [
+              "vegetarian",
+              "dessert",
+              "fried"
+            ],
+            "allergens": [
+              "dairy"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Biryani Selections",
+        "type": "lunch",
+        "items": []
+      },
+      {
+        "name": "Non-Veg Curries",
+        "type": "lunch",
+        "items": []
+      },
+      {
+        "name": "Rice Selections",
+        "type": "lunch",
+        "items": []
+      },
+      {
+        "name": "South Indian",
+        "type": "lunch",
+        "items": []
+      },
+      {
+        "name": "Tandoor Delicacies",
+        "type": "lunch",
+        "items": []
+      },
+      {
+        "name": "Indo-Chinese Appetizers",
+        "type": "appetizers",
+        "items": []
+      },
+      {
+        "name": "Kids Menu",
+        "type": "kids",
+        "items": []
+      }
+    ]
+  },
+  "url": "http://www.thecurryrestaurant.com/",
+  "scraped_at": "2026-03-21T14:01:33.640Z",
+  "extracted_at": "2026-03-23T04:11:59.633Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://thecurryrestaurant.com/wp-content/uploads/2023/02/curry-logo-white-e1688143736735.png",
+    "https://thecurryrestaurant.com/wp-content/uploads/2023/02/Tandoori-roti1.jpeg",
+    "https://thecurryrestaurant.com/wp-content/uploads/2023/02/Gulab1.jpeg",
+    "https://thecurryrestaurant.com/wp-content/uploads/2023/02/the-curry-placeholder-1.png",
+    "https://thecurryrestaurant.com/wp-content/uploads/2023/02/kurkure-bhindi2.jpg",
+    "https://thecurryrestaurant.com/wp-content/uploads/2023/02/Kale-and-Onion-Pakora1.jpeg",
+    "https://thecurryrestaurant.com/wp-content/uploads/2023/02/rtwjccgspbconghztsoapxxepu_1671512723979.jpeg",
+    "https://thecurryrestaurant.com/wp-content/uploads/2023/02/Achari-Paneer-Tikka1.jpeg",
+    "https://thecurryrestaurant.com/wp-content/uploads/2023/02/Amritsari-Shrimp1.jpeg",
+    "https://thecurryrestaurant.com/wp-content/uploads/2023/02/Tellicherry-Pepper-Squid-and-Shrimp1.jpeg",
+    "https://thecurryrestaurant.com/wp-content/uploads/2023/02/the-curry-placeholder.png",
+    "https://thecurryrestaurant.com/wp-content/uploads/2023/02/Mulligatawny-Soup1.jpeg",
+    "https://thecurryrestaurant.com/wp-content/uploads/2023/02/Tomato-Soup1.jpeg",
+    "https://thecurryrestaurant.com/wp-content/uploads/2023/02/Achari-Paneer-Tikka-1024x680.jpg",
+    "https://thecurryrestaurant.com/wp-content/uploads/2023/05/spoon-spices.png"
+  ],
+  "sources": [
+    "http://www.thecurryrestaurant.com"
+  ]
+}

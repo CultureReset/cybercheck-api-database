@@ -1,0 +1,278 @@
+{
+  "business_name": "Reel Surprise Charters",
+  "tagline": "Angling & Adventure on the Alabama Gulf Coast",
+  "type": "Fishing Charter | Marina | Dock Store",
+  "contact": {
+    "phone": "251-981-7173",
+    "email": null,
+    "address": "27267 Perdido Beach Blvd, Suite 100B",
+    "city": "Orange Beach",
+    "state": "AL",
+    "zip": "36561"
+  },
+  "hours": {
+    "monday": "Charter Office: 9 a.m. to 4 p.m. | Marina + Dock Store: 7 a.m. to 4 p.m.",
+    "tuesday": "Charter Office: 9 a.m. to 4 p.m. | Marina + Dock Store: 7 a.m. to 4 p.m.",
+    "wednesday": "Charter Office: 9 a.m. to 4 p.m. | Marina + Dock Store: 7 a.m. to 4 p.m.",
+    "thursday": "Charter Office: 9 a.m. to 4 p.m. | Marina + Dock Store: 7 a.m. to 4 p.m.",
+    "friday": "Charter Office: 9 a.m. to 4 p.m. | Marina + Dock Store: 7 a.m. to 5 p.m.",
+    "saturday": "Charter Office: 9 a.m. to 4 p.m. | Marina + Dock Store: 7 a.m. to 5 p.m.",
+    "sunday": "Charter Office: Closed | Marina + Dock Store: 7 a.m. to 4 p.m.",
+    "notes": "Phones answered daily 7 a.m. to 9 p.m. | Marina + Dock Store: 251-981-6167"
+  },
+  "about": {
+    "description": "Reel Surprise Charters is a family-owned brand of Orange Beach fishing charters and boutique marina services, located at SanRoc Cay. Founded in 1999 by Randy Boggs and Susan, they operate a 65' Bonner head boat and offer inshore and offshore fishing charters. The marina features 54 premium boat slips, a fully-stocked dock store with fuel, shopping, restaurants, clean restroom facilities, and more. They provide bilingual crew services and have over 20 years of experience on the Gulf Coast.",
+    "elevator_pitch": "Family-owned fishing charters and boutique marina in Orange Beach with spacious vessels, expert local crew, and premium marina services since 1999.",
+    "vibe": "Family-friendly, locally-loved, welcoming to all experience levels, with experienced captains and deckhands who treat guests like family.",
+    "best_for": [
+      "families",
+      "first-timers",
+      "experienced anglers",
+      "small groups",
+      "corporate teams",
+      "multi-day trips"
+    ],
+    "capacity": "Head boat up to 35 passengers | Inshore charters up to 4 passengers | Six-passenger charters up to 6 passengers",
+    "duration_options": [
+      "3-10 hours (Reel Surprise head boat)",
+      "4-6 hours (Inshore)",
+      "4-10 hours (Six-passenger charters)"
+    ],
+    "departure_location": "SanRoc Cay Marina, Orange Beach, AL",
+    "what_provided": [
+      "Fishing rods",
+      "Bait",
+      "Fishing tackle",
+      "Fishing license",
+      "Air-conditioned cabin (head boat)",
+      "Restrooms",
+      "Fish-cleaning stations"
+    ],
+    "what_to_bring": [
+      "Sunscreen",
+      "Hat",
+      "Cooler",
+      "Personal items"
+    ],
+    "age_restriction": "All ages welcome",
+    "weight_restriction": null,
+    "reservations": "Book in advance recommended",
+    "cancellation_policy": null,
+    "insider_tip": "Reel Surprise Marina is the closest to the Gulf, meaning less travel time and more fishing time. They offer a Frequent Fishing Program with discounted rates for repeat customers."
+  },
+  "tags": [
+    "fishing",
+    "fishing charter",
+    "head boat",
+    "inshore fishing",
+    "offshore fishing",
+    "family fun",
+    "Orange Beach",
+    "Alabama",
+    "Gulf Coast",
+    "marina",
+    "dock store",
+    "water sports",
+    "adventure"
+  ],
+  "features": [
+    "Family-owned since 1999",
+    "Bilingual crew",
+    "Air-conditioned cabin",
+    "Multiple restrooms",
+    "Fish-cleaning stations",
+    "Fully-stocked dock store",
+    "Premium boat slips",
+    "High-speed fuel pumps",
+    "30 and 50-amp hookups",
+    "Water and power amenities",
+    "Located at SanRoc Cay shopping/dining district",
+    "Boutique marina service",
+    "Expert local captains"
+  ],
+  "social_links": {
+    "instagram": "https://www.instagram.com/reelsurprisecharters/",
+    "facebook": "https://www.facebook.com/ReelSurpriseCharters",
+    "tripadvisor": null,
+    "website": "https://reelsurprisecharters.com"
+  },
+  "specials": [
+    {
+      "name": "Frequent Fishing Program",
+      "description": "First 8 trips: $100 per trip | 9th trip: $50 | 10th trip: FREE. Includes fishing license, fishing tackle, and bait. Targeted species: Vermillion Snapper and Lane Snapper.",
+      "days": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
+      "time": null,
+      "valid_dates": "Jan 1 - Feb 28, 2026"
+    },
+    {
+      "name": "Short Term Slip Rentals",
+      "description": "30 day minimum at $750 per month. Accommodates up to 42' boats. Includes water. Power metered separately. No liveaboards.",
+      "days": null,
+      "time": null,
+      "price": 750
+    },
+    {
+      "name": "68' x 20' Boat Slip",
+      "description": "Premium slip with water and storage shed included. Power metered separately. No liveaboards.",
+      "days": null,
+      "time": null,
+      "price": null
+    },
+    {
+      "name": "Gift Cards",
+      "description": "Gift cards now available in customizable amounts. Can be sent via email.",
+      "days": null,
+      "time": null,
+      "price": null
+    }
+  ],
+  "events": [],
+  "packages": [
+    {
+      "name": "Reel Surprise Fishing Charter",
+      "type": "fishing",
+      "description": "Group fishing charter aboard the 65' Bonner head boat with air-conditioned cabin, two restrooms, and 35-passenger limit. Plenty of space to reel in memories. Perfect for families and first-timers.",
+      "duration": "3-10 hours",
+      "price": null,
+      "price_type": "per person",
+      "price_note": "Best price in town for walk-on/head boat",
+      "min_people": 1,
+      "max_people": 35,
+      "what_included": [
+        "Fishing rods",
+        "Bait",
+        "Fishing tackle",
+        "Fishing license",
+        "Air-conditioned cabin",
+        "Restrooms"
+      ],
+      "departure_times": null,
+      "days_available": "Daily",
+      "booking_url": "https://reelsurprisecharters.com",
+      "notes": "Limited passenger capacity for room to reel. Walk-on charters available."
+    },
+    {
+      "name": "Inshore Fishing Charter",
+      "type": "fishing",
+      "description": "Inshore charter fishing perfect for beginners and pros. Fish along calm and scenic waters of Orange Beach coastline. Target species include redfish, speckled trout, Spanish mackerel, and cobia.",
+      "duration": "4-6 hours",
+      "price": null,
+      "price_type": "per person",
+      "price_note": null,
+      "min_people": 1,
+      "max_people": 4,
+      "what_included": [
+        "Fishing rods",
+        "Bait",
+        "Fishing tackle",
+        "Fishing license"
+      ],
+      "departure_times": null,
+      "days_available": "Daily",
+      "booking_url": "https://reelsurprisecharters.com",
+      "notes": "All ages welcome. Variety of fishing styles available."
+    },
+    {
+      "name": "Six-Passenger Private Charter",
+      "type": "fishing",
+      "description": "Private fishing charter for up to 6 guests. Keep what you catch (as long as in season and legal). Perfect for families, small groups, and corporate teams.",
+      "duration": "4-10 hours",
+      "price": null,
+      "price_type": "per boat",
+      "price_note": null,
+      "min_people": 1,
+      "max_people": 6,
+      "what_included": [
+        "Fishing rods",
+        "Bait",
+        "Fishing tackle",
+        "Fishing license"
+      ],
+      "departure_times": null,
+      "days_available": "Daily",
+      "booking_url": "https://reelsurprisecharters.com",
+      "notes": "All ages welcome. Private charter experience with expert crew."
+    },
+    {
+      "name": "Marina Slip Rental - Premium",
+      "type": "other",
+      "description": "Premium boat slip rental at Reel Surprise Marina with 54 total slips. Full-service amenities including high-speed fuel pumps, clean restrooms and showers, fish-cleaning stations, and dock store access.",
+      "duration": "Monthly",
+      "price": null,
+      "price_type": "per month",
+      "price_note": "Short-term and long-term options available",
+      "min_people": null,
+      "max_people": null,
+      "what_included": [
+        "Boat slip",
+        "Water",
+        "Storage shed (selected slips)",
+        "Access to restrooms and showers",
+        "Access to fish-cleaning stations",
+        "Access to dock store"
+      ],
+      "departure_times": null,
+      "days_available": "Year-round",
+      "booking_url": "https://reelsurprisecharters.com",
+      "notes": "Power metered separately. Accommodates up to 42' boats. Located at SanRoc Cay with shopping and dining access."
+    },
+    {
+      "name": "Dock Store - Supplies",
+      "type": "other",
+      "description": "Fully-stocked dock store offering snacks, bait, gear, and fishing supplies.",
+      "duration": "Daily",
+      "price": null,
+      "price_type": "variable",
+      "price_note": null,
+      "min_people": null,
+      "max_people": null,
+      "what_included": [
+        "Snacks",
+        "Bait",
+        "Fishing gear",
+        "Quality dock supplies"
+      ],
+      "departure_times": null,
+      "days_available": "Daily - Sun-Thurs 7am-4pm, Fri-Sat 7am-5pm",
+      "booking_url": null,
+      "notes": "Located at SanRoc Cay with boutique shops and restaurants nearby."
+    }
+  ],
+  "url": "https://reelsurprisecharters.com",
+  "scraped_at": "2026-03-21T19:50:12.308Z",
+  "extracted_at": "2026-03-23T04:04:54.668Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://reelsurprisecharters.com/wp-content/uploads/2025/01/RSC-Charter-Dock-Marina-logo-2.png",
+    "https://reelsurprisecharters.com/wp-content/uploads/2025/01/charter-fishing2.webp",
+    "https://reelsurprisecharters.com/wp-content/uploads/2025/01/dock-store-small.webp",
+    "https://reelsurprisecharters.com/wp-content/uploads/2025/01/faqs.webp",
+    "https://reelsurprisecharters.com/wp-content/uploads/2025/01/family-owned.webp",
+    "https://reelsurprisecharters.com/wp-content/uploads/2025/01/charter-fishing-orange-beach-al.webp",
+    "https://reelsurprisecharters.com/wp-content/uploads/2025/01/reel-surprise-charters.webp",
+    "https://reelsurprisecharters.com/wp-content/uploads/2025/01/inshore.webp",
+    "https://reelsurprisecharters.com/wp-content/uploads/2025/01/clear-cut.webp",
+    "https://reelsurprisecharters.com/wp-content/uploads/2025/01/marine-fuel.webp",
+    "https://reelsurprisecharters.com/wp-content/uploads/2025/01/RSC-Charter-Dock-Marina-logo@2x-2.png",
+    "https://reelsurprisecharters.com/wp-content/uploads/2025/01/54251043200_1a304a66e3_c.webp",
+    "https://reelsurprisecharters.com/wp-content/uploads/2025/01/frequent-fisher.webp",
+    "https://reelsurprisecharters.com/wp-content/uploads/2025/01/boat-slips-for-rent.webp",
+    "https://reelsurprisecharters.com/wp-content/uploads/2025/01/randy.webp",
+    "https://reelsurprisecharters.com/wp-content/uploads/2025/01/randy-susan-boggs.webp",
+    "https://reelsurprisecharters.com/wp-content/uploads/2025/01/reel-surprise-marina.webp",
+    "https://reelsurprisecharters.com/wp-content/uploads/2025/01/boggs-family-sm.webp"
+  ],
+  "sources": [
+    "https://reelsurprisecharters.com",
+    "https://reelsurprisecharters.com/specials",
+    "https://reelsurprisecharters.com/about",
+    "https://reelsurprisecharters.com/contact"
+  ]
+}

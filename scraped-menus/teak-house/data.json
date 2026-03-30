@@ -1,0 +1,118 @@
+{
+  "business_name": "Teak House Thai Cuisine",
+  "tagline": "An Authentic Taste of Fine Thai Cuisine",
+  "type": "Restaurant",
+  "contact": {
+    "phone": "(251) 625-8680",
+    "email": "info@teakhousethai.com",
+    "address": "1703 U.S. Hwy 98 East - Suite J",
+    "city": "Daphne",
+    "state": "AL",
+    "zip": "36526"
+  },
+  "hours": {
+    "monday": "Lunch 11am-2:30pm, Dinner 4:30pm-8:30pm",
+    "tuesday": "Lunch 11am-2:30pm, Dinner 4:30pm-8:30pm",
+    "wednesday": "Lunch 11am-2:30pm, Dinner 4:30pm-8:30pm",
+    "thursday": "Lunch 11am-2:30pm, Dinner 4:30pm-8:30pm",
+    "friday": "Lunch 11am-2:30pm, Dinner 4:30pm-9pm",
+    "saturday": "Lunch 11am-2:30pm, Dinner 4:30pm-9pm",
+    "sunday": "Lunch 11am-2:30pm, Dinner 4:30pm-8:30pm",
+    "notes": "Call in advance for take-out orders. Large or special parties should call in advance."
+  },
+  "about": {
+    "description": "Teak House Thai Restaurant serves fresh quality Thai food in a comfortable atmosphere. With extensive knowledge of Thai tradition and a rich palette of spices, skilled chefs create classical Thai cooking. All dishes are made to order using only the freshest ingredients and 100% trans-fat-free vegetable oil. Wide variety of vegetarian dishes available.",
+    "elevator_pitch": "Voted Best Asian Restaurant on the Gulf Coast, Teak House offers authentic Thai cuisine with fresh ingredients and traditional flavors in a comfortable, affordable setting.",
+    "vibe": "Comfortable and welcoming dining atmosphere focused on authentic Thai culinary experience",
+    "best_for": [
+      "families",
+      "vegetarians",
+      "large groups"
+    ],
+    "established": null,
+    "reservations": "Recommended for large or special parties",
+    "insider_tip": "Call in advance to arrange for large or special parties"
+  },
+  "tags": [
+    "Thai",
+    "authentic cuisine",
+    "vegetarian options",
+    "fresh ingredients",
+    "casual dining",
+    "trans-fat-free",
+    "Gulf Coast"
+  ],
+  "features": [
+    "dine-in",
+    "take-out",
+    "online ordering",
+    "new dining room",
+    "ChowNow ordering"
+  ],
+  "price_range": "$$",
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "http://teakhousethai.com/"
+  },
+  "specials": [
+    {
+      "name": "Lunch Specials",
+      "description": "Special lunch menu offerings available during lunch hours",
+      "days": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "time": "11am-2:30pm"
+    }
+  ],
+  "events": [],
+  "menu": {
+    "categories": [
+      {
+        "name": "Take-Out Menu",
+        "type": "lunch",
+        "items": []
+      },
+      {
+        "name": "Regular/Dinner Menu",
+        "type": "dinner",
+        "items": []
+      },
+      {
+        "name": "Lunch Specials",
+        "type": "specials",
+        "items": []
+      },
+      {
+        "name": "Kids Menu",
+        "type": "kids",
+        "items": []
+      }
+    ]
+  },
+  "url": "http://teakhousethai.com/",
+  "scraped_at": "2026-03-22T18:36:07.227Z",
+  "extracted_at": "2026-03-23T04:10:43.242Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://teakhousethai.com/images/diningarea.jpg",
+    "https://teakhousethai.com/images/lantern.jpg",
+    "https://teakhousethai.com/images/redwall_booths.jpg",
+    "https://teakhousethai.com/images/fb.png",
+    "https://teakhousethai.com/images/yelp.png",
+    "https://teakhousethai.com/images/map.jpg"
+  ],
+  "sources": [
+    "http://teakhousethai.com",
+    "https://teakhousethai.com/photos.html",
+    "https://teakhousethai.com/map.html",
+    "https://teakhousethai.com/photos.html?detectflash=false&",
+    "https://teakhousethai.com/index.html"
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "business_name": "Sassy Bass Cookout Tiki Bar",
+  "url": "https://www.sassybass.com/",
+  "scraped_at": "2026-03-21T15:03:33.818Z",
+  "pages": [
+    {
+      "url": "https://www.sassybass.com",
+      "title": "Sassy Bass",
+      "text": "Manage your consent preferencesWhen you visit this site, we may store or access information on your browser, mostly through cookies. These help the site function as intended, remember your preferences, and provide a more personalized experience. The information typically does not directly identify you, but it can improve how the site works for you. You can choose which types of cookies to allow. However, blocking certain cookies may affect how the site functions or limit the services we can provide.EssentialOnEssential cookies and services enable core website features and provide a seamless user experience. Essential cookies and services are used to facilitate features such as navigation, remember user preferences, and ensure the security of the website.VendorsMarketingOnMarketing cookies and services support delivering personalized advertisements, promotions, and offers that are relevant to you. They help optimize ad delivery, measure campaign effectiveness, and enable advertisers to reach specific target audiences.VendorsAnalyticsOnAnalytics cookies and services are for collecting aggregated data and statistical information. This data helps us analyze and optimize site performance, identify popular content, detect navigation issues, and make informed decisions to enhance the user experience.VendorsFunctionalOnFunctional cookies and services remember your preferences and choices, such as language preferences, font sizes, region selections, and customized layouts. They enable this website to offer enhanced and personalized functionalities.SaveOpt out of allOpt in to allPrivacy PolicyPowered bySkip to Main content🚨 Earn Rewards 🚨 See MoreSassy Bass & CompanyEVENT CALENDARMOBILE APPIPHONE / APPLEANDROID / GOOGLE PLAYPRIVACY POLICYCATERINGMORECAREERSJOIN OUR TEAMCONTACT USREWARDSEGIFT CARDSEVENT CALENDARMOBILE APPIPHONE / APPLEANDROID / GOOGLE PLAYPRIVACY POLICYCATERINGCAREERSJOIN OUR TEAMCONTACT USREWARDSEGIFT CARDS0View MenuMarket Place & Gift ShopIsland Grill Amazin' Grill View Menu2/3Life's too Short to be boring.That’s why Sassy Bass isn’t just about eating, but enjoying a full dining experience built on good company, live music, beautiful views and, of course, fantastic food! The Sassy Bass family of brands, locally-owned and operated, is widely known for its creative menu selection and made-from-scratch recipes. Each concept has a different theme, atmosphere, and menu…Order NowCALENDARTake a peek at the fun, food, and festivities that make Sassy Bass the talk of the island. From Happy Hours to live music and golf tournaments, we have to all!What's HappeningOur family of locations has something for every craving + every beach vacation. Scroll to the bottom for a map of all our locations! Plan Your PartyStart HereJoin the Sassy TeamView CareersJoin our Sassy Bass Fan ClubSign Up Now!Sassy Bass & Company Locations and HoursAmazin' Grill (251) 975-10105160 Hwy 180, Gulf Shores, AL 36542Closed • Opens Saturday at 11AMAll hoursOrder onlineIsland Grill (251) 923-3122375 Plantation Rd, Gulf Shores, AL 36542Open now • Closes at 8PMAll hoursOrder onlineMarket Place & Gift Shop(251) 975-10225160 Alabama Highway 180, Gulf Shores, AL 36542Open now • Closes at 8PMAll hoursOrder onlineTerms of Service|Privacy Statement|Cookie SettingsOrder Now",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "@id": "https://sassybass.com/",
+          "url": "https://sassybass.com/",
+          "name": "Sassy Bass & Company",
+          "brand": "Sassy Bass & Company",
+          "subOrganization": [
+            {
+              "@type": "Restaurant",
+              "@id": "https://sassybass.com/order/sassy-bass-market-place-5180-alabama-180",
+              "sameAs": "https://sassybass.com/order/sassy-bass-market-place-5180-alabama-180",
+              "name": "Market Place & Gift Shop",
+              "telephone": "2519751022",
+              "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "US",
+                "postalCode": "36542",
+                "addressRegion": "AL",
+                "addressLocality": "Gulf Shores",
+                "streetAddress": "5160 Alabama Highway 180"
+              }
+            },
+            {
+              "@type": "Restaurant",
+              "@id": "https://sassybass.com/order/sassy-bass-island-grill-375-plantation-lane",
+              "sameAs": "https://sassybass.com/order/sassy-bass-island-grill-375-plantation-lane",
+              "name": "Island Grill ",
+              "telephone": "2519233122",
+              "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "US",
+                "postalCode": "36542",
+                "addressRegion": "AL",
+                "addressLocality": "Gulf Shores",
+                "streetAddress": "375 Plantation Rd"
+              }
+            },
+            {
+              "@type": "Restaurant",
+              "@id": "https://sassybass.com/order/sassy-bass-amazin-grill-5160-hwy-180",
+              "sameAs": "https://sassybass.com/order/sassy-bass-amazin-grill-5160-hwy-180",
+              "name": "Amazin' Grill ",
+              "telephone": "2519751010",
+              "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "US",
+                "postalCode": "36542",
+                "addressRegion": "AL",
+                "addressLocality": "Gulf Shores",
+                "streetAddress": "5160 Hwy 180"
+              }
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width,initial-scale=1,maximum-scale=5,user-scalable=yes",
+        "author": "Toast, Inc.",
+        "og:url": "https://sassybass.com/",
+        "og:image": "https://d1w7312wesee68.cloudfront.net/20PRBOEXjhYbnaQMTgnvUkPDeGRLmC5UGRYC_ymFLME/ext:webp/quality:85/plain/s3://toast-sites-resources-prod/restaurantImages/b98d1181-c7ce-4462-acd7-ef2d530cfbce/3d30d7ca-9eda-4872-a51e-69423873efe8-20",
+        "description": "We believe there’s nothing finer than bringing families together for good food (that you don’t have to cook) and tons of fun (that you don’t have to clean up). That’s why Sassy Bass isn’t just about eating, but enjoying a full dining experience built on good company, live music, beautiful views and, of course, fantastic food! The Sassy Bass family of brands, locally-owned and operated, with each concept has a different theme, atmosphere, and menu! ",
+        "og:description": "We believe there’s nothing finer than bringing families together for good food (that you don’t have to cook) and tons of fun (that you don’t have to clean up). That’s why Sassy Bass isn’t just about eating, but enjoying a full dining experience built on good company, live music, beautiful views and, of course, fantastic food! The Sassy Bass family of brands, locally-owned and operated, with each concept has a different theme, atmosphere, and menu! ",
+        "og:title": "Sassy Bass",
+        "msapplication-TileColor": "#b91d47",
+        "theme-color": "#ffffff"
+      }
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": [
+    "https://d1w7312wesee68.cloudfront.net/EB6AY9y3XtdMcXMbyhTaOA69A3ZHgKTwacSqXTc6A-8/ext:webp/quality:85/plain/s3://toast-sites-resources-prod/restaurantImages/b98d1181-c7ce-4462-acd7-ef2d530cfbce/472136088_122192522336245179_3962878665134603512_n--17841404756797411-INSTAGRAM.jpg",
+    "https://d1w7312wesee68.cloudfront.net/h6ctV31uKbmjzMkKVQFKiQnKldL23wm99AzerdYeIYE/ext:webp/quality:85/plain/s3://toast-sites-resources-prod/restaurantImages/b98d1181-c7ce-4462-acd7-ef2d530cfbce/449705377_1075049780790379_4663673044470099618_n.jpg",
+    "https://d1w7312wesee68.cloudfront.net/r-L7heHCiSgtgPE10F8u9SaY5ktz2uaBz2V1-uXKzFs/ext:webp/quality:85/c:2048:1246:ce:0:-145/plain/s3://toast-sites-resources-prod/restaurantImages/b98d1181-c7ce-4462-acd7-ef2d530cfbce/487886344_1283327316629290_4144068562305099049_n1.jpg",
+    "https://d1w7312wesee68.cloudfront.net/JE7B1G3Ahr4a7YTlkIPJVS9iFnxZWzeGT37bHQbPV7E/ext:webp/quality:85/c:984:497:ce:-223:16/plain/s3://toast-sites-resources-prod/restaurantImages/b98d1181-c7ce-4462-acd7-ef2d530cfbce/480680882_122204631518245179_3252549381173743276_n--17841404756797411-INSTAGRAM.jpg",
+    "https://d1w7312wesee68.cloudfront.net/SoPCa1gsOwwN3lNpJhF6OiVDMhlK-TkRyzYJ0tGzinA/ext:webp/quality:85/plain/s3://toast-sites-resources-prod/restaurantImages/b98d1181-c7ce-4462-acd7-ef2d530cfbce/DSCF9478.jpeg",
+    "https://d1w7312wesee68.cloudfront.net/i7Mj8I9oU4FgHFK5HJYQN52ftAevLoUh6bPGbvqmc1o/ext:webp/quality:85/plain/s3://toast-sites-resources-prod/restaurantImages/b98d1181-c7ce-4462-acd7-ef2d530cfbce/429653871_992583082370383_7243345749858394960_n.jpg"
+  ]
+}

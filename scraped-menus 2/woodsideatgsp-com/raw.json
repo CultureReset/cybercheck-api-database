@@ -1,0 +1,272 @@
+{
+  "business_name": "woodsideatgsp.com",
+  "url": "https://woodsideatgsp.com",
+  "scraped_at": "2026-03-21T20:20:57.420Z",
+  "pages": [
+    {
+      "url": "https://woodsideatgsp.com",
+      "title": "Home - Woodside Restaurant",
+      "text": "We value your privacy We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. By clicking \"Accept All\", you consent to our use of cookies. Customize Reject All Accept All Customize Consent Preferences We use cookies to help you navigate efficiently and perform certain functions. You will find detailed information about all cookies under each consent category below.The cookies that are categorized as \"Necessary\" are stored on your browser as they are essential for enabling the basic functionalities of the site.... Show more NecessaryAlways Active Necessary cookies are required to enable the basic features of this site, such as providing secure log-in or adjusting your consent preferences. These cookies do not store any personally identifiable data. CookiewpEmojiSettingsSupportsDurationsessionDescriptionWordPress sets this cookie when a user interacts with emojis on a WordPress site. It helps determine if the user's browser can display emojis properly.Cookiecookieyes-consentDuration1 yearDescriptionCookieYes sets this cookie to remember users' consent preferences so that their preferences are respected on subsequent visits to this site. It does not collect or store any personal information about the site visitors. Functional Functional cookies help perform certain functionalities like sharing the content of the website on social media platforms, collecting feedback, and other third-party features. No cookies to display. Analytics Analytical cookies are used to understand how visitors interact with the website. These cookies help provide information on metrics such as the number of visitors, bounce rate, traffic source, etc. Cookie_ga_*Duration1 year 1 month 4 daysDescriptionGoogle Analytics sets this cookie to store and count page views.Cookie_gaDuration1 year 1 month 4 daysDescriptionGoogle Analytics sets this cookie to calculate visitor, session and campaign data and track site usage for the site's analytics report. The cookie stores information anonymously and assigns a randomly generated number to recognize unique visitors. Performance Performance cookies are used to understand and analyze the key performance indexes of the website which helps in delivering a better user experience for the visitors. No cookies to display. Advertisement Advertisement cookies are used to provide visitors with customized advertisements based on the pages you visited previously and to analyze the effectiveness of the ad campaigns. No cookies to display. Reject All Save My Preferences Accept All \n\nSkip to content\n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n ORDER ONLINE \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n About\nMenu\nLive Music\nHappy Hour\nFun and Games\n \n \n \n \n About\nMenu\nLive Music\nHappy Hour\nFun and Games\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n ORDER ONLINE \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n About\nMenu\nLive Music\nHappy Hour\nFun and Games\n \n \n \n \n About\nMenu\nLive Music\nHappy Hour\nFun and Games\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Woodside. . . it’s a place for family fun, great food, backyard games, gift shop and the best live local music.Located in the heart of Gulf State Park on State Park Road.Open daily for breakfast, lunch and dinner. Pet-friendly outdoor seating. Food, beer and wine available for carry out. \n \n \n \n CALL 251-923-3100 TO PLACE YOUR ORDER \n \n \n \n \n \n \n View Menu\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n HOURS \n \n \n \n Open Daily 8 am - 8 pm Breakfast: 8 am - 10:45 am  |  Lunch: 10:45 am - 4 pm  |  Dinner: 4 pm - 8 pm \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 251.923.3100 \n \n \n \n kanderson@lodgegsp.com \n \n \n \n Follow Us: @WoodsideRestaurantGSP \n \n \n \n \n \n \n \n 20249 State Park Road\nGulf Shores, Alabama 36542",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://woodsideatgsp.com/",
+              "url": "https://woodsideatgsp.com/",
+              "name": "Home - Woodside Restaurant",
+              "isPartOf": {
+                "@id": "https://woodsideatgsp.com/#website"
+              },
+              "about": {
+                "@id": "https://woodsideatgsp.com/#organization"
+              },
+              "primaryImageOfPage": {
+                "@id": "https://woodsideatgsp.com/#primaryimage"
+              },
+              "image": {
+                "@id": "https://woodsideatgsp.com/#primaryimage"
+              },
+              "thumbnailUrl": "https://woodsideatgsp.com/wp-content/uploads/2022/02/woodside_backyard_1.jpg",
+              "datePublished": "2022-02-04T18:22:23+00:00",
+              "dateModified": "2025-12-26T04:51:32+00:00",
+              "breadcrumb": {
+                "@id": "https://woodsideatgsp.com/#breadcrumb"
+              },
+              "inLanguage": "en-US",
+              "potentialAction": [
+                {
+                  "@type": "ReadAction",
+                  "target": [
+                    "https://woodsideatgsp.com/"
+                  ]
+                }
+              ]
+            },
+            {
+              "@type": "ImageObject",
+              "inLanguage": "en-US",
+              "@id": "https://woodsideatgsp.com/#primaryimage",
+              "url": "https://woodsideatgsp.com/wp-content/uploads/2022/02/woodside_backyard_1.jpg",
+              "contentUrl": "https://woodsideatgsp.com/wp-content/uploads/2022/02/woodside_backyard_1.jpg",
+              "width": 800,
+              "height": 533
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://woodsideatgsp.com/#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home"
+                }
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://woodsideatgsp.com/#website",
+              "url": "https://woodsideatgsp.com/",
+              "name": "Woodside Restaurant",
+              "description": "at Gulf State Park",
+              "publisher": {
+                "@id": "https://woodsideatgsp.com/#organization"
+              },
+              "potentialAction": [
+                {
+                  "@type": "SearchAction",
+                  "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://woodsideatgsp.com/?s={search_term_string}"
+                  },
+                  "query-input": {
+                    "@type": "PropertyValueSpecification",
+                    "valueRequired": true,
+                    "valueName": "search_term_string"
+                  }
+                }
+              ],
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "Organization",
+              "@id": "https://woodsideatgsp.com/#organization",
+              "name": "Woodside Restaurant",
+              "url": "https://woodsideatgsp.com/",
+              "logo": {
+                "@type": "ImageObject",
+                "inLanguage": "en-US",
+                "@id": "https://woodsideatgsp.com/#/schema/logo/image/",
+                "url": "https://woodsideatgsp.com/wp-content/uploads/2022/02/woodside_restaurant_gulf_state_park_logo-p-500.png",
+                "contentUrl": "https://woodsideatgsp.com/wp-content/uploads/2022/02/woodside_restaurant_gulf_state_park_logo-p-500.png",
+                "width": 500,
+                "height": 75,
+                "caption": "Woodside Restaurant"
+              },
+              "image": {
+                "@id": "https://woodsideatgsp.com/#/schema/logo/image/"
+              },
+              "sameAs": [
+                "https://www.instagram.com/woodsidegsp/"
+              ]
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+        "og:locale": "en_US",
+        "og:type": "website",
+        "og:title": "Home - Woodside Restaurant",
+        "og:description": "Woodside. . . it’s a place for family fun, great food, backyard games, gift shop and the best live local music.Located in the heart of Gulf State Park on State Park Road.Open daily for breakfast, lunch and dinner. Pet-friendly outdoor seating. Food, beer and wine available for carry out. CALL 251-923-3100 TO PLACE YOUR ORDER […]",
+        "og:url": "https://woodsideatgsp.com/",
+        "og:site_name": "Woodside Restaurant",
+        "article:modified_time": "2025-12-26T04:51:32+00:00",
+        "og:image": "https://woodsideatgsp.com/wp-content/uploads/2022/02/woodside_backyard_1.jpg",
+        "twitter:card": "summary_large_image",
+        "generator": "Elementor 3.34.4; features: additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-auto",
+        "msapplication-TileImage": "https://woodsideatgsp.com/wp-content/uploads/2022/02/cropped-favicon-270x270.png"
+      }
+    },
+    {
+      "url": "https://woodsideatgsp.com/live-music",
+      "title": "Live Music - Woodside Restaurant",
+      "text": "We value your privacy We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. By clicking \"Accept All\", you consent to our use of cookies. Customize Reject All Accept All Customize Consent Preferences We use cookies to help you navigate efficiently and perform certain functions. You will find detailed information about all cookies under each consent category below.The cookies that are categorized as \"Necessary\" are stored on your browser as they are essential for enabling the basic functionalities of the site.... Show more NecessaryAlways Active Necessary cookies are required to enable the basic features of this site, such as providing secure log-in or adjusting your consent preferences. These cookies do not store any personally identifiable data. CookiewpEmojiSettingsSupportsDurationsessionDescriptionWordPress sets this cookie when a user interacts with emojis on a WordPress site. It helps determine if the user's browser can display emojis properly.Cookiecookieyes-consentDuration1 yearDescriptionCookieYes sets this cookie to remember users' consent preferences so that their preferences are respected on subsequent visits to this site. It does not collect or store any personal information about the site visitors. Functional Functional cookies help perform certain functionalities like sharing the content of the website on social media platforms, collecting feedback, and other third-party features. No cookies to display. Analytics Analytical cookies are used to understand how visitors interact with the website. These cookies help provide information on metrics such as the number of visitors, bounce rate, traffic source, etc. Cookie_ga_*Duration1 year 1 month 4 daysDescriptionGoogle Analytics sets this cookie to store and count page views.Cookie_gaDuration1 year 1 month 4 daysDescriptionGoogle Analytics sets this cookie to calculate visitor, session and campaign data and track site usage for the site's analytics report. The cookie stores information anonymously and assigns a randomly generated number to recognize unique visitors. Performance Performance cookies are used to understand and analyze the key performance indexes of the website which helps in delivering a better user experience for the visitors. No cookies to display. Advertisement Advertisement cookies are used to provide visitors with customized advertisements based on the pages you visited previously and to analyze the effectiveness of the ad campaigns. No cookies to display. Reject All Save My Preferences Accept All \n\nSkip to content\n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n ORDER ONLINE \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n About\nMenu\nLive Music\nHappy Hour\nFun and Games\n \n \n \n \n About\nMenu\nLive Music\nHappy Hour\nFun and Games\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n ORDER ONLINE \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n About\nMenu\nLive Music\nHappy Hour\nFun and Games\n \n \n \n \n About\nMenu\nLive Music\nHappy Hour\nFun and Games\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Live Music \n \n \n \n \n \n \n \n \n \n \n \n Live Music Calendar at Woodside \n \n \n \n \n \n \n \n \n \n \n \n Page 1 / 1Zoom 100% \n \n \n \n \n \n \n Download PDF\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 251.923.3100 \n \n \n \n kanderson@lodgegsp.com \n \n \n \n Follow Us: @WoodsideRestaurantGSP \n \n \n \n \n \n \n \n 20249 State Park Road\nGulf Shores, Alabama 36542",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://woodsideatgsp.com/live-music/",
+              "url": "https://woodsideatgsp.com/live-music/",
+              "name": "Live Music - Woodside Restaurant",
+              "isPartOf": {
+                "@id": "https://woodsideatgsp.com/#website"
+              },
+              "datePublished": "2022-02-04T18:23:23+00:00",
+              "dateModified": "2022-08-30T15:59:07+00:00",
+              "breadcrumb": {
+                "@id": "https://woodsideatgsp.com/live-music/#breadcrumb"
+              },
+              "inLanguage": "en-US",
+              "potentialAction": [
+                {
+                  "@type": "ReadAction",
+                  "target": [
+                    "https://woodsideatgsp.com/live-music/"
+                  ]
+                }
+              ]
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://woodsideatgsp.com/live-music/#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://woodsideatgsp.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Live Music"
+                }
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://woodsideatgsp.com/#website",
+              "url": "https://woodsideatgsp.com/",
+              "name": "Woodside Restaurant",
+              "description": "at Gulf State Park",
+              "publisher": {
+                "@id": "https://woodsideatgsp.com/#organization"
+              },
+              "potentialAction": [
+                {
+                  "@type": "SearchAction",
+                  "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://woodsideatgsp.com/?s={search_term_string}"
+                  },
+                  "query-input": {
+                    "@type": "PropertyValueSpecification",
+                    "valueRequired": true,
+                    "valueName": "search_term_string"
+                  }
+                }
+              ],
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "Organization",
+              "@id": "https://woodsideatgsp.com/#organization",
+              "name": "Woodside Restaurant",
+              "url": "https://woodsideatgsp.com/",
+              "logo": {
+                "@type": "ImageObject",
+                "inLanguage": "en-US",
+                "@id": "https://woodsideatgsp.com/#/schema/logo/image/",
+                "url": "https://woodsideatgsp.com/wp-content/uploads/2022/02/woodside_restaurant_gulf_state_park_logo-p-500.png",
+                "contentUrl": "https://woodsideatgsp.com/wp-content/uploads/2022/02/woodside_restaurant_gulf_state_park_logo-p-500.png",
+                "width": 500,
+                "height": 75,
+                "caption": "Woodside Restaurant"
+              },
+              "image": {
+                "@id": "https://woodsideatgsp.com/#/schema/logo/image/"
+              },
+              "sameAs": [
+                "https://www.instagram.com/woodsidegsp/"
+              ]
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+        "og:locale": "en_US",
+        "og:type": "article",
+        "og:title": "Live Music - Woodside Restaurant",
+        "og:description": "Live Music Live Music Calendar at Woodside Download PDF",
+        "og:url": "https://woodsideatgsp.com/live-music/",
+        "og:site_name": "Woodside Restaurant",
+        "article:modified_time": "2022-08-30T15:59:07+00:00",
+        "twitter:card": "summary_large_image",
+        "generator": "Elementor 3.34.4; features: additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-auto",
+        "msapplication-TileImage": "https://woodsideatgsp.com/wp-content/uploads/2022/02/cropped-favicon-270x270.png"
+      }
+    }
+  ],
+  "pdfUrls": [
+    "https://woodsideatgsp.com/wp-content/uploads/2026/02/Woodside-Menu-3-Pages-Feb-13-2025-1.pdf",
+    "https://woodsideatgsp.com/wp-content/uploads/2024/08/Woodside-HH-Menu-2024.pdf",
+    "https://woodsideatgsp.com/wp-content/uploads/2026/03/Woodside-March-Music.pdf"
+  ],
+  "pdfTexts": [],
+  "imageUrls": [
+    "https://woodsideatgsp.com/wp-content/uploads/2022/02/woodside_restaurant_gulf_state_park_logo-p-500.png",
+    "https://woodsideatgsp.com/wp-content/uploads/2022/02/woodside_backyard_1.jpg",
+    "https://woodsideatgsp.com/wp-content/uploads/2022/02/woodside_restaurant_interior.jpg",
+    "https://woodsideatgsp.com/wp-content/uploads/2022/02/gallery_beach_mouse_trail_sandwich.jpg",
+    "https://woodsideatgsp.com/wp-content/uploads/2022/02/5_whole_wings.jpg",
+    "https://woodsideatgsp.com/wp-content/uploads/2022/02/gallery_connect4.jpg",
+    "https://woodsideatgsp.com/wp-content/uploads/2022/02/lowcountry-boil.jpg",
+    "https://woodsideatgsp.com/wp-content/uploads/2022/02/all-american-breakfast-header-1024x691.jpg",
+    "https://woodsideatgsp.com/wp-content/uploads/2022/02/gallery_smores_fam.jpg",
+    "https://woodsideatgsp.com/wp-content/uploads/2022/02/header_billy_club-min-1024x693.jpg",
+    "https://woodsideatgsp.com/wp-content/uploads/2022/02/fun_games_checkers.jpg",
+    "https://woodsideatgsp.com/wp-content/uploads/2022/02/header_catman_hotcakes-min-1024x693.jpg",
+    "https://woodsideatgsp.com/wp-content/uploads/2022/02/gallery_brussel_sprouts.jpg",
+    "https://woodsideatgsp.com/wp-content/uploads/2022/02/fun_games_smores.jpg",
+    "https://woodsideatgsp.com/wp-content/uploads/2022/02/gallery_armadillo_trail_biscuits_gravy.jpg",
+    "https://woodsideatgsp.com/wp-content/uploads/2022/02/gallery_cornhole.jpg",
+    "https://woodsideatgsp.com/wp-content/uploads/2022/02/woodside_restaurant_logo_white-p-500.png"
+  ]
+}

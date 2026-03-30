@@ -1,0 +1,54 @@
+{
+  "business_name": "Panda Palace Buffet",
+  "tagline": null,
+  "type": null,
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": null,
+    "city": null,
+    "state": null,
+    "zip": null
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": null
+  },
+  "about": {
+    "description": null,
+    "elevator_pitch": null,
+    "vibe": null,
+    "best_for": [],
+    "established": null,
+    "reservations": null,
+    "insider_tip": null
+  },
+  "tags": [],
+  "features": [],
+  "price_range": null,
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://pandapalacebuffet.shop/"
+  },
+  "specials": [],
+  "events": [],
+  "menu": {
+    "categories": []
+  },
+  "notes": "The provided website content does not contain restaurant information for Panda Palace Buffet. Instead, the page displays lottery number data (Paito HK Lotto - Hongkong 4D lottery results) with no restaurant details, menu items, hours, contact information, or business data available.",
+  "url": "https://pandapalacebuffet.shop/",
+  "scraped_at": "2026-03-21T14:49:07.854Z",
+  "extracted_at": "2026-03-23T04:43:52.185Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [],
+  "sources": [
+    "https://pandapalacebuffet.shop"
+  ]
+}
