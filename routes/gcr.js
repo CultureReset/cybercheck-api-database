@@ -4,9 +4,10 @@ const supabase = require('../db');
 const router = express.Router();
 
 // ============================================
-// GET /api/gcr/businesses — Browse all businesses
+// GET /api/gcr/businesses — DISABLED, use /api/gcr/entities
 // ============================================
 router.get('/businesses', async (req, res) => {
+    return res.json({ businesses: [], entities: [], total: 0 });
     let query = supabase
         .from('businesses')
         .select(`site_id, name, type, subdomain, domain, logo_url, cover_url, status,
