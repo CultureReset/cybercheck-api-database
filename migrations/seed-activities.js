@@ -28,13 +28,26 @@ function slugify(str) {
 }
 
 async function seedActivity(data) {
-    const slug = slugify(data.title);
+    let slug = slugify(data.title);
     if (ALREADY_SEEDED.has(slug)) {
         console.log(`   ⏭  Skipping (already seeded): ${data.title}`);
         return;
     }
 
-    console.log(`\n📋 Seeding: ${data.title}`);
+    // Check if slug exists, make it unique
+    let uniqueSlug = slug;
+    let counter = 1;
+    while (true) {
+        const { count } = await supabase
+            .from('entity')
+            .select('id', { count: 'exact', head: true })
+            .eq('slug', uniqueSlug);
+        if (count === 0) break;
+        uniqueSlug = slug + '-' + counter++;
+    }
+    slug = uniqueSlug;
+
+    console.log(`\n📋 Seeding: ${data.title}${slug !== slugify(data.title) ? ' (as: ' + slug + ')' : ''}`);
 
     // ── 1. Entity ─────────────────────────────────────────────
     const subtype = slugify(data.category || 'activity');
@@ -59,7 +72,7 @@ async function seedActivity(data) {
         is_active: true,
     };
 
-    // Upsert entity
+    // Upsert entity (overwrite if exists)
     const { data: entity, error: entErr } = await supabase
         .from('entity')
         .upsert(entityPayload, { onConflict: 'slug' })
