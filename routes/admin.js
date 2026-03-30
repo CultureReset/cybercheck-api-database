@@ -2058,9 +2058,6 @@ router.put('/gcr/sections/:sectionId/location', async (req, res) => {
 // POST /api/admin/gcr/upload-image — upload file to Supabase Storage, return public URL
 // Also supports adding image via URL directly to a section's photos
 
-const multer = require('multer');
-const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 10 * 1024 * 1024 } });
-
 router.post('/gcr/upload-image', upload.single('file'), async (req, res) => {
     if (!req.file) return res.status(400).json({ error: 'No file provided' });
     const ext = req.file.originalname.split('.').pop().toLowerCase();
