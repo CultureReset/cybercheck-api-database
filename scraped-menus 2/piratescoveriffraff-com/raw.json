@@ -1,0 +1,210 @@
+{
+  "business_name": "piratescoveriffraff.com",
+  "url": "http://www.piratescoveriffraff.com",
+  "scraped_at": "2026-03-21T20:22:52.163Z",
+  "pages": [
+    {
+      "url": "http://www.piratescoveriffraff.com",
+      "title": "Pirates Cove – Historic Bar & Grill on the Gulf Coast",
+      "text": "Skip to content\n\n \n \n \n \n \n \n \n \n \n \n \n \n Pirates Cove | Gulf Coast Bar & Grill | Drinks, Food & Live Music Since 1957\n \n \n \n Abandon All Hope Ye Who Enter Here\n \n \n \n \n \n \n \n \n Order Online\n Order Online \n \n \n \n \n \n \n \n \n \n \n \n \n \n Home\nMenu\nEvents\nLive Music | Main Stage\n \n \n \n \n\n\t\n \n Live Music Sandbar Stage | Pirates Cove\n\nContact US\nEileen Mueller’s Legacy\n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n \n \n Pirates Cove | Gulf Coast Bar & Grill | Drinks, Food & Live Music Since 1957\n \n \n \n Abandon All Hope Ye Who Enter Here\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\t\n \n \n Home\nMenu\nEvents\nLive Music | Main Stage\n \n \n\n\tLive Music Sandbar Stage | Pirates Cove\n\nContact US\nEileen Mueller’s Legacy\n \n \n \n \n \n \n \n\n\t\n\n \n \n \n\t\n \n \n \n\n\t\n\t\n\nWelcome ToPirates CoveSince 1957, nestled on the shores of Josephine, Alabama, Pirates Cove has been a beloved gathering place for locals, boaters, and beach lovers for decades. Known for it’s laid back atmosphere, legendary bushwackers and iconic cheeseburgers. Pirates Cove has a rich history of good times and community spirit. From its early days as a quiet waterfront hideaway to surviving hurricanes and changing times, Pirates Cove has remained a true gulf coast icon. A place where stories are made, friends become family and the sunsets never get old. Whether you’ve been coming here since the beginning or just discovered this hidden gem, one thing is for sure Pirates Cove is more than a bar, its a way of life\n\nLive Music & Events Coming Up \nSomething fun’s always just around the corner, live music on the deck, special events, and a few surprises. Come hang out with us!\n Upcoming Events\n\nts a big one this yearThe 20th Annual Pirates Cove Autism FUNraiser is July 25 26Twenty years of communityTwenty years of supportTwenty years of making a differenceWere proud to host this event and cant wait to gather together again for something that truly mattersSave the dates\n\n\t\n \n \n \n \n \n \n \n Weather and unexpected conditions may change times. \n \n \n \n \n Monday \n \n 09:00 AM – 07:00 PM \n \n \n \n Tuesday \n \n 09:00 AM – 07:00 PM \n \n \n \n Wednesday \n \n 09:00 AM – 07:00 PM \n \n \n \n Thursday \n \n 09:00 AM – 07:00 PM \n \n \n \n Friday \n \n 08:00 AM – 09:00 PM \n \n \n \n Saturday \n \n 08:00 AM – 09:00 PM \n \n \n \n Sunday \n \n 08:00 AM – 09:00 PM \n \n \n \n \n\t\n\n \n \n \n \n\n\t\n\t\n\n\t\n\t\n\n \n \n \n\t\n\n \n\t\n\n \n\t\n \n \n \n FacebookInstagramTikTok \n \n \n \n\n\t\n \n \n \n Home\nMenu\nEvents\nLive Music | Main Stage\nContact US\nEileen Mueller’s Legacy\n \n \n \n6664 Co Rd 95 Elberta, AL 36530 | Phone: 251-987-1224 | Email: info@piratescoveriffraff.com\n \n \n Copyright © 2026 Pirates Cove\n \n \n \n \n\n\t\n\t\n\n\t\n \n Scroll to Top",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://piratescoveriffraff.com/#breadcrumblist",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "@id": "https://piratescoveriffraff.com#listItem",
+                  "position": 1,
+                  "name": "Home"
+                }
+              ]
+            },
+            {
+              "@type": "LocalBusiness",
+              "@id": "https://piratescoveriffraff.com/#localbusiness",
+              "name": "Pirates Cove",
+              "brand": {
+                "@id": "https://piratescoveriffraff.com/#organization"
+              },
+              "url": "https://piratescoveriffraff.com/",
+              "image": "http://piratescoveriffraff.com/wp-content/uploads/2025/03/cropped-Pirates-Cove.jpg",
+              "logo": "https://piratescoveriffraff.com/#logo",
+              "address": {
+                "@id": "https://piratescoveriffraff.com/#postaladdress",
+                "@type": "PostalAddress",
+                "streetAddress": "6664 CO RD 95,",
+                "postalCode": "36530",
+                "addressLocality": "Elberta",
+                "addressRegion": "AL",
+                "addressCountry": "US"
+              },
+              "email": "info@piratescoveriffraff.com",
+              "telephone": "+12519871224",
+              "openingHoursSpecification": [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": [
+                    "https://schema.org/Monday"
+                  ],
+                  "opens": "09:00",
+                  "closes": "19:00"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": [
+                    "https://schema.org/Tuesday"
+                  ],
+                  "opens": "09:00",
+                  "closes": "19:00"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": [
+                    "https://schema.org/Wednesday"
+                  ],
+                  "opens": "09:00",
+                  "closes": "19:00"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": [
+                    "https://schema.org/Thursday"
+                  ],
+                  "opens": "09:00",
+                  "closes": "19:00"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": [
+                    "https://schema.org/Friday"
+                  ],
+                  "opens": "08:00",
+                  "closes": "21:00"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": [
+                    "https://schema.org/Saturday"
+                  ],
+                  "opens": "08:00",
+                  "closes": "21:00"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": [
+                    "https://schema.org/Sunday"
+                  ],
+                  "opens": "08:00",
+                  "closes": "21:00"
+                }
+              ],
+              "location": {
+                "@id": "https://piratescoveriffraff.com/#postaladdress"
+              }
+            },
+            {
+              "@type": "Organization",
+              "@id": "https://piratescoveriffraff.com/#organization",
+              "name": "Pirates Cove | Gulf Coast Bar & Grill | Drinks, Food & Live Music Since 1957",
+              "description": "Abandon All Hope Ye Who Enter Here",
+              "url": "https://piratescoveriffraff.com/",
+              "email": "info@piratescoveriffraff.com",
+              "telephone": "+12519871224",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://piratescoveriffraff.com/wp-content/uploads/2025/03/cropped-Pirates-Cove.jpg",
+                "@id": "https://piratescoveriffraff.com/#organizationLogo",
+                "width": 250,
+                "height": 250,
+                "caption": "pc logo"
+              },
+              "image": {
+                "@id": "https://piratescoveriffraff.com/#organizationLogo"
+              },
+              "sameAs": [
+                "https://www.facebook.com/piratescove",
+                "https://x.com/pcriffraff",
+                "https://www.instagram.com/piratescoveriffraff",
+                "https://www.tiktok.com/@piratescoveriffraff"
+              ],
+              "address": {
+                "@id": "https://piratescoveriffraff.com/#postaladdress",
+                "@type": "PostalAddress",
+                "streetAddress": "6664 CO RD 95,",
+                "postalCode": "36530",
+                "addressLocality": "Elberta",
+                "addressRegion": "AL",
+                "addressCountry": "US"
+              }
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://piratescoveriffraff.com/#webpage",
+              "url": "https://piratescoveriffraff.com/",
+              "name": "Pirates Cove – Historic Bar & Grill on the Gulf Coast",
+              "description": "Pirates Cove in Orange Beach, AL: A historic bar and grill offering the best cheeseburgers on the gulf coast, ice cold bushwhackers and live music since 1957",
+              "inLanguage": "en-US",
+              "isPartOf": {
+                "@id": "https://piratescoveriffraff.com/#website"
+              },
+              "breadcrumb": {
+                "@id": "https://piratescoveriffraff.com/#breadcrumblist"
+              },
+              "datePublished": "2025-03-09T21:29:28-06:00",
+              "dateModified": "2026-02-25T17:54:59-06:00"
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://piratescoveriffraff.com/#website",
+              "url": "https://piratescoveriffraff.com/",
+              "name": "Pirates Cove | Gulf Coast Bar & Grill | Drinks, Food & Live Music Since 1957",
+              "description": "Abandon All Hope Ye Who Enter Here",
+              "inLanguage": "en-US",
+              "publisher": {
+                "@id": "https://piratescoveriffraff.com/#organization"
+              }
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "description": "Pirates Cove in Orange Beach, AL: A historic bar and grill offering the best cheeseburgers on the gulf coast, ice cold bushwhackers and live music since 1957",
+        "robots": "max-image-preview:large",
+        "google-site-verification": "vak5xbv7HSwX1VIF2mZzDh6vLn3q1MS9bbQ9luYi9iw",
+        "generator": "All in One SEO Pro (AIOSEO) 4.9.5.1",
+        "og:locale": "en_US",
+        "og:site_name": "Pirates Cove | Gulf Coast Bar & Grill | Drinks, Food & Live Music Since 1957 - Abandon All Hope Ye Who Enter Here",
+        "og:type": "article",
+        "og:title": "Pirates Cove – Legendary Bar & Grill in Orange Beach, AL",
+        "og:description": "Pirates Cove – Where good times, great food, and cold drinks meet! Join us in Orange Beach, Alabama for live music, waterfront views, and a one-of-a-kind atmosphere!",
+        "og:url": "https://piratescoveriffraff.com/",
+        "og:image": "https://piratescoveriffraff.com/wp-content/uploads/2025/03/DJI_0031-scaled.jpeg",
+        "og:image:secure_url": "https://piratescoveriffraff.com/wp-content/uploads/2025/03/DJI_0031-scaled.jpeg",
+        "og:image:width": "2560",
+        "og:image:height": "1920",
+        "article:published_time": "2025-03-10T03:29:28+00:00",
+        "article:modified_time": "2026-02-25T23:54:59+00:00",
+        "article:publisher": "https://www.facebook.com/piratescove",
+        "twitter:card": "summary_large_image",
+        "twitter:site": "@pcriffraff",
+        "twitter:title": "Pirates Cove – Legendary Bar & Grill in Orange Beach, AL",
+        "twitter:description": "Pirates Cove – Where good times, great food, and cold drinks meet! Join us in Orange Beach, Alabama for live music, waterfront views, and a one-of-a-kind atmosphere!",
+        "twitter:creator": "@pcriffraff",
+        "twitter:image": "http://piratescoveriffraff.com/wp-content/uploads/2025/03/DJI_0031-scaled.jpeg",
+        "msapplication-TileImage": "https://piratescoveriffraff.com/wp-content/uploads/2025/03/cropped-favicon-270x270.jpg"
+      }
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": [
+    "https://piratescoveriffraff.com/wp-content/uploads/2025/04/output-onlinepngtools-2.png",
+    "http://piratescoveriffraff.com/wp-content/uploads/2025/08/Red-and-Grey-Simple-Modern-Subscribe-Button-Youtube-Video-1200-x-150-px-1024x128.png",
+    "https://piratescoveriffraff.com/wp-content/uploads/2026/02/641350447_1316845920491301_1445902762075157043_n-1-1024x791.jpg"
+  ]
+}

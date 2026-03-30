@@ -1,0 +1,305 @@
+{
+  "business_name": "OSO at Bear Point Harbor",
+  "tagline": "Where Coastal Flavors Meet Vibrant Culinary Adventure",
+  "type": "Restaurant",
+  "contact": {
+    "phone": "(251) 345-6738",
+    "email": "osorestaurants@gmail.com",
+    "address": "5749 Bay La Launch Avenue",
+    "city": "Orange Beach",
+    "state": "AL",
+    "zip": "36561"
+  },
+  "hours": {
+    "monday": "11:00 AM - 9:00 PM",
+    "tuesday": "11:00 AM - 9:00 PM",
+    "wednesday": "11:00 AM - 9:00 PM",
+    "thursday": "11:00 AM - 9:00 PM",
+    "friday": "11:00 AM - 10:00 PM",
+    "saturday": "11:00 AM - 10:00 PM",
+    "sunday": "11:00 AM - 9:00 PM",
+    "notes": null
+  },
+  "about": {
+    "description": "OSO at Bear Point Harbor is a coastal cuisine restaurant inspired by vibrant coastlines from Florida to Mexico, offering fresh, locally sourced seafood and inventive dishes with bold seasonings. The restaurant features lively harbor views and a warm, inviting atmosphere designed for unforgettable dining experiences.",
+    "elevator_pitch": "A coastal cuisine restaurant blending fresh, locally-inspired ingredients with bold seasonings from Florida to Mexico in a vibrant harbor setting.",
+    "vibe": "Relaxed and celebratory with lively harbor views, vibrant atmosphere, and a focus on fresh, bold coastal flavors",
+    "best_for": [
+      "seafood lovers",
+      "casual dining",
+      "date night",
+      "families",
+      "sunset dining",
+      "special gatherings"
+    ],
+    "established": null,
+    "reservations": null,
+    "insider_tip": "Sit outside on warm days for spectacular sunset dining; the oysters and grouper bites are highly recommended"
+  },
+  "tags": [
+    "seafood",
+    "coastal cuisine",
+    "Mexican-inspired",
+    "casual dining",
+    "happy hour",
+    "local",
+    "fresh ingredients",
+    "fish tacos",
+    "oysters",
+    "gumbo",
+    "breakfast",
+    "brunch"
+  ],
+  "features": [
+    "full bar",
+    "outdoor seating",
+    "harbor views",
+    "live music",
+    "dine-in",
+    "takeout",
+    "delivery",
+    "catering",
+    "rewards program",
+    "happy hours",
+    "great cocktails"
+  ],
+  "price_range": "$$",
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://www.osobearpoint.com"
+  },
+  "specials": [
+    {
+      "name": "Happy Hours",
+      "description": "Featured on website",
+      "days": [],
+      "time": null
+    }
+  ],
+  "events": [
+    {
+      "name": "Live Music",
+      "description": "Live music entertainment available",
+      "recurring": true,
+      "day": null,
+      "time": null
+    }
+  ],
+  "menu": {
+    "categories": [
+      {
+        "name": "Breakfast",
+        "type": "breakfast",
+        "items": [
+          {
+            "name": "Coffee",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Burritos",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Lunch",
+        "type": "lunch",
+        "items": [
+          {
+            "name": "Fish Tacos",
+            "description": null,
+            "price": null,
+            "tags": [
+              "popular"
+            ],
+            "allergens": [
+              "fish"
+            ]
+          },
+          {
+            "name": "Tuna Bowl",
+            "description": null,
+            "price": null,
+            "tags": [
+              "popular"
+            ],
+            "allergens": [
+              "fish"
+            ]
+          },
+          {
+            "name": "French Dip",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Burgers",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Flatbread",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Quesadillas",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Nachos",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Dinner",
+        "type": "dinner",
+        "items": [
+          {
+            "name": "Oysters",
+            "description": null,
+            "price": null,
+            "tags": [
+              "popular"
+            ],
+            "allergens": [
+              "shellfish"
+            ]
+          },
+          {
+            "name": "Fried Shrimp",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": [
+              "shellfish"
+            ]
+          },
+          {
+            "name": "Grouper Bites",
+            "description": null,
+            "price": null,
+            "tags": [
+              "popular"
+            ],
+            "allergens": [
+              "fish"
+            ]
+          },
+          {
+            "name": "Fish",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": [
+              "fish"
+            ]
+          },
+          {
+            "name": "Fried Fish",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": [
+              "fish"
+            ]
+          },
+          {
+            "name": "Crab",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": [
+              "shellfish"
+            ]
+          },
+          {
+            "name": "Shrimp",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": [
+              "shellfish"
+            ]
+          },
+          {
+            "name": "Gumbo",
+            "description": null,
+            "price": null,
+            "tags": [
+              "popular"
+            ],
+            "allergens": [
+              "shellfish"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Bar Food",
+        "type": "drinks",
+        "items": [
+          {
+            "name": "Wings",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Fried Pickles",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "French Fries",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Fries",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          }
+        ]
+      }
+    ]
+  },
+  "url": "https://www.osobearpoint.com",
+  "scraped_at": "2026-03-21T20:27:32.042Z",
+  "extracted_at": "2026-03-23T03:55:48.868Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://osobearpoint.com/pluto-images/brands/funnel/reviews-section-images/tJIBWf8quS9QVWq25MOpEQinBBfTOdDr/khXoR6Z3I8hC3gZ3NXFgWWH7.png?w=32&h=32&fit=cover",
+    "https://osobearpoint.com/pluto-images/directus/b8f4b064-1c8a-4bf7-80ea-8718c426401d.png?h=40&fit=cover"
+  ],
+  "sources": [
+    "https://www.osobearpoint.com"
+  ]
+}

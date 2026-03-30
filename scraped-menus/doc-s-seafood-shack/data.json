@@ -1,0 +1,160 @@
+{
+  "business_name": "Doc's Seafood Shack and Oyster Bar",
+  "tagline": "Where Gulf Coast Alabama locals go for fresh seafood and Doc's famous fried shrimp",
+  "type": "Seafood Restaurant",
+  "contact": {
+    "phone": "(251) 981-6999",
+    "email": null,
+    "address": "26029 Canal Road",
+    "city": "Orange Beach",
+    "state": "AL",
+    "zip": null
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": null
+  },
+  "about": {
+    "description": "Doc's Seafood Shack is where Gulf Coast Alabama locals go for fresh seafood and Doc's famous fried shrimp. Since 1984 we have been grilling, frying and broiling seafood.",
+    "elevator_pitch": "Fresh Gulf Coast seafood restaurant in Orange Beach, Alabama known for their world-famous fried shrimp.",
+    "vibe": "Casual seafood shack with oyster bar atmosphere",
+    "best_for": [
+      "families",
+      "casual dining",
+      "fresh seafood lovers",
+      "locals and tourists"
+    ],
+    "established": "1984",
+    "reservations": null,
+    "insider_tip": null
+  },
+  "tags": [
+    "seafood",
+    "casual",
+    "fried shrimp",
+    "oyster bar",
+    "Gulf Coast",
+    "fresh seafood",
+    "local favorite"
+  ],
+  "features": [
+    "oyster bar",
+    "full menu seafood",
+    "dine-in",
+    "online ordering",
+    "pick-up available",
+    "merchandise shop"
+  ],
+  "price_range": "$$",
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://www.docsseafoodshack.com/"
+  },
+  "specials": [],
+  "events": [],
+  "menu": {
+    "categories": [
+      {
+        "name": "Seafood Menu",
+        "type": "lunch",
+        "items": [
+          {
+            "name": "Famous Fried Shrimp",
+            "description": null,
+            "price": null,
+            "tags": [
+              "signature",
+              "fried",
+              "shrimp"
+            ],
+            "allergens": [
+              "shellfish"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "url": "https://www.docsseafoodshack.com/",
+  "scraped_at": "2026-03-21T15:14:44.491Z",
+  "extracted_at": "2026-03-23T03:38:59.191Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://www.docsseafoodshack.com/wp-content/uploads/2026/01/docs-seafood-shack-and-oyster-bar-logo.png",
+    "https://www.docsseafoodshack.com/wp-content/uploads/2018/01/seafood-top2.jpg",
+    "https://www.docsseafoodshack.com/wp-content/uploads/2018/01/seafood-bottom2.jpg",
+    "https://www.docsseafoodshack.com/wp-content/uploads/2019/04/Docs-Seafood-Shack-Menu-icon-150x150.jpg",
+    "https://www.docsseafoodshack.com/wp-content/uploads/2019/04/Docs-Seafood-Shack-Delivery-icon-150x150.jpg",
+    "https://www.docsseafoodshack.com/wp-content/uploads/2019/04/Docs-Seafood-Shack-Takeout-icon-150x150.jpg",
+    "https://www.docsseafoodshack.com/wp-content/uploads/2019/12/Docs-Seafood-Shack-and-Oyster-Bar-Orange-Beach-Alabama-The-Best-Fried-Shrimp-in-the-Entire-Civilized-World.jpg",
+    "https://www.docsseafoodshack.com/wp-content/uploads/2018/10/Create-Your-Own-Seafood-Platter-Docs-Seafood-Shack-Alabama-1-400x284.jpg",
+    "https://www.docsseafoodshack.com/wp-content/uploads/2018/10/Create-Your-Own-Shrimp-Platter-Docs-Seafood-Shack-Alabama-400x284.jpg",
+    "https://www.docsseafoodshack.com/wp-content/uploads/2018/10/Docs-Famous-Fried-Shrimp-Docs-Seafood-Shack-Alabama-400x284.jpg",
+    "https://www.docsseafoodshack.com/wp-content/uploads/2018/10/Fried-Chicken-Basket-Docs-Seafood-Shack-Alabama-400x284.jpg",
+    "https://www.docsseafoodshack.com/wp-content/uploads/2018/10/Fried-Crab-Claws-Docs-Seafood-Shack-Alabama-1-400x284.jpg",
+    "https://www.docsseafoodshack.com/wp-content/uploads/2018/10/Fried-Fish-Fillets-Docs-Seafood-Shack-Alabama-1-400x284.jpg",
+    "https://www.docsseafoodshack.com/wp-content/uploads/2018/10/Golden-Fried-Oysters-Docs-Seafood-Shack-Alabama-400x284.jpg",
+    "https://www.docsseafoodshack.com/wp-content/uploads/2018/10/Grilled-Fish-Fillets-Docs-Seafood-Shack-Alabama-1-400x284.jpg",
+    "https://www.docsseafoodshack.com/wp-content/uploads/2018/10/Key-Lime-Pie-Docs-Seafood-Shack-Alabama-400x284.jpg",
+    "https://www.docsseafoodshack.com/wp-content/uploads/2018/10/Oysters-On-A-Half-Shell-Docs-Seafood-Shack-Alabama-1-400x284.jpg",
+    "https://www.docsseafoodshack.com/wp-content/uploads/2018/10/Shrimp-Salad-Docs-Seafood-Shack-Alabama-1-400x284.jpg",
+    "https://www.docsseafoodshack.com/wp-content/uploads/2018/10/Stuffed-Crab-Platter-Docs-Seafood-Shack-Alabama-400x284.jpg",
+    "https://www.docsseafoodshack.com/wp-content/uploads/2018/10/Super-Seafood-Platter-Docs-Seafood-Shack-Alabama-1-400x284.jpg",
+    "https://www.docsseafoodshack.com/wp-content/uploads/2018/10/The-Ole-Spider-Burger-Softshell-Crab-Sandwich-Docs-Seafood-Shack-Alabama-1-400x284.jpg",
+    "https://www.docsseafoodshack.com/wp-content/uploads/2018/10/World-Famous-Fried-Chicken-Docs-Seafood-Shack-Alabama-400x284.jpg",
+    "https://www.docsseafoodshack.com/wp-content/uploads/2019/12/Docs-Seafood-Shack-and-Oyster-Bar-Orange-Beach-Alabama-Baked-Seafood-Platter.jpg",
+    "https://www.docsseafoodshack.com/wp-content/uploads/2018/06/Orange-Beach-Seafood-Restaurant.jpg",
+    "https://docsseafoodshack.com/images/flip-flops.jpg",
+    "https://www.docsseafoodshack.com/wp-content/uploads/2020/03/facebook-icon.jpg",
+    "https://www.docsseafoodshack.com/wp-content/uploads/2020/03/Google-My-Business-icon.jpg",
+    "https://www.docsseafoodshack.com/wp-content/uploads/2020/03/Google-Maps-icon.jpg",
+    "https://www.docsseafoodshack.com/wp-content/uploads/2020/03/Google-Reviews-icon.jpg",
+    "https://www.docsseafoodshack.com/wp-content/uploads/2026/02/Docs-Seafood-Shack-Website-Logo-w.png",
+    "https://www.docsseafoodshack.com/wp-content/uploads/2020/03/facebook-icon-white.png",
+    "https://www.docsseafoodshack.com/wp-content/uploads/2020/03/google-my-business-icon-white.png",
+    "https://www.docsseafoodshack.com/wp-content/uploads/2020/03/google-maps-icon-white.png",
+    "https://www.docsseafoodshack.com/wp-content/uploads/2020/03/google-reviews-icon-white.png",
+    "https://www.docsseafoodshack.com/wp-content/uploads/2026/02/DOCS-Seafood-Foley-Website-Logo-w.png",
+    "https://docsseafoodfoley.com/wp-content/uploads/2026/02/DOCS-Seafood-and-Steak-website-logo.png",
+    "https://www.docsseafoodshack.com/wp-content/uploads/2016/05/orange-beach-seafood-restaurant-300x177.jpg",
+    "https://www.docsseafoodshack.com/wp-content/uploads/2016/11/Docs-Seafood-Shack-Gulf-Coast-Alabama.jpg",
+    "https://www.docsseafoodshack.com/wp-content/uploads/2016/11/Docs-Seafood-Shack-seafood-platter.jpg",
+    "https://www.docsseafoodshack.com/wp-content/uploads/2018/12/Orange-Beach-AL-Seafood-Restaurant-Docs-Seafood-Shack-and-Oyster-Bar.jpg",
+    "https://www.docsseafoodshack.com/wp-content/uploads/2018/12/Create-Your-Own-Seafood-Platter-Docs-Seafood-Shack-Alabama-ppic.jpg",
+    "https://www.docsseafoodshack.com/wp-content/uploads/2018/12/Docs-Famous-Fried-Shrimp-Docs-Seafood-Shack-Alabama-ppic.jpg",
+    "https://www.docsseafoodshack.com/wp-content/uploads/2018/12/The-Ole-Spider-Burger-Softshell-Crab-Sandwich-Docs-Seafood-Shack-Alabama-ppic.jpg",
+    "https://www.docsseafoodshack.com/wp-content/uploads/2019/05/Docs-Seafood-Shack-seafood-DELIVERY-icon-150x150.png",
+    "https://www.docsseafoodshack.com/wp-content/uploads/2019/05/Docs-Seafood-Shack-seafood-TAKEOUT-icon-150x150.png",
+    "https://www.docsseafoodshack.com/wp-content/uploads/2023/04/Docs-Seafood-Shack-Tshirt-Shrimp-Crimson-300x300.jpg",
+    "https://www.docsseafoodshack.com/wp-content/uploads/2023/04/Docs-Seafood-Shack-Tshirt-Shrimp-Crimson-600x600.jpg",
+    "https://www.docsseafoodshack.com/wp-content/uploads/2023/04/Docs-Seafood-Shack-Tshirt-Shrimp-Pepper-600x600.jpg",
+    "https://www.docsseafoodshack.com/wp-content/uploads/2023/04/Docs-Seafood-Shack-Tshirt-Shrimp-Crimson-100x100.jpg",
+    "https://www.docsseafoodshack.com/wp-content/uploads/2023/04/Docs-Seafood-Shack-Tshirt-Shrimp-Pepper-100x100.jpg"
+  ],
+  "sources": [
+    "https://www.docsseafoodshack.com",
+    "https://www.docsseafoodshack.com/orange-beach-seafood",
+    "https://www.docsseafoodshack.com/contact-docs-seafood-shack",
+    "https://www.docsseafoodshack.com/locations",
+    "https://www.docsseafoodshack.com/orange-beach-seafood-restaurant",
+    "https://www.docsseafoodshack.com/category/uncategorized",
+    "https://www.docsseafoodshack.com/author/mgsdesigns",
+    "https://www.docsseafoodshack.com/category/seafood-restaurant-news",
+    "https://www.docsseafoodshack.com/docs-seafood-shack-oyster-bar-orange-beach",
+    "https://www.docsseafoodshack.com/orange-beach-al-seafood-restaurant",
+    "https://www.docsseafoodshack.com/order-seafood",
+    "https://www.docsseafoodshack.com/seafood-menu",
+    "https://www.docsseafoodshack.com/cart",
+    "https://www.docsseafoodshack.com/shop",
+    "https://www.docsseafoodshack.com/product/docs-seafood-shrimp-tshirt",
+    "https://www.docsseafoodshack.com/product-category/clothes",
+    "https://www.docsseafoodshack.com/docs-seafood-shack-and-oyster-bar-sitemap"
+  ]
+}

@@ -1,0 +1,213 @@
+{
+  "business_name": "Cozumel Mexican Grill and Bar",
+  "tagline": null,
+  "type": "Restaurant | Bar",
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": null,
+    "city": null,
+    "state": "AL",
+    "zip": null
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": null
+  },
+  "about": {
+    "description": "Cozumel Bar & Grill was founded on September 23, 2010 in Loxley, Alabama by Noel Hurtado. Dedicated to offering an authentic Mexican culinary experience, the restaurant is celebrated for its rich flavors and warm atmosphere. The menu pays homage to Mexico's culinary heritage with flavorful tacos and exquisite traditional dishes. The Cozumel family has grown over the years, extending its culinary influence and legacy of excellence across multiple locations.",
+    "elevator_pitch": "An authentic Mexican restaurant celebrating Mexico's culinary heritage with traditional dishes and warm hospitality across three Alabama locations.",
+    "vibe": "Warm, authentic Mexican dining experience with a focus on traditional flavors and hospitality",
+    "best_for": [
+      "families",
+      "date night",
+      "groups",
+      "seafood lovers",
+      "Mexican cuisine enthusiasts"
+    ],
+    "established": "2010-09-23",
+    "reservations": true,
+    "insider_tip": null
+  },
+  "tags": [
+    "Mexican",
+    "authentic",
+    "seafood",
+    "grilled",
+    "casual dining",
+    "family-friendly",
+    "traditional"
+  ],
+  "features": [
+    "full bar",
+    "reservations available",
+    "multiple locations"
+  ],
+  "price_range": "$$",
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "http://cozumelmexicangrillandbar.com"
+  },
+  "specials": [],
+  "events": [],
+  "menu": {
+    "categories": [
+      {
+        "name": "Fresh From the Grill",
+        "type": "dinner",
+        "items": [
+          {
+            "name": "Seafood Fajita",
+            "description": "Grilled shrimp, scallops, and tilapia fillet cooked with tomatoes, bell peppers and onions. Served with rice, beans, guacamole, pico de gallo, lettuce and sour cream.",
+            "price": null,
+            "tags": [
+              "seafood",
+              "fajita",
+              "grilled"
+            ],
+            "allergens": [
+              "seafood"
+            ]
+          },
+          {
+            "name": "Molcajete for Two",
+            "description": "Steak, Chicken, Shrimp, Chorizo cooked with onions & bell peppers. Topped with Tomatoes, guacamole, sour cream, pico de gallo and lettuce, jalapeño, cilantro & lime. Served with charro beans and white rice.",
+            "price": null,
+            "tags": [
+              "shared",
+              "mixed meat",
+              "grilled"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Rib-Eye y Camarón a la Plancha",
+            "description": "Rib-Eye & Shrimp with grilled mixed veggies on a bed of grilled onions.",
+            "price": null,
+            "tags": [
+              "seafood",
+              "steak",
+              "grilled"
+            ],
+            "allergens": [
+              "seafood"
+            ]
+          },
+          {
+            "name": "Seafood Soup",
+            "description": "Fish, Shrimp, Mussels, Crab Legs and vegetables cooked in a chile de arbol broth.",
+            "price": null,
+            "tags": [
+              "seafood",
+              "soup",
+              "broth"
+            ],
+            "allergens": [
+              "seafood"
+            ]
+          },
+          {
+            "name": "Carne Asada",
+            "description": "Thin Steak cooked with onions & bell peppers. Topped with Tomatoes, jalapeño, & lime. Served with rice, beans, guacamole, sour cream, pico de gallo and lettuce.",
+            "price": null,
+            "tags": [
+              "steak",
+              "grilled",
+              "traditional"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Seafood Molcajete for Two",
+            "description": "Whole head on shrimp, scallops, mussels, whole fried tilapia in a special sauce. Garnished with pineapple, lime/lemon, and cucumber. Served with white rice, charro beans, tortillas, and guacamole salad.",
+            "price": null,
+            "tags": [
+              "seafood",
+              "shared",
+              "fried",
+              "traditional"
+            ],
+            "allergens": [
+              "seafood"
+            ]
+          },
+          {
+            "name": "Pollo Blanco",
+            "description": "Grilled Chicken breast on a bed of grilled onions, bell peppers, tomatoes, and mushrooms topped with poblano sauce. Served with a side of white rice.",
+            "price": null,
+            "tags": [
+              "chicken",
+              "grilled",
+              "sauce"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Carnitas",
+            "description": "Shredded pork pieces marinated in a special sauce cooked with grilled onions. Served with pico de gallo, rice, beans, and tortillas.",
+            "price": null,
+            "tags": [
+              "pork",
+              "traditional",
+              "shredded"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Alambres Cozumel",
+            "description": "Grilled chicken, steak, bacon, mushrooms, bell peppers, onions and tomatoes. Topped with mozzarella cheese. Served with rice, beans, lettuce, pico de gallo, guacamole, sour cream and tortillas.",
+            "price": null,
+            "tags": [
+              "mixed meat",
+              "grilled",
+              "cheese",
+              "specialty"
+            ],
+            "allergens": [
+              "dairy"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "url": "http://cozumelmexicangrillandbar.com",
+  "scraped_at": "2026-03-22T01:43:25.619Z",
+  "extracted_at": "2026-03-23T03:37:05.319Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://cozumelmexicangrillandbar.com/wp-content/uploads/2023/12/cropped-Logo-cozumel-4-inks-1-150x105.png",
+    "https://cozumelmexicangrillandbar.com/wp-content/uploads/2023/12/divider-free-img-1.png",
+    "https://cozumelmexicangrillandbar.com/wp-content/uploads/2023/12/bbbq-free-img.png",
+    "https://cozumelmexicangrillandbar.com/wp-content/uploads/2024/08/IMG_6051.jpg",
+    "https://cozumelmexicangrillandbar.com/wp-content/uploads/2024/08/IMG_6017.jpg",
+    "https://cozumelmexicangrillandbar.com/wp-content/uploads/2024/08/seafood-fajita.png",
+    "https://cozumelmexicangrillandbar.com/wp-content/uploads/2024/08/molcajete.png",
+    "https://cozumelmexicangrillandbar.com/wp-content/uploads/2023/12/RIB-EYE-Y-CAMARON-A-LA-PLANCHA.png",
+    "https://cozumelmexicangrillandbar.com/wp-content/uploads/2024/08/seafood-soup.png",
+    "https://cozumelmexicangrillandbar.com/wp-content/uploads/2023/12/CARNE-ASADA.png",
+    "https://cozumelmexicangrillandbar.com/wp-content/uploads/2024/08/seafood-molcajete.png",
+    "https://cozumelmexicangrillandbar.com/wp-content/uploads/2025/03/pollo-blanco-NB.png",
+    "https://cozumelmexicangrillandbar.com/wp-content/uploads/2025/03/carnitas-NB.png",
+    "https://cozumelmexicangrillandbar.com/wp-content/uploads/2025/03/alambres-NB.png",
+    "https://cozumelmexicangrillandbar.com/wp-content/uploads/2024/08/IMG_6052-683x1024.jpg",
+    "https://cozumelmexicangrillandbar.com/wp-content/uploads/2023/12/bbq-free-img.png",
+    "https://cozumelmexicangrillandbar.com/wp-content/uploads/2024/08/IMG_6051-683x1024.jpg",
+    "https://cozumelmexicangrillandbar.com/wp-content/uploads/2024/08/IMG_6096-683x1024.jpg"
+  ],
+  "sources": [
+    "http://cozumelmexicangrillandbar.com",
+    "https://cozumelmexicangrillandbar.com/contact-us",
+    "https://cozumelmexicangrillandbar.com/about-us",
+    "https://cozumelmexicangrillandbar.com/drink-menu",
+    "https://cozumelmexicangrillandbar.com/menu",
+    "https://cozumelmexicangrillandbar.com"
+  ]
+}

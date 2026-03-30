@@ -1,0 +1,1153 @@
+{
+  "business_name": "Mikee's Seafood",
+  "url": "https://mikeesseafood.com/",
+  "scraped_at": "2026-03-21T15:11:49.343Z",
+  "pages": [
+    {
+      "url": "https://mikeesseafood.com",
+      "title": "Mikee's Seafood Restaurant Gulf Shores, Alabama",
+      "text": "Skip to content\n\n\t\n \n \n \n \n \n \n \n \n\n\t\n MENUSPECIALSSHOP\t\n \n\n \n \n\n \n \n \n \n ABOUTLOCATIONCONTACT\t\n \n \n \n \n \n\nMENUSPECIALSSHOP\tABOUTLOCATIONCONTACT\n\n \n\n \n \n \n \n \n \n\t\n\t\n \n \n \n \n \n \n \n \n \n \n \n\t\n\n \n \n \n \n \n \n \n \n \n \n\n \n Homemikees2025-12-16T16:13:37+00:00 \n Family Owned Seafood Restaurant in Gulf Shores Since 1987\nOpen daily 11 AM to 10 PM\nOur MenuOrder TakeoutOrder DeliveryFor over 35 years, Mikee’s Seafood has been a Gulf Shores staple, serving up fresh, Southern-style seafood with a warm, family-friendly atmosphere. Proudly family-owned and operated since 1987, Mikee’s is more than just a restaurant—it’s a local tradition.\nWhether you’re craving all-you-can-eat snow crab, a golden-fried seafood platter, or a refreshing Bushwacker from the bar, Mikee’s is the spot where locals and visitors come together to eat, laugh, and make memories. See our full seafood menu featuring Gulf Shores favorites. Our menu is packed with crowd favorites, from perfectly fried shrimp to grilled catch-of-the-day, all seasoned with that unmistakable Gulf Coast flavor.\nStop by and see why generations of locals and visitors call Mikee’s their go-to seafood spot.\nFresh seafood.\nSouthern hospitality.\nSince 1987.\nWhy Locals Love Mikee’s\nAt Mikee’s, we’re more than just another seafood restaurant in Gulf Shores—we’re part of the tradition. From family recipes passed down through generations to daily specials that highlight the freshest catches, every plate is made with care. Guests love us for:\n\nAll-You-Can-Eat Specials – including snow crab and shrimp\nMikee’s Favorites – like Blackened Redfish topped with creamy shrimp and crab sauce\nFamily-Friendly Dining – kids’ menu, plenty of options for picky eaters, and options for the whole crew\nClassic Southern Sides – cheese grits, red beans & rice, hush puppies, and more\n\nLocated right in the heart of Gulf Shores, Mikee’s is a must-visit for anyone searching  for good seafood in Gulf Shores. Come see why families return year after year and why locals have made us part of their weekly routine. Whether it’s lunch with friends, or dinner with family, we’re here to make your Gulf Shores seafood experience unforgettable.\n\n \n \n\t\n \n \n \n \n \n \n Our MenuTakeoutDeliveryMikee’s Seafood\n205 East 2nd Ave\nGulf Shores, Alabama\nP: (251) 948-6452\nGet Directions >>>\n© 2025 | All Rights Reserved | Website by 5A Multimedia\n\n \n \n Page load link\n\n \n \n\n \n \n\n \n \n Go to Top",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://mikeesseafood.com/",
+              "url": "https://mikeesseafood.com/",
+              "name": "Mikee's Seafood Restaurant Gulf Shores, Alabama",
+              "isPartOf": {
+                "@id": "https://mikeesseafood.com/#website"
+              },
+              "about": {
+                "@id": "https://mikeesseafood.com/#organization"
+              },
+              "datePublished": "2015-02-02T19:38:46+00:00",
+              "dateModified": "2025-12-16T16:13:37+00:00",
+              "description": "Since 1987, Mikee’s Seafood in Gulf Shores, AL, has been a family-owned favorite, serving fresh seafood with Southern hospitality and fun.",
+              "breadcrumb": {
+                "@id": "https://mikeesseafood.com/#breadcrumb"
+              },
+              "inLanguage": "en-US",
+              "potentialAction": [
+                {
+                  "@type": "ReadAction",
+                  "target": [
+                    "https://mikeesseafood.com/"
+                  ]
+                }
+              ]
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://mikeesseafood.com/#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home"
+                }
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://mikeesseafood.com/#website",
+              "url": "https://mikeesseafood.com/",
+              "name": "Mikee's Seafood",
+              "description": "Family Owned Since 1987",
+              "publisher": {
+                "@id": "https://mikeesseafood.com/#organization"
+              },
+              "potentialAction": [
+                {
+                  "@type": "SearchAction",
+                  "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://mikeesseafood.com/?s={search_term_string}"
+                  },
+                  "query-input": {
+                    "@type": "PropertyValueSpecification",
+                    "valueRequired": true,
+                    "valueName": "search_term_string"
+                  }
+                }
+              ],
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "Organization",
+              "@id": "https://mikeesseafood.com/#organization",
+              "name": "Mikee's Seafood",
+              "url": "https://mikeesseafood.com/",
+              "logo": {
+                "@type": "ImageObject",
+                "inLanguage": "en-US",
+                "@id": "https://mikeesseafood.com/#/schema/logo/image/",
+                "url": "https://mikeesseafood.com/wp-content/uploads/2025/04/mikees-seafood-logo-1.png",
+                "contentUrl": "https://mikeesseafood.com/wp-content/uploads/2025/04/mikees-seafood-logo-1.png",
+                "width": 700,
+                "height": 423,
+                "caption": "Mikee's Seafood"
+              },
+              "image": {
+                "@id": "https://mikeesseafood.com/#/schema/logo/image/"
+              },
+              "sameAs": [
+                "https://www.facebook.com/MikeesSeafood",
+                "https://www.instagram.com/mikees_seafood/"
+              ]
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Restaurant",
+          "@id": "https://mikeesseafood.com/#restaurant",
+          "name": "Mikee's Seafood",
+          "url": "https://mikeesseafood.com/",
+          "image": "https://mikeesseafood.com/wp-content/uploads/2025/04/mikees-seafood-logo-1.png",
+          "telephone": "+1-251-948-6452",
+          "priceRange": "$$",
+          "servesCuisine": [
+            "Seafood",
+            "Southern"
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "205 East 2nd Ave",
+            "addressLocality": "Gulf Shores",
+            "addressRegion": "AL",
+            "postalCode": "36542",
+            "addressCountry": "US"
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "opens": "11:00",
+              "closes": "22:00"
+            }
+          ],
+          "sameAs": [
+            "https://www.facebook.com/MikeesSeafood",
+            "https://www.instagram.com/mikees_seafood/"
+          ],
+          "parentOrganization": {
+            "@id": "https://mikeesseafood.com/#organization"
+          }
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+        "description": "Family Owned Seafood Restaurant in Gulf Shores Since 1987 \nOpen daily 11 AM to 10 PM    Our Menu  Order Takeout  Order Delivery     \n\nFor over 35 years, Mikee’s Seafood has been a Gulf Shores staple, serving up fresh, Southern-style",
+        "og:locale": "en_US",
+        "og:type": "website",
+        "og:title": "Mikee's Seafood Restaurant Gulf Shores, Alabama",
+        "og:description": "Family Owned Seafood Restaurant in Gulf Shores Since 1987 \nOpen daily 11 AM to 10 PM    Our Menu  Order Takeout  Order Delivery     \n\nFor over 35 years, Mikee’s Seafood has been a Gulf Shores staple, serving up fresh, Southern-style",
+        "og:url": "https://mikeesseafood.com/",
+        "og:site_name": "Mikee's Seafood",
+        "article:publisher": "https://www.facebook.com/MikeesSeafood",
+        "article:modified_time": "2025-12-16T16:13:37+00:00",
+        "twitter:card": "summary_large_image",
+        "og:image": "https://mikeesseafood.com/wp-content/uploads/2025/04/mikees-seafood-logo-sm-1.png",
+        "og:image:width": "350",
+        "og:image:height": "212",
+        "og:image:type": "image/png",
+        "generator": "Site Kit by Google 1.174.0"
+      }
+    },
+    {
+      "url": "https://mikeesseafood.com/author/mikees",
+      "title": "mikees, Author at Mikee's Seafood",
+      "text": "Skip to content\n\n\t\n \n \n \n \n \n \n \n \n\n\t\n MENUSPECIALSSHOP\t\n \n\n \n \n\n \n \n \n \n ABOUTLOCATIONCONTACT\t\n \n \n \n \n \n\nMENUSPECIALSSHOP\tABOUTLOCATIONCONTACT\n\n \n\n \n \n \n \n \n \n \n \n \n \n\t\n \n \n \n\n mikees\n\n \n \n Home \n \n \n\n \n \n \n\t\n\n \n \n\n\t\n\t\n \n\t\n \n About mikees \n This author has not yet filled in any details.So far mikees has created 0 blog entries.\t\n\n\t\n\n\t\n \n \n\n \n\n\t\n\t\n \n \n\n \n \n \n \n \n \n\t\n\n \n\t\n\n \n \n \n \n \n \n Our MenuTakeoutDeliveryMikee’s Seafood\n205 East 2nd Ave\nGulf Shores, Alabama\nP: (251) 948-6452\nGet Directions >>>\n© 2025 | All Rights Reserved | Website by 5A Multimedia\n\n \n \n Page load link\n\n \n \n\n \n \n\n \n \n Go to Top",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebSite",
+              "@id": "https://mikeesseafood.com/#website",
+              "url": "https://mikeesseafood.com/",
+              "name": "Mikee's Seafood",
+              "description": "Family Owned Since 1987",
+              "publisher": {
+                "@id": "https://mikeesseafood.com/#organization"
+              },
+              "potentialAction": [
+                {
+                  "@type": "SearchAction",
+                  "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://mikeesseafood.com/?s={search_term_string}"
+                  },
+                  "query-input": {
+                    "@type": "PropertyValueSpecification",
+                    "valueRequired": true,
+                    "valueName": "search_term_string"
+                  }
+                }
+              ],
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "Organization",
+              "@id": "https://mikeesseafood.com/#organization",
+              "name": "Mikee's Seafood",
+              "url": "https://mikeesseafood.com/",
+              "logo": {
+                "@type": "ImageObject",
+                "inLanguage": "en-US",
+                "@id": "https://mikeesseafood.com/#/schema/logo/image/",
+                "url": "https://mikeesseafood.com/wp-content/uploads/2025/04/mikees-seafood-logo-1.png",
+                "contentUrl": "https://mikeesseafood.com/wp-content/uploads/2025/04/mikees-seafood-logo-1.png",
+                "width": 700,
+                "height": 423,
+                "caption": "Mikee's Seafood"
+              },
+              "image": {
+                "@id": "https://mikeesseafood.com/#/schema/logo/image/"
+              },
+              "sameAs": [
+                "https://www.facebook.com/MikeesSeafood",
+                "https://www.instagram.com/mikees_seafood/"
+              ]
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Restaurant",
+          "@id": "https://mikeesseafood.com/#restaurant",
+          "name": "Mikee's Seafood",
+          "url": "https://mikeesseafood.com/",
+          "image": "https://mikeesseafood.com/wp-content/uploads/2025/04/mikees-seafood-logo-1.png",
+          "telephone": "+1-251-948-6452",
+          "priceRange": "$$",
+          "servesCuisine": [
+            "Seafood",
+            "Southern"
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "205 East 2nd Ave",
+            "addressLocality": "Gulf Shores",
+            "addressRegion": "AL",
+            "postalCode": "36542",
+            "addressCountry": "US"
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "opens": "11:00",
+              "closes": "22:00"
+            }
+          ],
+          "sameAs": [
+            "https://www.facebook.com/MikeesSeafood",
+            "https://www.instagram.com/mikees_seafood/"
+          ],
+          "parentOrganization": {
+            "@id": "https://mikeesseafood.com/#organization"
+          }
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "robots": "noindex, follow",
+        "og:locale": "en_US",
+        "og:type": "profile",
+        "og:title": "mikees, Author at Mikee's Seafood",
+        "og:site_name": "Mikee's Seafood",
+        "twitter:card": "summary_large_image",
+        "og:image": "https://mikeesseafood.com/wp-content/uploads/2025/04/mikees-seafood-logo-sm-1.png",
+        "og:image:width": "350",
+        "og:image:height": "212",
+        "og:image:type": "image/png",
+        "generator": "Site Kit by Google 1.174.0"
+      }
+    },
+    {
+      "url": "https://mikeesseafood.com/contact",
+      "title": "Contact Mikee’s Seafood | Gulf Shores Seafood Restaurant",
+      "text": "Skip to content\n\n\t\n \n \n \n \n \n \n \n \n\n\t\n MENUSPECIALSSHOP\t\n \n\n \n \n\n \n \n \n \n ABOUTLOCATIONCONTACT\t\n \n \n \n \n \n\nMENUSPECIALSSHOP\tABOUTLOCATIONCONTACT\n\n \n\n \n \n \n \n \n \n \n \n \n \n \n \n\n \n Contactmikees2025-11-19T22:42:44+00:00 \n ContactIf you would like to apply for employment, please apply at the Mikee’s Seafood Restaurant in Gulf Shores, AL:\n\nMikee’s Seafood\n205 East 2nd Ave\nGulf Shores, Alabama\nor call us at:\n251-948-6452\n\nAll business/advertising correspondence is handled by the business office in Gulf Shores, AL:\nMikee’s Seafood\nP. O. Box 904\nGulf Shores, AL 36547\nTel: 251-929-8660\n\n \n \n\t\n \n \n \n \n \n \n Our MenuTakeoutDeliveryMikee’s Seafood\n205 East 2nd Ave\nGulf Shores, Alabama\nP: (251) 948-6452\nGet Directions >>>\n© 2025 | All Rights Reserved | Website by 5A Multimedia\n\n \n \n Page load link\n\n \n \n\n \n \n\n \n \n Go to Top",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://mikeesseafood.com/contact/",
+              "url": "https://mikeesseafood.com/contact/",
+              "name": "Contact Mikee’s Seafood | Gulf Shores Seafood Restaurant",
+              "isPartOf": {
+                "@id": "https://mikeesseafood.com/#website"
+              },
+              "datePublished": "2016-04-06T19:43:59+00:00",
+              "dateModified": "2025-11-19T22:42:44+00:00",
+              "description": "Have questions or planning your visit? Contact Mikee’s Seafood in Gulf Shores, AL. We're happy to serve you fresh seafood daily—steps from the beach!",
+              "breadcrumb": {
+                "@id": "https://mikeesseafood.com/contact/#breadcrumb"
+              },
+              "inLanguage": "en-US",
+              "potentialAction": [
+                {
+                  "@type": "ReadAction",
+                  "target": [
+                    "https://mikeesseafood.com/contact/"
+                  ]
+                }
+              ]
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://mikeesseafood.com/contact/#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://mikeesseafood.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Contact"
+                }
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://mikeesseafood.com/#website",
+              "url": "https://mikeesseafood.com/",
+              "name": "Mikee's Seafood",
+              "description": "Family Owned Since 1987",
+              "publisher": {
+                "@id": "https://mikeesseafood.com/#organization"
+              },
+              "potentialAction": [
+                {
+                  "@type": "SearchAction",
+                  "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://mikeesseafood.com/?s={search_term_string}"
+                  },
+                  "query-input": {
+                    "@type": "PropertyValueSpecification",
+                    "valueRequired": true,
+                    "valueName": "search_term_string"
+                  }
+                }
+              ],
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "Organization",
+              "@id": "https://mikeesseafood.com/#organization",
+              "name": "Mikee's Seafood",
+              "url": "https://mikeesseafood.com/",
+              "logo": {
+                "@type": "ImageObject",
+                "inLanguage": "en-US",
+                "@id": "https://mikeesseafood.com/#/schema/logo/image/",
+                "url": "https://mikeesseafood.com/wp-content/uploads/2025/04/mikees-seafood-logo-1.png",
+                "contentUrl": "https://mikeesseafood.com/wp-content/uploads/2025/04/mikees-seafood-logo-1.png",
+                "width": 700,
+                "height": 423,
+                "caption": "Mikee's Seafood"
+              },
+              "image": {
+                "@id": "https://mikeesseafood.com/#/schema/logo/image/"
+              },
+              "sameAs": [
+                "https://www.facebook.com/MikeesSeafood",
+                "https://www.instagram.com/mikees_seafood/"
+              ]
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Restaurant",
+          "@id": "https://mikeesseafood.com/#restaurant",
+          "name": "Mikee's Seafood",
+          "url": "https://mikeesseafood.com/",
+          "image": "https://mikeesseafood.com/wp-content/uploads/2025/04/mikees-seafood-logo-1.png",
+          "telephone": "+1-251-948-6452",
+          "priceRange": "$$",
+          "servesCuisine": [
+            "Seafood",
+            "Southern"
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "205 East 2nd Ave",
+            "addressLocality": "Gulf Shores",
+            "addressRegion": "AL",
+            "postalCode": "36542",
+            "addressCountry": "US"
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "opens": "11:00",
+              "closes": "22:00"
+            }
+          ],
+          "sameAs": [
+            "https://www.facebook.com/MikeesSeafood",
+            "https://www.instagram.com/mikees_seafood/"
+          ],
+          "parentOrganization": {
+            "@id": "https://mikeesseafood.com/#organization"
+          }
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+        "description": "Contact    \nIf you would like to apply for employment, please apply at the Mikee’s Seafood Restaurant in Gulf Shores, AL:\n \nMikee’s Seafood\n205 East 2nd Ave\nGulf Shores, Alabama\nor call us at:\n251-948-6452\n  \nAll business/advertising correspondence is handled by the business office in Gulf Shores, AL: \nMikee’s Seafood\nP. O. Box 904\nGulf",
+        "og:locale": "en_US",
+        "og:type": "article",
+        "og:title": "Contact Mikee’s Seafood | Gulf Shores Seafood Restaurant",
+        "og:description": "Contact    \nIf you would like to apply for employment, please apply at the Mikee’s Seafood Restaurant in Gulf Shores, AL:\n \nMikee’s Seafood\n205 East 2nd Ave\nGulf Shores, Alabama\nor call us at:\n251-948-6452\n  \nAll business/advertising correspondence is handled by the business office in Gulf Shores, AL: \nMikee’s Seafood\nP. O. Box 904\nGulf",
+        "og:url": "https://mikeesseafood.com/contact/",
+        "og:site_name": "Mikee's Seafood",
+        "article:publisher": "https://www.facebook.com/MikeesSeafood",
+        "article:modified_time": "2025-11-19T22:42:44+00:00",
+        "twitter:card": "summary_large_image",
+        "twitter:label1": "Est. reading time",
+        "twitter:data1": "1 minute",
+        "og:image": "https://mikeesseafood.com/wp-content/uploads/2025/04/mikees-seafood-logo-sm-1.png",
+        "og:image:width": "350",
+        "og:image:height": "212",
+        "og:image:type": "image/png",
+        "generator": "Site Kit by Google 1.174.0"
+      }
+    },
+    {
+      "url": "https://mikeesseafood.com/location",
+      "title": "Location - Mikee's Seafood",
+      "text": "Skip to content\n\n\t\n \n \n \n \n \n \n \n \n\n\t\n MENUSPECIALSSHOP\t\n \n\n \n \n\n \n \n \n \n ABOUTLOCATIONCONTACT\t\n \n \n \n \n \n\nMENUSPECIALSSHOP\tABOUTLOCATIONCONTACT\n\n \n\n \n \n \n \n \n \n \n \n \n \n \n \n\n \n Locationmikees2025-12-16T16:16:07+00:00 \n \n\nLocationWe are conveniently located close to the beach in Gulf Shores, Alabama.\nMikee’s Seafood\n205 East 2nd Ave\nGulf Shores, Alabama\n251-948-6452\n \n ←Move left→Move right↑Move up↓Move down+Zoom in-Zoom outHomeJump left by 75%EndJump right by 75%Page UpJump up by 75%Page DownJump down by 75%Sorry, we have no imagery here.Sorry, we have no imagery here.Sorry, we have no imagery here.Sorry, we have no imagery here.Sorry, we have no imagery here.Sorry, we have no imagery here.Sorry, we have no imagery here.Sorry, we have no imagery here.Sorry, we have no imagery here.Sorry, we have no imagery here.Sorry, we have no imagery here.Sorry, we have no imagery here.Sorry, we have no imagery here.Sorry, we have no imagery here.Sorry, we have no imagery here.Sorry, we have no imagery here.Sorry, we have no imagery here.Sorry, we have no imagery here.MapTerrainSatelliteLabelsKeyboard shortcutsMap DataMap data ©2026 Google, INEGIMap data ©2026 Google, INEGI50 km Click to toggle between metric and imperial unitsTermsReport a map errorGet Directions\n \n \n\t\n \n \n \n \n \n \n Our MenuTakeoutDeliveryMikee’s Seafood\n205 East 2nd Ave\nGulf Shores, Alabama\nP: (251) 948-6452\nGet Directions >>>\n© 2025 | All Rights Reserved | Website by 5A Multimedia\n\n \n \n Page load link\n\n \n \n\n \n \n\n \n \n Go to Top\n\n \n\t\n \n\nBESbswy",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://mikeesseafood.com/location/",
+              "url": "https://mikeesseafood.com/location/",
+              "name": "Location - Mikee&#039;s Seafood",
+              "isPartOf": {
+                "@id": "https://mikeesseafood.com/#website"
+              },
+              "datePublished": "2015-02-02T19:40:48+00:00",
+              "dateModified": "2025-12-16T16:16:07+00:00",
+              "breadcrumb": {
+                "@id": "https://mikeesseafood.com/location/#breadcrumb"
+              },
+              "inLanguage": "en-US",
+              "potentialAction": [
+                {
+                  "@type": "ReadAction",
+                  "target": [
+                    "https://mikeesseafood.com/location/"
+                  ]
+                }
+              ]
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://mikeesseafood.com/location/#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://mikeesseafood.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Location"
+                }
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://mikeesseafood.com/#website",
+              "url": "https://mikeesseafood.com/",
+              "name": "Mikee's Seafood",
+              "description": "Family Owned Since 1987",
+              "publisher": {
+                "@id": "https://mikeesseafood.com/#organization"
+              },
+              "potentialAction": [
+                {
+                  "@type": "SearchAction",
+                  "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://mikeesseafood.com/?s={search_term_string}"
+                  },
+                  "query-input": {
+                    "@type": "PropertyValueSpecification",
+                    "valueRequired": true,
+                    "valueName": "search_term_string"
+                  }
+                }
+              ],
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "Organization",
+              "@id": "https://mikeesseafood.com/#organization",
+              "name": "Mikee's Seafood",
+              "url": "https://mikeesseafood.com/",
+              "logo": {
+                "@type": "ImageObject",
+                "inLanguage": "en-US",
+                "@id": "https://mikeesseafood.com/#/schema/logo/image/",
+                "url": "https://mikeesseafood.com/wp-content/uploads/2025/04/mikees-seafood-logo-1.png",
+                "contentUrl": "https://mikeesseafood.com/wp-content/uploads/2025/04/mikees-seafood-logo-1.png",
+                "width": 700,
+                "height": 423,
+                "caption": "Mikee's Seafood"
+              },
+              "image": {
+                "@id": "https://mikeesseafood.com/#/schema/logo/image/"
+              },
+              "sameAs": [
+                "https://www.facebook.com/MikeesSeafood",
+                "https://www.instagram.com/mikees_seafood/"
+              ]
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Restaurant",
+          "@id": "https://mikeesseafood.com/#restaurant",
+          "name": "Mikee's Seafood",
+          "url": "https://mikeesseafood.com/",
+          "image": "https://mikeesseafood.com/wp-content/uploads/2025/04/mikees-seafood-logo-1.png",
+          "telephone": "+1-251-948-6452",
+          "priceRange": "$$",
+          "servesCuisine": [
+            "Seafood",
+            "Southern"
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "205 East 2nd Ave",
+            "addressLocality": "Gulf Shores",
+            "addressRegion": "AL",
+            "postalCode": "36542",
+            "addressCountry": "US"
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "opens": "11:00",
+              "closes": "22:00"
+            }
+          ],
+          "sameAs": [
+            "https://www.facebook.com/MikeesSeafood",
+            "https://www.instagram.com/mikees_seafood/"
+          ],
+          "parentOrganization": {
+            "@id": "https://mikeesseafood.com/#organization"
+          }
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+        "og:locale": "en_US",
+        "og:type": "article",
+        "og:title": "Location - Mikee's Seafood",
+        "og:url": "https://mikeesseafood.com/location/",
+        "og:site_name": "Mikee's Seafood",
+        "article:publisher": "https://www.facebook.com/MikeesSeafood",
+        "article:modified_time": "2025-12-16T16:16:07+00:00",
+        "twitter:card": "summary_large_image",
+        "twitter:label1": "Est. reading time",
+        "twitter:data1": "1 minute",
+        "description": "Location    \nWe are conveniently located close to the beach in Gulf Shores, Alabama.\nMikee's Seafood\n205 East 2nd Ave\nGulf Shores, Alabama\n251-948-6452  Get Directions",
+        "og:description": "Location    \nWe are conveniently located close to the beach in Gulf Shores, Alabama.\nMikee's Seafood\n205 East 2nd Ave\nGulf Shores, Alabama\n251-948-6452  Get Directions",
+        "og:image": "https://mikeesseafood.com/wp-content/uploads/2025/04/mikees-seafood-logo-sm-1.png",
+        "og:image:width": "350",
+        "og:image:height": "212",
+        "og:image:type": "image/png",
+        "generator": "Site Kit by Google 1.174.0"
+      }
+    },
+    {
+      "url": "https://mikeesseafood.com/about-us",
+      "title": "About Mikee’s Seafood | A Gulf Shores Tradition Since 1987",
+      "text": "Skip to content\n\n\t\n \n \n \n \n \n \n \n \n\n\t\n MENUSPECIALSSHOP\t\n \n\n \n \n\n \n \n \n \n ABOUTLOCATIONCONTACT\t\n \n \n \n \n \n\nMENUSPECIALSSHOP\tABOUTLOCATIONCONTACT\n\n \n\n \n \n \n \n \n \n \n \n \n \n \n \n\n \n About Mikee’s Seafoodmikees2025-04-26T16:26:53+00:00 \n About Mikee’s SeafoodMikee’s Seafood, located in Gulf Shores, Alabama, has been family owned and operated since 1987. We serve a wide variety of seafood and a bit of beef, chicken and pasta too.\n“You catch ’em We’ll cook ’em!”\nMikee will cook your fresh catch and serve with golden fried hushpuppies and corn fritters. Also, you get a choice between one of our delicious side items! To see more on our menu, click here.\n\n \n \n\t\n \n \n \n \n \n \n Our MenuTakeoutDeliveryMikee’s Seafood\n205 East 2nd Ave\nGulf Shores, Alabama\nP: (251) 948-6452\nGet Directions >>>\n© 2025 | All Rights Reserved | Website by 5A Multimedia\n\n \n \n Page load link\n\n \n \n\n \n \n\n \n \n Go to Top",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://mikeesseafood.com/about-us/",
+              "url": "https://mikeesseafood.com/about-us/",
+              "name": "About Mikee’s Seafood | A Gulf Shores Tradition Since 1987",
+              "isPartOf": {
+                "@id": "https://mikeesseafood.com/#website"
+              },
+              "datePublished": "2015-02-02T19:39:07+00:00",
+              "dateModified": "2025-04-26T16:26:53+00:00",
+              "description": "Learn the story behind Mikee’s Seafood—a beloved family-owned restaurant serving fresh Gulf seafood to locals and visitors for over 35 years.",
+              "breadcrumb": {
+                "@id": "https://mikeesseafood.com/about-us/#breadcrumb"
+              },
+              "inLanguage": "en-US",
+              "potentialAction": [
+                {
+                  "@type": "ReadAction",
+                  "target": [
+                    "https://mikeesseafood.com/about-us/"
+                  ]
+                }
+              ]
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://mikeesseafood.com/about-us/#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://mikeesseafood.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "About Mikee&#8217;s Seafood"
+                }
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://mikeesseafood.com/#website",
+              "url": "https://mikeesseafood.com/",
+              "name": "Mikee's Seafood",
+              "description": "Family Owned Since 1987",
+              "publisher": {
+                "@id": "https://mikeesseafood.com/#organization"
+              },
+              "potentialAction": [
+                {
+                  "@type": "SearchAction",
+                  "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://mikeesseafood.com/?s={search_term_string}"
+                  },
+                  "query-input": {
+                    "@type": "PropertyValueSpecification",
+                    "valueRequired": true,
+                    "valueName": "search_term_string"
+                  }
+                }
+              ],
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "Organization",
+              "@id": "https://mikeesseafood.com/#organization",
+              "name": "Mikee's Seafood",
+              "url": "https://mikeesseafood.com/",
+              "logo": {
+                "@type": "ImageObject",
+                "inLanguage": "en-US",
+                "@id": "https://mikeesseafood.com/#/schema/logo/image/",
+                "url": "https://mikeesseafood.com/wp-content/uploads/2025/04/mikees-seafood-logo-1.png",
+                "contentUrl": "https://mikeesseafood.com/wp-content/uploads/2025/04/mikees-seafood-logo-1.png",
+                "width": 700,
+                "height": 423,
+                "caption": "Mikee's Seafood"
+              },
+              "image": {
+                "@id": "https://mikeesseafood.com/#/schema/logo/image/"
+              },
+              "sameAs": [
+                "https://www.facebook.com/MikeesSeafood",
+                "https://www.instagram.com/mikees_seafood/"
+              ]
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Restaurant",
+          "@id": "https://mikeesseafood.com/#restaurant",
+          "name": "Mikee's Seafood",
+          "url": "https://mikeesseafood.com/",
+          "image": "https://mikeesseafood.com/wp-content/uploads/2025/04/mikees-seafood-logo-1.png",
+          "telephone": "+1-251-948-6452",
+          "priceRange": "$$",
+          "servesCuisine": [
+            "Seafood",
+            "Southern"
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "205 East 2nd Ave",
+            "addressLocality": "Gulf Shores",
+            "addressRegion": "AL",
+            "postalCode": "36542",
+            "addressCountry": "US"
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "opens": "11:00",
+              "closes": "22:00"
+            }
+          ],
+          "sameAs": [
+            "https://www.facebook.com/MikeesSeafood",
+            "https://www.instagram.com/mikees_seafood/"
+          ],
+          "parentOrganization": {
+            "@id": "https://mikeesseafood.com/#organization"
+          }
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+        "description": "About Mikee's Seafood     \n\nMikee’s Seafood, located in Gulf Shores, Alabama, has been family owned and operated since 1987. We serve a wide variety of seafood and a bit of beef, chicken and pasta too.\n“You catch ’em We’ll cook ’em!”\nMikee will cook your fresh catch and serve with golden fried",
+        "og:locale": "en_US",
+        "og:type": "article",
+        "og:title": "About Mikee’s Seafood | A Gulf Shores Tradition Since 1987",
+        "og:description": "About Mikee's Seafood     \n\nMikee’s Seafood, located in Gulf Shores, Alabama, has been family owned and operated since 1987. We serve a wide variety of seafood and a bit of beef, chicken and pasta too.\n“You catch ’em We’ll cook ’em!”\nMikee will cook your fresh catch and serve with golden fried",
+        "og:url": "https://mikeesseafood.com/about-us/",
+        "og:site_name": "Mikee's Seafood",
+        "article:publisher": "https://www.facebook.com/MikeesSeafood",
+        "article:modified_time": "2025-04-26T16:26:53+00:00",
+        "twitter:card": "summary_large_image",
+        "twitter:label1": "Est. reading time",
+        "twitter:data1": "1 minute",
+        "og:image": "https://mikeesseafood.com/wp-content/uploads/2025/04/mikees-seafood-logo-sm-1.png",
+        "og:image:width": "350",
+        "og:image:height": "212",
+        "og:image:type": "image/png",
+        "generator": "Site Kit by Google 1.174.0"
+      }
+    },
+    {
+      "url": "https://mikeesseafood.com/specials",
+      "title": "Seafood Specials | Mikee’s Seafood Gulf Shores",
+      "text": "Skip to content\n\n\t\n \n \n \n \n \n \n \n \n\n\t\n MENUSPECIALSSHOP\t\n \n\n \n \n\n \n \n \n \n ABOUTLOCATIONCONTACT\t\n \n \n \n \n \n\nMENUSPECIALSSHOP\tABOUTLOCATIONCONTACT\n\n \n\n \n \n \n \n \n \n\t\n\t\n \n \n \n \n \n \n \n \n \n \n \n\t\n\n \n \n \n \n \n \n \n\n \n Specialsmikees2025-04-26T16:28:22+00:00 \n SpecialsALL YOU CAN EAT SPECIALS\n-ALL DAY EVERY DAY-\n “You catch ’em We’ll cook ’em!”\nMikee will cook your fresh catch 2 ways and serve with golden fried hushpuppies and corn fritters. Also, you get a choice of one vegetable and potato. All served family style.\nAdult\n$18.99\nThey’ll always taste just a little better when you catch ’em.\n\n \n \n\t\n \n \n \n \n \n \n Our MenuTakeoutDeliveryMikee’s Seafood\n205 East 2nd Ave\nGulf Shores, Alabama\nP: (251) 948-6452\nGet Directions >>>\n© 2025 | All Rights Reserved | Website by 5A Multimedia\n\n \n \n Page load link\n\n \n \n\n \n \n\n \n \n Go to Top",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://mikeesseafood.com/specials/",
+              "url": "https://mikeesseafood.com/specials/",
+              "name": "Seafood Specials | Mikee’s Seafood Gulf Shores",
+              "isPartOf": {
+                "@id": "https://mikeesseafood.com/#website"
+              },
+              "datePublished": "2017-05-17T19:39:36+00:00",
+              "dateModified": "2025-04-26T16:28:22+00:00",
+              "description": "Check out the latest seafood specials at Mikee’s Seafood in Gulf Shores! Enjoy fresh, affordable Gulf seafood with daily deals and family-friendly favorites.",
+              "breadcrumb": {
+                "@id": "https://mikeesseafood.com/specials/#breadcrumb"
+              },
+              "inLanguage": "en-US",
+              "potentialAction": [
+                {
+                  "@type": "ReadAction",
+                  "target": [
+                    "https://mikeesseafood.com/specials/"
+                  ]
+                }
+              ]
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://mikeesseafood.com/specials/#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://mikeesseafood.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Specials"
+                }
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://mikeesseafood.com/#website",
+              "url": "https://mikeesseafood.com/",
+              "name": "Mikee's Seafood",
+              "description": "Family Owned Since 1987",
+              "publisher": {
+                "@id": "https://mikeesseafood.com/#organization"
+              },
+              "potentialAction": [
+                {
+                  "@type": "SearchAction",
+                  "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://mikeesseafood.com/?s={search_term_string}"
+                  },
+                  "query-input": {
+                    "@type": "PropertyValueSpecification",
+                    "valueRequired": true,
+                    "valueName": "search_term_string"
+                  }
+                }
+              ],
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "Organization",
+              "@id": "https://mikeesseafood.com/#organization",
+              "name": "Mikee's Seafood",
+              "url": "https://mikeesseafood.com/",
+              "logo": {
+                "@type": "ImageObject",
+                "inLanguage": "en-US",
+                "@id": "https://mikeesseafood.com/#/schema/logo/image/",
+                "url": "https://mikeesseafood.com/wp-content/uploads/2025/04/mikees-seafood-logo-1.png",
+                "contentUrl": "https://mikeesseafood.com/wp-content/uploads/2025/04/mikees-seafood-logo-1.png",
+                "width": 700,
+                "height": 423,
+                "caption": "Mikee's Seafood"
+              },
+              "image": {
+                "@id": "https://mikeesseafood.com/#/schema/logo/image/"
+              },
+              "sameAs": [
+                "https://www.facebook.com/MikeesSeafood",
+                "https://www.instagram.com/mikees_seafood/"
+              ]
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Restaurant",
+          "@id": "https://mikeesseafood.com/#restaurant",
+          "name": "Mikee's Seafood",
+          "url": "https://mikeesseafood.com/",
+          "image": "https://mikeesseafood.com/wp-content/uploads/2025/04/mikees-seafood-logo-1.png",
+          "telephone": "+1-251-948-6452",
+          "priceRange": "$$",
+          "servesCuisine": [
+            "Seafood",
+            "Southern"
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "205 East 2nd Ave",
+            "addressLocality": "Gulf Shores",
+            "addressRegion": "AL",
+            "postalCode": "36542",
+            "addressCountry": "US"
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "opens": "11:00",
+              "closes": "22:00"
+            }
+          ],
+          "sameAs": [
+            "https://www.facebook.com/MikeesSeafood",
+            "https://www.instagram.com/mikees_seafood/"
+          ],
+          "parentOrganization": {
+            "@id": "https://mikeesseafood.com/#organization"
+          }
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+        "description": "Specials    \nALL YOU CAN EAT SPECIALS\n-ALL DAY EVERY DAY-   \n “You catch ’em We’ll cook ’em!”\nMikee will cook your fresh catch 2 ways and serve with golden fried hushpuppies and corn fritters. Also, you get a choice of one vegetable and potato. All served family style.\n\nAdult\n$18.99\nThey’ll always taste just",
+        "og:locale": "en_US",
+        "og:type": "article",
+        "og:title": "Seafood Specials | Mikee’s Seafood Gulf Shores",
+        "og:description": "Specials    \nALL YOU CAN EAT SPECIALS\n-ALL DAY EVERY DAY-   \n “You catch ’em We’ll cook ’em!”\nMikee will cook your fresh catch 2 ways and serve with golden fried hushpuppies and corn fritters. Also, you get a choice of one vegetable and potato. All served family style.\n\nAdult\n$18.99\nThey’ll always taste just",
+        "og:url": "https://mikeesseafood.com/specials/",
+        "og:site_name": "Mikee's Seafood",
+        "article:publisher": "https://www.facebook.com/MikeesSeafood",
+        "article:modified_time": "2025-04-26T16:28:22+00:00",
+        "twitter:card": "summary_large_image",
+        "twitter:label1": "Est. reading time",
+        "twitter:data1": "1 minute",
+        "og:image": "https://mikeesseafood.com/wp-content/uploads/2025/04/mikees-seafood-logo-sm-1.png",
+        "og:image:width": "350",
+        "og:image:height": "212",
+        "og:image:type": "image/png",
+        "generator": "Site Kit by Google 1.174.0"
+      }
+    },
+    {
+      "url": "https://mikeesseafood.com/menu",
+      "title": "Mikee’s Seafood Menu | Gulf Shores Fresh Seafood Favorites",
+      "text": "Skip to content\n\n\t\n \n \n \n \n \n \n \n \n\n\t\n MENUSPECIALSSHOP\t\n \n\n \n \n\n \n \n \n \n ABOUTLOCATIONCONTACT\t\n \n \n \n \n \n\nMENUSPECIALSSHOP\tABOUTLOCATIONCONTACT\n\n \n\n \n \n \n \n \n \n \n \n \n \n \n \n\n \n Menumikees2025-12-16T16:06:54+00:00 \n MenuCALL (251) 948-6452 TO PLACE YOUR ORDER!\nCome see us and try the best seafood in Gulf Shores!\nOysters\n*Fresh Shucked Oysters\n1/2 DZ – $12.99\n1 DZ – $19.99\nSteamed Oysters\n1/2 DZ – $13.99\n1 DZ – $20.99\nParmesan Oysters\nParmesan seasoning and butter\n1/2 DZ – $15.99\n1 DZ – $25.99\nMikee’s Own Baked Oysters\nFresh shucked, spiced and topped with scallions, bread crumbs, parmesan cheese and bacon.\n1/2 DZ – $15.99\n1 DZ – $25.99\nEJ’s Oysters\nPrepared with garlic, jalapeños, scallions and topped with bacon and cheese.\n1/2 DZ – $15.99\n1 DZ – $25.99\nAPPETIZERS\nJumbo Shrimp\n1/2 lb – $13.99\n1 lb – $20.99\nPan-grilled, broiled, fried, sauteed, blackened, or steamed)\nFried or Sauteed Crab Claws\nSmall $29.99\nLarge $39.99\nSeafood Gumbo\ncup $5.99\nbowl $7.99\nRed Beans and Rice\ncup $5.99\nbowl $7.99\nFried Jalapeno Peppers\n$8.99\nFried Green Tomatoes\n$9.99\nPotato Skins\nTopped with cheddar cheese, chives, and bacon – $11.99\nOld Fashioned Onion Rings\n½ foot $8.99\n1 foot $15.99\nFried Clam Strips\nSauce for dipping – $9.99\nItalian Fried Cheese Sticks\nLightly fried, marinara sauce for dipping – $13.99\nBuffalo Chicken/Shrimp\n$12.99\nCrab Cakes (2)\nGrilled or Fried – $15.99\nSeafood Dip\n$13.99\nParmesan Garlic Bread\n$7.99\nPan Fried Veggies\n$8.99\nNew Orleans Baked French Bread\n$5.99\nReuben Egg Rolls\n$9.99\nSpinach Dip\n$10.99\nSALADS\nAll salads contain pecans\nHouse Salad\nFresh lettuce with special toppings\n$6.99\nSoup and Salad\nCup of fresh soup and house salad\n$11.99\nBlackened or Grilled Chicken Salad\nTender breast meat grilled and topped with fresh bacon, Parmesan and crisp salad vegetables\n$14.99\nMikee’s Chef Salad\nCrisp lettuce topped with vegetables, roast beef, boiled bay shrimp and cheeses\n$15.99\nShrimp Tossed Salad\nCrisp lettuce topped with boiled bay shrimp, bacon bits and fresh Parmesan\n$14.99\nMIKEE’S ORIGINAL PO-BOYS\nServed with mayo, lettuce, tomato, pickle, and one side. Add cheese .99\nGolden Fried Shrimp Po-Boy\n$15.99\nCatfish Fillet Po-Boy\n$15.99\nFried Chicken Breast Po-Boy\n$15.99\nTender Fried Oyster Po-Boy\n$19.99\nWhitefish Po-Boy\n$15.99\nFresh Fish Po-Boy\nMarket Price\nIsland Burger*\n$17.99\nFrench Loaf Burger*\n$14.99\n“ALL YOU CAN EAT” PLATES\nServed with puppies, fritter, and choice of two sides. Substitute salad 2.50.\nCatfish – $19.99\nWhitefish – $18.99\nShrimp (no tails) – $19.99\nClams – $19.99\nSnow Crab – $59.99\nSEAFOOD DINNERS\nServed with puppies, fritters, and a choice of two sides. Substitute salad for $3.\nMikee’s Seafood Platter – Fried Shrimp, Oysters and Fish Fillets – $26.99\nServed with gumbo and two sides.\nWhitefish Plate – $16.99\nFried Clam Strips – $17.99\nFried to perfection\nGolden Fried Catfish Strips – $17.99\nCrisp fried in corn meal\nChicken Strips – $18.99\nSouthern-fried, delicious\nTraditional Fried Shrimp (No Tails) – $17.99\nTender Fried Oysters – $23.99\nCrisp fried in corn meal\nCrab Cake (Grilled or Fried) – $22.99\nShrimp & Catfish Plate or Whitefish – $18.99\nGreat combination\nShrimp & Oyster Plate – $23.99\nFresh fried, delicious\nShrimp & Clam Strips – $18.99\nCrab Claw Dinner – $27.99\nFreshly breaded and fried to a golden brown\nMikee’s Favorites\nBlackened Redfish\nTopped with a creamy shrimp and crab sauce over a bed of rice.\n$25.99\nFresh Catch of the Day (Fried, broiled, blackened, sautéed or pan grilled)\nServed over a bed of rice, with choice of one side and house salad………Market\nAdd Shrimp and Cream sauce for $5.99\nFresh Catch Captain Ed’s Style (Fried, broiled, blackened, sautéed or pan grilled)\nTopped with a creamy hollandaise sauce with green onions, mushrooms and bay shrimp over a bed of rice. Served with a house salad (contains pecans)……Market\nBEEF, CHICKEN AND SPECIALTIES\nCoconut Shrimp – $19.99\nServed with marmalade\nStuffed Catfish w/ Tangy Cream Sauce – $25.99\nCatfish fillets with shrimp and crabmeat stuffing, topped with our cream sauce\nIsland Baked Chicken – $18.99\nwith parmesan green onions homemade bread crumbs\nChoice Ribeye – $37.99\nCooked to order\n6 oz. Filet – $25.99\nCooked to order\nSauteed Beef Tips – $25.99\nTenderloin pieces spiced and cooked to perfection.\nSnow Crab Dinner – $39.99\nJumbo Shrimp (Tail On) – $19.99\nFried, Broiled, Sauteed, Blackened or Pan Grilled\nBlackened or Grilled Chicken Breast – $17.99\nLightly seasoned\nSautéed Scallops – $19.99\nSeasoned and lightly breaded\nStuffed Shrimp w/ Tangy Cream Sauce – $19.99\nShrimp with crab meat stuffing, and then topped with our cream sauce\nRICE AND PASTA DISHES\nServed with house salad (contains pecans). Dishes marked with an asterisk (*) include green onions and mushrooms.\nFettuccine Alfredo\nOur tender pasta in a creamy Alfredo sauce\n$15.99\n*Bay Shrimp Alfredo\nA locals favorite!\n$17.99\n*Jumbo Shrimp Alfredo\nGrilled\n$19.99\n*Grilled Chicken Alfredo\n$18.99\n*Blackened Chicken Alfredo\n$18.99\n*Sauteed Scallop Alfredo\n$21.99\n*Captain Ed’s Sautéed Scallops\nServed over a bed of rice\n$20.99\nShrimp & Grits\nGrilled shrimp over cheesy grits\n$18.99\nRed Beans & Rice\nServed with Conecuh Sausage\n$17.99\nKellie’s Sautéed Chicken\nChicken sautéed with special cream sauce\n$18.99\nSeafood and Broccoli Stir Fry\nScallops and shrimp sautéed with vegetables and broccoli in a light sauce\n$19.99\nSweet & Sour Chicken\nFried chicken with bell pepper and onions in our sweet and sour sauce over rice\n$19.99\nSweet & Sour Shrimp\nFried shrimp with bell pepper and onions in our sweet and sour sauce over rice\n$19.99\n*Wine and Garlic Seafood Pasta\nShrimp and oysters sautéed with vegetables in garlic butter over imported fettuccine\n$19.99\n*Chicken Mikee\nSautéed breast with scallions, mushrooms and shrimp in a buttery wine sauce over rice\n$19.99\n*Bay Shrimp and Garlic Butter\nBay shrimp sautéed with scallions and mushrooms in garlic butter over rice\n$19.99\nSIDES\nCheese Grits – $2.99\nRed Beans – $2.99\nGolden Brown Hush Puppies – $2.99\nFried Corn Fritters – $2.99\nMikee’s Own Marinated Cabbage – $2.99\nHome Style Baked Beans – $2.99\nFries or Boiled New Potatoes – $2.99\nTurnip Greens – $2.99\nPotato Salad – $2.99\nFried Okra – $2.99\nFOR THE KIDDIES (10 & UNDER)\nAll the Kiddies served with French Fries\nKiddy Burger – $8.99\nOn bun with lettuce, tomato, pickle and mayo\nFried Shrimpy – $8.99\nFried Fishy – $8.99\nFried Chicky – $8.99\nFettuccini Alfredo – $8.99\nGrilled Cheese – $8.99\nFresh Pies\nPeanut Butter Pie – $8.99\nKey Lime Pie – Delicious!! – $8.99\nDRINKS\nSoft Drinks\nTea\nCoffee\nBottle Beer\nBudweiser, Bud Light, Miller Light, Coors Light, Corona, Corona Light, Yuengling, Michelob Ultra\nDraft Beer Glass or Pitcher\nFrozen Daiquiris\n*Also available as a Non-Alcoholic Beverage\nAmaretto Orange Blossom\nStrawberry Colada\nStrawberry\nPina Colada\nScrewdriver\nMargarita\nLime\nPeach\nBanana\nHOUSE WINES\n\nRuffino, Prosecco (single serving)\nKendall-Jackson Chardonnay\nJ Lohr Chardonnay\nGabbiana Pinot Grigio\nChateau Ste Michelle Riesling\nSutter Home White Zinfandel\nJoel Gott Sauvignon Blanc\nOyster Bay Sauvignon Blanc\nMark West Pinot Noir\nElouan Pinot Noir\n19 Crimes California Red\nFranciscan Cabernet Placido Moscato\nMimosa\n\n \n \n\t\n \n \n \n \n \n \n Our MenuTakeoutDeliveryMikee’s Seafood\n205 East 2nd Ave\nGulf Shores, Alabama\nP: (251) 948-6452\nGet Directions >>>\n© 2025 | All Rights Reserved | Website by 5A Multimedia\n\n \n \n Page load link\n\n \n \n\n \n \n\n \n \n Go to Top",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://mikeesseafood.com/menu/",
+              "url": "https://mikeesseafood.com/menu/",
+              "name": "Mikee’s Seafood Menu | Gulf Shores Fresh Seafood Favorites",
+              "isPartOf": {
+                "@id": "https://mikeesseafood.com/#website"
+              },
+              "datePublished": "2015-02-02T19:39:53+00:00",
+              "dateModified": "2025-12-16T16:06:54+00:00",
+              "description": "Mikee’s Seafood menu is packed with Gulf favorites like shrimp, oysters, and fish. Family recipes, generous portions, and made-to-order meals.",
+              "breadcrumb": {
+                "@id": "https://mikeesseafood.com/menu/#breadcrumb"
+              },
+              "inLanguage": "en-US",
+              "potentialAction": [
+                {
+                  "@type": "ReadAction",
+                  "target": [
+                    "https://mikeesseafood.com/menu/"
+                  ]
+                }
+              ]
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://mikeesseafood.com/menu/#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://mikeesseafood.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Menu"
+                }
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://mikeesseafood.com/#website",
+              "url": "https://mikeesseafood.com/",
+              "name": "Mikee's Seafood",
+              "description": "Family Owned Since 1987",
+              "publisher": {
+                "@id": "https://mikeesseafood.com/#organization"
+              },
+              "potentialAction": [
+                {
+                  "@type": "SearchAction",
+                  "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://mikeesseafood.com/?s={search_term_string}"
+                  },
+                  "query-input": {
+                    "@type": "PropertyValueSpecification",
+                    "valueRequired": true,
+                    "valueName": "search_term_string"
+                  }
+                }
+              ],
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "Organization",
+              "@id": "https://mikeesseafood.com/#organization",
+              "name": "Mikee's Seafood",
+              "url": "https://mikeesseafood.com/",
+              "logo": {
+                "@type": "ImageObject",
+                "inLanguage": "en-US",
+                "@id": "https://mikeesseafood.com/#/schema/logo/image/",
+                "url": "https://mikeesseafood.com/wp-content/uploads/2025/04/mikees-seafood-logo-1.png",
+                "contentUrl": "https://mikeesseafood.com/wp-content/uploads/2025/04/mikees-seafood-logo-1.png",
+                "width": 700,
+                "height": 423,
+                "caption": "Mikee's Seafood"
+              },
+              "image": {
+                "@id": "https://mikeesseafood.com/#/schema/logo/image/"
+              },
+              "sameAs": [
+                "https://www.facebook.com/MikeesSeafood",
+                "https://www.instagram.com/mikees_seafood/"
+              ]
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Restaurant",
+          "@id": "https://mikeesseafood.com/#restaurant",
+          "name": "Mikee's Seafood",
+          "url": "https://mikeesseafood.com/",
+          "image": "https://mikeesseafood.com/wp-content/uploads/2025/04/mikees-seafood-logo-1.png",
+          "telephone": "+1-251-948-6452",
+          "priceRange": "$$",
+          "servesCuisine": [
+            "Seafood",
+            "Southern"
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "205 East 2nd Ave",
+            "addressLocality": "Gulf Shores",
+            "addressRegion": "AL",
+            "postalCode": "36542",
+            "addressCountry": "US"
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "opens": "11:00",
+              "closes": "22:00"
+            }
+          ],
+          "sameAs": [
+            "https://www.facebook.com/MikeesSeafood",
+            "https://www.instagram.com/mikees_seafood/"
+          ],
+          "parentOrganization": {
+            "@id": "https://mikeesseafood.com/#organization"
+          }
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+        "description": "Menu \nCALL (251) 948-6452 TO PLACE YOUR ORDER! \nCome see us and try the best seafood in Gulf Shores!    \nOysters   \n*Fresh",
+        "og:locale": "en_US",
+        "og:type": "article",
+        "og:title": "Mikee’s Seafood Menu | Gulf Shores Fresh Seafood Favorites",
+        "og:description": "Menu \nCALL (251) 948-6452 TO PLACE YOUR ORDER! \nCome see us and try the best seafood in Gulf Shores!    \nOysters   \n*Fresh",
+        "og:url": "https://mikeesseafood.com/menu/",
+        "og:site_name": "Mikee's Seafood",
+        "article:publisher": "https://www.facebook.com/MikeesSeafood",
+        "article:modified_time": "2025-12-16T16:06:54+00:00",
+        "twitter:card": "summary_large_image",
+        "twitter:label1": "Est. reading time",
+        "twitter:data1": "9 minutes",
+        "og:image": "https://mikeesseafood.com/wp-content/uploads/2025/04/mikees-seafood-logo-sm-1.png",
+        "og:image:width": "350",
+        "og:image:height": "212",
+        "og:image:type": "image/png",
+        "generator": "Site Kit by Google 1.174.0"
+      }
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": [
+    "https://mikeesseafood.com/wp-content/uploads/2025/04/mikees-seafood-logo-sm-1.png",
+    "https://mikeesseafood.com/wp-content/uploads/2025/04/mikees-seafood-logo-mobile.png",
+    "https://mikeesseafood.com/wp-content/uploads/2017/05/Mikees-seafood-platter.jpg",
+    "https://mikeesseafood.com/wp-content/uploads/2025/04/mikees-seafood-logo.png",
+    "https://mikeesseafood.com/wp-content/uploads/2025/04/shrimpys-logo.png",
+    "https://mikeesseafood.com/wp-content/uploads/2015/02/steamer-logo.png",
+    "https://mikeesseafood.com/wp-content/uploads/2016/04/mikees-seafood-location.jpg",
+    "https://maps.gstatic.com/mapfiles/transparent.png",
+    "https://mikeesseafood.com/wp-content/uploads/2015/02/all-you-can-eat.jpg",
+    "https://mikeesseafood.com/wp-content/uploads/2015/02/DSC_0062-2.png",
+    "https://mikeesseafood.com/wp-content/uploads/2017/05/slides2-300x164.jpg",
+    "https://mikeesseafood.com/wp-content/uploads/2015/02/appetizers-3.jpg",
+    "https://mikeesseafood.com/wp-content/uploads/2015/02/appetizers-2.jpg",
+    "https://mikeesseafood.com/wp-content/uploads/2015/02/appetizers-4.jpg",
+    "https://mikeesseafood.com/wp-content/uploads/2015/02/shrimp-salad.jpg",
+    "https://mikeesseafood.com/wp-content/uploads/2015/02/tuna-salad.jpg",
+    "https://mikeesseafood.com/wp-content/uploads/2015/02/DSC_0206-2.jpg",
+    "https://mikeesseafood.com/wp-content/uploads/2015/02/DSC_0185-2.jpg",
+    "https://mikeesseafood.com/wp-content/uploads/2015/02/DSC_0468-2.jpg",
+    "https://mikeesseafood.com/wp-content/uploads/2015/02/DSC_0240-2.jpg",
+    "https://mikeesseafood.com/wp-content/uploads/2015/02/DSC_0491-2.jpg",
+    "https://mikeesseafood.com/wp-content/uploads/2015/02/chicken.jpg",
+    "https://mikeesseafood.com/wp-content/uploads/2015/02/rice-dish.jpg",
+    "https://mikeesseafood.com/wp-content/uploads/2015/02/DSC_0425-2.jpg",
+    "https://mikeesseafood.com/wp-content/uploads/2015/02/DSC_0217-2.jpg",
+    "https://mikeesseafood.com/wp-content/uploads/2015/02/DSC_0319-2.jpg",
+    "https://mikeesseafood.com/wp-content/uploads/2015/02/drinks-199x300.jpg"
+  ]
+}

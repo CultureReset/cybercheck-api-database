@@ -1,0 +1,409 @@
+{
+  "business_name": "Rotolo's",
+  "tagline": "Rotolo's Pizzeria | Rotolo's Craft & Crust",
+  "type": "Restaurant",
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": null,
+    "city": null,
+    "state": null,
+    "zip": null
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": null
+  },
+  "about": {
+    "description": "Rotolo's Pizzeria and Rotolo's Craft & Crust creates pizzas with only fresh, high quality ingredients. They serve hot and fresh pizza, calzones, pasta, salads and more using the highest quality, freshest ingredients.",
+    "elevator_pitch": "Rotolo's creates handcrafted pizzas with only fresh, high-quality ingredients.",
+    "vibe": "Detroit-style pizza restaurant with both casual Pizzeria and upscale Craft & Crust concepts",
+    "best_for": [
+      "pizza lovers",
+      "families",
+      "casual dining",
+      "catering"
+    ],
+    "established": null,
+    "reservations": null,
+    "insider_tip": null
+  },
+  "tags": [
+    "pizza",
+    "Italian",
+    "casual dining",
+    "Detroit-style pizza",
+    "calzones",
+    "pasta",
+    "salads",
+    "craft pizza",
+    "local beers"
+  ],
+  "features": [
+    "handcrafted pizza",
+    "homemade dough",
+    "homemade sauce",
+    "catering available",
+    "local beers (Craft & Crust)",
+    "multiple locations"
+  ],
+  "price_range": "$$",
+  "social_links": {
+    "instagram": "https://www.instagram.com/rotolos/",
+    "facebook": "https://www.facebook.com/rotolospizzeria/",
+    "twitter": "https://x.com/rotolos",
+    "linkedin": "https://www.linkedin.com/company/rotolos-llc/",
+    "youtube": "https://www.youtube.com/channel/UCNiYS4bPvc5G99xADOYO_UQ",
+    "website": "https://rotolos.com"
+  },
+  "specials": [],
+  "events": [],
+  "locations": [
+    {
+      "name": "Alexandria",
+      "type": "Rotolo's Craft & Crust",
+      "address": "112 Versailles Blvd.",
+      "city": "Alexandria",
+      "state": "LA"
+    },
+    {
+      "name": "Baton Rouge - Millerville",
+      "type": "Rotolo's Pizzeria",
+      "address": "2985 Millerville Rd., Ste. B",
+      "city": "Baton Rouge",
+      "state": "LA"
+    },
+    {
+      "name": "Baton Rouge - Perkins",
+      "type": "Rotolo's Pizzeria",
+      "address": "8342 Perkins Rd.",
+      "city": "Baton Rouge",
+      "state": "LA"
+    },
+    {
+      "name": "Baton Rouge - Burbank",
+      "type": "Rotolo's Craft & Crust",
+      "address": "Burbank Dr. & Ben Hur Rd.",
+      "city": "Baton Rouge",
+      "state": "LA"
+    },
+    {
+      "name": "Belle Chasse",
+      "type": "Rotolo's Pizzeria",
+      "address": "102 Woodland Hwy. Ste. 5",
+      "city": "Belle Chasse",
+      "state": "LA"
+    },
+    {
+      "name": "Breckenridge",
+      "type": "Rotolo's",
+      "address": "206 N Main St",
+      "city": "Breckenridge",
+      "state": null
+    },
+    {
+      "name": "Carencro",
+      "type": "Rotolo's Pizzeria",
+      "address": "200 Hector Connoly Rd. Ste. 109",
+      "city": "Carencro",
+      "state": "LA"
+    },
+    {
+      "name": "Carrollton",
+      "type": "Rotolo's",
+      "address": "3204 E. Hebron Pkwy",
+      "city": "Carrollton",
+      "state": null
+    }
+  ],
+  "menu": {
+    "categories": [
+      {
+        "name": "Pizzeria Menu",
+        "type": "lunch|dinner",
+        "items": [
+          {
+            "name": "Pizza",
+            "description": "Detroit-style handcrafted pizza with fresh, high-quality ingredients",
+            "price": null,
+            "tags": [
+              "pizza",
+              "Detroit-style"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Calzones",
+            "description": null,
+            "price": null,
+            "tags": [
+              "calzones"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Pasta",
+            "description": null,
+            "price": null,
+            "tags": [
+              "pasta"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Salads",
+            "description": null,
+            "price": null,
+            "tags": [
+              "salads"
+            ],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Craft & Crust Menu",
+        "type": "lunch|dinner",
+        "items": [
+          {
+            "name": "Specialty Craft Pizza",
+            "description": "Craft versions of customer favorite pizzas",
+            "price": null,
+            "tags": [
+              "craft pizza",
+              "specialty"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Calzones",
+            "description": null,
+            "price": null,
+            "tags": [
+              "calzones"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Pasta",
+            "description": null,
+            "price": null,
+            "tags": [
+              "pasta"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Salads",
+            "description": null,
+            "price": null,
+            "tags": [
+              "salads"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Local Beers",
+            "description": "Selection of local beers",
+            "price": null,
+            "tags": [
+              "craft beers",
+              "local"
+            ],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Pizzeria Catering",
+        "type": "specials",
+        "items": [
+          {
+            "name": "Pizza",
+            "description": "Hot and fresh pizza for catering",
+            "price": null,
+            "tags": [
+              "catering",
+              "pizza"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Calzones",
+            "description": null,
+            "price": null,
+            "tags": [
+              "catering",
+              "calzones"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Pasta",
+            "description": null,
+            "price": null,
+            "tags": [
+              "catering",
+              "pasta"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Salads",
+            "description": null,
+            "price": null,
+            "tags": [
+              "catering",
+              "salads"
+            ],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Craft & Crust Catering",
+        "type": "specials",
+        "items": [
+          {
+            "name": "Specialty Craft Pizza",
+            "description": "Craft pizza for catering events",
+            "price": null,
+            "tags": [
+              "catering",
+              "craft pizza"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Calzones",
+            "description": null,
+            "price": null,
+            "tags": [
+              "catering",
+              "calzones"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Pasta",
+            "description": null,
+            "price": null,
+            "tags": [
+              "catering",
+              "pasta"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Salads",
+            "description": null,
+            "price": null,
+            "tags": [
+              "catering",
+              "salads"
+            ],
+            "allergens": []
+          }
+        ]
+      }
+    ]
+  },
+  "url": "https://rotolos.com",
+  "scraped_at": "2026-03-21T20:11:20.586Z",
+  "extracted_at": "2026-03-23T04:05:13.305Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://rotolos.com/wp-content/themes/rotolos/src/assets/images/swirl_arrow_edit.png",
+    "https://rotolos.com/wp-content/themes/rotolos/src/assets/images/hero-wings.png",
+    "https://rotolos.com/wp-content/themes/rotolos/src/assets/images/hero-calzone.png",
+    "https://rotolos.com/wp-content/themes/rotolos/src/assets/images/anniversary/sticky-c&c.png",
+    "https://rotolos.com/wp-content/themes/rotolos/src/assets/images/anniversary/patch-reunion.png",
+    "https://rotolos.com/wp-content/themes/rotolos/src/assets/images/anniversary/sticky-pizzeria.png",
+    "https://rotolos.com/wp-content/themes/rotolos/src/assets/images/anniversary/pennant-1996-card.png",
+    "https://rotolos.com/wp-content/themes/rotolos/src/assets/images/anniversary/card.png",
+    "https://rotolos.com/wp-content/themes/rotolos/src/assets/images/anniversary/polaroid-og.png",
+    "https://rotolos.com/wp-content/themes/rotolos/src/assets/images/anniversary/sticker-30.png",
+    "https://rotolos.com/wp-content/themes/rotolos/src/assets/images/anniversary/stamp-pisa.png",
+    "https://rotolos.com/wp-content/themes/rotolos/src/assets/images/anniversary/stamp-fountain.png",
+    "https://rotolos.com/wp-content/themes/rotolos/src/assets/images/anniversary/patch-R.png",
+    "https://rotolos.com/wp-content/uploads/2025/09/ROT-Optin-HomePageHero-Sep24-Thanx-600x600.jpg",
+    "https://scontent-ord5-2.cdninstagram.com/v/t51.82787-15/653527871_18366880285204069_5599717611045954017_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=103&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=9oiIPz6cGZsQ7kNvwEnw1sF&_nc_oc=Adq8A5XDdhXEdT_TmBQYvvgBjJab3uyVBUrIxEZf3p-urCzSjzYAtwa66nHpZ3JWwRM&_nc_zt=23&_nc_ht=scontent-ord5-2.cdninstagram.com&edm=ANo9K5cEAAAA&_nc_gid=RjiSM0ATjdDIkWWB0B_PHw&_nc_tpa=Q5bMBQGLpPNcbCZDFBqCltu_jrb08VxB1D018Inv4K7owOJUoooFw-nflqULlTbKlFK-Qvpmq6e0NzkvYA&oh=00_AfyV5AJIaoH-0cnwTKOsWtUu9h_A3kZaDU0Djn0f0s5_jQ&oe=69C45E92",
+    "https://scontent-ord5-1.cdninstagram.com/v/t51.82787-15/654023027_18595385512001100_5231198533250561067_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=108&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=TEzVBU_D7mQQ7kNvwEdd6iB&_nc_oc=Adq6RVD4smhEOPOHh2FKEZiotA4GvKyo_Ifh77-Qla1hfLQn9lekYlFLd_m2h6knvak&_nc_zt=23&_nc_ht=scontent-ord5-1.cdninstagram.com&edm=ANo9K5cEAAAA&_nc_gid=6Knb2nSUy34LeBomeuux9Q&_nc_tpa=Q5bMBQFQvvwM3wuBZJW-Pf1ld2jQTzkOU3vsMJwhv_V8eNWtJm88Ur9EoXR3FHzOvexeA83e_S-KkcDVUQ&oh=00_AfxJy6CDFdp6oCLj7EOK0BA-xyvtXXo3wxJLxo9kFtFJ8Q&oe=69C47E83",
+    "https://rotolos.com/wp-content/uploads/2023/08/DSC2042-scaled.jpg",
+    "https://rotolos.com/wp-content/uploads/2023/08/Website_Traditional_Thumbnail-600x600.png",
+    "https://rotolos.com/wp-content/uploads/2023/08/Website_GarlicParmesanchicken_Thumbnail-600x600.png",
+    "https://rotolos.com/wp-content/uploads/2023/08/Website_SausageRicotta_Thumbnail-600x600.png",
+    "https://rotolos.com/wp-content/uploads/2023/08/Website_BaconAlfredo_Thumbnail-600x600.png",
+    "https://rotolos.com/wp-content/uploads/2020/10/1-RP-Starters-SpinachArtichokeDip.jpg",
+    "https://rotolos.com/wp-content/uploads/2020/10/3-RP-Cheesesticks-Original.jpg",
+    "https://rotolos.com/wp-content/uploads/2020/10/rotolos-171_waitr_WalnutCran-scaled.jpg",
+    "https://rotolos.com/wp-content/uploads/2020/10/4-RP-Wings.jpg",
+    "https://rotolos.com/wp-content/uploads/2020/10/rotolos-052_waitr_TheKrewe-scaled.jpg",
+    "https://rotolos.com/wp-content/uploads/2020/10/RP-Pizza-Traditional-BaconCheeseburger-600x600.png",
+    "https://rotolos.com/wp-content/uploads/2020/10/RP-Pizza-Traditional-TheKrewe-600x600.png",
+    "https://rotolos.com/wp-content/uploads/2020/10/RP-Pizza-Traditional-DeluxeCombo-600x600.png",
+    "https://rotolos.com/wp-content/uploads/2020/10/RP-Pizza-Traditional-ItalianClub-600x600.png",
+    "https://rotolos.com/wp-content/uploads/2020/10/RP-Pizza-Traditional-MeatFeast-600x600.png",
+    "https://rotolos.com/wp-content/uploads/2020/10/RP-Pizza-Traditional-Muffuletta-600x600.png",
+    "https://rotolos.com/wp-content/uploads/2020/10/RP-Pizza-Traditional-VinMonster-600x600.png",
+    "https://rotolos.com/wp-content/uploads/2020/10/RP-Pizza-Traditional-MauiWowi-600x600.png",
+    "https://rotolos.com/wp-content/uploads/2020/10/RP-Pizza-NonTraditional-Popeye-600x600.png",
+    "https://rotolos.com/wp-content/uploads/2020/10/RP-Pizza-NonTraditional-AngryPig-600x600.png",
+    "https://rotolos.com/wp-content/uploads/2020/10/RP-Pizza-NonTraditional-ChickenAlfredo-600x600.png",
+    "https://rotolos.com/wp-content/uploads/2020/10/RP-Pizza-NonTraditional-ChickenFlorentine-600x600.png",
+    "https://rotolos.com/wp-content/uploads/2020/10/RP-Pizza-NonTraditional-Garden-Alfredo-600x600.png",
+    "https://rotolos.com/wp-content/uploads/2020/10/RP-Pizza-NonTraditional-BBQchicken-600x600.png",
+    "https://rotolos.com/wp-content/uploads/2022/04/JalapenoPopperPizza-web-600x600.png",
+    "https://rotolos.com/wp-content/uploads/2020/10/6-RP-WrapsSandwiches-PhillyCheesesteak.jpg",
+    "https://rotolos.com/wp-content/uploads/2020/10/RP_pasta.jpg",
+    "https://rotolos.com/wp-content/uploads/2020/10/10-RCC-Desserts-ColossalCookie.jpg",
+    "https://rotolos.com/wp-content/uploads/2020/10/9-RP-Kids-Pizza.jpg",
+    "https://rotolos.com/wp-content/uploads/2023/05/IMG_9397-scaled.jpg",
+    "https://rotolos.com/wp-content/uploads/2020/10/RCC-Shareables-CheeseFries-Beer-March2020-5.jpg",
+    "https://rotolos.com/wp-content/uploads/2020/10/4-RCC-Wings.jpg",
+    "https://rotolos.com/wp-content/uploads/2020/10/RCC-Pasta-SpaghettiMeatballs-Feb2020-9.jpg",
+    "https://rotolos.com/wp-content/uploads/2020/10/2-RCC-Salads-BurrataCaprese.jpg"
+  ],
+  "sources": [
+    "https://rotolos.com",
+    "https://rotolos.com/pizzeria-menu",
+    "https://rotolos.com/craftcrust-menu",
+    "https://rotolos.com/locations",
+    "https://rotolos.com/about",
+    "https://rotolos.com/contact",
+    "https://rotolos.com/locations/alexandria",
+    "https://rotolos.com/craftcrust-catering",
+    "https://rotolos.com/locations/baton-rouge-millerville",
+    "https://rotolos.com/pizzeria-catering",
+    "https://rotolos.com/locations/baton-rouge-perkins",
+    "https://rotolos.com/locations/baton-rouge-burbank",
+    "https://rotolos.com/locations/belle-chasse",
+    "https://rotolos.com/locations/breckenridge-206-n-main-st",
+    "https://rotolos.com/locations/carencro",
+    "https://rotolos.com/locations/carrollton-3204-e-hebron-pkwy",
+    "https://rotolos.com/locations/chalmette",
+    "https://rotolos.com/locations/collierville-1337-west-poplar-ave",
+    "https://rotolos.com/locations/conway-2565-prince-st-conway",
+    "https://rotolos.com/locations/denham-springs",
+    "https://rotolos.com/locations/fairhope",
+    "https://rotolos.com/locations/gulf-breeze",
+    "https://rotolos.com/locations/houma",
+    "https://rotolos.com/locations/keystone",
+    "https://rotolos.com/locations/lake-charles",
+    "https://rotolos.com/locations/lakeland-9790-market-green-place-north",
+    "https://rotolos.com/locations/league-city-4550-w-league-city-pkwy-ste-100",
+    "https://rotolos.com/locations/longview",
+    "https://rotolos.com/locations/mansfield",
+    "https://rotolos.com/locations/memphis",
+    "https://rotolos.com/locations/mont-belvieu-13433-langston-dr",
+    "https://rotolos.com/locations/orange-beach",
+    "https://rotolos.com/locations/port-allen",
+    "https://rotolos.com/locations/prairieville"
+  ]
+}

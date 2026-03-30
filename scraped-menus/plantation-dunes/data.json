@@ -1,0 +1,294 @@
+{
+  "business_name": "Brett/Robinson Vacation Rentals - Plantation Dunes",
+  "tagline": "Premier vacation rental management company offering beachfront condos and family-friendly rentals",
+  "type": "Vacation Rental Management Company",
+  "contact": {
+    "phone": "+1-251-968-7363",
+    "reservations_phone": "+1-800-211-7892",
+    "email": null,
+    "address": "3259 Gulf Shores Parkway",
+    "city": "Gulf Shores",
+    "state": "AL",
+    "zip": "36542"
+  },
+  "location": {
+    "beachfront": true,
+    "bay_view": true,
+    "description": "Beachfront locations on the Gulf of Mexico in Gulf Shores and Orange Beach, Alabama"
+  },
+  "about": {
+    "description": "Brett/Robinson is a family/veteran-owned vacation rental management company with 50+ years of experience serving the Alabama Gulf Coast. They offer beachfront condos, beach houses, and family-friendly rentals in Gulf Shores and Orange Beach with 24/7 support and local on-the-ground assistance.",
+    "elevator_pitch": "50+ year family-owned vacation rental company offering beachfront condos and houses in Gulf Shores and Orange Beach with local hospitality and 24/7 support.",
+    "total_units": null,
+    "floors": null,
+    "year_built": null,
+    "pet_friendly": true,
+    "minimum_stay": "3 nights for promotional offers",
+    "check_in": null,
+    "check_out": null,
+    "age_restriction": null
+  },
+  "amenities": {
+    "pools": [
+      "outdoor pool",
+      "indoor pool",
+      "lazy river",
+      "splash pad"
+    ],
+    "hot_tubs": true,
+    "fitness_center": true,
+    "tennis_courts": true,
+    "pickleball_courts": true,
+    "private_beach_access": true,
+    "parking": "reserved parking, covered parking",
+    "elevators": true,
+    "gated": false,
+    "bbq_grills": true,
+    "business_center": false,
+    "spa": false,
+    "restaurant_on_site": false,
+    "bar_on_site": false,
+    "kids_splash_pad": true,
+    "other": [
+      "washer and dryer in units",
+      "saunas",
+      "racquetball courts",
+      "basketball courts",
+      "shuffle board",
+      "gazebos",
+      "boat slips available",
+      "electric vehicle chargers",
+      "beach chair rentals",
+      "fully equipped kitchens",
+      "high-speed WiFi",
+      "cable TV",
+      "private balconies"
+    ]
+  },
+  "unit_types": [
+    {
+      "name": "1 Bedroom Units",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "sleeps": 4,
+      "view": "beach access to beachfront",
+      "sq_ft": null,
+      "starting_price": "$80-$117 per night",
+      "features": [
+        "full kitchen",
+        "private balcony",
+        "washer/dryer",
+        "cable TV",
+        "WiFi"
+      ]
+    },
+    {
+      "name": "2 Bedroom Units",
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "sleeps": 6,
+      "view": "beachfront",
+      "sq_ft": null,
+      "starting_price": "$99-$175 per night",
+      "features": [
+        "full kitchen",
+        "private balcony",
+        "washer/dryer",
+        "cable TV",
+        "WiFi"
+      ]
+    },
+    {
+      "name": "3 Bedroom Units",
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "sleeps": 8,
+      "view": "beachfront",
+      "sq_ft": null,
+      "starting_price": "$150-$250 per night",
+      "features": [
+        "full kitchen",
+        "private balcony",
+        "washer/dryer",
+        "cable TV",
+        "WiFi"
+      ]
+    },
+    {
+      "name": "4+ Bedroom Units",
+      "bedrooms": 4,
+      "bathrooms": 3,
+      "sleeps": 12,
+      "view": "beachfront",
+      "sq_ft": null,
+      "starting_price": "$280-$590+ per night",
+      "features": [
+        "full kitchen",
+        "private balcony",
+        "washer/dryer",
+        "cable TV",
+        "WiFi",
+        "multiple bathrooms"
+      ]
+    }
+  ],
+  "tags": [
+    "beachfront",
+    "family-friendly",
+    "pet-friendly",
+    "Gulf Shores",
+    "Orange Beach",
+    "Alabama",
+    "condos",
+    "beach houses",
+    "vacation rentals",
+    "luxury",
+    "waterfront",
+    "pools",
+    "group accommodations"
+  ],
+  "features": [
+    "Direct beachfront access",
+    "On-site local management team",
+    "24/7 guest support",
+    "Quality cleanliness standards",
+    "Local area recommendations",
+    "Specials and promotional pricing",
+    "Last-minute deals available",
+    "Seasonal discounts",
+    "Snowbird specials",
+    "Group and family reunion packages",
+    "Wedding planning services",
+    "Monthly rental options",
+    "Short-stay options",
+    "Generali Global Assistance travel protection",
+    "Parking passes available"
+  ],
+  "social_links": {
+    "instagram": "https://www.instagram.com/brett_robinson_vacations",
+    "facebook": "https://www.facebook.com/BrettRobinsonVacations",
+    "linkedin": "https://www.linkedin.com/company/brett-robinson-vacation-rentals",
+    "website": "https://www.brett-robinson.com/beach-condo/plantation-dunes/"
+  },
+  "dining": [],
+  "specials": [
+    {
+      "name": "Memorial Day Weekend",
+      "description": "Beachfront properties with 3-night minimum for Memorial Day weekend getaway",
+      "dates": "May 21-24, 2026 (Offer ends May 25, 2026)"
+    },
+    {
+      "name": "Mother's Day Getaway",
+      "description": "Special rates on beachfront condos for Mother's Day weekend",
+      "dates": "May 7-9, 2026"
+    },
+    {
+      "name": "Summer 4+ Bedroom Group Getaway",
+      "description": "Large group accommodations with 4-8 bedrooms for up to 22 guests",
+      "dates": "June 28 - July 1, 2026 (3-night minimum)"
+    },
+    {
+      "name": "Charming Beachfront Hidden Gems",
+      "description": "Unique properties with 1-8 bedrooms offering tranquil getaway experiences",
+      "dates": "June 28 - July 1, 2026 (3-night minimum)"
+    },
+    {
+      "name": "Seasonal Discounts",
+      "description": "Year-round seasonal pricing adjustments based on demand",
+      "dates": "Ongoing"
+    },
+    {
+      "name": "Snowbird Specials",
+      "description": "Special rates for longer-stay winter visitors",
+      "dates": "Seasonal"
+    },
+    {
+      "name": "Last-Minute Deals",
+      "description": "Hot deals on select rentals for last-minute bookings",
+      "dates": "Ongoing"
+    },
+    {
+      "name": "Promo Codes",
+      "description": "Percentage-off promotions like 10% savings with codes (e.g., Bama2025 for 2025 bookings)",
+      "dates": "Varies"
+    }
+  ],
+  "events_nearby": [
+    {
+      "name": "Hangout Music Festival",
+      "month": "May",
+      "description": "Massive beachfront music festival with top national artists"
+    },
+    {
+      "name": "National Shrimp Festival",
+      "month": "October",
+      "description": "Four-day festival with music, art, and Gulf Coast seafood"
+    },
+    {
+      "name": "Wharf Amphitheater Concerts",
+      "months": "May - October",
+      "description": "C Spire concert series from May to October"
+    },
+    {
+      "name": "Blue Angels Air Show",
+      "month": "November",
+      "description": "Spectacular flyover in Pensacola or along Alabama coast"
+    },
+    {
+      "name": "Frank Brown Songwriters Festival",
+      "month": "November",
+      "description": "Two-week celebration of songwriting across the Gulf Coast"
+    },
+    {
+      "name": "Holiday Boat Parade & Holly Days on Main",
+      "month": "December",
+      "description": "Lighted boat parade, vendors, and performances at The Wharf"
+    }
+  ],
+  "note": "The specific property 'Plantation Dunes' page returned a 404 error, so this profile is compiled from all available Brett/Robinson vacation rental data across their Gulf Shores and Orange Beach portfolio. Contact them for specific Plantation Dunes property information.",
+  "url": "https://www.brett-robinson.com/beach-condo/plantation-dunes/",
+  "scraped_at": "2026-03-21T22:19:36.630Z",
+  "extracted_at": "2026-03-23T04:04:22.924Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://www.brett-robinson.com/assets/images/BRV-25-95-Vacations-Logo-GS-OB-PK-Horizontal-V2.png",
+    "https://www.brett-robinson.com/uploads/BRV-26-25--Easter-30-Days-WebpageGraphic_184150.jpg",
+    "https://www.brett-robinson.com/uploads/BRV-26-27--Mothers-Day-60-Days-WebpageGraphic_185358.jpg",
+    "https://www.brett-robinson.com/uploads/BRV-26-11-Memorial-Day-Stays-V1-WebpageGraphic_150618.jpg",
+    "https://www.brett-robinson.com/uploads/BRV-26-14-4-Bedroom-WebpageGraphic-V4_105813.jpg",
+    "https://www.brett-robinson.com/uploads/lFullSizeRender_110222.jpg",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024446PM_144957.png",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024255PM_144955.png",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024250PM_144952.png",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024550PM_145000.png",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024658PM_145003.png",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024800PM_145005.png",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024929PM_150512.png",
+    "https://www.brett-robinson.com/uploads/45dcbabd-14da-4c03-86b9-e33b1bec1699_152424.png",
+    "https://www.brett-robinson.com/uploads/f7c22236-e96b-4131-a6ef-3b8c161f6d60_152431.png",
+    "https://www.brett-robinson.com/uploads/114f4761-0d52-45a5-adf7-626f0144ccf1_152427.png",
+    "https://www.brett-robinson.com/uploads/7ea53f3d-a24b-4d65-96fa-e5f6adaf272d_152421.png",
+    "https://www.brett-robinson.com/uploads/b96b1f24-e333-42bc-9e47-d77fd57855e4_152429.png",
+    "https://www.brett-robinson.com/uploads/732961ba-7d13-4aa9-9294-690e2e1f3420_153528.png",
+    "https://www.brett-robinson.com/uploads/31e08f79-9b97-4008-a4c9-aac831c9b812_153520.png",
+    "https://www.brett-robinson.com/uploads/bad38faf-f976-4ddb-bf87-78b7a03d52df_153530.png",
+    "https://www.brett-robinson.com/uploads/9c90c840-9dd2-46b1-bc95-cc5c75810af3_153523.png",
+    "https://www.brett-robinson.com/uploads/9703bb55-7293-4a01-ad02-34e7793ffbd7_153525.png"
+  ],
+  "sources": [
+    "https://www.brett-robinson.com/beach-condo/plantation-dunes",
+    "https://www.brett-robinson.com/specials-and-promotions",
+    "https://www.brett-robinson.com/specials-and-promotions/4bedrooms?icid=4+bedrooms&startDate=2026-06-28&endDate=2026-07-01",
+    "https://www.brett-robinson.com/specials-and-promotions/charming-beachfront-stays-for-a-tranquil-getaway?icid=Hidden-Gems&startDate=2026-06-28&endDate=2026-07-01",
+    "https://www.brett-robinson.com/specials-and-promotions/memorial90?icid=Memorial-Day-90&startDate=2026-05-21&endDate=2026-05-24",
+    "https://www.brett-robinson.com/specials-and-promotions/mothers-day-1?icid=Mothers-Day&startDate=2026-05-07&endDate=2026-05-09",
+    "https://www.brett-robinson.com/specials-and-promotions/spring-informationalb?icid=Spring-InformationalB&startDate=2026-03-05&endDate=2026-03-08",
+    "https://www.brett-robinson.com/specials-and-promotions/easter?icid=Easter&startDate=2026-04-02&endDate=2026-04-05",
+    "https://www.brett-robinson.com/history-of-brettrobinson",
+    "https://www.brett-robinson.com/gulf-shores-orange-beach-events",
+    "https://www.brett-robinson.com/about-brett-robinson",
+    "https://www.brett-robinson.com/office-locations",
+    "https://www.brett-robinson.com/contact",
+    "https://www.brett-robinson.com/driving-directions"
+  ]
+}

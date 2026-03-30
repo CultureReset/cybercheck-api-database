@@ -1,0 +1,104 @@
+{
+  "business_name": "SanRoc Cay Marina",
+  "tagline": "An Orange Beach Alabama Entertainment District",
+  "type": "Marina Entertainment District",
+  "contact": {
+    "phone": "(251) 980-0016",
+    "email": "info@SanRocCay.com",
+    "address": "27267 Perdido Beach Blvd.",
+    "city": "Orange Beach",
+    "state": "AL",
+    "zip": "36561"
+  },
+  "hours": {
+    "monday": "10 am - 6 pm (shopping); 7 am - 3 pm (marina/dock store)",
+    "tuesday": "10 am - 6 pm (shopping); 7 am - 3 pm (marina/dock store)",
+    "wednesday": "10 am - 6 pm (shopping); 7 am - 3 pm (marina/dock store)",
+    "thursday": "10 am - 6 pm (shopping); 7 am - 3 pm (marina/dock store)",
+    "friday": "10 am - 6 pm (shopping); 7 am - 4 pm (marina/dock store)",
+    "saturday": "10 am - 6 pm (shopping); 7 am - 4 pm (marina/dock store)",
+    "sunday": "12 pm - 6 pm (shopping); 7 am - 3 pm (marina/dock store)",
+    "notes": "Marina + Dock Store hours are seasonal. Call (251)981-6167 for details."
+  },
+  "about": {
+    "description": "SanRoc Cay Marina is a laid-back entertainment district featuring boutique shopping, fine dining restaurants, a full-service marina with deep sea fishing and water sports, spas and salons, and business offices, all centered around a courtyard gathering space with water views.",
+    "elevator_pitch": "A waterfront entertainment hub in Orange Beach offering shopping, dining, marina services, and relaxation with free sunrises and sunsets.",
+    "vibe": "Laid-back, upscale casual, waterfront setting with luxury boutiques and outdoor courtyard atmosphere",
+    "best_for": [
+      "shopping",
+      "fine dining",
+      "fishing trips",
+      "water sports",
+      "relaxation",
+      "families",
+      "couples",
+      "tourists"
+    ],
+    "established": null,
+    "reservations": null,
+    "insider_tip": "There's a sunrise and a sunset every single day, and they're absolutely free. Don't miss them."
+  },
+  "tags": [
+    "marina",
+    "shopping",
+    "restaurants",
+    "seafood",
+    "steak",
+    "fishing",
+    "water sports",
+    "spa",
+    "salon",
+    "waterfront",
+    "entertainment district",
+    "boutique"
+  ],
+  "features": [
+    "boutique shopping",
+    "fine dining",
+    "marina",
+    "deep sea fishing",
+    "water sports",
+    "dolphin cruise",
+    "sunset cruise",
+    "spa and salon",
+    "courtyard",
+    "outdoor dining",
+    "water views"
+  ],
+  "price_range": "$$$",
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://sanroccay.com"
+  },
+  "specials": [],
+  "events": [],
+  "menu": {
+    "categories": []
+  },
+  "url": "https://sanroccay.com",
+  "scraped_at": "2026-03-21T19:53:09.601Z",
+  "extracted_at": "2026-03-23T04:06:06.961Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://sanroccay.pairsite.com/wp-content/uploads/2024/06/SanRocCay-Website-Logo-250x400-1.webp",
+    "https://sanroccay.com/wp-content/uploads/2024/06/SRC-GMB-Logo.png",
+    "https://sanroccay.com/wp-content/uploads/2024/09/sanroc-cay-water-view-218243-0043-HDR.jpg",
+    "https://sanroccay.pairsite.com/wp-content/uploads/2024/09/jane-loves-shoes-2024095-0019-1024x683.jpg",
+    "https://sanroccay.pairsite.com/wp-content/uploads/2024/09/pelican-grill-fried-green-tomatoes-with-crawfish-IMG_3939-768x1024.jpeg",
+    "https://sanroccay.pairsite.com/wp-content/uploads/2024/09/reel-surprise-Marina-Aerial-4.jpeg",
+    "https://sanroccay.com/wp-content/uploads/2024/09/serenity-at-the-spa-salon-and-spa-2024204-0001.jpg",
+    "https://sanroccay.com/wp-content/uploads/2024/09/IMG_4059-Large.jpeg",
+    "https://sanroccay.com/wp-content/uploads/2024/09/sanroc-cay-courtyard-2024197-0049T.jpg",
+    "https://sanroccay.pairsite.com/wp-content/uploads/2024/07/sanroc-cay-IMG_4127-1024x768.jpeg",
+    "https://sanroccay.pairsite.com/wp-content/uploads/2024/09/sanroc-cay-IMG_5888-1024x768.jpeg",
+    "https://sanroccay.com/wp-content/uploads/2024/09/vacation-beach-portraits-2020113_0102T.jpg",
+    "https://sanroccay.com/wp-content/uploads/2024/07/sanroc-cay-IMG_5159-scaled.jpeg",
+    "https://sanroccay.com/wp-content/uploads/2024/06/SanRocCay-Website-Logo-250x400-1.webp",
+    "https://sanroccay.pairsite.com/wp-content/uploads/2024/09/Map-to-the-SanRoc-Cay-1024x655.jpeg",
+    "https://sanroccay.com/wp-content/uploads/2024/09/Map-to-the-SanRoc-Cay.jpeg"
+  ],
+  "sources": [
+    "https://sanroccay.com"
+  ]
+}

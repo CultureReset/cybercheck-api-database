@@ -1,0 +1,136 @@
+{
+  "business_name": "Cosmo's Restaurant & Bar",
+  "url": "http://www.cosmosrestaurantandbar.com/",
+  "scraped_at": "2026-03-21T14:55:32.544Z",
+  "pages": [
+    {
+      "url": "http://www.cosmosrestaurantandbar.com",
+      "title": "Home - Cosmos Restaurant and Bar",
+      "text": "Skip to content\n\n\t\n \n \n \n \n \n \n \n \n\n\t\n \n \n\n \n \n\n \n \n \n \n \n \n \n \n\n \n \n Search for:\n \n \n \n \n \n \n\n \n \n\n \n \n HomeMenuHappy HourLive Music & EventsCateringMaggie’s Gift ShopAboutMeet the TeamCheck Us OutHealth and SafetyContact\t\n \n \n \n \n \n\nHomeMenuHappy HourLive Music & EventsCateringMaggie’s Gift ShopAboutMeet the TeamCheck Us OutHealth and SafetyContact\n\n \n\n \n \n \n \n \n \n \n \n \n \n\t\n \n \n \n\n Far From Ordinary...\n\n \n \n \n\n \n \n \n\t\n\n \n \n\n \n Homedhonsvick2026-03-02T17:35:31+00:00 \n Welcome to Cosmo’s Restaurant & Bar\nOff the beaten path on Canal Road in Orange Beach, Cosmo’s Restaurant & Bar is far from ordinary. Serving fresh and eclectic food since day one, Cosmo’s features a wide range of dining, enticing even the most discriminate. Using chef inspired ingredients, you can enjoy everything from hand-cut steaks to local seafood and pasta.\nThis neighborhood favorite on the Gulf Coast has taken cuisine to the cutting edge. With variations of local staples, their versions will make you sit back and take notice. Culinary greats such as the chicken roulade, the sesame seared tuna salad and the traditional crab cakes done with a twist, will have you wanting more. And to top it all off, The Year of Alabama Food named their Banana Leaf Wrapped Fish as one of “the top 100 dishes to eat before you die.” This epicurean delight is just one of the many masterpieces created daily in this out-of-the-way hot spot on Alabama’s Gulf Coast.\nExperience Distinctive Dining\n\nWhat can we serve you?\nOur extensive menus offer a variety of options and have something for everyone. Why not start with our Crab Cakes or Tuna Poke Nachos? Next, try one of our specialties like Seafood Pasta, Asian Glazed Tuna or our Pork Chop. Don’t forget to try one of our mouthwatering desserts such as our Key Lime Pie or Banana Fritters. We can’t wait for you to join us!\n\nHappy Hour\nWe have the best on the Island! Our Happy Hour is served daily from 3 to 5 p.m. It features specials on draft beer, house wines, delicious appetizers, and $2 off all sushi rolls. Our Firecracker Shrimp is known as a local favorite and made us famous! So what are you waiting for?\n\nREAD OUR MENUALABAMA COASTAL CATERING\nLEARN MOREOUR FAMILY\n\n \n \n\t\n \n \n \n \n \n \n \n \n \n\t\n \n \n \n \n \n \n Get Social\n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n CONTACT INFO\n\nAddress: 25753 Canal Rd, Orange Beach, AL\nPhone: 251-948-WOOF (9663)\nMailing Address: P.O. Box 1972, Orange Beach AL 36561\n\n HOURS\n\nSunday – Thursday 11 a.m. to 9:30 p.m.\nFriday – Saturday 11 a.m. to 10:00 p.m\n \n\n \n \n Navigation Home Menu Happy Hour Live Music & Events Catering Maggie’s Gift Shop About Meet the Team Check Us Out Health and Safety Contact \n \n \n \n \n \n\n \n\n \n \n \n Page load link\n\n \n \n\n \n \n\n \n\n \n \n Go to Top",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebSite",
+              "@id": "https://cosmosrestaurantandbar.com/#website",
+              "url": "https://cosmosrestaurantandbar.com/",
+              "name": "Cosmos Restaurant and Bar",
+              "description": "Unlike Any Other",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://cosmosrestaurantandbar.com/?s={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://cosmosrestaurantandbar.com/#webpage",
+              "url": "https://cosmosrestaurantandbar.com/",
+              "inLanguage": "en-US",
+              "name": "Home - Cosmos Restaurant and Bar",
+              "isPartOf": {
+                "@id": "https://cosmosrestaurantandbar.com/#website"
+              },
+              "datePublished": "2019-01-03T17:59:39+00:00",
+              "dateModified": "2026-03-02T17:35:31+00:00"
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "robots": "max-snippet:-1, max-image-preview:large, max-video-preview:-1",
+        "og:locale": "en_US",
+        "og:type": "website",
+        "og:title": "Home - Cosmos Restaurant and Bar",
+        "og:url": "https://cosmosrestaurantandbar.com/",
+        "og:site_name": "Cosmos Restaurant and Bar",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Home - Cosmos Restaurant and Bar",
+        "description": "Welcome to Cosmo’s Restaurant & Bar\nOff the beaten path on Canal Road in Orange Beach, Cosmo’s Restaurant & Bar is far from ordinary. Serving fresh and eclectic food since day one, Cosmo’s features a wide range of dining, enticing even the most discriminate. Using chef inspired ingredients, you can enjoy everything",
+        "og:description": "Welcome to Cosmo’s Restaurant & Bar\nOff the beaten path on Canal Road in Orange Beach, Cosmo’s Restaurant & Bar is far from ordinary. Serving fresh and eclectic food since day one, Cosmo’s features a wide range of dining, enticing even the most discriminate. Using chef inspired ingredients, you can enjoy everything",
+        "og:image": "https://cosmosrestaurantandbar.com/wp-content/uploads/2021/07/cosmos-logo.png",
+        "og:image:width": "401",
+        "og:image:height": "193",
+        "og:image:type": "image/png",
+        "generator": "WordPress 6.5.8",
+        "p:domain_verify": "958899ad9c5918b3d6fd89415dbb84d0"
+      }
+    },
+    {
+      "url": "https://www.cosmosrestaurantandbar.com",
+      "title": "Home - Cosmos Restaurant and Bar",
+      "text": "Skip to content\n\n\t\n \n \n \n \n \n \n \n \n\n\t\n \n \n\n \n \n\n \n \n \n \n \n \n \n \n\n \n \n Search for:\n \n \n \n \n \n \n\n \n \n\n \n \n HomeMenuHappy HourLive Music & EventsCateringMaggie’s Gift ShopAboutMeet the TeamCheck Us OutHealth and SafetyContact\t\n \n \n \n \n \n\nHomeMenuHappy HourLive Music & EventsCateringMaggie’s Gift ShopAboutMeet the TeamCheck Us OutHealth and SafetyContact\n\n \n\n \n \n \n \n \n \n \n \n \n \n\t\n \n \n \n\n Far From Ordinary...\n\n \n \n \n\n \n \n \n\t\n\n \n \n\n \n Homedhonsvick2026-03-02T17:35:31+00:00 \n Welcome to Cosmo’s Restaurant & Bar\nOff the beaten path on Canal Road in Orange Beach, Cosmo’s Restaurant & Bar is far from ordinary. Serving fresh and eclectic food since day one, Cosmo’s features a wide range of dining, enticing even the most discriminate. Using chef inspired ingredients, you can enjoy everything from hand-cut steaks to local seafood and pasta.\nThis neighborhood favorite on the Gulf Coast has taken cuisine to the cutting edge. With variations of local staples, their versions will make you sit back and take notice. Culinary greats such as the chicken roulade, the sesame seared tuna salad and the traditional crab cakes done with a twist, will have you wanting more. And to top it all off, The Year of Alabama Food named their Banana Leaf Wrapped Fish as one of “the top 100 dishes to eat before you die.” This epicurean delight is just one of the many masterpieces created daily in this out-of-the-way hot spot on Alabama’s Gulf Coast.\nExperience Distinctive Dining\n\nWhat can we serve you?\nOur extensive menus offer a variety of options and have something for everyone. Why not start with our Crab Cakes or Tuna Poke Nachos? Next, try one of our specialties like Seafood Pasta, Asian Glazed Tuna or our Pork Chop. Don’t forget to try one of our mouthwatering desserts such as our Key Lime Pie or Banana Fritters. We can’t wait for you to join us!\n\nHappy Hour\nWe have the best on the Island! Our Happy Hour is served daily from 3 to 5 p.m. It features specials on draft beer, house wines, delicious appetizers, and $2 off all sushi rolls. Our Firecracker Shrimp is known as a local favorite and made us famous! So what are you waiting for?\n\nREAD OUR MENUALABAMA COASTAL CATERING\nLEARN MOREOUR FAMILY\n\n \n \n\t\n \n \n \n \n \n \n \n \n \n\t\n \n \n \n \n \n \n Get Social\n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n CONTACT INFO\n\nAddress: 25753 Canal Rd, Orange Beach, AL\nPhone: 251-948-WOOF (9663)\nMailing Address: P.O. Box 1972, Orange Beach AL 36561\n\n HOURS\n\nSunday – Thursday 11 a.m. to 9:30 p.m.\nFriday – Saturday 11 a.m. to 10:00 p.m\n \n\n \n \n Navigation Home Menu Happy Hour Live Music & Events Catering Maggie’s Gift Shop About Meet the Team Check Us Out Health and Safety Contact \n \n \n \n \n \n\n \n\n \n \n \n Page load link\n\n \n \n\n \n \n\n \n\n \n \n Go to Top",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebSite",
+              "@id": "https://cosmosrestaurantandbar.com/#website",
+              "url": "https://cosmosrestaurantandbar.com/",
+              "name": "Cosmos Restaurant and Bar",
+              "description": "Unlike Any Other",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://cosmosrestaurantandbar.com/?s={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://cosmosrestaurantandbar.com/#webpage",
+              "url": "https://cosmosrestaurantandbar.com/",
+              "inLanguage": "en-US",
+              "name": "Home - Cosmos Restaurant and Bar",
+              "isPartOf": {
+                "@id": "https://cosmosrestaurantandbar.com/#website"
+              },
+              "datePublished": "2019-01-03T17:59:39+00:00",
+              "dateModified": "2026-03-02T17:35:31+00:00"
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "robots": "max-snippet:-1, max-image-preview:large, max-video-preview:-1",
+        "og:locale": "en_US",
+        "og:type": "website",
+        "og:title": "Home - Cosmos Restaurant and Bar",
+        "og:url": "https://cosmosrestaurantandbar.com/",
+        "og:site_name": "Cosmos Restaurant and Bar",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Home - Cosmos Restaurant and Bar",
+        "description": "Welcome to Cosmo’s Restaurant & Bar\nOff the beaten path on Canal Road in Orange Beach, Cosmo’s Restaurant & Bar is far from ordinary. Serving fresh and eclectic food since day one, Cosmo’s features a wide range of dining, enticing even the most discriminate. Using chef inspired ingredients, you can enjoy everything",
+        "og:description": "Welcome to Cosmo’s Restaurant & Bar\nOff the beaten path on Canal Road in Orange Beach, Cosmo’s Restaurant & Bar is far from ordinary. Serving fresh and eclectic food since day one, Cosmo’s features a wide range of dining, enticing even the most discriminate. Using chef inspired ingredients, you can enjoy everything",
+        "og:image": "https://cosmosrestaurantandbar.com/wp-content/uploads/2021/07/cosmos-logo.png",
+        "og:image:width": "401",
+        "og:image:height": "193",
+        "og:image:type": "image/png",
+        "generator": "WordPress 6.5.8",
+        "p:domain_verify": "958899ad9c5918b3d6fd89415dbb84d0"
+      }
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": [
+    "https://cosmosrestaurantandbar.com/wp-content/uploads/2021/07/cosmos-logo.png",
+    "https://cosmosrestaurantandbar.com/wp-content/uploads/2021/07/cosmos-tall.jpg",
+    "https://cosmosrestaurantandbar.com/wp-content/uploads/2021/07/grilled-shrimp-6.jpg",
+    "https://cosmosrestaurantandbar.com/wp-content/uploads/2021/08/0250.jpg",
+    "https://cosmosrestaurantandbar.com/wp-content/uploads/2020/03/logo-1.png",
+    "https://cosmosrestaurantandbar.com/wp-content/uploads/2020/03/cosmos.jpg",
+    "https://cosmosrestaurantandbar.com/wp-content/uploads/2020/03/lunas-e1646684589339.jpg",
+    "https://cosmosrestaurantandbar.com/wp-content/uploads/2020/03/buzzcatz-e1646684725294.jpg",
+    "https://cosmosrestaurantandbar.com/wp-content/uploads/2020/03/caribe.png",
+    "https://cosmosrestaurantandbar.com/wp-content/uploads/2020/03/caribe_marina_logo.png",
+    "https://cosmosrestaurantandbar.com/wp-content/uploads/2020/03/caribe_realty.png",
+    "https://cosmosrestaurantandbar.com/wp-content/uploads/2021/08/gsob_tourism.jpg",
+    "https://cosmosrestaurantandbar.com/wp-content/uploads/2021/08/gsob_sports.jpg",
+    "https://cosmosrestaurantandbar.com/wp-content/uploads/2022/03/gts-e1646684819153.png",
+    "https://cosmosrestaurantandbar.com/wp-content/uploads/2022/03/OB-logo-e1646685058433.jpg"
+  ]
+}

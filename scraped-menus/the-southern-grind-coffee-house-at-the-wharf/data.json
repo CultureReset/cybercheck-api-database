@@ -1,0 +1,298 @@
+{
+  "business_name": "The Southern Grind Coffee House at the WHARF",
+  "tagline": "Get Your Grind On!",
+  "type": "Cafe",
+  "contact": {
+    "phone": "(251) 923-3265",
+    "email": null,
+    "address": "4751 Main Street Suite 116",
+    "city": "Orange Beach",
+    "state": "AL",
+    "zip": "36561"
+  },
+  "hours": {
+    "monday": "Breakfast until 11 AM",
+    "tuesday": "Breakfast until 11 AM",
+    "wednesday": "Breakfast until 11 AM",
+    "thursday": "Breakfast until 11 AM",
+    "friday": "Breakfast until 11 AM",
+    "saturday": "Breakfast until Noon",
+    "sunday": "Breakfast until Noon",
+    "notes": "Breakfast served daily. Lunch & Dinner available."
+  },
+  "about": {
+    "description": "The Southern Grind is a specialty coffee house with two locations on the Alabama Gulf Coast. Since 2012, they have offered more than coffee, including comfort food, fresh food with vegetarian, vegan and gluten-free options. Known for homemade desserts, pastries, muffins, cookies, brownies, and Gelato (Italian Ice Cream). Features free Wi-Fi, cool coastal vibe, retail items including home decor, jewelry and local art, and a pet-friendly outdoor patio.",
+    "elevator_pitch": "Specialty coffee house on the Alabama Gulf Coast serving fresh food, homemade desserts, and authentic Italian gelato in a cool, coastal atmosphere.",
+    "vibe": "Casual, coastal, relaxed, pet-friendly with local art and retail shopping",
+    "best_for": [
+      "coffee lovers",
+      "breakfast",
+      "casual dining",
+      "families",
+      "remote work",
+      "shopping",
+      "pet owners"
+    ],
+    "established": "2012",
+    "reservations": null,
+    "insider_tip": "Try the Nitro Draft Cold Brew Coffee. Check for daily breakfast and lunch specials."
+  },
+  "tags": [
+    "coffee",
+    "cafe",
+    "gelato",
+    "breakfast",
+    "lunch",
+    "dinner",
+    "vegetarian",
+    "vegan",
+    "gluten-free",
+    "casual",
+    "coastal",
+    "pet-friendly",
+    "desserts"
+  ],
+  "features": [
+    "Two locations",
+    "Free Wi-Fi",
+    "Pet-friendly outdoor patio",
+    "Retail shopping (home decor, jewelry, local art)",
+    "Homemade pastries and desserts",
+    "Gelato (18 flavors)",
+    "Nitro Draft Cold Brew Coffee",
+    "Online coffee ordering",
+    "Daily specials"
+  ],
+  "price_range": "$$",
+  "social_links": {
+    "instagram": "instagram",
+    "facebook": "facebook",
+    "website": "http://www.thesoutherngrind.com"
+  },
+  "specials": [
+    {
+      "name": "Daily Breakfast Specials",
+      "description": "Check for daily breakfast specials",
+      "days": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "time": null
+    },
+    {
+      "name": "Daily Lunch Specials",
+      "description": "Check for daily lunch specials",
+      "days": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "time": null
+    }
+  ],
+  "events": [],
+  "menu": {
+    "categories": [
+      {
+        "name": "Coffee",
+        "type": "drinks",
+        "items": [
+          {
+            "name": "French Roast",
+            "description": null,
+            "price": 16.99,
+            "tags": [
+              "coffee"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Highlander Grogg",
+            "description": null,
+            "price": 16.99,
+            "tags": [
+              "coffee"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Southern Pecan",
+            "description": null,
+            "price": 16.99,
+            "tags": [
+              "coffee"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Créme Brulée",
+            "description": null,
+            "price": 16.99,
+            "tags": [
+              "coffee"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Nitro Draft Cold Brew Coffee",
+            "description": null,
+            "price": null,
+            "tags": [
+              "coffee",
+              "specialty"
+            ],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Gelato",
+        "type": "desserts",
+        "items": [
+          {
+            "name": "Gelato Italian Ice Cream",
+            "description": "18 Flavors to Choose From",
+            "price": null,
+            "tags": [
+              "gelato",
+              "italian ice cream"
+            ],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Breakfast",
+        "type": "breakfast",
+        "items": [
+          {
+            "name": "Breakfast Menu Items",
+            "description": "Various breakfast items available Mon-Fri until 11 AM, Sat-Sun until Noon",
+            "price": null,
+            "tags": [
+              "breakfast"
+            ],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Lunch & Dinner",
+        "type": "lunch",
+        "items": [
+          {
+            "name": "Sandwiches",
+            "description": "Served with chips and choice of pasta salad or cucumber salad",
+            "price": null,
+            "tags": [
+              "lunch",
+              "dinner"
+            ],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Dietary Options",
+        "type": "dietary",
+        "items": [
+          {
+            "name": "Vegetarian Options",
+            "description": null,
+            "price": null,
+            "tags": [
+              "vegetarian"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Vegan Options",
+            "description": null,
+            "price": null,
+            "tags": [
+              "vegan"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Gluten-Free Options",
+            "description": null,
+            "price": null,
+            "tags": [
+              "gluten-free"
+            ],
+            "allergens": [
+              "gluten"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Homemade Desserts",
+        "type": "desserts",
+        "items": [
+          {
+            "name": "Pastries",
+            "description": "Homemade",
+            "price": null,
+            "tags": [
+              "dessert"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Muffins",
+            "description": "Homemade",
+            "price": null,
+            "tags": [
+              "dessert"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Cookies",
+            "description": "Homemade",
+            "price": null,
+            "tags": [
+              "dessert"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Brownies",
+            "description": "Homemade",
+            "price": null,
+            "tags": [
+              "dessert"
+            ],
+            "allergens": []
+          }
+        ]
+      }
+    ]
+  },
+  "url": "http://www.thesoutherngrind.com/",
+  "scraped_at": "2026-03-21T15:06:34.775Z",
+  "extracted_at": "2026-03-23T04:12:33.834Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://cdn11.bigcommerce.com/s-6lid7x227i/images/stencil/350x90/southern-grind_1548257114__66206.original.png",
+    "https://cdn11.bigcommerce.com/s-6lid7x227i/images/stencil/original/carousel/36/Brown_Minimal_Retail_Business_Hours_Instagram_Post_Card_148_x_105_mm.png?c=2",
+    "https://cdn11.bigcommerce.com/s-6lid7x227i/images/stencil/500x659/products/126/512/Screenshot_2025-02-25_at_7.54.03_PM__75397.1740534865.png?c=2",
+    "https://cdn11.bigcommerce.com/s-6lid7x227i/images/stencil/500x659/products/125/515/Screenshot_2025-02-25_at_7.54.45_PM__73834.1740534982.png?c=2",
+    "https://cdn11.bigcommerce.com/s-6lid7x227i/images/stencil/500x659/products/124/518/Screenshot_2025-02-25_at_7.57.36_PM__64323.1740535071.png?c=2",
+    "https://cdn11.bigcommerce.com/s-6lid7x227i/images/stencil/500x659/products/122/510/Screenshot_2025-02-25_at_7.52.39_PM__92135.1740534782.png?c=2"
+  ],
+  "sources": [
+    "http://www.thesoutherngrind.com"
+  ]
+}

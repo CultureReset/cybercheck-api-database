@@ -1,0 +1,45 @@
+{
+  "business_name": "The Beach Bun",
+  "url": "https://thebeachbunoba.com/",
+  "scraped_at": "2026-03-21T15:15:30.030Z",
+  "pages": [
+    {
+      "url": "https://thebeachbunoba.com",
+      "title": "The Beach Bun | Family-Owned Burgers & Dogs in Orange Beach",
+      "text": "0\n \n \n \n \n \n\n \n\n \n \n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n\n \n \n \n \n\n \n \n \n \n \n \n \n\n \n\n \n \n \n Skip to Content\n \n \n\n \n \n \n \n\n \n \n \n\n \n \n\n \n\n \n\n \n\n \n\n \n \n \n \n \n \n \n \n \n \n\n \n\n \n \n \n \n \n \n \n The Beach Bun\n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n Menu\n \n \n \n \n \n\n \n \n \n About\n \n \n \n \n \n\n \n \n \n Contact\n \n \n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n\n \n \n\n \n \n \n \n\n \n \n \n \n\n \n \n \n \n\n \n Open Menu\n Close Menu\n \n \n \n \n \n \n \n \n\n \n \n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n\n \n\n \n \n \n \n \n \n \n The Beach Bun\n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n Menu\n \n \n \n \n \n\n \n \n \n About\n \n \n \n \n \n\n \n \n \n Contact\n \n \n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n\n \n \n\n \n \n \n \n\n \n \n \n \n\n \n \n \n \n\n \n Open Menu\n Close Menu\n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n \n Menu\n \n \n \n \n \n \n \n \n \n \n \n \n \n About\n \n \n \n \n \n \n \n \n \n \n \n \n \n Contact\n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n\n \n \n \n \n\n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n\n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n\n \n \n\n \n \n \n \n\n \n\n \n\n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Location25775 Perdido Beach Blvd Ste A, Orange Beach, AL 36561\n\n \n\n \n HoursSunday — Thursday11:00am — 06:00pmFriday — Saturday 11:00am — 08:00pm\n\n \n\n \n ContactTheBeachBun@LyonsDenHoldingsLLC.com(251) 398-2866",
+      "structuredData": [
+        {
+          "url": "https://www.thebeachbunoba.com",
+          "name": "The Beach Bun",
+          "description": "",
+          "@context": "http://schema.org",
+          "@type": "WebSite"
+        },
+        {
+          "address": "",
+          "openingHours": "",
+          "@context": "http://schema.org",
+          "@type": "LocalBusiness"
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "og:site_name": "The Beach Bun",
+        "og:title": "The Beach Bun | Family-Owned Burgers & Dogs in Orange Beach",
+        "og:url": "https://www.thebeachbunoba.com",
+        "og:type": "website",
+        "og:description": "The Beach Bun brings burgers, dogs, and more to Orange Beach! Family-owned, fun, and full of flavor—come grab your new go-to meal.",
+        "twitter:title": "The Beach Bun | Family-Owned Burgers & Dogs in Orange Beach",
+        "twitter:url": "https://www.thebeachbunoba.com",
+        "twitter:card": "summary",
+        "twitter:description": "The Beach Bun brings burgers, dogs, and more to Orange Beach! Family-owned, fun, and full of flavor—come grab your new go-to meal.",
+        "description": "The Beach Bun brings burgers, dogs, and more to Orange Beach! Family-owned, \nfun, and full of flavor—come grab your new go-to meal."
+      }
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": [
+    "https://images.squarespace-cdn.com/content/v1/68acd15c6edb8d343d937dea/c188edcd-ed5a-4fd8-b215-f43131dbfc8e/beachbun.jpg"
+  ]
+}

@@ -1,0 +1,470 @@
+{
+  "business_name": "The Gulf",
+  "tagline": "Seaside hideaway with fresh seafood and handcrafted cocktails",
+  "type": "Restaurant & Bar",
+  "locations": [
+    {
+      "name": "Orange Beach",
+      "contact": {
+        "phone": "251-424-1800",
+        "email": null,
+        "address": "27500 Perdido Beach Blvd",
+        "city": "Orange Beach",
+        "state": "AL",
+        "zip": "36561"
+      },
+      "hours": null
+    },
+    {
+      "name": "Fort Walton Beach",
+      "contact": {
+        "phone": "850-387-1300",
+        "email": null,
+        "address": "1284 Marler Ave",
+        "city": "Fort Walton Beach",
+        "state": "FL",
+        "zip": "32548"
+      },
+      "hours": null
+    }
+  ],
+  "about": {
+    "description": "The Gulf is a waterfront hideaway with a casual chic atmosphere offering fresh seafood fare and handcrafted cocktails. Located at two beachside locations in Orange Beach and Okaloosa Island (Fort Walton Beach), the restaurant features a design with shipping containers, reclaimed, recycled and salvaged building materials that contrast with the sand, surf and palms.",
+    "elevator_pitch": "A casual-chic waterfront restaurant specializing in fresh Gulf Coast seafood and cocktails with stunning water views.",
+    "vibe": "Enchanting seaside setting with casual elegance, warm and inviting atmosphere, beach-house vibes with open-air seating",
+    "best_for": [
+      "families",
+      "date night",
+      "special events",
+      "weddings",
+      "corporate events",
+      "celebrations",
+      "casual dining"
+    ],
+    "established": null,
+    "reservations": "Available for special events and catering",
+    "insider_tip": "Revolving seasonal menu featuring the freshest local ingredients; ask about the daily fresh catch"
+  },
+  "tags": [
+    "seafood",
+    "casual dining",
+    "waterfront",
+    "Gulf Coast",
+    "full bar",
+    "cocktails",
+    "fresh catch",
+    "sustainable"
+  ],
+  "features": [
+    "outdoor seating",
+    "full bar",
+    "waterfront views",
+    "private event spaces",
+    "seasonal rotating menu",
+    "fresh catch daily",
+    "chef specials",
+    "catering services",
+    "private upper floor seating",
+    "open-air venue"
+  ],
+  "price_range": "$$$",
+  "social_links": {
+    "instagram": "thegulfal",
+    "facebook": null,
+    "website": "https://thegulf.com/"
+  },
+  "specials": [
+    {
+      "name": "Cajun Fish & Grits",
+      "description": "Blackened cod over house cheddar grits with Cajun cream of tasso, celery, onion, and bell peppers",
+      "days": [],
+      "time": null,
+      "type": "seasonal chef special"
+    },
+    {
+      "name": "Beef Tips with Mushroom Orzo",
+      "description": "Pan-seared beef tips and asparagus over orzo with a rich mushroom cream sauce",
+      "days": [],
+      "time": null,
+      "type": "seasonal chef special"
+    },
+    {
+      "name": "Fresh Catch",
+      "description": "Daily fresh catch available - inquire for preparation options",
+      "days": [],
+      "time": null,
+      "type": "daily special"
+    }
+  ],
+  "events": [
+    {
+      "name": "Weddings",
+      "description": "Private events with flexible floor plan and waterfront backdrop",
+      "recurring": false,
+      "day": null,
+      "time": null
+    },
+    {
+      "name": "Corporate Events",
+      "description": "Professional event planning and catering services available",
+      "recurring": false,
+      "day": null,
+      "time": null
+    },
+    {
+      "name": "Private Parties",
+      "description": "Custom events with dedicated event planning and catering staff",
+      "recurring": false,
+      "day": null,
+      "time": null
+    },
+    {
+      "name": "Special Events & Celebrations",
+      "description": "Birthdays, anniversaries, family gatherings, and intimate gatherings to large celebrations",
+      "recurring": false,
+      "day": null,
+      "time": null
+    }
+  ],
+  "menu": {
+    "categories": [
+      {
+        "name": "Sides and Shares",
+        "type": "sides",
+        "items": [
+          {
+            "name": "Smoked Tuna Dip",
+            "description": "Served with Pita Chips",
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Guacamole",
+            "description": "Served with Purple Tortilla Chips",
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Queso",
+            "description": "Served with Purple Tortilla Chips",
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Hand-Cut Fries",
+            "description": "Fresh cut fries",
+            "price": null,
+            "tags": [
+              "vegetarian"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Loaded Fries",
+            "description": "Fresh Cut Fries Topped with Queso, Chopped Bacon and Green Onion",
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Rice and Beans",
+            "description": null,
+            "price": null,
+            "tags": [
+              "vegetarian"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Parmesan Truffle Fries",
+            "description": "White Truffle Oil, Shredded Parmesan, Fresh Parsley and Garlic Aioli",
+            "price": null,
+            "tags": [
+              "vegetarian"
+            ],
+            "allergens": [
+              "dairy"
+            ]
+          },
+          {
+            "name": "Coconut Fried Fish Bites",
+            "description": "Daily Catch hand battered in Coconut Breading. Served with Fresh Romaine Hearts and Sweet Fire Aioli",
+            "price": null,
+            "tags": [
+              "seafood"
+            ],
+            "allergens": [
+              "fish",
+              "coconut"
+            ]
+          },
+          {
+            "name": "Cauliflower Bites",
+            "description": "Fried Cauliflower Florets tossed in a House-Made Sweet Chili Dijon Sauce",
+            "price": null,
+            "tags": [
+              "vegetarian"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Lobster & Shrimp Salad",
+            "description": "Maine Lobster, Gulf Shrimp, Lemon Aioli and Fresh Chives Served with Purple Tortilla Chips",
+            "price": null,
+            "tags": [
+              "seafood"
+            ],
+            "allergens": [
+              "shellfish"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Salads",
+        "type": "lunch",
+        "items": [
+          {
+            "name": "Mixed Green Salad",
+            "description": "Cucumbers, Cherry Tomatoes and Creamy Balsamic Vinaigrette. Add Chicken, Add Shrimp, Add Grouper for an additional charge",
+            "price": null,
+            "tags": [
+              "vegetarian",
+              "customizable"
+            ],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Chef's Specials",
+        "type": "specials",
+        "items": [
+          {
+            "name": "Jerk Surf N' Turf Bowl",
+            "description": "Jerk Marinated Steak & Blackened Shrimp over White Rice with Pickled Carrots, Jalapenos, Pineapple, Black Beans and Cilantro",
+            "price": null,
+            "tags": [
+              "seafood",
+              "meat"
+            ],
+            "allergens": [
+              "shellfish"
+            ]
+          },
+          {
+            "name": "Fried Shrimp Platter",
+            "description": "Breaded Fried Gulf Shrimp Served with Hand-Cut Fries and House-Made Coleslaw",
+            "price": null,
+            "tags": [
+              "seafood"
+            ],
+            "allergens": [
+              "shellfish",
+              "gluten"
+            ]
+          },
+          {
+            "name": "Fresh Catch",
+            "description": "Prepared Fried, Grilled or Blackened. Served as an Entree with Rice & Seasonal Vegetables, on Top of a Mixed Green Salad, or as a Sandwich with Hand-Cut Fries",
+            "price": null,
+            "tags": [
+              "seafood",
+              "customizable"
+            ],
+            "allergens": [
+              "fish"
+            ]
+          },
+          {
+            "name": "Creole Cobia",
+            "description": "Creole Spiced & Perfectly Seared Cobia, Laid Over Golden Saffron Rice & Smothered in Rich Crawfish Creole Sauce. Served with Seasonal Vegetables",
+            "price": null,
+            "tags": [
+              "seafood",
+              "spicy"
+            ],
+            "allergens": [
+              "fish",
+              "shellfish"
+            ]
+          },
+          {
+            "name": "Beef Bulgogi Rice Bowl",
+            "description": "Tender Caramelized Beef Bulgogi Piled Over Fluffy White Rice. Topped with Bright Pickled Carrots, Sauteed Bok Choy, Fresh Green Onions & a Sprinkle of Sesame Seeds",
+            "price": null,
+            "tags": [
+              "meat",
+              "asian-inspired"
+            ],
+            "allergens": [
+              "sesame"
+            ]
+          },
+          {
+            "name": "Lobster & Shrimp Roll",
+            "description": "Premium Maine Lobster & Gulf Shrimp, Tossed in a Lemon Aioli with Fresh Chives & Celery. Served on a Split Top Brioche Roll with a Side of Hand-Cut Fries",
+            "price": null,
+            "tags": [
+              "seafood"
+            ],
+            "allergens": [
+              "shellfish",
+              "gluten",
+              "dairy"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Tacos",
+        "type": "lunch",
+        "items": [
+          {
+            "name": "Shrimp Tacos",
+            "description": "Three Flour Tortilla Tacos OR Served in a Bowl over Brown Rice & Black Beans. Blackened Gulf Shrimp and Sweet-Chili Aioli with Pineapple Slaw, Diced Tomatoes, Cilantro and Lime",
+            "price": null,
+            "tags": [
+              "seafood",
+              "customizable"
+            ],
+            "allergens": [
+              "shellfish",
+              "gluten"
+            ]
+          },
+          {
+            "name": "Mahi-Mahi Tacos",
+            "description": "Three Flour Tortilla Tacos OR Served in a Bowl over Brown Rice & Black Beans. Blackened Mahi with Cajun Aioli, Pineapple Slaw, Diced Tomatoes, Cilantro and Lime",
+            "price": null,
+            "tags": [
+              "seafood",
+              "customizable"
+            ],
+            "allergens": [
+              "fish",
+              "gluten"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "From the Sea",
+        "type": "dinner",
+        "items": [
+          {
+            "name": "Tuna Poke Bowl",
+            "description": "Sushi Grade Tuna, Heirloom Tomatoes, Cucumber, Pineapple, and Seaweed Served over Sushi Rice, Topped with a House Made Spicy Mayo and House Made Ponzu",
+            "price": null,
+            "tags": [
+              "seafood",
+              "raw",
+              "asian-inspired"
+            ],
+            "allergens": [
+              "fish",
+              "soy",
+              "gluten"
+            ]
+          },
+          {
+            "name": "Peel-N-Eat",
+            "description": "Seafood boils with snow crab legs",
+            "price": null,
+            "tags": [
+              "seafood"
+            ],
+            "allergens": [
+              "shellfish"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "dietary_accommodations": [
+    "Gluten-Free Menu available (Okaloosa Island)",
+    "Vegetarian options available",
+    "Customizable dishes"
+  ],
+  "catering": {
+    "available": true,
+    "description": "Full event planning and catering services with custom menus",
+    "menus": [
+      "Fort Walton Beach Catering Menu",
+      "Orange Beach Catering Menu"
+    ]
+  },
+  "website_pages": [
+    "https://thegulf.com/",
+    "https://thegulf.com/locations/orange-beach/",
+    "https://thegulf.com/locations/fort-walton-beach/",
+    "https://thegulf.com/special-events/",
+    "https://thegulf.com/locations/orange-beach/orange-beach-special-events/",
+    "https://thegulf.com/locations/fort-walton-beach/fort-walton-beach-special-events/",
+    "https://thegulf.com/locations/orange-beach/orange-beach-menu/",
+    "https://thegulf.com/locations/fort-walton-beach/fort-walton-beach-menu/",
+    "https://thegulf.com/fort-walton-beach-catering-menu/",
+    "https://thegulf.com/the-gulf-okaloosa-island-gluten-free-menu/",
+    "https://thegulf.com/the-gulf-okaloosa-island-drink-menu/",
+    "https://thegulf.com/the-gulf-okaloosa-island-dinner-menu/",
+    "https://thegulf.com/about/"
+  ],
+  "url": "https://thegulf.com/locations/orange-beach/",
+  "scraped_at": "2026-03-21T20:16:33.073Z",
+  "extracted_at": "2026-03-23T04:14:09.274Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://thegulf.com/wp-content/uploads/2019/09/Gulf-Horiz_All-Navy-e1566244027688.png.webp",
+    "https://thegulf.com/wp-content/uploads/revslider/Orange%20Beach/Location-Gulf-OB-1.jpg.webp",
+    "https://thegulf.com/wp-content/uploads/revslider/Orange%20Beach/Location-Gulf-OB-2.jpg.webp",
+    "https://thegulf.com/wp-content/uploads/2020/07/GAS_160323_0548-1.jpg.webp",
+    "https://thegulf.com/wp-content/uploads/2020/07/160402_GAS_1286-copy-1.jpg.webp",
+    "https://thegulf.com/wp-content/uploads/2020/07/DSC00512.jpg.webp",
+    "https://thegulf.com/wp-content/plugins/instagram-feed-pro/img/placeholder.png",
+    "https://thegulf.com/wp-content/uploads/revslider/orange-beach-special-events/Book-Your-Event-Gulf-OB.jpg.webp",
+    "https://thegulf.com/wp-content/uploads/2019/08/AMM09483-e1569269608856-1024x952.jpg.webp",
+    "https://www.xoedge.com/myaccount/2019/website-share/VendorBadge_AsSeenInMag.png",
+    "https://thegulf.com/wp-content/uploads/revslider/Special%20Events/Book-Your-Event-Main.jpg.webp",
+    "https://thegulf.com/wp-content/uploads/2019/08/AMM05817-1024x683.jpg.webp",
+    "https://thegulf.com/wp-content/uploads/2019/08/AMM09663-1024x683.jpg.webp",
+    "https://thegulf.com/wp-content/uploads/2019/08/DSC09031-1024x683.jpg.webp",
+    "https://thegulf.com/wp-content/uploads/2019/09/25022586_2020766044872582_2672179070745182208_n-1024x1024.jpg.webp",
+    "https://thegulf.com/wp-content/uploads/2019/09/okaloosa-location-1.jpg.webp",
+    "https://thegulf.com/wp-content/uploads/revslider/okaloosa-special-events/Book-Your-Event-Gulf-Oi.jpg.webp",
+    "https://thegulf.com/wp-content/uploads/2025/07/Image-21.png.webp",
+    "https://thegulf.com/wp-content/uploads/2020/05/GULF-Reopen-HomePage-V2.jpg.webp",
+    "https://thegulf.com/wp-content/uploads/revslider/okaloosa-island/Location-Gulf-Oi-1.jpg.webp",
+    "https://thegulf.com/wp-content/uploads/revslider/okaloosa-island/Location-Gulf-Oi-2.jpg.webp",
+    "https://thegulf.com/wp-content/uploads/2020/07/the-gulf-edited-35-compressor-1-scaled.jpg.webp",
+    "https://thegulf.com/wp-content/plugins/revslider/admin/assets/images/dummy.png",
+    "https://thegulf.com/wp-content/uploads/2019/08/Icon-Food.png.webp",
+    "https://thegulf.com/wp-content/uploads/2019/08/Beach-Pics-Gulf-Shrimp-Bowl.jpg.webp",
+    "https://thegulf.com/wp-content/uploads/2023/09/390A4492-copy-scaled.jpg.webp",
+    "https://thegulf.com/wp-content/uploads/2019/08/AMM06058.jpg.webp",
+    "https://thegulf.com/wp-content/uploads/revslider/Special%20Events%20Home/Book-Your-Event-Main.jpg.webp",
+    "https://thegulf.com/wp-content/uploads/2019/08/Icon-Wine-NavyBlue.png.webp",
+    "https://thegulf.com/wp-content/uploads/2023/09/390A4492-copyRESIZED-scaled.jpg.webp",
+    "https://thegulf.com/wp-content/uploads/2023/09/390A4492-copyRESIZED-copy-scaled.jpg.webp",
+    "https://thegulf.com/wp-content/uploads/2019/08/AMM03499.jpg.webp",
+    "https://thegulf.com/wp-content/uploads/2019/08/AMM05741.jpg.webp",
+    "https://thegulf.com/wp-content/uploads/2019/09/okaloosa-location.jpg.webp"
+  ],
+  "sources": [
+    "https://thegulf.com/locations/orange-beach",
+    "https://thegulf.com/locations/orange-beach/orange-beach-special-events",
+    "https://thegulf.com/special-events",
+    "https://thegulf.com/locations/fort-walton-beach/fort-walton-beach-special-events",
+    "https://thegulf.com/locations/fort-walton-beach/fort-walton-beach-menu",
+    "https://thegulf.com/fort-walton-beach-catering-menu",
+    "https://thegulf.com/the-gulf-okaloosa-island-gluten-free-menu",
+    "https://thegulf.com/the-gulf-okaloosa-island-drink-menu",
+    "https://thegulf.com/the-gulf-okaloosa-island-dinner-menu",
+    "https://thegulf.com/locations/orange-beach/orange-beach-menu",
+    "https://thegulf.com/locations/fort-walton-beach",
+    "https://thegulf.com/about"
+  ]
+}

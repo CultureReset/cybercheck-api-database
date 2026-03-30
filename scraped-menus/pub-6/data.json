@@ -1,0 +1,70 @@
+{
+  "business_name": "Pub 6 Gulf Shores",
+  "tagline": "Good Times, Great Drinks",
+  "type": "Bar",
+  "contact": {
+    "phone": "(251) 213-2600",
+    "email": null,
+    "address": null,
+    "city": "Gulf Shores",
+    "state": "AL",
+    "zip": null
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": null
+  },
+  "about": {
+    "description": "Pub 6 Gulf Shores is a bar located on 6th Street in Gulf Shores, Alabama, known for good times and great drinks.",
+    "elevator_pitch": "Pub 6 Gulf Shores is a casual drinking establishment offering good times and great drinks on 6th Street in Gulf Shores.",
+    "vibe": "Casual pub atmosphere",
+    "best_for": [
+      "social gathering",
+      "drinks"
+    ],
+    "established": null,
+    "reservations": null,
+    "insider_tip": null
+  },
+  "tags": [
+    "bar",
+    "casual",
+    "drinks"
+  ],
+  "features": [
+    "full bar"
+  ],
+  "price_range": "$$",
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://pub6gulfshores.com"
+  },
+  "specials": [],
+  "events": [],
+  "menu": {
+    "categories": [
+      {
+        "name": "Menu",
+        "type": "drinks",
+        "items": []
+      }
+    ]
+  },
+  "url": "https://pub6gulfshores.com/",
+  "scraped_at": "2026-03-22T18:32:01.619Z",
+  "extracted_at": "2026-03-23T04:04:28.861Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://img1.wsimg.com/isteam/ip/85ac9c4a-637f-4e6a-a256-e4ce880001c8/PUB%206%20LOGO%20JPEG.jpg/:/"
+  ],
+  "sources": [
+    "https://pub6gulfshores.com"
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "business_name": "royal-eats.com",
+  "url": "http://www.royal-eats.com",
+  "scraped_at": "2026-03-22T18:32:28.350Z",
+  "scraper": "chrome-visible",
+  "pages": [
+    {
+      "url": "http://www.royal-eats.com",
+      "title": "ROYAL EATS",
+      "text": "Manage your consent preferences\n\nWhen you visit this site, we may store or access information on your browser, mostly through cookies. These help the site function as intended, remember your preferences, and provide a more personalized experience. The information typically does not directly identify you, but it can improve how the site works for you. You can choose which types of cookies to allow. However, blocking certain cookies may affect how the site functions or limit the services we can provide.\n\nEssential\nOn\nEssential cookies and services enable core website features and provide a seamless user experience. Essential cookies and services are used to facilitate features such as navigation, remember user preferences, and ensure the security of the website.\nVendors\nMarketing\nOn\nMarketing cookies and services support delivering personalized advertisements, promotions, and offers that are relevant to you. They help optimize ad delivery, measure campaign effectiveness, and enable advertisers to reach specific target audiences.\nVendors\nAnalytics\nOn\nAnalytics cookies and services are for collecting aggregated data and statistical information. This data helps us analyze and optimize site performance, identify popular content, detect navigation issues, and make informed decisions to enhance the user experience.\nVendors\nFunctional\nOn\nFunctional cookies and services remember your preferences and choices, such as language preferences, font sizes, region selections, and customized layouts. They enable this website to offer enhanced and personalized functionalities.\nSave\nOpt out of all\nOpt in to all\nPrivacy Policy\nPowered by\nSkip to Main content\nAbout Us\nGallery\nContact\nLoyalty\nGift Cards\nEmail Marketing\n0\nOrder Now\nSign in\nWelcome to Royal Eats\n\nStep right up to a magical fusion of Southern comfort and carnival flair! Experience our unique twist on classic Southern dishes in a vibrant, festive way.\n\nOrder Now\nSouthern Comfort Meets Fun\n\nIndulge in our signature dishes that combine traditional Southern recipes with playful carnival twists.\n\nView Gallery\nOur Story\n\nLearn about the passion and creativity behind Royal Eats' unique dining experience.\n\nAbout Us\nOrder Online\n\nEnjoy our carnival-inspired Southern dishes from the comfort of your home.\n\nOrder Now\nGet in Touch\n\nQuestions? Special requests? We'd love to hear from you!\n\nContact Us\nView Our Menu\nOrder Now\nPhoto Gallery\nSee Photos\nContact Info\nGet in Touch\nROYAL EATS LLC Location and Hours\n0000000000\n1004 Mckenzie Street, Foley, AL 36535\nOpen now • Closes at 8PM\nAll hours\nView menu\nOrder online\nTerms of Service\n|\nPrivacy Statement\n|\nCookie Settings",
+      "structuredData": [],
+      "meta": {
+        "description": "FOOD FUSION FLAVOR"
+      },
+      "links": [
+        "https://pos.toasttab.com/privacy",
+        "https://ethyca.com/",
+        "https://royal-eats.com/#main",
+        "https://royal-eats.com/",
+        "https://royal-eats.com/about",
+        "https://royal-eats.com/gallery",
+        "https://royal-eats.com/contact",
+        "https://royal-eats.com/loyalty",
+        "https://royal-eats.com/gift-cards",
+        "https://royal-eats.com/email-marketing",
+        "https://royal-eats.com/about",
+        "https://royal-eats.com/gallery",
+        "https://royal-eats.com/contact",
+        "https://royal-eats.com/loyalty",
+        "https://royal-eats.com/gift-cards",
+        "https://royal-eats.com/email-marketing",
+        "https://royal-eats.com/order",
+        "https://royal-eats.com/order",
+        "https://royal-eats.com/gallery",
+        "https://royal-eats.com/about",
+        "https://royal-eats.com/order",
+        "https://royal-eats.com/contact",
+        "https://royal-eats.com/order",
+        "https://royal-eats.com/gallery",
+        "https://royal-eats.com/contact",
+        "https://google.com/maps/place?q=ROYAL+EATS+LLC%2C+1004+Mckenzie+Street%2C+Foley%2C+AL+36535",
+        "https://royal-eats.com/menu/royal-eats-llc-3865-chesterfield-ln",
+        "https://royal-eats.com/order/royal-eats-llc-3865-chesterfield-ln",
+        "https://toasttab.com/local",
+        "https://pos.toasttab.com/terms-of-service/#diner-tos",
+        "https://pos.toasttab.com/privacy",
+        "https://royal-eats.com/#"
+      ]
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": [
+    "https://d28f3w0x9i80nq.cloudfront.net/restaurantImages/6a44c3c6-2258-4e1d-9028-04680db5112a/thumbnail_royaleats.jpg",
+    "https://d1w7312wesee68.cloudfront.net/a2yIeuNsBRaebQq7WmJbXTC8W2jer1VQ0Zv_CHfejGc/ext:webp/quality:85/plain/s3://toast-sites-resources-prod/restaurantImages/6a44c3c6-2258-4e1d-9028-04680db5112a/thumbnail_royaleats.jpg",
+    "https://d1w7312wesee68.cloudfront.net/loN8qaguNyAWbu68PuybuNbeLkFNeDN4k_UNpeCMWqs/ext:webp/quality:85/plain/s3://toast-sites-resources-prod/stockImages/silverware-holder.jpeg",
+    "https://d1w7312wesee68.cloudfront.net/HP9BbddXZ6RcYwPjY28ULm-tFD2fSJAQE39IDyaRiZE/ext:webp/quality:85/c:4032:3024:ce:0:0/plain/s3://toast-sites-resources-prod/restaurantImages/6a44c3c6-2258-4e1d-9028-04680db5112a/BURGER.jpeg"
+  ]
+}

@@ -1,0 +1,265 @@
+{
+  "business_name": "Wacked Out Weiner Gulf Shores",
+  "tagline": "The locAL hot dog joint of PARADISE",
+  "type": "Restaurant",
+  "contact": {
+    "phone": "(251) 948-0988",
+    "email": null,
+    "address": "3800 Gulf Shores Parkway, Suite 340",
+    "city": "Gulf Shores",
+    "state": "Alabama",
+    "zip": "36542"
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": "Open today 11:00 am – 07:00 pm. Hours vary by location."
+  },
+  "about": {
+    "description": "Wacked Out Weiner Gulf Shores opened on March 1, 2018. Owned and operated by Jimmy Williams, originally from East Alabama who made Gulf Shores his home in 2017. The restaurant provides an affordable, fun, and casual dining experience focused on customizable hot dogs and sausages. The business has won several awards including 'Best Hot Dog Joint in Alabama' and prides itself on relationships with customers, community, and local school system.",
+    "elevator_pitch": "An affordable, fun, and casual hot dog joint on the Gulf Coast with unlimited toppings and a strong community focus.",
+    "vibe": "Casual, fun, family-friendly local favorite with a strong emphasis on community relationships",
+    "best_for": [
+      "families",
+      "casual dining",
+      "lunch",
+      "local crowd"
+    ],
+    "established": "2018",
+    "reservations": null,
+    "insider_tip": "Try the Wackinator Weiner Hot Dog Challenge if you're feeling adventurous"
+  },
+  "tags": [
+    "hot dogs",
+    "sausages",
+    "casual",
+    "customizable",
+    "affordable",
+    "local",
+    "family-friendly"
+  ],
+  "features": [
+    "Unlimited toppings",
+    "DoorDash ordering",
+    "Merchandise available",
+    "Community focused"
+  ],
+  "price_range": "$",
+  "social_links": {
+    "instagram": null,
+    "facebook": "https://www.facebook.com/wackedoutweiner",
+    "website": "https://wackedoutweiner.com/gulf-shores-alabama"
+  },
+  "specials": [
+    {
+      "name": "Wackinator Weiner Hot Dog Challenge",
+      "description": "A hot dog challenge for those who dare to take it on",
+      "days": [],
+      "time": null
+    }
+  ],
+  "events": [],
+  "menu": {
+    "categories": [
+      {
+        "name": "Combos",
+        "type": "lunch",
+        "items": [
+          {
+            "name": "Single Dog Combo",
+            "description": "One Single Nathan's All Beef Hotdog, Steamed Bun, Unlimited Toppings, Your Choice of Chips and Drink. Additional Hot Dog $3. Upgrade to Side Instead of Chips $2.",
+            "price": null,
+            "tags": [
+              "hot dog"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Single Sausage Dog Combo",
+            "description": "One Smoked Sausage, Steamed Bun, Unlimited Toppings, Your Choice of Chip and Drink. Additional Sausage $4. Upgrade to Side Instead of Chips $2.",
+            "price": null,
+            "tags": [
+              "sausage"
+            ],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Side Items",
+        "type": "lunch",
+        "items": [
+          {
+            "name": "Loaded Nachos",
+            "description": "Unlimited Toppings",
+            "price": null,
+            "tags": [
+              "sides"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Frito Pie",
+            "description": "One bag of Frito Corn Chips, Homemade Chili, Shredded Cheese, Chopped Onions, and Sour Cream. Served in a Frito Bag.",
+            "price": null,
+            "tags": [
+              "sides",
+              "chili"
+            ],
+            "allergens": [
+              "dairy",
+              "corn"
+            ]
+          },
+          {
+            "name": "Small Side",
+            "description": "Baked beans, Housemade Chili, Mac N Cheese, Baked Potato Salad, and Jambalaya. Limited Availability.",
+            "price": null,
+            "tags": [
+              "sides"
+            ],
+            "allergens": [
+              "dairy"
+            ]
+          },
+          {
+            "name": "Large Side",
+            "description": "Baked beans, Housemade Chili, Mac N Cheese, Baked Potato Salad, and Jambalaya. Limited Availability.",
+            "price": null,
+            "tags": [
+              "sides"
+            ],
+            "allergens": [
+              "dairy"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "A La Carte",
+        "type": "lunch",
+        "items": [
+          {
+            "name": "Single Hot Dog",
+            "description": "Single Hot Dog with Unlimited Toppings",
+            "price": null,
+            "tags": [
+              "hot dog"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Single Sausage Dog",
+            "description": "One Smoked Sausage with Unlimited Toppings",
+            "price": null,
+            "tags": [
+              "sausage"
+            ],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Toppings",
+        "type": "lunch",
+        "items": [
+          {
+            "name": "Topping Choices",
+            "description": "Homemade Chili, Shredded Cheese, Chopped Onions, Mild Chow Chow, Hot Chow Chow, Coleslaw, Jalapeño, Banana Peppers, Diced Tomatoes, Bacon, Sweet Relish, Dill Relish, Jalapeño Relish, Dill Pickles, Sauerkraut, Melted Cheese, Mac-N-Cheese, Bacon, BBQ Baked Beans, Yellow Mustard, Spicy Mustard, Ketchup, Mayo, Thousand Island, Tabasco, BBQ Sauce, Hot Sauce, Sports Peppers, Celery Salt, Weiner Dust, Fried Onions, Sour Cream, and Several Other Hot Sauce Flavors",
+            "price": null,
+            "tags": [
+              "unlimited",
+              "customizable"
+            ],
+            "allergens": [
+              "dairy",
+              "mustard",
+              "sesame"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Drinks",
+        "type": "drinks",
+        "items": [
+          {
+            "name": "Drinks",
+            "description": null,
+            "price": null,
+            "tags": [
+              "beverages"
+            ],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Beer",
+        "type": "drinks",
+        "items": [
+          {
+            "name": "Beer",
+            "description": null,
+            "price": null,
+            "tags": [
+              "alcoholic"
+            ],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Merchandise",
+        "type": "specials",
+        "items": [
+          {
+            "name": "T-Shirts Red, Black, and Blue",
+            "description": "All sizes from Small to 3XL",
+            "price": null,
+            "tags": [
+              "merchandise"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Tie-Dye Shirts",
+            "description": "All sizes from Small to 3XL",
+            "price": null,
+            "tags": [
+              "merchandise"
+            ],
+            "allergens": []
+          }
+        ]
+      }
+    ]
+  },
+  "url": "https://wackedoutweiner.com/gulf-shores-alabama",
+  "scraped_at": "2026-03-21T14:03:25.344Z",
+  "extracted_at": "2026-03-23T04:17:52.509Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://img1.wsimg.com/isteam/ip/faf262e1-4d9d-41df-984f-87fcf60d99de/blob-36769d9.png/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=w:600,h:600,cg:true",
+    "https://maps.gstatic.com/mapfiles/transparent.png",
+    "https://img1.wsimg.com/isteam/ip/faf262e1-4d9d-41df-984f-87fcf60d99de/IMG_0510.jpeg/:/",
+    "https://img1.wsimg.com/isteam/ip/faf262e1-4d9d-41df-984f-87fcf60d99de/IMG_0507.png/:/",
+    "https://img1.wsimg.com/isteam/ip/faf262e1-4d9d-41df-984f-87fcf60d99de/IMG_0495.jpeg/:/",
+    "https://img1.wsimg.com/isteam/ip/faf262e1-4d9d-41df-984f-87fcf60d99de/IMG_0504.jpeg/:/",
+    "https://img1.wsimg.com/isteam/ip/faf262e1-4d9d-41df-984f-87fcf60d99de/IMG_0500.jpeg/:/",
+    "https://img1.wsimg.com/isteam/ip/faf262e1-4d9d-41df-984f-87fcf60d99de/227319777_1415026815535225_3780557806624567695.jpg/:/cr=t:0%25,l:0%25,w:100%25,h:100%25",
+    "https://img1.wsimg.com/isteam/ip/faf262e1-4d9d-41df-984f-87fcf60d99de/FB_IMG_1683848480887.JPG/:/cr=t:0%25,l:0%25,w:100%25,h:100%25"
+  ],
+  "sources": [
+    "https://wackedoutweiner.com/gulf-shores-alabama",
+    "https://wackedoutweiner.com/all-locations",
+    "https://wackedoutweiner.com/new-location-coming-soon-1",
+    "https://wackedoutweiner.com/contact-us",
+    "https://wackedoutweiner.com/franchise"
+  ]
+}

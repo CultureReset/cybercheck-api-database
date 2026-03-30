@@ -1,0 +1,21 @@
+{
+  "business_name": "wolfbay.com",
+  "url": "https://www.wolfbay.com",
+  "scraped_at": "2026-03-22T18:52:00.180Z",
+  "scraper": "chrome-visible",
+  "pages": [
+    {
+      "url": "https://www.wolfbay.com",
+      "title": "",
+      "text": "",
+      "structuredData": [],
+      "meta": {
+        "description": ""
+      },
+      "links": []
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": []
+}

@@ -1,0 +1,164 @@
+{
+  "business_name": "Del's Ice Cream",
+  "tagline": "Fresh n' Tasty!",
+  "type": "Ice Cream Shop",
+  "contact": [
+    {
+      "phone": "251-273-6553",
+      "email": null,
+      "address": "25405 Perdido Beach Blvd, Suite 1",
+      "city": "Orange Beach",
+      "state": "AL",
+      "zip": null
+    },
+    {
+      "phone": "251-317-4042",
+      "email": null,
+      "address": "400 Gulf Shores Pkwy",
+      "city": "Gulf Shores",
+      "state": "AL",
+      "zip": null
+    },
+    {
+      "phone": "883-983-2680",
+      "email": null,
+      "address": "610 W Beach Blvd",
+      "city": "Gulf Shores",
+      "state": "AL",
+      "zip": null
+    }
+  ],
+  "hours": {
+    "monday": "11 AM - 10:30 PM",
+    "tuesday": "11 AM - 10:30 PM",
+    "wednesday": "11 AM - 10:30 PM",
+    "thursday": "11 AM - 10:30 PM",
+    "friday": "11 AM - 10:30 PM",
+    "saturday": "11 AM - 10:30 PM",
+    "sunday": "11 AM - 10:30 PM",
+    "notes": "Hours vary by location: Orange Beach 11 AM-10:30 PM, Gulf Shores Pkwy 11 AM-10:30 PM, W Beach Blvd 11 AM-10 PM"
+  },
+  "about": {
+    "description": "Del's Homemade Ice Cream serves Cammies Old Dutch, award winning ice cream. They offer 36 delicious, unique, homemade ice cream flavors in store and rotate through 80 different flavors daily. Del's offers Sundaes, Banana splits, milkshakes, and floats, as well as signature options. They also offer dairy free and sugar free options.",
+    "elevator_pitch": "Award-winning homemade ice cream shop with 80 rotating flavors, sundaes, shakes, and dairy-free options.",
+    "vibe": "Family-friendly ice cream destination on the beach",
+    "best_for": [
+      "families",
+      "tourists",
+      "ice cream lovers"
+    ],
+    "established": null,
+    "reservations": null,
+    "insider_tip": "Must see and must eat in Orange Beach and Gulf Shores, Alabama"
+  },
+  "tags": [
+    "ice cream",
+    "homemade",
+    "desserts",
+    "casual",
+    "dairy-free",
+    "sugar-free"
+  ],
+  "features": [
+    "dairy free options",
+    "sugar free options"
+  ],
+  "price_range": "$$",
+  "social_links": {
+    "instagram": "#DELSICECREAMOB",
+    "facebook": null,
+    "website": "https://www.delsicecream.com"
+  },
+  "specials": [],
+  "events": [],
+  "menu": {
+    "categories": [
+      {
+        "name": "Ice Cream",
+        "type": "desserts",
+        "items": [
+          {
+            "name": "Homemade Ice Cream Flavors",
+            "description": "36 unique flavors in store, 80 rotating flavors daily",
+            "price": null,
+            "tags": [
+              "homemade"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Sundaes",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Banana Splits",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Milkshakes",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Floats",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Dietary Options",
+        "type": "dietary",
+        "items": [
+          {
+            "name": "Dairy Free Ice Cream",
+            "description": null,
+            "price": null,
+            "tags": [
+              "dairy-free"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Sugar Free Ice Cream",
+            "description": null,
+            "price": null,
+            "tags": [
+              "sugar-free"
+            ],
+            "allergens": []
+          }
+        ]
+      }
+    ]
+  },
+  "url": "https://www.delsicecream.com/",
+  "scraped_at": "2026-03-22T02:45:37.834Z",
+  "extracted_at": "2026-03-23T03:37:46.894Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://static.wixstatic.com/media/f388f4_ff246a11761545f2b04d3d2b671a11ca~mv2.png/v1/crop/x_683,y_155,w_1638,h_2689/fill/w_470,h_770,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/DELSICECREAM_LOGO-01.png",
+    "https://static.wixstatic.com/media/f388f4_11bbdb3d43c7403a84a3445c7a369241~mv2.png/v1/fill/w_1192,h_265,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/DEL'SWEB_SMALLHEADER-01_edited.png",
+    "https://static.wixstatic.com/media/f388f4_235a49e6eab74cfcb912ebdb629006fd~mv2.jpeg/v1/fill/w_1440,h_1162,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f388f4_235a49e6eab74cfcb912ebdb629006fd~mv2.jpeg",
+    "https://static.wixstatic.com/media/f388f4_40a60ba74515467dbf805a3359d99a46~mv2.png/v1/fill/w_496,h_105,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/ourflavors-01.png",
+    "https://static.wixstatic.com/media/f388f4_ebe77d0aa9ee49ad92c280e229588c3b~mv2.png/v1/fill/w_1045,h_536,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/ourflavors-01.png",
+    "https://static.wixstatic.com/media/baac51_809fe275413a451fbe5e2904700e26ea.png/v1/fill/w_49,h_28,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/baac51_809fe275413a451fbe5e2904700e26ea.png",
+    "https://static.wixstatic.com/media/f388f4_53c7cec4e40b414a9db4914099011d20~mv2.png/v1/fill/w_858,h_484,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/sugarfree-01-01.png",
+    "https://static.wixstatic.com/media/baac51_863daade1baf47a8995907cb1f24d57c.png/v1/fill/w_47,h_27,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/baac51_863daade1baf47a8995907cb1f24d57c.png",
+    "https://static.wixstatic.com/media/baac51_ec98ba3fb62b4140be49e8c2fde05a73.png/v1/fill/w_49,h_21,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/baac51_ec98ba3fb62b4140be49e8c2fde05a73.png"
+  ],
+  "sources": [
+    "https://www.delsicecream.com",
+    "https://www.delsicecream.com/about"
+  ]
+}

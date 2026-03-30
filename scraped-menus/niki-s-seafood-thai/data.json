@@ -1,0 +1,76 @@
+{
+  "business_name": "Niki's Seafood & Thai",
+  "tagline": null,
+  "type": "Restaurant",
+  "contact": {
+    "phone": "(251) 981-1833",
+    "email": "nikis.seafoodthai@gmail.com",
+    "address": "22641 Canal Rd.",
+    "city": "Orange Beach",
+    "state": "AL",
+    "zip": "36561"
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": null
+  },
+  "about": {
+    "description": null,
+    "elevator_pitch": null,
+    "vibe": null,
+    "best_for": [],
+    "established": null,
+    "reservations": null,
+    "insider_tip": null
+  },
+  "tags": [
+    "seafood",
+    "thai"
+  ],
+  "features": [],
+  "price_range": null,
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "http://www.nikisseafoodthai.com"
+  },
+  "specials": [],
+  "events": [],
+  "menu": {
+    "categories": []
+  },
+  "url": "http://www.nikisseafoodthai.com/",
+  "scraped_at": "2026-03-22T16:43:11.930Z",
+  "extracted_at": "2026-03-23T03:53:53.972Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "http://nikisseafoodthai.com/wp-content/uploads/2017/03/nikis-dark.png",
+    "http://nikisseafoodthai.com/wp-content/uploads/2017/03/nikis-sticky.png",
+    "http://nikisseafoodthai.com/wp-content/uploads/2017/06/gallery02.jpg",
+    "http://nikisseafoodthai.com/wp-content/uploads/2017/06/gallery04.jpg",
+    "http://nikisseafoodthai.com/wp-content/uploads/2017/03/gallery-06.jpg",
+    "http://nikisseafoodthai.com/wp-content/uploads/2017/03/gallery-05.jpg",
+    "http://nikisseafoodthai.com/wp-content/uploads/2017/06/gallery06.jpg",
+    "http://nikisseafoodthai.com/wp-content/uploads/2017/03/gallery-13.jpg",
+    "http://nikisseafoodthai.com/wp-content/uploads/2017/03/gallery-14.jpg",
+    "http://nikisseafoodthai.com/wp-content/uploads/2017/03/gallery-12.jpg",
+    "http://nikisseafoodthai.com/wp-content/uploads/2017/03/gallery-02.jpg",
+    "http://nikisseafoodthai.com/wp-content/uploads/2017/03/gallery-19.jpg",
+    "http://nikisseafoodthai.com/wp-content/uploads/2017/03/gallery-16.jpg",
+    "http://nikisseafoodthai.com/wp-content/uploads/2017/06/S__12640269-1.jpg",
+    "http://nikisseafoodthai.com/wp-content/uploads/2017/06/gallery01.jpg",
+    "http://nikisseafoodthai.com/wp-content/uploads/2017/06/gallery05.jpg",
+    "http://nikisseafoodthai.com/wp-content/uploads/2017/06/image0.jpeg",
+    "http://nikisseafoodthai.com/wp-content/uploads/2017/06/image1.jpeg",
+    "http://nikisseafoodthai.com/wp-content/uploads/2017/03/gallery-11.jpg"
+  ],
+  "sources": [
+    "http://www.nikisseafoodthai.com"
+  ]
+}

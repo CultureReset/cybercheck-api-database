@@ -1,0 +1,56 @@
+{
+  "business_name": "Treehouse",
+  "tagline": null,
+  "type": "Restaurant",
+  "contact": {
+    "phone": "(251) 220-5263",
+    "email": null,
+    "address": "1538 Gulf Shores Parkway Unit 5, The Square Shopping Center",
+    "city": "Gulf Shores",
+    "state": "Alabama",
+    "zip": "36542"
+  },
+  "hours": {
+    "monday": "7:00am to 7:00pm",
+    "tuesday": "7:00am to 7:00pm",
+    "wednesday": "7:00am to 7:00pm",
+    "thursday": "7:00am to 7:00pm",
+    "friday": "7:00am to 7:00pm",
+    "saturday": "7:00am to 7:00pm",
+    "sunday": null,
+    "notes": "Closed Sunday"
+  },
+  "about": {
+    "description": null,
+    "elevator_pitch": null,
+    "vibe": null,
+    "best_for": [],
+    "established": null,
+    "reservations": null,
+    "insider_tip": null
+  },
+  "tags": [],
+  "features": [],
+  "price_range": null,
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "http://www.treehouse.gs"
+  },
+  "specials": [],
+  "events": [],
+  "menu": {
+    "categories": []
+  },
+  "url": "http://www.treehouse.gs",
+  "scraped_at": "2026-03-22T18:51:51.725Z",
+  "extracted_at": "2026-03-23T04:15:58.638Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://treehouse.gs/cdn/shop/files/Treehouse_Menus_1-4-26-5.jpg?v=1768398836&width=3840",
+    "https://treehouse.gs/cdn/shop/files/LunchDinner-1-14-26.jpg?v=1768399475&width=3840"
+  ],
+  "sources": [
+    "http://www.treehouse.gs"
+  ]
+}

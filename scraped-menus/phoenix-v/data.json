@@ -1,0 +1,264 @@
+{
+  "business_name": "Brett/Robinson Vacation Rentals - Phoenix V",
+  "tagline": "Family-friendly beachfront condo in Orange Beach with resort-style amenities",
+  "type": "Vacation Rental - Beachfront Condo",
+  "contact": {
+    "phone": "+1-800-211-7892",
+    "email": null,
+    "address": "24400 Perdido Beach Blvd",
+    "city": "Orange Beach",
+    "state": "AL",
+    "zip": "36561"
+  },
+  "location": {
+    "beachfront": true,
+    "bay_view": false,
+    "description": "Direct beachfront on the Gulf of Mexico in Orange Beach, Alabama, approximately 5 miles east of Highway 59"
+  },
+  "about": {
+    "description": "Phoenix V is a family-friendly beachfront condo complex in Orange Beach offering 1-, 2-, and 3-bedroom vacation rentals with direct beach access and Gulf-front views. Located close to dining, shopping, and attractions in both Orange Beach and Gulf Shores, Phoenix V is designed for families and groups looking for space, convenience, and resort-style amenities. All units feature Gulf views from expansive private balconies, floor-to-ceiling windows, and open living areas.",
+    "elevator_pitch": "Beachfront family-friendly condo resort in Orange Beach with 1-3 bedroom units, direct beach access, multiple pools, splash pad, and resort amenities.",
+    "total_units": null,
+    "floors": null,
+    "year_built": null,
+    "pet_friendly": false,
+    "minimum_stay": null,
+    "check_in": "Varies by season",
+    "check_out": "Varies by season",
+    "age_restriction": null
+  },
+  "amenities": {
+    "pools": [
+      "outdoor gulf-front pool",
+      "indoor pool"
+    ],
+    "hot_tubs": true,
+    "fitness_center": true,
+    "tennis_courts": true,
+    "pickleball_courts": false,
+    "private_beach_access": true,
+    "parking": "on-site covered parking (fee required, collected by HOA)",
+    "elevators": true,
+    "gated": false,
+    "bbq_grills": true,
+    "business_center": false,
+    "spa": false,
+    "restaurant_on_site": false,
+    "bar_on_site": false,
+    "kids_splash_pad": true,
+    "other": [
+      "pirate-themed splash pad",
+      "sauna",
+      "racquetball court",
+      "basketball",
+      "shuffleboard",
+      "beach chair rentals"
+    ]
+  },
+  "unit_types": [
+    {
+      "name": "1 Bedroom Gulf Front",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "sleeps": 4,
+      "view": "gulf front",
+      "sq_ft": null,
+      "starting_price": "$121.00/night",
+      "features": [
+        "full kitchen",
+        "washer/dryer",
+        "private balcony",
+        "floor-to-ceiling windows",
+        "gulf views",
+        "air conditioning",
+        "dishwasher",
+        "ice maker",
+        "microwave",
+        "refrigerator",
+        "oven",
+        "coffee maker",
+        "free Wi-Fi",
+        "cable/satellite TV"
+      ]
+    },
+    {
+      "name": "2 Bedroom Gulf Front",
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "sleeps": 8,
+      "view": "gulf front",
+      "sq_ft": null,
+      "starting_price": "$150.00/night",
+      "features": [
+        "full kitchen",
+        "washer/dryer",
+        "private balcony",
+        "floor-to-ceiling windows",
+        "gulf views",
+        "air conditioning",
+        "dishwasher",
+        "ice maker",
+        "microwave",
+        "refrigerator",
+        "oven",
+        "coffee maker",
+        "free Wi-Fi",
+        "cable/satellite TV"
+      ]
+    },
+    {
+      "name": "3 Bedroom Gulf Front",
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "sleeps": 10,
+      "view": "gulf front",
+      "sq_ft": null,
+      "starting_price": "$195.00/night",
+      "features": [
+        "full kitchen",
+        "washer/dryer",
+        "private balcony",
+        "floor-to-ceiling windows",
+        "gulf views",
+        "air conditioning",
+        "dishwasher",
+        "ice maker",
+        "microwave",
+        "refrigerator",
+        "oven",
+        "coffee maker",
+        "free Wi-Fi",
+        "cable/satellite TV",
+        "corner unit available",
+        "high demand unit available"
+      ]
+    }
+  ],
+  "tags": [
+    "beachfront",
+    "family-friendly",
+    "gulf front",
+    "direct beach access",
+    "resort amenities",
+    "pools",
+    "splash pad",
+    "vacation rental",
+    "orange beach",
+    "alabama gulf coast"
+  ],
+  "features": [
+    "Direct beach access",
+    "All units have Gulf views",
+    "Full kitchens with washer/dryer",
+    "Free Wi-Fi",
+    "On-site management and customer service",
+    "Beach chair rentals available",
+    "Private balconies",
+    "Floor-to-ceiling windows",
+    "Fully furnished",
+    "Elevators",
+    "Accessibility features available",
+    "Smoke detectors",
+    "Carbon monoxide detectors",
+    "Non-smoking units"
+  ],
+  "social_links": {
+    "instagram": "https://www.instagram.com/brett_robinson_vacations",
+    "facebook": "https://www.facebook.com/BrettRobinsonVacations",
+    "website": "https://www.brett-robinson.com/beach-condo/phoenix-v/"
+  },
+  "dining": [
+    {
+      "name": "Ruby Slipper Cafe",
+      "type": "Restaurant",
+      "description": "Nearby dining option, walking distance from Phoenix V"
+    },
+    {
+      "name": "Doc's Seafood and Steaks",
+      "type": "Restaurant",
+      "description": "Nearby dining option, walking distance from Phoenix V"
+    },
+    {
+      "name": "Wolf Bay Restaurant",
+      "type": "Restaurant",
+      "description": "Nearby dining option, walking distance from Phoenix V"
+    },
+    {
+      "name": "Bubba's Seafood House",
+      "type": "Restaurant",
+      "description": "Nearby dining option, walking distance from Phoenix V"
+    },
+    {
+      "name": "The Wharf",
+      "type": "Dining & Entertainment Complex",
+      "description": "Short drive away with shopping, dining, and entertainment options"
+    }
+  ],
+  "specials": [
+    {
+      "name": "Hot Deals",
+      "description": "Current promotional rates on select units",
+      "dates": "Ongoing - varies by unit and date"
+    },
+    {
+      "name": "Seasonal Discounts",
+      "description": "Promotions available during specific seasons",
+      "dates": "Varies by season"
+    },
+    {
+      "name": "Last-Minute Deals",
+      "description": "Discounted rates on last-minute bookings",
+      "dates": "Ongoing for select dates"
+    },
+    {
+      "name": "Early Booking Discounts",
+      "description": "Best rates available for early bookings",
+      "dates": "Lock in rates when booking in advance"
+    }
+  ],
+  "url": "https://www.brett-robinson.com/beach-condo/phoenix-v/",
+  "scraped_at": "2026-03-21T20:49:53.422Z",
+  "extracted_at": "2026-03-23T04:00:30.062Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://www.brett-robinson.com/assets/images/BRV-25-95-Vacations-Logo-GS-OB-PK-Horizontal-V2.png",
+    "https://www.brett-robinson.com/uploads/BRV-26-25--Easter-30-Days-WebpageGraphic_184150.jpg",
+    "https://www.brett-robinson.com/uploads/BRV-26-27--Mothers-Day-60-Days-WebpageGraphic_185358.jpg",
+    "https://www.brett-robinson.com/uploads/BRV-26-11-Memorial-Day-Stays-V1-WebpageGraphic_150618.jpg",
+    "https://www.brett-robinson.com/uploads/BRV-26-14-4-Bedroom-WebpageGraphic-V4_105813.jpg",
+    "https://www.brett-robinson.com/uploads/lFullSizeRender_110222.jpg",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024446PM_144957.png",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024255PM_144955.png",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024250PM_144952.png",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024550PM_145000.png",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024658PM_145003.png",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024800PM_145005.png",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024929PM_150512.png",
+    "https://www.brett-robinson.com/uploads/45dcbabd-14da-4c03-86b9-e33b1bec1699_152424.png",
+    "https://www.brett-robinson.com/uploads/f7c22236-e96b-4131-a6ef-3b8c161f6d60_152431.png",
+    "https://www.brett-robinson.com/uploads/114f4761-0d52-45a5-adf7-626f0144ccf1_152427.png",
+    "https://www.brett-robinson.com/uploads/7ea53f3d-a24b-4d65-96fa-e5f6adaf272d_152421.png",
+    "https://www.brett-robinson.com/uploads/b96b1f24-e333-42bc-9e47-d77fd57855e4_152429.png",
+    "https://www.brett-robinson.com/uploads/732961ba-7d13-4aa9-9294-690e2e1f3420_153528.png",
+    "https://www.brett-robinson.com/uploads/31e08f79-9b97-4008-a4c9-aac831c9b812_153520.png",
+    "https://www.brett-robinson.com/uploads/bad38faf-f976-4ddb-bf87-78b7a03d52df_153530.png",
+    "https://www.brett-robinson.com/uploads/9c90c840-9dd2-46b1-bc95-cc5c75810af3_153523.png",
+    "https://www.brett-robinson.com/uploads/9703bb55-7293-4a01-ad02-34e7793ffbd7_153525.png"
+  ],
+  "sources": [
+    "https://www.brett-robinson.com/beach-condo/phoenix-v",
+    "https://www.brett-robinson.com/specials-and-promotions",
+    "https://www.brett-robinson.com/specials-and-promotions/4bedrooms?icid=4+bedrooms&startDate=2026-06-28&endDate=2026-07-01",
+    "https://www.brett-robinson.com/specials-and-promotions/charming-beachfront-stays-for-a-tranquil-getaway?icid=Hidden-Gems&startDate=2026-06-28&endDate=2026-07-01",
+    "https://www.brett-robinson.com/specials-and-promotions/memorial90?icid=Memorial-Day-90&startDate=2026-05-21&endDate=2026-05-24",
+    "https://www.brett-robinson.com/specials-and-promotions/mothers-day-1?icid=Mothers-Day&startDate=2026-05-07&endDate=2026-05-09",
+    "https://www.brett-robinson.com/specials-and-promotions/spring-informationalb?icid=Spring-InformationalB&startDate=2026-03-05&endDate=2026-03-08",
+    "https://www.brett-robinson.com/specials-and-promotions/easter?icid=Easter&startDate=2026-04-02&endDate=2026-04-05",
+    "https://www.brett-robinson.com/history-of-brettrobinson",
+    "https://www.brett-robinson.com/gulf-shores-orange-beach-events",
+    "https://www.brett-robinson.com/about-brett-robinson",
+    "https://www.brett-robinson.com/office-locations",
+    "https://www.brett-robinson.com/contact",
+    "https://www.brett-robinson.com/driving-directions"
+  ]
+}

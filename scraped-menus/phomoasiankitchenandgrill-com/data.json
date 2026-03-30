@@ -1,0 +1,101 @@
+{
+  "business_name": "Pho Mo Poke Bowl-Asian Kitchen and Grill",
+  "tagline": "The fastest growing restaurant chain on the Gulf Coast since 2019",
+  "type": "Restaurant",
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": null,
+    "city": null,
+    "state": null,
+    "zip": null
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": null
+  },
+  "about": {
+    "description": "Pho Mo Poke Bowl-Asian Kitchen began on the Gulf Coast in 2019. In spite of the pandemic, the restaurant would not only thrive but expand. Today there are numerous stores, located across the Gulf Coast: Downtown Mobile, Fairhope, and a soon-to-open Gulf Shores location. The restaurant prides itself on providing healthy choices for customers, with a wide variety of menu options.",
+    "elevator_pitch": "The fastest growing Asian cuisine restaurant chain on the Gulf Coast offering healthy poke bowls and Asian kitchen options.",
+    "vibe": "Casual Asian dining focused on healthy, customizable menu options",
+    "best_for": [
+      "healthy dining",
+      "quick service",
+      "casual meals"
+    ],
+    "established": "2019",
+    "reservations": null,
+    "insider_tip": null
+  },
+  "tags": [
+    "Asian cuisine",
+    "poke bowls",
+    "healthy options",
+    "casual dining",
+    "Gulf Coast"
+  ],
+  "features": [],
+  "price_range": "$$",
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "http://www.phomoasiankitchenandgrill.com"
+  },
+  "specials": [],
+  "events": [],
+  "menu": {
+    "categories": []
+  },
+  "locations": [
+    {
+      "name": "Downtown Mobile",
+      "city": "Mobile",
+      "state": "Alabama"
+    },
+    {
+      "name": "Fairhope",
+      "city": "Fairhope",
+      "state": "Alabama"
+    },
+    {
+      "name": "Gulf Shores",
+      "city": "Gulf Shores",
+      "state": "Alabama",
+      "status": "Coming Soon"
+    }
+  ],
+  "additional_info": {
+    "franchise_opportunities": true,
+    "order_platforms": [
+      "DoorDash",
+      "Mobile app",
+      "Gulf Shores location"
+    ]
+  },
+  "url": "http://www.phomoasiankitchenandgrill.com",
+  "scraped_at": "2026-03-22T16:53:47.011Z",
+  "extracted_at": "2026-03-23T04:02:04.075Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://phomoasiankitchenandgrill.com/wp-content/uploads/2025/09/White.png",
+    "https://phomoasiankitchenandgrill.com/wp-content/uploads/2025/09/phomoNEWW-640x190.png",
+    "https://phomoasiankitchenandgrill.com/wp-content/uploads/2025/11/six.jpg",
+    "https://phomoasiankitchenandgrill.com/wp-content/uploads/2025/11/seven.jpg",
+    "https://phomoasiankitchenandgrill.com/wp-content/uploads/2025/11/eight.jpg",
+    "https://phomoasiankitchenandgrill.com/wp-content/uploads/2025/11/one.jpg",
+    "https://phomoasiankitchenandgrill.com/wp-content/uploads/2025/11/two.jpg",
+    "https://phomoasiankitchenandgrill.com/wp-content/uploads/2025/11/three.jpg",
+    "https://phomoasiankitchenandgrill.com/wp-content/uploads/2025/11/four.jpg",
+    "https://phomoasiankitchenandgrill.com/wp-content/uploads/2025/11/five.jpg",
+    "https://phomoasiankitchenandgrill.com/wp-content/uploads/2025/03/8D5A4503-scaled.jpg"
+  ],
+  "sources": [
+    "http://www.phomoasiankitchenandgrill.com"
+  ]
+}

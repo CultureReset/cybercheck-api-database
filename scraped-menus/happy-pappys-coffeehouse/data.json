@@ -1,0 +1,231 @@
+{
+  "business_name": "Happy Pappys Coffeehouse",
+  "tagline": "Be Happy!",
+  "type": "Cafe",
+  "contact": {
+    "phone": "(251) 967-2779",
+    "email": null,
+    "address": "1550 West 2nd Street, Unit A5",
+    "city": "Gulf Shores",
+    "state": "AL",
+    "zip": "36542"
+  },
+  "hours": {
+    "monday": "7:00 AM - 4:30 PM",
+    "tuesday": "7:00 AM - 4:30 PM",
+    "wednesday": "7:00 AM - 4:30 PM",
+    "thursday": "7:00 AM - 4:30 PM",
+    "friday": "7:00 AM - 4:30 PM",
+    "saturday": "7:00 AM - 1:00 PM",
+    "sunday": "Closed",
+    "notes": "Pappy Hour on Thursdays 4:30 PM - 7:00 PM with live music and specials on beer and wine"
+  },
+  "about": {
+    "description": "Happy Pappys is a local, family-owned coffee shop founded by the Papadelias family. The business was inspired by a coffee shop the family discovered in Texas and opened in August 2019. They provide a premium third place where patrons can unwind, socialize, and recharge while enjoying high-quality coffee and delicious food. The shop survived Hurricane Sally and the COVID-19 pandemic in its first year of operation.",
+    "elevator_pitch": "A welcoming, family-owned local coffeehouse dedicated to spreading love and happiness through premium coffee and community connection.",
+    "vibe": "Warm, inviting community gathering space that feels like home; a third place beyond work and residence where people can belong",
+    "best_for": [
+      "coffee enthusiasts",
+      "community gathering",
+      "remote work",
+      "social events",
+      "families",
+      "live music nights"
+    ],
+    "established": "2019",
+    "reservations": null,
+    "insider_tip": "Ask about their hard bean coffee raised at 1200 meters, which customers rave is better than Blue Mountain or Kona. Join Pappy Hour on Thursdays for live music and drink specials."
+  },
+  "tags": [
+    "coffee",
+    "cafe",
+    "locally-owned",
+    "family-owned",
+    "community",
+    "pastries",
+    "sandwiches",
+    "live music",
+    "third place"
+  ],
+  "features": [
+    "live music on Thursdays",
+    "Pappy Hour specials",
+    "beer selection",
+    "wine selection",
+    "pastries",
+    "sandwiches",
+    "chicken salad",
+    "premium coffee",
+    "family-friendly",
+    "coming soon - Happy Pappys On Wheels"
+  ],
+  "price_range": "$$",
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://www.happypappyscoffee.com/"
+  },
+  "specials": [
+    {
+      "name": "Pappy Hour",
+      "description": "Special evening of after-work fun with amazing live music accompanied by specials on beer and wine selection. Fun for all ages.",
+      "days": [
+        "Thursday"
+      ],
+      "time": "4:30 PM - 7:00 PM"
+    }
+  ],
+  "events": [
+    {
+      "name": "Pappy Hour",
+      "description": "Weekly live music event with specials on beer and wine",
+      "recurring": true,
+      "day": "Thursday",
+      "time": "4:30 PM - 7:00 PM"
+    },
+    {
+      "name": "Happy Pappys On Wheels",
+      "description": "Mobile coffee service coming soon",
+      "recurring": false,
+      "day": null,
+      "time": null
+    }
+  ],
+  "menu": {
+    "categories": [
+      {
+        "name": "Merchandise - T-Shirts",
+        "type": "merchandise",
+        "items": [
+          {
+            "name": "Coffee Makes Me Happy Tee",
+            "description": "Hand-drawn design featuring Happy Pappys and Gulf Shores, AL on the back with playful coffee elements. Front pocket lettering. Heather blend - 90% cotton, 10% polyester. Unisex, true-to-size.",
+            "price": 23.2,
+            "tags": [
+              "tee",
+              "merchandise",
+              "unisex"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Lock. Load. Caffeinate. Tee",
+            "description": "Features Happy Pappys Coffee on front pocket with hand-drawn illustration of in-house espresso machine. Back displays motto Lock. Load. Caffeinate. Heather blend - 90% cotton, 10% polyester. Unisex, true-to-size.",
+            "price": 24,
+            "tags": [
+              "tee",
+              "merchandise",
+              "unisex",
+              "espresso"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Caffeine and Kindness Tee",
+            "description": "Happy Pappy's name on front pocket with hand-drawn mug on back with steam spelling out Caffeine and Kindness. Heather blend - 90% cotton, 10% polyester. Unisex, true-to-size.",
+            "price": 24,
+            "tags": [
+              "tee",
+              "merchandise",
+              "unisex",
+              "groovy"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "No Retreat. No Surrender. Just Refills. Tee",
+            "description": "Military-inspired tee with front pocket print Happy Pappys Coffee House. Back graphic featuring crossed portafilters with espresso dripping and battle cry. Heather blend - 90% cotton, 10% polyester. Unisex, true-to-size.",
+            "price": 24,
+            "tags": [
+              "tee",
+              "merchandise",
+              "unisex",
+              "military-inspired"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Be Happy Tee",
+            "description": "Original Happy Pappys logo and t-shirt design. Premium fitted short sleeve, classic choice. 100% combed, ring-spun cotton or heather blend 90% cotton, 10% polyester. Unisex crew tee, true-to-size.",
+            "price": 24,
+            "tags": [
+              "tee",
+              "merchandise",
+              "unisex",
+              "classic"
+            ],
+            "allergens": []
+          }
+        ]
+      }
+    ]
+  },
+  "url": "https://www.happypappyscoffee.com/",
+  "scraped_at": "2026-03-21T15:06:13.943Z",
+  "extracted_at": "2026-03-23T03:46:32.623Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://static.wixstatic.com/media/bdee82_3d042ceb825b46b394eebbba086d5e08~mv2.jpg/v1/fill/w_1280,h_900,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/bdee82_3d042ceb825b46b394eebbba086d5e08~mv2.jpg",
+    "https://static.wixstatic.com/media/11062b_9138c0db6e6443b7a1e1d02e0163279ff000.jpg/v1/fill/w_1280,h_900,al_c,q_85,usm_0.33_1.00_0.00,enc_avif,quality_auto/11062b_9138c0db6e6443b7a1e1d02e0163279ff000.jpg",
+    "https://static.wixstatic.com/media/bdee82_9873be0fbd774b7f95b2bde5bfcb5b50~mv2.png/v1/fill/w_335,h_478,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/bdee82_9873be0fbd774b7f95b2bde5bfcb5b50~mv2.png",
+    "https://static.wixstatic.com/media/bdee82_3a0a4559da6b44f3b55b68dc9875d7c4~mv2.png/v1/fill/w_104,h_84,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/bdee82_3a0a4559da6b44f3b55b68dc9875d7c4~mv2.png",
+    "https://static.wixstatic.com/media/bdee82_bca440a04ebb4b2e974ea7c87af74a20~mv2.png/v1/fill/w_600,h_318,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/bdee82_bca440a04ebb4b2e974ea7c87af74a20~mv2.png",
+    "https://static.wixstatic.com/media/bdee82_b8f9175e5cd342bdb5140034164bac6c~mv2.jpg/v1/fill/w_302,h_297,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/bdee82_b8f9175e5cd342bdb5140034164bac6c~mv2.jpg",
+    "https://static.wixstatic.com/media/bdee82_1747df367f5f406188a7a677cd14369c~mv2.jpg/v1/fill/w_221,h_297,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/bdee82_1747df367f5f406188a7a677cd14369c~mv2.jpg",
+    "https://static.wixstatic.com/media/e0678ef25486466ba65ef6ad47b559e1.png/v1/fill/w_42,h_42,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/e0678ef25486466ba65ef6ad47b559e1.png",
+    "https://static.wixstatic.com/media/da7ef6dd1302486c9a67baebe4b364bc.png/v1/fill/w_42,h_42,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/da7ef6dd1302486c9a67baebe4b364bc.png",
+    "https://static.wixstatic.com/media/11062b_61151d0087ad418fa801687a88c78716~mv2.jpg/v1/fill/w_1280,h_900,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_61151d0087ad418fa801687a88c78716~mv2.jpg",
+    "https://static.wixstatic.com/media/11062b_8bbcb9722fb64f3cba34f69da386e122~mv2.jpg/v1/fill/w_1280,h_2132,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_8bbcb9722fb64f3cba34f69da386e122~mv2.jpg",
+    "https://static.wixstatic.com/media/bdee82_a9054167ed0744df88aaa7654cec9ff3~mv2.png/v1/crop/x_0,y_0,w_2500,h_4411/fill/w_401,h_708,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/1.png",
+    "https://static.wixstatic.com/media/bdee82_f2d417d19ff14432894c90e39a630c6a~mv2.jpg/v1/fill/w_401,h_590,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/bdee82_f2d417d19ff14432894c90e39a630c6a~mv2.jpg",
+    "https://static.wixstatic.com/media/bdee82_b2a0e3a682b44851a1ac3f33215f8e25~mv2.png/v1/fill/w_401,h_750,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/bdee82_b2a0e3a682b44851a1ac3f33215f8e25~mv2.png",
+    "https://static.wixstatic.com/media/bdee82_1d9405106c02419c875e8ea3a7438408~mv2.png/v1/crop/x_0,y_0,w_2500,h_6035/fill/w_407,h_983,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/bdee82_1d9405106c02419c875e8ea3a7438408~mv2.png",
+    "https://static.wixstatic.com/media/bdee82_20e6a50ea3334897b8a55106bdcd8cee~mv2.png/v1/fill/w_407,h_1009,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/bdee82_20e6a50ea3334897b8a55106bdcd8cee~mv2.png",
+    "https://static.wixstatic.com/media/bdee82_b9762feead0e4024b2feb2a1140eeb7c~mv2.jpg/v1/fill/w_347,h_389,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/bdee82_b9762feead0e4024b2feb2a1140eeb7c~mv2.jpg",
+    "https://static.wixstatic.com/media/bdee82_8fa53b897bfe4c17b3a4cac1f6e2f440~mv2.jpg/v1/fill/w_347,h_277,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/bdee82_8fa53b897bfe4c17b3a4cac1f6e2f440~mv2.jpg",
+    "https://static.wixstatic.com/media/bdee82_81a18108bf154bdba22ce52a2d02d38b~mv2.jpg/v1/fill/w_347,h_341,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/bdee82_81a18108bf154bdba22ce52a2d02d38b~mv2.jpg",
+    "https://static.wixstatic.com/media/bdee82_e6c4099041e6406b852a32ba205db60c~mv2.jpg/v1/fill/w_667,h_430,al_c,lg_1,q_80,enc_avif,quality_auto/bdee82_e6c4099041e6406b852a32ba205db60c~mv2.jpg",
+    "https://static.wixstatic.com/media/bdee82_aa9af482a21b4ab1a8439beb03785f0e~mv2.jpg/v1/fill/w_277,h_363,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/bdee82_aa9af482a21b4ab1a8439beb03785f0e~mv2.jpg",
+    "https://static.wixstatic.com/media/bdee82_57a98a926ec14bb5ab8e00fb1594fdd0~mv2.jpg/v1/fill/w_1280,h_900,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/bdee82_57a98a926ec14bb5ab8e00fb1594fdd0~mv2.jpg",
+    "https://static.wixstatic.com/media/bdee82_1e513174cb6441fa91ade519dd839bae~mv2.jpg/v1/fill/w_1280,h_755,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/bdee82_1e513174cb6441fa91ade519dd839bae~mv2.jpg",
+    "https://static.wixstatic.com/media/bdee82_6a83f5f8c93249d98cbf57355ce03b50~mv2.jpeg/v1/fill/w_295,h_295,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/bdee82_6a83f5f8c93249d98cbf57355ce03b50~mv2.jpeg",
+    "https://static.wixstatic.com/media/bdee82_9f70d88a61634d6e8a282a78d7b18d79~mv2.jpeg/v1/fill/w_295,h_295,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/bdee82_9f70d88a61634d6e8a282a78d7b18d79~mv2.jpeg",
+    "https://static.wixstatic.com/media/bdee82_5b19ed8c469f463c8437c241b1d386bd~mv2.jpeg/v1/fill/w_295,h_295,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/bdee82_5b19ed8c469f463c8437c241b1d386bd~mv2.jpeg",
+    "https://static.wixstatic.com/media/bdee82_78977b2610124cf29f3cd6fe5a549cf2~mv2.jpeg/v1/fill/w_295,h_295,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/bdee82_78977b2610124cf29f3cd6fe5a549cf2~mv2.jpeg",
+    "https://static.wixstatic.com/media/bdee82_18661a8be4a249ef9d911d97f3c14dbc~mv2.jpeg/v1/fill/w_295,h_295,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/bdee82_18661a8be4a249ef9d911d97f3c14dbc~mv2.jpeg",
+    "https://static.wixstatic.com/media/bdee82_9f3ac50f0da447ce9da4242fa0d0f173~mv2.jpeg/v1/fill/w_295,h_295,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/bdee82_9f3ac50f0da447ce9da4242fa0d0f173~mv2.jpeg",
+    "https://static.wixstatic.com/media/bdee82_b5b0771be93d4fd5bd566c974e748604~mv2.jpeg/v1/fill/w_295,h_295,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/bdee82_b5b0771be93d4fd5bd566c974e748604~mv2.jpeg",
+    "https://static.wixstatic.com/media/bdee82_3530d5078a9549d6ace6f9ab868c29c1~mv2.jpeg/v1/fill/w_295,h_295,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/bdee82_3530d5078a9549d6ace6f9ab868c29c1~mv2.jpeg",
+    "https://static.wixstatic.com/media/bdee82_ab042931d18948bb8874ea1152130ae8~mv2.jpeg/v1/fill/w_295,h_295,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/bdee82_ab042931d18948bb8874ea1152130ae8~mv2.jpeg",
+    "https://static.wixstatic.com/media/bdee82_50ee008305b141a0831eab21b541b5ee~mv2.jpeg/v1/fill/w_295,h_295,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/bdee82_50ee008305b141a0831eab21b541b5ee~mv2.jpeg",
+    "https://static.wixstatic.com/media/bdee82_6a83f5f8c93249d98cbf57355ce03b50~mv2.jpeg/v1/fill/w_498,h_498,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/bdee82_6a83f5f8c93249d98cbf57355ce03b50~mv2.jpeg",
+    "https://static.wixstatic.com/media/bdee82_6a83f5f8c93249d98cbf57355ce03b50~mv2.jpeg/v1/fill/w_43,h_43,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/bdee82_6a83f5f8c93249d98cbf57355ce03b50~mv2.jpeg",
+    "https://static.wixstatic.com/media/bdee82_9f70d88a61634d6e8a282a78d7b18d79~mv2.jpeg/v1/fill/w_43,h_43,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/bdee82_9f70d88a61634d6e8a282a78d7b18d79~mv2.jpeg",
+    "https://static.wixstatic.com/media/bdee82_69cf6dd6bdc74487842b20c3c33f4d0a~mv2.jpeg/v1/fill/w_43,h_43,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/bdee82_69cf6dd6bdc74487842b20c3c33f4d0a~mv2.jpeg",
+    "https://static.wixstatic.com/media/bdee82_181c91fe4f73423991b60358530941f5~mv2.jpeg/v1/fill/w_43,h_43,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/bdee82_181c91fe4f73423991b60358530941f5~mv2.jpeg",
+    "https://static.wixstatic.com/media/bdee82_e609846239dc4b91a561ddafae636589~mv2.jpeg/v1/fill/w_43,h_43,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/bdee82_e609846239dc4b91a561ddafae636589~mv2.jpeg",
+    "https://static.wixstatic.com/media/bdee82_5b19ed8c469f463c8437c241b1d386bd~mv2.jpeg/v1/fill/w_498,h_498,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/bdee82_5b19ed8c469f463c8437c241b1d386bd~mv2.jpeg",
+    "https://static.wixstatic.com/media/bdee82_5b19ed8c469f463c8437c241b1d386bd~mv2.jpeg/v1/fill/w_43,h_43,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/bdee82_5b19ed8c469f463c8437c241b1d386bd~mv2.jpeg",
+    "https://static.wixstatic.com/media/bdee82_78977b2610124cf29f3cd6fe5a549cf2~mv2.jpeg/v1/fill/w_43,h_43,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/bdee82_78977b2610124cf29f3cd6fe5a549cf2~mv2.jpeg",
+    "https://static.wixstatic.com/media/bdee82_f63d632877fc42109a78373293d2df26~mv2.jpeg/v1/fill/w_43,h_43,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/bdee82_f63d632877fc42109a78373293d2df26~mv2.jpeg",
+    "https://static.wixstatic.com/media/bdee82_244b805208e54a46bc53f2acd74ef09a~mv2.jpeg/v1/fill/w_43,h_43,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/bdee82_244b805208e54a46bc53f2acd74ef09a~mv2.jpeg",
+    "https://static.wixstatic.com/media/bdee82_18661a8be4a249ef9d911d97f3c14dbc~mv2.jpeg/v1/fill/w_498,h_498,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/bdee82_18661a8be4a249ef9d911d97f3c14dbc~mv2.jpeg",
+    "https://static.wixstatic.com/media/bdee82_18661a8be4a249ef9d911d97f3c14dbc~mv2.jpeg/v1/fill/w_43,h_43,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/bdee82_18661a8be4a249ef9d911d97f3c14dbc~mv2.jpeg",
+    "https://static.wixstatic.com/media/bdee82_9f3ac50f0da447ce9da4242fa0d0f173~mv2.jpeg/v1/fill/w_43,h_43,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/bdee82_9f3ac50f0da447ce9da4242fa0d0f173~mv2.jpeg",
+    "https://static.wixstatic.com/media/bdee82_b5b0771be93d4fd5bd566c974e748604~mv2.jpeg/v1/fill/w_498,h_498,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/bdee82_b5b0771be93d4fd5bd566c974e748604~mv2.jpeg",
+    "https://static.wixstatic.com/media/bdee82_b5b0771be93d4fd5bd566c974e748604~mv2.jpeg/v1/fill/w_43,h_43,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/bdee82_b5b0771be93d4fd5bd566c974e748604~mv2.jpeg",
+    "https://static.wixstatic.com/media/bdee82_3530d5078a9549d6ace6f9ab868c29c1~mv2.jpeg/v1/fill/w_43,h_43,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/bdee82_3530d5078a9549d6ace6f9ab868c29c1~mv2.jpeg"
+  ],
+  "sources": [
+    "https://www.happypappyscoffee.com",
+    "https://www.happypappyscoffee.com/menu",
+    "https://www.happypappyscoffee.com/about",
+    "https://www.happypappyscoffee.com/contact",
+    "https://www.happypappyscoffee.com/category/all-products",
+    "https://www.happypappyscoffee.com/product-page/coffee-makes-me-happy-tee",
+    "https://www.happypappyscoffee.com/product-page/lock-load-caffeinate-tee",
+    "https://www.happypappyscoffee.com/product-page/caffeine-and-kindness-tee",
+    "https://www.happypappyscoffee.com/product-page/no-retreat-no-surrender-just-refills-tee",
+    "https://www.happypappyscoffee.com/product-page/be-happy-tee"
+  ]
+}

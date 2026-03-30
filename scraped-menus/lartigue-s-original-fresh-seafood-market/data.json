@@ -1,0 +1,352 @@
+{
+  "business_name": "Lartigue's Original Fresh Seafood Market",
+  "tagline": "Where Gulf Coast tradition meets unbeatable flavor",
+  "type": "Seafood Market",
+  "contact": {
+    "phone": "(251) 948-2644",
+    "email": null,
+    "address": "23043 Perdido Beach Boulevard",
+    "city": "Orange Beach",
+    "state": "AL",
+    "zip": "36561"
+  },
+  "hours": {
+    "monday": "9 am – 7 pm",
+    "tuesday": "9 am – 7 pm",
+    "wednesday": "9 am – 7 pm",
+    "thursday": "9 am – 7 pm",
+    "friday": "9 am – 7 pm",
+    "saturday": "9 am – 7 pm",
+    "sunday": "9 am – 7 pm",
+    "notes": null
+  },
+  "about": {
+    "description": "Lartigue Fresh Seafood is a family-owned business that started in 1979 when Bubba and Uncle Larry opened their first seafood market on Old Shell Road in Mobile, Alabama. They expanded to Gulf Shores in 1988 and settled in Orange Beach in 1999. For over 40 years, they've been crafting original spice blends and signature sauces with time-tested family recipes, serving the Gulf Coast community with fresh seafood and quality products.",
+    "elevator_pitch": "A family-owned Gulf Coast seafood market offering fresh seafood, original spice blends, and signature sauces since 1979.",
+    "vibe": "Casual, family-friendly seafood market with a strong Gulf Coast tradition and passion for quality ingredients",
+    "best_for": [
+      "families",
+      "seafood lovers",
+      "tourists",
+      "catering events"
+    ],
+    "established": "1979",
+    "reservations": null,
+    "insider_tip": "They offer catering services for weddings, birthdays, holidays, and corporate gatherings with pickup from their Orange Beach location."
+  },
+  "tags": [
+    "seafood",
+    "market",
+    "Gulf Coast",
+    "fresh",
+    "casual",
+    "family-owned",
+    "spices",
+    "seasonings",
+    "sauces",
+    "catering"
+  ],
+  "features": [
+    "Fresh seafood",
+    "Original spice blends",
+    "Signature sauces",
+    "Catering services",
+    "Online ordering",
+    "Gift boxes",
+    "Cookbook available"
+  ],
+  "price_range": "$$",
+  "social_links": {
+    "instagram": "https://www.instagram.com/lartigueseafood",
+    "facebook": "https://www.facebook.com/lartigueseafood",
+    "tiktok": "https://www.tiktok.com/@lartigueseafood",
+    "website": "https://www.lartigueseafood.com"
+  },
+  "specials": [],
+  "events": [],
+  "menu": {
+    "categories": [
+      {
+        "name": "Seasonings & Spices",
+        "type": "specials",
+        "items": [
+          {
+            "name": "All Purpose Seasoning 5 oz",
+            "description": "Go-to seasoning for meats, seafood, rice, eggs, veggies, soups, and gumbos",
+            "price": 8.99,
+            "tags": [
+              "seasoning",
+              "versatile"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "All Purpose Seasoning 24 oz",
+            "description": "Larger size of the balanced blend for kitchen or grill use",
+            "price": 19.99,
+            "tags": [
+              "seasoning",
+              "bulk"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Cajun Seasoning 5 oz",
+            "description": "Bold Cajun blend with spicy pop and savory flavor, perfect for steamed seafood and roasted veggies",
+            "price": 8.99,
+            "tags": [
+              "seasoning",
+              "cajun",
+              "spicy"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Cajun Seasoning 24oz",
+            "description": "Larger size of the spicy, savory blend perfect for seafood, gumbo, and jambalaya",
+            "price": 19.99,
+            "tags": [
+              "seasoning",
+              "cajun",
+              "bulk",
+              "spicy"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Blackened Seasoning 5 oz",
+            "description": "Gulf Coast version of blackened blend - zesty, smoky with bold flavor for fish, chicken, and veggies",
+            "price": 8.99,
+            "tags": [
+              "seasoning",
+              "blackened",
+              "smoky"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Blackened Seasoning 22 oz",
+            "description": "Larger size of signature blackened seasoning, bold and smoky for steak, chicken, fish, shrimp, and vegetables",
+            "price": 19.99,
+            "tags": [
+              "seasoning",
+              "blackened",
+              "smoky",
+              "bulk"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Bold & Classic Seasoning 5oz",
+            "description": "Big flavor with classic Southern kick for meats, veggies, and grilled items",
+            "price": 8.99,
+            "tags": [
+              "seasoning",
+              "southern"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Smoky Butter Seasoning 4oz",
+            "description": "Rich, buttery flavor with smoke - perfect for steaks, seafood, veggies, and even popcorn",
+            "price": 8.99,
+            "tags": [
+              "seasoning",
+              "butter",
+              "smoky"
+            ],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Sauces",
+        "type": "specials",
+        "items": [
+          {
+            "name": "Cajun Garlic Sauce & Butt Fire Hot Sauce",
+            "description": "Two bottles - Cajun Garlic Sauce with bold savory spice and garlicky punch; Butt Fire Hot Sauce with serious heat and rich flavor",
+            "price": 19.99,
+            "tags": [
+              "sauce",
+              "hot sauce",
+              "cajun",
+              "spicy"
+            ],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Mix & Match Packs",
+        "type": "specials",
+        "items": [
+          {
+            "name": "2 Pack Mix & Match",
+            "description": "Choose any two signature sauces or seasonings - perfect for gifting or taste-testing",
+            "price": 17.98,
+            "tags": [
+              "bundle",
+              "gift"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "3 Pack Mix & Match",
+            "description": "Select any three sauces and seasonings - full of Gulf Coast flavor",
+            "price": 26.97,
+            "tags": [
+              "bundle",
+              "gift"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "4 Pack Mix & Match",
+            "description": "Customize with any four sauces and seasonings for complete flavor variety",
+            "price": 35.96,
+            "tags": [
+              "bundle",
+              "gift"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "5 Pack Mix & Match",
+            "description": "Build your own lineup with any five sauces or seasonings - perfect for flavor fanatics",
+            "price": 39.99,
+            "tags": [
+              "bundle",
+              "gift"
+            ],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Gift Items & Merchandise",
+        "type": "specials",
+        "items": [
+          {
+            "name": "Lartigue Brand Gift Box",
+            "description": "Includes best selling spices & seasonings: 3oz All Purpose, 3oz Blackened, 3oz Cajun, 5oz Bold & Classic, 4oz Smoky Butter, and Lartigue's Favorites Cookbook",
+            "price": 49.99,
+            "tags": [
+              "gift",
+              "bundle",
+              "cookbook"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Lartigue's Souvenir Cup",
+            "description": "Perfect for beach days, boat rides, and everything in between",
+            "price": 29.99,
+            "tags": [
+              "merchandise",
+              "souvenir"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Lartigue's Favorites Cookbook",
+            "description": "Family's famous recipes for seafood cooking since 1945",
+            "price": 14.99,
+            "tags": [
+              "cookbook",
+              "recipe"
+            ],
+            "allergens": []
+          }
+        ]
+      }
+    ]
+  },
+  "url": "http://www.lartigueseafood.com/",
+  "scraped_at": "2026-03-21T14:41:25.859Z",
+  "extracted_at": "2026-03-23T03:51:14.636Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/93432e80-baea-43a2-a681-ea2e2df09257/Shop+Sign.jpg",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/c43ea9a1-bdfb-4850-9373-0589df6c481e/FullSizeRender_VSCO.jpg",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/c99ea86a-8277-451c-b892-48bcd91bcfab/tempImage6mRem3.jpg",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/3962096b-1386-4b75-970f-29e9f2b8eb8e/GiftBox.jpeg",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/29ccba03-eb0b-45f6-9489-11fb5c65aa65/IMG_1109.JPG",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/95ea0342-7175-483f-91f5-a00c1bc657af/FBEAB95E-C664-424B-9DB1-B9196CCF1DAB+2.JPG",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/566b45a0-aaa9-4ea5-ae33-bc2558bf103b/IMG_1112_VSCO.jpg",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/db222da7-28ce-40fd-8414-65b5b4bccf51/IMG_1877.jpg",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/3962096b-1386-4b75-970f-29e9f2b8eb8e/IMG_1682.jpeg?format=750w",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/b3671dc4-9ce0-4f3c-bce3-f99145933182/IMG_1097_VSCO.jpg",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/52ef47b0-a895-4bfb-926d-f69cd361c63a/wood+background.png",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/6c01ca92-7855-4276-9e48-483aa3c52490/Gumbo%26Boil.JPG",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/3962096b-1386-4b75-970f-29e9f2b8eb8e/IMG_1682.jpeg",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/8a8d5fc8-5b9d-4eb3-be6d-07cd2a57d8ec/IMG_6954.jpg",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/0b719fec-5aa6-4bc1-9a64-b52ad52ae4e5/Bold+%26+Classic.JPG",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/11dc6a90-9061-40f8-ad98-951e44c836bf/Smoky+Butter.JPG",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/1779e123-df05-4c74-a1f3-b9e31bc5dfbb/Smoky%2BButter.png",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/010c47e1-c819-49d6-b07d-c05820206880/IMG_7809.jpeg",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/a20df348-7dc3-4c71-8d36-ebf8e48ed3b5/Cajun+Seasoning+24oz.JPG",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/f127b7a1-2dcc-46ab-9056-38345b0538a0/IMG_7804.jpeg",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/d68c4ede-6ea0-4453-8658-8040639b02d3/IMG_7796.jpeg",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/2f63e81d-970a-460d-b3e5-47421b3423fd/IMG_7814.jpeg",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/6469d49e-18e8-4d52-a79e-61de337788e2/IMG_7807.jpeg",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/8ffc4505-062e-47cd-8abd-58a06d9aa80c/mix%2Bmatch.jpg",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/c2f1e802-9d91-413e-9a59-873dd90128c5/IMG_1664.jpeg",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/f395d793-6786-4d50-9e0a-f5eac0af7845/IMG_1666.jpeg",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/60df2b8f-8f46-42a8-85bd-999fd3b0c0b7/mix%252Bmatch.jpg",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/42ae92eb-7cc6-468a-825d-fc7da4523fa3/Cajun%2BGarlic%2BButtFire%2BProduct%2BPhoto.jpg",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/42ae92eb-7cc6-468a-825d-fc7da4523fa3/Cajun%2BGarlic%2BButtFire%2BProduct%2BPhoto.jpg?format=1000w",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/60df2b8f-8f46-42a8-85bd-999fd3b0c0b7/mix%252Bmatch.jpg?format=100w",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/c2f1e802-9d91-413e-9a59-873dd90128c5/IMG_1664.jpeg?format=100w",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/f395d793-6786-4d50-9e0a-f5eac0af7845/IMG_1666.jpeg?format=100w",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/60df2b8f-8f46-42a8-85bd-999fd3b0c0b7/mix%252Bmatch.jpg?format=750w",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/c2f1e802-9d91-413e-9a59-873dd90128c5/IMG_1664.jpeg?format=750w",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/f395d793-6786-4d50-9e0a-f5eac0af7845/IMG_1666.jpeg?format=750w",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/8ffc4505-062e-47cd-8abd-58a06d9aa80c/mix%2Bmatch.jpg?format=100w",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/8ffc4505-062e-47cd-8abd-58a06d9aa80c/mix%2Bmatch.jpg?format=750w",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/6469d49e-18e8-4d52-a79e-61de337788e2/IMG_7807.jpeg?format=750w",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/2f63e81d-970a-460d-b3e5-47421b3423fd/IMG_7814.jpeg?format=750w",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/d68c4ede-6ea0-4453-8658-8040639b02d3/IMG_7796.jpeg?format=750w",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/f127b7a1-2dcc-46ab-9056-38345b0538a0/IMG_7804.jpeg?format=750w",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/a20df348-7dc3-4c71-8d36-ebf8e48ed3b5/Cajun+Seasoning+24oz.JPG?format=750w",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/010c47e1-c819-49d6-b07d-c05820206880/IMG_7809.jpeg?format=750w",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/1779e123-df05-4c74-a1f3-b9e31bc5dfbb/Smoky%2BButter.png?format=750w",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/0b719fec-5aa6-4bc1-9a64-b52ad52ae4e5/Bold+%26+Classic.JPG?format=750w",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/8a8d5fc8-5b9d-4eb3-be6d-07cd2a57d8ec/IMG_6954.jpg?format=750w",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/d7df3397-e7cb-4a24-9417-27096bcd3753/FullSizeRender_VSCO.jpg",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/e91e8990-9ff3-486c-aab9-b22989dc747a/FD3A34C3-6519-42A8-B374-1AFA1152FA1D.jpg",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/d2aaa39a-217b-4468-b871-038cc5d6ae78/IMG_1155_VSCO.jpg",
+    "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/8a887678-baff-425a-9c76-1e59d389cfbc/7B2680FA-1CF0-49CA-B0FF-AA875FA8DE09.jpg"
+  ],
+  "sources": [
+    "http://www.lartigueseafood.com",
+    "https://www.lartigueseafood.com/shop/p/product-3-szb2y-gzh2r-3ly82-zjjwg",
+    "https://www.lartigueseafood.com/shop/p/lartigues-souvenir-cup",
+    "https://www.lartigueseafood.com/cart",
+    "https://www.lartigueseafood.com/about",
+    "https://www.lartigueseafood.com/catering",
+    "https://www.lartigueseafood.com/shop",
+    "https://www.lartigueseafood.com/shop/p/cajun-garlic-sauce-butt-fire-hot-sauce",
+    "https://www.lartigueseafood.com/shop/p/2-pack-mix-match",
+    "https://www.lartigueseafood.com/shop/p/3-pack-mix-match",
+    "https://www.lartigueseafood.com/shop/p/4-pack-mix-match",
+    "https://www.lartigueseafood.com/shop/p/5-pack-mix-match",
+    "https://www.lartigueseafood.com/shop/p/product-4-9e76d-pr6ls-5tznn-x9fy2",
+    "https://www.lartigueseafood.com/shop/p/product-2-5c6mb-j8mng-zyt72-en9nh",
+    "https://www.lartigueseafood.com/shop/p/product-1-ydar7-e8mlb-r2y28-dxhb9",
+    "https://www.lartigueseafood.com/shop/p/all-purpose-seasoning-24-oz",
+    "https://www.lartigueseafood.com/shop/p/cajun-seasoning-24oz",
+    "https://www.lartigueseafood.com/shop/p/product-6-yrdld-pcpw6-t3kp7-nb2ae",
+    "https://www.lartigueseafood.com/shop/p/smoky-butter-seasoning-7oz",
+    "https://www.lartigueseafood.com/shop/p/bold-classic-seasoning-7oz",
+    "https://www.lartigueseafood.com/shop/p/product-5-f98ry-4ll53-pbaad-byhpp",
+    "https://www.lartigueseafood.com/shop/mix-match",
+    "https://www.lartigueseafood.com/shop/sauces-seasonings",
+    "https://www.lartigueseafood.com/shop/new-products",
+    "https://www.lartigueseafood.com/menu",
+    "https://www.lartigueseafood.com/side-dishes",
+    "https://www.lartigueseafood.com/menu-take-bake",
+    "https://www.lartigueseafood.com/menu-1",
+    "https://www.lartigueseafood.com"
+  ]
+}

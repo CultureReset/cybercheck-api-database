@@ -1,0 +1,313 @@
+{
+  "business_name": "Picnic Beach Bar & Grill",
+  "url": "https://www.picnicbeach.com/",
+  "scraped_at": "2026-03-21T15:03:17.912Z",
+  "pages": [
+    {
+      "url": "https://www.picnicbeach.com",
+      "title": "Home - Picnic Beach - Gulf Shores Restaurant",
+      "text": "MENU\nORDER ONLINE\nJOBS\nCONTACT\nINFLUENCERS\n \n\n \n \n\n \n \n\n \n \n \n\n\t\n \n\t\n\t\n\t\n\n\t✕\n\n \n\n \n\t\n\n\t\n\n \n\t\n\n\t\n\n \n\n \n\n \n GOOD VIBES AT THE BEACH.Welcome to PICNIC BEACH Bar & GrillGulf Shores, AL\nAt Picnic Beach Bar & Grill, we’re all about creating a fun, family-friendly dining experience where good vibes and great food come together to help you make lasting memories during your time in Gulf Shores, AL.\nVIEW MENU\nNow Hiring!\nClick here to apply.\n\n \n \n\n \n \n \n \n\n \n \n\n \n \n\n \n \n\n \n\t\n\n\t\n\n \n \n\n \n\n \n \n \n \n \n\n \n \n ©2026 Picnic Beach | Privacy Policy \n\n \n \n \n \n \n\n \n \n\t\n\n \n\nORDER ONLINE",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebSite",
+              "@id": "https://picnicbeach.com/#/schema/WebSite",
+              "url": "https://picnicbeach.com/",
+              "name": "Picnic Beach",
+              "description": "Picnic Beach – Gulf Shores, AL Restaurant",
+              "inLanguage": "en-US",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": {
+                  "@type": "EntryPoint",
+                  "urlTemplate": "https://picnicbeach.com/search/{search_term_string}/"
+                },
+                "query-input": "required name=search_term_string"
+              },
+              "publisher": {
+                "@id": "https://picnicbeach.com/#/schema/Organization"
+              }
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://picnicbeach.com/",
+              "url": "https://picnicbeach.com/",
+              "name": "Picnic Beach Gulf Shores | We Deliver Good Clean BBQ",
+              "description": "Casual picnic-themed Barbecue restaurant in Gulf Shores, AL that offers healthy ingredients, fresh smoothies and vegetarian options.",
+              "inLanguage": "en-US",
+              "isPartOf": {
+                "@id": "https://picnicbeach.com/#/schema/WebSite"
+              },
+              "breadcrumb": {
+                "@type": "BreadcrumbList",
+                "@id": "https://picnicbeach.com/#/schema/BreadcrumbList",
+                "itemListElement": {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Picnic Beach"
+                }
+              },
+              "potentialAction": {
+                "@type": "ReadAction",
+                "target": "https://picnicbeach.com/"
+              },
+              "about": {
+                "@id": "https://picnicbeach.com/#/schema/Organization"
+              }
+            },
+            {
+              "@type": "Organization",
+              "@id": "https://picnicbeach.com/#/schema/Organization",
+              "name": "Picnic Beach",
+              "url": "https://picnicbeach.com/"
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://picnicbeach.com/",
+              "url": "https://picnicbeach.com/",
+              "name": "Home - Picnic Beach - Gulf Shores Restaurant",
+              "isPartOf": {
+                "@id": "https://picnicbeach.com/#website"
+              },
+              "datePublished": "2016-10-04T13:55:33+00:00",
+              "dateModified": "2025-05-06T13:08:32+00:00",
+              "description": "Relaxed picnic-themed eatery with wood tables & faux grass and great food.",
+              "breadcrumb": {
+                "@id": "https://picnicbeach.com/#breadcrumb"
+              },
+              "inLanguage": "en-US",
+              "potentialAction": [
+                {
+                  "@type": "ReadAction",
+                  "target": [
+                    "https://picnicbeach.com/"
+                  ]
+                }
+              ]
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://picnicbeach.com/#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home"
+                }
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://picnicbeach.com/#website",
+              "url": "https://picnicbeach.com/",
+              "name": "Picnic Beach",
+              "description": "Picnic Beach - Gulf Shores, AL Restaurant",
+              "potentialAction": [
+                {
+                  "@type": "SearchAction",
+                  "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://picnicbeach.com/?s={search_term_string}"
+                  },
+                  "query-input": {
+                    "@type": "PropertyValueSpecification",
+                    "valueRequired": true,
+                    "valueName": "search_term_string"
+                  }
+                }
+              ],
+              "inLanguage": "en-US"
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "robots": "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
+        "facebook-domain-verification": "qidgpjpmqrob1a4o6fcjjc7vxdc0b9",
+        "format-detection": "telephone=no",
+        "viewport": "width=device-width, initial-scale=1, maximum-scale=1",
+        "theme-color": "#ffffff",
+        "description": "Relaxed picnic-themed eatery with wood tables & faux grass and great food.",
+        "og:type": "website",
+        "og:locale": "en_US",
+        "og:site_name": "Picnic Beach",
+        "og:title": "Home - Picnic Beach - Gulf Shores Restaurant",
+        "og:description": "Relaxed picnic-themed eatery with wood tables & faux grass and great food.",
+        "og:url": "https://picnicbeach.com/",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Picnic Beach Gulf Shores | We Deliver Good Clean BBQ",
+        "twitter:description": "Casual picnic-themed Barbecue restaurant in Gulf Shores, AL that offers healthy ingredients, fresh smoothies and vegetarian options.",
+        "article:modified_time": "2025-05-06T13:08:32+00:00",
+        "google-site-verification": "n2TfTn-W_jJUqv_HiGJmCdF5u8OyhpMZaupHJx3tTXE",
+        "generator": "WP Rocket 3.20.5"
+      }
+    },
+    {
+      "url": "https://www.picnicbeach.com/food-menu",
+      "title": "Food Menu - Picnic Beach",
+      "text": "MENU\nORDER ONLINE\nJOBS\nCONTACT\nINFLUENCERS\n \n\n \n \n\n \n \n\n \n \n \n\n\t\n \n\t\n\t\n\t\n\n\t✕\n\n \n\n \n\t\n\n\t\n\n \n\t\n\n\t\n\n \n\n \n\n \n MenuPicnic Beach | 251-540-0117 128 East 1st Ave Gulf Shores, AL 36542\n Sharables \n \n Peel and Eat Shrimp Gulf shrimp seasoned and served chilled with cocktail sauce and lemon. Available in 1/2 lb. \n \n \n \n \n Cayman Coconut Shrimp Perfect blend of crispy and crunchy fried shrimp coated in a mouthwatering, delicate, tropical coconut flavor. Served with pineapple sweet chili dipping sauce. \n \n \n \n \n Calamari Breaded and fried fresh calamari served with our signature sweet chili sauce. \n \n \n \n \n Parmesan Bacon Truffle Fries Golden fries tossed in white truffle oil and topped with white BBQ sauce, parmesan cheese, bacon crumbles, and scallions. \n \n \n \n \n Salads \n \n Goat Cheese Salad Mixed greens, cherry tomatoes, shaved radish, and cucumber tossed in house-made Greek vinaigrette and topped with goat cheese. Add Chicken, Grouper, *Salmon, Shrimp, Tofu, Mahi Mahi for an additional charge. \n \n \n \n \n Mildly Spicy Dunked Wedge Salad Iceberg lettuce wedge covered in house-made spicy ranch topped with bacon, cherry tomatoes, blue cheese crumbles, and crispy onions. Add Chicken, Grouper, *Salmon, Shrimp, Tofu, Mahi Mahi for an additional charge. \n \n \n \n \n Classic Ceasar Salad Crisp romaine lettuce tossed in Caesar dressing topped with parmesan cheese and garlic croutons. Add Chicken, Grouper, *Salmon, Shrimp, Tofu, Mahi Mahi for an additional charge. \n \n \n \n \n Bowls \n \n The Caribbean Blackened chicken, jasmine rice, avocado, grape tomatoes, sweet & sour cauliflower, roasted corn salsa, and pineapple topped with house-made smoked tomato aioli and cilantro. \n \n \n \n \n The Mediterranean Grilled mahi-mahi, quinoa, marinated golden beets, snap peas, tomatoes, cucumber, and shaved radish tossed in house-made Greek vinaigrette topped with goat cheese. \n \n \n \n \n *The Beach Grilled salmon, jasmine rice, yellow squash, zucchini, and cauliflower topped with an Asian glaze. \n \n \n \n \n *Tuna Poke Lime soy marinated raw tuna, jasmine rice, cherry tomatoes, cucumber, pineapple, and seaweed salad topped with smoked tomato aioli, shaved radish, crispy onions, and fresh Asian herbs. \n \n \n \n \n The Vegan Marinated tofu, jasmine rice, Franks hot sauce marinated cauliflower, seaweed salad, avocado, cherry tomatoes, cucumbers, shaved radish, and pineapple. \n \n \n \n \n Entrees \n \n Picnic Shrimp Boil ½ lb of fresh gulf shrimp, Conecuh sausage, red potatoes, and sweet corn seasoned and served with old bay butter, house-made remoulade, cocktail sauce, and lemon. \n \n \n \n \n Grouper Basket Fresh caught grouper served fried, grilled, or blackened on a mound of fries with herby tartar, cocktail sauce and lemon. \n \n \n \n \n Buffalo Chicken Basket Marinated chicken tenders golden fried and served tossed in buffalo sauce on a mound of fries with a side of house made ranch. Also available- naked with house made white BBQ sauce on the side. \n \n \n \n \n Gulf Shrimp Basket Fresh Gulf shrimp served fried, grilled, or blackened on a mound of fries with herby tartar, cocktail sauce and lemon. \n \n \n \n \n Snow Crab Entree 1 lb of juicy snow crab clusters poached in a low boil, served with sweet corn, red potatoes, and melted butter. \n \n \n \n \n Cayman Coconut Shrimp Basket Crispy and crunchy fried shrimp coated in a coconut flavor. served with pineapple sweet chili dipping sauce. \n \n \n \n \n Handhelds *All burgers are made of our fresh (never frozen) American beef. sub black bean patty for an additional charge | Make any burger a double for an additional charge. All handhelds are served on toasted brioche buns and served with fries. Gluten-free buns are available upon request | sub sweet potato fries for an additional charge | sub parmesan truffle fries for an additional charge | sub mac n cheese for an additional charge | sub side salad for an additional charge \n \n *Beach Burger Bacon, avocado, cheddar cheese, red onion, tomato, lettuce, and pickles topped with homemade remoulade. Add extra patty for an additional charge \n \n \n \n \n *The All-American Burger American cheese, red onion, tomato, lettuce, and pickles topped with house-made remoulade. Add extra patty for an additional charge \n \n \n \n \n *The Sunburn Burger Pepperjack cheese, grilled onions & jalapeños, lettuce, tomatoes, and pickles topped with house-made spicy ranch. Add extra patty for an additional charge \n \n \n \n \n Grouper Sandwich Fresh gulf grouper hand-breaded and golden fried with red onion, tomato, and lettuce topped with house-made herby tartar. Also available- grilled or blackened. \n \n \n \n \n Buffalo Chicken Sandwich Hand-breaded and golden fried marinated chicken tenders tossed in buffalo sauce topped with red onion, tomato, lettuce, pickles and side of house made ranch. Also available- naked topped with house made white BBQ sauce, red onion, tomato, lettuce, and pickles. \n \n \n \n \n Mahi-Mahi Sandwich Blackened fresh mahi-mahi, red onion, tomato, and lettuce topped with house-made herby tartar sauce. \n \n \n \n \n Lil Kids 12 & Under *all kids meals are served with French fries and a drink \n \n Kids Fried Shrimp Basket Lightly breaded and gently fried gulf shrimp served with fries. \n \n \n \n \n Kids Chicken Tenders Marinated chicken tenders lightly breaded and gently fried, served with fries. \n \n \n \n \n Kids Mac & Cheese Creamy house made mac & cheese served with fries. \n \n \n \n \n *Kids Cheese Burger Natural beef patty topped with American cheese on toasted Brioche bun. \n \n \n \n \n Wraps Served with purple tortilla chips & salsa \n \n Caribbean Shrimp Wrap Blackened shrimp, pineapple, red cabbage, carrots, cucumbers, Asian glaze dipping sauce wrapped in a flour tortilla \n \n \n \n \n Vegetarian Wrap Marinated roasted golden beets, cucumbers, tomato, red cabbage, radish, goat cheese, and Greek vinaigrette dressing wrapped in a spinach tortilla. \n \n \n \n \n Buffalo Fried Chicken BLT Wrap Buffalo fried chicken, tomatoes, cheddar cheese, iceberg, bacon, and ranch dipping sauce wrapped in a flour tortilla \n \n \n \n \n Chicken Caesar Wrap Grilled chicken, romaine lettuce, parmesan cheese, Caesar dressing wrapped in a spinach tortilla \n \n \n \n \n Tacos Served with purple tortilla chips & salsa. \n \n Chicken Tacos (3) blackened chicken tacos on flour tortillas with red cabbage, corn salsa topped with smoked tomato aioli and cilantro garnish with a side of purple tortilla chips, sour cream and salsa. \n \n \n \n \n Shrimp Tacos (3) blackened shrimp tacos on flour tortillas with red cabbage and corn salsa topped with bang sauce and cilantro garnish with a side of purple tortilla chips, sour cream and salsa. \n \n \n \n \n Mahi Tacos (3) blackened mahi tacos on flour tortillas with red cabbage and corn salsa topped with lime aioli and cilantro garnish with a side of purple tortilla chips, sour cream and salsa. \n \n \n \n \n Taco Sampler One of each taco with purple chips, sour cream, and salsa. \n \n \n \n \n Taco Bowl Your choice of ground beef or blackened chicken in a fried tortilla bowl with cheesy rice, shredded lettuce, tomatoes, shredded cheese, sour cream, salsa, and jalapenos. \n \n \n \n *Consuming raw or undercooked meats, poultry, seafood, shellfish, or eggs may increase your risk of foodborne illness, especially if you have certain medical conditions. **Parties of 10 or more are limited to 3 separate checks; but we can accommodate multiple forms of payment on each.\n\nDRINK MENU\n\n \n \n\n \n \n \n \n\n \n \n\n \n \n\n \n \n\n \n\t\n\n\t\n\n \n \n\n \n\n \n \n \n \n \n\n \n \n ©2026 Picnic Beach | Privacy Policy \n\n \n \n \n \n \n\n \n \n\t\n\n \n\nORDER ONLINE",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebSite",
+              "@id": "https://picnicbeach.com/#/schema/WebSite",
+              "url": "https://picnicbeach.com/",
+              "name": "Picnic Beach",
+              "description": "Picnic Beach – Gulf Shores, AL Restaurant",
+              "inLanguage": "en-US",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": {
+                  "@type": "EntryPoint",
+                  "urlTemplate": "https://picnicbeach.com/search/{search_term_string}/"
+                },
+                "query-input": "required name=search_term_string"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "@id": "https://picnicbeach.com/#/schema/Organization",
+                "name": "Picnic Beach",
+                "url": "https://picnicbeach.com/"
+              }
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://picnicbeach.com/food-menu/",
+              "url": "https://picnicbeach.com/food-menu/",
+              "name": "Food Menu | Picnic Beach",
+              "inLanguage": "en-US",
+              "isPartOf": {
+                "@id": "https://picnicbeach.com/#/schema/WebSite"
+              },
+              "breadcrumb": {
+                "@type": "BreadcrumbList",
+                "@id": "https://picnicbeach.com/#/schema/BreadcrumbList",
+                "itemListElement": [
+                  {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "item": "https://picnicbeach.com/",
+                    "name": "Picnic Beach"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Food Menu"
+                  }
+                ]
+              },
+              "potentialAction": {
+                "@type": "ReadAction",
+                "target": "https://picnicbeach.com/food-menu/"
+              }
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://picnicbeach.com/food-menu/",
+              "url": "https://picnicbeach.com/food-menu/",
+              "name": "Food Menu - Picnic Beach",
+              "isPartOf": {
+                "@id": "https://picnicbeach.com/#website"
+              },
+              "datePublished": "2023-02-22T21:47:01+00:00",
+              "dateModified": "2024-06-25T03:02:24+00:00",
+              "breadcrumb": {
+                "@id": "https://picnicbeach.com/food-menu/#breadcrumb"
+              },
+              "inLanguage": "en-US",
+              "potentialAction": [
+                {
+                  "@type": "ReadAction",
+                  "target": [
+                    "https://picnicbeach.com/food-menu/"
+                  ]
+                }
+              ]
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://picnicbeach.com/food-menu/#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://picnicbeach.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Food Menu"
+                }
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://picnicbeach.com/#website",
+              "url": "https://picnicbeach.com/",
+              "name": "Picnic Beach",
+              "description": "Picnic Beach - Gulf Shores, AL Restaurant",
+              "potentialAction": [
+                {
+                  "@type": "SearchAction",
+                  "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://picnicbeach.com/?s={search_term_string}"
+                  },
+                  "query-input": {
+                    "@type": "PropertyValueSpecification",
+                    "valueRequired": true,
+                    "valueName": "search_term_string"
+                  }
+                }
+              ],
+              "inLanguage": "en-US"
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "robots": "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
+        "facebook-domain-verification": "qidgpjpmqrob1a4o6fcjjc7vxdc0b9",
+        "format-detection": "telephone=no",
+        "viewport": "width=device-width, initial-scale=1, maximum-scale=1",
+        "theme-color": "#ffffff",
+        "og:type": "article",
+        "og:locale": "en_US",
+        "og:site_name": "Picnic Beach",
+        "og:title": "Food Menu - Picnic Beach",
+        "og:url": "https://picnicbeach.com/food-menu/",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Food Menu | Picnic Beach",
+        "og:description": "DRINK MENU",
+        "article:modified_time": "2024-06-25T03:02:24+00:00",
+        "twitter:label1": "Est. reading time",
+        "twitter:data1": "1 minute",
+        "generator": "WP Rocket 3.20.5"
+      }
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": [
+    "https://picnicbeach.com/wp-content/uploads/2023/02/PIC-Logo-Horizontal.png.webp",
+    "https://www.picnicbeach.com/wp-content/uploads/2022/02/hsplash.jpg",
+    "https://www.picnicbeach.com/wp-content/uploads/2023/02/IMG_9674.jpg",
+    "https://picnicbeach.com/wp-content/uploads/2023/02/PIC-Logo-Horizontal-300x71.png.webp",
+    "https://a.singleplatform.com/DirectBusinessIntegration/picnic-beach/provided_by.png?sp_dt=20260202"
+  ]
+}

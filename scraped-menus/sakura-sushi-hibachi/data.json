@@ -1,0 +1,84 @@
+{
+  "business_name": "Sakura Sushi & Hibachi",
+  "tagline": "Amazingly Delicious",
+  "type": "Restaurant",
+  "contact": {
+    "phone": "251-649-1689",
+    "email": null,
+    "address": "4276 McCrary Road",
+    "city": "Semmes",
+    "state": "AL",
+    "zip": "36575"
+  },
+  "hours": {
+    "monday": "11:00 AM - 9:00 PM",
+    "tuesday": "11:00 AM - 9:00 PM",
+    "wednesday": "11:00 AM - 9:00 PM",
+    "thursday": "11:00 AM - 9:00 PM",
+    "friday": "11:00 AM - 9:00 PM",
+    "saturday": "11:00 AM - 9:00 PM",
+    "sunday": "11:00 AM - 9:00 PM",
+    "notes": null
+  },
+  "about": {
+    "description": "Welcome to our restaurant! Come and try our dishes!",
+    "elevator_pitch": "Order your favorite sushi and hibachi food online at your convenience.",
+    "vibe": null,
+    "best_for": [],
+    "established": null,
+    "reservations": null,
+    "insider_tip": null
+  },
+  "tags": [
+    "sushi",
+    "hibachi",
+    "japanese"
+  ],
+  "features": [
+    "online ordering"
+  ],
+  "price_range": null,
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "http://www.sakuramm.com"
+  },
+  "specials": [],
+  "events": [],
+  "menu": {
+    "categories": []
+  },
+  "url": "http://www.sakuramm.com/",
+  "scraped_at": "2026-03-22T18:33:52.893Z",
+  "extracted_at": "2026-03-23T04:05:37.267Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://www.sakuramm.com/wp-content/uploads/sakuramm.com/2022/06/unnamed.jpg",
+    "https://www.sakuramm.com/wp-content/uploads/sakuramm.com/2022/06/9_E5_89_AF_E6_9C_AC.jpg",
+    "https://www.sakuramm.com/wp-content/uploads/sakuramm.com/2022/06/8_E5_89_AF_E6_9C_AC.jpg",
+    "https://www.sakuramm.com/wp-content/uploads/sakuramm.com/2022/06/4.jpg",
+    "https://www.sakuramm.com/wp-content/uploads/sakuramm.com/2022/06/3.jpg",
+    "https://www.sakuramm.com/wp-content/uploads/sakuramm.com/2022/06/2.jpg",
+    "https://www.sakuramm.com/wp-content/uploads/sakuramm.com/2022/06/1.jpg",
+    "https://www.sakuramm.com/wp-content/uploads/sakuramm.com/2022/06/10.jpg",
+    "https://www.sakuramm.com/wp-content/uploads/sakuramm.com/2022/06/7.jpg",
+    "https://www.sakuramm.com/wp-content/uploads/sakuramm.com/2022/06/6.jpg",
+    "https://www.sakuramm.com/wp-content/uploads/sakuramm.com/2022/06/5.jpg"
+  ],
+  "sources": [
+    "http://www.sakuramm.com",
+    "https://www.sakuramm.com",
+    "https://www.sakuramm.com/accessibility-statement",
+    "https://www.sakuramm.com/wp-content/uploads/sakuramm.com/2022/06/unnamed.jpg",
+    "https://www.sakuramm.com/wp-content/uploads/sakuramm.com/2022/06/9_E5_89_AF_E6_9C_AC.jpg",
+    "https://www.sakuramm.com/wp-content/uploads/sakuramm.com/2022/06/8_E5_89_AF_E6_9C_AC.jpg",
+    "https://www.sakuramm.com/wp-content/uploads/sakuramm.com/2022/06/4.jpg",
+    "https://www.sakuramm.com/wp-content/uploads/sakuramm.com/2022/06/3.jpg",
+    "https://www.sakuramm.com/wp-content/uploads/sakuramm.com/2022/06/2.jpg",
+    "https://www.sakuramm.com/wp-content/uploads/sakuramm.com/2022/06/1.jpg",
+    "https://www.sakuramm.com/wp-content/uploads/sakuramm.com/2022/06/10.jpg",
+    "https://www.sakuramm.com/wp-content/uploads/sakuramm.com/2022/06/7.jpg",
+    "https://www.sakuramm.com/wp-content/uploads/sakuramm.com/2022/06/6.jpg",
+    "https://www.sakuramm.com/wp-content/uploads/sakuramm.com/2022/06/5.jpg"
+  ]
+}

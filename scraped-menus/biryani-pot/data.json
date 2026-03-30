@@ -1,0 +1,568 @@
+{
+  "business_name": "Biryani Pot",
+  "tagline": "Experience Authentic Indian Tradition on Every Plate",
+  "type": "Restaurant",
+  "contact": {
+    "phone": "(251) 888-0999",
+    "email": "biryanipotmobile@gmail.com",
+    "address": "758 Downtowner Boulevard",
+    "city": "Mobile",
+    "state": "AL",
+    "zip": "36609"
+  },
+  "hours": {
+    "monday": "11:00 AM - 10:00 PM",
+    "tuesday": "11:00 AM - 10:00 PM",
+    "wednesday": "11:00 AM - 10:00 PM",
+    "thursday": "11:00 AM - 10:00 PM",
+    "friday": "11:00 AM - 11:00 PM",
+    "saturday": "11:00 AM - 11:00 PM",
+    "sunday": "11:00 AM - 10:00 PM",
+    "notes": null
+  },
+  "about": {
+    "description": "Biryani Pot brings real Indian cooking to the heart of Mobile. The restaurant was built with one clear goal: share the rich food culture of India with the local community. They follow traditional cooking methods and use trusted spices and herbs to create memorable meals. Biryani is the star of their kitchen, cooked using time-tested methods that bring out deep flavor and texture.",
+    "elevator_pitch": "Authentic Indian restaurant specializing in traditional biryani and classic Indian cuisine in Mobile, AL.",
+    "vibe": "Comfortable, welcoming, and relaxed dine-in atmosphere with friendly and attentive staff.",
+    "best_for": [
+      "families",
+      "lunch breaks",
+      "casual meals with friends",
+      "events and catering"
+    ],
+    "established": null,
+    "reservations": null,
+    "insider_tip": "The buffet offers a nice variety of fresh and tasty dishes. Staff will teach you how to eat the food if you're new to Indian cuisine."
+  },
+  "tags": [
+    "Indian",
+    "Biryani",
+    "Buffet",
+    "Indian takeaway",
+    "authentic",
+    "casual dining",
+    "vegetarian options",
+    "all you can eat"
+  ],
+  "features": [
+    "Dine-in",
+    "Takeout",
+    "Delivery",
+    "Catering",
+    "Online ordering",
+    "Rewards program",
+    "Mobile app",
+    "Gift cards"
+  ],
+  "price_range": "$$",
+  "social_links": {
+    "instagram": "https://www.instagram.com/biryanipot_nola/",
+    "facebook": "https://www.facebook.com/BiryaniPotofMobile/",
+    "website": "https://biryanipotmobile.com/"
+  },
+  "specials": [],
+  "events": [
+    {
+      "name": "Catering",
+      "description": "Biryani Pot offers catering for events of all sizes including office lunches, family celebrations, birthdays, and community gatherings.",
+      "recurring": true,
+      "day": null,
+      "time": null
+    }
+  ],
+  "menu": {
+    "categories": [
+      {
+        "name": "Biryani",
+        "type": "lunch|dinner",
+        "items": [
+          {
+            "name": "Chicken Biryani",
+            "description": "Aromatic and delicious with tender chicken and well-cooked rice",
+            "price": null,
+            "tags": [
+              "featured"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Lamb Biryani",
+            "description": "Lamb Chops Of Heaven",
+            "price": null,
+            "tags": [
+              "featured"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Goat Biryani",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Boneless Chicken Biryani",
+            "description": null,
+            "price": null,
+            "tags": [
+              "featured"
+            ],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Chicken",
+        "type": "lunch|dinner",
+        "items": [
+          {
+            "name": "Chicken Makhani/Butter Chicken",
+            "description": null,
+            "price": null,
+            "tags": [
+              "featured"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Chicken Tikka Masala",
+            "description": null,
+            "price": null,
+            "tags": [
+              "featured"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Chicken Korma",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Chicken Tikka",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Tandoori Chicken",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Chicken Noodle",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Roast and Pepper Chicken",
+            "description": "Flavorful and perfectly spiced",
+            "price": null,
+            "tags": [],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Lamb",
+        "type": "lunch|dinner",
+        "items": [
+          {
+            "name": "Lamb Korma",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Lamb Rogan Josh",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Paneer",
+        "type": "lunch|dinner",
+        "items": [
+          {
+            "name": "Paneer Tikka Masala",
+            "description": null,
+            "price": null,
+            "tags": [
+              "featured"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Saag Paneer",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Palak Paneer",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Vegetarian",
+        "type": "lunch|dinner|dietary",
+        "items": [
+          {
+            "name": "Veg Samosa",
+            "description": "2 Pieces",
+            "price": null,
+            "tags": [
+              "featured"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Aloo Gobi",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Chana Masala",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Chana",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Aloo Tikki",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Gobi Manchurian",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Dal & Curries",
+        "type": "lunch|dinner",
+        "items": [
+          {
+            "name": "Dal",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Dal Makhani",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Dal Fry",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Rogan Josh",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Curry",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Vindaloo",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Rice & Breads",
+        "type": "lunch|dinner",
+        "items": [
+          {
+            "name": "Basmati Rice",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Fried Rice",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Veg Fried Rice",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Naan",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Butter Naan",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Garlic Naan",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Paratha",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Roti",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Puri",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "South Indian",
+        "type": "lunch|dinner",
+        "items": [
+          {
+            "name": "Dosa",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Masala Dosa",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Idli",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Idli Vada",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Street Food & Appetizers",
+        "type": "lunch|dinner",
+        "items": [
+          {
+            "name": "Samosa",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Pakora",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Bhel Puri",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Pani Puri",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Chaat",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Dahi Puri",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Sides",
+        "type": "lunch|dinner",
+        "items": [
+          {
+            "name": "Raita",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Pav",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Scrambled Eggs",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": [
+              "eggs"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Desserts & Beverages",
+        "type": "desserts|drinks",
+        "items": [
+          {
+            "name": "Gulab Jamun",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Kulfi",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Lassi",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Irani Chai",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Buffet",
+        "type": "lunch|dinner",
+        "items": [
+          {
+            "name": "All You Can Eat Buffet",
+            "description": "Fresh and tasty variety of Indian dishes",
+            "price": null,
+            "tags": [
+              "featured"
+            ],
+            "allergens": []
+          }
+        ]
+      }
+    ]
+  },
+  "url": "http://www.biryanipotmobile.com/",
+  "scraped_at": "2026-03-21T13:55:10.089Z",
+  "extracted_at": "2026-03-23T03:32:02.235Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://cloverstatic.com/menu-assets/items/KRACWRD21R7BA.jpeg",
+    "https://cloverstatic.com/menu-assets/items/FCJBN6XY06SYC.jpeg",
+    "https://cloverstatic.com/menu-assets/items/YJPCN5NAKGPT6.jpeg",
+    "https://cloverstatic.com/menu-assets/items/2K27F15RTT5TA.jpeg",
+    "https://cloverstatic.com/menu-assets/items/G741C6KRPEMB2.jpeg",
+    "https://cloverstatic.com/menu-assets/items/CXYEZK6NNRFFA.jpeg",
+    "https://cloverstatic.com/menu-assets/items/7KJ137NYAPDG2.jpeg"
+  ],
+  "sources": [
+    "http://www.biryanipotmobile.com"
+  ]
+}

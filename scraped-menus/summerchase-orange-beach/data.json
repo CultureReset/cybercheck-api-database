@@ -1,0 +1,284 @@
+{
+  "business_name": "Summerchase Orange Beach",
+  "tagline": null,
+  "type": "Vacation Rental",
+  "contact": {
+    "phone": "+1-800-211-7892",
+    "email": null,
+    "address": "3259 Gulf Shores Parkway",
+    "city": "Gulf Shores",
+    "state": "AL",
+    "zip": "36542"
+  },
+  "location": {
+    "beachfront": true,
+    "bay_view": false,
+    "description": "Beachfront on Gulf of Mexico in Orange Beach, Alabama"
+  },
+  "about": {
+    "description": "Summerchase Orange Beach is part of Brett/Robinson Vacation Rentals, a premier vacation rental management company offering beachfront condos and family-friendly rentals in Gulf Shores and Orange Beach, Alabama. The company has over 50 years of experience providing exceptional service to Gulf Coast visitors.",
+    "elevator_pitch": "Premier beachfront vacation rental management company offering family-friendly condos and beach houses in Orange Beach, Alabama with 50+ years of experience.",
+    "total_units": null,
+    "floors": null,
+    "year_built": null,
+    "pet_friendly": true,
+    "minimum_stay": "3 nights",
+    "check_in": null,
+    "check_out": null,
+    "age_restriction": null
+  },
+  "amenities": {
+    "pools": [
+      "outdoor pool",
+      "lazy river",
+      "splash pad"
+    ],
+    "hot_tubs": true,
+    "fitness_center": true,
+    "tennis_courts": true,
+    "pickleball_courts": true,
+    "private_beach_access": true,
+    "parking": "reserved parking, covered parking",
+    "elevators": true,
+    "gated": false,
+    "bbq_grills": true,
+    "business_center": false,
+    "spa": false,
+    "restaurant_on_site": false,
+    "bar_on_site": false,
+    "kids_splash_pad": true,
+    "other": [
+      "beach chair rentals",
+      "gazebo",
+      "racquetball",
+      "basketball",
+      "shuffle board",
+      "boat slips",
+      "washer and dryer in units",
+      "saunas"
+    ]
+  },
+  "unit_types": [
+    {
+      "name": "1 Bedroom",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "sleeps": "4-5",
+      "view": "various",
+      "sq_ft": null,
+      "starting_price": "$95",
+      "features": [
+        "full kitchen",
+        "washer/dryer",
+        "cable TV",
+        "high-speed Wi-Fi",
+        "balcony"
+      ]
+    },
+    {
+      "name": "2 Bedroom",
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "sleeps": "6-8",
+      "view": "beachfront, waterfront, beach access",
+      "sq_ft": null,
+      "starting_price": "$99",
+      "features": [
+        "full kitchen",
+        "washer/dryer",
+        "cable TV",
+        "high-speed Wi-Fi",
+        "private balcony"
+      ]
+    },
+    {
+      "name": "3 Bedroom",
+      "bedrooms": 3,
+      "bathrooms": "2-3.5",
+      "sleeps": "8-12",
+      "view": "beachfront, waterfront, beach access",
+      "sq_ft": null,
+      "starting_price": "$156",
+      "features": [
+        "full kitchen",
+        "washer/dryer",
+        "cable TV",
+        "high-speed Wi-Fi",
+        "private balcony"
+      ]
+    },
+    {
+      "name": "4 Bedroom",
+      "bedrooms": 4,
+      "bathrooms": "3-4.5",
+      "sleeps": "10-16",
+      "view": "beachfront, waterfront, beach access",
+      "sq_ft": null,
+      "starting_price": "$194",
+      "features": [
+        "full kitchen",
+        "washer/dryer",
+        "cable TV",
+        "high-speed Wi-Fi",
+        "private balcony",
+        "corner units available"
+      ]
+    },
+    {
+      "name": "Beach House",
+      "bedrooms": "1-8",
+      "bathrooms": "1-4.5",
+      "sleeps": "4-22",
+      "view": "beachfront, waterfront, beach access",
+      "sq_ft": null,
+      "starting_price": null,
+      "features": [
+        "full kitchen",
+        "washer/dryer",
+        "cable TV",
+        "high-speed Wi-Fi",
+        "direct beach access"
+      ]
+    },
+    {
+      "name": "Hotel Room",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "sleeps": "2-4",
+      "view": "various",
+      "sq_ft": null,
+      "starting_price": null,
+      "features": [
+        "hotel amenities",
+        "cable TV",
+        "high-speed Wi-Fi"
+      ]
+    }
+  ],
+  "tags": [
+    "beachfront",
+    "family-friendly",
+    "vacation rental",
+    "condo",
+    "beach house",
+    "resort amenities",
+    "pet-friendly",
+    "group accommodations",
+    "luxury",
+    "affordable",
+    "Gulf of Mexico",
+    "Alabama Gulf Coast",
+    "Orange Beach"
+  ],
+  "features": [
+    "direct beach access",
+    "on-site management",
+    "24/7 customer support",
+    "full kitchens in units",
+    "high-speed Wi-Fi",
+    "private balconies",
+    "resort pools",
+    "fitness centers",
+    "local guest support",
+    "area recommendations",
+    "pet-friendly options",
+    "seasonal discounts",
+    "last-minute deals",
+    "snowbird specials",
+    "early booking discounts"
+  ],
+  "social_links": {
+    "instagram": "https://www.instagram.com/brett_robinson_vacations",
+    "facebook": "https://www.facebook.com/BrettRobinsonVacations",
+    "linkedin": "https://www.linkedin.com/company/brett-robinson-vacation-rentals",
+    "website": "https://www.brett-robinson.com/beach-condo/summerchase/"
+  },
+  "dining": [],
+  "specials": [
+    {
+      "name": "Seasonal Discounts",
+      "description": "Seasonal discounts available for various times of year on select properties",
+      "dates": "Varies by season"
+    },
+    {
+      "name": "Snowbird Specials",
+      "description": "Special rates for longer stays, ideal for snowbird visitors",
+      "dates": "Winter months"
+    },
+    {
+      "name": "Last-Minute Deals",
+      "description": "Last-minute savings on select rentals with limited availability",
+      "dates": "Ongoing"
+    },
+    {
+      "name": "Memorial Day Weekend Promotion",
+      "description": "Special rates for Memorial Day weekend bookings",
+      "dates": "May 21-24, 2026"
+    },
+    {
+      "name": "Mother's Day Special",
+      "description": "Special rates for Mother's Day weekend",
+      "dates": "May 7-9, 2026"
+    },
+    {
+      "name": "Summer 4-Bedroom Promotion",
+      "description": "Special rates on 4-bedroom properties, 3-night minimum",
+      "dates": "June 28 - July 1, 2026"
+    },
+    {
+      "name": "Hidden Gems - Charming Beachfront Stays",
+      "description": "Special rates on unique properties across Gulf Shores and Orange Beach, 3-night minimum",
+      "dates": "June 28 - July 1, 2026"
+    },
+    {
+      "name": "Promo Code Discounts",
+      "description": "Percentage-off promotions with promo codes (example: Bama2025 for 10% off)",
+      "dates": "Ongoing"
+    }
+  ],
+  "url": "https://www.brett-robinson.com/beach-condo/summerchase/",
+  "scraped_at": "2026-03-21T21:53:09.077Z",
+  "extracted_at": "2026-03-23T04:08:43.024Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://www.brett-robinson.com/assets/images/BRV-25-95-Vacations-Logo-GS-OB-PK-Horizontal-V2.png",
+    "https://www.brett-robinson.com/uploads/BRV-26-25--Easter-30-Days-WebpageGraphic_184150.jpg",
+    "https://www.brett-robinson.com/uploads/BRV-26-27--Mothers-Day-60-Days-WebpageGraphic_185358.jpg",
+    "https://www.brett-robinson.com/uploads/BRV-26-11-Memorial-Day-Stays-V1-WebpageGraphic_150618.jpg",
+    "https://www.brett-robinson.com/uploads/BRV-26-14-4-Bedroom-WebpageGraphic-V4_105813.jpg",
+    "https://www.brett-robinson.com/uploads/lFullSizeRender_110222.jpg",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024446PM_144957.png",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024255PM_144955.png",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024250PM_144952.png",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024550PM_145000.png",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024658PM_145003.png",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024800PM_145005.png",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024929PM_150512.png",
+    "https://www.brett-robinson.com/uploads/45dcbabd-14da-4c03-86b9-e33b1bec1699_152424.png",
+    "https://www.brett-robinson.com/uploads/f7c22236-e96b-4131-a6ef-3b8c161f6d60_152431.png",
+    "https://www.brett-robinson.com/uploads/114f4761-0d52-45a5-adf7-626f0144ccf1_152427.png",
+    "https://www.brett-robinson.com/uploads/7ea53f3d-a24b-4d65-96fa-e5f6adaf272d_152421.png",
+    "https://www.brett-robinson.com/uploads/b96b1f24-e333-42bc-9e47-d77fd57855e4_152429.png",
+    "https://www.brett-robinson.com/uploads/732961ba-7d13-4aa9-9294-690e2e1f3420_153528.png",
+    "https://www.brett-robinson.com/uploads/31e08f79-9b97-4008-a4c9-aac831c9b812_153520.png",
+    "https://www.brett-robinson.com/uploads/bad38faf-f976-4ddb-bf87-78b7a03d52df_153530.png",
+    "https://www.brett-robinson.com/uploads/9c90c840-9dd2-46b1-bc95-cc5c75810af3_153523.png",
+    "https://www.brett-robinson.com/uploads/9703bb55-7293-4a01-ad02-34e7793ffbd7_153525.png"
+  ],
+  "sources": [
+    "https://www.brett-robinson.com/beach-condo/summerchase",
+    "https://www.brett-robinson.com/specials-and-promotions",
+    "https://www.brett-robinson.com/specials-and-promotions/4bedrooms?icid=4+bedrooms&startDate=2026-06-28&endDate=2026-07-01",
+    "https://www.brett-robinson.com/specials-and-promotions/charming-beachfront-stays-for-a-tranquil-getaway?icid=Hidden-Gems&startDate=2026-06-28&endDate=2026-07-01",
+    "https://www.brett-robinson.com/specials-and-promotions/memorial90?icid=Memorial-Day-90&startDate=2026-05-21&endDate=2026-05-24",
+    "https://www.brett-robinson.com/specials-and-promotions/mothers-day-1?icid=Mothers-Day&startDate=2026-05-07&endDate=2026-05-09",
+    "https://www.brett-robinson.com/specials-and-promotions/spring-informationalb?icid=Spring-InformationalB&startDate=2026-03-05&endDate=2026-03-08",
+    "https://www.brett-robinson.com/specials-and-promotions/easter?icid=Easter&startDate=2026-04-02&endDate=2026-04-05",
+    "https://www.brett-robinson.com/history-of-brettrobinson",
+    "https://www.brett-robinson.com/gulf-shores-orange-beach-events",
+    "https://www.brett-robinson.com/about-brett-robinson",
+    "https://www.brett-robinson.com/office-locations",
+    "https://www.brett-robinson.com/contact",
+    "https://www.brett-robinson.com/driving-directions"
+  ]
+}

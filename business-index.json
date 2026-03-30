@@ -1,0 +1,2622 @@
+[
+  {
+    "slug": "8realeobal-com",
+    "name": "8realeobal.com",
+    "url": "http://www.8realeobal.com",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 7900
+  },
+  {
+    "slug": "a-specialty-bakery",
+    "name": "A Specialty Bakery",
+    "url": "http://aspecialtybakery.net/",
+    "category": "Coffee & Cafes",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 3184
+  },
+  {
+    "slug": "adventureislandgulfshores-com",
+    "name": "adventureislandgulfshores.com",
+    "url": "https://adventureislandgulfshores.com",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores",
+    "scraped": false,
+    "extracted": false,
+    "chars": 0
+  },
+  {
+    "slug": "agave-bar-grill",
+    "name": "Agave Bar & Grill",
+    "url": "https://agavebargrillal.com/",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 9714
+  },
+  {
+    "slug": "agavemexicanrestaurants-com",
+    "name": "agavemexicanrestaurants.com",
+    "url": "https://agavemexicanrestaurants.com",
+    "category": "Mexican",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 0
+  },
+  {
+    "slug": "alabamagulfcoastzoo-com",
+    "name": "alabamagulfcoastzoo.com",
+    "url": "https://www.alabamagulfcoastzoo.com",
+    "category": "Attractions & Activities",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 524596
+  },
+  {
+    "slug": "alapark-com",
+    "name": "alapark.com",
+    "url": "https://www.alapark.com/parks/gulf-state-park",
+    "category": "Attractions & Activities",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 0
+  },
+  {
+    "slug": "amelia-s-deli",
+    "name": "Amelia's Deli",
+    "url": "http://ameliasdeli.com/",
+    "category": "Breakfast & Brunch",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 7654
+  },
+  {
+    "slug": "anchored-coffeehouse",
+    "name": "Anchored Coffeehouse",
+    "url": "https://anchoredcoffeehouse.com/",
+    "category": "Coffee & Cafes",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": true,
+    "chars": 0
+  },
+  {
+    "slug": "angrycrabshack-com",
+    "name": "angrycrabshack.com",
+    "url": "https://www.angrycrabshack.com/perdido-blvd-orange-beach-al/",
+    "category": "Seafood & Gulf Cuisine",
+    "location": "Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 487231
+  },
+  {
+    "slug": "another-broken-egg-cafe",
+    "name": "Another Broken Egg Cafe",
+    "url": "https://www.anotherbrokenegg.com/locations/orange-beach-al/",
+    "category": "Breakfast & Brunch",
+    "location": "Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 79515
+  },
+  {
+    "slug": "avenuepubgulfshores-com",
+    "name": "avenuepubgulfshores.com",
+    "url": "https://avenuepubgulfshores.com",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores",
+    "scraped": false,
+    "extracted": false,
+    "chars": 0
+  },
+  {
+    "slug": "badass-coffee",
+    "name": "Badass Coffee",
+    "url": "https://badasscoffee.orderexperience.net/66f71b41f66b1f8f790a96c3/menu",
+    "category": "Coffee & Cafes",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": true,
+    "chars": 51426
+  },
+  {
+    "slug": "bahamabobs-com",
+    "name": "bahamabobs.com",
+    "url": "https://www.bahamabobs.com",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 22463
+  },
+  {
+    "slug": "bamboo-steakhouse-sushi-bar",
+    "name": "Bamboo Steakhouse & Sushi Bar",
+    "url": "https://hightidedaiquiris.com/",
+    "category": "Bars & Breweries",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 4127
+  },
+  {
+    "slug": "bangkok-thai-cuisine",
+    "name": "Bangkok Thai Cuisine",
+    "url": "http://www.bangkokthaicuisinemobile.com/",
+    "category": "Asian & International",
+    "location": "Mobile Area",
+    "scraped": false,
+    "extracted": false,
+    "chars": 1006
+  },
+  {
+    "slug": "bar-45",
+    "name": "Bar 45",
+    "url": "https://oneclubgulfshores.com/45-restaurant-bar/",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores",
+    "scraped": true,
+    "extracted": false,
+    "chars": 14554
+  },
+  {
+    "slug": "baumhowers-com",
+    "name": "baumhowers.com",
+    "url": "https://www.baumhowers.com",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 37543
+  },
+  {
+    "slug": "beach-girl-coffee",
+    "name": "Beach Girl Coffee",
+    "url": "https://www.beachgirlcoffee.com/",
+    "category": "Coffee & Cafes",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 7951
+  },
+  {
+    "slug": "beachsidecircleboats-com",
+    "name": "beachsidecircleboats.com",
+    "url": "https://www.beachsidecircleboats.com",
+    "category": "Water Sports & Cruises",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": true,
+    "chars": 17593
+  },
+  {
+    "slug": "big-beach-brewing",
+    "name": "Big Beach Brewing",
+    "url": "https://bigbeachbrewing.com/",
+    "category": "Bars & Breweries",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": true,
+    "chars": 10926
+  },
+  {
+    "slug": "bigfishrestaurantbar-com",
+    "name": "bigfishrestaurantbar.com",
+    "url": "https://bigfishrestaurantbar.com",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 0
+  },
+  {
+    "slug": "bigmikesbbq-net",
+    "name": "bigmikesbbq.net",
+    "url": "https://bigmikesbbq.net",
+    "category": "BBQ & Southern",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 0
+  },
+  {
+    "slug": "bikini-blini-bakery",
+    "name": "Bikini Blini Bakery",
+    "url": "http://bikiniblini.com/",
+    "category": "Coffee & Cafes",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 291
+  },
+  {
+    "slug": "bird-dog-chicken-company",
+    "name": "Bird Dog Chicken Company",
+    "url": "http://www.birddogchickencompany.com/",
+    "category": "Burgers, Wings & American",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 596
+  },
+  {
+    "slug": "biryani-pot",
+    "name": "Biryani Pot",
+    "url": "http://www.biryanipotmobile.com/",
+    "category": "Asian & International",
+    "location": "Mobile Area",
+    "scraped": true,
+    "extracted": false,
+    "chars": 5629
+  },
+  {
+    "slug": "bleus-burger-restaurant-and-bar",
+    "name": "Bleus Burger Restaurant and Bar",
+    "url": "http://www.bleusburger.com/",
+    "category": "Burgers, Wings & American",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 23956
+  },
+  {
+    "slug": "bolorestaurant-com",
+    "name": "bolorestaurant.com",
+    "url": "https://www.bolorestaurant.com",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 15707
+  },
+  {
+    "slug": "brett-robinson-orange-beach-condos",
+    "name": "Brett Robinson Orange Beach Condos",
+    "url": "https://www.brett-robinson.com/orange-beach-condos/",
+    "category": "Condos & Lodging",
+    "location": "Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 89784
+  },
+  {
+    "slug": "brickandspoon-com",
+    "name": "brickandspoon.com",
+    "url": "https://brickandspoon.com",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 22677
+  },
+  {
+    "slug": "cactus-cantina-gulf-shores",
+    "name": "Cactus Cantina Gulf Shores",
+    "url": "http://mycactuscantina.com/",
+    "category": "Mexican",
+    "location": "Gulf Shores",
+    "scraped": true,
+    "extracted": false,
+    "chars": 4100
+  },
+  {
+    "slug": "cactuscantinagulfshores-com",
+    "name": "cactuscantinagulfshores.com",
+    "url": "https://cactuscantinagulfshores.com",
+    "category": "Mexican",
+    "location": "Gulf Shores",
+    "scraped": false,
+    "extracted": false,
+    "chars": 0
+  },
+  {
+    "slug": "cactuscantinaob-com",
+    "name": "cactuscantinaob.com",
+    "url": "https://cactuscantinaob.com",
+    "category": "Mexican",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 0
+  },
+  {
+    "slug": "caribe-resort",
+    "name": "Caribe Resort",
+    "url": "https://www.brett-robinson.com/beach-condo/caribe-resort/",
+    "category": "Condos & Lodging",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 85006
+  },
+  {
+    "slug": "carmeloitalian-com",
+    "name": "carmeloitalian.com",
+    "url": "https://carmeloitalian.com",
+    "category": "Italian",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 3742
+  },
+  {
+    "slug": "cheeseburger-randy-s",
+    "name": "Cheeseburger Randy’s",
+    "url": "https://cheeseburgerrandys.com/",
+    "category": "Burgers, Wings & American",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 295
+  },
+  {
+    "slug": "chef-s-da-chinese-restaurant",
+    "name": "Chef's Da Chinese Restaurant",
+    "url": "https://www.chefsda.com/",
+    "category": "Asian & International",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 45445
+  },
+  {
+    "slug": "chef-sake-s-restaurant-and-sushi-bar",
+    "name": "Chef Sake's | Restaurant and Sushi Bar",
+    "url": "http://www.chef-sake.com/",
+    "category": "Asian & International",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 3060
+  },
+  {
+    "slug": "chicken-salad-chick",
+    "name": "Chicken Salad Chick",
+    "url": "https://chickensaladchick.com/gulf-shores-al",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores",
+    "scraped": true,
+    "extracted": false,
+    "chars": 103088
+  },
+  {
+    "slug": "china-chef-chinese-restaurant",
+    "name": "China Chef Chinese Restaurant",
+    "url": "http://chinachefal.com/",
+    "category": "Asian & International",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 40000
+  },
+  {
+    "slug": "classactfishing-net",
+    "name": "classactfishing.net",
+    "url": "https://classactfishing.net",
+    "category": "Fishing & Charters",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 135
+  },
+  {
+    "slug": "coastalorangebeach-com",
+    "name": "coastalorangebeach.com",
+    "url": "https://www.coastalorangebeach.com",
+    "category": "Restaurants & Bars",
+    "location": "Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 53237
+  },
+  {
+    "slug": "cobaltrestaurant-net",
+    "name": "cobaltrestaurant.net",
+    "url": "https://cobaltrestaurant.net",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 13537
+  },
+  {
+    "slug": "colonnades-orange-beach",
+    "name": "Colonnades Orange Beach",
+    "url": "https://www.brett-robinson.com/beach-condo/colonnades/",
+    "category": "Condos & Lodging",
+    "location": "Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 89713
+  },
+  {
+    "slug": "coolchangecharter-com",
+    "name": "coolchangecharter.com",
+    "url": "https://coolchangecharter.com",
+    "category": "Fishing & Charters",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 9842
+  },
+  {
+    "slug": "cosmo-s-restaurant-bar",
+    "name": "Cosmo's Restaurant & Bar",
+    "url": "http://www.cosmosrestaurantandbar.com/",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 5456
+  },
+  {
+    "slug": "cosmosob-com",
+    "name": "cosmosob.com",
+    "url": "https://www.cosmosob.com",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 0
+  },
+  {
+    "slug": "cottonsorangebeach-com",
+    "name": "cottonsorangebeach.com",
+    "url": "https://cottonsorangebeach.com",
+    "category": "Restaurants & Bars",
+    "location": "Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 16203
+  },
+  {
+    "slug": "cottonsrestaurant-com",
+    "name": "cottonsrestaurant.com",
+    "url": "https://cottonsrestaurant.com",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 0
+  },
+  {
+    "slug": "cowbell-rolled-ice-cream",
+    "name": "Cowbell Rolled Ice Cream",
+    "url": "http://cowbellrolledicecream.com/",
+    "category": "Desserts & Ice Cream",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 90
+  },
+  {
+    "slug": "cozumelmexicangrillandbar-com",
+    "name": "cozumelmexicangrillandbar.com",
+    "url": "http://cozumelmexicangrillandbar.com",
+    "category": "Mexican",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 15018
+  },
+  {
+    "slug": "crabtrapflorida-com",
+    "name": "crabtrapflorida.com",
+    "url": "https://crabtrapflorida.com",
+    "category": "Seafood & Gulf Cuisine",
+    "location": "Florida Panhandle",
+    "scraped": true,
+    "extracted": false,
+    "chars": 14558
+  },
+  {
+    "slug": "cricospizza-com",
+    "name": "cricospizza.com",
+    "url": "https://cricospizza.com",
+    "category": "Pizza",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 4604
+  },
+  {
+    "slug": "cruisin-tikis-com",
+    "name": "cruisin-tikis.com",
+    "url": "https://www.cruisin-tikis.com",
+    "category": "Water Sports & Cruises",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": true,
+    "chars": 0
+  },
+  {
+    "slug": "cruisintikis-com",
+    "name": "cruisintikis.com",
+    "url": "https://www.cruisintikis.com",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 135
+  },
+  {
+    "slug": "crystal-tower",
+    "name": "Crystal Tower",
+    "url": "https://www.brett-robinson.com/beach-condo/crystal-tower/",
+    "category": "Condos & Lodging",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 89716
+  },
+  {
+    "slug": "del-s-ice-cream",
+    "name": "Del's Ice Cream",
+    "url": "https://www.delsicecream.com/",
+    "category": "Desserts & Ice Cream",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 1781
+  },
+  {
+    "slug": "desi-tadka-indian-restaurant-alabama",
+    "name": "DESI TADKA INDIAN RESTAURANT - ALABAMA",
+    "url": "https://desitadkaalabama.com/",
+    "category": "Asian & International",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 120000
+  },
+  {
+    "slug": "desotosseafoodkitchen-com",
+    "name": "desotosseafoodkitchen.com",
+    "url": "https://desotosseafoodkitchen.com",
+    "category": "Seafood & Gulf Cuisine",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 8967
+  },
+  {
+    "slug": "discoveralabamacharters-com",
+    "name": "discoveralabamacharters.com",
+    "url": "https://www.discoveralabamacharters.com",
+    "category": "Fishing & Charters",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 0
+  },
+  {
+    "slug": "distractioncharters-com",
+    "name": "distractioncharters.com",
+    "url": "https://distractioncharters.com",
+    "category": "Fishing & Charters",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 135
+  },
+  {
+    "slug": "doc-s-seafood-and-steaks",
+    "name": "Doc’s Seafood and Steaks",
+    "url": "http://docsseafoodandsteak.com/",
+    "category": "Seafood & Gulf Cuisine",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 21359
+  },
+  {
+    "slug": "doc-s-seafood-shack",
+    "name": "Doc's Seafood Shack",
+    "url": "https://www.docsseafoodshack.com/",
+    "category": "Seafood & Gulf Cuisine",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 49988
+  },
+  {
+    "slug": "docsseafoodfoley-com",
+    "name": "docsseafoodfoley.com",
+    "url": "https://docsseafoodfoley.com",
+    "category": "Seafood & Gulf Cuisine",
+    "location": "Foley",
+    "scraped": true,
+    "extracted": false,
+    "chars": 14388
+  },
+  {
+    "slug": "dolphinfun-net",
+    "name": "dolphinfun.net",
+    "url": "https://www.dolphinfun.net",
+    "category": "Water Sports & Cruises",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": true,
+    "chars": 9182
+  },
+  {
+    "slug": "downsouthbbq-com",
+    "name": "downsouthbbq.com",
+    "url": "https://downsouthbbq.com",
+    "category": "BBQ & Southern",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 6043
+  },
+  {
+    "slug": "duck-s-diner-orange-beach",
+    "name": "Duck's Diner Orange Beach",
+    "url": "http://www.ducksdiner.com/",
+    "category": "Breakfast & Brunch",
+    "location": "Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 0
+  },
+  {
+    "slug": "eatcounterculture-com",
+    "name": "eatcounterculture.com",
+    "url": "https://eatcounterculture.com",
+    "category": "Burgers, Wings & American",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 8142
+  },
+  {
+    "slug": "efesgreekkitchen-com",
+    "name": "efesgreekkitchen.com",
+    "url": "https://efesgreekkitchen.com",
+    "category": "Asian & International",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 7679
+  },
+  {
+    "slug": "el-jacal-mexican-grill",
+    "name": "El Jacal Mexican Grill",
+    "url": "https://eljacalmexicangrill.com/",
+    "category": "Mexican",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 16843
+  },
+  {
+    "slug": "el-toro-mexican-restaurant",
+    "name": "El Toro Mexican Restaurant",
+    "url": "https://eltoromexicanrestaurantgulfshoresal.com/",
+    "category": "Mexican",
+    "location": "Gulf Shores",
+    "scraped": true,
+    "extracted": false,
+    "chars": 5804
+  },
+  {
+    "slug": "extremechaos-fish",
+    "name": "extremechaos.fish",
+    "url": "https://extremechaos.fish",
+    "category": "Fishing & Charters",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 11967
+  },
+  {
+    "slug": "firstwatch-com",
+    "name": "firstwatch.com",
+    "url": "http://www.firstwatch.com",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 55216
+  },
+  {
+    "slug": "fish-river-grill",
+    "name": "Fish River Grill",
+    "url": "https://fishrivergrillgs.com/",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": true,
+    "chars": 0
+  },
+  {
+    "slug": "fishorangebeach-com",
+    "name": "fishorangebeach.com",
+    "url": "https://www.fishorangebeach.com",
+    "category": "Seafood & Gulf Cuisine",
+    "location": "Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 15481
+  },
+  {
+    "slug": "fishrivergrill-com",
+    "name": "fishrivergrill.com",
+    "url": "https://www.fishrivergrill.com",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 1397
+  },
+  {
+    "slug": "florabama-com",
+    "name": "florabama.com",
+    "url": "https://www.florabama.com",
+    "category": "Bars & Breweries",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 73156
+  },
+  {
+    "slug": "florabamayachtclub-com",
+    "name": "florabamayachtclub.com",
+    "url": "https://www.florabamayachtclub.com",
+    "category": "Bars & Breweries",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 15269
+  },
+  {
+    "slug": "galwayirishpub-com",
+    "name": "galwayirishpub.com",
+    "url": "http://www.galwayirishpub.com",
+    "category": "Bars & Breweries",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 111
+  },
+  {
+    "slug": "getawaygulffishing-com",
+    "name": "getawaygulffishing.com",
+    "url": "https://getawaygulffishing.com",
+    "category": "Fishing & Charters",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 5969
+  },
+  {
+    "slug": "ginny-lane-bar-and-grill",
+    "name": "Ginny Lane Bar and Grill",
+    "url": "http://ginnylanebargrill.com/",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 24020
+  },
+  {
+    "slug": "golden-dragon-chinese-kitchen",
+    "name": "Golden Dragon Chinese Kitchen",
+    "url": "https://www.goldendragonchinesekitchen.com/",
+    "category": "Asian & International",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 32306
+  },
+  {
+    "slug": "groovygoat-com",
+    "name": "groovygoat.com",
+    "url": "https://groovygoat.com",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 0
+  },
+  {
+    "slug": "gtsonthebay-com",
+    "name": "gtsonthebay.com",
+    "url": "https://gtsonthebay.com",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 11209
+  },
+  {
+    "slug": "gulf-shores-surf-and-racquet",
+    "name": "Gulf Shores Surf and Racquet",
+    "url": "https://www.brett-robinson.com/beach-condo/gulf-shores-surf-and-racquet/",
+    "category": "Condos & Lodging",
+    "location": "Gulf Shores",
+    "scraped": true,
+    "extracted": false,
+    "chars": 98370
+  },
+  {
+    "slug": "gulf-village-gulf-shores",
+    "name": "Gulf Village Gulf Shores",
+    "url": "https://www.brett-robinson.com/beach-condo/gulf-village/",
+    "category": "Condos & Lodging",
+    "location": "Gulf Shores",
+    "scraped": true,
+    "extracted": false,
+    "chars": 89889
+  },
+  {
+    "slug": "gulfislandgrill-co",
+    "name": "gulfislandgrill.co",
+    "url": "https://gulfislandgrill.co",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 12649
+  },
+  {
+    "slug": "gulfrebelcharters-com",
+    "name": "gulfrebelcharters.com",
+    "url": "https://www.gulfrebelcharters.com",
+    "category": "Fishing & Charters",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 14476
+  },
+  {
+    "slug": "gulfshorescharterfishing-net",
+    "name": "gulfshorescharterfishing.net",
+    "url": "https://www.gulfshorescharterfishing.net",
+    "category": "Fishing & Charters",
+    "location": "Gulf Shores",
+    "scraped": false,
+    "extracted": false,
+    "chars": 0
+  },
+  {
+    "slug": "gulfshoressteamer-com",
+    "name": "gulfshoressteamer.com",
+    "url": "https://gulfshoressteamer.com",
+    "category": "Seafood & Gulf Cuisine",
+    "location": "Gulf Shores",
+    "scraped": true,
+    "extracted": false,
+    "chars": 8229
+  },
+  {
+    "slug": "gulfstatepark-org",
+    "name": "gulfstatepark.org",
+    "url": "https://www.gulfstatepark.org",
+    "category": "Attractions & Activities",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 0
+  },
+  {
+    "slug": "hammered-crab",
+    "name": "Hammered Crab",
+    "url": "http://thehammeredcrab.com/",
+    "category": "Seafood & Gulf Cuisine",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 14502
+  },
+  {
+    "slug": "happy-pappys-coffeehouse",
+    "name": "Happy Pappys Coffeehouse",
+    "url": "https://www.happypappyscoffee.com/",
+    "category": "Coffee & Cafes",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 8967
+  },
+  {
+    "slug": "hattiessoulfood-com",
+    "name": "hattiessoulfood.com",
+    "url": "https://hattiessoulfood.com",
+    "category": "Soul Food & Southern",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 155693
+  },
+  {
+    "slug": "hazelsnook-com",
+    "name": "hazelsnook.com",
+    "url": "https://hazelsnook.com",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 161
+  },
+  {
+    "slug": "high-tide-daiquiris-mimosas-west-beach",
+    "name": "High Tide Daiquiris & Mimosas West Beach",
+    "url": "http://www.sasshoes.com/",
+    "category": "Bars & Breweries",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 12598
+  },
+  {
+    "slug": "himalayan-nepali-cuisine",
+    "name": "HIMALAYAN NEPALI CUISINE",
+    "url": "https://www.namastenepalirestaurant.net/",
+    "category": "Asian & International",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 5515
+  },
+  {
+    "slug": "hogwildbeachandbbq-com",
+    "name": "hogwildbeachandbbq.com",
+    "url": "https://hogwildbeachandbbq.com",
+    "category": "BBQ & Southern",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 0
+  },
+  {
+    "slug": "hudsonmarina-net",
+    "name": "hudsonmarina.net",
+    "url": "https://hudsonmarina.net",
+    "category": "Fishing & Charters",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 135
+  },
+  {
+    "slug": "hughsgulfshores-com",
+    "name": "hughsgulfshores.com",
+    "url": "https://www.hughsgulfshores.com",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores",
+    "scraped": false,
+    "extracted": false,
+    "chars": 0
+  },
+  {
+    "slug": "hurricane-grill-wings-orange-beach",
+    "name": "Hurricane Grill & Wings-Orange Beach",
+    "url": "https://locations.hurricanewings.com/ll/US/AL/Orange-Beach/25755-Perdido-Beach-Blvd",
+    "category": "Restaurants & Bars",
+    "location": "Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 196825
+  },
+  {
+    "slug": "hwy-to-india",
+    "name": "HWY TO INDIA",
+    "url": "https://hwytoindia.com/",
+    "category": "Asian & International",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 172870
+  },
+  {
+    "slug": "icehousegs-com",
+    "name": "icehousegs.com",
+    "url": "http://www.icehousegs.com",
+    "category": "Bars & Breweries",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 6106
+  },
+  {
+    "slug": "indian-kitchen",
+    "name": "Indian Kitchen",
+    "url": "https://indiankitchenal.com/",
+    "category": "Asian & International",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 39044
+  },
+  {
+    "slug": "island-ice-cream-treats",
+    "name": "Island Ice Cream & Treats",
+    "url": "http://www.islandicecreamandtreats.com/",
+    "category": "Desserts & Ice Cream",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 5607
+  },
+  {
+    "slug": "island-tower",
+    "name": "Island Tower",
+    "url": "https://www.brett-robinson.com/beach-condo/island-tower/",
+    "category": "Condos & Lodging",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 91319
+  },
+  {
+    "slug": "island-wing-company-grill-bar-gulf-shores",
+    "name": "Island Wing Company Grill & Bar - Gulf Shores",
+    "url": "http://www.islandwing.com/",
+    "category": "Burgers, Wings & American",
+    "location": "Gulf Shores",
+    "scraped": true,
+    "extracted": false,
+    "chars": 106274
+  },
+  {
+    "slug": "islanders-restaurant-bar",
+    "name": "Islanders Restaurant & Bar",
+    "url": "https://islandersrestaurantbar.cfd/",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 8173
+  },
+  {
+    "slug": "islandwing-com",
+    "name": "islandwing.com",
+    "url": "https://islandwing.com",
+    "category": "Burgers, Wings & American",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 70136
+  },
+  {
+    "slug": "janinospizza-com",
+    "name": "janinospizza.com",
+    "url": "https://janinospizza.com",
+    "category": "Pizza",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 0
+  },
+  {
+    "slug": "japanese-express",
+    "name": "Japanese Express",
+    "url": "http://japaneseexpress36695al.com/",
+    "category": "Asian & International",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 6141
+  },
+  {
+    "slug": "jesses-restaurant",
+    "name": "Jesses Restaurant",
+    "url": "http://www.jessesrestaurant.com/",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 0
+  },
+  {
+    "slug": "jimnnicks-com",
+    "name": "jimnnicks.com",
+    "url": "https://www.jimnnicks.com",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 113135
+  },
+  {
+    "slug": "kayden-s-homemade-candies-ice-cream",
+    "name": "Kayden’s Homemade Candies & Ice Cream",
+    "url": "http://kaydenscandyfactory.com/",
+    "category": "Desserts & Ice Cream",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 11946
+  },
+  {
+    "slug": "kittyskafe-com",
+    "name": "kittyskafe.com",
+    "url": "https://kittyskafe.com",
+    "category": "Coffee & Cafes",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 1999
+  },
+  {
+    "slug": "kohinoor-indian-cuisine",
+    "name": "Kohinoor Indian Cuisine",
+    "url": "https://hibasgulfshores.com/",
+    "category": "Asian & International",
+    "location": "Gulf Shores",
+    "scraped": true,
+    "extracted": false,
+    "chars": 4785
+  },
+  {
+    "slug": "lagoon-tower",
+    "name": "Lagoon Tower",
+    "url": "https://www.brett-robinson.com/beach-condo/lagoon-tower/",
+    "category": "Condos & Lodging",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 90489
+  },
+  {
+    "slug": "lartigue-s-original-fresh-seafood-market",
+    "name": "Lartigue's Original Fresh Seafood Market",
+    "url": "http://www.lartigueseafood.com/",
+    "category": "Seafood & Gulf Cuisine",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 84436
+  },
+  {
+    "slug": "lighthouse-orange-beach",
+    "name": "Lighthouse Orange Beach",
+    "url": "https://www.brett-robinson.com/beach-condo/lighthouse/",
+    "category": "Condos & Lodging",
+    "location": "Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 89866
+  },
+  {
+    "slug": "localandcompanyrestaurant-com",
+    "name": "localandcompanyrestaurant.com",
+    "url": "https://www.localandcompanyrestaurant.com",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 47270
+  },
+  {
+    "slug": "louisiana-lagniappe",
+    "name": "Louisiana Lagniappe",
+    "url": "https://www.louisianalagniappe.com/",
+    "category": "Seafood & Gulf Cuisine",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 0
+  },
+  {
+    "slug": "lulubuffett-com",
+    "name": "lulubuffett.com",
+    "url": "https://lulubuffett.com",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 4242
+  },
+  {
+    "slug": "lunaseatanddrink-com",
+    "name": "lunaseatanddrink.com",
+    "url": "https://lunaseatanddrink.com",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 7767
+  },
+  {
+    "slug": "mammamiaorangebeach-com",
+    "name": "mammamiaorangebeach.com",
+    "url": "https://mammamiaorangebeach.com",
+    "category": "Restaurants & Bars",
+    "location": "Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 0
+  },
+  {
+    "slug": "mikatojapanese-com",
+    "name": "mikatojapanese.com",
+    "url": "http://mikatojapanese.com",
+    "category": "Asian & International",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 15046
+  },
+  {
+    "slug": "mikee-s-seafood",
+    "name": "Mikee's Seafood",
+    "url": "https://mikeesseafood.com/",
+    "category": "Seafood & Gulf Cuisine",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": true,
+    "chars": 14453
+  },
+  {
+    "slug": "milemarker158-com",
+    "name": "milemarker158.com",
+    "url": "https://milemarker158.com",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 6108
+  },
+  {
+    "slug": "milkshake-momma-mama-orange-beach",
+    "name": "Milkshake Momma (Mama) Orange Beach",
+    "url": "http://milkshakemomma.com/",
+    "category": "Desserts & Ice Cream",
+    "location": "Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 13029
+  },
+  {
+    "slug": "misoseafoodandsushi-com",
+    "name": "misoseafoodandsushi.com",
+    "url": "https://misoseafoodandsushi.com",
+    "category": "Asian & International",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 0
+  },
+  {
+    "slug": "mscfishing-com",
+    "name": "mscfishing.com",
+    "url": "https://www.mscfishing.com",
+    "category": "Fishing & Charters",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 64721
+  },
+  {
+    "slug": "nami-sushi",
+    "name": "Nami Sushi",
+    "url": "https://namisushi25908.com/",
+    "category": "Asian & International",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 0
+  },
+  {
+    "slug": "niki-s-seafood-thai",
+    "name": "Niki's Seafood & Thai",
+    "url": "http://www.nikisseafoodthai.com/",
+    "category": "Asian & International",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 242
+  },
+  {
+    "slug": "no-1-china",
+    "name": "No. 1 China",
+    "url": "https://www.beyondmenu.com/56279/mobile/no--1-china-mobile-36618.aspx",
+    "category": "Restaurants & Bars",
+    "location": "Mobile Area",
+    "scraped": true,
+    "extracted": false,
+    "chars": 116314
+  },
+  {
+    "slug": "nonnaspizzafoley-com",
+    "name": "nonnaspizzafoley.com",
+    "url": "https://nonnaspizzafoley.com",
+    "category": "Pizza",
+    "location": "Foley",
+    "scraped": false,
+    "extracted": false,
+    "chars": 0
+  },
+  {
+    "slug": "obwatersports-com",
+    "name": "obwatersports.com",
+    "url": "https://www.obwatersports.com",
+    "category": "Water Sports & Cruises",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 12429
+  },
+  {
+    "slug": "ohana-poke-teriyaki",
+    "name": "Ohana Poke & Teriyaki",
+    "url": "https://ohanapoketeriyaki.fronteats.com/",
+    "category": "Asian & International",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 6415
+  },
+  {
+    "slug": "orangebeachal-gov",
+    "name": "orangebeachal.gov",
+    "url": "https://www.orangebeachal.gov",
+    "category": "Tourism & Info",
+    "location": "Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 1545669
+  },
+  {
+    "slug": "orangebeachfishingcharters-com",
+    "name": "orangebeachfishingcharters.com",
+    "url": "https://www.orangebeachfishingcharters.com",
+    "category": "Fishing & Charters",
+    "location": "Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 689
+  },
+  {
+    "slug": "orangebeachparasail-com",
+    "name": "orangebeachparasail.com",
+    "url": "https://www.orangebeachparasail.com",
+    "category": "Water Sports & Cruises",
+    "location": "Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 0
+  },
+  {
+    "slug": "orangebeachwatersports-com",
+    "name": "orangebeachwatersports.com",
+    "url": "https://www.orangebeachwatersports.com",
+    "category": "Water Sports & Cruises",
+    "location": "Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 4388
+  },
+  {
+    "slug": "originaloysterhouse-com",
+    "name": "originaloysterhouse.com",
+    "url": "https://originaloysterhouse.com",
+    "category": "Seafood & Gulf Cuisine",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 81464
+  },
+  {
+    "slug": "osobearpoint-com",
+    "name": "osobearpoint.com",
+    "url": "https://www.osobearpoint.com",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 5029
+  },
+  {
+    "slug": "owa-park-foley",
+    "name": "OWA Park Foley",
+    "url": "https://www.owapark.com",
+    "category": "Attractions & Activities",
+    "location": "Foley",
+    "scraped": false,
+    "extracted": false,
+    "chars": 0
+  },
+  {
+    "slug": "panda-palace-buffet",
+    "name": "Panda Palace Buffet",
+    "url": "https://pandapalacebuffet.shop/",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 10863
+  },
+  {
+    "slug": "paparocco-com",
+    "name": "paparocco.com",
+    "url": "https://paparocco.com",
+    "category": "Italian",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 7407
+  },
+  {
+    "slug": "papaspizzaorangebeach-com",
+    "name": "papaspizzaorangebeach.com",
+    "url": "https://papaspizzaorangebeach.com",
+    "category": "Pizza",
+    "location": "Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 0
+  },
+  {
+    "slug": "parasailorangebeach-com",
+    "name": "parasailorangebeach.com",
+    "url": "https://www.parasailorangebeach.com",
+    "category": "Water Sports & Cruises",
+    "location": "Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 13497
+  },
+  {
+    "slug": "pedros-tacos-tequila-bar",
+    "name": "Pedros Tacos & Tequila Bar",
+    "url": "https://pedrostacosandtequilaperdidokey.com/",
+    "category": "Restaurants & Bars",
+    "location": "Perdido Key",
+    "scraped": true,
+    "extracted": false,
+    "chars": 113003
+  },
+  {
+    "slug": "peking-garden-restaurant",
+    "name": "Peking Garden Restaurant",
+    "url": "http://pekinggarden.top/",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 25290
+  },
+  {
+    "slug": "pelicangrillob-com",
+    "name": "pelicangrillob.com",
+    "url": "https://www.pelicangrillob.com",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 10963
+  },
+  {
+    "slug": "peninsulagolfclub-com",
+    "name": "peninsulagolfclub.com",
+    "url": "https://www.peninsulagolfclub.com",
+    "category": "Attractions & Activities",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 2865
+  },
+  {
+    "slug": "perchgsp-com",
+    "name": "perchgsp.com",
+    "url": "https://perchgsp.com",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 21379
+  },
+  {
+    "slug": "perdido-dunes-tower",
+    "name": "Perdido Dunes Tower",
+    "url": "https://www.brett-robinson.com/beach-condo/perdido-dunes-tower/",
+    "category": "Condos & Lodging",
+    "location": "Perdido Key",
+    "scraped": true,
+    "extracted": false,
+    "chars": 92362
+  },
+  {
+    "slug": "perdidobeachresort-com",
+    "name": "perdidobeachresort.com",
+    "url": "https://perdidobeachresort.com/voyagers",
+    "category": "Condos & Lodging",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 10080
+  },
+  {
+    "slug": "perdidokeyparasail-com",
+    "name": "perdidokeyparasail.com",
+    "url": "https://www.perdidokeyparasail.com",
+    "category": "Water Sports & Cruises",
+    "location": "Perdido Key",
+    "scraped": false,
+    "extracted": false,
+    "chars": 0
+  },
+  {
+    "slug": "pho-mo-asian-kitchen",
+    "name": "Pho Mo Asian Kitchen",
+    "url": "https://phomoasiankitchen.com/",
+    "category": "Asian & International",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": true,
+    "chars": 0
+  },
+  {
+    "slug": "phoenix-all-suites",
+    "name": "Phoenix All Suites",
+    "url": "https://www.phoenixallsuites.com",
+    "category": "Condos & Lodging",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 4875
+  },
+  {
+    "slug": "phoenix-all-suites-hotel",
+    "name": "Phoenix All Suites Hotel",
+    "url": "https://www.brett-robinson.com/beach-condo/phoenix-all-suites-hotel/",
+    "category": "Condos & Lodging",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 45969
+  },
+  {
+    "slug": "phoenix-i",
+    "name": "Phoenix I",
+    "url": "https://www.brett-robinson.com/beach-condo/phoenix-i/",
+    "category": "Condos & Lodging",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 98531
+  },
+  {
+    "slug": "phoenix-ii",
+    "name": "Phoenix II",
+    "url": "https://www.brett-robinson.com/beach-condo/phoenix-ii/",
+    "category": "Condos & Lodging",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 0
+  },
+  {
+    "slug": "phoenix-iii",
+    "name": "Phoenix III",
+    "url": "https://www.brett-robinson.com/beach-condo/phoenix-iii/",
+    "category": "Condos & Lodging",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 98856
+  },
+  {
+    "slug": "phoenix-iv",
+    "name": "Phoenix IV",
+    "url": "https://www.brett-robinson.com/beach-condo/phoenix-iv/",
+    "category": "Condos & Lodging",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 98235
+  },
+  {
+    "slug": "phoenix-ix",
+    "name": "Phoenix IX",
+    "url": "https://www.brett-robinson.com/beach-condo/phoenix-ix/",
+    "category": "Condos & Lodging",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 98076
+  },
+  {
+    "slug": "phoenix-on-the-bay",
+    "name": "Phoenix On The Bay",
+    "url": "https://www.brett-robinson.com/beach-condo/phoenix-on-the-bay/",
+    "category": "Condos & Lodging",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 98941
+  },
+  {
+    "slug": "phoenix-v",
+    "name": "Phoenix V",
+    "url": "https://www.brett-robinson.com/beach-condo/phoenix-v/",
+    "category": "Condos & Lodging",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 98919
+  },
+  {
+    "slug": "phoenix-vi",
+    "name": "Phoenix VI",
+    "url": "https://www.brett-robinson.com/beach-condo/phoenix-vi/",
+    "category": "Condos & Lodging",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 98826
+  },
+  {
+    "slug": "phoenix-vii",
+    "name": "Phoenix VII",
+    "url": "https://www.brett-robinson.com/beach-condo/phoenix-vii/",
+    "category": "Condos & Lodging",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 98952
+  },
+  {
+    "slug": "phoenix-viii",
+    "name": "Phoenix VIII",
+    "url": "https://www.brett-robinson.com/beach-condo/phoenix-viii/",
+    "category": "Condos & Lodging",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 98368
+  },
+  {
+    "slug": "phoenix-west",
+    "name": "Phoenix West",
+    "url": "https://www.brett-robinson.com/beach-condo/phoenix-west/",
+    "category": "Condos & Lodging",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 94067
+  },
+  {
+    "slug": "phoenix-west-ii",
+    "name": "Phoenix West II",
+    "url": "https://www.brett-robinson.com/beach-condo/phoenix-west-ii/",
+    "category": "Condos & Lodging",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 101789
+  },
+  {
+    "slug": "phoenix-x",
+    "name": "Phoenix X",
+    "url": "https://www.brett-robinson.com/beach-condo/phoenix-x/",
+    "category": "Condos & Lodging",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 98740
+  },
+  {
+    "slug": "phomoasiankitchenandgrill-com",
+    "name": "phomoasiankitchenandgrill.com",
+    "url": "http://www.phomoasiankitchenandgrill.com",
+    "category": "Asian & International",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 608
+  },
+  {
+    "slug": "picnic-beach-bar-grill",
+    "name": "Picnic Beach Bar & Grill",
+    "url": "https://www.picnicbeach.com/",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 8076
+  },
+  {
+    "slug": "picnicbeach-com",
+    "name": "picnicbeach.com",
+    "url": "https://picnicbeach.com",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 50740
+  },
+  {
+    "slug": "picnicbeachgs-com",
+    "name": "picnicbeachgs.com",
+    "url": "https://picnicbeachgs.com",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 0
+  },
+  {
+    "slug": "pinkponypub-net",
+    "name": "pinkponypub.net",
+    "url": "https://pinkponypub.net",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 25456
+  },
+  {
+    "slug": "pirate-s-bar-and-grill",
+    "name": "Pirate's Bar And Grill",
+    "url": "http://www.piratesbarandgrill.com/",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 22688
+  },
+  {
+    "slug": "piratescoveriffraff-com",
+    "name": "piratescoveriffraff.com",
+    "url": "http://www.piratescoveriffraff.com",
+    "category": "Bars & Breweries",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 682
+  },
+  {
+    "slug": "pizza-at-the-pass",
+    "name": "Pizza At The Pass",
+    "url": "https://www.pizzaatthepass.com/",
+    "category": "Pizza",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 2024
+  },
+  {
+    "slug": "plantation-dunes",
+    "name": "Plantation Dunes",
+    "url": "https://www.brett-robinson.com/beach-condo/plantation-dunes/",
+    "category": "Condos & Lodging",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 85051
+  },
+  {
+    "slug": "portabellasrestaurant-net",
+    "name": "portabellasrestaurant.net",
+    "url": "https://portabellasrestaurant.net",
+    "category": "Italian",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 0
+  },
+  {
+    "slug": "pub-6",
+    "name": "Pub 6",
+    "url": "https://pub6gulfshores.com/",
+    "category": "Bars & Breweries",
+    "location": "Gulf Shores",
+    "scraped": false,
+    "extracted": false,
+    "chars": 861
+  },
+  {
+    "slug": "reelalabama-com",
+    "name": "reelalabama.com",
+    "url": "https://www.reelalabama.com",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 3748
+  },
+  {
+    "slug": "reelsurprisecharters-com",
+    "name": "reelsurprisecharters.com",
+    "url": "https://reelsurprisecharters.com",
+    "category": "Fishing & Charters",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 17129
+  },
+  {
+    "slug": "reeltroublecharters-com",
+    "name": "reeltroublecharters.com",
+    "url": "https://www.reeltroublecharters.com",
+    "category": "Fishing & Charters",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 0
+  },
+  {
+    "slug": "roastedoakoba-com",
+    "name": "roastedoakoba.com",
+    "url": "https://roastedoakoba.com",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 0
+  },
+  {
+    "slug": "rotolos-com",
+    "name": "rotolos.com",
+    "url": "https://rotolos.com",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 274489
+  },
+  {
+    "slug": "royal-eats-com",
+    "name": "royal-eats.com",
+    "url": "http://www.royal-eats.com",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 2639
+  },
+  {
+    "slug": "rubybrunch-com",
+    "name": "rubybrunch.com",
+    "url": "https://www.rubybrunch.com",
+    "category": "Breakfast & Brunch",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 905
+  },
+  {
+    "slug": "rubyslippercafe-net",
+    "name": "rubyslippercafe.net",
+    "url": "https://rubyslippercafe.net",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 0
+  },
+  {
+    "slug": "sailwildhearts-com",
+    "name": "sailwildhearts.com",
+    "url": "https://www.sailwildhearts.com",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 7939
+  },
+  {
+    "slug": "sakura-sushi-hibachi",
+    "name": "Sakura Sushi & Hibachi",
+    "url": "http://www.sakuramm.com/",
+    "category": "Asian & International",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 3847
+  },
+  {
+    "slug": "san-bar-at-the-wharf",
+    "name": "San Bar at the wharf",
+    "url": "https://alwharf.com/",
+    "category": "Shopping & Districts",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 120953
+  },
+  {
+    "slug": "san-carlos-orange-beach",
+    "name": "San Carlos Orange Beach",
+    "url": "https://www.brett-robinson.com/beach-condo/san-carlos/",
+    "category": "Condos & Lodging",
+    "location": "Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 90793
+  },
+  {
+    "slug": "sandshaker-com",
+    "name": "sandshaker.com",
+    "url": "https://sandshaker.com",
+    "category": "Bars & Breweries",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 1987
+  },
+  {
+    "slug": "sanroc-cay",
+    "name": "Sanroc Cay",
+    "url": "https://sanroccay.com",
+    "category": "Shopping & Districts",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 4530
+  },
+  {
+    "slug": "sassy-bass-cookout-tiki-bar",
+    "name": "Sassy Bass Cookout Tiki Bar",
+    "url": "https://www.sassybass.com/",
+    "category": "Bars & Breweries",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 3294
+  },
+  {
+    "slug": "scuttlebuttpubfoley-com",
+    "name": "scuttlebuttpubfoley.com",
+    "url": "https://scuttlebuttpubfoley.com",
+    "category": "Bars & Breweries",
+    "location": "Foley",
+    "scraped": true,
+    "extracted": false,
+    "chars": 11886
+  },
+  {
+    "slug": "sea-n-suds",
+    "name": "Sea-N-Suds",
+    "url": "https://sea-n-suds.com/",
+    "category": "Seafood & Gulf Cuisine",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": true,
+    "chars": 19418
+  },
+  {
+    "slug": "seaside-beach-and-racquet",
+    "name": "Seaside Beach and Racquet",
+    "url": "https://www.brett-robinson.com/beach-condo/seaside-beach-and-racquet/",
+    "category": "Condos & Lodging",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 84838
+  },
+  {
+    "slug": "see-wee-roll-japanese-restaurant",
+    "name": "See-Wee-Roll Japanese Restaurant",
+    "url": "https://see-wee-roll.com/",
+    "category": "Asian & International",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 11969
+  },
+  {
+    "slug": "shippsdockside-com",
+    "name": "shippsdockside.com",
+    "url": "https://shippsdockside.com",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 3888
+  },
+  {
+    "slug": "shiso-japanese-restaurant",
+    "name": "Shiso Japanese Restaurant",
+    "url": "https://www.dineatshiso.com/",
+    "category": "Asian & International",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 56861
+  },
+  {
+    "slug": "shrimp-basket",
+    "name": "Shrimp Basket",
+    "url": "https://shrimpbasket.com/",
+    "category": "Seafood & Gulf Cuisine",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 92178
+  },
+  {
+    "slug": "siam-thai-cuisine",
+    "name": "Siam Thai Cuisine",
+    "url": "https://siamthaicuisine-mobile-al.com/",
+    "category": "Asian & International",
+    "location": "Mobile Area",
+    "scraped": false,
+    "extracted": false,
+    "chars": 1110
+  },
+  {
+    "slug": "siam-thai-restaurant",
+    "name": "Siam Thai Restaurant",
+    "url": "http://www.siamdiner.com/",
+    "category": "Asian & International",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 24698
+  },
+  {
+    "slug": "sitar-indian-cuisine",
+    "name": "Sitar Indian Cuisine",
+    "url": "http://www.sitarindianrestaurantal.com/",
+    "category": "Asian & International",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 5140
+  },
+  {
+    "slug": "soul-bowlz",
+    "name": "Soul Bowlz",
+    "url": "https://soulbowlz.com/",
+    "category": "Soul Food & Southern",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 138
+  },
+  {
+    "slug": "southernshorewatersports-com",
+    "name": "southernshorewatersports.com",
+    "url": "https://www.southernshorewatersports.com",
+    "category": "Water Sports & Cruises",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 0
+  },
+  {
+    "slug": "stephi-cocktails-cuisine",
+    "name": "Stephi Cocktails & Cuisine",
+    "url": "http://stephicuisine.com/",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 948
+  },
+  {
+    "slug": "summerchase-orange-beach",
+    "name": "Summerchase Orange Beach",
+    "url": "https://www.brett-robinson.com/beach-condo/summerchase/",
+    "category": "Condos & Lodging",
+    "location": "Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 85216
+  },
+  {
+    "slug": "sunliner-diner-gulf-shores",
+    "name": "Sunliner Diner - Gulf Shores",
+    "url": "https://www.sunlinerdiner.com/",
+    "category": "Breakfast & Brunch",
+    "location": "Gulf Shores",
+    "scraped": false,
+    "extracted": false,
+    "chars": 699
+  },
+  {
+    "slug": "sunlinerdiner-com",
+    "name": "sunlinerdiner.com",
+    "url": "https://sunlinerdiner.com",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 27499
+  },
+  {
+    "slug": "surfside-pizza-ice-cream",
+    "name": "Surfside Pizza & Ice Cream",
+    "url": "https://surfsidepizza.com/",
+    "category": "Desserts & Ice Cream",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 0
+  },
+  {
+    "slug": "surfside-shores",
+    "name": "Surfside Shores",
+    "url": "https://www.brett-robinson.com/beach-condo/surfside-shores/",
+    "category": "Condos & Lodging",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 89717
+  },
+  {
+    "slug": "tacky-jacks-gulf-shores",
+    "name": "Tacky Jacks Gulf Shores",
+    "url": "http://tackyjacks.com/",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores",
+    "scraped": true,
+    "extracted": false,
+    "chars": 7460
+  },
+  {
+    "slug": "tandoor-indian-cuisine",
+    "name": "Tandoor Indian Cuisine",
+    "url": "https://www.tandoorindiancuisineal.com/",
+    "category": "Asian & International",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 34371
+  },
+  {
+    "slug": "tanger-outlets-foley",
+    "name": "Tanger Outlets Foley",
+    "url": "https://www.tangeroutlets.com/foley",
+    "category": "Shopping & Districts",
+    "location": "Foley",
+    "scraped": true,
+    "extracted": false,
+    "chars": 40000
+  },
+  {
+    "slug": "taste-of-india-destin",
+    "name": "Taste of India Destin",
+    "url": "http://www.destintasteofindia.com/",
+    "category": "Restaurants & Bars",
+    "location": "Destin FL",
+    "scraped": true,
+    "extracted": false,
+    "chars": 17036
+  },
+  {
+    "slug": "teak-house",
+    "name": "Teak House",
+    "url": "http://teakhousethai.com/",
+    "category": "Asian & International",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 4806
+  },
+  {
+    "slug": "teeoffatthewharf-com",
+    "name": "teeoffatthewharf.com",
+    "url": "https://teeoffatthewharf.com",
+    "category": "Attractions & Activities",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 4075
+  },
+  {
+    "slug": "tequilamexicanoba-com",
+    "name": "tequilamexicanoba.com",
+    "url": "https://tequilamexicanoba.com",
+    "category": "Mexican",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 0
+  },
+  {
+    "slug": "tetsujin-japanese-sushi-hibachi-grill",
+    "name": "Tetsujin Japanese Sushi & Hibachi Grill",
+    "url": "https://tetsujinjapanesesal.com/",
+    "category": "Asian & International",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 6780
+  },
+  {
+    "slug": "thai-sushi-asian-cuisine",
+    "name": "Thai & Sushi Asian Cuisine",
+    "url": "https://www.thaisushiasiancuisine.com/",
+    "category": "Asian & International",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 17288
+  },
+  {
+    "slug": "thai-time-restaurant",
+    "name": "Thai Time Restaurant",
+    "url": "https://thaitimemobile.com/",
+    "category": "Asian & International",
+    "location": "Mobile Area",
+    "scraped": false,
+    "extracted": false,
+    "chars": 1963
+  },
+  {
+    "slug": "the-beach-bun",
+    "name": "The Beach Bun",
+    "url": "https://thebeachbunoba.com/",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": true,
+    "chars": 3401
+  },
+  {
+    "slug": "the-clubhouse-bar-grill",
+    "name": "The Clubhouse Bar & Grill",
+    "url": "https://craftfarms.com/bar-and-grill/",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 46322
+  },
+  {
+    "slug": "the-curry-modern-indian",
+    "name": "The Curry Modern Indian",
+    "url": "http://www.thecurryrestaurant.com/",
+    "category": "Asian & International",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 13295
+  },
+  {
+    "slug": "the-dunes-orange-beach",
+    "name": "The Dunes Orange Beach",
+    "url": "https://www.brett-robinson.com/beach-condo/the-dunes/",
+    "category": "Condos & Lodging",
+    "location": "Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 89429
+  },
+  {
+    "slug": "the-hangout",
+    "name": "The Hangout",
+    "url": "https://www.thehangoutal.com/",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 12868
+  },
+  {
+    "slug": "the-sloop",
+    "name": "The Sloop",
+    "url": "https://thesloop.biz/",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": true,
+    "chars": 3094
+  },
+  {
+    "slug": "the-southern-grind-coffee-house-at-the-wharf",
+    "name": "The Southern Grind Coffee House at the WHARF",
+    "url": "http://www.thesoutherngrind.com/",
+    "category": "Coffee & Cafes",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 3185
+  },
+  {
+    "slug": "the-spot-night-club-bar",
+    "name": "The Spot - Night Club & Bar",
+    "url": "https://www.thespotmobile.com/",
+    "category": "Bars & Breweries",
+    "location": "Mobile Area",
+    "scraped": false,
+    "extracted": false,
+    "chars": 0
+  },
+  {
+    "slug": "the-wharf-orange-beach",
+    "name": "The Wharf Orange Beach",
+    "url": "https://www.thewharfal.com",
+    "category": "Shopping & Districts",
+    "location": "Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 3863
+  },
+  {
+    "slug": "the-yard-milkshake-bar",
+    "name": "The Yard Milkshake Bar",
+    "url": "https://www.theyardmilkshakebar.com/gulf-shores-menu",
+    "category": "Desserts & Ice Cream",
+    "location": "Gulf Shores",
+    "scraped": true,
+    "extracted": false,
+    "chars": 108465
+  },
+  {
+    "slug": "thebrickovenob-com",
+    "name": "thebrickovenob.com",
+    "url": "https://thebrickovenob.com",
+    "category": "Italian",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 0
+  },
+  {
+    "slug": "thecovebarandgrill-com",
+    "name": "thecovebarandgrill.com",
+    "url": "https://thecovebarandgrill.com",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 255462
+  },
+  {
+    "slug": "thegalleyontheriver-com",
+    "name": "thegalleyontheriver.com",
+    "url": "https://thegalleyontheriver.com",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 29473
+  },
+  {
+    "slug": "thegulf-com",
+    "name": "thegulf.com",
+    "url": "https://thegulf.com/locations/orange-beach/",
+    "category": "Restaurants & Bars",
+    "location": "Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 54680
+  },
+  {
+    "slug": "thelouisianalagniappe-com",
+    "name": "thelouisianalagniappe.com",
+    "url": "http://www.thelouisianalagniappe.com",
+    "category": "Seafood & Gulf Cuisine",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 41084
+  },
+  {
+    "slug": "thepointperdido-com",
+    "name": "thepointperdido.com",
+    "url": "https://thepointperdido.com",
+    "category": "Restaurants & Bars",
+    "location": "Perdido Key",
+    "scraped": false,
+    "extracted": false,
+    "chars": 1976
+  },
+  {
+    "slug": "thesloop-biz",
+    "name": "thesloop.biz",
+    "url": "https://www.thesloop.biz",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 18358
+  },
+  {
+    "slug": "thetrackfamilyfunparks-com",
+    "name": "thetrackfamilyfunparks.com",
+    "url": "https://www.thetrackfamilyfunparks.com",
+    "category": "Attractions & Activities",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 0
+  },
+  {
+    "slug": "thewharfoba-com",
+    "name": "thewharfoba.com",
+    "url": "https://thewharfoba.com",
+    "category": "Shopping & Districts",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 4284
+  },
+  {
+    "slug": "tikibarorangebeach-com",
+    "name": "tikibarorangebeach.com",
+    "url": "https://tikibarorangebeach.com",
+    "category": "Bars & Breweries",
+    "location": "Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 6770
+  },
+  {
+    "slug": "tintoprestaurant-com",
+    "name": "tintoprestaurant.com",
+    "url": "https://tintoprestaurant.com",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 120946
+  },
+  {
+    "slug": "tokyo-asian-cuisine",
+    "name": "Tokyo Asian Cuisine",
+    "url": "http://fairhopetokyo.toast.site/",
+    "category": "Asian & International",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 128648
+  },
+  {
+    "slug": "treehouse-gs",
+    "name": "treehouse.gs",
+    "url": "http://www.treehouse.gs",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 327
+  },
+  {
+    "slug": "turquoise-place",
+    "name": "Turquoise Place",
+    "url": "https://www.brett-robinson.com/beach-condo/turquoise-place/",
+    "category": "Condos & Lodging",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 89988
+  },
+  {
+    "slug": "vacation-homes-alabama",
+    "name": "Vacation Homes Alabama",
+    "url": "https://www.vacationhomesalabama.com",
+    "category": "Condos & Lodging",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 7702
+  },
+  {
+    "slug": "veda-indian-cuisine-bar",
+    "name": "VEDA INDIAN CUISINE & BAR",
+    "url": "https://thevedausa.com/",
+    "category": "Asian & International",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 925247
+  },
+  {
+    "slug": "villaggiogrille-com",
+    "name": "villaggiogrille.com",
+    "url": "https://villaggiogrille.com",
+    "category": "Italian",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 18698
+  },
+  {
+    "slug": "vinny-s-pizzeria",
+    "name": "Vinny's Pizzeria",
+    "url": "http://vinnys.pizza/",
+    "category": "Pizza",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 17534
+  },
+  {
+    "slug": "wacked-out-weiner-gulf-shores",
+    "name": "Wacked Out Weiner Gulf Shores",
+    "url": "https://wackedoutweiner.com/gulf-shores-alabama",
+    "category": "Burgers, Wings & American",
+    "location": "Gulf Shores",
+    "scraped": true,
+    "extracted": false,
+    "chars": 11295
+  },
+  {
+    "slug": "wafflesrwild-com",
+    "name": "wafflesrwild.com",
+    "url": "https://wafflesrwild.com",
+    "category": "Breakfast & Brunch",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 8751
+  },
+  {
+    "slug": "windemere-orange-beach",
+    "name": "Windemere Orange Beach",
+    "url": "https://www.brett-robinson.com/beach-condo/windemere/",
+    "category": "Condos & Lodging",
+    "location": "Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 85104
+  },
+  {
+    "slug": "wolfbay-com",
+    "name": "wolfbay.com",
+    "url": "https://www.wolfbay.com",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": false,
+    "extracted": false,
+    "chars": 0
+  },
+  {
+    "slug": "wonderful-house",
+    "name": "Wonderful House",
+    "url": "https://wonderfulhouseonline.com/",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 111436
+  },
+  {
+    "slug": "woodsideatgsp-com",
+    "name": "woodsideatgsp.com",
+    "url": "https://woodsideatgsp.com",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 7182
+  },
+  {
+    "slug": "yak-the-kathmandu-kitchen-daphne",
+    "name": "Yak The Kathmandu Kitchen-Daphne",
+    "url": "https://thekathmandukitchen.com/",
+    "category": "Asian & International",
+    "location": "Mobile Area",
+    "scraped": false,
+    "extracted": false,
+    "chars": 1608
+  },
+  {
+    "slug": "yumm-twister-ice-cream",
+    "name": "Yumm Twister & Ice Cream",
+    "url": "http://www.yummtcf.com/",
+    "category": "Desserts & Ice Cream",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 6309
+  },
+  {
+    "slug": "zekeslanding-com",
+    "name": "zekeslanding.com",
+    "url": "https://www.zekeslanding.com",
+    "category": "Restaurants & Bars",
+    "location": "Gulf Shores / Orange Beach",
+    "scraped": true,
+    "extracted": false,
+    "chars": 88090
+  }
+]

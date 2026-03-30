@@ -1,0 +1,457 @@
+{
+  "business_name": "desotosseafoodkitchen.com",
+  "url": "https://desotosseafoodkitchen.com",
+  "scraped_at": "2026-03-21T20:02:10.310Z",
+  "pages": [
+    {
+      "url": "https://desotosseafoodkitchen.com",
+      "title": "Locally-Owned Seafood Restaurant in Gulf Shores, AL | DeSoto’s Seafood Kitchen",
+      "text": "Home\nMenus\n\nLunch Menu\nDinner Menu\nBar Menu\nKid’s Menu\nSenior’s Menu\n\nSpecials\nCoupons\nGift Cards\nContact\nApply Online\n\nHome\nMenus\n\nLunch Menu\nDinner Menu\nBar Menu\nKid’s Menu\nSenior’s Menu\n\nSpecials\nCoupons\nGift Cards\nContact\nApply Online\n\nOrder Online\n\n\n\n251-948-7294\n\nHome\nMenus\n\nLunch Menu\nDinner Menu\nBar Menu\nKid’s Menu\nSenior’s Menu\n\nSpecials\nCoupons\nGift Cards\nContact\nApply Online\n\nHome\nMenus\n\nLunch Menu\nDinner Menu\nBar Menu\nKid’s Menu\nSenior’s Menu\n\nSpecials\nCoupons\nGift Cards\nContact\nApply Online\n\nOrder Online\n\n\n\n251-948-7294\n\n \n\nLocally-Owned Seafood RestaurantLocated in Gulf Shores, AL\nOrder Online\n\nFresh Food Made From Scratch DailyVoted Best Lunch and Best Dinner 14 Years in a Row\nOrder Online\n\nA Gulf Shores TraditionVisit us and discover the difference\nOrder Online\n\nVoted “People’s Choice Winner” Best Lunch, Best Seafood, Best Restaurant, Friendliest Staff. Locally owned and operated.\n\nWhen we are on a wait you can add your party to the wait list by clicking below.\n\nInterested in ordering online? Click below to see our menu and place your online order.\n\n\n\nOrder Online\n\n\n\n A Gulf Shores Favorite\nOne of Gulf Shores Favorite Family Dining Establishments Since 2000\n\n\n\nDaily Lunch & Dinner Specials\nFresh Seafood, Steak, Chicken, Pasta, Home Style Vegetables, Salads, Sandwiches, and Appetizers\n\n\n\nAward Winning\nPeople’s Choice winner for Friendliest staff for 5 Years Since 2006 – come visit!\n\nA Gulf Shores Tradition – Visit us soon and discover the difference!\n\nAward winning DeSoto’s Seafood Kitchen, one of Gulf Shores, Alabama’s favorite family restaurants features fresh seafood, chicken, pasta, steak, home style sides, salads and sandwiches. Our daily lunch specials include seafood, chicken, country fried and hamburger steak, ham, 12 great homemade sides, and our fabulous fresh baked rolls. Our dinner menu features exquisite appetizers, seafood favorites prepared your way: fried, broiled, grilled, blackened, steamed, or Cajun style, plus chicken and pasta dishes and one great Hawaiian Ribeye steak. Try the fresh catch and have it prepared New Orleans, Mediterranean, Caribbean, or our house favorite Pecan Encrusted Style. We offer an excellent wine choices and homemade desserts to compliment your meal. Click the menu link to view our entire menu, or see our calendar for daily lunch specials. We’re located just one block north of the Gulf of Mexico, in the heart of Gulf Shores, so stop in on your next visit to the beach. You won’t be disappointed!\n\nFollow us on Social Media!\n\nFollow Us on Facebook\n\nFollow\n\nReview Us and Read Our Yelp Reviews\n\nFollow\n\nFresh Seafood, Steak, Chicken, Pasta, Home Style Vegetables, Salads, Sandwiches, and Appetizers\n\nMore About Us\n\nSome Customer Reviews\n\nFried food is amazing (I’m from South Louisiana). You get plenty of food. Price meets up with all the near beach restaurants. The text you when your table is ready. Can have a snack in the parking lot at Sassy Bass while you wait. You can also get bar drinks outside to wait with. Average wait, average price, fantastic taste. Not too fancy, not too simple. Kid friendly menu. Grilled seafood options.\n\nTyson Richard\n\nWent here tonight not knowing what to expect. It was wonderful. The food was excellent. Prices were average for fresh seafood. Service was great and everyone was pleasant. I would go there again and recommend to all my friends and family.\n\nMary Lee\n\nTook my family here on our vacation after reading good reviews. We all loved it! The staff was super friendly and the food was absolutely amazing and very reasonably priced. The inside of the building seems a bit old but don’t let that turn you off. This place is delicious!\n\nOscar Zezatti\n\nRead More Reviews\n\nFind Us on the Map Below\n\n+−⇧© OpenStreetMap contributors.»⤢\n\n \n\n\t\n\nLocation\n\n138 West 1st Ave.Gulf Shores, AL USA(251) 948-7294\n\nOff-Season Hours:\n\nServing Lunch Daily 11 am – 3 pmServing Dinner Daily 3 pm – 9 pm\n\nSocial\n\nFollowFollow\n\n© 2025 Desoto’s Seafood Kitchen | Site design by Mobile Web Design",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://desotosseafoodkitchen.com/",
+              "url": "https://desotosseafoodkitchen.com/",
+              "name": "Locally-Owned Seafood Restaurant in Gulf Shores, AL | DeSoto’s Seafood Kitchen",
+              "isPartOf": {
+                "@id": "https://desotosseafoodkitchen.com/#website"
+              },
+              "datePublished": "2025-01-27T18:25:48+00:00",
+              "dateModified": "2025-04-02T15:01:21+00:00",
+              "breadcrumb": {
+                "@id": "https://desotosseafoodkitchen.com/#breadcrumb"
+              },
+              "inLanguage": "en-US",
+              "potentialAction": [
+                {
+                  "@type": "ReadAction",
+                  "target": [
+                    "https://desotosseafoodkitchen.com/"
+                  ]
+                }
+              ]
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://desotosseafoodkitchen.com/#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home"
+                }
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://desotosseafoodkitchen.com/#website",
+              "url": "https://desotosseafoodkitchen.com/",
+              "name": "DeSoto’s Seafood Kitchen",
+              "description": "Locally-Owned Seafood Restaurant in Gulf Shores, AL",
+              "potentialAction": [
+                {
+                  "@type": "SearchAction",
+                  "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://desotosseafoodkitchen.com/?s={search_term_string}"
+                  },
+                  "query-input": {
+                    "@type": "PropertyValueSpecification",
+                    "valueRequired": true,
+                    "valueName": "search_term_string"
+                  }
+                }
+              ],
+              "inLanguage": "en-US"
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+        "og:locale": "en_US",
+        "og:type": "website",
+        "og:title": "Locally-Owned Seafood Restaurant in Gulf Shores, AL | DeSoto’s Seafood Kitchen",
+        "og:url": "https://desotosseafoodkitchen.com/",
+        "og:site_name": "DeSoto’s Seafood Kitchen",
+        "article:modified_time": "2025-04-02T15:01:21+00:00",
+        "twitter:card": "summary_large_image",
+        "generator": "WordPress 6.9.4",
+        "viewport": "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0",
+        "msapplication-TileImage": "https://desotosseafoodkitchen.com/wp-content/uploads/2025/01/cropped-desotoslogo165-270x270.gif"
+      }
+    },
+    {
+      "url": "https://desotosseafoodkitchen.com/contact",
+      "title": "Contact | DeSoto’s Seafood Kitchen",
+      "text": "Home\nMenus\n\nLunch Menu\nDinner Menu\nBar Menu\nKid’s Menu\nSenior’s Menu\n\nSpecials\nCoupons\nGift Cards\nContact\nApply Online\n\nHome\nMenus\n\nLunch Menu\nDinner Menu\nBar Menu\nKid’s Menu\nSenior’s Menu\n\nSpecials\nCoupons\nGift Cards\nContact\nApply Online\n\nOrder Online\n\n\n\n251-948-7294\n\n \n\nGet in Touch\nScroll down to contact DeSoto’s Seafood Kitchen\n\n&#x37;\n\nName\n\nEmail Address\n\nMessage\n\nSubmit\n\n+−⇧© OpenStreetMap contributors.»⤢\n\n138 West 1st Ave.Gulf Shores, AL USA(251) 948-7294\n\n \n\n\t\n\nLocation\n\n138 West 1st Ave.Gulf Shores, AL USA(251) 948-7294\n\nOff-Season Hours:\n\nServing Lunch Daily 11 am – 3 pmServing Dinner Daily 3 pm – 9 pm\n\nSocial\n\nFollowFollow\n\n© 2025 Desoto’s Seafood Kitchen | Site design by Mobile Web Design",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://desotosseafoodkitchen.com/contact/",
+              "url": "https://desotosseafoodkitchen.com/contact/",
+              "name": "Contact | DeSoto’s Seafood Kitchen",
+              "isPartOf": {
+                "@id": "https://desotosseafoodkitchen.com/#website"
+              },
+              "datePublished": "2025-01-28T18:48:17+00:00",
+              "dateModified": "2025-04-02T15:00:51+00:00",
+              "breadcrumb": {
+                "@id": "https://desotosseafoodkitchen.com/contact/#breadcrumb"
+              },
+              "inLanguage": "en-US",
+              "potentialAction": [
+                {
+                  "@type": "ReadAction",
+                  "target": [
+                    "https://desotosseafoodkitchen.com/contact/"
+                  ]
+                }
+              ]
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://desotosseafoodkitchen.com/contact/#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://desotosseafoodkitchen.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Contact"
+                }
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://desotosseafoodkitchen.com/#website",
+              "url": "https://desotosseafoodkitchen.com/",
+              "name": "DeSoto’s Seafood Kitchen",
+              "description": "Locally-Owned Seafood Restaurant in Gulf Shores, AL",
+              "potentialAction": [
+                {
+                  "@type": "SearchAction",
+                  "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://desotosseafoodkitchen.com/?s={search_term_string}"
+                  },
+                  "query-input": {
+                    "@type": "PropertyValueSpecification",
+                    "valueRequired": true,
+                    "valueName": "search_term_string"
+                  }
+                }
+              ],
+              "inLanguage": "en-US"
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+        "og:locale": "en_US",
+        "og:type": "article",
+        "og:title": "Contact | DeSoto’s Seafood Kitchen",
+        "og:url": "https://desotosseafoodkitchen.com/contact/",
+        "og:site_name": "DeSoto’s Seafood Kitchen",
+        "article:modified_time": "2025-04-02T15:00:51+00:00",
+        "twitter:card": "summary_large_image",
+        "generator": "WordPress 6.9.4",
+        "viewport": "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0",
+        "msapplication-TileImage": "https://desotosseafoodkitchen.com/wp-content/uploads/2025/01/cropped-desotoslogo165-270x270.gif"
+      }
+    },
+    {
+      "url": "https://desotosseafoodkitchen.com/gift-cards",
+      "title": "Gift Cards | DeSoto’s Seafood Kitchen",
+      "text": "Home\nMenus\n\nLunch Menu\nDinner Menu\nBar Menu\nKid’s Menu\nSenior’s Menu\n\nSpecials\nCoupons\nGift Cards\nContact\nApply Online\n\nHome\nMenus\n\nLunch Menu\nDinner Menu\nBar Menu\nKid’s Menu\nSenior’s Menu\n\nSpecials\nCoupons\nGift Cards\nContact\nApply Online\n\nOrder Online\n\n\n\n251-948-7294\n\n \n\nGift Cards\nScroll down to buy a gift card\n\n&#x37;\n\nGive the gift of fresh, local seafood with a DeSoto’s Seafood Kitchen gift card!Perfect for any occasion, our gift cards allow your friends and family to enjoy delicious Gulf Coast dishes in a welcoming, beachside atmosphere. Purchase a gift card today and treat someone special to a memorable dining experience!\nBuy Gift Cards\n\n \n\n\t\n\nLocation\n\n138 West 1st Ave.Gulf Shores, AL USA(251) 948-7294\n\nOff-Season Hours:\n\nServing Lunch Daily 11 am – 3 pmServing Dinner Daily 3 pm – 9 pm\n\nSocial\n\nFollowFollow\n\n© 2025 Desoto’s Seafood Kitchen | Site design by Mobile Web Design",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://desotosseafoodkitchen.com/gift-cards/",
+              "url": "https://desotosseafoodkitchen.com/gift-cards/",
+              "name": "Gift Cards | DeSoto’s Seafood Kitchen",
+              "isPartOf": {
+                "@id": "https://desotosseafoodkitchen.com/#website"
+              },
+              "datePublished": "2025-01-28T18:48:03+00:00",
+              "dateModified": "2025-02-11T15:12:14+00:00",
+              "breadcrumb": {
+                "@id": "https://desotosseafoodkitchen.com/gift-cards/#breadcrumb"
+              },
+              "inLanguage": "en-US",
+              "potentialAction": [
+                {
+                  "@type": "ReadAction",
+                  "target": [
+                    "https://desotosseafoodkitchen.com/gift-cards/"
+                  ]
+                }
+              ]
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://desotosseafoodkitchen.com/gift-cards/#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://desotosseafoodkitchen.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Gift Cards"
+                }
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://desotosseafoodkitchen.com/#website",
+              "url": "https://desotosseafoodkitchen.com/",
+              "name": "DeSoto’s Seafood Kitchen",
+              "description": "Locally-Owned Seafood Restaurant in Gulf Shores, AL",
+              "potentialAction": [
+                {
+                  "@type": "SearchAction",
+                  "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://desotosseafoodkitchen.com/?s={search_term_string}"
+                  },
+                  "query-input": {
+                    "@type": "PropertyValueSpecification",
+                    "valueRequired": true,
+                    "valueName": "search_term_string"
+                  }
+                }
+              ],
+              "inLanguage": "en-US"
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+        "og:locale": "en_US",
+        "og:type": "article",
+        "og:title": "Gift Cards | DeSoto’s Seafood Kitchen",
+        "og:url": "https://desotosseafoodkitchen.com/gift-cards/",
+        "og:site_name": "DeSoto’s Seafood Kitchen",
+        "article:modified_time": "2025-02-11T15:12:14+00:00",
+        "twitter:card": "summary_large_image",
+        "generator": "WordPress 6.9.4",
+        "viewport": "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0",
+        "msapplication-TileImage": "https://desotosseafoodkitchen.com/wp-content/uploads/2025/01/cropped-desotoslogo165-270x270.gif"
+      }
+    },
+    {
+      "url": "https://desotosseafoodkitchen.com/coupons",
+      "title": "Coupons | DeSoto’s Seafood Kitchen",
+      "text": "Home\nMenus\n\nLunch Menu\nDinner Menu\nBar Menu\nKid’s Menu\nSenior’s Menu\n\nSpecials\nCoupons\nGift Cards\nContact\nApply Online\n\nHome\nMenus\n\nLunch Menu\nDinner Menu\nBar Menu\nKid’s Menu\nSenior’s Menu\n\nSpecials\nCoupons\nGift Cards\nContact\nApply Online\n\nOrder Online\n\n\n\n251-948-7294\n\n \n\nCoupons\nScroll down to see and print our coupons\n\n&#x37;\n\nDesoto’s Seafood Kitchen\n138 West 1st Ave.1 Block North of the Beach – Behind Souvenir CityGulf Shores, AL(251) 948-7294\nPrint Coupon to Receive$1 Off Any Dinner EntreeValid only during Dinner HoursExcludes Senior MenuNot valid with any other offer\nSource: Gulf Coast Online.info\n\nPrint Coupon\n\n \n\n\t\n\nLocation\n\n138 West 1st Ave.Gulf Shores, AL USA(251) 948-7294\n\nOff-Season Hours:\n\nServing Lunch Daily 11 am – 3 pmServing Dinner Daily 3 pm – 9 pm\n\nSocial\n\nFollowFollow\n\n© 2025 Desoto’s Seafood Kitchen | Site design by Mobile Web Design",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://desotosseafoodkitchen.com/coupons/",
+              "url": "https://desotosseafoodkitchen.com/coupons/",
+              "name": "Coupons | DeSoto’s Seafood Kitchen",
+              "isPartOf": {
+                "@id": "https://desotosseafoodkitchen.com/#website"
+              },
+              "datePublished": "2025-01-28T18:47:47+00:00",
+              "dateModified": "2025-02-11T14:59:23+00:00",
+              "breadcrumb": {
+                "@id": "https://desotosseafoodkitchen.com/coupons/#breadcrumb"
+              },
+              "inLanguage": "en-US",
+              "potentialAction": [
+                {
+                  "@type": "ReadAction",
+                  "target": [
+                    "https://desotosseafoodkitchen.com/coupons/"
+                  ]
+                }
+              ]
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://desotosseafoodkitchen.com/coupons/#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://desotosseafoodkitchen.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Coupons"
+                }
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://desotosseafoodkitchen.com/#website",
+              "url": "https://desotosseafoodkitchen.com/",
+              "name": "DeSoto’s Seafood Kitchen",
+              "description": "Locally-Owned Seafood Restaurant in Gulf Shores, AL",
+              "potentialAction": [
+                {
+                  "@type": "SearchAction",
+                  "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://desotosseafoodkitchen.com/?s={search_term_string}"
+                  },
+                  "query-input": {
+                    "@type": "PropertyValueSpecification",
+                    "valueRequired": true,
+                    "valueName": "search_term_string"
+                  }
+                }
+              ],
+              "inLanguage": "en-US"
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+        "og:locale": "en_US",
+        "og:type": "article",
+        "og:title": "Coupons | DeSoto’s Seafood Kitchen",
+        "og:url": "https://desotosseafoodkitchen.com/coupons/",
+        "og:site_name": "DeSoto’s Seafood Kitchen",
+        "article:modified_time": "2025-02-11T14:59:23+00:00",
+        "twitter:card": "summary_large_image",
+        "generator": "WordPress 6.9.4",
+        "viewport": "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0",
+        "msapplication-TileImage": "https://desotosseafoodkitchen.com/wp-content/uploads/2025/01/cropped-desotoslogo165-270x270.gif"
+      }
+    },
+    {
+      "url": "https://desotosseafoodkitchen.com/specials",
+      "title": "Specials | DeSoto’s Seafood Kitchen",
+      "text": "Home\nMenus\n\nLunch Menu\nDinner Menu\nBar Menu\nKid’s Menu\nSenior’s Menu\n\nSpecials\nCoupons\nGift Cards\nContact\nApply Online\n\nHome\nMenus\n\nLunch Menu\nDinner Menu\nBar Menu\nKid’s Menu\nSenior’s Menu\n\nSpecials\nCoupons\nGift Cards\nContact\nApply Online\n\nOrder Online\n\n\n\n251-948-7294\n\nHome\nMenus\n\nLunch Menu\nDinner Menu\nBar Menu\nKid’s Menu\nSenior’s Menu\n\nSpecials\nCoupons\nGift Cards\nContact\nApply Online\n\nHome\nMenus\n\nLunch Menu\nDinner Menu\nBar Menu\nKid’s Menu\nSenior’s Menu\n\nSpecials\nCoupons\nGift Cards\nContact\nApply Online\n\nOrder Online\n\n\n\n251-948-7294\n\n \n\nSpecials\nScroll down to see our various Specials\n\n&#x37;\n\nDaily Lunch Specials – Served 11-3\n\n(Served with two sides, bread & tea)\n\nMonday – Fried Chicken $12.50Tuesday – Bar-B-Q Meat Loaf $12.50Wednesday – Chicken-N-Dumplins $12.50Thursday – Beef Tips over Rice $12.50Friday – Fried parmesan encrusted flounder $12.50\n\nSeniors Menu\n\n(Reserved for 55 & over)\n\nServed with your choice of two side dishes & Iced Tea (SPLIT PLATE CHARGE $2.00)Served 3 pm to 9 pm October 15 to March 1.Served 3 pm to 5:30 pm March 2 to October 14\nCoconut Shrimp – with spicy orange marmalade $17.99Stuffed Shrimp – bacon wrapped, stuffed with crabmeat dressing & monterey jack cheese $17.99Fried Shrimp – tail-less $13.99Grilled Shrimp – over yellow rice $15.99Fried Oysters – with cocktail sauce MarketFried Seafood Platter – shrimp, oysters, flounder, crab claws $20.99Broiled Seafood Platter – shrimp, scallops, flounder almondine $19.99Fried Chicken Tenders – with honey mustard $13.99Grilled Chicken Breast – with a light touch of lemon-herb oil $13.99Yellow-Fin Tuna – grilled or blackened $16.99Trigger – grilled, blackened or broiled almandine $16.99Flounder fried or broiled almandine $13.99Grouper – grilled, blackened, broiled almandine or fried $16.99Senior Side Dishes – Sweet Potato Casserole ~ Steamed Vegetables ~ Cole Slaw ~ French Fries ~ Baked Potato ~ Yellow Rice ~ Fried Green TomatoesSubstitute House or Caesar Salad for a Side Dish Add $2.75\n\nKids Menu\n\n(10 years and under only)\n\nServed with French Fries or Applesauce\n\nFish Sticks $8.99Corn Dog $8.99Fried Shrimp $8.99Hamburger $7.99Chicken Fingers $8.99Grilled Cheese $8.99Cheeseburger $5.99Fettuccine Alfredo (no side) $9.99\n\n \n\n\t\n\nLocation\n\n138 West 1st Ave.Gulf Shores, AL USA(251) 948-7294\n\nOff-Season Hours:\n\nServing Lunch Daily 11 am – 3 pmServing Dinner Daily 3 pm – 9 pm\n\nSocial\n\nFollowFollow\n\n© 2025 Desoto’s Seafood Kitchen | Site design by Mobile Web Design",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://desotosseafoodkitchen.com/specials/",
+              "url": "https://desotosseafoodkitchen.com/specials/",
+              "name": "Specials | DeSoto’s Seafood Kitchen",
+              "isPartOf": {
+                "@id": "https://desotosseafoodkitchen.com/#website"
+              },
+              "datePublished": "2025-01-28T18:47:21+00:00",
+              "dateModified": "2025-05-28T17:51:22+00:00",
+              "breadcrumb": {
+                "@id": "https://desotosseafoodkitchen.com/specials/#breadcrumb"
+              },
+              "inLanguage": "en-US",
+              "potentialAction": [
+                {
+                  "@type": "ReadAction",
+                  "target": [
+                    "https://desotosseafoodkitchen.com/specials/"
+                  ]
+                }
+              ]
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://desotosseafoodkitchen.com/specials/#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://desotosseafoodkitchen.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Specials"
+                }
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://desotosseafoodkitchen.com/#website",
+              "url": "https://desotosseafoodkitchen.com/",
+              "name": "DeSoto’s Seafood Kitchen",
+              "description": "Locally-Owned Seafood Restaurant in Gulf Shores, AL",
+              "potentialAction": [
+                {
+                  "@type": "SearchAction",
+                  "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://desotosseafoodkitchen.com/?s={search_term_string}"
+                  },
+                  "query-input": {
+                    "@type": "PropertyValueSpecification",
+                    "valueRequired": true,
+                    "valueName": "search_term_string"
+                  }
+                }
+              ],
+              "inLanguage": "en-US"
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+        "og:locale": "en_US",
+        "og:type": "article",
+        "og:title": "Specials | DeSoto’s Seafood Kitchen",
+        "og:url": "https://desotosseafoodkitchen.com/specials/",
+        "og:site_name": "DeSoto’s Seafood Kitchen",
+        "article:modified_time": "2025-05-28T17:51:22+00:00",
+        "twitter:card": "summary_large_image",
+        "generator": "WordPress 6.9.4",
+        "viewport": "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0",
+        "msapplication-TileImage": "https://desotosseafoodkitchen.com/wp-content/uploads/2025/01/cropped-desotoslogo165-270x270.gif"
+      }
+    }
+  ],
+  "pdfUrls": [
+    "https://desotosseafoodkitchen.com/wp-content/uploads/2025/02/DeSotos-Coupon.pdf"
+  ],
+  "pdfTexts": [
+    "[PDF: https://desotosseafoodkitchen.com/wp-content/uploads/2025/02/DeSotos-Coupon.pdf]\nDesoto's Seafood Kitchen\n138 West 1st Ave.\n1 Block North of the Beach - Behind Souvenir City\nGulf Shores, AL\n(251) 948-7294\nPrint Coupon to Receive\n$1 Off Any Dinner Entree\nValid only during Dinner Hours\nExcludes Senior Menu\nNot valid with any other offer\nSource: Gulf Coast Online.info\n\n-- 1 of 1 --"
+  ],
+  "imageUrls": [
+    "https://desotosseafoodkitchen.com/wp-content/uploads/2025/01/food8-scaled-1-400x284.jpg",
+    "https://desotosseafoodkitchen.com/wp-content/uploads/2025/01/food7-scaled-1-400x284.jpg",
+    "https://desotosseafoodkitchen.com/wp-content/uploads/2025/01/food6-scaled-1-400x284.jpg",
+    "https://desotosseafoodkitchen.com/wp-content/uploads/2025/01/food3-scaled-1-400x284.jpg",
+    "https://desotosseafoodkitchen.com/wp-content/uploads/2025/01/food2-scaled-1-400x284.jpg",
+    "https://desotosseafoodkitchen.com/wp-content/uploads/2025/01/Food1-scaled-1-400x284.jpg",
+    "https://desotosseafoodkitchen.com/wp-content/plugins/wp-google-maps/images/spotlight-poi3.png",
+    "https://desotosseafoodkitchen.com/wp-content/uploads/2025/02/A67A6093-scaled.jpg",
+    "https://desotosseafoodkitchen.com/wp-content/uploads/2025/02/A67A5992-scaled.jpg",
+    "https://desotosseafoodkitchen.com/wp-content/uploads/2025/02/A67A6006-scaled.jpg",
+    "https://desotosseafoodkitchen.com/wp-content/uploads/2025/02/A67A6013-scaled.jpg",
+    "https://desotosseafoodkitchen.com/wp-content/uploads/2025/02/A67A6027-scaled.jpg",
+    "https://desotosseafoodkitchen.com/wp-content/uploads/2025/02/A67A5989-scaled.jpg"
+  ]
+}

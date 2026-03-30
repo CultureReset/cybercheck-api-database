@@ -1,0 +1,21 @@
+{
+  "business_name": "Surfside Pizza & Ice Cream",
+  "url": "https://surfsidepizza.com/",
+  "scraped_at": "2026-03-22T18:35:31.741Z",
+  "scraper": "chrome-visible",
+  "pages": [
+    {
+      "url": "https://surfsidepizza.com",
+      "title": "",
+      "text": "",
+      "structuredData": [],
+      "meta": {
+        "description": ""
+      },
+      "links": []
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": []
+}

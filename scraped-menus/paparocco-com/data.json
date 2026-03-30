@@ -1,0 +1,293 @@
+{
+  "business_name": "Papa Rocco's",
+  "tagline": "The Home of Warm Beer and Lousy Pizza",
+  "type": "Restaurant/Bar",
+  "contact": {
+    "phone": "251-948-7262",
+    "email": "jamabaker963@gmail.com",
+    "address": "101 West 6th Avenue",
+    "city": "Gulf Shores",
+    "state": "AL",
+    "zip": "36542"
+  },
+  "hours": {
+    "monday": "11am - Midnight",
+    "tuesday": "11am - Midnight",
+    "wednesday": "11am - Midnight",
+    "thursday": "11am - Midnight",
+    "friday": "11am - Midnight",
+    "saturday": "11am - Midnight",
+    "sunday": "11am - Midnight",
+    "notes": "Open 7 days a week"
+  },
+  "about": {
+    "description": "Papa Rocco's is a casual pizza, oyster, and wings restaurant in Gulf Shores, Alabama, featuring daily live music entertainment until midnight. Known for award-winning pizzas and fresh local oysters, the restaurant offers a relaxed atmosphere with great service and affordable happy hour pricing.",
+    "elevator_pitch": "Award-winning pizza and oyster restaurant in Gulf Shores with daily live music, happy hour specials, and a fun, casual atmosphere.",
+    "vibe": "Relaxed, fun, casual bar and grill atmosphere with live entertainment daily",
+    "best_for": [
+      "casual dining",
+      "game day",
+      "happy hour",
+      "live music",
+      "spring breakers",
+      "groups"
+    ],
+    "established": null,
+    "reservations": null,
+    "insider_tip": "Best Happy Hour prices in town from 11am-7pm Monday-Friday with $3 domestic beers and $3.50 house liquor"
+  },
+  "tags": [
+    "pizza",
+    "oysters",
+    "wings",
+    "seafood",
+    "casual dining",
+    "bar",
+    "live music",
+    "happy hour",
+    "burgers",
+    "sports bar"
+  ],
+  "features": [
+    "live music daily",
+    "happy hour",
+    "full bar",
+    "gameday specials",
+    "dine in",
+    "awards"
+  ],
+  "price_range": "$$",
+  "social_links": {
+    "instagram": "https://instagram.com/paparoccospizza/",
+    "facebook": "https://www.facebook.com/people/Papa-Roccos/100084720384636/",
+    "yelp": "https://yelp.com/biz/papa-roccos-gulf-shores",
+    "website": "https://paparoccos.com"
+  },
+  "specials": [
+    {
+      "name": "Lunch Specials",
+      "description": "Daily lunch specials Labor Day through February from 11am-2pm",
+      "days": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "time": "11am-2pm",
+      "items": [
+        {
+          "day": "Monday",
+          "name": "Chicken Pot Pie",
+          "price": 6.95
+        },
+        {
+          "day": "Tuesday",
+          "name": "Open Face Roast Beef with Mashed Potatoes",
+          "price": 7.95
+        },
+        {
+          "day": "Wednesday",
+          "name": "Baked Pork Chop with Scalloped Potatoes and Green Beans",
+          "price": 7.95
+        },
+        {
+          "day": "Thursday",
+          "name": "Hamburger Steak with Mashed Potatoes and Black Eyed Peas",
+          "price": 7.95
+        },
+        {
+          "day": "Friday",
+          "name": "Blackened Fish with Broccoli w/ Cheese and Rice Pilaf",
+          "price": 7.95
+        }
+      ]
+    },
+    {
+      "name": "Dinner Specials",
+      "description": "Evening specials November through February from 5pm-7pm",
+      "days": [
+        "Monday",
+        "Tuesday",
+        "Thursday"
+      ],
+      "time": "5pm-7pm",
+      "items": [
+        {
+          "day": "Monday",
+          "name": "Oyster Stew",
+          "price": 6.95
+        },
+        {
+          "day": "Tuesday",
+          "name": "Pork Ribeye with Mashed Potatoes and Green Beans",
+          "price": 10.95
+        },
+        {
+          "day": "Thursday",
+          "name": "Prime Rib with Baked Potato and Salad",
+          "price": 18.95
+        }
+      ]
+    },
+    {
+      "name": "Happy Hour",
+      "description": "Discounted drinks Monday through Friday",
+      "days": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "time": "11am-7pm",
+      "items": [
+        {
+          "name": "Domestic Beers",
+          "price": 3
+        },
+        {
+          "name": "House Liquor",
+          "price": 3.5
+        }
+      ]
+    },
+    {
+      "name": "Gameday Specials",
+      "description": "Special pricing on wings and appetizers during football season",
+      "days": [
+        "Monday",
+        "Thursday",
+        "Saturday",
+        "Sunday"
+      ],
+      "time": "Varies",
+      "items": [
+        {
+          "name": "Wings (12)",
+          "price": 16.5
+        },
+        {
+          "name": "Buffalo Chicken Dip",
+          "price": 9.95
+        },
+        {
+          "name": "Spicy Smoked Tuna Dip",
+          "price": 11.95
+        },
+        {
+          "name": "Quesadilla",
+          "price": 10.95
+        },
+        {
+          "name": "Quesadilla with Jalapenos",
+          "price": 11.45
+        },
+        {
+          "name": "Onion Rings",
+          "price": 7.95
+        },
+        {
+          "name": "Stuffed Jalapenos",
+          "price": 10.95
+        }
+      ]
+    },
+    {
+      "name": "All You Can Eat Spaghetti",
+      "description": "All day spaghetti special with drink purchase",
+      "days": [
+        "Wednesday",
+        "Sunday"
+      ],
+      "time": "All Day",
+      "items": [
+        {
+          "name": "AYCE Spaghetti",
+          "price": 6.95
+        }
+      ]
+    }
+  ],
+  "events": [
+    {
+      "name": "Live Music",
+      "description": "Daily live music performances from local artists until midnight",
+      "recurring": true,
+      "days": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "time": "Until Midnight"
+    },
+    {
+      "name": "St. Paddy's Day Pub Crawl",
+      "description": "St. Patrick's Day celebration event",
+      "recurring": false,
+      "day": null,
+      "time": null
+    }
+  ],
+  "menu": {
+    "categories": [
+      {
+        "name": "Pizza",
+        "type": "entree",
+        "description": "Famous mouthwatering pizzas - consistently voted People's Choice Best Pizza in Gulf Shores",
+        "items": []
+      },
+      {
+        "name": "Raw Oysters",
+        "type": "entree",
+        "description": "Fresh, local oysters - won the People's Choice Award for Best Raw Oysters fifteen years running",
+        "items": []
+      },
+      {
+        "name": "Wings",
+        "type": "entree",
+        "description": "Baked Buffalo Wings - best in Gulf Shores for gameday meals",
+        "items": []
+      },
+      {
+        "name": "Burgers",
+        "type": "entree",
+        "items": [
+          {
+            "name": "The Who's Your Daddy Burger",
+            "description": "Double decker burger with swiss, pepperjack, American cheese, mushrooms, and bacon",
+            "price": null,
+            "tags": [
+              "signature",
+              "specialty"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "url": "https://paparocco.com",
+  "scraped_at": "2026-03-21T19:38:30.830Z",
+  "extracted_at": "2026-03-23T03:56:09.758Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://images.squarespace-cdn.com/content/v1/691c528b8ca3db5ddb3cb437/e6a1347d-e964-46c7-b76e-df9599ff813a/papa-roccos-logo.png?format=1500w",
+    "https://images.squarespace-cdn.com/content/v1/691c528b8ca3db5ddb3cb437/2408e1b6-d84b-4b6d-b075-0f3e0ee907a1/Rocky.png",
+    "https://images.squarespace-cdn.com/content/v1/691c528b8ca3db5ddb3cb437/2e192f5b-175a-4a7e-ab05-3670f64506df/5-star-rating-google.png?format=300w",
+    "https://images.squarespace-cdn.com/content/v1/691c528b8ca3db5ddb3cb437/f7f4b52a-b4b3-4f0f-b430-8354f2158c37/peoples-choice-award.png?format=100w",
+    "https://images.squarespace-cdn.com/content/v1/691c528b8ca3db5ddb3cb437/7bda386b-8de8-4443-aa0a-a01365644d62/PizzaServed.jpg",
+    "https://images.squarespace-cdn.com/content/v1/691c528b8ca3db5ddb3cb437/b843611a-1bc6-4ed7-9a7d-296cffae48d4/Oysters.jpg",
+    "https://images.squarespace-cdn.com/content/v1/691c528b8ca3db5ddb3cb437/09ae849d-d34b-448a-8b28-e04a21750953/Wings.jpg",
+    "https://images.squarespace-cdn.com/content/v1/691c528b8ca3db5ddb3cb437/eb124ced-98a3-4c6c-8b15-e7922df266f3/WhosYourDaddyBurger.jpeg",
+    "https://images.squarespace-cdn.com/content/v1/691c528b8ca3db5ddb3cb437/1788b595-778b-4239-8147-14f4b23515f1/LiveMusic2.jpg",
+    "https://images.squarespace-cdn.com/content/v1/691c528b8ca3db5ddb3cb437/c776ae9c-e50c-4546-991d-f91df1a6c83c/SundayTicket.webp",
+    "https://images.squarespace-cdn.com/content/v1/691c528b8ca3db5ddb3cb437/60c798cb-acb3-45c2-b7c4-bff9c4b26fc3/PubCrawl.jpg"
+  ],
+  "sources": [
+    "https://paparocco.com"
+  ]
+}

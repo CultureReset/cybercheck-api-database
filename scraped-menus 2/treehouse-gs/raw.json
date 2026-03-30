@@ -1,0 +1,33 @@
+{
+  "business_name": "treehouse.gs",
+  "url": "http://www.treehouse.gs",
+  "scraped_at": "2026-03-21T20:24:40.779Z",
+  "pages": [
+    {
+      "url": "http://www.treehouse.gs",
+      "title": "– Treehouse Cafe",
+      "text": "OPEN MONDAY - SATURDAY 7:00am to 7:00pmLocated in The Square Shopping Center1538 Gulf Shores Parkway Unit 5, Gulf Shores, Alabama 36542 (251) 220-5263\n \n\n \n \n\n \n \n\n \n \n\n \n \n\n Treehouse Cafe\n\n \n\n \n Leave your email to be the first to know when we officially launch!\n \n\n \n \n\n \n\n \n \n Email\n \n \n \n \n Sign up\n \n \n \n\n \n\n \n\n \n \n\n \n This shop will be powered by\n \n\n \n \n \n Enter using password\n \n \n Are you the store owner? Log in here\n \n \n \n Opens in a new window.\n \n\n \n \n \n \n \n \n \n \n\n \n \n \n \n \n Enter password\n \n\n \n \n Password\n \n\n \n\n \n Submit",
+      "structuredData": [],
+      "meta": {
+        "viewport": "width=device-width,initial-scale=1",
+        "view-transition": "same-origin",
+        "og:site_name": "Treehouse Cafe",
+        "og:url": "https://treehouse.gs",
+        "og:title": "Treehouse Cafe",
+        "og:type": "website",
+        "og:description": "Treehouse Cafe",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Treehouse Cafe",
+        "twitter:description": "Treehouse Cafe",
+        "shopify-digital-wallet": "/65633484913/digital_wallets/dialog",
+        "shopify-checkout-api-token": "1aa81a2ff0a01f7aa7586e35e2c18ddb"
+      }
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": [
+    "https://treehouse.gs/cdn/shop/files/Treehouse_Menus_1-4-26-5.jpg?v=1768398836&width=3840",
+    "https://treehouse.gs/cdn/shop/files/LunchDinner-1-14-26.jpg?v=1768399475&width=3840"
+  ]
+}

@@ -1,0 +1,342 @@
+{
+  "business_name": "pelicangrillob.com",
+  "url": "https://www.pelicangrillob.com",
+  "scraped_at": "2026-03-21T19:39:07.682Z",
+  "pages": [
+    {
+      "url": "https://www.pelicangrillob.com",
+      "title": "HOME | Pelican Grill",
+      "text": "top of pageLOG INCALL US 12514833665ORDER ONLINE\n \n \n \n \n \n\nWelcome to Pelican Grill located at the SanRoc Cay Marina!At Pelican Grill, we offer an unforgettable dining experience with our exquisite Gulf Coast cuisine. Nestled in the heart of Orange Beach, Alabama, our seafood restaurant is perfect for family-friendly dining and enjoying local favorites like shrimp baked potato, charbroiled oysters, and chicken tenders. There's something for everyone to love.Tipsy PelicanOYSTER AND DAIQUIRI\nPATIO BARLive music see Facebook for band schedule.EXQUISITE SEAFOOD CUISINE & COCKTAILS\n\n \n \n \n\nIndulge in the finest Gulf Coast flavors at Pelican Grill, where every dish is crafted to perfection! Our dinner menu showcases a tantalizing selection of local favorites, from lobster tails to seared tuna salad and flavorfully seasoned snow crab legs, ensuring an unforgettable experience for seafood lovers. Complement your meal with one of our expertly mixed cocktails, designed to enhance every bite. Whether you're unwinding after a long day or celebrating a special occasion, Pelican Grill offers the perfect blend of delicious food and a vibrant atmosphere. Join us and savor the ultimate coastal dining experience that will keep you coming back for more!DISCOVER OUR MENULocations + Opennig HoursVISIT US TODAY,\nFOR AN UNFORGETTABLE EXPERIENCE\n\n \n \n \n\nExperience the best of coastal dining at Pelican Grill in Orange Beach! From the moment you arrive, you'll be welcomed with warm hospitality and the irresistible aroma of Gulf Coast cuisine. Indulge in a diverse dinner menu featuring local favorites like charbroiled oysters Rockefeller, hand-breaded grouper fingers, and succulent snow crab legs, all crafted with the freshest ingredients. Whether you're savoring a meal with family, celebrating a special occasion, or simply treating yourself to a night out, Pelican Grill offers a vibrant atmosphere and exceptional flavors that will leave a lasting impression. Don’t miss out on creating unforgettable moments—come and experience the finest Orange Beach dining todayADDRESS27267 Perdido Beach Blvd.\nOrange Beach, AL, 36561\n(251) 483-3665OPENING HOURS7 DAYS A WEEK\n\n11AM - 9PMTASTE THE FRESHEST CATCH\n\n \n \n \n\nAt Pelican Grill, where we bring the flavors of the Gulf Coast right to your table in Orange Beach, Alabama! Our seafood restaurant prides itself on offering an array of local favorites, from succulent gulf shrimp offerings and our renowned blackened grouper. Experience family-friendly dining in a welcoming atmosphere, where you can indulge in dishes like fried green tomatoes and charbroiled oysters. Plus, if you have a catch of your own, we’ll fry it up to perfection just for you! Join us for a memorable meal and discover why Pelican Grill is a beloved destination for seafood lovers.EXPLORE OUR OFFERINGSENJOY PELICAN GRILL IN THE COMFORT OF YOUR HOME\n\n \n \n \n\nWhether you're enjoying a night out or bringing the taste of the coast home, Pelican Grill has you covered! Indulge in our charbroiled oysters Rockefeller, hand-breaded grouper fingers, or succulent snow crab legs for a memorable dinner experience. Prefer to stay in? Our delicious takeout options let you enjoy the same quality and freshness from the comfort of your home. From shrimp baked potatoes to blackened grouper, our menu offers something for everyone to savor. Perfect for family gatherings, special occasions, or a cozy night in, Pelican Grill delivers the best of Orange Beach dining—wherever you choose to enjoy it!ORDERWHAT OUR GUESTS ARE SAYING\n\n \n \n \n\n“The seafood at Pelican Grill is unparalleled. Each visit leaves me with a memorable culinary experience.John Smith\n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n“The ambiance and service at Pelican Grill are exceptional. It's my go-to place for the freshest seafood in town.Emma Johnson\n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n“Pelican Grill never disappoints. The flavors and quality of their seafood dishes are truly remarkable.Michael Brown\n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\nFACEBOOKINSTAGRAMTRIPADVISORContact usFirst name*Last nameEmail*Write a messageStar ratingSubmit© 2025. Powered and secured by Wixbottom of page",
+      "structuredData": [
+        {
+          "@context": "https://schema.org/",
+          "@type": "Restaurant",
+          "name": "Pelican Grill",
+          "image": "https://static.wixstatic.com/media/6dbc98_5adec4ea76de40c492578b72dc540e76~mv2.png",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "US",
+            "addressLocality": "Orange Beach",
+            "addressRegion": "AL",
+            "postalCode": "36561",
+            "streetAddress": "27267 Perdido Beach Boulevard"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "30.2767226",
+            "longitude": "-87.5604694"
+          },
+          "url": "https://www.pelicangrillob.com",
+          "telephone": "251-483-3665",
+          "acceptsReservations": "True"
+        },
+        {
+          "@context": "https://schema.org/",
+          "@type": "WebSite",
+          "name": "Pelican Grill",
+          "url": "https://www.pelicangrillob.com"
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "generator": "Wix.com Website Builder",
+        "format-detection": "telephone=no",
+        "skype_toolbar": "skype_toolbar_parser_compatible",
+        "description": "\"Discover Pelican Grill, your premier destination for fresh Gulf Coast seafood and handcrafted cocktails in Orange Beach. Enjoy a vibrant atmosphere, best seafood, and exceptional service. Join us for an unforgettable dining experience that celebrates the flavors of the coast!\"",
+        "og:title": "HOME | Pelican Grill",
+        "og:description": "\"Discover Pelican Grill, your premier destination for fresh Gulf Coast seafood and handcrafted cocktails in Orange Beach. Enjoy a vibrant atmosphere, best seafood, and exceptional service. Join us for an unforgettable dining experience that celebrates the flavors of the coast!\"",
+        "og:image": "https://static.wixstatic.com/media/6dbc98_aab1523f7cc9439e9c0e3d0ac4d72352%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/6dbc98_aab1523f7cc9439e9c0e3d0ac4d72352%7Emv2.jpg",
+        "og:image:width": "2500",
+        "og:image:height": "1330",
+        "og:url": "https://www.pelicangrillob.com",
+        "og:site_name": "Pelican Grill",
+        "og:type": "website",
+        "fb_admins_meta_tag": "pelicangrill",
+        "fb:admins": "pelicangrill",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "HOME | Pelican Grill",
+        "twitter:description": "\"Discover Pelican Grill, your premier destination for fresh Gulf Coast seafood and handcrafted cocktails in Orange Beach. Enjoy a vibrant atmosphere, best seafood, and exceptional service. Join us for an unforgettable dining experience that celebrates the flavors of the coast!\"",
+        "twitter:image": "https://static.wixstatic.com/media/6dbc98_aab1523f7cc9439e9c0e3d0ac4d72352%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/6dbc98_aab1523f7cc9439e9c0e3d0ac4d72352%7Emv2.jpg"
+      }
+    },
+    {
+      "url": "https://www.pelicangrillob.com/menu",
+      "title": "MENU | Pelican Grill",
+      "text": "top of pageLOG INCALL US 12514833665ORDER ONLINE\n \n \n \n \n \n\nAsk About Our\nALL YOU CAN EATGROUPER FINGERSMenuWelcome to the Pelican Grill Menu! Dive into a culinary journey that celebrates the vibrant flavors of the Gulf Coast. Our carefully crafted menu features a delightful selection of fresh seafood, mouthwatering entrees, and savory appetizers that are sure to tantalize your taste buds.LUNCH 11:00-4:00 DAILYGUMBOHousemade seafood gumbo with shrimp & crawfish served with rice.Cup$6Bowl$10CRAB MELTCrab cake with white American cheese, grilled tomato & remoulade sauce on grilled sourdough + 1 Side.$18TACOS // MAHI or SHRIMPTopped with slaw & mango salsa + 1 Side.$18POBOYSSHRIMP / GROUPER / CHICKEN / OYSTER\nFried, grilled or blackened, lettuce, tomato, remoulade sauce + 1 Side.$18BLACKENED SHRIMP BOWLShrimp, avocado, rice, mango salsa, remoulade sauce. Sub Tuna + $2$18CHICKEN TENDERS & FRIES$14TUNA NACHOSHousemade chips, raw tuna & fresh mango salsa, topped with toasted Sesame dressing & Srirachi Aioli. Sub Chicken + $2$20SHRIMP ROLLShrimp, mayo, celery, seafood seasoning + 1 Side.$17PELICAN'S NESTA nest of fries topped with melted cheese & grilled chicken drizzled with white BBQ sauce. Sub Shrimp + $2$14WrapsSHRIMP & AVOCADO WRAPShrimp, avocado, lettuce, tomato & remoulade sauce + 1 Side.$15FRIED GREEN TOMATO BLT WRAPFGT, bacon, lettuce, tomato, cheese & ranch + 1 Side.$14BurgersLOBSTER MAC-N-CHEESE BURGERBeef patty topped with housemade lobster mac-n-cheese, lettuce, tomato + 1 Side.$18SAN ROC BURGERBeef patty with lettuce, tomato, cheese + pickle + 1 Side.$15CAJUN PATTY MELTBeef patty with grilled onions, cheese, Cajun sauce on sourdough bread + 1 Side.$15Lunch Sides | $5CUCUMBER TOMATO SALAD + FETA\nSLAW\nFRENCH FRIES\nSTREET CORN SALAD + FETA\nSIDE SALAD + $2 Upcharge\nSUB DINNER SIDES + $2 UpchargeAppetizersSalads, Oysters & Seafood Boil are available for lunch!!BREADSTICKSServed with our \"Famous\" Raspberry Butter. Always a Crowd Favorite!$8SHRIMP & AVOCADOPeeled cold shrimp, avocado and remoulade sauce.$15SHRIMP & CRAB DIPServed warm with breadsticks.$18CHEESE CURDSBreaded and deep fried golden.$14GROUPER FINGERSHand-breaded Gulf grouper fingers served wth chef's homemade tartar sauce.$16KICKIN' SHRIMPLighted breaded Gulf shrimp drizzled with spicy honey sauce, ranch for dipping.$14FRIED GREEN TOMATOESTopped with crawfish tails and remoulade sauce.$16FRIED DILL PICKLESServed with house ranch.$12CRAB CLAWS MPFried or Sautéed\nA Gulf Coast Delicacy!MPOystersRAW MP1/2 Dozen$201 Dozen$29ROCKFELLERSpinach, Bacon, Garlic, Onions, Romano & Parmesan Cheese.(8)$20(12)$29HOUSEAndouille Sausage, Peppers, Onions & Smoked Gouda Cheese.(8)$20(12)$29GARLIC PARMESANFresh Garlic, Parmesan & Romano Cheese in Butter Sauce.(8)$20(12)$29FRESNO TEQUILARaw Oyster, Pickled Fresno Chili, Red Onion in Lime Tequila Brine.(8)$20(12)$29SaladsSTRAWBERRY PECAN SALADMixed greens with mandarin oranges, fresh strawberries, onions, tomatoes, pecans, feta cheese, served with raspberry vinaigrette.$15SEARED TUNA SALADMixed greens with carrots, radish, cucumber, served with toasted Sesame dressing.$16SIDE SALADMixed greens with tomatoes, cucumber, cheese. Add........Chicken (6), Shrimp (8), Grouper (8), Tuna (8)$7Seafood BoilServed with new potatoes & corn on the cob.SNOW CRAB LEGSServed with drawn butter - 1.5 lbs.MPROYAL BEDSHead on Royal Red shrimp - 1 lb.MP (Seasonal)GULF SHRIMPHead off peel & eat - 1 lb.$18From the CharbroilerChoose 2 sides.8 oz. FILET OSCARTopped with fried green tomatoes, lump crab meat & Hollandaise sauce.$488 oz. BOURBON FILETTopped with Chef inspired bourbon glaze.$3914 oz. RIBEYECharbroiled with Chef seasoning.$42SURF -N- TURF5 oz. Filet, 5 Shrimp, 1/2 lb. Snow Crab Legs$46PastaENHANCEMENTS: Crawfish - 8 | Shrimp - 8 | Chicken - 6 | Veggies - 5 | Lobster - 18FETTUCCINE ALFREDOParmesan alfredo sauce over fettuccine pasta.$20CAJUN PASTAPepper & onions, Andouille sausage with Creole cream sauce over fettuccine pasta.$22SHRIMP SCAMPIShrimp, garlic, lemon, wine butter sauce, Parmesan cheese over angel hair pasta.$26BurgersLOBSTER MAC-N-CHEESE BURGERBeef patty topped with housemade lobster mac-n-cheese, lettuce & tomato + 1 Side.$20SAN ROC BURGERBeef patty with lettuce, tomato with Chef made comeback sauce & pickle + 1 Side, Add Cheese + $2$16EntreesChoose 2 sides.TWIN LOBSTER TAILS2 Lobster tails broiled to perfectionMPGROUPER FILETFried / Blackened / Grilled\nTopped with lump crab & lemon Beurre Blanc sauce.$34BLACKENED MAHITopped with signature mango salsa.$29STUFFED SHRIMPGulf shrimp with crab meat stuffing topped with lemon Beurre Blanc sauce.$29APRICOT GLAZED CHICKENGrilled chicken breast topped with apricot glaze & pecans.$20CHICKEN BREASTBreaded / Blackened / Lemon Pepper$18SHRIMP FLORENTINEGrilled Shrimp with spinach and creamy garlic Parmesan sauce.$26SHRIMPFried / Grilled / Blackened\nAdd Spicy Honey Glaze for Added Flavor!$24STUFFED PORK CHOPDuroc bone-in chop stuffed with apple & bacon stuffing topped with bourbon glaze.$26Served with a BreadstickSHRIMP-N-GRITSGrilled Shrimp over smoked Gouda grits with Andouille sausage and green onions......A Customer Delight!$27LOBSTER MAC-N-CHEESECavatelli pasta, lobster pieces, sharp cheddar cheese sauce, panko Parmesan crust topped with lobster tail.$42Sides | A LA CARTESRICE PILAF\nBAKED POTATO\nPARMESAN RISOTTO\nWHIPPED SWEET POTATOES\nMIXED VEGETABLES\nFRIED BRUSSEL SPROUTS\nFRENCH FRIES\nSMOKED GOUDA CHEESE GRITS\nGARDEN SALAD + $2 Upcharge\nLOBSTER MAC-n-CHEESE + $4 UpchargeDessertASK YOUR SERVER ABOUT TODAYS SELECTIONKey Lime Pie$8Triple Chocolate Mousse Cake$8Signature Housemade Banana's FosterBananas in a caramel rum sauce with vanilla ice cream, Flaméed at the table!$10Drinks | $3.25COKE\nDIET COKE\nCOKE ZERO\nDR PEPPER\nROOTBEER\nSPRITE\nPOWERADE\nMELLOW YELLOW\nORANGE\nSWEET TEA\nUNSWEET TEA\nCOFFEEHooked & CookedHAVE A GOOD DAY ON THE WATER, LET US COOK YOUR CATCH!FRIED\nGRILLED\nOR\nBLACKENED\nChoose 2 SidesPER PERSON$23\n\n \n \n \n\nFACEBOOKINSTAGRAMTRIPADVISORContact usFirst name*Last nameEmail*Write a messageStar ratingSubmit© 2025. Powered and secured by Wixbottom of page",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "app.breadcrumbs.labels.home",
+              "item": "https://www.pelicangrillob.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "MENU",
+              "item": "https://www.pelicangrillob.com/menu"
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org/",
+          "images": [
+            {
+              "@context": "https://schema.org/",
+              "@type": "ImageObject",
+              "height": 892,
+              "width": 1170,
+              "url": "https://static.wixstatic.com/media/6dbc98_552dded265344774893379ef2cab4e4c~mv2.jpg"
+            },
+            {
+              "@context": "https://schema.org/",
+              "@type": "ImageObject",
+              "height": 1536,
+              "width": 2048,
+              "url": "https://static.wixstatic.com/media/6dbc98_9e04820725e7459197e7b231ea8eec36~mv2.jpg"
+            },
+            {
+              "@context": "https://schema.org/",
+              "@type": "ImageObject",
+              "height": 382,
+              "width": 360,
+              "url": "https://static.wixstatic.com/media/6dbc98_a201036d428d471781ee4022f7f8105f~mv2.png"
+            },
+            {
+              "@context": "https://schema.org/",
+              "@type": "ImageObject",
+              "height": 960,
+              "width": 1280,
+              "url": "https://static.wixstatic.com/media/6dbc98_68eace4e4757492eae600d984fd6f2d4~mv2.jpg"
+            },
+            {
+              "@context": "https://schema.org/",
+              "@type": "ImageObject",
+              "height": 1600,
+              "width": 1200,
+              "url": "https://static.wixstatic.com/media/6dbc98_0d4d050bf3af444b98a8796f0021d517~mv2.jpg"
+            },
+            {
+              "@context": "https://schema.org/",
+              "@type": "ImageObject",
+              "height": 960,
+              "width": 720,
+              "url": "https://static.wixstatic.com/media/6dbc98_9bc54e8b8b394182b4d65e9d40045cbd~mv2.jpg"
+            },
+            {
+              "@context": "https://schema.org/",
+              "@type": "ImageObject",
+              "height": 419,
+              "width": 360,
+              "url": "https://static.wixstatic.com/media/6dbc98_6ae3dc439a2d4320a9347d551e1f9deb~mv2.png"
+            },
+            {
+              "@context": "https://schema.org/",
+              "@type": "ImageObject",
+              "height": 1539,
+              "width": 1170,
+              "url": "https://static.wixstatic.com/media/6dbc98_a5cb13474e9746c89bbceb2c0d1750e9~mv2.jpg"
+            },
+            {
+              "@context": "https://schema.org/",
+              "@type": "ImageObject",
+              "height": 640,
+              "width": 480,
+              "url": "https://static.wixstatic.com/media/6dbc98_f21dffbc58b64876a6e6a820a6bb9ffd~mv2.jpg"
+            },
+            {
+              "@context": "https://schema.org/",
+              "@type": "ImageObject",
+              "height": 2048,
+              "width": 1536,
+              "url": "https://static.wixstatic.com/media/6dbc98_f2bbec641d35491184f4dd25a9cf2324~mv2.jpg"
+            },
+            {
+              "@context": "https://schema.org/",
+              "@type": "ImageObject",
+              "height": 1599,
+              "width": 1170,
+              "url": "https://static.wixstatic.com/media/6dbc98_51749a17e4f1480fa63dbfdfb296f125~mv2.jpg"
+            },
+            {
+              "@context": "https://schema.org/",
+              "@type": "ImageObject",
+              "height": 274,
+              "width": 182,
+              "url": "https://static.wixstatic.com/media/6dbc98_13997a1c3b7b4fbeb9d55ff845a629f9~mv2.jpg"
+            },
+            {
+              "@context": "https://schema.org/",
+              "@type": "ImageObject",
+              "height": 1280,
+              "width": 960,
+              "url": "https://static.wixstatic.com/media/6dbc98_0e9ff4743df34190b69c5e289ec93bac~mv2.jpg"
+            },
+            {
+              "@context": "https://schema.org/",
+              "@type": "ImageObject",
+              "height": 960,
+              "width": 1280,
+              "url": "https://static.wixstatic.com/media/6dbc98_f2e8fb90c5b34e649401ef5b42a42c96~mv2.jpg"
+            },
+            {
+              "@context": "https://schema.org/",
+              "@type": "ImageObject",
+              "height": 777,
+              "width": 1170,
+              "url": "https://static.wixstatic.com/media/6dbc98_efe3212a07d9479ca6c68ccb66b13231~mv2.jpeg"
+            },
+            {
+              "@context": "https://schema.org/",
+              "@type": "ImageObject",
+              "height": 1280,
+              "width": 960,
+              "url": "https://static.wixstatic.com/media/6dbc98_50c364dcb59e4a68a6dfdb08de024dbb~mv2.jpg"
+            },
+            {
+              "@context": "https://schema.org/",
+              "@type": "ImageObject",
+              "height": 382,
+              "width": 360,
+              "url": "https://static.wixstatic.com/media/6dbc98_a201036d428d471781ee4022f7f8105f~mv2.png"
+            },
+            {
+              "@context": "https://schema.org/",
+              "@type": "ImageObject",
+              "height": 846,
+              "width": 1170,
+              "url": "https://static.wixstatic.com/media/6dbc98_bdca55bddc494d5aab7ae4600104c358~mv2.jpg"
+            },
+            {
+              "@context": "https://schema.org/",
+              "@type": "ImageObject",
+              "height": 1600,
+              "width": 1200,
+              "url": "https://static.wixstatic.com/media/6dbc98_5dcc4e65ed1b452b9dd046762915ac34~mv2.jpg"
+            },
+            {
+              "@context": "https://schema.org/",
+              "@type": "ImageObject",
+              "height": 1335,
+              "width": 1179,
+              "url": "https://static.wixstatic.com/media/6dbc98_1cafb388c01e4295ab3266c88e1e0260~mv2.jpg"
+            },
+            {
+              "@context": "https://schema.org/",
+              "@type": "ImageObject",
+              "height": 1600,
+              "width": 1200,
+              "url": "https://static.wixstatic.com/media/6dbc98_890171d32c3146a4830f08f810938d46~mv2.jpg"
+            },
+            {
+              "@context": "https://schema.org/",
+              "@type": "ImageObject",
+              "height": 873,
+              "width": 1170,
+              "url": "https://static.wixstatic.com/media/6dbc98_b283a8caf71b46a3aa90e70c6d059521~mv2.jpg"
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "generator": "Wix.com Website Builder",
+        "format-detection": "telephone=no",
+        "skype_toolbar": "skype_toolbar_parser_compatible",
+        "og:title": "MENU | Pelican Grill",
+        "og:image": "https://static.wixstatic.com/media/6dbc98_aab1523f7cc9439e9c0e3d0ac4d72352%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/6dbc98_aab1523f7cc9439e9c0e3d0ac4d72352%7Emv2.jpg",
+        "og:image:width": "2500",
+        "og:image:height": "1330",
+        "og:url": "https://www.pelicangrillob.com/menu",
+        "og:site_name": "Pelican Grill",
+        "og:type": "website",
+        "fb_admins_meta_tag": "pelicangrill",
+        "fb:admins": "pelicangrill",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "MENU | Pelican Grill",
+        "twitter:image": "https://static.wixstatic.com/media/6dbc98_aab1523f7cc9439e9c0e3d0ac4d72352%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/6dbc98_aab1523f7cc9439e9c0e3d0ac4d72352%7Emv2.jpg"
+      }
+    },
+    {
+      "url": "https://www.pelicangrillob.com/contact-us",
+      "title": "CONTACT US | Pelican Grill",
+      "text": "top of pageLOG INCALL US 12514833665ORDER ONLINE\n \n \n \n \n \n\nVISIT US\n\n \n \n \n\nYOUR DESTINATION FOR FRESH SEAFOOD\n\n \n \n \n\nLOCATION27267 Perdido Beach Blvd.\nOrange Beach, AL 36561OPENING HOURS7 DAYS A WEEK\n\n11AM - 9PMCONTACT USPHONE - 251-483-3665\nEMAIL - PELICANGRILLOB@GMAIL.COMFACEBOOKINSTAGRAMTRIPADVISORContact usFirst name*Last nameEmail*Write a messageStar ratingSubmit© 2025. Powered and secured by Wixbottom of page",
+      "structuredData": [],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "generator": "Wix.com Website Builder",
+        "format-detection": "telephone=no",
+        "skype_toolbar": "skype_toolbar_parser_compatible",
+        "description": "\"Get in touch with Pelican Grill! Whether you have questions, need assistance, or want to make a reservation, our friendly team is here to help. Reach out today and let us assist you!\"",
+        "og:title": "CONTACT US | Pelican Grill",
+        "og:description": "\"Get in touch with Pelican Grill! Whether you have questions, need assistance, or want to make a reservation, our friendly team is here to help. Reach out today and let us assist you!\"",
+        "og:image": "https://static.wixstatic.com/media/6dbc98_aab1523f7cc9439e9c0e3d0ac4d72352%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/6dbc98_aab1523f7cc9439e9c0e3d0ac4d72352%7Emv2.jpg",
+        "og:image:width": "2500",
+        "og:image:height": "1330",
+        "og:url": "https://www.pelicangrillob.com/contact-us",
+        "og:site_name": "Pelican Grill",
+        "og:type": "website",
+        "fb_admins_meta_tag": "pelicangrill",
+        "fb:admins": "pelicangrill",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "CONTACT US | Pelican Grill",
+        "twitter:description": "\"Get in touch with Pelican Grill! Whether you have questions, need assistance, or want to make a reservation, our friendly team is here to help. Reach out today and let us assist you!\"",
+        "twitter:image": "https://static.wixstatic.com/media/6dbc98_aab1523f7cc9439e9c0e3d0ac4d72352%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/6dbc98_aab1523f7cc9439e9c0e3d0ac4d72352%7Emv2.jpg"
+      }
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": [
+    "https://static.wixstatic.com/media/c837a6_9c71caae789f42c1b6356d11986807f2~mv2.jpg/v1/fill/w_1280,h_900,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_9c71caae789f42c1b6356d11986807f2~mv2.jpg",
+    "https://static.wixstatic.com/media/6dbc98_3a74bd3d1b994fa4a281c010c626fb2a~mv2.png/v1/fill/w_114,h_114,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/logo.png",
+    "https://static.wixstatic.com/media/6dbc98_d98164ce80f2442f8d61d3e0574a7693~mv2.png/v1/fill/w_327,h_53,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Name%20Art%20white%20website.png",
+    "https://static.wixstatic.com/media/6dbc98_2239b79d2e8040c4add92cdff42f9ef0~mv2.jpg/v1/fill/w_1280,h_945,fp_0.50_0.50,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/6dbc98_2239b79d2e8040c4add92cdff42f9ef0~mv2.jpg",
+    "https://static.wixstatic.com/media/6dbc98_7919b21b8e6b47a5a64773c55a605ef5~mv2.jpg/v1/fill/w_1280,h_712,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/6dbc98_7919b21b8e6b47a5a64773c55a605ef5~mv2.jpg",
+    "https://static.wixstatic.com/media/c837a6_6cda46919f814b1ba08d6a56e086050a~mv2.jpg/v1/fill/w_1280,h_1046,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_6cda46919f814b1ba08d6a56e086050a~mv2.jpg",
+    "https://static.wixstatic.com/media/6dbc98_6284195713c14fe79c9c26d3e4d75bb2~mv2.jpg/v1/fill/w_288,h_431,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Pelican%20Grill%20Orange%20Beach%20Red%20Snapper%20topped%20w%20a%20Chef%20made%20creole%20cream%20sauce%20served%20w%20ri.jpg",
+    "https://static.wixstatic.com/media/6dbc98_909244185ab44dd68de8cd2e9699d7dd~mv2.jpg/v1/crop/x_0,y_15,w_1536,h_2018/fill/w_252,h_331,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/476163760_122137703690495013_4505826490867977068_n.jpg",
+    "https://static.wixstatic.com/media/6dbc98_59301c47a45543d781061d6a9780fe2d~mv2.jpg/v1/crop/x_0,y_7,w_720,h_946/fill/w_252,h_331,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Mixed%20Drinks%20Strawberries%20Pelican%20Grill.jpg",
+    "https://static.wixstatic.com/media/6dbc98_bcb90671ec834fd5af4364030fbb307a~mv2.jpeg/v1/fill/w_490,h_331,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Pelican%20Grill%20Orange%20Beach%20Alabama%20Filet%20.jpeg",
+    "https://static.wixstatic.com/media/6dbc98_609d8dee1d6e47109dfb662ec3b25893~mv2.jpg/v1/fill/w_110,h_147,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/6dbc98_609d8dee1d6e47109dfb662ec3b25893~mv2.jpg",
+    "https://static.wixstatic.com/media/c837a6_6cda46919f814b1ba08d6a56e086050a~mv2.jpg/v1/fill/w_147,h_98,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/c837a6_6cda46919f814b1ba08d6a56e086050a~mv2.jpg",
+    "https://static.wixstatic.com/media/6dbc98_293f50b30c6a498c8d5085c60b868e96~mv2.jpg/v1/fill/w_110,h_147,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/6dbc98_293f50b30c6a498c8d5085c60b868e96~mv2.jpg",
+    "https://static.wixstatic.com/media/6dbc98_3783ed738a6645b59a949d530114a3a6~mv2.jpg/v1/fill/w_123,h_150,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/6dbc98_3783ed738a6645b59a949d530114a3a6~mv2.jpg",
+    "https://static.wixstatic.com/media/6dbc98_a23e8945dc7c45d2a9e1ba0d6ea351db~mv2.jpg/v1/crop/x_0,y_69,w_1536,h_1909/fill/w_358,h_378,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Diners_website.jpg",
+    "https://static.wixstatic.com/media/c837a6_6cda46919f814b1ba08d6a56e086050a~mv2.jpg/v1/fill/w_1280,h_1153,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_6cda46919f814b1ba08d6a56e086050a~mv2.jpg",
+    "https://static.wixstatic.com/media/6dbc98_e508773a8a54493a9ce75a46af0c0316~mv2.jpg/v1/fill/w_537,h_338,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/6dbc98_e508773a8a54493a9ce75a46af0c0316~mv2.jpg",
+    "https://static.wixstatic.com/media/6dbc98_fba9d5ca98cc4c5b89082e558feb9185~mv2.jpg/v1/fill/w_1000,h_516,fp_0.50_0.50,q_85,enc_avif,quality_auto/6dbc98_fba9d5ca98cc4c5b89082e558feb9185~mv2.jpg",
+    "https://static.wixstatic.com/media/6dbc98_3a74bd3d1b994fa4a281c010c626fb2a~mv2.png/v1/fill/w_355,h_357,al_c,lg_1,q_85,enc_avif,quality_auto/6dbc98_3a74bd3d1b994fa4a281c010c626fb2a~mv2.png",
+    "https://static.wixstatic.com/media/6dbc98_1065bb06bee545c483dc43cb75c5f588~mv2.png/v1/fill/w_457,h_69,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Name%20Art.png",
+    "https://static.parastorage.com/services/restaurant-menus-showcase-ooi/fe37e436ffe73e3bb0a727c470282ab6782bce4c257ea438135d1263/media/menus_side_image.7077f229.jpeg",
+    "https://static.wixstatic.com/media/6dbc98_552dded265344774893379ef2cab4e4c~mv2.jpg/v1/fill/w_300,h_300,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/6dbc98_552dded265344774893379ef2cab4e4c~mv2.jpg",
+    "https://static.wixstatic.com/media/6dbc98_9e04820725e7459197e7b231ea8eec36~mv2.jpg/v1/fill/w_300,h_300,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/6dbc98_9e04820725e7459197e7b231ea8eec36~mv2.jpg",
+    "https://static.wixstatic.com/media/6dbc98_a201036d428d471781ee4022f7f8105f~mv2.png/v1/fill/w_90,h_96,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_auto/6dbc98_a201036d428d471781ee4022f7f8105f~mv2.png",
+    "https://static.wixstatic.com/media/6dbc98_68eace4e4757492eae600d984fd6f2d4~mv2.jpg/v1/fill/w_147,h_110,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_auto/6dbc98_68eace4e4757492eae600d984fd6f2d4~mv2.jpg",
+    "https://static.wixstatic.com/media/6dbc98_0d4d050bf3af444b98a8796f0021d517~mv2.jpg/v1/fill/w_147,h_196,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_auto/6dbc98_0d4d050bf3af444b98a8796f0021d517~mv2.jpg",
+    "https://static.wixstatic.com/media/6dbc98_9bc54e8b8b394182b4d65e9d40045cbd~mv2.jpg/v1/fill/w_130,h_173,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_auto/6dbc98_9bc54e8b8b394182b4d65e9d40045cbd~mv2.jpg",
+    "https://static.wixstatic.com/media/6dbc98_6ae3dc439a2d4320a9347d551e1f9deb~mv2.png/v1/fill/w_90,h_105,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_auto/6dbc98_6ae3dc439a2d4320a9347d551e1f9deb~mv2.png",
+    "https://static.wixstatic.com/media/6dbc98_a5cb13474e9746c89bbceb2c0d1750e9~mv2.jpg/v1/fill/w_147,h_193,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_auto/6dbc98_a5cb13474e9746c89bbceb2c0d1750e9~mv2.jpg",
+    "https://static.wixstatic.com/media/6dbc98_f21dffbc58b64876a6e6a820a6bb9ffd~mv2.jpg/v1/fill/w_120,h_160,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_auto/6dbc98_f21dffbc58b64876a6e6a820a6bb9ffd~mv2.jpg",
+    "https://static.wixstatic.com/media/6dbc98_f2bbec641d35491184f4dd25a9cf2324~mv2.jpg/v1/fill/w_147,h_196,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_auto/6dbc98_f2bbec641d35491184f4dd25a9cf2324~mv2.jpg",
+    "https://static.wixstatic.com/media/6dbc98_51749a17e4f1480fa63dbfdfb296f125~mv2.jpg/v1/fill/w_147,h_201,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_auto/6dbc98_51749a17e4f1480fa63dbfdfb296f125~mv2.jpg",
+    "https://static.wixstatic.com/media/6dbc98_13997a1c3b7b4fbeb9d55ff845a629f9~mv2.jpg/v1/fill/w_182,h_274,al_c,q_80,blur_3,enc_auto/6dbc98_13997a1c3b7b4fbeb9d55ff845a629f9~mv2.jpg",
+    "https://static.wixstatic.com/media/6dbc98_0e9ff4743df34190b69c5e289ec93bac~mv2.jpg/v1/fill/w_144,h_192,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_auto/6dbc98_0e9ff4743df34190b69c5e289ec93bac~mv2.jpg",
+    "https://static.wixstatic.com/media/6dbc98_f2e8fb90c5b34e649401ef5b42a42c96~mv2.jpg/v1/fill/w_147,h_110,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_auto/6dbc98_f2e8fb90c5b34e649401ef5b42a42c96~mv2.jpg",
+    "https://static.wixstatic.com/media/6dbc98_efe3212a07d9479ca6c68ccb66b13231~mv2.jpeg/v1/fill/w_147,h_98,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_auto/6dbc98_efe3212a07d9479ca6c68ccb66b13231~mv2.jpeg",
+    "https://static.wixstatic.com/media/6dbc98_50c364dcb59e4a68a6dfdb08de024dbb~mv2.jpg/v1/fill/w_144,h_192,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_auto/6dbc98_50c364dcb59e4a68a6dfdb08de024dbb~mv2.jpg",
+    "https://static.wixstatic.com/media/6dbc98_bdca55bddc494d5aab7ae4600104c358~mv2.jpg/v1/fill/w_147,h_106,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_auto/6dbc98_bdca55bddc494d5aab7ae4600104c358~mv2.jpg",
+    "https://static.wixstatic.com/media/6dbc98_5dcc4e65ed1b452b9dd046762915ac34~mv2.jpg/v1/fill/w_147,h_196,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_auto/6dbc98_5dcc4e65ed1b452b9dd046762915ac34~mv2.jpg",
+    "https://static.wixstatic.com/media/6dbc98_1cafb388c01e4295ab3266c88e1e0260~mv2.jpg/v1/fill/w_147,h_166,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_auto/6dbc98_1cafb388c01e4295ab3266c88e1e0260~mv2.jpg",
+    "https://static.wixstatic.com/media/6dbc98_890171d32c3146a4830f08f810938d46~mv2.jpg/v1/fill/w_147,h_196,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_auto/6dbc98_890171d32c3146a4830f08f810938d46~mv2.jpg",
+    "https://static.wixstatic.com/media/6dbc98_b283a8caf71b46a3aa90e70c6d059521~mv2.jpg/v1/fill/w_300,h_300,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/6dbc98_b283a8caf71b46a3aa90e70c6d059521~mv2.jpg",
+    "https://static.wixstatic.com/media/c837a6_3150cf2587214221978d85eeac6f0dd5~mv2.jpg/v1/fill/w_1280,h_588,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_3150cf2587214221978d85eeac6f0dd5~mv2.jpg",
+    "https://static.wixstatic.com/media/6dbc98_fba9d5ca98cc4c5b89082e558feb9185~mv2.jpg/v1/fill/w_676,h_563,al_c,q_85,enc_avif,quality_auto/6dbc98_fba9d5ca98cc4c5b89082e558feb9185~mv2.jpg",
+    "https://static.wixstatic.com/media/6dbc98_d09adafdd6284e3ba5e5e2e3aceb1dc8~mv2.jpg/v1/fill/w_445,h_555,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/pelican-grill-sanroc-cay-marina-orange-beach-al-IMG.jpg",
+    "https://static.wixstatic.com/media/6dbc98_58bb5f15c63b4003b7e59ed1d2ac530e~mv2.jpg/v1/fill/w_1280,h_900,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/6dbc98_58bb5f15c63b4003b7e59ed1d2ac530e~mv2.jpg"
+  ]
+}

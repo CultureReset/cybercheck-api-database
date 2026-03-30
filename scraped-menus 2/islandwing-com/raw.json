@@ -1,0 +1,87 @@
+{
+  "business_name": "islandwing.com",
+  "url": "https://islandwing.com",
+  "scraped_at": "2026-03-21T20:02:27.183Z",
+  "pages": [
+    {
+      "url": "https://islandwing.com",
+      "title": "Island Wing Company - Get Baked - Full Service Restaurant and Bar",
+      "text": "Press Option+1 for screen-reader mode, Option+0 to cancelAccessibility Screen-Reader Guide, Feedback, and Issue Reporting | New window Island Wing FIND AN ISLANDAlabamaDaphne, ALGulf Shores, ALFloridaDestin, FLFleming Island, FLJacksonville – Southside, FLJacksonville – Bartram Market, FLJacksonville – Tamaya, FLOrlando – Hunters Creek, FLTallahassee – Market St., FLTallahassee – Magnolia, FLView AllMENUSAll MenusFoodDrinksGluten Sensitive MenuNutrition Info & Allergen GuideORDER ONLINECATERINGCatering MenuOrder Catering OnlineFRANCHISINGCAREERSAlabamaDaphne, ALGulf Shores, ALFloridaDestin, FLJacksonville – Southside, FLJacksonville – Bartram Market, FLJacksonville – Tamaya, FLKissimmee – Rolling Oaks, FLOrlando – Hunters Creek, FLOrlando – UCF, FLTallahassee – Market St., FLVirginiaHarrisonburg, VAGIFT CARDSCONTACT US Skip to content GET BAKED!GETBAKED! ORDER ONLINE GIFT CARDS ORDER ONLINE GIFT CARDS GET BAKED!GETBAKED! ORDER ONLINE GIFT CARDS ORDER ONLINE GIFT CARDS TASTE ISLANDWINGS VIEW THE MENU TRY ISLANDDRINKS VIEW DRINKS MENU ISLAND WING CO.It’s always a fun time on the Island. If you’re looking for good food, delicious drinks, and a lively atmosphere to enjoy with friends and family – look no further. You don’t need a passport to savor some of the best eats and drinks around. We’ve perfected baking, steaming, and grilling so you can find your favorite from our extensive menu including crispy chicken wings, juicy burgers and more. Choose the perfect drink from our large draft beer list, frozen drinks, and cocktails. Sit back and enjoy Island Time with us when you stop by to watch the latest game, enjoy live music, or catch up with loved ones. Come find out why it’s always a little better on the Island. Order Online VIEW THE MENU Find an IslandFind an Island close to you or visit an Island while on vacation. View all of our locations. VIEW ALL LOCATIONS Own an IslandHave you ever dreamed of owning your own island? We’re growing fast! Learn more about owning an Island Wing Co. Franchising COPYRIGHT © 2019. ISLAND WING COMPANY. All Rights ReservedPrivacy PolicySafetyTerms and ConditionsContact UsPrivacy PolicySafetyTerms and ConditionsContact Us",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "Island Wing Company - Get Baked - Full Service Restaurant",
+          "alternateName": "Island Wing Company",
+          "description": "Chicken wings &amp; tenders served alongside eclectic takes on burgers, tacos, mac and cheese &amp; more. Enjoy your restaurant experience in a casual dining environment with Island Fun.",
+          "url": "https://www.islandwing.com",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://www.islandwing.com/?s={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Island Wing Company",
+          "url": "https://www.islandwing.com",
+          "alternateName": "Island Wing Company",
+          "description": "Island Wing Company",
+          "logo": "https://www.islandwing.com/wp-content/uploads/2019/06/IWClogo_512.png",
+          "sameAs": [
+            "https://www.facebook.com/islandwingtallahassee/",
+            "https://twitter.com/https://twitter.com/islandwingtal",
+            "https://www.instagram.com/islandwingtallahassee/"
+          ],
+          "contactPoint": [
+            {
+              "@type": "ContactPoint",
+              "telephone": "+18776289001",
+              "contactOption": "TollFree",
+              "contactType": "customer support"
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "dc.title": "Island Wing Company - Get Baked - Full Service Restaurant and Bar",
+        "dc.description": "Chicken wings & tenders served alongside eclectic takes on burgers, tacos, mac and cheese & more. Enjoy your restaurant experience in a casual dining environment with Island Fun.",
+        "dc.relation": "https://www.islandwing.com/",
+        "dc.source": "https://www.islandwing.com/",
+        "dc.language": "en_US",
+        "description": "Chicken wings & tenders served alongside eclectic takes on burgers, tacos, mac and cheese & more. Enjoy your restaurant experience in a casual dining environment with Island Fun.",
+        "robots": "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
+        "og:url": "https://www.islandwing.com/",
+        "og:site_name": "Island Wing Company",
+        "og:locale": "en_US",
+        "og:type": "website",
+        "og:title": "Island Wing Company - Get Baked - Full Service Restaurant and Bar",
+        "og:description": "Chicken wings & tenders served alongside eclectic takes on burgers, tacos, mac and cheese & more. Enjoy your restaurant experience in a casual dining environment with Island Fun.",
+        "og:image": "https://www.islandwing.com/wp-content/uploads/2019/06/Background.jpg",
+        "og:image:secure_url": "https://www.islandwing.com/wp-content/uploads/2019/06/Background.jpg",
+        "og:image:width": "1600",
+        "og:image:height": "1067",
+        "og:image:alt": "Table of Food from Above - Island Wing Company",
+        "twitter:card": "summary_large_image",
+        "twitter:site": "https://twitter.com/islandwingtal",
+        "twitter:creator": "https://twitter.com/islandwingtal",
+        "twitter:title": "Island Wing Company - Get Baked - Full Service Restaurant and Bar",
+        "twitter:description": "Chicken wings & tenders served alongside eclectic takes on burgers, tacos, mac and cheese & more. Enjoy your restaurant experience in a casual dining environment with Island Fun.",
+        "twitter:image": "https://www.islandwing.com/wp-content/uploads/2019/06/Background-1024x683.jpg",
+        "generator": "Elementor 3.32.0; features: additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-auto",
+        "msapplication-TileImage": "https://www.islandwing.com/wp-content/uploads/2019/06/cropped-IWClogo_512-270x270.png"
+      }
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": [
+    "https://www.islandwing.com/wp-content/uploads/2019/06/IWClogo_512.png",
+    "https://www.islandwing.com/wp-content/uploads/2019/06/IWClogo_300.png"
+  ]
+}

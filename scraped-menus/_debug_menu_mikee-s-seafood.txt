@@ -1,0 +1,816 @@
+```json
+{
+  "categories": [
+    {
+      "name": "Oysters",
+      "type": "dinner",
+      "description": null,
+      "subcategories": ["Raw", "Cooked", "Specialty"],
+      "items": [
+        {
+          "name": "Fresh Shucked Oysters (1/2 Dozen)",
+          "description": "Fresh shucked oysters",
+          "price": 12.99,
+          "subcategory": "Raw",
+          "tags": [],
+          "allergens": ["shellfish"]
+        },
+        {
+          "name": "Fresh Shucked Oysters (1 Dozen)",
+          "description": "Fresh shucked oysters",
+          "price": 19.99,
+          "subcategory": "Raw",
+          "tags": [],
+          "allergens": ["shellfish"]
+        },
+        {
+          "name": "Steamed Oysters (1/2 Dozen)",
+          "description": "Steamed oysters",
+          "price": 13.99,
+          "subcategory": "Cooked",
+          "tags": [],
+          "allergens": ["shellfish"]
+        },
+        {
+          "name": "Steamed Oysters (1 Dozen)",
+          "description": "Steamed oysters",
+          "price": 20.99,
+          "subcategory": "Cooked",
+          "tags": [],
+          "allergens": ["shellfish"]
+        },
+        {
+          "name": "Parmesan Oysters (1/2 Dozen)",
+          "description": "Parmesan seasoning and butter",
+          "price": 15.99,
+          "subcategory": "Specialty",
+          "tags": [],
+          "allergens": ["shellfish", "dairy"]
+        },
+        {
+          "name": "Parmesan Oysters (1 Dozen)",
+          "description": "Parmesan seasoning and butter",
+          "price": 25.99,
+          "subcategory": "Specialty",
+          "tags": [],
+          "allergens": ["shellfish", "dairy"]
+        },
+        {
+          "name": "Mikee's Own Baked Oysters (1/2 Dozen)",
+          "description": "Fresh shucked, spiced and topped with scallions, bread crumbs, parmesan cheese and bacon.",
+          "price": 15.99,
+          "subcategory": "Specialty",
+          "tags": [],
+          "allergens": ["shellfish", "dairy", "gluten"]
+        },
+        {
+          "name": "Mikee's Own Baked Oysters (1 Dozen)",
+          "description": "Fresh shucked, spiced and topped with scallions, bread crumbs, parmesan cheese and bacon.",
+          "price": 25.99,
+          "subcategory": "Specialty",
+          "tags": [],
+          "allergens": ["shellfish", "dairy", "gluten"]
+        },
+        {
+          "name": "EJ's Oysters (1/2 Dozen)",
+          "description": "Prepared with garlic, jalapeños, scallions and topped with bacon and cheese.",
+          "price": 15.99,
+          "subcategory": "Specialty",
+          "tags": ["spicy"],
+          "allergens": ["shellfish", "dairy"]
+        },
+        {
+          "name": "EJ's Oysters (1 Dozen)",
+          "description": "Prepared with garlic, jalapeños, scallions and topped with bacon and cheese.",
+          "price": 25.99,
+          "subcategory": "Specialty",
+          "tags": ["spicy"],
+          "allergens": ["shellfish", "dairy"]
+        }
+      ]
+    },
+    {
+      "name": "Appetizers",
+      "type": "dinner",
+      "description": null,
+      "subcategories": [],
+      "items": [
+        {
+          "name": "Jumbo Shrimp (1/2 lb)",
+          "description": "Pan-grilled, broiled, fried, sauteed, blackened, or steamed",
+          "price": 13.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["shellfish"]
+        },
+        {
+          "name": "Jumbo Shrimp (1 lb)",
+          "description": "Pan-grilled, broiled, fried, sauteed, blackened, or steamed",
+          "price": 20.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["shellfish"]
+        },
+        {
+          "name": "Fried Crab Claws (Small)",
+          "description": "Fried or Sauteed Crab Claws",
+          "price": 29.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["shellfish"]
+        },
+        {
+          "name": "Fried Crab Claws (Large)",
+          "description": "Fried or Sauteed Crab Claws",
+          "price": 39.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["shellfish"]
+        },
+        {
+          "name": "Seafood Gumbo (Cup)",
+          "description": null,
+          "price": 5.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["shellfish"]
+        },
+        {
+          "name": "Seafood Gumbo (Bowl)",
+          "description": null,
+          "price": 7.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["shellfish"]
+        },
+        {
+          "name": "Red Beans and Rice (Cup)",
+          "description": null,
+          "price": 5.99,
+          "subcategory": null,
+          "tags": ["vegetarian"],
+          "allergens": []
+        },
+        {
+          "name": "Red Beans and Rice (Bowl)",
+          "description": null,
+          "price": 7.99,
+          "subcategory": null,
+          "tags": ["vegetarian"],
+          "allergens": []
+        },
+        {
+          "name": "Fried Jalapeno Peppers",
+          "description": null,
+          "price": 8.99,
+          "subcategory": null,
+          "tags": ["spicy", "vegetarian"],
+          "allergens": ["gluten"]
+        },
+        {
+          "name": "Fried Green Tomatoes",
+          "description": null,
+          "price": 9.99,
+          "subcategory": null,
+          "tags": ["vegetarian"],
+          "allergens": ["gluten"]
+        },
+        {
+          "name": "Potato Skins",
+          "description": "Topped with cheddar cheese, chives, and bacon",
+          "price": 11.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["dairy"]
+        },
+        {
+          "name": "Old Fashioned Onion Rings (1/2 foot)",
+          "description": null,
+          "price": 8.99,
+          "subcategory": null,
+          "tags": ["vegetarian"],
+          "allergens": ["gluten"]
+        },
+        {
+          "name": "Old Fashioned Onion Rings (1 foot)",
+          "description": null,
+          "price": 15.99,
+          "subcategory": null,
+          "tags": ["vegetarian"],
+          "allergens": ["gluten"]
+        },
+        {
+          "name": "Fried Clam Strips",
+          "description": "Sauce for dipping",
+          "price": 9.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["shellfish", "gluten"]
+        },
+        {
+          "name": "Italian Fried Cheese Sticks",
+          "description": "Lightly fried, marinara sauce for dipping",
+          "price": 13.99,
+          "subcategory": null,
+          "tags": ["vegetarian"],
+          "allergens": ["dairy", "gluten"]
+        },
+        {
+          "name": "Buffalo Chicken/Shrimp",
+          "description": null,
+          "price": 12.99,
+          "subcategory": null,
+          "tags": ["spicy"],
+          "allergens": ["shellfish"]
+        },
+        {
+          "name": "Crab Cakes (2)",
+          "description": "Grilled or Fried",
+          "price": 15.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["shellfish"]
+        },
+        {
+          "name": "Seafood Dip",
+          "description": null,
+          "price": 13.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["shellfish", "dairy"]
+        },
+        {
+          "name": "Parmesan Garlic Bread",
+          "description": null,
+          "price": 7.99,
+          "subcategory": null,
+          "tags": ["vegetarian"],
+          "allergens": ["gluten", "dairy"]
+        },
+        {
+          "name": "Pan Fried Veggies",
+          "description": null,
+          "price": 8.99,
+          "subcategory": null,
+          "tags": ["vegetarian"],
+          "allergens": []
+        },
+        {
+          "name": "New Orleans Baked French Bread",
+          "description": null,
+          "price": 5.99,
+          "subcategory": null,
+          "tags": ["vegetarian"],
+          "allergens": ["gluten"]
+        },
+        {
+          "name": "Reuben Egg Rolls",
+          "description": null,
+          "price": 9.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["gluten", "dairy"]
+        },
+        {
+          "name": "Spinach Dip",
+          "description": null,
+          "price": 10.99,
+          "subcategory": null,
+          "tags": ["vegetarian"],
+          "allergens": ["dairy"]
+        }
+      ]
+    },
+    {
+      "name": "Salads",
+      "type": "lunch",
+      "description": "All salads contain pecans",
+      "subcategories": [],
+      "items": [
+        {
+          "name": "House Salad",
+          "description": "Fresh lettuce with special toppings",
+          "price": 6.99,
+          "subcategory": null,
+          "tags": ["vegetarian"],
+          "allergens": ["nuts"]
+        },
+        {
+          "name": "Soup and Salad",
+          "description": "Cup of fresh soup and house salad",
+          "price": 11.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["nuts"]
+        },
+        {
+          "name": "Blackened or Grilled Chicken Salad",
+          "description": "Tender breast meat grilled and topped with fresh bacon, Parmesan and crisp salad vegetables",
+          "price": 14.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["nuts", "dairy"]
+        },
+        {
+          "name": "Mikee's Chef Salad",
+          "description": "Crisp lettuce topped with vegetables, roast beef, boiled bay shrimp and cheeses",
+          "price": 15.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["nuts", "shellfish", "dairy"]
+        },
+        {
+          "name": "Shrimp Tossed Salad",
+          "description": "Crisp lettuce topped with boiled bay shrimp, bacon bits and fresh Parmesan",
+          "price": 14.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["nuts", "shellfish", "dairy"]
+        }
+      ]
+    },
+    {
+      "name": "Mikee's Original Po-Boys",
+      "type": "lunch",
+      "description": "Served with mayo, lettuce, tomato, pickle, and one side. Add cheese .99",
+      "subcategories": [],
+      "items": [
+        {
+          "name": "Golden Fried Shrimp Po-Boy",
+          "description": "Served with mayo, lettuce, tomato, pickle, and one side",
+          "price": 15.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["shellfish", "gluten"]
+        },
+        {
+          "name": "Catfish Fillet Po-Boy",
+          "description": "Served with mayo, lettuce, tomato, pickle, and one side",
+          "price": 15.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["fish", "gluten"]
+        },
+        {
+          "name": "Fried Chicken Breast Po-Boy",
+          "description": "Served with mayo, lettuce, tomato, pickle, and one side",
+          "price": 15.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["gluten"]
+        },
+        {
+          "name": "Tender Fried Oyster Po-Boy",
+          "description": "Served with mayo, lettuce, tomato, pickle, and one side",
+          "price": 19.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["shellfish", "gluten"]
+        },
+        {
+          "name": "Whitefish Po-Boy",
+          "description": "Served with mayo, lettuce, tomato, pickle, and one side",
+          "price": 15.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["fish", "gluten"]
+        },
+        {
+          "name": "Fresh Fish Po-Boy",
+          "description": "Served with mayo, lettuce, tomato, pickle, and one side",
+          "price": null,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["fish", "gluten"]
+        },
+        {
+          "name": "Island Burger",
+          "description": null,
+          "price": 17.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["gluten"]
+        },
+        {
+          "name": "French Loaf Burger",
+          "description": null,
+          "price": 14.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["gluten"]
+        }
+      ]
+    },
+    {
+      "name": "All You Can Eat Plates",
+      "type": "specials",
+      "description": "Served with puppies, fritter, and choice of two sides. Substitute salad 2.50. All day every day.",
+      "subcategories": [],
+      "items": [
+        {
+          "name": "All You Can Eat Catfish",
+          "description": "Served with puppies, fritter, and choice of two sides",
+          "price": 19.99,
+          "subcategory": null,
+          "tags": ["popular"],
+          "allergens": ["fish", "gluten"]
+        },
+        {
+          "name": "All You Can Eat Whitefish",
+          "description": "Served with puppies, fritter, and choice of two sides",
+          "price": 18.99,
+          "subcategory": null,
+          "tags": ["popular"],
+          "allergens": ["fish", "gluten"]
+        },
+        {
+          "name": "All You Can Eat Shrimp (No Tails)",
+          "description": "Served with puppies, fritter, and choice of two sides",
+          "price": 19.99,
+          "subcategory": null,
+          "tags": ["popular"],
+          "allergens": ["shellfish", "gluten"]
+        },
+        {
+          "name": "All You Can Eat Clams",
+          "description": "Served with puppies, fritter, and choice of two sides",
+          "price": 19.99,
+          "subcategory": null,
+          "tags": ["popular"],
+          "allergens": ["shellfish", "gluten"]
+        },
+        {
+          "name": "All You Can Eat Snow Crab",
+          "description": "Served with puppies, fritter, and choice of two sides",
+          "price": 59.99,
+          "subcategory": null,
+          "tags": ["popular"],
+          "allergens": ["shellfish"]
+        }
+      ]
+    },
+    {
+      "name": "Seafood Dinners",
+      "type": "dinner",
+      "description": "Served with puppies, fritters, and a choice of two sides. Substitute salad for $3.",
+      "subcategories": [],
+      "items": [
+        {
+          "name": "Mikee's Seafood Platter",
+          "description": "Fried Shrimp, Oysters and Fish Fillets. Served with gumbo and two sides.",
+          "price": 26.99,
+          "subcategory": null,
+          "tags": ["popular"],
+          "allergens": ["shellfish", "fish", "gluten"]
+        },
+        {
+          "name": "Whitefish Plate",
+          "description": "Served with puppies, fritters, and a choice of two sides",
+          "price": 16.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["fish", "gluten"]
+        },
+        {
+          "name": "Fried Clam Strips",
+          "description": "Fried to perfection. Served with puppies, fritters, and a choice of two sides.",
+          "price": 17.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["shellfish", "gluten"]
+        },
+        {
+          "name": "Golden Fried Catfish Strips",
+          "description": "Crisp fried in corn meal. Served with puppies, fritters, and a choice of two sides.",
+          "price": 17.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["fish", "gluten"]
+        },
+        {
+          "name": "Chicken Strips",
+          "description": "Southern-fried, delicious. Served with puppies, fritters, and a choice of two sides.",
+          "price": 18.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["gluten"]
+        },
+        {
+          "name": "Traditional Fried Shrimp (No Tails)",
+          "description": "Served with puppies, fritters, and a choice of two sides",
+          "price": 17.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["shellfish", "gluten"]
+        },
+        {
+          "name": "Tender Fried Oysters",
+          "description": "Crisp fried in corn meal. Served with puppies, fritters, and a choice of two sides.",
+          "price": 23.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["shellfish", "gluten"]
+        },
+        {
+          "name": "Crab Cake (Grilled or Fried)",
+          "description": "Served with puppies, fritters, and a choice of two sides",
+          "price": 22.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["shellfish"]
+        },
+        {
+          "name": "Shrimp & Catfish Plate or Whitefish",
+          "description": "Great combination. Served with puppies, fritters, and a choice of two sides.",
+          "price": 18.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["shellfish", "fish", "gluten"]
+        },
+        {
+          "name": "Shrimp & Oyster Plate",
+          "description": "Fresh fried, delicious. Served with puppies, fritters, and a choice of two sides.",
+          "price": 23.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["shellfish", "gluten"]
+        },
+        {
+          "name": "Shrimp & Clam Strips",
+          "description": "Served with puppies, fritters, and a choice of two sides",
+          "price": 18.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["shellfish", "gluten"]
+        },
+        {
+          "name": "Crab Claw Dinner",
+          "description": "Freshly breaded and fried to a golden brown. Served with puppies, fritters, and a choice of two sides.",
+          "price": 27.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["shellfish", "gluten"]
+        }
+      ]
+    },
+    {
+      "name": "Mikee's Favorites",
+      "type": "dinner",
+      "description": null,
+      "subcategories": [],
+      "items": [
+        {
+          "name": "Blackened Redfish",
+          "description": "Topped with a creamy shrimp and crab sauce over a bed of rice.",
+          "price": 25.99,
+          "subcategory": null,
+          "tags": ["popular"],
+          "allergens": ["fish", "shellfish", "dairy"]
+        },
+        {
+          "name": "Fresh Catch of the Day",
+          "description": "Fried, broiled, blackened, sautéed or pan grilled. Served over a bed of rice, with choice of one side and house salad. Add Shrimp and Cream sauce for $5.99.",
+          "price": null,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["fish"]
+        },
+        {
+          "name": "Fresh Catch Captain Ed's Style",
+          "description": "Fried, broiled, blackened, sautéed or pan grilled. Topped with a creamy hollandaise sauce with green onions, mushrooms and bay shrimp over a bed of rice. Served with a house salad (contains pecans).",
+          "price": null,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["fish", "shellfish", "dairy", "nuts", "eggs"]
+        }
+      ]
+    },
+    {
+      "name": "Beef, Chicken and Specialties",
+      "type": "dinner",
+      "description": null,
+      "subcategories": [],
+      "items": [
+        {
+          "name": "Coconut Shrimp",
+          "description": "Served with marmalade",
+          "price": 19.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["shellfish", "gluten"]
+        },
+        {
+          "name": "Stuffed Catfish w/ Tangy Cream Sauce",
+          "description": "Catfish fillets with shrimp and crabmeat stuffing, topped with our cream sauce",
+          "price": 25.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["fish", "shellfish", "dairy"]
+        },
+        {
+          "name": "Island Baked Chicken",
+          "description": "With parmesan, green onions, and homemade bread crumbs",
+          "price": 18.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["dairy", "gluten"]
+        },
+        {
+          "name": "Choice Ribeye",
+          "description": "Cooked to order",
+          "price": 37.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": []
+        },
+        {
+          "name": "6 oz. Filet",
+          "description": "Cooked to order",
+          "price": 25.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": []
+        },
+        {
+          "name": "Sauteed Beef Tips",
+          "description": "Tenderloin pieces spiced and cooked to perfection.",
+          "price": 25.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": []
+        },
+        {
+          "name": "Snow Crab Dinner",
+          "description": null,
+          "price": 39.99,
+          "subcategory": null,
+          "tags": ["popular"],
+          "allergens": ["shellfish"]
+        },
+        {
+          "name": "Jumbo Shrimp (Tail On)",
+          "description": "Fried, Broiled, Sauteed, Blackened or Pan Grilled",
+          "price": 19.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["shellfish"]
+        },
+        {
+          "name": "Blackened or Grilled Chicken Breast",
+          "description": "Lightly seasoned",
+          "price": 17.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": []
+        },
+        {
+          "name": "Sautéed Scallops",
+          "description": "Seasoned and lightly breaded",
+          "price": 19.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["shellfish", "gluten"]
+        },
+        {
+          "name": "Stuffed Shrimp w/ Tangy Cream Sauce",
+          "description": "Shrimp with crab meat stuffing, and then topped with our cream sauce",
+          "price": 19.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["shellfish", "dairy"]
+        }
+      ]
+    },
+    {
+      "name": "Rice and Pasta Dishes",
+      "type": "dinner",
+      "description": "Served with house salad (contains pecans). Dishes marked with an asterisk (*) include green onions and mushrooms.",
+      "subcategories": [],
+      "items": [
+        {
+          "name": "Fettuccine Alfredo",
+          "description": "Our tender pasta in a creamy Alfredo sauce",
+          "price": 15.99,
+          "subcategory": null,
+          "tags": ["vegetarian"],
+          "allergens": ["gluten", "dairy", "nuts"]
+        },
+        {
+          "name": "Bay Shrimp Alfredo",
+          "description": "A locals favorite! Includes green onions and mushrooms.",
+          "price": 17.99,
+          "subcategory": null,
+          "tags": ["popular"],
+          "allergens": ["shellfish", "gluten", "dairy", "nuts"]
+        },
+        {
+          "name": "Jumbo Shrimp Alfredo",
+          "description": "Grilled. Includes green onions and mushrooms.",
+          "price": 19.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["shellfish", "gluten", "dairy", "nuts"]
+        },
+        {
+          "name": "Grilled Chicken Alfredo",
+          "description": "Includes green onions and mushrooms.",
+          "price": 18.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["gluten", "dairy", "nuts"]
+        },
+        {
+          "name": "Blackened Chicken Alfredo",
+          "description": "Includes green onions and mushrooms.",
+          "price": 18.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["gluten", "dairy", "nuts"]
+        },
+        {
+          "name": "Sauteed Scallop Alfredo",
+          "description": "Includes green onions and mushrooms.",
+          "price": 21.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["shellfish", "gluten", "dairy", "nuts"]
+        },
+        {
+          "name": "Captain Ed's Sautéed Scallops",
+          "description": "Served over a bed of rice. Includes green onions and mushrooms.",
+          "price": 20.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["shellfish", "nuts"]
+        },
+        {
+          "name": "Shrimp & Grits",
+          "description": "Grilled shrimp over cheesy grits",
+          "price": 18.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["shellfish", "dairy"]
+        },
+        {
+          "name": "Red Beans & Rice",
+          "description": "Served with Conecuh Sausage",
+          "price": 17.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": []
+        },
+        {
+          "name": "Kellie's Sautéed Chicken",
+          "description": "Chicken sautéed with special cream sauce",
+          "price": 18.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["dairy"]
+        },
+        {
+          "name": "Seafood and Broccoli Stir Fry",
+          "description": "Scallops and shrimp sautéed with vegetables and broccoli in a light sauce",
+          "price": 19.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["shellfish"]
+        },
+        {
+          "name": "Sweet & Sour Chicken",
+          "description": "Fried chicken with bell pepper and onions in our sweet and sour sauce over rice",
+          "price": 19.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["gluten"]
+        },
+        {
+          "name": "Sweet & Sour Shrimp",
+          "description": "Fried shrimp with bell pepper and onions in our sweet and sour sauce over rice",
+          "price": 19.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["shellfish", "gluten"]
+        },
+        {
+          "name": "Wine and Garlic Seafood Pasta",
+          "description": "Shrimp and oysters sautéed with vegetables in garlic butter over imported fettuccine. Includes green onions and mushrooms.",
+          "price": 19.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["shellfish", "gluten", "dairy", "nuts"]
+        },
+        {
+          "name": "Chicken Mikee",
+          "description": "Sautéed breast with scallions, mushrooms and shrimp in a buttery wine sauce over rice. Includes green onions and mushrooms.",
+          "price": 19.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["shellfish", "dairy", "nuts"]
+        },
+        {
+          "name": "Bay Shrimp and Garlic Butter",
+          "description": "Bay shrimp sautéed with scallions and mushrooms in garlic butter over rice. Includes green onions and mushrooms.",
+          "price": 19.99,
+          "subcategory": null,
+          "tags": [],
+          "allergens": ["shellfish", "dairy

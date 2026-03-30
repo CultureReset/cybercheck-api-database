@@ -1,0 +1,79 @@
+{
+  "business_name": "HIMALAYAN NEPALI CUISINE",
+  "tagline": null,
+  "type": "Restaurant",
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": null,
+    "city": null,
+    "state": null,
+    "zip": null
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": null
+  },
+  "about": {
+    "description": "No restaurant data found on provided website",
+    "elevator_pitch": "Website contains no restaurant information",
+    "vibe": null,
+    "best_for": [],
+    "established": null,
+    "reservations": null,
+    "insider_tip": null
+  },
+  "tags": [],
+  "features": [],
+  "price_range": null,
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://www.namastenepalirestaurant.net"
+  },
+  "specials": [],
+  "events": [],
+  "menu": {
+    "categories": []
+  },
+  "notes": "The provided website content appears to be hijacked or contains unrelated gambling/betting site content (Boswin77, SBOBET). No legitimate restaurant data for 'Himalayan Nepali Cuisine' could be extracted from the provided text.",
+  "url": "https://www.namastenepalirestaurant.net/",
+  "scraped_at": "2026-03-22T01:47:09.441Z",
+  "extracted_at": "2026-03-23T04:38:08.196Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://www.bbsportworld.com/assetsbw/banner1.webp",
+    "https://www.bbsportworld.com/assetsbw/banner1.webp?v=1757657995&width=100",
+    "https://www.bbsportworld.com/assetsbw/banner1.webp?v=1740017919&width=100",
+    "https://www.bbsportworld.com/assetsbw/banner1.webp?v=1731047537&width=100",
+    "https://www.bbsportworld.com/assetsbw/banner1.webp?v=1731636011&width=100",
+    "https://www.bbsportworld.com/assetsbw/banner1.webp?v=1757450054&width=823",
+    "https://www.bbsportworld.com/assetsbw/banner1.webp?v=1757450055&width=823",
+    "https://cdn.shopify.com/s/files/1/0630/5923/0953/files/Group_57.png?v=1678859305",
+    "https://qwery.koksulit.com/images/daftar.webp",
+    "https://bbsportworld.com/assetsbw/bwnicon.webp",
+    "https://cdn.shopify.com/s/files/1/0637/3864/2612/files/payment_badge_green.png?v=1753250452",
+    "https://www.bbsportworld.com/assetsbw/banner1.webp?v=1757450054&width=176",
+    "https://cdn.shopify.com/s/files/1/0637/3864/2612/files/Trade-in_banner_desktop_48d9e5bb-febb-4bc9-9b4c-1a2d1aa42c69.png?v=1726197781",
+    "https://cdn.shopify.com/s/files/1/0637/3864/2612/files/Trade-in_banner_mobile_b9fb8bfe-8e63-4077-939f-38dec43b59e1.png?v=1726197781",
+    "https://www.istudiosg.com/cdn/shop/files/Trade-in_Page_-_iPhone_16_icon_3162f069-14d5-4b57-bda3-024991509e36.png?v=1726193576&width=3200",
+    "https://www.istudiosg.com/cdn/shop/files/Trade-in_Page_-_iPad_icon_001e9008-363f-446b-9c64-775f1a294750.png?v=1725870807&width=3200",
+    "https://www.istudiosg.com/cdn/shop/files/Trade-in_Page_-_AirPods_icon_6d28a698-8424-474d-bb5c-437a27bbc58d.png?v=1725870807&width=3200",
+    "https://www.istudiosg.com/cdn/shop/files/Trade-in_Page_-_Mac_icon_b84ffeee-0a97-475e-9fab-7ccaf403fdc3.png?v=1725870807&width=3200",
+    "https://www.istudiosg.com/cdn/shop/files/Trade-in_Page_-_Apple_Watch_icon_19025b33-8940-4bef-b0d3-3aa38bec3692.png?v=1726737133&width=3200",
+    "https://www.istudiosg.com/cdn/shop/files/Click_Collect.png?v=1711090269&width=3200",
+    "https://www.istudiosg.com/cdn/shop/files/Standard_Delivery.png?v=1711090273&width=3200",
+    "https://www.bbsportworld.com/assetsbw/banner1.webp?v=1757450054&width=1445",
+    "https://www.bbsportworld.com/assetsbw/banner1.webp?v=1757450055&width=1445",
+    "https://www.bbsportworld.com/assetsbw/banner1.webp?v=1757491890&width=1445"
+  ],
+  "sources": [
+    "https://www.namastenepalirestaurant.net"
+  ]
+}

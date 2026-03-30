@@ -1,0 +1,504 @@
+{
+  "business_name": "The Yard Milkshake Bar",
+  "tagline": "As seen on Shark Tank",
+  "type": "Cafe",
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": null,
+    "city": null,
+    "state": null,
+    "zip": null
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": "Hours not provided in structured data"
+  },
+  "about": {
+    "description": "The Yard Milkshake Bar is a specialty milkshake and edible cookie dough bar that appeared on Shark Tank. They specialize in creative milkshakes and heat-treated, eggless edible cookie dough in various flavors.",
+    "elevator_pitch": "The Yard Milkshake Bar serves innovative milkshakes and safe-to-eat cookie dough flavors made with heat-treated flour and no eggs.",
+    "vibe": "Fun, trendy dessert destination with Shark Tank recognition and playful branding featuring unicow mascot",
+    "best_for": [
+      "dessert lovers",
+      "milkshake enthusiasts",
+      "cookie dough fans",
+      "casual outings"
+    ],
+    "established": null,
+    "reservations": null,
+    "insider_tip": "Cookie dough pint sizes come in souvenir reusable plastic mason jars"
+  },
+  "tags": [
+    "milkshakes",
+    "edible cookie dough",
+    "desserts",
+    "casual",
+    "sweet treats",
+    "Shark Tank"
+  ],
+  "features": [
+    "merchandise available",
+    "branded merchandise",
+    "souvenir packaging"
+  ],
+  "price_range": "$$",
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://www.theyardmilkshakebar.com"
+  },
+  "specials": [],
+  "events": [],
+  "menu": {
+    "categories": [
+      {
+        "name": "Edible Cookie Dough",
+        "type": "desserts",
+        "items": [
+          {
+            "name": "Peanut Butter Monster",
+            "description": "Creamy peanut butter base with M&M's and Reese's Pieces mixed throughout",
+            "price": 18,
+            "tags": [
+              "peanut butter",
+              "candy",
+              "sweet and salty"
+            ],
+            "allergens": [
+              "peanuts",
+              "dairy"
+            ]
+          },
+          {
+            "name": "M&M Cookie Dough",
+            "description": "Sugar cookie dough base packed with M&M's for a delightful crunch",
+            "price": 18,
+            "tags": [
+              "candy",
+              "colorful",
+              "crunchy"
+            ],
+            "allergens": [
+              "dairy"
+            ]
+          },
+          {
+            "name": "Chocolate Cookie Craze",
+            "description": "Brownie base loaded with OREO cookie chunks and layers of OREO cookies",
+            "price": 18,
+            "tags": [
+              "chocolate",
+              "oreo",
+              "decadent"
+            ],
+            "allergens": [
+              "dairy",
+              "wheat"
+            ]
+          },
+          {
+            "name": "Chocolate Chip Edible Cookie Dough",
+            "description": "Smooth and buttery base loaded with layers of chocolate chips",
+            "price": 18,
+            "tags": [
+              "classic",
+              "chocolate",
+              "timeless"
+            ],
+            "allergens": [
+              "dairy"
+            ]
+          },
+          {
+            "name": "Birthday Dunk A Dough",
+            "description": "Sugar cookie dough base with colorful sprinkles, vanilla icing, and layers of Teddy Grahams",
+            "price": 18,
+            "tags": [
+              "festive",
+              "colorful",
+              "celebratory"
+            ],
+            "allergens": [
+              "dairy",
+              "wheat"
+            ]
+          },
+          {
+            "name": "Cookies N Cream Dough",
+            "description": "Sugar cookie base packed with crushed OREO cookies and layers of OREO cookie chunks",
+            "price": 18,
+            "tags": [
+              "oreo",
+              "cookies",
+              "cream"
+            ],
+            "allergens": [
+              "dairy",
+              "wheat"
+            ]
+          },
+          {
+            "name": "Salty Caramel Chip Cookie Dough",
+            "description": "Chocolate chip cookie dough base with rich caramel swirls and layers of chocolate chips",
+            "price": 18,
+            "tags": [
+              "salted caramel",
+              "chocolate",
+              "sweet and salty"
+            ],
+            "allergens": [
+              "dairy"
+            ]
+          },
+          {
+            "name": "Oatmeal Dream Pie Dough",
+            "description": "Cinnamon sugar dough base with marshmallow drizzle and layers of Oatmeal Cream Pie pieces",
+            "price": 18,
+            "tags": [
+              "cinnamon",
+              "marshmallow",
+              "oatmeal"
+            ],
+            "allergens": [
+              "dairy",
+              "wheat",
+              "oats"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Merchandise",
+        "type": "specials",
+        "items": [
+          {
+            "name": "The Yard Cow Logo Golf Rope Cap",
+            "description": "Structured golf rope cap with unstructured 5-panel design and adjustable snapback",
+            "price": 25,
+            "tags": [
+              "apparel",
+              "hat",
+              "branded"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Eat Dessert First Era T-Shirt",
+            "description": "100% cotton men's classic tee in multiple colors",
+            "price": 28,
+            "tags": [
+              "apparel",
+              "tshirt",
+              "branded"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Rainbow Unisex Performance Crew Neck T-Shirt",
+            "description": "Moisture-wicking performance t-shirt with odor resistance and UV protection",
+            "price": 30,
+            "tags": [
+              "apparel",
+              "performance",
+              "athletic"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "The Yard Mug & Coffee Bundle",
+            "description": "15 oz ceramic mug with branded craft coffee blend",
+            "price": 37,
+            "tags": [
+              "drinkware",
+              "coffee",
+              "bundle"
+            ],
+            "allergens": null
+          },
+          {
+            "name": "The Yard Milkshake Bar Coffee Mug",
+            "description": "15 oz ceramic mug with bold black Yard Milkshake Bar logo",
+            "price": 17,
+            "tags": [
+              "drinkware",
+              "mug",
+              "branded"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Peanut Butter Coffee Crunch Blend",
+            "description": "Rich coffee blend inspired by Peanut Butter Brownie Bliss with deep chocolate undertones and nutty finish",
+            "price": 25,
+            "tags": [
+              "coffee",
+              "peanut butter",
+              "chocolate"
+            ],
+            "allergens": [
+              "peanuts"
+            ]
+          },
+          {
+            "name": "The Cereal Killer Blend Coffee",
+            "description": "Smooth vanilla notes with rich depth inspired by Cereal Killer milkshake",
+            "price": 25,
+            "tags": [
+              "coffee",
+              "vanilla",
+              "nostalgic"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "'Tis The Season Sweatshirt",
+            "description": "100% organic cotton exterior holiday sweatshirt",
+            "price": 45,
+            "tags": [
+              "apparel",
+              "sweatshirt",
+              "seasonal"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "The Yard Milkshake Bar Wave Sweatshirt",
+            "description": "50% cotton, 50% polyester pre-shrunk sweatshirt with classic fit",
+            "price": 45,
+            "tags": [
+              "apparel",
+              "sweatshirt",
+              "branded"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "The Yard Milkshake Bar Eras T-Shirt",
+            "description": "100% ring-spun cotton staple t-shirt with double stitching",
+            "price": 28,
+            "tags": [
+              "apparel",
+              "tshirt",
+              "branded"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Comfort Colors Wave T-Shirt",
+            "description": "100% ring-spun cotton garment-dyed heavyweight t-shirt",
+            "price": 30,
+            "tags": [
+              "apparel",
+              "tshirt",
+              "comfort"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Comfort Color - Retro Rainbow Offerings",
+            "description": "100% ring-spun cotton garment-dyed heavyweight t-shirt",
+            "price": 30,
+            "tags": [
+              "apparel",
+              "tshirt",
+              "colorful"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Comfort Colors UniCows are Real T-Shirt",
+            "description": "100% ring-spun cotton garment-dyed heavyweight t-shirt",
+            "price": 30,
+            "tags": [
+              "apparel",
+              "tshirt",
+              "branded"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Comfort Colors Watercolor Cow T-Shirt",
+            "description": "100% ring-spun cotton garment-dyed heavyweight t-shirt",
+            "price": 30,
+            "tags": [
+              "apparel",
+              "tshirt",
+              "watercolor"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Rainbow Collegiate Sweatshirt",
+            "description": "50% cotton, 50% polyester pre-shrunk sweatshirt",
+            "price": 45,
+            "tags": [
+              "apparel",
+              "sweatshirt",
+              "colorful"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Four Shakes Shirt",
+            "description": "100% cotton logo t-shirt",
+            "price": 27,
+            "tags": [
+              "apparel",
+              "tshirt",
+              "branded"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Youth Short Sleeve Logo T-Shirt",
+            "description": "100% combed and ring-spun cotton youth tee",
+            "price": 20,
+            "tags": [
+              "apparel",
+              "kids",
+              "tshirt"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Baby Short Sleeve One Piece",
+            "description": "100% ring-spun combed cotton one piece with three snap leg closure",
+            "price": 18,
+            "tags": [
+              "apparel",
+              "baby",
+              "onesie"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Sprinkles The UniCow Sticker",
+            "description": "High opacity adhesive vinyl sticker with no bubbles",
+            "price": 4,
+            "tags": [
+              "merchandise",
+              "sticker",
+              "branded"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "My Milkshake is Better Than Yours Sticker",
+            "description": "High opacity adhesive vinyl sticker with no bubbles",
+            "price": 4,
+            "tags": [
+              "merchandise",
+              "sticker",
+              "branded"
+            ],
+            "allergens": []
+          }
+        ]
+      }
+    ]
+  },
+  "url": "https://www.theyardmilkshakebar.com/gulf-shores-menu",
+  "scraped_at": "2026-03-21T15:11:10.837Z",
+  "extracted_at": "2026-03-23T04:13:00.461Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/1604609249235-F5TDQJ5JI8FBDZF7Z5D3/The+Yard+%284%29.png?format=1500w",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/66f7d990-b66d-4ab6-b439-29f7e81d6206/Gulf+Shores.png",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/4e0975d9-1fa8-4219-b32e-eae2c374f299/March+Specials+The+Yard+Milkshake+Bar.png",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/0f7c0e7d-3210-44bb-baa1-3f365250d816/Mocktail+Specials+The+Yard+Milkshake+Bar.png",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/170f1e8d-6532-4e84-b8d9-37c9ce0a65f2/The+Yard+Milkshake+Bar+Ice+Cream+%26+Cookie+Dough+Menu.png",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/69a52f0a-d64b-4e82-b4ed-3ba0675d9331/Toppings+and+ice+cream+Gulf+Shores+alabama.jpg",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/68c1ef1c-c9b9-4d81-8e3c-2ea1317922d3/Cookie+Dough+flavors+and+pops+The+Yard+Milkshake+Bar+%281%29.jpg",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/1b46949b-f9a4-46d0-b710-6f1c025c4b8d/The-Yard-Milkshake-Bar-Gulf-Shores-This-Beach-Is-Bananas.jpg",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/580fc676-5290-4a9a-bf08-b1b944bab42c/The-Yard-Milkshake-Bar-Birthday-Cake-Milkshake.jpg",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/8eefa9cf-8718-4a58-a327-ee615cc223e4/The-Yard-Milkshake-Bar-Cereal-Killer-Milkshake.jpg",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/d813f335-255f-41f5-9f08-27c80ff87b52/The-Yard-Milkshake-Bar+Cookie+Dough+Delicious.jpg",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/3365899a-7aee-400e-a9f8-16725417cd6c/The-Yard-Milkshake-Bar-Cookie+Monster.jpg",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/8979aa41-0b27-4bf6-bca6-4b7d5bafb017/The-Yard-Milkshake-Bar-Cookies+N%27+Worms.jpg",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/c66258e0-5cdf-47c6-8eb3-6528a260f76d/The-Yard-Milkshake-Bar-Doughnut+Touch+My+Coffees+and+Cream.jpg",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/7207b349-895d-4fcd-804f-afe49748abf8/The-Yard-Milkshake-Bar-The+Mermaid.jpg",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/95e25634-0625-4dee-bf0b-f8d215c08690/The-Yard-Milkshake-Bar-Milk+%26+Cookies.jpg",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/202fda39-5f68-4085-8f27-b777fcdddb90/The-Yard-Milkshake-Bar-Mint-Brownie-Mudslide.png",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/d574064a-936b-437f-b6bb-ee9052100eb6/The-Yard-Milkshake-Bar-Oat-Tastically-Dough-Licious.png",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/ab16caa2-9f88-4ebe-8de6-d36f2cacbbe2/The-Yard-Milkshake-Bar-Old-School-Banana-Split.png",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/5b8040c8-3357-4ce2-b83e-9daaa91f1f57/The-Yard-Milkshake-Bar+Peanut+Butter+Brownie+Bliss.jpg",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/b9190677-ec07-4a30-b89d-35b154a5df0a/The-Yard-Milkshake-Bar-Pralines+%26+Dream.jpg",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/e94eee96-977f-4c87-a9b2-00fa1328d5ce/The-Yard-Milkshake-Bar-Salted+Caramel+Cheesecake.jpg",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/2afe287b-b92d-46c2-84da-db7d1b4e1c45/The-Yard-Milkshake-Bar-S%27mores.jpg",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/02a145fd-4520-4a18-9336-532dd833f2a1/The-Yard-Milkshake-Bar-Strawberries+%26+Cream+Cheesecake.jpg",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/e8cf7931-e645-4ef1-97bb-db68eb6820dc/The-Yard-Milkshake-Bar-The+Unicorn.jpg",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/63b51c4e-5250-4fde-992a-d47511e8b153/The-Yard-Milkshake-Bar+Brookie+Batter.jpg",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/59775ab0-c8dd-4ebc-961b-4f603935b827/The-Yard-Milkshake-Bar-Ultimate+OREO+Sundae.jpg",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/f55d9bf9-2877-4d2d-9314-6f9cb4ed85bb/Mini+Moo+Sundaes.png",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/823a3115-c256-4c37-85e2-4a015ade5b2c/LoadedPints+Header.png",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/707b16e9-925f-4890-8861-60dd4b391af0/Online-Loaded+Pints1.png",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/b461b825-0c5d-487e-9b96-1d3ab231bb9f/Online-Loaded+Pints2.png",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/b41c3067-a39f-4826-8863-024a8b6256b5/Ice+Cream+and+Cookie+Dough+Flavors.jpg",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/88590d0c-3a41-454e-9ff8-faf4706f2b43/26.jpg",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/4cc1b636-7ae6-42c4-8d8f-f14007ac999b/27.jpg",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/82af88d4-f5ee-4f77-ac11-9627b7370d9e/28.jpg",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/1741301234413-Z0HZIDBDGF3HWPZB144X/Virgin+Bushwacker+Gulf+Shores+AL.png?format=500w",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/1741301234311-HCQ1NH5H82I2KXG5WVQH/turtel%2BGS.png?format=500w",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/1741301236385-1ANL4LLGR6SC4M2L5ZG1/DoNut%E2%80%99ella%2BMe%2BNo%2B-%2BGS.png?format=500w",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/1660249625855-LUK4SHWZ7JNEFTB97WS9/ABC-Logo-2013.png",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/1660249684089-LPRLJ5GCYNP7OW4VDDU7/SHARK+TANK.png",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/1660250156565-GVQHMYO0WROV7BKOHJ3I/T-Shirt+designs+%288%29.png",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/1661533079546-T38NSK4BHTQUKV04KJYU/today-og-image_clipped_rev_1.png",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/75f40d3e-69e4-4ad5-bc4e-567c96cdba57/TYMB+X+TCYC+Banner+Image.png",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/e98053e3-4777-4f03-bd54-d1f458b211e8/sweatshirt-mockup-featuring-a-young-woman-making-peace-signs-m24778.jpg",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/dfcb82cc-a34a-4ad7-b7db-903f3a5ac255/mockup-of-a-happy-short-haired-woman-wearing-an-cool-outfit-with-a-t-shirt-m1357-r-el2.jpg",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/600b8f94-2c15-4b0e-97c0-e8f3a78b7b20/pullover-hoodie-mockup-of-a-woman-with-sunglasses-making-a-surprise-facial-expression-m20985.jpg",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/81c0b53c-dc97-4478-9f93-5cb30e3ebcb0/t-shirt-mockup-of-a-skater-girl-watching-the-sunset-8922a.jpg",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/82bd946e-7cf2-45d5-9ee1-83008f77a07b/t-shirt-mockup-of-a-kid-having-fun-in-a-ball-pit-45504-r-el2.png",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/8e3b6dbb-a593-4273-8945-898a5a3a3562/golf-rope-cap-yellow-navy-front-2-6915f2f91a058.webp",
+    "https://images.squarespace-cdn.com/content/v1/58f81d6546c3c4272ac0fdc0/1763046147895-MHNY3YXNJMUVWRGNIGU3/golf-rope-cap-yellow-navy-front-6915f2f918c42.jpg?format=500w"
+  ],
+  "sources": [
+    "https://www.theyardmilkshakebar.com/gulf-shores-menu",
+    "https://www.theyardmilkshakebar.com/cart",
+    "https://www.theyardmilkshakebar.com/franchisee-login",
+    "https://www.theyardmilkshakebar.com/shop",
+    "https://www.theyardmilkshakebar.com/merch/the-yard-cow-logo-golf-rope-cap",
+    "https://www.theyardmilkshakebar.com/merch?category=Cookie+Dough",
+    "https://www.theyardmilkshakebar.com/merch/peanut-butter-monster",
+    "https://www.theyardmilkshakebar.com/merch/mm-cookie-dough",
+    "https://www.theyardmilkshakebar.com/merch/chocolate-cookie-craze",
+    "https://www.theyardmilkshakebar.com/merch/chocolate-chip-edible-cookie-dough",
+    "https://www.theyardmilkshakebar.com/merch/birthday-dunk-a-dough",
+    "https://www.theyardmilkshakebar.com/merch/cookies-n-cream-dough",
+    "https://www.theyardmilkshakebar.com/merch/salty-caramel-chip-cookie-dough",
+    "https://www.theyardmilkshakebar.com/merch/7a0u3z9jb5rbwjmzo9ltzrxlzv1rw6",
+    "https://www.theyardmilkshakebar.com/merch/toddler-jersey-logo-t-shirt",
+    "https://www.theyardmilkshakebar.com/search",
+    "https://www.theyardmilkshakebar.com/merch/eat-dessert-first-era",
+    "https://www.theyardmilkshakebar.com/merch",
+    "https://www.theyardmilkshakebar.com/merch/rainbow-unisex-performance-crew-neck-t-shirt",
+    "https://www.theyardmilkshakebar.com/merch/the-yard-milkshake-bar-coffee-mug-6rnaf",
+    "https://www.theyardmilkshakebar.com/merch/the-yard-milkshake-bar-coffee-mug",
+    "https://www.theyardmilkshakebar.com/merch/the-cereal-killer-blend-j9p66",
+    "https://www.theyardmilkshakebar.com/merch/the-cereal-killer-blend",
+    "https://www.theyardmilkshakebar.com/merch/tis-the-season",
+    "https://www.theyardmilkshakebar.com/merch/the-yard-milkshake-bar-wave-sweatshirt",
+    "https://www.theyardmilkshakebar.com/merch/the-yard-milkshake-bar-erast-shirt",
+    "https://www.theyardmilkshakebar.com/merch/comfort-colors-wave-t-shirt",
+    "https://www.theyardmilkshakebar.com/merch/comfort-color-retro-rainbow-offerings",
+    "https://www.theyardmilkshakebar.com/merch/comfort-colors-unicows-are-real",
+    "https://www.theyardmilkshakebar.com/merch/comfort-colors-watercolor-cow-t-shirt",
+    "https://www.theyardmilkshakebar.com/merch/rainbow-collegiate-sweatshirt",
+    "https://www.theyardmilkshakebar.com/merch/four-shakes-shirt",
+    "https://www.theyardmilkshakebar.com/merch/youth-short-sleeve-logo-t-shirt",
+    "https://www.theyardmilkshakebar.com/merch/baby-short-sleeve-one-piece",
+    "https://www.theyardmilkshakebar.com/merch/sprinkles-the-unicow-sticker",
+    "https://www.theyardmilkshakebar.com/merch/my-milkshake-is-better-than-yours-sticker",
+    "https://www.theyardmilkshakebar.com/merch/unisex-logo-hoodie",
+    "https://www.theyardmilkshakebar.com/merch/when-life-gives-you-t-shirt",
+    "https://www.theyardmilkshakebar.com/merch/classic-yard-logo-t-shirt",
+    "https://www.theyardmilkshakebar.com/merch/milkshake-bar-long-sleeve-t-shirt"
+  ]
+}

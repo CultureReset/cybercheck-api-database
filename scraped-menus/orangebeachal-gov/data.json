@@ -1,0 +1,130 @@
+{
+  "business_name": "City of Orange Beach",
+  "tagline": null,
+  "type": "Government - Municipal Website",
+  "contact": {
+    "phone": "251-981-6979",
+    "email": null,
+    "address": "4099 Orange Beach Boulevard",
+    "city": "Orange Beach",
+    "state": "AL",
+    "zip": "36561"
+  },
+  "hours": null,
+  "about": {
+    "description": "The City of Orange Beach is a municipal government website providing information about city departments, services, programs, facilities, and community resources for residents and visitors.",
+    "elevator_pitch": "Official government website for the City of Orange Beach, Alabama, offering city services, community information, and recreational programs.",
+    "vibe": "Professional municipal portal with community-focused resources and event information",
+    "best_for": [
+      "residents",
+      "visitors",
+      "community members seeking city information"
+    ],
+    "established": null,
+    "reservations": null,
+    "insider_tip": null
+  },
+  "tags": [
+    "government",
+    "municipal",
+    "city services",
+    "community",
+    "recreation"
+  ],
+  "features": [
+    "online permit portal",
+    "event calendar",
+    "community notifications",
+    "social media integration",
+    "accessibility options"
+  ],
+  "price_range": null,
+  "social_links": {
+    "instagram": "https://instagram.com/cityorangebeach",
+    "facebook": "https://facebook.com/cityorangebeach",
+    "website": "https://www.orangebeachal.gov"
+  },
+  "specials": null,
+  "events": [
+    {
+      "name": "Live! At Waterfront - Willie Traywick",
+      "description": "Live music event at Orange Beach Waterfront Park",
+      "recurring": false,
+      "day": "Thursday, March 26, 2026",
+      "time": "6:00 PM - 8:00 PM"
+    },
+    {
+      "name": "Wildlife Center Meet and Greet",
+      "description": "Meet and greet event at Orange Beach Wildlife Center",
+      "recurring": false,
+      "day": "Sunday, March 29, 2026",
+      "time": "1:30 PM - 3:00 PM"
+    },
+    {
+      "name": "Multiple Fitness Classes",
+      "description": "Daily fitness center classes including Cardio Dance, Yoga, Indoor Cycling, P90X, Zumba, PiYo, Mat Pilates, Total Body Fit, HIIT Circuit, Krav Maga, Stretch and Strength Yoga, Total Body Extreme, SHINE Dance Fitness",
+      "recurring": true,
+      "day": "Multiple days throughout March",
+      "time": "7:00 AM - 7:00 PM various times"
+    },
+    {
+      "name": "American Red Cross Blood Drive",
+      "description": "Blood donation drive at Fitness Center",
+      "recurring": false,
+      "day": "Saturday, March 13, 2026",
+      "time": "1:00 PM - 6:30 PM"
+    }
+  ],
+  "menu": null,
+  "url": "https://www.orangebeachal.gov",
+  "scraped_at": "2026-03-21T19:36:47.710Z",
+  "extracted_at": "2026-03-23T03:55:02.156Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://www.orangebeachal.gov/Common/images/Calendar/MiniCalendarPrev.png",
+    "https://www.orangebeachal.gov/Common/images/Calendar/MiniCalendarNext.png",
+    "https://www.orangebeachal.gov/common/images/Calendar/calendarcoloroverlay.png"
+  ],
+  "sources": [
+    "https://www.orangebeachal.gov",
+    "https://www.orangebeachal.gov/Calendar.aspx?EID=8738",
+    "https://www.orangebeachal.gov/Calendar.aspx?EID=8738&month=3&year=2026&day=21&calType=0",
+    "https://www.orangebeachal.gov/Calendar.aspx?EID=8682&month=3&year=2026&day=21&calType=0",
+    "https://www.orangebeachal.gov/Calendar.aspx?EID=8684&month=3&year=2026&day=21&calType=0",
+    "https://www.orangebeachal.gov/Calendar.aspx?EID=673&month=3&year=2026&day=21&calType=0",
+    "https://www.orangebeachal.gov/Calendar.aspx?EID=8678&month=3&year=2026&day=21&calType=0",
+    "https://www.orangebeachal.gov/Calendar.aspx?EID=8681&month=3&year=2026&day=21&calType=0",
+    "https://www.orangebeachal.gov/Calendar.aspx?EID=8677&month=3&year=2026&day=21&calType=0",
+    "https://www.orangebeachal.gov/Calendar.aspx?EID=8680&month=3&year=2026&day=21&calType=0",
+    "https://www.orangebeachal.gov/Calendar.aspx?EID=8676&month=3&year=2026&day=21&calType=0",
+    "https://www.orangebeachal.gov/Calendar.aspx?EID=8672&month=3&year=2026&day=21&calType=0",
+    "https://www.orangebeachal.gov/Calendar.aspx?EID=2777&month=3&year=2026&day=21&calType=0",
+    "https://www.orangebeachal.gov/Calendar.aspx?EID=8675&month=3&year=2026&day=21&calType=0",
+    "https://www.orangebeachal.gov/Calendar.aspx?EID=8674&month=3&year=2026&day=21&calType=0",
+    "https://www.orangebeachal.gov/Calendar.aspx?EID=8679&month=3&year=2026&day=21&calType=0",
+    "https://www.orangebeachal.gov/Calendar.aspx?EID=8673&month=3&year=2026&day=21&calType=0",
+    "https://www.orangebeachal.gov/Calendar.aspx?EID=724&month=3&year=2026&day=21&calType=0",
+    "https://www.orangebeachal.gov/Calendar.aspx?EID=8389&month=3&year=2026&day=21&calType=0",
+    "https://www.orangebeachal.gov/Calendar.aspx?EID=7781&month=3&year=2026&day=21&calType=0",
+    "https://www.orangebeachal.gov/Calendar.aspx?EID=8586&month=3&year=2026&day=21&calType=0",
+    "https://www.orangebeachal.gov/Calendar.aspx?EID=8430&month=3&year=2026&day=21&calType=0",
+    "https://www.orangebeachal.gov/Calendar.aspx?EID=7888&month=3&year=2026&day=21&calType=0",
+    "https://www.orangebeachal.gov/Calendar.aspx?EID=8534&month=3&year=2026&day=21&calType=0",
+    "https://www.orangebeachal.gov/Calendar.aspx?EID=8362&month=3&year=2026&day=21&calType=0",
+    "https://www.orangebeachal.gov/Calendar.aspx?EID=8186&month=3&year=2026&day=21&calType=0",
+    "https://www.orangebeachal.gov/Calendar.aspx?EID=8622&month=3&year=2026&day=21&calType=0",
+    "https://www.orangebeachal.gov/Calendar.aspx?EID=8585&month=3&year=2026&day=21&calType=0",
+    "https://www.orangebeachal.gov/Calendar.aspx?EID=7690&month=3&year=2026&day=21&calType=0",
+    "https://www.orangebeachal.gov/Calendar.aspx?EID=8139&month=3&year=2026&day=21&calType=0",
+    "https://www.orangebeachal.gov/Calendar.aspx?EID=7912&month=3&year=2026&day=21&calType=0",
+    "https://www.orangebeachal.gov/Calendar.aspx?EID=8310&month=3&year=2026&day=21&calType=0",
+    "https://www.orangebeachal.gov/Calendar.aspx?EID=7523&month=3&year=2026&day=21&calType=0",
+    "https://www.orangebeachal.gov/Calendar.aspx?EID=8467&month=3&year=2026&day=21&calType=0",
+    "https://www.orangebeachal.gov/Calendar.aspx?EID=8584&month=3&year=2026&day=21&calType=0",
+    "https://www.orangebeachal.gov/Calendar.aspx?EID=8429&month=3&year=2026&day=21&calType=0",
+    "https://www.orangebeachal.gov/Calendar.aspx?EID=7887&month=3&year=2026&day=21&calType=0",
+    "https://www.orangebeachal.gov/Calendar.aspx?EID=8533&month=3&year=2026&day=21&calType=0",
+    "https://www.orangebeachal.gov/Calendar.aspx?EID=8361&month=3&year=2026&day=21&calType=0",
+    "https://www.orangebeachal.gov/Calendar.aspx?EID=6663&month=3&year=2026&day=21&calType=0"
+  ]
+}

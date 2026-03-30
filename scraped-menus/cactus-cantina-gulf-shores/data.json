@@ -1,0 +1,79 @@
+{
+  "business_name": "Cactus Cantina Mexican Grill",
+  "tagline": "Laid Back Mexican Cuisine By The Beach",
+  "type": "Restaurant",
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": null,
+    "city": "Gulf Shores",
+    "state": "Alabama",
+    "zip": null
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": null
+  },
+  "about": {
+    "description": "Started by cousins Michael and Bobby in 2011 in McDonough, Georgia. The Gulf Shores location opened in March 2013. Now operates six locations across Alabama, Georgia, and Florida. Known for laid-back Mexican cuisine by the beach.",
+    "elevator_pitch": "Voted Best Mexican Food on the Gulf Coast, offering casual Mexican dining with multiple locations across the Southeast.",
+    "vibe": "Laid back beach casual",
+    "best_for": [
+      "casual dining",
+      "families",
+      "beach-goers"
+    ],
+    "established": "2013",
+    "reservations": null,
+    "insider_tip": null
+  },
+  "tags": [
+    "Mexican",
+    "casual",
+    "beach",
+    "Gulf Coast"
+  ],
+  "features": [
+    "VIP program",
+    "catering",
+    "multiple locations"
+  ],
+  "price_range": "$$",
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "http://mycactuscantina.com"
+  },
+  "specials": [],
+  "events": [],
+  "menu": {
+    "categories": []
+  },
+  "url": "http://mycactuscantina.com/",
+  "scraped_at": "2026-03-22T01:36:35.574Z",
+  "extracted_at": "2026-03-23T03:33:20.241Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://popmenucloud.com/cdn-cgi/image/width%3D1200%2Cheight%3D1200%2Cfit%3Dscale-down%2Cformat%3Dauto%2Cquality%3D60/gnfqtbpr/dc84011d-f4f6-4f55-8004-de1f117ba28b.jpg",
+    "https://popmenucloud.com/cdn-cgi/image/width%3D1200%2Cheight%3D1200%2Cfit%3Dscale-down%2Cformat%3Dauto%2Cquality%3D60/gnfqtbpr/92da579a-04ec-4790-bc7b-1c3c2ac2bee8.jpg",
+    "https://popmenucloud.com/cdn-cgi/image/width%3D600%2Cheight%3D600%2Cfit%3Dscale-down%2Cformat%3Dauto%2Cquality%3D60/gnfqtbpr/68d21b46-ba2d-41a1-a84e-2adf22017389.jpg"
+  ],
+  "sources": [
+    "http://mycactuscantina.com",
+    "https://www.mycactuscantina.com/contact-us",
+    "https://www.mycactuscantina.com/about",
+    "https://www.mycactuscantina.com/menu",
+    "https://www.mycactuscantina.com",
+    "https://www.mycactuscantina.com/Catering",
+    "https://www.mycactuscantina.com/photos",
+    "https://www.mycactuscantina.com/directions",
+    "https://www.mycactuscantina.com/employment",
+    "https://www.mycactuscantina.com/reviews"
+  ]
+}

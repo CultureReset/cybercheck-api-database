@@ -1,0 +1,112 @@
+{
+  "business_name": "The Beach Bun",
+  "tagline": "Family-Owned Burgers & Dogs in Orange Beach",
+  "type": "Restaurant",
+  "contact": {
+    "phone": "(251) 398-2866",
+    "email": "TheBeachBun@LyonsDenHoldingsLLC.com",
+    "address": "25775 Perdido Beach Blvd Ste A",
+    "city": "Orange Beach",
+    "state": "AL",
+    "zip": "36561"
+  },
+  "hours": {
+    "monday": "11:00am — 06:00pm",
+    "tuesday": "11:00am — 06:00pm",
+    "wednesday": "11:00am — 06:00pm",
+    "thursday": "11:00am — 06:00pm",
+    "friday": "11:00am — 08:00pm",
+    "saturday": "11:00am — 08:00pm",
+    "sunday": "11:00am — 06:00pm",
+    "notes": null
+  },
+  "about": {
+    "description": "The Beach Bun brings burgers, dogs, and more to Orange Beach! Family-owned, fun, and full of flavor—come grab your new go-to meal.",
+    "elevator_pitch": "A family-owned burger and hot dog joint on the Alabama Gulf Coast serving up fun, flavorful meals in a laid-back beach atmosphere.",
+    "established": null,
+    "owner": null,
+    "chef": null,
+    "vibe": "Casual, fun, family-friendly beach eatery",
+    "best_for": [
+      "families",
+      "casual dining",
+      "groups",
+      "lunch"
+    ],
+    "age_restriction": null,
+    "dress_code": null,
+    "parking": null,
+    "accessibility": null,
+    "reservations": null,
+    "insider_tip": null,
+    "awards": [],
+    "press": []
+  },
+  "tags": [
+    "burgers",
+    "hot dogs",
+    "american",
+    "family-owned",
+    "casual",
+    "beach",
+    "orange beach",
+    "alabama"
+  ],
+  "hashtags": [
+    "#thebeachbun",
+    "#orangebeach",
+    "#orangebeachal",
+    "#gulfcoast",
+    "#alabamarestaurants",
+    "#burgers",
+    "#hotdogs",
+    "#beachfood",
+    "#familyowned",
+    "#beachbun"
+  ],
+  "categories": [
+    "Restaurant",
+    "Burger Joint",
+    "Fast Casual"
+  ],
+  "cuisine_types": [
+    "American",
+    "Burgers",
+    "Hot Dogs"
+  ],
+  "atmosphere": [
+    "Casual",
+    "Family-Friendly",
+    "Beach Vibe",
+    "Fun"
+  ],
+  "features": [],
+  "price_range": "$",
+  "neighborhood": null,
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "twitter": null,
+    "tiktok": null,
+    "youtube": null,
+    "yelp": null,
+    "tripadvisor": null,
+    "opentable": null,
+    "google_maps": null,
+    "website": "https://thebeachbunoba.com"
+  },
+  "specials": [],
+  "events": [],
+  "menu": {
+    "categories": []
+  },
+  "url": "https://thebeachbunoba.com",
+  "scraped_at": "2026-03-21T13:19:26.449Z",
+  "extracted_at": "2026-03-21T13:28:16.802Z",
+  "sources": [
+    "https://thebeachbunoba.com"
+  ],
+  "gallery": [
+    "https://images.squarespace-cdn.com/content/v1/68acd15c6edb8d343d937dea/c188edcd-ed5a-4fd8-b215-f43131dbfc8e/beachbun.jpg"
+  ]
+}

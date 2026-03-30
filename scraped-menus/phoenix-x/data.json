@@ -1,0 +1,307 @@
+{
+  "business_name": "Brett/Robinson Vacation Rentals",
+  "tagline": "Premier vacation rental management company",
+  "type": "Vacation Rental | Condo Resort",
+  "contact": {
+    "phone": "+1-800-211-7892",
+    "email": null,
+    "address": "3259 Gulf Shores Parkway",
+    "city": "Gulf Shores",
+    "state": "AL",
+    "zip": "36542"
+  },
+  "location": {
+    "beachfront": true,
+    "bay_view": true,
+    "description": "Beachfront on the Alabama Gulf Coast in Gulf Shores and Orange Beach, AL, with properties at the Alabama-Florida border"
+  },
+  "about": {
+    "description": "Premier vacation rental management company offering beachfront condos and family-friendly rentals in Gulf Shores and Orange Beach, Alabama. Over 40 years of experience managing and maintaining high-quality vacation properties.",
+    "elevator_pitch": "Family-owned vacation rental company with 40+ years experience offering beachfront condos and family-friendly rentals across Gulf Shores and Orange Beach, Alabama.",
+    "total_units": null,
+    "floors": null,
+    "year_built": null,
+    "pet_friendly": false,
+    "minimum_stay": null,
+    "check_in": "Varies by season",
+    "check_out": "Varies by season",
+    "age_restriction": null
+  },
+  "amenities": {
+    "pools": [
+      "outdoor zero-entry pool",
+      "indoor pool",
+      "kiddie pool"
+    ],
+    "hot_tubs": true,
+    "fitness_center": true,
+    "tennis_courts": true,
+    "pickleball_courts": true,
+    "private_beach_access": true,
+    "parking": "On-site covered parking, VRPS parking passes available",
+    "elevators": true,
+    "gated": false,
+    "bbq_grills": true,
+    "business_center": false,
+    "spa": false,
+    "restaurant_on_site": false,
+    "bar_on_site": false,
+    "kids_splash_pad": false,
+    "other": [
+      "shuffleboard",
+      "gazebos",
+      "wet bar",
+      "racquetball",
+      "sauna",
+      "beach chair rentals",
+      "picnic areas"
+    ]
+  },
+  "unit_types": [
+    {
+      "name": "2 Bedroom Gulf Front",
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "sleeps": 6,
+      "view": "gulf front",
+      "sq_ft": null,
+      "starting_price": "$175.00/night",
+      "features": [
+        "full kitchen",
+        "washer/dryer",
+        "private balcony",
+        "floor-to-ceiling windows",
+        "air conditioning",
+        "dishwasher",
+        "refrigerator",
+        "ice maker",
+        "coffee maker",
+        "free Wi-Fi",
+        "cable/satellite TV"
+      ]
+    },
+    {
+      "name": "2 Bedroom Gulf Front Corner",
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "sleeps": 8,
+      "view": "gulf front corner unit",
+      "sq_ft": null,
+      "starting_price": "$190.00/night",
+      "features": [
+        "full kitchen",
+        "washer/dryer",
+        "private balcony",
+        "floor-to-ceiling windows",
+        "air conditioning",
+        "dishwasher",
+        "refrigerator",
+        "ice maker",
+        "coffee maker",
+        "free Wi-Fi",
+        "cable/satellite TV"
+      ]
+    },
+    {
+      "name": "3 Bedroom Gulf Front",
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "sleeps": 8,
+      "view": "gulf front",
+      "sq_ft": null,
+      "starting_price": "$230.00/night",
+      "features": [
+        "full kitchen",
+        "washer/dryer",
+        "private balcony",
+        "floor-to-ceiling windows",
+        "air conditioning",
+        "dishwasher",
+        "refrigerator",
+        "ice maker",
+        "coffee maker",
+        "free Wi-Fi",
+        "cable/satellite TV"
+      ]
+    }
+  ],
+  "tags": [
+    "beachfront",
+    "family-friendly",
+    "gulf front",
+    "orange beach",
+    "alabama gulf coast",
+    "vacation rental",
+    "condo",
+    "luxury",
+    "pool",
+    "water sports",
+    "group accommodations"
+  ],
+  "features": [
+    "Direct beach access",
+    "On-site management and staff",
+    "Gulf front location",
+    "Private balconies with Gulf views",
+    "In-unit washer/dryer",
+    "Full kitchen",
+    "Free Wi-Fi",
+    "Covered parking available",
+    "Accessibility features",
+    "Family-friendly",
+    "Spacious units up to 2,550 sq ft",
+    "Steps from Flora-Bama entertainment",
+    "Near Gulf State Park",
+    "24/7 customer support"
+  ],
+  "social_links": {
+    "instagram": "https://www.instagram.com/brett_robinson_vacations",
+    "facebook": "https://www.facebook.com/BrettRobinsonVacations",
+    "linkedin": "https://www.linkedin.com/company/brett-robinson-vacation-rentals",
+    "website": "https://www.brett-robinson.com/beach-condo/phoenix-x/"
+  },
+  "dining": [
+    {
+      "name": "Flora-Bama Lounge",
+      "type": "Bar | Restaurant",
+      "description": "World-famous beachfront bar with live music and entertainment, walking distance from Phoenix X"
+    },
+    {
+      "name": "Flora-Bama Yacht Club",
+      "type": "Restaurant | Bar",
+      "description": "Waterfront dining within walking distance"
+    },
+    {
+      "name": "Old River Grill",
+      "type": "Restaurant",
+      "description": "Nearby restaurant within walking distance"
+    },
+    {
+      "name": "Cobalt The Restaurant",
+      "type": "Restaurant",
+      "description": "Nearby waterfront dining, short drive away"
+    },
+    {
+      "name": "The Gulf",
+      "type": "Restaurant",
+      "description": "Nearby waterfront dining, short drive away"
+    }
+  ],
+  "nearby_attractions": [
+    {
+      "name": "Flora-Bama Marina",
+      "type": "Marina",
+      "description": "Jet ski rentals, deep-sea fishing charters, dolphin cruises"
+    },
+    {
+      "name": "Gulf State Park",
+      "type": "Nature Park",
+      "description": "Public park to the west of Phoenix X"
+    },
+    {
+      "name": "Perdido Key State Park",
+      "type": "Nature Park",
+      "description": "Public park to the east of Phoenix X"
+    },
+    {
+      "name": "The Wharf",
+      "type": "Entertainment Complex",
+      "description": "Shopping, dining, concerts, fireworks, seasonal events"
+    },
+    {
+      "name": "Orange Beach Indian & Sea Museum",
+      "type": "Museum",
+      "description": "Local history and cultural museum"
+    }
+  ],
+  "specials": [
+    {
+      "name": "Seasonal Discounts",
+      "description": "Discounted rates during off-peak seasons",
+      "dates": "Varies by season"
+    },
+    {
+      "name": "Snowbird Specials",
+      "description": "Special rates for longer stays",
+      "dates": "Winter months"
+    },
+    {
+      "name": "Last-Minute Deals",
+      "description": "Hot deals on select rentals with limited time offers",
+      "dates": "Ongoing"
+    },
+    {
+      "name": "Promo Codes",
+      "description": "Percentage-off promotions such as 10% savings with codes like Bama2025",
+      "dates": "2025 bookings and ongoing"
+    }
+  ],
+  "awards_ratings": {
+    "aggregate_rating": "4.8",
+    "review_count": "300"
+  },
+  "phoenix_x_specific": {
+    "property_name": "Phoenix X",
+    "address": "29576 Perdido Beach Blvd, Orange Beach, AL 36561",
+    "location_description": "Beachfront condo on the eastern edge of Orange Beach at the Alabama-Florida border",
+    "proximity": "Approximately 10 miles east of Hwy 59",
+    "unit_range": "Units P10 101 through P10 1515",
+    "floor_count": "Multiple floors with elevator access",
+    "unique_features": [
+      "Located directly next to Flora-Bama Lounge",
+      "Steps from sugar-white sand",
+      "Quiet stretch of shoreline",
+      "Immediate access to Perdido Key attractions",
+      "Walking distance to restaurants and entertainment",
+      "Close to Gulf State Park and Perdido Key State Park",
+      "Accessibility features including ramps and elevators",
+      "Full-time on-site staff",
+      "Parking available through VRPAccess with online registration"
+    ]
+  },
+  "url": "https://www.brett-robinson.com/beach-condo/phoenix-x/",
+  "scraped_at": "2026-03-21T21:08:51.201Z",
+  "extracted_at": "2026-03-23T04:01:59.561Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://www.brett-robinson.com/assets/images/BRV-25-95-Vacations-Logo-GS-OB-PK-Horizontal-V2.png",
+    "https://www.brett-robinson.com/uploads/BRV-26-25--Easter-30-Days-WebpageGraphic_184150.jpg",
+    "https://www.brett-robinson.com/uploads/BRV-26-27--Mothers-Day-60-Days-WebpageGraphic_185358.jpg",
+    "https://www.brett-robinson.com/uploads/BRV-26-11-Memorial-Day-Stays-V1-WebpageGraphic_150618.jpg",
+    "https://www.brett-robinson.com/uploads/BRV-26-14-4-Bedroom-WebpageGraphic-V4_105813.jpg",
+    "https://www.brett-robinson.com/uploads/lFullSizeRender_110222.jpg",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024446PM_144957.png",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024255PM_144955.png",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024250PM_144952.png",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024550PM_145000.png",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024658PM_145003.png",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024800PM_145005.png",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024929PM_150512.png",
+    "https://www.brett-robinson.com/uploads/45dcbabd-14da-4c03-86b9-e33b1bec1699_152424.png",
+    "https://www.brett-robinson.com/uploads/f7c22236-e96b-4131-a6ef-3b8c161f6d60_152431.png",
+    "https://www.brett-robinson.com/uploads/114f4761-0d52-45a5-adf7-626f0144ccf1_152427.png",
+    "https://www.brett-robinson.com/uploads/7ea53f3d-a24b-4d65-96fa-e5f6adaf272d_152421.png",
+    "https://www.brett-robinson.com/uploads/b96b1f24-e333-42bc-9e47-d77fd57855e4_152429.png",
+    "https://www.brett-robinson.com/uploads/732961ba-7d13-4aa9-9294-690e2e1f3420_153528.png",
+    "https://www.brett-robinson.com/uploads/31e08f79-9b97-4008-a4c9-aac831c9b812_153520.png",
+    "https://www.brett-robinson.com/uploads/bad38faf-f976-4ddb-bf87-78b7a03d52df_153530.png",
+    "https://www.brett-robinson.com/uploads/9c90c840-9dd2-46b1-bc95-cc5c75810af3_153523.png",
+    "https://www.brett-robinson.com/uploads/9703bb55-7293-4a01-ad02-34e7793ffbd7_153525.png"
+  ],
+  "sources": [
+    "https://www.brett-robinson.com/beach-condo/phoenix-x",
+    "https://www.brett-robinson.com/specials-and-promotions",
+    "https://www.brett-robinson.com/specials-and-promotions/4bedrooms?icid=4+bedrooms&startDate=2026-06-28&endDate=2026-07-01",
+    "https://www.brett-robinson.com/specials-and-promotions/charming-beachfront-stays-for-a-tranquil-getaway?icid=Hidden-Gems&startDate=2026-06-28&endDate=2026-07-01",
+    "https://www.brett-robinson.com/specials-and-promotions/memorial90?icid=Memorial-Day-90&startDate=2026-05-21&endDate=2026-05-24",
+    "https://www.brett-robinson.com/specials-and-promotions/mothers-day-1?icid=Mothers-Day&startDate=2026-05-07&endDate=2026-05-09",
+    "https://www.brett-robinson.com/specials-and-promotions/spring-informationalb?icid=Spring-InformationalB&startDate=2026-03-05&endDate=2026-03-08",
+    "https://www.brett-robinson.com/specials-and-promotions/easter?icid=Easter&startDate=2026-04-02&endDate=2026-04-05",
+    "https://www.brett-robinson.com/history-of-brettrobinson",
+    "https://www.brett-robinson.com/gulf-shores-orange-beach-events",
+    "https://www.brett-robinson.com/about-brett-robinson",
+    "https://www.brett-robinson.com/office-locations",
+    "https://www.brett-robinson.com/contact",
+    "https://www.brett-robinson.com/driving-directions"
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "business_name": "Shrimp Basket",
+  "tagline": "Gulf Coast Flavor. Heartfelt Southern Hospitality.",
+  "type": "Restaurant",
+  "contact": {
+    "phone": null,
+    "email": "marketing@shrimpbasket.com",
+    "address": null,
+    "city": null,
+    "state": null,
+    "zip": null
+  },
+  "hours": {
+    "monday": "09:00 - 17:00",
+    "tuesday": "09:00 - 17:00",
+    "wednesday": "09:00 - 17:00",
+    "thursday": "09:00 - 17:00",
+    "friday": "09:00 - 17:00",
+    "saturday": "09:00 - 17:00",
+    "sunday": "09:00 - 17:00",
+    "notes": null
+  },
+  "about": {
+    "description": "Shrimp Basket is a Gulf Coast seafood restaurant serving fresh, hand-breaded shrimp, coastal classics, and Southern hospitality since 1993. With locations across the Southeast, Shrimp Basket offers dine-in, takeout, online ordering, and catering for seafood lovers seeking laid-back coastal flavor.",
+    "elevator_pitch": "A Gulf Coast seafood restaurant serving hand-breaded shrimp and coastal classics with Southern hospitality since 1993.",
+    "vibe": "Casual, family-focused, laid-back coastal atmosphere with a beach escape feel.",
+    "best_for": [
+      "families",
+      "casual dining",
+      "seafood lovers",
+      "beach getaways"
+    ],
+    "established": "1993",
+    "reservations": null,
+    "insider_tip": "Located in Gulf Shores, Alabama where it all began; now with 18 locations across Alabama, Florida, and Mississippi."
+  },
+  "tags": [
+    "seafood",
+    "shrimp",
+    "po'boys",
+    "casual",
+    "Gulf Coast",
+    "hand-breaded",
+    "Southern",
+    "family-friendly",
+    "coastal"
+  ],
+  "features": [
+    "dine-in",
+    "takeout",
+    "online ordering",
+    "catering",
+    "full bar"
+  ],
+  "price_range": "$$",
+  "social_links": {
+    "instagram": "https://www.instagram.com/theshrimpbasket/",
+    "facebook": "https://www.facebook.com/TheShrimpBasket",
+    "tiktok": "https://www.tiktok.com/@shrimpbasket",
+    "linkedin": "https://www.linkedin.com/company/shrimpbasket/",
+    "website": "https://shrimpbasket.com/"
+  },
+  "specials": [],
+  "events": [],
+  "menu": {
+    "categories": [
+      {
+        "name": "Lunch & Dinner",
+        "type": "lunch",
+        "items": []
+      },
+      {
+        "name": "Cocktails & Beverages",
+        "type": "drinks",
+        "items": []
+      },
+      {
+        "name": "Dessert",
+        "type": "desserts",
+        "items": []
+      }
+    ]
+  },
+  "locations": [
+    {
+      "name": "Destin",
+      "state": "Florida",
+      "url": "https://shrimpbasket.com/location/destin/"
+    },
+    {
+      "name": "Navarre",
+      "state": "Florida",
+      "url": "https://shrimpbasket.com/location/navarre/"
+    },
+    {
+      "name": "Panama City Beach",
+      "state": "Florida",
+      "url": "https://shrimpbasket.com/location/panama-city-beach/"
+    }
+  ],
+  "service_area": "Florida & Alabama Gulf Coast",
+  "url": "https://shrimpbasket.com/",
+  "scraped_at": "2026-03-21T14:33:54.427Z",
+  "extracted_at": "2026-03-23T04:07:41.009Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://shrimpbasket.com/wp-content/uploads/2025/05/Website-Photos-May-2025-scaled.png",
+    "https://shrimpbasket.com/wp-content/uploads/2025/04/Burger-scaled.png",
+    "https://shrimpbasket.com/wp-content/uploads/2025/05/Website-Photos-May-20251-scaled.png",
+    "https://shrimpbasket.com/wp-content/uploads/2025/04/Join-our-crew-scaled.png",
+    "https://shrimpbasket.com/wp-content/uploads/2025/05/you-asked.-we-answered.png",
+    "https://shrimpbasket.com/wp-content/uploads/2025/05/SBMay-059-1-768x512.jpg",
+    "https://shrimpbasket.com/wp-content/uploads/2026/03/Tezza-1369-2-768x1152.jpg",
+    "https://shrimpbasket.com/wp-content/uploads/2025/05/ShrimpNOV-109-2-1-768x512.jpg",
+    "https://shrimpbasket.com/wp-content/uploads/elementor/thumbs/Shrimp-Basket-Shrimp-Basket-9-1-min-q7j8yoqt6243gbifqrged3bkuay2brwdlg5c7jysjw.jpg"
+  ],
+  "sources": [
+    "https://shrimpbasket.com",
+    "https://shrimpbasket.com/events-2",
+    "http://shrimpbasket.com/menu",
+    "https://shrimpbasket.com/menu/dessert",
+    "https://shrimpbasket.com/menu/cocktails-beverages",
+    "https://shrimpbasket.com/menu/dinner",
+    "https://shrimpbasket.com/menus",
+    "https://shrimpbasket.com/locations",
+    "http://shrimpbasket.com/locations",
+    "https://shrimpbasket.com/contact-us",
+    "https://shrimpbasket.com/our-story",
+    "https://shrimpbasket.com/location/destin",
+    "https://shrimpbasket.com/location/navarre",
+    "https://shrimpbasket.com/location/panama-city-beach",
+    "https://shrimpbasket.com/location/pensacola-davis-highway",
+    "https://shrimpbasket.com/location/pensacola-nine-mile",
+    "https://shrimpbasket.com/location/pensacola-beach",
+    "https://shrimpbasket.com/location/pensacola-warrington",
+    "https://shrimpbasket.com/location/perdido-key",
+    "https://shrimpbasket.com/location/auburn",
+    "https://shrimpbasket.com/location/bay-minette",
+    "https://shrimpbasket.com/location/cullman",
+    "https://shrimpbasket.com/location/foley",
+    "https://shrimpbasket.com/location/gardendale",
+    "https://shrimpbasket.com/location/gulf-shores",
+    "https://shrimpbasket.com/location/orange-beach",
+    "https://shrimpbasket.com/location/evergreen",
+    "https://shrimpbasket.com/location/tuscaloosa",
+    "https://shrimpbasket.com/location/gulfport"
+  ]
+}

@@ -1,0 +1,619 @@
+{
+  "business_name": "Beachside Circle Boat Rentals and Sales",
+  "tagline": "The Easiest Way to Get on the Water",
+  "type": "Boat Rental",
+  "contact": {
+    "phone": "(601) 325-1205",
+    "email": "beachsideboats@myyahoo.com",
+    "address": "25856 Canal Road",
+    "city": "Orange Beach",
+    "state": "AL",
+    "zip": "36561"
+  },
+  "hours": {
+    "monday": "09:00–18:00",
+    "tuesday": "09:00–18:00",
+    "wednesday": "09:00–18:00",
+    "thursday": "09:00–18:00",
+    "friday": "09:00–18:00",
+    "saturday": "09:00–18:00",
+    "sunday": "09:00–18:00",
+    "notes": "Weather permitting. Call for availability."
+  },
+  "about": {
+    "description": "Beachside Circle Boat Rentals and Sales is a local family-owned business offering portable, eco-friendly electric circle boat rentals on the waters of Orange Beach, Alabama. Their quiet, zero-emission inflatable circle boats are incredibly stable, virtually untippable, and require no boating license or prior experience. Guests can cruise no-wake zones, fish through canals, pull up to islands, or visit local waterfront restaurants. Boats launch from Romar Marina in Orange Beach (Cotton Bayou) and The Galley on The River in Gulf Shores (Bon Secour River). Single and double seater options are available, along with add-ons like towable floating docks, coolers, sunshade canopies, fishing poles, floating chairs, and pet-friendly doggie docks. Group rates available for 5+ single seaters.",
+    "elevator_pitch": "Rent a portable, eco-friendly electric circle boat in Orange Beach — no license, no experience, just show up and cruise the Gulf Coast waterways in style.",
+    "established": null,
+    "owner": null,
+    "vibe": "Laid-back, eco-friendly, family fun on the water",
+    "best_for": [
+      "families",
+      "couples",
+      "groups",
+      "pet owners",
+      "birthday parties",
+      "bachelor parties",
+      "date nights",
+      "fishing trips",
+      "team outings"
+    ],
+    "capacity": "Groups of 4+ boats can tie together; double seater fits 2 adults up to 450 lbs combined",
+    "duration_options": [
+      "half day (9:00–1:00)",
+      "half day (2:00–6:00)",
+      "full day (9:00–6:00)"
+    ],
+    "departure_location": "Romar Marina, 26350 Cotton Bayou Dr, Orange Beach, AL 36561 | The Galley on The River, 18546 Baldwin County Rd 10, Foley, AL 36535",
+    "what_provided": [
+      "life jacket",
+      "safety briefing",
+      "full battery charge",
+      "5-speed motor",
+      "paddle",
+      "whistle",
+      "phone holder",
+      "waterproof map"
+    ],
+    "what_to_bring": [
+      "sunscreen",
+      "beach towels",
+      "cooler",
+      "drinks",
+      "snacks",
+      "chairs (optional)",
+      "bait (if fishing)"
+    ],
+    "age_restriction": "Must be 21 to rent; drivers must be at least 14 years old",
+    "weight_restriction": "Single seater: up to 300 lbs; Double seater: up to 450 lbs combined",
+    "reservations": "Book online via website; group rates (5+ single seaters) must call to book",
+    "insider_tip": "The seat on your Circle Boat pops off and works as a beach chair when you stop at the island.",
+    "cancellation_policy": null
+  },
+  "tags": [
+    "circle boat",
+    "electric boat",
+    "eco-friendly",
+    "inflatable boat",
+    "boat rental",
+    "no license required",
+    "family fun",
+    "pet friendly",
+    "Orange Beach",
+    "Gulf Shores",
+    "fishing",
+    "island hopping",
+    "couples",
+    "birthday parties",
+    "group outings"
+  ],
+  "hashtags": [
+    "#orangebeach",
+    "#gulfshores",
+    "#circleboat",
+    "#boatrental",
+    "#ecofriendly",
+    "#electricboat",
+    "#alabamagulfcoast",
+    "#familyfun",
+    "#petfriendly",
+    "#islandhopping",
+    "#nolicenserequired",
+    "#beachsidecircleboats",
+    "#goboat"
+  ],
+  "categories": [
+    "Boat Rental",
+    "Water Activity",
+    "Eco-Tourism",
+    "Family Activity",
+    "Pet-Friendly Activity"
+  ],
+  "features": [
+    "no boating license required",
+    "eco-friendly electric motors",
+    "inflatable portable design",
+    "pet friendly",
+    "towable floating docks",
+    "delivery to private docks available",
+    "group rates available",
+    "sunset cruises",
+    "fishing friendly",
+    "waterfront restaurant access",
+    "island hopping",
+    "5-speed motor",
+    "Bluetooth battery monitoring",
+    "BYOB friendly",
+    "add-on accessories",
+    "family owned"
+  ],
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "youtube": null,
+    "tripadvisor": null,
+    "website": "https://www.beachsidecircleboats.com"
+  },
+  "specials": [
+    {
+      "name": "Group Rate — Single Seaters",
+      "description": "Rent 5 or more single seaters and pay only $125 each for an all-day rental. Call to book. No group rate on doubles.",
+      "days": [],
+      "time": null
+    }
+  ],
+  "events": [],
+  "packages": [
+    {
+      "name": "Single Seater — Half Day AM",
+      "type": "boat rental",
+      "description": "Solo circle boat rental for the morning session. Portable, eco-friendly inflatable electric circle boat. 57 lbs, 35lb electric motor. Fits one adult up to 300 lbs. Cruise no-wake zones, canals, and visit local waterfront restaurants and islands.",
+      "duration": "4 hours",
+      "price": 100,
+      "price_type": "per boat",
+      "price_note": null,
+      "min_people": 1,
+      "max_people": 1,
+      "what_included": [
+        "life jacket",
+        "safety briefing",
+        "full battery charge",
+        "5-speed motor",
+        "paddle",
+        "whistle",
+        "phone holder",
+        "waterproof map"
+      ],
+      "what_not_included": [
+        "food",
+        "drinks",
+        "bait",
+        "cooler (available as add-on)",
+        "sunshade canopy (available as add-on)"
+      ],
+      "departure_times": [
+        "9:00 AM"
+      ],
+      "days_available": "Daily",
+      "age_min": 14,
+      "weight_max": 300,
+      "booking_url": "https://www.beachsidecircleboats.com",
+      "notes": "Must be 21 to rent; drivers must be at least 14. Session ends at 1:00 PM. No boating license required. Not permitted in the Gulf — calm/protected water only."
+    },
+    {
+      "name": "Single Seater — Half Day PM",
+      "type": "boat rental",
+      "description": "Solo circle boat rental for the afternoon session. Portable, eco-friendly inflatable electric circle boat. 57 lbs, 35lb electric motor. Fits one adult up to 300 lbs. Cruise no-wake zones, canals, and visit local waterfront restaurants and islands.",
+      "duration": "4 hours",
+      "price": 100,
+      "price_type": "per boat",
+      "price_note": null,
+      "min_people": 1,
+      "max_people": 1,
+      "what_included": [
+        "life jacket",
+        "safety briefing",
+        "full battery charge",
+        "5-speed motor",
+        "paddle",
+        "whistle",
+        "phone holder",
+        "waterproof map"
+      ],
+      "what_not_included": [
+        "food",
+        "drinks",
+        "bait",
+        "cooler (available as add-on)",
+        "sunshade canopy (available as add-on)"
+      ],
+      "departure_times": [
+        "2:00 PM"
+      ],
+      "days_available": "Daily",
+      "age_min": 14,
+      "weight_max": 300,
+      "booking_url": "https://www.beachsidecircleboats.com",
+      "notes": "Must be 21 to rent; drivers must be at least 14. Session ends at 6:00 PM. No boating license required. Not permitted in the Gulf — calm/protected water only."
+    },
+    {
+      "name": "Single Seater — All Day",
+      "type": "boat rental",
+      "description": "Solo circle boat rental for a full day. Portable, eco-friendly inflatable electric circle boat. 57 lbs, 35lb electric motor. Fits one adult up to 300 lbs. Cruise no-wake zones, canals, and visit local waterfront restaurants and islands.",
+      "duration": "9 hours",
+      "price": 175,
+      "price_type": "per boat",
+      "price_note": null,
+      "min_people": 1,
+      "max_people": 1,
+      "what_included": [
+        "life jacket",
+        "safety briefing",
+        "full battery charge",
+        "5-speed motor",
+        "paddle",
+        "whistle",
+        "phone holder",
+        "waterproof map"
+      ],
+      "what_not_included": [
+        "food",
+        "drinks",
+        "bait",
+        "cooler (available as add-on)",
+        "sunshade canopy (available as add-on)"
+      ],
+      "departure_times": [
+        "9:00 AM"
+      ],
+      "days_available": "Daily",
+      "age_min": 14,
+      "weight_max": 300,
+      "booking_url": "https://www.beachsidecircleboats.com",
+      "notes": "Must be 21 to rent; drivers must be at least 14. Session runs 9:00 AM – 6:00 PM. No boating license required. Not permitted in the Gulf — calm/protected water only."
+    },
+    {
+      "name": "Double Seater — Half Day AM",
+      "type": "boat rental",
+      "description": "Two-person circle boat rental for the morning session. 65 lbs, extra-wide seats, enhanced stability. Fits two adults up to 450 lbs combined. Multiple styles available — actual boat style may vary. Cruise no-wake zones, canals, islands, and local waterfront restaurants.",
+      "duration": "4 hours",
+      "price": 150,
+      "price_type": "per boat",
+      "price_note": null,
+      "min_people": 1,
+      "max_people": 2,
+      "what_included": [
+        "life jacket",
+        "safety briefing",
+        "full battery charge",
+        "5-speed motor",
+        "paddle",
+        "whistle",
+        "phone holder",
+        "waterproof map"
+      ],
+      "what_not_included": [
+        "food",
+        "drinks",
+        "bait",
+        "cooler (available as add-on)",
+        "sunshade canopy (available as add-on)"
+      ],
+      "departure_times": [
+        "9:00 AM"
+      ],
+      "days_available": "Daily",
+      "age_min": 14,
+      "weight_max": 450,
+      "booking_url": "https://www.beachsidecircleboats.com",
+      "notes": "Must be 21 to rent; drivers must be at least 14. Session ends at 1:00 PM. 3 different styles of double seaters available — specific style not guaranteed. No boating license required. Not permitted in the Gulf."
+    },
+    {
+      "name": "Double Seater — Half Day PM",
+      "type": "boat rental",
+      "description": "Two-person circle boat rental for the afternoon session. 65 lbs, extra-wide seats, enhanced stability. Fits two adults up to 450 lbs combined. Multiple styles available — actual boat style may vary. Cruise no-wake zones, canals, islands, and local waterfront restaurants.",
+      "duration": "4 hours",
+      "price": 150,
+      "price_type": "per boat",
+      "price_note": null,
+      "min_people": 1,
+      "max_people": 2,
+      "what_included": [
+        "life jacket",
+        "safety briefing",
+        "full battery charge",
+        "5-speed motor",
+        "paddle",
+        "whistle",
+        "phone holder",
+        "waterproof map"
+      ],
+      "what_not_included": [
+        "food",
+        "drinks",
+        "bait",
+        "cooler (available as add-on)",
+        "sunshade canopy (available as add-on)"
+      ],
+      "departure_times": [
+        "2:00 PM"
+      ],
+      "days_available": "Daily",
+      "age_min": 14,
+      "weight_max": 450,
+      "booking_url": "https://www.beachsidecircleboats.com",
+      "notes": "Must be 21 to rent; drivers must be at least 14. Session ends at 6:00 PM. 3 different styles of double seaters available — specific style not guaranteed. No boating license required. Not permitted in the Gulf."
+    },
+    {
+      "name": "Double Seater — All Day",
+      "type": "boat rental",
+      "description": "Two-person circle boat rental for a full day. 65 lbs, extra-wide seats, enhanced stability. Fits two adults up to 450 lbs combined. Multiple styles available — actual boat style may vary. Cruise no-wake zones, canals, islands, and local waterfront restaurants.",
+      "duration": "9 hours",
+      "price": 225,
+      "price_type": "per boat",
+      "price_note": null,
+      "min_people": 1,
+      "max_people": 2,
+      "what_included": [
+        "life jacket",
+        "safety briefing",
+        "full battery charge",
+        "5-speed motor",
+        "paddle",
+        "whistle",
+        "phone holder",
+        "waterproof map"
+      ],
+      "what_not_included": [
+        "food",
+        "drinks",
+        "bait",
+        "cooler (available as add-on)",
+        "sunshade canopy (available as add-on)"
+      ],
+      "departure_times": [
+        "9:00 AM"
+      ],
+      "days_available": "Daily",
+      "age_min": 14,
+      "weight_max": 450,
+      "booking_url": "https://www.beachsidecircleboats.com",
+      "notes": "Must be 21 to rent; drivers must be at least 14. Session runs 9:00 AM – 6:00 PM. 3 different styles of double seaters available — specific style not guaranteed. No boating license required. Not permitted in the Gulf."
+    },
+    {
+      "name": "Group Rate — Single Seaters All Day",
+      "type": "boat rental",
+      "description": "Discounted all-day single seater rentals for groups renting 5 or more boats. Each person gets their own solo circle boat. Groups can link up to 4 boats together using floating docks for a communal floating experience. Call to book — not available online.",
+      "duration": "9 hours",
+      "price": 125,
+      "price_type": "per boat",
+      "price_note": "Minimum 5 single seaters required. No group rate available on double seaters. Call to book: (601) 325-1205.",
+      "min_people": 5,
+      "max_people": null,
+      "what_included": [
+        "life jacket",
+        "safety briefing",
+        "full battery charge",
+        "5-speed motor",
+        "paddle",
+        "whistle",
+        "phone holder",
+        "waterproof map"
+      ],
+      "what_not_included": [
+        "food",
+        "drinks",
+        "bait",
+        "cooler (available as add-on)",
+        "floating docks (available as add-on)"
+      ],
+      "departure_times": [
+        "9:00 AM"
+      ],
+      "days_available": "Daily",
+      "age_min": 14,
+      "weight_max": 300,
+      "booking_url": null,
+      "notes": "Must call to book: (601) 325-1205. Session runs 9:00 AM – 6:00 PM. Single seaters only — no group discount on doubles."
+    },
+    {
+      "name": "Mini Dock Rental",
+      "type": "other",
+      "description": "Towable floating dock add-on for GoBoat rentals. 8'4\" x 44\", 100 lb capacity. Large flat platform for lounging and sunbathing. Tow it behind your circle boat to carry coolers, beach bags, chairs, umbrellas, or pets. EVA foam non-slip surface with quick-connect tow rope included.",
+      "duration": "half day or full day",
+      "price": 25,
+      "price_type": "per day",
+      "price_note": "Half day: $25 | Full day: $50.",
+      "min_people": null,
+      "max_people": null,
+      "what_included": [
+        "EVA foam non-slip surface",
+        "quick-connect tow rope"
+      ],
+      "what_not_included": null,
+      "departure_times": null,
+      "days_available": "Daily",
+      "age_min": null,
+      "weight_max": 100,
+      "booking_url": "https://www.beachsidecircleboats.com",
+      "notes": "Add-on to boat rental. Must be added at booking or check-in."
+    },
+    {
+      "name": "X Dock Rental",
+      "type": "other",
+      "description": "Compact square towable floating dock add-on. 5' x 5', 75 lb capacity. Designed to hold a full-size cooler (up to 58 quarts), tackle boxes, or a portable grill. Square shape is stable and stackable with raised edge rails to prevent items from sliding.",
+      "duration": "half day or full day",
+      "price": 25,
+      "price_type": "per day",
+      "price_note": "Half day: $25 | Full day: $50.",
+      "min_people": null,
+      "max_people": null,
+      "what_included": [
+        "raised edge rails",
+        "quick-connect tow rope"
+      ],
+      "what_not_included": [
+        "cooler"
+      ],
+      "departure_times": null,
+      "days_available": "Daily",
+      "age_min": null,
+      "weight_max": 75,
+      "booking_url": "https://www.beachsidecircleboats.com",
+      "notes": "Add-on to boat rental. Recommended for carrying coolers — pair with a cooler rental add-on ($8)."
+    },
+    {
+      "name": "Doggie Dock Rental",
+      "type": "other",
+      "description": "Pet-friendly towable floating dock add-on. 5'4\" x 43\", 85 lb capacity. Features a weighted mesh ramp so dogs can climb in and out of the water on their own. Non-slip surface keeps paws steady. Stays flat even with a jumping dog.",
+      "duration": "half day or full day",
+      "price": 25,
+      "price_type": "per day",
+      "price_note": "Half day: $25 | Full day: $50.",
+      "min_people": null,
+      "max_people": null,
+      "what_included": [
+        "weighted mesh entry/exit ramp",
+        "non-slip grip surface",
+        "quick-connect tow rope"
+      ],
+      "what_not_included": null,
+      "departure_times": null,
+      "days_available": "Daily",
+      "age_min": null,
+      "weight_max": 85,
+      "booking_url": "https://www.beachsidecircleboats.com",
+      "notes": "Pet-friendly add-on. Pairs great with the Pup Pack add-on (referenced on site but pricing not listed)."
+    },
+    {
+      "name": "Cooler Add-on",
+      "type": "other",
+      "description": "Cooler rental add-on. Business provides the cooler; renter provides ice and snacks/drinks. Recommended to pair with X Dock rental to carry the cooler.",
+      "duration": null,
+      "price": 8,
+      "price_type": "per day",
+      "price_note": "$8 per cooler. Ice and contents not included.",
+      "min_people": null,
+      "max_people": null,
+      "what_included": [
+        "cooler"
+      ],
+      "what_not_included": [
+        "ice",
+        "food",
+        "drinks"
+      ],
+      "departure_times": null,
+      "days_available": "Daily",
+      "age_min": null,
+      "weight_max": null,
+      "booking_url": "https://www.beachsidecircleboats.com",
+      "notes": "Add at checkout or at check-in."
+    },
+    {
+      "name": "Sunshade Canopy Add-on",
+      "type": "other",
+      "description": "Sun protection canopy add-on for circle boats. Provides shade while out on the water.",
+      "duration": null,
+      "price": 10,
+      "price_type": "per boat",
+      "price_note": "$10 per boat.",
+      "min_people": null,
+      "max_people": null,
+      "what_included": [
+        "sunshade canopy"
+      ],
+      "what_not_included": null,
+      "departure_times": null,
+      "days_available": "Daily",
+      "age_min": null,
+      "weight_max": null,
+      "booking_url": "https://www.beachsidecircleboats.com",
+      "notes": "Add at checkout or at check-in."
+    },
+    {
+      "name": "Fishing Pole Add-on",
+      "type": "other",
+      "description": "Fishing pole rental add-on for circle boat rentals. Renter must provide their own bait.",
+      "duration": null,
+      "price": 10,
+      "price_type": "per day",
+      "price_note": "$10 per pole. Bait not included.",
+      "min_people": null,
+      "max_people": null,
+      "what_included": [
+        "fishing pole"
+      ],
+      "what_not_included": [
+        "bait",
+        "fishing license"
+      ],
+      "departure_times": null,
+      "days_available": "Daily",
+      "age_min": null,
+      "weight_max": null,
+      "booking_url": "https://www.beachsidecircleboats.com",
+      "notes": "Add at checkout or at check-in. Renter provides bait."
+    },
+    {
+      "name": "Floating Chair Add-on",
+      "type": "other",
+      "description": "Floating chair rental for use at the island. Limited availability.",
+      "duration": null,
+      "price": 20,
+      "price_type": "per day",
+      "price_note": "$20 per chair. Limited availability.",
+      "min_people": null,
+      "max_people": null,
+      "what_included": [
+        "floating chair"
+      ],
+      "what_not_included": null,
+      "departure_times": null,
+      "days_available": "Daily",
+      "age_min": null,
+      "weight_max": null,
+      "booking_url": "https://www.beachsidecircleboats.com",
+      "notes": "Limited availability. Add at checkout or at check-in."
+    },
+    {
+      "name": "Floating Mat Add-on",
+      "type": "other",
+      "description": "Floating mat rental add-on. Stay cool in the water while soaking up the sun.",
+      "duration": null,
+      "price": 20,
+      "price_type": "per day",
+      "price_note": "$20 per mat.",
+      "min_people": null,
+      "max_people": null,
+      "what_included": [
+        "floating mat"
+      ],
+      "what_not_included": null,
+      "departure_times": null,
+      "days_available": "Daily",
+      "age_min": null,
+      "weight_max": null,
+      "booking_url": "https://www.beachsidecircleboats.com",
+      "notes": "Listed as a new add-on on the website. Add at checkout or at check-in."
+    }
+  ],
+  "url": "https://www.beachsidecircleboats.com",
+  "scraped_at": "2026-03-21T19:24:58.865Z",
+  "extracted_at": "2026-03-21T20:38:04.881Z",
+  "sources": [
+    "https://www.beachsidecircleboats.com"
+  ],
+  "gallery": [
+    "https://circle-boats-main.vercel.app/images/goboat/6515365445410422016.PNG",
+    "https://mhafixflyffflwjhcgfn.supabase.co/storage/v1/object/public/media/22222222-2222-2222-2222-222222222222/about/1773926375137-47424514-C4ED-4F47-A288-ED66EF39D18B.PNG",
+    "https://mhafixflyffflwjhcgfn.supabase.co/storage/v1/object/public/media/22222222-2222-2222-2222-222222222222/about/1774049206753-goboat-motor.jpg",
+    "https://mhafixflyffflwjhcgfn.supabase.co/storage/v1/object/public/media/22222222-2222-2222-2222-222222222222/about/1773865846365-download__9_.jpg",
+    "https://mhafixflyffflwjhcgfn.supabase.co/storage/v1/object/public/media/22222222-2222-2222-2222-222222222222/about/1774049438840-0B20177A-27F4-44E2-99F2-451758E37A6E_2.PNG",
+    "https://mhafixflyffflwjhcgfn.supabase.co/storage/v1/object/public/media/22222222-2222-2222-2222-222222222222/about/1773704207133-20251110_193717963_iOS.jpg",
+    "https://mhafixflyffflwjhcgfn.supabase.co/storage/v1/object/public/media/22222222-2222-2222-2222-222222222222/feature/1773851396108-IMG_3987.jpeg",
+    "https://mhafixflyffflwjhcgfn.supabase.co/storage/v1/object/public/media/22222222-2222-2222-2222-222222222222/about/1773703867895-FreedomLeft.webp",
+    "https://mhafixflyffflwjhcgfn.supabase.co/storage/v1/object/public/media/22222222-2222-2222-2222-222222222222/boat/1773553191704-IMG_9604_11.jpg",
+    "https://mhafixflyffflwjhcgfn.supabase.co/storage/v1/object/public/media/22222222-2222-2222-2222-222222222222/dock/1773559692942-mini-dock-tow.jpg",
+    "https://mhafixflyffflwjhcgfn.supabase.co/storage/v1/object/public/media/22222222-2222-2222-2222-222222222222/dock/1774044300743-IMG_9594_7.jpg",
+    "https://mhafixflyffflwjhcgfn.supabase.co/storage/v1/object/public/media/22222222-2222-2222-2222-222222222222/dock/1773559725545-IMG_9603_12.jpg",
+    "https://mhafixflyffflwjhcgfn.supabase.co/storage/v1/object/public/media/22222222-2222-2222-2222-222222222222/addon/1774048349717-IMG_9594_7.jpg",
+    "https://mhafixflyffflwjhcgfn.supabase.co/storage/v1/object/public/media/22222222-2222-2222-2222-222222222222/addon/1774048907639-5154EDE6-E26C-4070-97E3-015D2CF0B92C.PNG",
+    "https://mhafixflyffflwjhcgfn.supabase.co/storage/v1/object/public/media/22222222-2222-2222-2222-222222222222/addon/1774049555695-IMG_0123.JPG",
+    "https://mhafixflyffflwjhcgfn.supabase.co/storage/v1/object/public/media/22222222-2222-2222-2222-222222222222/addon/1774043932039-7148Pg1TOJL.jpg",
+    "https://mhafixflyffflwjhcgfn.supabase.co/storage/v1/object/public/media/22222222-2222-2222-2222-222222222222/addon/1774110651640-81YZt2LNAKL._AC_UF894_1000_QL80_.jpg",
+    "https://mhafixflyffflwjhcgfn.supabase.co/storage/v1/object/public/media/22222222-2222-2222-2222-222222222222/steps/1774056270193-5154EDE6-E26C-4070-97E3-015D2CF0B92C.PNG",
+    "https://mhafixflyffflwjhcgfn.supabase.co/storage/v1/object/public/media/22222222-2222-2222-2222-222222222222/locations/1773698130979-unnamed.webp",
+    "https://mhafixflyffflwjhcgfn.supabase.co/storage/v1/object/public/media/22222222-2222-2222-2222-222222222222/steps/1773867188219-IMG_5424.jpg",
+    "https://mhafixflyffflwjhcgfn.supabase.co/storage/v1/object/public/media/22222222-2222-2222-2222-222222222222/gallery/1773769960329-canopy2.webp",
+    "https://mhafixflyffflwjhcgfn.supabase.co/storage/v1/object/public/media/22222222-2222-2222-2222-222222222222/steps/1774044319551-images__18_.jpg",
+    "https://mhafixflyffflwjhcgfn.supabase.co/storage/v1/object/public/media/22222222-2222-2222-2222-222222222222/locations/1773698382022-unnamed.jpg",
+    "https://mhafixflyffflwjhcgfn.supabase.co/storage/v1/object/public/media/22222222-2222-2222-2222-222222222222/addon/1773764880214-OIP.webp",
+    "https://mhafixflyffflwjhcgfn.supabase.co/storage/v1/object/public/media/22222222-2222-2222-2222-222222222222/boat/1773553172632-IMG_9611_9.jpg",
+    "https://mhafixflyffflwjhcgfn.supabase.co/storage/v1/object/public/media/22222222-2222-2222-2222-222222222222/about/1773764539653-20251216_214330000_iOS.jpg",
+    "https://mhafixflyffflwjhcgfn.supabase.co/storage/v1/object/public/media/22222222-2222-2222-2222-222222222222/gallery/1773769939475-canaopy.jpg",
+    "https://mhafixflyffflwjhcgfn.supabase.co/storage/v1/object/public/media/22222222-2222-2222-2222-222222222222/gallery/1773856604526-compare-double.webp",
+    "https://mhafixflyffflwjhcgfn.supabase.co/storage/v1/object/public/media/22222222-2222-2222-2222-222222222222/gallery/1773856668375-images__16_.jpg",
+    "https://mhafixflyffflwjhcgfn.supabase.co/storage/v1/object/public/media/22222222-2222-2222-2222-222222222222/gallery/1773761012558-20260223_143211209_iOS.jpg",
+    "https://mhafixflyffflwjhcgfn.supabase.co/storage/v1/object/public/media/22222222-2222-2222-2222-222222222222/gallery/1773760016438-20251110_181730157_iOS.jpg"
+  ]
+}

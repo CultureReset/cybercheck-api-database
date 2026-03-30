@@ -1,0 +1,61 @@
+{
+  "business_name": "Class Act Fishing",
+  "tagline": null,
+  "type": "Fishing Charter",
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": null,
+    "city": null,
+    "state": null,
+    "zip": null
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": null
+  },
+  "about": {
+    "description": null,
+    "elevator_pitch": null,
+    "vibe": null,
+    "best_for": [],
+    "capacity": null,
+    "duration_options": [],
+    "departure_location": null,
+    "what_provided": [],
+    "what_to_bring": [],
+    "age_restriction": null,
+    "weight_restriction": null,
+    "reservations": null,
+    "cancellation_policy": null,
+    "insider_tip": null
+  },
+  "tags": [
+    "fishing"
+  ],
+  "features": [],
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "tripadvisor": null,
+    "website": "https://classactfishing.net"
+  },
+  "specials": [],
+  "events": [],
+  "packages": [],
+  "note": "Website returned 403 Forbidden error - no data accessible",
+  "url": "https://classactfishing.net",
+  "scraped_at": "2026-03-21T19:49:32.890Z",
+  "extracted_at": "2026-03-23T03:35:02.855Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [],
+  "sources": [
+    "https://classactfishing.net"
+  ]
+}

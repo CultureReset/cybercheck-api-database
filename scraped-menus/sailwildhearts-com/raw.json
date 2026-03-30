@@ -1,0 +1,296 @@
+{
+  "business_name": "sailwildhearts.com",
+  "url": "https://www.sailwildhearts.com",
+  "scraped_at": "2026-03-21T19:28:00.977Z",
+  "pages": [
+    {
+      "url": "https://www.sailwildhearts.com",
+      "title": "Sail Wild Hearts | Sailing Orange Beach, Perdido Key and Gulf Shores Alabama",
+      "text": "Skip to content\n\n\t\n \n \n \n \n \n \n \n \n\n\t\n \n Reservations: 251-981-6700 \n \n\n\t\n \n \n\n \n \n\n \n \n \n \n \n \n\n \n \n Search for:\n \n \n \n \n \n \n\n \n \n\n \n \n Our CruisesSunset CruiseDolphin & Angels Sailing AdventurePaddleboard and Kayak Adventure SailFamily Adventure SailMorning Dolphin CruiseAfternoon Dolphin CruiseFireworks SailCelebration of LifePrivate Charters & Corporate SailseGift CardThe ExperienceSpecialsFAQsBlogContact\t\n \n \n \n \n \n\nOur CruisesSunset CruiseDolphin & Angels Sailing AdventurePaddleboard and Kayak Adventure SailFamily Adventure SailMorning Dolphin CruiseAfternoon Dolphin CruiseFireworks SailCelebration of LifePrivate Charters & Corporate SailseGift CardThe ExperienceSpecialsFAQsBlogContact\n\n \n\n \n \n \n \n \n \n\t\n\t\n \n \n \n \n \n \n \n A Gulf Coast Adventure \n \n \n \n Sailing Orange Beach, Perdido Key and Gulf Shores, Alabama \n \n \n View Calendar & Pricing\n \n \n \n \n \n \n \n \n \n\t\n\n \n \n \n \n \n \n \n\n \n Sail Wild Heartstlitadmin \n A Gulf Coast AdventureSailing Orange Beach, Perdido Key and Gulf Shores, AlabamaView Calendar & PricingWinner of Best Boat Tour for the past 6 years!#5 Best Boat Tourin the U.S. by\n#6 in 2024 and #5 in 2025!\nStep aboard Wild Hearts, where our sights – and our sails – are always set for thrilling Gulf Coast adventures.Docked in the heart of Orange Beach, Alabama, at the Perdido Beach Resort’s bayside dock, Wild Hearts offers an exhilarating way to experience the marine landscapes of our area, from gorgeous Gulf Shores to Perdido Key, Florida and everywhere in between. Explore the incredible Orange Beach islands on a three-hour adventure sail, join a daily dolphin cruise, soak up some sun on a blissful ride down the calm back bays, or end the day with an extraordinary sunset cruise in Orange Beach.\nNo matter which Orange Beach sailing excursion you choose, our 53-foot open-ocean yacht will immerse you in those stunning views most visitors only see from the shore as you cruise our pristine waterways in premium comfort. You can sunbathe and sightsee on the spacious deck and chill in the cool shade of the open cabin – Wild Hearts has everything you need to enjoy the ultimate sailing experience.\nOur CruisesSunset CruiseDetailsBook NowDolphins & Blue Angels SailDetailsBook NowPaddleboard and Kayak Adventure SailDetailsBook NowFamily Adventure SailDetailsBook NowMorning Dolphin CruiseDetailsBook NowAfternoon Dolphin CruiseDetailsBook NowFireworks SailDetailsBook NowCorporate SailDetailsCall to BookPrivate Catamaran RentalsWeddings, Corporate Events, Celebrations of Life\nBook a Private RentalBook a Celebration of LifeOrange Beach WatersportsParasailBook NowPontoon RentalCall 251-981-6700 to BookKayaksCall 251-981-6700 to BookPaddleboardsCall 251-981-6700 to BookWhat Our Guests Are Saying\nGreat sunset sail experience! So relaxing and fun. We saw several dolphins along the way. This great value includes water, soft drinks & snacks. We were also allowed to bring our own wine on board. Friendly staff & crew. Highly recommend.\nKathy S.\nI’ve been on Wild Hearts 4 times. We always see dolphins. Awesome staff and snacks.\nRon S.\nWe had such an amazing time at sail WILD HEARTS today! Our kiddos said this was the best part of our vacation so far! We saw jelly fish, dolphins, and crabs galore! They even took us to a private island where the water was gorgeous, and we could see right down to the bottom!\nLindsey C.\n \n \n\t\n \n \n \n \n \n \n RESERVATIONS251-981-6700LOCATIONWILD HEARTS is located in Orange Beach, Alabama directly across the street from the\nPERDIDO BEACH RESORT\n27101 Perdido Beach Blvd. (Hwy 182)\nLatitude: 30.278934 Longitude: -87.561368\nJoin Our Email ListThank you for joining our email list!×There was an error. Please try again.×\n\n \n \n Page load link\n\n \n \n\n \n \n\n \n \n Go to Top",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://www.sailwildhearts.com/",
+              "url": "https://www.sailwildhearts.com/",
+              "name": "Sail Wild Hearts | Sailing Orange Beach, Perdido Key and Gulf Shores Alabama",
+              "isPartOf": {
+                "@id": "https://www.sailwildhearts.com/#website"
+              },
+              "datePublished": "2021-12-21T22:21:42+00:00",
+              "dateModified": "2026-01-29T19:18:59+00:00",
+              "breadcrumb": {
+                "@id": "https://www.sailwildhearts.com/#breadcrumb"
+              },
+              "inLanguage": "en-US",
+              "potentialAction": [
+                {
+                  "@type": "ReadAction",
+                  "target": [
+                    "https://www.sailwildhearts.com/"
+                  ]
+                }
+              ]
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://www.sailwildhearts.com/#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home"
+                }
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://www.sailwildhearts.com/#website",
+              "url": "https://www.sailwildhearts.com/",
+              "name": "Sail Wild Hearts",
+              "description": "",
+              "potentialAction": [
+                {
+                  "@type": "SearchAction",
+                  "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://www.sailwildhearts.com/?s={search_term_string}"
+                  },
+                  "query-input": {
+                    "@type": "PropertyValueSpecification",
+                    "valueRequired": true,
+                    "valueName": "search_term_string"
+                  }
+                }
+              ],
+              "inLanguage": "en-US"
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+        "og:locale": "en_US",
+        "og:type": "website",
+        "og:title": "Sail Wild Hearts | Sailing Orange Beach, Perdido Key and Gulf Shores Alabama",
+        "og:url": "https://www.sailwildhearts.com/",
+        "og:site_name": "Sail Wild Hearts",
+        "article:modified_time": "2026-01-29T19:18:59+00:00",
+        "twitter:card": "summary_large_image",
+        "msapplication-TileImage": "https://www.sailwildhearts.com/wp-content/uploads/2022/01/swhico-152.png",
+        "description": "A Gulf Coast Adventure \n\nSailing Orange Beach, Perdido Key and Gulf Shores, Alabama View Calendar & Pricing    \n\nWinner of Best Boat Tour for the past 6 years!  \n\n#5 Best Boat Tour \n\nin the U.S. by \n\n#6 in 2024 and #5 in 2025!       \n\nStep aboard Wild",
+        "og:description": "A Gulf Coast Adventure \n\nSailing Orange Beach, Perdido Key and Gulf Shores, Alabama View Calendar & Pricing    \n\nWinner of Best Boat Tour for the past 6 years!  \n\n#5 Best Boat Tour \n\nin the U.S. by \n\n#6 in 2024 and #5 in 2025!       \n\nStep aboard Wild",
+        "og:image": "https://www.sailwildhearts.com/wp-content/uploads/2024/10/Sail-Wild-Hearts-by-PBS.jpg",
+        "og:image:width": "361",
+        "og:image:height": "94",
+        "og:image:type": "image/jpeg",
+        "generator": "WordPress 6.9.4"
+      }
+    },
+    {
+      "url": "https://www.sailwildhearts.com/specials",
+      "title": "Specials - Sail Wild Hearts",
+      "text": "Skip to content\n\n\t\n \n \n \n \n \n \n \n \n\n\t\n \n Reservations: 251-981-6700 \n \n\n\t\n \n \n\n \n \n\n \n \n \n \n \n \n\n \n \n Search for:\n \n \n \n \n \n \n\n \n \n\n \n \n Our CruisesSunset CruiseDolphin & Angels Sailing AdventurePaddleboard and Kayak Adventure SailFamily Adventure SailMorning Dolphin CruiseAfternoon Dolphin CruiseFireworks SailCelebration of LifePrivate Charters & Corporate SailseGift CardThe ExperienceSpecialsFAQsBlogContact\t\n \n \n \n \n \n\nOur CruisesSunset CruiseDolphin & Angels Sailing AdventurePaddleboard and Kayak Adventure SailFamily Adventure SailMorning Dolphin CruiseAfternoon Dolphin CruiseFireworks SailCelebration of LifePrivate Charters & Corporate SailseGift CardThe ExperienceSpecialsFAQsBlogContact\n\n \n\n \n \n \n \n \n \n \n \n \n \n\t\n \n \n \n\n Orange Beach Dolphin Cruise Specials\n\n \n \n \n\n \n \n \n\t\n\n \n \n\n \n Specialstlitadmin\n \n \n 10% Military DiscountWe salute our active-duty and retired service men and women who sacrifice for our life and liberty. When you’re ready for a much-deserved vacation with your family and friends, sail aboard Wild Hearts and accept a 10% discount on passenger fare for you and those in your family. The military discount is for anyone with a valid military ID (Military ID, VA card, etc.)\n\n \n \n\t\n \n \n \n \n \n \n RESERVATIONS251-981-6700LOCATIONWILD HEARTS is located in Orange Beach, Alabama directly across the street from the\nPERDIDO BEACH RESORT\n27101 Perdido Beach Blvd. (Hwy 182)\nLatitude: 30.278934 Longitude: -87.561368\nJoin Our Email ListThank you for joining our email list!×There was an error. Please try again.×\n\n \n \n Page load link\n\n \n \n\n \n \n\n \n \n Go to Top",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://www.sailwildhearts.com/specials/",
+              "url": "https://www.sailwildhearts.com/specials/",
+              "name": "Specials - Sail Wild Hearts",
+              "isPartOf": {
+                "@id": "https://www.sailwildhearts.com/#website"
+              },
+              "datePublished": "2021-12-22T00:04:45+00:00",
+              "dateModified": "2024-06-17T16:34:19+00:00",
+              "breadcrumb": {
+                "@id": "https://www.sailwildhearts.com/specials/#breadcrumb"
+              },
+              "inLanguage": "en-US",
+              "potentialAction": [
+                {
+                  "@type": "ReadAction",
+                  "target": [
+                    "https://www.sailwildhearts.com/specials/"
+                  ]
+                }
+              ]
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://www.sailwildhearts.com/specials/#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://www.sailwildhearts.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Specials"
+                }
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://www.sailwildhearts.com/#website",
+              "url": "https://www.sailwildhearts.com/",
+              "name": "Sail Wild Hearts",
+              "description": "",
+              "potentialAction": [
+                {
+                  "@type": "SearchAction",
+                  "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://www.sailwildhearts.com/?s={search_term_string}"
+                  },
+                  "query-input": {
+                    "@type": "PropertyValueSpecification",
+                    "valueRequired": true,
+                    "valueName": "search_term_string"
+                  }
+                }
+              ],
+              "inLanguage": "en-US"
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+        "og:locale": "en_US",
+        "og:type": "article",
+        "og:title": "Specials - Sail Wild Hearts",
+        "og:url": "https://www.sailwildhearts.com/specials/",
+        "og:site_name": "Sail Wild Hearts",
+        "article:modified_time": "2024-06-17T16:34:19-05:00",
+        "twitter:card": "summary_large_image",
+        "twitter:label1": "Est. reading time",
+        "twitter:data1": "1 minute",
+        "msapplication-TileImage": "https://www.sailwildhearts.com/wp-content/uploads/2022/01/swhico-152.png",
+        "description": "10% Military Discount \n\nWe salute our active-duty and retired service men and women who sacrifice for our life and liberty. When you’re ready for a much-deserved vacation with your family and friends, sail aboard Wild Hearts and accept a 10% discount on passenger fare for you and those in your family. The military discount",
+        "og:description": "10% Military Discount \n\nWe salute our active-duty and retired service men and women who sacrifice for our life and liberty. When you’re ready for a much-deserved vacation with your family and friends, sail aboard Wild Hearts and accept a 10% discount on passenger fare for you and those in your family. The military discount",
+        "og:image": "https://www.sailwildhearts.com/wp-content/uploads/2024/10/Sail-Wild-Hearts-by-PBS.jpg",
+        "og:image:width": "361",
+        "og:image:height": "94",
+        "og:image:type": "image/jpeg",
+        "generator": "WordPress 6.9.4"
+      }
+    },
+    {
+      "url": "https://www.sailwildhearts.com/contact",
+      "title": "Contact - Sail Wild Hearts",
+      "text": "Skip to content\n\n\t\n \n \n \n \n \n \n \n \n\n\t\n \n Reservations: 251-981-6700 \n \n\n\t\n \n \n\n \n \n\n \n \n \n \n \n \n\n \n \n Search for:\n \n \n \n \n \n \n\n \n \n\n \n \n Our CruisesSunset CruiseDolphin & Angels Sailing AdventurePaddleboard and Kayak Adventure SailFamily Adventure SailMorning Dolphin CruiseAfternoon Dolphin CruiseFireworks SailCelebration of LifePrivate Charters & Corporate SailseGift CardThe ExperienceSpecialsFAQsBlogContact\t\n \n \n \n \n \n\nOur CruisesSunset CruiseDolphin & Angels Sailing AdventurePaddleboard and Kayak Adventure SailFamily Adventure SailMorning Dolphin CruiseAfternoon Dolphin CruiseFireworks SailCelebration of LifePrivate Charters & Corporate SailseGift CardThe ExperienceSpecialsFAQsBlogContact\n\n \n\n \n \n \n \n \n \n \n \n \n \n\t\n \n \n \n\n Contact\n\n \n \n \n\n \n \n \n\t\n\n \n \n\n \n Contacttlitadmin \n \nZoom in on the map above to get a pelican’s eye view of Wild Hearts’ location.\n251-981-6700Book NowName *Email *PhoneMessage * \n \n \n \n \n \n SendThank you for your message. It has been sent.×There was an error trying to send your message. Please try again later.×WILD HEARTS is located in Orange Beach, Alabama directly across the street from:\nPERDIDO BEACH RESORT\n27101 Perdido Beach Blvd. (Hwy 182)\nLatitude: 30.278934 Longitude: -87.561368\nWe are docked on the north side of the highway on Cotton Bayou directly across the street from the Perdido Beach Resort. Just look for the signs directing you to the parking area and look for the tall mast on our bright yellow catamaran.\nDirectionsComing From the east (Florida): Take Hwy 182 until you cross over the Perdido Pass Bridge. Look for the Perdido Beach Resort on the left side of the road. Wild Hearts is located on the right side of the highway directly across the street from the Perdido Beach Resort and just past SanRoc Cay. Look for the Wild Hearts signs directing you to the parking area.\nComing From the west (Gulf Shores, AL): Take Hwy 182 and head east towards Orange Beach. Look for the Perdido Beach Resort on the right side of the road (before you get to the Perdido Pass Bridge). Wild Hearts is located on the left side of the road directly across the street from the Perdido Beach Resort and before SanRoc Cay. Just look for the Wild Hearts signs directing you to the parking area.\n\n \n \n\t\n \n \n \n \n \n \n RESERVATIONS251-981-6700LOCATIONWILD HEARTS is located in Orange Beach, Alabama directly across the street from the\nPERDIDO BEACH RESORT\n27101 Perdido Beach Blvd. (Hwy 182)\nLatitude: 30.278934 Longitude: -87.561368\nJoin Our Email ListThank you for joining our email list!×There was an error. Please try again.×\n\n \n \n Page load link\n\n \n \n\n \n \n \n\n \n \n Go to Top",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://www.sailwildhearts.com/contact/",
+              "url": "https://www.sailwildhearts.com/contact/",
+              "name": "Contact - Sail Wild Hearts",
+              "isPartOf": {
+                "@id": "https://www.sailwildhearts.com/#website"
+              },
+              "datePublished": "2021-12-22T00:05:23+00:00",
+              "dateModified": "2024-05-15T23:28:56+00:00",
+              "breadcrumb": {
+                "@id": "https://www.sailwildhearts.com/contact/#breadcrumb"
+              },
+              "inLanguage": "en-US",
+              "potentialAction": [
+                {
+                  "@type": "ReadAction",
+                  "target": [
+                    "https://www.sailwildhearts.com/contact/"
+                  ]
+                }
+              ]
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://www.sailwildhearts.com/contact/#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://www.sailwildhearts.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Contact"
+                }
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://www.sailwildhearts.com/#website",
+              "url": "https://www.sailwildhearts.com/",
+              "name": "Sail Wild Hearts",
+              "description": "",
+              "potentialAction": [
+                {
+                  "@type": "SearchAction",
+                  "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://www.sailwildhearts.com/?s={search_term_string}"
+                  },
+                  "query-input": {
+                    "@type": "PropertyValueSpecification",
+                    "valueRequired": true,
+                    "valueName": "search_term_string"
+                  }
+                }
+              ],
+              "inLanguage": "en-US"
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+        "og:locale": "en_US",
+        "og:type": "article",
+        "og:title": "Contact - Sail Wild Hearts",
+        "og:url": "https://www.sailwildhearts.com/contact/",
+        "og:site_name": "Sail Wild Hearts",
+        "article:modified_time": "2024-05-15T23:28:56-05:00",
+        "twitter:card": "summary_large_image",
+        "twitter:label1": "Est. reading time",
+        "twitter:data1": "2 minutes",
+        "msapplication-TileImage": "https://www.sailwildhearts.com/wp-content/uploads/2022/01/swhico-152.png",
+        "description": "Zoom in on the map above to get a pelican's eye view of Wild Hearts' location.    251-981-6700 Book Now   WILD HEARTS is located in Orange Beach, Alabama directly across the street from:\nPERDIDO BEACH RESORT\n27101 Perdido Beach Blvd. (Hwy 182)\nLatitude: 30.278934 Longitude: -87.561368\n\nWe are docked on the north side of the",
+        "og:description": "Zoom in on the map above to get a pelican's eye view of Wild Hearts' location.    251-981-6700 Book Now   WILD HEARTS is located in Orange Beach, Alabama directly across the street from:\nPERDIDO BEACH RESORT\n27101 Perdido Beach Blvd. (Hwy 182)\nLatitude: 30.278934 Longitude: -87.561368\n\nWe are docked on the north side of the",
+        "og:image": "https://www.sailwildhearts.com/wp-content/uploads/2024/10/Sail-Wild-Hearts-by-PBS.jpg",
+        "og:image:width": "361",
+        "og:image:height": "94",
+        "og:image:type": "image/jpeg",
+        "generator": "WordPress 6.9.4"
+      }
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": [
+    "https://www.sailwildhearts.com/wp-content/uploads/2024/10/Sail-Wild-Hearts-by-PBS.jpg",
+    "https://www.sailwildhearts.com/wp-content/uploads/2024/10/Sail-Wild-Hearts-by-PBS-mobile.jpg",
+    "https://www.sailwildhearts.com/wp-content/uploads/2025/02/Bestofbaldwin2025.webp",
+    "https://www.sailwildhearts.com/wp-content/uploads/2024/06/usa-today-10-best.png",
+    "https://www.sailwildhearts.com/wp-content/uploads/2022/02/in-memory.jpg",
+    "https://www.sailwildhearts.com/wp-content/uploads/2024/10/Sail-Wild-Hearts-by-PBS-mobile@2x.jpg",
+    "https://www.sailwildhearts.com/wp-content/uploads/2024/10/Perdido-Beach-Service.webp",
+    "https://www.sailwildhearts.com/wp-content/uploads/2022/01/military-discount.jpg"
+  ]
+}

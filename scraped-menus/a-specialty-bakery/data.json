@@ -1,0 +1,249 @@
+{
+  "business_name": "A Specialty Bakery and Party Shoppe",
+  "tagline": "Welcome to Our World of Sweetness!",
+  "type": "Bakery",
+  "contact": {
+    "phone": "251-968-2253",
+    "email": "aspecialtybakery@gulftel.com",
+    "address": "2200 East 2nd Street",
+    "city": "Gulf Shores",
+    "state": "Alabama",
+    "zip": null
+  },
+  "hours": {
+    "monday": "CLOSED",
+    "tuesday": "9:00 AM - 4:00 PM",
+    "wednesday": "9:00 AM - 4:00 PM",
+    "thursday": "9:00 AM - 4:00 PM",
+    "friday": "9:00 AM - 4:00 PM",
+    "saturday": "9:00 AM - 12:00 PM",
+    "sunday": "CLOSED",
+    "notes": null
+  },
+  "about": {
+    "description": "A Specialty Bakery and Party Shoppe has been the go-to destination in Gulf Shores, AL, for those looking to add a touch of sweetness and joy to their celebrations. Our dedication to quality, creativity, and customer satisfaction sets us apart. Making custom cakes that are as beautiful to look at as they are to eat, we're here to ensure your special moments are unforgettable.",
+    "elevator_pitch": "Custom specialty bakery in Gulf Shores creating unforgettable custom sweets for celebrations and special occasions.",
+    "vibe": "Warm, creative, celebration-focused bakery with emphasis on custom artisan cakes and specialty items",
+    "best_for": [
+      "weddings",
+      "birthday parties",
+      "custom celebrations",
+      "special occasions"
+    ],
+    "established": null,
+    "reservations": null,
+    "insider_tip": "Place custom cake orders at least 2 weeks in advance by calling, visiting in person, or Facebook messaging"
+  },
+  "tags": [
+    "bakery",
+    "custom cakes",
+    "cupcakes",
+    "cookies",
+    "truffles",
+    "wedding cakes",
+    "specialty items",
+    "custom desserts"
+  ],
+  "features": [
+    "custom cake design",
+    "wedding cakes",
+    "specialty items",
+    "party planning services"
+  ],
+  "price_range": "$$",
+  "social_links": {
+    "instagram": "https://www.instagram.com/aspecialtybakery",
+    "facebook": "https://www.facebook.com/aspecialtybakery",
+    "website": "https://www.aspecialtybakery.net/"
+  },
+  "specials": [],
+  "events": [
+    {
+      "name": "Join Our Team",
+      "description": "Hiring decorators and cake bakers. Bring resume to store or call.",
+      "recurring": false,
+      "day": null,
+      "time": null
+    }
+  ],
+  "menu": {
+    "categories": [
+      {
+        "name": "Cake Flavors",
+        "type": "desserts",
+        "items": [
+          {
+            "name": "White Cake",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Butter Cake",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Yellow Cake",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Chocolate Cake",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "German Chocolate Cake",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Strawberry Cake",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Red Velvet Cake",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Carrot Cake",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Marble Cake",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Almond Cake",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Lemon Cake",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Frosting Options",
+        "type": "desserts",
+        "items": [
+          {
+            "name": "Buttercream",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Cream Cheese",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Chocolate Buttercream",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Peanut Butter Buttercream",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": [
+              "peanuts"
+            ]
+          },
+          {
+            "name": "Caramel",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Coconut Pecan",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": [
+              "coconut",
+              "pecans"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Specialty Items",
+        "type": "desserts",
+        "items": [
+          {
+            "name": "Cookies",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Cupcakes",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Truffles",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          }
+        ]
+      }
+    ]
+  },
+  "url": "http://aspecialtybakery.net/",
+  "scraped_at": "2026-03-21T15:05:04.628Z",
+  "extracted_at": "2026-03-23T03:27:54.386Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://primary.jwwb.nl/public/k/d/f/temp-jgjnboiczzcscwkfwiyn/screenshot-2024-05-02-at-6-38-48-pm-high.png?enable-io=true&enable=upscale&crop=0.8333%3A1&width=800",
+    "https://primary.jwwb.nl/public/k/d/f/temp-jgjnboiczzcscwkfwiyn/screenshot-2024-05-02-at-6-22-51-pm-high.png?enable-io=true&enable=upscale&crop=0.8333%3A1&width=800",
+    "https://primary.jwwb.nl/public/k/d/f/temp-jgjnboiczzcscwkfwiyn/img_1256-high.jpg?enable-io=true&enable=upscale&crop=0.8333%3A1&width=800",
+    "https://primary.jwwb.nl/unsplash/5K5Nc3AGF1w.jpg"
+  ],
+  "sources": [
+    "http://aspecialtybakery.net"
+  ]
+}

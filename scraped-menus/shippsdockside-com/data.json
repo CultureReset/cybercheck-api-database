@@ -1,0 +1,91 @@
+{
+  "business_name": "Shipp's Dockside Grill",
+  "tagline": "Your Premier Waterfront Seafood Restaurant at Orange Beach Marina",
+  "type": "Restaurant",
+  "contact": {
+    "phone": "(251) 412-7447",
+    "email": "info@shippsdockside.com",
+    "address": "27075 Marina Road",
+    "city": "Orange Beach",
+    "state": "AL",
+    "zip": "36561-3557"
+  },
+  "hours": {
+    "monday": "Closed",
+    "tuesday": "Lower Deck: 11 am - 9 pm, Upper Deck: 4 pm - 9 pm",
+    "wednesday": "Lower Deck: 11 am - 9 pm, Upper Deck: 4 pm - 9 pm",
+    "thursday": "Lower Deck: 11 am - 9 pm, Upper Deck: 4 pm - 9 pm",
+    "friday": "Lower Deck: 11 am - 10 pm, Upper Deck: 4 pm - 10 pm",
+    "saturday": "Lower Deck: 11 am - 10 pm, Upper Deck: 4 pm - 10 pm",
+    "sunday": "Lower Deck: 11 am - 9 pm, Upper Deck: 11 am - 3 pm & 4 pm - 9 pm",
+    "notes": "Winter Hours - Closed Monday"
+  },
+  "about": {
+    "description": "The Shipp family returns to Orange Beach with two distinct culinary experiences: dockside seafood and sushi on the lower deck and Chef Matt's signature dishes with craft cocktails on the upscale yet relaxed upper deck.",
+    "elevator_pitch": "A waterfront seafood restaurant at Orange Beach Marina offering casual dockside dining on the lower deck and upscale full-service dining on the upper deck.",
+    "vibe": "Casual counter service on lower deck, family-friendly full-service upscale yet relaxed atmosphere on upper deck",
+    "best_for": [
+      "families",
+      "date night",
+      "waterfront dining",
+      "seafood lovers"
+    ],
+    "established": null,
+    "reservations": "Available for dinner",
+    "insider_tip": "Two distinct dining experiences in one location - choose between casual dockside seafood or upscale dining with craft cocktails"
+  },
+  "tags": [
+    "seafood",
+    "sushi",
+    "waterfront",
+    "casual dining",
+    "full service",
+    "craft cocktails",
+    "marina"
+  ],
+  "features": [
+    "waterfront location",
+    "two separate dining areas",
+    "full bar",
+    "craft cocktails",
+    "sushi",
+    "counter service",
+    "full service dining",
+    "family friendly"
+  ],
+  "price_range": "$$",
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://www.shippsdockside.com"
+  },
+  "specials": [
+    {
+      "name": "Daily Specials",
+      "description": null,
+      "days": [],
+      "time": null
+    }
+  ],
+  "events": [],
+  "menu": {
+    "categories": []
+  },
+  "url": "https://shippsdockside.com",
+  "scraped_at": "2026-03-21T20:13:00.074Z",
+  "extracted_at": "2026-03-23T04:07:08.410Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://images.squarespace-cdn.com/content/v1/67a28c935265fe3ded319790/c264c24d-17a2-45a9-8a33-72b49f581b97/Shipp%27s+Dockside+Grill-1100.jpg?format=1500w",
+    "https://images.squarespace-cdn.com/content/v1/67a28c935265fe3ded319790/ae9003ef-2f0b-4a0c-8d55-5b3923ae16b4/Shipp%27s+Dockside+Grill-250.jpg?format=1500w",
+    "https://images.squarespace-cdn.com/content/v1/67a28c935265fe3ded319790/9bd2bea8-2dc4-4a99-b357-c5d22295486c/shipps-dockside-grill-orange-beach-waterfront--2.jpg",
+    "https://images.squarespace-cdn.com/content/v1/67a28c935265fe3ded319790/0f092094-1707-4336-b493-151be0993f64/shipps-dockside-grill-orange-beach-waterfront-.jpg",
+    "https://images.squarespace-cdn.com/content/v1/67a28c935265fe3ded319790/3a75d27a-e1f3-47e5-a13b-d8d8131f3c2e/Shipps+Grouper++Pontchartrain.jpg",
+    "https://images.squarespace-cdn.com/content/v1/67a28c935265fe3ded319790/aaac49c3-d359-496d-a0ad-a04c2c913a5d/505A0724.jpg",
+    "https://images.squarespace-cdn.com/content/v1/67a28c935265fe3ded319790/bf978dc3-edec-47cb-8da6-172a2f632bd3/Shipps_Dockside_20250326-0119-ORF_DXO.jpeg",
+    "https://maps.gstatic.com/mapfiles/transparent.png"
+  ],
+  "sources": [
+    "https://shippsdockside.com"
+  ]
+}

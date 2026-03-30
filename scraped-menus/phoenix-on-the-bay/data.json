@@ -1,0 +1,245 @@
+{
+  "business_name": "Phoenix on the Bay",
+  "tagline": null,
+  "type": "Vacation Rental Condo Community",
+  "contact": {
+    "phone": "1-800-211-7892",
+    "email": null,
+    "address": "27580 Canal Road",
+    "city": "Orange Beach",
+    "state": "AL",
+    "zip": "36561"
+  },
+  "location": {
+    "beachfront": false,
+    "bay_view": true,
+    "description": "Waterfront condominium community located along Terry Cove in Orange Beach, Alabama with views of Terry Cove, Robinson Island, and Perdido Pass. Public beach access approximately 5 minutes drive away."
+  },
+  "about": {
+    "description": "Phoenix on the Bay is a waterfront condominium community located along Terry Cove in Orange Beach, Alabama. The property offers a distinctive bayfront setting with views of Terry Cove, Robinson Island, and Perdido Pass, while remaining just a short drive from public beach access. The property features fully furnished 1-, 2-, and 3-bedroom vacation rentals with equipped kitchens and spacious private balconies overlooking the bay and pool areas. With an on-site marina, boat launch, and boat slips, Phoenix on the Bay is well-suited for guests who enjoy boating, fishing, and water-based recreation during their stay. Guests booking through Brett/Robinson receive professionally managed accommodations and local destination expertise.",
+    "elevator_pitch": "Waterfront bayfront condo community in Orange Beach with marina, boat slips, and resort-style amenities perfect for boating and fishing enthusiasts.",
+    "total_units": null,
+    "floors": null,
+    "year_built": null,
+    "pet_friendly": false,
+    "minimum_stay": null,
+    "check_in": "Varies by season",
+    "check_out": "Varies by season",
+    "age_restriction": null
+  },
+  "amenities": {
+    "pools": [
+      "outdoor pool",
+      "indoor pool",
+      "lazy river",
+      "kiddie pool with fountain features",
+      "corkscrew water slide"
+    ],
+    "hot_tubs": true,
+    "fitness_center": true,
+    "tennis_courts": true,
+    "pickleball_courts": true,
+    "private_beach_access": false,
+    "parking": "on-site covered parking",
+    "elevators": true,
+    "gated": false,
+    "bbq_grills": true,
+    "business_center": false,
+    "spa": false,
+    "restaurant_on_site": false,
+    "bar_on_site": false,
+    "kids_splash_pad": true,
+    "other": [
+      "sauna",
+      "steam room",
+      "marina with boat slips",
+      "boat launch",
+      "putting green",
+      "basketball court",
+      "lighted tennis courts",
+      "gazebo"
+    ]
+  },
+  "unit_types": [
+    {
+      "name": "1 Bedroom",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "sleeps": null,
+      "view": "bay view",
+      "sq_ft": null,
+      "starting_price": null,
+      "features": [
+        "fully furnished",
+        "equipped kitchen",
+        "private balcony",
+        "floor-to-ceiling windows",
+        "washer and dryer",
+        "air conditioning",
+        "dishwasher",
+        "free Wi-Fi"
+      ]
+    },
+    {
+      "name": "2 Bedroom",
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "sleeps": 6,
+      "view": "bay view",
+      "sq_ft": null,
+      "starting_price": "$130.67/night",
+      "features": [
+        "fully furnished",
+        "equipped kitchen",
+        "private balcony",
+        "floor-to-ceiling windows",
+        "washer and dryer",
+        "air conditioning",
+        "dishwasher",
+        "free Wi-Fi"
+      ]
+    },
+    {
+      "name": "3 Bedroom",
+      "bedrooms": 3,
+      "bathrooms": 3,
+      "sleeps": 8,
+      "view": "bay view",
+      "sq_ft": null,
+      "starting_price": "$230.33/night",
+      "features": [
+        "fully furnished",
+        "equipped kitchen",
+        "private balcony",
+        "floor-to-ceiling windows",
+        "washer and dryer",
+        "air conditioning",
+        "dishwasher",
+        "free Wi-Fi"
+      ]
+    }
+  ],
+  "tags": [
+    "bayfront",
+    "waterfront",
+    "family-friendly",
+    "boating",
+    "fishing",
+    "marina",
+    "resort-style",
+    "pool",
+    "water slide",
+    "lazy river",
+    "Orange Beach",
+    "Alabama Gulf Coast"
+  ],
+  "features": [
+    "on-site marina",
+    "boat slips",
+    "boat launch",
+    "full-time on-site staff",
+    "professionally managed",
+    "all units have bay views",
+    "covered parking",
+    "washer and dryer in each unit",
+    "free Wi-Fi",
+    "fully equipped kitchens",
+    "private balconies",
+    "smoke detectors",
+    "carbon monoxide detectors"
+  ],
+  "social_links": {
+    "instagram": "https://www.instagram.com/brett_robinson_vacations",
+    "facebook": "https://www.facebook.com/BrettRobinsonVacations",
+    "website": "https://www.brett-robinson.com/beach-condo/phoenix-on-the-bay/"
+  },
+  "dining": [
+    {
+      "name": "Avenue Pub",
+      "type": "Restaurant",
+      "description": "Waterfront dining within walking distance of Phoenix on the Bay"
+    },
+    {
+      "name": "Playa",
+      "type": "Restaurant",
+      "description": "Waterfront dining within walking distance of Phoenix on the Bay"
+    },
+    {
+      "name": "Pleasure Island Tiki Bar",
+      "type": "Bar",
+      "description": "Waterfront tiki bar with food, drinks, and live music within walking distance of Phoenix on the Bay"
+    }
+  ],
+  "specials": [
+    {
+      "name": "Hot Deal - High Demand Unit",
+      "description": "Phoenix on the Bay 1427 (2 Bed, 2 Bath, Sleeps 6) available as low as $130.67/night",
+      "dates": null
+    },
+    {
+      "name": "Premium Unit",
+      "description": "Phoenix on the Bay 1428 (3 Bed, 3 Bath, Sleeps 8) available as low as $230.33/night",
+      "dates": null
+    },
+    {
+      "name": "Seasonal Discounts",
+      "description": "Brett/Robinson offers seasonal discounts and promotions throughout the year",
+      "dates": "Year-round"
+    },
+    {
+      "name": "Last-Minute Deals",
+      "description": "Select last-minute deals available on Phoenix on the Bay units",
+      "dates": null
+    },
+    {
+      "name": "Snowbird Specials",
+      "description": "Special rates available for longer stays",
+      "dates": null
+    }
+  ],
+  "url": "https://www.brett-robinson.com/beach-condo/phoenix-on-the-bay/",
+  "scraped_at": "2026-03-21T21:12:38.264Z",
+  "extracted_at": "2026-03-23T04:00:16.750Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://www.brett-robinson.com/assets/images/BRV-25-95-Vacations-Logo-GS-OB-PK-Horizontal-V2.png",
+    "https://www.brett-robinson.com/uploads/BRV-26-25--Easter-30-Days-WebpageGraphic_184150.jpg",
+    "https://www.brett-robinson.com/uploads/BRV-26-27--Mothers-Day-60-Days-WebpageGraphic_185358.jpg",
+    "https://www.brett-robinson.com/uploads/BRV-26-11-Memorial-Day-Stays-V1-WebpageGraphic_150618.jpg",
+    "https://www.brett-robinson.com/uploads/BRV-26-14-4-Bedroom-WebpageGraphic-V4_105813.jpg",
+    "https://www.brett-robinson.com/uploads/lFullSizeRender_110222.jpg",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024446PM_144957.png",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024255PM_144955.png",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024250PM_144952.png",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024550PM_145000.png",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024658PM_145003.png",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024800PM_145005.png",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024929PM_150512.png",
+    "https://www.brett-robinson.com/uploads/45dcbabd-14da-4c03-86b9-e33b1bec1699_152424.png",
+    "https://www.brett-robinson.com/uploads/f7c22236-e96b-4131-a6ef-3b8c161f6d60_152431.png",
+    "https://www.brett-robinson.com/uploads/114f4761-0d52-45a5-adf7-626f0144ccf1_152427.png",
+    "https://www.brett-robinson.com/uploads/7ea53f3d-a24b-4d65-96fa-e5f6adaf272d_152421.png",
+    "https://www.brett-robinson.com/uploads/b96b1f24-e333-42bc-9e47-d77fd57855e4_152429.png",
+    "https://www.brett-robinson.com/uploads/732961ba-7d13-4aa9-9294-690e2e1f3420_153528.png",
+    "https://www.brett-robinson.com/uploads/31e08f79-9b97-4008-a4c9-aac831c9b812_153520.png",
+    "https://www.brett-robinson.com/uploads/bad38faf-f976-4ddb-bf87-78b7a03d52df_153530.png",
+    "https://www.brett-robinson.com/uploads/9c90c840-9dd2-46b1-bc95-cc5c75810af3_153523.png",
+    "https://www.brett-robinson.com/uploads/9703bb55-7293-4a01-ad02-34e7793ffbd7_153525.png"
+  ],
+  "sources": [
+    "https://www.brett-robinson.com/beach-condo/phoenix-on-the-bay",
+    "https://www.brett-robinson.com/specials-and-promotions",
+    "https://www.brett-robinson.com/specials-and-promotions/4bedrooms?icid=4+bedrooms&startDate=2026-06-28&endDate=2026-07-01",
+    "https://www.brett-robinson.com/specials-and-promotions/charming-beachfront-stays-for-a-tranquil-getaway?icid=Hidden-Gems&startDate=2026-06-28&endDate=2026-07-01",
+    "https://www.brett-robinson.com/specials-and-promotions/memorial90?icid=Memorial-Day-90&startDate=2026-05-21&endDate=2026-05-24",
+    "https://www.brett-robinson.com/specials-and-promotions/mothers-day-1?icid=Mothers-Day&startDate=2026-05-07&endDate=2026-05-09",
+    "https://www.brett-robinson.com/specials-and-promotions/spring-informationalb?icid=Spring-InformationalB&startDate=2026-03-05&endDate=2026-03-08",
+    "https://www.brett-robinson.com/specials-and-promotions/easter?icid=Easter&startDate=2026-04-02&endDate=2026-04-05",
+    "https://www.brett-robinson.com/history-of-brettrobinson",
+    "https://www.brett-robinson.com/gulf-shores-orange-beach-events",
+    "https://www.brett-robinson.com/about-brett-robinson",
+    "https://www.brett-robinson.com/office-locations",
+    "https://www.brett-robinson.com/contact",
+    "https://www.brett-robinson.com/driving-directions"
+  ]
+}

@@ -1,0 +1,152 @@
+{
+  "business_name": "Big Beach Brewing Company",
+  "tagline": "Alabama's southernmost brewery",
+  "type": "Brewery",
+  "contact": {
+    "phone": "251-948-2337",
+    "email": "info@bigbeachbrewing.com",
+    "address": "300 East 24th Avenue",
+    "city": "Gulf Shores",
+    "state": "AL",
+    "zip": "36542"
+  },
+  "hours": {
+    "monday": "Noon-10pm",
+    "tuesday": "Noon-10pm",
+    "wednesday": "Noon-10pm",
+    "thursday": "Noon-10pm",
+    "friday": "Noon-11pm",
+    "saturday": "Noon-11pm",
+    "sunday": "Noon-10pm",
+    "notes": null
+  },
+  "about": {
+    "description": "Alabama's southernmost brewery, Big Beach Brewing Company, is located in Gulf Shores, Alabama. They offer craft beer and wine on tap in a brewery setting along the Gulf Coast.",
+    "elevator_pitch": "Big Beach Brewing Company is Alabama's southernmost craft brewery, bringing locally brewed beer and laid-back Gulf Coast vibes to Gulf Shores.",
+    "established": null,
+    "owner": null,
+    "chef": null,
+    "vibe": "Casual, beach-town brewery with laid-back Gulf Coast charm",
+    "best_for": [
+      "groups",
+      "casual drinks",
+      "live music",
+      "beach crowds",
+      "craft beer lovers"
+    ],
+    "age_restriction": "21+",
+    "dress_code": null,
+    "parking": null,
+    "accessibility": null,
+    "reservations": null,
+    "insider_tip": "Check their events page for live music nights to plan your visit around a show.",
+    "awards": [],
+    "press": []
+  },
+  "tags": [
+    "brewery",
+    "craft beer",
+    "wine on tap",
+    "live music",
+    "gulf coast",
+    "beach",
+    "gulf shores",
+    "alabama",
+    "21+",
+    "local brewery",
+    "events"
+  ],
+  "hashtags": [
+    "#bigbeachbrewing",
+    "#gulfshores",
+    "#alabama",
+    "#craftbeer",
+    "#brewery",
+    "#gulfcoast",
+    "#orangebeach",
+    "#alabamabrewery",
+    "#beachbrewery",
+    "#livemusicgulfshores",
+    "#southernbrewery"
+  ],
+  "categories": [
+    "Brewery",
+    "Bar",
+    "Live Music Venue",
+    "Event Venue"
+  ],
+  "cuisine_types": [
+    "Craft Beer",
+    "Wine"
+  ],
+  "atmosphere": [
+    "Casual",
+    "Lively",
+    "Beach Vibes",
+    "Family-Friendly"
+  ],
+  "features": [
+    "beer on tap",
+    "wine on tap",
+    "live music",
+    "events",
+    "photo gallery",
+    "online shop"
+  ],
+  "price_range": "$$",
+  "neighborhood": "Gulf Shores",
+  "social_links": {
+    "instagram": "https://www.instagram.com/bigbeachbrewing",
+    "facebook": "https://www.facebook.com/bigbeachbrewing",
+    "twitter": null,
+    "tiktok": null,
+    "youtube": null,
+    "yelp": null,
+    "tripadvisor": "https://www.tripadvisor.com",
+    "opentable": null,
+    "google_maps": null,
+    "website": "https://bigbeachbrewing.com"
+  },
+  "specials": [],
+  "events": [
+    {
+      "name": "Live Music & Events",
+      "description": "Big Beach Brewing Company hosts live music and special events. Check their website events page for the current schedule.",
+      "recurring": true,
+      "day": null,
+      "time": null,
+      "frequency": "Regular — see events page for schedule"
+    }
+  ],
+  "menu": {
+    "categories": [
+      {
+        "name": "Beer & Wine on Tap",
+        "type": "drinks",
+        "description": "Craft beers brewed in-house and wine available on tap.",
+        "subcategories": [
+          "Craft Beer",
+          "Wine on Tap"
+        ],
+        "items": []
+      }
+    ]
+  },
+  "url": "https://bigbeachbrewing.com",
+  "scraped_at": "2026-03-21T12:27:27.653Z",
+  "sources": [
+    "https://bigbeachbrewing.com"
+  ],
+  "gallery": [
+    "https://static.wixstatic.com/media/7c16f9_c5a19ed259234312a4164fc6ff92b8a6~mv2.jpg/v1/fill/w_1067,h_800,al_c,q_85,enc_avif,quality_auto/7c16f9_c5a19ed259234312a4164fc6ff92b8a6~mv2.jpg",
+    "https://static.wixstatic.com/media/7c16f9_6e5ffac57d1d4be099f9d26a66c34ce6~mv2.png/v1/fill/w_150,h_146,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/HOPLOGO_TINTACKER_RT.png",
+    "https://static.wixstatic.com/media/7c16f9_5f269b10c9a54d5692f45f9b880e88b5~mv2.png/v1/fill/w_222,h_221,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/HOPLOGO_TINTACKER-01.png",
+    "https://static.wixstatic.com/media/e316f544f9094143b9eac01f1f19e697.png/v1/fill/w_45,h_45,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/e316f544f9094143b9eac01f1f19e697.png",
+    "https://static.wixstatic.com/media/c090bd269d424abf8f035befe86158de.png/v1/fill/w_45,h_45,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/c090bd269d424abf8f035befe86158de.png",
+    "https://static.wixstatic.com/media/11062b_8d01f81c92b14c0dab40c952ef35ee99~mv2.png/v1/fill/w_45,h_45,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_8d01f81c92b14c0dab40c952ef35ee99~mv2.png",
+    "https://static.wixstatic.com/media/7c16f9_8ccf053740c047dc841e8477e9880d05~mv2.jpg/v1/fill/w_100,h_100,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/7c16f9_8ccf053740c047dc841e8477e9880d05~mv2.jpg",
+    "https://static.wixstatic.com/media/7c16f9_5f64c6d6ad314bf89bbbc016b6b68273~mv2.png/v1/fill/w_160,h_69,al_c,q_85,enc_avif,quality_auto/7c16f9_5f64c6d6ad314bf89bbbc016b6b68273~mv2.png",
+    "https://static.wixstatic.com/media/7c16f9_c458ea8dd71344cb873b197334b26c68~mv2.jpg/v1/fill/w_69,h_119,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/7c16f9_c458ea8dd71344cb873b197334b26c68~mv2.jpg",
+    "https://static.wixstatic.com/media/7c16f9_270c5839fd314e079d26cf1443d41877~mv2.png/v1/fill/w_201,h_60,al_c,q_85,enc_avif,quality_auto/logo-horz-sq.png"
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "business_name": "Amelia's Deli",
+  "url": "http://ameliasdeli.com/",
+  "scraped_at": "2026-03-21T14:01:21.658Z",
+  "pages": [
+    {
+      "url": "http://ameliasdeli.com",
+      "title": "OUR STORY | ameliasdeli",
+      "text": "top of pageAMELIA'S DELIOUR STORYDeli MenuCAKESMoreUse tab to navigate through the menu items.Monday - Friday\n10 a.m. to 3 p.m.Call Now!Order Online and DeliveryWho we are...since 1996​Amelia's Deli is located in the beautiful city of Gulf Shores, Alabama. We have served the Alabama gulf coast for 30 years!  Our sandwiches will fill you up and our cakes will keep you coming back! For sure one of the best lunches on Pleasure Island. We can also provide sandwich platters, or boxed lunches for your next event or meeting. We hope to see you soon!2200 E 2nd St., Suite A\n\nGulf Shores, AL 36542\n\nwww.ameliasdeli.com\n\nPhone: (251) 968-8333\n\nameliasdeligulfshores@gmail.com​\n\nOpen: Monday - Friday\n\n10a.m - 3p.m.bottom of page",
+      "structuredData": [
+        {
+          "@context": "https://schema.org/",
+          "@type": "WebSite",
+          "name": "ameliasdeli",
+          "url": "https://www.ameliasdeli.com"
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1",
+        "generator": "Wix.com Website Builder",
+        "format-detection": "telephone=no",
+        "skype_toolbar": "skype_toolbar_parser_compatible",
+        "og:title": "OUR STORY | ameliasdeli",
+        "og:url": "https://www.ameliasdeli.com",
+        "og:site_name": "ameliasdeli",
+        "og:type": "website",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "OUR STORY | ameliasdeli"
+      }
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": [
+    "https://static.wixstatic.com/media/f31525_f15e7980e6ae4793bd18df07eef8d287~mv2.png/v1/fill/w_258,h_260,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Sammy_cs%20(1).png",
+    "https://static.wixstatic.com/media/f31525_9da4248219914d74b931aa3149bdf394~mv2.jpg/v1/crop/x_159,y_0,w_1730,h_1152/fill/w_470,h_313,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/clubbowl.jpg",
+    "https://static.wixstatic.com/media/f31525_d4667ba671cb41a3b36cd536fdd4f44d~mv2.jpg/v1/fill/w_254,h_339,q_90,enc_avif,quality_auto/f31525_d4667ba671cb41a3b36cd536fdd4f44d~mv2.jpg",
+    "https://static.wixstatic.com/media/f31525_d5b6a98461754a06a6032868796d7a59~mv2.jpg/v1/fill/w_254,h_339,q_90,enc_avif,quality_auto/f31525_d5b6a98461754a06a6032868796d7a59~mv2.jpg",
+    "https://static.wixstatic.com/media/f31525_e5b97ac7db8742c994c7c7d70817a130~mv2.jpg/v1/fill/w_254,h_339,q_90,enc_avif,quality_auto/f31525_e5b97ac7db8742c994c7c7d70817a130~mv2.jpg",
+    "https://static.wixstatic.com/media/f31525_6ca1bbd747414f9e97c284ba7002f7c7~mv2.jpg/v1/fill/w_254,h_339,q_90,enc_avif,quality_auto/f31525_6ca1bbd747414f9e97c284ba7002f7c7~mv2.jpg",
+    "https://static.wixstatic.com/media/f31525_9dff0bbe2f9944b88fce9558d766ea07~mv2.jpg/v1/crop/x_0,y_114,w_1076,h_475/fill/w_910,h_402,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/18035335847475227_edited_edited.jpg",
+    "https://static.wixstatic.com/media/e1aa082f7c0747168d9cf43e77046142.png/v1/fill/w_39,h_39,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/e1aa082f7c0747168d9cf43e77046142.png",
+    "https://static.wixstatic.com/media/4057345bcf57474b96976284050c00df.png/v1/fill/w_39,h_39,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/4057345bcf57474b96976284050c00df.png"
+  ]
+}

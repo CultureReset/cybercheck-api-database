@@ -1,0 +1,52 @@
+{
+  "business_name": "portabellasrestaurant.net",
+  "tagline": null,
+  "type": null,
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": null,
+    "city": null,
+    "state": null,
+    "zip": null
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": null
+  },
+  "about": {
+    "description": null,
+    "elevator_pitch": null,
+    "vibe": null,
+    "best_for": [],
+    "established": null,
+    "reservations": null,
+    "insider_tip": null
+  },
+  "tags": [],
+  "features": [],
+  "price_range": null,
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://portabellasrestaurant.net"
+  },
+  "specials": [],
+  "events": [],
+  "menu": {
+    "categories": []
+  },
+  "extraction_note": "No website content provided to extract. Please provide the HTML/text content from portabellasrestaurant.net",
+  "url": "https://portabellasrestaurant.net",
+  "scraped_at": "2026-03-22T18:31:50.705Z",
+  "extracted_at": "2026-03-23T04:04:25.380Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [],
+  "sources": []
+}

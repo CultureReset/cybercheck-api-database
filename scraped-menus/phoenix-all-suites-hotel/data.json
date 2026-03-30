@@ -1,0 +1,154 @@
+{
+  "business_name": "Phoenix All Suites Hotel",
+  "tagline": null,
+  "type": "Hotel",
+  "contact": {
+    "phone": "1-800-211-7892",
+    "email": null,
+    "address": "3259 Gulf Shores Parkway",
+    "city": "Gulf Shores",
+    "state": "AL",
+    "zip": "36542"
+  },
+  "location": {
+    "beachfront": true,
+    "bay_view": false,
+    "description": "Beachfront hotel on the Alabama Gulf Coast in Gulf Shores, Alabama"
+  },
+  "about": {
+    "description": "Phoenix All Suites Hotel is a beachfront vacation rental and resort-style property managed by Brett/Robinson Vacation Rentals, offering suite-style accommodations with modern amenities and direct beach access in Gulf Shores, Alabama.",
+    "elevator_pitch": "Beachfront suite-style hotel accommodations in Gulf Shores with resort amenities and modern conveniences.",
+    "total_units": null,
+    "floors": null,
+    "year_built": null,
+    "pet_friendly": true,
+    "minimum_stay": null,
+    "check_in": null,
+    "check_out": null,
+    "age_restriction": null
+  },
+  "amenities": {
+    "pools": [
+      "outdoor pool"
+    ],
+    "hot_tubs": true,
+    "fitness_center": true,
+    "tennis_courts": false,
+    "pickleball_courts": false,
+    "private_beach_access": true,
+    "parking": "covered parking",
+    "elevators": true,
+    "gated": false,
+    "bbq_grills": false,
+    "business_center": false,
+    "spa": false,
+    "restaurant_on_site": false,
+    "bar_on_site": false,
+    "kids_splash_pad": false,
+    "other": [
+      "washer and dryer",
+      "reserved parking"
+    ]
+  },
+  "unit_types": [
+    {
+      "name": "1 Bedroom Suite",
+      "bedrooms": 1,
+      "bathrooms": 1.5,
+      "sleeps": 6,
+      "view": "beachfront",
+      "sq_ft": null,
+      "starting_price": "$119/night",
+      "features": [
+        "full kitchen",
+        "washer/dryer",
+        "balcony",
+        "high-speed Wi-Fi",
+        "cable TV"
+      ]
+    }
+  ],
+  "tags": [
+    "beachfront",
+    "hotel",
+    "suite",
+    "family-friendly",
+    "pet-friendly",
+    "Gulf Shores",
+    "Alabama Gulf Coast",
+    "vacation rental",
+    "resort"
+  ],
+  "features": [
+    "beachfront location",
+    "direct beach access",
+    "suite-style rooms",
+    "covered parking",
+    "reserved parking",
+    "fitness center",
+    "hot tubs/saunas",
+    "pool",
+    "washer and dryer in units",
+    "high-speed Wi-Fi",
+    "cable TV",
+    "full kitchens",
+    "private balconies"
+  ],
+  "social_links": {
+    "instagram": "https://www.instagram.com/brett_robinson_vacations",
+    "facebook": "https://www.facebook.com/BrettRobinsonVacations",
+    "website": "https://www.brett-robinson.com/beach-condo/phoenix-all-suites-hotel/"
+  },
+  "dining": [],
+  "specials": [
+    {
+      "name": "Hot Deals",
+      "description": "Seasonal offers and last-minute savings available for various properties including Phoenix All Suites West Hotel",
+      "dates": "Seasonal"
+    },
+    {
+      "name": "1 or 2 Night Stays",
+      "description": "Short stay options available",
+      "dates": null
+    },
+    {
+      "name": "Seasonal Monthly Rentals",
+      "description": "Extended stay discounts available",
+      "dates": "Seasonal"
+    }
+  ],
+  "url": "https://www.brett-robinson.com/beach-condo/phoenix-all-suites-hotel/",
+  "scraped_at": "2026-03-21T20:29:25.716Z",
+  "extracted_at": "2026-03-23T03:58:46.884Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://www.brett-robinson.com/assets/images/BRV-25-95-Vacations-Logo-GS-OB-PK-Horizontal-V2.png",
+    "https://www.brett-robinson.com/uploads/lFullSizeRender_110222.jpg",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024446PM_144957.png",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024255PM_144955.png",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024250PM_144952.png",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024550PM_145000.png",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024658PM_145003.png",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024800PM_145005.png",
+    "https://www.brett-robinson.com/uploads/ChatGPTImageJun92025024929PM_150512.png",
+    "https://www.brett-robinson.com/uploads/45dcbabd-14da-4c03-86b9-e33b1bec1699_152424.png",
+    "https://www.brett-robinson.com/uploads/f7c22236-e96b-4131-a6ef-3b8c161f6d60_152431.png",
+    "https://www.brett-robinson.com/uploads/114f4761-0d52-45a5-adf7-626f0144ccf1_152427.png",
+    "https://www.brett-robinson.com/uploads/7ea53f3d-a24b-4d65-96fa-e5f6adaf272d_152421.png",
+    "https://www.brett-robinson.com/uploads/b96b1f24-e333-42bc-9e47-d77fd57855e4_152429.png",
+    "https://www.brett-robinson.com/uploads/732961ba-7d13-4aa9-9294-690e2e1f3420_153528.png",
+    "https://www.brett-robinson.com/uploads/31e08f79-9b97-4008-a4c9-aac831c9b812_153520.png",
+    "https://www.brett-robinson.com/uploads/bad38faf-f976-4ddb-bf87-78b7a03d52df_153530.png",
+    "https://www.brett-robinson.com/uploads/9c90c840-9dd2-46b1-bc95-cc5c75810af3_153523.png",
+    "https://www.brett-robinson.com/uploads/9703bb55-7293-4a01-ad02-34e7793ffbd7_153525.png"
+  ],
+  "sources": [
+    "https://www.brett-robinson.com/beach-condo/phoenix-all-suites-hotel",
+    "https://www.brett-robinson.com/history-of-brettrobinson",
+    "https://www.brett-robinson.com/gulf-shores-orange-beach-events",
+    "https://www.brett-robinson.com/about-brett-robinson",
+    "https://www.brett-robinson.com/office-locations",
+    "https://www.brett-robinson.com/contact",
+    "https://www.brett-robinson.com/driving-directions"
+  ]
+}

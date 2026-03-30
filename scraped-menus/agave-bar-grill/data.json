@@ -1,0 +1,116 @@
+{
+  "business_name": "Agave Bar & Grill",
+  "tagline": null,
+  "type": "Restaurant",
+  "contact": {
+    "phone": "(251) 257-3798",
+    "email": null,
+    "address": "3800 Gulf Shores Pkwy ste 370",
+    "city": "Gulf Shores",
+    "state": "AL",
+    "zip": "36542"
+  },
+  "hours": {
+    "monday": "11:00 am - 9:00 pm",
+    "tuesday": "11:00 am - 9:00 pm",
+    "wednesday": "11:00 am - 9:00 pm",
+    "thursday": "11:00 am - 9:30 pm",
+    "friday": "11:00 am - 9:30 pm",
+    "saturday": "11:00 am - 9:30 pm",
+    "sunday": "11:00 am - 9:00 pm",
+    "notes": "Hours may vary by location"
+  },
+  "about": {
+    "description": "Mexican restaurant located in Gulf Shores, Alabama offering online ordering with pickup and delivery options.",
+    "elevator_pitch": "Agave Bar & Grill is a Mexican restaurant in Gulf Shores offering dine-in, pickup, and delivery services.",
+    "vibe": null,
+    "best_for": [],
+    "established": null,
+    "reservations": null,
+    "insider_tip": null
+  },
+  "tags": [
+    "Mexican",
+    "casual dining"
+  ],
+  "features": [
+    "Online ordering",
+    "Pickup available",
+    "Delivery available"
+  ],
+  "price_range": "$$",
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://agavebargrillal.com/"
+  },
+  "specials": [
+    {
+      "name": "First Order Discount",
+      "description": "5% off your first order",
+      "days": [],
+      "time": null,
+      "promo_code": "FRSTWB"
+    }
+  ],
+  "events": [],
+  "menu": {
+    "categories": [
+      {
+        "name": "Popular Items",
+        "type": "specials",
+        "items": [
+          {
+            "name": "Cheese or Bean Dip",
+            "description": null,
+            "price": 3.99,
+            "tags": [
+              "appetizer"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "À La Carta - 4. Quesadilla",
+            "description": null,
+            "price": 4,
+            "tags": [
+              "entree"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Salsa",
+            "description": null,
+            "price": 2.99,
+            "tags": [
+              "appetizer"
+            ],
+            "allergens": []
+          }
+        ]
+      }
+    ]
+  },
+  "url": "https://agavebargrillal.com/",
+  "scraped_at": "2026-03-21T14:56:59.953Z",
+  "extracted_at": "2026-03-23T03:28:02.756Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://d2gqo3h0psesgi.cloudfront.net/auto/agave-bar--grill-rcp698jq-logo.png",
+    "https://d2gqo3h0psesgi.cloudfront.net/auto/agave-bar--grill-n4ljkps8-food1.jpg",
+    "https://d2gqo3h0psesgi.cloudfront.net/auto/agave-bar--grill-hk2z8b76-food2.jpg",
+    "https://d2gqo3h0psesgi.cloudfront.net/auto/agave-bar--grill-2x38tcqs-food3.jpg",
+    "https://maps.gstatic.com/mapfiles/transparent.png",
+    "https://d231ztcmroo6jm.cloudfront.net/uploads/2019/03/1024-copy.png",
+    "https://d231ztcmroo6jm.cloudfront.net/uploads/2018/12/welcome-icon-bg-3.png",
+    "https://d231ztcmroo6jm.cloudfront.net/uploads/2019/03/1024-300x168.png"
+  ],
+  "sources": [
+    "https://agavebargrillal.com",
+    "https://agavebargrillal.com/agave-bar--grill/?promo=FRSTWB",
+    "https://agavebargrillal.com/accessibility.html",
+    "https://agavebargrillal.com/index.html",
+    "https://agavebargrillal.com/agave-bar--grill/locations",
+    "https://agavebargrillal.com/agave-bar--grill"
+  ]
+}

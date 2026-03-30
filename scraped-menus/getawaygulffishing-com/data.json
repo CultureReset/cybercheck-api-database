@@ -1,0 +1,310 @@
+{
+  "business_name": "Getaway Charters",
+  "tagline": "World class deep sea fishing adventures in the beautiful waters of Orange Beach since 1995",
+  "type": "Fishing Charter",
+  "contact": {
+    "phone": "251-600-5850",
+    "email": "getawaychartersoba@gmail.com",
+    "address": "26619 Perdido Beach Blvd",
+    "city": "Orange Beach",
+    "state": "AL",
+    "zip": "36561"
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": "Contact for specific hours"
+  },
+  "about": {
+    "description": "Getaway Charters has been in business since 1995 with some of the best fishing charter boats in Orange Beach, Alabama. Located at Zekes Marina, we are only 10 minutes from Gulf Shores AL and Perdido Key FL. Two exceptional vessels (Getaway & Another Getaway) designed for unforgettable fishing experiences with one of the most popular charter companies on the Gulf of Mexico.",
+    "elevator_pitch": "Premier deep sea and family fishing charter company in Orange Beach offering full and half-day adventures since 1995.",
+    "vibe": "Professional, family-friendly, experienced captains and deckhands, well-maintained vessels with modern electronics and comfortable amenities",
+    "best_for": [
+      "families",
+      "beginners",
+      "kids",
+      "experienced anglers",
+      "groups",
+      "adventure seekers"
+    ],
+    "capacity": "Up to 6 passengers per boat",
+    "duration_options": [
+      "4 hours",
+      "5 hours",
+      "6 hours",
+      "6-8 hours",
+      "full day",
+      "overnight excursions"
+    ],
+    "departure_location": "Zekes Marina, Orange Beach, AL",
+    "what_provided": [
+      "fishing rods",
+      "tackle",
+      "fishing license",
+      "climate controlled cabin",
+      "comfortable seating",
+      "restroom",
+      "sleeping accommodations (overnight trips)",
+      "Sirius Satellite Stereo"
+    ],
+    "what_to_bring": null,
+    "age_restriction": null,
+    "weight_restriction": null,
+    "reservations": "Book Now available on website",
+    "cancellation_policy": null,
+    "insider_tip": "Located only 10 minutes from Gulf Shores AL and Perdido Key FL. Vessels equipped with Furuno radar, Simrad bottom machine, and Simrad chart plotter for optimal fishing conditions."
+  },
+  "tags": [
+    "deep sea fishing",
+    "family fishing",
+    "kids fishing",
+    "offshore fishing",
+    "nearshore fishing",
+    "red snapper",
+    "grouper",
+    "shark fishing",
+    "bottom fishing",
+    "deep drop fishing",
+    "trolling",
+    "Orange Beach",
+    "Gulf of Mexico",
+    "charter boat",
+    "adventure"
+  ],
+  "features": [
+    "46' Hatteras Sportfishing Yachts",
+    "Climate controlled cabin",
+    "Modern electronics (Furuno radar, Simrad bottom machine, Simrad chart plotter)",
+    "Sleeping accommodations",
+    "Onboard restroom",
+    "Sirius Satellite Stereo",
+    "Fishing license included",
+    "Tackle included",
+    "Overnight excursions available",
+    "Specialized slow-pitch jigging rods and reels",
+    "Two vessels available",
+    "Professional captains and deckhands"
+  ],
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "tripadvisor": null,
+    "website": "https://getawaygulffishing.com"
+  },
+  "specials": [],
+  "events": [],
+  "packages": [
+    {
+      "name": "Family Fishing Getaway",
+      "type": "fishing",
+      "description": "Perfect for families and beginners. Fish the productive nearshore waters for mackerels on the 4 hour trip and offshore for red snapper on the 6-8 hour trips. Includes attentive captains and deckhands, great atmosphere for family, scenery and dolphin watching, cool air conditioned cabin.",
+      "duration": "4 hours (nearshore) or 6-8 hours (offshore)",
+      "price": null,
+      "price_type": null,
+      "price_note": "See pricing page",
+      "min_people": 1,
+      "max_people": 6,
+      "what_included": [
+        "fishing rods",
+        "tackle",
+        "fishing license",
+        "cabin access",
+        "attentive captains and deckhands"
+      ],
+      "departure_times": null,
+      "days_available": "Daily",
+      "booking_url": "https://getawaygulffishing.com/book-now",
+      "notes": "Great for all experience levels"
+    },
+    {
+      "name": "Kids Fishing Adventure",
+      "type": "fishing",
+      "description": "Designed for kids of all ages. Friendly and patient captains and deckhands. Great for photo sessions and creating lifetime memories. Available on 4, 5, 6 hour and full day trips.",
+      "duration": "4-8+ hours",
+      "price": null,
+      "price_type": null,
+      "price_note": "See pricing page",
+      "min_people": 1,
+      "max_people": 6,
+      "what_included": [
+        "fishing rods",
+        "tackle",
+        "fishing license",
+        "patient instruction",
+        "cabin access"
+      ],
+      "departure_times": null,
+      "days_available": "Daily",
+      "booking_url": "https://getawaygulffishing.com/book-now",
+      "notes": "Fit for all ages, patient and friendly crew"
+    },
+    {
+      "name": "Shark Fishing",
+      "type": "fishing",
+      "description": "Fish for sharks while fishing for other fish. Mostly catch large bull sharks weighing 100 to well over 300 pounds. Battle the shark while taking photos and videos. Available on both vessels.",
+      "duration": "6 hours or longer",
+      "price": null,
+      "price_type": null,
+      "price_note": "See pricing page",
+      "min_people": 1,
+      "max_people": 6,
+      "what_included": [
+        "fishing rods",
+        "tackle",
+        "fishing license",
+        "cabin access"
+      ],
+      "departure_times": null,
+      "days_available": "Daily",
+      "booking_url": "https://getawaygulffishing.com/book-now",
+      "notes": "Giant sharks 100-300+ pounds, available on both vessels"
+    },
+    {
+      "name": "Full Day Charter",
+      "type": "fishing",
+      "description": "Extended fishing adventure with many species of fish that may be caught. Includes bottom fishing, deep drop, and offshore trolling. Opportunity to catch a variety of fish found in the Gulf of Mexico using specialized slow-pitch jigging rods and reels.",
+      "duration": "8+ hours",
+      "price": null,
+      "price_type": null,
+      "price_note": "See pricing page",
+      "min_people": 1,
+      "max_people": 6,
+      "what_included": [
+        "fishing rods",
+        "tackle",
+        "fishing license",
+        "specialized slow-pitch jigging rods and reels",
+        "cabin access"
+      ],
+      "departure_times": null,
+      "days_available": "Daily",
+      "booking_url": "https://getawaygulffishing.com/book-now",
+      "notes": "Multiple fishing techniques: bottom fishing, deep drop, offshore trolling"
+    },
+    {
+      "name": "Deep Drop Fishing",
+      "type": "fishing",
+      "description": "Deep water fishing charter targeting species found in deeper offshore waters.",
+      "duration": "6+ hours",
+      "price": null,
+      "price_type": null,
+      "price_note": "See pricing page",
+      "min_people": 1,
+      "max_people": 6,
+      "what_included": [
+        "fishing rods",
+        "tackle",
+        "fishing license"
+      ],
+      "departure_times": null,
+      "days_available": "Daily",
+      "booking_url": "https://getawaygulffishing.com/book-now",
+      "notes": null
+    },
+    {
+      "name": "Deep Sea Fishing",
+      "type": "fishing",
+      "description": "Offshore deep sea fishing adventure in the Gulf of Mexico.",
+      "duration": "6-8+ hours",
+      "price": null,
+      "price_type": null,
+      "price_note": "See pricing page",
+      "min_people": 1,
+      "max_people": 6,
+      "what_included": [
+        "fishing rods",
+        "tackle",
+        "fishing license"
+      ],
+      "departure_times": null,
+      "days_available": "Daily",
+      "booking_url": "https://getawaygulffishing.com/book-now",
+      "notes": "Offshore range available"
+    },
+    {
+      "name": "Grouper Fishing",
+      "type": "fishing",
+      "description": "Specialized grouper fishing charter targeting grouper species in the Gulf of Mexico.",
+      "duration": "6+ hours",
+      "price": null,
+      "price_type": null,
+      "price_note": "See pricing page",
+      "min_people": 1,
+      "max_people": 6,
+      "what_included": [
+        "fishing rods",
+        "tackle",
+        "fishing license"
+      ],
+      "departure_times": null,
+      "days_available": "Daily",
+      "booking_url": "https://getawaygulffishing.com/book-now",
+      "notes": null
+    },
+    {
+      "name": "Red Snapper Fishing",
+      "type": "fishing",
+      "description": "Offshore red snapper fishing charter. Available on 6-8 hour trips targeting productive red snapper waters.",
+      "duration": "6-8 hours",
+      "price": null,
+      "price_type": null,
+      "price_note": "See pricing page",
+      "min_people": 1,
+      "max_people": 6,
+      "what_included": [
+        "fishing rods",
+        "tackle",
+        "fishing license"
+      ],
+      "departure_times": null,
+      "days_available": "Daily",
+      "booking_url": "https://getawaygulffishing.com/book-now",
+      "notes": "6-8 hour offshore trips"
+    },
+    {
+      "name": "Spring Break Fishing",
+      "type": "fishing",
+      "description": "Spring break special fishing charter for families and groups during spring break season.",
+      "duration": "4-8+ hours",
+      "price": null,
+      "price_type": null,
+      "price_note": "See pricing page",
+      "min_people": 1,
+      "max_people": 6,
+      "what_included": [
+        "fishing rods",
+        "tackle",
+        "fishing license"
+      ],
+      "departure_times": null,
+      "days_available": "Daily during spring break",
+      "booking_url": "https://getawaygulffishing.com/book-now",
+      "notes": "Seasonal offering"
+    }
+  ],
+  "url": "https://getawaygulffishing.com",
+  "scraped_at": "2026-03-21T19:48:03.445Z",
+  "extracted_at": "2026-03-23T03:42:55.328Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://getawaygulffishing.com/wp-content/themes/bones/library/images/logowhite.png",
+    "https://getawaygulffishing.com/wp-content/uploads/2026/02/IMG_4150.jpg",
+    "https://getawaygulffishing.com/wp-content/uploads/2026/02/IMG_1099.jpg",
+    "https://getawaygulffishing.com/wp-content/uploads/2026/02/pic6.png",
+    "https://getawaygulffishing.com/wp-content/uploads/2026/02/pic5.png",
+    "https://getawaygulffishing.com/wp-content/uploads/2026/02/pic4.png",
+    "https://getawaygulffishing.com/wp-content/uploads/2026/02/pic3.png",
+    "https://getawaygulffishing.com/wp-content/uploads/2026/02/pic2.png",
+    "https://getawaygulffishing.com/wp-content/uploads/2026/02/pic1.png",
+    "https://getawaygulffishing.com/wp-content/themes/bones/library/images/logoblue.png"
+  ],
+  "sources": [
+    "https://getawaygulffishing.com",
+    "https://getawaygulffishing.com/contact-us"
+  ]
+}

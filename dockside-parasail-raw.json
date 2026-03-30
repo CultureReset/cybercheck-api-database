@@ -1,0 +1,58 @@
+{
+  "slug": "dockside-parasail",
+  "url": "https://www.tripshock.com/orange-beach-dockside-parasail/details/5989/",
+  "activity_id": "5989",
+  "title": "Orange Beach: Dockside Parasail",
+  "category": "Parasailing",
+  "description": "Climb aboard with a small group and get ready to fly! You will be safely harnessed in before the boat gently picks up speed, lifting you smoothly into the sky. Soar up to 400 feet above the Gulf of Mexico and take in breathtaking views of sugar-white beaches, crystal-clear turquoise water, marine life, and miles of coastline in every direction. Each flight lasts 8–10 minutes and is available for single, double, or triple riders. It's peaceful, thrilling, and unforgettable. Perfect for first timers and adventure lovers alike!",
+  "rating": null,
+  "review_count": null,
+  "reviews": [],
+  "duration": "1 Hr.",
+  "meeting_point": "27550 Larry C Kelley Rd, Orange Beach, AL 36561, USA",
+  "highlights": [
+    "Enjoy panoramic views of the Gulf Coast on an Orange Beach: Dockside Parasail experience",
+    "Soar up to 400 feet above the Gulf of Mexico with an 8–10-minute flight time",
+    "Small group boat experience that is safe and perfect for first timers",
+    "Single, double, or triple flights available",
+    "Perfect for ages 5+"
+  ],
+  "included": [],
+  "what_to_bring": [],
+  "restrictions": [
+    "This departure location allows guests to step directly onto the vessel. There is a place for guests to leave their wheelchairs/walkers/scooters at the dock during the excursion.",
+    "For guests under the age of 19, a parent or legal guardian is required to sign a waiver.",
+    "Electronics and shoes are not permitted on the boat. These items may be safely left with a team member at the beach.",
+    "Children under 14 must be accompanied on the parasail boat by a guest who is 16 or older.",
+    "Participants must be at least 5 years old to ride on the boat or parasail.",
+    "The combined weight of guests flying must be between 150 and 450 pounds.",
+    "Expectant mothers are not permitted.",
+    "Maximum of 2 observers."
+  ],
+  "price_from": 99,
+  "ticket_prices": {
+    "Flyer (Ages 5+)": 98.99,
+    "Observer (Ages 5+)": 43.99
+  },
+  "schedules": [
+    { "time": "10:30 AM", "tickets": [ { "name": "Flyer (Ages 5+)", "price": 98.99 }, { "name": "Observer (Ages 5+)", "price": 43.99 } ] },
+    { "time": "11:30 AM", "tickets": [ { "name": "Flyer (Ages 5+)", "price": 98.99 }, { "name": "Observer (Ages 5+)", "price": 43.99 } ] },
+    { "time": "12:30 PM", "tickets": [ { "name": "Flyer (Ages 5+)", "price": 98.99 }, { "name": "Observer (Ages 5+)", "price": 43.99 } ] },
+    { "time": "1:30 PM",  "tickets": [ { "name": "Flyer (Ages 5+)", "price": 98.99 }, { "name": "Observer (Ages 5+)", "price": 43.99 } ] },
+    { "time": "2:30 PM",  "tickets": [ { "name": "Flyer (Ages 5+)", "price": 98.99 }, { "name": "Observer (Ages 5+)", "price": 43.99 } ] },
+    { "time": "3:30 PM",  "tickets": [ { "name": "Flyer (Ages 5+)", "price": 98.99 }, { "name": "Observer (Ages 5+)", "price": 43.99 } ] }
+  ],
+  "images": [
+    "https://images.tripshock.com/photo/5989-042/Orange-Beach-Dockside-Parasail.jpg",
+    "https://images.tripshock.com/activity/5989/Orange-Beach-Dockside-Parasail.jpg",
+    "https://images.tripshock.com/photo/5989-873/Orange-Beach-Dockside-Parasail.jpg",
+    "https://images.tripshock.com/photo/5989-859/Orange-Beach-Dockside-Parasail.jpg",
+    "https://images.tripshock.com/photo/5989-536/Orange-Beach-Dockside-Parasail.jpg",
+    "https://images.tripshock.com/photo/5989-499/Orange-Beach-Dockside-Parasail.jpg",
+    "https://images.tripshock.com/photo/5989-435/Orange-Beach-Dockside-Parasail.jpg",
+    "https://images.tripshock.com/photo/5989-118/Orange-Beach-Dockside-Parasail.jpg",
+    "https://images.tripshock.com/photo/5989-097/Orange-Beach-Dockside-Parasail.jpg"
+  ],
+  "phone": "850-424-5125",
+  "googleMaps": "https://maps.google.com/?q=27550+Larry+C+Kelley+Rd,+Orange+Beach,+AL+36561"
+}

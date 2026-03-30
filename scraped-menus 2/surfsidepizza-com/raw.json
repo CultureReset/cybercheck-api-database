@@ -1,0 +1,176 @@
+{
+  "business_name": "surfsidepizza.com",
+  "url": "https://surfsidepizza.com",
+  "scraped_at": "2026-03-21T20:13:46.772Z",
+  "pages": [
+    {
+      "url": "https://surfsidepizza.com",
+      "title": "Surfside Pizza | Orange Beach, AL",
+      "text": "Skip to content\n \n\t\n \n \n \n \n\t\n \n \n \n \n\tFacebook\n \n \n \n \n \n Our Menu\n \n\t\n\t\n \n \n \n \n\t\n \n \n \n \n \n \n About us\nContact\n \n\t\n\t\n \n \n\t\n \n \n \n\t\n\n \n \n \n\t\n\t\n\n\t\n \n \n \n\t\n \n \n \n \n\t\n \n \n \n \n \n Toggle Menu\n \n \n\t\n\t\n \n \n \n\t\n\n \n \n \n\n\t\n \n\t\n \n \n \n\t\n \n\n\t\n\nSurf’s Up, Pizza Lovers!\n\nSurfside Pizza Orange Beach: DELIVERY,Dine-In &PICKUP\n\nGo to menu & order\n\nPizza\n\nWings​\n\nSubs\n\nSauce\n\nDrinks\n\ndessert​\n\nAbout Our Food\n\nFrom Our Family to Yours\n\nSurfside Pizza is a locally owned, family-operated restaurant in Orange Beach, Alabama, where quality comes first. We craft our dough and sauce by hand daily, using only the freshest, most flavorful toppings. \n\nUnlike the big chains, you won’t find frozen crusts or bland ingredients here—just delicious, made-from-scratch pizza you’ll love!\n\norder now\n\nTestimonials\n\nCustomer Reviews\n\nReal Reviews. Real Flavor. See What Our Customers Are Saying!\n\nThe 14-inch Meat Me in Maui pizza was delicious! The toppings were generous, the homemade crust had great flavor, and there was plenty of sauce to tie it all together. A great choice for anyone who loves a hearty, flavorful pizza!Jay n.\n\nWe had the Kokomo with thin crust. It was excellent. The crust was crispy and the toppings were plentiful. Very happy and will be ordering from here again.Scott s.\n\nI stopped in and asked the Surfside Pizza team if they could make me something special that wasn’t on the menu. They were happy to do it, and the pizza was ready in no time. I took it home, had my first bite, and was blown away—it was so good that I drove right back to the restaurant just to tell them! I’ve lived here for 20 years, and this is hands down the best pizza I’ve ever had.Robert B.\n\nI found Surfside Pizza in Orange Beach through a Google search and decided to try their delivery. I ordered a pizza and Cheese Pizza Sticks, and even though the estimated delivery time was 45 minutes, they arrived 10 minutes early—delivered by the owner himself! The food was excellent, and the customer service from the phone call to delivery was outstanding. Highly recommend!marcia W.\n\n\t\n\n \n \n \n\n\t\n\t\n\t\n \n\t\n \n \n \n \n\t\n \nContact\n\nSurfside Pizza25405 Perdido Beach Blvd.In Rouses Shopping CenterOrange Beach, AL 36561(251) 981-2911\n\t\n\n \n \n \n\t\n \nWorking\n\n11:00 - 9:00 Sunday\n\n11:00 - 9:00 Monday\n\n11:00 - 9:00 Tuesday\n\n11:00 - 9:00 Wednesday\n\n11:00 - 9:00 Thursday\n\n11:00 - 9:00 Friday\n\n11:00 - 9:00 Saturday\n\n\t\n\n \n \n \n\t\n Get in TouchFacebook\n \n\n \n \n \n\t\n \n\n\t\n\n \n \n \n\t\n\n\t\n \n \n \n \n\n\t\n © 2026 Surfside Pizza Orange Beach\n\t\n\n \n \n \n\t\n \n \n Our Menu\nAbout us\nPrivacy Policy\nContact\n \n\t\n \n\n \n \n \n\t\n\n\t\n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Our Menu\nAbout Us\nContact Us",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": [
+                "Person",
+                "Organization"
+              ],
+              "@id": "https://www.surfsidepizza.com/#person",
+              "name": "Surfside Pizza",
+              "logo": {
+                "@type": "ImageObject",
+                "@id": "https://www.surfsidepizza.com/#logo",
+                "url": "https://www.surfsidepizza.com/wp-content/uploads/2025/02/surfside-pizza-logo_150-150x150.png",
+                "contentUrl": "https://www.surfsidepizza.com/wp-content/uploads/2025/02/surfside-pizza-logo_150-150x150.png",
+                "caption": "Surfside Pizza",
+                "inLanguage": "en-US"
+              },
+              "image": {
+                "@type": "ImageObject",
+                "@id": "https://www.surfsidepizza.com/#logo",
+                "url": "https://www.surfsidepizza.com/wp-content/uploads/2025/02/surfside-pizza-logo_150-150x150.png",
+                "contentUrl": "https://www.surfsidepizza.com/wp-content/uploads/2025/02/surfside-pizza-logo_150-150x150.png",
+                "caption": "Surfside Pizza",
+                "inLanguage": "en-US"
+              }
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://www.surfsidepizza.com/#website",
+              "url": "https://www.surfsidepizza.com",
+              "name": "Surfside Pizza",
+              "publisher": {
+                "@id": "https://www.surfsidepizza.com/#person"
+              },
+              "inLanguage": "en-US",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://www.surfsidepizza.com/?s={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
+            },
+            {
+              "@type": "ImageObject",
+              "@id": "https://www.surfsidepizza.com/wp-content/uploads/2025/01/Pizza-homepage-placeholder-scaled.jpg",
+              "url": "https://www.surfsidepizza.com/wp-content/uploads/2025/01/Pizza-homepage-placeholder-scaled.jpg",
+              "width": "2560",
+              "height": "1696",
+              "caption": "Surfside Pizza",
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://www.surfsidepizza.com/#webpage",
+              "url": "https://www.surfsidepizza.com/",
+              "name": "Surfside Pizza | Orange Beach, AL",
+              "datePublished": "2021-03-11T13:35:55+00:00",
+              "dateModified": "2025-02-17T18:27:24+00:00",
+              "about": {
+                "@id": "https://www.surfsidepizza.com/#person"
+              },
+              "isPartOf": {
+                "@id": "https://www.surfsidepizza.com/#website"
+              },
+              "primaryImageOfPage": {
+                "@id": "https://www.surfsidepizza.com/wp-content/uploads/2025/01/Pizza-homepage-placeholder-scaled.jpg"
+              },
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "Person",
+              "@id": "https://www.surfsidepizza.com/author/stevemellonstock-com/",
+              "name": "steve@mellonstock.com",
+              "url": "https://www.surfsidepizza.com/author/stevemellonstock-com/",
+              "image": {
+                "@type": "ImageObject",
+                "@id": "https://secure.gravatar.com/avatar/5c25637e15240bcfa54fc151b30dc5cb?s=96&amp;d=mm&amp;r=g",
+                "url": "https://secure.gravatar.com/avatar/5c25637e15240bcfa54fc151b30dc5cb?s=96&amp;d=mm&amp;r=g",
+                "caption": "steve@mellonstock.com",
+                "inLanguage": "en-US"
+              },
+              "sameAs": [
+                "https://surfsidepizza.com"
+              ]
+            },
+            {
+              "@type": "Article",
+              "headline": "Surfside Pizza | Orange Beach, AL",
+              "keywords": "Surfside Pizza",
+              "datePublished": "2021-03-11T13:35:55+00:00",
+              "dateModified": "2025-02-17T18:27:24+00:00",
+              "author": {
+                "@id": "https://www.surfsidepizza.com/author/stevemellonstock-com/",
+                "name": "steve@mellonstock.com"
+              },
+              "publisher": {
+                "@id": "https://www.surfsidepizza.com/#person"
+              },
+              "description": "Enjoy Fresh Pizza, Subs &amp; Wings At Surfside Pizza In Orange Beach, AL. Order Online Or Visit Our Family Restaurant For Dine-In, Takeout, Or Delivery. Call 251-981-2911.",
+              "name": "Surfside Pizza | Orange Beach, AL",
+              "@id": "https://www.surfsidepizza.com/#richSnippet",
+              "isPartOf": {
+                "@id": "https://www.surfsidepizza.com/#webpage"
+              },
+              "image": {
+                "@id": "https://www.surfsidepizza.com/wp-content/uploads/2025/01/Pizza-homepage-placeholder-scaled.jpg"
+              },
+              "inLanguage": "en-US",
+              "mainEntityOfPage": {
+                "@id": "https://www.surfsidepizza.com/#webpage"
+              }
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "viewport": "width=device-width, initial-scale=1, minimum-scale=1",
+        "description": "Enjoy Fresh Pizza, Subs & Wings At Surfside Pizza In Orange Beach, AL. Order Online Or Visit Our Family Restaurant For Dine-In, Takeout, Or Delivery. Call 251-981-2911.",
+        "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+        "og:locale": "en_US",
+        "og:type": "website",
+        "og:title": "Surfside Pizza | Orange Beach, AL",
+        "og:description": "Enjoy Fresh Pizza, Subs & Wings At Surfside Pizza In Orange Beach, AL. Order Online Or Visit Our Family Restaurant For Dine-In, Takeout, Or Delivery. Call 251-981-2911.",
+        "og:url": "https://www.surfsidepizza.com/",
+        "og:site_name": "Surfside Pizza",
+        "og:updated_time": "2025-02-17T18:27:24+00:00",
+        "og:image": "https://www.surfsidepizza.com/wp-content/uploads/2025/01/Pizza-homepage-placeholder-1024x678.jpg",
+        "og:image:secure_url": "https://www.surfsidepizza.com/wp-content/uploads/2025/01/Pizza-homepage-placeholder-1024x678.jpg",
+        "og:image:width": "1024",
+        "og:image:height": "678",
+        "og:image:alt": "Surfside Pizza",
+        "og:image:type": "image/jpeg",
+        "article:published_time": "2021-03-11T13:35:55+00:00",
+        "article:modified_time": "2025-02-17T18:27:24+00:00",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "Surfside Pizza | Orange Beach, AL",
+        "twitter:description": "Enjoy Fresh Pizza, Subs & Wings At Surfside Pizza In Orange Beach, AL. Order Online Or Visit Our Family Restaurant For Dine-In, Takeout, Or Delivery. Call 251-981-2911.",
+        "twitter:image": "https://www.surfsidepizza.com/wp-content/uploads/2025/01/Pizza-homepage-placeholder-1024x678.jpg",
+        "twitter:label1": "Written by",
+        "twitter:data1": "steve@mellonstock.com",
+        "twitter:label2": "Time to read",
+        "twitter:data2": "Less than a minute",
+        "generator": "Site Kit by Google 1.150.0",
+        "google-site-verification": "8hjgDgs-fVKqOlKU7_LlVhug8YS7wJ0iQO5um8Yh2Jw",
+        "msapplication-TileImage": "https://www.surfsidepizza.com/wp-content/uploads/2025/01/cropped-favicon-270x270.png"
+      }
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": [
+    "https://www.surfsidepizza.com/wp-content/uploads/2025/02/surfside-pizza-logo_150.png",
+    "https://surfsidepizza.com/wp-content/uploads/2025/01/pizza_sm.jpg",
+    "https://surfsidepizza.com/wp-content/uploads/2025/01/wings_sm-300x300.jpg",
+    "https://surfsidepizza.com/wp-content/uploads/2025/01/subs_sm-300x300.jpg",
+    "https://surfsidepizza.com/wp-content/uploads/2020/12/category-2.jpg",
+    "https://surfsidepizza.com/wp-content/uploads/2020/12/category-3.jpg",
+    "https://surfsidepizza.com/wp-content/uploads/2025/01/dessert_sm-300x300.jpg",
+    "https://surfsidepizza.com/wp-content/uploads/2025/02/Surfside-2-of-7-1024x683.jpg",
+    "https://stage.startertemplatecloud.com/g09/wp-content/uploads/sites/4/2020/12/3246264-150x150.jpg",
+    "https://stage.startertemplatecloud.com/g09/wp-content/uploads/sites/4/2020/12/23525-150x150.jpg",
+    "https://stage.startertemplatecloud.com/g09/wp-content/uploads/sites/4/2020/12/6426-150x150.jpg",
+    "https://stage.startertemplatecloud.com/g09/wp-content/uploads/sites/4/2020/12/3563-150x150.jpg",
+    "https://surfsidepizza.com/wp-content/uploads/2025/02/Pizza_Dude.jpg"
+  ]
+}

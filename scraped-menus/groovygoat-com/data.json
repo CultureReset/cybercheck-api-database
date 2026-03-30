@@ -1,0 +1,52 @@
+{
+  "business_name": "groovygoat.com",
+  "tagline": null,
+  "type": null,
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": null,
+    "city": null,
+    "state": null,
+    "zip": null
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": null
+  },
+  "about": {
+    "description": null,
+    "elevator_pitch": null,
+    "vibe": null,
+    "best_for": [],
+    "established": null,
+    "reservations": null,
+    "insider_tip": null
+  },
+  "tags": [],
+  "features": [],
+  "price_range": null,
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://groovygoat.com"
+  },
+  "specials": [],
+  "events": [],
+  "menu": {
+    "categories": []
+  },
+  "note": "No website content provided. Unable to extract data from groovygoat.com",
+  "url": "https://groovygoat.com",
+  "scraped_at": "2026-03-22T02:46:19.357Z",
+  "extracted_at": "2026-03-23T03:43:46.528Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [],
+  "sources": []
+}

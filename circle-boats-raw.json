@@ -1,0 +1,59 @@
+{
+  "business": {
+    "site_id": "22222222-2222-2222-2222-222222222222",
+    "name": "Beachside Circle Boat Rentals and Sales",
+    "domain": "beachsidecircleboats.com",
+    "subdomain": "beachside-circle-boats",
+    "phone": "(601) 325-1205",
+    "rating": 4.9,
+    "description": "Portable Electric Circle Boat Rentals",
+    "logo_url": "https://mhafixflyffflwjhcgfn.supabase.co/storage/v1/object/public/media/22222222-2222-2222-2222-222222222222/logos/1774111953709-7486944039099690506.PNG",
+    "hours": "Mon–Sun: 9:00 AM – 6:00 PM",
+    "gcr_hours": "Weather Policy: Rentals may be cancelled or rescheduled due to severe weather. Full refund or reschedule offered."
+  },
+  "location": {
+    "name": "Main Launch - Canal Road",
+    "address": "25856 Canal Road, Unit A, Orange Beach, AL 36561"
+  },
+  "fleet_types": [
+    {
+      "id": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+      "name": "Single Seater",
+      "description": "Solo cruiser. 57 lbs, portable, 35lb electric motor. Fits one adult up to 300 lbs.",
+      "qty": 23,
+      "halfDayAM": 100,
+      "halfDayPM": 100,
+      "allDay": 175,
+      "deposit": 0,
+      "image_url": "https://mhafixflyffflwjhcgfn.supabase.co/storage/v1/object/public/media/22222222-2222-2222-2222-222222222222/about/1773703867895-FreedomLeft.webp"
+    },
+    {
+      "id": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+      "name": "Double Seater",
+      "description": "Bring a friend. 65 lbs, extra-wide seats, enhanced stability. Fits two adults up to 450 lbs combined. You may not get the actual boat shown in picture, we have 3 different styles of double seaters.",
+      "qty": 9,
+      "halfDayAM": 150,
+      "halfDayPM": 150,
+      "allDay": 225,
+      "deposit": 0,
+      "image_url": "https://mhafixflyffflwjhcgfn.supabase.co/storage/v1/object/public/media/22222222-2222-2222-2222-222222222222/boat/1773553191704-IMG_9604_11.jpg"
+    }
+  ],
+  "time_slots": [
+    { "id": "cccccccc-cccc-cccc-cccc-cccccccccc01", "name": "Half Day AM", "start_time": "9:00 AM", "end_time": "1:00 PM" },
+    { "id": "cccccccc-cccc-cccc-cccc-cccccccccc02", "name": "Half Day PM", "start_time": "2:00 PM", "end_time": "6:00 PM" },
+    { "id": "cccccccc-cccc-cccc-cccc-cccccccccc03", "name": "All Day",     "start_time": "9:00 AM", "end_time": "6:00 PM" }
+  ],
+  "addons": [
+    { "id": "ff3268e7-af11-4420-a028-d8370469e6ba", "name": "Cooler",           "icon": "🧊", "price": 8,  "per_unit": "per cooler", "description": "Keep your drinks cold all day! Add a cooler, just bring your ice and snacks and you are ready to go!", "image_url": "https://mhafixflyffflwjhcgfn.supabase.co/storage/v1/object/public/media/22222222-2222-2222-2222-222222222222/addon/1774048349717-IMG_9594_7.jpg" },
+    { "id": "384f6714-a686-4d9b-b98c-0e36c60094f4", "name": "Sunshade Canopy", "icon": "⛱",  "price": 10, "per_unit": "per boat",   "description": "Beat the heat! Add a sunshade canopy and enjoy your trip without the sun!", "image_url": "https://mhafixflyffflwjhcgfn.supabase.co/storage/v1/object/public/media/22222222-2222-2222-2222-222222222222/addon/1774048907639-5154EDE6-E26C-4070-97E3-015D2CF0B92C.PNG" },
+    { "id": "42c77359-21fd-4bff-8724-8947cbf290dc", "name": "Fishing Poles",    "icon": "🎣", "price": 10, "per_unit": "per pole",   "description": "Try your luck while you're out on the water!", "image_url": "https://mhafixflyffflwjhcgfn.supabase.co/storage/v1/object/public/media/22222222-2222-2222-2222-222222222222/addon/1774049555695-IMG_0123.JPG" },
+    { "id": "90cd4190-6494-4353-bafb-eede40cd3881", "name": "Floating Chair",   "icon": "🪺", "price": 20, "per_unit": "per chair",  "description": "Sit back, float and unwind! Our floating chair is perfect for relaxing in the water!", "image_url": "https://mhafixflyffflwjhcgfn.supabase.co/storage/v1/object/public/media/22222222-2222-2222-2222-222222222222/addon/1774043932039-7148Pg1TOJL.jpg" },
+    { "id": "81ded9ca-4144-4ee1-8c46-3b3dd38077e4", "name": "Floating Mat",     "icon": "🏄", "price": 25, "per_unit": "per mat",    "description": "Make the most of your rental! Add a floating mat for extra space to relax, swim, and enjoy the water!", "image_url": "https://mhafixflyffflwjhcgfn.supabase.co/storage/v1/object/public/media/22222222-2222-2222-2222-222222222222/addon/1774311327033-81YZt2LNAKL._AC_UF894_1000_QL80_.jpg" }
+  ],
+  "dock_addons_from_bookings": [
+    { "name": "X Dock",      "price": 50 },
+    { "name": "Doggie Dock", "price": 50 },
+    { "name": "Mini Dock",   "price": 50 }
+  ]
+}

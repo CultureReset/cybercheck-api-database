@@ -1,0 +1,249 @@
+{
+  "business_name": "Cactus Cantina Gulf Shores",
+  "url": "http://mycactuscantina.com/",
+  "scraped_at": "2026-03-21T14:07:22.654Z",
+  "pages": [
+    {
+      "url": "http://mycactuscantina.com",
+      "title": "Home - Cactus Cantina Mexican Grill - Mexican Restaurant",
+      "text": "Skip to main contentMenusCateringAboutPhotosLocationsCactus Cantina Mexican Grill-logoBecome a VIPSign InMore EmploymentContact UsReviewslaid Back MexicanCuisine By The BeachVoted Best Mexican Food on the Gulf Coast!Always Fresh and Made with a SmileOUR MENUCactus Cantina Mexican GrillAlabamaLoad More ContentMade with by Popmenu(opens in a new window) Locations opens in a new tab, get directions to Cactus Cantina Pensacola Airport5121 North 12th Ave.Pensacola, FL 32504(850) 912-8565info@mycactuscantina.comSunday - Thursday: 11:00 am - 9:00 pmFriday - Saturday: 11:00 am - 10:00 pmopens in a new tab, get directions to Cactus Cantina - Gulf Shores3849 Gulf Shores Pkwy Suite 1 and 2Gulf Shores, AL 36542(251) 943-8115gs@mycactuscantina.comMonday - Sunday: 11:00 am - 9:00 pmopens in a new tab, get directions to Cactus Cantina - Orange Beach (Canal Rd)25908 Canal Rd Suite AOrange Beach, AL 36561(251) 974-0060Monday - Sunday: 11:00 am - 9:00 pmopens in a new tab, get directions to Cactus Cantina - Fairhope108 North Section StreetFairhope, AL 36532(251) 517-9896Sunday - Thursday: 11:00 am - 9:00 pmFriday - Saturday: 11:00 am - 9:30 pmopens in a new tab, get directions to Cactus Cantina - Orange Beach (Perdido Beach Blvd)25311 Perdido Beach BlvdOrange Beach, AL 36561(251) 981-4628Monday - Sunday: 11:00 am - 9:00 pmopens in a new tab, get directions to Cactus Cantina - Foley1605 S McKenzie StFoley, AL 36535(251) 943-9070Sunday - Saturday: 11:00 am - 9:00 pmopens in a new tab, get directions to Cactus Cantina - Downtown Pensacola601 E Gregory streetPensacola, FL 32501(850) 741-3296Monday - Thursday: 11:00 am - 9:00 pmFriday - Saturday: 11:00 am - 9:30 pmSunday: 11:00 am - 9:00 pmCactus Cantina Mexican GrillWebsite Accessibility AssistanceSign InOpens in a new windowOpens an external siteOpens an external site in a new window",
+      "structuredData": [
+        {
+          "@context": "https://schema.org/",
+          "@type": "Restaurant",
+          "address": {
+            "addressLocality": "Pensacola",
+            "addressRegion": "FL",
+            "email": "info@mycactuscantina.com",
+            "postalCode": "32504",
+            "streetAddress": "5121 North 12th Ave.",
+            "telephone": "8509128565"
+          },
+          "email": "info@mycactuscantina.com",
+          "foundingDate": 2011,
+          "image": "https://popmenucloud.com/cdn-cgi/image/width=300,height=300,format=auto,fit=scale-down/gnfqtbpr/969f402c-f8e1-4090-a222-7bfb0e4ea536.png",
+          "latitude": "30.476731",
+          "logo": "https://popmenucloud.com/cdn-cgi/image/width=300,height=300,format=auto,fit=scale-down/gnfqtbpr/969f402c-f8e1-4090-a222-7bfb0e4ea536.png",
+          "longitude": "-87.198373",
+          "name": "Cactus Cantina Mexican Grill",
+          "openingHours": [
+            "Su 11:00-21:00",
+            "Mo 11:00-21:00",
+            "Tu 11:00-21:00",
+            "We 11:00-21:00",
+            "Th 11:00-21:00",
+            "Fr 11:00-22:00",
+            "Sa 11:00-22:00"
+          ],
+          "priceRange": "$$",
+          "servesCuisine": "Mexican Restaurant",
+          "telephone": "8509128565",
+          "url": "https://www.mycactuscantina.com"
+        },
+        {
+          "@context": "https://schema.org/",
+          "@type": "Restaurant",
+          "address": {
+            "addressLocality": "Gulf Shores",
+            "addressRegion": "AL",
+            "email": "gs@mycactuscantina.com",
+            "postalCode": "36542",
+            "streetAddress": "3849 Gulf Shores Pkwy Suite 1 and 2",
+            "telephone": "2519438115"
+          },
+          "email": "gs@mycactuscantina.com",
+          "foundingDate": 2011,
+          "image": "https://popmenucloud.com/cdn-cgi/image/width=300,height=300,format=auto,fit=scale-down/gnfqtbpr/969f402c-f8e1-4090-a222-7bfb0e4ea536.png",
+          "latitude": "30.305431",
+          "logo": "https://popmenucloud.com/cdn-cgi/image/width=300,height=300,format=auto,fit=scale-down/gnfqtbpr/969f402c-f8e1-4090-a222-7bfb0e4ea536.png",
+          "longitude": "-87.683623",
+          "name": "Cactus Cantina Mexican Grill",
+          "openingHours": [
+            "Su 11:00-21:00",
+            "Mo 11:00-21:00",
+            "Tu 11:00-21:00",
+            "We 11:00-21:00",
+            "Th 11:00-21:00",
+            "Fr 11:00-21:00",
+            "Sa 11:00-21:00"
+          ],
+          "priceRange": "$$",
+          "servesCuisine": "Mexican Restaurant",
+          "telephone": "2519438115",
+          "url": "https://www.mycactuscantina.com"
+        },
+        {
+          "@context": "https://schema.org/",
+          "@type": "Restaurant",
+          "address": {
+            "addressLocality": "Orange Beach",
+            "addressRegion": "AL",
+            "postalCode": "36561",
+            "streetAddress": "25908 Canal Rd Suite A",
+            "telephone": "2519740060"
+          },
+          "foundingDate": 2011,
+          "image": "https://popmenucloud.com/cdn-cgi/image/width=300,height=300,format=auto,fit=scale-down/gnfqtbpr/969f402c-f8e1-4090-a222-7bfb0e4ea536.png",
+          "latitude": "30.29075",
+          "logo": "https://popmenucloud.com/cdn-cgi/image/width=300,height=300,format=auto,fit=scale-down/gnfqtbpr/969f402c-f8e1-4090-a222-7bfb0e4ea536.png",
+          "longitude": "-87.583027",
+          "name": "Cactus Cantina Mexican Grill",
+          "openingHours": [
+            "Su 11:00-21:00",
+            "Mo 11:00-21:00",
+            "Tu 11:00-21:00",
+            "We 11:00-21:00",
+            "Th 11:00-21:00",
+            "Fr 11:00-21:00",
+            "Sa 11:00-21:00"
+          ],
+          "priceRange": "$$",
+          "servesCuisine": "Mexican Restaurant",
+          "telephone": "2519740060",
+          "url": "https://www.mycactuscantina.com"
+        },
+        {
+          "@context": "https://schema.org/",
+          "@type": "Restaurant",
+          "address": {
+            "addressLocality": "Fairhope",
+            "addressRegion": "AL",
+            "postalCode": "36532",
+            "streetAddress": "108 North Section Street",
+            "telephone": "2515179896"
+          },
+          "foundingDate": 2011,
+          "image": "https://popmenucloud.com/cdn-cgi/image/width=300,height=300,format=auto,fit=scale-down/gnfqtbpr/969f402c-f8e1-4090-a222-7bfb0e4ea536.png",
+          "latitude": "30.52606",
+          "logo": "https://popmenucloud.com/cdn-cgi/image/width=300,height=300,format=auto,fit=scale-down/gnfqtbpr/969f402c-f8e1-4090-a222-7bfb0e4ea536.png",
+          "longitude": "-87.902582",
+          "name": "Cactus Cantina Mexican Grill",
+          "openingHours": [
+            "Su 11:00-21:00",
+            "Mo 11:00-21:00",
+            "Tu 11:00-21:00",
+            "We 11:00-21:00",
+            "Th 11:00-21:00",
+            "Fr 11:00-21:30",
+            "Sa 11:00-21:30"
+          ],
+          "priceRange": "$$",
+          "servesCuisine": "Mexican Restaurant",
+          "telephone": "2515179896",
+          "url": "https://www.mycactuscantina.com"
+        },
+        {
+          "@context": "https://schema.org/",
+          "@type": "Restaurant",
+          "address": {
+            "addressLocality": "Orange Beach",
+            "addressRegion": "AL",
+            "postalCode": "36561",
+            "streetAddress": "25311 Perdido Beach Blvd",
+            "telephone": "2519814628"
+          },
+          "foundingDate": 2011,
+          "image": "https://popmenucloud.com/cdn-cgi/image/width=300,height=300,format=auto,fit=scale-down/gnfqtbpr/969f402c-f8e1-4090-a222-7bfb0e4ea536.png",
+          "latitude": "30.268859",
+          "logo": "https://popmenucloud.com/cdn-cgi/image/width=300,height=300,format=auto,fit=scale-down/gnfqtbpr/969f402c-f8e1-4090-a222-7bfb0e4ea536.png",
+          "longitude": "-87.592675",
+          "name": "Cactus Cantina Mexican Grill",
+          "openingHours": [
+            "Su 11:00-21:00",
+            "Mo 11:00-21:00",
+            "Tu 11:00-21:00",
+            "We 11:00-21:00",
+            "Th 11:00-21:00",
+            "Fr 11:00-21:00",
+            "Sa 11:00-21:00"
+          ],
+          "priceRange": "$$",
+          "servesCuisine": "Mexican Restaurant",
+          "telephone": "2519814628",
+          "url": "https://www.mycactuscantina.com"
+        },
+        {
+          "@context": "https://schema.org/",
+          "@type": "Restaurant",
+          "address": {
+            "addressLocality": "Foley",
+            "addressRegion": "AL",
+            "postalCode": "36535",
+            "streetAddress": "1605 S McKenzie St",
+            "telephone": "2519439070"
+          },
+          "foundingDate": 2011,
+          "image": "https://popmenucloud.com/cdn-cgi/image/width=300,height=300,format=auto,fit=scale-down/gnfqtbpr/969f402c-f8e1-4090-a222-7bfb0e4ea536.png",
+          "latitude": "30.388249",
+          "logo": "https://popmenucloud.com/cdn-cgi/image/width=300,height=300,format=auto,fit=scale-down/gnfqtbpr/969f402c-f8e1-4090-a222-7bfb0e4ea536.png",
+          "longitude": "-87.682575",
+          "name": "Cactus Cantina Mexican Grill",
+          "openingHours": [
+            "Su 11:00-21:00",
+            "Mo 11:00-21:00",
+            "Tu 11:00-21:00",
+            "We 11:00-21:00",
+            "Th 11:00-21:00",
+            "Fr 11:00-21:00",
+            "Sa 11:00-21:00"
+          ],
+          "priceRange": "$$",
+          "servesCuisine": "Mexican Restaurant",
+          "telephone": "2519439070",
+          "url": "https://www.mycactuscantina.com"
+        },
+        {
+          "@context": "https://schema.org/",
+          "@type": "Restaurant",
+          "address": {
+            "addressLocality": "Pensacola",
+            "addressRegion": "FL",
+            "postalCode": "32501",
+            "streetAddress": "601 E Gregory street",
+            "telephone": "8507413296"
+          },
+          "foundingDate": 2011,
+          "image": "https://popmenucloud.com/cdn-cgi/image/width=300,height=300,format=auto,fit=scale-down/gnfqtbpr/969f402c-f8e1-4090-a222-7bfb0e4ea536.png",
+          "latitude": "30.417224",
+          "logo": "https://popmenucloud.com/cdn-cgi/image/width=300,height=300,format=auto,fit=scale-down/gnfqtbpr/969f402c-f8e1-4090-a222-7bfb0e4ea536.png",
+          "longitude": "-87.202157",
+          "name": "Cactus Cantina Mexican Grill",
+          "openingHours": [
+            "Su 11:00-21:00",
+            "Mo 11:00-21:00",
+            "Tu 11:00-21:00",
+            "We 11:00-21:00",
+            "Th 11:00-21:00",
+            "Fr 11:00-21:30",
+            "Sa 11:00-21:30"
+          ],
+          "priceRange": "$$",
+          "servesCuisine": "Mexican Restaurant",
+          "telephone": "8507413296",
+          "url": "https://www.mycactuscantina.com"
+        }
+      ],
+      "meta": {
+        "google": "notranslate",
+        "viewport": "width=device-width, initial-scale=1.0, minimum-scale=1.0",
+        "description": "Cactus Cantina Mexican Grill in Pensacola, FL. Call us at (850) 912-8565. Check out our location and hours, and latest menu with photos and reviews.",
+        "og:description": "Cactus Cantina Mexican Grill in Pensacola, FL. Call us at (850) 912-8565. Check out our location and hours, and latest menu with photos and reviews.",
+        "og:image": "https://popmenucloud.com/cdn-cgi/image/width=1200,height=630,format=auto,fit=cover/gnfqtbpr/dc84011d-f4f6-4f55-8004-de1f117ba28b.jpg",
+        "apple-mobile-web-app-title": "Cactus Cantina Mexican Grill",
+        "msapplication-TileColor": "#FFFFFF",
+        "msapplication-TileImage": "https://www.mycactuscantina.com/favicon.png",
+        "theme-color": "#000000",
+        "google-site-verification": "EIRgifCxDQJCfMkWInkupXgTBQPaNcWovwlV41gCMD4"
+      }
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": [
+    "https://popmenucloud.com/cdn-cgi/image/width%3D1200%2Cheight%3D1200%2Cfit%3Dscale-down%2Cformat%3Dauto%2Cquality%3D60/gnfqtbpr/dc84011d-f4f6-4f55-8004-de1f117ba28b.jpg",
+    "https://popmenucloud.com/cdn-cgi/image/width%3D1200%2Cheight%3D1200%2Cfit%3Dscale-down%2Cformat%3Dauto%2Cquality%3D60/gnfqtbpr/43c74b17-97a3-4ad9-8d11-be0b750766e7.jpg",
+    "https://popmenucloud.com/cdn-cgi/image/width%3D1200%2Cheight%3D1200%2Cfit%3Dscale-down%2Cformat%3Dauto%2Cquality%3D60/gnfqtbpr/ebce262e-154b-48fb-bab2-2e63b817826f.jpg",
+    "https://popmenucloud.com/cdn-cgi/image/width%3D1200%2Cheight%3D1200%2Cfit%3Dscale-down%2Cformat%3Dauto%2Cquality%3D60/gnfqtbpr/c4b94d50-5016-45da-9401-9cc964fc842e.jpg",
+    "https://popmenucloud.com/cdn-cgi/image/width%3D1200%2Cheight%3D1200%2Cfit%3Dscale-down%2Cformat%3Dauto%2Cquality%3D60/gnfqtbpr/05ab23c0-53ef-4057-ba6d-b3b1c6548f84.jpg"
+  ]
+}

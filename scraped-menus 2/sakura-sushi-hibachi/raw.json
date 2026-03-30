@@ -1,0 +1,184 @@
+{
+  "business_name": "Sakura Sushi & Hibachi",
+  "url": "http://www.sakuramm.com/",
+  "scraped_at": "2026-03-21T13:56:01.605Z",
+  "pages": [
+    {
+      "url": "http://www.sakuramm.com",
+      "title": "Sakura Sushi & Hibachi - Japanese Restaurant | Online Order | Semmes | FL",
+      "text": "Skip to main contentGo to accessibility statement\n \n \n \n \n \n \n \n Home\nGallery\nOnline Order\nContact Us\n \n \n \n \n \n \n \n Select Page\n \n Home\nGallery\nOnline Order\nContact Us\n\n \n \n \n \n\t\n\n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Sakura Sushi & Hibachi\n \n \n \n \n \n Welcome to our restaurant! Come and try our dishes!\n \n Online Order\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\nGallery\n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\nAmazingly Delicious\n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Hungry? Order online now!Order your favorite food online at your convenience.\n Order Online Now\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\nContact Us\n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Mon - Sun\n \n 11:00 AM - 9:00 PM\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 251-649-1689\n \n \n \n \n \n 4276 McCrary Road, Semmes, AL 36575\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\t\n \n\n \n \n\n \n\n\t\n\n \n \n\n\t\n \n\n \n \n \n Copyright © 2026 Sakura Sushi & Hibachi. All rights reserved. Powered by MenuSifu.Accessibility Statement | Report a web accessibility issue",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://www.sakuramm.com/",
+              "url": "https://www.sakuramm.com/",
+              "name": "Sakura Sushi & Hibachi - Japanese Restaurant | Online Order | Semmes | FL",
+              "isPartOf": {
+                "@id": "https://www.sakuramm.com/#website"
+              },
+              "datePublished": "2021-02-24T06:04:15+00:00",
+              "dateModified": "2022-06-14T06:20:28+00:00",
+              "description": "Welcome to Our Restaurant, We serve Hibachi, Sauce, Appetizers, Beverage, Special Rolls, Regular Roll, Nigiri or Sashimi, Sushi / Sashimi, Sushi Lunch Special, Bento Box and so on, Online Order, Near me",
+              "breadcrumb": {
+                "@id": "https://www.sakuramm.com/#breadcrumb"
+              },
+              "inLanguage": "en-US",
+              "potentialAction": [
+                {
+                  "@type": "ReadAction",
+                  "target": [
+                    "https://www.sakuramm.com/"
+                  ]
+                }
+              ]
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://www.sakuramm.com/#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home"
+                }
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://www.sakuramm.com/#website",
+              "url": "https://www.sakuramm.com/",
+              "name": "Sakura Sushi & Hibachi",
+              "description": "",
+              "potentialAction": [
+                {
+                  "@type": "SearchAction",
+                  "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://www.sakuramm.com/?s={search_term_string}"
+                  },
+                  "query-input": "required name=search_term_string"
+                }
+              ],
+              "inLanguage": "en-US"
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+        "description": "Welcome to Our Restaurant, We serve Hibachi, Sauce, Appetizers, Beverage, Special Rolls, Regular Roll, Nigiri or Sashimi, Sushi / Sashimi, Sushi Lunch Special, Bento Box and so on, Online Order, Near me",
+        "og:locale": "en_US",
+        "og:type": "website",
+        "og:title": "Sakura Sushi & Hibachi - Japanese Restaurant | Online Order | Semmes | FL",
+        "og:description": "Welcome to Our Restaurant, We serve Hibachi, Sauce, Appetizers, Beverage, Special Rolls, Regular Roll, Nigiri or Sashimi, Sushi / Sashimi, Sushi Lunch Special, Bento Box and so on, Online Order, Near me",
+        "og:url": "https://www.sakuramm.com/",
+        "og:site_name": "Sakura Sushi & Hibachi",
+        "article:modified_time": "2022-06-14T06:20:28+00:00",
+        "twitter:card": "summary_large_image",
+        "twitter:label1": "Est. reading time",
+        "twitter:data1": "3 minutes",
+        "generator": "Divi v.4.19.2",
+        "viewport": "width=device-width, initial-scale=1.0"
+      }
+    },
+    {
+      "url": "https://www.sakuramm.com",
+      "title": "Sakura Sushi & Hibachi - Japanese Restaurant | Online Order | Semmes | FL",
+      "text": "Skip to main contentGo to accessibility statement\n \n \n \n \n \n \n \n Home\nGallery\nOnline Order\nContact Us\n \n \n \n \n \n \n \n Select Page\n \n Home\nGallery\nOnline Order\nContact Us\n\n \n \n \n \n\t\n\n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Sakura Sushi & Hibachi\n \n \n \n \n \n Welcome to our restaurant! Come and try our dishes!\n \n Online Order\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\nGallery\n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\nAmazingly Delicious\n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Hungry? Order online now!Order your favorite food online at your convenience.\n Order Online Now\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\nContact Us\n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Mon - Sun\n \n 11:00 AM - 9:00 PM\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 251-649-1689\n \n \n \n \n \n 4276 McCrary Road, Semmes, AL 36575\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\t\n \n\n \n \n\n \n\n\t\n\n \n \n\n\t\n \n\n \n \n \n Copyright © 2026 Sakura Sushi & Hibachi. All rights reserved. Powered by MenuSifu.Accessibility Statement | Report a web accessibility issue",
+      "structuredData": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://www.sakuramm.com/",
+              "url": "https://www.sakuramm.com/",
+              "name": "Sakura Sushi & Hibachi - Japanese Restaurant | Online Order | Semmes | FL",
+              "isPartOf": {
+                "@id": "https://www.sakuramm.com/#website"
+              },
+              "datePublished": "2021-02-24T06:04:15+00:00",
+              "dateModified": "2022-06-14T06:20:28+00:00",
+              "description": "Welcome to Our Restaurant, We serve Hibachi, Sauce, Appetizers, Beverage, Special Rolls, Regular Roll, Nigiri or Sashimi, Sushi / Sashimi, Sushi Lunch Special, Bento Box and so on, Online Order, Near me",
+              "breadcrumb": {
+                "@id": "https://www.sakuramm.com/#breadcrumb"
+              },
+              "inLanguage": "en-US",
+              "potentialAction": [
+                {
+                  "@type": "ReadAction",
+                  "target": [
+                    "https://www.sakuramm.com/"
+                  ]
+                }
+              ]
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://www.sakuramm.com/#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home"
+                }
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://www.sakuramm.com/#website",
+              "url": "https://www.sakuramm.com/",
+              "name": "Sakura Sushi & Hibachi",
+              "description": "",
+              "potentialAction": [
+                {
+                  "@type": "SearchAction",
+                  "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://www.sakuramm.com/?s={search_term_string}"
+                  },
+                  "query-input": "required name=search_term_string"
+                }
+              ],
+              "inLanguage": "en-US"
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+        "description": "Welcome to Our Restaurant, We serve Hibachi, Sauce, Appetizers, Beverage, Special Rolls, Regular Roll, Nigiri or Sashimi, Sushi / Sashimi, Sushi Lunch Special, Bento Box and so on, Online Order, Near me",
+        "og:locale": "en_US",
+        "og:type": "website",
+        "og:title": "Sakura Sushi & Hibachi - Japanese Restaurant | Online Order | Semmes | FL",
+        "og:description": "Welcome to Our Restaurant, We serve Hibachi, Sauce, Appetizers, Beverage, Special Rolls, Regular Roll, Nigiri or Sashimi, Sushi / Sashimi, Sushi Lunch Special, Bento Box and so on, Online Order, Near me",
+        "og:url": "https://www.sakuramm.com/",
+        "og:site_name": "Sakura Sushi & Hibachi",
+        "article:modified_time": "2022-06-14T06:20:28+00:00",
+        "twitter:card": "summary_large_image",
+        "twitter:label1": "Est. reading time",
+        "twitter:data1": "3 minutes",
+        "generator": "Divi v.4.19.2",
+        "viewport": "width=device-width, initial-scale=1.0"
+      }
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": [
+    "https://www.sakuramm.com/wp-content/uploads/sakuramm.com/2022/06/unnamed.jpg",
+    "https://www.sakuramm.com/wp-content/uploads/sakuramm.com/2022/06/9_E5_89_AF_E6_9C_AC.jpg",
+    "https://www.sakuramm.com/wp-content/uploads/sakuramm.com/2022/06/8_E5_89_AF_E6_9C_AC.jpg",
+    "https://www.sakuramm.com/wp-content/uploads/sakuramm.com/2022/06/4.jpg",
+    "https://www.sakuramm.com/wp-content/uploads/sakuramm.com/2022/06/3.jpg",
+    "https://www.sakuramm.com/wp-content/uploads/sakuramm.com/2022/06/2.jpg",
+    "https://www.sakuramm.com/wp-content/uploads/sakuramm.com/2022/06/1.jpg",
+    "https://www.sakuramm.com/wp-content/uploads/sakuramm.com/2022/06/10.jpg",
+    "https://www.sakuramm.com/wp-content/uploads/sakuramm.com/2022/06/7.jpg",
+    "https://www.sakuramm.com/wp-content/uploads/sakuramm.com/2022/06/6.jpg",
+    "https://www.sakuramm.com/wp-content/uploads/sakuramm.com/2022/06/5.jpg"
+  ]
+}

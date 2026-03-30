@@ -1,0 +1,623 @@
+{
+  "business_name": "Vinny's Pizzeria",
+  "tagline": "Taste Is Everything",
+  "type": "Restaurant",
+  "contact": {
+    "phone": "(866)-743-7669",
+    "email": "wharf@vinnys.pizza",
+    "address": "4651 Main Street",
+    "city": "Orange Beach",
+    "state": "AL",
+    "zip": "36561"
+  },
+  "hours": {
+    "monday": "11:00 AM - 9:00 PM",
+    "tuesday": "11:00 AM - 9:00 PM",
+    "wednesday": "11:00 AM - 9:00 PM",
+    "thursday": "11:00 AM - 9:00 PM",
+    "friday": "11:00 AM - 9:00 PM",
+    "saturday": "11:00 AM - 9:00 PM",
+    "sunday": "11:00 AM - 9:00 PM",
+    "notes": null
+  },
+  "about": {
+    "description": "Fresh, delicious pizza made with quality, fresh ingredients. Pizza dough and sauce made daily. Family-friendly establishment with giant pizza slices and entertainment.",
+    "elevator_pitch": "Fresh, daily-made pizza with quality ingredients in a family-friendly Orange Beach location.",
+    "vibe": "Casual, family-friendly pizzeria with arcade games and views of the ferris wheel",
+    "best_for": [
+      "families",
+      "casual dining",
+      "group gatherings",
+      "special occasions"
+    ],
+    "established": null,
+    "reservations": "Available for private parties and group reservations",
+    "insider_tip": "Free Pac-Man arcade game available; located with a view of the ferris wheel; try their Giant slice and 24-inch pizzas"
+  },
+  "tags": [
+    "pizza",
+    "casual",
+    "family-friendly",
+    "delivery available",
+    "catering",
+    "arcade games"
+  ],
+  "features": [
+    "online ordering",
+    "delivery",
+    "catering services",
+    "private party packages",
+    "arcade games",
+    "ferris wheel view"
+  ],
+  "price_range": "$$",
+  "social_links": {
+    "instagram": "https://instagram.com/vinnys.pizza",
+    "facebook": "https://facebook.com/vinnys.pizza",
+    "website": "http://vinnys.pizza"
+  },
+  "specials": [
+    {
+      "name": "Specials",
+      "description": "Website indicates specials are being updated",
+      "days": [],
+      "time": null
+    }
+  ],
+  "events": [
+    {
+      "name": "Mother's Day",
+      "description": "Special Mother's Day dinner event",
+      "recurring": true,
+      "day": "Sunday, May 10th",
+      "time": "11:00 AM - 9:00 PM"
+    }
+  ],
+  "menu": {
+    "categories": [
+      {
+        "name": "Pizza",
+        "type": "lunch",
+        "items": [
+          {
+            "name": "Cheese Pizza",
+            "description": null,
+            "price": null,
+            "tags": [
+              "available in Giant Slice, 16\", 24\""
+            ],
+            "allergens": [
+              "cheese"
+            ]
+          },
+          {
+            "name": "1 Topping Pizza",
+            "description": "Regular or premium toppings",
+            "price": null,
+            "tags": [
+              "customizable"
+            ],
+            "allergens": [
+              "cheese"
+            ]
+          },
+          {
+            "name": "Meat Lovers",
+            "description": "Pepperoni, sausage, ham, sliced meatballs, bacon",
+            "price": null,
+            "tags": [
+              "specialty"
+            ],
+            "allergens": [
+              "meat",
+              "cheese"
+            ]
+          },
+          {
+            "name": "Veggie",
+            "description": "Spinach, onion, mushroom, green pepper, black olive, tomato",
+            "price": null,
+            "tags": [
+              "specialty",
+              "vegetarian"
+            ],
+            "allergens": [
+              "cheese"
+            ]
+          },
+          {
+            "name": "Supreme",
+            "description": "Pepperoni, sausage, ham, sliced meatballs, bacon, onion, mushroom, green pepper, black olive, tomato",
+            "price": null,
+            "tags": [
+              "specialty"
+            ],
+            "allergens": [
+              "meat",
+              "cheese"
+            ]
+          },
+          {
+            "name": "Buffalo Chicken",
+            "description": "Buffalo chicken, bacon, buffalo sauce, ranch drizzle",
+            "price": null,
+            "tags": [
+              "specialty"
+            ],
+            "allergens": [
+              "chicken",
+              "cheese"
+            ]
+          },
+          {
+            "name": "BBQ Chicken",
+            "description": "BBQ chicken, cheddar cheese, bacon, BBQ drizzle",
+            "price": null,
+            "tags": [
+              "specialty"
+            ],
+            "allergens": [
+              "chicken",
+              "cheese"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "À La Carte",
+        "type": "lunch",
+        "items": [
+          {
+            "name": "Baked Wings",
+            "description": "Plain, BBQ, or Buffalo. Served with a side of ranch",
+            "price": 12,
+            "tags": [
+              "10 count"
+            ],
+            "allergens": [
+              "chicken"
+            ]
+          },
+          {
+            "name": "Pepperoni Log",
+            "description": "Giant thick pepperoni and mozzarella cheese rolled into a log, served with pizza sauce",
+            "price": 14,
+            "tags": [],
+            "allergens": [
+              "meat",
+              "cheese"
+            ]
+          },
+          {
+            "name": "Cheesy Bread",
+            "description": "Served with pizza sauce for dipping",
+            "price": 10,
+            "tags": [],
+            "allergens": [
+              "cheese"
+            ]
+          },
+          {
+            "name": "Garlic Breadsticks",
+            "description": "Served with pizza sauce for dipping",
+            "price": 7,
+            "tags": [],
+            "allergens": [
+              "gluten"
+            ]
+          },
+          {
+            "name": "Salad",
+            "description": "House or Caesar",
+            "price": 10,
+            "tags": [],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Cousin Bui's Calzones",
+        "type": "lunch",
+        "items": [
+          {
+            "name": "The Original",
+            "description": "Mozzarella, ricotta, cheddar, pepperoni, green pepper, onion. Served with a side of pizza sauce",
+            "price": 16,
+            "tags": [],
+            "allergens": [
+              "cheese",
+              "meat"
+            ]
+          },
+          {
+            "name": "The Garden",
+            "description": "Mozzarella, ricotta, cheddar, tomato, mushroom, spinach. Served with a side of pizza sauce",
+            "price": 16,
+            "tags": [
+              "vegetarian"
+            ],
+            "allergens": [
+              "cheese"
+            ]
+          },
+          {
+            "name": "Meatball",
+            "description": "Mozzarella, meatballs, pizza sauce. Served with a side of pizza sauce",
+            "price": 16,
+            "tags": [],
+            "allergens": [
+              "meat",
+              "cheese"
+            ]
+          },
+          {
+            "name": "Cheese",
+            "description": "Mozzarella, ricotta, cheddar. Served with a side of pizza sauce",
+            "price": 13,
+            "tags": [
+              "vegetarian"
+            ],
+            "allergens": [
+              "cheese"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Uncle Paulie's Sandwiches",
+        "type": "lunch",
+        "items": [
+          {
+            "name": "Meatball",
+            "description": "Seasoned meatballs with pizza sauce and mozzarella cheese, topped with grated parmesan cheese. Baked to perfection",
+            "price": null,
+            "tags": [
+              "half $8.00",
+              "whole $15.00"
+            ],
+            "allergens": [
+              "meat",
+              "cheese",
+              "gluten"
+            ]
+          },
+          {
+            "name": "Chicken",
+            "description": "Teriyaki chicken with onions, mushrooms, green peppers, and mozzarella cheese, topped with mayonnaise and lettuce. Baked to perfection",
+            "price": null,
+            "tags": [
+              "half $8.50",
+              "whole $16.00"
+            ],
+            "allergens": [
+              "chicken",
+              "cheese",
+              "gluten"
+            ]
+          },
+          {
+            "name": "Steak",
+            "description": "Seasoned steak with onions, mushrooms, green peppers, and mozzarella cheese, topped with mayonnaise and lettuce. Baked to perfection",
+            "price": null,
+            "tags": [
+              "half $8.50",
+              "whole $16.00"
+            ],
+            "allergens": [
+              "beef",
+              "cheese",
+              "gluten"
+            ]
+          },
+          {
+            "name": "Veggie",
+            "description": "Seasoned onions, mushrooms, green pepper, black olives, tomatoes, and mozzarella cheese, topped with mayonnaise and lettuce. Baked to perfection",
+            "price": null,
+            "tags": [
+              "half $6.00",
+              "whole $12.00",
+              "vegetarian"
+            ],
+            "allergens": [
+              "cheese",
+              "gluten"
+            ]
+          },
+          {
+            "name": "Italian",
+            "description": "Deli sliced pepperoni, salami, and ham with mozzarella cheese then topped with banana peppers, lettuce, tomatoes, and house vinaigrette. Baked to perfection",
+            "price": null,
+            "tags": [
+              "half $8.50",
+              "whole $16.00"
+            ],
+            "allergens": [
+              "meat",
+              "cheese",
+              "gluten"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Desserts",
+        "type": "desserts",
+        "items": [
+          {
+            "name": "Fresh Baked Cookies",
+            "description": "Otis Spunkmeyer",
+            "price": null,
+            "tags": [
+              "3 pieces $2.50",
+              "12 pieces $8.00"
+            ],
+            "allergens": [
+              "gluten",
+              "dairy"
+            ]
+          },
+          {
+            "name": "Vanilla Soft Serve Ice Cream",
+            "description": null,
+            "price": null,
+            "tags": [
+              "small $4.00",
+              "large $6.00"
+            ],
+            "allergens": [
+              "dairy"
+            ]
+          },
+          {
+            "name": "Root Beer Float",
+            "description": null,
+            "price": 8.5,
+            "tags": [],
+            "allergens": [
+              "dairy"
+            ]
+          },
+          {
+            "name": "Orange Cream Float",
+            "description": null,
+            "price": 8.5,
+            "tags": [],
+            "allergens": [
+              "dairy"
+            ]
+          },
+          {
+            "name": "Cinnamon Sticks",
+            "description": "Served with icing",
+            "price": 8.5,
+            "tags": [],
+            "allergens": [
+              "gluten",
+              "dairy"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Beverages",
+        "type": "drinks",
+        "items": [
+          {
+            "name": "Soda",
+            "description": null,
+            "price": 3.75,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Tea",
+            "description": null,
+            "price": 3.75,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Bottled Water",
+            "description": null,
+            "price": 3.75,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Draft Beer - Miller Lite",
+            "description": null,
+            "price": null,
+            "tags": [
+              "$5.00/Glass",
+              "$12.00/Pitcher"
+            ],
+            "allergens": [
+              "gluten"
+            ]
+          },
+          {
+            "name": "Draft Beer - Yuengling",
+            "description": null,
+            "price": null,
+            "tags": [
+              "$5.00/Glass",
+              "$12.00/Pitcher"
+            ],
+            "allergens": [
+              "gluten"
+            ]
+          },
+          {
+            "name": "Canned Beer - Bud Light",
+            "description": null,
+            "price": 5,
+            "tags": [],
+            "allergens": [
+              "gluten"
+            ]
+          },
+          {
+            "name": "Canned Beer - Coors Lt",
+            "description": null,
+            "price": 5,
+            "tags": [],
+            "allergens": [
+              "gluten"
+            ]
+          },
+          {
+            "name": "Canned Beer - Mich Ultra",
+            "description": null,
+            "price": 5,
+            "tags": [],
+            "allergens": [
+              "gluten"
+            ]
+          },
+          {
+            "name": "Canned Beer - Corona",
+            "description": null,
+            "price": 5,
+            "tags": [],
+            "allergens": [
+              "gluten"
+            ]
+          },
+          {
+            "name": "Canned Beer - Corona Lt",
+            "description": null,
+            "price": 5,
+            "tags": [],
+            "allergens": [
+              "gluten"
+            ]
+          },
+          {
+            "name": "Canned Beer - Blue Moon",
+            "description": null,
+            "price": 5,
+            "tags": [],
+            "allergens": [
+              "gluten"
+            ]
+          },
+          {
+            "name": "Canned Beer - White Claw",
+            "description": "Black Cherry, Mango",
+            "price": 5,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Canned Beer - Twisted Tea",
+            "description": null,
+            "price": 5,
+            "tags": [],
+            "allergens": [
+              "gluten"
+            ]
+          },
+          {
+            "name": "Craft Can Beer - Fairhope",
+            "description": "IPA - Take The Causeway | Amber - I Think Therefore I Amber | Sour - Blue Steel",
+            "price": 8,
+            "tags": [],
+            "allergens": [
+              "gluten"
+            ]
+          },
+          {
+            "name": "Craft Can Beer - Ciderboys",
+            "description": "First Press, Peach county",
+            "price": 6,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Craft Can Beer - Goat Island",
+            "description": "Blood Orange",
+            "price": 6,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Craft Can Beer - Ace",
+            "description": "Pineapple",
+            "price": 6,
+            "tags": [],
+            "allergens": []
+          },
+          {
+            "name": "Craft Can Beer - Abita",
+            "description": "Purple Haze",
+            "price": 6,
+            "tags": [],
+            "allergens": [
+              "gluten"
+            ]
+          },
+          {
+            "name": "Wine - Pinot Grigio",
+            "description": null,
+            "price": null,
+            "tags": [
+              "$7.00/Glass",
+              "$16.00/Mini Box"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Wine - Pinot Noir",
+            "description": null,
+            "price": null,
+            "tags": [
+              "$7.00/Glass",
+              "$16.00/Mini Box"
+            ],
+            "allergens": []
+          }
+        ]
+      }
+    ]
+  },
+  "url": "http://vinnys.pizza/",
+  "scraped_at": "2026-03-21T14:04:46.565Z",
+  "extracted_at": "2026-03-23T04:53:39.150Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://static.spotapps.co/website_images/ab_websites/256700_website_v1/logo.png",
+    "https://static.spotapps.co/web/placeholder.png",
+    "https://cartodb-basemaps-d.global.ssl.fastly.net/light_all/16/16815/26976.png",
+    "https://cartodb-basemaps-a.global.ssl.fastly.net/light_all/16/16816/26976.png",
+    "https://cartodb-basemaps-c.global.ssl.fastly.net/light_all/16/16815/26975.png",
+    "https://cartodb-basemaps-d.global.ssl.fastly.net/light_all/16/16816/26975.png",
+    "https://cartodb-basemaps-a.global.ssl.fastly.net/light_all/16/16815/26977.png",
+    "https://cartodb-basemaps-b.global.ssl.fastly.net/light_all/16/16816/26977.png",
+    "https://cartodb-basemaps-c.global.ssl.fastly.net/light_all/16/16814/26976.png",
+    "https://cartodb-basemaps-b.global.ssl.fastly.net/light_all/16/16817/26976.png",
+    "https://cartodb-basemaps-b.global.ssl.fastly.net/light_all/16/16814/26975.png",
+    "https://cartodb-basemaps-a.global.ssl.fastly.net/light_all/16/16817/26975.png",
+    "https://cartodb-basemaps-d.global.ssl.fastly.net/light_all/16/16814/26977.png",
+    "https://cartodb-basemaps-c.global.ssl.fastly.net/light_all/16/16817/26977.png",
+    "https://static.spotapps.co/web-lib/leaflet/leaflet@1.3.1/dist/images/marker-shadow.png",
+    "https://static.spotapps.co/web-lib/leaflet/leaflet@1.3.1/dist/images/marker-icon.png",
+    "https://static.spotapps.co/website_images/default_template_images/spothopper_logo.png"
+  ],
+  "sources": [
+    "http://vinnys.pizza",
+    "https://vinnys.pizza/accessibility-page-01",
+    "https://vinnys.pizza/-catering",
+    "https://vinnys.pizza/-party",
+    "https://vinnys.pizza/orange-beach-wharf-vinny-s-pizzeria-catering",
+    "https://vinnys.pizza/orange-beach-wharf-vinny-s-pizzeria-party",
+    "https://vinnys.pizza/orange-beach-wharf-vinny-s-pizzeria-events",
+    "https://vinnys.pizza/orange-beach-wharf-vinny-s-pizzeria-happy-hours-specials",
+    "https://vinnys.pizza/orange-beach-wharf-vinny-s-pizzeria-drink-menu",
+    "https://vinnys.pizza/784439",
+    "https://vinnys.pizza/784438",
+    "https://vinnys.pizza/784443",
+    "https://vinnys.pizza/orange-beach-wharf-vinny-s-pizzeria-food-menu",
+    "https://vinnys.pizza/784433",
+    "https://vinnys.pizza"
+  ]
+}

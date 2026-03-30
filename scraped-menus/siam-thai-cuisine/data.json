@@ -1,0 +1,91 @@
+{
+  "business_name": "Siam Thai Cuisine",
+  "tagline": "Where Curry Meets Jazz",
+  "type": "Restaurant",
+  "contact": {
+    "phone": "(251) 380-9111",
+    "email": "noi_421@hotmail.com",
+    "address": "915 Hillcrest Rd Ste C",
+    "city": "Mobile",
+    "state": "AL",
+    "zip": "36695"
+  },
+  "hours": {
+    "monday": "11:00am - 9:00pm",
+    "tuesday": "11:00am - 9:00pm",
+    "wednesday": "11:00am - 9:00pm",
+    "thursday": "11:00am - 9:00pm",
+    "friday": "11:00am - 10:00pm",
+    "saturday": "12:00pm - 10:00pm",
+    "sunday": "11:00am - 9:00pm",
+    "notes": null
+  },
+  "about": {
+    "description": "Welcome to Siam Thai Cuisine - Mobile, AL. We serve only the freshest and finest ingredients. You will experience the liveliness and excitement of our exhibition kitchen with extraordinary fast and friendly wait staff.",
+    "elevator_pitch": "A Thai restaurant in Mobile, AL serving fresh, authentic Thai cuisine with an exhibition kitchen experience.",
+    "vibe": "Lively and exciting with exhibition kitchen, welcoming atmosphere",
+    "best_for": [
+      "families",
+      "groups"
+    ],
+    "established": null,
+    "reservations": "Recommended for large groups. Email or call ahead.",
+    "insider_tip": "View menu and order online ahead for no hassle dining experience"
+  },
+  "tags": [
+    "Thai",
+    "Cuisine",
+    "Asian",
+    "Casual Dining"
+  ],
+  "features": [
+    "Exhibition Kitchen",
+    "Online Ordering",
+    "Friendly Staff",
+    "Reservations Available"
+  ],
+  "price_range": "$$",
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://siamthaicuisine-mobile-al.com"
+  },
+  "specials": [],
+  "events": [
+    {
+      "name": "Special Events",
+      "description": "Follow us and get notified of any and all special events",
+      "recurring": null,
+      "day": null,
+      "time": null
+    }
+  ],
+  "menu": {
+    "categories": []
+  },
+  "url": "https://siamthaicuisine-mobile-al.com/",
+  "scraped_at": "2026-03-22T18:34:51.251Z",
+  "extracted_at": "2026-03-23T04:07:45.063Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://siamthaicuisine-mobile-al.com/images/restaurant/portfolio/logo.png",
+    "https://siamthaicuisine-mobile-al.com/images/restaurant/slider/slide-7-fs.jpg",
+    "https://siamthaicuisine-mobile-al.com/images/restaurant/portfolio/grid/no-margins/project-12-square.jpg",
+    "https://siamthaicuisine-mobile-al.com/images/restaurant/portfolio/grid/no-margins/project-13-square.jpg",
+    "https://siamthaicuisine-mobile-al.com/images/restaurant/portfolio/grid/no-margins/project-14-square.jpg",
+    "https://siamthaicuisine-mobile-al.com/images/restaurant/portfolio/grid/no-margins/project-15-square.jpg",
+    "https://siamthaicuisine-mobile-al.com/images/restaurant/portfolio/grid/no-margins/project-16-square.jpg",
+    "https://siamthaicuisine-mobile-al.com/images/restaurant/portfolio/grid/no-margins/project-17-square.jpg",
+    "https://siamthaicuisine-mobile-al.com/images/restaurant/portfolio/grid/no-margins/project-18-square.jpg",
+    "https://siamthaicuisine-mobile-al.com/images/restaurant/portfolio/grid/no-margins/project-19-square.jpg",
+    "https://siamthaicuisine-mobile-al.com/images/restaurant/portfolio/grid/no-margins/project-20-square.jpg",
+    "https://siamthaicuisine-mobile-al.com/images/restaurant/portfolio/grid/no-margins/project-21-square.jpg",
+    "https://siamthaicuisine-mobile-al.com/images/restaurant/Buttomsmiledining.png",
+    "https://img.icons8.com/color/48/000000/facebook-new.png",
+    "https://img.icons8.com/fluency/48/000000/yelp.png",
+    "https://siamthaicuisine-mobile-al.com/images/restaurant/xs_logo_white.png"
+  ],
+  "sources": [
+    "https://siamthaicuisine-mobile-al.com"
+  ]
+}

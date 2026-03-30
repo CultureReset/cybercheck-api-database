@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dockside Guide - Linktree Style</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            animation: slideUp 0.6s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Main Landing Page */
+        .landing-page {
+            text-align: center;
+        }
+
+        .header {
+            margin-bottom: 50px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header p {
+            font-size: 16px;
+            opacity: 0.95;
+            margin-bottom: 5px;
+        }
+
+        .header-meta {
+            font-size: 13px;
+            opacity: 0.8;
+            margin-top: 15px;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .link-btn {
+            background: white;
+            color: #667eea;
+            padding: 20px 30px;
+            border-radius: 12px;
+            border: none;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .link-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+        }
+
+        .link-btn:active {
+            transform: translateY(-2px);
+        }
+
+        .link-btn.eat {
+            background: #FF6B6B;
+            color: white;
+        }
+
+        .link-btn.stay {
+            background: #4ECDC4;
+            color: white;
+        }
+
+        .link-btn.boat {
+            background: #FFE66D;
+            color: #333;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .social-link {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            transition: opacity 0.3s;
+        }
+
+        .social-link:hover {
+            opacity: 0.8;
+        }
+
+        /* Category List Page */
+        .category-page {
+            display: none;
+            animation: slideUp 0.4s ease-out;
+        }
+
+        .category-page.active {
+            display: block;
+        }
+
+        .back-btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .back-btn:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .category-header {
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .category-header h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .business-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .business-card {
+            background: white;
+            padding: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left: 4px solid #667eea;
+            text-align: left;
+        }
+
+        .business-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .business-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 4px;
+        }
+
+        .business-location {
+            font-size: 13px;
+            color: #666;
+        }
+
+        /* Business Detail Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal.active {
+            display: flex;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            max-width: 500px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: slideUp 0.3s ease-out;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #f0f0f0;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 24px;
+            color: #333;
+            transition: all 0.3s;
+        }
+
+        .close-modal:hover {
+            background: #e0e0e0;
+        }
+
+        .business-detail h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        .business-detail-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .business-detail-item:last-child {
+            border-bottom: none;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: #667eea;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .detail-value {
+            color: #333;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .contact-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 10px;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .contact-btn:hover {
+            background: #5568d3;
+        }
+
+        .no-data {
+            color: #999;
+            font-style: italic;
+            padding: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 36px;
+            }
+
+            .modal-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Main Landing Page -->
+        <div class="landing-page" id="landingPage">
+            <div class="header">
+                <h1>⛵ Dockside</h1>
+                <p>Guide to Waterfront Living</p>
+                <div class="header-meta">
+                    <p>Boat-Accessible Businesses Along the Coast</p>
+                </div>
+            </div>
+
+            <div class="links-grid">
+                <button class="link-btn eat" onclick="showCategory('eat')">
+                    🍽️ EAT<br>
+                    <span style="font-size: 12px; opacity: 0.8;">Dockside Dining</span>
+                </button>
+                <button class="link-btn stay" onclick="showCategory('stay')">
+                    🏠 STAY<br>
+                    <span style="font-size: 12px; opacity: 0.8;">Dockside Quarters</span>
+                </button>
+                <button class="link-btn boat" onclick="showCategory('boat')">
+                    ⚓ BOAT<br>
+                    <span style="font-size: 12px; opacity: 0.8;">Dockside Lifestyle</span>
+                </button>
+            </div>
+
+            <div class="social-links">
+                <a href="#" class="social-link">📸 Instagram</a>
+                <a href="#" class="social-link">👍 Facebook</a>
+                <a href="#" class="social-link">📧 Contact</a>
+            </div>
+        </div>
+
+        <!-- Category Pages -->
+        <div class="category-page" id="eatPage">
+            <button class="back-btn" onclick="backToHome()">← Back Home</button>
+            <div class="category-header">
+                <h2>🍽️ Eat</h2>
+                <p>Boat-Accessible Dining Venues</p>
+            </div>
+            <div class="business-list" id="eatList"></div>
+        </div>
+
+        <div class="category-page" id="stayPage">
+            <button class="back-btn" onclick="backToHome()">← Back Home</button>
+            <div class="category-header">
+                <h2>🏠 Stay</h2>
+                <p>Boat-Accessible Accommodations</p>
+            </div>
+            <div class="business-list" id="stayList"></div>
+        </div>
+
+        <div class="category-page" id="boatPage">
+            <button class="back-btn" onclick="backToHome()">← Back Home</button>
+            <div class="category-header">
+                <h2>⚓ Boat</h2>
+                <p>Boating Lifestyle & Services</p>
+            </div>
+            <div class="business-list" id="boatList"></div>
+        </div>
+    </div>
+
+    <!-- Business Detail Modal -->
+    <div class="modal" id="businessModal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal()">✕</button>
+            <div class="business-detail" id="businessDetail"></div>
+        </div>
+    </div>
+
+    <script>
+        // Business Data
+        const businesses = {
+            eat: [
+                { name: "The Blind Tiger", location: "Fairhope, Alabama", description: "Waterfront dining with boat access", type: "Restaurant" },
+                { name: "Pirates Cove", location: "Elberta, Alabama", description: "Casual seafood spot with marina access", type: "Restaurant" },
+                { name: "Zeke's Restaurant", location: "Gulf Coast", description: "Local favorite with dockside location", type: "Restaurant" },
+                { name: "The Tin Top Restaurant & Oyster Bar", location: "Gulf Coast", description: "Oyster bar specializing in fresh seafood", type: "Restaurant" },
+                { name: "The Grand Mariner Restaurant & Marina", location: "Mobile, Alabama", description: "Full-service restaurant and marina", type: "Restaurant & Marina" },
+                { name: "The Oar House", location: "Pensacola, Florida", description: "Waterfront restaurant with boat access", type: "Restaurant" },
+                { name: "Bushwacker's Landing", location: "Perdido Key, Florida", description: "Casual dining at the waterfront", type: "Restaurant" },
+                { name: "Avenue Pub", location: "Orange Beach", description: "Pub-style dining with waterfront views", type: "Pub" },
+                { name: "Barometer Tiki & Raw Bar", location: "Orange Beach", description: "Tropical tiki bar with raw bar", type: "Bar & Grill" },
+                { name: "Big Daddy's Grill", location: "Fairhope", description: "BBQ and grill specialties", type: "Grill" },
+                { name: "Bluegill Restaurant", location: "Spanish Fort", description: "Waterfront dining experience", type: "Restaurant" },
+                { name: "Cobalt The Restaurant", location: "Orange Beach", description: "Upscale waterfront dining", type: "Fine Dining" },
+                { name: "Dockside Seafood", location: "Dauphin Island", description: "Fresh seafood market and restaurant", type: "Seafood" },
+                { name: "Flora-Bama Ole River Grill", location: "Pensacola", description: "River-view grill with boat access", type: "Grill" },
+                { name: "Flora-Bama Yacht Club", location: "Pensacola", description: "Yacht club dining experience", type: "Yacht Club" },
+                { name: "The Galley On The River", location: "Foley", description: "River dining establishment", type: "Restaurant" },
+                { name: "The Grand Hotel Golf Resort and Spa", location: "Point Clear", description: "Resort dining with waterfront access", type: "Resort" },
+                { name: "GTs on the Bay", location: "Orange Beach", description: "Bay-view casual dining", type: "Restaurant" },
+                { name: "Hub Stacey's at The Point", location: "Pensacola", description: "Waterfront dining venue", type: "Restaurant" },
+                { name: "Jaime's Local Seafood Shack", location: "Pensacola", description: "Casual local seafood spot", type: "Seafood Shack" },
+                { name: "Jesse's on the Bay", location: "Gulf Shores", description: "Bay-view dining and bar", type: "Restaurant & Bar" },
+                { name: "Jesse's Restaurant", location: "Magnolia Springs", description: "Local favorite restaurant", type: "Restaurant" },
+                { name: "Louisiana Lagniappe", location: "Orange Beach", description: "Louisiana-style cuisine", type: "Cajun" },
+                { name: "Lulu's Gulf Shores", location: "Gulf Shores", description: "Beach bar and grill", type: "Bar & Grill" },
+                { name: "Original Oyster House", location: "Spanish Fort", description: "Fresh oyster house", type: "Seafood" },
+                { name: "OSO Bear Point Harbor", location: "Orange Beach", description: "Harbor-view dining", type: "Restaurant" },
+                { name: "Oyster Bar Restaurant and Marina", location: "Pensacola", description: "Oyster bar with full marina", type: "Restaurant & Marina" },
+                { name: "The Pelican Reef", location: "Theodore", description: "Reef-themed seafood restaurant", type: "Seafood" },
+                { name: "The Point Restaurant", location: "Pensacola", description: "Waterfront point dining", type: "Restaurant" },
+                { name: "Ralph and Kacoo's", location: "Spanish Fort", description: "New Orleans-style restaurant", type: "Cajun" },
+                { name: "The River Pub", location: "Bay Minette", description: "River-view pub", type: "Pub" },
+                { name: "Shipp's Dockside Grill", location: "Orange Beach", description: "Dockside grill specialties", type: "Grill" }
+            ],
+            stay: [
+                { name: "The Dock House", location: "Orange Beach, Alabama", description: "Waterfront lodging with direct boat access", type: "Resort" },
+                { name: "KOA Gulf Shores/Pensacola", location: "Lillian, Alabama", description: "Campground with water amenities", type: "Campground" },
+                { name: "Liquid Life Vacation Rentals", location: "Orange Beach, Alabama", description: "Vacation rentals with dock access", type: "Vacation Rental" },
+                { name: "My Beach Getaways", location: "Orange Beach, Alabama", description: "Beach vacation rental properties", type: "Vacation Rental" },
+                { name: "Perdido Realty Vacations", location: "Pensacola, Florida", description: "Premium vacation properties", type: "Vacation Rental" },
+                { name: "Prickett Properties", location: "Orange Beach, Alabama", description: "Featured waterfront properties", type: "Property Management" },
+                { name: "Water & Wood Properties", location: "Fairhope, Alabama", description: "Luxury waterfront accommodations", type: "Property Rental" }
+            ],
+            boat: [
+                { name: "7 South", location: "Fairhope, Alabama", description: "Boating lifestyle brand and apparel", type: "Lifestyle Brand" },
+                { name: "Tipsy Threads", location: "National", description: "Boating apparel and merchandise", type: "Apparel" }
+            ]
+        };
+
+        let currentCategory = null;
+        let currentBusiness = null;
+
+        function showCategory(category) {
+            currentCategory = category;
+            document.getElementById('landingPage').style.display = 'none';
+            document.getElementById(category + 'Page').classList.add('active');
+
+            const listId = category + 'List';
+            const list = document.getElementById(listId);
+            list.innerHTML = '';
+
+            businesses[category].forEach((business, index) => {
+                const card = document.createElement('div');
+                card.className = 'business-card';
+                card.innerHTML = `
+                    <div class="business-name">${business.name}</div>
+                    <div class="business-location">📍 ${business.location}</div>
+                `;
+                card.onclick = () => showBusinessDetail(category, index);
+                list.appendChild(card);
+            });
+        }
+
+        function backToHome() {
+            currentCategory = null;
+            document.getElementById('landingPage').style.display = 'block';
+            document.querySelectorAll('.category-page').forEach(page => {
+                page.classList.remove('active');
+            });
+        }
+
+        function showBusinessDetail(category, index) {
+            const business = businesses[category][index];
+            currentBusiness = business;
+
+            const detailDiv = document.getElementById('businessDetail');
+            detailDiv.innerHTML = `
+                <h2>${business.name}</h2>
+                <div class="business-detail-item">
+                    <div class="detail-label">Location</div>
+                    <div class="detail-value">📍 ${business.location}</div>
+                </div>
+                <div class="business-detail-item">
+                    <div class="detail-label">Type</div>
+                    <div class="detail-value">${business.type}</div>
+                </div>
+                <div class="business-detail-item">
+                    <div class="detail-label">About</div>
+                    <div class="detail-value">${business.description}</div>
+                </div>
+                <div class="business-detail-item">
+                    <div class="detail-label">Boat Access</div>
+                    <div class="detail-value">✅ Boat-accessible location with docking facilities</div>
+                </div>
+                <button class="contact-btn" onclick="alert('Contact: info@docksideguide.com or 888-433-DOCK')">
+                    📞 Contact Dockside Guide
+                </button>
+                <button class="contact-btn" style="background: #4ECDC4; margin-top: 10px;" onclick="alert('Visiting ' + '${business.name}' + ' in ' + '${business.location}')'">
+                    🗺️ View on Map
+                </button>
+            `;
+
+            document.getElementById('businessModal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('businessModal').classList.remove('active');
+            currentBusiness = null;
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('businessModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>

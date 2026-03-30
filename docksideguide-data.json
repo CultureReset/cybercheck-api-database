@@ -1,0 +1,425 @@
+{
+  "brand": {
+    "name": "Dockside Guide",
+    "tagline": "A locally-owned brand with a national reach",
+    "mission": "Supporting businesses along the coast and serving the community of wayfarers who enjoy traveling to and from cities across the country by boat",
+    "contact": {
+      "email": "info@docksideguide.com",
+      "phone": "888-433-DOCK"
+    },
+    "social": {
+      "instagram": "@docksideguide",
+      "facebook": "@docksideguide"
+    },
+    "website": "https://www.docksideguide.com"
+  },
+  "categories": {
+    "eat": {
+      "name": "EAT",
+      "subtitle": "Dockside Dining",
+      "emoji": "🍽️",
+      "description": "Boat-Accessible Dining Venues",
+      "total": 31,
+      "businesses": [
+        {
+          "id": "eat_001",
+          "name": "The Blind Tiger",
+          "location": "Fairhope, Alabama",
+          "description": "Waterfront dining with boat access",
+          "type": "Restaurant",
+          "boatAccess": true,
+          "region": "Lower Alabama Coast"
+        },
+        {
+          "id": "eat_002",
+          "name": "Pirates Cove",
+          "location": "Elberta, Alabama",
+          "description": "Casual seafood spot with marina access",
+          "type": "Restaurant",
+          "boatAccess": true,
+          "region": "Lower Alabama Coast"
+        },
+        {
+          "id": "eat_003",
+          "name": "Zeke's Restaurant",
+          "location": "Gulf Coast",
+          "description": "Local favorite with dockside location",
+          "type": "Restaurant",
+          "boatAccess": true,
+          "region": "Lower Alabama Coast"
+        },
+        {
+          "id": "eat_004",
+          "name": "The Tin Top Restaurant & Oyster Bar",
+          "location": "Gulf Coast",
+          "description": "Oyster bar specializing in fresh seafood",
+          "type": "Restaurant",
+          "boatAccess": true,
+          "region": "Lower Alabama Coast"
+        },
+        {
+          "id": "eat_005",
+          "name": "The Grand Mariner Restaurant & Marina",
+          "location": "Mobile, Alabama",
+          "description": "Full-service restaurant and marina",
+          "type": "Restaurant & Marina",
+          "boatAccess": true,
+          "hasMarina": true,
+          "region": "Lower Alabama Coast"
+        },
+        {
+          "id": "eat_006",
+          "name": "The Oar House",
+          "location": "Pensacola, Florida",
+          "description": "Waterfront restaurant with boat access",
+          "type": "Restaurant",
+          "boatAccess": true,
+          "region": "Lower Alabama Coast"
+        },
+        {
+          "id": "eat_007",
+          "name": "Bushwacker's Landing",
+          "location": "Perdido Key, Florida",
+          "description": "Casual dining at the waterfront",
+          "type": "Restaurant",
+          "boatAccess": true,
+          "region": "Lower Alabama Coast"
+        },
+        {
+          "id": "eat_008",
+          "name": "Avenue Pub",
+          "location": "Orange Beach",
+          "description": "Pub-style dining with waterfront views",
+          "type": "Pub",
+          "boatAccess": true,
+          "region": "Lower Alabama Coast"
+        },
+        {
+          "id": "eat_009",
+          "name": "Barometer Tiki & Raw Bar",
+          "location": "Orange Beach",
+          "description": "Tropical tiki bar with raw bar",
+          "type": "Bar & Grill",
+          "boatAccess": true,
+          "region": "Lower Alabama Coast"
+        },
+        {
+          "id": "eat_010",
+          "name": "Big Daddy's Grill",
+          "location": "Fairhope",
+          "description": "BBQ and grill specialties",
+          "type": "Grill",
+          "boatAccess": true,
+          "region": "Lower Alabama Coast"
+        },
+        {
+          "id": "eat_011",
+          "name": "Bluegill Restaurant",
+          "location": "Spanish Fort",
+          "description": "Waterfront dining experience",
+          "type": "Restaurant",
+          "boatAccess": true,
+          "region": "Lower Alabama Coast"
+        },
+        {
+          "id": "eat_012",
+          "name": "Cobalt The Restaurant",
+          "location": "Orange Beach",
+          "description": "Upscale waterfront dining",
+          "type": "Fine Dining",
+          "boatAccess": true,
+          "region": "Lower Alabama Coast"
+        },
+        {
+          "id": "eat_013",
+          "name": "Dockside Seafood",
+          "location": "Dauphin Island",
+          "description": "Fresh seafood market and restaurant",
+          "type": "Seafood",
+          "boatAccess": true,
+          "region": "Lower Alabama Coast"
+        },
+        {
+          "id": "eat_014",
+          "name": "Flora-Bama Ole River Grill",
+          "location": "Pensacola",
+          "description": "River-view grill with boat access",
+          "type": "Grill",
+          "boatAccess": true,
+          "region": "Lower Alabama Coast"
+        },
+        {
+          "id": "eat_015",
+          "name": "Flora-Bama Yacht Club",
+          "location": "Pensacola",
+          "description": "Yacht club dining experience",
+          "type": "Yacht Club",
+          "boatAccess": true,
+          "region": "Lower Alabama Coast"
+        },
+        {
+          "id": "eat_016",
+          "name": "The Galley On The River",
+          "location": "Foley",
+          "description": "River dining establishment",
+          "type": "Restaurant",
+          "boatAccess": true,
+          "region": "Lower Alabama Coast"
+        },
+        {
+          "id": "eat_017",
+          "name": "The Grand Hotel Golf Resort and Spa",
+          "location": "Point Clear",
+          "description": "Resort dining with waterfront access",
+          "type": "Resort",
+          "boatAccess": true,
+          "region": "Lower Alabama Coast"
+        },
+        {
+          "id": "eat_018",
+          "name": "GTs on the Bay",
+          "location": "Orange Beach",
+          "description": "Bay-view casual dining",
+          "type": "Restaurant",
+          "boatAccess": true,
+          "region": "Lower Alabama Coast"
+        },
+        {
+          "id": "eat_019",
+          "name": "Hub Stacey's at The Point",
+          "location": "Pensacola",
+          "description": "Waterfront dining venue",
+          "type": "Restaurant",
+          "boatAccess": true,
+          "region": "Lower Alabama Coast"
+        },
+        {
+          "id": "eat_020",
+          "name": "Jaime's Local Seafood Shack",
+          "location": "Pensacola",
+          "description": "Casual local seafood spot",
+          "type": "Seafood Shack",
+          "boatAccess": true,
+          "region": "Lower Alabama Coast"
+        },
+        {
+          "id": "eat_021",
+          "name": "Jesse's on the Bay",
+          "location": "Gulf Shores",
+          "description": "Bay-view dining and bar",
+          "type": "Restaurant & Bar",
+          "boatAccess": true,
+          "region": "Lower Alabama Coast"
+        },
+        {
+          "id": "eat_022",
+          "name": "Jesse's Restaurant",
+          "location": "Magnolia Springs",
+          "description": "Local favorite restaurant",
+          "type": "Restaurant",
+          "boatAccess": true,
+          "region": "Lower Alabama Coast"
+        },
+        {
+          "id": "eat_023",
+          "name": "Louisiana Lagniappe",
+          "location": "Orange Beach",
+          "description": "Louisiana-style cuisine",
+          "type": "Cajun",
+          "boatAccess": true,
+          "region": "Lower Alabama Coast"
+        },
+        {
+          "id": "eat_024",
+          "name": "Lulu's Gulf Shores",
+          "location": "Gulf Shores",
+          "description": "Beach bar and grill",
+          "type": "Bar & Grill",
+          "boatAccess": true,
+          "region": "Lower Alabama Coast"
+        },
+        {
+          "id": "eat_025",
+          "name": "Original Oyster House",
+          "location": "Spanish Fort",
+          "description": "Fresh oyster house",
+          "type": "Seafood",
+          "boatAccess": true,
+          "region": "Lower Alabama Coast"
+        },
+        {
+          "id": "eat_026",
+          "name": "OSO Bear Point Harbor",
+          "location": "Orange Beach",
+          "description": "Harbor-view dining",
+          "type": "Restaurant",
+          "boatAccess": true,
+          "region": "Lower Alabama Coast"
+        },
+        {
+          "id": "eat_027",
+          "name": "Oyster Bar Restaurant and Marina",
+          "location": "Pensacola",
+          "description": "Oyster bar with full marina",
+          "type": "Restaurant & Marina",
+          "boatAccess": true,
+          "hasMarina": true,
+          "region": "Lower Alabama Coast"
+        },
+        {
+          "id": "eat_028",
+          "name": "The Pelican Reef",
+          "location": "Theodore",
+          "description": "Reef-themed seafood restaurant",
+          "type": "Seafood",
+          "boatAccess": true,
+          "region": "Lower Alabama Coast"
+        },
+        {
+          "id": "eat_029",
+          "name": "The Point Restaurant",
+          "location": "Pensacola",
+          "description": "Waterfront point dining",
+          "type": "Restaurant",
+          "boatAccess": true,
+          "region": "Lower Alabama Coast"
+        },
+        {
+          "id": "eat_030",
+          "name": "Ralph and Kacoo's",
+          "location": "Spanish Fort",
+          "description": "New Orleans-style restaurant",
+          "type": "Cajun",
+          "boatAccess": true,
+          "region": "Lower Alabama Coast"
+        },
+        {
+          "id": "eat_031",
+          "name": "Shipp's Dockside Grill",
+          "location": "Orange Beach",
+          "description": "Dockside grill specialties",
+          "type": "Grill",
+          "boatAccess": true,
+          "region": "Lower Alabama Coast"
+        }
+      ]
+    },
+    "stay": {
+      "name": "STAY",
+      "subtitle": "Dockside Quarters",
+      "emoji": "🏠",
+      "description": "Boat-Accessible Accommodations",
+      "total": 7,
+      "businesses": [
+        {
+          "id": "stay_001",
+          "name": "The Dock House",
+          "location": "Orange Beach, Alabama",
+          "description": "Waterfront lodging with direct boat access",
+          "type": "Resort",
+          "boatAccess": true,
+          "region": "Lower Alabama Coast",
+          "featured": true
+        },
+        {
+          "id": "stay_002",
+          "name": "KOA Gulf Shores/Pensacola",
+          "location": "Lillian, Alabama",
+          "description": "Campground with water amenities",
+          "type": "Campground",
+          "boatAccess": true,
+          "region": "Lower Alabama Coast"
+        },
+        {
+          "id": "stay_003",
+          "name": "Liquid Life Vacation Rentals",
+          "location": "Orange Beach, Alabama",
+          "description": "Vacation rentals with dock access",
+          "type": "Vacation Rental",
+          "boatAccess": true,
+          "region": "Lower Alabama Coast"
+        },
+        {
+          "id": "stay_004",
+          "name": "My Beach Getaways",
+          "location": "Orange Beach, Alabama",
+          "description": "Beach vacation rental properties",
+          "type": "Vacation Rental",
+          "boatAccess": true,
+          "region": "Lower Alabama Coast"
+        },
+        {
+          "id": "stay_005",
+          "name": "Perdido Realty Vacations",
+          "location": "Pensacola, Florida",
+          "description": "Premium vacation properties",
+          "type": "Vacation Rental",
+          "boatAccess": true,
+          "region": "Lower Alabama Coast"
+        },
+        {
+          "id": "stay_006",
+          "name": "Prickett Properties",
+          "location": "Orange Beach, Alabama",
+          "description": "Featured waterfront properties",
+          "type": "Property Management",
+          "boatAccess": true,
+          "region": "Lower Alabama Coast",
+          "featured": true
+        },
+        {
+          "id": "stay_007",
+          "name": "Water & Wood Properties",
+          "location": "Fairhope, Alabama",
+          "description": "Luxury waterfront accommodations",
+          "type": "Property Rental",
+          "boatAccess": true,
+          "region": "Lower Alabama Coast"
+        }
+      ]
+    },
+    "boat": {
+      "name": "BOAT",
+      "subtitle": "Dockside Lifestyle",
+      "emoji": "⚓",
+      "description": "Boating Lifestyle & Services",
+      "total": 2,
+      "businesses": [
+        {
+          "id": "boat_001",
+          "name": "7 South",
+          "location": "Fairhope, Alabama",
+          "description": "Boating lifestyle brand and apparel",
+          "type": "Lifestyle Brand",
+          "region": "Lower Alabama Coast"
+        },
+        {
+          "id": "boat_002",
+          "name": "Tipsy Threads",
+          "location": "National",
+          "description": "Boating apparel and merchandise",
+          "type": "Apparel",
+          "region": "National"
+        }
+      ]
+    }
+  },
+  "statistics": {
+    "totalBusinesses": 40,
+    "byCategory": {
+      "eat": 31,
+      "stay": 7,
+      "boat": 2
+    },
+    "region": "Lower Alabama Coast & Gulf Coast",
+    "states": ["Alabama", "Florida"]
+  },
+  "links": {
+    "website": "https://www.docksideguide.com",
+    "blog": "https://www.docksideguide.com/blog",
+    "about": "https://www.docksideguide.com/about",
+    "contact": "https://www.docksideguide.com/contact",
+    "instagram": "https://instagram.com/docksideguide",
+    "facebook": "https://facebook.com/docksideguide"
+  }
+}

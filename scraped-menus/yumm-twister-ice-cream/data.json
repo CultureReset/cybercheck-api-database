@@ -1,0 +1,199 @@
+{
+  "business_name": "Yumm Twister & Ice Cream",
+  "tagline": "The Tastiest Ice Cream in Gulf Shores!",
+  "type": "Ice Cream Shop",
+  "contact": {
+    "phone": "251-281-8288",
+    "email": "yummtcf@gmail.com",
+    "address": "229 E 20th Ave, Suite 8",
+    "city": "Gulf Shores",
+    "state": "AL",
+    "zip": "36542"
+  },
+  "hours": {
+    "monday": "Closed",
+    "tuesday": "12:00 PM - 8:30 PM",
+    "wednesday": "12:00 PM - 8:30 PM",
+    "thursday": "12:00 PM - 8:30 PM",
+    "friday": "12:00 PM - 8:30 PM",
+    "saturday": "12:00 PM - 8:30 PM",
+    "sunday": "Closed",
+    "notes": null
+  },
+  "about": {
+    "description": "Family owned ice cream shop in Gulf Shores offering unique homemade cones and delicious authentic Italian ice cream (Gelato). The shop features one-of-a-kind handcrafted Twister cones freshly baked daily, filled with premium Italian ice cream and quality toppings. Inside and outside seating available in a quiet area in the heart of Gulf Shores.",
+    "elevator_pitch": "Yumm Twister & Ice Cream reinvents the ice cream experience with authentic Italian gelato served in freshly baked handcrafted Twister cones.",
+    "vibe": "Unique, upscale ice cream experience with quality-focused approach; quiet, family-friendly atmosphere with a one-of-a-kind sweet experience",
+    "best_for": [
+      "families",
+      "tourists",
+      "dessert lovers",
+      "unique experiences",
+      "beach visitors"
+    ],
+    "established": null,
+    "reservations": null,
+    "insider_tip": "The Twister cones are freshly baked daily right before your eyes. Try the Tiramisu cone or S'More for signature favorites."
+  },
+  "tags": [
+    "gelato",
+    "ice cream",
+    "italian",
+    "handmade cones",
+    "dessert",
+    "casual",
+    "family-owned",
+    "premium"
+  ],
+  "features": [
+    "hand-scooped gelato",
+    "specialty gelato cones",
+    "homemade twister cones",
+    "milkshakes",
+    "sundaes",
+    "dairy-free options",
+    "inside seating",
+    "outside seating",
+    "fresh daily baked cones"
+  ],
+  "price_range": "$$",
+  "social_links": {
+    "instagram": "https://www.instagram.com/yummtcf",
+    "facebook": "https://www.facebook.com/yummtcf",
+    "website": "https://www.yummtcf.com"
+  },
+  "specials": [
+    {
+      "name": "Follow for Latest Specials",
+      "description": "Like us on Facebook to keep in touch with our latest specials",
+      "days": [],
+      "time": null
+    }
+  ],
+  "events": [],
+  "menu": {
+    "categories": [
+      {
+        "name": "Specialty Gelato Cones",
+        "type": "desserts",
+        "items": [
+          {
+            "name": "S'More Cone",
+            "description": null,
+            "price": null,
+            "tags": [
+              "signature"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Tiramisu Cone",
+            "description": "Homemade tiramisu at the bottom of the cone with rich gelato",
+            "price": null,
+            "tags": [
+              "signature"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Mint Chocolate Chip Gelato",
+            "description": null,
+            "price": null,
+            "tags": [],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Hand-Scooped Gelato",
+        "type": "desserts",
+        "items": [
+          {
+            "name": "Italian Ice Cream (Gelato)",
+            "description": "Authentic Italian ice cream with highest-quality products",
+            "price": null,
+            "tags": [
+              "authentic",
+              "premium"
+            ],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Milkshakes",
+        "type": "desserts",
+        "items": []
+      },
+      {
+        "name": "Sundaes",
+        "type": "desserts",
+        "items": []
+      },
+      {
+        "name": "Dairy-Free Options",
+        "type": "dietary",
+        "items": [
+          {
+            "name": "Strawberry Sorbet",
+            "description": null,
+            "price": null,
+            "tags": [
+              "vegan",
+              "dairy-free"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Mango Sorbet",
+            "description": null,
+            "price": null,
+            "tags": [
+              "vegan",
+              "dairy-free"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Blood Orange Sorbet",
+            "description": null,
+            "price": null,
+            "tags": [
+              "vegan",
+              "dairy-free"
+            ],
+            "allergens": []
+          }
+        ]
+      }
+    ]
+  },
+  "url": "http://www.yummtcf.com/",
+  "scraped_at": "2026-03-21T15:04:00.084Z",
+  "extracted_at": "2026-03-23T04:19:23.032Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://static.wixstatic.com/media/94ba9b_66149acf317441cdbf45ea63cba03262~mv2.jpg/v1/fill/w_237,h_100,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/logo_edited.jpg",
+    "https://static.wixstatic.com/media/23fd2a2be53141ed810f4d3dcdcd01fa.png/v1/fill/w_20,h_20,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/23fd2a2be53141ed810f4d3dcdcd01fa.png",
+    "https://static.wixstatic.com/media/81af6121f84c41a5b4391d7d37fce12a.png/v1/fill/w_20,h_20,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/81af6121f84c41a5b4391d7d37fce12a.png",
+    "https://static.wixstatic.com/media/94ba9b_8fe29a6aa4d34a6b980f33ed108f9e71~mv2.jpeg/v1/fill/w_671,h_398,al_tl,lg_1,q_80,enc_avif,quality_auto/94ba9b_8fe29a6aa4d34a6b980f33ed108f9e71~mv2.jpeg",
+    "https://static.wixstatic.com/media/94ba9b_f117205b428f46348ae7aae77f4ceac0~mv2.jpg/v1/fill/w_298,h_447,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Rainbow%20.jpg",
+    "https://static.wixstatic.com/media/11062b_006ed0057ef64f3e9cba505a029e9ff8~mv2.jpg/v1/crop/x_0,y_844,w_5000,h_1462/fill/w_599,h_175,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Ice%20Cream.jpg",
+    "https://static.wixstatic.com/media/94ba9b_f0f7cc1bef9d4f29bd9847303380418e~mv2.png/v1/fill/w_77,h_18,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/94ba9b_f0f7cc1bef9d4f29bd9847303380418e~mv2.png",
+    "https://static.wixstatic.com/media/0fdef751204647a3bbd7eaa2827ed4f9.png/v1/fill/w_20,h_20,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0fdef751204647a3bbd7eaa2827ed4f9.png",
+    "https://static.wixstatic.com/media/01c3aff52f2a4dffa526d7a9843d46ea.png/v1/fill/w_20,h_20,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/01c3aff52f2a4dffa526d7a9843d46ea.png",
+    "https://static.wixstatic.com/media/94ba9b_b56d0c3401964f91bb9ee3a9e3edf729~mv2.jpg/v1/fill/w_554,h_923,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Scoops%20Cups%20New%20-%20no%20price.jpg",
+    "https://static.wixstatic.com/media/94ba9b_a79bef8f6a9e40f1ab8b5e1d7bf3dbff~mv2.jpg/v1/fill/w_549,h_915,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Milkshakes%20Menu.jpg",
+    "https://static.wixstatic.com/media/94ba9b_2fdbf5b6671e438daa2180080ecaea57~mv2.jpg/v1/fill/w_771,h_643,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/New%20Menu%20Gelato%20Cones%20-%20no%20price.jpg",
+    "https://static.wixstatic.com/media/94ba9b_a8afa4b339084d9c925bfef4cfa215c7~mv2.jpg/v1/fill/w_640,h_597,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/94ba9b_a8afa4b339084d9c925bfef4cfa215c7~mv2.jpg",
+    "https://static.wixstatic.com/media/94ba9b_b23aa8f99cec480b8b52c4ca6e07a93a~mv2.jpg/v1/fill/w_640,h_597,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/94ba9b_b23aa8f99cec480b8b52c4ca6e07a93a~mv2.jpg",
+    "https://static.wixstatic.com/media/0fdef751204647a3bbd7eaa2827ed4f9.png/v1/fill/w_26,h_26,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0fdef751204647a3bbd7eaa2827ed4f9.png",
+    "https://static.wixstatic.com/media/01c3aff52f2a4dffa526d7a9843d46ea.png/v1/fill/w_26,h_26,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/01c3aff52f2a4dffa526d7a9843d46ea.png"
+  ],
+  "sources": [
+    "http://www.yummtcf.com",
+    "https://www.yummtcf.com/menu",
+    "https://www.yummtcf.com/contact",
+    "https://www.yummtcf.com"
+  ]
+}

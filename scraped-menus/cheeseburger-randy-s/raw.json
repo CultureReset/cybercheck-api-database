@@ -1,0 +1,25 @@
+{
+  "business_name": "Cheeseburger Randy’s",
+  "url": "https://cheeseburgerrandys.com/",
+  "scraped_at": "2026-03-22T02:38:33.954Z",
+  "scraper": "chrome-visible",
+  "pages": [
+    {
+      "url": "https://cheeseburgerrandys.com",
+      "title": "Cheeseburger Randy's",
+      "text": "Cheeseburger Randy's\nCheeseburger Randy'sCheeseburger Randy'sCheeseburger Randy's\nCheeseburger Randy's\nComing Soon\nComing Soon\nComing SoonComing SoonComing Soon\n\nCheeseburger Randy's\n\n209 S Alston St, Foley, AL 36535, USA\n\nCopyright © 2025 Cheeseburger Randy's - All Rights Reserved.\n\nPowered by",
+      "structuredData": [],
+      "meta": {
+        "description": ""
+      },
+      "links": [
+        "https://cheeseburgerrandys.com/",
+        "https://cheeseburgerrandys.com/",
+        "https://www.godaddy.com/websites/website-builder?isc=pwugc&utm_source=wsb&utm_medium=applications&utm_campaign=en-us_corp_applications_base"
+      ]
+    }
+  ],
+  "pdfUrls": [],
+  "pdfTexts": [],
+  "imageUrls": []
+}

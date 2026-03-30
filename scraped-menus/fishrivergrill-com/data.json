@@ -1,0 +1,181 @@
+{
+  "business_name": "Fish River Grill",
+  "tagline": "Where Locals Love To Eat",
+  "type": "Restaurant",
+  "contact": [
+    {
+      "location": "Fairhope, AL",
+      "phone": null,
+      "email": null,
+      "address": "11950 CR 32",
+      "city": "Fairhope",
+      "state": "AL",
+      "zip": "36532"
+    },
+    {
+      "location": "Foley, AL",
+      "phone": "251-952-3474",
+      "email": null,
+      "address": "608 McKenzie St",
+      "city": "Foley",
+      "state": "AL",
+      "zip": "36535"
+    },
+    {
+      "location": "Gulf Shores, AL",
+      "phone": "251-948-1110",
+      "email": null,
+      "address": "1545 Gulf Shores Pkwy",
+      "city": "Gulf Shores",
+      "state": "AL",
+      "zip": "36542"
+    },
+    {
+      "location": "Point Clear, AL",
+      "phone": "251-928-8118",
+      "email": null,
+      "address": "19270 Scenic HWY 98",
+      "city": "Fairhope",
+      "state": "AL",
+      "zip": "36532"
+    }
+  ],
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": null
+  },
+  "about": {
+    "description": "Fish River Grill is a Funky Junky Redneck Joint serving Baldwin County. It is also the home of the world famous 'Swamp Soup'. Baldwin County's award winning restaurant with great seafood, signature cocktails and famous Swamp Soup.",
+    "elevator_pitch": "Baldwin County's award-winning funky joint famous for burgers, seafood, and the world-famous Swamp Soup.",
+    "vibe": "Casual, fun, local favorite with a quirky personality",
+    "best_for": [
+      "locals",
+      "casual dining",
+      "seafood lovers"
+    ],
+    "established": null,
+    "reservations": null,
+    "insider_tip": "Try the world-famous Swamp Soup"
+  },
+  "tags": [
+    "seafood",
+    "burgers",
+    "casual",
+    "local favorite",
+    "award-winning"
+  ],
+  "features": [
+    "full bar",
+    "signature cocktails",
+    "multiple locations"
+  ],
+  "price_range": "$$",
+  "social_links": {
+    "instagram": null,
+    "facebook": "https://www.facebook.com/fishrivergrill",
+    "yelp": "https://www.yelp.com/biz/fishrivergrill",
+    "website": "https://www.fishrivergrill.com"
+  },
+  "specials": [],
+  "events": [],
+  "menu": {
+    "categories": [
+      {
+        "name": "Featured Items",
+        "type": "lunch",
+        "items": [
+          {
+            "name": "Hurricane Burger",
+            "description": "Award Winning and Local Favorite",
+            "price": null,
+            "tags": [
+              "award-winning",
+              "local favorite"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Mississippi Catfish",
+            "description": "Your Choice of Filets or Strips",
+            "price": null,
+            "tags": [
+              "seafood"
+            ],
+            "allergens": [
+              "fish"
+            ]
+          },
+          {
+            "name": "OMG Shrimp Feast PoBoy",
+            "description": "PoBoy Slathered with Crawfish Sauce",
+            "price": null,
+            "tags": [
+              "seafood",
+              "po'boy"
+            ],
+            "allergens": [
+              "shellfish"
+            ]
+          },
+          {
+            "name": "Gulf Shrimp Platter",
+            "description": "Delicious Gulf Shrimp",
+            "price": null,
+            "tags": [
+              "seafood"
+            ],
+            "allergens": [
+              "shellfish"
+            ]
+          },
+          {
+            "name": "Swamp Soup",
+            "description": "World famous signature dish",
+            "price": null,
+            "tags": [
+              "signature item",
+              "famous"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Fried Pickles",
+            "description": null,
+            "price": null,
+            "tags": [
+              "appetizer"
+            ],
+            "allergens": []
+          }
+        ]
+      }
+    ]
+  },
+  "url": "https://www.fishrivergrill.com",
+  "scraped_at": "2026-03-22T02:46:06.155Z",
+  "extracted_at": "2026-03-23T03:41:33.814Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://fishrivergrill.com/wp-content/uploads/2021/10/Fish-River-Grill-Text-New-01.png",
+    "https://fishrivergrill.com/wp-content/uploads/2021/12/Fish-River-Grill-01.png",
+    "https://fishrivergrill.com/wp-content/uploads/2021/10/119193091_1238139173203717_5462035624757516239_n.jpg",
+    "https://fishrivergrill.com/wp-content/uploads/2021/10/170511923_1406078493076450_185384316255516439_n.jpg",
+    "https://fishrivergrill.com/wp-content/uploads/2021/10/97279339_10158027922821900_2835775384367136768_n.jpg",
+    "https://fishrivergrill.com/wp-content/uploads/2021/10/30713210_10156030626976900_2484842422578872764_n.jpg",
+    "https://fishrivergrill.com/wp-content/uploads/2021/10/47504580_10156549103171900_975805467160739840_n-e1634072312240.jpg",
+    "https://fishrivergrill.com/wp-content/uploads/2021/10/96235914_10157974325481900_599421690417512448_n.jpg",
+    "https://fishrivergrill.com/wp-content/uploads/2021/10/o-225x300.jpg",
+    "https://fishrivergrill.com/wp-content/uploads/2022/03/11745795_1101214316575821_7178261580096984070_n-300x225.jpg",
+    "https://fishrivergrill.com/wp-content/uploads/2022/03/269814276_7074538562586317_5653209037982419207_n.jpg",
+    "https://fishrivergrill.com/wp-content/uploads/2021/10/o-5.jpg"
+  ],
+  "sources": [
+    "https://www.fishrivergrill.com"
+  ]
+}

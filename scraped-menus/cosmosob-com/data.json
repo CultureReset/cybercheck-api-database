@@ -1,0 +1,52 @@
+{
+  "business_name": "cosmosob.com",
+  "tagline": null,
+  "type": null,
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": null,
+    "city": null,
+    "state": null,
+    "zip": null
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": null
+  },
+  "about": {
+    "description": null,
+    "elevator_pitch": null,
+    "vibe": null,
+    "best_for": [],
+    "established": null,
+    "reservations": null,
+    "insider_tip": null
+  },
+  "tags": [],
+  "features": [],
+  "price_range": null,
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://www.cosmosob.com"
+  },
+  "specials": [],
+  "events": [],
+  "menu": {
+    "categories": []
+  },
+  "notes": "No website content provided. Unable to extract restaurant data from cosmosob.com",
+  "url": "https://www.cosmosob.com",
+  "scraped_at": "2026-03-22T02:43:26.625Z",
+  "extracted_at": "2026-03-23T03:36:23.335Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [],
+  "sources": []
+}

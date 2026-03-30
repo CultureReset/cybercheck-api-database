@@ -1,0 +1,132 @@
+{
+  "business_name": "Peninsula Golf & Racquet Club",
+  "tagline": "Luxury Golf in Gulf Shores, AL",
+  "type": "Golf Club",
+  "contact": {
+    "phone": "(251) 968-8009",
+    "email": null,
+    "address": "Fort Morgan Peninsula",
+    "city": "Gulf Shores",
+    "state": "AL",
+    "zip": null
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": "Not provided on website"
+  },
+  "about": {
+    "description": "Peninsula Golf & Racquet Club, located on the Fort Morgan Peninsula of Gulf Shores, AL, provides a perfect blend of southern hospitality and championship golf. The 27-hole course delivers a playable and enjoyable layout for golfers of all skill levels, with brand-new Tiff Eagle greens that are fast, consistent and enjoyable.",
+    "elevator_pitch": "A championship golf course with brand-new Tiff Eagle greens and southern hospitality in Gulf Shores, Alabama.",
+    "vibe": "Upscale luxury golf club offering championship golf experience with recreational and fitness amenities",
+    "best_for": [
+      "golfers",
+      "tournaments",
+      "group outings",
+      "fitness enthusiasts",
+      "tennis players"
+    ],
+    "established": null,
+    "reservations": "Book Tee Times available",
+    "insider_tip": "Recently upgraded with brand-new Tiff Eagle greens"
+  },
+  "tags": [
+    "golf",
+    "luxury",
+    "championship course",
+    "27-hole",
+    "tennis",
+    "fitness",
+    "dining",
+    "racquet club"
+  ],
+  "features": [
+    "27-hole golf course",
+    "Tiff Eagle greens",
+    "Bar and Grill",
+    "Golf Shop",
+    "Tennis",
+    "Pools",
+    "Fitness Center",
+    "Massage services",
+    "Cabana Beach",
+    "Special Events venue",
+    "Group Sales",
+    "Tournaments",
+    "Golf Instruction"
+  ],
+  "price_range": "$$$",
+  "social_links": {
+    "instagram": null,
+    "facebook": "https://www.facebook.com/PeninsulaGolf/",
+    "website": "https://www.peninsulagolfclub.com"
+  },
+  "specials": [
+    {
+      "name": "Six-Pack Cards",
+      "description": null,
+      "days": [],
+      "time": null
+    },
+    {
+      "name": "Special Offers",
+      "description": null,
+      "days": [],
+      "time": null
+    },
+    {
+      "name": "Play Every Day",
+      "description": null,
+      "days": [],
+      "time": null
+    }
+  ],
+  "events": [
+    {
+      "name": "Tournaments",
+      "description": null,
+      "recurring": null,
+      "day": null,
+      "time": null
+    },
+    {
+      "name": "Special Events",
+      "description": null,
+      "recurring": null,
+      "day": null,
+      "time": null
+    },
+    {
+      "name": "Event Calendar",
+      "description": "Member events available",
+      "recurring": true,
+      "day": null,
+      "time": null
+    }
+  ],
+  "menu": {
+    "categories": [
+      {
+        "name": "Bar and Grill",
+        "type": "drinks",
+        "items": []
+      }
+    ]
+  },
+  "url": "https://www.peninsulagolfclub.com",
+  "scraped_at": "2026-03-21T19:47:30.522Z",
+  "extracted_at": "2026-03-23T03:57:39.672Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://peninsulagolfclub.com/wp-content/uploads/2022/11/peninsula-golf-club-logo.jpg",
+    "https://peninsulagolfclub.com/wp-content/uploads/2025/04/TH-Properties-Color-Logo-300x96.jpg"
+  ],
+  "sources": [
+    "https://www.peninsulagolfclub.com"
+  ]
+}

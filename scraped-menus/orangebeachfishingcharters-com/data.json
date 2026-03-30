@@ -1,0 +1,70 @@
+{
+  "business_name": "Orange Beach Fishing Charters",
+  "tagline": null,
+  "type": "Fishing Charter",
+  "contact": {
+    "phone": "480-651-9741",
+    "email": null,
+    "address": null,
+    "city": "Orange Beach",
+    "state": "Alabama",
+    "zip": null
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": null
+  },
+  "about": {
+    "description": "No business description available - website is a domain listing page",
+    "elevator_pitch": null,
+    "vibe": null,
+    "best_for": [],
+    "capacity": null,
+    "duration_options": [],
+    "departure_location": "Orange Beach, Alabama",
+    "what_provided": [],
+    "what_to_bring": [],
+    "age_restriction": null,
+    "weight_restriction": null,
+    "reservations": null,
+    "cancellation_policy": null,
+    "insider_tip": null
+  },
+  "tags": [
+    "fishing",
+    "charter",
+    "orange beach",
+    "alabama"
+  ],
+  "features": [],
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "tripadvisor": null,
+    "website": "https://www.orangebeachfishingcharters.com"
+  },
+  "specials": [],
+  "events": [],
+  "packages": [],
+  "note": "The website is currently a GoDaddy domain sale listing. The actual business website content is not available. Only the domain name and a phone number (480-651-9741) are visible on the page.",
+  "url": "https://www.orangebeachfishingcharters.com",
+  "scraped_at": "2026-03-21T19:29:00.836Z",
+  "extracted_at": "2026-03-23T04:43:12.820Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://forsale.godaddy.com/forsale/_next/image?url=%2Fforsale%2Fimgs%2Fpayments%2Fvisa.png&w=128&q=75",
+    "https://forsale.godaddy.com/forsale/_next/image?url=%2Fforsale%2Fimgs%2Fpayments%2Fmastercard.png&w=128&q=75",
+    "https://forsale.godaddy.com/forsale/_next/image?url=%2Fforsale%2Fimgs%2Fpayments%2FamericanExpress.png&w=128&q=75",
+    "https://forsale.godaddy.com/forsale/_next/image?url=%2Fforsale%2Fimgs%2Fpayments%2Fpaypal.png&w=128&q=75",
+    "https://forsale.godaddy.com/forsale/_next/image?url=%2Fforsale%2Fimgs%2Fpayments%2Falipay.png&w=128&q=75"
+  ],
+  "sources": [
+    "https://www.orangebeachfishingcharters.com"
+  ]
+}

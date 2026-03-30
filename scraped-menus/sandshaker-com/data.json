@@ -1,0 +1,101 @@
+{
+  "business_name": "The Sandshaker",
+  "tagline": "Home of the 'original' Bushwacker",
+  "type": "Bar",
+  "contact": {
+    "phone": "850-932-2211",
+    "email": null,
+    "address": "731 Pensacola Beach Blvd",
+    "city": "Pensacola Beach",
+    "state": "FL",
+    "zip": "32561"
+  },
+  "hours": {
+    "monday": "10:00 am to 3:00 am",
+    "tuesday": "10:00 am to 3:00 am",
+    "wednesday": "10:00 am to 3:00 am",
+    "thursday": "10:00 am to 3:00 am",
+    "friday": "10:00 am to 3:00 am",
+    "saturday": "10:00 am to 3:00 am",
+    "sunday": "10:00 am to 3:00 am",
+    "notes": "Open 7 days a week"
+  },
+  "about": {
+    "description": "The Sandshaker is a beach bar known as the home of the original Bushwacker with two locations in Pensacola Beach, FL and Orange Beach, AL.",
+    "elevator_pitch": "Iconic beach bar featuring the original Bushwacker with live music every weekend and no cover charge.",
+    "vibe": "Casual beach bar atmosphere",
+    "best_for": [
+      "groups",
+      "live music",
+      "drinks"
+    ],
+    "established": null,
+    "reservations": null,
+    "insider_tip": "Live music every weekend with no cover charge"
+  },
+  "tags": [
+    "bar",
+    "beach",
+    "drinks",
+    "casual",
+    "live music"
+  ],
+  "features": [
+    "full bar",
+    "live music",
+    "two locations"
+  ],
+  "price_range": "$$",
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://sandshaker.com"
+  },
+  "specials": [],
+  "events": [
+    {
+      "name": "Live Music",
+      "description": "Live music every weekend with no cover charge",
+      "recurring": true,
+      "day": "Saturday, Sunday",
+      "time": null
+    }
+  ],
+  "menu": {
+    "categories": []
+  },
+  "locations": [
+    {
+      "name": "Sandshaker Pensacola",
+      "address": "721 Pensacola Beach Blvd",
+      "city": "Pensacola",
+      "state": "FL"
+    },
+    {
+      "name": "Sandshaker Orange Beach",
+      "address": "4851 Wharf Parkway Space D-130",
+      "city": "Orange Beach",
+      "state": "AL"
+    }
+  ],
+  "url": "https://sandshaker.com",
+  "scraped_at": "2026-03-22T18:34:29.614Z",
+  "extracted_at": "2026-03-23T04:06:00.819Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://images.squarespace-cdn.com/content/v1/699f6df25971a86d9b604a09/606cbc2e-ffd0-4112-8301-a2797c36a9e8/sandshaker-logo.png?format=1500w",
+    "https://images.squarespace-cdn.com/content/v1/699f6df25971a86d9b604a09/09bbc915-5811-4627-bd93-87aa8bd238fa/SS_Banner.jpg",
+    "https://images.squarespace-cdn.com/content/v1/699f6df25971a86d9b604a09/506df0e2-f8ae-4a34-954b-7421a5bd7ad9/ss_bushwacker.png",
+    "https://images.squarespace-cdn.com/content/v1/699f6df25971a86d9b604a09/6243b693-22a9-4bf9-9a81-1836d1caff3f/orangeSquare.jpg",
+    "https://images.squarespace-cdn.com/content/v1/699f6df25971a86d9b604a09/8915ca8d-4992-4ac4-b711-c0851eabfe85/IMG_2658.JPG",
+    "https://images.squarespace-cdn.com/content/v1/699f6df25971a86d9b604a09/6aeb27a0-1e45-4862-a9ed-8ce7db86e59c/2026-03-Pcola-Calendar-v3.jpg",
+    "https://images.squarespace-cdn.com/content/v1/699f6df25971a86d9b604a09/2430eeb7-5e65-4021-af97-e41863471caa/2026-03-Wharf-Calendar-v1.jpg"
+  ],
+  "sources": [
+    "https://sandshaker.com",
+    "https://www.sandshaker.com/contact",
+    "https://www.sandshaker.com/cart",
+    "https://www.sandshaker.com",
+    "https://www.sandshaker.com/calendar"
+  ]
+}

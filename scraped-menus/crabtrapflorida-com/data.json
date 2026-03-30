@@ -1,0 +1,403 @@
+{
+  "business_name": "The Crab Trap",
+  "tagline": "SUN. SAND. SEAFOOD.",
+  "type": "Restaurant",
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": null,
+    "city": null,
+    "state": null,
+    "zip": null
+  },
+  "locations": [
+    {
+      "name": "Fort Walton Beach",
+      "address": "1450 Miracle Strip Parkway",
+      "city": "Fort Walton Beach",
+      "state": "FL",
+      "zip": "32548",
+      "phone": "(850) 301-0959",
+      "hours": {
+        "monday": "11:00 am - 10:00 pm",
+        "tuesday": "11:00 am - 10:00 pm",
+        "wednesday": "11:00 am - 10:00 pm",
+        "thursday": "11:00 am - 10:00 pm",
+        "friday": "11:00 am - 10:00 pm",
+        "saturday": "11:00 am - 10:00 pm",
+        "sunday": "11:00 am - 10:00 pm"
+      }
+    },
+    {
+      "name": "Destin",
+      "address": "3500 Scenic Hwy 98 East",
+      "city": "Destin",
+      "state": "FL",
+      "zip": "32541",
+      "phone": "(850) 654-2722",
+      "hours": {
+        "monday": "11:00 am - 10:00 pm",
+        "tuesday": "11:00 am - 10:00 pm",
+        "wednesday": "11:00 am - 10:00 pm",
+        "thursday": "11:00 am - 10:00 pm",
+        "friday": "11:00 am - 10:00 pm",
+        "saturday": "11:00 am - 10:00 pm",
+        "sunday": "11:00 am - 10:00 pm"
+      }
+    },
+    {
+      "name": "Perdido Key",
+      "address": "16495 Perdido Key Dr",
+      "city": "Pensacola",
+      "state": "FL",
+      "zip": "32507",
+      "phone": "(850) 492-8888",
+      "hours": {
+        "monday": "11:00 am - 9:00 pm",
+        "tuesday": "11:00 am - 9:00 pm",
+        "wednesday": "11:00 am - 9:00 pm",
+        "thursday": "11:00 am - 9:00 pm",
+        "friday": "11:00 am - 10:00 pm",
+        "saturday": "11:00 am - 10:00 pm",
+        "sunday": "11:00 am - 9:00 pm"
+      }
+    }
+  ],
+  "about": {
+    "description": "The Crab Trap is a waterfront seafood restaurant with three locations along the Florida panhandle offering beautiful views of the Gulf of Mexico and fresh local seafood. The restaurant operates its own wild fish processing facility called the Seafood Commissary, which prepares over 250,000 lbs of fresh-caught Gulf seafood annually including shrimp, grouper, snapper, mahi-mahi, cobia, wahoo, and amberjack.",
+    "elevator_pitch": "Three waterfront Gulf seafood restaurants in Northwest Florida featuring fresh local catch and stunning Gulf views since 1991.",
+    "vibe": "Casual waterfront dining with open air windows, sun bleached wood, local art, and hand carved seaside sculptures. Family-friendly atmosphere with beautiful Gulf of Mexico views.",
+    "best_for": [
+      "families",
+      "date night",
+      "casual lunch",
+      "group gatherings",
+      "beach day meals"
+    ],
+    "established": "1991",
+    "reservations": null,
+    "insider_tip": "Try the award-winning gumbo and the must-have wild Alaska crab legs. The original location in Destin is at James Lee Park."
+  },
+  "tags": [
+    "seafood",
+    "casual dining",
+    "waterfront",
+    "Gulf of Mexico",
+    "fresh local catch",
+    "family-friendly",
+    "Emerald Coast"
+  ],
+  "features": [
+    "waterfront seating",
+    "Gulf views",
+    "kids menu",
+    "playground (Perdido Key)",
+    "tiki bar",
+    "boardwalk (Fort Walton Beach & Perdido Key)",
+    "QR code digital menus",
+    "hand sanitizer stations"
+  ],
+  "price_range": "$$",
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://crabtrapflorida.com"
+  },
+  "specials": [
+    {
+      "name": "Daily Specials",
+      "description": "Rotating menu items such as Bronzed Grouper, Grilled Filet, Alaskan Crab Legs, local Mahi Mahi, Blue Crab Claws, and Crab Cakes",
+      "days": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "time": null
+    }
+  ],
+  "events": [
+    {
+      "name": "Dish Review Contest",
+      "description": "Win $500 by writing a dish review to help others",
+      "recurring": false,
+      "day": null,
+      "time": null,
+      "drawing_date": "4/1"
+    }
+  ],
+  "menu": {
+    "categories": [
+      {
+        "name": "Appetizers",
+        "type": "appetizers",
+        "items": [
+          {
+            "name": "Hot Crab Dip",
+            "description": "Signature item",
+            "price": null,
+            "tags": [
+              "crab",
+              "signature"
+            ],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Seafood",
+        "type": "lunch",
+        "items": [
+          {
+            "name": "Wild Alaska Crab Legs",
+            "description": "Must-have item while at the beach",
+            "price": null,
+            "tags": [
+              "crab",
+              "Alaska",
+              "popular"
+            ],
+            "allergens": [
+              "shellfish"
+            ]
+          },
+          {
+            "name": "Bronzed Grouper",
+            "description": "Fresh local catch",
+            "price": null,
+            "tags": [
+              "grouper",
+              "local"
+            ],
+            "allergens": [
+              "fish"
+            ]
+          },
+          {
+            "name": "Grilled Filet",
+            "description": "Daily special option",
+            "price": null,
+            "tags": [
+              "fish"
+            ],
+            "allergens": [
+              "fish"
+            ]
+          },
+          {
+            "name": "Blue Crab Claws",
+            "description": "Domestic crab",
+            "price": null,
+            "tags": [
+              "crab",
+              "claws"
+            ],
+            "allergens": [
+              "shellfish"
+            ]
+          },
+          {
+            "name": "Crab Cakes",
+            "description": "Made with jumbo lump crab meat",
+            "price": null,
+            "tags": [
+              "crab",
+              "specialty"
+            ],
+            "allergens": [
+              "shellfish",
+              "gluten"
+            ]
+          },
+          {
+            "name": "Local Mahi Mahi",
+            "description": "Fresh Gulf catch",
+            "price": null,
+            "tags": [
+              "mahi",
+              "local"
+            ],
+            "allergens": [
+              "fish"
+            ]
+          },
+          {
+            "name": "Shrimp",
+            "description": "Fresh Gulf shrimp",
+            "price": null,
+            "tags": [
+              "shrimp",
+              "local"
+            ],
+            "allergens": [
+              "shellfish"
+            ]
+          },
+          {
+            "name": "Snapper",
+            "description": "Fresh Gulf catch",
+            "price": null,
+            "tags": [
+              "snapper",
+              "local"
+            ],
+            "allergens": [
+              "fish"
+            ]
+          },
+          {
+            "name": "Cobia",
+            "description": "Fresh Gulf catch",
+            "price": null,
+            "tags": [
+              "cobia",
+              "local"
+            ],
+            "allergens": [
+              "fish"
+            ]
+          },
+          {
+            "name": "Wahoo",
+            "description": "Fresh Gulf catch",
+            "price": null,
+            "tags": [
+              "wahoo",
+              "local"
+            ],
+            "allergens": [
+              "fish"
+            ]
+          },
+          {
+            "name": "Amberjack",
+            "description": "Fresh Gulf catch",
+            "price": null,
+            "tags": [
+              "amberjack",
+              "local"
+            ],
+            "allergens": [
+              "fish"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Gumbo",
+        "type": "lunch",
+        "items": [
+          {
+            "name": "Award-Winning Gumbo",
+            "description": "Signature award-winning recipe",
+            "price": null,
+            "tags": [
+              "gumbo",
+              "award-winning",
+              "signature"
+            ],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Kids Menu",
+        "type": "kids",
+        "items": [
+          {
+            "name": "Kids Menu Items",
+            "description": "Special menu designed just for kids with a special treat they get to keep",
+            "price": null,
+            "tags": [
+              "kids",
+              "family-friendly"
+            ],
+            "allergens": []
+          }
+        ]
+      },
+      {
+        "name": "Lunch Specials",
+        "type": "specials",
+        "items": []
+      },
+      {
+        "name": "Main Menu",
+        "type": "lunch",
+        "items": []
+      },
+      {
+        "name": "Drinks",
+        "type": "drinks",
+        "items": []
+      }
+    ]
+  },
+  "health_and_safety": {
+    "increased_cleaning": true,
+    "disinfectants_used": "High-grade disinfectants on common contact surfaces (tables, chairs, menus, restrooms)",
+    "contactless_options": "Digital QR code menus on personal mobile devices",
+    "hand_sanitizer_stations": true,
+    "employee_screening": "CDC's COVID-19 health evaluation tool and temperature checks before shifts",
+    "face_coverings_required": false,
+    "note": "As of April 19, 2021, employee face coverings no longer required but available upon request"
+  },
+  "additional_info": {
+    "seafood_commissary": "The Boardwalk on Okaloosa Island - processes over 250,000 lbs of fresh-caught Gulf seafood annually",
+    "cooking_oil": "Trans-fat-free canola oil",
+    "produce_delivery": "Daily local produce deliveries",
+    "crab_sourcing": "Wild and sustainable Alaska crab, domestic crab claws, and jumbo lump crab meat",
+    "sister_restaurants": "Yes, the commissary serves The Crab Trap and sister restaurants",
+    "hiring": "Currently hiring in Destin and other locations"
+  },
+  "url": "https://crabtrapflorida.com",
+  "scraped_at": "2026-03-22T02:45:22.466Z",
+  "extracted_at": "2026-03-23T03:37:22.933Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://popmenucloud.com/cdn-cgi/image/width%3D1200%2Cheight%3D1200%2Cfit%3Dscale-down%2Cformat%3Dauto%2Cquality%3D60/zhxjwirs/0d29410a-17ba-4bd9-a0ac-dfbdae570b23.jpeg",
+    "https://popmenucloud.com/cdn-cgi/image/width%3D1200%2Cheight%3D1200%2Cfit%3Dscale-down%2Cformat%3Dauto%2Cquality%3D60/zhxjwirs/f0b24282-67f6-41ee-9c7b-e02bac3650cc.jpg",
+    "https://popmenucloud.com/cdn-cgi/image/width%3D1200%2Cheight%3D1200%2Cfit%3Dscale-down%2Cformat%3Dauto%2Cquality%3D60/zhxjwirs/958fc3f9-3019-4105-9983-10a78fec831c.jpg",
+    "https://popmenucloud.com/cdn-cgi/image/width%3D1200%2Cheight%3D1200%2Cfit%3Dscale-down%2Cformat%3Dauto%2Cquality%3D60/zhxjwirs/4067abfa-f7d3-4309-b073-6fbfbc5ddaf2.jpeg",
+    "https://popmenucloud.com/cdn-cgi/image/width%3D1200%2Cheight%3D1200%2Cfit%3Dscale-down%2Cformat%3Dauto%2Cquality%3D60/zhxjwirs/4863b0e4-46f1-4418-8d6f-94c551949c2f.jpeg",
+    "https://popmenucloud.com/cdn-cgi/image/width%3D1200%2Cheight%3D1200%2Cfit%3Dscale-down%2Cformat%3Dauto%2Cquality%3D60/zhxjwirs/4e26d664-8bb5-46ae-a721-20d7eacd177b.jpeg",
+    "https://popmenucloud.com/cdn-cgi/image/width%3D1200%2Cheight%3D1200%2Cfit%3Dscale-down%2Cformat%3Dauto%2Cquality%3D60/zhxjwirs/31583e56-f9c1-446c-a935-8d7b2bff420d.jpeg",
+    "https://popmenucloud.com/cdn-cgi/image/width%3D1200%2Cheight%3D1200%2Cfit%3Dscale-down%2Cformat%3Dauto%2Cquality%3D60/zhxjwirs/1f8d2fb8-b079-4851-9e56-53b629b09362.jpeg",
+    "https://popmenucloud.com/cdn-cgi/image/width%3D600%2Cheight%3D600%2Cfit%3Dscale-down%2Cformat%3Dauto%2Cquality%3D60/zhxjwirs/74a8de56-1ea3-4a1a-b3f0-8a884aec1fd3.jpg",
+    "https://popmenucloud.com/cdn-cgi/image/width%3D1200%2Cheight%3D1200%2Cfit%3Dscale-down%2Cformat%3Dauto%2Cquality%3D60/zhxjwirs/93361c30-46e7-47f8-8228-04871c68af0e.jpeg",
+    "https://popmenucloud.com/cdn-cgi/image/width%3D600%2Cheight%3D600%2Cfit%3Dscale-down%2Cformat%3Dauto%2Cquality%3D60/zhxjwirs/77c6eb4b-ffd4-461d-8b7b-67aafeefd25a.JPG",
+    "https://popmenucloud.com/cdn-cgi/image/width%3D1200%2Cheight%3D1200%2Cfit%3Dscale-down%2Cformat%3Dauto%2Cquality%3D60/zhxjwirs/293a2823-bb9b-4021-ae35-91321f918ded.jpeg",
+    "https://popmenucloud.com/cdn-cgi/image/width%3D600%2Cheight%3D600%2Cfit%3Dscale-down%2Cformat%3Dauto%2Cquality%3D60/zhxjwirs/71d5bc39-2ed0-4959-a13b-4326199bb028.jpg",
+    "https://popmenucloud.com/cdn-cgi/image/width%3D1200%2Cheight%3D1200%2Cfit%3Dscale-down%2Cformat%3Dauto%2Cquality%3D60/zhxjwirs/632d7b55-0b4c-4b89-820d-d9db829da544.JPG",
+    "https://popmenucloud.com/cdn-cgi/image/width%3D600%2Cheight%3D600%2Cfit%3Dscale-down%2Cformat%3Dauto%2Cquality%3D60/zhxjwirs/31e34c7b-f3c0-442d-8a45-7e28ff9b6033.JPG"
+  ],
+  "sources": [
+    "https://crabtrapflorida.com",
+    "https://www.crabtrapflorida.com/events",
+    "https://www.crabtrapflorida.com/about",
+    "https://www.crabtrapflorida.com",
+    "https://www.crabtrapflorida.com/reviews",
+    "https://www.crabtrapflorida.com/home",
+    "https://www.crabtrapflorida.com/locations",
+    "https://www.crabtrapflorida.com/menu-perdido-key",
+    "https://www.crabtrapflorida.com/menus/kids?location=perdido-key",
+    "https://www.crabtrapflorida.com/menus/drinks?location=perdido-key",
+    "https://www.crabtrapflorida.com/menus/lunch-specials?location=perdido-key",
+    "https://www.crabtrapflorida.com/menus/main-menu?location=perdido-key",
+    "https://www.crabtrapflorida.com/menu-destin",
+    "https://www.crabtrapflorida.com/menus/lunch-specials?location=destin",
+    "https://www.crabtrapflorida.com/menus/main-menu?location=destin",
+    "https://www.crabtrapflorida.com/menu-fort-walton-beach",
+    "https://www.crabtrapflorida.com/menus/drinks?location=fort-walton-beach",
+    "https://www.crabtrapflorida.com/menus/lunch-specials?location=fort-walton-beach",
+    "https://www.crabtrapflorida.com/menus/main-menu?location=fort-walton-beach",
+    "https://www.crabtrapflorida.com/fort-walton-beach",
+    "https://www.crabtrapflorida.com/destin",
+    "https://www.crabtrapflorida.com/perdido-key",
+    "https://www.crabtrapflorida.com/join-our-team-destin",
+    "https://www.crabtrapflorida.com/accessibility"
+  ]
+}

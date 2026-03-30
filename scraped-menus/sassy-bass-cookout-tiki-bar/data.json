@@ -1,0 +1,149 @@
+{
+  "business_name": "Sassy Bass & Company",
+  "tagline": "Life's too Short to be boring.",
+  "type": "Restaurant | Bar",
+  "locations": [
+    {
+      "name": "Amazin' Grill",
+      "contact": {
+        "phone": "(251) 975-1010",
+        "email": null,
+        "address": "5160 Hwy 180",
+        "city": "Gulf Shores",
+        "state": "AL",
+        "zip": "36542"
+      },
+      "hours": {
+        "monday": null,
+        "tuesday": null,
+        "wednesday": null,
+        "thursday": null,
+        "friday": null,
+        "saturday": "11:00 AM",
+        "sunday": null,
+        "notes": "Closed, Opens Saturday at 11AM"
+      }
+    },
+    {
+      "name": "Island Grill",
+      "contact": {
+        "phone": "(251) 923-3122",
+        "email": null,
+        "address": "375 Plantation Rd",
+        "city": "Gulf Shores",
+        "state": "AL",
+        "zip": "36542"
+      },
+      "hours": {
+        "monday": null,
+        "tuesday": null,
+        "wednesday": null,
+        "thursday": null,
+        "friday": null,
+        "saturday": null,
+        "sunday": null,
+        "notes": "Open now, Closes at 8PM"
+      }
+    },
+    {
+      "name": "Market Place & Gift Shop",
+      "contact": {
+        "phone": "(251) 975-1022",
+        "email": null,
+        "address": "5160 Alabama Highway 180",
+        "city": "Gulf Shores",
+        "state": "AL",
+        "zip": "36542"
+      },
+      "hours": {
+        "monday": null,
+        "tuesday": null,
+        "wednesday": null,
+        "thursday": null,
+        "friday": null,
+        "saturday": null,
+        "sunday": null,
+        "notes": "Open now, Closes at 8PM"
+      }
+    }
+  ],
+  "about": {
+    "description": "Locally-owned and operated family of restaurant brands widely known for creative menu selection and made-from-scratch recipes. Each concept has a different theme, atmosphere, and menu.",
+    "elevator_pitch": "Sassy Bass offers a full dining experience built on good company, live music, beautiful views, and fantastic food.",
+    "vibe": "Fun, festive, casual beach dining with live music and creative atmospheres",
+    "best_for": [
+      "families",
+      "groups",
+      "celebrations",
+      "date night"
+    ],
+    "established": null,
+    "reservations": "Available (Plan Your Party option mentioned)",
+    "insider_tip": null
+  },
+  "tags": [
+    "seafood",
+    "casual",
+    "live music",
+    "locally-owned",
+    "made-from-scratch",
+    "beach dining"
+  ],
+  "features": [
+    "live music",
+    "outdoor seating",
+    "full bar",
+    "gift shop",
+    "event hosting",
+    "catering",
+    "happy hour"
+  ],
+  "price_range": "$$",
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://www.sassybass.com/"
+  },
+  "specials": [
+    {
+      "name": "Happy Hours",
+      "description": null,
+      "days": [],
+      "time": null
+    }
+  ],
+  "events": [
+    {
+      "name": "Live Music",
+      "description": "Regular live music performances",
+      "recurring": true,
+      "day": null,
+      "time": null
+    },
+    {
+      "name": "Golf Tournaments",
+      "description": null,
+      "recurring": true,
+      "day": null,
+      "time": null
+    }
+  ],
+  "menu": {
+    "categories": []
+  },
+  "url": "https://www.sassybass.com/",
+  "scraped_at": "2026-03-21T15:03:33.818Z",
+  "extracted_at": "2026-03-23T04:06:12.902Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [
+    "https://d1w7312wesee68.cloudfront.net/EB6AY9y3XtdMcXMbyhTaOA69A3ZHgKTwacSqXTc6A-8/ext:webp/quality:85/plain/s3://toast-sites-resources-prod/restaurantImages/b98d1181-c7ce-4462-acd7-ef2d530cfbce/472136088_122192522336245179_3962878665134603512_n--17841404756797411-INSTAGRAM.jpg",
+    "https://d1w7312wesee68.cloudfront.net/h6ctV31uKbmjzMkKVQFKiQnKldL23wm99AzerdYeIYE/ext:webp/quality:85/plain/s3://toast-sites-resources-prod/restaurantImages/b98d1181-c7ce-4462-acd7-ef2d530cfbce/449705377_1075049780790379_4663673044470099618_n.jpg",
+    "https://d1w7312wesee68.cloudfront.net/r-L7heHCiSgtgPE10F8u9SaY5ktz2uaBz2V1-uXKzFs/ext:webp/quality:85/c:2048:1246:ce:0:-145/plain/s3://toast-sites-resources-prod/restaurantImages/b98d1181-c7ce-4462-acd7-ef2d530cfbce/487886344_1283327316629290_4144068562305099049_n1.jpg",
+    "https://d1w7312wesee68.cloudfront.net/JE7B1G3Ahr4a7YTlkIPJVS9iFnxZWzeGT37bHQbPV7E/ext:webp/quality:85/c:984:497:ce:-223:16/plain/s3://toast-sites-resources-prod/restaurantImages/b98d1181-c7ce-4462-acd7-ef2d530cfbce/480680882_122204631518245179_3252549381173743276_n--17841404756797411-INSTAGRAM.jpg",
+    "https://d1w7312wesee68.cloudfront.net/SoPCa1gsOwwN3lNpJhF6OiVDMhlK-TkRyzYJ0tGzinA/ext:webp/quality:85/plain/s3://toast-sites-resources-prod/restaurantImages/b98d1181-c7ce-4462-acd7-ef2d530cfbce/DSCF9478.jpeg",
+    "https://d1w7312wesee68.cloudfront.net/i7Mj8I9oU4FgHFK5HJYQN52ftAevLoUh6bPGbvqmc1o/ext:webp/quality:85/plain/s3://toast-sites-resources-prod/restaurantImages/b98d1181-c7ce-4462-acd7-ef2d530cfbce/429653871_992583082370383_7243345749858394960_n.jpg"
+  ],
+  "sources": [
+    "https://www.sassybass.com"
+  ]
+}

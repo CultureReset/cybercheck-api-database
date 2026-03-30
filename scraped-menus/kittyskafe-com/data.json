@@ -1,0 +1,84 @@
+{
+  "business_name": "Kitty's Kafe",
+  "tagline": "Home Style Meals Served With True Southern Hospitality",
+  "type": "Restaurant",
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": null,
+    "city": null,
+    "state": null,
+    "zip": null
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": null
+  },
+  "about": {
+    "description": "Upon entering Kitty's Kafe, locals and visitors alike are greeted by a warm, friendly, casual family atmosphere. Whether joining for a Southern Style Country Breakfast, enjoying one of many delicious lunch items, or scrumptious entrees, food is prepared daily from the freshest ingredients. Full service bar available.",
+    "elevator_pitch": "A casual family-style Southern restaurant serving home-cooked meals with genuine hospitality.",
+    "vibe": "Warm, friendly, casual family atmosphere",
+    "best_for": [
+      "families",
+      "locals",
+      "visitors",
+      "breakfast",
+      "lunch"
+    ],
+    "established": null,
+    "reservations": null,
+    "insider_tip": null
+  },
+  "tags": [
+    "Southern cuisine",
+    "casual dining",
+    "family-friendly",
+    "breakfast",
+    "lunch",
+    "home-style"
+  ],
+  "features": [
+    "full service bar",
+    "casual dining"
+  ],
+  "price_range": "$$",
+  "social_links": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://kittyskafe.com"
+  },
+  "specials": [],
+  "events": [],
+  "menu": {
+    "categories": [
+      {
+        "name": "Breakfast Menu",
+        "type": "breakfast",
+        "items": []
+      },
+      {
+        "name": "Sandwiches & Wraps",
+        "type": "lunch",
+        "items": []
+      }
+    ]
+  },
+  "url": "https://kittyskafe.com",
+  "scraped_at": "2026-03-22T09:19:08.265Z",
+  "extracted_at": "2026-03-23T03:50:38.682Z",
+  "model": "claude-haiku-4-5-20251001",
+  "gallery": [],
+  "sources": [
+    "https://kittyskafe.com",
+    "https://www.kittyskafe.com/menu",
+    "https://www.kittyskafe.com/home",
+    "https://www.kittyskafe.com/gallery",
+    "https://www.kittyskafe.com"
+  ]
+}
