@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const { adminRequired } = require('../middleware/auth');
 const supabase = require('../db');
+const getGcrDb = require('../gcr-db');
 
 const router = express.Router();
 
@@ -1015,13 +1016,11 @@ router.post('/gcr/import-csv', adminRequired, async (req, res) => {
 
 router.get('/gcr/businesses', adminRequired, async (req, res) => {
     const { search, category, status } = req.query;
-    let query = supabase
-        .from('businesses')
-        .select('site_id, name, type, status, subdomain, emoji, featured, gcr_listed, instagram, facebook, tiktok')
-        .eq('gcr_listed', true)
-        .order('name', { ascending: true });
-    if (status) query = query.eq('status', status);
-    if (category) query = query.eq('type', category);
+    const db = getGcrDb();
+    let query = db.from('entity').select('id, slug, name, entity_subtype, is_active, hero_image_url, phone, city, state').order('name', { ascending: true });
+    if (status === 'active') query = query.eq('is_active', true);
+    if (status === 'hidden') query = query.eq('is_active', false);
+    if (category) query = query.ilike('entity_subtype', `%${category}%`);
     if (search) query = query.ilike('name', `%${search}%`);
     const { data, error } = await query;
     if (error) return res.status(500).json({ error: error.message });
@@ -1029,70 +1028,91 @@ router.get('/gcr/businesses', adminRequired, async (req, res) => {
 });
 
 // ============================================
-// GCR EVENTS — admin manage all events across businesses
+// GCR EVENTS — stored as section_cards in entity sections
 // ============================================
 
 router.get('/gcr/events', adminRequired, async (req, res) => {
-    const { site_id, upcoming } = req.query;
-    let query = supabase.from('events').select('*, businesses(name)').order('event_date', { ascending: true });
-    if (site_id) query = query.eq('site_id', site_id);
-    if (upcoming === 'true') query = query.gte('event_date', new Date().toISOString().split('T')[0]);
-    const { data, error } = await query;
+    const db = getGcrDb();
+    const { data, error } = await db
+        .from('section_cards')
+        .select('*, entity_sections(section_key, entity_id, entity(name, slug))')
+        .eq('entity_sections.section_key', 'events')
+        .order('badge_text', { ascending: true });
     if (error) return res.status(500).json({ error: error.message });
     res.json(data || []);
 });
 
 router.post('/gcr/events', adminRequired, async (req, res) => {
-    const { site_id, name, description, event_date, event_time, location, image_url, active } = req.body;
-    if (!site_id || !name) return res.status(400).json({ error: 'site_id and name required' });
-    const { data, error } = await supabase.from('events').insert({ site_id, name, description, event_date: event_date || null, event_time: event_time || null, location: location || null, image_url: image_url || null, active: active !== false }).select().single();
+    const { entity_id, title, description, event_date, image_url } = req.body;
+    if (!entity_id || !title) return res.status(400).json({ error: 'entity_id and title required' });
+    const db = getGcrDb();
+    // Get or create events section
+    let { data: section } = await db.from('entity_sections').select('id').eq('entity_id', entity_id).eq('section_key', 'events').single();
+    if (!section) {
+        const { data: newSection } = await db.from('entity_sections').insert({ entity_id, section_key: 'events', section_label: 'Events', section_type: 'cards', sort_order: 50 }).select('id').single();
+        section = newSection;
+    }
+    const { data, error } = await db.from('section_cards').insert({ section_id: section.id, title, description, badge_text: event_date || null, image_url: image_url || null }).select().single();
     if (error) return res.status(500).json({ error: error.message });
     res.status(201).json(data);
 });
 
 router.put('/gcr/events/:id', adminRequired, async (req, res) => {
-    const updates = { ...req.body }; delete updates.site_id; delete updates.id;
-    const { data, error } = await supabase.from('events').update(updates).eq('id', req.params.id).select().single();
+    const db = getGcrDb();
+    const { title, description, event_date, image_url } = req.body;
+    const { data, error } = await db.from('section_cards').update({ title, description, badge_text: event_date || null, image_url: image_url || null }).eq('id', req.params.id).select().single();
     if (error) return res.status(500).json({ error: error.message });
     res.json(data);
 });
 
 router.delete('/gcr/events/:id', adminRequired, async (req, res) => {
-    const { error } = await supabase.from('events').delete().eq('id', req.params.id);
+    const db = getGcrDb();
+    const { error } = await db.from('section_cards').delete().eq('id', req.params.id);
     if (error) return res.status(500).json({ error: error.message });
     res.json({ success: true });
 });
 
 // ============================================
-// GCR SPECIALS — admin manage all specials across businesses
+// GCR SPECIALS — stored as section_cards in entity sections
 // ============================================
 
 router.get('/gcr/specials', adminRequired, async (req, res) => {
-    const { site_id } = req.query;
-    let query = supabase.from('specials').select('*, businesses(name)').order('sort_order').order('created_at', { ascending: false });
-    if (site_id) query = query.eq('site_id', site_id);
-    const { data, error } = await query;
+    const db = getGcrDb();
+    const { data, error } = await db
+        .from('section_cards')
+        .select('*, entity_sections(section_key, entity_id, entity(name, slug))')
+        .in('entity_sections.section_key', ['specials', 'happy_hour'])
+        .order('created_at', { ascending: false });
     if (error) return res.status(500).json({ error: error.message });
     res.json(data || []);
 });
 
 router.post('/gcr/specials', adminRequired, async (req, res) => {
-    const { site_id, name, description, discount_text, day_of_week, time_range, active } = req.body;
-    if (!site_id || !name) return res.status(400).json({ error: 'site_id and name required' });
-    const { data, error } = await supabase.from('specials').insert({ site_id, name, description, discount_text: discount_text || null, day_of_week: day_of_week || null, time_range: time_range || null, active: active !== false }).select().single();
+    const { entity_id, name, description, discount_text, section_key } = req.body;
+    if (!entity_id || !name) return res.status(400).json({ error: 'entity_id and name required' });
+    const db = getGcrDb();
+    const key = section_key || 'specials';
+    let { data: section } = await db.from('entity_sections').select('id').eq('entity_id', entity_id).eq('section_key', key).single();
+    if (!section) {
+        const { data: newSection } = await db.from('entity_sections').insert({ entity_id, section_key: key, section_label: key === 'happy_hour' ? 'Happy Hour' : 'Specials', section_type: 'cards', sort_order: 60 }).select('id').single();
+        section = newSection;
+    }
+    const { data, error } = await db.from('section_cards').insert({ section_id: section.id, title: name, description, subtitle: discount_text || null }).select().single();
     if (error) return res.status(500).json({ error: error.message });
     res.status(201).json(data);
 });
 
 router.put('/gcr/specials/:id', adminRequired, async (req, res) => {
-    const updates = { ...req.body }; delete updates.site_id; delete updates.id;
-    const { data, error } = await supabase.from('specials').update(updates).eq('id', req.params.id).select().single();
+    const db = getGcrDb();
+    const { name, description, discount_text } = req.body;
+    const { data, error } = await db.from('section_cards').update({ title: name, description, subtitle: discount_text || null }).eq('id', req.params.id).select().single();
     if (error) return res.status(500).json({ error: error.message });
     res.json(data);
 });
 
 router.delete('/gcr/specials/:id', adminRequired, async (req, res) => {
-    const { error } = await supabase.from('specials').delete().eq('id', req.params.id);
+    const db = getGcrDb();
+    const { error } = await db.from('section_cards').delete().eq('id', req.params.id);
     if (error) return res.status(500).json({ error: error.message });
     res.json({ success: true });
 });
@@ -1718,7 +1738,6 @@ router.delete('/businesses/:siteId/events/:itemId', async (req, res) => {
 // GCR ENTITY ADMIN — Full CRUD for new entity/section schema
 // ============================================================
 
-const getGcrDb = require('../gcr-db');
 let gcrDb; try { gcrDb = getGcrDb(); } catch(e) { console.warn('GCR DB not initialized:', e.message); }
 
 // ── Entity CRUD ──────────────────────────────────────────────
