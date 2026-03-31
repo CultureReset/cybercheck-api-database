@@ -6,3 +6,38 @@ npm-debug.log*
 .vscode/
 .vercel
 .env*.local
+
+# Raw data dumps
+*.csv
+data/
+data-analysis/
+scraped-menus/
+scraped-menus.zip
+
+# One-off JSON data files (not config)
+businesses.json
+restaurants.json
+business-index.json
+all-condos.json
+condos-complexes.json
+phoenix-condos.json
+districts.json
+gulfshores-tourism.json
+brett-robinson.json
+circle-boats-raw.json
+dockside-parasail-raw.json
+sunny-lady-raw.json
+retry-blocked.json
+retry-restaurants.json
+test-extract.json
+condo-test.json
+docksideguide-data.json
+
+# Demo/scratch files
+docksideguide-*.html
+LINKTREE_DEMO_README.md
+patch-template.py
+run-condo-test.sh
+check-circleboat.js
+dockside-logo.png
+sort-commit.sh
