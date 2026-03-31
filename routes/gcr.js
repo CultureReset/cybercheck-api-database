@@ -1230,10 +1230,8 @@ async function fetchSectionContent(section) {
 router.get('/entities', async (req, res) => {
     let query = gcrDb
         .from('entity')
-        .select('id, slug, name, subtitle, entity_type, entity_subtype, icon, phone, rating, review_count, city, state, zip, address_line_1, hero_image_url, website_url, directions_url, call_url, is_active, is_sponsored, sort_order')
+        .select('id, slug, name, subtitle, entity_type, entity_subtype, icon, phone, rating, review_count, city, state, zip, address_line_1, hero_image_url, website_url, directions_url, call_url, is_active')
         .eq('is_active', true)
-        .order('is_sponsored', { ascending: false, nullsFirst: false })
-        .order('sort_order', { ascending: true, nullsFirst: false })
         .order('name')
         .range(0, 999);
 
@@ -1310,8 +1308,7 @@ router.get('/entities', async (req, res) => {
         tagline:      e.subtitle,
         status:       e.is_active ? 'active' : 'hidden',
         gcr_listed:   e.is_active,
-        featured:     e.is_sponsored || false,
-        is_sponsored: e.is_sponsored || false,
+        featured:     false,
         address:      e.address_line_1 || '',
         priceRange:   e.price_range || '',
         reviewCount:  e.review_count || 0,
