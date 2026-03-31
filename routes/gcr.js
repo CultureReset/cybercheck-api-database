@@ -113,10 +113,20 @@ router.get('/events', async (req, res) => {
 });
 
 // ============================================
-// GET /api/gcr/happy-hours — old DB HH data matched to GCR entities
+// GET /api/gcr/happy-hours — combines site_content HH + specials named "Happy Hour"
 // ============================================
 router.get('/happy-hours', async (req, res) => {
-    const { data, error } = await supabase
+    // Get GCR entity data for images (used for both sources)
+    const { data: entities } = await gcrDb.from('entity').select('slug, name, hero_image_url, icon, rating, city, phone, directions_url, address_line_1').eq('is_active', true).range(0, 999);
+    const entBySlug = {};
+    const entByName = {};
+    (entities || []).forEach(e => {
+        entBySlug[e.slug] = e;
+        entByName[(e.name || '').toLowerCase()] = e;
+    });
+
+    // Source 1: businesses with site_content.happy_hour
+    const { data: hhBiz } = await supabase
         .from('businesses')
         .select(`site_id, name, emoji, type, subdomain, rating, tags,
             site_content(happy_hour, address, city, state, contact_phone, hours, google_maps),
@@ -125,41 +135,82 @@ router.get('/happy-hours', async (req, res) => {
         .eq('gcr_listed', true)
         .not('site_content.happy_hour', 'is', null);
 
-    if (error) return res.status(500).json({ error: error.message });
+    // Source 2: specials named "happy hour"
+    const { data: hhSpecials } = await supabase
+        .from('specials')
+        .select('*, businesses(name, emoji, type, subdomain)')
+        .eq('active', true)
+        .ilike('name', '%happy hour%');
 
-    // Get GCR entity data for images
-    const { data: entities } = await gcrDb.from('entity').select('slug, hero_image_url, icon, rating, city, phone, directions_url').eq('is_active', true).range(0, 999);
-    const entBySlug = {};
-    (entities || []).forEach(e => { entBySlug[e.slug] = e; });
+    const results = [];
+    const seen = new Set();
 
-    const results = (data || [])
-        .filter(b => b.site_content?.happy_hour)
-        .map(b => {
-            const c = b.site_content || {};
-            const media = (b.business_media || []).sort((a,b) => a.sort_order - b.sort_order);
-            const cover = media.find(m => m.section === 'cover')?.url || media[0]?.url || null;
-            const ent = entBySlug[b.subdomain] || {};
-            return {
-                slug:      b.subdomain,
-                name:      b.name,
-                emoji:     ent.icon || b.emoji || '🏪',
-                type:      b.type || '',
-                rating:    ent.rating || b.rating || null,
-                tags:      b.tags || [],
-                address:   c.address || '',
-                city:      ent.city || c.city || '',
-                phone:     ent.phone || c.contact_phone || '',
-                google_maps: ent.directions_url || c.google_maps || '',
-                cover:     ent.hero_image_url || cover,
-                happyHour: c.happy_hour,
-            };
+    // Process source 1
+    (hhBiz || []).filter(b => b.site_content?.happy_hour).forEach(b => {
+        const slug = b.subdomain || b.site_id;
+        const c = b.site_content || {};
+        const media = (b.business_media || []).sort((a,bb) => a.sort_order - bb.sort_order);
+        const cover = media.find(m => m.section === 'cover')?.url || media[0]?.url || null;
+        const ent = entBySlug[slug] || entByName[(b.name || '').toLowerCase()] || {};
+        seen.add(slug);
+        results.push({
+            slug:      ent.slug || slug,
+            name:      b.name,
+            emoji:     ent.icon || b.emoji || '🏪',
+            type:      b.type || '',
+            rating:    ent.rating || b.rating || null,
+            tags:      b.tags || [],
+            address:   ent.address_line_1 || c.address || '',
+            city:      ent.city || c.city || '',
+            phone:     ent.phone || c.contact_phone || '',
+            google_maps: ent.directions_url || c.google_maps || '',
+            cover:     ent.hero_image_url || cover,
+            happyHour: c.happy_hour,
         });
+    });
+
+    // Process source 2 — group specials by business
+    const hhByBiz = {};
+    (hhSpecials || []).forEach(s => {
+        const slug = s.businesses?.subdomain || s.site_id;
+        if (seen.has(slug)) return; // already from source 1
+        if (!hhByBiz[slug]) hhByBiz[slug] = { biz: s.businesses || {}, specials: [], site_id: s.site_id };
+        hhByBiz[slug].specials.push(s);
+    });
+
+    Object.entries(hhByBiz).forEach(([slug, data]) => {
+        const biz = data.biz;
+        const ent = entBySlug[slug] || entBySlug[biz.subdomain] || entByName[(biz.name || '').toLowerCase()] || {};
+        // Build happyHour object from specials
+        const items = data.specials.map(s => ({
+            name: s.name,
+            description: s.description || '',
+            days: s.days || '',
+            discount: s.discount_text || s.discount || '',
+        }));
+        seen.add(slug);
+        results.push({
+            slug:      ent.slug || biz.subdomain || slug,
+            name:      ent.name || biz.name || '',
+            emoji:     ent.icon || biz.emoji || '🏪',
+            type:      biz.type || '',
+            rating:    ent.rating || null,
+            tags:      [],
+            address:   ent.address_line_1 || '',
+            city:      ent.city || '',
+            phone:     ent.phone || '',
+            google_maps: ent.directions_url || '',
+            cover:     ent.hero_image_url || null,
+            happyHour: items.length === 1 ? (items[0].description || items[0].days || 'Happy Hour available') : items,
+        });
+    });
 
     res.json(results);
 });
 
 // ============================================
 // GET /api/gcr/specials — old DB specials matched to GCR entities
+// Excludes happy hours (those go to /happy-hours)
 // ============================================
 router.get('/specials', async (req, res) => {
     let query = supabase
@@ -174,22 +225,35 @@ router.get('/specials', async (req, res) => {
     if (error) return res.status(500).json({ error: error.message });
 
     // Get GCR entity data for images/icons
-    const { data: entities } = await gcrDb.from('entity').select('slug, hero_image_url, icon, entity_subtype, city').eq('is_active', true).range(0, 999);
+    const { data: entities } = await gcrDb.from('entity').select('slug, name, hero_image_url, icon, entity_subtype, city, phone, directions_url, address_line_1').eq('is_active', true).range(0, 999);
     const entBySlug = {};
-    (entities || []).forEach(e => { entBySlug[e.slug] = e; });
-
-    const specials = (data || []).map(s => {
-        const slug = s.businesses?.subdomain || s.site_id;
-        const ent = entBySlug[slug] || {};
-        return {
-            ...s,
-            businessName: ent.name || s.businesses?.name || '',
-            businessEmoji: ent.icon || s.businesses?.emoji || '🏪',
-            category: ent.entity_subtype || s.businesses?.type || '',
-            slug: slug,
-            hero_image_url: ent.hero_image_url || null,
-        };
+    const entByName = {};
+    (entities || []).forEach(e => {
+        entBySlug[e.slug] = e;
+        entByName[(e.name || '').toLowerCase()] = e;
     });
+
+    const specials = (data || [])
+        // Exclude happy hours at the API level — they belong on /happy-hours
+        .filter(s => !(s.name || '').toLowerCase().includes('happy hour'))
+        .map(s => {
+            const slug = s.businesses?.subdomain || s.site_id;
+            const bizName = s.businesses?.name || '';
+            // Try slug match, then name match
+            const ent = entBySlug[slug] || entBySlug[s.businesses?.subdomain] || entByName[bizName.toLowerCase()] || {};
+            return {
+                ...s,
+                businessName: ent.name || bizName,
+                businessEmoji: ent.icon || s.businesses?.emoji || '🏪',
+                category: ent.entity_subtype || s.businesses?.type || '',
+                slug: ent.slug || slug,
+                hero_image_url: ent.hero_image_url || null,
+                city: ent.city || '',
+                phone: ent.phone || '',
+                directions_url: ent.directions_url || '',
+                address: ent.address_line_1 || '',
+            };
+        });
 
     res.json(specials);
 });
