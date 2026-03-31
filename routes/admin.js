@@ -1746,11 +1746,24 @@ let gcrDb; try { gcrDb = getGcrDb(); } catch(e) { console.warn('GCR DB not initi
 router.get('/gcr/entities', async (req, res) => {
     const { data, error } = await gcrDb
         .from('entity')
-        .select('id, slug, name, subtitle, entity_type, entity_subtype, icon, rating, review_count, city, state, is_active, hero_image_url, created_at')
+        .select('id, slug, name, subtitle, entity_type, entity_subtype, icon, rating, review_count, city, state, is_active, is_sponsored, hero_image_url, phone, address_line_1, directions_url, website_url, created_at')
         .order('name')
         .range(0, 999);
     if (error) return res.status(500).json({ error: error.message });
-    res.json({ entities: data || [] });
+
+    // Batch-fetch tags for all entities
+    const entityIds = (data || []).map(e => e.id);
+    let tagMap = {};
+    if (entityIds.length) {
+        const { data: tagRows } = await gcrDb.from('entity_tags').select('entity_id, id, tag, tag_category').in('entity_id', entityIds);
+        (tagRows || []).forEach(r => {
+            if (!tagMap[r.entity_id]) tagMap[r.entity_id] = [];
+            tagMap[r.entity_id].push({ id: r.id, tag: r.tag, tag_category: r.tag_category });
+        });
+    }
+
+    const entities = (data || []).map(e => ({ ...e, _tags: tagMap[e.id] || [] }));
+    res.json({ entities });
 });
 
 // POST /api/admin/gcr/entities
