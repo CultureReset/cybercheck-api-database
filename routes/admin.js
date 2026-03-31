@@ -1438,10 +1438,23 @@ router.post('/ai-organize', async (req, res) => {
 
     const provider  = cfg.chat_provider || 'anthropic';
     const model     = cfg.chat_model    || 'claude-sonnet-4-6';
-    const apiKey    = cfg.chat_api_key  || process.env.ANTHROPIC_API_KEY || process.env.CLAUDE_API_KEY || process.env.OPENAI_API_KEY;
+
+    // Pick the right API key for the active provider
+    let apiKey;
+    if (provider === 'anthropic') {
+        apiKey = cfg.api_key_anthropic || cfg.chat_api_key || process.env.ANTHROPIC_API_KEY || process.env.CLAUDE_API_KEY;
+    } else if (provider === 'openai') {
+        apiKey = cfg.api_key_openai || cfg.chat_api_key || process.env.OPENAI_API_KEY;
+    } else if (provider === 'grok') {
+        apiKey = cfg.api_key_grok || cfg.chat_api_key || process.env.GROK_API_KEY || process.env.XAI_API_KEY;
+    } else if (provider === 'groq') {
+        apiKey = cfg.chat_api_key || process.env.GROQ_API_KEY;
+    } else {
+        apiKey = cfg.chat_api_key;
+    }
 
     if (!apiKey) {
-        return res.status(503).json({ error: 'No AI API key configured. Go to AI Settings to add one.' });
+        return res.status(503).json({ error: `No API key configured for ${provider}. Go to AI Settings and add your ${provider} key.` });
     }
 
     const systemPrompt = `You are a data extraction assistant for Gulf Coast Radar, a tourism directory for Orange Beach and Gulf Shores, Alabama.
