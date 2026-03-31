@@ -42,7 +42,8 @@ async function main() {
     if (existingSlugs.has(slug)) { skipped++; continue; }
 
     // Parse address parts
-    const addrParts = (d.address || '').split(',').map(s => s.trim());
+    const rawAddr = typeof d.address === 'string' ? d.address : (d.address?.formatted || '');
+    const addrParts = rawAddr.split(',').map(s => s.trim());
     const city = addrParts.length >= 2 ? addrParts[addrParts.length - 2] : '';
     const stateZip = addrParts.length >= 1 ? addrParts[addrParts.length - 1] : '';
     const stateMatch = stateZip.match(/([A-Z]{2})\s*(\d{5})?/);
@@ -71,7 +72,7 @@ async function main() {
       phone: d.phone || '',
       rating: d.rating || null,
       review_count: d.review_count || 0,
-      address_line_1: d.address || '',
+      address_line_1: rawAddr || '',
       city, state, zip,
       hero_image_url: (d.images && d.images[0]) || null,
       website_url: d.website || '',
@@ -105,7 +106,7 @@ async function main() {
       sort_order: i,
     }));
     if (tags.length) {
-      await gcrDb.from('entity_tags').insert(tags).catch(() => {});
+      try { await gcrDb.from('entity_tags').insert(tags); } catch(_) {}
     }
 
     // Hours section
@@ -123,7 +124,7 @@ async function main() {
           const isClosed = typeof val === 'string' && val.toLowerCase().includes('closed');
           return { section_id: sec.id, day_of_week: dayKey, note_text: val || '', is_closed: isClosed, sort_order: i };
         });
-        await gcrDb.from('section_hours').insert(rows).catch(() => {});
+        try { await gcrDb.from('section_hours').insert(rows); } catch(_) {}
       }
     }
 
@@ -144,7 +145,7 @@ async function main() {
           source: r.source || 'google',
           sort_order: i,
         }));
-        await gcrDb.from('section_reviews').insert(rows).catch(() => {});
+        try { await gcrDb.from('section_reviews').insert(rows); } catch(_) {}
       }
     }
 
