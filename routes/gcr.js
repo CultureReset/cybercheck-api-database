@@ -4,9 +4,13 @@ const supabase = require('../db');
 const router = express.Router();
 
 // ============================================
-// GET /api/gcr/businesses — Browse all businesses
+// GET /api/gcr/businesses — DEPRECATED: redirects to /entities
+// Old DB no longer used for GCR public pages
 // ============================================
 router.get('/businesses', async (req, res) => {
+    // Redirect to entities endpoint — old DB disabled
+    return res.redirect('/api/gcr/entities?' + new URLSearchParams(req.query).toString());
+    /* DISABLED — old DB code below */
     let query = supabase
         .from('businesses')
         .select(`site_id, name, type, subdomain, domain, logo_url, cover_url, status,
@@ -70,97 +74,164 @@ router.get('/businesses', async (req, res) => {
 });
 
 // ============================================
-// GET /api/gcr/events — public events feed
+// GET /api/gcr/events — from GCR entity sections (cards type)
 // ============================================
 router.get('/events', async (req, res) => {
-    let query = supabase
-        .from('events')
-        .select('*, businesses(name, emoji, type, subdomain)')
-        .eq('active', true)
-        .order('event_date', { ascending: true });
+    try {
+        const { data, error } = await gcrDb
+            .from('section_cards')
+            .select('id, title, subtitle, description, badge_text, price_text, image_url, link_url, sort_order, section_id, entity_sections!inner(section_key, entity_id, entity!inner(name, slug, icon, entity_subtype, city))')
+            .eq('entity_sections.section_key', 'events')
+            .order('sort_order');
 
-    if (req.query.site_id) query = query.eq('site_id', req.query.site_id);
-    if (req.query.upcoming === 'true') { const today = new Date().toISOString().split('T')[0]; query = query.or(`event_date.gte.${today},recurring.eq.true`); }
+        if (error) return res.status(500).json({ error: error.message });
 
-    const { data, error } = await query;
-    if (error) return res.status(500).json({ error: error.message });
-
-    const events = (data || []).map(e => ({
-        ...e,
-        date: e.event_date,
-        time: e.event_time,
-        businessName: e.businesses?.name || '',
-        businessEmoji: e.businesses?.emoji || '🏪',
-        category: e.businesses?.type || '',
-        slug: e.businesses?.subdomain || e.site_id,
-    }));
-
-    res.json(events);
-});
-
-// ============================================
-// GET /api/gcr/happy-hours — businesses with full happy hour deals
-// ============================================
-router.get('/happy-hours', async (req, res) => {
-    const { data, error } = await supabase
-        .from('businesses')
-        .select(`site_id, name, emoji, type, subdomain, rating, tags,
-            site_content(happy_hour, address, city, state, contact_phone, hours, google_maps),
-            business_media(url, section, sort_order)`)
-        .eq('status', 'active')
-        .eq('gcr_listed', true)
-        .not('site_content.happy_hour', 'is', null);
-
-    if (error) return res.status(500).json({ error: error.message });
-
-    const results = (data || [])
-        .filter(b => b.site_content?.happy_hour)
-        .map(b => {
-            const c = b.site_content || {};
-            const media = (b.business_media || []).sort((a,b) => a.sort_order - b.sort_order);
-            const cover = media.find(m => m.section === 'cover')?.url || media[0]?.url || null;
+        const events = (data || []).map(c => {
+            const ent = c.entity_sections?.entity || {};
             return {
-                slug:      b.subdomain,
-                name:      b.name,
-                emoji:     b.emoji || '🏪',
-                type:      b.type || '',
-                rating:    b.rating || null,
-                tags:      b.tags || [],
-                address:   c.address || '',
-                city:      c.city || '',
-                phone:     c.contact_phone || '',
-                google_maps: c.google_maps || '',
-                cover,
-                happyHour: c.happy_hour,
+                id: c.id,
+                name: c.title || '',
+                description: c.description || '',
+                artist_name: c.subtitle || null,
+                event_date: null,
+                event_time: null,
+                recurring: true,
+                cover_charge: false,
+                kids_friendly: false,
+                active: true,
+                businessName: ent.name || '',
+                businessEmoji: ent.icon || '🎵',
+                category: ent.entity_subtype || '',
+                slug: ent.slug || '',
+                date: c.badge_text || null,
+                time: c.subtitle || '',
+                image_url: c.image_url || null,
             };
         });
 
-    res.json(results);
+        res.json(events);
+    } catch(e) {
+        res.status(500).json({ error: e.message });
+    }
 });
 
-// GET /api/gcr/specials — public specials feed
+// ============================================
+// GET /api/gcr/happy-hours — entities with happy_hour tag or section
+// ============================================
+router.get('/happy-hours', async (req, res) => {
+    try {
+        // Get entities that have a "happy_hour" tag
+        const { data: tagMatches } = await gcrDb
+            .from('entity_tags')
+            .select('entity_id')
+            .ilike('tag', '%happy%hour%');
+        const hhEntityIds = [...new Set((tagMatches || []).map(t => t.entity_id))];
+
+        if (!hhEntityIds.length) return res.json([]);
+
+        const { data: entities, error } = await gcrDb
+            .from('entity')
+            .select('id, slug, name, icon, entity_subtype, rating, phone, city, address_line_1, hero_image_url, directions_url')
+            .in('id', hhEntityIds)
+            .eq('is_active', true);
+
+        if (error) return res.status(500).json({ error: error.message });
+
+        const results = (entities || []).map(e => ({
+            slug: e.slug,
+            name: e.name,
+            emoji: e.icon || '🍻',
+            type: e.entity_subtype || '',
+            rating: e.rating || null,
+            tags: [],
+            address: e.address_line_1 || '',
+            city: e.city || '',
+            phone: e.phone || '',
+            google_maps: e.directions_url || '',
+            cover: e.hero_image_url || null,
+            happyHour: true,
+        }));
+
+        res.json(results);
+    } catch(e) {
+        res.status(500).json({ error: e.message });
+    }
+});
+
+// ============================================
+// GET /api/gcr/specials — from GCR entity sections (cards type with key 'specials' or grouped_items with HH)
 // ============================================
 router.get('/specials', async (req, res) => {
-    let query = supabase
-        .from('specials')
-        .select('*, businesses(name, emoji, type, subdomain)')
-        .eq('active', true)
-        .order('created_at', { ascending: false });
+    try {
+        // Get specials stored as section_cards
+        const { data: cards, error } = await gcrDb
+            .from('section_cards')
+            .select('id, title, subtitle, description, badge_text, price_text, image_url, sort_order, entity_sections!inner(section_key, entity_id, entity!inner(name, slug, icon, entity_subtype, city))')
+            .in('entity_sections.section_key', ['specials', 'daily_specials'])
+            .order('sort_order');
 
-    if (req.query.site_id) query = query.eq('site_id', req.query.site_id);
+        if (error) return res.status(500).json({ error: error.message });
 
-    const { data, error } = await query;
-    if (error) return res.status(500).json({ error: error.message });
+        // Also get happy hour items from grouped_items sections
+        const { data: hhSections } = await gcrDb
+            .from('entity_sections')
+            .select('id, entity_id, entity!inner(name, slug, icon, entity_subtype, city)')
+            .eq('section_key', 'happy_hour');
 
-    const specials = (data || []).map(s => ({
-        ...s,
-        businessName: s.businesses?.name || '',
-        businessEmoji: s.businesses?.emoji || '🏪',
-        category: s.businesses?.type || '',
-        slug: s.businesses?.subdomain || s.site_id,
-    }));
+        let hhItems = [];
+        if (hhSections?.length) {
+            const sectionIds = hhSections.map(s => s.id);
+            const { data: items } = await gcrDb
+                .from('section_items')
+                .select('id, item_name, item_description, price_text, item_type, section_id')
+                .in('section_id', sectionIds);
 
-    res.json(specials);
+            const secMap = {};
+            hhSections.forEach(s => { secMap[s.id] = s; });
+
+            hhItems = (items || []).map(item => {
+                const sec = secMap[item.section_id] || {};
+                const ent = sec.entity || {};
+                return {
+                    id: item.id,
+                    name: item.item_name || 'Happy Hour',
+                    description: item.item_description || '',
+                    discount_text: item.price_text || '',
+                    days: '',
+                    start_time: null,
+                    end_time: null,
+                    active: true,
+                    type: 'happy_hour',
+                    businessName: ent.name || '',
+                    businessEmoji: ent.icon || '🍻',
+                    category: ent.entity_subtype || '',
+                    slug: ent.slug || '',
+                };
+            });
+        }
+
+        // Map cards to specials format
+        const specials = (cards || []).map(c => {
+            const ent = c.entity_sections?.entity || {};
+            return {
+                id: c.id,
+                name: c.title || 'Special',
+                description: c.description || '',
+                discount_text: c.price_text || '',
+                days: c.badge_text || '',
+                active: true,
+                type: 'special',
+                businessName: ent.name || '',
+                businessEmoji: ent.icon || '🏷️',
+                category: ent.entity_subtype || '',
+                slug: ent.slug || '',
+            };
+        });
+
+        res.json([...specials, ...hhItems]);
+    } catch(e) {
+        res.status(500).json({ error: e.message });
+    }
 });
 
 // ============================================
