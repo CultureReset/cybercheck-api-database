@@ -2104,5 +2104,61 @@ router.put('/gcr/sections/:sectionId/hours', async (req, res) => {
     res.json({ success: true });
 });
 
+// ══════════════════════════════════════════════════════════
+// GCR Dashboard — Reviews, Customers
+// ══════════════════════════════════════════════════════════
+
+// GET /api/admin/gcr/reviews
+router.get('/gcr/reviews', async (req, res) => {
+    let query = gcrDb.from('gcr_reviews').select('*').order('created_at', { ascending: false }).range(0, 499);
+    if (req.query.status && req.query.status !== 'all') query = query.eq('status', req.query.status);
+    const { data, error } = await query;
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ reviews: data || [] });
+});
+
+// PUT /api/admin/gcr/reviews/:id
+router.put('/gcr/reviews/:id', async (req, res) => {
+    const { id } = req.params;
+    const updates = req.body;
+    updates.updated_at = new Date().toISOString();
+    const { error } = await gcrDb.from('gcr_reviews').update(updates).eq('id', id);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// DELETE /api/admin/gcr/reviews/:id
+router.delete('/gcr/reviews/:id', async (req, res) => {
+    const { id } = req.params;
+    const { error } = await gcrDb.from('gcr_reviews').delete().eq('id', id);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// GET /api/admin/gcr/customers
+router.get('/gcr/customers', async (req, res) => {
+    const { data, error } = await gcrDb.from('gcr_customers').select('*').order('created_at', { ascending: false }).range(0, 499);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ customers: data || [] });
+});
+
+// POST /api/admin/gcr/customers
+router.post('/gcr/customers', async (req, res) => {
+    const customer = req.body;
+    const { data, error } = await gcrDb.from('gcr_customers').insert(customer).select('id').single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true, id: data.id });
+});
+
+// PUT /api/admin/gcr/customers/:id
+router.put('/gcr/customers/:id', async (req, res) => {
+    const { id } = req.params;
+    const updates = req.body;
+    updates.updated_at = new Date().toISOString();
+    const { error } = await gcrDb.from('gcr_customers').update(updates).eq('id', id);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
 module.exports = router;
 
