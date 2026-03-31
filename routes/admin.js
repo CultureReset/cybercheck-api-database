@@ -1746,8 +1746,7 @@ let gcrDb; try { gcrDb = getGcrDb(); } catch(e) { console.warn('GCR DB not initi
 router.get('/gcr/entities', async (req, res) => {
     const { data, error } = await gcrDb
         .from('entity')
-        .select('id, slug, name, subtitle, entity_type, entity_subtype, icon, rating, review_count, city, state, is_active, is_sponsored, sort_order, hero_image_url, created_at')
-        .order('is_sponsored', { ascending: false, nullsFirst: false })
+        .select('id, slug, name, subtitle, entity_type, entity_subtype, icon, rating, review_count, city, state, is_active, hero_image_url, created_at')
         .order('name')
         .range(0, 999);
     if (error) return res.status(500).json({ error: error.message });
