@@ -2160,5 +2160,119 @@ router.put('/gcr/customers/:id', async (req, res) => {
     res.json({ success: true });
 });
 
+// ── Analytics ──────────────────────────────────────────────
+// GET /api/admin/gcr/analytics
+router.get('/gcr/analytics', async (req, res) => {
+    const today = new Date().toISOString().split('T')[0];
+    const monthStart = today.slice(0, 7) + '-01';
+
+    const [pvToday, pvMonth, convToday, topEntities] = await Promise.all([
+        gcrDb.from('gcr_page_views').select('id, visitor_id', { count: 'exact' }).gte('created_at', today + 'T00:00:00Z'),
+        gcrDb.from('gcr_page_views').select('id', { count: 'exact' }).gte('created_at', monthStart + 'T00:00:00Z'),
+        gcrDb.from('gcr_conversions').select('id, conversion_type', { count: 'exact' }).gte('created_at', today + 'T00:00:00Z'),
+        gcrDb.from('gcr_page_views').select('entity_id, entity(name, slug, icon)').gte('created_at', monthStart + 'T00:00:00Z').limit(1000),
+    ]);
+
+    // Count unique visitors today
+    const todayVisitors = new Set((pvToday.data || []).map(r => r.visitor_id).filter(Boolean)).size;
+
+    // Tally top entities by page views
+    const entityCounts = {};
+    (topEntities.data || []).forEach(r => {
+        const key = r.entity_id;
+        if (!key) return;
+        if (!entityCounts[key]) entityCounts[key] = { entity: r.entity, count: 0 };
+        entityCounts[key].count++;
+    });
+    const top = Object.values(entityCounts).sort((a, b) => b.count - a.count).slice(0, 10);
+
+    res.json({
+        today_visitors: todayVisitors,
+        today_views: pvToday.count || 0,
+        today_conversions: convToday.count || 0,
+        month_views: pvMonth.count || 0,
+        top_entities: top,
+    });
+});
+
+// POST /api/admin/gcr/analytics/track — record a page view
+router.post('/gcr/analytics/track', async (req, res) => {
+    const { entity_id, page_path, referrer, utm_source, utm_medium, device_type, session_id, visitor_id } = req.body;
+    const { error } = await gcrDb.from('gcr_page_views').insert({ entity_id, page_path, referrer, utm_source, utm_medium, device_type, session_id, visitor_id });
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// POST /api/admin/gcr/analytics/convert — record a conversion
+router.post('/gcr/analytics/convert', async (req, res) => {
+    const { entity_id, conversion_type, source } = req.body;
+    const { error } = await gcrDb.from('gcr_conversions').insert({ entity_id, conversion_type, source });
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ── Messaging Settings ─────────────────────────────────────
+// GET /api/admin/gcr/messaging/:entity_id
+router.get('/gcr/messaging/:entity_id', async (req, res) => {
+    const { data, error } = await gcrDb.from('gcr_messaging_settings').select('*').eq('entity_id', req.params.entity_id).single();
+    if (error && error.code !== 'PGRST116') return res.status(500).json({ error: error.message });
+    res.json({ settings: data || null });
+});
+
+// PUT /api/admin/gcr/messaging/:entity_id
+router.put('/gcr/messaging/:entity_id', async (req, res) => {
+    const updates = { ...req.body, entity_id: req.params.entity_id, updated_at: new Date().toISOString() };
+    const { error } = await gcrDb.from('gcr_messaging_settings').upsert(updates, { onConflict: 'entity_id' });
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ── Coupons ────────────────────────────────────────────────
+// GET /api/admin/gcr/coupons
+router.get('/gcr/coupons', async (req, res) => {
+    let query = gcrDb.from('gcr_coupons').select('*, entity(name, slug)').order('created_at', { ascending: false }).range(0, 499);
+    if (req.query.entity_id) query = query.eq('entity_id', req.query.entity_id);
+    const { data, error } = await query;
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ coupons: data || [] });
+});
+
+// POST /api/admin/gcr/coupons
+router.post('/gcr/coupons', async (req, res) => {
+    const { data, error } = await gcrDb.from('gcr_coupons').insert(req.body).select('id').single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true, id: data.id });
+});
+
+// PUT /api/admin/gcr/coupons/:id
+router.put('/gcr/coupons/:id', async (req, res) => {
+    const { error } = await gcrDb.from('gcr_coupons').update(req.body).eq('id', req.params.id);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// DELETE /api/admin/gcr/coupons/:id
+router.delete('/gcr/coupons/:id', async (req, res) => {
+    const { error } = await gcrDb.from('gcr_coupons').delete().eq('id', req.params.id);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ── SEO Settings ───────────────────────────────────────────
+// GET /api/admin/gcr/seo/:entity_id
+router.get('/gcr/seo/:entity_id', async (req, res) => {
+    const { data, error } = await gcrDb.from('gcr_seo_settings').select('*').eq('entity_id', req.params.entity_id).single();
+    if (error && error.code !== 'PGRST116') return res.status(500).json({ error: error.message });
+    res.json({ seo: data || null });
+});
+
+// PUT /api/admin/gcr/seo/:entity_id
+router.put('/gcr/seo/:entity_id', async (req, res) => {
+    const updates = { ...req.body, entity_id: req.params.entity_id, updated_at: new Date().toISOString() };
+    const { error } = await gcrDb.from('gcr_seo_settings').upsert(updates, { onConflict: 'entity_id' });
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
 module.exports = router;
 
