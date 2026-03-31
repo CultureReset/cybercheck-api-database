@@ -1232,7 +1232,8 @@ router.get('/entities', async (req, res) => {
         .from('entity')
         .select('id, slug, name, subtitle, entity_type, entity_subtype, icon, phone, rating, review_count, city, state, zip, address_line_1, hero_image_url, website_url, directions_url, call_url, is_active')
         .eq('is_active', true)
-        .order('name');
+        .order('name')
+        .range(0, 999);
 
     if (req.query.subtype) query = query.eq('entity_subtype', req.query.subtype);
     if (req.query.city)    query = query.ilike('city', `%${req.query.city}%`);
