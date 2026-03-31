@@ -1747,7 +1747,8 @@ router.get('/gcr/entities', async (req, res) => {
     const { data, error } = await gcrDb
         .from('entity')
         .select('id, slug, name, subtitle, entity_type, entity_subtype, icon, rating, review_count, city, state, is_active, hero_image_url, created_at')
-        .order('name');
+        .order('name')
+        .range(0, 999);
     if (error) return res.status(500).json({ error: error.message });
     res.json({ entities: data || [] });
 });
