@@ -1368,20 +1368,25 @@ router.post('/upload-photo', adminRequired, upload.single('file'), async (req, r
 router.get('/ai-settings', async (req, res) => {
     const { data, error } = await supabase.from('ai_settings').select('*').eq('id', 1).single();
     if (error) return res.status(500).json({ error: error.message });
-    // Mask API keys in response
+    // Mask API keys in response — show enough to confirm they exist
     const masked = { ...data };
-    if (masked.chat_api_key) masked.chat_api_key = masked.chat_api_key.slice(0, 8) + '••••••••';
-    if (masked.embed_api_key) masked.embed_api_key = masked.embed_api_key.slice(0, 8) + '••••••••';
+    const maskKey = k => { if (masked[k]) masked[k] = masked[k].slice(0, 8) + '••••••••'; };
+    maskKey('chat_api_key');
+    maskKey('embed_api_key');
+    maskKey('api_key_anthropic');
+    maskKey('api_key_openai');
+    maskKey('api_key_grok');
     res.json(masked);
 });
 
 router.put('/ai-settings', async (req, res) => {
-    const allowed = ['chat_provider','chat_model','chat_api_key','embed_provider','embed_model','embed_api_key','embed_dimensions','rag_enabled','voice_enabled','system_prompt'];
+    const allowed = ['chat_provider','chat_model','chat_api_key','embed_provider','embed_model','embed_api_key','embed_dimensions','rag_enabled','voice_enabled','system_prompt','api_key_anthropic','api_key_openai','api_key_grok'];
     const update = {};
     allowed.forEach(k => { if (req.body[k] !== undefined) update[k] = req.body[k]; });
     // Don't overwrite keys if they're masked (client sent back a masked value)
-    if (update.chat_api_key && update.chat_api_key.includes('••••')) delete update.chat_api_key;
-    if (update.embed_api_key && update.embed_api_key.includes('••••')) delete update.embed_api_key;
+    ['chat_api_key','embed_api_key','api_key_anthropic','api_key_openai','api_key_grok'].forEach(k => {
+        if (update[k] && update[k].includes('••••')) delete update[k];
+    });
     update.updated_at = new Date().toISOString();
 
     const { data, error } = await supabase.from('ai_settings').upsert({ id: 1, ...update }).select().single();
