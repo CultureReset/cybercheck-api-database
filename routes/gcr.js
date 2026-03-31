@@ -1252,8 +1252,49 @@ router.get('/entities', async (req, res) => {
     const { data, error } = await query;
     if (error) return res.status(500).json({ error: error.message });
 
+    const entities = data || [];
+    const entityIds = entities.map(e => e.id);
+
+    // Batch-fetch tags for all entities
+    let tagMap = {};
+    if (entityIds.length) {
+        const { data: tagRows } = await gcrDb
+            .from('entity_tags')
+            .select('entity_id, tag, tag_category')
+            .in('entity_id', entityIds);
+        (tagRows || []).forEach(r => {
+            if (!tagMap[r.entity_id]) tagMap[r.entity_id] = [];
+            tagMap[r.entity_id].push({ tag: r.tag, tag_category: r.tag_category });
+        });
+    }
+
+    // Batch-fetch hours for all entities
+    let hoursMap = {};
+    if (entityIds.length) {
+        const { data: hoursSections } = await gcrDb
+            .from('entity_sections')
+            .select('id, entity_id')
+            .eq('section_type', 'hours')
+            .in('entity_id', entityIds);
+        const sectionIds = (hoursSections || []).map(s => s.id);
+        const sectionEntityMap = {};
+        (hoursSections || []).forEach(s => { sectionEntityMap[s.id] = s.entity_id; });
+        if (sectionIds.length) {
+            const { data: hoursRows } = await gcrDb
+                .from('section_hours')
+                .select('section_id, day_of_week, open_time, close_time, is_closed, note_text')
+                .in('section_id', sectionIds);
+            (hoursRows || []).forEach(r => {
+                const eid = sectionEntityMap[r.section_id];
+                if (!eid) return;
+                if (!hoursMap[eid]) hoursMap[eid] = [];
+                hoursMap[eid].push(r);
+            });
+        }
+    }
+
     // Map entity fields to match old business format so pages don't break
-    const mapped = (data || []).map(e => ({
+    const mapped = entities.map(e => ({
         ...e,
         // Old field aliases
         site_id:      e.id,
@@ -1270,6 +1311,9 @@ router.get('/entities', async (req, res) => {
         address:      e.address_line_1 || '',
         priceRange:   e.price_range || '',
         reviewCount:  e.review_count || 0,
+        // New fields
+        tags:         tagMap[e.id] || [],
+        hours:        hoursMap[e.id] || [],
     }));
 
     res.json({ entities: mapped, businesses: mapped, total: mapped.length });
