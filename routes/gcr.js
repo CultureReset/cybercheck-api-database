@@ -1292,41 +1292,54 @@ router.get('/entities', async (req, res) => {
     const entities = data || [];
     const entityIds = entities.map(e => e.id);
 
-    // Batch-fetch tags for all entities
+    // Batch-fetch tags — chunk to avoid Supabase URL length limits (max ~100 IDs)
     let tagMap = {};
     if (entityIds.length) {
-        const { data: tagRows } = await gcrDb
-            .from('entity_tags')
-            .select('entity_id, tag, tag_category')
-            .in('entity_id', entityIds);
-        (tagRows || []).forEach(r => {
-            if (!tagMap[r.entity_id]) tagMap[r.entity_id] = [];
-            tagMap[r.entity_id].push({ tag: r.tag, tag_category: r.tag_category });
-        });
+        const CHUNK = 100;
+        for (let i = 0; i < entityIds.length; i += CHUNK) {
+            const chunk = entityIds.slice(i, i + CHUNK);
+            const { data: tagRows } = await gcrDb
+                .from('entity_tags')
+                .select('entity_id, tag, tag_category')
+                .in('entity_id', chunk);
+            (tagRows || []).forEach(r => {
+                if (!tagMap[r.entity_id]) tagMap[r.entity_id] = [];
+                tagMap[r.entity_id].push({ tag: r.tag, tag_category: r.tag_category });
+            });
+        }
     }
 
-    // Batch-fetch hours for all entities
+    // Batch-fetch hours — chunk entity IDs, then chunk section IDs
     let hoursMap = {};
     if (entityIds.length) {
-        const { data: hoursSections } = await gcrDb
-            .from('entity_sections')
-            .select('id, entity_id')
-            .eq('section_type', 'hours')
-            .in('entity_id', entityIds);
-        const sectionIds = (hoursSections || []).map(s => s.id);
+        const CHUNK = 100;
+        let allHoursSections = [];
+        for (let i = 0; i < entityIds.length; i += CHUNK) {
+            const chunk = entityIds.slice(i, i + CHUNK);
+            const { data: hoursSections } = await gcrDb
+                .from('entity_sections')
+                .select('id, entity_id')
+                .eq('section_type', 'hours')
+                .in('entity_id', chunk);
+            allHoursSections = allHoursSections.concat(hoursSections || []);
+        }
         const sectionEntityMap = {};
-        (hoursSections || []).forEach(s => { sectionEntityMap[s.id] = s.entity_id; });
+        allHoursSections.forEach(s => { sectionEntityMap[s.id] = s.entity_id; });
+        const sectionIds = allHoursSections.map(s => s.id);
         if (sectionIds.length) {
-            const { data: hoursRows } = await gcrDb
-                .from('section_hours')
-                .select('section_id, day_of_week, open_time, close_time, is_closed, note_text')
-                .in('section_id', sectionIds);
-            (hoursRows || []).forEach(r => {
-                const eid = sectionEntityMap[r.section_id];
-                if (!eid) return;
-                if (!hoursMap[eid]) hoursMap[eid] = [];
-                hoursMap[eid].push(r);
-            });
+            for (let i = 0; i < sectionIds.length; i += CHUNK) {
+                const chunk = sectionIds.slice(i, i + CHUNK);
+                const { data: hoursRows } = await gcrDb
+                    .from('section_hours')
+                    .select('section_id, day_of_week, open_time, close_time, is_closed, note_text')
+                    .in('section_id', chunk);
+                (hoursRows || []).forEach(r => {
+                    const eid = sectionEntityMap[r.section_id];
+                    if (!eid) return;
+                    if (!hoursMap[eid]) hoursMap[eid] = [];
+                    hoursMap[eid].push(r);
+                });
+            }
         }
     }
 
