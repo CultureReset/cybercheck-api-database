@@ -898,116 +898,593 @@ router.post('/businesses/create-full', adminRequired, async (req, res) => {
 });
 
 // ============================================
-// POST /api/admin/gcr/import-csv — Import single business row from businesses.csv
+// GCR CSV IMPORT — All endpoints write to new GCR DB
 // ============================================
-router.post('/gcr/import-csv', adminRequired, async (req, res) => {
+
+// Shared helpers for import endpoints
+function gcrImportHelpers(gcrDb) {
+    async function getEntityId(slug) {
+        if (!slug) return null;
+        const { data } = await gcrDb.from('entity').select('id').eq('slug', slug).single();
+        return data?.id || null;
+    }
+    async function upsertTag(entityId, tag, tag_category) {
+        if (!tag || !entityId) return;
+        await gcrDb.from('entity_tags').upsert(
+            { entity_id: entityId, tag: tag.toLowerCase().trim(), tag_category },
+            { onConflict: 'entity_id,tag', ignoreDuplicates: true }
+        );
+    }
+    async function getOrCreate(table, match, insertData) {
+        const query = Object.entries(match).reduce((q, [k, v]) => q.eq(k, v), gcrDb.from(table).select('id'));
+        const { data: existing } = await query.single();
+        if (existing) return existing.id;
+        const { data: created } = await gcrDb.from(table).insert(insertData).select('id').single();
+        return created?.id || null;
+    }
+    return { getEntityId, upsertTag, getOrCreate };
+}
+
+// ── POST /api/admin/gcr/import-entity — business row → GCR entity table
+router.post('/gcr/import-entity', async (req, res) => {
+    const gcrDb = getGcrDb();
     const row = req.body;
     if (!row.name) return res.status(400).json({ error: 'name required' });
+    const { upsertTag } = gcrImportHelpers(gcrDb);
 
-    const slug = (row.slug || row.name)
-        .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    const slug = (row.slug || row.name).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    const entityData = {
+        slug, name: row.name, entity_subtype: row.entity_subtype || null,
+        icon: row.icon || null, subtitle: row.subtitle || null,
+        description: row.business_description || null,
+        phone: row.phone || null, email: row.email || null,
+        website_url: row.website_url || null, directions_url: row.directions_url || null,
+        call_url: row.call_url || null, booking_url: row.booking_url || null,
+        reservation_url: row.reservation_url || null, order_url: row.order_url || null,
+        address_line_1: row.address_line_1 || null, city: row.city || null,
+        state: row.state || null, zip: row.zip || null,
+        latitude: row.latitude ? parseFloat(row.latitude) : null,
+        longitude: row.longitude ? parseFloat(row.longitude) : null,
+        price_range: row.price_range || null,
+        rating: row.rating ? parseFloat(row.rating) : null,
+        review_count: row.review_count ? parseInt(row.review_count) : null,
+        hero_image_url: row.hero_image_url || null,
+        featured: row.featured === 'true' || row.featured === true,
+        hh_days: row.hh_days || null, hh_start: row.hh_start || null,
+        hh_end: row.hh_end || null, hh_description: row.hh_description || null,
+        social_instagram: row.social_instagram || null,
+        social_facebook: row.social_facebook || null,
+        social_tiktok: row.social_tiktok || null, is_active: true,
+    };
 
-    // Upsert into businesses (match on subdomain/slug)
-    const { data: existing } = await supabase
-        .from('businesses')
-        .select('site_id')
-        .eq('subdomain', slug)
-        .single();
-
-    let siteId;
+    const { data: existing } = await gcrDb.from('entity').select('id').eq('slug', slug).single();
+    let entityId, action;
 
     if (existing) {
-        siteId = existing.site_id;
-        await supabase.from('businesses').update({
-            name: row.name,
-            type: row.category || 'other',
-            status: row.status || 'active',
-            emoji: row.emoji || null,
-            featured: row.featured === 'true' || row.featured === true,
-            gcr_listed: true,
-            instagram: row.social_instagram || null,
-            facebook: row.social_facebook || null,
-            tiktok: row.social_tiktok || null
-        }).eq('site_id', siteId);
+        await gcrDb.from('entity').update(entityData).eq('id', existing.id);
+        entityId = existing.id; action = 'updated';
     } else {
-        const { data: biz, error } = await supabase.from('businesses').insert({
-            name: row.name,
-            type: row.category || 'other',
-            subdomain: slug,
-            plan: 'free',
-            status: row.status || 'active',
-            emoji: row.emoji || null,
-            featured: row.featured === 'true' || row.featured === true,
-            gcr_listed: true,
-            instagram: row.social_instagram || null,
-            facebook: row.social_facebook || null,
-            tiktok: row.social_tiktok || null
-        }).select().single();
+        const { data: created, error } = await gcrDb.from('entity').insert(entityData).select('id').single();
         if (error) return res.status(500).json({ error: error.message });
-        siteId = biz.site_id;
+        entityId = created.id; action = 'created';
     }
 
-    // Build hours object
-    const hoursObj = {};
-    ['mon','tue','wed','thu','fri','sat','sun'].forEach(d => {
-        if (row['hours_' + d]) hoursObj['hours_' + d] = row['hours_' + d];
-    });
-
-    // Upsert site_content
-    await supabase.from('site_content').upsert({
-        site_id: siteId,
-        tagline: row.tagline || null,
-        seo_description: row.about || row.description || null,
-        about_text: row.about || row.description || null,
-        price_range: row.priceRange || row.price_range || null,
-        address: row.address || null,
-        city: row.city || (row.city_state ? row.city_state.split(',')[0].trim() : null),
-        state: row.state || (row.city_state ? (row.city_state.split(',')[1] || '').trim() : null),
-        zip: row.zip || null,
-        contact_phone: row.phone || null,
-        contact_email: row.email || null,
-        website_url: row.website || null,
-        hours: row.hours || null,
-        ...hoursObj,
-        seasonal_notes: row.seasonal_notes || null,
-        kids_friendly: row.kidsFriendly === 'true' || row.kidsFriendly === true,
-        pet_friendly: row.petFriendly === 'true' || row.petFriendly === true,
-        live_music: row.liveMusic === 'true' || row.liveMusic === true,
-        outdoor_seating: row.outdoor_seating === 'true' || row.outdoor_seating === true,
-        reservations: row.reservations === 'true' || row.reservations === true,
-        delivery: row.delivery === 'true' || row.delivery === true,
-        takeout: row.takeout === 'true' || row.takeout === true,
-        alcohol: row.alcohol === 'true' || row.alcohol === true,
-        happy_hour: row.happyHour ? { text: row.happyHour, days: row.happyHour_days, start: row.happyHour_start, end: row.happyHour_end, drinks: row.happyHour_drink_specials, food: row.happyHour_food_specials } : null
-    }, { onConflict: 'site_id' });
-
-    // Insert specials if present
-    if (row.specials) {
-        const specialList = typeof row.specials === 'string'
-            ? row.specials.split('|').map(s => s.trim()).filter(Boolean)
-            : (Array.isArray(row.specials) ? row.specials : []);
-        if (specialList.length) {
-            await supabase.from('specials').delete().eq('site_id', siteId);
-            await supabase.from('specials').insert(
-                specialList.map((s, i) => ({ site_id: siteId, name: s, active: true, sort_order: i }))
+    // Hours
+    const fullDay = { mon:'monday', tue:'tuesday', wed:'wednesday', thu:'thursday', fri:'friday', sat:'saturday', sun:'sunday' };
+    for (const [d, full] of Object.entries(fullDay)) {
+        const open = row[`${d}_open`], close = row[`${d}_close`];
+        if (open || close) {
+            await gcrDb.from('entity_hours').upsert(
+                { entity_id: entityId, day_of_week: full, open_time: open || null, close_time: close || null, is_closed: !open },
+                { onConflict: 'entity_id,day_of_week' }
             );
         }
     }
 
-    // Insert menu highlights if present
-    if (row.menuHighlights) {
-        const items = typeof row.menuHighlights === 'string'
-            ? row.menuHighlights.split('|').map(s => s.trim()).filter(Boolean)
-            : [];
-        if (items.length) {
-            await supabase.from('menu_items').delete().eq('site_id', siteId);
-            await supabase.from('menu_items').insert(
-                items.map((name, i) => ({ site_id: siteId, name, category: 'Highlights', tags: [], allergens: [], available: true, sort_order: i }))
-            );
-        }
+    // About bullets
+    if (row.bullet_text) {
+        await gcrDb.from('entity_about_bullets').insert({ entity_id: entityId, icon: row.bullet_icon || null, text: row.bullet_text });
     }
 
-    res.json({ success: true, site_id: siteId, action: existing ? 'updated' : 'created' });
+    // Tags
+    if (row.tags) {
+        for (const tag of row.tags.split(',').map(t => t.trim()).filter(Boolean))
+            await upsertTag(entityId, tag, 'feature');
+    }
+
+    res.json({ success: true, entity_id: entityId, action });
+});
+
+// Alias: old endpoint name still works
+router.post('/gcr/import-csv', async (req, res) => {
+    req.url = '/gcr/import-entity';
+    router.handle(req, res, () => {});
+});
+
+// ── POST /api/admin/gcr/import-menu
+router.post('/gcr/import-menu', async (req, res) => {
+    const gcrDb = getGcrDb();
+    const rows = Array.isArray(req.body) ? req.body : [req.body];
+    const { getEntityId, upsertTag, getOrCreate } = gcrImportHelpers(gcrDb);
+    let inserted = 0; const errors = [];
+
+    for (const row of rows) {
+        const entityId = await getEntityId(row.slug);
+        if (!entityId) { errors.push(`entity not found: ${row.slug}`); continue; }
+
+        const sectionId = row.menu_section_name ? await getOrCreate('menu_sections',
+            { entity_id: entityId, section_name: row.menu_section_name },
+            { entity_id: entityId, section_name: row.menu_section_name, icon: row.menu_section_icon || null, section_description: row.menu_section_description || null, section_note: row.menu_section_note || null, image_url: row.menu_section_image_url || null, available_days: row.menu_available_days || null, available_start: row.menu_available_start || null, available_end: row.menu_available_end || null, show_on_links_page: row.menu_show_on_links_page !== 'false' }
+        ) : null;
+        if (sectionId) await upsertTag(entityId, row.menu_section_name, 'menu_section');
+
+        const subSectionId = (sectionId && row.menu_sub_section_name) ? await getOrCreate('menu_sub_sections',
+            { entity_id: entityId, menu_section_id: sectionId, sub_section_name: row.menu_sub_section_name },
+            { entity_id: entityId, menu_section_id: sectionId, sub_section_name: row.menu_sub_section_name, section_note: row.menu_sub_section_note || null }
+        ) : null;
+        if (subSectionId) await upsertTag(entityId, row.menu_sub_section_name, 'menu_sub_section');
+
+        if (row.menu_item_name) {
+            await gcrDb.from('menu_items').insert({
+                entity_id: entityId, menu_section_id: sectionId, menu_sub_section_id: subSectionId,
+                item_name: row.menu_item_name, description: row.menu_item_description || null,
+                price: row.menu_item_price ? parseFloat(row.menu_item_price) : null,
+                price_text: row.menu_item_price_text || null, allergens: row.menu_item_allergens || null,
+                is_available: row.menu_item_is_available !== 'false', image_url: row.menu_item_image_url || null,
+            });
+            if (row.menu_item_allergens) {
+                for (const a of row.menu_item_allergens.split(',').map(x => x.trim()).filter(Boolean))
+                    await upsertTag(entityId, a, 'allergen');
+            }
+            inserted++;
+        }
+    }
+    res.json({ success: true, inserted, errors });
+});
+
+// ── POST /api/admin/gcr/import-drinks
+router.post('/gcr/import-drinks', async (req, res) => {
+    const gcrDb = getGcrDb();
+    const rows = Array.isArray(req.body) ? req.body : [req.body];
+    const { getEntityId, upsertTag, getOrCreate } = gcrImportHelpers(gcrDb);
+    let inserted = 0; const errors = [];
+
+    for (const row of rows) {
+        const entityId = await getEntityId(row.slug);
+        if (!entityId) { errors.push(`entity not found: ${row.slug}`); continue; }
+
+        const sectionId = row.drink_section_name ? await getOrCreate('drink_sections',
+            { entity_id: entityId, section_name: row.drink_section_name },
+            { entity_id: entityId, section_name: row.drink_section_name, section_note: row.drink_section_note || null, image_url: row.drink_section_image_url || null, available_days: row.drink_available_days || null, available_start: row.drink_available_start || null, available_end: row.drink_available_end || null }
+        ) : null;
+        if (sectionId) await upsertTag(entityId, row.drink_section_name, 'drink_type');
+
+        if (row.drink_item_name) {
+            await gcrDb.from('drink_items').insert({
+                entity_id: entityId, drink_section_id: sectionId,
+                item_name: row.drink_item_name, description: row.drink_item_description || null,
+                price: row.drink_item_price ? parseFloat(row.drink_item_price) : null,
+                price_text: row.drink_item_price_text || null,
+                item_style: row.drink_item_style || null, abv: row.drink_item_abv || null,
+                ibu: row.drink_item_ibu || null, brewery: row.drink_item_brewery || null,
+                is_available: row.drink_item_is_available !== 'false', image_url: row.drink_item_image_url || null,
+            });
+            if (row.drink_item_style) await upsertTag(entityId, row.drink_item_style, 'beer_style');
+            if (row.drink_item_brewery) await upsertTag(entityId, row.drink_item_brewery, 'brewery');
+            inserted++;
+        }
+    }
+    res.json({ success: true, inserted, errors });
+});
+
+// ── POST /api/admin/gcr/import-happyhour
+router.post('/gcr/import-happyhour', async (req, res) => {
+    const gcrDb = getGcrDb();
+    const rows = Array.isArray(req.body) ? req.body : [req.body];
+    const { getEntityId, getOrCreate } = gcrImportHelpers(gcrDb);
+    let inserted = 0; const errors = [];
+
+    for (const row of rows) {
+        const entityId = await getEntityId(row.slug);
+        if (!entityId) { errors.push(`entity not found: ${row.slug}`); continue; }
+
+        if (row.hh_days || row.hh_start || row.hh_end) {
+            await gcrDb.from('entity').update({ hh_days: row.hh_days || null, hh_start: row.hh_start || null, hh_end: row.hh_end || null, hh_description: row.hh_description || null }).eq('id', entityId);
+        }
+
+        const hhSectionId = row.hh_section_name ? await getOrCreate('happy_hour_sections',
+            { entity_id: entityId, section_name: row.hh_section_name },
+            { entity_id: entityId, section_name: row.hh_section_name }
+        ) : null;
+
+        if (row.hh_item_name) {
+            await gcrDb.from('happy_hour_items').insert({
+                entity_id: entityId, hh_section_id: hhSectionId,
+                item_name: row.hh_item_name, description: row.hh_item_description || null,
+                regular_price: row.hh_regular_price ? parseFloat(row.hh_regular_price) : null,
+                hh_price: row.hh_hh_price ? parseFloat(row.hh_hh_price) : null,
+                price_text: row.hh_price_text || null, image_url: row.hh_item_image_url || null,
+            });
+            inserted++;
+        }
+    }
+    res.json({ success: true, inserted, errors });
+});
+
+// ── POST /api/admin/gcr/import-events
+router.post('/gcr/import-events', async (req, res) => {
+    const gcrDb = getGcrDb();
+    const rows = Array.isArray(req.body) ? req.body : [req.body];
+    const { getEntityId, upsertTag } = gcrImportHelpers(gcrDb);
+    let inserted = 0; const errors = [];
+
+    for (const row of rows) {
+        const entityId = await getEntityId(row.slug);
+        if (!entityId) { errors.push(`entity not found: ${row.slug}`); continue; }
+        await gcrDb.from('entity_events').insert({
+            entity_id: entityId, event_name: row.event_name, event_type: row.event_type || null,
+            description: row.event_description || null, artist_name: row.event_artist_name || null,
+            artist_about: row.event_artist_about || null, music_style: row.event_music_style || null,
+            venue_location: row.event_venue_location || null, day_of_week: row.event_day_of_week || null,
+            event_date: row.event_date || null, start_time: row.event_start_time || null,
+            end_time: row.event_end_time || null,
+            recurring: row.event_recurring === 'true' || row.event_recurring === true,
+            recurring_start_date: row.event_recurring_start_date || null,
+            recurring_end_date: row.event_recurring_end_date || null,
+            cover_charge: row.event_cover_charge || null, image_url: row.event_image_url || null, is_active: true,
+        });
+        if (row.event_music_style) await upsertTag(entityId, row.event_music_style, 'music_style');
+        if (row.event_type) await upsertTag(entityId, row.event_type, 'event_type');
+        inserted++;
+    }
+    res.json({ success: true, inserted, errors });
+});
+
+// ── POST /api/admin/gcr/import-specials
+router.post('/gcr/import-specials', async (req, res) => {
+    const gcrDb = getGcrDb();
+    const rows = Array.isArray(req.body) ? req.body : [req.body];
+    const { getEntityId } = gcrImportHelpers(gcrDb);
+    let inserted = 0; const errors = [];
+
+    for (const row of rows) {
+        const entityId = await getEntityId(row.slug);
+        if (!entityId) { errors.push(`entity not found: ${row.slug}`); continue; }
+        await gcrDb.from('entity_specials').insert({
+            entity_id: entityId, special_name: row.special_name,
+            description: row.special_description || null, special_type: row.special_type || null,
+            days: row.special_days || null, start_time: row.special_start_time || null,
+            end_time: row.special_end_time || null, discount_text: row.special_discount_text || null,
+            image_url: row.special_image_url || null, is_active: true,
+        });
+        inserted++;
+    }
+    res.json({ success: true, inserted, errors });
+});
+
+// ── POST /api/admin/gcr/import-photos
+router.post('/gcr/import-photos', async (req, res) => {
+    const gcrDb = getGcrDb();
+    const rows = Array.isArray(req.body) ? req.body : [req.body];
+    const { getEntityId } = gcrImportHelpers(gcrDb);
+    let inserted = 0; const errors = [];
+
+    for (const row of rows) {
+        const entityId = await getEntityId(row.slug);
+        if (!entityId) { errors.push(`entity not found: ${row.slug}`); continue; }
+        if (row.photo_image_url) {
+            await gcrDb.from('entity_photos').insert({
+                entity_id: entityId, image_url: row.photo_image_url,
+                caption: row.photo_caption || null,
+                is_cover: row.photo_is_cover === 'true' || row.photo_is_cover === true,
+                sort_order: row.photo_sort_order ? parseInt(row.photo_sort_order) : 0,
+            });
+            inserted++;
+        }
+    }
+    res.json({ success: true, inserted, errors });
+});
+
+// ── POST /api/admin/gcr/import-activities
+router.post('/gcr/import-activities', async (req, res) => {
+    const gcrDb = getGcrDb();
+    const rows = Array.isArray(req.body) ? req.body : [req.body];
+    const { getEntityId, upsertTag } = gcrImportHelpers(gcrDb);
+    let inserted = 0; const errors = [];
+
+    for (const row of rows) {
+        const entityId = await getEntityId(row.slug);
+        if (!entityId) { errors.push(`entity not found: ${row.slug}`); continue; }
+        await gcrDb.from('activities').insert({
+            entity_id: entityId, activity_name: row.activity_name,
+            activity_type: row.activity_type || null, description: row.activity_description || null,
+            duration: row.activity_duration || null,
+            min_age: row.activity_min_age ? parseInt(row.activity_min_age) : null,
+            max_capacity: row.activity_max_capacity ? parseInt(row.activity_max_capacity) : null,
+            image_url: row.activity_image_url || null,
+            sort_order: row.activity_sort_order ? parseInt(row.activity_sort_order) : 0,
+        });
+        if (row.activity_type) await upsertTag(entityId, row.activity_type, 'activity_type');
+        inserted++;
+    }
+    res.json({ success: true, inserted, errors });
+});
+
+// ── POST /api/admin/gcr/import-pricing
+router.post('/gcr/import-pricing', async (req, res) => {
+    const gcrDb = getGcrDb();
+    const rows = Array.isArray(req.body) ? req.body : [req.body];
+    const { getEntityId } = gcrImportHelpers(gcrDb);
+    let inserted = 0; const errors = [];
+
+    for (const row of rows) {
+        const entityId = await getEntityId(row.slug);
+        if (!entityId) { errors.push(`entity not found: ${row.slug}`); continue; }
+        await gcrDb.from('pricing_items').insert({
+            entity_id: entityId, package_name: row.pricing_package_name,
+            description: row.pricing_description || null,
+            price: row.pricing_price ? parseFloat(row.pricing_price) : null,
+            price_text: row.pricing_price_text || null, price_unit: row.pricing_price_unit || null,
+            time_slot_start: row.pricing_time_slot_start || null, time_slot_end: row.pricing_time_slot_end || null,
+            available_days: row.pricing_available_days || null,
+            min_people: row.pricing_min_people ? parseInt(row.pricing_min_people) : null,
+            max_people: row.pricing_max_people ? parseInt(row.pricing_max_people) : null,
+            duration: row.pricing_duration || null, image_url: row.pricing_image_url || null,
+            sort_order: row.pricing_sort_order ? parseInt(row.pricing_sort_order) : 0,
+        });
+        inserted++;
+    }
+    res.json({ success: true, inserted, errors });
+});
+
+// ── POST /api/admin/gcr/import-slots
+router.post('/gcr/import-slots', async (req, res) => {
+    const gcrDb = getGcrDb();
+    const rows = Array.isArray(req.body) ? req.body : [req.body];
+    const { getEntityId } = gcrImportHelpers(gcrDb);
+    let inserted = 0; const errors = [];
+
+    for (const row of rows) {
+        const entityId = await getEntityId(row.slug);
+        if (!entityId) { errors.push(`entity not found: ${row.slug}`); continue; }
+        await gcrDb.from('booking_slots').insert({
+            entity_id: entityId, slot_name: row.slot_name,
+            start_time: row.slot_start_time || null, end_time: row.slot_end_time || null,
+            available_days: row.slot_available_days || null,
+            sort_order: row.slot_sort_order ? parseInt(row.slot_sort_order) : 0,
+        });
+        inserted++;
+    }
+    res.json({ success: true, inserted, errors });
+});
+
+// ── POST /api/admin/gcr/import-fleet
+router.post('/gcr/import-fleet', async (req, res) => {
+    const gcrDb = getGcrDb();
+    const rows = Array.isArray(req.body) ? req.body : [req.body];
+    const { getEntityId } = gcrImportHelpers(gcrDb);
+    let inserted = 0; const errors = [];
+
+    for (const row of rows) {
+        const entityId = await getEntityId(row.slug);
+        if (!entityId) { errors.push(`entity not found: ${row.slug}`); continue; }
+        await gcrDb.from('fleet_items').insert({
+            entity_id: entityId, item_name: row.fleet_item_name,
+            description: row.fleet_description || null,
+            capacity: row.fleet_capacity ? parseInt(row.fleet_capacity) : null,
+            weight: row.fleet_weight || null, dimensions: row.fleet_dimensions || null,
+            max_capacity_text: row.fleet_max_capacity_text || null,
+            image_url: row.fleet_image_url || null,
+            sort_order: row.fleet_sort_order ? parseInt(row.fleet_sort_order) : 0,
+        });
+        inserted++;
+    }
+    res.json({ success: true, inserted, errors });
+});
+
+// ── POST /api/admin/gcr/import-addons
+router.post('/gcr/import-addons', async (req, res) => {
+    const gcrDb = getGcrDb();
+    const rows = Array.isArray(req.body) ? req.body : [req.body];
+    const { getEntityId } = gcrImportHelpers(gcrDb);
+    let inserted = 0; const errors = [];
+
+    for (const row of rows) {
+        const entityId = await getEntityId(row.slug);
+        if (!entityId) { errors.push(`entity not found: ${row.slug}`); continue; }
+        await gcrDb.from('addons').insert({
+            entity_id: entityId, addon_name: row.addon_name,
+            description: row.addon_description || null,
+            price: row.addon_price ? parseFloat(row.addon_price) : null,
+            price_min: row.addon_price_min ? parseFloat(row.addon_price_min) : null,
+            price_max: row.addon_price_max ? parseFloat(row.addon_price_max) : null,
+            price_type: row.addon_price_type || 'add_on',
+            dimensions: row.addon_dimensions || null, capacity_text: row.addon_capacity_text || null,
+            image_url: row.addon_image_url || null,
+            sort_order: row.addon_sort_order ? parseInt(row.addon_sort_order) : 0,
+        });
+        inserted++;
+    }
+    res.json({ success: true, inserted, errors });
+});
+
+// ── POST /api/admin/gcr/import-included
+router.post('/gcr/import-included', async (req, res) => {
+    const gcrDb = getGcrDb();
+    const rows = Array.isArray(req.body) ? req.body : [req.body];
+    const { getEntityId } = gcrImportHelpers(gcrDb);
+    let inserted = 0; const errors = [];
+
+    for (const row of rows) {
+        const entityId = await getEntityId(row.slug);
+        if (!entityId) { errors.push(`entity not found: ${row.slug}`); continue; }
+        await gcrDb.from('whats_included').insert({
+            entity_id: entityId, item_name: row.included_item_name,
+            description: row.included_description || null, image_url: row.included_image_url || null,
+            sort_order: row.included_sort_order ? parseInt(row.included_sort_order) : 0,
+        });
+        inserted++;
+    }
+    res.json({ success: true, inserted, errors });
+});
+
+// ── POST /api/admin/gcr/import-requirements
+router.post('/gcr/import-requirements', async (req, res) => {
+    const gcrDb = getGcrDb();
+    const rows = Array.isArray(req.body) ? req.body : [req.body];
+    const { getEntityId } = gcrImportHelpers(gcrDb);
+    let inserted = 0; const errors = [];
+
+    for (const row of rows) {
+        const entityId = await getEntityId(row.slug);
+        if (!entityId) { errors.push(`entity not found: ${row.slug}`); continue; }
+        await gcrDb.from('requirements').insert({
+            entity_id: entityId, requirement_text: row.requirement_text,
+            sort_order: row.requirement_sort_order ? parseInt(row.requirement_sort_order) : 0,
+        });
+        inserted++;
+    }
+    res.json({ success: true, inserted, errors });
+});
+
+// ── POST /api/admin/gcr/import-policies
+router.post('/gcr/import-policies', async (req, res) => {
+    const gcrDb = getGcrDb();
+    const rows = Array.isArray(req.body) ? req.body : [req.body];
+    const { getEntityId } = gcrImportHelpers(gcrDb);
+    let inserted = 0; const errors = [];
+
+    for (const row of rows) {
+        const entityId = await getEntityId(row.slug);
+        if (!entityId) { errors.push(`entity not found: ${row.slug}`); continue; }
+        await gcrDb.from('policies').insert({
+            entity_id: entityId, policy_type: row.policy_type || null,
+            policy_text: row.policy_text,
+            sort_order: row.policy_sort_order ? parseInt(row.policy_sort_order) : 0,
+        });
+        inserted++;
+    }
+    res.json({ success: true, inserted, errors });
+});
+
+// ── POST /api/admin/gcr/import-meetingpoint
+router.post('/gcr/import-meetingpoint', async (req, res) => {
+    const gcrDb = getGcrDb();
+    const rows = Array.isArray(req.body) ? req.body : [req.body];
+    const { getEntityId } = gcrImportHelpers(gcrDb);
+    let inserted = 0; const errors = [];
+
+    for (const row of rows) {
+        const entityId = await getEntityId(row.slug);
+        if (!entityId) { errors.push(`entity not found: ${row.slug}`); continue; }
+        await gcrDb.from('meeting_points').insert({
+            entity_id: entityId, location_name: row.meetup_location_name || null,
+            address: row.meetup_address || null, parking_info: row.meetup_parking_info || null,
+            checkin_instructions: row.meetup_checkin_instructions || null,
+            what_to_bring: row.meetup_what_to_bring || null, image_url: row.meetup_image_url || null,
+        });
+        inserted++;
+    }
+    res.json({ success: true, inserted, errors });
+});
+
+// ── POST /api/admin/gcr/import-qna
+router.post('/gcr/import-qna', async (req, res) => {
+    const gcrDb = getGcrDb();
+    const rows = Array.isArray(req.body) ? req.body : [req.body];
+    const { getEntityId } = gcrImportHelpers(gcrDb);
+    let inserted = 0; const errors = [];
+
+    for (const row of rows) {
+        const entityId = await getEntityId(row.slug);
+        if (!entityId) { errors.push(`entity not found: ${row.slug}`); continue; }
+        await gcrDb.from('entity_qna').insert({
+            entity_id: entityId, section_label: row.qna_section_label || null,
+            question: row.qna_question, answer: row.qna_answer || null,
+            sort_order: row.qna_sort_order ? parseInt(row.qna_sort_order) : 0,
+        });
+        inserted++;
+    }
+    res.json({ success: true, inserted, errors });
+});
+
+// ── POST /api/admin/gcr/import-shopping
+router.post('/gcr/import-shopping', async (req, res) => {
+    const gcrDb = getGcrDb();
+    const rows = Array.isArray(req.body) ? req.body : [req.body];
+    const { getEntityId, upsertTag, getOrCreate } = gcrImportHelpers(gcrDb);
+    let inserted = 0; const errors = [];
+
+    for (const row of rows) {
+        const entityId = await getEntityId(row.slug);
+        if (!entityId) { errors.push(`entity not found: ${row.slug}`); continue; }
+
+        const sectionId = row.product_section_name ? await getOrCreate('product_sections',
+            { entity_id: entityId, section_name: row.product_section_name },
+            { entity_id: entityId, section_name: row.product_section_name, available_days: row.product_section_available_days || null, available_start: row.product_section_available_start || null, available_end: row.product_section_available_end || null }
+        ) : null;
+        if (sectionId) await upsertTag(entityId, row.product_section_name, 'product_section');
+
+        const subSectionId = (sectionId && row.product_sub_section_name) ? await getOrCreate('product_sub_sections',
+            { entity_id: entityId, product_section_id: sectionId, sub_section_name: row.product_sub_section_name },
+            { entity_id: entityId, product_section_id: sectionId, sub_section_name: row.product_sub_section_name }
+        ) : null;
+        if (subSectionId) await upsertTag(entityId, row.product_sub_section_name, 'product_sub_section');
+
+        if (row.product_item_name) {
+            await gcrDb.from('product_items').insert({
+                entity_id: entityId, product_section_id: sectionId, product_sub_section_id: subSectionId,
+                item_name: row.product_item_name, description: row.product_item_description || null,
+                price: row.product_item_price ? parseFloat(row.product_item_price) : null,
+                price_max: row.product_item_price_max ? parseFloat(row.product_item_price_max) : null,
+                image_url: row.product_item_image_url || null,
+                is_available: row.product_item_is_available !== 'false',
+                sort_order: row.product_item_sort_order ? parseInt(row.product_item_sort_order) : 0,
+            });
+            inserted++;
+        }
+    }
+    res.json({ success: true, inserted, errors });
+});
+
+// ── POST /api/admin/gcr/import-master — routes all record_types from master CSV
+router.post('/gcr/import-master', async (req, res) => {
+    const rows = Array.isArray(req.body) ? req.body : [req.body];
+    const grouped = {};
+    const typeToEndpoint = {
+        business: 'import-entity', bullet: 'import-entity',
+        menu: 'import-menu', drink: 'import-drinks',
+        happy_hour: 'import-happyhour', event: 'import-events',
+        special: 'import-specials', photo: 'import-photos',
+        activity: 'import-activities', pricing: 'import-pricing',
+        slot: 'import-slots', fleet: 'import-fleet',
+        addon: 'import-addons', included: 'import-included',
+        requirement: 'import-requirements', policy: 'import-policies',
+        meetup: 'import-meetingpoint', qna: 'import-qna',
+        shopping: 'import-shopping',
+    };
+
+    for (const row of rows) {
+        const t = (row.record_type || '').toLowerCase().trim();
+        if (!grouped[t]) grouped[t] = [];
+        grouped[t].push(row);
+    }
+
+    const allResults = {};
+    for (const [type, typeRows] of Object.entries(grouped)) {
+        const endpoint = typeToEndpoint[type];
+        if (!endpoint) { allResults[type] = { skipped: typeRows.length }; continue; }
+
+        const mockReq = { body: typeRows };
+        const mockRes = { json: (data) => { allResults[type] = data; } };
+        // Call the matching sub-router handler inline
+        await new Promise(resolve => {
+            mockRes.json = (data) => { allResults[type] = data; resolve(); };
+            router.handle({ ...mockReq, method: 'POST', url: `/gcr/${endpoint}`, path: `/gcr/${endpoint}` }, mockRes, resolve);
+        });
+    }
+
+    res.json({ success: true, results: allResults });
 });
 
 // ============================================
