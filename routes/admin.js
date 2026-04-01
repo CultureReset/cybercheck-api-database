@@ -1571,8 +1571,11 @@ router.get('/gcr/specials', adminRequired, async (req, res) => {
     const db = getGcrDb();
     let query = db.from('entity_specials')
         .select('*, entity(name, slug)')
+        .neq('special_type', 'happy_hour')
+        .not('special_name', 'ilike', '%happy hour%')
         .order('id', { ascending: false });
     if (req.query.entity_id) query = query.eq('entity_id', req.query.entity_id);
+    if (req.query.type) query = query.eq('special_type', req.query.type);
     const { data, error } = await query;
     if (error) return res.status(500).json({ error: error.message });
     res.json(data || []);
