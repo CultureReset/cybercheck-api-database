@@ -189,10 +189,16 @@ router.get('/specials', async (req, res) => {
 
     const specials = (data || []).map(s => ({
         ...s,
+        // Field aliases for backwards compatibility
+        name:           s.special_name,
+        active:         s.is_active,
+        type:           s.special_type,
+        discount:       s.discount_text,
         businessName:   s.entity?.name || '',
         businessEmoji:  s.entity?.icon || '🏪',
         category:       s.entity?.entity_subtype || '',
         slug:           s.entity?.slug || '',
+        subdomain:      s.entity?.slug || '',
         hero_image_url: s.entity?.hero_image_url || null,
         city:           s.entity?.city || '',
         phone:          s.entity?.phone || '',
