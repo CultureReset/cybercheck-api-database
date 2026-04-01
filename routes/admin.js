@@ -3069,7 +3069,7 @@ router.get('/bookings', async (req, res) => {
     const { site_id, status, from, to } = req.query;
     let query = supabase
         .from('bookings')
-        .select('id, customer_name, customer_email, customer_phone, booking_date, slot, total, status, payment_status, notes, created_at, site_id')
+        .select('id, customer_name, customer_email, customer_phone, booking_date, time_slot_id, total, status, payment_status, notes, created_at, site_id')
         .order('booking_date', { ascending: false });
     if (site_id) query = query.eq('site_id', site_id);
     if (status) query = query.eq('status', status);
