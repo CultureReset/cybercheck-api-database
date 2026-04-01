@@ -207,96 +207,86 @@ router.get('/specials', async (req, res) => {
 // POST /api/gcr/search — AI-powered semantic search
 // ============================================
 router.post('/search', async (req, res) => {
-    const { query: searchQuery, lat, lng, radius_miles, type, open_now } = req.body;
+    const { query: searchQuery, type, city } = req.body;
+    if (!searchQuery) return res.status(400).json({ error: 'Search query required' });
 
-    if (!searchQuery) {
-        return res.status(400).json({ error: 'Search query required' });
+    const q = searchQuery.toLowerCase().trim();
+    const matchedEntityIds = new Set();
+
+    // Search across all new GCR DB tables in parallel
+    const [
+        byEntity, byTags, byMenuItems, byDrinkItems,
+        byHHItems, bySpecials, byEvents, byActivities
+    ] = await Promise.all([
+        // Entity fields: name, subtitle, description, city, entity_subtype
+        gcrDb.from('entity').select('id').eq('is_active', true)
+            .or(`name.ilike.%${q}%,subtitle.ilike.%${q}%,description.ilike.%${q}%,city.ilike.%${q}%,entity_subtype.ilike.%${q}%`),
+        // Tags
+        gcrDb.from('entity_tags').select('entity_id').ilike('tag', `%${q}%`),
+        // Menu items: name + description
+        gcrDb.from('menu_items').select('entity_id').or(`item_name.ilike.%${q}%,description.ilike.%${q}%`),
+        // Drink items: name + description + brewery + item_style
+        gcrDb.from('drink_items').select('entity_id').or(`item_name.ilike.%${q}%,description.ilike.%${q}%,brewery.ilike.%${q}%,item_style.ilike.%${q}%`),
+        // Happy hour items
+        gcrDb.from('happy_hour_items').select('entity_id').or(`item_name.ilike.%${q}%,description.ilike.%${q}%`),
+        // Specials
+        gcrDb.from('entity_specials').select('entity_id').eq('is_active', true).or(`special_name.ilike.%${q}%,description.ilike.%${q}%,discount_text.ilike.%${q}%`),
+        // Events
+        gcrDb.from('entity_events').select('entity_id').eq('is_active', true).or(`event_name.ilike.%${q}%,description.ilike.%${q}%,artist_name.ilike.%${q}%,music_style.ilike.%${q}%,event_type.ilike.%${q}%`),
+        // Activities (Things To Do)
+        gcrDb.from('activities').select('entity_id').or(`activity_name.ilike.%${q}%,description.ilike.%${q}%,activity_type.ilike.%${q}%`),
+    ]);
+
+    // Collect all matching entity IDs
+    [byEntity, byTags, byMenuItems, byDrinkItems, byHHItems, bySpecials, byEvents, byActivities]
+        .forEach(res => (res.data || []).forEach(r => matchedEntityIds.add(r.entity_id || r.id)));
+
+    if (!matchedEntityIds.size) return res.json({ query: searchQuery, results: [], total: 0 });
+
+    // Fetch full entity data for all matches
+    let entityQuery = gcrDb.from('entity')
+        .select('id, slug, name, subtitle, entity_subtype, icon, phone, rating, review_count, city, state, address_line_1, hero_image_url, website_url, directions_url, call_url, price_range, featured, booking_url, reservation_url, order_url, hh_days, hh_start, hh_end')
+        .eq('is_active', true)
+        .in('id', [...matchedEntityIds]);
+
+    if (type) entityQuery = entityQuery.eq('entity_subtype', type);
+    if (city) entityQuery = entityQuery.ilike('city', `%${city}%`);
+
+    const { data: entities, error } = await entityQuery;
+    if (error) return res.status(500).json({ error: error.message });
+
+    // For each matching entity, find what specifically matched (menu items, specials, etc.)
+    const entityIdList = (entities || []).map(e => e.id);
+    let menuMatchMap = {}, specialMatchMap = {}, eventMatchMap = {};
+
+    if (entityIdList.length) {
+        const [menuMatches, specialMatches, eventMatches] = await Promise.all([
+            gcrDb.from('menu_items').select('entity_id, item_name, price, price_text').ilike('item_name', `%${q}%`).in('entity_id', entityIdList),
+            gcrDb.from('entity_specials').select('entity_id, special_name, discount_text').eq('is_active', true).ilike('special_name', `%${q}%`).in('entity_id', entityIdList),
+            gcrDb.from('entity_events').select('entity_id, event_name, event_date, day_of_week').eq('is_active', true).ilike('event_name', `%${q}%`).in('entity_id', entityIdList),
+        ]);
+        (menuMatches.data || []).forEach(m => { if (!menuMatchMap[m.entity_id]) menuMatchMap[m.entity_id] = []; menuMatchMap[m.entity_id].push(m); });
+        (specialMatches.data || []).forEach(s => { if (!specialMatchMap[s.entity_id]) specialMatchMap[s.entity_id] = []; specialMatchMap[s.entity_id].push(s); });
+        (eventMatches.data || []).forEach(e => { if (!eventMatchMap[e.entity_id]) eventMatchMap[e.entity_id] = []; eventMatchMap[e.entity_id].push(e); });
     }
 
-    // For now: text-based search (pgvector semantic search added later)
-    let dbQuery = supabase
-        .from('businesses')
-        .select(`
-            site_id, name, type, subdomain, domain, logo_url, cover_url,
-            site_content(address, city, state, zip, lat, lng, hours, theme_color, seo_description, contact_phone)
-        `)
-        .eq('status', 'active')
-        .eq('gcr_listed', true)
-        .ilike('name', `%${searchQuery}%`);
-
-    if (type) dbQuery = dbQuery.eq('type', type);
-
-    const { data: byName } = await dbQuery;
-
-    // Also search by description
-    const { data: byDesc } = await supabase
-        .from('site_content')
-        .select('site_id, seo_description')
-        .ilike('seo_description', `%${searchQuery}%`);
-
-    const descSiteIds = (byDesc || []).map(d => d.site_id);
-
-    let additionalResults = [];
-    if (descSiteIds.length > 0) {
-        const { data: byDescBiz } = await supabase
-            .from('businesses')
-            .select(`
-                site_id, name, type, subdomain, domain, logo_url, cover_url,
-                site_content(address, city, state, zip, lat, lng, hours, theme_color, seo_description, contact_phone)
-            `)
-            .eq('status', 'active')
-            .eq('gcr_listed', true)
-            .in('site_id', descSiteIds);
-
-        additionalResults = byDescBiz || [];
-    }
-
-    // Also search services
-    const { data: serviceMatches } = await supabase
-        .from('services')
-        .select('site_id, name')
-        .ilike('name', `%${searchQuery}%`);
-
-    const serviceSiteIds = [...new Set((serviceMatches || []).map(s => s.site_id))];
-
-    if (serviceSiteIds.length > 0) {
-        const { data: byService } = await supabase
-            .from('businesses')
-            .select(`
-                site_id, name, type, subdomain, domain, logo_url, cover_url,
-                site_content(address, city, state, zip, lat, lng, hours, theme_color, seo_description, contact_phone)
-            `)
-            .eq('status', 'active')
-            .eq('gcr_listed', true)
-            .in('site_id', serviceSiteIds);
-
-        additionalResults = [...additionalResults, ...(byService || [])];
-    }
-
-    // Merge and deduplicate
-    const allResults = [...(byName || []), ...additionalResults];
-    const seen = new Set();
-    const unique = allResults.filter(b => {
-        if (seen.has(b.site_id)) return false;
-        seen.add(b.site_id);
-        return true;
+    // Build results — sort by name match first, then rating
+    const results = (entities || []).map(e => ({
+        ...e,
+        site_id: e.id, subdomain: e.slug, emoji: e.icon,
+        type: e.entity_subtype, category: e.entity_subtype,
+        cover_url: e.hero_image_url, tagline: e.subtitle,
+        matched_menu_items: menuMatchMap[e.id] || [],
+        matched_specials:   specialMatchMap[e.id] || [],
+        matched_events:     eventMatchMap[e.id] || [],
+    })).sort((a, b) => {
+        const aName = (a.name || '').toLowerCase().includes(q) ? 1 : 0;
+        const bName = (b.name || '').toLowerCase().includes(q) ? 1 : 0;
+        if (bName !== aName) return bName - aName;
+        return (b.rating || 0) - (a.rating || 0);
     });
 
-    // Flatten site_content
-    const businesses = unique.map(b => {
-        const content = b.site_content || {};
-        delete b.site_content;
-        return { ...b, ...content };
-    });
-
-    // TODO: Replace with pgvector semantic search
-    // TODO: Add AI summary of results
-    res.json({
-        query: searchQuery,
-        results: businesses,
-        total: businesses.length,
-        ai_summary: `Found ${businesses.length} businesses matching "${searchQuery}".`
-    });
+    res.json({ query: searchQuery, results, total: results.length });
 });
 
 // ============================================
