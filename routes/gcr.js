@@ -77,183 +77,128 @@ router.get('/businesses', async (req, res) => {
 // GET /api/gcr/events — old DB events matched to GCR entities by slug
 // ============================================
 router.get('/events', async (req, res) => {
-    let query = supabase
-        .from('events')
-        .select('*, businesses(name, emoji, type, subdomain)')
-        .eq('active', true)
+    let query = gcrDb
+        .from('entity_events')
+        .select('*, entity(slug, name, icon, hero_image_url, entity_subtype, city)')
+        .eq('is_active', true)
         .order('event_date', { ascending: true });
 
-    if (req.query.site_id) query = query.eq('site_id', req.query.site_id);
-    if (req.query.upcoming === 'true') { const today = new Date().toISOString().split('T')[0]; query = query.or(`event_date.gte.${today},recurring.eq.true`); }
+    if (req.query.slug) query = query.eq('entity.slug', req.query.slug);
+    if (req.query.upcoming === 'true') {
+        const today = new Date().toISOString().split('T')[0];
+        query = query.or(`event_date.gte.${today},recurring.eq.true`);
+    }
 
     const { data, error } = await query;
     if (error) return res.status(500).json({ error: error.message });
 
-    // Build slug→entity lookup from GCR DB for hero images
-    const { data: entities } = await gcrDb.from('entity').select('slug, name, icon, hero_image_url, entity_subtype, city').eq('is_active', true).range(0, 999);
-    const entBySlug = {};
-    (entities || []).forEach(e => { entBySlug[e.slug] = e; });
-
-    const events = (data || []).map(e => {
-        const slug = e.businesses?.subdomain || e.site_id;
-        const ent = entBySlug[slug] || {};
-        return {
-            ...e,
-            date: e.event_date,
-            time: e.event_time,
-            businessName: ent.name || e.businesses?.name || '',
-            businessEmoji: ent.icon || e.businesses?.emoji || '🏪',
-            category: ent.entity_subtype || e.businesses?.type || '',
-            slug: slug,
-            hero_image_url: ent.hero_image_url || null,
-        };
-    });
+    const events = (data || []).map(e => ({
+        ...e,
+        date: e.event_date,
+        businessName: e.entity?.name || '',
+        businessEmoji: e.entity?.icon || '🏪',
+        category: e.entity?.entity_subtype || '',
+        slug: e.entity?.slug || '',
+        hero_image_url: e.entity?.hero_image_url || null,
+        city: e.entity?.city || '',
+    }));
 
     res.json(events);
 });
 
 // ============================================
-// GET /api/gcr/happy-hours — combines site_content HH + specials named "Happy Hour"
+// GET /api/gcr/happy-hours — entities with HH schedule from new GCR DB
 // ============================================
 router.get('/happy-hours', async (req, res) => {
-    // Get GCR entity data for images (used for both sources)
-    const { data: entities } = await gcrDb.from('entity').select('slug, name, hero_image_url, icon, rating, city, phone, directions_url, address_line_1').eq('is_active', true).range(0, 999);
-    const entBySlug = {};
-    const entByName = {};
-    (entities || []).forEach(e => {
-        entBySlug[e.slug] = e;
-        entByName[(e.name || '').toLowerCase()] = e;
-    });
+    const { data, error } = await gcrDb
+        .from('entity')
+        .select('id, slug, name, icon, hero_image_url, entity_subtype, city, phone, directions_url, address_line_1, rating, hh_days, hh_start, hh_end, hh_description')
+        .eq('is_active', true)
+        .not('hh_days', 'is', null)
+        .range(0, 999);
 
-    // Source 1: businesses with site_content.happy_hour
-    const { data: hhBiz } = await supabase
-        .from('businesses')
-        .select(`site_id, name, emoji, type, subdomain, rating, tags,
-            site_content(happy_hour, address, city, state, contact_phone, hours, google_maps),
-            business_media(url, section, sort_order)`)
-        .eq('status', 'active')
-        .eq('gcr_listed', true)
-        .not('site_content.happy_hour', 'is', null);
+    if (error) return res.status(500).json({ error: error.message });
 
-    // Source 2: specials named "happy hour"
-    const { data: hhSpecials } = await supabase
-        .from('specials')
-        .select('*, businesses(name, emoji, type, subdomain)')
-        .eq('active', true)
-        .ilike('name', '%happy hour%');
+    const entityIds = (data || []).map(e => e.id);
+    let hhSectionsMap = {};
 
-    const results = [];
-    const seen = new Set();
+    if (entityIds.length) {
+        const { data: hhSections } = await gcrDb
+            .from('happy_hour_sections')
+            .select('id, entity_id, section_name, sort_order')
+            .in('entity_id', entityIds)
+            .order('sort_order');
 
-    // Process source 1
-    (hhBiz || []).filter(b => b.site_content?.happy_hour).forEach(b => {
-        const slug = b.subdomain || b.site_id;
-        const c = b.site_content || {};
-        const media = (b.business_media || []).sort((a,bb) => a.sort_order - bb.sort_order);
-        const cover = media.find(m => m.section === 'cover')?.url || media[0]?.url || null;
-        const ent = entBySlug[slug] || entByName[(b.name || '').toLowerCase()] || {};
-        seen.add(slug);
-        results.push({
-            slug:      ent.slug || slug,
-            name:      b.name,
-            emoji:     ent.icon || b.emoji || '🏪',
-            type:      b.type || '',
-            rating:    ent.rating || b.rating || null,
-            tags:      b.tags || [],
-            address:   ent.address_line_1 || c.address || '',
-            city:      ent.city || c.city || '',
-            phone:     ent.phone || c.contact_phone || '',
-            google_maps: ent.directions_url || c.google_maps || '',
-            cover:     ent.hero_image_url || cover,
-            happyHour: c.happy_hour,
+        const sectionIds = (hhSections || []).map(s => s.id);
+        let itemsMap = {};
+
+        if (sectionIds.length) {
+            const { data: hhItems } = await gcrDb
+                .from('happy_hour_items')
+                .select('*')
+                .in('hh_section_id', sectionIds)
+                .order('sort_order');
+            (hhItems || []).forEach(item => {
+                if (!itemsMap[item.hh_section_id]) itemsMap[item.hh_section_id] = [];
+                itemsMap[item.hh_section_id].push(item);
+            });
+        }
+
+        (hhSections || []).forEach(sec => {
+            if (!hhSectionsMap[sec.entity_id]) hhSectionsMap[sec.entity_id] = [];
+            hhSectionsMap[sec.entity_id].push({ ...sec, items: itemsMap[sec.id] || [] });
         });
-    });
+    }
 
-    // Process source 2 — group specials by business
-    const hhByBiz = {};
-    (hhSpecials || []).forEach(s => {
-        const slug = s.businesses?.subdomain || s.site_id;
-        if (seen.has(slug)) return; // already from source 1
-        if (!hhByBiz[slug]) hhByBiz[slug] = { biz: s.businesses || {}, specials: [], site_id: s.site_id };
-        hhByBiz[slug].specials.push(s);
-    });
-
-    Object.entries(hhByBiz).forEach(([slug, data]) => {
-        const biz = data.biz;
-        const ent = entBySlug[slug] || entBySlug[biz.subdomain] || entByName[(biz.name || '').toLowerCase()] || {};
-        // Build happyHour object from specials
-        const items = data.specials.map(s => ({
-            name: s.name,
-            description: s.description || '',
-            days: s.days || '',
-            discount: s.discount_text || s.discount || '',
-        }));
-        seen.add(slug);
-        results.push({
-            slug:      ent.slug || biz.subdomain || slug,
-            name:      ent.name || biz.name || '',
-            emoji:     ent.icon || biz.emoji || '🏪',
-            type:      biz.type || '',
-            rating:    ent.rating || null,
-            tags:      [],
-            address:   ent.address_line_1 || '',
-            city:      ent.city || '',
-            phone:     ent.phone || '',
-            google_maps: ent.directions_url || '',
-            cover:     ent.hero_image_url || null,
-            happyHour: items.length === 1 ? (items[0].description || items[0].days || 'Happy Hour available') : items,
-        });
-    });
+    const results = (data || []).map(e => ({
+        slug:        e.slug,
+        name:        e.name,
+        emoji:       e.icon || '🏪',
+        type:        e.entity_subtype || '',
+        rating:      e.rating || null,
+        address:     e.address_line_1 || '',
+        city:        e.city || '',
+        phone:       e.phone || '',
+        google_maps: e.directions_url || '',
+        cover:       e.hero_image_url || null,
+        hh_days:     e.hh_days,
+        hh_start:    e.hh_start,
+        hh_end:      e.hh_end,
+        hh_description: e.hh_description,
+        happyHour:   `${e.hh_days} ${e.hh_start}–${e.hh_end}`,
+        hh_sections: hhSectionsMap[e.id] || [],
+    }));
 
     res.json(results);
 });
 
 // ============================================
-// GET /api/gcr/specials — old DB specials matched to GCR entities
-// Excludes happy hours (those go to /happy-hours)
+// GET /api/gcr/specials — new GCR DB entity_specials
 // ============================================
 router.get('/specials', async (req, res) => {
-    let query = supabase
-        .from('specials')
-        .select('*, businesses(name, emoji, type, subdomain)')
-        .eq('active', true)
-        .order('created_at', { ascending: false });
+    let query = gcrDb
+        .from('entity_specials')
+        .select('*, entity(slug, name, icon, hero_image_url, entity_subtype, city, phone, directions_url, address_line_1)')
+        .eq('is_active', true)
+        .order('id', { ascending: false });
 
-    if (req.query.site_id) query = query.eq('site_id', req.query.site_id);
+    if (req.query.slug) query = query.eq('entity.slug', req.query.slug);
 
     const { data, error } = await query;
     if (error) return res.status(500).json({ error: error.message });
 
-    // Get GCR entity data for images/icons
-    const { data: entities } = await gcrDb.from('entity').select('slug, name, hero_image_url, icon, entity_subtype, city, phone, directions_url, address_line_1').eq('is_active', true).range(0, 999);
-    const entBySlug = {};
-    const entByName = {};
-    (entities || []).forEach(e => {
-        entBySlug[e.slug] = e;
-        entByName[(e.name || '').toLowerCase()] = e;
-    });
-
-    const specials = (data || [])
-        // Exclude happy hours at the API level — they belong on /happy-hours
-        .filter(s => !(s.name || '').toLowerCase().includes('happy hour'))
-        .map(s => {
-            const slug = s.businesses?.subdomain || s.site_id;
-            const bizName = s.businesses?.name || '';
-            // Try slug match, then name match
-            const ent = entBySlug[slug] || entBySlug[s.businesses?.subdomain] || entByName[bizName.toLowerCase()] || {};
-            return {
-                ...s,
-                businessName: ent.name || bizName,
-                businessEmoji: ent.icon || s.businesses?.emoji || '🏪',
-                category: ent.entity_subtype || s.businesses?.type || '',
-                slug: ent.slug || slug,
-                hero_image_url: ent.hero_image_url || null,
-                city: ent.city || '',
-                phone: ent.phone || '',
-                directions_url: ent.directions_url || '',
-                address: ent.address_line_1 || '',
-            };
-        });
+    const specials = (data || []).map(s => ({
+        ...s,
+        businessName:   s.entity?.name || '',
+        businessEmoji:  s.entity?.icon || '🏪',
+        category:       s.entity?.entity_subtype || '',
+        slug:           s.entity?.slug || '',
+        hero_image_url: s.entity?.hero_image_url || null,
+        city:           s.entity?.city || '',
+        phone:          s.entity?.phone || '',
+        directions_url: s.entity?.directions_url || '',
+        address:        s.entity?.address_line_1 || '',
+    }));
 
     res.json(specials);
 });
@@ -1325,7 +1270,7 @@ async function fetchSectionContent(section) {
 router.get('/entities', async (req, res) => {
     let query = gcrDb
         .from('entity')
-        .select('id, slug, name, subtitle, entity_type, entity_subtype, icon, phone, rating, review_count, city, state, zip, address_line_1, hero_image_url, website_url, directions_url, call_url, is_active')
+        .select('id, slug, name, subtitle, entity_type, entity_subtype, icon, phone, rating, review_count, city, state, zip, address_line_1, hero_image_url, website_url, directions_url, call_url, is_active, description, price_range, featured, booking_url, reservation_url, order_url, hh_days, hh_start, hh_end, hh_description, social_instagram, social_facebook, social_tiktok, email')
         .eq('is_active', true)
         .order('name')
         .range(0, 999);
@@ -1403,13 +1348,25 @@ router.get('/entities', async (req, res) => {
         tagline:      e.subtitle,
         status:       e.is_active ? 'active' : 'hidden',
         gcr_listed:   e.is_active,
-        featured:     false,
-        address:      e.address_line_1 || '',
-        priceRange:   e.price_range || '',
-        reviewCount:  e.review_count || 0,
+        featured:        e.featured || false,
+        address:         e.address_line_1 || '',
+        priceRange:      e.price_range || '',
+        reviewCount:     e.review_count || 0,
+        description:     e.description || '',
+        booking_url:     e.booking_url || null,
+        reservation_url: e.reservation_url || null,
+        order_url:       e.order_url || null,
+        hh_days:         e.hh_days || null,
+        hh_start:        e.hh_start || null,
+        hh_end:          e.hh_end || null,
+        hh_description:  e.hh_description || null,
+        social_instagram: e.social_instagram || null,
+        social_facebook:  e.social_facebook || null,
+        social_tiktok:    e.social_tiktok || null,
+        email:           e.email || null,
         // New fields
-        tags:         tagMap[e.id] || [],
-        hours:        hoursMap[e.id] || [],
+        tags:            tagMap[e.id] || [],
+        hours:           hoursMap[e.id] || [],
     }));
 
     res.json({ entities: mapped, businesses: mapped, total: mapped.length });
@@ -1443,24 +1400,131 @@ router.get('/entity/:slug', async (req, res) => {
 
     if (!entity) return res.status(404).json({ error: 'Entity not found' });
 
-    // Fetch features, perfect_for, tags, sections in parallel
-    const [featuresRes, perfectForRes, tagsRes, sectionsRes] = await Promise.all([
-        gcrDb.from('entity_features').select('id, label, sort_order').eq('entity_id', entity.id).order('sort_order'),
-        gcrDb.from('entity_perfect_for').select('id, label, sort_order').eq('entity_id', entity.id).order('sort_order'),
-        gcrDb.from('entity_tags').select('id, tag, tag_category, sort_order').eq('entity_id', entity.id).order('sort_order'),
-        gcrDb.from('entity_sections').select('id, section_key, section_label, section_type, sort_order').eq('entity_id', entity.id).order('sort_order'),
+    const eid = entity.id;
+
+    // Fetch everything in parallel — old sections system + all new dedicated tables
+    const [
+        featuresRes, perfectForRes, tagsRes, sectionsRes,
+        hoursRes, bulletsRes, photosRes,
+        menuSectionsRes, drinkSectionsRes, hhSectionsRes,
+        eventsRes, specialsRes,
+        activitiesRes, pricingRes, slotsRes, fleetRes, addonsRes,
+        includedRes, requirementsRes, policiesRes, meetingRes, qnaRes,
+        productSectionsRes,
+    ] = await Promise.all([
+        gcrDb.from('entity_features').select('id, label, sort_order').eq('entity_id', eid).order('sort_order'),
+        gcrDb.from('entity_perfect_for').select('id, label, sort_order').eq('entity_id', eid).order('sort_order'),
+        gcrDb.from('entity_tags').select('id, tag, tag_category, sort_order').eq('entity_id', eid).order('sort_order'),
+        gcrDb.from('entity_sections').select('id, section_key, section_label, section_type, sort_order').eq('entity_id', eid).order('sort_order'),
+        gcrDb.from('entity_hours').select('*').eq('entity_id', eid).order('day_of_week'),
+        gcrDb.from('entity_about_bullets').select('*').eq('entity_id', eid).order('sort_order'),
+        gcrDb.from('entity_photos').select('*').eq('entity_id', eid).order('sort_order'),
+        gcrDb.from('menu_sections').select('*').eq('entity_id', eid).order('sort_order'),
+        gcrDb.from('drink_sections').select('*').eq('entity_id', eid).order('sort_order'),
+        gcrDb.from('happy_hour_sections').select('*').eq('entity_id', eid).order('sort_order'),
+        gcrDb.from('entity_events').select('*').eq('entity_id', eid).eq('is_active', true).order('event_date'),
+        gcrDb.from('entity_specials').select('*').eq('entity_id', eid).eq('is_active', true),
+        gcrDb.from('activities').select('*').eq('entity_id', eid).order('sort_order'),
+        gcrDb.from('pricing_items').select('*').eq('entity_id', eid).order('sort_order'),
+        gcrDb.from('booking_slots').select('*').eq('entity_id', eid).order('sort_order'),
+        gcrDb.from('fleet_items').select('*').eq('entity_id', eid).order('sort_order'),
+        gcrDb.from('addons').select('*').eq('entity_id', eid).order('sort_order'),
+        gcrDb.from('whats_included').select('*').eq('entity_id', eid).order('sort_order'),
+        gcrDb.from('requirements').select('*').eq('entity_id', eid).order('sort_order'),
+        gcrDb.from('policies').select('*').eq('entity_id', eid).order('sort_order'),
+        gcrDb.from('meeting_points').select('*').eq('entity_id', eid),
+        gcrDb.from('entity_qna').select('*').eq('entity_id', eid).order('sort_order'),
+        gcrDb.from('product_sections').select('*').eq('entity_id', eid).order('sort_order'),
     ]);
 
-    // Fetch content for each section
+    // Fetch menu sub-sections and items
+    const menuSections = menuSectionsRes.data || [];
+    const menuSectionIds = menuSections.map(s => s.id);
+    let menuSubSections = [], menuItems = [];
+    if (menuSectionIds.length) {
+        const [subRes, itemRes] = await Promise.all([
+            gcrDb.from('menu_sub_sections').select('*').in('menu_section_id', menuSectionIds).order('sort_order'),
+            gcrDb.from('menu_items').select('*').eq('entity_id', eid).order('sort_order'),
+        ]);
+        menuSubSections = subRes.data || [];
+        menuItems = itemRes.data || [];
+    }
+
+    // Fetch drink items
+    const drinkSections = drinkSectionsRes.data || [];
+    const drinkSectionIds = drinkSections.map(s => s.id);
+    let drinkItems = [];
+    if (drinkSectionIds.length) {
+        const { data } = await gcrDb.from('drink_items').select('*').eq('entity_id', eid).order('sort_order');
+        drinkItems = data || [];
+    }
+
+    // Fetch HH items
+    const hhSections = hhSectionsRes.data || [];
+    const hhSectionIds = hhSections.map(s => s.id);
+    let hhItems = [];
+    if (hhSectionIds.length) {
+        const { data } = await gcrDb.from('happy_hour_items').select('*').eq('entity_id', eid).order('sort_order');
+        hhItems = data || [];
+    }
+
+    // Fetch product sub-sections and items
+    const productSections = productSectionsRes.data || [];
+    const productSectionIds = productSections.map(s => s.id);
+    let productSubSections = [], productItems = [];
+    if (productSectionIds.length) {
+        const [subRes, itemRes] = await Promise.all([
+            gcrDb.from('product_sub_sections').select('*').in('product_section_id', productSectionIds).order('sort_order'),
+            gcrDb.from('product_items').select('*').eq('entity_id', eid).order('sort_order'),
+        ]);
+        productSubSections = subRes.data || [];
+        productItems = itemRes.data || [];
+    }
+
+    // Fetch old sections content (keep for backwards compat)
     const sections = sectionsRes.data || [];
     const sectionsWithContent = await Promise.all(sections.map(sec => fetchSectionContent(sec)));
 
     res.json({
         entity,
-        features:    featuresRes.data   || [],
-        perfect_for: perfectForRes.data || [],
-        tags:        tagsRes.data       || [],
-        sections:    sectionsWithContent,
+        features:      featuresRes.data   || [],
+        perfect_for:   perfectForRes.data || [],
+        tags:          tagsRes.data       || [],
+        sections:      sectionsWithContent,
+        // New dedicated tables
+        hours:         hoursRes.data      || [],
+        about_bullets: bulletsRes.data    || [],
+        photos:        photosRes.data     || [],
+        menu: {
+            sections:     menuSections,
+            sub_sections: menuSubSections,
+            items:        menuItems,
+        },
+        drinks: {
+            sections: drinkSections,
+            items:    drinkItems,
+        },
+        happy_hour: {
+            sections: hhSections,
+            items:    hhItems,
+        },
+        events:       eventsRes.data      || [],
+        specials:     specialsRes.data    || [],
+        activities:   activitiesRes.data  || [],
+        pricing:      pricingRes.data     || [],
+        booking_slots: slotsRes.data      || [],
+        fleet:        fleetRes.data       || [],
+        addons:       addonsRes.data      || [],
+        whats_included: includedRes.data  || [],
+        requirements: requirementsRes.data || [],
+        policies:     policiesRes.data    || [],
+        meeting_points: meetingRes.data   || [],
+        qna:          qnaRes.data         || [],
+        shopping: {
+            sections:     productSections,
+            sub_sections: productSubSections,
+            items:        productItems,
+        },
     });
 });
 
