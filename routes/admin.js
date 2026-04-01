@@ -1508,88 +1508,105 @@ router.get('/gcr/businesses', adminRequired, async (req, res) => {
 // GCR EVENTS — stored as section_cards in entity sections
 // ============================================
 
+// ============================================
+// GCR EVENTS — new entity_events table
+// ============================================
+
 router.get('/gcr/events', adminRequired, async (req, res) => {
     const db = getGcrDb();
-    const { data, error } = await db
-        .from('section_cards')
-        .select('*, entity_sections(section_key, entity_id, entity(name, slug))')
-        .eq('entity_sections.section_key', 'events')
-        .order('badge_text', { ascending: true });
+    let query = db.from('entity_events')
+        .select('*, entity(name, slug)')
+        .order('event_date', { ascending: true });
+    if (req.query.entity_id) query = query.eq('entity_id', req.query.entity_id);
+    const { data, error } = await query;
     if (error) return res.status(500).json({ error: error.message });
     res.json(data || []);
 });
 
 router.post('/gcr/events', adminRequired, async (req, res) => {
-    const { entity_id, title, description, event_date, image_url } = req.body;
-    if (!entity_id || !title) return res.status(400).json({ error: 'entity_id and title required' });
     const db = getGcrDb();
-    // Get or create events section
-    let { data: section } = await db.from('entity_sections').select('id').eq('entity_id', entity_id).eq('section_key', 'events').single();
-    if (!section) {
-        const { data: newSection } = await db.from('entity_sections').insert({ entity_id, section_key: 'events', section_label: 'Events', section_type: 'cards', sort_order: 50 }).select('id').single();
-        section = newSection;
-    }
-    const { data, error } = await db.from('section_cards').insert({ section_id: section.id, title, description, badge_text: event_date || null, image_url: image_url || null }).select().single();
+    const { entity_id, event_name, description, event_type, artist_name, artist_about, music_style, venue_location, day_of_week, event_date, start_time, end_time, recurring, recurring_start_date, recurring_end_date, cover_charge, image_url } = req.body;
+    if (!entity_id || !event_name) return res.status(400).json({ error: 'entity_id and event_name required' });
+    const { data, error } = await db.from('entity_events').insert({
+        entity_id, event_name, description: description || null, event_type: event_type || null,
+        artist_name: artist_name || null, artist_about: artist_about || null, music_style: music_style || null,
+        venue_location: venue_location || null, day_of_week: day_of_week || null,
+        event_date: event_date || null, start_time: start_time || null, end_time: end_time || null,
+        recurring: recurring || false, recurring_start_date: recurring_start_date || null,
+        recurring_end_date: recurring_end_date || null, cover_charge: cover_charge || null,
+        image_url: image_url || null, is_active: true,
+    }).select().single();
     if (error) return res.status(500).json({ error: error.message });
     res.status(201).json(data);
 });
 
 router.put('/gcr/events/:id', adminRequired, async (req, res) => {
     const db = getGcrDb();
-    const { title, description, event_date, image_url } = req.body;
-    const { data, error } = await db.from('section_cards').update({ title, description, badge_text: event_date || null, image_url: image_url || null }).eq('id', req.params.id).select().single();
+    const { event_name, description, event_type, artist_name, artist_about, music_style, venue_location, day_of_week, event_date, start_time, end_time, recurring, recurring_start_date, recurring_end_date, cover_charge, image_url, is_active } = req.body;
+    const { data, error } = await db.from('entity_events').update({
+        event_name, description: description || null, event_type: event_type || null,
+        artist_name: artist_name || null, artist_about: artist_about || null, music_style: music_style || null,
+        venue_location: venue_location || null, day_of_week: day_of_week || null,
+        event_date: event_date || null, start_time: start_time || null, end_time: end_time || null,
+        recurring: recurring || false, recurring_start_date: recurring_start_date || null,
+        recurring_end_date: recurring_end_date || null, cover_charge: cover_charge || null,
+        image_url: image_url || null, is_active: is_active !== false,
+    }).eq('id', req.params.id).select().single();
     if (error) return res.status(500).json({ error: error.message });
     res.json(data);
 });
 
 router.delete('/gcr/events/:id', adminRequired, async (req, res) => {
     const db = getGcrDb();
-    const { error } = await db.from('section_cards').delete().eq('id', req.params.id);
+    const { error } = await db.from('entity_events').delete().eq('id', req.params.id);
     if (error) return res.status(500).json({ error: error.message });
     res.json({ success: true });
 });
 
 // ============================================
-// GCR SPECIALS — stored as section_cards in entity sections
+// GCR SPECIALS — new entity_specials table
 // ============================================
 
 router.get('/gcr/specials', adminRequired, async (req, res) => {
     const db = getGcrDb();
-    const { data, error } = await db
-        .from('section_cards')
-        .select('*, entity_sections(section_key, entity_id, entity(name, slug))')
-        .in('entity_sections.section_key', ['specials', 'happy_hour'])
-        .order('created_at', { ascending: false });
+    let query = db.from('entity_specials')
+        .select('*, entity(name, slug)')
+        .order('id', { ascending: false });
+    if (req.query.entity_id) query = query.eq('entity_id', req.query.entity_id);
+    const { data, error } = await query;
     if (error) return res.status(500).json({ error: error.message });
     res.json(data || []);
 });
 
 router.post('/gcr/specials', adminRequired, async (req, res) => {
-    const { entity_id, name, description, discount_text, section_key } = req.body;
-    if (!entity_id || !name) return res.status(400).json({ error: 'entity_id and name required' });
     const db = getGcrDb();
-    const key = section_key || 'specials';
-    let { data: section } = await db.from('entity_sections').select('id').eq('entity_id', entity_id).eq('section_key', key).single();
-    if (!section) {
-        const { data: newSection } = await db.from('entity_sections').insert({ entity_id, section_key: key, section_label: key === 'happy_hour' ? 'Happy Hour' : 'Specials', section_type: 'cards', sort_order: 60 }).select('id').single();
-        section = newSection;
-    }
-    const { data, error } = await db.from('section_cards').insert({ section_id: section.id, title: name, description, subtitle: discount_text || null }).select().single();
+    const { entity_id, special_name, description, special_type, days, start_time, end_time, discount_text, image_url } = req.body;
+    if (!entity_id || !special_name) return res.status(400).json({ error: 'entity_id and special_name required' });
+    const { data, error } = await db.from('entity_specials').insert({
+        entity_id, special_name, description: description || null, special_type: special_type || null,
+        days: days || null, start_time: start_time || null, end_time: end_time || null,
+        discount_text: discount_text || null, image_url: image_url || null, is_active: true,
+    }).select().single();
     if (error) return res.status(500).json({ error: error.message });
     res.status(201).json(data);
 });
 
 router.put('/gcr/specials/:id', adminRequired, async (req, res) => {
     const db = getGcrDb();
-    const { name, description, discount_text } = req.body;
-    const { data, error } = await db.from('section_cards').update({ title: name, description, subtitle: discount_text || null }).eq('id', req.params.id).select().single();
+    const { special_name, description, special_type, days, start_time, end_time, discount_text, image_url, is_active } = req.body;
+    const { data, error } = await db.from('entity_specials').update({
+        special_name, description: description || null, special_type: special_type || null,
+        days: days || null, start_time: start_time || null, end_time: end_time || null,
+        discount_text: discount_text || null, image_url: image_url || null,
+        is_active: is_active !== false,
+    }).eq('id', req.params.id).select().single();
     if (error) return res.status(500).json({ error: error.message });
     res.json(data);
 });
 
 router.delete('/gcr/specials/:id', adminRequired, async (req, res) => {
     const db = getGcrDb();
-    const { error } = await db.from('section_cards').delete().eq('id', req.params.id);
+    const { error } = await db.from('entity_specials').delete().eq('id', req.params.id);
     if (error) return res.status(500).json({ error: error.message });
     res.json({ success: true });
 });
