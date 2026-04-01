@@ -3063,5 +3063,39 @@ router.put('/gcr/seo/:entity_id', async (req, res) => {
     res.json({ success: true });
 });
 
+// ── Bookings Management ────────────────────────────────────
+// GET /api/admin/bookings?site_id=xxx
+router.get('/bookings', async (req, res) => {
+    const { site_id, status, from, to } = req.query;
+    let query = supabase
+        .from('bookings')
+        .select('id, customer_name, customer_email, customer_phone, booking_date, slot, total, status, payment_status, notes, created_at, site_id')
+        .order('booking_date', { ascending: false });
+    if (site_id) query = query.eq('site_id', site_id);
+    if (status) query = query.eq('status', status);
+    if (from) query = query.gte('booking_date', from);
+    if (to) query = query.lte('booking_date', to);
+    const { data, error } = await query;
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data || []);
+});
+
+// DELETE /api/admin/bookings/:id
+router.delete('/bookings/:id', async (req, res) => {
+    const { error } = await supabase.from('bookings').delete().eq('id', req.params.id);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// PATCH /api/admin/bookings/:id/cancel
+router.patch('/bookings/:id/cancel', async (req, res) => {
+    const { error } = await supabase
+        .from('bookings')
+        .update({ status: 'cancelled', updated_at: new Date().toISOString() })
+        .eq('id', req.params.id);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
 module.exports = router;
 
