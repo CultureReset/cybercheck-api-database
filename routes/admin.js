@@ -1652,6 +1652,94 @@ router.post('/gcr/import-master', async (req, res) => {
 // GCR BUSINESSES — list all gcr-listed businesses
 // ============================================
 
+// ── POST /api/admin/gcr/auto-activate-top5
+// Score every entity by data completeness, activate top 5 per GCR category, deactivate rest
+router.post('/gcr/auto-activate-top5', adminRequired, async (req, res) => {
+    const db = getGcrDb();
+    const topN = parseInt(req.body?.top_n) || 5;
+
+    // Load all entities with the fields we score on
+    const { data: entities, error } = await db.from('entity')
+        .select('id, slug, name, entity_subtype, hero_image_url, description, phone, address_line_1, city, website_url, subtitle, rating, review_count, hh_days');
+    if (error) return res.status(500).json({ error: error.message });
+
+    // Load tag counts per entity
+    const { data: tagRows } = await db.from('entity_tags').select('entity_id');
+    const tagCounts = {};
+    (tagRows || []).forEach(t => { tagCounts[t.entity_id] = (tagCounts[t.entity_id] || 0) + 1; });
+
+    // Load hours counts per entity
+    const { data: hourRows } = await db.from('entity_hours').select('entity_id');
+    const hourCounts = {};
+    (hourRows || []).forEach(h => { hourCounts[h.entity_id] = (hourCounts[h.entity_id] || 0) + 1; });
+
+    // Map entity_subtype → GCR category
+    const SUBTYPE_CAT = {
+        restaurant:'restaurants', restaurants:'restaurants', bar:'restaurants', bar_grill:'restaurants',
+        seafood:'restaurants', seafood_restaurant:'restaurants', casual_dining:'restaurants',
+        steakhouse:'restaurants', pizza:'restaurants', mexican:'restaurants', breakfast_spot:'restaurants',
+        beach_bar:'restaurants', hybrid_venue:'restaurants', southern:'restaurants',
+        coffee_shop:'coffee-sweets', cafe:'coffee-sweets', bakery:'coffee-sweets',
+        ice_cream:'coffee-sweets', dessert_bar:'coffee-sweets', smoothie:'coffee-sweets',
+        boutique:'shopping', souvenir:'shopping', retail:'shopping', shopping:'shopping',
+        surf_shop:'shopping', gift_shop:'shopping', clothing:'shopping', art_gallery:'shopping',
+        parasailing:'things-to-do', dolphin_cruise:'things-to-do', boat_rental:'things-to-do',
+        fishing_charter:'things-to-do', kayak_rental:'things-to-do', snorkeling:'things-to-do',
+        tour:'things-to-do', attraction:'things-to-do', jet_ski:'things-to-do',
+        nightlife:'nightlife', bar_club:'nightlife', nightclub:'nightlife',
+        sports_bar:'nightlife', rooftop_bar:'nightlife', lounge:'nightlife',
+    };
+
+    // Score each entity
+    const scored = entities.map(e => {
+        const sub = (e.entity_subtype || '').toLowerCase().replace(/-/g, '_');
+        const category = SUBTYPE_CAT[sub] || 'other';
+        let score = 0;
+        if (e.hero_image_url)   score += 4;
+        if (e.description)      score += 3;
+        if (e.phone)            score += 2;
+        if (e.address_line_1)   score += 2;
+        if (e.city)             score += 1;
+        if (e.website_url)      score += 1;
+        if (e.subtitle)         score += 1;
+        if (e.rating)           score += 2;
+        if (e.hh_days)          score += 1;
+        score += Math.min(tagCounts[e.id] || 0, 8);   // up to 8pts for tags
+        score += Math.min(hourCounts[e.id] || 0, 7);  // up to 7pts for hours
+        return { id: e.id, name: e.name, category, score };
+    });
+
+    // Group by category, pick top N
+    const byCategory = {};
+    scored.forEach(e => {
+        if (!byCategory[e.category]) byCategory[e.category] = [];
+        byCategory[e.category].push(e);
+    });
+
+    const activateIds = new Set();
+    const summary = {};
+    for (const [cat, list] of Object.entries(byCategory)) {
+        const top = list.sort((a, b) => b.score - a.score).slice(0, topN);
+        top.forEach(e => activateIds.add(e.id));
+        summary[cat] = top.map(e => ({ name: e.name, score: e.score }));
+    }
+
+    // Batch update: activate top, deactivate rest
+    const allIds = entities.map(e => e.id);
+    const deactivateIds = allIds.filter(id => !activateIds.has(id));
+
+    if (activateIds.size)   await db.from('entity').update({ is_active: true  }).in('id', [...activateIds]);
+    if (deactivateIds.length) await db.from('entity').update({ is_active: false }).in('id', deactivateIds);
+
+    res.json({
+        success: true,
+        activated: activateIds.size,
+        deactivated: deactivateIds.length,
+        top_n: topN,
+        summary,
+    });
+});
+
 router.get('/gcr/businesses', adminRequired, async (req, res) => {
     const { search, category, status } = req.query;
     const db = getGcrDb();
