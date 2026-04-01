@@ -1210,6 +1210,167 @@ router.post('/gcr/import-activities', async (req, res) => {
     res.json({ success: true, inserted, errors });
 });
 
+// ── POST /api/admin/gcr/import-section-based
+// Accepts rows with columns: restaurant_name, section_type, section, item_name, description, price, tags, ...
+// section_type values: profile | tags | menu | special | event | service | dietary
+// Routes each row to the correct table automatically. Looks up entity by name or creates it.
+router.post('/gcr/import-section-based', async (req, res) => {
+    const gcrDb = getGcrDb();
+    const rows = Array.isArray(req.body) ? req.body : [req.body];
+    const { upsertTag } = gcrImportHelpers(gcrDb);
+
+    // Group rows by restaurant_name
+    const byRestaurant = {};
+    for (const row of rows) {
+        const rname = (row.restaurant_name || '').trim();
+        if (!rname) continue;
+        if (!byRestaurant[rname]) byRestaurant[rname] = [];
+        byRestaurant[rname].push(row);
+    }
+
+    let totalInserted = 0;
+    const errors = [];
+
+    for (const [rname, rRows] of Object.entries(byRestaurant)) {
+        // Derive slug from name
+        const slug = rname.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
+        // Find entity by slug or by name
+        let { data: entity } = await gcrDb.from('entity').select('id, slug').eq('slug', slug).single();
+        if (!entity) {
+            // Try name match
+            const { data: byName } = await gcrDb.from('entity').select('id, slug').ilike('name', rname).limit(1).maybeSingle();
+            entity = byName;
+        }
+
+        // If still not found, create from profile row
+        if (!entity) {
+            const profileRow = rRows.find(r => r.section_type === 'profile');
+            const addr = profileRow?.address || null;
+            const { data: created, error: createErr } = await gcrDb.from('entity').insert({
+                name: rname, slug,
+                phone: profileRow?.phone || null,
+                address_line_1: addr, city: profileRow?.city || null,
+                state: profileRow?.state || null,
+                entity_subtype: 'restaurant', is_active: false,
+            }).select('id, slug').single();
+            if (createErr || !created) { errors.push(`Failed to create entity: ${rname} — ${createErr?.message}`); continue; }
+            entity = created;
+        }
+
+        const entityId = entity.id;
+        const entitySlug = entity.slug;
+
+        // Track created sections to avoid duplicate creates
+        const sectionCache = {};
+        async function getOrCreateSection(key, label, type, order) {
+            if (sectionCache[key]) return sectionCache[key];
+            const { data: existing } = await gcrDb.from('entity_sections').select('id').eq('entity_id', entityId).eq('section_key', key).maybeSingle();
+            if (existing) { sectionCache[key] = existing.id; return existing.id; }
+            const { data: created } = await gcrDb.from('entity_sections').insert({ entity_id: entityId, section_key: key, section_label: label, section_type: type, sort_order: order, is_active: true }).select('id').single();
+            sectionCache[key] = created?.id;
+            return created?.id;
+        }
+
+        // Track groups per section
+        const groupCache = {};
+        async function getOrCreateGroup(sectionId, title) {
+            const cacheKey = `${sectionId}|${title}`;
+            if (groupCache[cacheKey]) return groupCache[cacheKey];
+            const { data: existing } = await gcrDb.from('section_groups').select('id').eq('section_id', sectionId).eq('title', title).maybeSingle();
+            if (existing) { groupCache[cacheKey] = existing.id; return existing.id; }
+            const { data: created } = await gcrDb.from('section_groups').insert({ section_id: sectionId, title, sort_order: 0 }).select('id').single();
+            groupCache[cacheKey] = created?.id;
+            return created?.id;
+        }
+
+        let menuOrder = 1;
+
+        for (const row of rRows) {
+            const stype = (row.section_type || '').toLowerCase().trim();
+
+            try {
+                if (stype === 'profile') {
+                    // Update entity with profile fields if they're empty
+                    const updates = {};
+                    if (row.phone) updates.phone = row.phone;
+                    if (row.city) updates.city = row.city;
+                    if (row.state) updates.state = row.state;
+                    if (row.address) updates.address_line_1 = row.address;
+                    if (row.description) updates.description = row.description;
+                    if (Object.keys(updates).length) await gcrDb.from('entity').update(updates).eq('id', entityId);
+                    totalInserted++;
+
+                } else if (stype === 'tags') {
+                    // Tags from item_name column (comma-separated) or tags column
+                    const tagStr = row.item_name || row.tags || '';
+                    const tagList = tagStr.split(',').map(t => t.trim()).filter(Boolean);
+                    for (const tag of tagList) await upsertTag(entityId, tag, 'feature');
+                    totalInserted += tagList.length;
+
+                } else if (stype === 'menu') {
+                    const sectionName = (row.section || 'Menu').trim();
+                    const sectionKey = sectionName.toLowerCase().replace(/[^a-z0-9]+/g, '_');
+                    const sectionId = await getOrCreateSection(sectionKey, sectionName, 'grouped_items', menuOrder++);
+                    if (!sectionId) { errors.push(`Section create failed: ${sectionName}`); continue; }
+
+                    const groupId = await getOrCreateGroup(sectionId, sectionName);
+
+                    const priceNum = parseFloat(row.price) || null;
+                    const priceText = row.price ? '$' + row.price : null;
+                    await gcrDb.from('section_items').insert({
+                        section_id: sectionId, group_id: groupId || null,
+                        item_name: row.item_name, item_description: row.description || null,
+                        price_text: priceText, price_numeric: priceNum,
+                        item_type: 'menu_item', is_active: true, sort_order: 0,
+                    });
+                    totalInserted++;
+
+                } else if (stype === 'special') {
+                    if (row.item_name) {
+                        await gcrDb.from('entity_specials').insert({
+                            entity_id: entityId, special_name: row.item_name,
+                            description: row.description || null, is_active: true,
+                        });
+                        totalInserted++;
+                    }
+
+                } else if (stype === 'event') {
+                    if (row.item_name) {
+                        await gcrDb.from('entity_events').insert({
+                            entity_id: entityId, event_name: row.item_name,
+                            description: row.description || null,
+                            recurring: true, is_active: true,
+                        });
+                        totalInserted++;
+                    }
+
+                } else if (stype === 'service') {
+                    // Happy hour or other service notes — save as about bullet
+                    if (row.item_name && row.description) {
+                        await gcrDb.from('entity_about_bullets').insert({
+                            entity_id: entityId, text: row.item_name + ': ' + row.description, icon: '🍺',
+                        });
+                        totalInserted++;
+                    }
+
+                } else if (stype === 'dietary') {
+                    if (row.description) {
+                        await gcrDb.from('entity_about_bullets').insert({
+                            entity_id: entityId, text: row.description, icon: '🥗',
+                        });
+                        totalInserted++;
+                    }
+                }
+            } catch (e) {
+                errors.push(`[${rname}] ${stype}/${row.item_name}: ${e.message}`);
+            }
+        }
+    }
+
+    res.json({ success: true, inserted: totalInserted, errors, restaurants: Object.keys(byRestaurant).length });
+});
+
 // ── POST /api/admin/gcr/import-pricing
 router.post('/gcr/import-pricing', async (req, res) => {
     const gcrDb = getGcrDb();
