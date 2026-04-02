@@ -1309,6 +1309,22 @@ router.get('/entities', async (req, res) => {
         }
     }
 
+    // Batch-fetch features (Happy Hour, Kids Friendly, etc.) and merge into tags
+    if (entityIds.length) {
+        const CHUNK = 100;
+        for (let i = 0; i < entityIds.length; i += CHUNK) {
+            const chunk = entityIds.slice(i, i + CHUNK);
+            const { data: featureRows } = await gcrDb
+                .from('entity_features')
+                .select('entity_id, label')
+                .in('entity_id', chunk);
+            (featureRows || []).forEach(r => {
+                if (!tagMap[r.entity_id]) tagMap[r.entity_id] = [];
+                tagMap[r.entity_id].push({ tag: r.label.toLowerCase().replace(/ /g, '_'), tag_category: 'feature' });
+            });
+        }
+    }
+
     // Batch-fetch photos
     let photosMap = {};
     if (entityIds.length) {
@@ -1327,37 +1343,21 @@ router.get('/entities', async (req, res) => {
         }
     }
 
-    // Batch-fetch hours — chunk entity IDs, then chunk section IDs
+    // Batch-fetch hours from entity_hours (same table as profile pages)
     let hoursMap = {};
     if (entityIds.length) {
         const CHUNK = 100;
-        let allHoursSections = [];
         for (let i = 0; i < entityIds.length; i += CHUNK) {
             const chunk = entityIds.slice(i, i + CHUNK);
-            const { data: hoursSections } = await gcrDb
-                .from('entity_sections')
-                .select('id, entity_id')
-                .eq('section_type', 'hours')
-                .in('entity_id', chunk);
-            allHoursSections = allHoursSections.concat(hoursSections || []);
-        }
-        const sectionEntityMap = {};
-        allHoursSections.forEach(s => { sectionEntityMap[s.id] = s.entity_id; });
-        const sectionIds = allHoursSections.map(s => s.id);
-        if (sectionIds.length) {
-            for (let i = 0; i < sectionIds.length; i += CHUNK) {
-                const chunk = sectionIds.slice(i, i + CHUNK);
-                const { data: hoursRows } = await gcrDb
-                    .from('section_hours')
-                    .select('section_id, day_of_week, open_time, close_time, is_closed, note_text')
-                    .in('section_id', chunk);
-                (hoursRows || []).forEach(r => {
-                    const eid = sectionEntityMap[r.section_id];
-                    if (!eid) return;
-                    if (!hoursMap[eid]) hoursMap[eid] = [];
-                    hoursMap[eid].push(r);
-                });
-            }
+            const { data: hoursRows } = await gcrDb
+                .from('entity_hours')
+                .select('entity_id, day_of_week, open_time, close_time, is_closed')
+                .in('entity_id', chunk)
+                .order('day_of_week');
+            (hoursRows || []).forEach(r => {
+                if (!hoursMap[r.entity_id]) hoursMap[r.entity_id] = [];
+                hoursMap[r.entity_id].push(r);
+            });
         }
     }
 
