@@ -263,34 +263,62 @@ router.post('/search', async (req, res) => {
 
     // For each matching entity, find what specifically matched (menu items, specials, etc.)
     const entityIdList = (entities || []).map(e => e.id);
-    let menuMatchMap = {}, specialMatchMap = {}, eventMatchMap = {};
+    let menuMatchMap = {}, drinkMatchMap = {}, hhMatchMap = {}, specialMatchMap = {}, eventMatchMap = {};
 
     if (entityIdList.length) {
-        const [menuMatches, specialMatches, eventMatches] = await Promise.all([
-            gcrDb.from('menu_items').select('entity_id, item_name, price, price_text').ilike('item_name', `%${q}%`).in('entity_id', entityIdList),
-            gcrDb.from('entity_specials').select('entity_id, special_name, discount_text').eq('is_active', true).ilike('special_name', `%${q}%`).in('entity_id', entityIdList),
-            gcrDb.from('entity_events').select('entity_id, event_name, event_date, day_of_week').eq('is_active', true).ilike('event_name', `%${q}%`).in('entity_id', entityIdList),
+        const [menuMatches, drinkMatches, hhMatches, specialMatches, eventMatches] = await Promise.all([
+            gcrDb.from('menu_items').select('entity_id, item_name, description, price, price_text')
+                .or(`item_name.ilike.%${q}%,description.ilike.%${q}%`).in('entity_id', entityIdList),
+            gcrDb.from('drink_items').select('entity_id, item_name, description, price, price_text, item_style, brewery')
+                .or(`item_name.ilike.%${q}%,description.ilike.%${q}%,item_style.ilike.%${q}%`).in('entity_id', entityIdList),
+            gcrDb.from('happy_hour_items').select('entity_id, item_name, description, hh_price, price_text')
+                .or(`item_name.ilike.%${q}%,description.ilike.%${q}%`).in('entity_id', entityIdList),
+            gcrDb.from('entity_specials').select('entity_id, special_name, description, discount_text').eq('is_active', true)
+                .or(`special_name.ilike.%${q}%,description.ilike.%${q}%,discount_text.ilike.%${q}%`).in('entity_id', entityIdList),
+            gcrDb.from('entity_events').select('entity_id, event_name, event_date, day_of_week').eq('is_active', true)
+                .or(`event_name.ilike.%${q}%,description.ilike.%${q}%`).in('entity_id', entityIdList),
         ]);
-        (menuMatches.data || []).forEach(m => { if (!menuMatchMap[m.entity_id]) menuMatchMap[m.entity_id] = []; menuMatchMap[m.entity_id].push(m); });
+        (menuMatches.data || []).forEach(m => { if (!menuMatchMap[m.entity_id]) menuMatchMap[m.entity_id] = []; menuMatchMap[m.entity_id].push({ ...m, _type: 'menu' }); });
+        (drinkMatches.data || []).forEach(m => { if (!drinkMatchMap[m.entity_id]) drinkMatchMap[m.entity_id] = []; drinkMatchMap[m.entity_id].push({ ...m, _type: 'drink' }); });
+        (hhMatches.data || []).forEach(m => { if (!hhMatchMap[m.entity_id]) hhMatchMap[m.entity_id] = []; hhMatchMap[m.entity_id].push({ ...m, _type: 'happy_hour' }); });
         (specialMatches.data || []).forEach(s => { if (!specialMatchMap[s.entity_id]) specialMatchMap[s.entity_id] = []; specialMatchMap[s.entity_id].push(s); });
         (eventMatches.data || []).forEach(e => { if (!eventMatchMap[e.entity_id]) eventMatchMap[e.entity_id] = []; eventMatchMap[e.entity_id].push(e); });
     }
 
-    // Build results — sort by name match first, then rating
-    const results = (entities || []).map(e => ({
-        ...e,
-        site_id: e.id, subdomain: e.slug, emoji: e.icon,
-        type: e.entity_subtype, category: e.entity_subtype,
-        cover_url: e.hero_image_url, tagline: e.subtitle,
-        matched_menu_items: menuMatchMap[e.id] || [],
-        matched_specials:   specialMatchMap[e.id] || [],
-        matched_events:     eventMatchMap[e.id] || [],
-    })).sort((a, b) => {
-        const aName = (a.name || '').toLowerCase().includes(q) ? 1 : 0;
-        const bName = (b.name || '').toLowerCase().includes(q) ? 1 : 0;
-        if (bName !== aName) return bName - aName;
-        return (b.rating || 0) - (a.rating || 0);
-    });
+    // Score items by match quality (exact > starts_with > contains)
+    const scoreItem = (name, desc, q) => {
+        const n = (name || '').toLowerCase();
+        const d = (desc || '').toLowerCase();
+        if (n === q) return 100;
+        if (n.startsWith(q)) return 80;
+        if (n.includes(q)) return 60;
+        if (d.startsWith(q)) return 40;
+        if (d.includes(q)) return 20;
+        return 0;
+    };
+
+    // Sort items within each entity by match quality
+    const sortItems = (items, q) => [...items].sort((a, b) =>
+        scoreItem(b.item_name || b.special_name, b.description, q) - scoreItem(a.item_name || a.special_name, a.description, q)
+    );
+
+    // Build results — sort by entity relevance score, then rating
+    const results = (entities || []).map(e => {
+        const menuItems = sortItems([...(menuMatchMap[e.id] || []), ...(drinkMatchMap[e.id] || []), ...(hhMatchMap[e.id] || [])], q);
+        const nameScore = scoreItem(e.name, e.subtitle, q);
+        const itemScore = menuItems.length > 0 ? scoreItem(menuItems[0].item_name, menuItems[0].description, q) : 0;
+        const relevance = Math.max(nameScore, itemScore) + (e.rating || 0);
+        return {
+            ...e,
+            site_id: e.id, subdomain: e.slug, emoji: e.icon,
+            type: e.entity_subtype, category: e.entity_subtype,
+            cover_url: e.hero_image_url, tagline: e.subtitle,
+            matched_menu_items: menuItems,
+            matched_specials:   sortItems(specialMatchMap[e.id] || [], q),
+            matched_events:     eventMatchMap[e.id] || [],
+            _relevance: relevance,
+        };
+    }).sort((a, b) => b._relevance - a._relevance);
 
     res.json({ query: searchQuery, results, total: results.length });
 });
