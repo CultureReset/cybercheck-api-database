@@ -1309,6 +1309,24 @@ router.get('/entities', async (req, res) => {
         }
     }
 
+    // Batch-fetch photos
+    let photosMap = {};
+    if (entityIds.length) {
+        const CHUNK = 100;
+        for (let i = 0; i < entityIds.length; i += CHUNK) {
+            const chunk = entityIds.slice(i, i + CHUNK);
+            const { data: photoRows } = await gcrDb
+                .from('entity_photos')
+                .select('entity_id, image_url, caption, sort_order')
+                .in('entity_id', chunk)
+                .order('sort_order');
+            (photoRows || []).forEach(r => {
+                if (!photosMap[r.entity_id]) photosMap[r.entity_id] = [];
+                photosMap[r.entity_id].push({ image_url: r.image_url, caption: r.caption });
+            });
+        }
+    }
+
     // Batch-fetch hours — chunk entity IDs, then chunk section IDs
     let hoursMap = {};
     if (entityIds.length) {
@@ -1376,6 +1394,7 @@ router.get('/entities', async (req, res) => {
         // New fields
         tags:            tagMap[e.id] || [],
         hours:           hoursMap[e.id] || [],
+        photos:          photosMap[e.id] || [],
     }));
 
     res.json({ entities: mapped, businesses: mapped, total: mapped.length });
