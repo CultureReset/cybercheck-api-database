@@ -3,6 +3,14 @@ const supabase = require('../db');
 
 const router = express.Router();
 
+// Cache all GET responses on Vercel's CDN for 24 hours
+router.use((req, res, next) => {
+  if (req.method === 'GET') {
+    res.set('Cache-Control', 's-maxage=86400, stale-while-revalidate=3600');
+  }
+  next();
+});
+
 // ============================================
 // GET /api/gcr/businesses — DEPRECATED: redirects to /entities
 // Old DB no longer used for GCR public pages
@@ -1474,6 +1482,9 @@ router.get('/entities', async (req, res) => {
 // Returns entity + features + perfect_for + tags + all sections with content
 // ============================================
 router.get('/entity/:slug', async (req, res) => {
+    // Shorter cache on individual profiles so business updates show within 5 min
+    res.set('Cache-Control', 's-maxage=300, stale-while-revalidate=60');
+
     const { slug } = req.params;
 
     // Try exact match first
