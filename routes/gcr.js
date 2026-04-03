@@ -125,14 +125,29 @@ router.get('/events', async (req, res) => {
 });
 
 // ============================================
-// GET /api/gcr/happy-hours — entities with HH schedule from new GCR DB
+// GET /api/gcr/happy-hours — entities with HH data from any source
 // ============================================
 router.get('/happy-hours', async (req, res) => {
+    // Get entity IDs from all HH sources in parallel
+    const [tagRes, secRes, specialRes] = await Promise.all([
+        gcrDb.from('entity_tags').select('entity_id').eq('tag', 'happy_hour'),
+        gcrDb.from('happy_hour_sections').select('entity_id'),
+        gcrDb.from('entity_specials').select('entity_id').eq('special_type', 'happy_hour'),
+    ]);
+
+    // Collect all unique entity IDs
+    const hhEntityIds = new Set();
+    (tagRes.data || []).forEach(r => hhEntityIds.add(r.entity_id));
+    (secRes.data || []).forEach(r => hhEntityIds.add(r.entity_id));
+    (specialRes.data || []).forEach(r => hhEntityIds.add(r.entity_id));
+
+    if (!hhEntityIds.size) return res.json([]);
+
     const { data, error } = await gcrDb
         .from('entity')
-        .select('id, slug, name, icon, hero_image_url, entity_subtype, city, phone, directions_url, address_line_1, rating, hh_days, hh_start, hh_end, hh_description')
+        .select('id, slug, name, icon, hero_image_url, entity_subtype, city, phone, directions_url, address_line_1, rating, hh_days, hh_start, hh_end, hh_description, description, price_range, social_instagram, social_facebook')
         .eq('is_active', true)
-        .not('hh_days', 'is', null)
+        .in('id', [...hhEntityIds])
         .range(0, 999);
 
     if (error) return res.status(500).json({ error: error.message });
