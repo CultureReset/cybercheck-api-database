@@ -1399,6 +1399,27 @@ router.get('/entities', async (req, res) => {
         }
     }
 
+    // Batch-fetch rich_text section descriptions as fallback for empty entity.description
+    let sectionDescMap = {};
+    if (entityIds.length) {
+        const CHUNK = 100;
+        for (let i = 0; i < entityIds.length; i += CHUNK) {
+            const chunk = entityIds.slice(i, i + CHUNK);
+            const { data: secRows } = await gcrDb
+                .from('entity_sections')
+                .select('entity_id, section_type, content')
+                .eq('section_type', 'rich_text')
+                .in('entity_id', chunk)
+                .order('sort_order')
+                .limit(1);
+            (secRows || []).forEach(r => {
+                if (!sectionDescMap[r.entity_id] && r.content?.body_text) {
+                    sectionDescMap[r.entity_id] = r.content.body_text;
+                }
+            });
+        }
+    }
+
     // Map entity fields to match old business format so pages don't break
     const mapped = entities.map(e => ({
         ...e,
@@ -1417,7 +1438,7 @@ router.get('/entities', async (req, res) => {
         address:         e.address_line_1 || '',
         priceRange:      e.price_range || '',
         reviewCount:     e.review_count || 0,
-        description:     e.description || '',
+        description:     e.description || sectionDescMap[e.id] || '',
         booking_url:     e.booking_url || null,
         reservation_url: e.reservation_url || null,
         order_url:       e.order_url || null,
