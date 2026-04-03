@@ -652,7 +652,20 @@ router.post('/test-oauth', adminRequired, async (req, res) => {
 // ============================================
 router.put('/businesses/:id/full', adminRequired, async (req, res) => {
     const entityId = req.params.id;
-    const { basic, location, hours, happyHour, menu, drinks, specials, events, social, packages } = req.body;
+    // Support both admin editor format (basic/location/social) and bd-dashboard format (business/content)
+    const body = req.body;
+    const basic    = body.basic    || (body.business ? body.business : null);
+    const location = body.location || (body.content  ? { address: body.content.address, city: body.content.city, state: body.content.state, zip: body.content.zip, phone: body.content.contact_phone || body.content.phone, email: body.content.contact_email || body.content.email, website: body.content.website_url || body.content.website } : null);
+    const social   = body.social   || (body.business ? { instagram: body.business.instagram, facebook: body.business.facebook, tiktok: body.business.tiktok } : null);
+    const hours    = body.hours;
+    const happyHour= body.happyHour || (body.content?.happy_hour ? body.content.happy_hour : null);
+    const menu     = body.menu;
+    const drinks   = body.drinks;
+    const specials = body.specials;
+    const events   = body.events;
+    const packages = body.packages;
+    // bd-dashboard extras
+    const content  = body.content || {};
     const errors = [];
 
     // ── 1. entity core fields ─────────────────────────────────────────
@@ -691,16 +704,37 @@ router.put('/businesses/:id/full', adminRequired, async (req, res) => {
     }
 
     // ── 2. Hours ─────────────────────────────────────────────────────
-    if (hours && Array.isArray(hours.schedule)) {
-        for (const h of hours.schedule) {
-            const { error } = await gcrDb.from('entity_hours').upsert({
-                entity_id: entityId,
-                day_of_week: h.day,
-                open_time: h.open || null,
-                close_time: h.close || null,
-                is_closed: h.closed || false
-            }, { onConflict: 'entity_id,day_of_week' });
-            if (error) errors.push('hours: ' + error.message);
+    if (hours) {
+        // Format 1: hours.schedule = [{day, open, close, closed}]
+        if (Array.isArray(hours.schedule)) {
+            for (const h of hours.schedule) {
+                await gcrDb.from('entity_hours').upsert({ entity_id: entityId, day_of_week: h.day, open_time: h.open || null, close_time: h.close || null, is_closed: h.closed || false }, { onConflict: 'entity_id,day_of_week' });
+            }
+        }
+        // Format 2: hours_mon, hours_tue etc. as strings "9am-5pm" or object {open,close}
+        const dayMap = { hours_mon:'Monday', hours_tue:'Tuesday', hours_wed:'Wednesday', hours_thu:'Thursday', hours_fri:'Friday', hours_sat:'Saturday', hours_sun:'Sunday' };
+        for (const [key, dayName] of Object.entries(dayMap)) {
+            if (hours[key] === undefined) continue;
+            const val = hours[key];
+            let open = null, close = null, is_closed = false;
+            if (!val || val === 'closed') { is_closed = true; }
+            else if (typeof val === 'string' && val.includes('-')) {
+                const parts = val.split('-').map(s => s.trim());
+                open = parts[0]; close = parts[1];
+            } else if (typeof val === 'object') { open = val.open; close = val.close; is_closed = val.closed || false; }
+            await gcrDb.from('entity_hours').upsert({ entity_id: entityId, day_of_week: dayName, open_time: open, close_time: close, is_closed }, { onConflict: 'entity_id,day_of_week' });
+        }
+        // Format 3: content.hours object {mon, tue, ...}
+        if (content.hours && typeof content.hours === 'object') {
+            const cDayMap = { mon:'Monday', tue:'Tuesday', wed:'Wednesday', thu:'Thursday', fri:'Friday', sat:'Saturday', sun:'Sunday' };
+            for (const [k, dayName] of Object.entries(cDayMap)) {
+                const val = content.hours[k]; if (val === undefined) continue;
+                let open = null, close = null, is_closed = false;
+                if (!val || val === 'closed') { is_closed = true; }
+                else if (typeof val === 'string' && val.includes('-')) { const p = val.split('-'); open = p[0]?.trim(); close = p[1]?.trim(); }
+                else if (typeof val === 'object') { open = val.open; close = val.close; is_closed = val.closed || false; }
+                await gcrDb.from('entity_hours').upsert({ entity_id: entityId, day_of_week: dayName, open_time: open, close_time: close, is_closed }, { onConflict: 'entity_id,day_of_week' });
+            }
         }
     }
 
@@ -797,11 +831,17 @@ router.put('/businesses/:id/full', adminRequired, async (req, res) => {
 
     // ── 7. Menu items ─────────────────────────────────────────────────
     if (menu !== undefined) {
+        // Split food vs drink if mixed in one array (admin editor sends item_type field)
+        const foodItems  = menu.filter(i => (i.item_type || 'food') !== 'drink');
+        const drinkItems = menu.filter(i => i.item_type === 'drink');
+        // If drinks mixed in, merge into drinks array for step 8
+        if (drinkItems.length && !drinks) { body.drinks_from_menu = drinkItems; }
+        const menuOnly = foodItems;
         await gcrDb.from('menu_items').delete().eq('entity_id', entityId);
         await gcrDb.from('menu_sections').delete().eq('entity_id', entityId);
-        if (menu.length > 0) {
+        if (menuOnly.length > 0) {
             const sectionCache = {};
-            for (const [i, item] of menu.entries()) {
+            for (const [i, item] of menuOnly.entries()) {
                 const secName = item.category || 'Menu';
                 if (!sectionCache[secName]) {
                     const { data: sec } = await gcrDb.from('menu_sections').insert({ entity_id: entityId, section_name: secName, sort_order: Object.keys(sectionCache).length }).select('id').single();
@@ -822,12 +862,13 @@ router.put('/businesses/:id/full', adminRequired, async (req, res) => {
     }
 
     // ── 8. Drink items ────────────────────────────────────────────────
-    if (drinks !== undefined) {
+    const drinksToSave = drinks || body.drinks_from_menu;
+    if (drinksToSave !== undefined) {
         await gcrDb.from('drink_items').delete().eq('entity_id', entityId);
         await gcrDb.from('drink_sections').delete().eq('entity_id', entityId);
-        if (drinks.length > 0) {
+        if (drinksToSave.length > 0) {
             const secCache = {};
-            for (const [i, item] of drinks.entries()) {
+            for (const [i, item] of drinksToSave.entries()) {
                 const secName = item.category || 'Drinks';
                 if (!secCache[secName]) {
                     const { data: sec } = await gcrDb.from('drink_sections').insert({ entity_id: entityId, section_name: secName, sort_order: Object.keys(secCache).length }).select('id').single();
@@ -870,6 +911,58 @@ router.put('/businesses/:id/full', adminRequired, async (req, res) => {
                 }))
             );
             if (error) errors.push('packages: ' + error.message);
+        }
+    }
+
+    // ── 10. bd-dashboard content fields (SEO, about, FAQ) ────────────
+    if (content && Object.keys(content).length) {
+        const entUpd = {};
+        if (content.about_text)    entUpd.description = content.about_text;
+        if (content.seo_description) entUpd.description = content.seo_description;
+        if (Object.keys(entUpd).length) await gcrDb.from('entity').update(entUpd).eq('id', entityId);
+
+        // SEO settings
+        if (content.seo_title || content.seo_description || content.seo_keywords) {
+            await gcrDb.from('gcr_seo_settings').upsert({
+                entity_id: entityId,
+                seo_title: content.seo_title || null,
+                seo_description: content.seo_description || null,
+                seo_keywords: content.seo_keywords || null,
+                updated_at: new Date().toISOString()
+            }, { onConflict: 'entity_id' });
+        }
+
+        // FAQ
+        if (Array.isArray(content.faq) && content.faq.length) {
+            await gcrDb.from('gcr_faqs').delete().eq('entity_id', entityId);
+            await gcrDb.from('gcr_faqs').insert(content.faq.map((f, i) => ({
+                entity_id: entityId,
+                question: f.q || f.question,
+                answer: f.a || f.answer,
+                sort_order: i
+            })));
+        }
+    }
+
+    // ── 11. Custom tags (from bd-dashboard custom tags input) ─────────
+    if (Array.isArray(body.custom_tags)) {
+        for (const tag of body.custom_tags) {
+            if (!tag) continue;
+            const norm = tag.toLowerCase().replace(/[\s\-]+/g, '_');
+            await gcrDb.from('entity_tags').upsert({ entity_id: entityId, tag: norm, tag_category: 'search' }, { onConflict: 'entity_id,tag' });
+        }
+    }
+
+    // ── 12. Custom sections (arbitrary key/label/type) ────────────────
+    if (Array.isArray(body.custom_sections)) {
+        for (const sec of body.custom_sections) {
+            if (!sec.key || !sec.label || !sec.type) continue;
+            const { data: existing } = await gcrDb.from('entity_sections').select('id').eq('entity_id', entityId).eq('section_key', sec.key).single();
+            if (!existing) {
+                await gcrDb.from('entity_sections').insert({ entity_id: entityId, section_key: sec.key, section_label: sec.label, section_type: sec.type, sort_order: sec.sort_order || 99 });
+            } else if (sec.label || sec.sort_order !== undefined) {
+                await gcrDb.from('entity_sections').update({ section_label: sec.label, section_type: sec.type, sort_order: sec.sort_order || 99 }).eq('id', existing.id);
+            }
         }
     }
 
