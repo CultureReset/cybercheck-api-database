@@ -1865,36 +1865,7 @@ router.delete('/gcr/specials/:id', adminRequired, async (req, res) => {
 // ============================================
 // GET /api/admin/gcr/business-data/:siteId — fetch all data for full editor
 // ============================================
-router.get('/gcr/business-data/:siteId', adminRequired, async (req, res) => {
-    const { siteId } = req.params;
-    const [bizRes, contentRes, menuRes, specialsRes, eventsRes, mediaRes, fleetRes, addonsRes, reviewsRes] = await Promise.all([
-        supabase.from('businesses').select('*').eq('site_id', siteId).single(),
-        supabase.from('site_content').select('*').eq('site_id', siteId).single(),
-        supabase.from('menu_items').select('*').eq('site_id', siteId).order('sort_order'),
-        supabase.from('specials').select('*').eq('site_id', siteId).order('sort_order'),
-        supabase.from('events').select('*').eq('site_id', siteId).order('event_date'),
-        supabase.from('media').select('*').eq('site_id', siteId).order('uploaded_at', { ascending: false }),
-        supabase.from('fleet_types').select('*').eq('site_id', siteId).order('sort_order'),
-        supabase.from('rental_addons').select('*').eq('site_id', siteId).order('sort_order'),
-        supabase.from('reviews').select('*').eq('site_id', siteId).order('created_at', { ascending: false })
-    ]);
-    const content = contentRes.data || {};
-    res.json({
-        business:     bizRes.data    || {},
-        content,
-        menu:         menuRes.data   || [],
-        specials:     specialsRes.data || [],
-        events:       eventsRes.data || [],
-        media:        mediaRes.data  || [],
-        fleet:        fleetRes.data  || [],
-        addons:       addonsRes.data || [],
-        reviews:      reviewsRes.data|| [],
-        schedules:    content.schedules    || [],
-        highlights:   content.highlights   || [],
-        restrictions: content.restrictions || [],
-        whatToBring:  content.what_to_bring|| [],
-    });
-});
+// Duplicate removed — see GCR version below
 
 // ============================================
 // POST /api/admin/upload-photo — upload photo to Supabase Storage
@@ -2307,51 +2278,89 @@ Only include fields that have actual data in the source. Use null for unknown fi
 
 router.get('/gcr/business-data/:siteId', async (req, res) => {
     const { siteId } = req.params;
-    const [biz, content, menu, specials, events, fleet, addons, reviews, media] = await Promise.all([
-        supabase.from('businesses').select('*').eq('site_id', siteId).single(),
-        supabase.from('site_content').select('*').eq('site_id', siteId).single(),
-        supabase.from('menu_items').select('*').eq('site_id', siteId).order('sort_order'),
-        supabase.from('specials').select('*').eq('site_id', siteId).order('created_at'),
-        supabase.from('events').select('*').eq('site_id', siteId).order('event_date'),
-        supabase.from('fleet_types').select('*').eq('site_id', siteId).order('sort_order'),
-        supabase.from('rental_addons').select('*').eq('site_id', siteId).order('sort_order'),
-        supabase.from('reviews').select('*').eq('site_id', siteId).order('created_at', { ascending: false }),
-        supabase.from('business_media').select('*').eq('site_id', siteId).order('sort_order'),
+    // siteId is entity_id in GCR DB
+    const entityId = siteId;
+    const [
+        entityRes, menuSecRes, menuItemsRes, drinkSecRes, drinkItemsRes,
+        specialsRes, eventsRes, reviewsRes, photosRes, hoursRes,
+        tagsRes, featuresRes, pfRes, sectionsRes, hhSecRes, hhItemsRes,
+        highlightsRes, detailsRes, atmosphereRes, filtersRes, logisticsRes,
+        packagesRes, staffRes, faqsRes, qaRes, mediaRes
+    ] = await Promise.all([
+        gcrDb.from('entity').select('*').eq('id', entityId).single(),
+        gcrDb.from('menu_sections').select('*').eq('entity_id', entityId).order('sort_order'),
+        gcrDb.from('menu_items').select('*').eq('entity_id', entityId).order('sort_order'),
+        gcrDb.from('drink_sections').select('*').eq('entity_id', entityId).order('sort_order'),
+        gcrDb.from('drink_items').select('*').eq('entity_id', entityId).order('sort_order'),
+        gcrDb.from('entity_specials').select('*').eq('entity_id', entityId),
+        gcrDb.from('entity_events').select('*').eq('entity_id', entityId).order('event_date'),
+        gcrDb.from('gcr_reviews').select('*').eq('entity_id', entityId).order('created_at', { ascending: false }),
+        gcrDb.from('entity_photos').select('*').eq('entity_id', entityId).order('sort_order'),
+        gcrDb.from('entity_hours').select('*').eq('entity_id', entityId),
+        gcrDb.from('entity_tags').select('*').eq('entity_id', entityId),
+        gcrDb.from('entity_features').select('*').eq('entity_id', entityId).order('sort_order'),
+        gcrDb.from('entity_perfect_for').select('*').eq('entity_id', entityId).order('sort_order'),
+        gcrDb.from('entity_sections').select('*').eq('entity_id', entityId).order('sort_order'),
+        gcrDb.from('happy_hour_sections').select('*').eq('entity_id', entityId),
+        gcrDb.from('happy_hour_items').select('*').eq('entity_id', entityId).order('sort_order'),
+        gcrDb.from('business_highlights').select('*').eq('site_id', entityId).single(),
+        gcrDb.from('business_details').select('*').eq('site_id', entityId).single(),
+        gcrDb.from('business_atmosphere').select('*').eq('site_id', entityId).single(),
+        gcrDb.from('business_filters').select('*').eq('site_id', entityId).single(),
+        gcrDb.from('business_logistics').select('*').eq('site_id', entityId).single(),
+        gcrDb.from('packages').select('*').eq('entity_id', entityId).order('sort_order'),
+        gcrDb.from('staff').select('*').eq('entity_id', entityId),
+        gcrDb.from('gcr_faqs').select('*').eq('entity_id', entityId).order('sort_order'),
+        gcrDb.from('qa_pairs').select('*').eq('entity_id', entityId),
+        gcrDb.from('business_media').select('*').eq('entity_id', entityId).order('sort_order'),
     ]);
     res.json({
-        business: biz.data || {},
-        content: content.data || {},
-        menu: menu.data || [],
-        specials: specials.data || [],
-        events: events.data || [],
-        fleet: fleet.data || [],
-        addons: addons.data || [],
-        reviews: reviews.data || [],
-        media: media.data || [],
+        business:      entityRes.data    || {},
+        menu_sections: menuSecRes.data   || [],
+        menu:          menuItemsRes.data || [],
+        drink_sections:drinkSecRes.data  || [],
+        drinks:        drinkItemsRes.data|| [],
+        specials:      specialsRes.data  || [],
+        events:        eventsRes.data    || [],
+        reviews:       reviewsRes.data   || [],
+        photos:        photosRes.data    || [],
+        hours:         hoursRes.data     || [],
+        tags:          tagsRes.data      || [],
+        features:      featuresRes.data  || [],
+        perfect_for:   pfRes.data        || [],
+        sections:      sectionsRes.data  || [],
+        hh_sections:   hhSecRes.data     || [],
+        hh_items:      hhItemsRes.data   || [],
+        highlights:    highlightsRes.data|| {},
+        details:       detailsRes.data   || {},
+        atmosphere:    atmosphereRes.data|| {},
+        filters:       filtersRes.data   || {},
+        logistics:     logisticsRes.data || {},
+        packages:      packagesRes.data  || [],
+        staff:         staffRes.data     || [],
+        faqs:          faqsRes.data      || [],
+        qa_pairs:      qaRes.data        || [],
+        media:         mediaRes.data     || [],
     });
 });
 
-// Save basic + location + flags
+// Save basic + location + flags → GCR DB
 router.put('/businesses/:siteId/full', async (req, res) => {
-    const { siteId } = req.params;
+    const entityId = req.params.siteId;
     const { business, content } = req.body;
     const errs = [];
     if (business) {
-        const { error } = await supabase.from('businesses').update({ ...business, updated_at: new Date().toISOString() }).eq('site_id', siteId);
-        if (error) errs.push(error.message);
-    }
-    if (content) {
-        const { error } = await supabase.from('site_content').upsert({ ...content, site_id: siteId, updated_at: new Date().toISOString() }, { onConflict: 'site_id' });
+        const { error } = await gcrDb.from('entity').update({ ...business, updated_at: new Date().toISOString() }).eq('id', entityId);
         if (error) errs.push(error.message);
     }
     if (errs.length) return res.status(500).json({ error: errs.join('; ') });
     res.json({ success: true });
 });
 
-// Save fleet (delete all + reinsert)
+// Fleet — Circle Boats only, stays on old DB
 router.post('/businesses/:siteId/fleet', async (req, res) => {
     const { siteId } = req.params;
-    const { items } = req.body; // array
+    const { items } = req.body;
     await supabase.from('fleet_types').delete().eq('site_id', siteId);
     if (items && items.length) {
         const rows = items.map((it, i) => ({ ...it, site_id: siteId, sort_order: i, active: it.active !== false }));
@@ -2361,7 +2370,7 @@ router.post('/businesses/:siteId/fleet', async (req, res) => {
     res.json({ success: true });
 });
 
-// Save addons (delete all + reinsert)
+// Addons — Circle Boats only, stays on old DB
 router.post('/businesses/:siteId/addons', async (req, res) => {
     const { siteId } = req.params;
     const { items } = req.body;
@@ -2374,125 +2383,144 @@ router.post('/businesses/:siteId/addons', async (req, res) => {
     res.json({ success: true });
 });
 
-// Save schedule/pricing JSON to site_content
+// Schedule → GCR DB entity_sections (grouped_items)
 router.put('/businesses/:siteId/schedule', async (req, res) => {
-    const { siteId } = req.params;
-    const { schedules, pricing_notes } = req.body;
-    const { error } = await supabase.from('site_content').upsert({
-        site_id: siteId,
-        schedules: schedules || [],
-        pricing_notes: pricing_notes || '',
-        updated_at: new Date().toISOString()
-    }, { onConflict: 'site_id' });
-    if (error) return res.status(500).json({ error: error.message });
+    const entityId = req.params.siteId;
+    const { schedules } = req.body;
+    // Upsert the schedules section
+    const { data: sec } = await gcrDb.from('entity_sections').upsert({ entity_id: entityId, section_key: 'schedules', section_label: 'Schedules', section_type: 'grouped_items', sort_order: 5 }, { onConflict: 'entity_id,section_key' }).select('id').single();
+    if (sec?.id) {
+        await gcrDb.from('section_groups').delete().eq('section_id', sec.id);
+        for (const [i, sched] of (schedules || []).entries()) {
+            const { data: grp } = await gcrDb.from('section_groups').insert({ section_id: sec.id, title: sched.name, subtitle: sched.time, sort_order: i }).select('id').single();
+            if (grp?.id) {
+                for (const [j, t] of (sched.tickets || []).entries()) {
+                    await gcrDb.from('section_items').insert({ section_id: sec.id, group_id: grp.id, item_name: t.name || 'Ticket', price_numeric: t.price || null, item_type: 'ticket', sort_order: j });
+                }
+            }
+        }
+    }
     res.json({ success: true });
 });
 
-// Save highlights / restrictions / what_to_bring
+// Highlights / restrictions / what_to_bring → GCR DB sections
 router.put('/businesses/:siteId/highlights', async (req, res) => {
-    const { siteId } = req.params;
+    const entityId = req.params.siteId;
     const { highlights, restrictions, what_to_bring } = req.body;
-    const { error } = await supabase.from('site_content').upsert({
-        site_id: siteId,
-        highlights: highlights || [],
-        restrictions: restrictions || [],
-        what_to_bring: what_to_bring || [],
-        updated_at: new Date().toISOString()
-    }, { onConflict: 'site_id' });
-    if (error) return res.status(500).json({ error: error.message });
+    const sections = [
+        { key: 'highlights', label: 'Highlights', items: highlights, sort: 2 },
+        { key: 'restrictions', label: 'Requirements', items: restrictions, sort: 20 },
+        { key: 'what_to_bring', label: 'What to Bring', items: what_to_bring, sort: 21 },
+    ];
+    for (const s of sections) {
+        if (!s.items?.length) continue;
+        const { data: sec } = await gcrDb.from('entity_sections').upsert({ entity_id: entityId, section_key: s.key, section_label: s.label, section_type: 'bullets', sort_order: s.sort }, { onConflict: 'entity_id,section_key' }).select('id').single();
+        if (sec?.id) {
+            await gcrDb.from('section_bullets').delete().eq('section_id', sec.id);
+            await gcrDb.from('section_bullets').insert(s.items.map((t, i) => ({ section_id: sec.id, bullet_text: String(t), sort_order: i })));
+        }
+    }
     res.json({ success: true });
 });
 
-// Add photo URL (or handle base64 upload) to business_media
+// Photos → GCR DB entity_photos
 router.post('/businesses/:siteId/photos', async (req, res) => {
-    const { siteId } = req.params;
-    const { url, caption, section, linked_id } = req.body;
+    const entityId = req.params.siteId;
+    const { url, caption, section } = req.body;
     if (!url) return res.status(400).json({ error: 'url required' });
-    const { data, error } = await supabase.from('business_media').insert({
-        site_id: siteId,
-        url,
-        caption: caption || '',
-        section: section || 'gallery', // 'gallery' | 'menu' | 'event' | 'fleet'
-        linked_id: linked_id || null,  // menu_item id, event id, etc.
-    }).select().single();
+    const { data, error } = await gcrDb.from('entity_photos').insert({ entity_id: entityId, image_url: url, caption: caption || '', sort_order: 0 }).select().single();
     if (error) return res.status(500).json({ error: error.message });
     res.json({ success: true, photo: data });
 });
 
-// Delete a photo
 router.delete('/businesses/:siteId/photos/:photoId', async (req, res) => {
-    const { siteId, photoId } = req.params;
-    const { error } = await supabase.from('business_media').delete().eq('id', photoId).eq('site_id', siteId);
+    const { photoId } = req.params;
+    const { error } = await gcrDb.from('entity_photos').delete().eq('id', photoId);
     if (error) return res.status(500).json({ error: error.message });
     res.json({ success: true });
 });
 
-// Approve / reject a review
+// Reviews → GCR DB gcr_reviews
 router.put('/businesses/:siteId/reviews/:reviewId', async (req, res) => {
-    const { siteId, reviewId } = req.params;
-    const { active } = req.body;
-    const { error } = await supabase.from('reviews').update({ active }).eq('id', reviewId).eq('site_id', siteId);
+    const { reviewId } = req.params;
+    const { active, status } = req.body;
+    const upd = {};
+    if (active !== undefined) upd.status = active ? 'approved' : 'pending';
+    if (status) upd.status = status;
+    const { error } = await gcrDb.from('gcr_reviews').update(upd).eq('id', reviewId);
     if (error) return res.status(500).json({ error: error.message });
     res.json({ success: true });
 });
 
 router.delete('/businesses/:siteId/reviews/:reviewId', async (req, res) => {
-    const { siteId, reviewId } = req.params;
-    const { error } = await supabase.from('reviews').delete().eq('id', reviewId).eq('site_id', siteId);
+    const { reviewId } = req.params;
+    const { error } = await gcrDb.from('gcr_reviews').delete().eq('id', reviewId);
     if (error) return res.status(500).json({ error: error.message });
     res.json({ success: true });
 });
 
-// Save a single menu item (upsert)
+// Menu → GCR DB menu_items
 router.post('/businesses/:siteId/menu', async (req, res) => {
-    const { siteId } = req.params;
-    const item = { ...req.body, site_id: siteId };
+    const entityId = req.params.siteId;
+    const item = req.body;
+    // Find or create the section
+    const sectionName = item.category || 'General';
+    let sectionId = item.menu_section_id;
+    if (!sectionId) {
+        const { data: sec } = await gcrDb.from('menu_sections').insert({ entity_id: entityId, section_name: sectionName, sort_order: 0 }).select('id').single();
+        sectionId = sec?.id;
+    }
+    const row = { entity_id: entityId, menu_section_id: sectionId, item_name: item.name || item.item_name, description: item.description || null, price: item.price || null, allergens: item.allergens || null, is_available: item.available !== false, image_url: item.image_url || null, sort_order: item.sort_order || 0 };
     const { data, error } = item.id
-        ? await supabase.from('menu_items').update(item).eq('id', item.id).select().single()
-        : await supabase.from('menu_items').insert(item).select().single();
+        ? await gcrDb.from('menu_items').update(row).eq('id', item.id).select().single()
+        : await gcrDb.from('menu_items').insert(row).select().single();
     if (error) return res.status(500).json({ error: error.message });
     res.json({ success: true, item: data });
 });
 
 router.delete('/businesses/:siteId/menu/:itemId', async (req, res) => {
-    const { siteId, itemId } = req.params;
-    const { error } = await supabase.from('menu_items').delete().eq('id', itemId).eq('site_id', siteId);
+    const { itemId } = req.params;
+    const { error } = await gcrDb.from('menu_items').delete().eq('id', itemId);
     if (error) return res.status(500).json({ error: error.message });
     res.json({ success: true });
 });
 
-// Save a single special (upsert)
+// Specials → GCR DB entity_specials
 router.post('/businesses/:siteId/specials', async (req, res) => {
-    const { siteId } = req.params;
-    const item = { ...req.body, site_id: siteId };
+    const entityId = req.params.siteId;
+    const item = { ...req.body, entity_id: entityId };
+    delete item.site_id;
+    if (!item.special_name) item.special_name = item.name || 'Special';
     const { data, error } = item.id
-        ? await supabase.from('specials').update(item).eq('id', item.id).select().single()
-        : await supabase.from('specials').insert(item).select().single();
+        ? await gcrDb.from('entity_specials').update(item).eq('id', item.id).select().single()
+        : await gcrDb.from('entity_specials').insert(item).select().single();
     if (error) return res.status(500).json({ error: error.message });
     res.json({ success: true, item: data });
 });
 
 router.delete('/businesses/:siteId/specials/:itemId', async (req, res) => {
-    const { siteId, itemId } = req.params;
-    const { error } = await supabase.from('specials').delete().eq('id', itemId).eq('site_id', siteId);
+    const { itemId } = req.params;
+    const { error } = await gcrDb.from('entity_specials').delete().eq('id', itemId);
     if (error) return res.status(500).json({ error: error.message });
     res.json({ success: true });
 });
 
-// Save a single event (upsert)
+// Events → GCR DB entity_events
 router.post('/businesses/:siteId/events', async (req, res) => {
-    const { siteId } = req.params;
-    const item = { ...req.body, site_id: siteId };
+    const entityId = req.params.siteId;
+    const item = { ...req.body, entity_id: entityId };
+    delete item.site_id;
+    if (!item.event_name) item.event_name = item.name || item.title || 'Event';
     const { data, error } = item.id
-        ? await supabase.from('events').update(item).eq('id', item.id).select().single()
-        : await supabase.from('events').insert(item).select().single();
+        ? await gcrDb.from('entity_events').update(item).eq('id', item.id).select().single()
+        : await gcrDb.from('entity_events').insert(item).select().single();
     if (error) return res.status(500).json({ error: error.message });
     res.json({ success: true, item: data });
 });
 
 router.delete('/businesses/:siteId/events/:itemId', async (req, res) => {
-    const { siteId, itemId } = req.params;
-    const { error } = await supabase.from('events').delete().eq('id', itemId).eq('site_id', siteId);
+    const { itemId } = req.params;
+    const { error } = await gcrDb.from('entity_events').delete().eq('id', itemId);
     if (error) return res.status(500).json({ error: error.message });
     res.json({ success: true });
 });
