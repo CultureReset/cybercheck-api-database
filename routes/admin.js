@@ -651,140 +651,221 @@ router.post('/test-oauth', adminRequired, async (req, res) => {
 // PUT /api/admin/businesses/:id/full — Update ALL tables for a business
 // ============================================
 router.put('/businesses/:id/full', adminRequired, async (req, res) => {
-    const siteId = req.params.id;
-    const { basic, location, hours, happyHour, menu, specials, events, social, packages } = req.body;
-
+    const entityId = req.params.id;
+    const { basic, location, hours, happyHour, menu, drinks, specials, events, social, packages } = req.body;
     const errors = [];
 
-    // 1. Update businesses table
-    if (basic || social) {
-        const bizUpdate = {};
+    // ── 1. entity core fields ─────────────────────────────────────────
+    if (basic || location || social) {
+        const upd = {};
         if (basic) {
-            if (basic.name !== undefined) bizUpdate.name = basic.name;
-            if (basic.type !== undefined) bizUpdate.type = basic.type;
-            if (basic.status !== undefined) bizUpdate.status = basic.status;
-            if (basic.plan !== undefined) bizUpdate.plan = basic.plan;
-            if (basic.emoji !== undefined) bizUpdate.emoji = basic.emoji;
-            if (basic.featured !== undefined) bizUpdate.featured = basic.featured;
-            if (basic.gcr_listed !== undefined) bizUpdate.gcr_listed = basic.gcr_listed;
-        }
-        if (social) {
-            if (social.instagram !== undefined) bizUpdate.instagram = social.instagram;
-            if (social.facebook !== undefined) bizUpdate.facebook = social.facebook;
-            if (social.tiktok !== undefined) bizUpdate.tiktok = social.tiktok;
-            if (social.spotify !== undefined) bizUpdate.spotify = social.spotify;
-        }
-        bizUpdate.updated_at = new Date().toISOString();
-        const { error } = await supabase.from('businesses').update(bizUpdate).eq('site_id', siteId);
-        if (error) errors.push('businesses: ' + error.message);
-    }
-
-    // 2. Upsert site_content
-    if (basic || location || hours) {
-        const contentUpdate = { site_id: siteId };
-        if (basic) {
-            if (basic.tagline !== undefined) contentUpdate.tagline = basic.tagline;
-            if (basic.description !== undefined) contentUpdate.seo_description = basic.description;
-            if (basic.priceRange !== undefined) contentUpdate.price_range = basic.priceRange;
+            if (basic.name        !== undefined) upd.name         = basic.name;
+            if (basic.tagline     !== undefined) upd.subtitle     = basic.tagline;
+            if (basic.description !== undefined) upd.description  = basic.description;
+            if (basic.priceRange  !== undefined) upd.price_range  = basic.priceRange;
+            if (basic.emoji       !== undefined) upd.icon         = basic.emoji;
+            if (basic.featured    !== undefined) upd.featured     = basic.featured;
+            if (basic.type        !== undefined) upd.entity_subtype = basic.type;
+            if (basic.status      !== undefined) upd.is_active    = basic.status === 'active';
         }
         if (location) {
-            if (location.address !== undefined) contentUpdate.address = location.address;
-            if (location.city !== undefined) contentUpdate.city = location.city;
-            if (location.state !== undefined) contentUpdate.state = location.state;
-            if (location.zip !== undefined) contentUpdate.zip = location.zip;
-            if (location.phone !== undefined) contentUpdate.contact_phone = location.phone;
-            if (location.email !== undefined) contentUpdate.contact_email = location.email;
-            if (location.website !== undefined) contentUpdate.website_url = location.website;
+            if (location.address !== undefined) upd.address_line_1 = location.address;
+            if (location.city    !== undefined) upd.city           = location.city;
+            if (location.state   !== undefined) upd.state          = location.state;
+            if (location.zip     !== undefined) upd.zip            = location.zip;
+            if (location.phone   !== undefined) upd.phone          = location.phone;
+            if (location.email   !== undefined) upd.email          = location.email;
+            if (location.website !== undefined) upd.website_url    = location.website;
+            if (location.directions_url !== undefined) upd.directions_url = location.directions_url;
+            if (location.booking_url    !== undefined) upd.booking_url    = location.booking_url;
+            if (location.reservation_url !== undefined) upd.reservation_url = location.reservation_url;
         }
-        if (hours) {
-            if (hours.hours_text !== undefined) contentUpdate.hours = hours.hours_text;
-            if (hours.hours_mon !== undefined) contentUpdate.hours_mon = hours.hours_mon;
-            if (hours.hours_tue !== undefined) contentUpdate.hours_tue = hours.hours_tue;
-            if (hours.hours_wed !== undefined) contentUpdate.hours_wed = hours.hours_wed;
-            if (hours.hours_thu !== undefined) contentUpdate.hours_thu = hours.hours_thu;
-            if (hours.hours_fri !== undefined) contentUpdate.hours_fri = hours.hours_fri;
-            if (hours.hours_sat !== undefined) contentUpdate.hours_sat = hours.hours_sat;
-            if (hours.hours_sun !== undefined) contentUpdate.hours_sun = hours.hours_sun;
-            if (hours.seasonal_notes !== undefined) contentUpdate.seasonal_notes = hours.seasonal_notes;
-            if (hours.kids_friendly !== undefined) contentUpdate.kids_friendly = hours.kids_friendly;
-            if (hours.pet_friendly !== undefined) contentUpdate.pet_friendly = hours.pet_friendly;
-            if (hours.live_music !== undefined) contentUpdate.live_music = hours.live_music;
-            if (hours.outdoor_seating !== undefined) contentUpdate.outdoor_seating = hours.outdoor_seating;
-            if (hours.reservations !== undefined) contentUpdate.reservations = hours.reservations;
-            if (hours.delivery !== undefined) contentUpdate.delivery = hours.delivery;
-            if (hours.takeout !== undefined) contentUpdate.takeout = hours.takeout;
-            if (hours.alcohol !== undefined) contentUpdate.alcohol = hours.alcohol;
-            if (hours.booking_required !== undefined) contentUpdate.booking_required = hours.booking_required;
+        if (social) {
+            if (social.instagram !== undefined) upd.social_instagram = social.instagram;
+            if (social.facebook  !== undefined) upd.social_facebook  = social.facebook;
+            if (social.tiktok    !== undefined) upd.social_tiktok    = social.tiktok;
         }
-        const { error } = await supabase.from('site_content').upsert(contentUpdate, { onConflict: 'site_id' });
-        if (error) errors.push('site_content: ' + error.message);
+        upd.updated_at = new Date().toISOString();
+        const { error } = await gcrDb.from('entity').update(upd).eq('id', entityId);
+        if (error) errors.push('entity: ' + error.message);
     }
 
-    // 3. Happy hour — store as JSON in site_content.happy_hour
+    // ── 2. Hours ─────────────────────────────────────────────────────
+    if (hours && Array.isArray(hours.schedule)) {
+        for (const h of hours.schedule) {
+            const { error } = await gcrDb.from('entity_hours').upsert({
+                entity_id: entityId,
+                day_of_week: h.day,
+                open_time: h.open || null,
+                close_time: h.close || null,
+                is_closed: h.closed || false
+            }, { onConflict: 'entity_id,day_of_week' });
+            if (error) errors.push('hours: ' + error.message);
+        }
+    }
+
+    // ── 3. Amenity tags (kids_friendly, pet_friendly etc.) ────────────
+    if (hours) {
+        const amenityMap = {
+            kids_friendly: 'kids_friendly', pet_friendly: 'pet_friendly',
+            live_music: 'live_music', outdoor_seating: 'outdoor_seating',
+            reservations: 'reservations', delivery: 'delivery',
+            takeout: 'takeout', alcohol: 'full_bar',
+        };
+        for (const [field, tag] of Object.entries(amenityMap)) {
+            if (hours[field] === undefined) continue;
+            if (hours[field]) {
+                await gcrDb.from('entity_tags').upsert({ entity_id: entityId, tag, tag_category: 'amenity' }, { onConflict: 'entity_id,tag' });
+            } else {
+                await gcrDb.from('entity_tags').delete().eq('entity_id', entityId).eq('tag', tag);
+            }
+        }
+    }
+
+    // ── 4. Happy Hour ─────────────────────────────────────────────────
     if (happyHour !== undefined) {
-        const { error } = await supabase.from('site_content')
-            .update({ happy_hour: happyHour })
-            .eq('site_id', siteId);
-        if (error) errors.push('happy_hour: ' + error.message);
+        const upd = {};
+        if (happyHour.days  !== undefined) upd.hh_days        = happyHour.days;
+        if (happyHour.start !== undefined) upd.hh_start       = happyHour.start;
+        if (happyHour.end   !== undefined) upd.hh_end         = happyHour.end;
+        if (happyHour.description !== undefined) upd.hh_description = happyHour.description;
+        if (Object.keys(upd).length) {
+            const { error } = await gcrDb.from('entity').update(upd).eq('id', entityId);
+            if (error) errors.push('happy_hour entity: ' + error.message);
+        }
+        // HH items
+        if (Array.isArray(happyHour.items) && happyHour.items.length) {
+            await gcrDb.from('happy_hour_items').delete().eq('entity_id', entityId);
+            await gcrDb.from('happy_hour_sections').delete().eq('entity_id', entityId);
+            const { data: sec } = await gcrDb.from('happy_hour_sections').insert({ entity_id: entityId, section_name: 'Happy Hour', sort_order: 0 }).select('id').single();
+            if (sec?.id) {
+                await gcrDb.from('happy_hour_items').insert(happyHour.items.map((item, i) => ({
+                    entity_id: entityId, hh_section_id: sec.id,
+                    item_name: item.name, description: item.description || null,
+                    regular_price: item.regular_price || null, hh_price: item.price || item.hh_price || null,
+                    price_text: item.price_text || null, sort_order: i
+                })));
+            }
+        }
     }
 
-    // 4. Replace specials
+    // ── 5. Specials ───────────────────────────────────────────────────
     if (specials !== undefined) {
-        await supabase.from('specials').delete().eq('site_id', siteId);
+        await gcrDb.from('entity_specials').delete().eq('entity_id', entityId);
         if (specials.length > 0) {
-            const { error } = await supabase.from('specials').insert(
-                specials.map((s, i) => ({ site_id: siteId, name: s.name, description: s.description, discount_text: s.discount_text, day_of_week: s.day, time_range: s.time, active: true, sort_order: i }))
+            const { error } = await gcrDb.from('entity_specials').insert(
+                specials.map(s => ({
+                    entity_id: entityId,
+                    special_name: s.name || s.special_name,
+                    description: s.description || null,
+                    special_type: s.type || s.special_type || 'special',
+                    days: Array.isArray(s.days) ? JSON.stringify(s.days) : (s.day || s.days || null),
+                    start_time: s.start_time || s.time || null,
+                    end_time: s.end_time || null,
+                    discount_text: s.discount_text || null,
+                    is_active: s.active !== false
+                }))
             );
             if (error) errors.push('specials: ' + error.message);
         }
     }
 
-    // 5. Replace events
+    // ── 6. Events ─────────────────────────────────────────────────────
     if (events !== undefined) {
-        await supabase.from('events').delete().eq('site_id', siteId);
+        // Delete only entity-linked events (not standalone CSV imports)
+        await gcrDb.from('entity_events').delete().eq('entity_id', entityId);
         if (events.length > 0) {
-            const { error } = await supabase.from('events').insert(
-                events.map(e => ({ site_id: siteId, name: e.name, description: e.description, event_date: e.date || null, event_time: e.time || null, active: true }))
+            const { error } = await gcrDb.from('entity_events').insert(
+                events.map(e => ({
+                    entity_id: entityId,
+                    event_name: e.name || e.event_name || e.title,
+                    event_type: e.category || e.event_type || 'event',
+                    description: e.description || null,
+                    artist_name: e.artist_name || null,
+                    day_of_week: e.recurring_day || e.day_of_week || null,
+                    event_date: e.date || e.event_date || null,
+                    start_time: e.time || e.start_time || null,
+                    end_time: e.end_time || null,
+                    recurring: e.recurring || false,
+                    cover_charge: e.cover_charge ? String(e.cover_charge) : null,
+                    is_active: e.active !== false
+                }))
             );
             if (error) errors.push('events: ' + error.message);
         }
     }
 
-    // 6. Replace menu items
+    // ── 7. Menu items ─────────────────────────────────────────────────
     if (menu !== undefined) {
-        await supabase.from('menu_items').delete().eq('site_id', siteId);
+        await gcrDb.from('menu_items').delete().eq('entity_id', entityId);
+        await gcrDb.from('menu_sections').delete().eq('entity_id', entityId);
         if (menu.length > 0) {
-            const { error } = await supabase.from('menu_items').insert(
-                menu.map((item, i) => ({
-                    site_id: siteId,
-                    name: item.name,
+            const sectionCache = {};
+            for (const [i, item] of menu.entries()) {
+                const secName = item.category || 'Menu';
+                if (!sectionCache[secName]) {
+                    const { data: sec } = await gcrDb.from('menu_sections').insert({ entity_id: entityId, section_name: secName, sort_order: Object.keys(sectionCache).length }).select('id').single();
+                    sectionCache[secName] = sec?.id;
+                }
+                await gcrDb.from('menu_items').insert({
+                    entity_id: entityId,
+                    menu_section_id: sectionCache[secName] || null,
+                    item_name: item.name,
                     description: item.description || null,
                     price: item.price || null,
-                    category: item.category || 'Menu',
-                    tags: item.tags || [],
-                    allergens: item.allergens || [],
-                    available: item.available !== false,
+                    allergens: Array.isArray(item.allergens) ? item.allergens.join(', ') : (item.allergens || null),
+                    is_available: item.available !== false,
                     sort_order: i
-                }))
-            );
-            if (error) errors.push('menu_items: ' + error.message);
+                });
+            }
         }
     }
 
-    // 7. Replace packages (stored as services with type='package')
+    // ── 8. Drink items ────────────────────────────────────────────────
+    if (drinks !== undefined) {
+        await gcrDb.from('drink_items').delete().eq('entity_id', entityId);
+        await gcrDb.from('drink_sections').delete().eq('entity_id', entityId);
+        if (drinks.length > 0) {
+            const secCache = {};
+            for (const [i, item] of drinks.entries()) {
+                const secName = item.category || 'Drinks';
+                if (!secCache[secName]) {
+                    const { data: sec } = await gcrDb.from('drink_sections').insert({ entity_id: entityId, section_name: secName, sort_order: Object.keys(secCache).length }).select('id').single();
+                    secCache[secName] = sec?.id;
+                }
+                await gcrDb.from('drink_items').insert({
+                    entity_id: entityId,
+                    drink_section_id: secCache[secName] || null,
+                    item_name: item.name,
+                    description: item.description || null,
+                    price: item.price || null,
+                    item_style: item.style || null,
+                    abv: item.abv || null,
+                    brewery: item.brewery || null,
+                    is_available: item.available !== false,
+                    sort_order: i
+                });
+            }
+        }
+    }
+
+    // ── 9. Packages ───────────────────────────────────────────────────
     if (packages !== undefined) {
-        await supabase.from('services').delete().eq('site_id', siteId).eq('category', 'package');
+        await gcrDb.from('packages').delete().eq('entity_id', entityId);
         if (packages.length > 0) {
-            const { error } = await supabase.from('services').insert(
+            const { error } = await gcrDb.from('packages').insert(
                 packages.filter(p => p.name).map((p, i) => ({
-                    site_id: siteId,
+                    entity_id: entityId,
                     name: p.name,
                     description: p.description || null,
                     price: p.price || null,
-                    capacity: p.max_guests || null,
+                    price_label: p.price_label || null,
                     duration_minutes: p.duration_minutes || null,
-                    category: 'package',
-                    available: true,
+                    whats_included: p.whats_included || [],
+                    min_guests: p.min_guests || null,
+                    max_guests: p.max_guests || null,
+                    booking_url: p.booking_url || null,
+                    active: p.active !== false,
                     sort_order: i
                 }))
             );
@@ -792,9 +873,7 @@ router.put('/businesses/:id/full', adminRequired, async (req, res) => {
         }
     }
 
-    if (errors.length > 0) {
-        return res.status(207).json({ success: false, errors });
-    }
+    if (errors.length > 0) return res.status(207).json({ success: false, errors });
     res.json({ success: true });
 });
 
@@ -2342,19 +2421,6 @@ router.get('/gcr/business-data/:siteId', async (req, res) => {
         qa_pairs:      qaRes.data        || [],
         media:         mediaRes.data     || [],
     });
-});
-
-// Save basic + location + flags → GCR DB
-router.put('/businesses/:siteId/full', async (req, res) => {
-    const entityId = req.params.siteId;
-    const { business, content } = req.body;
-    const errs = [];
-    if (business) {
-        const { error } = await gcrDb.from('entity').update({ ...business, updated_at: new Date().toISOString() }).eq('id', entityId);
-        if (error) errs.push(error.message);
-    }
-    if (errs.length) return res.status(500).json({ error: errs.join('; ') });
-    res.json({ success: true });
 });
 
 // Fleet — Circle Boats only, stays on old DB
