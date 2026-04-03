@@ -102,8 +102,9 @@ router.get('/events', async (req, res) => {
         hero_image_url:     e.entity?.hero_image_url || null,
         city:               e.entity?.city || '',
         // Explicit entity_ prefixed fields for events page
-        entity_name:        e.entity?.name || '',
-        entity_city:        e.entity?.city || '',
+        // For standalone events (entity_id=null), fall back to venue_location parts
+        entity_name:        e.entity?.name || (e.venue_location ? e.venue_location.split(',')[0]?.trim() : '') || '',
+        entity_city:        e.entity?.city || (e.venue_location ? e.venue_location.split(',').slice(1).join(',').trim() : '') || '',
         entity_slug:        e.entity?.slug || '',
         entity_hero_image_url: e.entity?.hero_image_url || null,
     }));
