@@ -128,18 +128,18 @@ router.get('/events', async (req, res) => {
 // GET /api/gcr/happy-hours — entities with HH data from any source
 // ============================================
 router.get('/happy-hours', async (req, res) => {
-    // Get entity IDs from all HH sources in parallel
-    const [tagRes, secRes, specialRes] = await Promise.all([
-        gcrDb.from('entity_tags').select('entity_id').eq('tag', 'happy_hour'),
+    // Get entity IDs from actual HH data only — NOT tags (tags are unreliable)
+    const [secRes, specialRes, hhDaysRes] = await Promise.all([
         gcrDb.from('happy_hour_sections').select('entity_id'),
-        gcrDb.from('entity_specials').select('entity_id').eq('special_type', 'happy_hour'),
+        gcrDb.from('entity_specials').select('entity_id').eq('special_type', 'happy_hour').eq('is_active', true),
+        gcrDb.from('entity').select('id').not('hh_days', 'is', null).eq('is_active', true),
     ]);
 
-    // Collect all unique entity IDs
+    // Only entities with real HH data
     const hhEntityIds = new Set();
-    (tagRes.data || []).forEach(r => hhEntityIds.add(r.entity_id));
     (secRes.data || []).forEach(r => hhEntityIds.add(r.entity_id));
     (specialRes.data || []).forEach(r => hhEntityIds.add(r.entity_id));
+    (hhDaysRes.data || []).forEach(r => hhEntityIds.add(r.id));
 
     if (!hhEntityIds.size) return res.json([]);
 
