@@ -1659,47 +1659,4 @@ router.get('/entity/:slug', async (req, res) => {
     });
 });
 
-// ── Public Site Config (no auth required) ──────────────────
-// GET /api/gcr/site-config
-router.get('/site-config', async (req, res) => {
-    try {
-        const gcrDb = getGcrDb();
-        const { data } = await gcrDb.from('site_config').select('*');
-        const config = {};
-        (data || []).forEach(r => { try { config[r.key] = r.value; } catch(e) {} });
-        res.json({ config });
-    } catch(e) { res.json({ config: {} }); }
-});
-
-// GET /api/gcr/category-cards
-router.get('/category-cards', async (req, res) => {
-    try {
-        const gcrDb = getGcrDb();
-        const { data } = await gcrDb.from('category_config').select('*').order('display_order');
-        res.json({ cards: data || [] });
-    } catch(e) { res.json({ cards: [] }); }
-});
-
-// GET /api/gcr/category-page-config/:categoryId
-router.get('/category-page-config/:categoryId', async (req, res) => {
-    try {
-        const gcrDb = getGcrDb();
-        const { data } = await gcrDb.from('category_page_config').select('*').eq('category_id', req.params.categoryId).single();
-        res.json({ config: data || null });
-    } catch(e) { res.json({ config: null }); }
-});
-
-// GET /api/gcr/page-entities/:categoryId — entities explicitly assigned to a page (featured first)
-router.get('/page-entities/:categoryId', async (req, res) => {
-    try {
-        const gcrDb = getGcrDb();
-        const { data } = await gcrDb.from('entity_page_assignments')
-            .select('entity_id, sort_order, is_featured')
-            .eq('category_id', req.params.categoryId)
-            .order('is_featured', { ascending: false })
-            .order('sort_order');
-        res.json({ assignments: data || [] });
-    } catch(e) { res.json({ assignments: [] }); }
-});
-
 module.exports = router;
