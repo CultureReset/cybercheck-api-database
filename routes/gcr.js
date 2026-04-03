@@ -95,12 +95,17 @@ router.get('/events', async (req, res) => {
     const events = (data || []).map(e => ({
         ...e,
         date: e.event_date,
-        businessName: e.entity?.name || '',
-        businessEmoji: e.entity?.icon || '🏪',
-        category: e.entity?.entity_subtype || '',
-        slug: e.entity?.slug || '',
-        hero_image_url: e.entity?.hero_image_url || null,
-        city: e.entity?.city || '',
+        businessName:       e.entity?.name || '',
+        businessEmoji:      e.entity?.icon || '🏪',
+        category:           e.entity?.entity_subtype || '',
+        slug:               e.entity?.slug || '',
+        hero_image_url:     e.entity?.hero_image_url || null,
+        city:               e.entity?.city || '',
+        // Explicit entity_ prefixed fields for events page
+        entity_name:        e.entity?.name || '',
+        entity_city:        e.entity?.city || '',
+        entity_slug:        e.entity?.slug || '',
+        entity_hero_image_url: e.entity?.hero_image_url || null,
     }));
 
     res.json(events);
@@ -204,6 +209,11 @@ router.get('/specials', async (req, res) => {
         phone:          s.entity?.phone || '',
         directions_url: s.entity?.directions_url || '',
         address:        s.entity?.address_line_1 || '',
+        // Explicit entity_ prefixed fields (same convention as /events)
+        entity_name:        s.entity?.name || '',
+        entity_city:        s.entity?.city || '',
+        entity_slug:        s.entity?.slug || '',
+        entity_hero_image_url: s.entity?.hero_image_url || null,
     }));
 
     res.json(specials);
