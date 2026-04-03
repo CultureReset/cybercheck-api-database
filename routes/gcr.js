@@ -1,7 +1,11 @@
 const express = require('express');
 const supabase = require('../db');
+const getGcrDb = require('../gcr-db');
 
 const router = express.Router();
+
+let gcrDb;
+try { gcrDb = getGcrDb(); } catch(e) { console.warn('GCR DB not initialized:', e.message); }
 
 // Cache all GET responses on Vercel's CDN for 24 hours
 router.use((req, res, next) => {
@@ -1247,9 +1251,6 @@ router.post('/reindex/:slug', async (req, res) => {
 // ============================================================
 // GCR ENTITY API — New normalized schema (separate Supabase DB)
 // ============================================================
-
-const getGcrDb = require('../gcr-db');
-let gcrDb; try { gcrDb = getGcrDb(); } catch(e) { console.warn('GCR DB not initialized:', e.message); }
 
 // Helper: fetch all content for a section based on its type
 async function fetchSectionContent(section) {
