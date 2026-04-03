@@ -1399,24 +1399,33 @@ router.get('/entities', async (req, res) => {
         }
     }
 
-    // Batch-fetch rich_text section descriptions as fallback for empty entity.description
+    // Batch-fetch section rich_text as fallback description for entities missing entity.description
+    // entity_sections has no content column — content is in section_rich_text joined via section id
     let sectionDescMap = {};
     if (entityIds.length) {
         const CHUNK = 100;
         for (let i = 0; i < entityIds.length; i += CHUNK) {
             const chunk = entityIds.slice(i, i + CHUNK);
+            // Get the rich_text section ids for these entities
             const { data: secRows } = await gcrDb
                 .from('entity_sections')
-                .select('entity_id, section_type, content')
+                .select('id, entity_id')
                 .eq('section_type', 'rich_text')
                 .in('entity_id', chunk)
-                .order('sort_order')
-                .limit(1);
-            (secRows || []).forEach(r => {
-                if (!sectionDescMap[r.entity_id] && r.content?.body_text) {
-                    sectionDescMap[r.entity_id] = r.content.body_text;
-                }
-            });
+                .order('sort_order');
+            if (secRows && secRows.length) {
+                const secIds = secRows.map(s => s.id);
+                const { data: richRows } = await gcrDb
+                    .from('section_rich_text')
+                    .select('section_id, body_text')
+                    .in('section_id', secIds);
+                (richRows || []).forEach(r => {
+                    const sec = secRows.find(s => s.id === r.section_id);
+                    if (sec && r.body_text && !sectionDescMap[sec.entity_id]) {
+                        sectionDescMap[sec.entity_id] = r.body_text;
+                    }
+                });
+            }
         }
     }
 
