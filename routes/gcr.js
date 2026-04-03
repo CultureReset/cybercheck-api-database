@@ -367,18 +367,15 @@ router.post('/search', async (req, res) => {
 // Used by: gcr/business.html?id=:slug
 // ============================================
 router.get('/businesses/:slug', async (req, res) => {
-    const slug = req.params.slug;
+    // Redirect to GCR entity endpoint — old DB no longer used
+    return res.redirect(301, `/api/gcr/entity/${encodeURIComponent(req.params.slug)}`);
 
-    // Look up by subdomain (slug)
+    // eslint-disable-next-line no-unreachable
+    const slug = req.params.slug;
     const { data: business, error: bizErr } = await supabase
         .from('businesses')
-        .select(`site_id, name, type, subdomain, domain, logo_url, cover_url, status,
-            emoji, tagline, featured, tags, price_range, rating, review_count,
-            happy_hour, kids_friendly, pet_friendly, live_music, outdoor, reservations,
-            alcohol, booking_required, delivery, takeout, waterfront, beachfront,
-            subcategory, sort_order, gcr_listed, gcr_verified, instagram, facebook, tiktok`)
+        .select(`site_id, name, type, subdomain`)
         .eq('subdomain', slug)
-        .eq('status', 'active')
         .single();
 
     if (bizErr || !business) {
@@ -932,30 +929,37 @@ router.post('/search-structured', async (req, res) => {
         const hasSeafood = keywords.some(k => ['seafood', 'fish', 'shrimp', 'crab'].includes(k));
         const hasHappyHour = keywords.some(k => ['happy', 'hour', 'deals'].includes(k));
 
-        // Build query for menu items or businesses
-        let query_obj = supabase.from('menu_items').select('*').eq('available', true);
+        // Search GCR DB menu_items + entity_tags
+        let menuQuery = gcrDb.from('menu_items').select('id, item_name, description, price, allergens, entity_id').eq('is_available', true);
 
-        if (hasGlutenFree) query_obj = query_obj.filter('allergens', 'not.cs', '["gluten"]');
-        if (hasVegan) query_obj = query_obj.filter('tags', 'cs', '["vegan"]');
         if (hasSeafood) {
-            keywords.forEach(k => {
-                if (['seafood', 'fish', 'shrimp', 'crab'].includes(k)) {
-                    query_obj = query_obj.or(`name.ilike.%${k}%,description.ilike.%${k}%`);
-                }
-            });
+            const term = keywords.find(k => ['seafood','fish','shrimp','crab','oyster','lobster'].includes(k)) || 'seafood';
+            menuQuery = menuQuery.or(`item_name.ilike.%${term}%,description.ilike.%${term}%`);
+        } else {
+            const searchTerm = keywords.filter(k => k.length > 2).join(' ');
+            if (searchTerm) menuQuery = menuQuery.or(`item_name.ilike.%${searchTerm}%,description.ilike.%${searchTerm}%`);
         }
 
-        const { data: results, error } = await query_obj.limit(10);
+        const { data: results, error } = await menuQuery.limit(10);
         if (error) throw error;
+
+        // Fetch entity names for matched items
+        const entityIds = [...new Set((results||[]).map(r => r.entity_id).filter(Boolean))];
+        let entityMap = {};
+        if (entityIds.length) {
+            const { data: ents } = await gcrDb.from('entity').select('id, name, slug, city').in('id', entityIds);
+            (ents||[]).forEach(e => { entityMap[e.id] = e; });
+        }
 
         const formatted = (results || []).map(item => ({
             id: item.id,
-            name: item.name,
+            name: item.item_name,
             description: item.description,
             price: item.price,
-            category: item.category,
-            tags: item.tags || [],
-            allergens: item.allergens || []
+            allergens: item.allergens || [],
+            business: entityMap[item.entity_id]?.name || '',
+            slug: entityMap[item.entity_id]?.slug || '',
+            city: entityMap[item.entity_id]?.city || '',
         }));
 
         res.json({
@@ -974,6 +978,9 @@ router.post('/search-structured', async (req, res) => {
 // RAG helpers — shared by /ask and /reindex
 // ============================================
 async function getAISettings() {
+    // Try GCR DB first, fallback to main DB
+    const { data: gcrSettings } = await gcrDb.from('ai_settings').select('*').eq('id', 1).single();
+    if (gcrSettings) return gcrSettings;
     const { data } = await supabase.from('ai_settings').select('*').eq('id', 1).single();
     return data || {};
 }
