@@ -293,11 +293,31 @@ router.post('/search', async (req, res) => {
         .eq('is_active', true)
         .in('id', [...matchedEntityIds]);
 
+    // Also fetch photos for all matching entities
+    const photosQuery = gcrDb.from('entity_photos')
+        .select('entity_id, image_url, caption, sort_order')
+        .in('entity_id', [...matchedEntityIds])
+        .order('sort_order');
+
     if (type) entityQuery = entityQuery.eq('entity_subtype', type);
     if (city) entityQuery = entityQuery.ilike('city', `%${city}%`);
 
-    const { data: entities, error } = await entityQuery;
+    const [entRes, photosRes] = await Promise.all([
+        entityQuery,
+        photosQuery
+    ]);
+
+    const { data: entities, error } = entRes;
+    const { data: photosData } = photosRes;
+
     if (error) return res.status(500).json({ error: error.message });
+
+    // Map photos by entity ID
+    let photosMap = {};
+    (photosData || []).forEach(p => {
+        if (!photosMap[p.entity_id]) photosMap[p.entity_id] = [];
+        photosMap[p.entity_id].push({ image_url: p.image_url, caption: p.caption });
+    });
 
     // For each matching entity, find what specifically matched (menu items, specials, etc.)
     const entityIdList = (entities || []).map(e => e.id);
@@ -351,6 +371,7 @@ router.post('/search', async (req, res) => {
             site_id: e.id, subdomain: e.slug, emoji: e.icon,
             type: e.entity_subtype, category: e.entity_subtype,
             cover_url: e.hero_image_url, tagline: e.subtitle,
+            photos: photosMap[e.id] || [],
             matched_menu_items: menuItems,
             matched_specials:   sortItems(specialMatchMap[e.id] || [], q),
             matched_events:     eventMatchMap[e.id] || [],
