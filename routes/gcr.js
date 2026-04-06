@@ -104,6 +104,21 @@ router.get('/events', async (req, res) => {
     const { data, error } = await query;
     if (error) return res.status(500).json({ error: error.message });
 
+    // Fetch photos for all entities in events
+    let photosMap = {};
+    const entityIds = (data || []).filter(e => e.entity_id).map(e => e.entity_id);
+    if (entityIds.length) {
+        const { data: photosData } = await gcrDb
+            .from('entity_photos')
+            .select('entity_id, image_url, caption, sort_order')
+            .in('entity_id', entityIds)
+            .order('sort_order');
+        (photosData || []).forEach(p => {
+            if (!photosMap[p.entity_id]) photosMap[p.entity_id] = [];
+            photosMap[p.entity_id].push({ image_url: p.image_url, caption: p.caption });
+        });
+    }
+
     const events = (data || []).map(e => ({
         ...e,
         date: e.event_date,
@@ -112,6 +127,7 @@ router.get('/events', async (req, res) => {
         category:           e.entity?.entity_subtype || '',
         slug:               e.entity?.slug || '',
         hero_image_url:     e.entity?.hero_image_url || null,
+        photos:             photosMap[e.entity_id] || [],
         city:               e.entity?.city || '',
         // Explicit entity_ prefixed fields for events page
         // For standalone events (entity_id=null), fall back to venue_location parts
@@ -154,14 +170,15 @@ router.get('/happy-hours', async (req, res) => {
 
     const entityIds = (data || []).map(e => e.id);
     let hhSectionsMap = {};
+    let photosMap = {};
 
     if (entityIds.length) {
-        const { data: hhSections } = await gcrDb
-            .from('happy_hour_sections')
-            .select('id, entity_id, section_name, sort_order')
-            .in('entity_id', entityIds)
-            .order('sort_order');
+        const [hhSecRes, photosRes] = await Promise.all([
+            gcrDb.from('happy_hour_sections').select('id, entity_id, section_name, sort_order').in('entity_id', entityIds).order('sort_order'),
+            gcrDb.from('entity_photos').select('entity_id, image_url, caption, sort_order').in('entity_id', entityIds).order('sort_order')
+        ]);
 
+        const hhSections = hhSecRes.data || [];
         const sectionIds = (hhSections || []).map(s => s.id);
         let itemsMap = {};
 
@@ -181,6 +198,11 @@ router.get('/happy-hours', async (req, res) => {
             if (!hhSectionsMap[sec.entity_id]) hhSectionsMap[sec.entity_id] = [];
             hhSectionsMap[sec.entity_id].push({ ...sec, items: itemsMap[sec.id] || [] });
         });
+
+        (photosRes.data || []).forEach(p => {
+            if (!photosMap[p.entity_id]) photosMap[p.entity_id] = [];
+            photosMap[p.entity_id].push({ image_url: p.image_url, caption: p.caption });
+        });
     }
 
     const results = (data || []).map(e => ({
@@ -194,6 +216,7 @@ router.get('/happy-hours', async (req, res) => {
         phone:       e.phone || '',
         google_maps: e.directions_url || '',
         cover:       e.hero_image_url || null,
+        photos:      photosMap[e.id] || [],
         hh_days:     e.hh_days,
         hh_start:    e.hh_start,
         hh_end:      e.hh_end,
