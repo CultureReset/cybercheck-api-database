@@ -145,7 +145,7 @@ router.get('/happy-hours', async (req, res) => {
 
     const { data, error } = await gcrDb
         .from('entity')
-        .select('id, slug, name, icon, hero_image_url, image_url, entity_subtype, city, phone, directions_url, address_line_1, rating, hh_days, hh_start, hh_end, hh_description, description, price_range, social_instagram, social_facebook')
+        .select('id, slug, name, icon, hero_image_url, entity_subtype, city, phone, directions_url, address_line_1, rating, hh_days, hh_start, hh_end, hh_description, description, price_range, social_instagram, social_facebook')
         .eq('is_active', true)
         .in('id', [...hhEntityIds])
         .range(0, 999);
@@ -1336,7 +1336,7 @@ async function fetchSectionContent(section) {
 router.get('/entities', async (req, res) => {
     let query = gcrDb
         .from('entity')
-        .select('id, slug, name, subtitle, entity_type, entity_subtype, icon, phone, rating, review_count, city, state, zip, address_line_1, hero_image_url, image_url, website_url, directions_url, call_url, is_active, description, price_range, featured, booking_url, reservation_url, order_url, hh_days, hh_start, hh_end, hh_description, social_instagram, social_facebook, social_tiktok, email')
+        .select('id, slug, name, subtitle, entity_type, entity_subtype, icon, phone, rating, review_count, city, state, zip, address_line_1, hero_image_url, website_url, directions_url, call_url, is_active, description, price_range, featured, booking_url, reservation_url, order_url, hh_days, hh_start, hh_end, hh_description, social_instagram, social_facebook, social_tiktok, email')
         .eq('is_active', true)
         .order('name')
         .range(0, 999);
