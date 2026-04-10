@@ -2476,12 +2476,11 @@ router.get('/business', async (req, res) => {
         const siteId = business.site_id;
 
         // Fetch all related data in parallel
-        const [menusRes, eventsRes, specialsRes, hoursRes, happyHourRes] = await Promise.all([
+        const [menusRes, eventsRes, specialsRes, hoursRes] = await Promise.all([
             supabase.from('menu_items').select('*').eq('site_id', siteId).order('sort_order', { ascending: true }),
             supabase.from('events').select('*').eq('site_id', siteId).order('start_date', { ascending: true }),
             supabase.from('specials').select('*').eq('site_id', siteId).order('created_at', { ascending: false }),
-            supabase.from('site_content').select('hours').eq('site_id', siteId).single(),
-            supabase.from('happy_hours').select('*').eq('site_id', siteId) // or check your table name
+            supabase.from('site_content').select('hours').eq('site_id', siteId).single()
         ]);
 
         // Group menu items by category
@@ -2514,8 +2513,7 @@ router.get('/business', async (req, res) => {
             menu: menuData,
             events: eventsRes.data || [],
             specials: specialsRes.data || [],
-            hours: hoursRes.data?.hours || {},
-            happy_hours: happyHourRes.data || []
+            hours: hoursRes.data?.hours || {}
         });
     } catch (err) {
         console.error('business error:', err.message);
