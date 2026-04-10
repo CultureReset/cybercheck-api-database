@@ -2453,4 +2453,138 @@ router.get('/payment-config', requireSite, async (req, res) => {
     }
 });
 
+// ============================================
+// GET /api/public/business — Complete business data (menu, events, hours, specials, happy hours)
+// ============================================
+router.get('/business', async (req, res) => {
+    try {
+        if (!req.query.slug) {
+            return res.status(400).json({ error: 'slug parameter required' });
+        }
+
+        // Look up business by slug to get site_id
+        const { data: business, error: businessError } = await supabase
+            .from('businesses')
+            .select('site_id, name, logo_url, cover_url')
+            .eq('subdomain', req.query.slug)
+            .single();
+
+        if (businessError || !business) {
+            return res.status(404).json({ error: 'Business not found' });
+        }
+
+        const siteId = business.site_id;
+
+        // Fetch all related data in parallel
+        const [menusRes, eventsRes, specialsRes, hoursRes, happyHourRes] = await Promise.all([
+            supabase.from('menu_items').select('*').eq('site_id', siteId).order('sort_order', { ascending: true }),
+            supabase.from('events').select('*').eq('site_id', siteId).order('start_date', { ascending: true }),
+            supabase.from('specials').select('*').eq('site_id', siteId).order('created_at', { ascending: false }),
+            supabase.from('site_content').select('hours').eq('site_id', siteId).single(),
+            supabase.from('happy_hours').select('*').eq('site_id', siteId) // or check your table name
+        ]);
+
+        // Group menu items by category
+        const categories = {};
+        (menusRes.data || []).forEach(item => {
+            const cat = item.category || 'Uncategorized';
+            if (!categories[cat]) categories[cat] = [];
+            categories[cat].push({
+                id: item.id,
+                name: item.name,
+                description: item.description || '',
+                price: item.price || 0,
+                photo_url: item.photo_url || '',
+                image_url: item.image_url || '',
+                tags: item.tags || []
+            });
+        });
+
+        const menuData = Object.entries(categories).map(([name, items]) => ({
+            category: name,
+            items
+        }));
+
+        res.json({
+            business: {
+                name: business.name,
+                logo_url: business.logo_url,
+                cover_url: business.cover_url
+            },
+            menu: menuData,
+            events: eventsRes.data || [],
+            specials: specialsRes.data || [],
+            hours: hoursRes.data?.hours || {},
+            happy_hours: happyHourRes.data || []
+        });
+    } catch (err) {
+        console.error('business error:', err.message);
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// ============================================
+// GET /api/public/menu — Public menu with categories, items, prices, images
+// ============================================
+router.get('/menu', async (req, res) => {
+    try {
+        let siteId = req.siteId; // from domain resolution
+
+        // If slug provided, look up the business and get its site_id
+        if (req.query.slug) {
+            const { data: business, error: businessError } = await supabase
+                .from('businesses')
+                .select('site_id')
+                .eq('subdomain', req.query.slug)
+                .single();
+
+            if (businessError || !business) {
+                return res.status(404).json({ error: 'Business not found' });
+            }
+            siteId = business.site_id;
+        }
+
+        if (!siteId) {
+            return res.status(400).json({ error: 'No business specified. Use ?slug=xxx or access from configured domain.' });
+        }
+
+        const { data: items, error } = await supabase
+            .from('menu_items')
+            .select('*')
+            .eq('site_id', siteId)
+            .order('sort_order', { ascending: true })
+            .order('category', { ascending: true });
+
+        if (error) throw error;
+
+        // Group by category
+        const categories = {};
+        (items || []).forEach(item => {
+            const cat = item.category || 'Uncategorized';
+            if (!categories[cat]) categories[cat] = [];
+            categories[cat].push({
+                id: item.id,
+                name: item.name,
+                description: item.description || '',
+                price: item.price || 0,
+                photo_url: item.photo_url || '',
+                image_url: item.image_url || '', // fallback
+                tags: item.tags || [],
+                modifiers: item.modifiers || []
+            });
+        });
+
+        // Convert to array
+        const menuData = Object.entries(categories).map(([name, items]) => ({
+            category: name,
+            items: items
+        }));
+
+        res.json(menuData);
+    } catch (err) {
+        console.error('menu error:', err.message);
+        res.status(500).json({ error: err.message });
+    }
+});
+
 module.exports = router;

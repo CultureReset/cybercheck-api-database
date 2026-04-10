@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberCheck Links</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #fff;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .menu-section {
+            margin-bottom: 50px;
+        }
+
+        .category-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #222;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .menu-item {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            gap: 15px;
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-image {
+            flex-shrink: 0;
+            width: 120px;
+            height: 120px;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #f5f5f5;
+        }
+
+        .item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .item-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 8px;
+        }
+
+        .item-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #222;
+        }
+
+        .item-price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #d9534f;
+            white-space: nowrap;
+        }
+
+        .item-description {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .item-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #f0f0f0;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: #555;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+        }
+
+        .error {
+            background: #fee;
+            border: 1px solid #fcc;
+            color: #c33;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+
+        .empty {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 { font-size: 1.8rem; }
+            .category-title { font-size: 1.3rem; }
+
+            .menu-item {
+                flex-direction: column;
+            }
+
+            .item-image {
+                width: 100%;
+                height: 200px;
+            }
+
+            .item-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .item-price {
+                align-self: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>CyberCheck Links</h1>
+            <p>Browse our menu and offerings</p>
+        </div>
+
+        <div id="menu-container">
+            <div class="loading">Loading menu...</div>
+        </div>
+    </div>
+
+    <script>
+        // Use live API regardless of where page is opened from
+        const API_BASE = 'https://cybercheck-api-database.vercel.app';
+        const SLUG = new URLSearchParams(window.location.search).get('slug') || 'icehouse-tap-room';
+
+        async function loadMenu() {
+            const container = document.getElementById('menu-container');
+
+            try {
+                let data;
+                // Try live API first
+                const response = await fetch(`${API_BASE}/api/public/business?slug=${encodeURIComponent(SLUG)}`).catch(() => null);
+
+                if (!response || !response.ok) {
+                    // Use demo data for local testing
+                    data = getDemoData();
+                } else {
+                    data = await response.json();
+                }
+
+                if (!response.ok) {
+                    throw new Error('Failed to load menu');
+                }
+
+                const data = await response.json();
+
+                if (!data || !data.menu) {
+                    container.innerHTML = '<div class="empty">Data coming soon</div>';
+                    return;
+                }
+
+                let html = '';
+
+                // Hours section
+                if (data.hours && Object.keys(data.hours).length > 0) {
+                    html += `<div class="menu-section"><h2 class="category-title">Hours</h2>`;
+                    for (const [day, times] of Object.entries(data.hours)) {
+                        if (times && typeof times === 'object' && !times.closed) {
+                            html += `<div style="padding:8px 0;font-size:0.95rem;"><strong>${escapeHtml(day)}</strong>: ${escapeHtml(times.open || '')} – ${escapeHtml(times.close || '')}</div>`;
+                        }
+                    }
+                    html += `</div>`;
+                }
+
+                // Happy Hours section
+                if (data.happy_hours && data.happy_hours.length > 0) {
+                    html += `<div class="menu-section"><h2 class="category-title">Happy Hours</h2>`;
+                    data.happy_hours.forEach(hh => {
+                        html += `<div style="padding:12px 0;border-bottom:1px solid #f0f0f0;">`;
+                        html += `<div style="font-weight:600;">${escapeHtml(hh.name || 'Happy Hour')}</div>`;
+                        if (hh.description) html += `<div style="font-size:0.9rem;color:#666;margin-top:4px;">${escapeHtml(hh.description)}</div>`;
+                        if (hh.start_time) html += `<div style="font-size:0.85rem;color:#999;margin-top:4px;">${escapeHtml(hh.start_time)} - ${escapeHtml(hh.end_time || '')}</div>`;
+                        html += `</div>`;
+                    });
+                    html += `</div>`;
+                }
+
+                // Events section
+                if (data.events && data.events.length > 0) {
+                    html += `<div class="menu-section"><h2 class="category-title">Events</h2>`;
+                    data.events.forEach(event => {
+                        html += `<div style="padding:12px 0;border-bottom:1px solid #f0f0f0;">`;
+                        html += `<div style="font-weight:600;">${escapeHtml(event.name || 'Event')}</div>`;
+                        if (event.description) html += `<div style="font-size:0.9rem;color:#666;margin-top:4px;">${escapeHtml(event.description)}</div>`;
+                        if (event.start_date) html += `<div style="font-size:0.85rem;color:#999;margin-top:4px;">${escapeHtml(event.start_date)}</div>`;
+                        html += `</div>`;
+                    });
+                    html += `</div>`;
+                }
+
+                // Specials section
+                if (data.specials && data.specials.length > 0) {
+                    html += `<div class="menu-section"><h2 class="category-title">Specials</h2>`;
+                    data.specials.forEach(special => {
+                        html += `<div style="padding:12px 0;border-bottom:1px solid #f0f0f0;">`;
+                        html += `<div style="font-weight:600;">${escapeHtml(special.name || 'Special')}</div>`;
+                        if (special.description) html += `<div style="font-size:0.9rem;color:#666;margin-top:4px;">${escapeHtml(special.description)}</div>`;
+                        html += `</div>`;
+                    });
+                    html += `</div>`;
+                }
+
+                // Menu section
+                html += `<div class="menu-section"><h2 class="category-title">Menu</h2>`;
+                data.menu.forEach(cat => {
+                    html += `<h3 style="font-size:1.3rem;font-weight:600;margin-bottom:15px;margin-top:20px;color:#222;">${escapeHtml(cat.category)}</h3>`;
+                    cat.items.forEach(item => {
+                        const imageUrl = item.photo_url || item.image_url;
+                        const price = parseFloat(item.price || 0).toFixed(2);
+
+                        html += `<div class="menu-item">`;
+
+                        if (imageUrl) {
+                            html += `<div class="item-image"><img src="${escapeHtml(imageUrl)}" alt="${escapeHtml(item.name)}" loading="lazy"></div>`;
+                        }
+
+                        html += `<div class="item-content">`;
+                        html += `<div class="item-header">`;
+                        html += `<div class="item-name">${escapeHtml(item.name)}</div>`;
+                        if (price > 0) {
+                            html += `<div class="item-price">$${price}</div>`;
+                        }
+                        html += `</div>`;
+
+                        if (item.description) {
+                            html += `<div class="item-description">${escapeHtml(item.description)}</div>`;
+                        }
+
+                        if (item.tags && item.tags.length > 0) {
+                            html += `<div class="item-tags">`;
+                            item.tags.forEach(tag => {
+                                html += `<span class="tag">${escapeHtml(tag)}</span>`;
+                            });
+                            html += `</div>`;
+                        }
+
+                        html += `</div>`;
+                        html += `</div>`;
+                    });
+
+                    html += `</div>`;
+                });
+
+                container.innerHTML = html;
+            } catch (err) {
+                console.error('Menu load error:', err);
+                container.innerHTML = `<div class="error">Could not load menu. Make sure you're accessing this from the correct domain.</div>`;
+            }
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        loadMenu();
+    </script>
+</body>
+</html>
