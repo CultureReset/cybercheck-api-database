@@ -1,25 +1,65 @@
 // ============================================
-// email.js — Resend HTTP API email sender
-// No npm package needed — uses native fetch
-// Sign up at resend.com, add RESEND_API_KEY to env
+// email.js — Gmail SMTP (temporary) + Resend fallback
+// Gmail used while Resend domain is pending verification
+// Once domain verified, remove Gmail block and keep Resend
 // ============================================
 
+const nodemailer = require('nodemailer');
+
 const RESEND_API = 'https://api.resend.com/emails';
-const FROM_DEFAULT = process.env.EMAIL_FROM || 'onboarding@resend.dev';
+const FROM_DEFAULT = process.env.EMAIL_FROM || 'info@cybercheckinc.com';
+
+// Gmail SMTP transporter (Google Workspace)
+const gmailTransporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: process.env.GMAIL_USER || 'info@cybercheckinc.com',
+        pass: process.env.GMAIL_APP_PASSWORD
+    }
+});
 
 /**
- * Send an email via Resend
- * @param {object} opts - { to, subject, html, replyTo, from }
+ * Send an email — uses Gmail SMTP if GMAIL_APP_PASSWORD is set, else Resend
+ * @param {object} opts - { to, subject, html, replyTo, from, attachments }
  */
 async function sendEmail({ to, subject, html, replyTo, attachments, from }) {
-    const apiKey = process.env.RESEND_API_KEY;
-    if (!apiKey) {
-        console.warn('RESEND_API_KEY not set — email not sent to:', to);
-        return { success: false, reason: 'not_configured' };
-    }
     if (!to) return { success: false, reason: 'no_recipient' };
 
     const fromAddress = from || FROM_DEFAULT;
+    const toList = Array.isArray(to) ? to : [to];
+
+    // Use Gmail if app password is configured
+    if (process.env.GMAIL_APP_PASSWORD) {
+        try {
+            const mailOptions = {
+                from: fromAddress,
+                to: toList.join(', '),
+                subject,
+                html,
+                replyTo: replyTo || undefined
+            };
+            if (attachments && attachments.length) {
+                mailOptions.attachments = attachments.map(a => ({
+                    filename: a.filename,
+                    content: Buffer.from(a.content, 'base64'),
+                    contentType: a.type || 'application/octet-stream'
+                }));
+            }
+            const info = await gmailTransporter.sendMail(mailOptions);
+            console.log('Email sent via Gmail:', info.messageId, '→', toList);
+            return { success: true, id: info.messageId };
+        } catch (err) {
+            console.error('Gmail send error:', err.message);
+            return { success: false, reason: err.message };
+        }
+    }
+
+    // Fallback: Resend
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
+        console.warn('No email provider configured — email not sent to:', to);
+        return { success: false, reason: 'not_configured' };
+    }
 
     try {
         const res = await fetch(RESEND_API, {
@@ -30,7 +70,7 @@ async function sendEmail({ to, subject, html, replyTo, attachments, from }) {
             },
             body: JSON.stringify({
                 from: fromAddress,
-                to: Array.isArray(to) ? to : [to],
+                to: toList,
                 subject,
                 html,
                 reply_to: replyTo || undefined,
@@ -92,6 +132,14 @@ function customerConfirmationHtml(d) {
           </table>
 
           ${d.notes ? `<p style="margin:20px 0 0;color:#6b7280;font-size:13px;"><strong>Notes:</strong> ${esc(d.notes)}</p>` : ''}
+
+          <!-- Payment Reference -->
+          ${(d.receipt_number || d.payment_id) ? `<div style="margin-top:20px;background:#f0f9ff;border:1px solid #bae6fd;border-radius:10px;padding:16px;">
+            <p style="margin:0 0 8px;color:#0369a1;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;">Payment Reference</p>
+            ${d.receipt_number ? `<p style="margin:0 0 4px;color:#0c4a6e;font-size:13px;"><strong>Receipt #:</strong> ${esc(d.receipt_number)}</p>` : ''}
+            ${d.payment_id ? `<p style="margin:0 0 4px;color:#0c4a6e;font-size:13px;"><strong>Transaction ID:</strong> ${esc(d.payment_id)}</p>` : ''}
+            ${d.receipt_url ? `<p style="margin:4px 0 0;font-size:13px;"><a href="${esc(d.receipt_url)}" style="color:#0ea5e9;">View Receipt →</a></p>` : ''}
+          </div>` : ''}
 
           <p style="margin:28px 0 0;color:#374151;font-size:15px;">Questions? Reply to this email or contact ${esc(d.business_name)} directly.</p>
         </td></tr>
@@ -159,6 +207,14 @@ function ownerNotificationHtml(d) {
           </table>
 
           ${d.notes ? `<p style="margin:20px 0 0;color:#374151;font-size:14px;"><strong>Customer notes:</strong> ${esc(d.notes)}</p>` : ''}
+
+          <!-- Payment Reference -->
+          ${(d.receipt_number || d.payment_id) ? `<div style="margin-top:20px;background:#f0f9ff;border:1px solid #bae6fd;border-radius:10px;padding:16px;">
+            <p style="margin:0 0 8px;color:#0369a1;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;">Payment Reference</p>
+            ${d.receipt_number ? `<p style="margin:0 0 4px;color:#0c4a6e;font-size:13px;"><strong>Square Receipt #:</strong> ${esc(d.receipt_number)}</p>` : ''}
+            ${d.payment_id ? `<p style="margin:0 0 4px;color:#0c4a6e;font-size:13px;"><strong>Transaction ID:</strong> ${esc(d.payment_id)}</p>` : ''}
+            ${d.receipt_url ? `<p style="margin:4px 0 0;font-size:13px;"><a href="${esc(d.receipt_url)}" style="color:#0ea5e9;">View Square Receipt →</a></p>` : ''}
+          </div>` : ''}
         </td></tr>
 
         <tr><td style="background:#f9fafb;padding:16px 32px;text-align:center;border-top:1px solid #e5e7eb;">

@@ -219,7 +219,9 @@ router.post('/create-payment', async (req, res) => {
             await supabase.from('bookings').update({
                 payment_id: payment.id,
                 payment_provider: 'square',
-                payment_status: payment.status === 'COMPLETED' ? 'paid' : 'pending'
+                payment_status: payment.status === 'COMPLETED' ? 'paid' : 'pending',
+                receipt_number: payment.receipt_number || null,
+                receipt_url: payment.receipt_url || null
             }).eq('id', booking_id);
         }
 
