@@ -1,25 +1,12 @@
 // ============================================
-// email.js — Gmail SMTP (temporary) + Resend fallback
-// Gmail used while Resend domain is pending verification
-// Once domain verified, remove Gmail block and keep Resend
+// email.js — Brevo HTTP API sender
 // ============================================
 
-const nodemailer = require('nodemailer');
-
-const RESEND_API = 'https://api.resend.com/emails';
+const BREVO_API = 'https://api.brevo.com/v3/smtp/email';
 const FROM_DEFAULT = process.env.EMAIL_FROM || 'info@cybercheckinc.com';
 
-// Gmail SMTP transporter (Google Workspace)
-const gmailTransporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: process.env.GMAIL_USER || 'info@cybercheckinc.com',
-        pass: process.env.GMAIL_APP_PASSWORD
-    }
-});
-
 /**
- * Send an email — uses Gmail SMTP if GMAIL_APP_PASSWORD is set, else Resend
+ * Send an email via Brevo HTTP API
  * @param {object} opts - { to, subject, html, replyTo, from, attachments }
  */
 async function sendEmail({ to, subject, html, replyTo, attachments, from }) {
@@ -27,62 +14,45 @@ async function sendEmail({ to, subject, html, replyTo, attachments, from }) {
 
     const fromAddress = from || FROM_DEFAULT;
     const toList = Array.isArray(to) ? to : [to];
+    const apiKey = process.env.BREVO_API_KEY;
 
-    // Use Gmail if app password is configured
-    if (process.env.GMAIL_APP_PASSWORD) {
-        try {
-            const mailOptions = {
-                from: fromAddress,
-                to: toList.join(', '),
-                subject,
-                html,
-                replyTo: replyTo || undefined
-            };
-            if (attachments && attachments.length) {
-                mailOptions.attachments = attachments.map(a => ({
-                    filename: a.filename,
-                    content: Buffer.from(a.content, 'base64'),
-                    contentType: a.type || 'application/octet-stream'
-                }));
-            }
-            const info = await gmailTransporter.sendMail(mailOptions);
-            console.log('Email sent via Gmail:', info.messageId, '→', toList);
-            return { success: true, id: info.messageId };
-        } catch (err) {
-            console.error('Gmail send error:', err.message);
-            return { success: false, reason: err.message };
-        }
-    }
-
-    // Fallback: Resend
-    const apiKey = process.env.RESEND_API_KEY;
     if (!apiKey) {
-        console.warn('No email provider configured — email not sent to:', to);
+        console.warn('BREVO_API_KEY not set — email not sent to:', to);
         return { success: false, reason: 'not_configured' };
     }
 
     try {
-        const res = await fetch(RESEND_API, {
+        const body = {
+            sender: { email: fromAddress.match(/<(.+)>/)?.[1] || fromAddress, name: fromAddress.match(/^(.+?)\s*</)?.[1]?.trim() || 'CyberCheck' },
+            to: toList.map(e => ({ email: e })),
+            subject,
+            htmlContent: html,
+            replyTo: replyTo ? { email: replyTo } : undefined
+        };
+
+        if (attachments && attachments.length) {
+            body.attachment = attachments.map(a => ({
+                name: a.filename,
+                content: a.content
+            }));
+        }
+
+        const res = await fetch(BREVO_API, {
             method: 'POST',
             headers: {
-                'Authorization': 'Bearer ' + apiKey,
+                'api-key': apiKey,
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                from: fromAddress,
-                to: toList,
-                subject,
-                html,
-                reply_to: replyTo || undefined,
-                attachments: attachments || undefined
-            })
+            body: JSON.stringify(body)
         });
+
         const json = await res.json();
         if (!res.ok) {
-            console.error('Resend error:', json);
-            return { success: false, reason: json.message || 'resend_error' };
+            console.error('Brevo error:', json);
+            return { success: false, reason: json.message || 'brevo_error' };
         }
-        return { success: true, id: json.id };
+        console.log('Email sent via Brevo:', json.messageId, '→', toList);
+        return { success: true, id: json.messageId };
     } catch (err) {
         console.error('Email send error:', err.message);
         return { success: false, reason: err.message };
@@ -242,16 +212,13 @@ function esc(str) {
 
 /**
  * Generate .ics calendar invite content
- * d: { date, time_slot, boat_type, business_name, location }
  */
 function generateIcsContent(d) {
-    // Parse start/end from time_slot e.g. "9:00 AM – 1:00 PM" or "Half Day AM"
     const dateStr = (d.date || '').replace(/-/g, '');
     const slot = (d.time_slot || '').toLowerCase();
     let startHour = 9, endHour = 13;
     if (slot.includes('pm') && !slot.includes('am')) { startHour = 13; endHour = 17; }
     else if (slot.includes('all day') || slot.includes('full')) { startHour = 9; endHour = 17; }
-    // Try to parse explicit times like "9:00 AM"
     const timeMatch = (d.time_slot || '').match(/(\d+):(\d+)\s*(AM|PM)/i);
     if (timeMatch) {
         let h = parseInt(timeMatch[1]);
