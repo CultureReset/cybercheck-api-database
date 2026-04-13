@@ -648,6 +648,22 @@ router.post('/test-oauth', adminRequired, async (req, res) => {
 });
 
 // ============================================
+// GET /api/admin/businesses/:id/full — Full business data (CyberCheck legacy)
+// ============================================
+router.get('/businesses/:id/full', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const [bizRes, contentRes] = await Promise.all([
+            supabase.from('businesses').select('*').eq('site_id', id).single(),
+            supabase.from('site_content').select('*').eq('site_id', id).single(),
+        ]);
+        if (bizRes.error && bizRes.error.code !== 'PGRST116') return res.status(500).json({ error: bizRes.error.message });
+        if (!bizRes.data) return res.status(404).json({ error: 'Business not found' });
+        res.json({ business: bizRes.data, content: contentRes.data || {} });
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+// ============================================
 // PUT /api/admin/businesses/:id/full — Update ALL tables for a business
 // ============================================
 router.put('/businesses/:id/full', adminRequired, async (req, res) => {
@@ -2762,6 +2778,41 @@ router.post('/gcr/entities', async (req, res) => {
     res.json({ success: true, id: entityId });
 });
 
+// GET /api/admin/gcr/entities/:id — single entity with all related data
+router.get('/gcr/entities/:id', async (req, res) => {
+    try {
+        const gcrDb = getGcrDb();
+        const { id } = req.params;
+        const [entRes, hoursRes, featRes, tagsRes, pfRes] = await Promise.all([
+            gcrDb.from('entity').select('*').eq('id', id).single(),
+            gcrDb.from('entity_hours').select('*').eq('entity_id', id).order('id'),
+            gcrDb.from('entity_features').select('*').eq('entity_id', id).order('sort_order'),
+            gcrDb.from('entity_tags').select('*').eq('entity_id', id),
+            gcrDb.from('entity_perfect_for').select('*').eq('entity_id', id).order('sort_order'),
+        ]);
+        if (entRes.error && entRes.error.code !== 'PGRST116') return res.status(500).json({ error: entRes.error.message });
+        if (!entRes.data) return res.status(404).json({ error: 'Entity not found' });
+        res.json({
+            entity:      entRes.data,
+            hours:       hoursRes.data || [],
+            features:    featRes.data || [],
+            tags:        tagsRes.data || [],
+            perfect_for: pfRes.data || [],
+        });
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+// GET /api/admin/gcr/entities/:id/features
+router.get('/gcr/entities/:id/features', async (req, res) => {
+    try {
+        const gcrDb = getGcrDb();
+        const { id } = req.params;
+        const { data, error } = await gcrDb.from('entity_features').select('*').eq('entity_id', id).order('sort_order');
+        if (error) return res.status(500).json({ error: error.message });
+        res.json(data || []);
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
 // PUT /api/admin/gcr/entities/:id
 router.put('/gcr/entities/:id', async (req, res) => {
     const { id } = req.params;
@@ -3332,6 +3383,153 @@ router.post('/gcr/entities/:id/invite', async (req, res) => {
     } catch (e) {
         res.status(500).json({ error: e.message });
     }
+});
+
+// ============================================
+// SITE CONFIG — Site Editor Home Hero tab
+// ============================================
+
+router.get('/gcr/site-config', async (req, res) => {
+    try {
+        const gcrDb = getGcrDb();
+        const { data, error } = await gcrDb
+            .from('gcr_site_config')
+            .select('*')
+            .order('id')
+            .limit(1)
+            .single();
+        if (error && error.code !== 'PGRST116') return res.status(500).json({ error: error.message });
+        res.json(data || {});
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+router.put('/gcr/site-config/hero', async (req, res) => {
+    try {
+        const gcrDb = getGcrDb();
+        const { hero_title, hero_subtitle, hero_image_url, hero_cta_text, hero_cta_url } = req.body;
+        const payload = { hero_title, hero_subtitle, hero_image_url, hero_cta_text, hero_cta_url, updated_at: new Date().toISOString() };
+        // Upsert — only one row
+        const { data: existing } = await gcrDb.from('gcr_site_config').select('id').limit(1).single();
+        let result;
+        if (existing?.id) {
+            result = await gcrDb.from('gcr_site_config').update(payload).eq('id', existing.id).select().single();
+        } else {
+            result = await gcrDb.from('gcr_site_config').insert(payload).select().single();
+        }
+        if (result.error) return res.status(500).json({ error: result.error.message });
+        res.json({ success: true, data: result.data });
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+// ============================================
+// CATEGORY CARDS — Site Editor Category Cards tab
+// ============================================
+
+router.get('/gcr/category-cards', async (req, res) => {
+    try {
+        const gcrDb = getGcrDb();
+        const { data, error } = await gcrDb
+            .from('gcr_category_cards')
+            .select('*')
+            .order('sort_order', { ascending: true });
+        if (error && error.code !== 'PGRST116') return res.status(500).json({ error: error.message });
+        res.json(data || []);
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+router.put('/gcr/category-cards/:id', async (req, res) => {
+    try {
+        const gcrDb = getGcrDb();
+        const { id } = req.params;
+        const { label, emoji, image_url, href, sort_order } = req.body;
+        const { data, error } = await gcrDb
+            .from('gcr_category_cards')
+            .upsert({ id, label, emoji, image_url, href, sort_order, updated_at: new Date().toISOString() }, { onConflict: 'id' })
+            .select().single();
+        if (error) return res.status(500).json({ error: error.message });
+        res.json({ success: true, data });
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+// ============================================
+// PAGE ASSIGNMENTS — Site Editor Page Assignments tab
+// Controls which sections show on each category listing page
+// ============================================
+
+router.get('/gcr/page-assignments/:catId', async (req, res) => {
+    try {
+        const gcrDb = getGcrDb();
+        const { catId } = req.params;
+        const { data, error } = await gcrDb
+            .from('gcr_page_assignments')
+            .select('*')
+            .eq('category_id', catId)
+            .order('sort_order', { ascending: true });
+        if (error && error.code !== 'PGRST116') return res.status(500).json({ error: error.message });
+        res.json(data || []);
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+router.put('/gcr/page-assignments/:catId/order', async (req, res) => {
+    try {
+        const gcrDb = getGcrDb();
+        const { catId } = req.params;
+        const { assignments } = req.body; // [{entity_id, sort_order}]
+        if (!Array.isArray(assignments)) return res.status(400).json({ error: 'assignments array required' });
+        for (const a of assignments) {
+            await gcrDb.from('gcr_page_assignments')
+                .upsert({ category_id: catId, entity_id: a.entity_id, sort_order: a.sort_order }, { onConflict: 'category_id,entity_id' });
+        }
+        res.json({ success: true });
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+// ============================================
+// ENTITY PAGES — Site Editor Entity Pages tab
+// Custom page layout / section order per entity
+// ============================================
+
+router.get('/gcr/entity-pages/:entityId', async (req, res) => {
+    try {
+        const gcrDb = getGcrDb();
+        const { entityId } = req.params;
+        const { data, error } = await gcrDb
+            .from('gcr_entity_pages')
+            .select('*')
+            .eq('entity_id', entityId)
+            .order('sort_order', { ascending: true });
+        if (error && error.code !== 'PGRST116') return res.status(500).json({ error: error.message });
+        res.json(data || []);
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+router.post('/gcr/entity-pages/:entityId', async (req, res) => {
+    try {
+        const gcrDb = getGcrDb();
+        const { entityId } = req.params;
+        const { section_key, section_label, sort_order, is_visible } = req.body;
+        const { data, error } = await gcrDb
+            .from('gcr_entity_pages')
+            .upsert({ entity_id: entityId, section_key, section_label, sort_order: sort_order || 0, is_visible: is_visible !== false }, { onConflict: 'entity_id,section_key' })
+            .select().single();
+        if (error) return res.status(500).json({ error: error.message });
+        res.json({ success: true, data });
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+router.put('/gcr/entity-pages/:entityId/:pageId', async (req, res) => {
+    try {
+        const gcrDb = getGcrDb();
+        const { pageId } = req.params;
+        const { sort_order, is_visible, section_label } = req.body;
+        const { data, error } = await gcrDb
+            .from('gcr_entity_pages')
+            .update({ sort_order, is_visible, section_label, updated_at: new Date().toISOString() })
+            .eq('id', pageId)
+            .select().single();
+        if (error) return res.status(500).json({ error: error.message });
+        res.json({ success: true, data });
+    } catch (e) { res.status(500).json({ error: e.message }); }
 });
 
 // ============================================
