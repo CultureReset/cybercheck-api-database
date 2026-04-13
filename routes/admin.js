@@ -2877,6 +2877,14 @@ router.delete('/gcr/entities/:id/sections/:sectionId', async (req, res) => {
 
 // ── Section Content: Rich Text ────────────────────────────────
 
+// GET /api/admin/gcr/sections/:sectionId/rich-text-get
+router.get('/gcr/sections/:sectionId/rich-text-get', async (req, res) => {
+    const { sectionId } = req.params;
+    const { data, error } = await gcrDb.from('section_rich_text').select('body_text').eq('section_id', sectionId).single();
+    if (error && error.code !== 'PGRST116') return res.status(500).json({ error: error.message });
+    res.json({ body_text: data?.body_text || '' });
+});
+
 // PUT /api/admin/gcr/sections/:sectionId/rich-text
 router.put('/gcr/sections/:sectionId/rich-text', async (req, res) => {
     const { sectionId } = req.params;
