@@ -313,6 +313,18 @@ router.get('/fleet', async (req, res) => {
 });
 
 // ============================================
+// GET /api/public/blackout-dates
+// ============================================
+router.get('/blackout-dates', async (req, res) => {
+    const { data } = await supabase
+        .from('blackout_dates')
+        .select('id, date_from, date_to, label')
+        .eq('site_id', req.siteId)
+        .order('date_from', { ascending: true });
+    res.json({ blackout_dates: data || [] });
+});
+
+// ============================================
 // GET /api/public/availability?date=YYYY-MM-DD
 // ============================================
 router.get('/availability', async (req, res) => {
