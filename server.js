@@ -79,6 +79,12 @@ app.use('/api/admin', require('./routes/admin'));
 // GCR routes (platform-wide search & discovery)
 app.use('/api/gcr', require('./routes/gcr'));
 
+// Links routes (CyberCheck Links pages)
+app.use('/api/links', require('./routes/links'));
+
+// User routes — GCR multi-tenant platform (new businesses)
+app.use('/api/user', require('./routes/user'));
+
 // Stripe Connect + Payments
 app.use('/api/stripe', require('./routes/stripe'));
 

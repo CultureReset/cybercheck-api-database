@@ -3284,5 +3284,47 @@ router.patch('/bookings/:id/cancel', async (req, res) => {
     res.json({ success: true });
 });
 
+// POST /api/admin/gcr/entities/:id/invite
+// Creates a GCR Supabase auth user for the business and sends invite email
+router.post('/gcr/entities/:id/invite', async (req, res) => {
+    try {
+        const gcrDb = getGcrDb();
+        const entityId = req.params.id;
+
+        // Get entity email + slug
+        const { data: entity, error: entErr } = await gcrDb
+            .from('entity')
+            .select('id, slug, name, email')
+            .eq('id', entityId)
+            .single();
+
+        if (entErr || !entity) return res.status(404).json({ error: 'Entity not found' });
+        if (!entity.email) return res.status(400).json({ error: 'Entity has no email address' });
+
+        const redirectTo = 'https://cybercheck-links.vercel.app/reset-password.html';
+
+        // Invite user via Supabase auth — sends email with magic link
+        const { data: authData, error: authErr } = await gcrDb.auth.admin.inviteUserByEmail(entity.email, {
+            redirectTo,
+            data: { business_name: entity.name, entity_slug: entity.slug }
+        });
+
+        if (authErr) return res.status(400).json({ error: authErr.message });
+
+        const userId = authData.user.id;
+
+        // Upsert profiles row linking auth user to entity slug
+        await gcrDb.from('profiles').upsert({
+            id: userId,
+            business_name: entity.name,
+            slug: entity.slug,
+        }, { onConflict: 'id' });
+
+        res.json({ success: true, email: entity.email, userId });
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
+});
+
 module.exports = router;
 
