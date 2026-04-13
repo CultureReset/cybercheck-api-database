@@ -3334,5 +3334,48 @@ router.post('/gcr/entities/:id/invite', async (req, res) => {
     }
 });
 
+// ============================================
+// CATEGORY PAGE CONFIG — Site Editor / Page Headers
+// ============================================
+
+router.get('/gcr/category-page-config/:catId', async (req, res) => {
+    try {
+        const gcrDb = getGcrDb();
+        const { catId } = req.params;
+        const { data, error } = await gcrDb
+            .from('gcr_category_page_config')
+            .select('category_id, page_title, page_description, hero_image_url')
+            .eq('category_id', catId)
+            .single();
+        if (error && error.code !== 'PGRST116') return res.status(500).json({ error: error.message });
+        res.json(data || { category_id: catId });
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
+});
+
+router.put('/gcr/category-page-config/:catId', async (req, res) => {
+    try {
+        const gcrDb = getGcrDb();
+        const { catId } = req.params;
+        const { page_title, page_description, hero_image_url } = req.body;
+        const { data, error } = await gcrDb
+            .from('gcr_category_page_config')
+            .upsert({
+                category_id: catId,
+                page_title: page_title || null,
+                page_description: page_description || null,
+                hero_image_url: hero_image_url || null,
+                updated_at: new Date().toISOString(),
+            }, { onConflict: 'category_id' })
+            .select()
+            .single();
+        if (error) return res.status(500).json({ error: error.message });
+        res.json({ success: true, data });
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
+});
+
 module.exports = router;
 

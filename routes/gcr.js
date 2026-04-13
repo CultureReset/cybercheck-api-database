@@ -1703,4 +1703,21 @@ router.get('/entity/:slug', async (req, res) => {
     });
 });
 
+// ============================================
+// GET /api/gcr/category-page-config/:categoryId
+// Public: returns hero image, title, description for a category page
+// Called by gcr-config.js on every category listing page
+// ============================================
+router.get('/category-page-config/:categoryId', async (req, res) => {
+    if (!gcrDb) return res.status(503).json({ error: 'GCR DB not available' });
+    const { categoryId } = req.params;
+    const { data, error } = await gcrDb
+        .from('gcr_category_page_config')
+        .select('category_id, page_title, page_description, hero_image_url')
+        .eq('category_id', categoryId)
+        .single();
+    if (error && error.code !== 'PGRST116') return res.status(500).json({ error: error.message });
+    res.json(data || { category_id: categoryId });
+});
+
 module.exports = router;
