@@ -1407,10 +1407,10 @@ router.post('/gcr/import-section-based', async (req, res) => {
     const rows = Array.isArray(req.body) ? req.body : [req.body];
     const { upsertTag } = gcrImportHelpers(gcrDb);
 
-    // Group rows by restaurant_name
+    // Group rows by restaurant_name or slug
     const byRestaurant = {};
     for (const row of rows) {
-        const rname = (row.restaurant_name || '').trim();
+        const rname = (row.restaurant_name || row.slug || '').trim();
         if (!rname) continue;
         if (!byRestaurant[rname]) byRestaurant[rname] = [];
         byRestaurant[rname].push(row);
@@ -1420,8 +1420,10 @@ router.post('/gcr/import-section-based', async (req, res) => {
     const errors = [];
 
     for (const [rname, rRows] of Object.entries(byRestaurant)) {
-        // Derive slug from name
-        const slug = rname.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+        // If the key looks like a slug (no spaces), use directly; otherwise derive from name
+        const slug = rname.includes(' ')
+            ? rname.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+            : rname;
 
         // Find entity by slug or by name
         let { data: entity } = await gcrDb.from('entity').select('id, slug').eq('slug', slug).single();
