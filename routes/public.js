@@ -418,9 +418,9 @@ router.get('/availability', async (req, res) => {
     (fleetTypes || []).forEach(ft => {
         (timeSlots || []).forEach(ts => {
             const key = `${ft.id}_${ts.id}`;
-            // Use fleet_items count when tracked; fall back to specs.qty when no physical items configured
+            // Always use specs.qty as the source of truth — fleet_items are not kept in sync with actual qty
             const specsQty = (ft.specs && typeof ft.specs === 'object') ? (ft.specs.qty || 0) : 0;
-            const total = inventory[ft.id] !== undefined ? inventory[ft.id] : specsQty;
+            const total = specsQty || (inventory[ft.id] || 0);
             const used = (booked[key] || 0) + (bookedNoSlot[ft.id] || 0);
             const remaining = Math.max(0, total - used);
 
