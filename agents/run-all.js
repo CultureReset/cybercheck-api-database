@@ -25,16 +25,21 @@ const ALL_AGENTS = [
   // 1. Deployment first — if this fails, nothing else matters
   { name: 'gcr-deployment-check', label: 'Deployment Check', group: 'Infrastructure' },
   { name: 'gcr-performance-audit', label: 'Performance Audit', group: 'Infrastructure' },
+  { name: 'gcr-mobile-audit', label: 'Mobile / Responsive Audit', group: 'Infrastructure' },
 
-  // 2. Data integrity
+  // 2. API health — all 3 repos depend on this
+  { name: 'test-api-health', label: 'API Endpoint Health (all routes)', group: 'API' },
+
+  // 3. Data integrity
   { name: 'gcr-entity-completeness', label: 'Entity Completeness (A-F grades)', group: 'Data Quality' },
   { name: 'gcr-subtype-routing', label: 'Subtype → Category Routing', group: 'Data Quality' },
   { name: 'gcr-hours-audit', label: 'Hours Data Audit', group: 'Data Quality' },
   { name: 'gcr-image-audit', label: 'Image URL Audit', group: 'Data Quality' },
   { name: 'gcr-price-format-audit', label: 'Price Format Audit', group: 'Data Quality' },
   { name: 'gcr-duplicate-detect', label: 'Duplicate Detection', group: 'Data Quality' },
+  { name: 'gcr-db-inventory', label: 'Supabase Table Inventory', group: 'Data Quality' },
 
-  // 3. Upload flows
+  // 4. Upload flows
   { name: 'gcr-upload-flow', label: 'Menu Upload Flow', group: 'Upload Tests' },
   { name: 'gcr-drinks-upload-flow', label: 'Drinks Upload Flow', group: 'Upload Tests' },
   { name: 'gcr-bulk-events-upload', label: 'Events Bulk Upload', group: 'Upload Tests' },
@@ -45,24 +50,31 @@ const ALL_AGENTS = [
   { name: 'gcr-photos-upload', label: 'Photos Upload', group: 'Upload Tests' },
   { name: 'gcr-csv-errors', label: 'CSV Error Handling', group: 'Upload Tests' },
 
-  // 4. Entity management
-  { name: 'gcr-entity-editor-save', label: 'Entity Editor Full Save', group: 'Admin' },
-  { name: 'gcr-active-toggle', label: 'Active/Inactive Toggle', group: 'Admin' },
-  { name: 'gcr-ai-organizer-audit', label: 'AI Menu Organizer', group: 'Admin' },
+  // 5. Admin dashboard — cybercheck-login
+  { name: 'test-dashboard-pages', label: 'Dashboard Pages Load (admin.html)', group: 'Admin Dashboard' },
+  { name: 'test-buttons', label: 'All Clickable Buttons', group: 'Admin Dashboard' },
+  { name: 'gcr-entity-editor-save', label: 'Entity Editor Full Save', group: 'Admin Dashboard' },
+  { name: 'gcr-active-toggle', label: 'Active/Inactive Toggle', group: 'Admin Dashboard' },
+  { name: 'gcr-ai-organizer-audit', label: 'AI Menu Organizer', group: 'Admin Dashboard' },
+  { name: 'uiux-reviewer', label: 'UI/UX Review', group: 'Admin Dashboard' },
 
-  // 5. Frontend data
-  { name: 'gcr-section-editor-flow', label: 'Section Editor → Profile Tabs', group: 'Frontend' },
-  { name: 'gcr-category-pages-audit', label: 'Category Pages Coverage', group: 'Frontend' },
-  { name: 'gcr-search-audit', label: 'Search Functionality', group: 'Frontend' },
-  { name: 'gcr-featured-audit', label: 'Featured Entities', group: 'Frontend' },
-  { name: 'gcr-homepage-render', label: 'Homepage Render Data', group: 'Frontend' },
+  // 6. Public site — launching-GCR
+  { name: 'test-public-site', label: 'All Public Pages Load', group: 'Public Site' },
+  { name: 'gcr-section-editor-flow', label: 'Section Editor → Profile Tabs', group: 'Public Site' },
+  { name: 'gcr-category-pages-audit', label: 'Category Pages Coverage', group: 'Public Site' },
+  { name: 'gcr-search-audit', label: 'Search Functionality', group: 'Public Site' },
+  { name: 'gcr-featured-audit', label: 'Featured Entities', group: 'Public Site' },
+  { name: 'gcr-homepage-render', label: 'Homepage Render Data', group: 'Public Site' },
+  { name: 'gcr-profile-by-type', label: 'Profile Pages by Entity Type', group: 'Public Site' },
 
-  // 6. Full pipeline: admin → API → public site display
+  // 7. Full pipeline: admin → API → public site display
   { name: 'gcr-data-flow', label: 'Full Data Flow (Admin → API → Public)', group: 'Pipeline' },
   { name: 'gcr-frontend-check', label: 'Frontend HTML/Script Audit', group: 'Pipeline' },
+  { name: 'gcr-full-verify', label: 'Full System Verification', group: 'Pipeline' },
   { name: 'gcr-system-audit', label: 'System-Wide Audit', group: 'Pipeline' },
+  { name: 'pre-launch', label: 'Pre-Launch Checklist', group: 'Pipeline' },
 
-  // 7. Coverage gaps
+  // 8. Coverage gaps
   { name: 'gcr-activity-cards', label: 'Activity Card Fields', group: 'Coverage Gaps' },
   { name: 'gcr-e2e-flow', label: 'End-to-End: Add → Public → Toggle', group: 'Coverage Gaps' },
   { name: 'gcr-404-handling', label: '404 & Error Handling', group: 'Coverage Gaps' },
