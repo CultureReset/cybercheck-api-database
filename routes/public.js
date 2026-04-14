@@ -462,12 +462,13 @@ router.post('/hold', async (req, res) => {
     const { fleet_type_id, time_slot_id, booking_date, qty, session_id } = req.body;
     const resolvedSessionId = session_id || ('session_' + Date.now() + '_' + Math.random().toString(36).slice(2, 8));
 
-    if (!fleet_type_id || !booking_date) {
-        return res.status(400).json({ error: 'fleet_type_id and booking_date required' });
+    // Blackout check first — before any other validation
+    if (booking_date && await isDateBlackedOut(req.siteId, booking_date)) {
+        return res.status(409).json({ error: 'This date is not available for booking.' });
     }
 
-    if (await isDateBlackedOut(req.siteId, booking_date)) {
-        return res.status(409).json({ error: 'This date is not available for booking.' });
+    if (!fleet_type_id || !booking_date) {
+        return res.status(400).json({ error: 'fleet_type_id and booking_date required' });
     }
 
     // If no time_slot_id (e.g. duration-based rentals), skip RPC hold and return success
