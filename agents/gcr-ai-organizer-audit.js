@@ -73,6 +73,7 @@ async function run() {
   sec('Discover AI Organizer Route');
   // Try common route patterns
   const routes = [
+    '/api/admin/ai-organize',
     '/api/admin/gcr/ai-organize',
     '/api/admin/gcr/organize-menu',
     '/api/admin/ai/organize',
