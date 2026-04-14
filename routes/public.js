@@ -446,12 +446,28 @@ router.get('/availability', async (req, res) => {
 // POST /api/public/hold — Reserve slot during checkout (10 min)
 // Prevents overbooking while customer is filling out payment
 // ============================================
+async function isDateBlackedOut(siteId, dateStr) {
+    if (!dateStr) return false;
+    const { data } = await supabase
+        .from('blackout_dates')
+        .select('id')
+        .eq('site_id', siteId)
+        .lte('date_from', dateStr)
+        .gte('date_to', dateStr)
+        .limit(1);
+    return data && data.length > 0;
+}
+
 router.post('/hold', async (req, res) => {
     const { fleet_type_id, time_slot_id, booking_date, qty, session_id } = req.body;
     const resolvedSessionId = session_id || ('session_' + Date.now() + '_' + Math.random().toString(36).slice(2, 8));
 
     if (!fleet_type_id || !booking_date) {
         return res.status(400).json({ error: 'fleet_type_id and booking_date required' });
+    }
+
+    if (await isDateBlackedOut(req.siteId, booking_date)) {
+        return res.status(409).json({ error: 'This date is not available for booking.' });
     }
 
     // If no time_slot_id (e.g. duration-based rentals), skip RPC hold and return success
@@ -509,6 +525,10 @@ router.post('/bookings/:id/payment-failed', async (req, res) => {
 
 // ============================================
 router.post('/bookings', async (req, res) => {
+    if (await isDateBlackedOut(req.siteId, req.body.booking_date)) {
+        return res.status(409).json({ error: 'This date is not available for booking.' });
+    }
+
     const booking = {
         site_id: req.siteId,
         fleet_type_id: req.body.fleet_type_id,
