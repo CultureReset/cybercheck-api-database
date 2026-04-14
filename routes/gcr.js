@@ -161,7 +161,7 @@ router.get('/happy-hours', async (req, res) => {
 
     const { data, error } = await gcrDb
         .from('entity')
-        .select('id, slug, name, icon, hero_image_url, entity_subtype, city, phone, directions_url, address_line_1, rating, hh_days, hh_start, hh_end, hh_description, description, price_range, social_instagram, social_facebook')
+        .select('id, slug, name, icon, hero_image_url, entity_subtype, city, phone, directions_url, call_url, address_line_1, rating, hh_days, hh_start, hh_end, hh_description, description, price_range, booking_url, reservation_url, social_instagram, social_facebook')
         .eq('is_active', true)
         .in('id', [...hhEntityIds])
         .range(0, 999);
@@ -173,9 +173,10 @@ router.get('/happy-hours', async (req, res) => {
     let photosMap = {};
 
     if (entityIds.length) {
-        const [hhSecRes, photosRes] = await Promise.all([
+        const [hhSecRes, photosRes, hoursRes] = await Promise.all([
             gcrDb.from('happy_hour_sections').select('id, entity_id, section_name, sort_order').in('entity_id', entityIds).order('sort_order'),
-            gcrDb.from('entity_photos').select('entity_id, image_url, caption, sort_order').in('entity_id', entityIds).order('sort_order')
+            gcrDb.from('entity_photos').select('entity_id, image_url, caption, sort_order').in('entity_id', entityIds).order('sort_order'),
+            gcrDb.from('entity_hours').select('entity_id, day_of_week, open_time, close_time, is_closed').in('entity_id', entityIds).order('id'),
         ]);
 
         const hhSections = hhSecRes.data || [];
@@ -203,20 +204,37 @@ router.get('/happy-hours', async (req, res) => {
             if (!photosMap[p.entity_id]) photosMap[p.entity_id] = [];
             photosMap[p.entity_id].push({ image_url: p.image_url, caption: p.caption });
         });
+
+        let hoursMap = {};
+        (hoursRes.data || []).forEach(h => {
+            if (!hoursMap[h.entity_id]) hoursMap[h.entity_id] = [];
+            hoursMap[h.entity_id].push(h);
+        });
+        Object.assign(photosMap, { _hours: hoursMap });
     }
+
+    const hoursMap = photosMap._hours || {};
 
     const results = (data || []).map(e => ({
         slug:        e.slug,
         name:        e.name,
         emoji:       e.icon || '🏪',
         type:        e.entity_subtype || '',
+        entity_subtype: e.entity_subtype || '',
         rating:      e.rating || null,
         address:     e.address_line_1 || '',
+        address_line_1: e.address_line_1 || '',
         city:        e.city || '',
         phone:       e.phone || '',
+        call_url:    e.call_url || null,
         google_maps: e.directions_url || '',
+        directions_url: e.directions_url || null,
+        booking_url: e.booking_url || null,
+        reservation_url: e.reservation_url || null,
         cover:       e.hero_image_url || null,
+        hero_image_url: e.hero_image_url || null,
         photos:      photosMap[e.id] || [],
+        hours:       hoursMap[e.id] || [],
         hh_days:     e.hh_days,
         hh_start:    e.hh_start,
         hh_end:      e.hh_end,
@@ -234,7 +252,7 @@ router.get('/happy-hours', async (req, res) => {
 router.get('/specials', async (req, res) => {
     let query = gcrDb
         .from('entity_specials')
-        .select('*, entity(slug, name, icon, hero_image_url, entity_subtype, city, phone, directions_url, address_line_1)')
+        .select('*, entity(slug, name, icon, hero_image_url, entity_subtype, city, phone, directions_url, call_url, address_line_1, booking_url, reservation_url)')
         .eq('is_active', true)
         .order('id', { ascending: false });
 
@@ -265,6 +283,10 @@ router.get('/specials', async (req, res) => {
         entity_city:        s.entity?.city || '',
         entity_slug:        s.entity?.slug || '',
         entity_hero_image_url: s.entity?.hero_image_url || null,
+        call_url:           s.entity?.call_url || null,
+        booking_url:        s.entity?.booking_url || null,
+        reservation_url:    s.entity?.reservation_url || null,
+        days:               s.days_of_week || s.days || null,
     }));
 
     res.json(specials);
