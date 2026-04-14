@@ -57,7 +57,12 @@ const ALL_AGENTS = [
   { name: 'gcr-featured-audit', label: 'Featured Entities', group: 'Frontend' },
   { name: 'gcr-homepage-render', label: 'Homepage Render Data', group: 'Frontend' },
 
-  // 6. New: coverage gaps
+  // 6. Full pipeline: admin → API → public site display
+  { name: 'gcr-data-flow', label: 'Full Data Flow (Admin → API → Public)', group: 'Pipeline' },
+  { name: 'gcr-frontend-check', label: 'Frontend HTML/Script Audit', group: 'Pipeline' },
+  { name: 'gcr-system-audit', label: 'System-Wide Audit', group: 'Pipeline' },
+
+  // 7. Coverage gaps
   { name: 'gcr-activity-cards', label: 'Activity Card Fields', group: 'Coverage Gaps' },
   { name: 'gcr-e2e-flow', label: 'End-to-End: Add → Public → Toggle', group: 'Coverage Gaps' },
   { name: 'gcr-404-handling', label: '404 & Error Handling', group: 'Coverage Gaps' },
