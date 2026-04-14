@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const { adminRequired } = require('../middleware/auth');
 const supabase = require('../db');
 const getGcrDb = require('../gcr-db');
+const gcrDb = getGcrDb();
 
 const router = express.Router();
 
@@ -2564,10 +2565,10 @@ SCHEMA:
   "features": ["array of feature strings like 'Waterfront', 'Pet Friendly', 'Live Music'"],
   "perfect_for": ["array like 'Date night', 'Families', 'Groups'"],
   "happy_hour": "string time range OR { schedule: 'string', deals: [{name, desc, price}] } OR null",
-  "menu_items": [{ "name": "string", "description": "string", "price": "number or null", "category": "section name like 'Starters' or 'Lunch' or 'Dinner'" }],
-  "bar_menu": [{ "category": "string", "items": [{ "name": "string", "desc": "string", "price": "string" }] }] or null,
-  "specials": [{ "name": "string", "description": "string", "type": "daily_special|happy_hour|weekly", "days": ["Monday","Friday"], "start_time": "HH:MM", "end_time": "HH:MM", "discount_text": "string" }],
-  "events": [{ "title": "string", "description": "string", "event_date": "YYYY-MM-DD or null", "event_time": "HH:MM or null" }],
+  "menu_items": [{ "item_name": "string", "description": "string", "price": "number or null", "category": "section name like 'Starters' or 'Lunch' or 'Dinner'" }],
+  "bar_menu": [{ "category": "string", "items": [{ "item_name": "string", "desc": "string", "price": "string" }] }] or null,
+  "specials": [{ "special_name": "string", "description": "string", "type": "daily_special|happy_hour|weekly", "days": ["Monday","Friday"], "start_time": "HH:MM", "end_time": "HH:MM", "discount_text": "string" }],
+  "events": [{ "event_name": "string", "description": "string", "event_date": "YYYY-MM-DD or null", "start_time": "HH:MM or null" }],
   "fleet": [{ "name": "string", "description": "string", "capacity": number_or_null, "price_per_hour": number_or_null }],
   "schedules": [{ "name": "slot name", "time": "departure time", "tickets": [{ "name": "Adult|Child|Senior", "price": "dollar amount" }] }],
   "highlights": ["array of included items or experience highlights"],
@@ -2877,8 +2878,6 @@ router.delete('/businesses/:siteId/events/:itemId', async (req, res) => {
 // ============================================================
 // GCR ENTITY ADMIN — Full CRUD for new entity/section schema
 // ============================================================
-
-let gcrDb; try { gcrDb = getGcrDb(); } catch(e) { console.warn('GCR DB not initialized:', e.message); }
 
 // ── Entity CRUD ──────────────────────────────────────────────
 
