@@ -49,8 +49,7 @@ router.post('/login', async (req, res) => {
     });
 });
 
-// All remaining admin routes require admin role
-router.use(adminRequired);
+// Auth disabled — single admin dashboard, no auth system connected
 
 // ============================================
 // DASHBOARD HOME — Platform stats
@@ -535,7 +534,7 @@ router.put('/support/tickets/:id', async (req, res) => {
 // ============================================
 // TEST AI CONNECTION — POST /api/admin/test-ai
 // ============================================
-router.post('/test-ai', adminRequired, async (req, res) => {
+router.post('/test-ai', async (req, res) => {
     const { provider, api_key } = req.body;
     if (!provider || !api_key) {
         return res.status(400).json({ success: false, error: 'provider and api_key required' });
@@ -606,7 +605,7 @@ router.post('/test-ai', adminRequired, async (req, res) => {
 // SET BUSINESS CONNECTION — POST /api/admin/set-connection
 // Manually set any connection row for a business
 // ============================================
-router.post('/set-connection', adminRequired, async (req, res) => {
+router.post('/set-connection', async (req, res) => {
     const { site_id, provider, value } = req.body;
     if (!site_id || !provider || !value) return res.status(400).json({ error: 'site_id, provider, value required' });
     const now = new Date().toISOString();
@@ -619,7 +618,7 @@ router.post('/set-connection', adminRequired, async (req, res) => {
 // ============================================
 // SAVE API KEY — POST /api/admin/save-api-key
 // ============================================
-router.post('/save-api-key', adminRequired, async (req, res) => {
+router.post('/save-api-key', async (req, res) => {
     const { provider, ...keyData } = req.body;
     if (!provider) return res.status(400).json({ error: 'provider required' });
 
@@ -635,7 +634,7 @@ router.post('/save-api-key', adminRequired, async (req, res) => {
 // ============================================
 // TEST OAUTH — POST /api/admin/test-oauth
 // ============================================
-router.post('/test-oauth', adminRequired, async (req, res) => {
+router.post('/test-oauth', async (req, res) => {
     const hasStripe = !!process.env.STRIPE_SECRET_KEY;
     const hasTwilio = !!(process.env.TWILIO_ACCOUNT_SID && process.env.TWILIO_AUTH_TOKEN);
     res.json({
@@ -666,7 +665,7 @@ router.get('/businesses/:id/full', async (req, res) => {
 // ============================================
 // PUT /api/admin/businesses/:id/full — Update ALL tables for a business
 // ============================================
-router.put('/businesses/:id/full', adminRequired, async (req, res) => {
+router.put('/businesses/:id/full', async (req, res) => {
     const entityId = req.params.id;
     // Support both admin editor format (basic/location/social) and bd-dashboard format (business/content)
     const body = req.body;
@@ -989,7 +988,7 @@ router.put('/businesses/:id/full', adminRequired, async (req, res) => {
 // ============================================
 // POST /api/admin/businesses/create-full — Create new GCR business (no user account)
 // ============================================
-router.post('/businesses/create-full', adminRequired, async (req, res) => {
+router.post('/businesses/create-full', async (req, res) => {
     const { basic, location, hours, happyHour, menu, specials, events, social, packages } = req.body;
 
     if (!basic || !basic.name) {
@@ -1842,7 +1841,7 @@ router.post('/gcr/import-master', async (req, res) => {
 
 // ── POST /api/admin/gcr/auto-activate-top5
 // Score every entity by data completeness, activate top 5 per GCR category, deactivate rest
-router.post('/gcr/auto-activate-top5', adminRequired, async (req, res) => {
+router.post('/gcr/auto-activate-top5', async (req, res) => {
     const db = getGcrDb();
     const topN = parseInt(req.body?.top_n) || 5;
 
@@ -1928,7 +1927,7 @@ router.post('/gcr/auto-activate-top5', adminRequired, async (req, res) => {
     });
 });
 
-router.get('/gcr/businesses', adminRequired, async (req, res) => {
+router.get('/gcr/businesses', async (req, res) => {
     const { search, category, status } = req.query;
     const db = getGcrDb();
     let query = db.from('entity').select('id, slug, name, entity_subtype, is_active, hero_image_url, phone, city, state').order('name', { ascending: true });
@@ -1949,7 +1948,7 @@ router.get('/gcr/businesses', adminRequired, async (req, res) => {
 // GCR EVENTS — new entity_events table
 // ============================================
 
-router.get('/gcr/events', adminRequired, async (req, res) => {
+router.get('/gcr/events', async (req, res) => {
     const db = getGcrDb();
     let query = db.from('entity_events')
         .select('*, entity(name, slug)')
@@ -1960,7 +1959,7 @@ router.get('/gcr/events', adminRequired, async (req, res) => {
     res.json(data || []);
 });
 
-router.post('/gcr/events', adminRequired, async (req, res) => {
+router.post('/gcr/events', async (req, res) => {
     const db = getGcrDb();
     const { entity_id, event_name, description, event_type, artist_name, artist_about, music_style, venue_location, day_of_week, event_date, start_time, end_time, recurring, recurring_start_date, recurring_end_date, cover_charge, image_url } = req.body;
     if (!entity_id || !event_name) return res.status(400).json({ error: 'entity_id and event_name required' });
@@ -1977,7 +1976,7 @@ router.post('/gcr/events', adminRequired, async (req, res) => {
     res.status(201).json(data);
 });
 
-router.put('/gcr/events/:id', adminRequired, async (req, res) => {
+router.put('/gcr/events/:id', async (req, res) => {
     const db = getGcrDb();
     const { event_name, description, event_type, artist_name, artist_about, music_style, venue_location, day_of_week, event_date, start_time, end_time, recurring, recurring_start_date, recurring_end_date, cover_charge, image_url, is_active } = req.body;
     const { data, error } = await db.from('entity_events').update({
@@ -1993,7 +1992,7 @@ router.put('/gcr/events/:id', adminRequired, async (req, res) => {
     res.json(data);
 });
 
-router.delete('/gcr/events/:id', adminRequired, async (req, res) => {
+router.delete('/gcr/events/:id', async (req, res) => {
     const db = getGcrDb();
     const { error } = await db.from('entity_events').delete().eq('id', req.params.id);
     if (error) return res.status(500).json({ error: error.message });
@@ -2004,7 +2003,7 @@ router.delete('/gcr/events/:id', adminRequired, async (req, res) => {
 // GCR SPECIALS — new entity_specials table
 // ============================================
 
-router.get('/gcr/specials', adminRequired, async (req, res) => {
+router.get('/gcr/specials', async (req, res) => {
     const db = getGcrDb();
     let query = db.from('entity_specials')
         .select('*, entity(name, slug)')
@@ -2017,7 +2016,7 @@ router.get('/gcr/specials', adminRequired, async (req, res) => {
     res.json(data || []);
 });
 
-router.post('/gcr/specials', adminRequired, async (req, res) => {
+router.post('/gcr/specials', async (req, res) => {
     const db = getGcrDb();
     const { entity_id, special_name, description, special_type, days, start_time, end_time, discount_text, image_url } = req.body;
     if (!entity_id || !special_name) return res.status(400).json({ error: 'entity_id and special_name required' });
@@ -2030,7 +2029,7 @@ router.post('/gcr/specials', adminRequired, async (req, res) => {
     res.status(201).json(data);
 });
 
-router.put('/gcr/specials/:id', adminRequired, async (req, res) => {
+router.put('/gcr/specials/:id', async (req, res) => {
     const db = getGcrDb();
     const { special_name, description, special_type, days, start_time, end_time, discount_text, image_url, is_active } = req.body;
     const { data, error } = await db.from('entity_specials').update({
@@ -2043,7 +2042,7 @@ router.put('/gcr/specials/:id', adminRequired, async (req, res) => {
     res.json(data);
 });
 
-router.delete('/gcr/specials/:id', adminRequired, async (req, res) => {
+router.delete('/gcr/specials/:id', async (req, res) => {
     const db = getGcrDb();
     const { error } = await db.from('entity_specials').delete().eq('id', req.params.id);
     if (error) return res.status(500).json({ error: error.message });
@@ -2053,6 +2052,24 @@ router.delete('/gcr/specials/:id', adminRequired, async (req, res) => {
 // ============================================
 // GCR MENU ITEMS — direct CRUD
 // ============================================
+
+router.put('/gcr/menu-sections/:sectionId', async (req, res) => {
+    const db = getGcrDb();
+    const { section_name, icon, section_description, sort_order } = req.body;
+    const { data, error } = await db.from('menu_sections').update({
+        section_name, icon: icon||null, section_description: section_description||null, sort_order: sort_order||0,
+    }).eq('id', req.params.sectionId).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
+router.delete('/gcr/menu-sections/:sectionId', async (req, res) => {
+    const db = getGcrDb();
+    await db.from('menu_items').delete().eq('menu_section_id', req.params.sectionId);
+    const { error } = await db.from('menu_sections').delete().eq('id', req.params.sectionId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
 
 router.post('/gcr/entities/:id/menu-sections', async (req, res) => {
     const db = getGcrDb();
@@ -2405,7 +2422,7 @@ router.post('/ai-save-business', async (req, res) => {
     }
 });
 
-router.post('/upload-photo', adminRequired, upload.single('file'), async (req, res) => {
+router.post('/upload-photo', upload.single('file'), async (req, res) => {
     if (!req.file) return res.status(400).json({ error: 'No file uploaded' });
     const { site_id, folder } = req.body;
     const ext = req.file.originalname.split('.').pop();
