@@ -299,7 +299,14 @@ router.post('/search', async (req, res) => {
     if (!searchQuery || !searchQuery.trim()) return res.status(400).json({ error: 'Search query required' });
 
     const q = searchQuery.toLowerCase().trim();
+    // Split multi-word queries into keywords so "Gulf Shores seafood" finds entities with any of those words
+    const keywords = q.split(/\s+/).filter(k => k.length >= 2);
     const matchedEntityIds = new Set();
+
+    // Build OR filter covering all keywords across given fields
+    function kf(...fields) {
+        return keywords.flatMap(k => fields.map(f => `${f}.ilike.%${k}%`)).join(',');
+    }
 
     // Search across all new GCR DB tables in parallel
     const [
@@ -308,21 +315,22 @@ router.post('/search', async (req, res) => {
     ] = await Promise.all([
         // Entity fields: name, subtitle, description, city, entity_subtype
         gcrDb.from('entity').select('id').eq('is_active', true)
-            .or(`name.ilike.%${q}%,subtitle.ilike.%${q}%,description.ilike.%${q}%,city.ilike.%${q}%,entity_subtype.ilike.%${q}%`),
+            .or(kf('name','subtitle','description','city','entity_subtype')),
         // Tags
-        gcrDb.from('entity_tags').select('entity_id').ilike('tag', `%${q}%`),
+        gcrDb.from('entity_tags').select('entity_id')
+            .or(kf('tag')),
         // Menu items: name + description
-        gcrDb.from('menu_items').select('entity_id').or(`item_name.ilike.%${q}%,description.ilike.%${q}%`),
+        gcrDb.from('menu_items').select('entity_id').or(kf('item_name','description')),
         // Drink items: name + description + brewery + item_style
-        gcrDb.from('drink_items').select('entity_id').or(`item_name.ilike.%${q}%,description.ilike.%${q}%,brewery.ilike.%${q}%,item_style.ilike.%${q}%`),
+        gcrDb.from('drink_items').select('entity_id').or(kf('item_name','description','brewery','item_style')),
         // Happy hour items
-        gcrDb.from('happy_hour_items').select('entity_id').or(`item_name.ilike.%${q}%,description.ilike.%${q}%`),
+        gcrDb.from('happy_hour_items').select('entity_id').or(kf('item_name','description')),
         // Specials
-        gcrDb.from('entity_specials').select('entity_id').eq('is_active', true).or(`special_name.ilike.%${q}%,description.ilike.%${q}%,discount_text.ilike.%${q}%`),
+        gcrDb.from('entity_specials').select('entity_id').eq('is_active', true).or(kf('special_name','description','discount_text')),
         // Events
-        gcrDb.from('entity_events').select('entity_id').eq('is_active', true).or(`event_name.ilike.%${q}%,description.ilike.%${q}%,artist_name.ilike.%${q}%,music_style.ilike.%${q}%,event_type.ilike.%${q}%`),
+        gcrDb.from('entity_events').select('entity_id').eq('is_active', true).or(kf('event_name','description','artist_name','music_style','event_type')),
         // Activities (Things To Do)
-        gcrDb.from('activities').select('entity_id').or(`activity_name.ilike.%${q}%,description.ilike.%${q}%,activity_type.ilike.%${q}%`),
+        gcrDb.from('activities').select('entity_id').or(kf('activity_name','description','activity_type')),
     ]);
 
     // Collect all matching entity IDs — filter out undefined/null to prevent UUID parse errors

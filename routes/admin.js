@@ -3202,6 +3202,12 @@ router.delete('/gcr/sections/:sectionId/groups/:groupId', async (req, res) => {
 router.post('/gcr/sections/:sectionId/items', async (req, res) => {
     const { sectionId } = req.params;
     const item = { ...req.body, section_id: sectionId };
+    // Dedup: skip insert if identical item_name already exists in this section
+    if (item.item_name) {
+        const { data: existing } = await gcrDb.from('section_items')
+            .select('id').eq('section_id', sectionId).ilike('item_name', item.item_name).maybeSingle();
+        if (existing) return res.json({ success: true, item: existing, duplicate: true });
+    }
     const { data, error } = await gcrDb.from('section_items').insert(item).select().single();
     if (error) return res.status(500).json({ error: error.message });
     res.json({ success: true, item: data });
