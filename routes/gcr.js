@@ -4,8 +4,7 @@ const getGcrDb = require('../gcr-db');
 
 const router = express.Router();
 
-let gcrDb;
-try { gcrDb = getGcrDb(); } catch(e) { console.warn('GCR DB not initialized:', e.message); }
+const gcrDb = getGcrDb();
 
 // Cache all GET responses on Vercel's CDN for 24 hours
 router.use((req, res, next) => {
