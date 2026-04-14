@@ -434,7 +434,68 @@ router.post('/search', async (req, res) => {
         };
     }).sort((a, b) => b._relevance - a._relevance);
 
-    res.json({ query: searchQuery, results, total: results.length });
+    // Build structured response grouped by type — for voice search and AI concierge
+    const structured = {
+        businesses: results.map(e => ({
+            id: e.id, slug: e.slug, name: e.name, subtitle: e.subtitle,
+            entity_subtype: e.entity_subtype, icon: e.icon, city: e.city,
+            hero_image_url: e.hero_image_url, price_range: e.price_range,
+            rating: e.rating, hh_days: e.hh_days, hh_start: e.hh_start, hh_end: e.hh_end,
+            phone: e.phone, address_line_1: e.address_line_1,
+        })),
+        menu_items: results.flatMap(e =>
+            (menuMatchMap[e.id] || []).map(i => ({
+                item_name: i.item_name, description: i.description,
+                price: i.price, price_text: i.price_text,
+                business: e.name, slug: e.slug, city: e.city,
+            }))
+        ),
+        drink_items: results.flatMap(e =>
+            (drinkMatchMap[e.id] || []).map(i => ({
+                item_name: i.item_name, description: i.description,
+                price: i.price, price_text: i.price_text,
+                item_style: i.item_style, brewery: i.brewery,
+                business: e.name, slug: e.slug, city: e.city,
+            }))
+        ),
+        happy_hour_items: results.flatMap(e =>
+            (hhMatchMap[e.id] || []).map(i => ({
+                item_name: i.item_name, description: i.description,
+                price: i.hh_price, price_text: i.price_text,
+                hh_days: e.hh_days, hh_start: e.hh_start, hh_end: e.hh_end,
+                business: e.name, slug: e.slug, city: e.city,
+            }))
+        ),
+        specials: results.flatMap(e =>
+            (specialMatchMap[e.id] || []).map(s => ({
+                special_name: s.special_name, description: s.description,
+                discount_text: s.discount_text,
+                business: e.name, slug: e.slug, city: e.city,
+            }))
+        ),
+        events: results.flatMap(e =>
+            (eventMatchMap[e.id] || []).map(ev => ({
+                event_name: ev.event_name, event_date: ev.event_date,
+                day_of_week: ev.day_of_week,
+                business: e.name, slug: e.slug, city: e.city,
+            }))
+        ),
+    };
+
+    res.json({
+        query: searchQuery,
+        results,           // full entity results with matched items nested (backwards compat)
+        structured,        // flat lists grouped by type — for voice/AI use
+        total: results.length,
+        counts: {
+            businesses:      structured.businesses.length,
+            menu_items:      structured.menu_items.length,
+            drink_items:     structured.drink_items.length,
+            happy_hour_items: structured.happy_hour_items.length,
+            specials:        structured.specials.length,
+            events:          structured.events.length,
+        }
+    });
 });
 
 // ============================================
