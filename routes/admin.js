@@ -2051,6 +2051,163 @@ router.delete('/gcr/specials/:id', adminRequired, async (req, res) => {
 });
 
 // ============================================
+// GCR MENU ITEMS — direct CRUD
+// ============================================
+
+router.post('/gcr/entities/:id/menu-sections', async (req, res) => {
+    const db = getGcrDb();
+    const { section_name, icon, section_description, sort_order } = req.body;
+    if (!section_name) return res.status(400).json({ error: 'section_name required' });
+    const { data, error } = await db.from('menu_sections').insert({
+        entity_id: req.params.id, section_name, icon: icon||null,
+        section_description: section_description||null, sort_order: sort_order||0,
+    }).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.status(201).json(data);
+});
+
+router.post('/gcr/entities/:id/menu-items', async (req, res) => {
+    const db = getGcrDb();
+    const { item_name, description, price, price_text, menu_section_id, allergens, image_url } = req.body;
+    if (!item_name) return res.status(400).json({ error: 'item_name required' });
+    const { data, error } = await db.from('menu_items').insert({
+        entity_id: req.params.id, menu_section_id: menu_section_id||null,
+        item_name, description: description||null,
+        price: price != null ? parseFloat(price) : null, price_text: price_text||null,
+        allergens: allergens||null, image_url: image_url||null, is_available: true,
+    }).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.status(201).json(data);
+});
+
+router.put('/gcr/menu-items/:itemId', async (req, res) => {
+    const db = getGcrDb();
+    const { item_name, description, price, price_text, menu_section_id, allergens, image_url, is_available } = req.body;
+    const { data, error } = await db.from('menu_items').update({
+        item_name, description: description||null,
+        price: price != null ? parseFloat(price) : null, price_text: price_text||null,
+        menu_section_id: menu_section_id||null, allergens: allergens||null,
+        image_url: image_url||null, is_available: is_available !== false,
+    }).eq('id', req.params.itemId).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
+router.delete('/gcr/menu-items/:itemId', async (req, res) => {
+    const db = getGcrDb();
+    const { error } = await db.from('menu_items').delete().eq('id', req.params.itemId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ============================================
+// GCR DRINK ITEMS — direct CRUD
+// ============================================
+
+router.post('/gcr/entities/:id/drink-sections', async (req, res) => {
+    const db = getGcrDb();
+    const { section_name, section_note, sort_order } = req.body;
+    if (!section_name) return res.status(400).json({ error: 'section_name required' });
+    const { data, error } = await db.from('drink_sections').insert({
+        entity_id: req.params.id, section_name, section_note: section_note||null, sort_order: sort_order||0,
+    }).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.status(201).json(data);
+});
+
+router.post('/gcr/entities/:id/drink-items', async (req, res) => {
+    const db = getGcrDb();
+    const { item_name, description, price, price_text, drink_section_id, item_style, image_url } = req.body;
+    if (!item_name) return res.status(400).json({ error: 'item_name required' });
+    const { data, error } = await db.from('drink_items').insert({
+        entity_id: req.params.id, drink_section_id: drink_section_id||null,
+        item_name, description: description||null,
+        price: price != null ? parseFloat(price) : null, price_text: price_text||null,
+        item_style: item_style||null, image_url: image_url||null, is_available: true,
+    }).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.status(201).json(data);
+});
+
+router.put('/gcr/drink-items/:itemId', async (req, res) => {
+    const db = getGcrDb();
+    const { item_name, description, price, price_text, drink_section_id, item_style, image_url, is_available } = req.body;
+    const { data, error } = await db.from('drink_items').update({
+        item_name, description: description||null,
+        price: price != null ? parseFloat(price) : null, price_text: price_text||null,
+        drink_section_id: drink_section_id||null, item_style: item_style||null,
+        image_url: image_url||null, is_available: is_available !== false,
+    }).eq('id', req.params.itemId).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
+router.delete('/gcr/drink-items/:itemId', async (req, res) => {
+    const db = getGcrDb();
+    const { error } = await db.from('drink_items').delete().eq('id', req.params.itemId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ============================================
+// GCR HAPPY HOUR ITEMS — direct CRUD
+// ============================================
+
+router.post('/gcr/entities/:id/hh-sections', async (req, res) => {
+    const db = getGcrDb();
+    const { section_name, sort_order } = req.body;
+    if (!section_name) return res.status(400).json({ error: 'section_name required' });
+    const { data, error } = await db.from('happy_hour_sections').insert({
+        entity_id: req.params.id, section_name, sort_order: sort_order||0,
+    }).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.status(201).json(data);
+});
+
+router.post('/gcr/entities/:id/hh-items', async (req, res) => {
+    const db = getGcrDb();
+    const { item_name, description, price, price_text, hh_section_id } = req.body;
+    if (!item_name) return res.status(400).json({ error: 'item_name required' });
+    const { data, error } = await db.from('happy_hour_items').insert({
+        entity_id: req.params.id, hh_section_id: hh_section_id||null,
+        item_name, description: description||null,
+        price: price != null ? parseFloat(price) : null, price_text: price_text||null,
+    }).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.status(201).json(data);
+});
+
+router.put('/gcr/hh-items/:itemId', async (req, res) => {
+    const db = getGcrDb();
+    const { item_name, description, price, price_text } = req.body;
+    const { data, error } = await db.from('happy_hour_items').update({
+        item_name, description: description||null,
+        price: price != null ? parseFloat(price) : null, price_text: price_text||null,
+    }).eq('id', req.params.itemId).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
+router.delete('/gcr/hh-items/:itemId', async (req, res) => {
+    const db = getGcrDb();
+    const { error } = await db.from('happy_hour_items').delete().eq('id', req.params.itemId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// PUT /api/admin/gcr/entities/:id/happy-hour — update HH schedule on entity
+router.put('/gcr/entities/:id/happy-hour', async (req, res) => {
+    const db = getGcrDb();
+    const { hh_days, hh_start, hh_end, hh_description } = req.body;
+    const { data, error } = await db.from('entity').update({
+        hh_days: hh_days||null, hh_start: hh_start||null,
+        hh_end: hh_end||null, hh_description: hh_description||null,
+    }).eq('id', req.params.id).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
+// ============================================
 // GET /api/admin/gcr/business-data/:siteId — fetch all data for full editor
 // ============================================
 // Duplicate removed — see GCR version below
