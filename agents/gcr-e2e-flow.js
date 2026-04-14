@@ -78,8 +78,8 @@ async function run() {
     sec('Step 3 — Verify Appears in Public Listing');
     await new Promise(r => setTimeout(r, 1000)); // brief wait for any caching
     const pubRes = await req('GET', '/api/gcr/entities');
-    const pubEntities = pubRes.data?.entities || pubRes.data || [];
-    const found = pubEntities.find(e => e.slug === TEST_SLUG);
+    const pubEntities = Array.isArray(pubRes.data) ? pubRes.data : (pubRes.data?.entities || pubRes.data?.businesses || []);
+    const found = Array.isArray(pubEntities) ? pubEntities.find(e => e.slug === TEST_SLUG) : null;
     if (found) ok(`Entity appears in public listing (is_active=true)`);
     else warn(`Entity not yet in public listing — may be cache delay or is_active defaulted to false`);
 
@@ -98,8 +98,8 @@ async function run() {
     sec('Step 5 — Verify Disappears from Public Listing');
     await new Promise(r => setTimeout(r, 500));
     const pubRes2 = await req('GET', '/api/gcr/entities');
-    const pubEntities2 = pubRes2.data?.entities || pubRes2.data || [];
-    const stillFound = pubEntities2.find(e => e.slug === TEST_SLUG);
+    const pubEntities2 = Array.isArray(pubRes2.data) ? pubRes2.data : (pubRes2.data?.entities || pubRes2.data?.businesses || []);
+    const stillFound = Array.isArray(pubEntities2) ? pubEntities2.find(e => e.slug === TEST_SLUG) : null;
     if (!stillFound) ok('Entity no longer in public listing (is_active=false)');
     else fail('Entity still showing in public listing after deactivation');
 
@@ -111,8 +111,8 @@ async function run() {
 
     await new Promise(r => setTimeout(r, 500));
     const pubRes3 = await req('GET', '/api/gcr/entities');
-    const pubEntities3 = pubRes3.data?.entities || pubRes3.data || [];
-    const reFound = pubEntities3.find(e => e.slug === TEST_SLUG);
+    const pubEntities3 = Array.isArray(pubRes3.data) ? pubRes3.data : (pubRes3.data?.entities || pubRes3.data?.businesses || []);
+    const reFound = Array.isArray(pubEntities3) ? pubEntities3.find(e => e.slug === TEST_SLUG) : null;
     if (reFound) ok('Entity re-appears after re-activation');
     else warn('Entity not found after re-activation — possible cache');
 
