@@ -92,7 +92,7 @@ async function run() {
   if (sections.length === 0) {
     fail('No sections in public profile — section_based CSV may not have saved to entity_sections');
   } else {
-    const sectionNames = sections.map(s => s.section_name || s.title || s.name || '(no name)');
+    const sectionNames = sections.map(s => s.section_label || s.section_key || s.title || s.name || '(no name)');
     ok(`Section names: ${sectionNames.join(', ')}`);
     ['Starters','Entrees','Desserts'].forEach(name => {
       if (sectionNames.some(n => n.toLowerCase().includes(name.toLowerCase()))) ok(`Section found: ${name}`);
@@ -104,12 +104,14 @@ async function run() {
   // Check if items are nested within sections or in a flat items array
   let totalItems = 0;
   for (const section of sections) {
-    const items = section.items || section.section_items || [];
-    totalItems += items.length;
-    if (items.length > 0) {
-      const item = items[0];
-      ok(`Section "${section.section_name||section.title}" has ${items.length} items — first: "${item.item_name||item.name}"`);
-      if (item.price !== undefined || item.price_text) ok(`Item has price: ${item.price || item.price_text}`);
+    const sLabel = section.section_label || section.section_key || section.title || '';
+    // grouped_items returns groups with nested items; also check ungrouped_items
+    const allItems = (section.groups || []).flatMap(g => g.items || []).concat(section.ungrouped_items || section.items || section.section_items || []);
+    totalItems += allItems.length;
+    if (allItems.length > 0) {
+      const item = allItems[0];
+      ok(`Section "${sLabel}" has ${allItems.length} items — first: "${item.item_name||item.name}"`);
+      if (item.price_numeric !== undefined || item.price_text) ok(`Item has price: ${item.price_numeric || item.price_text}`);
       else warn(`Item "${item.item_name||item.name}" missing price`);
     }
   }
@@ -123,7 +125,7 @@ async function run() {
   }
 
   sec('Verify Groups (Seafood / Land sub-groups)');
-  const entreeSection = sections.find(s => (s.section_name||s.title||s.name||'').toLowerCase().includes('entree'));
+  const entreeSection = sections.find(s => (s.section_label||s.section_key||s.title||s.name||'').toLowerCase().includes('entree'));
   if (entreeSection) {
     const groups = entreeSection.groups || entreeSection.section_groups || [];
     if (groups.length > 0) ok(`Entrees has ${groups.length} groups`);
