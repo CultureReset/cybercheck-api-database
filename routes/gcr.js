@@ -275,7 +275,7 @@ router.get('/specials', async (req, res) => {
 // ============================================
 router.post('/search', async (req, res) => {
     const { query: searchQuery, type, city } = req.body;
-    if (!searchQuery) return res.status(400).json({ error: 'Search query required' });
+    if (!searchQuery || !searchQuery.trim()) return res.status(400).json({ error: 'Search query required' });
 
     const q = searchQuery.toLowerCase().trim();
     const matchedEntityIds = new Set();
@@ -304,9 +304,12 @@ router.post('/search', async (req, res) => {
         gcrDb.from('activities').select('entity_id').or(`activity_name.ilike.%${q}%,description.ilike.%${q}%,activity_type.ilike.%${q}%`),
     ]);
 
-    // Collect all matching entity IDs
+    // Collect all matching entity IDs — filter out undefined/null to prevent UUID parse errors
     [byEntity, byTags, byMenuItems, byDrinkItems, byHHItems, bySpecials, byEvents, byActivities]
-        .forEach(res => (res.data || []).forEach(r => matchedEntityIds.add(r.entity_id || r.id)));
+        .forEach(res => (res.data || []).forEach(r => {
+            const id = r.entity_id || r.id;
+            if (id) matchedEntityIds.add(id);
+        }));
 
     if (!matchedEntityIds.size) return res.json({ query: searchQuery, results: [], total: 0 });
 
