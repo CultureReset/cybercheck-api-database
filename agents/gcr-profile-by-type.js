@@ -32,7 +32,11 @@ const NIGHTLIFE_SUBTYPES  = ['nightlife','bar_club','nightclub','sports_bar','ro
 async function fetchEntities() {
   const r = await fetch(API_BASE + '/api/gcr/entities');
   const d = await r.json();
-  return d?.entities || d || [];
+  if (!d || d.error) throw new Error(d?.error || 'Entities endpoint error');
+  if (Array.isArray(d)) return d;
+  if (Array.isArray(d.entities)) return d.entities;
+  if (Array.isArray(d.businesses)) return d.businesses;
+  return [];
 }
 
 async function testProfilePage(browser, entity, expectations) {
