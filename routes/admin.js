@@ -1455,7 +1455,7 @@ router.post('/gcr/import-section-based', async (req, res) => {
             if (sectionCache[key]) return sectionCache[key];
             const { data: existing } = await gcrDb.from('entity_sections').select('id').eq('entity_id', entityId).eq('section_key', key).maybeSingle();
             if (existing) { sectionCache[key] = existing.id; return existing.id; }
-            const { data: created } = await gcrDb.from('entity_sections').insert({ entity_id: entityId, section_key: key, section_label: label, section_type: type, sort_order: order, is_active: true }).select('id').single();
+            const { data: created } = await gcrDb.from('entity_sections').insert({ entity_id: entityId, section_key: key, section_label: label, section_type: type, sort_order: order }).select('id').single();
             sectionCache[key] = created?.id;
             return created?.id;
         }
@@ -2783,6 +2783,8 @@ router.get('/gcr/entities/:id', async (req, res) => {
     try {
         const gcrDb = getGcrDb();
         const { id } = req.params;
+        const uuidRe = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+        if (!uuidRe.test(id)) return res.status(400).json({ error: 'Invalid entity ID format' });
         const [entRes, hoursRes, featRes, tagsRes, pfRes] = await Promise.all([
             gcrDb.from('entity').select('*').eq('id', id).single(),
             gcrDb.from('entity_hours').select('*').eq('entity_id', id).order('id'),
