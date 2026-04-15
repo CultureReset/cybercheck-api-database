@@ -1407,26 +1407,39 @@ router.post('/gcr/import-section-based', async (req, res) => {
     const rows = Array.isArray(req.body) ? req.body : [req.body];
     const { upsertTag } = gcrImportHelpers(gcrDb);
 
-    // Group rows by restaurant_name or slug
+    // Group rows by entity_slug (if provided) or restaurant_name or slug
     const byRestaurant = {};
     for (const row of rows) {
-        const rname = (row.restaurant_name || row.slug || '').trim();
-        if (!rname) continue;
-        if (!byRestaurant[rname]) byRestaurant[rname] = [];
-        byRestaurant[rname].push(row);
+        // Prefer entity_slug as the grouping key if explicitly provided
+        const key = (row.entity_slug || row.restaurant_name || row.slug || '').trim();
+        if (!key) continue;
+        if (!byRestaurant[key]) byRestaurant[key] = [];
+        byRestaurant[key].push(row);
     }
 
     let totalInserted = 0;
     const errors = [];
 
-    for (const [rname, rRows] of Object.entries(byRestaurant)) {
-        // If the key looks like a slug (no spaces), use directly; otherwise derive from name
+    for (const [key, rRows] of Object.entries(byRestaurant)) {
+        const rname = key;
+        // If key looks like a slug (no spaces), use directly; otherwise derive from name
         const slug = rname.includes(' ')
             ? rname.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
             : rname;
 
-        // Find entity by slug or by name
-        let { data: entity } = await gcrDb.from('entity').select('id, slug').eq('slug', slug).single();
+        // If entity_slug provided, try it directly first (exact slug, no derivation)
+        const directSlug = rRows[0]?.entity_slug?.trim();
+
+        // Find entity: prefer direct entity_slug → derived slug → name match
+        let entity = null;
+        if (directSlug) {
+            const { data } = await gcrDb.from('entity').select('id, slug').eq('slug', directSlug).maybeSingle();
+            entity = data;
+        }
+        if (!entity) {
+            const { data } = await gcrDb.from('entity').select('id, slug').eq('slug', slug).maybeSingle();
+            entity = data;
+        }
         if (!entity) {
             // Try name match
             const { data: byName } = await gcrDb.from('entity').select('id, slug').ilike('name', rname).limit(1).maybeSingle();

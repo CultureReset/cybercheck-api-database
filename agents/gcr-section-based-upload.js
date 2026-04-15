@@ -60,17 +60,17 @@ async function run() {
   ok(`Created: ${slug} (id: ${entityId})`);
 
   sec('Section-Based Upload');
-  // import-section-based uses restaurant_name (not slug), section_type, section, item_name, description, price
+  // import-section-based: send entity_slug for exact lookup, plus restaurant_name as fallback label
   const entityName = 'Section Test Restaurant';
   const sectionRows = [
-    { restaurant_name: entityName, section_type: 'menu', section: 'Starters', item_name: 'Gulf Shrimp Cocktail', description: 'Chilled gulf shrimp with cocktail sauce', price: '14.00' },
-    { restaurant_name: entityName, section_type: 'menu', section: 'Starters', item_name: 'Oysters on the Half Shell', description: 'Fresh local oysters', price: '18.00' },
-    { restaurant_name: entityName, section_type: 'menu', section: 'Starters', item_name: 'Crab Dip', description: 'Hot crab dip with chips', price: '12.00' },
-    { restaurant_name: entityName, section_type: 'menu', section: 'Entrees', item_name: 'Grilled Red Snapper', description: 'Fresh caught with lemon butter', price: '28.00' },
-    { restaurant_name: entityName, section_type: 'menu', section: 'Entrees', item_name: 'Shrimp & Grits', description: 'Gulf shrimp over stone-ground grits', price: '22.00' },
-    { restaurant_name: entityName, section_type: 'menu', section: 'Desserts', item_name: 'Key Lime Pie', description: 'Florida-style key lime', price: '8.00' },
-    { restaurant_name: entityName, section_type: 'drinks', section: 'Signature Cocktails', item_name: 'The Gulf Wave', description: 'Vodka + blue curacao + pineapple', price: '12.00' },
-    { restaurant_name: entityName, section_type: 'drinks', section: 'Signature Cocktails', item_name: 'Sunset Sour', description: 'Whiskey sour with orange', price: '11.00' },
+    { entity_slug: slug, restaurant_name: entityName, section_type: 'menu', section: 'Starters', item_name: 'Gulf Shrimp Cocktail', description: 'Chilled gulf shrimp with cocktail sauce', price: '14.00' },
+    { entity_slug: slug, restaurant_name: entityName, section_type: 'menu', section: 'Starters', item_name: 'Oysters on the Half Shell', description: 'Fresh local oysters', price: '18.00' },
+    { entity_slug: slug, restaurant_name: entityName, section_type: 'menu', section: 'Starters', item_name: 'Crab Dip', description: 'Hot crab dip with chips', price: '12.00' },
+    { entity_slug: slug, restaurant_name: entityName, section_type: 'menu', section: 'Entrees', item_name: 'Grilled Red Snapper', description: 'Fresh caught with lemon butter', price: '28.00' },
+    { entity_slug: slug, restaurant_name: entityName, section_type: 'menu', section: 'Entrees', item_name: 'Shrimp & Grits', description: 'Gulf shrimp over stone-ground grits', price: '22.00' },
+    { entity_slug: slug, restaurant_name: entityName, section_type: 'menu', section: 'Desserts', item_name: 'Key Lime Pie', description: 'Florida-style key lime', price: '8.00' },
+    { entity_slug: slug, restaurant_name: entityName, section_type: 'drinks', section: 'Signature Cocktails', item_name: 'The Gulf Wave', description: 'Vodka + blue curacao + pineapple', price: '12.00' },
+    { entity_slug: slug, restaurant_name: entityName, section_type: 'drinks', section: 'Signature Cocktails', item_name: 'Sunset Sour', description: 'Whiskey sour with orange', price: '11.00' },
   ];
 
   const importRes = await api('POST', '/api/admin/gcr/import-section-based', sectionRows);
@@ -82,7 +82,7 @@ async function run() {
 
   sec('Verify in Public Profile → sections');
   await new Promise(r => setTimeout(r, 800));
-  const pr = await fetch(BASE + `/api/gcr/entity/${slug}`);
+  const pr = await fetch(BASE + `/api/gcr/entity/${slug}?t=${Date.now()}`);
   if (!pr.ok) { fail('Public profile fetch failed'); await cleanup(); return; }
   const pd = await pr.json();
 
