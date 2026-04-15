@@ -51,34 +51,34 @@ const ALL_AGENTS = [
   { name: 'gcr-csv-errors', label: 'CSV Error Handling', group: 'Upload Tests' },
 
   // 5. Admin dashboard — cybercheck-login
-  { name: 'test-dashboard-pages', label: 'Dashboard Pages Load (admin.html)', group: 'Admin Dashboard' },
-  { name: 'test-buttons', label: 'All Clickable Buttons', group: 'Admin Dashboard' },
+  { name: 'test-dashboard-pages', label: 'Dashboard Pages Load (admin.html)', group: 'Admin Dashboard', timeout: 600000 },
+  { name: 'test-buttons', label: 'All Clickable Buttons', group: 'Admin Dashboard', timeout: 600000 },
   { name: 'gcr-entity-editor-save', label: 'Entity Editor Full Save', group: 'Admin Dashboard' },
   { name: 'gcr-active-toggle', label: 'Active/Inactive Toggle', group: 'Admin Dashboard' },
   { name: 'gcr-ai-organizer-audit', label: 'AI Menu Organizer', group: 'Admin Dashboard' },
-  { name: 'uiux-reviewer', label: 'UI/UX Review', group: 'Admin Dashboard' },
+  { name: 'uiux-reviewer', label: 'UI/UX Review', group: 'Admin Dashboard', timeout: 600000 },
 
   // 6. Public site — launching-GCR
-  { name: 'test-public-site', label: 'All Public Pages Load', group: 'Public Site' },
+  { name: 'test-public-site', label: 'All Public Pages Load', group: 'Public Site', timeout: 600000 },
   { name: 'gcr-section-editor-flow', label: 'Section Editor → Profile Tabs', group: 'Public Site' },
   { name: 'gcr-category-pages-audit', label: 'Category Pages Coverage', group: 'Public Site' },
   { name: 'gcr-search-audit', label: 'Search Functionality', group: 'Public Site' },
   { name: 'gcr-featured-audit', label: 'Featured Entities', group: 'Public Site' },
   { name: 'gcr-homepage-render', label: 'Homepage Render Data', group: 'Public Site' },
-  { name: 'gcr-profile-by-type', label: 'Profile Pages by Entity Type', group: 'Public Site' },
+  { name: 'gcr-profile-by-type', label: 'Profile Pages by Entity Type', group: 'Public Site', timeout: 600000 },
 
   // 7. Full pipeline: admin → API → public site display
-  { name: 'gcr-data-flow', label: 'Full Data Flow (Admin → API → Public)', group: 'Pipeline' },
+  { name: 'gcr-data-flow', label: 'Full Data Flow (Admin → API → Public)', group: 'Pipeline', timeout: 600000 },
   { name: 'gcr-frontend-check', label: 'Frontend HTML/Script Audit', group: 'Pipeline' },
-  { name: 'gcr-full-verify', label: 'Full System Verification', group: 'Pipeline' },
-  { name: 'gcr-system-audit', label: 'System-Wide Audit', group: 'Pipeline' },
-  { name: 'pre-launch', label: 'Pre-Launch Checklist', group: 'Pipeline' },
+  { name: 'gcr-full-verify', label: 'Full System Verification', group: 'Pipeline', timeout: 600000 },
+  { name: 'gcr-system-audit', label: 'System-Wide Audit', group: 'Pipeline', timeout: 600000 },
+  { name: 'pre-launch', label: 'Pre-Launch Checklist', group: 'Pipeline', timeout: 600000 },
 
   // 8. Coverage gaps
   { name: 'gcr-activity-cards', label: 'Activity Card Fields', group: 'Coverage Gaps' },
   { name: 'gcr-e2e-flow', label: 'End-to-End: Add → Public → Toggle', group: 'Coverage Gaps' },
-  { name: 'gcr-404-handling', label: '404 & Error Handling', group: 'Coverage Gaps' },
-  { name: 'gcr-search-queries', label: 'Real Search Queries', group: 'Coverage Gaps' },
+  { name: 'gcr-404-handling', label: '404 & Error Handling', group: 'Coverage Gaps', timeout: 600000 },
+  { name: 'gcr-search-queries', label: 'Real Search Queries', group: 'Coverage Gaps', timeout: 600000 },
 ];
 
 const agentsDir = path.join(__dirname);
@@ -109,7 +109,7 @@ for (const agent of agents) {
 
   try {
     const output = execSync(`node "${agentPath}"`, {
-      timeout: 180000,  // 3 min timeout per agent (Anthropic analysis can take ~90s)
+      timeout: agent.timeout || 180000,  // default 3 min; Playwright/pipeline agents get 10 min
       env: { ...process.env },
       cwd: projectRoot,  // run each agent from project root so dotenv finds .env
       encoding: 'utf8',
