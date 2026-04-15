@@ -1246,8 +1246,11 @@ Return ONLY valid JSON: { "rows": [...normalized rows], "questions": ["any clari
     const sample = rows.slice(0, 20);
 
     try {
+        const controller = new AbortController();
+        const aiTimeout = setTimeout(() => controller.abort(), 20000);
         const resp = await fetch('https://api.x.ai/v1/chat/completions', {
             method: 'POST',
+            signal: controller.signal,
             headers: { 'Authorization': `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 model: 'grok-3-mini',
@@ -1259,6 +1262,7 @@ Return ONLY valid JSON: { "rows": [...normalized rows], "questions": ["any clari
                 max_tokens: 4000,
             }),
         });
+        clearTimeout(aiTimeout);
         if (!resp.ok) throw new Error(`Grok API ${resp.status}`);
         const data = await resp.json();
         const content = data.choices?.[0]?.message?.content || '';
