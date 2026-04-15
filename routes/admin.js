@@ -2535,8 +2535,8 @@ router.post('/ai-organize', async (req, res) => {
     const { data: settings } = await supabase.from('ai_settings').select('*').eq('id', 1).single();
     const cfg = settings || {};
 
-    const provider  = cfg.chat_provider || 'anthropic';
-    const model     = cfg.chat_model    || 'claude-sonnet-4-6';
+    const provider  = cfg.chat_provider || 'grok';
+    const model     = cfg.chat_model    || 'grok-3';
 
     // Pick the right API key for the active provider
     let apiKey;
