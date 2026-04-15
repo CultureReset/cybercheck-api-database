@@ -19,14 +19,26 @@ function sec(t){console.log(`\n${B}${C}── ${t} ${'─'.repeat(Math.max(0,54-
 
 const API_BASE = process.env.API_BASE || 'https://cybercheck-api-database.vercel.app';
 
+// cardSel: CSS selector for repeating card element
+// nameSel: CSS selector for the name/title inside each card
+// apiCheck: URL to verify data exists before expecting cards
 const CATEGORY_PAGES = [
-  { url: '/restaurants.html',   label: 'Restaurants',  apiCheck: `${API_BASE}/api/gcr/entities?subtype=restaurant&limit=1` },
-  { url: '/nightlife.html',     label: 'Nightlife',    apiCheck: `${API_BASE}/api/gcr/entities?subtype=nightlife&limit=1` },
-  { url: '/things-to-do.html',  label: 'Things To Do', apiCheck: `${API_BASE}/api/gcr/entities?subtype=activity&limit=1` },
-  { url: '/shopping.html',      label: 'Shopping',     apiCheck: `${API_BASE}/api/gcr/entities?subtype=shopping&limit=1` },
-  { url: '/happy-hours.html',   label: 'Happy Hours',  apiCheck: `${API_BASE}/api/gcr/happy-hours` },
-  { url: '/events.html',        label: 'Events',       apiCheck: `${API_BASE}/api/gcr/events` },
-  { url: '/specials.html',      label: 'Specials',     apiCheck: `${API_BASE}/api/gcr/specials` },
+  // Standard .gcr-card pages
+  { url: '/restaurants.html',   label: 'Restaurants',     cardSel: '.gcr-card',      nameSel: '.gcr-card-name', apiCheck: `${API_BASE}/api/gcr/entities?limit=1` },
+  { url: '/nightlife.html',     label: 'Nightlife',       cardSel: '.gcr-card',      nameSel: '.gcr-card-name', apiCheck: `${API_BASE}/api/gcr/entities?limit=1` },
+  { url: '/things-to-do.html',  label: 'Things To Do',    cardSel: '.gcr-card',      nameSel: '.gcr-card-name', apiCheck: `${API_BASE}/api/gcr/entities?limit=1` },
+  { url: '/shopping.html',      label: 'Shopping',        cardSel: '.gcr-card',      nameSel: '.gcr-card-name', apiCheck: `${API_BASE}/api/gcr/entities?limit=1` },
+  { url: '/services.html',      label: 'Services',        cardSel: '.gcr-card',      nameSel: '.gcr-card-name', apiCheck: `${API_BASE}/api/gcr/entities?limit=1` },
+  // Different card structures
+  { url: '/coffee-sweets.html', label: 'Coffee & Sweets', cardSel: '.cafe-card,.gcr-card', nameSel: '.name,.gcr-card-name', apiCheck: `${API_BASE}/api/gcr/entities?limit=1` },
+  { url: '/artists.html',       label: 'Artists',         cardSel: '.artist-card',   nameSel: '.artist-card-body h4', apiCheck: null },
+  { url: '/public-spots.html',  label: 'Public Spots',    cardSel: '.utility-card',  nameSel: '.name',          apiCheck: null },
+  // Data-driven pages
+  { url: '/happy-hours.html',   label: 'Happy Hours',     cardSel: '.gcr-card',      nameSel: '.gcr-card-name', apiCheck: `${API_BASE}/api/gcr/happy-hours` },
+  { url: '/events.html',        label: 'Events',          cardSel: '.gcr-card',      nameSel: '.gcr-card-name', apiCheck: `${API_BASE}/api/gcr/events` },
+  { url: '/specials.html',      label: 'Specials',        cardSel: '.gcr-card',      nameSel: '.gcr-card-name', apiCheck: `${API_BASE}/api/gcr/specials` },
+  // Search page — two card types
+  { url: '/search.html',        label: 'Search',          cardSel: '.gcr-search-card,.gcr-item-card', nameSel: '.gcr-search-card-name,.gcr-item-card-bizname', apiCheck: null },
 ];
 
 async function auditCategoryPage(page, pageInfo) {
@@ -58,36 +70,37 @@ async function auditCategoryPage(page, pageInfo) {
     if (!res || res.status() >= 400) { fail(`${pageInfo.label}: HTTP ${res?.status()}`); return; }
   } catch(e) { fail(`${pageInfo.label}: load error — ${e.message.slice(0,60)}`); return; }
 
+  const cardSel = pageInfo.cardSel || '.gcr-card';
+  const nameSel = pageInfo.nameSel || '.gcr-card-name';
+
   // Wait for JS to fetch API data and render cards — up to 10s
   let cardCount = 0;
   for (let i = 0; i < 4; i++) {
     await page.waitForTimeout(2500);
-    cardCount = await page.locator('.gcr-card').count().catch(() => 0);
+    cardCount = await page.locator(cardSel).count().catch(() => 0);
     if (cardCount > 0) break;
   }
 
   // ── Cards rendered ──
   if (cardCount > 0) ok(`${cardCount} cards rendered`);
   else {
-    const altCount = await page.locator('.event-card, .special-card, .event-row, .special, .hh-card, .listing-card').count().catch(() => 0);
-    if (altCount > 0) { ok(`${altCount} items rendered (alternate card style)`); return; }
     if (!apiHasData) {
       warn(`No cards on ${pageInfo.label} — confirmed: no data in API (expected)`);
       return;
     }
     const bodyLen = (await page.locator('body').textContent({ timeout: 2000 }).catch(() => '')).length;
     if (bodyLen < 500) fail(`Page body nearly empty — JS may have crashed`);
-    else fail(`Cards not rendering — API has data but .gcr-card not populating`);
+    else fail(`Cards not rendering — API has data but "${cardSel}" not populating`);
     return;
   }
 
   if (cardCount > 0) {
     // ── Card name ──
-    const nameCount = await page.locator('.gcr-card-name').count().catch(() => 0);
+    const nameCount = await page.locator(nameSel).count().catch(() => 0);
     if (nameCount > 0) {
-      const firstName = await page.locator('.gcr-card-name').first().textContent({ timeout: 2000 }).catch(() => '');
+      const firstName = await page.locator(nameSel).first().textContent({ timeout: 2000 }).catch(() => '');
       ok(`Card names visible — first: "${firstName.trim().slice(0, 50)}"`);
-    } else fail(`Cards present but .gcr-card-name missing`);
+    } else fail(`Cards present but name selector "${nameSel}" missing`);
 
     // ── Card images ──
     const imgCards = await page.evaluate(() => {
