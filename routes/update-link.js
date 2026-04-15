@@ -55,6 +55,12 @@ function linkUrl(tok) {
     return `${base}/menu-editor.html?token=${tok}`;
 }
 
+// Mark link submitted (fire-and-forget)
+function markSubmitted(token) {
+    supabase.from('update_links').update({ submitted_at: new Date().toISOString() })
+        .eq('token', token).is('submitted_at', null).then(() => {});
+}
+
 // ── Token validation middleware (for all public /:token/* routes) ─────────────
 async function validateToken(req, res, next) {
     const token = req.params.token;
@@ -63,6 +69,8 @@ async function validateToken(req, res, next) {
     if (link.expires_at && new Date(link.expires_at) < new Date()) return res.status(410).json({ error: 'Link expired' });
     req.link = link;
     req.entityId = link.entity_id;
+    // Mark submitted on any write (POST/PUT/DELETE) — fire-and-forget
+    if (req.method !== 'GET' && !link.submitted_at) markSubmitted(token);
     next();
 }
 
@@ -130,6 +138,32 @@ router.get('/status/:entity_id', adminRequired, async (req, res) => {
     res.json({ links: data || [], today });
 });
 
+// GET /today — all links generated today across all entities (admin)
+router.get('/today', adminRequired, async (req, res) => {
+    const today = new Date().toISOString().split('T')[0];
+    const { data: links } = await supabase.from('update_links').select('*')
+        .eq('link_date', today).order('created_at', { ascending: false });
+    if (!links || !links.length) return res.json({ links: [], today });
+
+    // Join entity names
+    const entityIds = [...new Set(links.map(l => l.entity_id))];
+    const { data: entities } = await db().from('entity').select('id,name,icon,slug').in('id', entityIds);
+    const entMap = {};
+    (entities || []).forEach(e => { entMap[e.id] = e; });
+
+    const result = links.map(l => {
+        const ent = entMap[l.entity_id] || {};
+        return {
+            ...l,
+            entity_name: ent.name || 'Unknown',
+            entity_icon: ent.icon || '🏪',
+            entity_slug: ent.slug || '',
+            url: linkUrl(l.token),
+        };
+    });
+    res.json({ links: result, today });
+});
+
 // ═══════════════════════════════════════════════════════════════
 // PUBLIC — Mobile editor
 // ═══════════════════════════════════════════════════════════════
@@ -146,6 +180,10 @@ router.get('/:token', async (req, res) => {
 
 // GET /update/:token/data — load all sections + items
 router.get('/:token/data', validateToken, async (req, res) => {
+    // Mark link as opened (fire-and-forget, don't block response)
+    supabase.from('update_links').update({ opened_at: new Date().toISOString() })
+        .eq('token', req.params.token).is('opened_at', null).then(() => {});
+
     const eid = req.entityId;
     const g = db();
     const [entity, specials, menuSections, menuItems, drinkSections, drinkItems, hhSections, hhItems, events, photos] = await Promise.all([
