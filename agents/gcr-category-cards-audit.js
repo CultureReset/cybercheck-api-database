@@ -17,18 +17,38 @@ function fail(m){console.log(`  ${R}✗${X} ${m}`);failed.push(m);}
 function warn(m){console.log(`  ${Y}⚠${X} ${m}`);warned.push(m);}
 function sec(t){console.log(`\n${B}${C}── ${t} ${'─'.repeat(Math.max(0,54-t.length))}${X}`);}
 
+const API_BASE = process.env.API_BASE || 'https://cybercheck-api-database.vercel.app';
+
 const CATEGORY_PAGES = [
-  { url: '/restaurants.html',   label: 'Restaurants' },
-  { url: '/nightlife.html',     label: 'Nightlife' },
-  { url: '/things-to-do.html',  label: 'Things To Do' },
-  { url: '/shopping.html',      label: 'Shopping' },
-  { url: '/happy-hours.html',   label: 'Happy Hours' },
-  { url: '/events.html',        label: 'Events' },
-  { url: '/specials.html',      label: 'Specials' },
+  { url: '/restaurants.html',   label: 'Restaurants',  apiCheck: `${API_BASE}/api/gcr/entities?subtype=restaurant&limit=1` },
+  { url: '/nightlife.html',     label: 'Nightlife',    apiCheck: `${API_BASE}/api/gcr/entities?subtype=nightlife&limit=1` },
+  { url: '/things-to-do.html',  label: 'Things To Do', apiCheck: `${API_BASE}/api/gcr/entities?subtype=activity&limit=1` },
+  { url: '/shopping.html',      label: 'Shopping',     apiCheck: `${API_BASE}/api/gcr/entities?subtype=shopping&limit=1` },
+  { url: '/happy-hours.html',   label: 'Happy Hours',  apiCheck: `${API_BASE}/api/gcr/happy-hours` },
+  { url: '/events.html',        label: 'Events',       apiCheck: `${API_BASE}/api/gcr/events` },
+  { url: '/specials.html',      label: 'Specials',     apiCheck: `${API_BASE}/api/gcr/specials` },
 ];
 
 async function auditCategoryPage(page, pageInfo) {
   sec(`${pageInfo.label} (${pageInfo.url})`);
+
+  // Check API first — if no data exists, cards won't render and that's expected
+  let apiHasData = true;
+  if (pageInfo.apiCheck) {
+    try {
+      const ar = await fetch(pageInfo.apiCheck);
+      if (ar.ok) {
+        const ad = await ar.json();
+        const count = ad.total || (ad.entities||ad.businesses||ad.happy_hours||ad.events||ad.specials||[]).length;
+        if (count === 0) {
+          warn(`${pageInfo.label}: API returned 0 records — no cards expected`);
+          apiHasData = false;
+        } else {
+          ok(`API has ${count}+ records for ${pageInfo.label}`);
+        }
+      }
+    } catch {}
+  }
 
   const errors = [];
   page.on('pageerror', e => errors.push(e.message.slice(0, 100)));
@@ -49,14 +69,15 @@ async function auditCategoryPage(page, pageInfo) {
   // ── Cards rendered ──
   if (cardCount > 0) ok(`${cardCount} cards rendered`);
   else {
-    // Check for event/special cards (different structure on events.html, specials.html, happy-hours.html)
     const altCount = await page.locator('.event-card, .special-card, .event-row, .special, .hh-card, .listing-card').count().catch(() => 0);
-    if (altCount > 0) { ok(`${altCount} event/special items rendered (alternate card style)`); return; }
-    // Log what IS on the page to help diagnose
-    const bodyLen = await page.locator('body').textContent({ timeout: 2000 }).catch(() => '');
-    warn(`No cards rendered on ${pageInfo.label} after 10s — body length: ${bodyLen.length} chars`);
-    if (bodyLen.length < 500) fail(`Page body nearly empty — JS may have crashed or API blocked`);
-    else fail(`Cards not rendering — JS loaded but data not populating .gcr-card`);
+    if (altCount > 0) { ok(`${altCount} items rendered (alternate card style)`); return; }
+    if (!apiHasData) {
+      warn(`No cards on ${pageInfo.label} — confirmed: no data in API (expected)`);
+      return;
+    }
+    const bodyLen = (await page.locator('body').textContent({ timeout: 2000 }).catch(() => '')).length;
+    if (bodyLen < 500) fail(`Page body nearly empty — JS may have crashed`);
+    else fail(`Cards not rendering — API has data but .gcr-card not populating`);
     return;
   }
 
