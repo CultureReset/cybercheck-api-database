@@ -203,7 +203,8 @@ async function testSectionBasedUpload() {
   else fail(`Section-based import failed: ${r.data?.error}`);
 
   await new Promise(r => setTimeout(r, 500));
-  const pub = await api('GET', `/api/gcr/entity/${TEST_SLUG}`);
+  // Use cache-busting param so Vercel CDN doesn't serve the pre-import cached profile
+  const pub = await api('GET', `/api/gcr/entity/${TEST_SLUG}?t=${Date.now()}`);
   const sections = pub.data?.sections || [];
   const lunchSec = sections.find(s => s.section_key === 'lunch_menu');
   if (lunchSec) ok('lunch_menu section visible in public API');
