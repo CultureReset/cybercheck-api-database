@@ -4116,13 +4116,6 @@ router.post('/ai-scrape-approve', adminRequired, async (req, res) => {
         hh_days: structured.hh_days || null,
         hh_start: structured.hh_start || null,
         hh_end: structured.hh_end || null,
-        kids_friendly: structured.kids_friendly || false,
-        pet_friendly: structured.pet_friendly || false,
-        live_music: structured.live_music || false,
-        waterfront: structured.waterfront || false,
-        outdoor_seating: structured.outdoor_seating || false,
-        alcohol: structured.alcohol || false,
-        booking_required: structured.booking_required || false,
         is_active: false, // admin activates manually after review
     };
 
@@ -4135,6 +4128,12 @@ router.post('/ai-scrape-approve', adminRequired, async (req, res) => {
 
     const eid = entity.id;
     saved.entity = { id: eid, slug: entity.slug };
+
+    // ── Feature flags → tags ──
+    const featureFlags = { kids_friendly: 'kids_friendly', pet_friendly: 'pet_friendly', live_music: 'live_music', waterfront: 'waterfront', outdoor_seating: 'outdoor_seating', alcohol: 'full_bar', booking_required: 'booking_required' };
+    for (const [key, tag] of Object.entries(featureFlags)) {
+        if (structured[key]) await gcrDb.from('entity_tags').upsert({ entity_id: eid, tag, tag_category: 'amenity' }, { onConflict: 'entity_id,tag' });
+    }
 
     // ── Hours ──
     if (structured.hours?.length) {
