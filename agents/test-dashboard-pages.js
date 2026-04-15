@@ -89,8 +89,18 @@ async function testPage(page, pageId, label) {
     if (await nav.count() > 0) await nav.click();
   }
 
-  // Wait for page to settle
-  await page.waitForTimeout(1800);
+  // Wait for page to settle (max 3 seconds)
+  try {
+    await Promise.race([
+      page.waitForTimeout(800),
+      page.waitForFunction(() => {
+        const el = document.querySelector(`#page-${pageId}`);
+        return el && el.textContent && !el.textContent.includes('Loading...');
+      }, { timeout: 2000 }).catch(() => {})
+    ]);
+  } catch (e) {
+    // Timeout is ok, continue anyway
+  }
 
   // Check for stuck "Loading..." text
   const pageContent = await page.locator(`#page-${pageId}`).textContent().catch(() => '');
@@ -130,6 +140,12 @@ async function testPage(page, pageId, label) {
 }
 
 async function injectAuth(page, API_BASE, email, password) {
+  // If no credentials provided, try to load without auth (might fail if protected)
+  if (!email || !password) {
+    console.log(`${YELLOW}⚠ No credentials provided — attempting to load dashboard without auth${RESET}`);
+    return false;
+  }
+
   // Inject admin token via API login
   const tokenRes = await page.evaluate(async ({ base, email, pass }) => {
     const res = await fetch(base + '/api/admin/login', {
@@ -231,7 +247,17 @@ async function run() {
   console.log();
 }
 
-run().catch(e => {
-  console.error(RED + 'Fatal: ' + RESET + e.message);
+// Wrap run with a timeout to prevent hangs
+const MAX_RUNTIME = 5 * 60 * 1000; // 5 minutes max
+const runWithTimeout = Promise.race([
+  run(),
+  new Promise((_, reject) => setTimeout(() => reject(new Error('Test timeout (5 min) — dashboard may require auth')), MAX_RUNTIME))
+]);
+
+runWithTimeout.catch(e => {
+  console.error(`\n${RED}Fatal: ${RESET}${e.message}`);
+  if (e.message.includes('timeout')) {
+    console.log(`\n${YELLOW}Hint: Set ADMIN_EMAIL and ADMIN_PASS environment variables to test authenticated pages${RESET}`);
+  }
   process.exit(1);
 });

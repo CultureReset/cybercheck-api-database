@@ -1195,7 +1195,9 @@ router.post('/gcr/import-csv', async (req, res) => {
 // ── Grok AI normalization helper — cleans up messy CSV data before saving
 async function normalizeRowsWithAI(rows, type, skipAI = false) {
     const apiKey = process.env.XAI_API_KEY || process.env.GROK_API_KEY;
-    if (!apiKey || !rows.length || skipAI) return { rows, questions: [] };
+    if (!apiKey || !rows.length || skipAI) {
+        return { rows, questions: [], skipped: skipAI ? 'skip_ai requested' : 'no API key' };
+    }
 
     const prompts = {
         menu: `You are normalizing restaurant menu CSV import rows. Fix each row:
@@ -1247,7 +1249,7 @@ Return ONLY valid JSON: { "rows": [...normalized rows], "questions": ["any clari
 
     try {
         const controller = new AbortController();
-        const aiTimeout = setTimeout(() => controller.abort(), 20000);
+        const aiTimeout = setTimeout(() => controller.abort(), 15000); // 15s timeout
         const resp = await fetch('https://api.x.ai/v1/chat/completions', {
             method: 'POST',
             signal: controller.signal,
@@ -1263,26 +1265,33 @@ Return ONLY valid JSON: { "rows": [...normalized rows], "questions": ["any clari
             }),
         });
         clearTimeout(aiTimeout);
-        if (!resp.ok) throw new Error(`Grok API ${resp.status}`);
+        if (!resp.ok) {
+            const errData = await resp.json().catch(() => ({}));
+            throw new Error(`Grok API ${resp.status}: ${errData.error?.message || 'unknown error'}`);
+        }
         const data = await resp.json();
         const content = data.choices?.[0]?.message?.content || '';
         const jsonMatch = content.match(/```(?:json)?\n?([\s\S]*?)\n?```/) || content.match(/(\{[\s\S]*\})/);
         const parsed = JSON.parse(jsonMatch ? jsonMatch[1] : content);
         const normalizedRows = [...(parsed.rows || sample), ...rows.slice(20)];
-        return { rows: normalizedRows, questions: parsed.questions?.filter(Boolean) || [] };
+        return { rows: normalizedRows, questions: parsed.questions?.filter(Boolean) || [], normalized: true };
     } catch (err) {
-        console.warn('[normalizeRowsWithAI] fallback to original rows:', err.message);
-        return { rows, questions: [] };
+        // Gracefully fall back to original rows if Grok fails
+        console.warn(`[normalizeRowsWithAI] Grok failed (${type}), using original rows:`, err.message);
+        return { rows, questions: [], normalized: false, grok_error: err.message };
     }
 }
 
 // ── POST /api/admin/gcr/import-menu
+// Query params: skip_ai=true to skip Grok normalization
 router.post('/gcr/import-menu', async (req, res) => {
     const gcrDb = getGcrDb();
     let rows = Array.isArray(req.body) ? req.body : [req.body];
     if (!rows.length || rows.every(r => !r || (!r.slug && !r.menu_item_name && !r.menu_section_name)))
         return res.status(400).json({ error: 'No valid rows — required: slug, menu_item_name' });
     const aiResult = await normalizeRowsWithAI(rows, 'menu', !!req.query.skip_ai);
+    if (aiResult.skipped) console.log(`[import-menu] Skipped AI normalization: ${aiResult.skipped}`);
+    if (!aiResult.normalized && aiResult.grok_error) console.log(`[import-menu] Grok failed, proceeding with original rows: ${aiResult.grok_error}`);
     if (aiResult.questions.length) return res.json({ needs_clarification: true, questions: aiResult.questions, preview: aiResult.rows });
     rows = aiResult.rows;
     const { getEntityId, upsertTag, getOrCreate } = gcrImportHelpers(gcrDb);

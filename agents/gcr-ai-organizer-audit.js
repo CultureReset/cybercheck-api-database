@@ -22,10 +22,24 @@ async function api(method, path, body) {
   const headers = { 'Content-Type': 'application/json' };
   if (token) headers['Authorization'] = 'Bearer ' + token;
   try {
-    const res = await fetch(BASE + path, { method, headers, body: body ? JSON.stringify(body) : undefined });
-    let data = null; try { data = await res.json(); } catch {}
-    return { status: res.status, data, ok: res.status < 400 };
-  } catch(e) { return { status: 0, data: null, ok: false }; }
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 10000); // 10s timeout per request
+    try {
+      const res = await fetch(BASE + path, {
+        method,
+        headers,
+        signal: controller.signal,
+        body: body ? JSON.stringify(body) : undefined
+      });
+      clearTimeout(timeout);
+      let data = null; try { data = await res.json(); } catch {}
+      return { status: res.status, data, ok: res.status < 400 };
+    } finally {
+      clearTimeout(timeout);
+    }
+  } catch(e) {
+    return { status: 0, data: null, ok: false, error: e.message };
+  }
 }
 
 // Raw messy menu text like a business owner might paste in
