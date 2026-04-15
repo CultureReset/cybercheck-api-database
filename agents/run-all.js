@@ -79,6 +79,11 @@ const ALL_AGENTS = [
   { name: 'gcr-e2e-flow', label: 'End-to-End: Add → Public → Toggle', group: 'Coverage Gaps' },
   { name: 'gcr-404-handling', label: '404 & Error Handling', group: 'Coverage Gaps', timeout: 600000 },
   { name: 'gcr-search-queries', label: 'Real Search Queries', group: 'Coverage Gaps', timeout: 600000 },
+
+  // 9. Page content — deep field verification (launching-GCR display correctness)
+  { name: 'gcr-homepage-content-audit', label: 'Homepage Content (tiles, featured, calendar)', group: 'Page Content', timeout: 300000 },
+  { name: 'gcr-category-cards-audit', label: 'Category Cards (name, image, subtitle, filters)', group: 'Page Content', timeout: 300000 },
+  { name: 'gcr-profile-content-audit', label: 'Profile Pages (name, meta, tabs, menu, events)', group: 'Page Content', timeout: 300000 },
 ];
 
 const agentsDir = path.join(__dirname);
