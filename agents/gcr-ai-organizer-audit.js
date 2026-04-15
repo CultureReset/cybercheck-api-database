@@ -84,7 +84,7 @@ async function run() {
 
   let aiRoute = null;
   for (const route of routes) {
-    const r = await api('POST', route, { text: RAW_MENU.trim() });
+    const r = await api('POST', route, { raw_text: RAW_MENU.trim(), business_type: 'restaurant' });
     if (r.status !== 404 && r.status !== 405) {
       aiRoute = route;
       ok(`Found AI organizer route: ${route} (status: ${r.status})`);
@@ -107,7 +107,7 @@ async function run() {
   }
 
   sec('Test AI Organizer with Raw Menu Text');
-  const organizeR = await api('POST', aiRoute, { text: RAW_MENU.trim() });
+  const organizeR = await api('POST', aiRoute, { raw_text: RAW_MENU.trim(), business_type: 'restaurant' });
   if (!organizeR.ok) {
     fail(`AI organizer failed: ${organizeR.status} — ${JSON.stringify(organizeR.data)}`);
     console.log(`\n${G}${passed.length} passed${X}  ${Y}${warned.length} warnings${X}  ${R}${failed.length} failed${X}\n`);
@@ -158,12 +158,12 @@ async function run() {
   }
 
   sec('Test AI Organizer with Minimal Input');
-  const minimalR = await api('POST', aiRoute, { text: 'Burger $12\nFries $4\nSoda $2' });
+  const minimalR = await api('POST', aiRoute, { raw_text: 'Burger $12\nFries $4\nSoda $2' });
   if (minimalR.ok) ok('Minimal input accepted');
   else warn(`Minimal input failed: ${minimalR.status}`);
 
   sec('Test AI Organizer with Empty Input');
-  const emptyR = await api('POST', aiRoute, { text: '' });
+  const emptyR = await api('POST', aiRoute, { raw_text: '' });
   if (emptyR.status >= 400) ok(`Empty input properly rejected: ${emptyR.status}`);
   else warn(`Empty input returned ${emptyR.status} — should return 400`);
 

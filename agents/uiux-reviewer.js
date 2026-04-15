@@ -43,16 +43,6 @@ const PAGES = [
   { id: 'gcr-seo',           label: 'SEO' },
 ];
 
-const UX_PROMPT = `You are a senior UI/UX designer reviewing an admin dashboard for a Gulf Coast tourism directory platform called Gulf Coast Radar (GCR).
-
-Look at this screenshot of the "${label}" page and provide a concise professional review covering:
-
-1. **What's working well** — layout, clarity, usability
-2. **Issues found** — broken elements, missing data, confusing UI, loading states, empty states
-3. **Priority fixes** — top 3 specific things to change, in order of importance
-4. **Quick wins** — small tweaks that would improve usability immediately
-
-Be specific. Reference actual elements you see. Keep total response under 300 words.`;
 
 async function reviewPage(client, pageId, label, screenshotPath) {
   const imageData = fs.readFileSync(screenshotPath).toString('base64');
