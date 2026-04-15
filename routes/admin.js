@@ -1301,6 +1301,10 @@ router.post('/gcr/import-menu', async (req, res) => {
         if (subSectionId) await upsertTag(entityId, row.menu_sub_section_name, 'menu_sub_section');
 
         if (row.menu_item_name) {
+            const { data: existing } = await gcrDb.from('menu_items').select('id')
+                .eq('entity_id', entityId).eq('item_name', row.menu_item_name)
+                .eq('menu_section_id', sectionId || null).maybeSingle();
+            if (existing) { errors.push(`skipped duplicate menu item: ${row.menu_item_name}`); continue; }
             await gcrDb.from('menu_items').insert({
                 entity_id: entityId, menu_section_id: sectionId, menu_sub_section_id: subSectionId,
                 item_name: row.menu_item_name, description: row.menu_item_description || null,
@@ -1341,6 +1345,10 @@ router.post('/gcr/import-drinks', async (req, res) => {
         if (sectionId) await upsertTag(entityId, row.drink_section_name, 'drink_type');
 
         if (row.drink_item_name) {
+            const { data: existing } = await gcrDb.from('drink_items').select('id')
+                .eq('entity_id', entityId).eq('item_name', row.drink_item_name)
+                .eq('drink_section_id', sectionId || null).maybeSingle();
+            if (existing) { errors.push(`skipped duplicate drink item: ${row.drink_item_name}`); continue; }
             await gcrDb.from('drink_items').insert({
                 entity_id: entityId, drink_section_id: sectionId,
                 item_name: row.drink_item_name, description: row.drink_item_description || null,
@@ -1412,6 +1420,10 @@ router.post('/gcr/import-events', async (req, res) => {
     for (const row of rows) {
         const entityId = await getEntityId(row.slug);
         if (!entityId) { errors.push(`entity not found: ${row.slug}`); continue; }
+        const { data: existingEvent } = await gcrDb.from('entity_events').select('id')
+            .eq('entity_id', entityId).eq('event_name', row.event_name)
+            .eq('event_date', row.event_date || null).maybeSingle();
+        if (existingEvent) { errors.push(`skipped duplicate event: ${row.event_name}`); continue; }
         await gcrDb.from('entity_events').insert({
             entity_id: entityId, event_name: row.event_name, event_type: row.event_type || null,
             description: row.event_description || null, artist_name: row.event_artist_name || null,
@@ -1446,6 +1458,9 @@ router.post('/gcr/import-specials', async (req, res) => {
     for (const row of rows) {
         const entityId = await getEntityId(row.slug);
         if (!entityId) { errors.push(`entity not found: ${row.slug}`); continue; }
+        const { data: existingSpecial } = await gcrDb.from('entity_specials').select('id')
+            .eq('entity_id', entityId).eq('special_name', row.special_name).maybeSingle();
+        if (existingSpecial) { errors.push(`skipped duplicate special: ${row.special_name}`); continue; }
         await gcrDb.from('entity_specials').insert({
             entity_id: entityId, special_name: row.special_name,
             description: row.special_description || null, special_type: row.special_type || null,
@@ -4785,7 +4800,7 @@ async function executeGCRTool(name, args, { gcrDb, entityId, mainDb }) {
 }
 
 // ── POST /api/admin/gcr/grok-chat — Agentic AI with tool use
-router.post('/gcr/grok-chat', adminRequired, async (req, res) => {
+router.post('/gcr/grok-chat', async (req, res) => {
     const apiKey = process.env.XAI_API_KEY || process.env.GROK_API_KEY;
     if (!apiKey) return res.status(503).json({ error: 'Grok API key not configured (set XAI_API_KEY in env)' });
 
