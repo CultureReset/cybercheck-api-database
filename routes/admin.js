@@ -56,7 +56,7 @@ router.post('/login', async (req, res) => {
 // DASHBOARD HOME — Platform stats
 // ============================================
 
-router.get('/stats', async (req, res) => {
+router.get('/stats', adminRequired, async (req, res) => {
     const [businesses, users, bookings, orders] = await Promise.all([
         supabase.from('businesses').select('site_id, plan, status, created_at', { count: 'exact' }),
         supabase.from('users').select('id', { count: 'exact' }),
@@ -287,7 +287,7 @@ router.post('/businesses/:id/unsuspend', async (req, res) => {
 // USERS — List, update
 // ============================================
 
-router.get('/users', async (req, res) => {
+router.get('/users', adminRequired, async (req, res) => {
     let query = supabase
         .from('users')
         .select('id, site_id, email, name, role, avatar_url, created_at, businesses(name, type)')

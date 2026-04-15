@@ -51,7 +51,7 @@ async function run() {
   const cr = await api('POST', '/api/admin/gcr/entities', {
     entity: { name: 'Section Test Restaurant', slug, entity_subtype: 'restaurant',
       address_line_1: '300 Section Ave', city: 'Orange Beach', state: 'AL',
-      is_active: false }
+      is_active: true }
   });
   if (!cr.ok || (!cr.data?.id && !cr.data?.entity?.id)) {
     fail(`Entity create failed: ${cr.status}`); process.exit(1);
