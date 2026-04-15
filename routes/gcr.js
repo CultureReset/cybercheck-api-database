@@ -1813,4 +1813,42 @@ router.get('/category-page-config/:categoryId', async (req, res) => {
     res.json(data || { category_id: categoryId });
 });
 
+// ============================================
+// GET  /api/gcr/sales-page/:pageId — public
+// PUT  /api/gcr/sales-page/:pageId — admin auth required
+// Stores/retrieves JSON config for sales pages in site_data_store
+// Key format: sales_page_<pageId>
+// ============================================
+router.get('/sales-page/:pageId', async (req, res) => {
+    const key = `sales_page_${req.params.pageId}`;
+    const { data, error } = await supabase
+        .from('site_data_store')
+        .select('value')
+        .eq('key', key)
+        .single();
+    if (error && error.code !== 'PGRST116') return res.status(500).json({ error: error.message });
+    if (!data) return res.status(404).json({ error: 'Not found' });
+    res.json(data.value);
+});
+
+router.put('/sales-page/:pageId', async (req, res) => {
+    const authHeader = req.headers['authorization'] || '';
+    const token = authHeader.replace('Bearer ', '').trim();
+    if (!token) return res.status(401).json({ error: 'Unauthorized' });
+
+    // Verify token against Supabase auth
+    const { data: { user }, error: authErr } = await supabase.auth.getUser(token);
+    if (authErr || !user) return res.status(401).json({ error: 'Invalid token' });
+
+    const key = `sales_page_${req.params.pageId}`;
+    const value = req.body;
+
+    const { error } = await supabase
+        .from('site_data_store')
+        .upsert({ key, value, updated_at: new Date().toISOString() }, { onConflict: 'key' });
+
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ ok: true });
+});
+
 module.exports = router;
