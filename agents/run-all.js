@@ -155,9 +155,34 @@ for (const agent of agents) {
       console.log(`  ${R}✗${X} ${agent.label.padEnd(40)} ${R}TIMEOUT${X} ${D}${ms}ms${X}`);
       results.push({ agent, passed: 0, warned: 0, failed: 1, ms, error: 'timeout', output: '' });
     } else {
-      const errLine = (e.stderr || e.message || '').split('\n')[0].substring(0, 60);
-      console.log(`  ${R}✗${X} ${agent.label.padEnd(40)} ${R}CRASH${X} ${D}${errLine}${X}`);
-      results.push({ agent, passed: 0, warned: 0, failed: 1, ms, error: errLine, output: e.stdout || '' });
+      // execSync throws on non-zero exit — stdout may still have valid agent output
+      const stdout = e.stdout || '';
+      const passMatch = stdout.match(/(\d+) passed/);
+      const warnMatch = stdout.match(/(\d+) warnings/);
+      const failMatch = stdout.match(/(\d+) failed/);
+      const passed = passMatch ? parseInt(passMatch[1]) : null;
+      const warned = warnMatch ? parseInt(warnMatch[1]) : null;
+      const failed = failMatch ? parseInt(failMatch[1]) : null;
+
+      if (passed !== null || failed !== null) {
+        // Agent ran but exited non-zero (process.exit(1) on failures) — parse normally
+        const hasIssues = (failed !== null && failed > 0);
+        const hasWarns = (warned !== null && warned > 0);
+        const statusColor = hasIssues ? R : hasWarns ? Y : G;
+        const statusIcon = hasIssues ? '✗' : hasWarns ? '⚠' : '✓';
+        let statusLine = `  ${statusColor}${statusIcon}${X} ${agent.label.padEnd(40)} ${statusColor}`;
+        if (passed !== null) statusLine += `${passed}p`;
+        if (warned !== null && warned > 0) statusLine += ` ${warned}w`;
+        if (failed !== null && failed > 0) statusLine += ` ${failed}f`;
+        statusLine += `${X} ${D}${ms}ms${X}`;
+        console.log(statusLine);
+        results.push({ agent, passed, warned, failed, ms, error: null, output: stdout });
+      } else {
+        // Genuine crash — no parseable output
+        const errLine = (e.stderr || e.message || '').split('\n')[0].substring(0, 60);
+        console.log(`  ${R}✗${X} ${agent.label.padEnd(40)} ${R}CRASH${X} ${D}${errLine}${X}`);
+        results.push({ agent, passed: 0, warned: 0, failed: 1, ms, error: errLine, output: stdout });
+      }
     }
   }
 }

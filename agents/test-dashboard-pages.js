@@ -151,7 +151,7 @@ async function injectAuth(page, API_BASE, email, password) {
 }
 
 async function run() {
-  const API_BASE = process.env.API_BASE || 'http://localhost:3000';
+  const API_BASE = process.env.API_BASE || 'https://cybercheck-api-database.vercel.app';
 
   console.log(`\n${BOLD}Admin Dashboard Page Tester${RESET}`);
   console.log(`${DIM}Dashboard: ${DASH_URL}${RESET}`);
@@ -189,7 +189,8 @@ async function run() {
     if (authed) {
       console.log(`${GREEN}✓ Auth token injected${RESET}`);
       // Reload to apply auth
-      await page.reload({ waitUntil: 'networkidle', timeout: 15000 });
+      await page.reload({ waitUntil: 'domcontentloaded', timeout: 15000 });
+      await page.waitForTimeout(3000);
     } else {
       console.log(`${RED}✗ Auth failed — pages may show login redirect${RESET}`);
     }
