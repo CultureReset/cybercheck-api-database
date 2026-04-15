@@ -1647,12 +1647,11 @@ router.get('/entity/:slug', async (req, res) => {
 
     const { slug } = req.params;
 
-    // Try exact match first
+    // Try exact match first — load active OR inactive (admins can preview before publishing)
     let { data: entity, error: entErr } = await gcrDb
         .from('entity')
         .select('*')
         .eq('slug', slug)
-        .eq('is_active', true)
         .single();
 
     // If not found, try partial match (slug starts with)
