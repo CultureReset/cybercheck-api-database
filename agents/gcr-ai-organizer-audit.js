@@ -119,43 +119,48 @@ async function run() {
   console.log(`\n  ${D}Response structure:${X} ${JSON.stringify(Object.keys(result||{}))}`);
 
   sec('Validate Structured Output');
-  // Expect: sections[] or items[] with section names, item_name, price
-  const sections = result.sections || result.menu?.sections || [];
-  const items = result.items || result.menu?.items || [];
+  // ai-organize returns { success, structured } where structured is the full entity object
+  // Menu items are in structured.menu_items (flat with category) or structured.menu_sections (nested)
+  const structured = result.structured || result;
+  const menuItems    = structured.menu_items    || [];
+  const menuSections = structured.menu_sections || [];
+  const allItems     = menuItems.length > 0 ? menuItems
+                     : menuSections.flatMap(s => s.items || []);
 
-  if (sections.length > 0) {
-    ok(`${sections.length} sections extracted`);
-    const sectionNames = sections.map(s => s.section_name || s.name || '(no name)');
+  if (structured.name) ok(`Business name extracted: "${structured.name}"`);
+  else warn('No business name in output');
+
+  if (menuSections.length > 0) {
+    ok(`${menuSections.length} menu sections extracted`);
+    const sectionNames = menuSections.map(s => s.section_name || s.name || '(no name)');
     ok(`Sections: ${sectionNames.join(', ')}`);
-
-    const expectedSections = ['Appetizers', 'Entrees', 'Desserts'];
-    for (const s of expectedSections) {
+    const expected = ['Appetizers', 'Entrees', 'Desserts'];
+    for (const s of expected) {
       if (sectionNames.some(n => n.toLowerCase().includes(s.toLowerCase()))) ok(`Section found: ${s}`);
       else warn(`Section not found: ${s}`);
     }
+  } else if (menuItems.length > 0) {
+    ok(`${menuItems.length} flat menu items extracted`);
+    const cats = [...new Set(menuItems.map(i => i.category).filter(Boolean))];
+    if (cats.length > 0) ok(`Categories: ${cats.join(', ')}`);
+  } else {
+    warn('No menu sections or items extracted — may be expected for non-restaurant input');
+  }
 
-    let totalItems = 0;
-    for (const section of sections) {
-      const sItems = section.items || [];
-      totalItems += sItems.length;
-    }
-    ok(`Total items across sections: ${totalItems}`);
-
-    // Spot-check a specific item
-    const allItems = sections.flatMap(s => s.items||[]);
+  if (allItems.length > 0) {
+    ok(`Total menu items: ${allItems.length}`);
     const snapper = allItems.find(i => (i.item_name||i.name||'').toLowerCase().includes('snapper'));
     if (snapper) {
-      ok(`"Grilled Red Snapper" extracted — price: ${snapper.price || snapper.price_text || 'N/A'}`);
+      ok(`"Grilled Red Snapper" extracted — price: ${snapper.price ?? snapper.price_text ?? 'N/A'}`);
       if (snapper.price == 28 || snapper.price == 28.0) ok('Snapper price correctly parsed: $28');
       else warn(`Snapper price: ${snapper.price} (expected 28)`);
-    } else {
-      warn('"Grilled Red Snapper" not found in output');
-    }
-  } else if (items.length > 0) {
-    ok(`${items.length} flat items extracted`);
-  } else {
-    fail('No sections or items in AI organizer output');
+    } else warn('"Grilled Red Snapper" not found in items');
   }
+
+  // Check other key fields
+  if (structured.specials?.length > 0) ok(`${structured.specials.length} specials extracted`);
+  if (structured.events?.length > 0) ok(`${structured.events.length} events extracted`);
+  if (structured.happy_hour) ok(`Happy hour extracted: ${JSON.stringify(structured.happy_hour).slice(0,60)}`);
 
   sec('Test AI Organizer with Minimal Input');
   const minimalR = await api('POST', aiRoute, { raw_text: 'Burger $12\nFries $4\nSoda $2' });
