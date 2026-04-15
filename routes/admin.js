@@ -692,6 +692,9 @@ router.put('/businesses/:id/full', async (req, res) => {
             if (basic.tagline     !== undefined) upd.subtitle     = basic.tagline;
             if (basic.description !== undefined) upd.description  = basic.description;
             if (basic.priceRange  !== undefined) upd.price_range  = basic.priceRange;
+            if (basic.price_from  !== undefined) upd.price_from   = basic.price_from  !== '' ? Number(basic.price_from)  : null;
+            if (basic.price_to    !== undefined) upd.price_to     = basic.price_to    !== '' ? Number(basic.price_to)    : null;
+            if (basic.price_unit  !== undefined) upd.price_unit   = basic.price_unit  || null;
             if (basic.emoji       !== undefined) upd.icon         = basic.emoji;
             if (basic.featured    !== undefined) upd.featured     = basic.featured;
             if (basic.type        !== undefined) upd.entity_subtype = basic.type;
