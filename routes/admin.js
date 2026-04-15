@@ -4325,11 +4325,20 @@ router.post('/ai-scrape-approve', adminRequired, async (req, res) => {
         else saved.activities = structured.activities.length;
     }
 
-    // Auto-create Hours + Location sections
-    await gcrDb.from('entity_sections').insert([
+    // Auto-create sections for whatever data was saved
+    const autoSections = [
         { entity_id: eid, section_key: 'location', section_label: 'Location', section_type: 'location', sort_order: 99 },
         { entity_id: eid, section_key: 'hours', section_label: 'Hours', section_type: 'hours', sort_order: 98 },
-    ]).then(() => {}).catch(() => {}); // ignore if already exist
+    ];
+    if (saved.menu_items)   autoSections.push({ entity_id: eid, section_key: 'menu',      section_label: 'Menu',       section_type: 'menu',      sort_order: 1 });
+    if (saved.drink_items)  autoSections.push({ entity_id: eid, section_key: 'drinks',    section_label: 'Drinks',     section_type: 'drinks',    sort_order: 2 });
+    if (saved.happy_hour)   autoSections.push({ entity_id: eid, section_key: 'happy_hour',section_label: 'Happy Hour', section_type: 'happy_hour',sort_order: 3 });
+    if (saved.specials)     autoSections.push({ entity_id: eid, section_key: 'specials',  section_label: 'Specials',   section_type: 'specials',  sort_order: 4 });
+    if (saved.events)       autoSections.push({ entity_id: eid, section_key: 'events',    section_label: 'Events',     section_type: 'events',    sort_order: 5 });
+    if (saved.activities)   autoSections.push({ entity_id: eid, section_key: 'activities',section_label: 'Activities', section_type: 'activities',sort_order: 6 });
+    if (saved.fleet)        autoSections.push({ entity_id: eid, section_key: 'fleet',     section_label: 'Fleet',      section_type: 'fleet',     sort_order: 7 });
+    if (saved.about_bullets)autoSections.push({ entity_id: eid, section_key: 'about',     section_label: 'About',      section_type: 'bullets',   sort_order: 0 });
+    await gcrDb.from('entity_sections').insert(autoSections).then(() => {}).catch(() => {});
 
     res.json({ success: true, entity_id: eid, slug: entity.slug, saved, errors });
 });
