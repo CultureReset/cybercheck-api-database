@@ -1726,14 +1726,10 @@ router.get('/entity/:slug', async (req, res) => {
         drinkItems = data || [];
     }
 
-    // Fetch HH items
+    // Fetch HH items — always fetch by entity_id regardless of whether sections exist
     const hhSections = hhSectionsRes.data || [];
-    const hhSectionIds = hhSections.map(s => s.id);
-    let hhItems = [];
-    if (hhSectionIds.length) {
-        const { data } = await gcrDb.from('happy_hour_items').select('*').eq('entity_id', eid).order('sort_order');
-        hhItems = data || [];
-    }
+    const { data: hhItemsData } = await gcrDb.from('happy_hour_items').select('*').eq('entity_id', eid).order('sort_order');
+    const hhItems = hhItemsData || [];
 
     // Fetch product sub-sections and items
     const productSections = productSectionsRes.data || [];
