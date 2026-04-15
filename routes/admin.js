@@ -3771,5 +3771,422 @@ router.put('/gcr/category-page-config/:catId', async (req, res) => {
     }
 });
 
+// ============================================
+// POST /api/admin/ai-scrape-url
+// Body: { url }
+// Fetches the page, cleans HTML to text, sends to Grok, returns structured preview JSON
+// ============================================
+router.post('/ai-scrape-url', adminRequired, async (req, res) => {
+    const { url } = req.body;
+    if (!url || !url.startsWith('http')) return res.status(400).json({ error: 'Valid URL required' });
+
+    // Fetch the page
+    let rawHtml;
+    try {
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 12000);
+        const r = await fetch(url, {
+            signal: controller.signal,
+            headers: { 'User-Agent': 'Mozilla/5.0 (compatible; GCRBot/1.0; +https://gulfcoastradar.com)' }
+        });
+        clearTimeout(timeout);
+        if (!r.ok) return res.status(400).json({ error: `Site returned ${r.status}` });
+        rawHtml = await r.text();
+    } catch (e) {
+        return res.status(400).json({ error: `Could not fetch URL: ${e.message}` });
+    }
+
+    // Strip HTML to clean text — keep structure hints
+    const cleanText = rawHtml
+        .replace(/<script[\s\S]*?<\/script>/gi, '')
+        .replace(/<style[\s\S]*?<\/style>/gi, '')
+        .replace(/<nav[\s\S]*?<\/nav>/gi, '')
+        .replace(/<footer[\s\S]*?<\/footer>/gi, '')
+        .replace(/<header[\s\S]*?<\/header>/gi, '')
+        .replace(/<!--[\s\S]*?-->/g, '')
+        .replace(/<br\s*\/?>/gi, '\n')
+        .replace(/<\/p>/gi, '\n')
+        .replace(/<\/div>/gi, '\n')
+        .replace(/<\/li>/gi, '\n')
+        .replace(/<\/h[1-6]>/gi, '\n')
+        .replace(/<[^>]+>/g, ' ')
+        .replace(/&amp;/g, '&').replace(/&nbsp;/g, ' ').replace(/&quot;/g, '"')
+        .replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&#\d+;/g, '')
+        .replace(/[ \t]{2,}/g, ' ')
+        .replace(/\n{3,}/g, '\n\n')
+        .trim()
+        .slice(0, 14000);
+
+    // Get xAI key
+    const apiKey = process.env.XAI_API_KEY;
+    if (!apiKey) return res.status(503).json({ error: 'XAI_API_KEY not configured' });
+
+    const systemPrompt = `You are a data extraction assistant for Gulf Coast Radar, a tourism & dining directory for Orange Beach and Gulf Shores, Alabama.
+
+Extract ALL structured business data from the page text. Output ONLY a single valid JSON object — no markdown, no explanation.
+
+Use this exact schema:
+{
+  "name": "business display name",
+  "entity_type": "gcr_business",
+  "entity_subtype": "restaurant | bar | nightlife | coffee_sweets | shopping | hotel | activity | rental | service | attraction",
+  "slug": "lowercase-hyphenated-slug",
+  "subtitle": "short one-line tagline",
+  "description": "2-3 sentence about section",
+  "icon": "single emoji",
+  "phone": "phone number",
+  "address_line_1": "street address",
+  "city": "city name",
+  "state": "AL",
+  "zip": "zip code",
+  "website_url": "website URL",
+  "email": "email if found",
+  "price_range": "$ | $$ | $$$ | $$$$",
+  "social_instagram": "instagram URL or handle",
+  "social_facebook": "facebook URL",
+  "social_tiktok": "tiktok URL or handle",
+  "hh_days": "Mon-Fri or similar",
+  "hh_start": "3:00 PM",
+  "hh_end": "6:00 PM",
+  "hours": [
+    { "day_of_week": 0, "day_name": "Sunday", "open_time": "11:00", "close_time": "21:00", "is_closed": false }
+  ],
+  "tags": ["tag1", "tag2"],
+  "features": ["Waterfront", "Pet Friendly", "Live Music"],
+  "perfect_for": ["Date night", "Families", "Groups"],
+  "menu_sections": [
+    {
+      "section_name": "Starters",
+      "items": [
+        { "item_name": "Gulf Shrimp Cocktail", "description": "Chilled shrimp with cocktail sauce", "price": 14.00, "price_text": "$14" }
+      ]
+    }
+  ],
+  "drink_sections": [
+    {
+      "section_name": "Cocktails",
+      "items": [
+        { "item_name": "Gulf Sunset", "description": "Vodka, OJ, grenadine", "price": 10.00, "price_text": "$10" }
+      ]
+    }
+  ],
+  "happy_hour_items": [
+    { "item_name": "House Draft", "description": "Any draft beer", "hh_price": 3.00, "regular_price": 6.00 }
+  ],
+  "specials": [
+    { "special_name": "Taco Tuesday", "description": "$2 tacos all day", "days": "Tuesday", "discount_text": "$2 tacos", "start_time": null, "end_time": null }
+  ],
+  "events": [
+    { "event_name": "Live Music Friday", "description": "Local bands every Friday night", "event_date": null, "start_time": "19:00" }
+  ],
+  "fleet": [
+    { "name": "Pontoon Boat", "description": "6-person pontoon rental", "capacity": 6, "price_per_hour": 150 }
+  ],
+  "pricing": [
+    { "package_name": "Adult Ticket", "price": 45.00, "price_text": "$45/person", "description": "Full tour experience" }
+  ],
+  "activities": [
+    { "title": "Dolphin Cruise", "description": "2-hour dolphin watching tour", "duration_minutes": 120 }
+  ],
+  "about_bullets": [
+    { "text": "Family owned since 1987", "icon": "🏠" }
+  ],
+  "kids_friendly": true,
+  "pet_friendly": false,
+  "live_music": false,
+  "waterfront": false,
+  "outdoor_seating": false,
+  "alcohol": true,
+  "booking_required": false
+}
+
+Only include fields with actual data found on the page. Use null for unknown fields. Never invent data.`;
+
+    try {
+        const r = await fetch('https://api.x.ai/v1/chat/completions', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` },
+            body: JSON.stringify({
+                model: 'grok-3',
+                messages: [
+                    { role: 'system', content: systemPrompt },
+                    { role: 'user', content: `Extract all data from this business page (URL: ${url}):\n\n${cleanText}` }
+                ],
+                max_tokens: 4096,
+                response_format: { type: 'json_object' }
+            })
+        });
+        if (!r.ok) { const e = await r.text(); throw new Error(`Grok ${r.status}: ${e}`); }
+        const d = await r.json();
+        const raw = d.choices?.[0]?.message?.content || '{}';
+        const cleaned = raw.replace(/^```(?:json)?\s*/i, '').replace(/\s*```\s*$/, '').trim();
+        const structured = JSON.parse(cleaned);
+        res.json({ success: true, url, structured });
+    } catch (e) {
+        console.error('ai-scrape-url error:', e.message);
+        res.status(500).json({ error: e.message });
+    }
+});
+
+// ============================================
+// POST /api/admin/ai-scrape-approve
+// Body: { structured } — the reviewed/edited JSON from ai-scrape-url
+// Saves everything to the correct GCR tables in one shot
+// ============================================
+router.post('/ai-scrape-approve', adminRequired, async (req, res) => {
+    const { structured } = req.body;
+    if (!structured?.name) return res.status(400).json({ error: 'structured.name required' });
+
+    const { upsertTag } = gcrImportHelpers(gcrDb);
+    const saved = {};
+    const errors = [];
+
+    // Derive slug if missing
+    if (!structured.slug) {
+        structured.slug = structured.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    }
+
+    // ── Upsert entity ──
+    const entityFields = {
+        name: structured.name,
+        slug: structured.slug,
+        entity_type: structured.entity_type || 'gcr_business',
+        entity_subtype: structured.entity_subtype || 'restaurant',
+        subtitle: structured.subtitle || null,
+        description: structured.description || null,
+        icon: structured.icon || null,
+        phone: structured.phone || null,
+        email: structured.email || null,
+        address_line_1: structured.address_line_1 || null,
+        city: structured.city || null,
+        state: structured.state || 'AL',
+        zip: structured.zip || null,
+        website_url: structured.website_url || null,
+        price_range: structured.price_range || null,
+        social_instagram: structured.social_instagram || null,
+        social_facebook: structured.social_facebook || null,
+        social_tiktok: structured.social_tiktok || null,
+        hh_days: structured.hh_days || null,
+        hh_start: structured.hh_start || null,
+        hh_end: structured.hh_end || null,
+        kids_friendly: structured.kids_friendly || false,
+        pet_friendly: structured.pet_friendly || false,
+        live_music: structured.live_music || false,
+        waterfront: structured.waterfront || false,
+        outdoor_seating: structured.outdoor_seating || false,
+        alcohol: structured.alcohol || false,
+        booking_required: structured.booking_required || false,
+        is_active: false, // admin activates manually after review
+    };
+
+    const { data: entity, error: entErr } = await gcrDb
+        .from('entity')
+        .upsert(entityFields, { onConflict: 'slug' })
+        .select('id, slug')
+        .single();
+    if (entErr || !entity) return res.status(500).json({ error: `Entity save failed: ${entErr?.message}` });
+
+    const eid = entity.id;
+    saved.entity = { id: eid, slug: entity.slug };
+
+    // ── Hours ──
+    if (structured.hours?.length) {
+        await gcrDb.from('entity_hours').delete().eq('entity_id', eid);
+        const { error } = await gcrDb.from('entity_hours').insert(
+            structured.hours.map(h => ({ entity_id: eid, ...h }))
+        );
+        if (error) errors.push(`hours: ${error.message}`);
+        else saved.hours = structured.hours.length;
+    }
+
+    // ── Tags ──
+    if (structured.tags?.length) {
+        for (const tag of structured.tags) await upsertTag(eid, tag, 'tag');
+        saved.tags = structured.tags.length;
+    }
+
+    // ── Features ──
+    if (structured.features?.length) {
+        await gcrDb.from('entity_features').delete().eq('entity_id', eid);
+        const { error } = await gcrDb.from('entity_features').insert(
+            structured.features.map((f, i) => ({ entity_id: eid, label: f, sort_order: i }))
+        );
+        if (error) errors.push(`features: ${error.message}`);
+        else saved.features = structured.features.length;
+    }
+
+    // ── Perfect For ──
+    if (structured.perfect_for?.length) {
+        await gcrDb.from('entity_perfect_for').delete().eq('entity_id', eid);
+        const { error } = await gcrDb.from('entity_perfect_for').insert(
+            structured.perfect_for.map((p, i) => ({ entity_id: eid, label: p, sort_order: i }))
+        );
+        if (error) errors.push(`perfect_for: ${error.message}`);
+        else saved.perfect_for = structured.perfect_for.length;
+    }
+
+    // ── About bullets ──
+    if (structured.about_bullets?.length) {
+        const { error } = await gcrDb.from('entity_about_bullets').insert(
+            structured.about_bullets.map((b, i) => ({ entity_id: eid, text: b.text, icon: b.icon || '•', sort_order: i }))
+        );
+        if (error) errors.push(`about_bullets: ${error.message}`);
+        else saved.about_bullets = structured.about_bullets.length;
+    }
+
+    // ── Menu sections + items ──
+    if (structured.menu_sections?.length) {
+        let menuItemCount = 0;
+        for (let i = 0; i < structured.menu_sections.length; i++) {
+            const sec = structured.menu_sections[i];
+            const { data: ms, error: msErr } = await gcrDb.from('menu_sections')
+                .insert({ entity_id: eid, section_name: sec.section_name, sort_order: i })
+                .select('id').single();
+            if (msErr || !ms) { errors.push(`menu_section ${sec.section_name}: ${msErr?.message}`); continue; }
+            if (sec.items?.length) {
+                const { error: miErr } = await gcrDb.from('menu_items').insert(
+                    sec.items.map((item, j) => ({
+                        entity_id: eid, menu_section_id: ms.id,
+                        item_name: item.item_name, description: item.description || null,
+                        price: item.price || null, price_text: item.price_text || null,
+                        sort_order: j
+                    }))
+                );
+                if (miErr) errors.push(`menu_items in ${sec.section_name}: ${miErr.message}`);
+                else menuItemCount += sec.items.length;
+            }
+        }
+        saved.menu_items = menuItemCount;
+    }
+
+    // ── Drink sections + items ──
+    if (structured.drink_sections?.length) {
+        let drinkItemCount = 0;
+        for (let i = 0; i < structured.drink_sections.length; i++) {
+            const sec = structured.drink_sections[i];
+            const { data: ds, error: dsErr } = await gcrDb.from('drink_sections')
+                .insert({ entity_id: eid, section_name: sec.section_name, sort_order: i })
+                .select('id').single();
+            if (dsErr || !ds) { errors.push(`drink_section ${sec.section_name}: ${dsErr?.message}`); continue; }
+            if (sec.items?.length) {
+                const { error: diErr } = await gcrDb.from('drink_items').insert(
+                    sec.items.map((item, j) => ({
+                        entity_id: eid, drink_section_id: ds.id,
+                        item_name: item.item_name, description: item.description || null,
+                        price: item.price || null, price_text: item.price_text || null,
+                        sort_order: j
+                    }))
+                );
+                if (diErr) errors.push(`drink_items in ${sec.section_name}: ${diErr.message}`);
+                else drinkItemCount += sec.items.length;
+            }
+        }
+        saved.drink_items = drinkItemCount;
+    }
+
+    // ── Happy hour items ──
+    if (structured.happy_hour_items?.length) {
+        const { data: hhSec } = await gcrDb.from('happy_hour_sections')
+            .insert({ entity_id: eid, section_name: 'Happy Hour', sort_order: 0 })
+            .select('id').single();
+        if (hhSec) {
+            const { error } = await gcrDb.from('happy_hour_items').insert(
+                structured.happy_hour_items.map((item, i) => ({
+                    entity_id: eid, hh_section_id: hhSec.id,
+                    item_name: item.item_name, description: item.description || null,
+                    hh_price: item.hh_price || null, regular_price: item.regular_price || null,
+                    sort_order: i
+                }))
+            );
+            if (error) errors.push(`hh_items: ${error.message}`);
+            else saved.happy_hour_items = structured.happy_hour_items.length;
+        }
+    }
+
+    // ── Specials ──
+    if (structured.specials?.length) {
+        const { error } = await gcrDb.from('entity_specials').insert(
+            structured.specials.map(s => ({
+                entity_id: eid,
+                special_name: s.special_name,
+                description: s.description || null,
+                days: s.days || null,
+                discount_text: s.discount_text || null,
+                start_time: s.start_time || null,
+                end_time: s.end_time || null,
+                is_active: true
+            }))
+        );
+        if (error) errors.push(`specials: ${error.message}`);
+        else saved.specials = structured.specials.length;
+    }
+
+    // ── Events ──
+    if (structured.events?.length) {
+        const { error } = await gcrDb.from('entity_events').insert(
+            structured.events.map(e => ({
+                entity_id: eid,
+                event_name: e.event_name,
+                description: e.description || null,
+                event_date: e.event_date || null,
+                start_time: e.start_time || null,
+                is_active: true, recurring: !e.event_date
+            }))
+        );
+        if (error) errors.push(`events: ${error.message}`);
+        else saved.events = structured.events.length;
+    }
+
+    // ── Fleet (rentals/boats) ──
+    if (structured.fleet?.length) {
+        const { error } = await gcrDb.from('fleet_items').insert(
+            structured.fleet.map((f, i) => ({
+                entity_id: eid,
+                name: f.name, description: f.description || null,
+                capacity: f.capacity || null, price_per_hour: f.price_per_hour || null,
+                sort_order: i
+            }))
+        );
+        if (error) errors.push(`fleet: ${error.message}`);
+        else saved.fleet = structured.fleet.length;
+    }
+
+    // ── Pricing ──
+    if (structured.pricing?.length) {
+        const { error } = await gcrDb.from('pricing_items').insert(
+            structured.pricing.map((p, i) => ({
+                entity_id: eid,
+                package_name: p.package_name, description: p.description || null,
+                price: p.price || null, price_text: p.price_text || null,
+                sort_order: i
+            }))
+        );
+        if (error) errors.push(`pricing: ${error.message}`);
+        else saved.pricing = structured.pricing.length;
+    }
+
+    // ── Activities ──
+    if (structured.activities?.length) {
+        const { error } = await gcrDb.from('activities').insert(
+            structured.activities.map((a, i) => ({
+                entity_id: eid,
+                title: a.title, description: a.description || null,
+                duration_minutes: a.duration_minutes || null,
+                sort_order: i
+            }))
+        );
+        if (error) errors.push(`activities: ${error.message}`);
+        else saved.activities = structured.activities.length;
+    }
+
+    // Auto-create Hours + Location sections
+    await gcrDb.from('entity_sections').insert([
+        { entity_id: eid, section_key: 'location', section_label: 'Location', section_type: 'location', sort_order: 99 },
+        { entity_id: eid, section_key: 'hours', section_label: 'Hours', section_type: 'hours', sort_order: 98 },
+    ]).then(() => {}).catch(() => {}); // ignore if already exist
+
+    res.json({ success: true, entity_id: eid, slug: entity.slug, saved, errors });
+});
+
 module.exports = router;
 
