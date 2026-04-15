@@ -1196,6 +1196,8 @@ router.post('/gcr/import-csv', async (req, res) => {
 router.post('/gcr/import-menu', async (req, res) => {
     const gcrDb = getGcrDb();
     const rows = Array.isArray(req.body) ? req.body : [req.body];
+    if (!rows.length || rows.every(r => !r || (!r.slug && !r.menu_item_name && !r.menu_section_name)))
+        return res.status(400).json({ error: 'No valid rows — required: slug, menu_item_name' });
     const { getEntityId, upsertTag, getOrCreate } = gcrImportHelpers(gcrDb);
     let inserted = 0; const errors = [];
 
@@ -1237,6 +1239,8 @@ router.post('/gcr/import-menu', async (req, res) => {
 router.post('/gcr/import-drinks', async (req, res) => {
     const gcrDb = getGcrDb();
     const rows = Array.isArray(req.body) ? req.body : [req.body];
+    if (!rows.length || rows.every(r => !r || (!r.slug && !r.drink_item_name)))
+        return res.status(400).json({ error: 'No valid rows — required: slug, drink_item_name' });
     const { getEntityId, upsertTag, getOrCreate } = gcrImportHelpers(gcrDb);
     let inserted = 0; const errors = [];
 
@@ -1272,6 +1276,8 @@ router.post('/gcr/import-drinks', async (req, res) => {
 router.post('/gcr/import-happyhour', async (req, res) => {
     const gcrDb = getGcrDb();
     const rows = Array.isArray(req.body) ? req.body : [req.body];
+    if (!rows.length || rows.every(r => !r || !r.slug))
+        return res.status(400).json({ error: 'No valid rows — required: slug' });
     const { getEntityId, getOrCreate } = gcrImportHelpers(gcrDb);
     let inserted = 0; const errors = [];
 
@@ -1306,6 +1312,8 @@ router.post('/gcr/import-happyhour', async (req, res) => {
 router.post('/gcr/import-events', async (req, res) => {
     const gcrDb = getGcrDb();
     const rows = Array.isArray(req.body) ? req.body : [req.body];
+    if (!rows.length || rows.every(r => !r || (!r.slug && !r.event_name)))
+        return res.status(400).json({ error: 'No valid rows — required: slug, event_name' });
     const { getEntityId, upsertTag } = gcrImportHelpers(gcrDb);
     let inserted = 0; const errors = [];
 
@@ -1335,6 +1343,8 @@ router.post('/gcr/import-events', async (req, res) => {
 router.post('/gcr/import-specials', async (req, res) => {
     const gcrDb = getGcrDb();
     const rows = Array.isArray(req.body) ? req.body : [req.body];
+    if (!rows.length || rows.every(r => !r || (!r.slug && !r.special_name)))
+        return res.status(400).json({ error: 'No valid rows — required: slug, special_name' });
     const { getEntityId } = gcrImportHelpers(gcrDb);
     let inserted = 0; const errors = [];
 
@@ -1528,9 +1538,30 @@ router.post('/gcr/import-section-based', async (req, res) => {
                         section_id: sectionId, group_id: groupId || null,
                         item_name: row.item_name, item_description: row.description || null,
                         price_text: priceText, price_numeric: priceNum,
-                        item_type: 'menu_item', is_active: true, sort_order: 0,
+                        item_type: 'menu_item', sort_order: 0,
                     });
                     totalInserted++;
+
+                } else if (stype === 'drinks') {
+                    // Drinks: save to drink_sections + drink_items (dedicated tables)
+                    const { getOrCreate: getOrCreateDrink } = gcrImportHelpers(gcrDb);
+                    const drinkSectionName = (row.section || 'Drinks').trim();
+                    const drinkSectionId = await (async () => {
+                        const { data: ex } = await gcrDb.from('drink_sections').select('id').eq('entity_id', entityId).eq('section_name', drinkSectionName).maybeSingle();
+                        if (ex) return ex.id;
+                        const { data: cr } = await gcrDb.from('drink_sections').insert({ entity_id: entityId, section_name: drinkSectionName }).select('id').single();
+                        return cr?.id;
+                    })();
+                    if (drinkSectionId && row.item_name) {
+                        await gcrDb.from('drink_items').insert({
+                            entity_id: entityId, drink_section_id: drinkSectionId,
+                            item_name: row.item_name, description: row.description || null,
+                            price: row.price ? parseFloat(row.price) : null,
+                            price_text: row.price ? '$' + row.price : null,
+                            is_available: true,
+                        });
+                        totalInserted++;
+                    }
 
                 } else if (stype === 'special') {
                     if (row.item_name) {
@@ -1946,7 +1977,7 @@ router.post('/gcr/auto-activate-top5', async (req, res) => {
     });
 });
 
-router.get('/gcr/businesses', async (req, res) => {
+router.get('/gcr/businesses', adminRequired, async (req, res) => {
     const { search, category, status } = req.query;
     const db = getGcrDb();
     let query = db.from('entity').select('id, slug, name, entity_subtype, is_active, hero_image_url, phone, city, state').order('name', { ascending: true });
@@ -2900,7 +2931,7 @@ router.delete('/businesses/:siteId/events/:itemId', async (req, res) => {
 // ── Entity CRUD ──────────────────────────────────────────────
 
 // GET /api/admin/gcr/entities
-router.get('/gcr/entities', async (req, res) => {
+router.get('/gcr/entities', adminRequired, async (req, res) => {
     // Try with sponsored column first, fall back without it
     let data, error;
     ({ data, error } = await gcrDb
