@@ -102,6 +102,11 @@ app.use('/api/analytics', require('./routes/analytics'));
 // SMS Inbox — two-way messaging, booking confirmations, promo blasts
 app.use('/api/sms', require('./routes/sms'));
 
+// Daily Update Links — business owner taps link to update menu/specials/catch of day
+const updateLinkRouter = require('./routes/update-link');
+app.use('/api/update', updateLinkRouter);   // admin: generate, send, check status
+app.use('/update',     updateLinkRouter);   // public: /:token serves the mobile form
+
 // Webhooks registered above (before express.json for raw body access)
 
 // Root — API status

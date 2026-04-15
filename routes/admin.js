@@ -1192,12 +1192,95 @@ router.post('/gcr/import-csv', async (req, res) => {
     router.handle(req, res, () => {});
 });
 
+// ── Grok AI normalization helper — cleans up messy CSV data before saving
+async function normalizeRowsWithAI(rows, type, skipAI = false) {
+    const apiKey = process.env.XAI_API_KEY || process.env.GROK_API_KEY;
+    if (!apiKey || !rows.length || skipAI) return { rows, questions: [] };
+
+    const prompts = {
+        menu: `You are normalizing restaurant menu CSV import rows. Fix each row:
+- menu_item_price: strip "$", commas, words like "each" → numeric string (e.g. "12.99"). Free/complimentary → "0". Unclear price → null.
+- menu_item_name: proper title case, fix obvious typos.
+- menu_section_name: normalize (e.g. "Apps" → "Appetizers", "Mains" → "Entrees", "Drinks" → "Beverages").
+- If a row has no menu_item_name AND no menu_section_name, flag it in questions.
+Return ONLY valid JSON: { "rows": [...normalized rows], "questions": ["any clarification questions"] }`,
+
+        drinks: `You are normalizing drink menu CSV import rows. Fix:
+- drink_item_price: strip "$", text → numeric (e.g. "7 dollars" → "7"). Free → "0".
+- drink_item_style: normalize (IPA, Lager, Pale Ale, Stout, Sour, Cider, Wine, Cocktail, Mocktail, NA Beer, etc.)
+- drink_section_name: normalize (e.g. "Beers on Tap" → "Draft Beer", "Wines" → "Wine", "Cocktails").
+- drink_item_abv: strip "%" → numeric string.
+Return ONLY valid JSON: { "rows": [...normalized rows], "questions": ["any clarification questions"] }`,
+
+        events: `You are normalizing event CSV import rows. Fix:
+- event_date: convert to YYYY-MM-DD. Use year ${new Date().getFullYear()} if not specified and date hasn't passed, ${new Date().getFullYear() + 1} if it has.
+- event_start_time / event_end_time: normalize to "H:MM AM/PM" (e.g. "7pm" → "7:00 PM", "19:00" → "7:00 PM").
+- event_name: proper title case.
+- If days like "Every Friday" appear in name/description, set event_recurring="true" and event_day_of_week to that day name.
+Return ONLY valid JSON: { "rows": [...normalized rows], "questions": ["any clarification questions"] }`,
+
+        specials: `You are normalizing daily specials CSV import rows. Fix:
+- special_days: normalize to comma-separated full day names (e.g. "Mon-Fri" → "Monday,Tuesday,Wednesday,Thursday,Friday", "every day" → "Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday").
+- special_start_time / special_end_time: normalize to "H:MM AM/PM".
+- discount_text: if price/deal is in special_name or description but discount_text is empty, extract it (e.g. "$5 Long Islands" → "$5").
+- special_type: classify as "food", "drink", "combo", or "event".
+Return ONLY valid JSON: { "rows": [...normalized rows], "questions": ["any clarification questions"] }`,
+
+        happyhour: `You are normalizing happy hour CSV import rows. Fix:
+- hh_start / hh_end: normalize times to "H:MM AM/PM" (e.g. "4pm" → "4:00 PM", "16:00" → "4:00 PM").
+- hh_days: comma-separated full day names (e.g. "Mon-Fri" → "Monday,Tuesday,Wednesday,Thursday,Friday", "weekdays" → "Monday,Tuesday,Wednesday,Thursday,Friday").
+- hh_hh_price: strip "$" → numeric string. If it's a percentage discount, put in hh_price_text instead.
+- hh_item_name: proper title case.
+Return ONLY valid JSON: { "rows": [...normalized rows], "questions": ["any clarification questions"] }`,
+
+        section_based: `You are normalizing section-based business data CSV import rows. Fix:
+- section_type: must be one of: profile, tags, menu, drinks, special, event, service, dietary. Infer from content if missing (food item with price → "menu", has days + deal → "special", drink item → "drinks").
+- item_name: proper title case.
+- price: strip "$" and text → numeric string.
+- For events: date → YYYY-MM-DD, time → "H:MM AM/PM".
+- For specials: days → comma-separated full day names.
+Return ONLY valid JSON: { "rows": [...normalized rows], "questions": ["any clarification questions"] }`,
+    };
+
+    const systemPrompt = prompts[type] || prompts.menu;
+    const sample = rows.slice(0, 20);
+
+    try {
+        const resp = await fetch('https://api.x.ai/v1/chat/completions', {
+            method: 'POST',
+            headers: { 'Authorization': `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                model: 'grok-3-mini',
+                messages: [
+                    { role: 'system', content: systemPrompt },
+                    { role: 'user', content: `Normalize these rows:\n${JSON.stringify(sample, null, 2)}\n\nReturn ONLY valid JSON.` },
+                ],
+                temperature: 0.1,
+                max_tokens: 4000,
+            }),
+        });
+        if (!resp.ok) throw new Error(`Grok API ${resp.status}`);
+        const data = await resp.json();
+        const content = data.choices?.[0]?.message?.content || '';
+        const jsonMatch = content.match(/```(?:json)?\n?([\s\S]*?)\n?```/) || content.match(/(\{[\s\S]*\})/);
+        const parsed = JSON.parse(jsonMatch ? jsonMatch[1] : content);
+        const normalizedRows = [...(parsed.rows || sample), ...rows.slice(20)];
+        return { rows: normalizedRows, questions: parsed.questions?.filter(Boolean) || [] };
+    } catch (err) {
+        console.warn('[normalizeRowsWithAI] fallback to original rows:', err.message);
+        return { rows, questions: [] };
+    }
+}
+
 // ── POST /api/admin/gcr/import-menu
 router.post('/gcr/import-menu', async (req, res) => {
     const gcrDb = getGcrDb();
-    const rows = Array.isArray(req.body) ? req.body : [req.body];
+    let rows = Array.isArray(req.body) ? req.body : [req.body];
     if (!rows.length || rows.every(r => !r || (!r.slug && !r.menu_item_name && !r.menu_section_name)))
         return res.status(400).json({ error: 'No valid rows — required: slug, menu_item_name' });
+    const aiResult = await normalizeRowsWithAI(rows, 'menu', !!req.query.skip_ai);
+    if (aiResult.questions.length) return res.json({ needs_clarification: true, questions: aiResult.questions, preview: aiResult.rows });
+    rows = aiResult.rows;
     const { getEntityId, upsertTag, getOrCreate } = gcrImportHelpers(gcrDb);
     let inserted = 0; const errors = [];
 
@@ -1238,9 +1321,12 @@ router.post('/gcr/import-menu', async (req, res) => {
 // ── POST /api/admin/gcr/import-drinks
 router.post('/gcr/import-drinks', async (req, res) => {
     const gcrDb = getGcrDb();
-    const rows = Array.isArray(req.body) ? req.body : [req.body];
+    let rows = Array.isArray(req.body) ? req.body : [req.body];
     if (!rows.length || rows.every(r => !r || (!r.slug && !r.drink_item_name)))
         return res.status(400).json({ error: 'No valid rows — required: slug, drink_item_name' });
+    const aiResult = await normalizeRowsWithAI(rows, 'drinks', !!req.query.skip_ai);
+    if (aiResult.questions.length) return res.json({ needs_clarification: true, questions: aiResult.questions, preview: aiResult.rows });
+    rows = aiResult.rows;
     const { getEntityId, upsertTag, getOrCreate } = gcrImportHelpers(gcrDb);
     let inserted = 0; const errors = [];
 
@@ -1275,9 +1361,12 @@ router.post('/gcr/import-drinks', async (req, res) => {
 // ── POST /api/admin/gcr/import-happyhour
 router.post('/gcr/import-happyhour', async (req, res) => {
     const gcrDb = getGcrDb();
-    const rows = Array.isArray(req.body) ? req.body : [req.body];
+    let rows = Array.isArray(req.body) ? req.body : [req.body];
     if (!rows.length || rows.every(r => !r || !r.slug))
         return res.status(400).json({ error: 'No valid rows — required: slug' });
+    const aiResult = await normalizeRowsWithAI(rows, 'happyhour', !!req.query.skip_ai);
+    if (aiResult.questions.length) return res.json({ needs_clarification: true, questions: aiResult.questions, preview: aiResult.rows });
+    rows = aiResult.rows;
     const { getEntityId, getOrCreate } = gcrImportHelpers(gcrDb);
     let inserted = 0; const errors = [];
 
@@ -1311,9 +1400,12 @@ router.post('/gcr/import-happyhour', async (req, res) => {
 // ── POST /api/admin/gcr/import-events
 router.post('/gcr/import-events', async (req, res) => {
     const gcrDb = getGcrDb();
-    const rows = Array.isArray(req.body) ? req.body : [req.body];
+    let rows = Array.isArray(req.body) ? req.body : [req.body];
     if (!rows.length || rows.every(r => !r || (!r.slug && !r.event_name)))
         return res.status(400).json({ error: 'No valid rows — required: slug, event_name' });
+    const aiResult = await normalizeRowsWithAI(rows, 'events', !!req.query.skip_ai);
+    if (aiResult.questions.length) return res.json({ needs_clarification: true, questions: aiResult.questions, preview: aiResult.rows });
+    rows = aiResult.rows;
     const { getEntityId, upsertTag } = gcrImportHelpers(gcrDb);
     let inserted = 0; const errors = [];
 
@@ -1342,9 +1434,12 @@ router.post('/gcr/import-events', async (req, res) => {
 // ── POST /api/admin/gcr/import-specials
 router.post('/gcr/import-specials', async (req, res) => {
     const gcrDb = getGcrDb();
-    const rows = Array.isArray(req.body) ? req.body : [req.body];
+    let rows = Array.isArray(req.body) ? req.body : [req.body];
     if (!rows.length || rows.every(r => !r || (!r.slug && !r.special_name)))
         return res.status(400).json({ error: 'No valid rows — required: slug, special_name' });
+    const aiResult = await normalizeRowsWithAI(rows, 'specials', !!req.query.skip_ai);
+    if (aiResult.questions.length) return res.json({ needs_clarification: true, questions: aiResult.questions, preview: aiResult.rows });
+    rows = aiResult.rows;
     const { getEntityId } = gcrImportHelpers(gcrDb);
     let inserted = 0; const errors = [];
 
@@ -1417,7 +1512,10 @@ router.post('/gcr/import-activities', async (req, res) => {
 // Routes each row to the correct table automatically. Looks up entity by name or creates it.
 router.post('/gcr/import-section-based', async (req, res) => {
     const gcrDb = getGcrDb();
-    const rows = Array.isArray(req.body) ? req.body : [req.body];
+    let rows = Array.isArray(req.body) ? req.body : [req.body];
+    const aiResult = await normalizeRowsWithAI(rows, 'section_based', !!req.query.skip_ai);
+    if (aiResult.questions.length) return res.json({ needs_clarification: true, questions: aiResult.questions, preview: aiResult.rows });
+    rows = aiResult.rows;
     const { upsertTag } = gcrImportHelpers(gcrDb);
 
     // Group rows by entity_slug (if provided) or restaurant_name or slug
@@ -4220,6 +4318,552 @@ router.post('/ai-scrape-approve', adminRequired, async (req, res) => {
     ]).then(() => {}).catch(() => {}); // ignore if already exist
 
     res.json({ success: true, entity_id: eid, slug: entity.slug, saved, errors });
+});
+
+// ══════════════════════════════════════════════════════════════
+// GROK AGENTIC AI — tool definitions + executor + agent loop
+// ══════════════════════════════════════════════════════════════
+
+const GCR_AGENT_TOOLS = [
+    {
+        type: 'function',
+        function: {
+            name: 'get_business_profile',
+            description: 'Get the full profile of the current business: name, type, address, contact, social links, hours, pricing, active flags.',
+            parameters: { type: 'object', properties: {} },
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'get_menu',
+            description: 'Get all menu sections and items for this business including prices, descriptions, availability.',
+            parameters: { type: 'object', properties: {} },
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'get_drinks',
+            description: 'Get all drink sections and drink items for this business.',
+            parameters: { type: 'object', properties: {} },
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'get_events',
+            description: 'Get events for this business. Can filter to only upcoming events.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    upcoming_only: { type: 'boolean', description: 'If true, only return future events' }
+                }
+            },
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'get_specials',
+            description: 'Get all active daily specials and deals for this business.',
+            parameters: { type: 'object', properties: {} },
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'get_happy_hours',
+            description: 'Get happy hour schedule (days, start/end times) and all happy hour items with prices for this business.',
+            parameters: { type: 'object', properties: {} },
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'get_analytics',
+            description: 'Get GCR analytics: page views and link clicks for this business profile.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    days: { type: 'number', description: 'How many days back to look (default 30)' }
+                }
+            },
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'get_reviews',
+            description: 'Get customer reviews, ratings and feedback for this business.',
+            parameters: { type: 'object', properties: {} },
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'get_connected_platforms',
+            description: 'Check which external platforms are connected (Google Business, Facebook, Instagram, Square, Stripe). Returns connection status and what data each provides.',
+            parameters: { type: 'object', properties: {} },
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'get_platform_data',
+            description: 'Pull live data from a connected external platform (Google Business, Facebook, Instagram). Returns error if platform not connected yet.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    platform: {
+                        type: 'string',
+                        enum: ['google_business', 'facebook', 'instagram'],
+                        description: 'Which platform to query'
+                    },
+                    metric: {
+                        type: 'string',
+                        description: 'What to retrieve: views, clicks, followers, reach, impressions, reviews, posts'
+                    }
+                },
+                required: ['platform']
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'get_all_gcr_businesses',
+            description: 'Get a summary of all businesses in the GCR directory — useful for platform-wide questions about counts, categories, missing data.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    entity_type: { type: 'string', description: 'Filter by type (restaurants, things-to-do, etc.) — optional' }
+                }
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'get_website_analytics',
+            description: 'Get real website analytics from the main CyberCheck database: page views, unique visitors, conversions, revenue, top pages, traffic sources, device breakdown. Works across all sites or for a specific site.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    site_id: { type: 'string', description: 'Specific site/business ID — omit for all sites' },
+                    days: { type: 'number', description: 'Days to look back (default 30)' },
+                    breakdown: { type: 'string', enum: ['pages', 'sources', 'devices', 'conversions', 'funnel', 'summary'], description: 'What breakdown to return' }
+                }
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'get_leads',
+            description: 'Get leads and customer data from the CRM. Shows total leads, new leads today/this week, lead details, and conversion stats.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    site_id: { type: 'string', description: 'Filter by site — omit for all' },
+                    status: { type: 'string', description: 'Filter by status: lead, customer, vip, inactive' },
+                    limit: { type: 'number', description: 'Max records to return (default 20)' }
+                }
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'get_social_analytics',
+            description: 'Get social media analytics from connected accounts: followers, reach, impressions, engagement rate, post count. Covers Facebook, Instagram, TikTok.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    site_id: { type: 'string', description: 'Site/entity ID — omit for all' },
+                    platform: { type: 'string', description: 'Filter by platform: facebook, instagram, tiktok — omit for all' },
+                    days: { type: 'number', description: 'Days to look back (default 30)' }
+                }
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'get_google_business_data',
+            description: 'Get Google Business Profile data for a site: reviews, star rating, location details, and review response status. Uses the existing Google Business OAuth connection.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    site_id: { type: 'string', description: 'Site ID to query' }
+                }
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'get_seo_data',
+            description: 'Get SEO settings and keyword rankings for a site: meta titles, descriptions, GA4 ID, pixel IDs, tracked keywords and their current rankings.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    site_id: { type: 'string', description: 'Site/entity ID' }
+                }
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'get_session_events',
+            description: 'Get detailed user interaction events: clicks, scroll depth, section views, phone clicks, map clicks, gallery views — shows exactly what visitors are doing on a page.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    site_id: { type: 'string', description: 'Site ID' },
+                    event_type: { type: 'string', description: 'Filter by event type: click, scroll, section_view, phone_click, map_click, gallery_view' },
+                    days: { type: 'number', description: 'Days to look back (default 7)' }
+                }
+            }
+        }
+    },
+];
+
+async function executeGCRTool(name, args, { gcrDb, entityId, mainDb }) {
+    try {
+        switch (name) {
+            case 'get_business_profile': {
+                if (!entityId) return { error: 'No business selected' };
+                const { data } = await gcrDb.from('entity').select('*').eq('id', entityId).single();
+                return data || { error: 'Entity not found' };
+            }
+            case 'get_menu': {
+                if (!entityId) return { error: 'No business selected' };
+                const [s, i] = await Promise.all([
+                    gcrDb.from('menu_sections').select('*').eq('entity_id', entityId).order('sort_order'),
+                    gcrDb.from('menu_items').select('*').eq('entity_id', entityId).order('sort_order'),
+                ]);
+                return { sections: s.data || [], items: i.data || [], total_items: (i.data || []).length };
+            }
+            case 'get_drinks': {
+                if (!entityId) return { error: 'No business selected' };
+                const [s, i] = await Promise.all([
+                    gcrDb.from('drink_sections').select('*').eq('entity_id', entityId),
+                    gcrDb.from('drink_items').select('*').eq('entity_id', entityId),
+                ]);
+                return { sections: s.data || [], items: i.data || [], total_items: (i.data || []).length };
+            }
+            case 'get_events': {
+                if (!entityId) return { error: 'No business selected' };
+                let q = gcrDb.from('entity_events').select('*').eq('entity_id', entityId).eq('is_active', true).order('event_date', { ascending: true });
+                if (args.upcoming_only) q = q.gte('event_date', new Date().toISOString().split('T')[0]);
+                const { data } = await q;
+                return { events: data || [], count: (data || []).length };
+            }
+            case 'get_specials': {
+                if (!entityId) return { error: 'No business selected' };
+                const { data } = await gcrDb.from('entity_specials').select('*').eq('entity_id', entityId).eq('is_active', true);
+                return { specials: data || [], count: (data || []).length };
+            }
+            case 'get_happy_hours': {
+                if (!entityId) return { error: 'No business selected' };
+                const [ent, sec, items] = await Promise.all([
+                    gcrDb.from('entity').select('hh_days,hh_start,hh_end,hh_description').eq('id', entityId).single(),
+                    gcrDb.from('happy_hour_sections').select('*').eq('entity_id', entityId),
+                    gcrDb.from('happy_hour_items').select('*').eq('entity_id', entityId),
+                ]);
+                return { schedule: ent.data || {}, sections: sec.data || [], items: items.data || [] };
+            }
+            case 'get_analytics': {
+                if (!entityId) return { error: 'No business selected' };
+                const days = args.days || 30;
+                const since = new Date(Date.now() - days * 86400000).toISOString();
+                const { data } = await gcrDb.from('entity_analytics').select('*').eq('entity_id', entityId).gte('created_at', since).order('created_at', { ascending: false });
+                if (!data || !data.length) return { views: 0, clicks: 0, days, note: 'Analytics tracked when visitors view this profile on GCR.' };
+                const totals = (data || []).reduce((acc, r) => {
+                    acc.views += (r.page_views || 0); acc.clicks += (r.link_clicks || 0); return acc;
+                }, { views: 0, clicks: 0 });
+                return { ...totals, records: data.length, days, recent: data.slice(0, 5) };
+            }
+            case 'get_reviews': {
+                if (!entityId) return { error: 'No business selected' };
+                const { data } = await gcrDb.from('entity_reviews').select('*').eq('entity_id', entityId).order('created_at', { ascending: false }).limit(20);
+                const avg = (data || []).reduce((s, r) => s + (r.rating || 0), 0) / Math.max(1, (data || []).length);
+                return { reviews: data || [], count: (data || []).length, avg_rating: Math.round(avg * 10) / 10 };
+            }
+            case 'get_connected_platforms': {
+                if (!entityId) return { connected: [], note: 'No business selected' };
+                const { data } = await gcrDb.from('entity_integrations').select('platform,connected_at,platform_user,scope').eq('entity_id', entityId);
+                const connected = (data || []).map(i => ({ platform: i.platform, connected_at: i.connected_at, user: i.platform_user }));
+                return {
+                    connected,
+                    available: ['google_business', 'facebook', 'instagram', 'square', 'stripe'],
+                    what_each_provides: {
+                        google_business: 'Search impressions, direction requests, phone clicks, review count',
+                        facebook: 'Page followers, post reach, engagement, reviews',
+                        instagram: 'Followers, story/post reach, impressions, profile visits',
+                        square: 'Transaction count, revenue, top items sold',
+                        stripe: 'Booking revenue, payment counts',
+                    }
+                };
+            }
+            case 'get_platform_data': {
+                if (!entityId) return { error: 'No business selected' };
+                const { data: integ } = await gcrDb.from('entity_integrations')
+                    .select('access_token,platform_id,scope,token_expires_at').eq('entity_id', entityId).eq('platform', args.platform).single();
+                if (!integ || !integ.access_token) return { error: `${args.platform} is not connected. Go to the Integrations tab to connect it.` };
+
+                if (args.platform === 'facebook' || args.platform === 'instagram') {
+                    const pageId = integ.platform_id;
+                    const fields = args.metric === 'followers' ? 'followers_count,fan_count,name'
+                        : args.metric === 'reach' || args.metric === 'impressions' ? 'name'  // insights need separate call
+                        : 'followers_count,name,posts{message,created_time,full_picture}';
+                    const r = await fetch(`https://graph.facebook.com/v19.0/${pageId}?fields=${fields}&access_token=${integ.access_token}`);
+                    const d = await r.json();
+                    if (d.error) return { error: `Facebook API: ${d.error.message}` };
+                    return d;
+                }
+                if (args.platform === 'google_business') {
+                    return { note: 'Google Business Insights API requires server-side OAuth refresh. Integration coming soon.', connected: true };
+                }
+                return { error: `No API handler for ${args.platform}` };
+            }
+            case 'get_all_gcr_businesses': {
+                let q = gcrDb.from('entity').select('id,name,entity_type,entity_subtype,is_active,featured,hero_image_url,description,phone').eq('is_active', true);
+                if (args.entity_type) q = q.eq('entity_type', args.entity_type);
+                const { data } = await q.limit(200);
+                const byType = {};
+                (data || []).forEach(b => { const t = b.entity_type || 'unknown'; byType[t] = (byType[t] || 0) + 1; });
+                return {
+                    total: (data || []).length,
+                    by_type: byType,
+                    missing_photo: (data || []).filter(b => !b.hero_image_url).length,
+                    missing_description: (data || []).filter(b => !b.description).length,
+                    missing_phone: (data || []).filter(b => !b.phone).length,
+                    featured_count: (data || []).filter(b => b.featured).length,
+                };
+            }
+            // ── Main CyberCheck DB tools ──────────────────────
+            case 'get_website_analytics': {
+                const db = mainDb;
+                const days = args.days || 30;
+                const since = new Date(Date.now() - days * 86400000).toISOString();
+                let pvQ = db.from('page_views').select('page_path,referrer,utm_source,utm_medium,device_type,created_at').gte('created_at', since);
+                let convQ = db.from('conversions').select('conversion_type,revenue,utm_source,created_at').gte('created_at', since);
+                if (args.site_id) { pvQ = pvQ.eq('entity_id', args.site_id); convQ = convQ.eq('entity_id', args.site_id); }
+
+                const [pvRes, convRes] = await Promise.all([pvQ.limit(5000), convQ.limit(2000)]);
+                const pvs = pvRes.data || [];
+                const convs = convRes.data || [];
+
+                const breakdown = args.breakdown || 'summary';
+                if (breakdown === 'pages') {
+                    const pages = {};
+                    pvs.forEach(p => { pages[p.page_path] = (pages[p.page_path] || 0) + 1; });
+                    return { top_pages: Object.entries(pages).sort((a,b) => b[1]-a[1]).slice(0,15).map(([p,c]) => ({ page: p, views: c })), total_views: pvs.length, days };
+                }
+                if (breakdown === 'sources') {
+                    const src = {};
+                    pvs.forEach(p => { const s = p.utm_source || (p.referrer ? new URL(p.referrer).hostname : 'direct') || 'direct'; src[s] = (src[s] || 0) + 1; });
+                    return { traffic_sources: Object.entries(src).sort((a,b) => b[1]-a[1]).slice(0,10).map(([s,c]) => ({ source: s, visits: c })), days };
+                }
+                if (breakdown === 'devices') {
+                    const dev = {};
+                    pvs.forEach(p => { dev[p.device_type || 'unknown'] = (dev[p.device_type || 'unknown'] || 0) + 1; });
+                    return { devices: dev, total: pvs.length, days };
+                }
+                if (breakdown === 'conversions') {
+                    const types = {};
+                    let revenue = 0;
+                    convs.forEach(c => { types[c.conversion_type || 'unknown'] = (types[c.conversion_type || 'unknown'] || 0) + 1; revenue += (c.revenue || 0); });
+                    return { conversion_types: types, total_conversions: convs.length, total_revenue: revenue, days };
+                }
+                // summary
+                const uniqueSessions = new Set(pvs.map(p => p.session_id || p.created_at?.slice(0,10))).size;
+                const revenue = convs.reduce((s, c) => s + (c.revenue || 0), 0);
+                return { total_views: pvs.length, unique_sessions: uniqueSessions, total_conversions: convs.length, revenue: revenue.toFixed(2), days };
+            }
+            case 'get_leads': {
+                const db = mainDb;
+                // Check both gcr_customers and conversions table for leads
+                const [custRes, convRes] = await Promise.all([
+                    gcrDb.from('gcr_customers').select('id,name,email,phone,status,total_visits,total_spent,last_visit,created_at').order('created_at', { ascending: false }).limit(args.limit || 20),
+                    db.from('conversions').select('customer_name,customer_email,conversion_type,revenue,created_at').order('created_at', { ascending: false }).limit(50),
+                ]);
+                const today = new Date().toISOString().split('T')[0];
+                const weekAgo = new Date(Date.now() - 7 * 86400000).toISOString();
+                const custs = custRes.data || [];
+                const convLeads = (convRes.data || []).filter(c => c.customer_email);
+                return {
+                    crm_customers: custs,
+                    crm_total: custs.length,
+                    new_today: custs.filter(c => c.created_at?.startsWith(today)).length,
+                    new_this_week: custs.filter(c => c.created_at >= weekAgo).length,
+                    conversion_leads: convLeads.slice(0, 10),
+                    total_conversion_leads: convLeads.length,
+                };
+            }
+            case 'get_social_analytics': {
+                const db = mainDb;
+                const days = args.days || 30;
+                const since = new Date(Date.now() - days * 86400000).toISOString().split('T')[0];
+                let q = db.from('social_media_analytics').select('platform,date,followers,reach,impressions,engagement_rate,likes,comments,shares').gte('date', since).order('date', { ascending: false });
+                if (args.site_id) q = q.eq('entity_id', args.site_id);
+                if (args.platform) q = q.eq('platform', args.platform);
+                const { data } = await q.limit(500);
+                if (!data || !data.length) {
+                    // Also check gcr_social_accounts for connection status
+                    const { data: accts } = await gcrDb.from('gcr_social_accounts').select('platform,account_name,is_connected,connected_at');
+                    return { message: 'No analytics data yet.', connected_accounts: accts || [], note: 'Social analytics populate once accounts are connected and syncing.' };
+                }
+                // Aggregate by platform
+                const byPlatform = {};
+                data.forEach(r => {
+                    if (!byPlatform[r.platform]) byPlatform[r.platform] = { platform: r.platform, followers: 0, reach: 0, impressions: 0, posts: 0 };
+                    byPlatform[r.platform].followers = Math.max(byPlatform[r.platform].followers, r.followers || 0);
+                    byPlatform[r.platform].reach += (r.reach || 0);
+                    byPlatform[r.platform].impressions += (r.impressions || 0);
+                    byPlatform[r.platform].posts++;
+                });
+                return { platforms: Object.values(byPlatform), days, records: data.length };
+            }
+            case 'get_google_business_data': {
+                const db = mainDb;
+                const siteId = args.site_id || entityId;
+                if (!siteId) return { error: 'site_id required' };
+                const [tokenRes, reviewRes] = await Promise.all([
+                    db.from('oauth_tokens').select('provider,account_name,account_email,created_at').eq('site_id', siteId).eq('provider', 'google_business').maybeSingle(),
+                    db.from('reviews').select('customer_name,rating,text,source,owner_reply,status,created_at').eq('site_id', siteId).order('created_at', { ascending: false }).limit(20),
+                ]);
+                const reviews = reviewRes.data || [];
+                const avgRating = reviews.length ? (reviews.reduce((s, r) => s + (r.rating || 0), 0) / reviews.length).toFixed(1) : null;
+                return {
+                    connected: !!tokenRes.data,
+                    account: tokenRes.data ? { name: tokenRes.data.account_name, email: tokenRes.data.account_email, connected: tokenRes.data.created_at } : null,
+                    reviews_total: reviews.length,
+                    avg_rating: avgRating,
+                    unanswered: reviews.filter(r => !r.owner_reply).length,
+                    recent_reviews: reviews.slice(0, 5),
+                };
+            }
+            case 'get_seo_data': {
+                const db = mainDb;
+                const siteId = args.site_id || entityId;
+                if (!siteId) return { error: 'site_id required' };
+                const [metaRes, kwRes, gcrSeoRes] = await Promise.all([
+                    db.from('seo_meta_tags').select('*').eq('entity_id', siteId).order('created_at').limit(20),
+                    db.from('seo_keywords').select('keyword,current_ranking,search_volume,last_checked_at').eq('entity_id', siteId).limit(20),
+                    gcrDb.from('gcr_seo_settings').select('seo_title,seo_description,seo_keywords,ga4_id,facebook_pixel_id').eq('entity_id', siteId).maybeSingle(),
+                ]);
+                return {
+                    meta_pages: metaRes.data || [],
+                    tracked_keywords: kwRes.data || [],
+                    gcr_seo: gcrSeoRes.data || null,
+                    has_ga4: !!(gcrSeoRes.data?.ga4_id),
+                    has_pixel: !!(gcrSeoRes.data?.facebook_pixel_id),
+                };
+            }
+            case 'get_session_events': {
+                const db = mainDb;
+                const days = args.days || 7;
+                const since = new Date(Date.now() - days * 86400000).toISOString();
+                let q = db.from('session_events').select('event_type,event_label,page_path,device_type,created_at').gte('created_at', since).order('created_at', { ascending: false });
+                if (args.site_id) q = q.eq('entity_id', args.site_id);
+                if (args.event_type) q = q.eq('event_type', args.event_type);
+                const { data } = await q.limit(1000);
+                const byType = {};
+                (data || []).forEach(e => { byType[e.event_type] = (byType[e.event_type] || 0) + 1; });
+                return { event_counts: byType, total: (data || []).length, sample: (data || []).slice(0, 10), days };
+            }
+            default:
+                return { error: `Unknown tool: ${name}` };
+        }
+    } catch (err) {
+        return { error: `Tool ${name} error: ${err.message}` };
+    }
+}
+
+// ── POST /api/admin/gcr/grok-chat — Agentic AI with tool use
+router.post('/gcr/grok-chat', adminRequired, async (req, res) => {
+    const apiKey = process.env.XAI_API_KEY || process.env.GROK_API_KEY;
+    if (!apiKey) return res.status(503).json({ error: 'Grok API key not configured (set XAI_API_KEY in env)' });
+
+    const { message, history = [], slug, entity_id } = req.body;
+    if (!message) return res.status(400).json({ error: 'message required' });
+
+    const gcrDb = getGcrDb();
+
+    // Resolve entity ID from slug if needed
+    let entityId = entity_id || null;
+    if (!entityId && slug) {
+        const { data } = await gcrDb.from('entity').select('id').eq('slug', slug).maybeSingle();
+        entityId = data?.id || null;
+    }
+
+    const systemPrompt = `You are an autonomous business intelligence and operations agent for a multi-platform digital agency dashboard.
+You manage multiple websites and the GCR (Gulf Coast Radar) local directory platform.
+You have tools connected to TWO live databases:
+  1. Main CyberCheck DB — website analytics (page_views, session_events, conversions), leads/CRM (gcr_customers), SEO data, social analytics, reviews, OAuth platform tokens
+  2. GCR DB — business directory entities, menus, events, specials, happy hours, HH items
+RULES:
+- Always pull real data using your tools first. Never estimate or make up numbers.
+- Proactively surface insights: low engagement, missing data, unanswered reviews, traffic drops, opportunities.
+- If a platform isn't connected yet, explain exactly what data it would unlock.
+- Be concise and direct. Use bullets. Bold key numbers.
+- For ads questions (Google Ads, Facebook Ads, Instagram Ads): explain that ad campaign management requires connecting the respective Ads APIs (separate from Business Profile) — the infrastructure is ready to add.
+- Today: ${new Date().toISOString().split('T')[0]}
+${entityId ? `Currently viewing entity_id: ${entityId}` : 'Platform-wide view — no single business selected.'}`;
+
+    const messages = [
+        ...history.slice(-8).map(h => ({ role: h.role, content: h.content })),
+        { role: 'user', content: message },
+    ];
+
+    const toolsActivity = [];
+
+    try {
+        // Agent loop — up to 6 rounds of tool calls
+        for (let round = 0; round < 6; round++) {
+            const resp = await fetch('https://api.x.ai/v1/chat/completions', {
+                method: 'POST',
+                headers: { 'Authorization': `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    model: 'grok-3',
+                    messages: [{ role: 'system', content: systemPrompt }, ...messages],
+                    tools: GCR_AGENT_TOOLS,
+                    tool_choice: 'auto',
+                    temperature: 0.3,
+                    max_tokens: 1500,
+                }),
+            });
+            if (!resp.ok) throw new Error(`Grok API ${resp.status}: ${await resp.text()}`);
+            const data = await resp.json();
+            const choice = data.choices?.[0];
+            if (!choice) throw new Error('No response from Grok');
+
+            // Done — return the final text reply
+            if (!choice.message.tool_calls || !choice.message.tool_calls.length) {
+                return res.json({ reply: choice.message.content, tools_called: toolsActivity });
+            }
+
+            // Execute all tool calls in parallel
+            messages.push(choice.message);
+            const toolResults = await Promise.all(
+                choice.message.tool_calls.map(async (call) => {
+                    const args = JSON.parse(call.function.arguments || '{}');
+                    toolsActivity.push({ tool: call.function.name, args });
+                    const result = await executeGCRTool(call.function.name, args, { gcrDb, entityId, mainDb: supabase });
+                    return { tool_call_id: call.id, content: JSON.stringify(result) };
+                })
+            );
+            toolResults.forEach(r => messages.push({ role: 'tool', ...r }));
+        }
+
+        res.json({ reply: 'Reached max tool call rounds. Try a more specific question.', tools_called: toolsActivity });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
 });
 
 module.exports = router;
