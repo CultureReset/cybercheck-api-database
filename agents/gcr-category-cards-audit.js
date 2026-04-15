@@ -38,17 +38,26 @@ async function auditCategoryPage(page, pageInfo) {
     if (!res || res.status() >= 400) { fail(`${pageInfo.label}: HTTP ${res?.status()}`); return; }
   } catch(e) { fail(`${pageInfo.label}: load error — ${e.message.slice(0,60)}`); return; }
 
-  // Wait for JS to fetch API data and render cards
-  await page.waitForTimeout(4000);
+  // Wait for JS to fetch API data and render cards — up to 10s
+  let cardCount = 0;
+  for (let i = 0; i < 4; i++) {
+    await page.waitForTimeout(2500);
+    cardCount = await page.locator('.gcr-card').count().catch(() => 0);
+    if (cardCount > 0) break;
+  }
 
   // ── Cards rendered ──
-  const cardCount = await page.locator('.gcr-card').count().catch(() => 0);
   if (cardCount > 0) ok(`${cardCount} cards rendered`);
   else {
-    // Check for event/special cards (different structure)
-    const altCount = await page.locator('.event-card, .special-card, .event-row, .special').count().catch(() => 0);
-    if (altCount > 0) ok(`${altCount} event/special items rendered`);
-    else { fail(`No cards rendered on ${pageInfo.label} — data not loading`); return; }
+    // Check for event/special cards (different structure on events.html, specials.html, happy-hours.html)
+    const altCount = await page.locator('.event-card, .special-card, .event-row, .special, .hh-card, .listing-card').count().catch(() => 0);
+    if (altCount > 0) { ok(`${altCount} event/special items rendered (alternate card style)`); return; }
+    // Log what IS on the page to help diagnose
+    const bodyLen = await page.locator('body').textContent({ timeout: 2000 }).catch(() => '');
+    warn(`No cards rendered on ${pageInfo.label} after 10s — body length: ${bodyLen.length} chars`);
+    if (bodyLen.length < 500) fail(`Page body nearly empty — JS may have crashed or API blocked`);
+    else fail(`Cards not rendering — JS loaded but data not populating .gcr-card`);
+    return;
   }
 
   if (cardCount > 0) {
