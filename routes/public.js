@@ -2491,12 +2491,45 @@ router.post('/resend-confirmation', async (req, res) => {
 
         // Resend customer email
         if (bookingData.customer_email) {
-            const icsAttachment = [{ filename: 'booking.ics', content: Buffer.from(generateIcsContent(templateData)).toString('base64') }];
+            const attachments = [{ filename: 'booking.ics', content: Buffer.from(generateIcsContent(templateData)).toString('base64') }];
+
+            // ── Fetch waiver if booking has one ──
+            try {
+                const { data: waiver, error: waiverError } = await supabase
+                    .from('signed_waivers')
+                    .select('id, waiver_pdf_url, signed_at, signature')
+                    .eq('booking_id', booking_id)
+                    .maybeSingle();
+
+                if (waiver && !waiverError) {
+                    templateData.waiver_acknowledgment = true;
+                    templateData.waiver_pdf = waiver.waiver_pdf_url;
+
+                    // ── Attach waiver PDF if available ──
+                    if (waiver.waiver_pdf_url) {
+                        try {
+                            const waiverResponse = await fetch(waiver.waiver_pdf_url);
+                            if (waiverResponse.ok) {
+                                const waiverBuffer = await waiverResponse.arrayBuffer();
+                                attachments.push({
+                                    filename: 'waiver-agreement.pdf',
+                                    content: Buffer.from(waiverBuffer).toString('base64')
+                                });
+                            }
+                        } catch (err) {
+                            console.warn('Could not fetch waiver PDF:', err.message);
+                        }
+                    }
+                }
+            } catch (err) {
+                console.warn('Waiver fetch error (continuing with email):', err.message);
+            }
+
             await sendEmail({
                 to: bookingData.customer_email,
                 subject: 'Booking Confirmed — ' + (templateData.business_name || 'Your Reservation'),
                 html: customerConfirmationHtml(templateData),
-                attachments: icsAttachment
+                attachments: attachments
             }).catch(err => console.error('Resend email failed:', err));
         }
 
