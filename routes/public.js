@@ -63,17 +63,14 @@ router.post('/resend-confirmation', async (req, res) => {
             const attachments = [{ filename: 'booking.ics', content: Buffer.from(generateIcsContent(templateData)).toString('base64') }];
 
             // ── Fetch waiver if booking has one ──
-            let waiverData = null;
-            if (bookingData.waiver_id || bookingData.waiver_signed) {
-                const { data: waiver } = await supabase
+            try {
+                const { data: waiver, error: waiverError } = await supabase
                     .from('signed_waivers')
                     .select('id, waiver_pdf_url, signed_at, signature')
                     .eq('booking_id', booking_id)
-                    .single()
-                    .catch(() => ({ data: null }));
+                    .maybeSingle();
 
-                if (waiver) {
-                    waiverData = waiver;
+                if (waiver && !waiverError) {
                     templateData.waiver_acknowledgment = true;
                     templateData.waiver_pdf = waiver.waiver_pdf_url;
 
@@ -93,6 +90,8 @@ router.post('/resend-confirmation', async (req, res) => {
                         }
                     }
                 }
+            } catch (err) {
+                console.warn('Waiver fetch error (continuing with email):', err.message);
             }
 
             await sendEmail({
