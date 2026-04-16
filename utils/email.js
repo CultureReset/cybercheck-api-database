@@ -111,6 +111,13 @@ function customerConfirmationHtml(d) {
             ${d.receipt_url ? `<p style="margin:4px 0 0;font-size:13px;"><a href="${esc(d.receipt_url)}" style="color:#0ea5e9;">View Receipt →</a></p>` : ''}
           </div>` : ''}
 
+          <!-- Waiver Acknowledgment -->
+          ${d.waiver_acknowledgment ? `<div style="margin-top:20px;background:#fef8e7;border:2px solid #fbbf24;border-radius:10px;padding:16px;">
+            <p style="margin:0 0 8px;color:#92400e;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;">⚖️ Waiver Agreement</p>
+            <p style="margin:0 0 8px;color:#b45309;font-size:13px;">You have acknowledged and agreed to the waiver terms for this booking.</p>
+            ${d.waiver_pdf ? `<p style="margin:8px 0 0;font-size:13px;"><a href="${esc(d.waiver_pdf)}" style="color:#d97706;font-weight:600;text-decoration:none;">📄 Download Waiver PDF →</a></p>` : ''}
+          </div>` : ''}
+
           <p style="margin:28px 0 0;color:#374151;font-size:15px;">Questions? Reply to this email or contact ${esc(d.business_name)} directly.</p>
         </td></tr>
 

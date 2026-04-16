@@ -60,12 +60,46 @@ router.post('/resend-confirmation', async (req, res) => {
         }
 
         if (bookingData.customer_email) {
-            const ics = [{ filename: 'booking.ics', content: Buffer.from(generateIcsContent(templateData)).toString('base64') }];
+            const attachments = [{ filename: 'booking.ics', content: Buffer.from(generateIcsContent(templateData)).toString('base64') }];
+
+            // ── Fetch waiver if booking has one ──
+            let waiverData = null;
+            if (bookingData.waiver_id || bookingData.waiver_signed) {
+                const { data: waiver } = await supabase
+                    .from('signed_waivers')
+                    .select('id, waiver_pdf_url, signed_at, signature')
+                    .eq('booking_id', booking_id)
+                    .single()
+                    .catch(() => ({ data: null }));
+
+                if (waiver) {
+                    waiverData = waiver;
+                    templateData.waiver_acknowledgment = true;
+                    templateData.waiver_pdf = waiver.waiver_pdf_url;
+
+                    // ── Attach waiver PDF if available ──
+                    if (waiver.waiver_pdf_url) {
+                        try {
+                            const waiverResponse = await fetch(waiver.waiver_pdf_url);
+                            if (waiverResponse.ok) {
+                                const waiverBuffer = await waiverResponse.arrayBuffer();
+                                attachments.push({
+                                    filename: 'waiver-agreement.pdf',
+                                    content: Buffer.from(waiverBuffer).toString('base64')
+                                });
+                            }
+                        } catch (err) {
+                            console.warn('Could not fetch waiver PDF:', err.message);
+                        }
+                    }
+                }
+            }
+
             await sendEmail({
                 to: bookingData.customer_email,
                 subject: 'Booking Confirmed — ' + (templateData.business_name || 'Your Reservation'),
                 html: customerConfirmationHtml(templateData),
-                attachments: ics
+                attachments: attachments
             }).catch(err => console.error('Resend email failed:', err));
         }
 
@@ -646,11 +680,24 @@ router.post('/bookings', async (req, res) => {
             const { sendEmail, customerConfirmationHtml, ownerNotificationHtml, generateIcsContent } = require('../utils/email');
 
             // Get messaging settings + contact info in one shot
-            const [{ data: msgSettings }, { data: siteContent }, { data: business }] = await Promise.all([
-                supabase.from('messaging_settings').select('notification_phone, notification_email, booking_confirmation_enabled, booking_confirmation_template').eq('site_id', req.siteId).maybeSingle(),
+            const [{ data: siteContentData }, { data: siteContent }, { data: business }] = await Promise.all([
+                supabase.from('site_content').select('messaging_settings').eq('site_id', req.siteId).single(),
                 supabase.from('site_content').select('contact_phone, contact_email').eq('site_id', req.siteId).single(),
                 supabase.from('businesses').select('name, email').eq('site_id', req.siteId).single()
             ]);
+            const msgSettings = siteContentData?.messaging_settings || {};
+
+            // Create waiver record with unique token for this booking
+            const crypto = require('crypto');
+            const waiverToken = crypto.randomBytes(24).toString('hex');
+            await supabase.from('waivers').insert({
+                site_id: req.siteId,
+                booking_id: data.id,
+                customer_name: data.customer_name,
+                customer_email: data.customer_email,
+                token: waiverToken,
+                signed: false
+            }).catch(err => console.error('Waiver record creation failed:', err));
 
             const settings = msgSettings || {};
             const templateData = await buildTemplateData(data, req.siteId);
@@ -669,8 +716,16 @@ router.post('/bookings', async (req, res) => {
             }
 
             // ── Owner Email ──
-            const ownerEmailRaw = settings.notification_email || siteContent?.contact_email || business?.email || null;
-            const ownerEmail = ownerEmailRaw ? ownerEmailRaw.split(',').map(e => e.trim()).filter(Boolean) : null;
+            // Collect all emails: primary, secondary (CC), contact_email, business email
+            const emailList = [];
+            if (msgSettings.notification_email) emailList.push(msgSettings.notification_email);
+            if (msgSettings.notification_email_2) emailList.push(msgSettings.notification_email_2);
+            if (!msgSettings.notification_email && !msgSettings.notification_email_2) {
+              // Fallback to contact_email or business email if no notification emails set
+              if (siteContent?.contact_email) emailList.push(siteContent.contact_email);
+              else if (business?.email) emailList.push(business.email);
+            }
+            const ownerEmail = emailList.length ? emailList : null;
             if (ownerEmail && ownerEmail.length) {
                 sendEmail({
                     to: ownerEmail,
@@ -802,11 +857,12 @@ router.post('/contact', async (req, res) => {
     try {
         const { sendSms } = require('../utils/sms');
         const { sendEmail } = require('../utils/email');
-        const [{ data: settings }, { data: siteContent }, { data: business }] = await Promise.all([
-            supabase.from('messaging_settings').select('notification_phone, notification_email').eq('site_id', req.siteId).maybeSingle(),
+        const [{ data: siteContentData }, { data: siteContent }, { data: business }] = await Promise.all([
+            supabase.from('site_content').select('messaging_settings').eq('site_id', req.siteId).maybeSingle(),
             supabase.from('site_content').select('contact_phone, contact_email').eq('site_id', req.siteId).maybeSingle(),
             supabase.from('businesses').select('name, email').eq('site_id', req.siteId).single(),
         ]);
+        const settings = siteContentData?.messaging_settings || {};
         const ownerPhone = settings?.notification_phone || siteContent?.contact_phone || null;
         if (ownerPhone) {
             const interest = req.body.interest ? ` | Interested in: ${req.body.interest}` : '';
@@ -820,9 +876,17 @@ router.post('/contact', async (req, res) => {
             const customerSms = `Hi ${name}! We received your message and will get back to you shortly. Thanks for contacting ${businessName2}!`;
             sendSms(phone, customerSms, req.siteId, 'contact_form_confirm').catch(() => {});
         }
-        const ownerEmailRaw = settings?.notification_email || siteContent?.contact_email || business?.email || null;
-        console.log('[contact] siteId:', req.siteId, '| notification_email:', settings?.notification_email, '| ownerEmailRaw:', ownerEmailRaw);
-        const ownerEmail = ownerEmailRaw ? ownerEmailRaw.split(',').map(e => e.trim()).filter(Boolean) : null;
+        // Collect all emails: primary, secondary (CC), contact_email, business email
+        const emailList = [];
+        if (settings?.notification_email) emailList.push(settings.notification_email);
+        if (settings?.notification_email_2) emailList.push(settings.notification_email_2);
+        if (!settings?.notification_email && !settings?.notification_email_2) {
+          // Fallback to contact_email or business email if no notification emails set
+          if (siteContent?.contact_email) emailList.push(siteContent.contact_email);
+          else if (business?.email) emailList.push(business.email);
+        }
+        const ownerEmail = emailList.length ? emailList : null;
+        console.log('[contact] siteId:', req.siteId, '| notification_emails:', { primary: settings?.notification_email, secondary: settings?.notification_email_2 }, '| recipients:', ownerEmail);
         const businessName = business?.name || 'Us';
         const interestHtml = req.body.interest ? `<p><strong>Interested in:</strong> ${req.body.interest}</p>` : '';
 
