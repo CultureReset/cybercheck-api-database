@@ -244,22 +244,19 @@ router.post('/create-payment', async (req, res) => {
                     // Fetch or create waiver record and build waiver URL
                     try {
                         const { data: biz } = await supabase.from('businesses').select('subdomain, custom_domain').eq('site_id', targetSiteId).maybeSingle();
-                        let { data: waiverRecord } = await supabase.from('waivers').select('token').eq('booking_id', booking_id).is('signed_at', null).maybeSingle();
+                        let { data: waiverRecord } = await supabase.from('waivers').select('id').eq('booking_id', booking_id).is('signed_at', null).maybeSingle();
                         if (!waiverRecord) {
-                            const token = crypto.randomBytes(24).toString('hex');
                             const { data: created } = await supabase.from('waivers').insert({
                                 site_id: targetSiteId,
                                 booking_id,
-                                customer_name: bookingData.customer_name,
-                                token,
-                                
-                            }).select('token').single();
+                                customer_name: bookingData.customer_name
+                            }).select('id').single();
                             waiverRecord = created;
                         }
-                        if (waiverRecord?.token && biz) {
+                        if (waiverRecord?.id && biz) {
                             const domain = biz.custom_domain
                                 || (biz.subdomain ? `https://${biz.subdomain}.cybercheck.com` : 'https://circle-boats-main.vercel.app');
-                            templateData.waiver_url = `${process.env.PUBLIC_SITE_BASE_URL || domain}/waiver-form.html?token=${waiverRecord.token}`;
+                            templateData.waiver_url = `${process.env.PUBLIC_SITE_BASE_URL || domain}/waiver-form.html?token=${waiverRecord.id}`;
                         }
                     } catch (waiverErr) {
                         console.warn('Waiver create/fetch failed (continuing with email):', waiverErr.message);

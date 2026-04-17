@@ -53,18 +53,16 @@ router.post('/waivers/send-link', async (req, res) => {
         // Find existing unsigned waiver, or create one from the site template
         let { data: waiver } = await supabase
             .from('waivers')
-            .select('id, token, customer_name, site_id')
+            .select('id, customer_name, site_id')
             .eq('booking_id', booking_id)
             .is('signed_at', null)
             .maybeSingle();
 
         if (!waiver) {
-            const crypto = require('crypto');
-            const token = crypto.randomBytes(24).toString('hex');
             const { data: created, error: insertErr } = await supabase
                 .from('waivers')
-                .insert({ site_id: booking.site_id, booking_id, customer_name: booking.customer_name, token,  })
-                .select('id, token, customer_name, site_id')
+                .insert({ site_id: booking.site_id, booking_id, customer_name: booking.customer_name })
+                .select('id, customer_name, site_id')
                 .single();
             if (insertErr) return res.status(500).json({ error: insertErr.message });
             waiver = created;
@@ -80,7 +78,7 @@ router.post('/waivers/send-link', async (req, res) => {
 
         const domain = biz?.custom_domain
             || (biz?.subdomain ? `https://${biz.subdomain}.cybercheck.com` : 'https://circle-boats-main.vercel.app');
-        const waiverUrl = `${process.env.PUBLIC_SITE_BASE_URL || domain}/waiver-form.html?token=${waiver.token}`;
+        const waiverUrl = `${process.env.PUBLIC_SITE_BASE_URL || domain}/waiver-form.html?token=${waiver.id}`;
 
         const name = booking.customer_name || waiver.customer_name || 'there';
         const html = `<!DOCTYPE html>
@@ -786,7 +784,7 @@ router.post('/bookings', async (req, res) => {
     if (req.body.waiver_token) {
         await supabase.from('waivers')
             .update({ booking_id: data.id })
-            .eq('token', req.body.waiver_token)
+            .eq('id', req.body.waiver_token)
             .catch(err => console.error('Waiver link failed:', err));
     }
 
@@ -809,13 +807,13 @@ router.post('/bookings', async (req, res) => {
 
             // Create waiver record with unique token for this booking
             const crypto = require('crypto');
-            const waiverToken = crypto.randomBytes(24).toString('hex');
+            const 
             await supabase.from('waivers').insert({
                 site_id: req.siteId,
                 booking_id: data.id,
                 customer_name: data.customer_name,
                 customer_email: data.customer_email,
-                token: waiverToken,
+                
                 
             }).catch(err => console.error('Waiver record creation failed:', err));
 
@@ -1733,7 +1731,7 @@ router.get('/waivers/:token', async (req, res) => {
     const { data: waiver } = await supabase
         .from('waivers')
         .select('id, waiver_text, customer_name, booking_id, signed_at')
-        .eq('token', token)
+        .eq('id', token)
         .single();
 
     if (!waiver) return res.status(404).json({ error: 'Waiver link not found or expired' });
@@ -1766,7 +1764,7 @@ router.post('/waivers/:token/sign', async (req, res) => {
     const { data: existing } = await supabase
         .from('waivers')
         .select('id, booking_id, signed_at')
-        .eq('token', token)
+        .eq('id', token)
         .single();
 
     if (!existing) return res.status(404).json({ error: 'Waiver link not found' });
@@ -1827,7 +1825,7 @@ router.get('/waiver', async (req, res) => {
         const { data: waiver } = await supabase
             .from('waivers')
             .select('id, waiver_text, customer_name, booking_id, signed_at')
-            .eq('token', token)
+            .eq('id', token)
             .single();
 
         if (!waiver) return res.status(404).json({ error: 'Waiver link not found or expired' });
@@ -1884,7 +1882,7 @@ router.post('/waiver', async (req, res) => {
         const { data: existing } = await supabase
             .from('waivers')
             .select('id, booking_id, signed_at')
-            .eq('token', token)
+            .eq('id', token)
             .single();
 
         if (!existing) return res.status(404).json({ error: 'Waiver link not found' });
@@ -1956,7 +1954,7 @@ router.get('/waivers/:token', async (req, res) => {
     const { data: waiver } = await supabase
         .from('waivers')
         .select('id, waiver_text, customer_name, booking_id, signed_at')
-        .eq('token', token)
+        .eq('id', token)
         .single();
 
     if (!waiver) return res.status(404).json({ error: 'Waiver link not found or expired' });
@@ -1997,7 +1995,7 @@ router.post('/waivers/:token/sign', async (req, res) => {
     const { data: existing } = await supabase
         .from('waivers')
         .select('id, booking_id, signed_at')
-        .eq('token', token)
+        .eq('id', token)
         .single();
 
     if (!existing) return res.status(404).json({ error: 'Waiver link not found' });
@@ -2014,7 +2012,7 @@ router.post('/waivers/:token/sign', async (req, res) => {
             signed_at: new Date().toISOString(),
             ip_address: req.ip
         })
-        .eq('token', token)
+        .eq('id', token)
         .select()
         .single();
 
@@ -2896,7 +2894,7 @@ router.post('/waivers/send-link', async (req, res) => {
 
         const { data: waiver } = await supabase
             .from('waivers')
-            .select('id, token, customer_name, site_id')
+            .select('id, customer_name, site_id')
             .eq('booking_id', booking_id)
             .is('signed_at', null)
             .maybeSingle();
@@ -2919,7 +2917,7 @@ router.post('/waivers/send-link', async (req, res) => {
 
         const domain = biz?.custom_domain
             || (biz?.subdomain ? `https://${biz.subdomain}.cybercheck.com` : 'https://circle-boats-main.vercel.app');
-        const waiverUrl = `${process.env.PUBLIC_SITE_BASE_URL || domain}/waiver-form.html?token=${waiver.token}`;
+        const waiverUrl = `${process.env.PUBLIC_SITE_BASE_URL || domain}/waiver-form.html?token=${waiver.id}`;
 
         const name = booking.customer_name || waiver.customer_name || 'there';
         const html = `<!DOCTYPE html>
@@ -3005,7 +3003,7 @@ router.get('/waivers/send-reminders', async (req, res) => {
 
                 const domain = biz?.custom_domain
                     || (biz?.subdomain ? `https://${biz.subdomain}.cybercheck.com` : 'https://circle-boats-main.vercel.app');
-                const waiverUrl = `${process.env.PUBLIC_SITE_BASE_URL || domain}/waiver-form.html?token=${waiver.token}`;
+                const waiverUrl = `${process.env.PUBLIC_SITE_BASE_URL || domain}/waiver-form.html?token=${waiver.id}`;
 
                 const name = booking.customer_name || waiver.customer_name || 'there';
                 const html = `<!DOCTYPE html>
