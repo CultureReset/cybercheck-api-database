@@ -1703,6 +1703,25 @@ router.post('/waivers/:token/sign', async (req, res) => {
 
     if (existing.booking_id) {
         await supabase.from('bookings').update({ waiver_signed: true }).eq('id', existing.booking_id);
+
+        // ── Create dashboard notification with red badge ──
+        const { data: booking } = await supabase
+            .from('bookings')
+            .select('site_id, customer_name')
+            .eq('id', existing.booking_id)
+            .maybeSingle();
+
+        if (booking?.site_id) {
+            await supabase.from('notifications').insert({
+                site_id: booking.site_id,
+                type: 'waiver_signed',
+                title: 'Waiver Signed',
+                message: (booking.customer_name || 'A customer') + ' has signed their waiver.',
+                booking_id: existing.booking_id,
+                read: false,
+                created_at: new Date().toISOString()
+            }).catch(err => console.warn('Waiver notification insert failed:', err.message));
+        }
     }
 
     res.json({ success: true, waiver_id: data.id });
