@@ -94,12 +94,13 @@ router.post('/resend-confirmation', async (req, res) => {
                 console.warn('Waiver fetch error (continuing with email):', err.message);
             }
 
-            await sendEmail({
+            const customerEmailResult = await sendEmail({
                 to: bookingData.customer_email,
                 subject: 'Booking Confirmed — ' + (templateData.business_name || 'Your Reservation'),
                 html: customerConfirmationHtml(templateData),
                 attachments: attachments
-            }).catch(err => console.error('Resend email failed:', err));
+            });
+            console.log('Customer email result:', JSON.stringify(customerEmailResult), '→', bookingData.customer_email);
         }
 
         // ── Owner / CC notification emails ──
@@ -123,13 +124,15 @@ router.post('/resend-confirmation', async (req, res) => {
             if (siteContentData?.contact_email) emailList.push(siteContentData.contact_email);
             else if (business?.email) emailList.push(business.email);
         }
+        console.log('Owner email list:', emailList);
         if (emailList.length) {
-            await sendEmail({
+            const ownerEmailResult = await sendEmail({
                 to: emailList,
                 subject: 'Booking Confirmed — ' + (templateData.customer_name || 'Customer') + ' · ' + templateData.date,
                 html: ownerNotificationHtml(templateData),
                 replyTo: bookingData.customer_email || undefined
-            }).catch(err => console.error('Resend owner email failed:', err));
+            });
+            console.log('Owner email result:', JSON.stringify(ownerEmailResult));
         }
 
         res.json({ success: true, message: 'Confirmations resent to customer' });
