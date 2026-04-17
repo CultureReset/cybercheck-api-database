@@ -61,11 +61,12 @@ router.post('/waivers/send-link', async (req, res) => {
         if (!waiver) {
             const crypto = require('crypto');
             const token = crypto.randomBytes(24).toString('hex');
-            const { data: created } = await supabase
+            const { data: created, error: insertErr } = await supabase
                 .from('waivers')
                 .insert({ site_id: booking.site_id, booking_id, customer_name: booking.customer_name, token, signed: false })
                 .select('id, token, customer_name, site_id')
                 .single();
+            if (insertErr) return res.status(500).json({ error: insertErr.message });
             waiver = created;
         }
 
