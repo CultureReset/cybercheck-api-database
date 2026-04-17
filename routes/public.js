@@ -2796,4 +2796,95 @@ router.get('/menu', async (req, res) => {
     }
 });
 
+// ═══════════════════════════════════════════════════════════════════════════════
+// GET /api/public/waivers/send-reminders — Vercel Cron: email waiver link 2 days before booking
+// Runs once daily. Secured by CRON_SECRET env var.
+// ═══════════════════════════════════════════════════════════════════════════════
+router.get('/waivers/send-reminders', async (req, res) => {
+    const secret = process.env.CRON_SECRET;
+    if (secret && req.headers['authorization'] !== 'Bearer ' + secret) {
+        return res.status(401).json({ error: 'Unauthorized' });
+    }
+
+    try {
+        const { sendEmail } = require('../utils/email');
+
+        // Target: bookings happening exactly 2 days from today (in local date terms)
+        const target = new Date();
+        target.setDate(target.getDate() + 2);
+        const targetDate = target.toISOString().split('T')[0];
+
+        // Find unsigned waivers for bookings on that date
+        const { data: waivers, error } = await supabase
+            .from('waivers')
+            .select('id, token, customer_name, booking_id, site_id')
+            .eq('signed', false);
+
+        if (error) return res.status(500).json({ error: error.message });
+        if (!waivers || waivers.length === 0) return res.json({ sent: 0 });
+
+        let sent = 0;
+        for (const waiver of waivers) {
+            try {
+                // Check if booking is on target date
+                const { data: booking } = await supabase
+                    .from('bookings')
+                    .select('customer_email, customer_name, booking_date')
+                    .eq('id', waiver.booking_id)
+                    .single();
+
+                if (!booking || booking.booking_date !== targetDate) continue;
+                if (!booking.customer_email) continue;
+
+                // Get domain from businesses table
+                const { data: biz } = await supabase
+                    .from('businesses')
+                    .select('subdomain, custom_domain')
+                    .eq('site_id', waiver.site_id)
+                    .maybeSingle();
+
+                const domain = biz?.custom_domain
+                    || (biz?.subdomain ? `https://${biz.subdomain}.cybercheck.com` : 'https://circle-boats-main.vercel.app');
+                const waiverUrl = `${process.env.PUBLIC_SITE_BASE_URL || domain}/waiver-form.html?token=${waiver.token}`;
+
+                const name = booking.customer_name || waiver.customer_name || 'there';
+                const html = `<!DOCTYPE html>
+<html><head><meta charset="UTF-8"></head>
+<body style="margin:0;padding:0;background:#f4f6f8;font-family:Arial,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#f4f6f8;padding:32px 16px;">
+    <tr><td align="center">
+      <table width="100%" style="max-width:520px;background:#ffffff;border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.08);">
+        <tr><td style="background:#0ea5e9;padding:28px 32px;text-align:center;">
+          <h1 style="margin:0;color:#fff;font-size:22px;">Your Booking is in 2 Days!</h1>
+          <p style="margin:8px 0 0;color:#e0f2fe;font-size:14px;">Please sign your waiver before you arrive</p>
+        </td></tr>
+        <tr><td style="padding:32px;text-align:center;">
+          <p style="margin:0 0 24px;color:#374151;font-size:15px;">Hi <strong>${name}</strong>, your booking is coming up. Please take a moment to sign your waiver now so check-in is quick and easy.</p>
+          <a href="${waiverUrl}" style="display:inline-block;background:#f59e0b;color:#ffffff;text-decoration:none;font-size:16px;font-weight:700;padding:16px 40px;border-radius:10px;">✍️ Sign Your Waiver →</a>
+          <p style="margin:24px 0 0;color:#9ca3af;font-size:12px;">This link is unique to your booking. Do not share it.</p>
+        </td></tr>
+      </table>
+    </td></tr>
+  </table>
+</body></html>`;
+
+                await sendEmail({
+                    to: booking.customer_email,
+                    subject: 'Action Required: Sign Your Waiver Before Your Booking',
+                    html
+                });
+
+                sent++;
+            } catch (err) {
+                console.warn('Waiver reminder failed for waiver', waiver.id, err.message);
+            }
+        }
+
+        res.json({ sent, date: targetDate });
+    } catch (err) {
+        console.error('waiver send-reminders error:', err.message);
+        res.status(500).json({ error: err.message });
+    }
+});
+
 module.exports = router;
