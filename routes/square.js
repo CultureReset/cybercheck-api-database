@@ -244,7 +244,7 @@ router.post('/create-payment', async (req, res) => {
                     // Fetch or create waiver record and build waiver URL
                     try {
                         const { data: biz } = await supabase.from('businesses').select('subdomain, custom_domain').eq('site_id', targetSiteId).maybeSingle();
-                        let { data: waiverRecord } = await supabase.from('waivers').select('token').eq('booking_id', booking_id).eq('signed', false).maybeSingle();
+                        let { data: waiverRecord } = await supabase.from('waivers').select('token').eq('booking_id', booking_id).is('signed_at', null).maybeSingle();
                         if (!waiverRecord) {
                             const token = crypto.randomBytes(24).toString('hex');
                             const { data: created } = await supabase.from('waivers').insert({
@@ -252,7 +252,7 @@ router.post('/create-payment', async (req, res) => {
                                 booking_id,
                                 customer_name: bookingData.customer_name,
                                 token,
-                                signed: false
+                                
                             }).select('token').single();
                             waiverRecord = created;
                         }

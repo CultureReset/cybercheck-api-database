@@ -55,7 +55,7 @@ router.post('/waivers/send-link', async (req, res) => {
             .from('waivers')
             .select('id, token, customer_name, site_id')
             .eq('booking_id', booking_id)
-            .eq('signed', false)
+            .is('signed_at', null)
             .maybeSingle();
 
         if (!waiver) {
@@ -63,7 +63,7 @@ router.post('/waivers/send-link', async (req, res) => {
             const token = crypto.randomBytes(24).toString('hex');
             const { data: created, error: insertErr } = await supabase
                 .from('waivers')
-                .insert({ site_id: booking.site_id, booking_id, customer_name: booking.customer_name, token, signed: false })
+                .insert({ site_id: booking.site_id, booking_id, customer_name: booking.customer_name, token,  })
                 .select('id, token, customer_name, site_id')
                 .single();
             if (insertErr) return res.status(500).json({ error: insertErr.message });
@@ -816,7 +816,7 @@ router.post('/bookings', async (req, res) => {
                 customer_name: data.customer_name,
                 customer_email: data.customer_email,
                 token: waiverToken,
-                signed: false
+                
             }).catch(err => console.error('Waiver record creation failed:', err));
 
             const settings = msgSettings || {};
@@ -1732,12 +1732,12 @@ router.get('/waivers/:token', async (req, res) => {
     const token = req.params.token;
     const { data: waiver } = await supabase
         .from('waivers')
-        .select('id, waiver_text, customer_name, booking_id, signed')
+        .select('id, waiver_text, customer_name, booking_id, signed_at')
         .eq('token', token)
         .single();
 
     if (!waiver) return res.status(404).json({ error: 'Waiver link not found or expired' });
-    if (waiver.signed) return res.status(410).json({ error: 'Waiver already signed' });
+    if (waiver.signed_at) return res.status(410).json({ error: 'Waiver already signed' });
 
     let waiverText = waiver.waiver_text;
     if (!waiverText) {
@@ -1765,12 +1765,12 @@ router.post('/waivers/:token/sign', async (req, res) => {
 
     const { data: existing } = await supabase
         .from('waivers')
-        .select('id, booking_id, signed')
+        .select('id, booking_id, signed_at')
         .eq('token', token)
         .single();
 
     if (!existing) return res.status(404).json({ error: 'Waiver link not found' });
-    if (existing.signed) return res.status(410).json({ error: 'Waiver already signed' });
+    if (existing.signed_at) return res.status(410).json({ error: 'Waiver already signed' });
 
     const { data, error } = await supabase
         .from('waivers')
@@ -1779,7 +1779,7 @@ router.post('/waivers/:token/sign', async (req, res) => {
             customer_email: customer_email || null,
             signature_data,
             waiver_text: waiver_text || null,
-            signed: true,
+            signed_at: new Date().toISOString(),
             signed_at: new Date().toISOString(),
             ip_address: req.ip
         })
@@ -1826,12 +1826,12 @@ router.get('/waiver', async (req, res) => {
     if (token) {
         const { data: waiver } = await supabase
             .from('waivers')
-            .select('id, waiver_text, customer_name, booking_id, signed')
+            .select('id, waiver_text, customer_name, booking_id, signed_at')
             .eq('token', token)
             .single();
 
         if (!waiver) return res.status(404).json({ error: 'Waiver link not found or expired' });
-        if (waiver.signed) return res.status(410).json({ error: 'Waiver already signed' });
+        if (waiver.signed_at) return res.status(410).json({ error: 'Waiver already signed' });
 
         // Fetch the waiver template text if this record has none yet
         let waiverText = waiver.waiver_text;
@@ -1883,12 +1883,12 @@ router.post('/waiver', async (req, res) => {
     if (token) {
         const { data: existing } = await supabase
             .from('waivers')
-            .select('id, booking_id, signed')
+            .select('id, booking_id, signed_at')
             .eq('token', token)
             .single();
 
         if (!existing) return res.status(404).json({ error: 'Waiver link not found' });
-        if (existing.signed) return res.status(410).json({ error: 'Waiver already signed' });
+        if (existing.signed_at) return res.status(410).json({ error: 'Waiver already signed' });
 
         const { data, error } = await supabase
             .from('waivers')
@@ -1897,7 +1897,7 @@ router.post('/waiver', async (req, res) => {
                 customer_email: customer_email || null,
                 signature_data,
                 waiver_text: waiver_text || null,
-                signed: true,
+                signed_at: new Date().toISOString(),
                 signed_at: new Date().toISOString(),
                 ip_address: req.ip
             })
@@ -1926,7 +1926,7 @@ router.post('/waiver', async (req, res) => {
             customer_email: customer_email || null,
             signature_data,
             waiver_text: waiver_text || null,
-            signed: true,
+            signed_at: new Date().toISOString(),
             signed_at: new Date().toISOString(),
             ip_address: req.ip
         })
@@ -1955,12 +1955,12 @@ router.get('/waivers/:token', async (req, res) => {
     
     const { data: waiver } = await supabase
         .from('waivers')
-        .select('id, waiver_text, customer_name, booking_id, signed')
+        .select('id, waiver_text, customer_name, booking_id, signed_at')
         .eq('token', token)
         .single();
 
     if (!waiver) return res.status(404).json({ error: 'Waiver link not found or expired' });
-    if (waiver.signed) return res.status(410).json({ error: 'Waiver already signed' });
+    if (waiver.signed_at) return res.status(410).json({ error: 'Waiver already signed' });
 
     // Fetch the waiver template text if this record has none yet
     let waiverText = waiver.waiver_text;
@@ -1996,12 +1996,12 @@ router.post('/waivers/:token/sign', async (req, res) => {
 
     const { data: existing } = await supabase
         .from('waivers')
-        .select('id, booking_id, signed')
+        .select('id, booking_id, signed_at')
         .eq('token', token)
         .single();
 
     if (!existing) return res.status(404).json({ error: 'Waiver link not found' });
-    if (existing.signed) return res.status(410).json({ error: 'Waiver already signed' });
+    if (existing.signed_at) return res.status(410).json({ error: 'Waiver already signed' });
 
     const { data, error } = await supabase
         .from('waivers')
@@ -2010,7 +2010,7 @@ router.post('/waivers/:token/sign', async (req, res) => {
             customer_email: customer_email || null,
             signature_data,
             waiver_text: waiver_text || null,
-            signed: true,
+            signed_at: new Date().toISOString(),
             signed_at: new Date().toISOString(),
             ip_address: req.ip
         })
@@ -2898,7 +2898,7 @@ router.post('/waivers/send-link', async (req, res) => {
             .from('waivers')
             .select('id, token, customer_name, site_id')
             .eq('booking_id', booking_id)
-            .eq('signed', false)
+            .is('signed_at', null)
             .maybeSingle();
 
         if (!waiver) return res.status(404).json({ error: 'No unsigned waiver found for this booking' });
@@ -2978,7 +2978,7 @@ router.get('/waivers/send-reminders', async (req, res) => {
         const { data: waivers, error } = await supabase
             .from('waivers')
             .select('id, token, customer_name, booking_id, site_id')
-            .eq('signed', false);
+            .is('signed_at', null);
 
         if (error) return res.status(500).json({ error: error.message });
         if (!waivers || waivers.length === 0) return res.json({ sent: 0 });
