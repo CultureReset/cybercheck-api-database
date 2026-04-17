@@ -242,14 +242,18 @@ router.post('/create-payment', async (req, res) => {
                     const templateData = await buildTemplateData(bookingData, targetSiteId);
 
                     // Fetch waiver token and build waiver URL for this booking
-                    const [{ data: waiverRecord }, { data: biz }] = await Promise.all([
-                        supabase.from('waivers').select('token').eq('booking_id', booking_id).eq('signed', false).maybeSingle(),
-                        supabase.from('businesses').select('subdomain, custom_domain').eq('site_id', targetSiteId).single()
-                    ]);
-                    if (waiverRecord?.token && biz) {
-                        const domain = biz.custom_domain
-                            || (biz.subdomain ? `https://${biz.subdomain}.cybercheck.com` : 'https://circle-boats-main-.vercel.app');
-                        templateData.waiver_url = `${process.env.PUBLIC_SITE_BASE_URL || domain}/waiver-form.html?token=${waiverRecord.token}`;
+                    try {
+                        const [{ data: waiverRecord }, { data: biz }] = await Promise.all([
+                            supabase.from('waivers').select('token').eq('booking_id', booking_id).eq('signed', false).maybeSingle(),
+                            supabase.from('businesses').select('subdomain, custom_domain').eq('site_id', targetSiteId).maybeSingle()
+                        ]);
+                        if (waiverRecord?.token && biz) {
+                            const domain = biz.custom_domain
+                                || (biz.subdomain ? `https://${biz.subdomain}.cybercheck.com` : 'https://circle-boats-main-.vercel.app');
+                            templateData.waiver_url = `${process.env.PUBLIC_SITE_BASE_URL || domain}/waiver-form.html?token=${waiverRecord.token}`;
+                        }
+                    } catch (waiverErr) {
+                        console.warn('Waiver fetch failed (continuing with email):', waiverErr.message);
                     }
 
                     if (bookingData.customer_email) {
