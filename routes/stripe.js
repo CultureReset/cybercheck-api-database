@@ -395,17 +395,33 @@ router.post('/create-payment-intent', async (req, res) => {
                     const { sendSms, fillTemplate, buildTemplateData } = require('../utils/sms');
                     const { sendEmail, customerConfirmationHtml, generateIcsContent } = require('../utils/email');
 
-                    const [{ data: bookingData }, { data: msgSettings }, { data: siteContent }, { data: business }] = await Promise.all([
+                    const [{ data: bookingData }, { data: siteContentData }, { data: siteContent }, { data: business }] = await Promise.all([
                         supabase.from('bookings').select('*').eq('id', booking_id).single(),
-                        supabase.from('messaging_settings').select('notification_email, booking_confirmation_enabled, booking_confirmation_template').eq('site_id', targetSiteId).maybeSingle(),
+                        supabase.from('site_content').select('messaging_settings').eq('site_id', targetSiteId).single(),
                         supabase.from('site_content').select('contact_email').eq('site_id', targetSiteId).single(),
                         supabase.from('businesses').select('name, email').eq('site_id', targetSiteId).single()
                     ]);
 
                     if (!bookingData) return;
+                    const msgSettings = siteContentData?.messaging_settings || {};
                     const settings = msgSettings || {};
                     const templateData = await buildTemplateData(bookingData, targetSiteId);
                     templateData.notes = bookingData.notes || '';
+
+                    // Fetch waiver token and build waiver URL for this booking
+                    try {
+                        const [{ data: waiverRecord }, { data: biz }] = await Promise.all([
+                            supabase.from('waivers').select('token').eq('booking_id', booking_id).eq('signed', false).maybeSingle(),
+                            supabase.from('businesses').select('subdomain, custom_domain').eq('site_id', targetSiteId).maybeSingle()
+                        ]);
+                        if (waiverRecord?.token && biz) {
+                            const domain = biz.custom_domain
+                                || (biz.subdomain ? `https://${biz.subdomain}.cybercheck.com` : 'https://circle-boats-main-.vercel.app');
+                            templateData.waiver_url = `${process.env.PUBLIC_SITE_BASE_URL || domain}/waiver-form.html?token=${waiverRecord.token}`;
+                        }
+                    } catch (waiverErr) {
+                        console.warn('Waiver fetch failed (continuing with email):', waiverErr.message);
+                    }
 
                     // Customer SMS
                     if (settings.booking_confirmation_enabled !== false && bookingData.customer_phone) {
