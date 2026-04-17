@@ -805,16 +805,12 @@ router.post('/bookings', async (req, res) => {
             ]);
             const msgSettings = siteContentData?.messaging_settings || {};
 
-            // Create waiver record with unique token for this booking
-            const crypto = require('crypto');
-            const 
+            // Create waiver record for this booking
             await supabase.from('waivers').insert({
                 site_id: req.siteId,
                 booking_id: data.id,
                 customer_name: data.customer_name,
-                customer_email: data.customer_email,
-                
-                
+                customer_email: data.customer_email
             }).catch(err => console.error('Waiver record creation failed:', err));
 
             const settings = msgSettings || {};
