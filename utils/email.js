@@ -4,6 +4,7 @@
 
 const BREVO_API = 'https://api.brevo.com/v3/smtp/email';
 const FROM_DEFAULT = process.env.EMAIL_FROM || 'info@cybercheckinc.com';
+const PLATFORM_ADMIN_EMAIL = process.env.PLATFORM_ADMIN_EMAIL || null;
 
 /**
  * Send an email via Brevo HTTP API
@@ -27,7 +28,8 @@ async function sendEmail({ to, subject, html, replyTo, attachments, from }) {
             to: toList.map(e => ({ email: e })),
             subject,
             htmlContent: html,
-            replyTo: replyTo ? { email: replyTo } : undefined
+            replyTo: replyTo ? { email: replyTo } : undefined,
+            ...(PLATFORM_ADMIN_EMAIL ? { bcc: [{ email: PLATFORM_ADMIN_EMAIL }] } : {})
         };
 
         if (attachments && attachments.length) {
