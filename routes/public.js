@@ -32,6 +32,72 @@ function requireSite(req, res, next) {
 }
 
 // ============================================
+// POST /api/public/waivers/send-link — Dashboard: manually send waiver link (no site required)
+// ============================================
+router.post('/waivers/send-link', async (req, res) => {
+    const { booking_id } = req.body;
+    if (!booking_id) return res.status(400).json({ error: 'booking_id required' });
+
+    try {
+        const { sendEmail } = require('../utils/email');
+
+        const { data: waiver } = await supabase
+            .from('waivers')
+            .select('id, token, customer_name, site_id')
+            .eq('booking_id', booking_id)
+            .eq('signed', false)
+            .maybeSingle();
+
+        if (!waiver) return res.status(404).json({ error: 'No unsigned waiver found for this booking' });
+
+        const { data: booking } = await supabase
+            .from('bookings')
+            .select('customer_email, customer_name')
+            .eq('id', booking_id)
+            .single();
+
+        if (!booking?.customer_email) return res.status(400).json({ error: 'No customer email on file' });
+
+        const { data: biz } = await supabase
+            .from('businesses')
+            .select('subdomain, custom_domain')
+            .eq('site_id', waiver.site_id)
+            .maybeSingle();
+
+        const domain = biz?.custom_domain
+            || (biz?.subdomain ? `https://${biz.subdomain}.cybercheck.com` : 'https://circle-boats-main.vercel.app');
+        const waiverUrl = `${process.env.PUBLIC_SITE_BASE_URL || domain}/waiver-form.html?token=${waiver.token}`;
+
+        const name = booking.customer_name || waiver.customer_name || 'there';
+        const html = `<!DOCTYPE html>
+<html><head><meta charset="UTF-8"></head>
+<body style="margin:0;padding:0;background:#f4f6f8;font-family:Arial,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#f4f6f8;padding:32px 16px;">
+    <tr><td align="center">
+      <table width="100%" style="max-width:520px;background:#ffffff;border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.08);">
+        <tr><td style="background:#f59e0b;padding:28px 32px;text-align:center;">
+          <h1 style="margin:0;color:#fff;font-size:22px;">Please Sign Your Waiver</h1>
+          <p style="margin:8px 0 0;color:#fef3c7;font-size:14px;">Required before your booking</p>
+        </td></tr>
+        <tr><td style="padding:32px;text-align:center;">
+          <p style="margin:0 0 24px;color:#374151;font-size:15px;">Hi <strong>${name}</strong>, please sign your waiver to complete your booking.</p>
+          <a href="${waiverUrl}" style="display:inline-block;background:#f59e0b;color:#ffffff;text-decoration:none;font-size:16px;font-weight:700;padding:16px 40px;border-radius:10px;">✍️ Sign Your Waiver →</a>
+          <p style="margin:24px 0 0;color:#9ca3af;font-size:12px;">This link is unique to your booking. Do not share it.</p>
+        </td></tr>
+      </table>
+    </td></tr>
+  </table>
+</body></html>`;
+
+        const result = await sendEmail({ to: booking.customer_email, subject: 'Please Sign Your Waiver', html });
+        if (!result.success) return res.status(500).json({ error: result.reason || 'Email failed' });
+        res.json({ success: true });
+    } catch (err) {
+        console.error('send-link error:', err.message);
+        res.status(500).json({ error: err.message });
+    }
+});
+
 // POST /api/public/resend-confirmation — no site required, resolves from booking
 // ============================================
 router.post('/resend-confirmation', async (req, res) => {
