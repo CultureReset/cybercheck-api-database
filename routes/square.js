@@ -231,19 +231,39 @@ router.post('/create-payment', async (req, res) => {
                 try {
                     const { sendSms, fillTemplate, buildTemplateData } = require('../utils/sms');
                     const { sendEmail, customerConfirmationHtml, generateIcsContent } = require('../utils/email');
-                    const [{ data: bookingData }, { data: msgSettings }, { data: siteContent }, { data: business }] = await Promise.all([
+                    const [{ data: bookingData }, { data: siteContentData }, { data: siteContent }, { data: business }] = await Promise.all([
                         supabase.from('bookings').select('*').eq('id', booking_id).single(),
-                        supabase.from('messaging_settings').select('notification_email, booking_confirmation_enabled, booking_confirmation_template').eq('site_id', targetSiteId).maybeSingle(),
+                        supabase.from('site_content').select('messaging_settings').eq('site_id', targetSiteId).single(),
                         supabase.from('site_content').select('contact_email').eq('site_id', targetSiteId).maybeSingle(),
                         supabase.from('businesses').select('name, phone').eq('site_id', targetSiteId).single()
                     ]);
                     if (!bookingData) return;
+                    const msgSettings = siteContentData?.messaging_settings || {};
                     const templateData = await buildTemplateData(bookingData, targetSiteId);
+
+                    // Fetch waiver token and build waiver URL for this booking
+                    const [{ data: waiverRecord }, { data: biz }] = await Promise.all([
+                        supabase.from('waivers').select('token').eq('booking_id', booking_id).eq('signed', false).maybeSingle(),
+                        supabase.from('businesses').select('subdomain, custom_domain').eq('site_id', targetSiteId).single()
+                    ]);
+                    if (waiverRecord?.token && biz) {
+                        const domain = biz.custom_domain
+                            || (biz.subdomain ? `https://${biz.subdomain}.cybercheck.com` : 'https://circle-boats-main-.vercel.app');
+                        templateData.waiver_url = `${process.env.PUBLIC_SITE_BASE_URL || domain}/waiver-form.html?token=${waiverRecord.token}`;
+                    }
+
                     if (bookingData.customer_email) {
                         const ics = [{ filename: 'booking.ics', content: Buffer.from(generateIcsContent(templateData)).toString('base64') }];
-                        sendEmail({ to: bookingData.customer_email, subject: 'Booking Confirmed — ' + (templateData.business_name || 'Your Reservation'), html: customerConfirmationHtml(templateData), attachments: ics }).catch(() => {});
+                        const emailResult = await sendEmail({ to: bookingData.customer_email, subject: 'Booking Confirmed — ' + (templateData.business_name || 'Your Reservation'), html: customerConfirmationHtml(templateData), attachments: ics });
+                        if (emailResult.success) {
+                            console.log('Customer confirmation email sent to:', bookingData.customer_email);
+                        } else {
+                            console.error('Customer email failed:', bookingData.customer_email, emailResult.reason);
+                        }
+                    } else {
+                        console.warn('No customer_email on booking:', booking_id);
                     }
-                } catch (e) { console.error('Square post-payment notifications failed:', e.message); }
+                } catch (e) { console.error('Square post-payment notifications failed:', e.message, e.stack); }
             });
         }
 
