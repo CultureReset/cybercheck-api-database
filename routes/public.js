@@ -2533,6 +2533,36 @@ router.post('/resend-confirmation', async (req, res) => {
             }).catch(err => console.error('Resend email failed:', err));
         }
 
+        // Resend owner/CC notification emails
+        const { ownerNotificationHtml } = require('../utils/email');
+        const { data: siteContentData } = await supabase
+            .from('site_content')
+            .select('messaging_settings, contact_email')
+            .eq('site_id', bookingData.site_id)
+            .maybeSingle();
+        const { data: business } = await supabase
+            .from('businesses')
+            .select('name, email')
+            .eq('site_id', bookingData.site_id)
+            .maybeSingle();
+
+        const msgSettings = siteContentData?.messaging_settings || {};
+        const emailList = [];
+        if (msgSettings.notification_email) emailList.push(msgSettings.notification_email);
+        if (msgSettings.notification_email_2) emailList.push(msgSettings.notification_email_2);
+        if (!emailList.length) {
+            if (siteContentData?.contact_email) emailList.push(siteContentData.contact_email);
+            else if (business?.email) emailList.push(business.email);
+        }
+        if (emailList.length) {
+            await sendEmail({
+                to: emailList,
+                subject: 'Booking Confirmed — ' + (templateData.customer_name || 'Customer') + ' · ' + templateData.date,
+                html: ownerNotificationHtml(templateData),
+                replyTo: bookingData.customer_email || undefined
+            }).catch(err => console.error('Resend owner email failed:', err));
+        }
+
         res.json({ success: true, message: 'Confirmations resent to customer' });
     } catch (err) {
         console.error('Resend confirmation error:', err.message);
