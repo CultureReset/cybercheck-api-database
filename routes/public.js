@@ -41,22 +41,35 @@ router.post('/waivers/send-link', async (req, res) => {
     try {
         const { sendEmail } = require('../utils/email');
 
-        const { data: waiver } = await supabase
+        // Get booking first
+        const { data: booking } = await supabase
+            .from('bookings')
+            .select('customer_email, customer_name, site_id')
+            .eq('id', booking_id)
+            .single();
+
+        if (!booking?.customer_email) return res.status(400).json({ error: 'No customer email on file' });
+
+        // Find existing unsigned waiver, or create one from the site template
+        let { data: waiver } = await supabase
             .from('waivers')
             .select('id, token, customer_name, site_id')
             .eq('booking_id', booking_id)
             .eq('signed', false)
             .maybeSingle();
 
-        if (!waiver) return res.status(404).json({ error: 'No unsigned waiver found for this booking' });
+        if (!waiver) {
+            const crypto = require('crypto');
+            const token = crypto.randomBytes(24).toString('hex');
+            const { data: created } = await supabase
+                .from('waivers')
+                .insert({ site_id: booking.site_id, booking_id, customer_name: booking.customer_name, token, signed: false })
+                .select('id, token, customer_name, site_id')
+                .single();
+            waiver = created;
+        }
 
-        const { data: booking } = await supabase
-            .from('bookings')
-            .select('customer_email, customer_name')
-            .eq('id', booking_id)
-            .single();
-
-        if (!booking?.customer_email) return res.status(400).json({ error: 'No customer email on file' });
+        if (!waiver) return res.status(500).json({ error: 'Could not create waiver record' });
 
         const { data: biz } = await supabase
             .from('businesses')
