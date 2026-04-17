@@ -241,19 +241,28 @@ router.post('/create-payment', async (req, res) => {
                     const msgSettings = siteContentData?.messaging_settings || {};
                     const templateData = await buildTemplateData(bookingData, targetSiteId);
 
-                    // Fetch waiver token and build waiver URL for this booking
+                    // Fetch or create waiver record and build waiver URL
                     try {
-                        const [{ data: waiverRecord }, { data: biz }] = await Promise.all([
-                            supabase.from('waivers').select('token').eq('booking_id', booking_id).eq('signed', false).maybeSingle(),
-                            supabase.from('businesses').select('subdomain, custom_domain').eq('site_id', targetSiteId).maybeSingle()
-                        ]);
+                        const { data: biz } = await supabase.from('businesses').select('subdomain, custom_domain').eq('site_id', targetSiteId).maybeSingle();
+                        let { data: waiverRecord } = await supabase.from('waivers').select('token').eq('booking_id', booking_id).eq('signed', false).maybeSingle();
+                        if (!waiverRecord) {
+                            const token = crypto.randomBytes(24).toString('hex');
+                            const { data: created } = await supabase.from('waivers').insert({
+                                site_id: targetSiteId,
+                                booking_id,
+                                customer_name: bookingData.customer_name,
+                                token,
+                                signed: false
+                            }).select('token').single();
+                            waiverRecord = created;
+                        }
                         if (waiverRecord?.token && biz) {
                             const domain = biz.custom_domain
-                                || (biz.subdomain ? `https://${biz.subdomain}.cybercheck.com` : 'https://circle-boats-main-.vercel.app');
+                                || (biz.subdomain ? `https://${biz.subdomain}.cybercheck.com` : 'https://circle-boats-main.vercel.app');
                             templateData.waiver_url = `${process.env.PUBLIC_SITE_BASE_URL || domain}/waiver-form.html?token=${waiverRecord.token}`;
                         }
                     } catch (waiverErr) {
-                        console.warn('Waiver fetch failed (continuing with email):', waiverErr.message);
+                        console.warn('Waiver create/fetch failed (continuing with email):', waiverErr.message);
                     }
 
                     if (bookingData.customer_email) {
