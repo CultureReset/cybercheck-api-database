@@ -782,6 +782,14 @@ router.post('/bookings', async (req, res) => {
 
     if (error) return res.status(500).json({ error: error.message });
 
+    // Link waiver to booking if waiver_token was passed (legacy flow: waiver signed before booking created)
+    if (req.body.waiver_token) {
+        await supabase.from('waivers')
+            .update({ booking_id: data.id })
+            .eq('token', req.body.waiver_token)
+            .catch(err => console.error('Waiver link failed:', err));
+    }
+
     // Respond immediately — don't block on SMS (prevents 504 timeout)
     res.status(201).json(data);
 
