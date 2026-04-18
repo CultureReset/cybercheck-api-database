@@ -78,7 +78,7 @@ router.post('/waivers/send-link', async (req, res) => {
 
         const domain = biz?.custom_domain
             || (biz?.subdomain ? `https://${biz.subdomain}.cybercheck.com` : 'https://circle-boats-main.vercel.app');
-        const waiverUrl = `${process.env.PUBLIC_SITE_BASE_URL || domain}/waiver-form.html?token=${waiver.id}`;
+        const waiverUrl = `${((process.env.PUBLIC_SITE_BASE_URL || domain).trim())}/waiver-form.html?token=${waiver.id}`;
 
         const name = booking.customer_name || waiver.customer_name || 'there';
         const html = `<!DOCTYPE html>
@@ -2913,7 +2913,7 @@ router.post('/waivers/send-link', async (req, res) => {
 
         const domain = biz?.custom_domain
             || (biz?.subdomain ? `https://${biz.subdomain}.cybercheck.com` : 'https://circle-boats-main.vercel.app');
-        const waiverUrl = `${process.env.PUBLIC_SITE_BASE_URL || domain}/waiver-form.html?token=${waiver.id}`;
+        const waiverUrl = `${((process.env.PUBLIC_SITE_BASE_URL || domain).trim())}/waiver-form.html?token=${waiver.id}`;
 
         const name = booking.customer_name || waiver.customer_name || 'there';
         const html = `<!DOCTYPE html>
@@ -2999,7 +2999,7 @@ router.get('/waivers/send-reminders', async (req, res) => {
 
                 const domain = biz?.custom_domain
                     || (biz?.subdomain ? `https://${biz.subdomain}.cybercheck.com` : 'https://circle-boats-main.vercel.app');
-                const waiverUrl = `${process.env.PUBLIC_SITE_BASE_URL || domain}/waiver-form.html?token=${waiver.id}`;
+                const waiverUrl = `${((process.env.PUBLIC_SITE_BASE_URL || domain).trim())}/waiver-form.html?token=${waiver.id}`;
 
                 const name = booking.customer_name || waiver.customer_name || 'there';
                 const html = `<!DOCTYPE html>
