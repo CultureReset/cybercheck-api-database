@@ -256,7 +256,7 @@ router.post('/create-payment', async (req, res) => {
                         if (waiverRecord?.id && biz) {
                             const domain = biz.custom_domain
                                 || (biz.subdomain ? `https://${biz.subdomain}.cybercheck.com` : 'https://circle-boats-main.vercel.app');
-                            templateData.waiver_url = `${process.env.PUBLIC_SITE_BASE_URL || domain}/waiver-form.html?token=${waiverRecord.id}`;
+                            templateData.waiver_url = `${((process.env.PUBLIC_SITE_BASE_URL || domain).trim())}/waiver-form.html?token=${waiverRecord.id}`;
                         }
                     } catch (waiverErr) {
                         console.warn('Waiver create/fetch failed (continuing with email):', waiverErr.message);
