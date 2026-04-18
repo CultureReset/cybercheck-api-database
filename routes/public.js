@@ -220,6 +220,97 @@ router.post('/resend-confirmation', async (req, res) => {
     }
 });
 
+// ============================================
+// GET /api/public/waivers/:token — Fetch waiver to sign (no site required — token identifies record)
+// ============================================
+router.get('/waivers/:token', async (req, res) => {
+    const token = req.params.token;
+    const { data: waiver } = await supabase
+        .from('waivers')
+        .select('id, waiver_text, customer_name, booking_id, signed_at, site_id')
+        .eq('id', token)
+        .maybeSingle();
+
+    if (!waiver) return res.status(404).json({ error: 'Waiver link not found or expired' });
+    if (waiver.signed_at) return res.status(410).json({ error: 'Waiver already signed' });
+
+    let waiverText = waiver.waiver_text;
+    if (!waiverText && waiver.site_id) {
+        const { data: tmpl } = await supabase
+            .from('waivers')
+            .select('waiver_text')
+            .eq('site_id', waiver.site_id)
+            .is('booking_id', null)
+            .limit(1)
+            .maybeSingle();
+        waiverText = tmpl?.waiver_text || '';
+    }
+
+    res.json({ waiver_text: waiverText, customer_name: waiver.customer_name || '', booking_id: waiver.booking_id, token });
+});
+
+// ============================================
+// POST /api/public/waivers/:token/sign — Sign a waiver by token (no site required)
+// ============================================
+router.post('/waivers/:token/sign', async (req, res) => {
+    const token = req.params.token;
+    const { customer_name, customer_email, signature_data, waiver_text } = req.body;
+
+    if (!customer_name || !signature_data) {
+        return res.status(400).json({ error: 'Customer name and signature required' });
+    }
+
+    const { data: existing } = await supabase
+        .from('waivers')
+        .select('id, booking_id, signed_at, site_id')
+        .eq('id', token)
+        .maybeSingle();
+
+    if (!existing) return res.status(404).json({ error: 'Waiver link not found' });
+    if (existing.signed_at) return res.status(410).json({ error: 'Waiver already signed' });
+
+    const { data, error } = await supabase
+        .from('waivers')
+        .update({
+            customer_name,
+            customer_email: customer_email || null,
+            signature_data,
+            waiver_text: waiver_text || null,
+            signed_at: new Date().toISOString(),
+            ip_address: req.ip
+        })
+        .eq('id', existing.id)
+        .select()
+        .single();
+
+    if (error) return res.status(500).json({ error: error.message });
+
+    if (existing.booking_id) {
+        await supabase.from('bookings').update({ waiver_signed: true }).eq('id', existing.booking_id);
+
+        // Create dashboard notification
+        const { data: booking } = await supabase
+            .from('bookings')
+            .select('site_id, customer_name')
+            .eq('id', existing.booking_id)
+            .maybeSingle();
+
+        if (booking?.site_id) {
+            await supabase.from('notifications').insert({
+                site_id: booking.site_id,
+                type: 'waiver_signed',
+                title: 'Waiver Signed',
+                message: (booking.customer_name || 'A customer') + ' has signed their waiver.',
+                booking_id: existing.booking_id,
+                read: false,
+                created_at: new Date().toISOString()
+            }).catch(err => console.warn('Waiver notification insert failed:', err.message));
+        }
+    }
+
+    res.json({ success: true, waiver_id: data.id });
+});
+
 router.use(requireSite);
 
 // ============================================
