@@ -630,10 +630,11 @@ router.delete('/menu-subcategories/:id', async (req, res) => {
 // ============================================
 
 router.get('/events', async (req, res) => {
+    const siteId = (req.role === 'admin' && req.query.site_id) ? req.query.site_id : req.siteId;
     const { data, error } = await supabase
         .from('events')
         .select('*')
-        .eq('site_id', req.siteId)
+        .eq('site_id', siteId)
         .order('event_date', { ascending: true });
 
     if (error) return res.status(500).json({ error: error.message });
@@ -641,7 +642,8 @@ router.get('/events', async (req, res) => {
 });
 
 router.post('/events', async (req, res) => {
-    const event = { ...req.body, site_id: req.siteId };
+    const siteId = (req.role === 'admin' && req.body.site_id) ? req.body.site_id : req.siteId;
+    const event = { ...req.body, site_id: siteId };
     delete event.id;
 
     const { data, error } = await supabase
@@ -655,6 +657,7 @@ router.post('/events', async (req, res) => {
 });
 
 router.put('/events/:id', async (req, res) => {
+    const siteId = (req.role === 'admin' && req.body.site_id) ? req.body.site_id : req.siteId;
     const updates = { ...req.body };
     delete updates.site_id;
     delete updates.id;
@@ -663,7 +666,7 @@ router.put('/events/:id', async (req, res) => {
         .from('events')
         .update(updates)
         .eq('id', req.params.id)
-        .eq('site_id', req.siteId)
+        .eq('site_id', siteId)
         .select()
         .single();
 
@@ -672,11 +675,12 @@ router.put('/events/:id', async (req, res) => {
 });
 
 router.delete('/events/:id', async (req, res) => {
+    const siteId = (req.role === 'admin' && req.query.site_id) ? req.query.site_id : req.siteId;
     const { error } = await supabase
         .from('events')
         .delete()
         .eq('id', req.params.id)
-        .eq('site_id', req.siteId);
+        .eq('site_id', siteId);
 
     if (error) return res.status(500).json({ error: error.message });
     res.json({ success: true });
@@ -1841,16 +1845,18 @@ router.delete('/coupons/:id', async (req, res) => {
 // ============================================
 
 router.get('/specials', async (req, res) => {
+    const siteId = (req.role === 'admin' && req.query.site_id) ? req.query.site_id : req.siteId;
     const { data } = await supabase
         .from('specials')
         .select('*')
-        .eq('site_id', req.siteId);
+        .eq('site_id', siteId);
 
     res.json(data || []);
 });
 
 router.post('/specials', async (req, res) => {
-    const special = { ...req.body, site_id: req.siteId };
+    const siteId = (req.role === 'admin' && req.body.site_id) ? req.body.site_id : req.siteId;
+    const special = { ...req.body, site_id: siteId };
     delete special.id;
 
     const { data, error } = await supabase
@@ -1864,6 +1870,7 @@ router.post('/specials', async (req, res) => {
 });
 
 router.put('/specials/:id', async (req, res) => {
+    const siteId = (req.role === 'admin' && req.body.site_id) ? req.body.site_id : req.siteId;
     const updates = { ...req.body };
     delete updates.site_id;
     delete updates.id;
@@ -1872,7 +1879,7 @@ router.put('/specials/:id', async (req, res) => {
         .from('specials')
         .update(updates)
         .eq('id', req.params.id)
-        .eq('site_id', req.siteId)
+        .eq('site_id', siteId)
         .select()
         .single();
 
@@ -1881,14 +1888,36 @@ router.put('/specials/:id', async (req, res) => {
 });
 
 router.delete('/specials/:id', async (req, res) => {
+    const siteId = (req.role === 'admin' && req.query.site_id) ? req.query.site_id : req.siteId;
     const { error } = await supabase
         .from('specials')
         .delete()
         .eq('id', req.params.id)
-        .eq('site_id', req.siteId);
+        .eq('site_id', siteId);
 
     if (error) return res.status(500).json({ error: error.message });
     res.json({ success: true });
+});
+
+// GET /api/dashboard/qr-theme
+router.get('/qr-theme', authRequired, async (req, res) => {
+    const siteId = (req.role === 'admin' && req.query.site_id) ? req.query.site_id : req.siteId;
+    const { data, error } = await supabase.from('businesses').select('metadata').eq('site_id', siteId).maybeSingle();
+    if (error) return res.status(500).json({ error: error.message });
+    const theme = (data?.metadata?.qr_theme) || {};
+    res.json(theme);
+});
+
+// PUT /api/dashboard/qr-theme
+router.put('/qr-theme', authRequired, async (req, res) => {
+    const siteId = (req.role === 'admin' && req.body.site_id) ? req.body.site_id : req.siteId;
+    const theme = req.body.theme || {};
+    // Get existing metadata first
+    const { data: existing } = await supabase.from('businesses').select('metadata').eq('site_id', siteId).maybeSingle();
+    const metadata = { ...(existing?.metadata || {}), qr_theme: theme };
+    const { error } = await supabase.from('businesses').update({ metadata }).eq('site_id', siteId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true, theme });
 });
 
 // ============================================
@@ -3586,6 +3615,67 @@ Rules:
     } catch (err) {
         console.error('Menu extract error:', err);
         res.status(500).json({ error: 'AI extraction failed: ' + (err.message || 'unknown error') });
+    }
+});
+
+// POST /api/dashboard/events/extract
+router.post('/events/extract', authRequired, async (req, res) => {
+    const { image_base64, mime_type, extract_type } = req.body; // extract_type: 'events' | 'specials' | 'auto'
+    if (!image_base64) return res.status(400).json({ error: 'image_base64 required' });
+
+    const Anthropic = require('@anthropic-ai/sdk');
+    const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+    const base64Data = image_base64.replace(/^data:[^;]+;base64,/, '');
+    const mediaType = mime_type || 'image/jpeg';
+
+    try {
+        const message = await client.messages.create({
+            model: 'claude-haiku-4-5-20251001',
+            max_tokens: 2048,
+            messages: [{
+                role: 'user',
+                content: [
+                    { type: 'image', source: { type: 'base64', media_type: mediaType, data: base64Data } },
+                    { type: 'text', text: `Extract all events, specials, or promotions from this image into structured JSON.
+
+Return ONLY valid JSON:
+{
+  "type": "events" or "specials",
+  "items": [
+    {
+      "name": "Item/Event name",
+      "description": "Description or deal details",
+      "price_text": "Price or deal (e.g. $5, 2-for-1, Free)",
+      "date": "Date if visible (e.g. Friday April 25)",
+      "time": "Time if visible (e.g. 7:00 PM)",
+      "days": "Days if recurring (e.g. Mon-Fri, Weekends)",
+      "start_time": "HH:MM in 24hr if time-based",
+      "end_time": "HH:MM in 24hr if time-based"
+    }
+  ]
+}
+
+Rules:
+- Extract ALL visible items
+- For happy hour / daily specials: set days and start_time/end_time
+- For one-time events: set date and time
+- price_text is a string like "$5 drafts" or "Half off appetizers"
+- Return ONLY JSON, no markdown` }
+                ]
+            }]
+        });
+        const content = message.content[0].text;
+        let extracted;
+        try {
+            const jsonMatch = content.match(/\{[\s\S]*\}/);
+            extracted = JSON.parse(jsonMatch ? jsonMatch[0] : content);
+        } catch(e) {
+            return res.status(422).json({ error: 'Could not parse image. Try a clearer photo.' });
+        }
+        res.json(extracted);
+    } catch(err) {
+        console.error('Events extract error:', err);
+        res.status(500).json({ error: err.message });
     }
 });
 
