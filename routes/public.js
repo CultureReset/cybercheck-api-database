@@ -2752,16 +2752,21 @@ router.get('/menu', async (req, res) => {
             siteId = business.site_id;
         }
 
-        if (!siteId) {
-            return res.status(400).json({ error: 'No business specified. Use ?slug=xxx or access from configured domain.' });
+        // Allow direct access via site_id query param (used by QR table menu)
+        if (!siteId && req.query.site_id) {
+            siteId = req.query.site_id;
         }
 
-        const { data: items, error } = await supabase
-            .from('menu_items')
-            .select('*')
-            .eq('site_id', siteId)
-            .order('sort_order', { ascending: true })
-            .order('category', { ascending: true });
+        if (!siteId) {
+            return res.status(400).json({ error: 'No business specified. Use ?slug=xxx or ?site_id=xxx.' });
+        }
+
+        const [{ data: bizData }, { data: items, error }] = await Promise.all([
+            supabase.from('businesses').select('name, logo_url, metadata').eq('site_id', siteId).maybeSingle(),
+            supabase.from('menu_items').select('*').eq('site_id', siteId)
+                .order('sort_order', { ascending: true })
+                .order('category', { ascending: true })
+        ]);
 
         if (error) throw error;
 
@@ -2776,19 +2781,24 @@ router.get('/menu', async (req, res) => {
                 description: item.description || '',
                 price: item.price || 0,
                 photo_url: item.photo_url || '',
-                image_url: item.image_url || '', // fallback
+                image_url: item.image_url || '',
                 tags: item.tags || [],
                 modifiers: item.modifiers || []
             });
         });
 
-        // Convert to array
         const menuData = Object.entries(categories).map(([name, items]) => ({
             category: name,
             items: items
         }));
 
-        res.json(menuData);
+        res.json({
+            business_name: bizData ? bizData.name : '',
+            logo_url: bizData ? (bizData.logo_url || '') : '',
+            menu: menuData,
+            total_items: (items || []).length,
+            qr_theme: bizData?.metadata?.qr_theme || null,
+        });
     } catch (err) {
         console.error('menu error:', err.message);
         res.status(500).json({ error: err.message });
