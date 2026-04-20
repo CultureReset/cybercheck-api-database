@@ -38,6 +38,7 @@ const { adminRequired } = require('../middleware/auth');
 
 const router = express.Router();
 const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 10 * 1024 * 1024 } });
+const mainDb = require('../db'); // main Supabase — businesses/menu_items/specials/events
 
 function db() { return getGcrDb(); }
 const supabase = db(); // update_links lives in GCR
@@ -68,8 +69,12 @@ async function validateToken(req, res, next) {
     if (!link) return res.status(404).json({ error: 'Link not found' });
     if (link.expires_at && new Date(link.expires_at) < new Date()) return res.status(410).json({ error: 'Link expired' });
     req.link = link;
-    req.entityId = link.entity_id;
-    // Mark submitted on any write (POST/PUT/DELETE) — fire-and-forget
+    // site_id businesses are stored as "s:<site_id>" in the entity_id field
+    if (link.entity_id && String(link.entity_id).startsWith('s:')) {
+        req.siteId = String(link.entity_id).slice(2);
+    } else {
+        req.entityId = link.entity_id;
+    }
     if (req.method !== 'GET' && !link.submitted_at) markSubmitted(token);
     next();
 }
@@ -79,18 +84,19 @@ async function validateToken(req, res, next) {
 // ═══════════════════════════════════════════════════════════════
 
 router.post('/generate', adminRequired, async (req, res) => {
-    const { entity_id, link_type = 'full', send_phone } = req.body;
-    if (!entity_id) return res.status(400).json({ error: 'entity_id required' });
+    const { entity_id, site_id, biz_name, link_type = 'full', send_phone } = req.body;
+    const storedId = site_id ? ('s:' + site_id) : entity_id;
+    if (!storedId) return res.status(400).json({ error: 'entity_id or site_id required' });
     const today = new Date().toISOString().split('T')[0];
 
     const { data: existing } = await supabase.from('update_links').select('*')
-        .eq('entity_id', entity_id).eq('link_type', link_type).eq('link_date', today).maybeSingle();
+        .eq('entity_id', storedId).eq('link_type', link_type).eq('link_date', today).maybeSingle();
 
     if (existing) return res.json({ token: existing.token, url: linkUrl(existing.token), existing: true });
 
     const token = makeToken();
-    const { data, error } = await supabase.from('update_links').insert({
-        entity_id, link_type, link_date: today, token,
+    const { error } = await supabase.from('update_links').insert({
+        entity_id: storedId, link_type, link_date: today, token,
         send_phone: send_phone || null,
         expires_at: new Date(Date.now() + 30 * 3600 * 1000).toISOString(),
     }).select().single();
@@ -100,25 +106,32 @@ router.post('/generate', adminRequired, async (req, res) => {
 });
 
 router.post('/send-sms', adminRequired, async (req, res) => {
-    const { entity_id, phone, link_type = 'full' } = req.body;
-    if (!entity_id || !phone) return res.status(400).json({ error: 'entity_id and phone required' });
+    const { entity_id, site_id, biz_name, phone, link_type = 'full' } = req.body;
+    const storedId = site_id ? ('s:' + site_id) : entity_id;
+    if (!storedId || !phone) return res.status(400).json({ error: 'entity_id/site_id and phone required' });
 
     const today = new Date().toISOString().split('T')[0];
     let { data: link } = await supabase.from('update_links').select('*')
-        .eq('entity_id', entity_id).eq('link_type', link_type).eq('link_date', today).maybeSingle();
+        .eq('entity_id', storedId).eq('link_type', link_type).eq('link_date', today).maybeSingle();
 
     if (!link) {
         const token = makeToken();
         const ins = await supabase.from('update_links').insert({
-            entity_id, link_type, link_date: today, token, send_phone: phone,
+            entity_id: storedId, link_type, link_date: today, token, send_phone: phone,
             expires_at: new Date(Date.now() + 30 * 3600 * 1000).toISOString(),
         }).select().single();
         link = ins.data;
     }
 
     const url = linkUrl(link.token);
-    const { data: entity } = await db().from('entity').select('name').eq('id', entity_id).single();
-    const name = entity?.name || 'your business';
+    let name = biz_name || 'your business';
+    if (!biz_name && entity_id) {
+        const { data: entity } = await db().from('entity').select('name').eq('id', entity_id).single();
+        name = entity?.name || name;
+    } else if (!biz_name && site_id) {
+        const { data: biz } = await mainDb.from('businesses').select('name').eq('site_id', site_id).maybeSingle();
+        name = biz?.name || name;
+    }
 
     const tc = twilio();
     if (!tc) return res.json({ success: false, error: 'Twilio not configured', url, token: link.token });
@@ -170,9 +183,13 @@ router.get('/today', adminRequired, async (req, res) => {
 
 // GET /update/:token — redirect to correct cybercheck-links page by link_type
 router.get('/:token', async (req, res) => {
-    const { data: link } = await supabase.from('update_links').select('link_type').eq('token', req.params.token).maybeSingle();
+    const { data: link } = await supabase.from('update_links').select('link_type, entity_id').eq('token', req.params.token).maybeSingle();
     if (!link) return res.status(404).json({ error: 'Link not found' });
     const base = (process.env.LINKS_BASE_URL || 'https://cybercheck-links.vercel.app').replace(/\/$/, '');
+    // site_id businesses always use the new restaurant-editor
+    if (link.entity_id && String(link.entity_id).startsWith('s:')) {
+        return res.redirect(302, `${base}/restaurant-editor.html?token=${req.params.token}`);
+    }
     const pageMap = { catch_of_day: 'daily-items.html', menu_setup: 'menu-setup.html' };
     const page = pageMap[link.link_type] || 'menu-editor.html';
     res.redirect(302, `${base}/${page}?token=${req.params.token}`);
@@ -180,9 +197,25 @@ router.get('/:token', async (req, res) => {
 
 // GET /update/:token/data — load all sections + items
 router.get('/:token/data', validateToken, async (req, res) => {
-    // Mark link as opened (fire-and-forget, don't block response)
     supabase.from('update_links').update({ opened_at: new Date().toISOString() })
         .eq('token', req.params.token).is('opened_at', null).then(() => {});
+
+    // ── site_id path (new restaurant-editor) ──────────────────────────────
+    if (req.siteId) {
+        const sid = req.siteId;
+        const [{ data: biz }, { data: items }, { data: specials }, { data: events }] = await Promise.all([
+            mainDb.from('businesses').select('name, logo_url, tagline, metadata').eq('site_id', sid).maybeSingle(),
+            mainDb.from('menu_items').select('*').eq('site_id', sid).order('category').order('sort_order', { ascending: true }),
+            mainDb.from('specials').select('*').eq('site_id', sid),
+            mainDb.from('events').select('*').eq('site_id', sid).order('event_date', { ascending: true }),
+        ]);
+        return res.json({
+            entity: { name: biz?.name || '', logo_url: biz?.logo_url || '', tagline: biz?.tagline || '' },
+            menu_items: items || [],
+            specials: specials || [],
+            events: events || [],
+        });
+    }
 
     const eid = req.entityId;
     const g = db();
@@ -244,19 +277,29 @@ router.delete('/:token/photos/:id', validateToken, async (req, res) => {
 router.post('/:token/specials', validateToken, async (req, res) => {
     const { id, special_name, discount_text, description, days, start_time, end_time, image_url, is_active = true } = req.body;
     if (!special_name) return res.status(400).json({ error: 'special_name required' });
-    const g = db();
     let data, error;
-    if (id) {
-        ({ data, error } = await g.from('entity_specials').update({ special_name, discount_text, description, days, start_time, end_time, image_url, is_active }).eq('id', id).eq('entity_id', req.entityId).select().single());
+    if (req.siteId) {
+        if (id) {
+            ({ data, error } = await mainDb.from('specials').update({ special_name, discount_text, description, days, start_time, end_time }).eq('id', id).eq('site_id', req.siteId).select().single());
+        } else {
+            ({ data, error } = await mainDb.from('specials').insert({ site_id: req.siteId, special_name, discount_text, description, days, start_time, end_time }).select().single());
+        }
     } else {
-        ({ data, error } = await g.from('entity_specials').insert({ entity_id: req.entityId, special_name, discount_text, description, days, start_time, end_time, image_url, is_active }).select().single());
+        const g = db();
+        if (id) {
+            ({ data, error } = await g.from('entity_specials').update({ special_name, discount_text, description, days, start_time, end_time, image_url, is_active }).eq('id', id).eq('entity_id', req.entityId).select().single());
+        } else {
+            ({ data, error } = await g.from('entity_specials').insert({ entity_id: req.entityId, special_name, discount_text, description, days, start_time, end_time, image_url, is_active }).select().single());
+        }
     }
     if (error) return res.status(500).json({ error: error.message });
     res.json({ item: data });
 });
 
 router.delete('/:token/specials/:id', validateToken, async (req, res) => {
-    const { error } = await db().from('entity_specials').delete().eq('id', req.params.id).eq('entity_id', req.entityId);
+    const { error } = req.siteId
+        ? (await mainDb.from('specials').delete().eq('id', req.params.id).eq('site_id', req.siteId))
+        : (await db().from('entity_specials').delete().eq('id', req.params.id).eq('entity_id', req.entityId));
     if (error) return res.status(500).json({ error: error.message });
     res.json({ success: true });
 });
@@ -289,22 +332,35 @@ router.delete('/:token/menu-sections/:id', validateToken, async (req, res) => {
 });
 
 router.post('/:token/menu-items', validateToken, async (req, res) => {
-    const { id, item_name, description, price, price_text, menu_section_id, image_url, is_available = true } = req.body;
-    if (!item_name) return res.status(400).json({ error: 'item_name required' });
-    const payload = { item_name, description: description || null, price: price !== '' && price != null ? parseFloat(price) : null, price_text: price_text || null, menu_section_id: menu_section_id || null, image_url: image_url || null, is_available };
-    const g = db();
     let data, error;
-    if (id) {
-        ({ data, error } = await g.from('menu_items').update(payload).eq('id', id).eq('entity_id', req.entityId).select().single());
+    if (req.siteId) {
+        const { id, name, description, price, category, item_type = 'food', photo_url } = req.body;
+        if (!name) return res.status(400).json({ error: 'name required' });
+        const payload = { name, description: description || '', price: parseFloat(price) || 0, category: category || 'Menu Items', item_type, photo_url: photo_url || null };
+        if (id) {
+            ({ data, error } = await mainDb.from('menu_items').update(payload).eq('id', id).eq('site_id', req.siteId).select().single());
+        } else {
+            ({ data, error } = await mainDb.from('menu_items').insert({ site_id: req.siteId, ...payload }).select().single());
+        }
     } else {
-        ({ data, error } = await g.from('menu_items').insert({ entity_id: req.entityId, ...payload }).select().single());
+        const { id, item_name, description, price, price_text, menu_section_id, image_url, is_available = true } = req.body;
+        if (!item_name) return res.status(400).json({ error: 'item_name required' });
+        const payload = { item_name, description: description || null, price: price !== '' && price != null ? parseFloat(price) : null, price_text: price_text || null, menu_section_id: menu_section_id || null, image_url: image_url || null, is_available };
+        const g = db();
+        if (id) {
+            ({ data, error } = await g.from('menu_items').update(payload).eq('id', id).eq('entity_id', req.entityId).select().single());
+        } else {
+            ({ data, error } = await g.from('menu_items').insert({ entity_id: req.entityId, ...payload }).select().single());
+        }
     }
     if (error) return res.status(500).json({ error: error.message });
     res.json({ item: data });
 });
 
 router.delete('/:token/menu-items/:id', validateToken, async (req, res) => {
-    const { error } = await db().from('menu_items').delete().eq('id', req.params.id).eq('entity_id', req.entityId);
+    const { error } = req.siteId
+        ? (await mainDb.from('menu_items').delete().eq('id', req.params.id).eq('site_id', req.siteId))
+        : (await db().from('menu_items').delete().eq('id', req.params.id).eq('entity_id', req.entityId));
     if (error) return res.status(500).json({ error: error.message });
     res.json({ success: true });
 });

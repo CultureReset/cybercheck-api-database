@@ -3161,8 +3161,9 @@ ${context}
 
 WHAT YOU CAN DO:
 1. ADD DATA — menu items (food/drink/happy hour), specials, events/live music, happy hour schedule
-2. ANSWER QUESTIONS — bookings, revenue, reviews, marketing, strategy
-3. BULK IMPORT — when the owner pastes a menu, specials board, or event lineup, parse ALL of it and add everything at once using the appropriate tools
+2. UPDATE ITEMS — change a price, rename an item, update its description or category by name
+3. ANSWER QUESTIONS — bookings, revenue, reviews, marketing, strategy
+4. BULK IMPORT — when the owner pastes a menu, specials board, or event lineup, parse ALL of it and add everything at once using the appropriate tools
 
 BULK DATA RULES:
 - When someone pastes a menu or large block of text with items, parse every single item and call add_menu_items with all of them in one call
@@ -3266,6 +3267,32 @@ STYLE:
             }
         },
         {
+            name: 'delete_menu_item',
+            description: 'Delete a specific menu item by name. Use when owner says "remove X", "delete X", "take off X".',
+            input_schema: {
+                type: 'object',
+                properties: {
+                    item_name: { type: 'string', description: 'Name of the item to delete (partial match ok)' }
+                },
+                required: ['item_name']
+            }
+        },
+        {
+            name: 'update_menu_item',
+            description: 'Update an existing menu item — change its price, name, description, or category. Use when owner says "change X price to $Y", "rename X to Y", etc.',
+            input_schema: {
+                type: 'object',
+                properties: {
+                    search_name:     { type: 'string', description: 'Current name of the item to find (partial match ok)' },
+                    new_name:        { type: 'string' },
+                    new_price:       { type: 'number' },
+                    new_description: { type: 'string' },
+                    new_category:    { type: 'string' }
+                },
+                required: ['search_name']
+            }
+        },
+        {
             name: 'update_hh_schedule',
             description: 'Set the happy hour schedule — which days and what times',
             input_schema: {
@@ -3311,6 +3338,30 @@ STYLE:
             const { error } = await supabase.from('events').insert(rows);
             if (error) return { error: error.message };
             return { success: true, count: rows.length };
+        }
+        if (name === 'delete_menu_item') {
+            const { data: found, error: findErr } = await supabase
+                .from('menu_items').select('id,name').eq('site_id', siteId)
+                .ilike('name', `%${input.item_name}%`).limit(1).single();
+            if (findErr || !found) return { error: `Item "${input.item_name}" not found` };
+            const { error } = await supabase.from('menu_items').delete().eq('id', found.id);
+            if (error) return { error: error.message };
+            return { success: true, deleted_name: found.name };
+        }
+        if (name === 'update_menu_item') {
+            const { data: found, error: findErr } = await supabase
+                .from('menu_items').select('id,name').eq('site_id', siteId)
+                .ilike('name', `%${input.search_name}%`).limit(1).single();
+            if (findErr || !found) return { error: `Item "${input.search_name}" not found` };
+            const updates = {};
+            if (input.new_name        !== undefined) updates.name        = input.new_name;
+            if (input.new_price       !== undefined) updates.price       = input.new_price;
+            if (input.new_description !== undefined) updates.description = input.new_description;
+            if (input.new_category    !== undefined) updates.category    = input.new_category;
+            if (!Object.keys(updates).length) return { error: 'No changes specified' };
+            const { error } = await supabase.from('menu_items').update(updates).eq('id', found.id);
+            if (error) return { error: error.message };
+            return { success: true, updated_name: found.name, updates };
         }
         if (name === 'update_hh_schedule') {
             const { data: biz } = await supabase.from('businesses').select('metadata').eq('site_id', siteId).single();
@@ -3358,9 +3409,11 @@ STYLE:
                 for (const block of response.content) {
                     if (block.type !== 'tool_use') continue;
                     const result = await executeTool(block.name, block.input);
-                    if (result.count !== undefined) toolResults.push({ tool: block.name, count: result.count, input: block.input });
-                    if (result.cleared)            toolResults.push({ tool: block.name, cleared: result.cleared });
-                    if (result.schedule)           toolResults.push({ tool: block.name, schedule: result.schedule });
+                    if (result.count !== undefined)  toolResults.push({ tool: block.name, count: result.count, input: block.input });
+                    if (result.cleared)             toolResults.push({ tool: block.name, cleared: result.cleared });
+                    if (result.schedule)            toolResults.push({ tool: block.name, schedule: result.schedule });
+                    if (result.updated_name)        toolResults.push({ tool: block.name, updated_name: result.updated_name, updates: result.updates });
+                    if (result.deleted_name)        toolResults.push({ tool: block.name, deleted_name: result.deleted_name });
                     toolResultMsgs.push({ type: 'tool_result', tool_use_id: block.id, content: JSON.stringify(result) });
                 }
                 loopMessages.push({ role: 'user', content: toolResultMsgs });

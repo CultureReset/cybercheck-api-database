@@ -2761,8 +2761,9 @@ router.get('/menu', async (req, res) => {
             return res.status(400).json({ error: 'No business specified. Use ?slug=xxx or ?site_id=xxx.' });
         }
 
-        const [{ data: bizData }, { data: items, error }, { data: eventsData }, { data: specialsData }] = await Promise.all([
-            supabase.from('businesses').select('name, logo_url, metadata').eq('site_id', siteId).maybeSingle(),
+        const [{ data: bizData }, { data: siteContent }, { data: items, error }, { data: eventsData }, { data: specialsData }] = await Promise.all([
+            supabase.from('businesses').select('name, logo_url, tagline, metadata').eq('site_id', siteId).maybeSingle(),
+            supabase.from('site_content').select('hours, social_links, address, contact_phone').eq('site_id', siteId).maybeSingle(),
             supabase.from('menu_items').select('*').eq('site_id', siteId)
                 .order('sort_order', { ascending: true })
                 .order('category', { ascending: true }),
@@ -2802,14 +2803,19 @@ router.get('/menu', async (req, res) => {
 
         res.json({
             business_name: bizData ? bizData.name : '',
-            logo_url: bizData ? (bizData.logo_url || '') : '',
+            logo_url:      bizData ? (bizData.logo_url || '') : '',
+            tagline:       bizData?.tagline || '',
+            hours:         siteContent?.hours || null,
+            social_links:  siteContent?.social_links || null,
+            address:       siteContent?.address || '',
+            phone:         siteContent?.contact_phone || '',
             sections,
             menu: menuData,
-            events: eventsData || [],
-            specials: specialsData || [],
-            hh_schedule: bizData?.metadata?.hh_schedule || null,
-            total_items: (items || []).length,
-            qr_theme: bizData?.metadata?.qr_theme || null,
+            events:       eventsData || [],
+            specials:     specialsData || [],
+            hh_schedule:  bizData?.metadata?.hh_schedule || null,
+            total_items:  (items || []).length,
+            qr_theme:     bizData?.metadata?.qr_theme || null,
         });
     } catch (err) {
         console.error('menu error:', err.message);
