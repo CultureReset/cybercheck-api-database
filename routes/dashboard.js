@@ -3573,6 +3573,7 @@ Return ONLY valid JSON with this exact structure:
   "categories": [
     {
       "name": "Category Name",
+      "item_type": "food",
       "items": [
         {
           "name": "Item Name",
@@ -3592,6 +3593,7 @@ Rules:
 - price must be a number (e.g., 12.99). If price not visible, use 0
 - tags array: only add "vegetarian", "vegan", "gluten-free", "spicy", "popular", "new" if clearly indicated
 - description is the item description text if visible, else empty string ""
+- item_type must be exactly "food", "drink", or "happy_hour". Use "drink" for any beverages, cocktails, beers, wines, spirits, or drink specials section. Use "happy_hour" for any happy hour, daily deals, or specials section. Use "food" for everything else.
 - Return ONLY the JSON object, no markdown code blocks, no explanation`
                     }
                 ]

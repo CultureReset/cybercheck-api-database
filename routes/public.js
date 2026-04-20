@@ -2770,12 +2770,13 @@ router.get('/menu', async (req, res) => {
 
         if (error) throw error;
 
-        // Group by category
-        const categories = {};
+        // Group by item_type then category
+        const byType = { food: {}, drink: {}, happy_hour: {} };
         (items || []).forEach(item => {
-            const cat = item.category || 'Uncategorized';
-            if (!categories[cat]) categories[cat] = [];
-            categories[cat].push({
+            const type = ['food', 'drink', 'happy_hour'].includes(item.item_type) ? item.item_type : 'food';
+            const cat = item.category || 'Menu Items';
+            if (!byType[type][cat]) byType[type][cat] = [];
+            byType[type][cat].push({
                 id: item.id,
                 name: item.name,
                 description: item.description || '',
@@ -2783,18 +2784,24 @@ router.get('/menu', async (req, res) => {
                 photo_url: item.photo_url || '',
                 image_url: item.image_url || '',
                 tags: item.tags || [],
-                modifiers: item.modifiers || []
+                modifiers: item.modifiers || [],
+                item_type: type
             });
         });
 
-        const menuData = Object.entries(categories).map(([name, items]) => ({
-            category: name,
-            items: items
-        }));
+        const toSections = obj => Object.entries(obj).map(([name, items]) => ({ name, items }));
+        const sections = {
+            food:        toSections(byType.food),
+            drink:       toSections(byType.drink),
+            happy_hour:  toSections(byType.happy_hour)
+        };
+        // backward-compat: menu = food sections with legacy category key
+        const menuData = sections.food.map(s => ({ category: s.name, items: s.items }));
 
         res.json({
             business_name: bizData ? bizData.name : '',
             logo_url: bizData ? (bizData.logo_url || '') : '',
+            sections,
             menu: menuData,
             total_items: (items || []).length,
             qr_theme: bizData?.metadata?.qr_theme || null,
