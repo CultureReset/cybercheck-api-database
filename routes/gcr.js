@@ -1846,4 +1846,90 @@ router.put('/sales-page/:pageId', async (req, res) => {
     res.json({ ok: true });
 });
 
+// ============================================
+// POST /api/gcr/lead-notify
+// Called by LAUNCH-GCR-CYBERCHECK after saving a sales lead to Supabase.
+// Sends SMS + email to the lead and to the CyberCheck owner.
+// Body: { name, business_name, phone, email, business_type, interests, source }
+// ============================================
+router.post('/lead-notify', async (req, res) => {
+    const { sendSms }   = require('../utils/sms');
+    const { sendEmail } = require('../utils/email');
+
+    const OWNER_PHONE = '+12058104950';
+    const OWNER_EMAIL = 'info@cybercheckinc.com';
+
+    const { name, business_name, phone, email, business_type, interests, source } = req.body || {};
+    const firstName   = (name || '').split(' ')[0] || null;
+    const interestStr = Array.isArray(interests) && interests.length ? interests.join(', ') : (interests || null);
+
+    const jobs = [];
+
+    // SMS to lead
+    if (phone) {
+        const greeting = firstName ? `Hi ${firstName}, ` : '';
+        jobs.push(
+            sendSms(phone,
+                `${greeting}thanks for your interest in Gulf Coast Radar + CyberCheck! ` +
+                `We'll reach out shortly to get your business page built. ` +
+                `Reply STOP to opt out or HELP for support. Msg & data rates may apply.`,
+                null, 'lead_confirm', null
+            ).catch(e => console.error('GCR lead SMS error:', e.message))
+        );
+    }
+
+    // SMS to owner
+    const ownerMsg = [
+        'New GCR lead!', name || 'Unknown', business_name || '',
+        phone || '', email || '', business_type || '',
+        interestStr ? `Interests: ${interestStr}` : '',
+        `Source: ${source || 'unknown'}`
+    ].filter(Boolean).join(' | ');
+    jobs.push(sendSms(OWNER_PHONE, ownerMsg, null, 'lead_owner_notify', null)
+        .catch(e => console.error('GCR owner SMS error:', e.message)));
+
+    const esc = s => String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    const r   = (label, val) => val ? `<tr><td style="padding:7px 10px;background:#f1f5f9;font-weight:600;width:130px;">${label}</td><td style="padding:7px 10px;border-bottom:1px solid #e2e8f0;">${esc(val)}</td></tr>` : '';
+
+    // Email to lead
+    if (email) {
+        jobs.push(sendEmail({
+            to: email,
+            subject: `Welcome to Gulf Coast Radar — We'll Be in Touch!`,
+            html: `<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#050e1f;color:#fff;padding:32px;border-radius:12px;">
+              <div style="text-align:center;margin-bottom:24px;">
+                <strong style="font-size:22px;color:#00b4d8;">Gulf Coast Radar</strong>
+                <span style="color:#94a3b8;"> + </span>
+                <strong style="font-size:22px;color:#e76f51;">CyberCheck</strong>
+              </div>
+              <h2 style="color:#fff;margin:0 0 16px;">Hey ${firstName || 'there'}! 👋</h2>
+              <p style="color:#94a3b8;line-height:1.6;">Thanks for your interest in <strong style="color:#fff;">Gulf Coast Radar powered by CyberCheck</strong>. Our team will reach out shortly to get your business live on the platform.</p>
+              ${interestStr ? `<p style="color:#94a3b8;line-height:1.6;">You indicated interest in: <strong style="color:#00b4d8;">${esc(interestStr)}</strong></p>` : ''}
+              <div style="background:#0a1a35;border-radius:8px;padding:16px;margin:20px 0;">
+                <p style="margin:0;color:#fff;"><strong>CyberCheck LLC</strong></p>
+                <p style="margin:4px 0;color:#94a3b8;">(205) 810-4950</p>
+                <p style="margin:4px 0;color:#94a3b8;">info@cybercheckinc.com</p>
+              </div>
+              <p style="color:#555;font-size:12px;margin-top:24px;">You received this because you submitted a form on our website. Reply STOP to any SMS to opt out.</p>
+            </div>`
+        }).catch(e => console.error('GCR lead email error:', e.message)));
+    }
+
+    // Email to owner
+    jobs.push(sendEmail({
+        to: OWNER_EMAIL,
+        subject: `New GCR Lead: ${name || 'Unknown'} — ${business_name || 'Unknown Business'}`,
+        html: `<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;">
+          <h2 style="color:#0077b6;">New Lead — Gulf Coast Radar</h2>
+          <table style="width:100%;border-collapse:collapse;margin-top:16px;">
+            ${r('Name', name)}${r('Business', business_name)}${r('Phone', phone)}
+            ${r('Email', email)}${r('Type', business_type)}${r('Interests', interestStr)}${r('Source', source)}
+          </table>
+        </div>`
+    }).catch(e => console.error('GCR owner email error:', e.message)));
+
+    await Promise.allSettled(jobs);
+    res.json({ ok: true });
+});
+
 module.exports = router;
