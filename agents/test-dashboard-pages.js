@@ -17,7 +17,9 @@
 require('dotenv').config();
 const { chromium } = require('playwright');
 const path = require('path');
-const fs = require('fs');
+const fs   = require('fs');
+const https = require('https');
+const http  = require('http');
 
 const EMAIL    = process.env.ADMIN_EMAIL || process.argv.find(a => a.startsWith('--email='))?.split('=')[1];
 const PASS     = process.env.ADMIN_PASS  || process.argv.find(a => a.startsWith('--pass='))?.split('=')[1];
@@ -36,29 +38,35 @@ const BOLD   = '\x1b[1m';
 
 // All pages in the admin sidebar
 const PAGES = [
-  { id: 'overview',          label: 'Overview' },
-  { id: 'businesses',        label: 'Businesses' },
-  { id: 'gcr-businesses',    label: 'GCR Businesses' },
-  { id: 'gcr-entity-editor', label: 'Entity Editor' },
-  { id: 'gcr-events',        label: 'Events' },
-  { id: 'gcr-specials',      label: 'Specials' },
-  { id: 'bulk-upload',       label: 'Bulk Upload' },
-  { id: 'bulk-events',       label: 'Bulk Events' },
-  { id: 'ai-organize',       label: 'AI Data Organizer' },
-  { id: 'rag-index',         label: 'AI Index / RAG' },
-  { id: 'ai-settings',       label: 'AI Settings' },
-  { id: 'gcr-analytics',     label: 'Analytics' },
-  { id: 'gcr-reviews',       label: 'Reviews' },
-  { id: 'gcr-customers',     label: 'Customers' },
-  { id: 'gcr-social',        label: 'Social & Connections' },
-  { id: 'gcr-messaging',     label: 'SMS / Messaging' },
-  { id: 'gcr-coupons',       label: 'Coupons' },
-  { id: 'gcr-seo',           label: 'SEO' },
-  { id: 'leads',             label: 'Leads' },
-  { id: 'ar-hunts',          label: 'AR Hunts' },
-  { id: 'users',             label: 'Users' },
-  { id: 'api-keys',          label: 'API Keys' },
-  { id: 'settings',          label: 'Settings' },
+  { id: 'overview',            label: 'Overview' },
+  { id: 'businesses',          label: 'Businesses' },
+  { id: 'gcr-businesses',      label: 'GCR Businesses' },
+  { id: 'gcr-entity-editor',   label: 'Entity Editor' },
+  { id: 'gcr-events',          label: 'Events' },
+  { id: 'gcr-specials',        label: 'Specials' },
+  { id: 'bulk-upload',         label: 'Bulk Upload' },
+  { id: 'bulk-events',         label: 'Bulk Events' },
+  { id: 'ai-organize',         label: 'AI Data Organizer' },
+  { id: 'rag-index',           label: 'AI Index / RAG' },
+  { id: 'ai-settings',         label: 'AI Settings' },
+  { id: 'gcr-analytics',       label: 'Analytics' },
+  { id: 'gcr-reviews',         label: 'Reviews' },
+  { id: 'gcr-customers',       label: 'Customers' },
+  { id: 'gcr-social',          label: 'Social & Connections' },
+  { id: 'gcr-messaging',       label: 'SMS / Messaging' },
+  { id: 'gcr-coupons',         label: 'Coupons' },
+  { id: 'gcr-seo',             label: 'SEO' },
+  { id: 'leads',               label: 'Leads' },
+  { id: 'sales-pages',         label: 'Sales Pages' },
+  { id: 'daily-update-links',  label: 'Daily Update Links' },
+  { id: 'qr-menus',            label: 'QR Menus' },
+  { id: 'qr-tracker',          label: 'QR Tracker' },
+  { id: 'menu-builder',        label: 'Menu Builder' },
+  { id: 'bookings',            label: 'Bookings' },
+  { id: 'ar-hunts',            label: 'AR Hunts' },
+  { id: 'users',               label: 'Users' },
+  { id: 'api-keys',            label: 'API Keys' },
+  { id: 'settings',            label: 'Settings' },
 ];
 
 const results = [];
@@ -139,31 +147,28 @@ async function testPage(page, pageId, label) {
   page.removeAllListeners('requestfailed');
 }
 
-async function injectAuth(page, API_BASE, email, password) {
-  // If no credentials provided, try to load without auth (might fail if protected)
-  if (!email || !password) {
-    console.log(`${YELLOW}⚠ No credentials provided — attempting to load dashboard without auth${RESET}`);
-    return false;
-  }
-
-  // Inject admin token via API login
-  const tokenRes = await page.evaluate(async ({ base, email, pass }) => {
-    const res = await fetch(base + '/api/admin/login', {
+function fetchTokenNode(API_BASE, email, password) {
+  return new Promise((resolve) => {
+    const body = JSON.stringify({ username: email, password: password });
+    const url = new URL(API_BASE + '/api/admin/login');
+    const lib = url.protocol === 'https:' ? https : http;
+    const req = lib.request({
+      hostname: url.hostname,
+      port: url.port || (url.protocol === 'https:' ? 443 : 80),
+      path: url.pathname,
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username: email, password: pass })
+      headers: { 'Content-Type': 'application/json', 'Content-Length': Buffer.byteLength(body) }
+    }, res => {
+      let data = '';
+      res.on('data', chunk => data += chunk);
+      res.on('end', () => {
+        try { resolve(JSON.parse(data)); } catch { resolve(null); }
+      });
     });
-    return res.ok ? await res.json() : null;
-  }, { base: API_BASE, email, pass: password });
-
-  if (tokenRes?.token) {
-    await page.evaluate((token) => {
-      localStorage.setItem('cc_admin_token', token);
-      localStorage.setItem('cc_user_role', 'admin');
-    }, tokenRes.token);
-    return true;
-  }
-  return false;
+    req.on('error', () => resolve(null));
+    req.write(body);
+    req.end();
+  });
 }
 
 async function run() {
@@ -174,16 +179,33 @@ async function run() {
   console.log(`${DIM}API:       ${API_BASE}${RESET}`);
   if (SCREENSHOTS) console.log(`${DIM}Screenshots: ${SS_DIR}${RESET}`);
 
+  // Fetch token in Node.js BEFORE browser opens — avoids redirect race
+  let adminToken = null;
+  if (EMAIL && PASS) {
+    console.log(`\n${DIM}Authenticating...${RESET}`);
+    const tokenRes = await fetchTokenNode(API_BASE, EMAIL, PASS);
+    adminToken = tokenRes?.token || null;
+    if (adminToken) {
+      console.log(`${GREEN}✓ Got admin token${RESET}`);
+    } else {
+      console.log(`${RED}✗ Login failed: ${JSON.stringify(tokenRes)}${RESET}`);
+    }
+  } else {
+    console.log(`${YELLOW}⚠ No credentials — set ADMIN_EMAIL + ADMIN_PASS in .env${RESET}`);
+  }
+
   const browser = await chromium.launch({ headless: true });
-  const context = await browser.newContext({
-    viewport: { width: 1440, height: 900 },
-  });
+  const context = await browser.newContext({ viewport: { width: 1440, height: 900 } });
   const page = await context.newPage();
 
-  // Override API base in the page
-  await page.addInitScript((apiBase) => {
+  // Inject token and API base into every page load BEFORE navigation fires
+  await page.addInitScript(({ token, apiBase }) => {
     window.CC_API_BASE = apiBase;
-  }, API_BASE);
+    if (token) {
+      localStorage.setItem('cc_admin_token', token);
+      localStorage.setItem('cc_user_role', 'admin');
+    }
+  }, { token: adminToken, apiBase: API_BASE });
 
   // Load dashboard
   console.log(`\n${DIM}Loading dashboard...${RESET}`);
@@ -198,25 +220,12 @@ async function run() {
     process.exit(1);
   }
 
-  // Auth
-  if (EMAIL && PASS) {
-    console.log(`${DIM}Injecting auth token...${RESET}`);
-    const authed = await injectAuth(page, API_BASE, EMAIL, PASS);
-    if (authed) {
-      console.log(`${GREEN}✓ Auth token injected${RESET}`);
-      // Reload to apply auth
-      await page.reload({ waitUntil: 'domcontentloaded', timeout: 15000 });
-      await page.waitForTimeout(3000);
-    } else {
-      console.log(`${RED}✗ Auth failed — pages may show login redirect${RESET}`);
-    }
+  if (adminToken) {
+    await page.waitForTimeout(4000); // let overview data load
   } else {
-    console.log(`\n${YELLOW}⚠  No credentials — set ADMIN_EMAIL + ADMIN_PASS to test authenticated pages${RESET}`);
-    // Still try to inject a fake role so the page doesn't redirect
+    console.log(`${RED}✗ Not authenticated — results may be unreliable${RESET}`);
+    await page.waitForTimeout(2000);
   }
-
-  // Wait for overview to load
-  await page.waitForTimeout(2000);
 
   console.log(`\n${BOLD}${CYAN}── Testing ${PAGES.length} pages ${'─'.repeat(35)}${RESET}`);
 
@@ -256,8 +265,5 @@ const runWithTimeout = Promise.race([
 
 runWithTimeout.catch(e => {
   console.error(`\n${RED}Fatal: ${RESET}${e.message}`);
-  if (e.message.includes('timeout')) {
-    console.log(`\n${YELLOW}Hint: Set ADMIN_EMAIL and ADMIN_PASS environment variables to test authenticated pages${RESET}`);
-  }
   process.exit(1);
 });
