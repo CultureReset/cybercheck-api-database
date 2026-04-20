@@ -273,6 +273,13 @@ router.post('/create-payment', async (req, res) => {
                     } else {
                         console.warn('No customer_email on booking:', booking_id);
                     }
+
+                    // Notify business owner
+                    const ownerPhone = process.env.OWNER_NOTIFY_PHONE;
+                    if (ownerPhone) {
+                        const msg = `NEW BOOKING! ${bookingData.customer_name} — ${templateData.date} ${templateData.time_slot ? '@ ' + templateData.time_slot : ''} — $${bookingData.total_price || bookingData.total || ''}`;
+                        await sendSms(ownerPhone, msg, targetSiteId, 'booking_owner_notify', booking_id);
+                    }
                 } catch (e) { console.error('Square post-payment notifications failed:', e.message, e.stack); }
             });
         }

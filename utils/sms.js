@@ -47,6 +47,32 @@ async function sendSms(to, body, siteId, type = 'outgoing', relatedId = null, fr
         return { success: false, reason: 'opted_out' };
     }
 
+    // Use Brevo if configured, otherwise fall back to Twilio
+    if (process.env.BREVO_API_KEY) {
+        try {
+            const res = await fetch('https://api.brevo.com/v3/transactionalSMS/sms', {
+                method: 'POST',
+                headers: {
+                    'api-key': process.env.BREVO_API_KEY,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    sender: process.env.BREVO_SMS_SENDER || 'CyberCheck',
+                    recipient: normalizedTo.replace('+', ''),
+                    content: body
+                })
+            });
+            const data = await res.json();
+            if (!res.ok) throw new Error(data.message || 'Brevo SMS failed');
+            await logSms(siteId, normalizedTo, body, type, 'sent', relatedId, String(data.messageId || ''));
+            return { success: true, messageId: data.messageId };
+        } catch (err) {
+            console.error('Brevo SMS error:', err.message);
+            await logSms(siteId, normalizedTo, body, type, 'failed', relatedId);
+            return { success: false, reason: err.message };
+        }
+    }
+
     const fromNumber = from || process.env.TWILIO_PHONE_NUMBER;
 
     try {
