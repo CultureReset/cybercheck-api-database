@@ -3031,13 +3031,13 @@ router.delete('/qa-pairs/:id', async (req, res) => {
 });
 
 // ============================================
-// POST /api/dashboard/ai-chat — Business owner AI assistant
+// POST /api/dashboard/ai-chat — Business owner AI assistant (Claude + tool-use)
 // ============================================
 router.post('/ai-chat', async (req, res) => {
     const { message, history = [] } = req.body;
     if (!message) return res.status(400).json({ error: 'Message required' });
 
-    if (!process.env.OPENAI_API_KEY) {
+    if (!process.env.ANTHROPIC_API_KEY) {
         return res.json({ reply: "AI assistant is being set up — check back soon!" });
     }
 
@@ -3154,38 +3154,225 @@ router.post('/ai-chat', async (req, res) => {
         upcomingRes.data.forEach(b => { context += `\n• ${b.booking_date} — ${b.customer_name || 'Unknown'} ($${b.total || 0}) [${b.status}]`; });
     }
 
-    const systemPrompt = `You are the AI business assistant for ${biz.name || 'this business'}. You're a smart, friendly advisor who knows everything about the owner's business.
+    const systemPrompt = `You are the AI assistant for ${biz.name || 'this business'}. You can both answer questions AND make real changes to the business data.
 
-YOUR DATA (use this to answer questions — never make up numbers):
+YOUR BUSINESS DATA:
 ${context}
 
-WHAT YOU CAN HELP WITH:
-- Business questions ("How many bookings this week?" "What's my revenue?")
-- Comparisons ("Am I doing better than last week?")
-- Marketing help ("Write me an Instagram post" "Help me respond to this review")
-- Pricing advice ("Should I raise my prices?" "What should I charge for a new service?")
-- Strategy ("How can I get more bookings?" "What days are slowest?")
+WHAT YOU CAN DO:
+1. ADD DATA — menu items (food/drink/happy hour), specials, events/live music, happy hour schedule
+2. ANSWER QUESTIONS — bookings, revenue, reviews, marketing, strategy
+3. BULK IMPORT — when the owner pastes a menu, specials board, or event lineup, parse ALL of it and add everything at once using the appropriate tools
+
+BULK DATA RULES:
+- When someone pastes a menu or large block of text with items, parse every single item and call add_menu_items with all of them in one call
+- Classify each section as food/drink/happy_hour based on what it is
+- If a section name sounds like beverages (Beer, Wine, Cocktails, Drinks, Spirits) → item_type: "drink"
+- If it sounds like happy hour deals → item_type: "happy_hour"
+- Everything else → item_type: "food"
+- If user says "replace" or "clear first", call clear_menu_type before adding
 
 STYLE:
-- Be direct and specific — use the actual numbers from their data
-- Keep it concise (2-4 sentences unless they ask for something longer like a social post)
-- Be encouraging but honest
-- If you don't have enough data to answer, say so
-- Always be actionable — give them something they can DO`;
+- After using a tool, confirm briefly what you did ("Added 24 items across 6 sections ✓")
+- For questions, be direct and use real numbers
+- Keep responses short unless they ask for something long like a social post`;
+
+    // ── Tool definitions ──
+    const tools = [
+        {
+            name: 'add_menu_items',
+            description: 'Add one or more menu items (food, drinks, or happy hour). Use this for any request to add items to the menu.',
+            input_schema: {
+                type: 'object',
+                properties: {
+                    items: {
+                        type: 'array',
+                        items: {
+                            type: 'object',
+                            properties: {
+                                name:        { type: 'string' },
+                                price:       { type: 'number' },
+                                category:    { type: 'string', description: 'Section name e.g. "Burgers", "Cocktails"' },
+                                item_type:   { type: 'string', enum: ['food','drink','happy_hour'] },
+                                description: { type: 'string' },
+                                tags:        { type: 'array', items: { type: 'string' } }
+                            },
+                            required: ['name','price','category','item_type']
+                        }
+                    }
+                },
+                required: ['items']
+            }
+        },
+        {
+            name: 'clear_menu_type',
+            description: 'Delete ALL existing items of a type before adding new ones. Only use when user says "replace", "start over", or "clear".',
+            input_schema: {
+                type: 'object',
+                properties: {
+                    item_type: { type: 'string', enum: ['food','drink','happy_hour'] }
+                },
+                required: ['item_type']
+            }
+        },
+        {
+            name: 'add_specials',
+            description: 'Add daily or weekly specials (food deals, drink specials, promotions)',
+            input_schema: {
+                type: 'object',
+                properties: {
+                    specials: {
+                        type: 'array',
+                        items: {
+                            type: 'object',
+                            properties: {
+                                special_name:  { type: 'string' },
+                                discount_text: { type: 'string', description: 'e.g. "$5", "Half off", "2-for-1"' },
+                                description:   { type: 'string' },
+                                days:          { type: 'string', description: 'e.g. "Mon-Fri", "Tuesday", "Every Day"' },
+                                start_time:    { type: 'string' },
+                                end_time:      { type: 'string' }
+                            },
+                            required: ['special_name']
+                        }
+                    }
+                },
+                required: ['specials']
+            }
+        },
+        {
+            name: 'add_events',
+            description: 'Add events or live music schedule entries',
+            input_schema: {
+                type: 'object',
+                properties: {
+                    events: {
+                        type: 'array',
+                        items: {
+                            type: 'object',
+                            properties: {
+                                event_name:   { type: 'string' },
+                                event_date:   { type: 'string', description: 'YYYY-MM-DD, or null for recurring/undated' },
+                                start_time:   { type: 'string' },
+                                end_time:     { type: 'string' },
+                                description:  { type: 'string' },
+                                cover_charge: { type: 'string' }
+                            },
+                            required: ['event_name']
+                        }
+                    }
+                },
+                required: ['events']
+            }
+        },
+        {
+            name: 'update_hh_schedule',
+            description: 'Set the happy hour schedule — which days and what times',
+            input_schema: {
+                type: 'object',
+                properties: {
+                    days:  { type: 'string', description: 'e.g. "Mon, Tue, Wed, Thu, Fri"' },
+                    start: { type: 'string', description: 'e.g. "4:00 PM"' },
+                    end:   { type: 'string', description: 'e.g. "7:00 PM"' }
+                },
+                required: ['days','start','end']
+            }
+        }
+    ];
+
+    // ── Tool execution ──
+    async function executeTool(name, input) {
+        if (name === 'add_menu_items') {
+            const rows = (input.items || []).map(i => ({
+                site_id: siteId, name: i.name, price: i.price || 0,
+                category: i.category, item_type: i.item_type || 'food',
+                description: i.description || '', tags: i.tags || [], modifiers: []
+            }));
+            if (!rows.length) return { success: true, count: 0 };
+            const { error } = await supabase.from('menu_items').insert(rows);
+            if (error) return { error: error.message };
+            return { success: true, count: rows.length };
+        }
+        if (name === 'clear_menu_type') {
+            const { error } = await supabase.from('menu_items').delete().eq('site_id', siteId).eq('item_type', input.item_type);
+            if (error) return { error: error.message };
+            return { success: true, cleared: input.item_type };
+        }
+        if (name === 'add_specials') {
+            const rows = (input.specials || []).map(s => ({ site_id: siteId, ...s }));
+            if (!rows.length) return { success: true, count: 0 };
+            const { error } = await supabase.from('specials').insert(rows);
+            if (error) return { error: error.message };
+            return { success: true, count: rows.length };
+        }
+        if (name === 'add_events') {
+            const rows = (input.events || []).map(e => ({ site_id: siteId, ...e }));
+            if (!rows.length) return { success: true, count: 0 };
+            const { error } = await supabase.from('events').insert(rows);
+            if (error) return { error: error.message };
+            return { success: true, count: rows.length };
+        }
+        if (name === 'update_hh_schedule') {
+            const { data: biz } = await supabase.from('businesses').select('metadata').eq('site_id', siteId).single();
+            const meta = Object.assign({}, biz?.metadata || {}, { hh_schedule: { days: input.days, start: input.start, end: input.end } });
+            const { error } = await supabase.from('businesses').update({ metadata: meta }).eq('site_id', siteId);
+            if (error) return { error: error.message };
+            return { success: true, schedule: input };
+        }
+        return { error: 'Unknown tool' };
+    }
 
     try {
-        const openaiRes = await fetch('https://api.openai.com/v1/chat/completions', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + process.env.OPENAI_API_KEY },
-            body: JSON.stringify({
-                model: 'gpt-4o-mini',
-                messages: [{ role: 'system', content: systemPrompt }, ...history.slice(-10), { role: 'user', content: message }],
-                max_tokens: 500, temperature: 0.7
-            })
-        });
-        const data = await openaiRes.json();
-        if (!openaiRes.ok) throw new Error(data.error?.message || 'OpenAI error');
-        res.json({ reply: data.choices?.[0]?.message?.content || "Try rephrasing!" });
+        const Anthropic = require('@anthropic-ai/sdk');
+        const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+
+        const messages = [
+            ...history.slice(-8).map(h => ({ role: h.role, content: h.content })),
+            { role: 'user', content: message }
+        ];
+
+        // Agentic loop — Claude may call multiple tools
+        const toolResults = [];
+        let finalReply = '';
+        let loopMessages = [...messages];
+
+        for (let i = 0; i < 5; i++) {  // max 5 tool-call rounds
+            const response = await client.messages.create({
+                model: 'claude-haiku-4-5-20251001',
+                max_tokens: 2048,
+                system: systemPrompt,
+                tools,
+                messages: loopMessages
+            });
+
+            if (response.stop_reason === 'end_turn') {
+                finalReply = response.content.filter(b => b.type === 'text').map(b => b.text).join('');
+                break;
+            }
+
+            if (response.stop_reason === 'tool_use') {
+                const assistantMsg = { role: 'assistant', content: response.content };
+                loopMessages.push(assistantMsg);
+
+                const toolResultMsgs = [];
+                for (const block of response.content) {
+                    if (block.type !== 'tool_use') continue;
+                    const result = await executeTool(block.name, block.input);
+                    if (result.count !== undefined) toolResults.push({ tool: block.name, count: result.count, input: block.input });
+                    if (result.cleared)            toolResults.push({ tool: block.name, cleared: result.cleared });
+                    if (result.schedule)           toolResults.push({ tool: block.name, schedule: result.schedule });
+                    toolResultMsgs.push({ type: 'tool_result', tool_use_id: block.id, content: JSON.stringify(result) });
+                }
+                loopMessages.push({ role: 'user', content: toolResultMsgs });
+                continue;
+            }
+
+            // Fallback
+            finalReply = response.content.filter(b => b.type === 'text').map(b => b.text).join('') || "Done!";
+            break;
+        }
+
+        res.json({ reply: finalReply || "Done!", tool_results: toolResults });
     } catch (err) {
         console.error('Dashboard AI chat error:', err.message);
         res.json({ reply: "Something went wrong — try again!" });
