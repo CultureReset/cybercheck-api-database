@@ -2761,12 +2761,13 @@ router.get('/menu', async (req, res) => {
             return res.status(400).json({ error: 'No business specified. Use ?slug=xxx or ?site_id=xxx.' });
         }
 
-        const [{ data: bizData }, { data: items, error }, { data: eventsData }] = await Promise.all([
+        const [{ data: bizData }, { data: items, error }, { data: eventsData }, { data: specialsData }] = await Promise.all([
             supabase.from('businesses').select('name, logo_url, metadata').eq('site_id', siteId).maybeSingle(),
             supabase.from('menu_items').select('*').eq('site_id', siteId)
                 .order('sort_order', { ascending: true })
                 .order('category', { ascending: true }),
-            supabase.from('events').select('*').eq('site_id', siteId).order('event_date', { ascending: true })
+            supabase.from('events').select('*').eq('site_id', siteId).order('event_date', { ascending: true }),
+            supabase.from('specials').select('*').eq('site_id', siteId)
         ]);
 
         if (error) throw error;
@@ -2805,6 +2806,8 @@ router.get('/menu', async (req, res) => {
             sections,
             menu: menuData,
             events: eventsData || [],
+            specials: specialsData || [],
+            hh_schedule: bizData?.metadata?.hh_schedule || null,
             total_items: (items || []).length,
             qr_theme: bizData?.metadata?.qr_theme || null,
         });
