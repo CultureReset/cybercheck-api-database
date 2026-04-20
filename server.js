@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 3000;
 var corsOrigins = process.env.CORS_ORIGINS
     ? process.env.CORS_ORIGINS.split(',').map(function(s) { return s.trim(); })
     : [
-        'http://localhost:3000', 'http://localhost:5173', 'http://localhost:8000', 'http://localhost:8080',
+        'http://localhost:3000', 'http://localhost:5173', 'http://localhost:5174', 'http://localhost:8000', 'http://localhost:8080',
         'http://127.0.0.1:5500', 'http://127.0.0.1:5501',
         'https://gulf-coast-radar-launch.vercel.app',
         'https://gulf-coast-radar.vercel.app',
@@ -102,10 +102,27 @@ app.use('/api/analytics', require('./routes/analytics'));
 // SMS Inbox — two-way messaging, booking confirmations, promo blasts
 app.use('/api/sms', require('./routes/sms'));
 
+// Generic transactional email — used by Trip Swipe OTP and other lightweight senders
+app.post('/api/send-email', async (req, res) => {
+    try {
+        const { to, subject, html } = req.body;
+        if (!to || !subject || !html) return res.status(400).json({ error: 'to, subject, html required' });
+        const { sendEmail } = require('./utils/email');
+        const result = await sendEmail({ to, subject, html });
+        if (result.success) return res.json({ ok: true, id: result.id });
+        return res.status(500).json({ error: result.reason });
+    } catch (err) {
+        return res.status(500).json({ error: err.message });
+    }
+});
+
 // Daily Update Links — business owner taps link to update menu/specials/catch of day
 const updateLinkRouter = require('./routes/update-link');
 app.use('/api/update', updateLinkRouter);   // admin: generate, send, check status
 app.use('/update',     updateLinkRouter);   // public: /:token serves the mobile form
+
+// QR Code Tracking — universal numbered scan tracking (tables, cards, ads, stickers)
+app.use('/api/qr', require('./routes/qr'));
 
 // Webhooks registered above (before express.json for raw body access)
 
