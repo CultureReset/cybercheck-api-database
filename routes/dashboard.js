@@ -450,10 +450,11 @@ router.delete('/team/:id', async (req, res) => {
 // ============================================
 
 router.get('/menu-items', async (req, res) => {
+    const siteId = (req.role === 'admin' && req.query.site_id) ? req.query.site_id : req.siteId;
     const { data, error } = await supabase
         .from('menu_items')
         .select('*')
-        .eq('site_id', req.siteId)
+        .eq('site_id', siteId)
         .order('sort_order', { ascending: true });
 
     if (error) return res.status(500).json({ error: error.message });
@@ -461,7 +462,8 @@ router.get('/menu-items', async (req, res) => {
 });
 
 router.post('/menu-items', async (req, res) => {
-    const item = { ...req.body, site_id: req.siteId };
+    const siteId = (req.role === 'admin' && req.body.site_id) ? req.body.site_id : req.siteId;
+    const item = { ...req.body, site_id: siteId };
     delete item.id;
 
     const { data, error } = await supabase
@@ -475,6 +477,7 @@ router.post('/menu-items', async (req, res) => {
 });
 
 router.put('/menu-items/:id', async (req, res) => {
+    const siteId = (req.role === 'admin' && req.body.site_id) ? req.body.site_id : req.siteId;
     const updates = { ...req.body, updated_at: new Date().toISOString() };
     delete updates.site_id;
     delete updates.id;
@@ -483,7 +486,7 @@ router.put('/menu-items/:id', async (req, res) => {
         .from('menu_items')
         .update(updates)
         .eq('id', req.params.id)
-        .eq('site_id', req.siteId)
+        .eq('site_id', siteId)
         .select()
         .single();
 
@@ -492,11 +495,12 @@ router.put('/menu-items/:id', async (req, res) => {
 });
 
 router.delete('/menu-items/:id', async (req, res) => {
+    const siteId = (req.role === 'admin' && req.query.site_id) ? req.query.site_id : req.siteId;
     const { error } = await supabase
         .from('menu_items')
         .delete()
         .eq('id', req.params.id)
-        .eq('site_id', req.siteId);
+        .eq('site_id', siteId);
 
     if (error) return res.status(500).json({ error: error.message });
     res.json({ success: true });
@@ -2363,7 +2367,9 @@ const MESSAGING_DEFAULTS = {
     loyalty_points_per_dollar: 1,
     loyalty_points_per_booking: 0,
     loyalty_redemption_threshold: 100,
-    loyalty_reward_value: 10
+    loyalty_reward_value: 10,
+    notification_email: null,
+    notification_email_2: null
 };
 
 router.get('/messaging-settings', async (req, res) => {
@@ -3501,6 +3507,85 @@ router.post('/resend-confirmation', async (req, res) => {
     } catch (err) {
         console.error('Resend confirmation error:', err.message);
         res.status(500).json({ error: err.message });
+    }
+});
+
+// ============================================
+// MENU — AI Image Extraction
+// ============================================
+
+router.post('/menu/extract', async (req, res) => {
+    const { image_base64, mime_type } = req.body;
+    if (!image_base64) return res.status(400).json({ error: 'image_base64 required' });
+
+    const Anthropic = require('@anthropic-ai/sdk');
+    const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+
+    const base64Data = image_base64.replace(/^data:[^;]+;base64,/, '');
+    const mediaType = mime_type || 'image/jpeg';
+
+    try {
+        const message = await client.messages.create({
+            model: 'claude-haiku-4-5-20251001',
+            max_tokens: 4096,
+            messages: [{
+                role: 'user',
+                content: [
+                    {
+                        type: 'image',
+                        source: { type: 'base64', media_type: mediaType, data: base64Data }
+                    },
+                    {
+                        type: 'text',
+                        text: `You are a menu extraction assistant. Analyze this restaurant menu image and extract ALL visible menu items into structured JSON.
+
+Return ONLY valid JSON with this exact structure:
+{
+  "categories": [
+    {
+      "name": "Category Name",
+      "items": [
+        {
+          "name": "Item Name",
+          "price": 12.99,
+          "description": "Item description if visible, or empty string",
+          "tags": []
+        }
+      ]
+    }
+  ]
+}
+
+Rules:
+- Extract ALL visible menu items — do not skip any
+- Group items by their section/category exactly as shown on the menu
+- If no category sections exist, use "Menu Items" as the single category name
+- price must be a number (e.g., 12.99). If price not visible, use 0
+- tags array: only add "vegetarian", "vegan", "gluten-free", "spicy", "popular", "new" if clearly indicated
+- description is the item description text if visible, else empty string ""
+- Return ONLY the JSON object, no markdown code blocks, no explanation`
+                    }
+                ]
+            }]
+        });
+
+        const content = message.content[0].text;
+        let extracted;
+        try {
+            const jsonMatch = content.match(/\{[\s\S]*\}/);
+            extracted = JSON.parse(jsonMatch ? jsonMatch[0] : content);
+        } catch (parseErr) {
+            return res.status(422).json({ error: 'Could not parse menu from image. Try a clearer photo.' });
+        }
+
+        if (!extracted.categories || !Array.isArray(extracted.categories)) {
+            return res.status(422).json({ error: 'No menu items found in image.' });
+        }
+
+        res.json(extracted);
+    } catch (err) {
+        console.error('Menu extract error:', err);
+        res.status(500).json({ error: 'AI extraction failed: ' + (err.message || 'unknown error') });
     }
 });
 
