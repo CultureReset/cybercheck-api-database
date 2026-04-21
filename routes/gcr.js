@@ -1932,4 +1932,85 @@ router.post('/lead-notify', async (req, res) => {
     res.json({ ok: true });
 });
 
+// ============================================
+// POST /api/gcr/claim — submit a listing claim request from claim.html popup
+// Body: { business_name, category, contact_name, phone, email, website, message }
+// ============================================
+router.post('/claim', async (req, res) => {
+    const { sendSms }   = require('../utils/sms');
+    const { sendEmail } = require('../utils/email');
+
+    const OWNER_PHONE = '+12058104950';
+    const OWNER_EMAIL = 'info@cybercheckinc.com';
+
+    const {
+        business_name, category, contact_name, phone, email, website, message
+    } = req.body || {};
+
+    if (!business_name || !contact_name || !email) {
+        return res.status(400).json({ error: 'business_name, contact_name, and email are required' });
+    }
+
+    const gcrDb = getGcrDb();
+
+    // Insert into gcr_claims table
+    const { data, error } = await gcrDb
+        .from('gcr_claims')
+        .insert({
+            business_name,
+            claimant_name:  contact_name,
+            claimant_email: email,
+            claimant_phone: phone || null,
+            business_role:  category || null,
+            notes:          [website ? `Website: ${website}` : '', message || ''].filter(Boolean).join('\n') || null,
+            status:         'pending',
+        })
+        .select('id')
+        .single();
+
+    if (error) {
+        console.error('GCR claim insert error:', error.message);
+    }
+
+    const esc = s => String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+    // Notify owner via SMS
+    const ownerMsg = `New GCR Claim! ${contact_name} | ${business_name} | ${phone || ''} | ${email} | ${category || ''}`.slice(0, 160);
+    sendSms(OWNER_PHONE, ownerMsg, null, 'claim_owner_notify', null).catch(e => console.error('claim sms err:', e.message));
+
+    // Confirmation email to claimant
+    if (email) {
+        sendEmail({
+            to: email,
+            subject: `Your Gulf Coast Radar listing request — ${business_name}`,
+            html: `<div style="font-family:Arial,sans-serif;max-width:580px;margin:0 auto;padding:24px;">
+              <h2 style="color:#0f7c90;">We got your request! 🎉</h2>
+              <p>Thanks <strong>${esc(contact_name)}</strong> — we received your request to list <strong>${esc(business_name)}</strong> on Gulf Coast Radar.</p>
+              <p>We'll review your info and reach out within 1 business day to get your free listing live.</p>
+              <p style="color:#666;font-size:13px;">Gulf Coast Radar · Orange Beach &amp; Gulf Shores, AL</p>
+            </div>`
+        }).catch(e => console.error('claim email err:', e.message));
+    }
+
+    // Notification email to owner
+    sendEmail({
+        to: OWNER_EMAIL,
+        subject: `New Listing Claim: ${business_name} — ${contact_name}`,
+        html: `<div style="font-family:Arial,sans-serif;max-width:580px;margin:0 auto;padding:24px;">
+          <h2 style="color:#0f7c90;">New Claim Request — Gulf Coast Radar</h2>
+          <table style="width:100%;border-collapse:collapse;margin-top:12px;">
+            <tr><td style="padding:6px 10px;background:#f1f5f9;font-weight:600;width:130px;">Business</td><td style="padding:6px 10px;border-bottom:1px solid #e2e8f0;">${esc(business_name)}</td></tr>
+            <tr><td style="padding:6px 10px;background:#f1f5f9;font-weight:600;">Category</td><td style="padding:6px 10px;border-bottom:1px solid #e2e8f0;">${esc(category)}</td></tr>
+            <tr><td style="padding:6px 10px;background:#f1f5f9;font-weight:600;">Contact</td><td style="padding:6px 10px;border-bottom:1px solid #e2e8f0;">${esc(contact_name)}</td></tr>
+            <tr><td style="padding:6px 10px;background:#f1f5f9;font-weight:600;">Email</td><td style="padding:6px 10px;border-bottom:1px solid #e2e8f0;">${esc(email)}</td></tr>
+            <tr><td style="padding:6px 10px;background:#f1f5f9;font-weight:600;">Phone</td><td style="padding:6px 10px;border-bottom:1px solid #e2e8f0;">${esc(phone)}</td></tr>
+            <tr><td style="padding:6px 10px;background:#f1f5f9;font-weight:600;">Website</td><td style="padding:6px 10px;border-bottom:1px solid #e2e8f0;">${esc(website)}</td></tr>
+            <tr><td style="padding:6px 10px;background:#f1f5f9;font-weight:600;">Message</td><td style="padding:6px 10px;border-bottom:1px solid #e2e8f0;">${esc(message)}</td></tr>
+          </table>
+        </div>`
+    }).catch(e => console.error('claim owner email err:', e.message));
+
+    res.json({ ok: true, id: data?.id || null });
+});
+
 module.exports = router;
