@@ -677,8 +677,53 @@ router.post('/:token/daily-rotation/submit', validateToken, async (req, res) => 
         insertedMenuCount = (insMenu || []).length;
     }
 
+    // ── Main-DB write-through ───────────────────────────────────
+    // Best-effort: mirror today's rotation picks into Main DB menu_items
+    // so the QR table menu (which reads Main DB) sees them too.
+    // Skipped silently if entity has no matching Main-DB business by slug.
+    let mainInserted = 0, mainSkipReason = null;
+    try {
+        const { data: entitySlugRow } = await g.from('entity').select('slug').eq('id', eid).maybeSingle();
+        const slug = entitySlugRow?.slug;
+        if (!slug) { mainSkipReason = 'no entity slug'; }
+        else {
+            const { data: biz } = await mainDb.from('businesses').select('site_id').eq('subdomain', slug).maybeSingle();
+            if (!biz) { mainSkipReason = 'no main-db business with subdomain=' + slug; }
+            else {
+                const siteId = biz.site_id;
+                // Delete all rotation rows from Main DB (identified by category = any rotation section name)
+                if (allRotNames.length) {
+                    await mainDb.from('menu_items').delete().eq('site_id', siteId).in('category', allRotNames);
+                }
+                if (menuRows.length) {
+                    const mainRows = pickRows.map(p => {
+                        const opt = optionsMap[p.option_id];
+                        const sec = sectionsMap[p.section_id];
+                        if (!opt || !sec) return null;
+                        return {
+                            site_id: siteId,
+                            name: opt.name,
+                            category: sec.name,
+                            item_type: 'food',
+                            price: p.price_override != null ? Number(p.price_override) : (opt.default_price != null ? Number(opt.default_price) : 0),
+                            description: p.description_override || opt.default_description || '',
+                        };
+                    }).filter(Boolean);
+                    if (mainRows.length) {
+                        const { data: insMain, error: insMainErr } = await mainDb.from('menu_items').insert(mainRows).select('id');
+                        if (insMainErr) { mainSkipReason = 'main insert error: ' + insMainErr.message; }
+                        else { mainInserted = (insMain || []).length; }
+                    }
+                }
+            }
+        }
+    } catch (e) {
+        mainSkipReason = 'exception: ' + (e.message || String(e));
+    }
+    if (mainSkipReason) console.warn('[daily-rotation write-through]', mainSkipReason);
+
     markSubmitted(req.params.token);
-    res.json({ ok: true, picks: pickRows.length, menu_items: insertedMenuCount });
+    res.json({ ok: true, picks: pickRows.length, menu_items: insertedMenuCount, main_menu_items: mainInserted, main_skip: mainSkipReason });
 });
 
 // ═══════════════════════════════════════════════════════════════
