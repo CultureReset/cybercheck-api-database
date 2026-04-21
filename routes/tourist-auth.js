@@ -134,6 +134,32 @@ router.get('/verify', async (req, res) => {
 });
 
 // ─────────────────────────────────────────────────────────────────────────────
+// POST /signin — email + password → Supabase session (access + refresh tokens)
+// ─────────────────────────────────────────────────────────────────────────────
+router.post('/signin', async (req, res) => {
+    const email = (req.body?.email || '').trim().toLowerCase();
+    const password = req.body?.password || '';
+    if (!email || !password) return res.status(400).json({ error: 'Email and password required' });
+
+    const sb = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_ANON_KEY);
+    const { data, error } = await sb.auth.signInWithPassword({ email, password });
+    if (error) {
+        const msg = /email.*not.*confirmed/i.test(error.message)
+            ? 'Please confirm your email before signing in — check your inbox.'
+            : 'Invalid email or password';
+        return res.status(401).json({ error: msg });
+    }
+    res.json({
+        session: {
+            access_token: data.session.access_token,
+            refresh_token: data.session.refresh_token,
+            expires_at: data.session.expires_at,
+        },
+        user: { id: data.user.id, email: data.user.email, role: 'tourist' },
+    });
+});
+
+// ─────────────────────────────────────────────────────────────────────────────
 // POST /resend
 // ─────────────────────────────────────────────────────────────────────────────
 router.post('/resend', async (req, res) => {
