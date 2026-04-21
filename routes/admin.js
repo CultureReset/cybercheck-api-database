@@ -5,6 +5,7 @@ const { adminRequired } = require('../middleware/auth');
 const supabase = require('../db');
 const getGcrDb = require('../gcr-db');
 const gcrDb = getGcrDb();
+const { runAgentLoop, getProviderInfo } = require('./ai-provider');
 
 const router = express.Router();
 
@@ -4564,6 +4565,105 @@ const GCR_AGENT_TOOLS = [
             }
         }
     },
+    // ── Write tools ────────────────────────────────────────────────────────────
+    {
+        type: 'function',
+        function: {
+            name: 'update_business',
+            description: 'Update fields on the current business profile: name, phone, address, city, state, zip, website, email, description, price_range, hero_image_url, logo_url, hh_days/hh_start/hh_end/hh_description for happy hour schedule, featured (boolean), hidden (boolean).',
+            parameters: {
+                type: 'object',
+                properties: {
+                    name: { type: 'string' }, phone: { type: 'string' }, address: { type: 'string' },
+                    city: { type: 'string' }, state: { type: 'string' }, zip: { type: 'string' },
+                    website: { type: 'string' }, email: { type: 'string' }, description: { type: 'string' },
+                    price_range: { type: 'number', description: '1-4' },
+                    hero_image_url: { type: 'string' }, logo_url: { type: 'string' },
+                    hh_days: { type: 'string' }, hh_start: { type: 'string' }, hh_end: { type: 'string' },
+                    hh_description: { type: 'string' },
+                    featured: { type: 'boolean' }, hidden: { type: 'boolean' },
+                }
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'set_hero_image',
+            description: 'Set the hero/cover image for the current business. Pass the image URL.',
+            parameters: {
+                type: 'object',
+                properties: { url: { type: 'string', description: 'Public image URL' } },
+                required: ['url']
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'add_menu_item',
+            description: 'Add a food item to this business\'s menu. Specify section_name to auto-create the section if it doesn\'t exist.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    name: { type: 'string' }, description: { type: 'string' }, price: { type: 'string' },
+                    section_name: { type: 'string', description: 'Menu section name (e.g. "Appetizers")' },
+                    section_id: { type: 'string', description: 'Existing section UUID (use instead of section_name if known)' },
+                    sort_order: { type: 'number' },
+                },
+                required: ['name']
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'add_drink_item',
+            description: 'Add a drink to this business\'s drink menu. Specify section_name to auto-create the section.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    name: { type: 'string' }, description: { type: 'string' }, price: { type: 'string' },
+                    section_name: { type: 'string', description: 'Drink section name (e.g. "Cocktails")' },
+                    section_id: { type: 'string', description: 'Existing section UUID' },
+                    sort_order: { type: 'number' },
+                },
+                required: ['name']
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'add_event',
+            description: 'Add an upcoming event to this business.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    title: { type: 'string' }, description: { type: 'string' },
+                    event_date: { type: 'string', description: 'YYYY-MM-DD' },
+                    start_time: { type: 'string', description: 'HH:MM' },
+                    end_time: { type: 'string', description: 'HH:MM' },
+                    image_url: { type: 'string' }, ticket_url: { type: 'string' },
+                },
+                required: ['title', 'event_date']
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'set_business_status',
+            description: 'Show, hide, or feature/unfeature the current business on GCR.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    hidden: { type: 'boolean', description: 'true = hidden from public directory' },
+                    featured: { type: 'boolean', description: 'true = shown in featured sections' },
+                }
+            }
+        }
+    },
 ];
 
 async function executeGCRTool(name, args, { gcrDb, entityId, mainDb }) {
@@ -4812,6 +4912,88 @@ async function executeGCRTool(name, args, { gcrDb, entityId, mainDb }) {
                 (data || []).forEach(e => { byType[e.event_type] = (byType[e.event_type] || 0) + 1; });
                 return { event_counts: byType, total: (data || []).length, sample: (data || []).slice(0, 10), days };
             }
+            // ── Write tools ───────────────────────────────────────────────────
+            case 'update_business': {
+                if (!entityId) return { error: 'No business selected' };
+                const allowed = ['name','phone','address','city','state','zip','website','email','description','price_range','hh_days','hh_start','hh_end','hh_description','hero_image_url','logo_url','featured','hidden'];
+                const update = {};
+                for (const k of allowed) { if (args[k] !== undefined) update[k] = args[k]; }
+                if (!Object.keys(update).length) return { error: 'No valid fields provided' };
+                update.updated_at = new Date().toISOString();
+                const { data, error } = await gcrDb.from('entity').update(update).eq('id', entityId).select('id,name').single();
+                if (error) return { error: error.message };
+                return { success: true, updated: Object.keys(update).filter(k => k !== 'updated_at'), entity: data };
+            }
+            case 'set_hero_image': {
+                if (!entityId) return { error: 'No business selected' };
+                if (!args.url) return { error: 'url required' };
+                const { error } = await gcrDb.from('entity').update({ hero_image_url: args.url, updated_at: new Date().toISOString() }).eq('id', entityId);
+                if (error) return { error: error.message };
+                return { success: true, hero_image_url: args.url };
+            }
+            case 'add_menu_item': {
+                if (!entityId) return { error: 'No business selected' };
+                if (!args.name) return { error: 'name required' };
+                let sectionId = args.section_id || null;
+                if (!sectionId && args.section_name) {
+                    const { data: existing } = await gcrDb.from('menu_sections').select('id').eq('entity_id', entityId).ilike('name', args.section_name).maybeSingle();
+                    if (existing) {
+                        sectionId = existing.id;
+                    } else {
+                        const { data: created } = await gcrDb.from('menu_sections').insert({ entity_id: entityId, name: args.section_name, sort_order: 99 }).select('id').single();
+                        sectionId = created?.id;
+                    }
+                }
+                const { data, error } = await gcrDb.from('menu_items').insert({
+                    entity_id: entityId, section_id: sectionId || null,
+                    name: args.name, description: args.description || null,
+                    price: args.price || null, is_available: true, sort_order: args.sort_order || 99,
+                }).select('id,name').single();
+                if (error) return { error: error.message };
+                return { success: true, item: data };
+            }
+            case 'add_drink_item': {
+                if (!entityId) return { error: 'No business selected' };
+                if (!args.name) return { error: 'name required' };
+                let sectionId = args.section_id || null;
+                if (!sectionId && args.section_name) {
+                    const { data: existing } = await gcrDb.from('drink_sections').select('id').eq('entity_id', entityId).ilike('name', args.section_name).maybeSingle();
+                    if (existing) {
+                        sectionId = existing.id;
+                    } else {
+                        const { data: created } = await gcrDb.from('drink_sections').insert({ entity_id: entityId, name: args.section_name, sort_order: 99 }).select('id').single();
+                        sectionId = created?.id;
+                    }
+                }
+                const { data, error } = await gcrDb.from('drink_items').insert({
+                    entity_id: entityId, section_id: sectionId || null,
+                    name: args.name, description: args.description || null,
+                    price: args.price || null, sort_order: args.sort_order || 99,
+                }).select('id,name').single();
+                if (error) return { error: error.message };
+                return { success: true, item: data };
+            }
+            case 'add_event': {
+                if (!entityId) return { error: 'No business selected' };
+                if (!args.title || !args.event_date) return { error: 'title and event_date required' };
+                const { data, error } = await gcrDb.from('entity_events').insert({
+                    entity_id: entityId, title: args.title, description: args.description || null,
+                    event_date: args.event_date, start_time: args.start_time || null,
+                    end_time: args.end_time || null, image_url: args.image_url || null,
+                    ticket_url: args.ticket_url || null, is_active: true,
+                }).select('id,title').single();
+                if (error) return { error: error.message };
+                return { success: true, event: data };
+            }
+            case 'set_business_status': {
+                if (!entityId) return { error: 'No business selected' };
+                const update = { updated_at: new Date().toISOString() };
+                if (args.hidden !== undefined) update.hidden = args.hidden;
+                if (args.featured !== undefined) update.featured = args.featured;
+                const { error } = await gcrDb.from('entity').update(update).eq('id', entityId);
+                if (error) return { error: error.message };
+                return { success: true, status: update };
+            }
             default:
                 return { error: `Unknown tool: ${name}` };
         }
@@ -4820,86 +5002,89 @@ async function executeGCRTool(name, args, { gcrDb, entityId, mainDb }) {
     }
 }
 
-// ── POST /api/admin/gcr/grok-chat — Agentic AI with tool use
+// ── GET /api/admin/ai-provider — returns active AI provider info
+router.get('/ai-provider', (req, res) => {
+    res.json(getProviderInfo());
+});
+
+// ── POST /api/admin/gcr/ai-chat — Agentic AI with tool use (provider-agnostic)
 router.post('/gcr/grok-chat', async (req, res) => {
-    const apiKey = process.env.XAI_API_KEY || process.env.GROK_API_KEY;
-    if (!apiKey) return res.status(503).json({ error: 'Grok API key not configured (set XAI_API_KEY in env)' });
+    const { message, history = [], slug, entity_id, image_url } = req.body;
+    if (!message && !image_url) return res.status(400).json({ error: 'message required' });
 
-    const { message, history = [], slug, entity_id } = req.body;
-    if (!message) return res.status(400).json({ error: 'message required' });
-
-    const gcrDb = getGcrDb();
+    const db = getGcrDb();
 
     // Resolve entity ID from slug if needed
     let entityId = entity_id || null;
     if (!entityId && slug) {
-        const { data } = await gcrDb.from('entity').select('id').eq('slug', slug).maybeSingle();
+        const { data } = await db.from('entity').select('id').eq('slug', slug).maybeSingle();
         entityId = data?.id || null;
     }
 
     const systemPrompt = `You are an autonomous business intelligence and operations agent for a multi-platform digital agency dashboard.
 You manage multiple websites and the GCR (Gulf Coast Radar) local directory platform.
 You have tools connected to TWO live databases:
-  1. Main CyberCheck DB — website analytics (page_views, session_events, conversions), leads/CRM (gcr_customers), SEO data, social analytics, reviews, OAuth platform tokens
-  2. GCR DB — business directory entities, menus, events, specials, happy hours, HH items
+  1. Main CyberCheck DB — website analytics, leads/CRM, SEO data, social analytics, reviews, OAuth platform tokens
+  2. GCR DB — business directory entities, menus, events, specials, happy hours
+You also have WRITE tools — you can update business profiles, add menu/drink items, add events, set images, and change status.
 RULES:
-- Always pull real data using your tools first. Never estimate or make up numbers.
-- Proactively surface insights: low engagement, missing data, unanswered reviews, traffic drops, opportunities.
-- If a platform isn't connected yet, explain exactly what data it would unlock.
+- Always pull real data first. Never estimate or make up numbers.
+- When asked to make changes, use the write tools (update_business, set_hero_image, add_menu_item, etc.).
+- When given an image URL, you can assign it to the business with set_hero_image or reference it in a menu/event.
+- Proactively surface insights: low engagement, missing data, unanswered reviews, traffic drops.
 - Be concise and direct. Use bullets. Bold key numbers.
-- For ads questions (Google Ads, Facebook Ads, Instagram Ads): explain that ad campaign management requires connecting the respective Ads APIs (separate from Business Profile) — the infrastructure is ready to add.
 - Today: ${new Date().toISOString().split('T')[0]}
 ${entityId ? `Currently viewing entity_id: ${entityId}` : 'Platform-wide view — no single business selected.'}`;
 
+    // Build initial messages — include image in user content if provided
+    let userContent = message || '';
+    if (image_url) {
+        userContent = userContent ? `${userContent}\n\n[Image uploaded: ${image_url}]` : `[Image uploaded: ${image_url}]`;
+    }
+
     const messages = [
         ...history.slice(-8).map(h => ({ role: h.role, content: h.content })),
-        { role: 'user', content: message },
+        { role: 'user', content: userContent },
     ];
 
-    const toolsActivity = [];
-
     try {
-        // Agent loop — up to 6 rounds of tool calls
-        for (let round = 0; round < 6; round++) {
-            const resp = await fetch('https://api.x.ai/v1/chat/completions', {
-                method: 'POST',
-                headers: { 'Authorization': `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    model: 'grok-3',
-                    messages: [{ role: 'system', content: systemPrompt }, ...messages],
-                    tools: GCR_AGENT_TOOLS,
-                    tool_choice: 'auto',
-                    temperature: 0.3,
-                    max_tokens: 1500,
-                }),
-            });
-            if (!resp.ok) throw new Error(`Grok API ${resp.status}: ${await resp.text()}`);
-            const data = await resp.json();
-            const choice = data.choices?.[0];
-            if (!choice) throw new Error('No response from Grok');
-
-            // Done — return the final text reply
-            if (!choice.message.tool_calls || !choice.message.tool_calls.length) {
-                return res.json({ reply: choice.message.content, tools_called: toolsActivity });
-            }
-
-            // Execute all tool calls in parallel
-            messages.push(choice.message);
-            const toolResults = await Promise.all(
-                choice.message.tool_calls.map(async (call) => {
-                    const args = JSON.parse(call.function.arguments || '{}');
-                    toolsActivity.push({ tool: call.function.name, args });
-                    const result = await executeGCRTool(call.function.name, args, { gcrDb, entityId, mainDb: supabase });
-                    return { tool_call_id: call.id, content: JSON.stringify(result) };
-                })
-            );
-            toolResults.forEach(r => messages.push({ role: 'tool', ...r }));
-        }
-
-        res.json({ reply: 'Reached max tool call rounds. Try a more specific question.', tools_called: toolsActivity });
+        const result = await runAgentLoop({
+            systemPrompt,
+            messages,
+            tools: GCR_AGENT_TOOLS,
+            executeTool: (toolName, toolArgs) => executeGCRTool(toolName, toolArgs, { gcrDb: db, entityId, mainDb: supabase }),
+            maxRounds: 6,
+            temperature: 0.3,
+            maxTokens: 1500,
+        });
+        res.json({ reply: result.reply, tools_called: result.tools_called, provider: result.provider });
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
+});
+
+// ============================================
+// GET /api/admin/gcr/claims — list all claim requests (admin)
+// ============================================
+router.get('/gcr/claims', adminRequired, async (req, res) => {
+    let query = gcrDb.from('gcr_claims').select('*').order('created_at', { ascending: false });
+    if (req.query.status) query = query.eq('status', req.query.status);
+    const { data, error } = await query;
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data || []);
+});
+
+// ============================================
+// PATCH /api/admin/gcr/claims/:id — update status / admin_notes
+// ============================================
+router.patch('/gcr/claims/:id', adminRequired, async (req, res) => {
+    const { status, admin_notes } = req.body || {};
+    const update = { updated_at: new Date().toISOString() };
+    if (status !== undefined)      update.status      = status;
+    if (admin_notes !== undefined)  update.admin_notes = admin_notes;
+    const { data, error } = await gcrDb.from('gcr_claims').update(update).eq('id', req.params.id).select('*').single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
 });
 
 module.exports = router;
