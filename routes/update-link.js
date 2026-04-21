@@ -522,6 +522,166 @@ router.delete('/:token/catch/:id', validateToken, async (req, res) => {
 });
 
 // ═══════════════════════════════════════════════════════════════
+// DAILY ROTATING SECTIONS — owner picks which presets are live today
+// Starts EMPTY each day (no carry-over). Owner taps options, submits.
+// Writes picks + upserts GCR menu_items, removes yesterday's auto-rows.
+// ═══════════════════════════════════════════════════════════════
+
+router.get('/:token/daily-rotation', validateToken, async (req, res) => {
+    const eid = req.entityId;
+    if (!eid) return res.json({ sections: [] });
+    const g = db();
+    const { data: sections, error: sErr } = await g
+        .from('daily_rotation_sections')
+        .select('*')
+        .eq('entity_id', eid)
+        .order('sort_order', { ascending: true });
+    if (sErr) return res.status(500).json({ error: sErr.message });
+    if (!sections.length) return res.json({ sections: [] });
+
+    const sectionIds = sections.map(s => s.id);
+    const { data: options, error: oErr } = await g
+        .from('daily_rotation_options')
+        .select('*')
+        .in('section_id', sectionIds)
+        .order('sort_order', { ascending: true });
+    if (oErr) return res.status(500).json({ error: oErr.message });
+
+    const bySection = {};
+    options.forEach(o => { (bySection[o.section_id] ||= []).push(o); });
+    const out = sections.map(s => ({ ...s, options: bySection[s.id] || [] }));
+    res.json({ sections: out });
+});
+
+// Body: { picks: [{ option_id, price_override?, description_override? }, ...] }
+// Replaces any existing picks for today for this entity.
+router.post('/:token/daily-rotation/submit', validateToken, async (req, res) => {
+    const eid = req.entityId;
+    if (!eid) return res.status(400).json({ error: 'daily rotation requires an entity-based link' });
+    const picks = Array.isArray(req.body && req.body.picks) ? req.body.picks : [];
+    const g = db();
+    const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
+
+    // Fetch options + their sections so we can resolve names/defaults for upsert
+    let optionsMap = {};
+    if (picks.length) {
+        const optIds = picks.map(p => p.option_id).filter(Boolean);
+        const { data: opts, error: oErr } = await g
+            .from('daily_rotation_options')
+            .select('id, name, default_price, default_description, section_id')
+            .in('id', optIds);
+        if (oErr) return res.status(500).json({ error: oErr.message });
+        opts.forEach(o => { optionsMap[o.id] = o; });
+    }
+
+    const sectionIdsUsed = [...new Set(Object.values(optionsMap).map(o => o.section_id))];
+    let sectionsMap = {};
+    if (sectionIdsUsed.length) {
+        const { data: secs } = await g
+            .from('daily_rotation_sections')
+            .select('id, name, emoji')
+            .in('id', sectionIdsUsed);
+        (secs || []).forEach(s => { sectionsMap[s.id] = s; });
+    }
+
+    // 1. Clear today's existing picks for this entity (replace semantics)
+    const { error: delPicksErr } = await g
+        .from('daily_rotation_picks')
+        .delete()
+        .eq('entity_id', eid)
+        .eq('pick_date', today);
+    if (delPicksErr) return res.status(500).json({ error: delPicksErr.message });
+
+    // 2. Remove yesterday's auto-inserted rotation menu_items from GCR.
+    //    We identify them by menu_section matching any rotation section name.
+    const rotationSectionNames = Object.values(sectionsMap).map(s => s.name);
+    // Fetch all rotation-sections sections (including any that were used yesterday but unused today)
+    const { data: allRotSecs } = await g
+        .from('daily_rotation_sections')
+        .select('name')
+        .eq('entity_id', eid);
+    const allRotNames = [...new Set([...rotationSectionNames, ...(allRotSecs || []).map(s => s.name)])];
+    let rotMenuSecIds = [];
+    if (allRotNames.length) {
+        const { data: menuSecs } = await g
+            .from('menu_sections')
+            .select('id, section_name')
+            .eq('entity_id', eid)
+            .in('section_name', allRotNames);
+        rotMenuSecIds = (menuSecs || []).map(s => s.id);
+        if (rotMenuSecIds.length) {
+            await g.from('menu_items')
+                .delete()
+                .eq('entity_id', eid)
+                .in('menu_section_id', rotMenuSecIds);
+        }
+    }
+
+    if (!picks.length) {
+        markSubmitted(req.params.token);
+        return res.json({ ok: true, picks: 0, menu_items: 0 });
+    }
+
+    // 3. Insert today's picks
+    const pickRows = picks.map(p => ({
+        entity_id: eid,
+        section_id: optionsMap[p.option_id]?.section_id,
+        option_id: p.option_id,
+        pick_date: today,
+        price_override: p.price_override != null && p.price_override !== '' ? Number(p.price_override) : null,
+        description_override: p.description_override || null,
+    })).filter(r => r.section_id);
+
+    const { error: insPicksErr } = await g.from('daily_rotation_picks').insert(pickRows);
+    if (insPicksErr) return res.status(500).json({ error: insPicksErr.message });
+
+    // 4. Ensure a menu_section exists for each rotation section used today,
+    //    then insert menu_items for each pick.
+    const secNameToId = {};
+    for (const secId of sectionIdsUsed) {
+        const sec = sectionsMap[secId];
+        if (!sec) continue;
+        let { data: menuSec } = await g
+            .from('menu_sections')
+            .select('id')
+            .eq('entity_id', eid)
+            .eq('section_name', sec.name)
+            .maybeSingle();
+        if (!menuSec) {
+            const ins = await g.from('menu_sections')
+                .insert({ entity_id: eid, section_name: sec.name })
+                .select('id').single();
+            menuSec = ins.data;
+        }
+        if (menuSec) secNameToId[sec.name] = menuSec.id;
+    }
+
+    const menuRows = pickRows.map(p => {
+        const opt = optionsMap[p.option_id];
+        const sec = sectionsMap[p.section_id];
+        if (!opt || !sec) return null;
+        return {
+            entity_id: eid,
+            menu_section_id: secNameToId[sec.name],
+            item_name: opt.name,
+            price: p.price_override != null ? p.price_override : (opt.default_price != null ? opt.default_price : null),
+            description: p.description_override || opt.default_description || null,
+            is_available: true,
+        };
+    }).filter(Boolean);
+
+    let insertedMenuCount = 0;
+    if (menuRows.length) {
+        const { data: insMenu, error: insMenuErr } = await g.from('menu_items').insert(menuRows).select('id');
+        if (insMenuErr) return res.status(500).json({ error: insMenuErr.message });
+        insertedMenuCount = (insMenu || []).length;
+    }
+
+    markSubmitted(req.params.token);
+    res.json({ ok: true, picks: pickRows.length, menu_items: insertedMenuCount });
+});
+
+// ═══════════════════════════════════════════════════════════════
 // MENU SETUP — AI-powered onboarding (link_type = 'menu_setup')
 // ═══════════════════════════════════════════════════════════════
 
