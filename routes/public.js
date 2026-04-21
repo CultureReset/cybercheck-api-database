@@ -6,6 +6,12 @@ const router = express.Router();
 // All public routes need a site_id from domain resolution middleware
 // If no site_id, the request needs a ?subdomain= param as fallback
 function requireSite(req, res, next) {
+    // Accept ?site_id= as the simplest fallback (used by qr-menu.html)
+    if (!req.siteId && (req.query.site_id || (req.body && req.body.site_id))) {
+        req.siteId = req.query.site_id || req.body.site_id;
+        return next();
+    }
+
     if (!req.siteId && (req.query.subdomain || (req.body && req.body.subdomain))) {
         // Fallback: look up by subdomain query param
         supabase
@@ -26,7 +32,7 @@ function requireSite(req, res, next) {
     }
 
     if (!req.siteId) {
-        return res.status(404).json({ error: 'Business not found. Provide domain or ?subdomain= param.' });
+        return res.status(404).json({ error: 'Business not found. Provide domain, ?site_id= or ?subdomain= param.' });
     }
     next();
 }
@@ -349,49 +355,9 @@ router.get('/services', async (req, res) => {
     res.json(data || []);
 });
 
-// ============================================
-// GET /api/public/menu
-// Returns hierarchical: categories → subcategories → items
-// ============================================
-router.get('/menu', async (req, res) => {
-    // Get categories with nested subcategories
-    const { data: categories } = await supabase
-        .from('menu_categories')
-        .select('id, name, description, time_start, time_end, image_url, sort_order')
-        .eq('site_id', req.siteId)
-        .eq('active', true)
-        .order('sort_order', { ascending: true });
-
-    const { data: subcategories } = await supabase
-        .from('menu_subcategories')
-        .select('id, category_id, name, description, sort_order')
-        .eq('site_id', req.siteId)
-        .eq('active', true)
-        .order('sort_order', { ascending: true });
-
-    const { data: items } = await supabase
-        .from('menu_items')
-        .select('id, category_id, subcategory_id, name, description, price, image_url, tags, allergens, calories, sort_order')
-        .eq('site_id', req.siteId)
-        .eq('available', true)
-        .order('sort_order', { ascending: true });
-
-    // Build hierarchy: categories → subcategories → items
-    const menu = (categories || []).map(cat => ({
-        ...cat,
-        subcategories: (subcategories || [])
-            .filter(sub => sub.category_id === cat.id)
-            .map(sub => ({
-                ...sub,
-                items: (items || []).filter(item => item.subcategory_id === sub.id)
-            })),
-        // Items directly under category (no subcategory)
-        items: (items || []).filter(item => item.category_id === cat.id && !item.subcategory_id)
-    }));
-
-    // Also return flat items list for simple views
-    res.json({ menu, items: items || [], total: (items || []).length });
-});
+// Duplicate /menu route removed — it shadowed the working ?site_id=/?slug=
+// handler later in this file and broke qr-menu.html. The remaining
+// definition at "GET /menu" below handles all cases.
 
 // ============================================
 // GET /api/public/gallery
