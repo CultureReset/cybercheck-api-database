@@ -5087,5 +5087,118 @@ router.patch('/gcr/claims/:id', adminRequired, async (req, res) => {
     res.json(data);
 });
 
+// ============================================
+// DAILY ROTATING SECTIONS — admin CRUD
+// Sections + their preset options are defined by admin. Owners pick
+// from these via the daily update link. Picks are in a separate table.
+// ============================================
+
+// GET /admin/gcr/entities/:entityId/daily-rotation
+// Returns all sections (with their options) for a given entity.
+router.get('/gcr/entities/:entityId/daily-rotation', adminRequired, async (req, res) => {
+    const entityId = req.params.entityId;
+    const { data: sections, error: sErr } = await gcrDb
+        .from('daily_rotation_sections')
+        .select('*')
+        .eq('entity_id', entityId)
+        .order('sort_order', { ascending: true });
+    if (sErr) return res.status(500).json({ error: sErr.message });
+
+    if (!sections.length) return res.json({ sections: [] });
+
+    const ids = sections.map(s => s.id);
+    const { data: options, error: oErr } = await gcrDb
+        .from('daily_rotation_options')
+        .select('*')
+        .in('section_id', ids)
+        .order('sort_order', { ascending: true });
+    if (oErr) return res.status(500).json({ error: oErr.message });
+
+    const bySection = {};
+    options.forEach(o => { (bySection[o.section_id] ||= []).push(o); });
+    const out = sections.map(s => ({ ...s, options: bySection[s.id] || [] }));
+    res.json({ sections: out });
+});
+
+// POST /admin/gcr/entities/:entityId/daily-rotation/sections
+router.post('/gcr/entities/:entityId/daily-rotation/sections', adminRequired, async (req, res) => {
+    const { name, emoji, description, sort_order } = req.body || {};
+    if (!name) return res.status(400).json({ error: 'name required' });
+    const { data, error } = await gcrDb
+        .from('daily_rotation_sections')
+        .insert({
+            entity_id: req.params.entityId,
+            name, emoji: emoji || null, description: description || null,
+            sort_order: sort_order != null ? sort_order : 0
+        })
+        .select('*').single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
+// PATCH /admin/daily-rotation/sections/:id
+router.patch('/daily-rotation/sections/:id', adminRequired, async (req, res) => {
+    const { name, emoji, description, sort_order } = req.body || {};
+    const update = { updated_at: new Date().toISOString() };
+    if (name !== undefined)        update.name = name;
+    if (emoji !== undefined)       update.emoji = emoji;
+    if (description !== undefined) update.description = description;
+    if (sort_order !== undefined)  update.sort_order = sort_order;
+    const { data, error } = await gcrDb
+        .from('daily_rotation_sections')
+        .update(update).eq('id', req.params.id)
+        .select('*').single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
+// DELETE /admin/daily-rotation/sections/:id (cascades options + picks)
+router.delete('/daily-rotation/sections/:id', adminRequired, async (req, res) => {
+    const { error } = await gcrDb.from('daily_rotation_sections').delete().eq('id', req.params.id);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ ok: true });
+});
+
+// POST /admin/daily-rotation/sections/:id/options
+router.post('/daily-rotation/sections/:id/options', adminRequired, async (req, res) => {
+    const { name, default_price, default_description, sort_order } = req.body || {};
+    if (!name) return res.status(400).json({ error: 'name required' });
+    const { data, error } = await gcrDb
+        .from('daily_rotation_options')
+        .insert({
+            section_id: req.params.id,
+            name,
+            default_price: default_price != null ? Number(default_price) : null,
+            default_description: default_description || null,
+            sort_order: sort_order != null ? sort_order : 0
+        })
+        .select('*').single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
+// PATCH /admin/daily-rotation/options/:id
+router.patch('/daily-rotation/options/:id', adminRequired, async (req, res) => {
+    const { name, default_price, default_description, sort_order } = req.body || {};
+    const update = {};
+    if (name !== undefined)                update.name = name;
+    if (default_price !== undefined)       update.default_price = default_price != null ? Number(default_price) : null;
+    if (default_description !== undefined) update.default_description = default_description;
+    if (sort_order !== undefined)          update.sort_order = sort_order;
+    const { data, error } = await gcrDb
+        .from('daily_rotation_options')
+        .update(update).eq('id', req.params.id)
+        .select('*').single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
+// DELETE /admin/daily-rotation/options/:id
+router.delete('/daily-rotation/options/:id', adminRequired, async (req, res) => {
+    const { error } = await gcrDb.from('daily_rotation_options').delete().eq('id', req.params.id);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ ok: true });
+});
+
 module.exports = router;
 
