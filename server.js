@@ -124,6 +124,12 @@ app.use('/update',     updateLinkRouter);   // public: /:token serves the mobile
 // QR Code Tracking — universal numbered scan tracking (tables, cards, ads, stickers)
 app.use('/api/qr', require('./routes/qr'));
 
+// Trip Swipe — tourist saves/profile/itinerary (uses Supabase JWT from trip-swipe frontend)
+app.use('/api/tourist', require('./routes/tourist'));
+
+// Trip Swipe — tourist auth (signup + email verify via Brevo, signin, resend)
+app.use('/api/tourist-auth', require('./routes/tourist-auth'));
+
 // Webhooks registered above (before express.json for raw body access)
 
 // Root — API status
