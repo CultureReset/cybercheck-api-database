@@ -127,6 +127,9 @@ app.use('/api/qr', require('./routes/qr'));
 // Trip Swipe — tourist saves/profile/itinerary (uses Supabase JWT from trip-swipe frontend)
 app.use('/api/tourist', require('./routes/tourist'));
 
+// Trip Swipe — group trip planning (shared saves, overlap view)
+app.use('/api/tourist/groups', require('./routes/tourist-groups'));
+
 // Trip Swipe — tourist auth (signup + email verify via Brevo, signin, resend)
 app.use('/api/tourist-auth', require('./routes/tourist-auth'));
 

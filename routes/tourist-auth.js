@@ -189,4 +189,73 @@ router.post('/resend', async (req, res) => {
     res.json({ success: true, message: 'Verification email re-sent.' });
 });
 
+// ─────────────────────────────────────────────────────────────────────────────
+// POST /forgot-password — send reset link via Brevo
+// ─────────────────────────────────────────────────────────────────────────────
+router.post('/forgot-password', async (req, res) => {
+    const email = (req.body?.email || '').trim().toLowerCase();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return res.status(400).json({ error: 'Invalid email' });
+
+    const sb = admin();
+    const { data: list } = await sb.auth.admin.listUsers({ perPage: 1000 });
+    const user = list?.users?.find(u => (u.email || '').toLowerCase() === email);
+    // Always return success to avoid email-enumeration leaks
+    if (!user) return res.json({ success: true, message: 'If that email is registered, a reset link was sent.' });
+
+    const token = makeToken();
+    const expiresAt = new Date(Date.now() + 1 * 3600 * 1000).toISOString();
+    await sb.auth.admin.updateUserById(user.id, {
+        user_metadata: { ...(user.user_metadata || {}), reset_token: token, reset_expires_at: expiresAt },
+    });
+
+    const appUrl = process.env.TRIP_SWIPE_URL || 'http://localhost:5173';
+    const resetHref = `${appUrl}/reset?token=${token}&email=${encodeURIComponent(email)}`;
+    const html = `<!DOCTYPE html><html><head><meta charset="UTF-8"></head>
+<body style="margin:0;padding:0;background:#f4f6f8;font-family:Arial,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#f4f6f8;padding:32px 16px;"><tr><td align="center">
+    <table width="100%" style="max-width:560px;background:#fff;border-radius:16px;overflow:hidden;">
+      <tr><td style="background:linear-gradient(135deg,#0ea5e9,#7c6af7);padding:36px 32px;text-align:center;">
+        <h1 style="margin:0;color:#fff;font-size:24px;">🌊 Reset your password</h1>
+      </td></tr>
+      <tr><td style="padding:32px;">
+        <p style="margin:0 0 20px;color:#374151;font-size:15px;">Click the link below to set a new password. This link expires in 1 hour.</p>
+        <div style="text-align:center;margin:24px 0;">
+          <a href="${resetHref}" style="display:inline-block;background:#0ea5e9;color:#fff;padding:14px 32px;border-radius:10px;text-decoration:none;font-weight:700;">Reset Password →</a>
+        </div>
+        <p style="margin:20px 0 0;color:#6b7280;font-size:13px;">If you didn't request this, ignore the email.</p>
+      </td></tr>
+    </table>
+  </td></tr></table>
+</body></html>`;
+    await sendEmail({ to: email, subject: 'Reset your Gulf Coast Radar password', html });
+    res.json({ success: true, message: 'If that email is registered, a reset link was sent.' });
+});
+
+// ─────────────────────────────────────────────────────────────────────────────
+// POST /reset-password — exchange token + new password
+// ─────────────────────────────────────────────────────────────────────────────
+router.post('/reset-password', async (req, res) => {
+    const email = (req.body?.email || '').trim().toLowerCase();
+    const token = req.body?.token || '';
+    const password = req.body?.password || '';
+    if (!email || !token) return res.status(400).json({ error: 'Invalid reset link' });
+    if (password.length < 6) return res.status(400).json({ error: 'Password must be at least 6 characters' });
+
+    const sb = admin();
+    const { data: list } = await sb.auth.admin.listUsers({ perPage: 1000 });
+    const user = list?.users?.find(u => (u.email || '').toLowerCase() === email);
+    if (!user) return res.status(400).json({ error: 'Invalid reset link' });
+
+    const md = user.user_metadata || {};
+    if (md.reset_token !== token) return res.status(400).json({ error: 'Invalid reset link' });
+    if (md.reset_expires_at && new Date(md.reset_expires_at) < new Date()) return res.status(400).json({ error: 'Reset link expired' });
+
+    const { error } = await sb.auth.admin.updateUserById(user.id, {
+        password,
+        user_metadata: { ...md, reset_token: null, reset_expires_at: null },
+    });
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
 module.exports = router;
