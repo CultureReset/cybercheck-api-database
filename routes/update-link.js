@@ -51,8 +51,14 @@ function twilio() {
 }
 function fromNumber() { return process.env.TWILIO_PHONE_NUMBER || process.env.TWILIO_FROM_NUMBER; }
 function makeToken()  { return crypto.randomBytes(24).toString('hex'); }
-function linkUrl(tok) {
+function slugify(s) {
+    return String(s || '').toLowerCase().trim()
+        .replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-')
+        .replace(/^-|-$/g, '') || 'business';
+}
+function linkUrl(tok, slug) {
     const base = (process.env.LINKS_BASE_URL || 'https://cybercheck-links.vercel.app').replace(/\/$/, '');
+    if (slug) return `${base}/${slug}/edit?token=${tok}`;
     return `${base}/menu-editor.html?token=${tok}`;
 }
 
@@ -83,16 +89,29 @@ async function validateToken(req, res, next) {
 // ADMIN — Generate / send links
 // ═══════════════════════════════════════════════════════════════
 
+async function resolveSlug({ entity_id, site_id, biz_name }) {
+    if (site_id) {
+        const { data: biz } = await mainDb.from('businesses').select('name,slug').eq('site_id', site_id).maybeSingle();
+        return slugify(biz?.slug || biz?.name || biz_name);
+    }
+    if (entity_id) {
+        const { data: ent } = await db().from('entity').select('name,slug').eq('id', entity_id).single();
+        return slugify(ent?.slug || ent?.name || biz_name);
+    }
+    return slugify(biz_name);
+}
+
 router.post('/generate', adminRequired, async (req, res) => {
     const { entity_id, site_id, biz_name, link_type = 'full', send_phone } = req.body;
     const storedId = site_id ? ('s:' + site_id) : entity_id;
     if (!storedId) return res.status(400).json({ error: 'entity_id or site_id required' });
     const today = new Date().toISOString().split('T')[0];
+    const slug = await resolveSlug({ entity_id, site_id, biz_name });
 
     const { data: existing } = await supabase.from('update_links').select('*')
         .eq('entity_id', storedId).eq('link_type', link_type).eq('link_date', today).maybeSingle();
 
-    if (existing) return res.json({ token: existing.token, url: linkUrl(existing.token), existing: true });
+    if (existing) return res.json({ token: existing.token, url: linkUrl(existing.token, slug), existing: true });
 
     const token = makeToken();
     const { error } = await supabase.from('update_links').insert({
@@ -102,7 +121,7 @@ router.post('/generate', adminRequired, async (req, res) => {
     }).select().single();
 
     if (error) return res.status(500).json({ error: error.message });
-    res.json({ token, url: linkUrl(token), existing: false });
+    res.json({ token, url: linkUrl(token, slug), existing: false });
 });
 
 router.post('/send-sms', adminRequired, async (req, res) => {
@@ -123,15 +142,18 @@ router.post('/send-sms', adminRequired, async (req, res) => {
         link = ins.data;
     }
 
-    const url = linkUrl(link.token);
     let name = biz_name || 'your business';
-    if (!biz_name && entity_id) {
-        const { data: entity } = await db().from('entity').select('name').eq('id', entity_id).single();
-        name = entity?.name || name;
-    } else if (!biz_name && site_id) {
-        const { data: biz } = await mainDb.from('businesses').select('name').eq('site_id', site_id).maybeSingle();
-        name = biz?.name || name;
+    let slug = '';
+    if (site_id) {
+        const { data: biz } = await mainDb.from('businesses').select('name,slug').eq('site_id', site_id).maybeSingle();
+        if (biz?.name) name = biz.name;
+        slug = slugify(biz?.slug || biz?.name || biz_name);
+    } else if (entity_id) {
+        const { data: entity } = await db().from('entity').select('name,slug').eq('id', entity_id).single();
+        if (entity?.name) name = entity.name;
+        slug = slugify(entity?.slug || entity?.name || biz_name);
     }
+    const url = linkUrl(link.token, slug);
 
     const tc = twilio();
     if (!tc) return res.json({ success: false, error: 'Twilio not configured', url, token: link.token });
