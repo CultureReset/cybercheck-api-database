@@ -12,10 +12,24 @@ create table if not exists public.tourist_groups (
   destination text,
   arrival date,
   departure date,
+  -- Sharing duration: 'trip_end' (day after departure), 'custom_date' (see sharing_until), 'ongoing' (never expires)
+  sharing_mode text default 'trip_end' check (sharing_mode in ('trip_end','custom_date','ongoing')),
+  sharing_until date,  -- only used when sharing_mode='custom_date'
   owner_user_id uuid not null references auth.users(id) on delete cascade,
   created_at timestamptz default now(),
   updated_at timestamptz default now()
 );
+-- Safe for re-runs if table already existed without these columns:
+alter table public.tourist_groups add column if not exists sharing_mode text default 'trip_end';
+alter table public.tourist_groups add column if not exists sharing_until date;
+-- Drop old constraint if present, then re-add safely
+do $$ begin
+  if exists (select 1 from pg_constraint where conname = 'tourist_groups_sharing_mode_check') then
+    alter table public.tourist_groups drop constraint tourist_groups_sharing_mode_check;
+  end if;
+  alter table public.tourist_groups add constraint tourist_groups_sharing_mode_check
+    check (sharing_mode in ('trip_end','custom_date','ongoing'));
+end $$;
 create index if not exists idx_tourist_groups_owner on public.tourist_groups(owner_user_id);
 
 -- Membership (a user can be in many groups)

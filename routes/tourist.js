@@ -115,6 +115,7 @@ router.put('/profile', touristAuth, async (req, res) => {
         stay_status: b.stay_status || null,
         hotel_name: b.hotel_name || null,
         setup_complete: !!b.setup_complete,
+        answers: typeof b.answers === 'object' && b.answers ? b.answers : {},
     };
     const { data, error } = await mainDb.from('tourist_profiles')
         .upsert(row, { onConflict: 'user_id' })

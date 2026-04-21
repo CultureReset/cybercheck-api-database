@@ -18,6 +18,38 @@ const { touristAuth } = require('./tourist');
 
 const router = express.Router();
 
+// Sharing duration rules:
+//   'ongoing'      → never expires (friends who travel together often)
+//   'custom_date'  → expires at midnight UTC on sharing_until
+//   'trip_end'     → expires day after departure (default)
+function sharingIsExpired(group) {
+    if (!group) return false;
+    if (group.sharing_mode === 'ongoing') return false;
+    if (group.sharing_mode === 'custom_date' && group.sharing_until) {
+        const d = new Date(group.sharing_until);
+        d.setDate(d.getDate() + 1);
+        d.setHours(0, 0, 0, 0);
+        return new Date() >= d;
+    }
+    // Default: trip_end
+    if (!group.departure) return false;
+    const d = new Date(group.departure);
+    d.setDate(d.getDate() + 2);
+    d.setHours(0, 0, 0, 0);
+    return new Date() >= d;
+}
+function sharingEndsOn(group) {
+    if (!group) return null;
+    if (group.sharing_mode === 'ongoing') return null;
+    if (group.sharing_mode === 'custom_date' && group.sharing_until) return group.sharing_until;
+    if (group.departure) {
+        const d = new Date(group.departure);
+        d.setDate(d.getDate() + 1);
+        return d.toISOString().slice(0, 10);
+    }
+    return null;
+}
+
 function slugify(s) {
     return String(s || '').toLowerCase().trim()
         .replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-')
@@ -50,8 +82,12 @@ async function uniqueInviteCode() {
 // CREATE a group
 // ─────────────────────────────────────────────────────────────────────────────
 router.post('/', touristAuth, async (req, res) => {
-    const { name, destination, arrival, departure } = req.body || {};
+    const { name, destination, arrival, departure, sharing_mode, sharing_until } = req.body || {};
     if (!name || !name.trim()) return res.status(400).json({ error: 'Group name is required' });
+
+    const mode = ['trip_end', 'custom_date', 'ongoing'].includes(sharing_mode) ? sharing_mode : 'trip_end';
+    const until = mode === 'custom_date' ? (sharing_until || null) : null;
+    if (mode === 'custom_date' && !until) return res.status(400).json({ error: 'sharing_until date is required when sharing_mode is custom_date' });
 
     const slug = await uniqueSlug(name);
     const invite_code = await uniqueInviteCode();
@@ -62,6 +98,8 @@ router.post('/', touristAuth, async (req, res) => {
         destination: destination || null,
         arrival: arrival || null,
         departure: departure || null,
+        sharing_mode: mode,
+        sharing_until: until,
         owner_user_id: req.touristId,
     }).select().single();
     if (error) return res.status(500).json({ error: error.message });
@@ -122,9 +160,14 @@ router.get('/:slug', touristAuth, async (req, res) => {
         .select('id').eq('group_id', group.id).eq('user_id', req.touristId).maybeSingle();
     if (!mySelf) return res.status(403).json({ error: 'Not a member of this group' });
 
+    const expired = sharingIsExpired(group);
+
     const [{ data: members }, { data: saves }] = await Promise.all([
         mainDb.from('tourist_group_members').select('*').eq('group_id', group.id),
-        mainDb.from('tourist_saves').select('*').eq('group_id', group.id).order('saved_at', { ascending: false }),
+        // If expired, only show the current user's own saves (stop data-sharing)
+        expired
+            ? mainDb.from('tourist_saves').select('*').eq('group_id', group.id).eq('user_id', req.touristId).order('saved_at', { ascending: false })
+            : mainDb.from('tourist_saves').select('*').eq('group_id', group.id).order('saved_at', { ascending: false }),
     ]);
 
     // Member email lookup — include email for display
@@ -157,7 +200,7 @@ router.get('/:slug', touristAuth, async (req, res) => {
     const overlaps = Object.values(bySlug).sort((a, b) => b.count - a.count);
 
     res.json({
-        group,
+        group: { ...group, sharing_ends_on: sharingEndsOn(group), sharing_expired: expired },
         members: membersOut,
         saves: saves || [],
         overlaps,
@@ -209,6 +252,79 @@ router.post('/:slug/leave', touristAuth, async (req, res) => {
         .delete().eq('group_id', group.id).eq('user_id', req.touristId);
     if (error) return res.status(500).json({ error: error.message });
     res.json({ success: true });
+});
+
+// ═══════════════════════════════════════════════════════════════════════════
+// ONE-TIME INVITE TOKENS
+//   POST  /api/tourist/groups/:slug/create-invite  → { token, url, expires_at }
+//   GET   /api/tourist/groups/invite/:token        → preview (group info + status)
+//   POST  /api/tourist/groups/invite/:token/accept → consume token + join
+// ═══════════════════════════════════════════════════════════════════════════
+
+router.post('/:slug/create-invite', touristAuth, async (req, res) => {
+    const { data: group } = await mainDb.from('tourist_groups').select('*').eq('slug', req.params.slug).maybeSingle();
+    if (!group) return res.status(404).json({ error: 'Group not found' });
+    const { data: mySelf } = await mainDb.from('tourist_group_members')
+        .select('id').eq('group_id', group.id).eq('user_id', req.touristId).maybeSingle();
+    if (!mySelf) return res.status(403).json({ error: 'Not a member of this group' });
+
+    const token = crypto.randomBytes(20).toString('hex');
+    const expires_at = new Date(Date.now() + 48 * 3600 * 1000).toISOString();
+
+    const { error } = await mainDb.from('tourist_group_invites').insert({
+        group_id: group.id, token, invited_by: req.touristId, expires_at,
+    });
+    if (error) return res.status(500).json({ error: error.message });
+
+    const base = process.env.TRIP_SWIPE_URL || 'http://localhost:5173';
+    res.json({ token, url: `${base}/join?t=${token}`, expires_at });
+});
+
+router.get('/invite/:token', async (req, res) => {
+    const { data: invite } = await mainDb.from('tourist_group_invites')
+        .select('*').eq('token', req.params.token).maybeSingle();
+    if (!invite) return res.status(404).json({ error: 'Invite not found' });
+
+    const { data: group } = await mainDb.from('tourist_groups')
+        .select('slug,name,destination,arrival,departure').eq('id', invite.group_id).maybeSingle();
+
+    const now = new Date();
+    const expired = invite.expires_at && new Date(invite.expires_at) < now;
+    const used = !!invite.used_by;
+
+    res.json({
+        group: group || null,
+        status: used ? 'used' : expired ? 'expired' : 'valid',
+        expires_at: invite.expires_at,
+        used_at: invite.used_at,
+    });
+});
+
+router.post('/invite/:token/accept', touristAuth, async (req, res) => {
+    const { data: invite } = await mainDb.from('tourist_group_invites')
+        .select('*').eq('token', req.params.token).maybeSingle();
+    if (!invite) return res.status(404).json({ error: 'Invite not found' });
+    if (invite.used_by) return res.status(410).json({ error: 'This invite has already been used' });
+    if (invite.expires_at && new Date(invite.expires_at) < new Date()) return res.status(410).json({ error: 'This invite has expired' });
+
+    // Add member (if not already)
+    const { data: existing } = await mainDb.from('tourist_group_members')
+        .select('id').eq('group_id', invite.group_id).eq('user_id', req.touristId).maybeSingle();
+    if (!existing) {
+        const { error: insErr } = await mainDb.from('tourist_group_members').insert({
+            group_id: invite.group_id, user_id: req.touristId, display_name: (req.touristEmail || '').split('@')[0],
+        });
+        if (insErr) return res.status(500).json({ error: insErr.message });
+    }
+
+    // Consume token (race-safe: only mark used if still unused)
+    await mainDb.from('tourist_group_invites')
+        .update({ used_by: req.touristId, used_at: new Date().toISOString() })
+        .eq('token', req.params.token)
+        .is('used_by', null);
+
+    const { data: group } = await mainDb.from('tourist_groups').select('slug,name,destination').eq('id', invite.group_id).single();
+    res.json({ success: true, group });
 });
 
 module.exports = router;

@@ -133,6 +133,11 @@ app.use('/api/tourist/groups', require('./routes/tourist-groups'));
 // Trip Swipe — tourist auth (signup + email verify via Brevo, signin, resend)
 app.use('/api/tourist-auth', require('./routes/tourist-auth'));
 
+// Trip Swipe — editable signup/setup questions (public GET + admin CRUD)
+const setupQuestions = require('./routes/setup-questions');
+app.use('/api/tourist', setupQuestions.publicRouter);
+app.use('/api/admin/setup-questions', setupQuestions.adminRouter);
+
 // Webhooks registered above (before express.json for raw body access)
 
 // Root — API status
