@@ -9,14 +9,14 @@ const gcr = () => getGcrDb();
 
 const router = express.Router();
 
-// Auth gate: everything requires login by default.
-// Future escape hatch: if BYPASS_AUTH_FOR_AI=true is set in Vercel env, the three
-// AI extract endpoints below become public (⚠ risks burning API credits if scraped).
-// Leave unset to keep login required. This code stays here so you don't have to
-// rebuild the bypass if you need it later.
-const PUBLIC_AI_PATHS_WHEN_BYPASSED = ['/menu/extract', '/events/extract', '/ai/vision-providers'];
+// Auth gate. AI extract endpoints are PUBLIC by default (owner has no
+// admin-dashboard auth token yet). Set REQUIRE_AUTH_FOR_AI=true in Vercel env
+// once login is wired up to lock them down. All other /api/dashboard/* routes
+// still require login via authRequired.
+const AI_PATHS = ['/menu/extract', '/events/extract', '/ai/vision-providers'];
 router.use((req, res, next) => {
-    if (process.env.BYPASS_AUTH_FOR_AI === 'true' && PUBLIC_AI_PATHS_WHEN_BYPASSED.includes(req.path)) {
+    const isAiPath = AI_PATHS.includes(req.path);
+    if (isAiPath && process.env.REQUIRE_AUTH_FOR_AI !== 'true') {
         return next();
     }
     return authRequired(req, res, next);
