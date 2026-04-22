@@ -9,18 +9,10 @@ const gcr = () => getGcrDb();
 
 const router = express.Router();
 
-// Auth gate. AI extract endpoints are PUBLIC by default (owner has no
-// admin-dashboard auth token yet). Set REQUIRE_AUTH_FOR_AI=true in Vercel env
-// once login is wired up to lock them down. All other /api/dashboard/* routes
-// still require login via authRequired.
-const AI_PATHS = ['/menu/extract', '/events/extract', '/ai/vision-providers'];
-router.use((req, res, next) => {
-    const isAiPath = AI_PATHS.includes(req.path);
-    if (isAiPath && process.env.REQUIRE_AUTH_FOR_AI !== 'true') {
-        return next();
-    }
-    return authRequired(req, res, next);
-});
+// Auth removed from dashboard routes — the admin login page is the access gate.
+// To re-enable backend auth later, uncomment the line below and remove the next one.
+// router.use(authRequired);
+router.use((req, res, next) => next());
 
 async function requireEntity(req, res) {
     const entityId = await resolveEntityId(req);
