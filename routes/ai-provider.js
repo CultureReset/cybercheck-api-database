@@ -44,17 +44,33 @@ function getVisionProvidersStatus() {
     };
 }
 
-// Strip common markdown fences and parse the first JSON object/array found.
+// Extract and parse JSON from anywhere in the AI response text.
+// Handles: pure JSON, markdown fences at start/end, fences embedded in explanation text.
 function parseJsonLoose(text) {
     if (!text) throw new Error('Empty AI response');
-    let s = String(text).trim().replace(/^```json\s*/i, '').replace(/^```\s*/i, '').replace(/```\s*$/i, '').trim();
+    const s = String(text).trim();
+
+    // 1. Try raw parse first (pure JSON response)
     try { return JSON.parse(s); } catch {}
-    // Last-resort: grab from first { to last }
-    const i = s.indexOf('{'), j = s.lastIndexOf('}');
-    if (i >= 0 && j > i) {
-        const slice = s.slice(i, j + 1);
-        try { return JSON.parse(slice); } catch {}
+
+    // 2. Extract from ```json ... ``` or ``` ... ``` anywhere in the text
+    const fenceMatch = s.match(/```(?:json)?\s*([\s\S]*?)```/i);
+    if (fenceMatch) {
+        try { return JSON.parse(fenceMatch[1].trim()); } catch {}
     }
+
+    // 3. Find outermost { ... } block
+    const start = s.indexOf('{'), end = s.lastIndexOf('}');
+    if (start >= 0 && end > start) {
+        try { return JSON.parse(s.slice(start, end + 1)); } catch {}
+    }
+
+    // 4. Find outermost [ ... ] block
+    const aStart = s.indexOf('['), aEnd = s.lastIndexOf(']');
+    if (aStart >= 0 && aEnd > aStart) {
+        try { return JSON.parse(s.slice(aStart, aEnd + 1)); } catch {}
+    }
+
     throw new Error('AI returned non-JSON: ' + s.slice(0, 200));
 }
 
