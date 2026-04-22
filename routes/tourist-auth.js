@@ -108,7 +108,7 @@ router.post('/signup', async (req, res) => {
 router.get('/verify', async (req, res) => {
     const token = req.query.token || '';
     const email = (req.query.email || '').toLowerCase();
-    const appUrl = process.env.TRIP_SWIPE_URL || 'http://localhost:5173';
+    const appUrl = process.env.TRIP_SWIPE_URL || 'https://trip-swipe.vercel.app';
 
     if (!token || !email) return res.redirect(`${appUrl}/auth?verified=0&reason=bad_link`);
 
@@ -223,7 +223,7 @@ router.post('/forgot-password', async (req, res) => {
         user_metadata: { ...(user.user_metadata || {}), reset_token: token, reset_expires_at: expiresAt },
     });
 
-    const appUrl = process.env.TRIP_SWIPE_URL || 'http://localhost:5173';
+    const appUrl = process.env.TRIP_SWIPE_URL || 'https://trip-swipe.vercel.app';
     const resetHref = `${appUrl}/reset?token=${token}&email=${encodeURIComponent(email)}`;
     const html = `<!DOCTYPE html><html><head><meta charset="UTF-8"></head>
 <body style="margin:0;padding:0;background:#f4f6f8;font-family:Arial,sans-serif;">
