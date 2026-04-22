@@ -267,7 +267,8 @@ router.post('/reset-password', async (req, res) => {
 
     const { error } = await sb.auth.admin.updateUserById(user.id, {
         password,
-        user_metadata: { ...md, reset_token: null, reset_expires_at: null },
+        email_confirm: true,
+        user_metadata: { ...md, reset_token: null, reset_expires_at: null, verified_at: md.verified_at || new Date().toISOString() },
     });
     if (error) return res.status(500).json({ error: error.message });
     res.json({ success: true });
