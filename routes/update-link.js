@@ -394,9 +394,14 @@ router.delete('/:token/menu-sections/:id', validateToken, async (req, res) => {
 router.post('/:token/menu-items', validateToken, async (req, res) => {
     let data, error;
     if (req.siteId) {
-        const { id, name, description, price, category, item_type = 'food', photo_url } = req.body;
+        const { id, name, description, price, category, item_type = 'food', photo_url, modifiers, tags } = req.body;
         if (!name) return res.status(400).json({ error: 'name required' });
-        const payload = { name, description: description || '', price: parseFloat(price) || 0, category: category || 'Menu Items', item_type, photo_url: photo_url || null };
+        const payload = {
+            name, description: description || '', price: parseFloat(price) || 0,
+            category: category || 'Menu Items', item_type, photo_url: photo_url || null,
+            modifiers: Array.isArray(modifiers) ? modifiers : [],
+            tags: Array.isArray(tags) ? tags : [],
+        };
         if (id) {
             ({ data, error } = await mainDb.from('menu_items').update(payload).eq('id', id).eq('site_id', req.siteId).select().single());
         } else {
@@ -891,18 +896,24 @@ Return ONLY valid JSON:
       "name": "Category Name",
       "item_type": "food",
       "items": [
-        { "name": "Item Name", "price": 12.99, "description": "...", "tags": [] }
-      ]
+        {
+          "name": "Item Name", "price": 12.99, "description": "...", "tags": [],
+          "modifiers": [ { "name": "Add Bacon", "price": 2 } ]
+        }
+      ],
+      "section_modifiers": [ { "name": "Add Chicken", "price": 5 } ]
     }
   ]
 }
 
 Rules:
-- Extract ALL visible items — do not skip any
-- Group by section exactly as shown; if none, use "Menu Items"
+- Extract ALL items — menus span columns, don't stop at a column edge
+- Group by section; if none, use "Menu Items"
 - price is a number; 0 if not visible
 - tags: only "vegetarian", "vegan", "gluten-free", "spicy", "popular", "new" if clearly indicated
 - item_type: "drink" for beverages/cocktails/beer/wine; "happy_hour" for HH sections; else "food"
+- modifiers (per-item): add-on upcharges like "Add bacon $2" / "+$2 egg" — one object per add-on, price is a number, empty array if none
+- section_modifiers: upcharges printed above a whole section (e.g. "Add chicken +$5, shrimp +$6") that apply to every item — put them here, not repeated on each item
 - Return ONLY the JSON object, no markdown`;
 
 const OWNER_SPECIALS_PROMPT = `Extract specials/promotions from this image into structured JSON.
