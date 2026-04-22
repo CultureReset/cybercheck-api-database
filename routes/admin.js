@@ -2460,137 +2460,157 @@ router.post('/ai-save-business', async (req, res) => {
     const { business: d } = req.body;
     if (!d || !d.name) return res.status(400).json({ error: 'business.name is required' });
 
-    const subdomain = (d.subdomain || d.name).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    const slug = (d.subdomain || d.name).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    const social = d.social || {};
+
+    // Map admin's short `type` to GCR entity_subtype (and keep flexibility)
+    const entitySubtype = (d.type || 'other').replace(/-/g, '_');
+
+    const entityRow = {
+        name:              d.name,
+        slug,
+        entity_type:       'business',
+        entity_subtype:    entitySubtype,
+        icon:              d.emoji || null,
+        subtitle:          d.tagline || null,
+        description:       d.description || null,
+        phone:             d.phone || null,
+        address_line_1:    d.address || null,
+        city:              d.city || null,
+        state:             d.state || null,
+        zip:               d.zip || null,
+        website_url:       d.website || null,
+        price_range:       d.price_range || null,
+        email:             d.email || null,
+        social_facebook:   social.facebook || null,
+        social_instagram:  social.instagram || null,
+        social_tiktok:     social.tiktok || null,
+        directions_url:    social.google_maps || null,
+        hh_description:    typeof d.happy_hour === 'string' ? d.happy_hour : (d.happy_hour && d.happy_hour.schedule) || null,
+        is_active:         true,
+    };
 
     try {
-        // Upsert into businesses table
-        const bizRow = {
-            name:             d.name,
-            type:             d.type || 'other',
-            subdomain:        subdomain,
-            tagline:          d.tagline || null,
-            emoji:            d.emoji   || null,
-            tags:             d.tags    || [],
-            price_range:      d.price_range || null,
-            happy_hour:       !!d.happy_hour,
-            live_music:       !!d.live_music,
-            waterfront:       !!d.waterfront,
-            kids_friendly:    !!d.kids_friendly,
-            pet_friendly:     !!d.pet_friendly,
-            outdoor:          !!d.outdoor,
-            alcohol:          !!d.alcohol,
-            booking_required: !!d.booking_required,
-            status:           'active',
-            gcr_listed:       true,
-            gcr_verified:     false,
-        };
-
-        // Check if business already exists
-        const { data: existing } = await supabase.from('businesses').select('site_id').eq('subdomain', subdomain).single();
-
-        let siteId;
+        // Upsert entity by slug
+        const { data: existing } = await gcrDb.from('entity').select('id').eq('slug', slug).maybeSingle();
+        let entityId;
         if (existing) {
-            siteId = existing.site_id;
-            await supabase.from('businesses').update(bizRow).eq('site_id', siteId);
+            entityId = existing.id;
+            const { error } = await gcrDb.from('entity').update(entityRow).eq('id', entityId);
+            if (error) throw new Error('entity update: ' + error.message);
         } else {
-            const { data: inserted, error: bizErr } = await supabase.from('businesses').insert(bizRow).select('site_id').single();
-            if (bizErr) throw new Error('businesses insert: ' + bizErr.message);
-            siteId = inserted.site_id;
+            const { data: inserted, error } = await gcrDb.from('entity').insert(entityRow).select('id').single();
+            if (error) throw new Error('entity insert: ' + error.message);
+            entityId = inserted.id;
         }
 
-        // Upsert site_content
-        const social = d.social || {};
-        const contentRow = {
-            site_id:       siteId,
-            about_text:    d.description || null,
-            contact_phone: d.phone       || null,
-            website_url:   d.website     || null,
-            address:       d.address     || null,
-            city:          d.city        || null,
-            state:         d.state       || null,
-            zip:           d.zip         || null,
-            hours:         d.hours       || null,
-            social_links:  Object.keys(social).length ? social : null,
-            features:      d.features    || [],
-            perfect_for:   d.perfect_for || [],
-            highlights:    d.highlights  || [],
-            restrictions:  d.restrictions || [],
-            what_to_bring: d.what_to_bring || [],
-            schedules:     d.schedules   || [],
-            happy_hour:    d.happy_hour  || null,
-            bar_menu:      d.bar_menu    || null,
-        };
+        // Feature chips
+        if (Array.isArray(d.features) && d.features.length) {
+            await gcrDb.from('entity_features').delete().eq('entity_id', entityId);
+            await gcrDb.from('entity_features').insert(d.features.map((label, i) => ({ entity_id: entityId, label, sort_order: i })));
+        }
+        if (Array.isArray(d.perfect_for) && d.perfect_for.length) {
+            await gcrDb.from('entity_perfect_for').delete().eq('entity_id', entityId);
+            await gcrDb.from('entity_perfect_for').insert(d.perfect_for.map((label, i) => ({ entity_id: entityId, label, sort_order: i })));
+        }
+        if (Array.isArray(d.tags) && d.tags.length) {
+            await gcrDb.from('entity_tags').delete().eq('entity_id', entityId);
+            await gcrDb.from('entity_tags').insert(d.tags.map((tag, i) => ({ entity_id: entityId, tag, sort_order: i })));
+        }
 
-        const { error: contentErr } = await supabase.from('site_content').upsert(contentRow, { onConflict: 'site_id' });
-        if (contentErr) throw new Error('site_content upsert: ' + contentErr.message);
+        // Hours — GCR stores per-day rows
+        if (d.hours && typeof d.hours === 'object') {
+            await gcrDb.from('entity_hours').delete().eq('entity_id', entityId);
+            const hourRows = Object.entries(d.hours).map(([day, val]) => {
+                const closed = !val || /closed/i.test(String(val));
+                let open_time = null, close_time = null;
+                if (!closed && typeof val === 'string') {
+                    const m = val.match(/([0-9:apmAPM\s]+)\s*[–-]\s*([0-9:apmAPM\s]+)/);
+                    if (m) { open_time = m[1].trim(); close_time = m[2].trim(); }
+                }
+                return { entity_id: entityId, day_of_week: day, open_time, close_time, is_closed: closed };
+            });
+            if (hourRows.length) await gcrDb.from('entity_hours').insert(hourRows);
+        }
 
-        // Insert menu items (delete existing first if updating)
-        if (d.menu_items && d.menu_items.length) {
-            if (existing) await supabase.from('menu_items').delete().eq('site_id', siteId);
+        // Menu items — group by category into menu_sections + menu_items
+        if (Array.isArray(d.menu_items) && d.menu_items.length) {
+            await gcrDb.from('menu_items').delete().eq('entity_id', entityId);
+            await gcrDb.from('menu_sections').delete().eq('entity_id', entityId);
+
+            const sectionMap = {};
+            for (const item of d.menu_items) {
+                const catName = (item.category || 'Menu').trim();
+                if (!sectionMap[catName]) {
+                    const { data: sec } = await gcrDb.from('menu_sections').insert({ entity_id: entityId, section_name: catName, sort_order: Object.keys(sectionMap).length }).select('id').single();
+                    sectionMap[catName] = sec.id;
+                }
+            }
             const menuRows = d.menu_items.map((item, i) => ({
-                site_id:     siteId,
-                name:        item.name,
-                description: item.description || null,
-                price:       item.price ? String(item.price).replace('$','') : null,
-                category:    item.category || 'Menu',
-                available:   true,
-                sort_order:  i,
+                entity_id:       entityId,
+                menu_section_id: sectionMap[(item.category || 'Menu').trim()],
+                item_name:       item.item_name || item.name,
+                description:     item.description || null,
+                price:           item.price ? parseFloat(String(item.price).replace(/[^0-9.]/g,'')) : null,
+                price_text:      item.price ? String(item.price) : null,
+                is_available:    true,
+                sort_order:      i,
             }));
-            const { error: menuErr } = await supabase.from('menu_items').insert(menuRows);
-            if (menuErr) throw new Error('menu_items insert: ' + menuErr.message);
+            const { error } = await gcrDb.from('menu_items').insert(menuRows);
+            if (error) throw new Error('menu_items insert: ' + error.message);
         }
 
-        // Insert specials
-        if (d.specials && d.specials.length) {
-            if (existing) await supabase.from('specials').delete().eq('site_id', siteId);
-            const specialRows = d.specials.map(s => ({
-                site_id:       siteId,
-                name:          s.name,
+        // Specials → entity_specials
+        if (Array.isArray(d.specials) && d.specials.length) {
+            await gcrDb.from('entity_specials').delete().eq('entity_id', entityId);
+            await gcrDb.from('entity_specials').insert(d.specials.map(s => ({
+                entity_id:     entityId,
+                special_name:  s.special_name || s.name,
                 description:   s.description || null,
-                type:          s.type || 'daily_special',
-                days:          s.days || [],
+                special_type:  s.type || 'daily_special',
+                days:          Array.isArray(s.days) ? s.days.join(',') : (s.days || null),
                 start_time:    s.start_time || null,
-                end_time:      s.end_time   || null,
+                end_time:      s.end_time || null,
                 discount_text: s.discount_text || null,
-                active:        true,
-            }));
-            await supabase.from('specials').insert(specialRows);
+                is_active:     true,
+            })));
         }
 
-        // Insert events
-        if (d.events && d.events.length) {
-            if (existing) await supabase.from('events').delete().eq('site_id', siteId);
-            const eventRows = d.events.map(e => ({
-                site_id:     siteId,
-                title:       e.title || e.name,
+        // Events → entity_events
+        if (Array.isArray(d.events) && d.events.length) {
+            await gcrDb.from('entity_events').delete().eq('entity_id', entityId);
+            await gcrDb.from('entity_events').insert(d.events.map(e => ({
+                entity_id:  entityId,
+                event_name: e.event_name || e.title || e.name,
                 description: e.description || null,
-                event_date:  e.event_date  || null,
-                event_time:  e.event_time  || null,
-                active:      true,
-            }));
-            await supabase.from('events').insert(eventRows);
+                event_date: e.event_date || null,
+                start_time: e.start_time || e.event_time || null,
+                end_time:   e.end_time || null,
+                is_active:  true,
+            })));
         }
 
-        // Insert fleet
-        if (d.fleet && d.fleet.length) {
-            if (existing) await supabase.from('fleet_types').delete().eq('site_id', siteId);
-            const fleetRows = d.fleet.map((f, i) => ({
-                site_id:        siteId,
-                name:           f.name,
-                description:    f.description || null,
-                capacity:       f.capacity || null,
-                price_per_hour: f.price_per_hour || null,
-                active:         true,
-                sort_order:     i,
-            }));
-            await supabase.from('fleet_types').insert(fleetRows);
+        // Fleet → fleet_types
+        if (Array.isArray(d.fleet) && d.fleet.length) {
+            await gcrDb.from('fleet_types').delete().eq('entity_id', entityId);
+            await gcrDb.from('fleet_types').insert(d.fleet.map((f, i) => ({
+                entity_id:   entityId,
+                name:        f.name,
+                description: f.description || null,
+                specs:       {
+                    capacity: f.capacity || null,
+                    price_per_hour: f.price_per_hour || null,
+                },
+                sort_order:  i,
+                active:      true,
+            })));
         }
 
         res.json({
-            success: true,
-            site_id: siteId,
-            slug: subdomain,
-            message: `${d.name} saved to Supabase (${existing ? 'updated' : 'created'}). Profile at /business.html?id=${subdomain}`,
+            success:   true,
+            entity_id: entityId,
+            slug,
+            message:   `${d.name} saved to GCR (${existing ? 'updated' : 'created'}).`,
         });
 
     } catch (err) {

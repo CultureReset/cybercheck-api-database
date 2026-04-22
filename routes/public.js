@@ -3,6 +3,82 @@ const supabase = require('../db');
 
 const router = express.Router();
 
+// Serve the /api/public/menu response shape from the GCR DB.
+// Used when entity.legacy_site_id matches the request's site_id — so a
+// QR menu minted with ?site_id=X keeps working after the business is
+// migrated to GCR.
+async function serveMenuFromGcr(res, gcrDb, entity) {
+    const entityId = entity.id;
+    const [menuSections, menuItems, drinkSections, drinkItems, hhSections, hhItems, events, specials, photos, hours, social] = await Promise.all([
+        gcrDb.from('menu_sections').select('*').eq('entity_id', entityId).order('sort_order', { ascending: true }),
+        gcrDb.from('menu_items').select('*').eq('entity_id', entityId).order('sort_order', { ascending: true }),
+        gcrDb.from('drink_sections').select('*').eq('entity_id', entityId).order('sort_order', { ascending: true }),
+        gcrDb.from('drink_items').select('*').eq('entity_id', entityId).order('sort_order', { ascending: true }),
+        gcrDb.from('happy_hour_sections').select('*').eq('entity_id', entityId).order('sort_order', { ascending: true }),
+        gcrDb.from('happy_hour_items').select('*').eq('entity_id', entityId).order('sort_order', { ascending: true }),
+        gcrDb.from('entity_events').select('*').eq('entity_id', entityId).order('event_date', { ascending: true }),
+        gcrDb.from('entity_specials').select('*').eq('entity_id', entityId),
+        gcrDb.from('entity_photos').select('*').eq('entity_id', entityId).order('sort_order', { ascending: true }),
+        gcrDb.from('entity_hours').select('*').eq('entity_id', entityId),
+        gcrDb.from('social_media_accounts').select('platform, account_url').eq('entity_id', entityId),
+    ]);
+
+    const groupItems = (sections, items, fk, priceField) => {
+        const byId = {};
+        (sections.data || []).forEach(s => { byId[s.id] = { name: s.section_name, items: [] }; });
+        (items.data || []).forEach(i => {
+            const bucket = byId[i[fk]];
+            if (!bucket) return;
+            bucket.items.push({
+                id: i.id,
+                name: i.item_name,
+                description: i.description || '',
+                price: parseFloat(i[priceField] ?? i.price ?? 0) || 0,
+                photo_url: i.image_url || '',
+                image_url: i.image_url || '',
+                tags: Array.isArray(i.tags) ? i.tags : [],
+                modifiers: Array.isArray(i.modifiers) ? i.modifiers : [],
+            });
+        });
+        return Object.values(byId).filter(s => s.items.length);
+    };
+
+    const foodSections = groupItems(menuSections, menuItems, 'menu_section_id', 'price');
+    const drinkSectionsOut = groupItems(drinkSections, drinkItems, 'drink_section_id', 'price');
+    const hhSectionsOut = groupItems(hhSections, hhItems, 'hh_section_id', 'hh_price');
+
+    const social_links = {};
+    (social.data || []).forEach(s => { if (s.account_url) social_links[s.platform] = s.account_url; });
+
+    return res.json({
+        business_name: entity.name || '',
+        logo_url: entity.hero_image_url || '',
+        tagline: '',
+        hours: (hours.data || []).reduce((acc, h) => {
+            acc[h.day_of_week] = h.is_closed ? 'Closed' : `${h.open_time || ''} - ${h.close_time || ''}`.trim();
+            return acc;
+        }, {}),
+        social_links: Object.keys(social_links).length ? social_links : null,
+        address: '',
+        phone: '',
+        sections: {
+            food: foodSections.map(s => ({ name: s.name, items: s.items })),
+            drink: drinkSectionsOut.map(s => ({ name: s.name, items: s.items })),
+            happy_hour: hhSectionsOut.map(s => ({ name: s.name, items: s.items })),
+        },
+        menu: foodSections.map(s => ({ category: s.name, items: s.items })),
+        events: events.data || [],
+        specials: specials.data || [],
+        photos: photos.data || [],
+        hh_schedule: {
+            days: entity.hh_days || null,
+            start: entity.hh_start || null,
+            end: entity.hh_end || null,
+        },
+        hh_description: entity.hh_description || null,
+    });
+}
+
 // All public routes need a site_id from domain resolution middleware
 // If no site_id, the request needs a ?subdomain= param as fallback
 function requireSite(req, res, next) {
@@ -2703,29 +2779,40 @@ router.get('/business', async (req, res) => {
 router.get('/menu', async (req, res) => {
     try {
         let siteId = req.siteId; // from domain resolution
+        const getGcrDb = require('../gcr-db');
+        const gcrDb = getGcrDb();
+        const ENTITY_COLS = 'id, slug, name, hero_image_url, hh_days, hh_start, hh_end, hh_description';
 
-        // If slug provided, look up the business and get its site_id
+        // 1) Direct GCR lookup — ?entity_id=UUID
+        if (req.query.entity_id) {
+            const { data: ent } = await gcrDb.from('entity').select(ENTITY_COLS).eq('id', req.query.entity_id).maybeSingle();
+            if (ent) return await serveMenuFromGcr(res, gcrDb, ent);
+            return res.status(404).json({ error: 'Entity not found' });
+        }
+
+        // 2) Slug — try GCR entity first, then legacy businesses subdomain
         if (req.query.slug) {
-            const { data: business, error: businessError } = await supabase
-                .from('businesses')
-                .select('site_id')
-                .eq('subdomain', req.query.slug)
-                .single();
+            const { data: ent } = await gcrDb.from('entity').select(ENTITY_COLS).eq('slug', req.query.slug).maybeSingle();
+            if (ent) return await serveMenuFromGcr(res, gcrDb, ent);
 
-            if (businessError || !business) {
-                return res.status(404).json({ error: 'Business not found' });
-            }
+            const { data: business, error: businessError } = await supabase
+                .from('businesses').select('site_id').eq('subdomain', req.query.slug).single();
+            if (businessError || !business) return res.status(404).json({ error: 'Business not found' });
             siteId = business.site_id;
         }
 
-        // Allow direct access via site_id query param (used by QR table menu)
-        if (!siteId && req.query.site_id) {
-            siteId = req.query.site_id;
-        }
+        // 3) Direct site_id query param (QR table menu)
+        if (!siteId && req.query.site_id) siteId = req.query.site_id;
 
         if (!siteId) {
-            return res.status(400).json({ error: 'No business specified. Use ?slug=xxx or ?site_id=xxx.' });
+            return res.status(400).json({ error: 'No business specified. Use ?slug=xxx, ?entity_id=xxx, or ?site_id=xxx.' });
         }
+
+        // 4) Bridge: site_id → GCR entity via legacy_site_id
+        try {
+            const { data: gcrEntity } = await gcrDb.from('entity').select(ENTITY_COLS).eq('legacy_site_id', siteId).maybeSingle();
+            if (gcrEntity) return await serveMenuFromGcr(res, gcrDb, gcrEntity);
+        } catch (_) { /* fall through to legacy DB */ }
 
         const [{ data: bizData }, { data: siteContent }, { data: items, error }, { data: eventsData }, { data: specialsData }] = await Promise.all([
             supabase.from('businesses').select('name, logo_url, tagline, metadata').eq('site_id', siteId).maybeSingle(),
