@@ -6,10 +6,12 @@
 function getProvider(override) {
     if (override) return override;
     if (process.env.AI_PROVIDER) return process.env.AI_PROVIDER;
+    // Vision-first order: Gemini > xAI > OpenAI > Anthropic
+    // (Anthropic last — haiku struggles with complex multi-column menus)
     if (process.env.GEMINI_API_KEY || process.env.GOOGLE_AI_KEY) return 'gemini';
-    if (process.env.ANTHROPIC_API_KEY) return 'anthropic';
     if (process.env.XAI_API_KEY || process.env.GROK_API_KEY) return 'xai';
     if (process.env.OPENAI_API_KEY) return 'openai';
+    if (process.env.ANTHROPIC_API_KEY) return 'anthropic';
     throw new Error('No AI provider configured. Set AI_PROVIDER env var and the matching API key.');
 }
 
@@ -90,11 +92,14 @@ async function extractJsonFromImage({
     let lastErr;
     for (const p of tryOrder) {
         try {
-            const json = await _callVision(p, { base64, mime, systemPrompt, userPrompt, model, temperature, maxTokens });
+            // Only pass caller-specified model to the primary provider.
+            // Fallback providers use their own defaults so a Claude model name
+            // doesn't bleed into an OpenAI call, etc.
+            const providerModel = (p === primary) ? model : undefined;
+            const json = await _callVision(p, { base64, mime, systemPrompt, userPrompt, model: providerModel, temperature, maxTokens });
             return { result: json, provider: p };
         } catch (e) {
             lastErr = e;
-            // Don't try next provider on parse errors — that's a prompt problem, not a key problem
             if (String(e.message || '').startsWith('AI returned non-JSON')) break;
         }
     }
@@ -163,24 +168,21 @@ async function _callVision(provider, { base64, mime, systemPrompt, userPrompt, m
         const endpoint = isXai ? 'https://api.x.ai/v1/chat/completions' : 'https://api.openai.com/v1/chat/completions';
         const resolvedModel = model || (isXai
             ? (process.env.XAI_VISION_MODEL || 'grok-2-vision-1212')
-            : (process.env.OPENAI_VISION_MODEL || 'gpt-4o-mini'));
+            : (process.env.OPENAI_VISION_MODEL || 'gpt-4o'));
         const dataUrl = `data:${mime};base64,${base64}`;
-        const body = {
-            model: resolvedModel, temperature, max_tokens: maxTokens,
-            messages: [
-                { role: 'system', content: systemPrompt },
-                { role: 'user', content: [
-                    { type: 'image_url', image_url: { url: dataUrl } },
-                    { type: 'text', text: userPrompt },
-                ]},
-            ],
-        };
-        // OpenAI supports JSON mode; Grok often does too but not all models
-        if (!isXai) body.response_format = { type: 'json_object' };
         const resp = await fetch(endpoint, {
             method: 'POST',
             headers: { 'Authorization': `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
-            body: JSON.stringify(body),
+            body: JSON.stringify({
+                model: resolvedModel, temperature, max_tokens: maxTokens,
+                messages: [
+                    { role: 'system', content: systemPrompt },
+                    { role: 'user', content: [
+                        { type: 'image_url', image_url: { url: dataUrl } },
+                        { type: 'text', text: userPrompt },
+                    ]},
+                ],
+            }),
         });
         if (!resp.ok) throw new Error(`${isXai ? 'xAI' : 'OpenAI'} ${resp.status}: ${await resp.text()}`);
         const data = await resp.json();
