@@ -9,8 +9,18 @@ const gcr = () => getGcrDb();
 
 const router = express.Router();
 
-// All dashboard routes require authentication
-router.use(authRequired);
+// Auth gate: everything requires login by default.
+// Future escape hatch: if BYPASS_AUTH_FOR_AI=true is set in Vercel env, the three
+// AI extract endpoints below become public (⚠ risks burning API credits if scraped).
+// Leave unset to keep login required. This code stays here so you don't have to
+// rebuild the bypass if you need it later.
+const PUBLIC_AI_PATHS_WHEN_BYPASSED = ['/menu/extract', '/events/extract', '/ai/vision-providers'];
+router.use((req, res, next) => {
+    if (process.env.BYPASS_AUTH_FOR_AI === 'true' && PUBLIC_AI_PATHS_WHEN_BYPASSED.includes(req.path)) {
+        return next();
+    }
+    return authRequired(req, res, next);
+});
 
 async function requireEntity(req, res) {
     const entityId = await resolveEntityId(req);
@@ -3905,22 +3915,38 @@ Return ONLY valid JSON with this exact structure:
           "name": "Item Name",
           "price": 12.99,
           "description": "Item description if visible, or empty string",
-          "tags": []
+          "tags": [],
+          "modifiers": [
+            { "name": "Add Bacon", "price": 2 },
+            { "name": "Add Fried Egg", "price": 2 }
+          ]
         }
+      ],
+      "section_modifiers": [
+        { "name": "Add Chicken (grilled/blackened/pulled)", "price": 5 },
+        { "name": "Add Shrimp or Steak", "price": 6 }
       ]
     }
   ]
 }
 
-Rules:
-- Extract ALL visible menu items — do not skip any
+Rules for ITEMS:
+- Extract ALL visible items — menus often span multiple columns; don't stop at a column edge
 - Group items by their section/category exactly as shown on the menu
-- If no category sections exist, use "Menu Items" as the single category name
-- price must be a number (e.g., 12.99). If price not visible, use 0
-- tags array: only add "vegetarian", "vegan", "gluten-free", "spicy", "popular", "new" if clearly indicated
-- description is the item description text if visible, else empty string ""
-- item_type must be exactly "food", "drink", or "happy_hour". Use "drink" for any beverages, cocktails, beers, wines, spirits, or drink specials section. Use "happy_hour" for any happy hour, daily deals, or specials section. Use "food" for everything else.
-- Return ONLY the JSON object, no markdown code blocks, no explanation`;
+- If no category sections exist, use "Menu Items" as the single category
+- price must be a number (e.g., 12.99). If not visible, use 0
+- tags: only include "vegetarian", "vegan", "gluten-free", "spicy", "popular", "new" when clearly indicated
+- description: item description text if visible, else empty string ""
+- item_type: "food" | "drink" | "happy_hour" — use "drink" for any beverages/cocktails/beer/wine/spirits, "happy_hour" for HH sections, otherwise "food"
+
+Rules for MODIFIERS (the add-on price upcharges):
+- Per-item modifiers (e.g., "Add bacon $2", "Add avocado $1.50", "Add jalapeños $2", "Add fried egg $2") go in the item's "modifiers" array — one object per add-on
+- Section-wide modifiers (e.g., "Add chicken +$5, shrimp +$6" printed above or across a whole section like Salads) go in "section_modifiers" so every item in that section inherits them
+- Modifier price must be a number. Drop the "$" and "+". If a modifier has no price shown, use 0
+- If no modifiers exist, return an empty array [] — never omit the key
+- Do NOT duplicate modifiers in both places; put them where they belong structurally
+
+Return ONLY the JSON object. No markdown. No commentary.`;
 
 router.post('/menu/extract', async (req, res) => {
     const { image_base64, mime_type, provider, model } = req.body;
