@@ -141,24 +141,37 @@ router.post('/signin', async (req, res) => {
     const password = req.body?.password || '';
     if (!email || !password) return res.status(400).json({ error: 'Email and password required' });
 
-    const sb = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_ANON_KEY, {
-        auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false },
-    });
-    const { data, error } = await sb.auth.signInWithPassword({ email, password });
-    if (error) {
-        const msg = /email.*not.*confirmed/i.test(error.message)
-            ? 'Please confirm your email before signing in — check your inbox.'
-            : 'Invalid email or password';
-        return res.status(401).json({ error: msg });
+    try {
+        const url = `${process.env.SUPABASE_URL}/auth/v1/token?grant_type=password`;
+        const r = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                apikey: process.env.SUPABASE_ANON_KEY || '',
+                Authorization: `Bearer ${process.env.SUPABASE_ANON_KEY || ''}`,
+            },
+            body: JSON.stringify({ email, password }),
+        });
+        const d = await r.json();
+        if (!r.ok) {
+            const text = (d.error_description || d.msg || d.error || '').toString();
+            const msg = /confirm/i.test(text)
+                ? 'Please confirm your email before signing in — check your inbox.'
+                : 'Invalid email or password';
+            return res.status(401).json({ error: msg });
+        }
+        res.json({
+            session: {
+                access_token: d.access_token,
+                refresh_token: d.refresh_token,
+                expires_at: d.expires_at,
+            },
+            user: { id: d.user?.id, email: d.user?.email, role: 'tourist' },
+        });
+    } catch (err) {
+        console.error('signin error:', err);
+        res.status(500).json({ error: 'Signin failed: ' + err.message });
     }
-    res.json({
-        session: {
-            access_token: data.session.access_token,
-            refresh_token: data.session.refresh_token,
-            expires_at: data.session.expires_at,
-        },
-        user: { id: data.user.id, email: data.user.email, role: 'tourist' },
-    });
 });
 
 // ─────────────────────────────────────────────────────────────────────────────
