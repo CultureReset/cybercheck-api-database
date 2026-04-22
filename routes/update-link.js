@@ -188,19 +188,49 @@ router.get('/today', adminRequired, async (req, res) => {
         .eq('link_date', today).order('created_at', { ascending: false });
     if (!links || !links.length) return res.json({ links: [], today });
 
-    // Join entity names
-    const entityIds = [...new Set(links.map(l => l.entity_id))];
-    const { data: entities } = await db().from('entity').select('id,name,icon,slug').in('id', entityIds);
+    // Split site-based (s:<uuid>) from GCR-entity-based records
+    const siteIds   = [];
+    const entityIds = [];
+    links.forEach(l => {
+        const id = String(l.entity_id || '');
+        if (id.startsWith('s:')) siteIds.push(id.slice(2));
+        else if (id) entityIds.push(id);
+    });
+
+    const [entRes, bizRes] = await Promise.all([
+        entityIds.length
+            ? db().from('entity').select('id,name,icon,slug').in('id', entityIds)
+            : Promise.resolve({ data: [] }),
+        siteIds.length
+            ? mainDb.from('businesses').select('site_id,name,slug,subdomain').in('site_id', siteIds)
+            : Promise.resolve({ data: [] }),
+    ]);
     const entMap = {};
-    (entities || []).forEach(e => { entMap[e.id] = e; });
+    (entRes.data  || []).forEach(e => { entMap[e.id] = e; });
+    const bizMap = {};
+    (bizRes.data || []).forEach(b => { bizMap[b.site_id] = b; });
 
     const result = links.map(l => {
-        const ent = entMap[l.entity_id] || {};
+        const id = String(l.entity_id || '');
+        if (id.startsWith('s:')) {
+            const siteId = id.slice(2);
+            const b = bizMap[siteId] || {};
+            return {
+                ...l,
+                entity_name: b.name || 'Unknown',
+                entity_icon: '🏪',
+                entity_slug: b.slug || b.subdomain || '',
+                site_id: siteId,
+                url: linkUrl(l.token),
+            };
+        }
+        const ent = entMap[id] || {};
         return {
             ...l,
             entity_name: ent.name || 'Unknown',
             entity_icon: ent.icon || '🏪',
             entity_slug: ent.slug || '',
+            site_id: null,
             url: linkUrl(l.token),
         };
     });
