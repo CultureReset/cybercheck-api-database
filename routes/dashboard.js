@@ -1265,6 +1265,12 @@ router.get('/bookings', async (req, res) => {
         .eq('site_id', req.siteId)
         .order('booking_date', { ascending: true });
 
+    // Hide payment-failed rows by default — surfaced separately via /declined-bookings.
+    // Pass ?include_failed=1 to see everything.
+    if (req.query.include_failed !== '1') {
+        query = query.not('payment_status', 'eq', 'failed');
+    }
+
     if (req.query.status) query = query.eq('status', req.query.status);
     if (req.query.date) query = query.eq('booking_date', req.query.date);
     if (req.query.from) query = query.gte('booking_date', req.query.from);
