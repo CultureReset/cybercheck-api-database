@@ -274,11 +274,23 @@ router.post('/create-payment', async (req, res) => {
                         console.warn('No customer_email on booking:', booking_id);
                     }
 
-                    // Notify business owner
-                    const ownerPhone = process.env.OWNER_NOTIFY_PHONE;
-                    if (ownerPhone) {
-                        const msg = `NEW BOOKING! ${bookingData.customer_name} — ${templateData.date} ${templateData.time_slot ? '@ ' + templateData.time_slot : ''} — $${bookingData.total_price || bookingData.total || ''}`;
-                        await sendSms(ownerPhone, msg, targetSiteId, 'booking_owner_notify', booking_id);
+                    // Customer SMS — gated on per-booking TCPA consent
+                    if (bookingData.sms_consent === true && bookingData.customer_phone && msgSettings.notify_customer_on_booking !== false) {
+                        const defaultCustTpl = '[{{business_name}}] Hi {{customer_name}}! Your booking is confirmed.\n\nDate: {{date}}\nTime: {{time_slot}}\nTotal: ${{total}}\n\nReply STOP to opt out. Msg/data rates may apply.';
+                        const custMsg = fillTemplate(msgSettings.customer_booking_template || defaultCustTpl, templateData);
+                        sendSms(bookingData.customer_phone, custMsg, targetSiteId, 'booking_confirmation', booking_id)
+                            .catch(err => console.error('Customer SMS failed:', err));
+                    }
+
+                    // Owner SMS — gated on dashboard opt-in + notify toggle (falls back to env var if dashboard unset)
+                    const ownerPhone = msgSettings.notification_phone || msgSettings.owner_phone || process.env.OWNER_NOTIFY_PHONE;
+                    const ownerOptedIn = msgSettings.owner_sms_consent === true;
+                    const ownerNotifyEnabled = msgSettings.notify_owner_on_booking !== false;
+                    if (ownerPhone && ownerOptedIn && ownerNotifyEnabled) {
+                        const defaultOwnerTpl = 'NEW BOOKING! {{customer_name}} — {{date}} {{time_slot}} — ${{total}}';
+                        const ownerMsg = fillTemplate(msgSettings.owner_booking_template || defaultOwnerTpl, templateData);
+                        sendSms(ownerPhone, ownerMsg, targetSiteId, 'booking_owner_notify', booking_id)
+                            .catch(err => console.error('Owner SMS failed:', err));
                     }
                 } catch (e) { console.error('Square post-payment notifications failed:', e.message, e.stack); }
             });

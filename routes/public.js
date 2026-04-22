@@ -825,7 +825,11 @@ router.post('/bookings', async (req, res) => {
         customer_email: req.body.customer_email,
         notes: req.body.notes,
         status: 'pending',
-        payment_status: 'unpaid'
+        payment_status: 'unpaid',
+        sms_consent: req.body.sms_consent === true,
+        sms_consent_at: req.body.sms_consent === true ? new Date().toISOString() : null,
+        sms_consent_ip: req.body.sms_consent === true ? (req.headers['x-forwarded-for']?.split(',')[0]?.trim() || req.ip || null) : null,
+        sms_consent_text: req.body.sms_consent === true ? (req.body.sms_consent_text || null) : null
     };
 
     // Upsert customer — single query instead of check+insert to reduce latency
@@ -896,6 +900,14 @@ router.post('/bookings', async (req, res) => {
         } else if (!result.success) {
             return res.status(409).json({ error: result.error, available: result.available });
         } else {
+            if (booking.sms_consent) {
+                await supabase.from('bookings').update({
+                    sms_consent: true,
+                    sms_consent_at: booking.sms_consent_at,
+                    sms_consent_ip: booking.sms_consent_ip,
+                    sms_consent_text: booking.sms_consent_text
+                }).eq('id', result.booking_id);
+            }
             const { data: fullBooking } = await supabase.from('bookings').select().eq('id', result.booking_id).single();
             data = fullBooking;
         }
@@ -1111,16 +1123,17 @@ router.post('/contact', async (req, res) => {
         ]);
         const settings = siteContentData?.messaging_settings || {};
         const ownerPhone = settings?.notification_phone || siteContent?.contact_phone || null;
-        if (ownerPhone) {
+        // Owner SMS — gated on owner's dashboard TCPA opt-in
+        if (ownerPhone && settings?.owner_sms_consent === true) {
             const interest = req.body.interest ? ` | Interested in: ${req.body.interest}` : '';
             const smsBody = `New message from ${name}${phone ? ' (' + phone + ')' : ''}${interest}\n\n${message.slice(0, 300)}`;
             sendSms(ownerPhone, smsBody, req.siteId, 'contact_form_notify').catch(() => {});
         }
 
-        // Customer SMS confirmation
-        if (phone) {
+        // Customer confirmation SMS — gated on customer's explicit consent checkbox
+        if (phone && req.body.sms_consent === true) {
             const businessName2 = business?.name || 'us';
-            const customerSms = `Hi ${name}! We received your message and will get back to you shortly. Thanks for contacting ${businessName2}!`;
+            const customerSms = `Hi ${name}! We received your message and will get back to you shortly. Thanks for contacting ${businessName2}! Reply STOP to opt out.`;
             sendSms(phone, customerSms, req.siteId, 'contact_form_confirm').catch(() => {});
         }
         // Collect all emails: primary, secondary (CC), contact_email, business email
