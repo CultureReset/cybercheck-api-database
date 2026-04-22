@@ -4,6 +4,7 @@ const supabase = require('../db');
 const getGcrDb = require('../gcr-db');
 const { resolveEntityId } = require('../lib/entity-resolver');
 const menuGcr = require('../lib/menu-gcr');
+const { extractJsonFromImage, getVisionProvidersStatus } = require('./ai-provider');
 const gcr = () => getGcrDb();
 
 const router = express.Router();
@@ -3885,30 +3886,7 @@ router.post('/resend-confirmation', async (req, res) => {
 // MENU — AI Image Extraction
 // ============================================
 
-router.post('/menu/extract', async (req, res) => {
-    const { image_base64, mime_type } = req.body;
-    if (!image_base64) return res.status(400).json({ error: 'image_base64 required' });
-
-    const Anthropic = require('@anthropic-ai/sdk');
-    const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
-
-    const base64Data = image_base64.replace(/^data:[^;]+;base64,/, '');
-    const mediaType = mime_type || 'image/jpeg';
-
-    try {
-        const message = await client.messages.create({
-            model: 'claude-haiku-4-5-20251001',
-            max_tokens: 4096,
-            messages: [{
-                role: 'user',
-                content: [
-                    {
-                        type: 'image',
-                        source: { type: 'base64', media_type: mediaType, data: base64Data }
-                    },
-                    {
-                        type: 'text',
-                        text: `You are a menu extraction assistant. Analyze this restaurant menu image and extract ALL visible menu items into structured JSON.
+const MENU_EXTRACT_PROMPT = `You are a menu extraction assistant. Analyze this restaurant menu image and extract ALL visible menu items into structured JSON.
 
 Return ONLY valid JSON with this exact structure:
 {
@@ -3936,51 +3914,41 @@ Rules:
 - tags array: only add "vegetarian", "vegan", "gluten-free", "spicy", "popular", "new" if clearly indicated
 - description is the item description text if visible, else empty string ""
 - item_type must be exactly "food", "drink", or "happy_hour". Use "drink" for any beverages, cocktails, beers, wines, spirits, or drink specials section. Use "happy_hour" for any happy hour, daily deals, or specials section. Use "food" for everything else.
-- Return ONLY the JSON object, no markdown code blocks, no explanation`
-                    }
-                ]
-            }]
+- Return ONLY the JSON object, no markdown code blocks, no explanation`;
+
+router.post('/menu/extract', async (req, res) => {
+    const { image_base64, mime_type, provider, model } = req.body;
+    if (!image_base64) return res.status(400).json({ error: 'image_base64 required' });
+
+    try {
+        const { result: extracted, provider: used } = await extractJsonFromImage({
+            imageBase64: image_base64,
+            mimeType: mime_type,
+            systemPrompt: 'You extract structured menu data from images. Return ONLY valid JSON — no markdown, no commentary.',
+            userPrompt: MENU_EXTRACT_PROMPT,
+            provider, model,
+            maxTokens: 4096,
         });
-
-        const content = message.content[0].text;
-        let extracted;
-        try {
-            const jsonMatch = content.match(/\{[\s\S]*\}/);
-            extracted = JSON.parse(jsonMatch ? jsonMatch[0] : content);
-        } catch (parseErr) {
-            return res.status(422).json({ error: 'Could not parse menu from image. Try a clearer photo.' });
-        }
-
         if (!extracted.categories || !Array.isArray(extracted.categories)) {
             return res.status(422).json({ error: 'No menu items found in image.' });
         }
-
-        res.json(extracted);
+        res.json({ ...extracted, _provider: used });
     } catch (err) {
         console.error('Menu extract error:', err);
-        res.status(500).json({ error: 'AI extraction failed: ' + (err.message || 'unknown error') });
+        const msg = err.message || 'unknown error';
+        if (msg.startsWith('AI returned non-JSON')) {
+            return res.status(422).json({ error: 'Could not parse menu from image. Try a clearer photo.' });
+        }
+        res.status(500).json({ error: 'AI extraction failed: ' + msg });
     }
 });
 
-// POST /api/dashboard/events/extract
-router.post('/events/extract', authRequired, async (req, res) => {
-    const { image_base64, mime_type, extract_type } = req.body; // extract_type: 'events' | 'specials' | 'auto'
-    if (!image_base64) return res.status(400).json({ error: 'image_base64 required' });
+// GET /api/dashboard/ai/vision-providers — list configured providers for UI dropdown
+router.get('/ai/vision-providers', (req, res) => {
+    res.json(getVisionProvidersStatus());
+});
 
-    const Anthropic = require('@anthropic-ai/sdk');
-    const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
-    const base64Data = image_base64.replace(/^data:[^;]+;base64,/, '');
-    const mediaType = mime_type || 'image/jpeg';
-
-    try {
-        const message = await client.messages.create({
-            model: 'claude-haiku-4-5-20251001',
-            max_tokens: 2048,
-            messages: [{
-                role: 'user',
-                content: [
-                    { type: 'image', source: { type: 'base64', media_type: mediaType, data: base64Data } },
-                    { type: 'text', text: `Extract all events, specials, or promotions from this image into structured JSON.
+const EVENTS_EXTRACT_PROMPT = `Extract all events, specials, or promotions from this image into structured JSON.
 
 Return ONLY valid JSON:
 {
@@ -4004,22 +3972,30 @@ Rules:
 - For happy hour / daily specials: set days and start_time/end_time
 - For one-time events: set date and time
 - price_text is a string like "$5 drafts" or "Half off appetizers"
-- Return ONLY JSON, no markdown` }
-                ]
-            }]
+- Return ONLY JSON, no markdown`;
+
+// POST /api/dashboard/events/extract
+router.post('/events/extract', async (req, res) => {
+    const { image_base64, mime_type, provider, model } = req.body;
+    if (!image_base64) return res.status(400).json({ error: 'image_base64 required' });
+
+    try {
+        const { result: extracted, provider: used } = await extractJsonFromImage({
+            imageBase64: image_base64,
+            mimeType: mime_type,
+            systemPrompt: 'You extract structured event/special data from images. Return ONLY valid JSON — no markdown, no commentary.',
+            userPrompt: EVENTS_EXTRACT_PROMPT,
+            provider, model,
+            maxTokens: 2048,
         });
-        const content = message.content[0].text;
-        let extracted;
-        try {
-            const jsonMatch = content.match(/\{[\s\S]*\}/);
-            extracted = JSON.parse(jsonMatch ? jsonMatch[0] : content);
-        } catch(e) {
+        res.json({ ...extracted, _provider: used });
+    } catch (err) {
+        console.error('Events extract error:', err);
+        const msg = err.message || 'unknown error';
+        if (msg.startsWith('AI returned non-JSON')) {
             return res.status(422).json({ error: 'Could not parse image. Try a clearer photo.' });
         }
-        res.json(extracted);
-    } catch(err) {
-        console.error('Events extract error:', err);
-        res.status(500).json({ error: err.message });
+        res.status(500).json({ error: msg });
     }
 });
 

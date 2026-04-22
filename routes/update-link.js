@@ -768,34 +768,26 @@ router.post('/:token/daily-rotation/submit', validateToken, async (req, res) => 
 // MENU SETUP — AI-powered onboarding (link_type = 'menu_setup')
 // ═══════════════════════════════════════════════════════════════
 
-async function callGrokForMenu(prompt, imageUrl) {
+const { extractJsonFromImage } = require('./ai-provider');
+
+// Text-only fallback for website parsing (no image).
+async function callAIForMenuText(prompt, { provider, model } = {}) {
     const apiKey = process.env.XAI_API_KEY || process.env.GROK_API_KEY;
     if (!apiKey) throw new Error('XAI_API_KEY not configured');
-
-    const userContent = imageUrl
-        ? [
-            { type: 'image_url', image_url: { url: imageUrl } },
-            { type: 'text', text: prompt },
-          ]
-        : prompt;
-
-    const model = imageUrl ? 'grok-2-vision-1212' : 'grok-3-mini';
-
     const resp = await fetch('https://api.x.ai/v1/chat/completions', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` },
         body: JSON.stringify({
-            model,
+            model: model || 'grok-3-mini',
             messages: [
                 { role: 'system', content: 'You are a professional menu digitizer. Extract complete menu data and return ONLY valid JSON — no markdown, no explanation, just the JSON object.' },
-                { role: 'user', content: userContent },
+                { role: 'user', content: prompt },
             ],
             temperature: 0.1,
         }),
     });
     const data = await resp.json();
     const text = data.choices?.[0]?.message?.content || '';
-    // Strip any accidental markdown fences
     const clean = text.replace(/^```json\s*/i, '').replace(/^```\s*/i, '').replace(/```\s*$/i, '').trim();
     return JSON.parse(clean);
 }
@@ -840,40 +832,158 @@ router.post('/:token/setup/parse-image', validateToken, upload.single('image'), 
     const { data: { publicUrl } } = g.storage.from('entity-media').getPublicUrl(name);
 
     try {
-        const result = await callGrokForMenu(MENU_EXTRACT_PROMPT, publicUrl);
-        res.json({ ok: true, result, image_url: publicUrl });
+        const { provider, model } = req.body || {};
+        const { result, provider: used } = await extractJsonFromImage({
+            imageBase64: req.file.buffer.toString('base64'),
+            mimeType: req.file.mimetype,
+            systemPrompt: 'You are a professional menu digitizer. Extract complete menu data and return ONLY valid JSON — no markdown, no explanation, just the JSON object.',
+            userPrompt: MENU_EXTRACT_PROMPT,
+            provider, model,
+            maxTokens: 4096,
+        });
+        res.json({ ok: true, result, image_url: publicUrl, _provider: used });
     } catch (e) {
         res.status(500).json({ error: 'AI parse failed: ' + e.message });
     }
 });
 
-// POST /update/:token/setup/parse-website — fetch website → extract text → Grok
+// POST /update/:token/setup/parse-website — fetch website → extract text → AI
 router.post('/:token/setup/parse-website', validateToken, async (req, res) => {
-    const { url } = req.body;
+    const { url, provider, model } = req.body;
     if (!url) return res.status(400).json({ error: 'url required' });
 
     let pageText = '';
     try {
         const r = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0 (compatible; MenuBot/1.0)' }, signal: AbortSignal.timeout(10000) });
         const html = await r.text();
-        // Strip tags, collapse whitespace — send readable text to Grok
         pageText = html
             .replace(/<script[\s\S]*?<\/script>/gi, '')
             .replace(/<style[\s\S]*?<\/style>/gi, '')
             .replace(/<[^>]+>/g, ' ')
             .replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&nbsp;/g, ' ')
             .replace(/\s+/g, ' ').trim()
-            .substring(0, 12000); // cap at ~3k tokens
+            .substring(0, 12000);
     } catch (e) {
         return res.status(400).json({ error: 'Could not fetch website: ' + e.message });
     }
 
     try {
-        const result = await callGrokForMenu(`${MENU_EXTRACT_PROMPT}\n\nWebsite text:\n${pageText}`);
+        const result = await callAIForMenuText(`${MENU_EXTRACT_PROMPT}\n\nWebsite text:\n${pageText}`, { provider, model });
         res.json({ ok: true, result });
     } catch (e) {
         res.status(500).json({ error: 'AI parse failed: ' + e.message });
     }
+});
+
+// ═══════════════════════════════════════════════════════════════
+// OWNER-EDITOR AI SCAN — token-auth, base64 JSON in, structured JSON out.
+// These mirror the dashboard /menu/extract + /events/extract endpoints
+// but are reachable from restaurant-editor.html using a token instead of login.
+// All accept optional { provider, model } in the body.
+// ═══════════════════════════════════════════════════════════════
+
+const OWNER_MENU_PROMPT = `You are a menu extraction assistant. Analyze this restaurant menu image and extract ALL visible menu items into structured JSON.
+
+Return ONLY valid JSON:
+{
+  "categories": [
+    {
+      "name": "Category Name",
+      "item_type": "food",
+      "items": [
+        { "name": "Item Name", "price": 12.99, "description": "...", "tags": [] }
+      ]
+    }
+  ]
+}
+
+Rules:
+- Extract ALL visible items — do not skip any
+- Group by section exactly as shown; if none, use "Menu Items"
+- price is a number; 0 if not visible
+- tags: only "vegetarian", "vegan", "gluten-free", "spicy", "popular", "new" if clearly indicated
+- item_type: "drink" for beverages/cocktails/beer/wine; "happy_hour" for HH sections; else "food"
+- Return ONLY the JSON object, no markdown`;
+
+const OWNER_SPECIALS_PROMPT = `Extract specials/promotions from this image into structured JSON.
+
+Return ONLY valid JSON:
+{
+  "items": [
+    {
+      "special_name": "Name of special",
+      "discount_text": "$5 drafts / Half off / BOGO / etc",
+      "description": "Any details",
+      "days": "Mon-Fri / Weekends / Daily / etc",
+      "start_time": "HH:MM in 24hr if time-based",
+      "end_time": "HH:MM in 24hr if time-based"
+    }
+  ]
+}
+
+Rules:
+- Extract ALL visible specials
+- Return ONLY JSON, no markdown`;
+
+const OWNER_CATCH_PROMPT = `Extract the daily "Catch of the Day" / seafood board items into structured JSON.
+
+Return ONLY valid JSON:
+{
+  "items": [
+    {
+      "name": "Fish/seafood name",
+      "description": "Preparation details if visible",
+      "price": 28.00,
+      "is_market_price": false
+    }
+  ]
+}
+
+Rules:
+- If marked "Market Price" or no fixed price, set price=null and is_market_price=true
+- price is a number or null
+- Return ONLY JSON, no markdown`;
+
+async function runOwnerScan(req, res, { systemPrompt, userPrompt, maxTokens = 2048 }) {
+    const { image_base64, mime_type, provider, model } = req.body || {};
+    if (!image_base64) return res.status(400).json({ error: 'image_base64 required' });
+    try {
+        const { result, provider: used } = await extractJsonFromImage({
+            imageBase64: image_base64, mimeType: mime_type,
+            systemPrompt, userPrompt, provider, model, maxTokens,
+        });
+        res.json({ ok: true, ...result, _provider: used });
+    } catch (e) {
+        const msg = e.message || 'unknown error';
+        if (msg.startsWith('AI returned non-JSON')) {
+            return res.status(422).json({ error: 'Could not parse image. Try a clearer photo.' });
+        }
+        res.status(500).json({ error: 'AI extraction failed: ' + msg });
+    }
+}
+
+router.post('/:token/scan/menu', validateToken, (req, res) =>
+    runOwnerScan(req, res, {
+        systemPrompt: 'You extract structured menu data from images. Return ONLY valid JSON.',
+        userPrompt: OWNER_MENU_PROMPT, maxTokens: 4096,
+    }));
+
+router.post('/:token/scan/specials', validateToken, (req, res) =>
+    runOwnerScan(req, res, {
+        systemPrompt: 'You extract restaurant specials/deals from images. Return ONLY valid JSON.',
+        userPrompt: OWNER_SPECIALS_PROMPT, maxTokens: 2048,
+    }));
+
+router.post('/:token/scan/catch', validateToken, (req, res) =>
+    runOwnerScan(req, res, {
+        systemPrompt: 'You extract catch-of-the-day / seafood board items from images. Return ONLY valid JSON.',
+        userPrompt: OWNER_CATCH_PROMPT, maxTokens: 1024,
+    }));
+
+// GET /update/:token/vision-providers — which providers are configured
+router.get('/:token/vision-providers', validateToken, (req, res) => {
+    const { getVisionProvidersStatus } = require('./ai-provider');
+    res.json(getVisionProvidersStatus());
 });
 
 // POST /update/:token/setup/finish — convert this link to a full daily editor
