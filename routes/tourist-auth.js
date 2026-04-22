@@ -158,7 +158,8 @@ router.post('/signin', async (req, res) => {
             const msg = /confirm/i.test(text)
                 ? 'Please confirm your email before signing in — check your inbox.'
                 : 'Invalid email or password';
-            return res.status(401).json({ error: msg });
+            console.error('signin supabase error:', r.status, JSON.stringify(d));
+            return res.status(401).json({ error: msg, _debug: { status: r.status, supabase: d, urlHost: (process.env.SUPABASE_URL || '').replace(/https?:\/\//, '').split('.')[0] } });
         }
         res.json({
             session: {
