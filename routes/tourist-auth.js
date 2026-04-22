@@ -141,7 +141,9 @@ router.post('/signin', async (req, res) => {
     const password = req.body?.password || '';
     if (!email || !password) return res.status(400).json({ error: 'Email and password required' });
 
-    const sb = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_ANON_KEY);
+    const sb = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_ANON_KEY, {
+        auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false },
+    });
     const { data, error } = await sb.auth.signInWithPassword({ email, password });
     if (error) {
         const msg = /email.*not.*confirmed/i.test(error.message)
