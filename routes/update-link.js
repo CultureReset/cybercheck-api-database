@@ -75,9 +75,17 @@ async function validateToken(req, res, next) {
     if (!link) return res.status(404).json({ error: 'Link not found' });
     if (link.expires_at && new Date(link.expires_at) < new Date()) return res.status(410).json({ error: 'Link expired' });
     req.link = link;
-    // site_id businesses are stored as "s:<site_id>" in the entity_id field
+    // site_id businesses are stored as "s:<site_id>" in the entity_id field.
+    // Promote to GCR entity_id when entity.legacy_site_id is populated so writes
+    // land in the GCR DB (single source of truth).
     if (link.entity_id && String(link.entity_id).startsWith('s:')) {
-        req.siteId = String(link.entity_id).slice(2);
+        const siteId = String(link.entity_id).slice(2);
+        const { data: ent } = await db().from('entity').select('id').eq('legacy_site_id', siteId).maybeSingle();
+        if (ent && ent.id) {
+            req.entityId = ent.id;
+        } else {
+            req.siteId = siteId;
+        }
     } else {
         req.entityId = link.entity_id;
     }
