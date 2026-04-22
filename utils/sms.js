@@ -47,8 +47,9 @@ async function sendSms(to, body, siteId, type = 'outgoing', relatedId = null, fr
         return { success: false, reason: 'opted_out' };
     }
 
-    // Use Brevo if configured, otherwise fall back to Twilio
-    if (process.env.BREVO_API_KEY) {
+    // Route SMS via Twilio (Brevo handles email only, not SMS).
+    // To re-enable Brevo SMS, set BREVO_SMS_ENABLED=true in env.
+    if (process.env.BREVO_API_KEY && process.env.BREVO_SMS_ENABLED === 'true') {
         try {
             const res = await fetch('https://api.brevo.com/v3/transactionalSMS/sms', {
                 method: 'POST',
