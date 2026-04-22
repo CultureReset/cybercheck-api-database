@@ -138,7 +138,7 @@ async function _callVision(provider, { base64, mime, systemPrompt, userPrompt, m
     if (provider === 'anthropic') {
         const apiKey = process.env.ANTHROPIC_API_KEY;
         if (!apiKey) throw new Error('ANTHROPIC_API_KEY not set');
-        const resolvedModel = model || process.env.ANTHROPIC_VISION_MODEL || 'claude-haiku-4-5-20251001';
+        const resolvedModel = model || process.env.ANTHROPIC_VISION_MODEL || 'claude-sonnet-4-6';
         const resp = await fetch('https://api.anthropic.com/v1/messages', {
             method: 'POST',
             headers: { 'x-api-key': apiKey, 'anthropic-version': '2023-06-01', 'content-type': 'application/json' },
