@@ -6,6 +6,7 @@
 function getProvider(override) {
     if (override) return override;
     if (process.env.AI_PROVIDER) return process.env.AI_PROVIDER;
+    if (process.env.GEMINI_API_KEY || process.env.GOOGLE_AI_KEY) return 'gemini';
     if (process.env.ANTHROPIC_API_KEY) return 'anthropic';
     if (process.env.XAI_API_KEY || process.env.GROK_API_KEY) return 'xai';
     if (process.env.OPENAI_API_KEY) return 'openai';
@@ -19,11 +20,175 @@ function getProviderInfo() {
             anthropic: process.env.ANTHROPIC_MODEL || 'claude-sonnet-4-6',
             xai:       process.env.XAI_MODEL       || 'grok-3',
             openai:    process.env.OPENAI_MODEL     || 'gpt-4o',
+            gemini:    process.env.GEMINI_MODEL    || 'gemini-2.5-flash',
         };
         return { provider, model: models[provider] || 'unknown', configured: true };
     } catch {
         return { provider: null, model: null, configured: false };
     }
+}
+
+// Returns per-provider configuration status for UI dropdowns.
+// Never throws — missing keys just mean that provider shows as unavailable.
+function getVisionProvidersStatus() {
+    return {
+        default: (() => { try { return getProvider(); } catch { return null; } })(),
+        providers: [
+            { id: 'gemini',    label: 'Gemini 2.5 Flash',   configured: !!(process.env.GEMINI_API_KEY || process.env.GOOGLE_AI_KEY), defaultModel: process.env.GEMINI_MODEL || 'gemini-2.5-flash' },
+            { id: 'xai',       label: 'Grok 2 Vision',      configured: !!(process.env.XAI_API_KEY || process.env.GROK_API_KEY),     defaultModel: process.env.XAI_VISION_MODEL || 'grok-2-vision-1212' },
+            { id: 'openai',    label: 'OpenAI GPT-4o mini', configured: !!process.env.OPENAI_API_KEY,                                defaultModel: process.env.OPENAI_VISION_MODEL || 'gpt-4o-mini' },
+            { id: 'anthropic', label: 'Claude Haiku',       configured: !!process.env.ANTHROPIC_API_KEY,                             defaultModel: process.env.ANTHROPIC_VISION_MODEL || 'claude-haiku-4-5-20251001' },
+        ],
+    };
+}
+
+// Strip common markdown fences and parse the first JSON object/array found.
+function parseJsonLoose(text) {
+    if (!text) throw new Error('Empty AI response');
+    let s = String(text).trim().replace(/^```json\s*/i, '').replace(/^```\s*/i, '').replace(/```\s*$/i, '').trim();
+    try { return JSON.parse(s); } catch {}
+    // Last-resort: grab from first { to last }
+    const i = s.indexOf('{'), j = s.lastIndexOf('}');
+    if (i >= 0 && j > i) {
+        const slice = s.slice(i, j + 1);
+        try { return JSON.parse(slice); } catch {}
+    }
+    throw new Error('AI returned non-JSON: ' + s.slice(0, 200));
+}
+
+// Normalize "data:image/jpeg;base64,xxx" → { mimeType, base64 }
+function normalizeImageInput({ imageBase64, mimeType }) {
+    if (!imageBase64) throw new Error('imageBase64 required');
+    let b64 = String(imageBase64), mime = mimeType || 'image/jpeg';
+    const m = b64.match(/^data:([^;]+);base64,(.+)$/);
+    if (m) { mime = m[1]; b64 = m[2]; }
+    return { mimeType: mime, base64: b64 };
+}
+
+// ─── Vision extraction — returns parsed JSON ─────────────────────────────────
+// Unified image→JSON extraction across all providers.
+// Auto-fallback: if `fallback: true` and primary fails, retries the next
+// configured provider in preferred order.
+async function extractJsonFromImage({
+    imageBase64, mimeType,
+    systemPrompt = 'Return ONLY valid JSON — no markdown, no explanation.',
+    userPrompt,
+    provider: providerOverride,
+    model,
+    temperature = 0.1,
+    maxTokens = 4000,
+    fallback = true,
+}) {
+    const { mimeType: mime, base64 } = normalizeImageInput({ imageBase64, mimeType });
+    const primary = getProvider(providerOverride);
+
+    const preferredOrder = ['gemini', 'xai', 'openai', 'anthropic'];
+    const tryOrder = fallback
+        ? [primary, ...preferredOrder.filter(p => p !== primary)]
+        : [primary];
+
+    let lastErr;
+    for (const p of tryOrder) {
+        try {
+            const json = await _callVision(p, { base64, mime, systemPrompt, userPrompt, model, temperature, maxTokens });
+            return { result: json, provider: p };
+        } catch (e) {
+            lastErr = e;
+            // Don't try next provider on parse errors — that's a prompt problem, not a key problem
+            if (String(e.message || '').startsWith('AI returned non-JSON')) break;
+        }
+    }
+    throw lastErr || new Error('All vision providers failed');
+}
+
+async function _callVision(provider, { base64, mime, systemPrompt, userPrompt, model, temperature, maxTokens }) {
+    // ── Gemini ────────────────────────────────────────────────────────────────
+    if (provider === 'gemini') {
+        const apiKey = process.env.GEMINI_API_KEY || process.env.GOOGLE_AI_KEY;
+        if (!apiKey) throw new Error('GEMINI_API_KEY not set');
+        const resolvedModel = model || process.env.GEMINI_MODEL || 'gemini-2.5-flash';
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(resolvedModel)}:generateContent?key=${apiKey}`;
+        const resp = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                system_instruction: { parts: [{ text: systemPrompt }] },
+                contents: [{ role: 'user', parts: [
+                    { inline_data: { mime_type: mime, data: base64 } },
+                    { text: userPrompt },
+                ]}],
+                generationConfig: {
+                    temperature, maxOutputTokens: maxTokens,
+                    responseMimeType: 'application/json',
+                },
+            }),
+        });
+        if (!resp.ok) throw new Error(`Gemini ${resp.status}: ${await resp.text()}`);
+        const data = await resp.json();
+        const text = data.candidates?.[0]?.content?.parts?.map(p => p.text || '').join('') || '';
+        return parseJsonLoose(text);
+    }
+
+    // ── Anthropic ─────────────────────────────────────────────────────────────
+    if (provider === 'anthropic') {
+        const apiKey = process.env.ANTHROPIC_API_KEY;
+        if (!apiKey) throw new Error('ANTHROPIC_API_KEY not set');
+        const resolvedModel = model || process.env.ANTHROPIC_VISION_MODEL || 'claude-haiku-4-5-20251001';
+        const resp = await fetch('https://api.anthropic.com/v1/messages', {
+            method: 'POST',
+            headers: { 'x-api-key': apiKey, 'anthropic-version': '2023-06-01', 'content-type': 'application/json' },
+            body: JSON.stringify({
+                model: resolvedModel, max_tokens: maxTokens, temperature,
+                system: systemPrompt,
+                messages: [{ role: 'user', content: [
+                    { type: 'image', source: { type: 'base64', media_type: mime, data: base64 } },
+                    { type: 'text', text: userPrompt },
+                ]}],
+            }),
+        });
+        if (!resp.ok) throw new Error(`Anthropic ${resp.status}: ${await resp.text()}`);
+        const data = await resp.json();
+        if (data.error) throw new Error(`Anthropic: ${data.error.message}`);
+        const text = (data.content || []).filter(c => c.type === 'text').map(c => c.text).join('');
+        return parseJsonLoose(text);
+    }
+
+    // ── xAI (Grok) + OpenAI — both use OpenAI-compatible chat/completions ─────
+    if (provider === 'xai' || provider === 'grok' || provider === 'openai') {
+        const isXai = (provider === 'xai' || provider === 'grok');
+        const apiKey = isXai
+            ? (process.env.XAI_API_KEY || process.env.GROK_API_KEY)
+            : process.env.OPENAI_API_KEY;
+        if (!apiKey) throw new Error(`${isXai ? 'XAI' : 'OPENAI'}_API_KEY not set`);
+        const endpoint = isXai ? 'https://api.x.ai/v1/chat/completions' : 'https://api.openai.com/v1/chat/completions';
+        const resolvedModel = model || (isXai
+            ? (process.env.XAI_VISION_MODEL || 'grok-2-vision-1212')
+            : (process.env.OPENAI_VISION_MODEL || 'gpt-4o-mini'));
+        const dataUrl = `data:${mime};base64,${base64}`;
+        const body = {
+            model: resolvedModel, temperature, max_tokens: maxTokens,
+            messages: [
+                { role: 'system', content: systemPrompt },
+                { role: 'user', content: [
+                    { type: 'image_url', image_url: { url: dataUrl } },
+                    { type: 'text', text: userPrompt },
+                ]},
+            ],
+        };
+        // OpenAI supports JSON mode; Grok often does too but not all models
+        if (!isXai) body.response_format = { type: 'json_object' };
+        const resp = await fetch(endpoint, {
+            method: 'POST',
+            headers: { 'Authorization': `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
+            body: JSON.stringify(body),
+        });
+        if (!resp.ok) throw new Error(`${isXai ? 'xAI' : 'OpenAI'} ${resp.status}: ${await resp.text()}`);
+        const data = await resp.json();
+        const text = data.choices?.[0]?.message?.content || '';
+        return parseJsonLoose(text);
+    }
+
+    throw new Error(`Unknown vision provider: "${provider}"`);
 }
 
 // Convert xAI/OpenAI-format tool definitions to Anthropic's input_schema format
@@ -188,4 +353,4 @@ async function runAgentLoop({ systemPrompt, messages, tools, executeTool, provid
     return { reply: 'Reached max tool call rounds. Try a more specific question.', tools_called: toolsActivity };
 }
 
-module.exports = { callAIRound, runAgentLoop, getProvider, getProviderInfo };
+module.exports = { callAIRound, runAgentLoop, getProvider, getProviderInfo, getVisionProvidersStatus, extractJsonFromImage };
