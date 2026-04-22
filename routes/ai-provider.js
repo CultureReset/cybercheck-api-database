@@ -161,16 +161,21 @@ async function _callVision(provider, { base64, mime, systemPrompt, userPrompt, m
             body: JSON.stringify({
                 model: resolvedModel, max_tokens: maxTokens, temperature,
                 system: systemPrompt,
-                messages: [{ role: 'user', content: [
-                    { type: 'image', source: { type: 'base64', media_type: mime, data: base64 } },
-                    { type: 'text', text: userPrompt },
-                ]}],
+                messages: [
+                    { role: 'user', content: [
+                        { type: 'image', source: { type: 'base64', media_type: mime, data: base64 } },
+                        { type: 'text', text: userPrompt },
+                    ]},
+                    // Pre-fill assistant turn — forces Claude to continue from '{' so it
+                    // cannot add any explanation before the JSON.
+                    { role: 'assistant', content: '{' },
+                ],
             }),
         });
         if (!resp.ok) throw new Error(`Anthropic ${resp.status}: ${await resp.text()}`);
         const data = await resp.json();
         if (data.error) throw new Error(`Anthropic: ${data.error.message}`);
-        const text = (data.content || []).filter(c => c.type === 'text').map(c => c.text).join('');
+        const text = '{' + (data.content || []).filter(c => c.type === 'text').map(c => c.text).join('');
         return parseJsonLoose(text);
     }
 
