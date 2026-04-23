@@ -308,17 +308,15 @@ router.post('/search', async (req, res) => {
         return keywords.flatMap(k => fields.map(f => `${f}.ilike.%${k}%`)).join(',');
     }
 
-    // Search across all new GCR DB tables in parallel
+    // Search across all new GCR DB tables in parallel — NOTE: tags intentionally excluded
+    // so searches only match real, meaningful content (names, descriptions, menu items, etc.)
     const [
-        byEntity, byTags, byMenuItems, byDrinkItems,
+        byEntity, byMenuItems, byDrinkItems,
         byHHItems, bySpecials, byEvents, byActivities
     ] = await Promise.all([
         // Entity fields: name, subtitle, description, city, entity_subtype
         gcrDb.from('entity').select('id').eq('is_active', true)
             .or(kf('name','subtitle','description','city','entity_subtype')),
-        // Tags
-        gcrDb.from('entity_tags').select('entity_id')
-            .or(kf('tag')),
         // Menu items: name + description
         gcrDb.from('menu_items').select('entity_id').or(kf('item_name','description')),
         // Drink items: name + description + brewery + item_style
@@ -334,7 +332,7 @@ router.post('/search', async (req, res) => {
     ]);
 
     // Collect all matching entity IDs — filter out undefined/null to prevent UUID parse errors
-    [byEntity, byTags, byMenuItems, byDrinkItems, byHHItems, bySpecials, byEvents, byActivities]
+    [byEntity, byMenuItems, byDrinkItems, byHHItems, bySpecials, byEvents, byActivities]
         .forEach(res => (res.data || []).forEach(r => {
             const id = r.entity_id || r.id;
             if (id) matchedEntityIds.add(id);
