@@ -9,6 +9,48 @@ const gcr = () => getGcrDb();
 
 const router = express.Router();
 
+// ── GCR write-through ────────────────────────────────────────────────────────
+// When data is saved to the main DB via site_id, also mirror it to the GCR
+// entity if one exists with a matching legacy_site_id. Fire-and-forget.
+async function syncToGcr(siteId, type, data) {
+    const gcrDb = gcr();
+    const { data: entity } = await gcrDb.from('entity')
+        .select('id').eq('legacy_site_id', siteId).maybeSingle();
+    if (!entity) return;
+    const eid = entity.id;
+
+    if (type === 'menu_item') {
+        await gcrDb.from('menu_items').insert({
+            entity_id: eid,
+            item_name: data.name,
+            price: data.price || null,
+            description: data.description || null,
+            is_available: true,
+        });
+    } else if (type === 'special') {
+        await gcrDb.from('entity_specials').insert({
+            entity_id: eid,
+            special_name: data.special_name || data.name,
+            discount_text: data.discount_text || '',
+            description: data.description || null,
+            days: data.days || null,
+            start_time: data.start_time || null,
+            end_time: data.end_time || null,
+            is_active: true,
+        });
+    } else if (type === 'event') {
+        await gcrDb.from('entity_events').insert({
+            entity_id: eid,
+            event_name: data.name || data.event_name,
+            description: data.description || null,
+            event_date: data.event_date || null,
+            start_time: data.start_time || null,
+            end_time: data.end_time || null,
+            is_active: true,
+        });
+    }
+}
+
 // Auth removed from dashboard routes — the admin login page is the access gate.
 // To re-enable backend auth later, uncomment the line below and remove the next one.
 // router.use(authRequired);
@@ -584,6 +626,10 @@ router.post('/menu-items', async (req, res) => {
     delete item.id;
     const { data, error } = await supabase.from('menu_items').insert(item).select().single();
     if (error) return res.status(500).json({ error: error.message });
+
+    // Write-through to GCR if a matching entity exists via legacy_site_id
+    syncToGcr(siteId, 'menu_item', data).catch(() => {});
+
     res.status(201).json(data);
 });
 
@@ -764,6 +810,7 @@ router.post('/events', async (req, res) => {
     delete event.id;
     const { data, error } = await supabase.from('events').insert(event).select().single();
     if (error) return res.status(500).json({ error: error.message });
+    syncToGcr(req.siteId || req.body.site_id, 'event', data).catch(() => {});
     res.status(201).json(data);
 });
 
@@ -1979,6 +2026,7 @@ router.post('/specials', async (req, res) => {
     delete special.id;
     const { data, error } = await supabase.from('specials').insert(special).select().single();
     if (error) return res.status(500).json({ error: error.message });
+    syncToGcr(req.siteId || req.body.site_id, 'special', data).catch(() => {});
     res.status(201).json(data);
 });
 

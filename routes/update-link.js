@@ -43,6 +43,30 @@ const mainDb = require('../db'); // main Supabase — businesses/menu_items/spec
 function db() { return getGcrDb(); }
 const supabase = db(); // update_links lives in GCR
 
+// Write-through: when owner saves to main DB, mirror to GCR entity if linked
+async function syncToGcr(siteId, type, data) {
+    try {
+        const gcrDb = db();
+        const { data: entity } = await gcrDb.from('entity')
+            .select('id').eq('legacy_site_id', siteId).maybeSingle();
+        if (!entity) return;
+        const eid = entity.id;
+        if (type === 'menu_item') {
+            await gcrDb.from('menu_items').insert({
+                entity_id: eid, item_name: data.name,
+                price: data.price || null, description: data.description || null, is_available: true,
+            });
+        } else if (type === 'special') {
+            await gcrDb.from('entity_specials').insert({
+                entity_id: eid, special_name: data.special_name || data.name,
+                discount_text: data.discount_text || '', description: data.description || null,
+                days: data.days || null, start_time: data.start_time || null,
+                end_time: data.end_time || null, is_active: true,
+            });
+        }
+    } catch(e) { /* fire-and-forget */ }
+}
+
 function twilio() {
     const sid = process.env.TWILIO_ACCOUNT_SID;
     const tok = process.env.TWILIO_AUTH_TOKEN;
@@ -419,6 +443,7 @@ router.post('/:token/menu-items', validateToken, async (req, res) => {
         }
     }
     if (error) return res.status(500).json({ error: error.message });
+    if (req.siteId && !req.body.id) syncToGcr(req.siteId, 'menu_item', data).catch(() => {});
     res.json({ item: data });
 });
 
