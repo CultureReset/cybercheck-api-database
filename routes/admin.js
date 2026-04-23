@@ -4964,6 +4964,48 @@ const GCR_AGENT_TOOLS = [
             }
         }
     },
+    {
+        type: 'function',
+        function: {
+            name: 'update_hours',
+            description: 'Set or update business hours for one or more days. Use 24h time strings like "09:00" and "20:00". To mark a day closed set is_closed:true.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    entity_id: { type: 'string', description: 'GCR entity UUID' },
+                    hours: {
+                        type: 'array',
+                        description: 'Array of day hours to upsert',
+                        items: {
+                            type: 'object',
+                            properties: {
+                                day_of_week: { type: 'string', description: 'e.g. Monday, Tuesday, Wednesday...' },
+                                open_time: { type: 'string', description: '24h format e.g. 11:00' },
+                                close_time: { type: 'string', description: '24h format e.g. 20:00' },
+                                is_closed: { type: 'boolean' },
+                            },
+                            required: ['day_of_week']
+                        }
+                    }
+                },
+                required: ['entity_id', 'hours']
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'get_hours',
+            description: 'Get the current business hours for a GCR entity.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    entity_id: { type: 'string' }
+                },
+                required: ['entity_id']
+            }
+        }
+    },
 ];
 
 async function executeGCRTool(name, args, { gcrDb, entityId, mainDb }) {
@@ -5248,6 +5290,25 @@ async function executeGCRTool(name, args, { gcrDb, entityId, mainDb }) {
                 }).select('id,name').single();
                 if (error) return { error: error.message };
                 return { created: true, entity: data };
+            }
+            case 'get_hours': {
+                const { data, error } = await gcrDb.from('entity_hours').select('*').eq('entity_id', args.entity_id).order('id');
+                if (error) return { error: error.message };
+                return { hours: data || [] };
+            }
+            case 'update_hours': {
+                const { entity_id, hours } = args;
+                if (!entity_id || !hours?.length) return { error: 'entity_id and hours required' };
+                const rows = hours.map(h => ({
+                    entity_id,
+                    day_of_week: h.day_of_week,
+                    open_time: h.open_time || null,
+                    close_time: h.close_time || null,
+                    is_closed: h.is_closed || false,
+                }));
+                const { error } = await gcrDb.from('entity_hours').upsert(rows, { onConflict: 'entity_id,day_of_week' });
+                if (error) return { error: error.message };
+                return { updated: true, days_set: rows.map(r => r.day_of_week) };
             }
             // ── Main CyberCheck DB tools ──────────────────────
             case 'get_website_analytics': {
