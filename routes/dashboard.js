@@ -4087,4 +4087,169 @@ router.post('/events/extract', async (req, res) => {
     }
 });
 
+// ═══════════════════════════════════════════════════════════════
+// POST /api/dashboard/menu/generate-design
+// AI-powered QR menu designer.
+// Business describes how they want their menu to look.
+// Claude reads their actual data and generates a complete custom design.
+// Saves the result to businesses.metadata.qr_theme — live on their QR instantly.
+// ═══════════════════════════════════════════════════════════════
+
+router.post('/menu/generate-design', async (req, res) => {
+    const { site_id, description, occasion } = req.body;
+    if (!site_id) return res.status(400).json({ error: 'site_id required' });
+    if (!description) return res.status(400).json({ error: 'description required — tell us how you want your menu to look' });
+
+    try {
+        // Fetch all the business's real data
+        const [bizRes, itemsRes, specialsRes, eventsRes] = await Promise.all([
+            supabase.from('businesses').select('name, tagline, logo_url, metadata').eq('site_id', site_id).maybeSingle(),
+            supabase.from('menu_items').select('name, category, item_type, price, description, photo_url').eq('site_id', site_id).limit(30),
+            supabase.from('specials').select('special_name, discount_text, days, start_time, end_time').eq('site_id', site_id).limit(10),
+            supabase.from('events').select('name, description, event_date, start_time').eq('site_id', site_id).limit(5),
+        ]);
+
+        const biz = bizRes.data || {};
+        const items = itemsRes.data || [];
+        const specials = specialsRes.data || [];
+        const events = eventsRes.data || [];
+
+        // Group items by type for context
+        const food = items.filter(i => i.item_type === 'food');
+        const drinks = items.filter(i => i.item_type === 'drink');
+        const happyHour = items.filter(i => i.item_type === 'happy_hour');
+        const catchOfDay = food.filter(i => (i.category || '').toLowerCase().includes('catch'));
+
+        const dataContext = `
+BUSINESS: ${biz.name || 'Restaurant'}
+TAGLINE: ${biz.tagline || ''}
+FOOD SECTIONS: ${[...new Set(food.map(i => i.category))].join(', ')}
+DRINK SECTIONS: ${[...new Set(drinks.map(i => i.category))].join(', ')}
+HAS CATCH OF DAY: ${catchOfDay.length > 0 ? 'YES - ' + catchOfDay.map(i => i.name).join(', ') : 'NO'}
+HAS HAPPY HOUR: ${happyHour.length > 0 ? 'YES' : 'NO'}
+HAS SPECIALS: ${specials.length > 0 ? specials.map(s => s.special_name).join(', ') : 'NO'}
+HAS LIVE EVENTS: ${events.length > 0 ? events.map(e => e.name).join(', ') : 'NO'}
+SAMPLE DISHES: ${food.slice(0, 5).map(i => i.name + ' $' + i.price).join(', ')}
+${occasion ? `OCCASION/SEASON: ${occasion}` : ''}`;
+
+        const systemPrompt = `You are a QR menu designer for restaurants. You generate CSS custom properties and layout configuration that transforms a restaurant's menu into a beautiful, on-brand digital experience.
+
+You output ONLY valid JSON — no markdown, no explanation. The JSON must match this exact schema:
+
+{
+  "bg": "#hex — main background color",
+  "surface": "#hex — card/section background",
+  "surface2": "#hex — secondary surface",
+  "primary": "#hex — primary accent (prices, headings)",
+  "primary_dark": "#hex — darker accent",
+  "accent": "#hex — secondary accent (badges, highlights)",
+  "text": "#hex — primary text",
+  "text_muted": "#hex — secondary text",
+  "border": "#hex — border color",
+  "font": "Google Font name or system font",
+  "radius": "border radius e.g. 8px or 16px or 4px",
+  "special_bg": "#hex — specials section background",
+  "special_border": "#hex — specials border",
+  "hh_bg": "#hex — happy hour background",
+  "hh_border": "#hex — happy hour border",
+  "hh_text": "#hex — happy hour text",
+  "catch_bg": "#hex — catch of day background",
+  "catch_border": "#hex — catch of day border",
+  "catch_text": "#hex — catch of day text",
+  "hero_overlay": "CSS gradient for hero image overlay e.g. linear-gradient(to bottom, transparent, rgba(0,0,0,0.7))",
+  "modules": {
+    "catch_of_day": true or false,
+    "live_music": true or false,
+    "specials": true or false,
+    "happy_hour": true or false,
+    "menu": true or false,
+    "drinks": true or false,
+    "events": true or false
+  },
+  "module_order": ["catch_of_day", "live_music", "specials", "happy_hour", "menu", "drinks", "events"],
+  "template": "a one-word name for this design e.g. beach, upscale, tropical, dark, coastal, rustic, modern",
+  "design_note": "one sentence describing the design for the owner",
+  "module_styles": {
+    "catch_of_day": { "bg": "#hex", "border": "#hex", "text": "#hex", "accent": "#hex" },
+    "live_music":   { "bg": "#hex", "border": "#hex", "text": "#hex", "accent": "#hex" },
+    "specials":     { "bg": "#hex", "border": "#hex", "text": "#hex", "accent": "#hex" },
+    "happy_hour":   { "bg": "#hex", "border": "#hex", "text": "#hex", "accent": "#hex" },
+    "menu":         { "bg": "#hex", "border": "#hex", "text": "#hex", "accent": "#hex" },
+    "drinks":       { "bg": "#hex", "border": "#hex", "text": "#hex", "accent": "#hex" },
+    "events":       { "bg": "#hex", "border": "#hex", "text": "#hex", "accent": "#hex" }
+  }
+}
+
+Rules:
+- Make the design match the restaurant's personality and the owner's description
+- Colors must have good contrast — text readable on backgrounds
+- If they have a catch of the day, make catch_of_day prominent (first in order)
+- If they have happy hour, use warm amber/gold for hh colors
+- If they have live music/events, include live_music module
+- Pick module_order based on what's most important for THIS restaurant
+- Font must be a Google Font name (Playfair Display, Roboto, Lato, Oswald, Montserrat, Open Sans, Raleway, etc.)
+- USE module_styles to give each section its OWN look — the top hero sections (catch, live music) can be dramatic/dark, the menu section clean/light, happy hour warm amber, etc.
+- Sections don't have to match — that's the point. A dark moody hero + bright clean menu = professional contrast
+- module_styles overrides only that section's colors, not the whole page`;
+
+        const userPrompt = `Design a QR menu for this restaurant based on the owner's description.
+
+OWNER'S VISION: "${description}"
+
+RESTAURANT DATA:
+${dataContext}
+
+Generate the JSON design config now.`;
+
+        // Call Claude via the existing adapter
+        const apiKey = process.env.ANTHROPIC_API_KEY;
+        if (!apiKey) return res.status(503).json({ error: 'ANTHROPIC_API_KEY not configured' });
+
+        const aiRes = await fetch('https://api.anthropic.com/v1/messages', {
+            method: 'POST',
+            headers: { 'x-api-key': apiKey, 'anthropic-version': '2023-06-01', 'content-type': 'application/json' },
+            body: JSON.stringify({
+                model: 'claude-sonnet-4-6',
+                max_tokens: 2000,
+                temperature: 0.7,
+                system: systemPrompt,
+                messages: [
+                    { role: 'user', content: userPrompt },
+                    { role: 'assistant', content: '{' }, // pre-fill to force JSON
+                ],
+            }),
+        });
+
+        if (!aiRes.ok) throw new Error(`AI ${aiRes.status}: ${await aiRes.text()}`);
+        const aiData = await aiRes.json();
+        let rawText = '{' + ((aiData.content || []).find(c => c.type === 'text')?.text || '');
+
+        // Parse the generated design
+        let design;
+        try {
+            design = JSON.parse(rawText);
+        } catch(e) {
+            const m = rawText.match(/\{[\s\S]*\}/);
+            if (m) design = JSON.parse(m[0]);
+            else throw new Error('Could not parse AI design response');
+        }
+
+        // Save to businesses.metadata.qr_theme
+        const currentMeta = biz.metadata || {};
+        const newMeta = { ...currentMeta, qr_theme: design };
+        await supabase.from('businesses').update({ metadata: newMeta }).eq('site_id', site_id);
+
+        res.json({
+            ok: true,
+            design,
+            message: design.design_note || 'Design applied to your QR menu',
+            preview_url: `https://cybercheck-links.vercel.app/qr-menu.html?site_id=${site_id}`,
+        });
+
+    } catch (err) {
+        console.error('generate-design error:', err.message);
+        res.status(500).json({ error: 'Design generation failed: ' + err.message });
+    }
+});
+
 module.exports = router;
