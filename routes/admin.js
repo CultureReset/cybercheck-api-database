@@ -5728,5 +5728,256 @@ router.post('/smart-import/save-events', async (req, res) => {
     }
 });
 
+// ═══════════════════════════════════════════════════════════════════════
+// UNIFIED SMART IMPORT — one paste, AI classifies into events / menu /
+// specials / happy_hours, returns everything with venue matches.
+// Save endpoint handles all four types in one call.
+// ═══════════════════════════════════════════════════════════════════════
+
+// Resolve venue_name strings to matched entities.
+async function matchVenueNames(names) {
+    const unique = [...new Set((names || []).map(n => (n || '').trim()).filter(Boolean))];
+    if (!unique.length) return {};
+    const { data: ents } = await gcrDb
+        .from('entity')
+        .select('id, slug, name')
+        .eq('is_active', true)
+        .limit(2000);
+    const all = ents || [];
+    const matches = {};
+    for (const vn of unique) {
+        const low = vn.toLowerCase();
+        const m = all.find(e => e.name && e.name.toLowerCase() === low)
+            || all.find(e => e.name && (e.name.toLowerCase().includes(low) || low.includes(e.name.toLowerCase())));
+        matches[vn] = m ? { id: m.id, slug: m.slug, name: m.name } : null;
+    }
+    return matches;
+}
+
+// ── POST /api/admin/smart-import/parse
+//    Body: { raw_text }
+//    Returns: { events, menu_items, specials, happy_hours } — each with matched_entity attached
+router.post('/smart-import/parse', async (req, res) => {
+    const { raw_text } = req.body;
+    if (!raw_text || raw_text.trim().length < 10) {
+        return res.status(400).json({ error: 'raw_text is required (min 10 chars)' });
+    }
+
+    const today = new Date().toISOString().split('T')[0];
+    const systemPrompt = `You extract structured data from messy text for a local directory (Orange Beach / Gulf Shores, AL). Today is ${today}.
+
+Classify each item as ONE of: event, menu_item, special, happy_hour.
+
+Return ONLY this JSON shape (no prose, no markdown):
+{
+  "events": [{"venue_name":"string","event_name":"string","event_type":"live_music|trivia|karaoke|bingo|dj|festival|other","description":"string|null","event_date":"YYYY-MM-DD|null","day_of_week":"Monday|...|Sunday|null","start_time":"HH:MM|null","end_time":"HH:MM|null","recurring":false,"cover_charge":"string|null"}],
+  "menu_items": [{"venue_name":"string","section":"string (e.g. Appetizers, Entrees, Drinks)","item_name":"string","description":"string|null","price_text":"string|null","price":number_or_null}],
+  "specials": [{"venue_name":"string","special_name":"string","description":"string|null","special_type":"string|null","days":"string|null","start_time":"HH:MM|null","end_time":"HH:MM|null","discount_text":"string|null"}],
+  "happy_hours": [{"venue_name":"string","section":"Drinks|Food|other","item_name":"string","description":"string|null","price_text":"string|null","regular_price":number_or_null,"hh_price":number_or_null}]
+}
+
+Rules:
+- Multi-set lines like "3-6pm Artist A | 6-9pm Artist B" → separate events.
+- Multi-day events (e.g. Thu-Sat Car Show) → one event per day with correct event_date.
+- "Every Thursday" → recurring=true, day_of_week set, event_date null.
+- Times: convert to 24h HH:MM. "5pm" → "17:00". "6:30 PM" → "18:30".
+- venue_name EXACTLY as written in source.
+- Any of the four arrays can be empty [].
+- Skip unclear/ambiguous rows rather than guessing.`;
+
+    try {
+        const result = await callAIRound({
+            messages: [{ role: 'user', content: raw_text }],
+            systemPrompt,
+            temperature: 0.1,
+            maxTokens: 6000,
+        });
+        const parsed = extractJsonFromText(result.text || '');
+        const events      = Array.isArray(parsed.events)      ? parsed.events      : [];
+        const menuItems   = Array.isArray(parsed.menu_items)  ? parsed.menu_items  : [];
+        const specials    = Array.isArray(parsed.specials)    ? parsed.specials    : [];
+        const happyHours  = Array.isArray(parsed.happy_hours) ? parsed.happy_hours : [];
+
+        // Match venues for every item at once
+        const allNames = [
+            ...events.map(e => e.venue_name),
+            ...menuItems.map(m => m.venue_name),
+            ...specials.map(s => s.venue_name),
+            ...happyHours.map(h => h.venue_name),
+        ];
+        const matches = await matchVenueNames(allNames);
+        const attachMatch = x => ({ ...x, matched_entity: matches[(x.venue_name || '').trim()] || null });
+
+        res.json({
+            events:     events.map(attachMatch),
+            menu_items: menuItems.map(attachMatch),
+            specials:   specials.map(attachMatch),
+            happy_hours: happyHours.map(attachMatch),
+            counts: {
+                events: events.length,
+                menu_items: menuItems.length,
+                specials: specials.length,
+                happy_hours: happyHours.length,
+            },
+        });
+    } catch (err) {
+        console.error('smart-import/parse error:', err.message);
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// ── POST /api/admin/smart-import/save
+//    Body: { events: [...], menu_items: [...], specials: [...], happy_hours: [...] }
+//    Each array row requires entity_id. Sections for menu/happy_hour are upserted by name.
+router.post('/smart-import/save', async (req, res) => {
+    const events      = Array.isArray(req.body.events)      ? req.body.events      : [];
+    const menuItems   = Array.isArray(req.body.menu_items)  ? req.body.menu_items  : [];
+    const specials    = Array.isArray(req.body.specials)    ? req.body.specials    : [];
+    const happyHours  = Array.isArray(req.body.happy_hours) ? req.body.happy_hours : [];
+
+    const result = { events: 0, menu_items: 0, specials: 0, happy_hours: 0, skipped: 0, errors: [] };
+
+    // ─ Events ─
+    const eventRows = events
+        .filter(e => e && e.entity_id && e.event_name)
+        .map(e => ({
+            entity_id: e.entity_id,
+            event_name: e.event_name,
+            event_type: e.event_type || 'other',
+            description: e.description || null,
+            event_date: e.event_date || null,
+            day_of_week: e.day_of_week || null,
+            start_time: e.start_time || null,
+            end_time: e.end_time || null,
+            recurring: !!e.recurring,
+            cover_charge: e.cover_charge || null,
+            is_active: true,
+        }));
+    result.skipped += events.length - eventRows.length;
+    if (eventRows.length) {
+        const { data, error } = await gcrDb.from('entity_events').insert(eventRows).select('id');
+        if (error) result.errors.push('events: ' + error.message);
+        else result.events = (data || []).length;
+    }
+
+    // ─ Specials ─
+    const specialRows = specials
+        .filter(s => s && s.entity_id && s.special_name)
+        .map(s => ({
+            entity_id: s.entity_id,
+            special_name: s.special_name,
+            description: s.description || null,
+            special_type: s.special_type || null,
+            days: s.days || null,
+            start_time: s.start_time || null,
+            end_time: s.end_time || null,
+            discount_text: s.discount_text || null,
+            is_active: true,
+        }));
+    result.skipped += specials.length - specialRows.length;
+    if (specialRows.length) {
+        const { data, error } = await gcrDb.from('entity_specials').insert(specialRows).select('id');
+        if (error) result.errors.push('specials: ' + error.message);
+        else result.specials = (data || []).length;
+    }
+
+    // ─ Menu items (need section upsert by entity + name) ─
+    const menuValid = menuItems.filter(m => m && m.entity_id && m.item_name);
+    result.skipped += menuItems.length - menuValid.length;
+    if (menuValid.length) {
+        // Group by (entity_id, section)
+        const sectionCache = {}; // key `${entity_id}|${section}` → section_id
+        for (const m of menuValid) {
+            const section = (m.section || 'Menu').trim();
+            const key = `${m.entity_id}|${section.toLowerCase()}`;
+            if (sectionCache[key]) continue;
+            const { data: existing } = await gcrDb
+                .from('menu_sections')
+                .select('id')
+                .eq('entity_id', m.entity_id)
+                .ilike('section_name', section)
+                .limit(1);
+            if (existing && existing[0]) { sectionCache[key] = existing[0].id; continue; }
+            const { data: created, error: secErr } = await gcrDb
+                .from('menu_sections')
+                .insert({ entity_id: m.entity_id, section_name: section })
+                .select('id')
+                .single();
+            if (secErr) { result.errors.push('menu_section (' + section + '): ' + secErr.message); continue; }
+            sectionCache[key] = created.id;
+        }
+        const menuRows = menuValid
+            .map(m => {
+                const section = (m.section || 'Menu').trim();
+                const sectionId = sectionCache[`${m.entity_id}|${section.toLowerCase()}`];
+                if (!sectionId) return null;
+                return {
+                    entity_id: m.entity_id,
+                    menu_section_id: sectionId,
+                    item_name: m.item_name,
+                    description: m.description || null,
+                    price: m.price != null ? Number(m.price) : null,
+                    price_text: m.price_text || null,
+                    is_available: true,
+                };
+            })
+            .filter(Boolean);
+        if (menuRows.length) {
+            const { data, error } = await gcrDb.from('menu_items').insert(menuRows).select('id');
+            if (error) result.errors.push('menu_items: ' + error.message);
+            else result.menu_items = (data || []).length;
+        }
+    }
+
+    // ─ Happy hours (also need section upsert) ─
+    const hhValid = happyHours.filter(h => h && h.entity_id && h.item_name);
+    result.skipped += happyHours.length - hhValid.length;
+    if (hhValid.length) {
+        const sectionCache = {};
+        for (const h of hhValid) {
+            const section = (h.section || 'Happy Hour').trim();
+            const key = `${h.entity_id}|${section.toLowerCase()}`;
+            if (sectionCache[key]) continue;
+            const { data: existing } = await gcrDb
+                .from('happy_hour_sections')
+                .select('id')
+                .eq('entity_id', h.entity_id)
+                .ilike('section_name', section)
+                .limit(1);
+            if (existing && existing[0]) { sectionCache[key] = existing[0].id; continue; }
+            const { data: created, error: secErr } = await gcrDb
+                .from('happy_hour_sections')
+                .insert({ entity_id: h.entity_id, section_name: section })
+                .select('id')
+                .single();
+            if (secErr) { result.errors.push('hh_section (' + section + '): ' + secErr.message); continue; }
+            sectionCache[key] = created.id;
+        }
+        const hhRows = hhValid
+            .map(h => {
+                const section = (h.section || 'Happy Hour').trim();
+                const sectionId = sectionCache[`${h.entity_id}|${section.toLowerCase()}`];
+                if (!sectionId) return null;
+                return {
+                    entity_id: h.entity_id,
+                    hh_section_id: sectionId,
+                    item_name: h.item_name,
+                    description: h.description || null,
+                    regular_price: h.regular_price != null ? Number(h.regular_price) : null,
+                    hh_price: h.hh_price != null ? Number(h.hh_price) : null,
+                    price_text: h.price_text || null,
+                };
+            })
+            .filter(Boolean);
+        if (hhRows.length) {
+            const { data, error } = await gcrDb.from('happy_hour_items').insert(hhRows).select('id');
+            if (error) result.errors.push('happy_hour_items: ' + error.message);
+            else result.happy_hours = (data || []).length;
+        }
+    }
+
+    res.json(result);
+});
+
 module.exports = router;
 
