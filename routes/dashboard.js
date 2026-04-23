@@ -1301,15 +1301,13 @@ async function sendBookingConfirmations(booking, siteId) {
     try {
         const { sendSms, fillTemplate, buildTemplateData } = require('../utils/sms');
 
-        // messaging_settings is a JSONB column inside site_content — NOT a separate table
-        const { data: siteContent } = await supabase
-            .from('site_content')
-            .select('messaging_settings, owner_phone')
+        const { data: settings } = await supabase
+            .from('messaging_settings')
+            .select('*')
             .eq('site_id', siteId)
             .maybeSingle();
 
-        const settings = siteContent?.messaging_settings || {};
-        const prefs = { ...MESSAGING_DEFAULTS, ...settings };
+        const prefs = { ...MESSAGING_DEFAULTS, ...(settings || {}) };
         const templateData = await buildTemplateData(booking, siteId);
 
         // Customer confirmation SMS
@@ -1321,7 +1319,7 @@ async function sendBookingConfirmations(booking, siteId) {
 
         // Owner notification SMS — notification_phone from settings takes priority over owner_phone column
         if (prefs.owner_notification_sms) {
-            const ownerPhone = settings.notification_phone || siteContent?.owner_phone || null;
+            const ownerPhone = settings?.notification_phone || settings?.owner_phone || null;
             if (ownerPhone) {
                 const msg = fillTemplate(prefs.owner_notification_template, templateData);
                 sendSms(ownerPhone, msg, siteId, 'booking_owner_notify', booking.id)

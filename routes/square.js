@@ -231,14 +231,14 @@ router.post('/create-payment', async (req, res) => {
                 try {
                     const { sendSms, fillTemplate, buildTemplateData } = require('../utils/sms');
                     const { sendEmail, customerConfirmationHtml, generateIcsContent } = require('../utils/email');
-                    const [{ data: bookingData }, { data: siteContentData }, { data: siteContent }, { data: business }] = await Promise.all([
+                    const [{ data: bookingData }, { data: msgSettingsData }, { data: siteContent }, { data: business }] = await Promise.all([
                         supabase.from('bookings').select('*').eq('id', booking_id).single(),
-                        supabase.from('site_content').select('messaging_settings').eq('site_id', targetSiteId).single(),
+                        supabase.from('messaging_settings').select('*').eq('site_id', targetSiteId).maybeSingle(),
                         supabase.from('site_content').select('contact_email').eq('site_id', targetSiteId).maybeSingle(),
                         supabase.from('businesses').select('name, phone').eq('site_id', targetSiteId).single()
                     ]);
                     if (!bookingData) return;
-                    const msgSettings = siteContentData?.messaging_settings || {};
+                    const msgSettings = msgSettingsData || {};
                     const templateData = await buildTemplateData(bookingData, targetSiteId);
 
                     // Fetch or create waiver record and build waiver URL

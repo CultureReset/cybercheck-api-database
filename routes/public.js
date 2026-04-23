@@ -943,12 +943,12 @@ router.post('/bookings', async (req, res) => {
             const { sendEmail, customerConfirmationHtml, ownerNotificationHtml, generateIcsContent } = require('../utils/email');
 
             // Get messaging settings + contact info in one shot
-            const [{ data: siteContentData }, { data: siteContent }, { data: business }] = await Promise.all([
-                supabase.from('site_content').select('messaging_settings').eq('site_id', req.siteId).single(),
+            const [{ data: msgSettingsData }, { data: siteContent }, { data: business }] = await Promise.all([
+                supabase.from('messaging_settings').select('*').eq('site_id', req.siteId).maybeSingle(),
                 supabase.from('site_content').select('contact_phone, contact_email').eq('site_id', req.siteId).single(),
                 supabase.from('businesses').select('name, email').eq('site_id', req.siteId).single()
             ]);
-            const msgSettings = siteContentData?.messaging_settings || {};
+            const msgSettings = msgSettingsData || {};
 
             // Create waiver record for this booking
             await supabase.from('waivers').insert({
@@ -958,7 +958,7 @@ router.post('/bookings', async (req, res) => {
                 customer_email: data.customer_email
             }).catch(err => console.error('Waiver record creation failed:', err));
 
-            const settings = msgSettings || {};
+            const settings = msgSettings;
             const templateData = await buildTemplateData(data, req.siteId);
             // Attach notes to templateData for email templates
             templateData.notes = data.notes || '';
@@ -1116,12 +1116,12 @@ router.post('/contact', async (req, res) => {
     try {
         const { sendSms } = require('../utils/sms');
         const { sendEmail } = require('../utils/email');
-        const [{ data: siteContentData }, { data: siteContent }, { data: business }] = await Promise.all([
-            supabase.from('site_content').select('messaging_settings').eq('site_id', req.siteId).maybeSingle(),
+        const [{ data: msgSettingsData }, { data: siteContent }, { data: business }] = await Promise.all([
+            supabase.from('messaging_settings').select('*').eq('site_id', req.siteId).maybeSingle(),
             supabase.from('site_content').select('contact_phone, contact_email').eq('site_id', req.siteId).maybeSingle(),
             supabase.from('businesses').select('name, email').eq('site_id', req.siteId).single(),
         ]);
-        const settings = siteContentData?.messaging_settings || {};
+        const settings = msgSettingsData || {};
         const ownerPhone = settings?.notification_phone || siteContent?.contact_phone || null;
         // Owner SMS — gated on owner's dashboard TCPA opt-in
         if (ownerPhone && settings?.owner_sms_consent === true) {
