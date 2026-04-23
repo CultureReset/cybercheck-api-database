@@ -4604,6 +4604,20 @@ const GCR_AGENT_TOOLS = [
             }
         }
     },
+    {
+        type: 'function',
+        function: {
+            name: 'get_cybercheck_businesses',
+            description: 'Get all CyberCheck platform businesses — the main business accounts with dashboards, logins, plans, and status. Use this when asked about businesses on the platform, how many businesses exist, or to look up a specific business by name.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    search: { type: 'string', description: 'Search by name (optional)' },
+                    status: { type: 'string', description: 'Filter by status: active, inactive, trial (optional)' },
+                }
+            }
+        }
+    },
     // ── Write tools ────────────────────────────────────────────────────────────
     {
         type: 'function',
@@ -4817,6 +4831,26 @@ async function executeGCRTool(name, args, { gcrDb, entityId, mainDb }) {
                     missing_description: (data || []).filter(b => !b.description).length,
                     missing_phone: (data || []).filter(b => !b.phone).length,
                     featured_count: (data || []).filter(b => b.featured).length,
+                };
+            }
+            case 'get_cybercheck_businesses': {
+                let q = mainDb.from('businesses').select('site_id,name,type,status,plan,subdomain,domain,created_at,metadata');
+                if (args.search) q = q.ilike('name', `%${args.search}%`);
+                if (args.status) q = q.eq('status', args.status);
+                const { data, error } = await q.order('created_at', { ascending: false }).limit(200);
+                if (error) return { error: error.message };
+                return {
+                    total: (data || []).length,
+                    businesses: (data || []).map(b => ({
+                        site_id: b.site_id,
+                        name: b.name,
+                        type: b.type,
+                        status: b.status,
+                        plan: b.plan,
+                        domain: b.domain || b.subdomain,
+                        gcr_entity_id: b.metadata?.gcr_entity_id || null,
+                        created_at: b.created_at,
+                    }))
                 };
             }
             // ── Main CyberCheck DB tools ──────────────────────
