@@ -2660,7 +2660,7 @@ router.post('/upload-photo', upload.single('file'), async (req, res) => {
 // ============================================
 
 router.get('/ai-settings', async (req, res) => {
-    const { data, error } = await supabase.from('ai_settings').select('*').eq('id', 1).single();
+    const { data, error } = await gcrDb.from('ai_settings').select('*').eq('id', 1).single();
     if (error) return res.status(500).json({ error: error.message });
     // Mask API keys in response — show enough to confirm they exist
     const masked = { ...data };
@@ -2683,7 +2683,7 @@ router.put('/ai-settings', async (req, res) => {
     });
     update.updated_at = new Date().toISOString();
 
-    const { data, error } = await supabase.from('ai_settings').upsert({ id: 1, ...update }).select().single();
+    const { data, error } = await gcrDb.from('ai_settings').upsert({ id: 1, ...update }).select().single();
     if (error) return res.status(500).json({ error: error.message });
     res.json({ success: true, data });
 });
@@ -2693,10 +2693,10 @@ router.put('/ai-settings', async (req, res) => {
 // ============================================
 
 router.get('/rag-status', async (req, res) => {
-    const { data: indexed, error } = await supabase
+    const { data: indexed, error } = await gcrDb
         .from('business_embeddings')
-        .select('slug, business_name, chunk_type, updated_at')
-        .order('updated_at', { ascending: false });
+        .select('*')
+        .order('created_at', { ascending: false });
 
     if (error) return res.status(500).json({ error: error.message });
 
@@ -2732,7 +2732,7 @@ router.post('/ai-organize', async (req, res) => {
     }
 
     // Load AI settings
-    const { data: settings } = await supabase.from('ai_settings').select('*').eq('id', 1).single();
+    const { data: settings } = await gcrDb.from('ai_settings').select('*').eq('id', 1).single();
     const cfg = settings || {};
 
     const provider  = cfg.chat_provider || 'grok';
