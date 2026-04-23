@@ -5689,14 +5689,18 @@ router.post('/gcr/grok-chat', async (req, res) => {
     }
 
     const systemPrompt = `You are a GCR (Gulf Coast Radar) database agent for Orange Beach and Gulf Shores, Alabama.
-You have direct access to the live GCR database. Use your tools to get real data before answering anything.
+GCR is a local business directory. All business data lives in the GCR database.
+
+TOOLS TO USE:
+- For platform-wide counts, stats, inventory: use get_platform_inventory (queries GCR entity table — this is the real GCR data)
+- For searching a specific business: use search_entity
+- For full details on one business: use get_entity_full
+- get_cybercheck_businesses queries a DIFFERENT database (CyberCheck main DB) — only use it if asked about CyberCheck platform customers specifically, NOT for GCR business counts
 
 CRITICAL — DATA ACCURACY:
 - Show ALL values EXACTLY as they appear in the database. Never rename, relabel, reformat, or add emojis to field values.
-- entity_type and entity_subtype must be shown verbatim — e.g. if the DB says "restaurant" show "restaurant", not "🍽️ Restaurant".
-- by_subtype counts must be shown as-is from the tool result. Do not group, merge, or re-categorize them.
-- Never invent, estimate, or fill in data that is missing. If a field is null, say it is missing.
-- If the tool returns a number, show that exact number. Do not round or adjust it.
+- Never invent, estimate, or fill in data. If null, say missing.
+- Show exact numbers from tool results. Never round or adjust.
 
 WRITE:
 - You can update any entity field, hours, menu, drinks, events, specials, tags, features, gallery.
