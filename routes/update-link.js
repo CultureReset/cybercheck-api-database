@@ -52,10 +52,15 @@ async function syncToGcr(siteId, type, data) {
         if (!entity) return;
         const eid = entity.id;
         if (type === 'menu_item') {
-            await gcrDb.from('menu_items').insert({
-                entity_id: eid, item_name: data.name,
-                price: data.price || null, description: data.description || null, is_available: true,
-            });
+            const itemType = data.item_type || 'food';
+            if (itemType === 'drink') {
+                const secName = data.category || 'Drinks';
+                let { data: sec } = await gcrDb.from('drink_sections').select('id').eq('entity_id', eid).eq('section_name', secName).maybeSingle();
+                if (!sec) { const ins = await gcrDb.from('drink_sections').insert({ entity_id: eid, section_name: secName }).select('id').single(); sec = ins.data; }
+                if (sec) await gcrDb.from('drink_items').insert({ entity_id: eid, drink_section_id: sec.id, item_name: data.name, price: data.price || null, description: data.description || null, is_available: true });
+            } else {
+                await gcrDb.from('menu_items').insert({ entity_id: eid, item_name: data.name, price: data.price || null, description: data.description || null, is_available: true });
+            }
         } else if (type === 'special') {
             await gcrDb.from('entity_specials').insert({
                 entity_id: eid, special_name: data.special_name || data.name,

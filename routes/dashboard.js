@@ -20,13 +20,29 @@ async function syncToGcr(siteId, type, data) {
     const eid = entity.id;
 
     if (type === 'menu_item') {
-        await gcrDb.from('menu_items').insert({
-            entity_id: eid,
-            item_name: data.name,
-            price: data.price || null,
-            description: data.description || null,
-            is_available: true,
-        });
+        const itemType = data.item_type || 'food';
+        if (itemType === 'drink') {
+            // Drinks go to GCR drink_sections + drink_items
+            const secName = data.category || 'Drinks';
+            let { data: sec } = await gcrDb.from('drink_sections').select('id').eq('entity_id', eid).eq('section_name', secName).maybeSingle();
+            if (!sec) {
+                const ins = await gcrDb.from('drink_sections').insert({ entity_id: eid, section_name: secName }).select('id').single();
+                sec = ins.data;
+            }
+            if (sec) await gcrDb.from('drink_items').insert({ entity_id: eid, drink_section_id: sec.id, item_name: data.name, price: data.price || null, description: data.description || null, tags: data.tags || [], modifiers: data.modifiers || [], is_available: true });
+        } else if (itemType === 'happy_hour') {
+            // Happy hour items go to GCR happy_hour_sections + happy_hour_items
+            const secName = data.category || 'Happy Hour';
+            let { data: sec } = await gcrDb.from('happy_hour_sections').select('id').eq('entity_id', eid).maybeSingle();
+            if (!sec) {
+                const ins = await gcrDb.from('happy_hour_sections').insert({ entity_id: eid, section_name: secName }).select('id').single();
+                sec = ins.data;
+            }
+            if (sec) await gcrDb.from('happy_hour_items').insert({ entity_id: eid, item_name: data.name, hh_price: data.price || null, description: data.description || null });
+        } else {
+            // Food goes to GCR menu_items
+            await gcrDb.from('menu_items').insert({ entity_id: eid, item_name: data.name, price: data.price || null, description: data.description || null, is_available: true });
+        }
     } else if (type === 'special') {
         await gcrDb.from('entity_specials').insert({
             entity_id: eid,
