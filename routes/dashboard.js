@@ -3959,7 +3959,7 @@ router.post('/menu/extract', async (req, res) => {
         console.error('Menu extract error:', err);
         const msg = err.message || 'unknown error';
         if (msg.startsWith('AI returned non-JSON')) {
-            return res.status(422).json({ error: 'Could not parse menu from image. Try a clearer photo.' });
+            return res.status(422).json({ error: 'Could not parse menu from image. AI said: ' + msg.slice('AI returned non-JSON: '.length, 300) });
         }
         res.status(500).json({ error: 'AI extraction failed: ' + msg });
     }
