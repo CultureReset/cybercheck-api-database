@@ -5539,8 +5539,8 @@ router.get('/ai-provider', (req, res) => {
 
 // ── POST /api/admin/gcr/ai-chat — Agentic AI with tool use (provider-agnostic)
 router.post('/gcr/grok-chat', async (req, res) => {
-    const { message, history = [], slug, entity_id, image_url, provider, model } = req.body;
-    if (!message && !image_url) return res.status(400).json({ error: 'message required' });
+    const { message, history = [], slug, entity_id, image_url, image_base64, image_mime, provider, model } = req.body;
+    if (!message && !image_url && !image_base64) return res.status(400).json({ error: 'message required' });
 
     const db = getGcrDb();
 
@@ -5556,25 +5556,35 @@ You manage multiple websites and the GCR (Gulf Coast Radar) local directory plat
 You have tools connected to TWO live databases:
   1. Main CyberCheck DB — website analytics, leads/CRM, SEO data, social analytics, reviews, OAuth platform tokens
   2. GCR DB — business directory entities, menus, events, specials, happy hours
-You also have WRITE tools — you can update business profiles, add menu/drink items, add events, set images, and change status.
+You also have WRITE tools — you can update business profiles, add menu/drink items, add events, set images, change hours, and change status.
 RULES:
 - Always pull real data first. Never estimate or make up numbers.
-- When asked to make changes, use the write tools (update_business, set_hero_image, add_menu_item, etc.).
-- When given an image URL, you can assign it to the business with set_hero_image or reference it in a menu/event.
-- Proactively surface insights: low engagement, missing data, unanswered reviews, traffic drops.
+- When given an image of a menu, extract ALL items with names, prices, and descriptions, then ask which business to add them to.
+- When asked to make changes, use the write tools directly — no need to confirm unless deleting many records.
 - Be concise and direct. Use bullets. Bold key numbers.
 - Today: ${new Date().toISOString().split('T')[0]}
 ${entityId ? `Currently viewing entity_id: ${entityId}` : 'Platform-wide view — no single business selected.'}`;
 
     // Build initial messages — include image in user content if provided
     let userContent = message || '';
-    if (image_url) {
-        userContent = userContent ? `${userContent}\n\n[Image uploaded: ${image_url}]` : `[Image uploaded: ${image_url}]`;
+    let userMsgContent;
+
+    if (image_base64) {
+        // Vision: send image inline as base64
+        const base64Data = image_base64.replace(/^data:[^;]+;base64,/, '');
+        const mimeType = image_mime || 'image/jpeg';
+        userMsgContent = [
+            { type: 'image', source: { type: 'base64', media_type: mimeType, data: base64Data } },
+            { type: 'text', text: userContent || 'Please extract all menu items from this image with names, prices, and descriptions.' },
+        ];
+    } else {
+        if (image_url) userContent = userContent ? `${userContent}\n\n[Image: ${image_url}]` : `[Image: ${image_url}]`;
+        userMsgContent = userContent;
     }
 
     const messages = [
         ...history.slice(-8).map(h => ({ role: h.role, content: h.content })),
-        { role: 'user', content: userContent },
+        { role: 'user', content: userMsgContent },
     ];
 
     try {
