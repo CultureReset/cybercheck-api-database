@@ -5006,6 +5006,64 @@ const GCR_AGENT_TOOLS = [
             }
         }
     },
+    {
+        type: 'function',
+        function: {
+            name: 'get_edit_link',
+            description: 'Get or generate the editable daily menu link (token URL) for a GCR entity. Use this to get the link to push menu data to a business.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    entity_id: { type: 'string', description: 'GCR entity UUID' },
+                },
+                required: ['entity_id']
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'push_menu_to_business',
+            description: 'Push extracted menu items directly to a business editable menu via their update token. Use after extracting menu items from a photo or text.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    entity_id: { type: 'string', description: 'GCR entity UUID' },
+                    items: {
+                        type: 'array',
+                        description: 'Menu items to push',
+                        items: {
+                            type: 'object',
+                            properties: {
+                                name: { type: 'string' },
+                                price: { type: 'number' },
+                                description: { type: 'string' },
+                                section: { type: 'string', description: 'Menu section/category name' },
+                            },
+                            required: ['name']
+                        }
+                    },
+                    specials: {
+                        type: 'array',
+                        description: 'Daily specials to push',
+                        items: {
+                            type: 'object',
+                            properties: {
+                                name: { type: 'string' },
+                                description: { type: 'string' },
+                                discount_text: { type: 'string' },
+                                days: { type: 'string' },
+                                start_time: { type: 'string' },
+                                end_time: { type: 'string' },
+                            },
+                            required: ['name']
+                        }
+                    }
+                },
+                required: ['entity_id']
+            }
+        }
+    },
 ];
 
 async function executeGCRTool(name, args, { gcrDb, entityId, mainDb }) {
@@ -5301,6 +5359,79 @@ async function executeGCRTool(name, args, { gcrDb, entityId, mainDb }) {
                 const { data, error } = await gcrDb.from('entity_hours').select('*').eq('entity_id', args.entity_id).order('id');
                 if (error) return { error: error.message };
                 return { hours: data || [] };
+            }
+            case 'get_edit_link': {
+                const eid = args.entity_id;
+                const today = new Date().toISOString().split('T')[0];
+                // Check for existing link today
+                const { data: existing } = await gcrDb.from('update_links').select('token,link_type,expires_at').eq('entity_id', eid).eq('link_date', today).maybeSingle();
+                if (existing) {
+                    const base = (process.env.LINKS_BASE_URL || 'https://cybercheck-links.vercel.app').replace(/\/$/, '');
+                    return { token: existing.token, url: `${base}/menu-editor.html?token=${existing.token}`, existing: true };
+                }
+                // Generate new token
+                const crypto = require('crypto');
+                const token = crypto.randomBytes(24).toString('hex');
+                const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString();
+                const { error } = await gcrDb.from('update_links').insert({ entity_id: eid, token, link_type: 'full', link_date: today, expires_at: expiresAt });
+                if (error) return { error: error.message };
+                const base = (process.env.LINKS_BASE_URL || 'https://cybercheck-links.vercel.app').replace(/\/$/, '');
+                return { token, url: `${base}/menu-editor.html?token=${token}`, created: true };
+            }
+            case 'push_menu_to_business': {
+                const eid = args.entity_id;
+                const results = { items_added: 0, specials_added: 0, errors: [] };
+
+                if (args.items && args.items.length) {
+                    for (const item of args.items) {
+                        let sectionId = null;
+                        if (item.section) {
+                            const { data: sec } = await gcrDb.from('menu_sections').select('id').eq('entity_id', eid).eq('section_name', item.section).maybeSingle();
+                            if (sec) {
+                                sectionId = sec.id;
+                            } else {
+                                const { data: newSec } = await gcrDb.from('menu_sections').insert({ entity_id: eid, section_name: item.section, sort_order: 99 }).select('id').single();
+                                sectionId = newSec?.id || null;
+                            }
+                        }
+                        const { error } = await gcrDb.from('menu_items').insert({
+                            entity_id: eid,
+                            menu_section_id: sectionId,
+                            item_name: item.name,
+                            price: item.price || null,
+                            description: item.description || null,
+                            is_available: true,
+                            sort_order: 99,
+                        });
+                        if (error) results.errors.push(item.name + ': ' + error.message);
+                        else results.items_added++;
+                    }
+                }
+
+                if (args.specials && args.specials.length) {
+                    for (const s of args.specials) {
+                        const { error } = await gcrDb.from('specials').insert({
+                            entity_id: eid,
+                            title: s.name,
+                            description: s.description || null,
+                            discount_text: s.discount_text || null,
+                            days_of_week: s.days || null,
+                            start_time: s.start_time || null,
+                            end_time: s.end_time || null,
+                            is_active: true,
+                        });
+                        if (error) results.errors.push(s.name + ': ' + error.message);
+                        else results.specials_added++;
+                    }
+                }
+
+                // Also get the edit link so user can view it
+                const today = new Date().toISOString().split('T')[0];
+                const { data: link } = await gcrDb.from('update_links').select('token').eq('entity_id', eid).eq('link_date', today).maybeSingle();
+                const base = (process.env.LINKS_BASE_URL || 'https://cybercheck-links.vercel.app').replace(/\/$/, '');
+                if (link) results.edit_url = `${base}/menu-editor.html?token=${link.token}`;
+
+                return results;
             }
             case 'update_hours': {
                 const { entity_id, hours } = args;
