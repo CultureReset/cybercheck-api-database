@@ -5223,5 +5223,24 @@ router.delete('/daily-rotation/options/:id', adminRequired, async (req, res) => 
     res.json({ ok: true });
 });
 
+// ── Sales Leads ──────────────────────────────────────────────────────────────
+router.get('/sales-leads', adminRequired, async (req, res) => {
+    const { source, status } = req.query;
+    let q = supabase.from('sales_leads').select('*').order('created_at', { ascending: false }).limit(200);
+    if (source) q = q.ilike('source', '%' + source + '%');
+    if (status) q = q.eq('status', status);
+    const { data, error } = await q;
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data || []);
+});
+
+router.patch('/sales-leads/:id', adminRequired, async (req, res) => {
+    const { error } = await supabase.from('sales_leads')
+        .update({ ...req.body, updated_at: new Date().toISOString() })
+        .eq('id', req.params.id);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ ok: true });
+});
+
 module.exports = router;
 
