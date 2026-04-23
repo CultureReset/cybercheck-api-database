@@ -1,14 +1,12 @@
 /**
- * Trip-swipe tourist sign-up with email verification sent via Brevo
- * (same pipeline as booking confirmation emails, from info@cybercheckinc.com).
+ * Trip-swipe tourist sign-up with 6-digit email code verification via Brevo.
  *
- *   POST /api/tourist-auth/signup    { email, password }  → sends verification email
- *   GET  /api/tourist-auth/verify    ?token=&email=       → marks user confirmed, 302 to /auth?verified=1
- *   POST /api/tourist-auth/resend    { email }            → re-send verification
- *
- * User is created with email_confirm: false; only the verify endpoint flips it to true.
- * Sign-in flow (supabase.auth.signInWithPassword) is unchanged; Supabase blocks sign-in
- * until email_confirm is true when "Confirm email" is ON in Auth provider settings.
+ *   POST /api/tourist-auth/signup          { email, password } → sends 6-digit code by email
+ *   POST /api/tourist-auth/verify          { email, code }     → marks confirmed, returns JSON
+ *   POST /api/tourist-auth/resend          { email }           → re-send code by email
+ *   POST /api/tourist-auth/signin          { email, password } → Supabase session
+ *   POST /api/tourist-auth/forgot-password { email }           → reset link by email
+ *   POST /api/tourist-auth/reset-password  { email, token, password }
  */
 
 const express = require('express');
@@ -22,36 +20,29 @@ function admin() {
     return createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_KEY);
 }
 
-function makeToken() {
-    return crypto.randomBytes(24).toString('hex');
+function makeCode() {
+    return String(Math.floor(100000 + Math.random() * 900000));
 }
 
-function verifyUrl(token, email) {
-    const api = process.env.PUBLIC_API_URL || 'https://cybercheck-api-database.vercel.app';
-    return `${api}/api/tourist-auth/verify?token=${token}&email=${encodeURIComponent(email)}`;
-}
-
-function welcomeEmailHtml({ verifyHref }) {
+function codeEmailHtml({ code }) {
     return `<!DOCTYPE html>
 <html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
 <body style="margin:0;padding:0;background:#f4f6f8;font-family:Arial,sans-serif;">
   <table width="100%" cellpadding="0" cellspacing="0" style="background:#f4f6f8;padding:32px 16px;"><tr><td align="center">
-    <table width="100%" style="max-width:560px;background:#ffffff;border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.08);">
+    <table width="100%" style="max-width:520px;background:#ffffff;border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.08);">
       <tr><td style="background:linear-gradient(135deg,#0ea5e9,#7c6af7);padding:40px 32px 32px;text-align:center;">
-        <h1 style="margin:0;color:#fff;font-size:26px;">🌊 Welcome to Gulf Coast Radar</h1>
-        <p style="margin:10px 0 0;color:#e0f2fe;font-size:15px;">Swipe your way to the perfect Gulf Coast trip</p>
+        <h1 style="margin:0;color:#fff;font-size:26px;">🌊 Gulf Coast Radar</h1>
+        <p style="margin:10px 0 0;color:#e0f2fe;font-size:15px;">Your verification code</p>
       </td></tr>
-      <tr><td style="padding:36px 32px;">
-        <p style="margin:0 0 18px;color:#374151;font-size:15px;">Thanks for signing up!</p>
-        <p style="margin:0 0 28px;color:#374151;font-size:15px;">One quick step — confirm your email so we can save your trip across devices:</p>
-        <div style="text-align:center;margin:24px 0 32px;">
-          <a href="${verifyHref}" style="display:inline-block;background:#0ea5e9;color:#ffffff;text-decoration:none;font-size:16px;font-weight:700;padding:14px 36px;border-radius:10px;">Confirm my email →</a>
+      <tr><td style="padding:40px 32px;text-align:center;">
+        <p style="margin:0 0 24px;color:#374151;font-size:15px;">Enter this code on the site to confirm your account:</p>
+        <div style="display:inline-block;background:#f0f9ff;border:2px solid #0ea5e9;border-radius:14px;padding:20px 36px;margin-bottom:28px;">
+          <span style="font-size:48px;font-weight:800;letter-spacing:14px;color:#0c4a6e;font-family:monospace;">${code}</span>
         </div>
-        <p style="margin:0;color:#6b7280;font-size:13px;">Link expires in 24 hours. If the button doesn't work, paste this into your browser:</p>
-        <p style="margin:6px 0 0;color:#0ea5e9;font-size:12px;word-break:break-all;">${verifyHref}</p>
+        <p style="margin:0;color:#6b7280;font-size:13px;">This code expires in 24 hours. If you didn't sign up, ignore this email.</p>
       </td></tr>
-      <tr><td style="background:#f9fafb;padding:20px 32px;text-align:center;border-top:1px solid #e5e7eb;">
-        <p style="margin:0;color:#9ca3af;font-size:12px;">You received this because someone (hopefully you) signed up at Gulf Coast Radar.</p>
+      <tr><td style="background:#f9fafb;padding:16px 32px;text-align:center;border-top:1px solid #e5e7eb;">
+        <p style="margin:0;color:#9ca3af;font-size:12px;">Gulf Coast Radar — Swipe your way to the perfect Gulf Coast trip</p>
       </td></tr>
     </table>
   </td></tr></table>
@@ -68,73 +59,69 @@ router.post('/signup', async (req, res) => {
     if (password.length < 6) return res.status(400).json({ error: 'Password must be at least 6 characters' });
 
     const sb = admin();
-    const token = makeToken();
+    const code = makeCode();
     const expiresAt = new Date(Date.now() + 24 * 3600 * 1000).toISOString();
 
-    // Does user already exist?
     const { data: list } = await sb.auth.admin.listUsers({ perPage: 1000 });
     const existing = list?.users?.find(u => (u.email || '').toLowerCase() === email);
 
     if (existing) {
         if (existing.email_confirmed_at) return res.status(409).json({ error: 'Email already registered. Try signing in instead.' });
-        // Existing but unconfirmed — update password + new token, re-send email
         await sb.auth.admin.updateUserById(existing.id, {
             password,
-            user_metadata: { ...(existing.user_metadata || {}), verification_token: token, verification_expires_at: expiresAt },
+            user_metadata: { ...(existing.user_metadata || {}), verification_code: code, verification_expires_at: expiresAt },
         });
     } else {
         const { error } = await sb.auth.admin.createUser({
             email, password,
             email_confirm: false,
-            user_metadata: { verification_token: token, verification_expires_at: expiresAt },
+            user_metadata: { verification_code: code, verification_expires_at: expiresAt },
         });
         if (error) return res.status(500).json({ error: error.message });
     }
 
-    const verifyHref = verifyUrl(token, email);
     const send = await sendEmail({
         to: email,
-        subject: '🌊 Confirm your Gulf Coast Radar account',
-        html: welcomeEmailHtml({ verifyHref }),
+        subject: '🌊 Your Gulf Coast Radar verification code',
+        html: codeEmailHtml({ code }),
     });
-    if (!send.success) return res.status(500).json({ error: 'Failed to send confirmation email: ' + (send.reason || 'unknown') });
+    if (!send.success) return res.status(500).json({ error: 'Failed to send verification email: ' + (send.reason || 'unknown') });
 
-    res.json({ success: true, message: 'Verification email sent. Check your inbox.' });
+    res.json({ success: true, message: 'Verification code sent — check your inbox.' });
 });
 
 // ─────────────────────────────────────────────────────────────────────────────
-// GET /verify — user clicks email link
+// POST /verify — { email, code } → JSON response (no redirect)
 // ─────────────────────────────────────────────────────────────────────────────
-router.get('/verify', async (req, res) => {
-    const token = req.query.token || '';
-    const email = (req.query.email || '').toLowerCase();
-    const appUrl = process.env.TRIP_SWIPE_URL || 'https://trip-swipe.vercel.app';
-
-    if (!token || !email) return res.redirect(`${appUrl}/auth?verified=0&reason=bad_link`);
+router.post('/verify', async (req, res) => {
+    const code  = (req.body?.code  || '').trim();
+    const email = (req.body?.email || '').trim().toLowerCase();
+    if (!code || !email) return res.status(400).json({ error: 'Email and code required' });
 
     const sb = admin();
     const { data: list } = await sb.auth.admin.listUsers({ perPage: 1000 });
     const user = list?.users?.find(u => (u.email || '').toLowerCase() === email);
-    if (!user) return res.redirect(`${appUrl}/auth?verified=0&reason=no_user`);
+    if (!user) return res.status(400).json({ error: 'No account found for that email' });
+
+    if (user.email_confirmed_at) return res.json({ success: true });
 
     const stored = user.user_metadata || {};
-    if (stored.verification_token !== token) return res.redirect(`${appUrl}/auth?verified=0&reason=bad_token`);
+    if (stored.verification_code !== code) return res.status(400).json({ error: 'Incorrect code — check and try again' });
     if (stored.verification_expires_at && new Date(stored.verification_expires_at) < new Date()) {
-        return res.redirect(`${appUrl}/auth?verified=0&reason=expired`);
+        return res.status(400).json({ error: 'Code expired — tap Resend for a new one' });
     }
 
-    // Mark confirmed + clear token
     const { error } = await sb.auth.admin.updateUserById(user.id, {
         email_confirm: true,
-        user_metadata: { ...stored, verification_token: null, verification_expires_at: null, verified_at: new Date().toISOString() },
+        user_metadata: { ...stored, verification_code: null, verification_expires_at: null, verified_at: new Date().toISOString() },
     });
-    if (error) return res.redirect(`${appUrl}/auth?verified=0&reason=update_failed`);
+    if (error) return res.status(500).json({ error: error.message });
 
-    res.redirect(`${appUrl}/auth?verified=1`);
+    res.json({ success: true });
 });
 
 // ─────────────────────────────────────────────────────────────────────────────
-// POST /signin — email + password → Supabase session (access + refresh tokens)
+// POST /signin
 // ─────────────────────────────────────────────────────────────────────────────
 router.post('/signin', async (req, res) => {
     const email = (req.body?.email || '').trim().toLowerCase();
@@ -158,8 +145,7 @@ router.post('/signin', async (req, res) => {
             const msg = /confirm/i.test(text)
                 ? 'Please confirm your email before signing in — check your inbox.'
                 : 'Invalid email or password';
-            console.error('signin supabase error:', r.status, JSON.stringify(d));
-            return res.status(401).json({ error: msg, _debug: { status: r.status, supabase: d, urlHost: (process.env.SUPABASE_URL || '').replace(/https?:\/\//, '').split('.')[0] } });
+            return res.status(401).json({ error: msg });
         }
         res.json({
             session: {
@@ -170,7 +156,6 @@ router.post('/signin', async (req, res) => {
             user: { id: d.user?.id, email: d.user?.email, role: 'tourist' },
         });
     } catch (err) {
-        console.error('signin error:', err);
         res.status(500).json({ error: 'Signin failed: ' + err.message });
     }
 });
@@ -188,25 +173,24 @@ router.post('/resend', async (req, res) => {
     if (!user) return res.status(404).json({ error: 'No account with that email' });
     if (user.email_confirmed_at) return res.json({ success: true, message: 'Already confirmed — try signing in.' });
 
-    const token = makeToken();
+    const code = makeCode();
     const expiresAt = new Date(Date.now() + 24 * 3600 * 1000).toISOString();
     await sb.auth.admin.updateUserById(user.id, {
-        user_metadata: { ...(user.user_metadata || {}), verification_token: token, verification_expires_at: expiresAt },
+        user_metadata: { ...(user.user_metadata || {}), verification_code: code, verification_expires_at: expiresAt },
     });
 
-    const verifyHref = verifyUrl(token, email);
     const send = await sendEmail({
         to: email,
-        subject: '🌊 Confirm your Gulf Coast Radar account',
-        html: welcomeEmailHtml({ verifyHref }),
+        subject: '🌊 Your new Gulf Coast Radar verification code',
+        html: codeEmailHtml({ code }),
     });
     if (!send.success) return res.status(500).json({ error: 'Failed to send email' });
 
-    res.json({ success: true, message: 'Verification email re-sent.' });
+    res.json({ success: true, message: 'New code sent — check your inbox.' });
 });
 
 // ─────────────────────────────────────────────────────────────────────────────
-// POST /forgot-password — send reset link via Brevo
+// POST /forgot-password
 // ─────────────────────────────────────────────────────────────────────────────
 router.post('/forgot-password', async (req, res) => {
     const email = (req.body?.email || '').trim().toLowerCase();
@@ -215,10 +199,9 @@ router.post('/forgot-password', async (req, res) => {
     const sb = admin();
     const { data: list } = await sb.auth.admin.listUsers({ perPage: 1000 });
     const user = list?.users?.find(u => (u.email || '').toLowerCase() === email);
-    // Always return success to avoid email-enumeration leaks
     if (!user) return res.json({ success: true, message: 'If that email is registered, a reset link was sent.' });
 
-    const token = makeToken();
+    const token = crypto.randomBytes(24).toString('hex');
     const expiresAt = new Date(Date.now() + 1 * 3600 * 1000).toISOString();
     await sb.auth.admin.updateUserById(user.id, {
         user_metadata: { ...(user.user_metadata || {}), reset_token: token, reset_expires_at: expiresAt },
@@ -229,7 +212,7 @@ router.post('/forgot-password', async (req, res) => {
     const html = `<!DOCTYPE html><html><head><meta charset="UTF-8"></head>
 <body style="margin:0;padding:0;background:#f4f6f8;font-family:Arial,sans-serif;">
   <table width="100%" cellpadding="0" cellspacing="0" style="background:#f4f6f8;padding:32px 16px;"><tr><td align="center">
-    <table width="100%" style="max-width:560px;background:#fff;border-radius:16px;overflow:hidden;">
+    <table width="100%" style="max-width:520px;background:#fff;border-radius:16px;overflow:hidden;">
       <tr><td style="background:linear-gradient(135deg,#0ea5e9,#7c6af7);padding:36px 32px;text-align:center;">
         <h1 style="margin:0;color:#fff;font-size:24px;">🌊 Reset your password</h1>
       </td></tr>
@@ -248,7 +231,7 @@ router.post('/forgot-password', async (req, res) => {
 });
 
 // ─────────────────────────────────────────────────────────────────────────────
-// POST /reset-password — exchange token + new password
+// POST /reset-password
 // ─────────────────────────────────────────────────────────────────────────────
 router.post('/reset-password', async (req, res) => {
     const email = (req.body?.email || '').trim().toLowerCase();
