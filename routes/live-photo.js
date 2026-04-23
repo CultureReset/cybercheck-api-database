@@ -42,7 +42,7 @@ router.get('/', async (req, res) => {
 
 // POST /api/live-photo — upload a verified live photo
 router.post('/', upload.single('photo'), async (req, res) => {
-    const { site_id, table_qr_id, phone, dish_name, points_reward, timestamp } = req.body;
+    const { site_id, table_qr_id, phone, dish_name, points_reward, timestamp, send_review, business_name, review_delay_minutes } = req.body;
 
     if (!req.file)  return res.status(400).json({ error: 'Photo required' });
     if (!site_id)   return res.status(400).json({ error: 'site_id required' });
@@ -143,6 +143,28 @@ router.post('/', upload.single('photo'), async (req, res) => {
             }
         }
 
+        // ── Send review request via SMS ────────────────────────────
+        // Fire-and-forget after delay. The photo proves they were there —
+        // so this review is 100% verified before it's even written.
+        if (send_review === 'true' || send_review === true) {
+            const sid  = process.env.TWILIO_ACCOUNT_SID;
+            const tok  = process.env.TWILIO_AUTH_TOKEN;
+            const from = process.env.TWILIO_PHONE_NUMBER || process.env.TWILIO_FROM_NUMBER;
+            if (sid && tok && from) {
+                const delayMs = Math.max(0, parseInt(review_delay_minutes) || 0) * 60 * 1000;
+                const bizName = business_name || 'us';
+                const reviewUrl = `https://cybercheck-links.vercel.app/review.html?site=${site_id}&phone=${cleanPhone}${photoRecord?.id ? '&photo=' + photoRecord.id : ''}`;
+                const smsBody = `Thanks for dining with ${bizName}! 🙏\n\nYour photo is live on our menu. Mind leaving a quick review? It only takes 30 seconds and helps other visitors:\n\n${reviewUrl}`;
+
+                setTimeout(async () => {
+                    try {
+                        const twilio = require('twilio')(sid, tok);
+                        await twilio.messages.create({ body: smsBody, from, to: '+1' + cleanPhone });
+                    } catch(e) { console.error('review SMS error:', e.message); }
+                }, delayMs);
+            }
+        }
+
         res.json({
             ok: true,
             id: photoRecord?.id,
@@ -150,6 +172,7 @@ router.post('/', upload.single('photo'), async (req, res) => {
             status,
             ai_label: aiLabel,
             points_awarded: pts,
+            review_requested: !!(send_review === 'true' || send_review === true),
             message: status === 'approved'
                 ? 'Photo live on the menu listing!'
                 : 'Photo submitted — will be reviewed shortly.',
