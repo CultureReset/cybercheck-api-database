@@ -60,6 +60,17 @@ router.get('/me', touristAuth, async (req, res) => {
     });
 });
 
+// DELETE /api/tourist/seen — clear all seen slugs (reset swipe deck)
+router.delete('/seen', touristAuth, async (req, res) => {
+    const { data: profile } = await mainDb.from('tourist_profiles')
+        .select('answers').eq('user_id', req.touristId).maybeSingle();
+    const answers = { ...(profile?.answers || {}) }
+    delete answers.seen_slugs
+    await mainDb.from('tourist_profiles')
+        .upsert({ user_id: req.touristId, answers }, { onConflict: 'user_id' });
+    res.json({ ok: true });
+});
+
 // POST /api/tourist/seen — record swiped (seen) slugs so they don't reappear
 router.post('/seen', touristAuth, async (req, res) => {
     const { slugs } = req.body || {};
@@ -118,6 +129,11 @@ router.get('/profile', touristAuth, async (req, res) => {
 
 router.put('/profile', touristAuth, async (req, res) => {
     const b = req.body || {};
+    // Fetch existing answers so we never wipe seen_slugs or other stored data
+    const { data: existing } = await mainDb.from('tourist_profiles')
+        .select('answers').eq('user_id', req.touristId).maybeSingle();
+    const existingAnswers = (existing?.answers && typeof existing.answers === 'object') ? existing.answers : {};
+    const incomingAnswers = (typeof b.answers === 'object' && b.answers) ? b.answers : {};
     const row = {
         user_id: req.touristId,
         name: b.name || null,
@@ -131,7 +147,7 @@ router.put('/profile', touristAuth, async (req, res) => {
         stay_status: b.stay_status || null,
         hotel_name: b.hotel_name || null,
         setup_complete: !!b.setup_complete,
-        answers: typeof b.answers === 'object' && b.answers ? b.answers : {},
+        answers: { ...existingAnswers, ...incomingAnswers },
     };
     const { data, error } = await mainDb.from('tourist_profiles')
         .upsert(row, { onConflict: 'user_id' })
