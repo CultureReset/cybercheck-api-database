@@ -60,6 +60,22 @@ router.get('/me', touristAuth, async (req, res) => {
     });
 });
 
+// POST /api/tourist/seen — record swiped (seen) slugs so they don't reappear
+router.post('/seen', touristAuth, async (req, res) => {
+    const { slugs } = req.body || {};
+    if (!Array.isArray(slugs) || slugs.length === 0) return res.status(400).json({ error: 'slugs required' });
+    const { data: profile } = await mainDb.from('tourist_profiles')
+        .select('answers').eq('user_id', req.touristId).maybeSingle();
+    const existing = profile?.answers?.seen_slugs || [];
+    const merged = [...new Set([...existing, ...slugs])];
+    await mainDb.from('tourist_profiles')
+        .upsert(
+            { user_id: req.touristId, answers: { ...(profile?.answers || {}), seen_slugs: merged } },
+            { onConflict: 'user_id' }
+        );
+    res.json({ ok: true, count: merged.length });
+});
+
 router.get('/saves', touristAuth, async (req, res) => {
     const { data, error } = await mainDb.from('tourist_saves')
         .select('*').eq('user_id', req.touristId).order('saved_at', { ascending: false });
