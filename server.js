@@ -124,6 +124,9 @@ app.use('/update',     updateLinkRouter);   // public: /:token serves the mobile
 // QR Code Tracking — universal numbered scan tracking (tables, cards, ads, stickers)
 app.use('/api/qr', require('./routes/qr'));
 
+// Verified Live Food Photos — standalone module, no auth required
+app.use('/api/live-photo', require('./routes/live-photo'));
+
 // Trip Swipe — tourist saves/profile/itinerary (uses Supabase JWT from trip-swipe frontend)
 app.use('/api/tourist', require('./routes/tourist'));
 
