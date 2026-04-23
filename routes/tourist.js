@@ -236,7 +236,7 @@ router.post('/build-itinerary', touristAuth, async (req, res) => {
     const gcr = createClient(process.env.GCR_SUPABASE_URL || process.env.SUPABASE_URL, process.env.GCR_SUPABASE_KEY || process.env.SUPABASE_SERVICE_KEY);
     const slugs = saves.map(s => s.entity_slug).filter(Boolean).slice(0, 20);
     const { data: entities } = slugs.length
-        ? await gcr.from('entity').select('id,name,slug,subtitle,entity_type,entity_subtype,tags,hh_days,hh_start,hh_end,address_line_1,city,state,latitude,longitude,price_range').in('slug', slugs)
+        ? await gcr.from('entity').select('id,name,slug,subtitle,entity_type,entity_subtype,tags,hh_days,hh_start,hh_end,address_line_1,city,state,latitude,longitude,price_range,hero_image_url,booking_url,website_url,phone').in('slug', slugs)
         : { data: [] };
 
     const days = profile?.trip_days || 3;
@@ -297,14 +297,22 @@ Return the JSON itinerary now.`;
             (d.slots || []).forEach(slot => {
                 const ent = bySlug[slot.entity_slug];
                 const save = slugToSave[slot.entity_slug];
+                const address = ent
+                    ? [ent.address_line_1, ent.city, ent.state].filter(Boolean).join(', ')
+                    : null;
                 slot.business = ent ? {
                     id: ent.id, slug: ent.slug, name: ent.name,
-                    subtitle: ent.subtitle, hero_image_url: save?.hero_image_url || null,
-                    rating: save?.rating, price_range: ent.price_range,
+                    subtitle: ent.subtitle,
+                    hero_image_url: ent.hero_image_url || save?.hero_image_url || null,
+                    rating: save?.rating || null,
+                    price_range: ent.price_range || null,
+                    booking_url: ent.booking_url || ent.website_url || null,
+                    address,
                 } : save ? {
                     id: save.entity_id, slug: save.entity_slug, name: save.business_name,
                     subtitle: save.subtitle, hero_image_url: save.hero_image_url,
                     rating: save.rating, price_range: save.price_range,
+                    booking_url: null, address: null,
                 } : { slug: slot.entity_slug, name: slot.entity_slug };
                 slot.note = slot.why || slot.note || '';
             });
