@@ -578,7 +578,9 @@ router.post('/menu-items', async (req, res) => {
         try { return res.status(201).json(await menuGcr.createMenuItem(entityId, req.body)); }
         catch (err) { return res.status(500).json({ error: err.message }); }
     }
-    const item = { ...req.body, site_id: req.siteId };
+    const siteId = req.siteId || req.body.site_id;
+    if (!siteId) return res.status(400).json({ error: 'site_id required' });
+    const item = { ...req.body, site_id: siteId };
     delete item.id;
     const { data, error } = await supabase.from('menu_items').insert(item).select().single();
     if (error) return res.status(500).json({ error: error.message });
