@@ -263,4 +263,175 @@ router.post('/capture/:code', async (req, res) => {
     res.json({ success: true, message: 'Lead captured' });
 });
 
+// ═══════════════════════════════════════════════════════════════
+// REFERRAL PARTNER SYSTEM
+// Rental companies, Airbnbs, hotels get a QR magnet.
+// Every tourist who scans and signs up is attributed to them.
+// ═══════════════════════════════════════════════════════════════
+
+const gcrDb = require('../gcr-db');
+
+// GET /api/qr/partners — list all referral partners
+router.get('/partners', async (req, res) => {
+    const { data, error } = await gcrDb.from('referral_partners')
+        .select('*').order('total_signups', { ascending: false });
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data || []);
+});
+
+// POST /api/qr/partners — create a new referral partner + generate their QR code
+router.post('/partners', async (req, res) => {
+    const { name, email, phone, type = 'rental', referral_rate = 0.05, incentive_text } = req.body;
+    if (!name) return res.status(400).json({ error: 'name required' });
+
+    // Generate unique QR code for this partner
+    const qrCode = 'ref-' + makeCode(8);
+
+    const { data, error } = await gcrDb.from('referral_partners').insert({
+        name, email, phone, type, qr_code: qrCode,
+        referral_rate: parseFloat(referral_rate) || 0.05,
+        incentive_text: incentive_text || 'Welcome to the Gulf Coast! Get $10 off your first activity booking.',
+    }).select().single();
+
+    if (error) return res.status(500).json({ error: error.message });
+
+    // Also register the QR code in the main qr_codes table so it tracks scans
+    await supabase.from('qr_codes').insert({
+        code: qrCode, type: 'referral', label: name,
+        location: type, active: true,
+        metadata: { partner_id: data.id, partner_type: type, partner_name: name },
+        scan_url: `https://cybercheck-links.vercel.app/q.html?c=${qrCode}`,
+    }).catch(() => {});
+
+    res.status(201).json(data);
+});
+
+// PUT /api/qr/partners/:id — update partner
+router.put('/partners/:id', async (req, res) => {
+    const { error } = await gcrDb.from('referral_partners')
+        .update(req.body).eq('id', req.params.id);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ ok: true });
+});
+
+// GET /api/qr/partners/:id/stats — detailed stats for one partner
+router.get('/partners/:id/stats', async (req, res) => {
+    const { id } = req.params;
+    const [partnerRes, eventsRes] = await Promise.all([
+        gcrDb.from('referral_partners').select('*').eq('id', id).single(),
+        gcrDb.from('referral_events').select('*').eq('partner_id', id)
+            .order('created_at', { ascending: false }).limit(100),
+    ]);
+    if (partnerRes.error) return res.status(404).json({ error: 'Partner not found' });
+
+    const events = eventsRes.data || [];
+    const signups = events.filter(e => e.event_type === 'signup').length;
+    const bookings = events.filter(e => e.event_type === 'booking');
+    const totalEarned = bookings.reduce((n, e) => n + (parseFloat(e.commission) || 0), 0);
+
+    // Last 30 days breakdown
+    const thirtyAgo = new Date(Date.now() - 30 * 24 * 3600 * 1000).toISOString();
+    const recentEvents = events.filter(e => e.created_at > thirtyAgo);
+
+    res.json({
+        partner: partnerRes.data,
+        stats: {
+            total_signups: signups,
+            total_bookings: bookings.length,
+            total_earned: totalEarned,
+            last_30_days: {
+                signups: recentEvents.filter(e => e.event_type === 'signup').length,
+                bookings: recentEvents.filter(e => e.event_type === 'booking').length,
+                earned: recentEvents.filter(e => e.event_type === 'booking')
+                    .reduce((n, e) => n + (parseFloat(e.commission) || 0), 0),
+            },
+        },
+        recent_events: events.slice(0, 20),
+    });
+});
+
+// POST /api/qr/referral/scan — called when tourist scans a referral QR
+// Records the scan and returns the incentive + destination
+router.post('/referral/scan', async (req, res) => {
+    const { qr_code, tourist_id, device_type } = req.body;
+    if (!qr_code) return res.status(400).json({ error: 'qr_code required' });
+
+    const { data: partner } = await gcrDb.from('referral_partners')
+        .select('*').eq('qr_code', qr_code).eq('active', true).maybeSingle();
+
+    if (!partner) return res.status(404).json({ error: 'QR not found' });
+
+    // Log the scan event
+    await gcrDb.from('referral_events').insert({
+        partner_id: partner.id, qr_code,
+        tourist_id: tourist_id || null,
+        event_type: 'scan',
+        metadata: { device_type: device_type || 'unknown' },
+    }).catch(() => {});
+
+    res.json({
+        partner_name: partner.name,
+        partner_type: partner.type,
+        incentive: partner.incentive_text,
+        redirect_url: `https://cybercheck-links.vercel.app/?ref=${qr_code}`,
+    });
+});
+
+// POST /api/qr/referral/attribute — called when a tourist signs up via a referral QR
+router.post('/referral/attribute', async (req, res) => {
+    const { qr_code, tourist_id, event_type = 'signup', amount = 0 } = req.body;
+    if (!qr_code || !tourist_id) return res.status(400).json({ error: 'qr_code and tourist_id required' });
+
+    const { data: partner } = await gcrDb.from('referral_partners')
+        .select('*').eq('qr_code', qr_code).maybeSingle();
+    if (!partner) return res.status(404).json({ error: 'Partner not found' });
+
+    const commission = parseFloat(amount) * (parseFloat(partner.referral_rate) || 0.05);
+
+    await gcrDb.from('referral_events').insert({
+        partner_id: partner.id, qr_code, tourist_id,
+        event_type, amount: parseFloat(amount) || 0, commission,
+    });
+
+    // Update partner totals
+    const updates = {};
+    if (event_type === 'signup') updates.total_signups = (partner.total_signups || 0) + 1;
+    if (event_type === 'booking') {
+        updates.total_bookings = (partner.total_bookings || 0) + 1;
+        updates.total_earned = parseFloat(partner.total_earned || 0) + commission;
+    }
+    if (Object.keys(updates).length) {
+        await gcrDb.from('referral_partners').update(updates).eq('id', partner.id);
+    }
+
+    res.json({ ok: true, commission, partner_name: partner.name });
+});
+
+// GET /api/qr/partner-portal/:qr_code — public endpoint for partner self-service portal
+router.get('/partner-portal/:qr_code', async (req, res) => {
+    const { data: partner } = await gcrDb.from('referral_partners')
+        .select('id,name,type,total_signups,total_bookings,total_earned,total_paid,created_at')
+        .eq('qr_code', req.params.qr_code).eq('active', true).maybeSingle();
+    if (!partner) return res.status(404).json({ error: 'Partner not found' });
+
+    const { data: events } = await gcrDb.from('referral_events')
+        .select('event_type,amount,commission,created_at')
+        .eq('partner_id', partner.id)
+        .order('created_at', { ascending: false }).limit(50);
+
+    const thirtyAgo = new Date(Date.now() - 30 * 24 * 3600 * 1000).toISOString();
+    const recent = (events || []).filter(e => e.created_at > thirtyAgo);
+
+    res.json({
+        partner,
+        this_month: {
+            signups: recent.filter(e => e.event_type === 'signup').length,
+            bookings: recent.filter(e => e.event_type === 'booking').length,
+            earned: recent.filter(e => e.event_type === 'booking')
+                .reduce((n, e) => n + (parseFloat(e.commission) || 0), 0).toFixed(2),
+        },
+        recent_activity: (events || []).slice(0, 20),
+    });
+});
+
 module.exports = router;
