@@ -376,6 +376,10 @@ router.post('/search', async (req, res) => {
     const entityIdList = (entities || []).map(e => e.id);
     let menuMatchMap = {}, drinkMatchMap = {}, hhMatchMap = {}, specialMatchMap = {}, eventMatchMap = {};
 
+    // Require a real description on menu/drink/HH items — filters out tag-like rows
+    // where item_name is just a keyword with no real item info
+    const hasRealDescription = (item) => ((item.description || '').trim().length > 0);
+
     if (entityIdList.length) {
         const [menuMatches, drinkMatches, hhMatches, specialMatches, eventMatches] = await Promise.all([
             gcrDb.from('menu_items').select('entity_id, item_name, description, price, price_text')
@@ -389,9 +393,9 @@ router.post('/search', async (req, res) => {
             gcrDb.from('entity_events').select('entity_id, event_name, event_date, day_of_week').eq('is_active', true)
                 .or(`event_name.ilike.%${q}%,description.ilike.%${q}%`).in('entity_id', entityIdList),
         ]);
-        (menuMatches.data || []).forEach(m => { if (!menuMatchMap[m.entity_id]) menuMatchMap[m.entity_id] = []; menuMatchMap[m.entity_id].push({ ...m, _type: 'menu' }); });
-        (drinkMatches.data || []).forEach(m => { if (!drinkMatchMap[m.entity_id]) drinkMatchMap[m.entity_id] = []; drinkMatchMap[m.entity_id].push({ ...m, _type: 'drink' }); });
-        (hhMatches.data || []).forEach(m => { if (!hhMatchMap[m.entity_id]) hhMatchMap[m.entity_id] = []; hhMatchMap[m.entity_id].push({ ...m, _type: 'happy_hour' }); });
+        (menuMatches.data || []).filter(hasRealDescription).forEach(m => { if (!menuMatchMap[m.entity_id]) menuMatchMap[m.entity_id] = []; menuMatchMap[m.entity_id].push({ ...m, _type: 'menu' }); });
+        (drinkMatches.data || []).filter(hasRealDescription).forEach(m => { if (!drinkMatchMap[m.entity_id]) drinkMatchMap[m.entity_id] = []; drinkMatchMap[m.entity_id].push({ ...m, _type: 'drink' }); });
+        (hhMatches.data || []).filter(hasRealDescription).forEach(m => { if (!hhMatchMap[m.entity_id]) hhMatchMap[m.entity_id] = []; hhMatchMap[m.entity_id].push({ ...m, _type: 'happy_hour' }); });
         (specialMatches.data || []).forEach(s => { if (!specialMatchMap[s.entity_id]) specialMatchMap[s.entity_id] = []; specialMatchMap[s.entity_id].push(s); });
         (eventMatches.data || []).forEach(e => { if (!eventMatchMap[e.entity_id]) eventMatchMap[e.entity_id] = []; eventMatchMap[e.entity_id].push(e); });
     }
@@ -416,9 +420,15 @@ router.post('/search', async (req, res) => {
     // Build results — sort by entity relevance score, then rating
     const results = (entities || []).map(e => {
         const menuItems = sortItems([...(menuMatchMap[e.id] || []), ...(drinkMatchMap[e.id] || []), ...(hhMatchMap[e.id] || [])], q);
+        const specials  = sortItems(specialMatchMap[e.id] || [], q);
+        const events    = eventMatchMap[e.id] || [];
         const nameScore = scoreItem(e.name, e.subtitle, q);
         const itemScore = menuItems.length > 0 ? scoreItem(menuItems[0].item_name, menuItems[0].description, q) : 0;
         const relevance = Math.max(nameScore, itemScore) + (e.rating || 0);
+        // Drop entity if nothing real matched — name/subtitle didn't match AND
+        // no menu/drink/HH item with description AND no specials AND no events
+        const hasRealMatch = nameScore > 0 || menuItems.length > 0 || specials.length > 0 || events.length > 0;
+        if (!hasRealMatch) return null;
         return {
             ...e,
             site_id: e.id, subdomain: e.slug, emoji: e.icon,
@@ -426,11 +436,11 @@ router.post('/search', async (req, res) => {
             cover_url: e.hero_image_url, tagline: e.subtitle,
             photos: photosMap[e.id] || [],
             matched_menu_items: menuItems,
-            matched_specials:   sortItems(specialMatchMap[e.id] || [], q),
-            matched_events:     eventMatchMap[e.id] || [],
+            matched_specials:   specials,
+            matched_events:     events,
             _relevance: relevance,
         };
-    }).sort((a, b) => b._relevance - a._relevance);
+    }).filter(Boolean).sort((a, b) => b._relevance - a._relevance);
 
     // Build structured response grouped by type — for voice search and AI concierge
     const structured = {
@@ -1968,6 +1978,78 @@ router.post('/lead-notify', async (req, res) => {
 
     await Promise.allSettled(jobs);
     res.json({ ok: true });
+});
+
+// ============================================
+// POST /api/gcr/nfc-card-lead — save NFC card form submission to sales_leads + SMS/email
+// Body: { name, phone, email, business_name, business_type, source }
+// ============================================
+router.post('/nfc-card-lead', async (req, res) => {
+    const { sendSms }   = require('../utils/sms');
+    const { sendEmail } = require('../utils/email');
+
+    const OWNER_PHONE = '+12058104950';
+    const OWNER_EMAIL = 'info@cybercheckinc.com';
+
+    const { name, phone, email, business_name, business_type, source } = req.body || {};
+
+    if (!name || !phone) {
+        return res.status(400).json({ error: 'name and phone are required' });
+    }
+
+    const supabase = require('../db');
+
+    // Insert into sales_leads table
+    const { data: leadData, error: leadError } = await supabase
+        .from('sales_leads')
+        .insert({
+            name,
+            phone,
+            email: email || null,
+            business_name: business_name || null,
+            business_type: business_type || null,
+            source: source || 'nfc-card',
+            status: 'new',
+            sms_consent: true
+        })
+        .select('id')
+        .single();
+
+    if (leadError) {
+        console.error('sales_leads insert error:', leadError);
+        return res.status(500).json({ error: 'Failed to save lead' });
+    }
+
+    const jobs = [];
+    const firstName = (name || '').split(' ')[0] || null;
+
+    // SMS to owner
+    const ownerMsg = [
+        'NFC card lead!', name, business_name || '', phone, email || '',
+        business_type ? `Note: ${business_type}` : '',
+        `Source: ${source || 'nfc-card'}`
+    ].filter(Boolean).join(' | ');
+    jobs.push(sendSms(OWNER_PHONE, ownerMsg, null, 'nfc_card_lead', null)
+        .catch(e => console.error('NFC card SMS error:', e.message)));
+
+    // Email to owner
+    const esc = s => String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    const r   = (label, val) => val ? `<tr><td style="padding:7px 10px;background:#f1f5f9;font-weight:600;width:130px;">${label}</td><td style="padding:7px 10px;border-bottom:1px solid #e2e8f0;">${esc(val)}</td></tr>` : '';
+
+    jobs.push(sendEmail({
+        to: OWNER_EMAIL,
+        subject: `NFC Card Lead: ${name}`,
+        html: `<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;">
+          <h2 style="color:#0077b6;">New NFC Card Lead</h2>
+          <table style="width:100%;border-collapse:collapse;margin-top:16px;">
+            ${r('Name', name)}${r('Phone', phone)}${r('Email', email)}
+            ${r('Business', business_name)}${r('Note', business_type)}
+          </table>
+        </div>`
+    }).catch(e => console.error('NFC card email error:', e.message)));
+
+    await Promise.allSettled(jobs);
+    res.json({ ok: true, leadId: leadData?.id });
 });
 
 // ============================================
