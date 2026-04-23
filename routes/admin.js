@@ -5531,5 +5531,51 @@ router.post('/businesses/link-gcr-all', adminRequired, async (req, res) => {
     res.json({ ok: true, linked, created, skipped });
 });
 
+// GET /api/admin/run-migrations — creates missing tables using service key
+// Hit this once to fix ai_settings and business_embeddings tables
+router.get('/run-migrations', adminRequired, async (req, res) => {
+    const results = [];
+    const queries = [
+        {
+            name: 'ai_settings',
+            sql: `CREATE TABLE IF NOT EXISTS ai_settings (
+                id INTEGER PRIMARY KEY DEFAULT 1,
+                chat_provider TEXT DEFAULT 'anthropic',
+                chat_model TEXT DEFAULT 'claude-sonnet-4-6',
+                chat_api_key TEXT, embed_provider TEXT DEFAULT 'openai',
+                embed_model TEXT DEFAULT 'text-embedding-3-small',
+                embed_api_key TEXT, embed_dimensions INTEGER DEFAULT 1536,
+                rag_enabled BOOLEAN DEFAULT false, voice_enabled BOOLEAN DEFAULT false,
+                system_prompt TEXT, api_key_anthropic TEXT, api_key_openai TEXT,
+                api_key_grok TEXT, updated_at TIMESTAMPTZ DEFAULT NOW()
+            ); INSERT INTO ai_settings (id) VALUES (1) ON CONFLICT (id) DO NOTHING;`
+        },
+        {
+            name: 'business_embeddings',
+            sql: `CREATE TABLE IF NOT EXISTS business_embeddings (
+                id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+                site_id UUID, entity_id UUID, content TEXT,
+                chunk_index INT DEFAULT 0, created_at TIMESTAMPTZ DEFAULT NOW()
+            );`
+        },
+    ];
+
+    for (const q of queries) {
+        try {
+            const { error } = await supabase.rpc('exec_sql', { sql: q.sql }).catch(() => ({ error: { message: 'rpc not available' } }));
+            if (error) {
+                // Try direct insert to verify table exists
+                const { error: chk } = await supabase.from(q.name).select('id').limit(1);
+                results.push({ table: q.name, status: chk ? 'needs manual creation' : 'already exists' });
+            } else {
+                results.push({ table: q.name, status: 'created' });
+            }
+        } catch(e) {
+            results.push({ table: q.name, status: 'error: ' + e.message });
+        }
+    }
+    res.json({ results, note: 'If status is "needs manual creation", run the SQL in your Supabase SQL editor' });
+});
+
 module.exports = router;
 
