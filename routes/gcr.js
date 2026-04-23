@@ -1232,11 +1232,30 @@ router.post('/ask', async (req, res) => {
             return res.status(503).json({ error: 'RAG is disabled' });
         }
 
+        // ── Pull Trip Swipe tourist data if JWT provided ──────────────────────
+        let touristProfile = null;
+        let touristSaves = [];
+        const authHeader = req.headers.authorization;
+        if (authHeader && authHeader.startsWith('Bearer ')) {
+            try {
+                const token = authHeader.split(' ')[1];
+                const { data: { user } } = await supabase.auth.getUser(token);
+                if (user) {
+                    const [profileRes, savesRes] = await Promise.all([
+                        supabase.from('tourist_profiles').select('*').eq('user_id', user.id).maybeSingle(),
+                        supabase.from('tourist_saves').select('entity_slug,business_name,category,price_range').eq('user_id', user.id).order('saved_at', { ascending: false }).limit(30),
+                    ]);
+                    touristProfile = profileRes.data;
+                    touristSaves = savesRes.data || [];
+                }
+            } catch(e) { /* no tourist context — answer without personalization */ }
+        }
+
         // Embed the question
         const queryVector = await embedText(question, settings);
 
         // Vector similarity search
-        const { data: chunks, error: vecErr } = await supabase.rpc('match_business_chunks', {
+        const { data: chunks, error: vecErr } = await gcrDb.rpc('match_business_chunks', {
             query_embedding: JSON.stringify(queryVector),
             match_count: limit,
             filter_slug: filterSlug || null,
@@ -1254,13 +1273,34 @@ router.post('/ask', async (req, res) => {
             });
         }
 
-        // Build context from top chunks
+        // Build business context from RAG chunks
         const context = chunks.map(c => c.content).join('\n\n---\n\n');
 
-        const systemPrompt = settings.system_prompt ||
-            'You are a friendly local guide for Gulf Coast Radar, the ultimate tourism directory for Orange Beach and Gulf Shores, Alabama. Answer questions using only the business information provided. Be specific, helpful, and enthusiastic.';
+        // Build personalization context from Trip Swipe data
+        let personalContext = '';
+        if (touristProfile || touristSaves.length) {
+            const parts = [];
+            if (touristProfile) {
+                if (touristProfile.name) parts.push(`Tourist name: ${touristProfile.name}`);
+                if (touristProfile.group_type) parts.push(`Traveling: ${touristProfile.group_type}`);
+                if (touristProfile.budget) parts.push(`Budget: ${touristProfile.budget}`);
+                if (touristProfile.interests?.length) parts.push(`Interests: ${touristProfile.interests.join(', ')}`);
+                if (touristProfile.arrival && touristProfile.departure) parts.push(`Trip: ${touristProfile.arrival} to ${touristProfile.departure}`);
+                if (touristProfile.hotel_name) parts.push(`Staying at: ${touristProfile.hotel_name}`);
+            }
+            if (touristSaves.length) {
+                const saved = touristSaves.map(s => s.business_name).join(', ');
+                parts.push(`Already saved/liked: ${saved}`);
+                parts.push(`(Do not recommend places they already saved unless directly relevant)`);
+            }
+            if (parts.length) personalContext = '\n\nTOURIST PROFILE:\n' + parts.join('\n');
+        }
 
-        const userMessage = `Here is information about local businesses:\n\n${context}\n\n---\n\nQuestion: ${question}\n\nAnswer based only on the information provided above. If the answer isn't in the provided information, say so.`;
+        const systemPrompt = (settings.system_prompt ||
+            'You are a friendly local guide for Gulf Coast Radar, the ultimate tourism directory for Orange Beach and Gulf Shores, Alabama.') +
+            '\nUse the tourist profile to personalize your answer — match their budget, group type, and interests. Avoid recommending places they already saved unless asked directly.';
+
+        const userMessage = `BUSINESS INFORMATION:\n${context}${personalContext}\n\n---\n\nQuestion: ${question}\n\nGive a personalized, specific recommendation based on both the business info and the tourist profile above.`;
 
         const answer = await chatCompletion(systemPrompt, userMessage, settings);
 
@@ -1270,7 +1310,7 @@ router.post('/ask', async (req, res) => {
             .filter(c => { if (seen.has(c.slug)) return false; seen.add(c.slug); return true; })
             .map(c => ({ name: c.business_name, slug: c.slug, relevance: Math.round(c.similarity * 100) / 100 }));
 
-        res.json({ answer, sources });
+        res.json({ answer, sources, personalized: !!(touristProfile || touristSaves.length) });
 
     } catch (err) {
         console.error('GCR /ask error:', err.message);
