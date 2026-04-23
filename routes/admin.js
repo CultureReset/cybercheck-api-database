@@ -4725,6 +4725,245 @@ const GCR_AGENT_TOOLS = [
             }
         }
     },
+    // ── Universal entity tools ─────────────────────────────────────────────────
+    {
+        type: 'function',
+        function: {
+            name: 'search_entity',
+            description: 'Search for any GCR entity/business by name. Returns matching entities with their IDs so you can then read or update them.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    name: { type: 'string', description: 'Business name to search for' },
+                },
+                required: ['name']
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'get_entity_full',
+            description: 'Get ALL data for any GCR entity by name or ID: profile, tags, features, menu items, drink items, events, specials, happy hour, images, sections.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    name: { type: 'string', description: 'Business name (fuzzy match)' },
+                    entity_id: { type: 'string', description: 'Entity UUID (use if known)' },
+                }
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'update_entity',
+            description: 'Update any field on any GCR entity by name or ID. Can update name, slug, subtitle, phone, address, city, state, zip, website_url, directions_url, booking_url, hero_image_url, icon, entity_subtype, rating, review_count, is_active, featured.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    name: { type: 'string', description: 'Business name to find (fuzzy)' },
+                    entity_id: { type: 'string', description: 'Entity UUID (use if known)' },
+                    fields: { type: 'object', description: 'Key/value pairs to update e.g. {"phone":"251-xxx","city":"Gulf Shores"}' },
+                },
+                required: ['fields']
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'delete_menu_item',
+            description: 'Delete a menu or drink item from any GCR entity by item name and business name.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    business_name: { type: 'string', description: 'Business name' },
+                    entity_id: { type: 'string', description: 'Entity UUID (use if known)' },
+                    item_name: { type: 'string', description: 'Name of the menu item to delete' },
+                    item_type: { type: 'string', enum: ['food', 'drink'], description: 'food or drink (default food)' },
+                },
+                required: ['item_name']
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'update_menu_item',
+            description: 'Update a menu or drink item on any GCR entity.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    business_name: { type: 'string', description: 'Business name' },
+                    entity_id: { type: 'string', description: 'Entity UUID' },
+                    item_name: { type: 'string', description: 'Current name of item to update' },
+                    item_type: { type: 'string', enum: ['food', 'drink'] },
+                    fields: { type: 'object', description: 'Fields to update: name, price, description, section_name' },
+                },
+                required: ['item_name', 'fields']
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'add_special',
+            description: 'Add a special/deal to any GCR entity.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    business_name: { type: 'string', description: 'Business name' },
+                    entity_id: { type: 'string', description: 'Entity UUID' },
+                    special_name: { type: 'string' },
+                    description: { type: 'string' },
+                    special_type: { type: 'string', description: 'e.g. happy_hour, daily, weekly' },
+                    discount_text: { type: 'string', description: 'e.g. $2 off drafts' },
+                    days: { type: 'string', description: 'e.g. Mon-Fri' },
+                    start_time: { type: 'string' },
+                    end_time: { type: 'string' },
+                },
+                required: ['special_name']
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'delete_event',
+            description: 'Delete an event from any GCR entity by event title and business name.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    business_name: { type: 'string', description: 'Business name' },
+                    entity_id: { type: 'string', description: 'Entity UUID' },
+                    event_title: { type: 'string', description: 'Title of the event to delete' },
+                },
+                required: ['event_title']
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'delete_special',
+            description: 'Delete a special from any GCR entity.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    business_name: { type: 'string', description: 'Business name' },
+                    entity_id: { type: 'string', description: 'Entity UUID' },
+                    special_name: { type: 'string', description: 'Name of the special to delete' },
+                },
+                required: ['special_name']
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'add_tag',
+            description: 'Add a tag to any GCR entity.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    business_name: { type: 'string', description: 'Business name' },
+                    entity_id: { type: 'string', description: 'Entity UUID' },
+                    tag: { type: 'string', description: 'Tag value e.g. happy_hour, nightlife, seafood' },
+                    tag_category: { type: 'string', description: 'Category e.g. cuisine, vibe, amenity' },
+                },
+                required: ['tag']
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'remove_tag',
+            description: 'Remove a tag from any GCR entity.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    business_name: { type: 'string', description: 'Business name' },
+                    entity_id: { type: 'string', description: 'Entity UUID' },
+                    tag: { type: 'string', description: 'Tag to remove' },
+                },
+                required: ['tag']
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'add_feature',
+            description: 'Add a feature bullet point to any GCR entity e.g. "Live music every Friday".',
+            parameters: {
+                type: 'object',
+                properties: {
+                    business_name: { type: 'string', description: 'Business name' },
+                    entity_id: { type: 'string', description: 'Entity UUID' },
+                    label: { type: 'string', description: 'Feature text' },
+                },
+                required: ['label']
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'remove_feature',
+            description: 'Remove a feature bullet from any GCR entity.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    business_name: { type: 'string', description: 'Business name' },
+                    entity_id: { type: 'string', description: 'Entity UUID' },
+                    label: { type: 'string', description: 'Feature text to remove (partial match ok)' },
+                },
+                required: ['label']
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'add_gallery_image',
+            description: 'Add an image URL to any GCR entity gallery section.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    business_name: { type: 'string', description: 'Business name' },
+                    entity_id: { type: 'string', description: 'Entity UUID' },
+                    image_url: { type: 'string', description: 'Public image URL' },
+                    caption: { type: 'string', description: 'Optional caption' },
+                },
+                required: ['image_url']
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'create_entity',
+            description: 'Create a brand new GCR entity/business from scratch.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    name: { type: 'string' },
+                    entity_subtype: { type: 'string', description: 'e.g. restaurant, bar, activity, hotel' },
+                    phone: { type: 'string' },
+                    address_line_1: { type: 'string' },
+                    city: { type: 'string' },
+                    state: { type: 'string' },
+                    website_url: { type: 'string' },
+                    hero_image_url: { type: 'string' },
+                    subtitle: { type: 'string' },
+                    description: { type: 'string' },
+                },
+                required: ['name']
+            }
+        }
+    },
 ];
 
 async function executeGCRTool(name, args, { gcrDb, entityId, mainDb }) {
@@ -4904,6 +5143,111 @@ async function executeGCRTool(name, args, { gcrDb, entityId, mainDb }) {
                         created_at: b.created_at,
                     }))
                 };
+            }
+            // ── GCR Entity Tools ──────────────────────────────
+            case 'search_entity': {
+                let q = gcrDb.from('entity').select('id,name,entity_type,entity_subtype,is_active,phone,address,city,hero_image_url,description,website');
+                if (args.query) q = q.ilike('name', `%${args.query}%`);
+                if (args.entity_type) q = q.eq('entity_type', args.entity_type);
+                if (args.city) q = q.ilike('city', `%${args.city}%`);
+                if (args.active_only) q = q.eq('is_active', true);
+                const { data, error } = await q.order('name').limit(args.limit || 20);
+                if (error) return { error: error.message };
+                return { count: (data || []).length, entities: data || [] };
+            }
+            case 'get_entity_full': {
+                const id = args.entity_id;
+                const [entRes, menuRes, drinkRes, evtRes, specRes, tagRes, featRes, imgRes] = await Promise.all([
+                    gcrDb.from('entity').select('*').eq('id', id).single(),
+                    gcrDb.from('menu_items').select('*').eq('entity_id', id),
+                    gcrDb.from('drink_items').select('*').eq('entity_id', id),
+                    gcrDb.from('events').select('*').eq('entity_id', id),
+                    gcrDb.from('specials').select('*').eq('entity_id', id),
+                    gcrDb.from('entity_tags').select('tag').eq('entity_id', id),
+                    gcrDb.from('entity_features').select('feature').eq('entity_id', id),
+                    gcrDb.from('entity_gallery').select('*').eq('entity_id', id),
+                ]);
+                if (entRes.error) return { error: entRes.error.message };
+                return {
+                    entity: entRes.data,
+                    menu_items: menuRes.data || [],
+                    drink_items: drinkRes.data || [],
+                    events: evtRes.data || [],
+                    specials: specRes.data || [],
+                    tags: (tagRes.data || []).map(t => t.tag),
+                    features: (featRes.data || []).map(f => f.feature),
+                    gallery: imgRes.data || [],
+                };
+            }
+            case 'update_entity': {
+                const { entity_id, fields } = args;
+                if (!entity_id || !fields || !Object.keys(fields).length) return { error: 'entity_id and fields required' };
+                const { data, error } = await gcrDb.from('entity').update(fields).eq('id', entity_id).select('id,name').single();
+                if (error) return { error: error.message };
+                return { updated: true, entity: data };
+            }
+            case 'delete_menu_item': {
+                const { error } = await gcrDb.from('menu_items').delete().eq('id', args.item_id);
+                if (error) return { error: error.message };
+                return { deleted: true, item_id: args.item_id };
+            }
+            case 'update_menu_item': {
+                const { item_id, fields } = args;
+                const { data, error } = await gcrDb.from('menu_items').update(fields).eq('id', item_id).select('id,name').single();
+                if (error) return { error: error.message };
+                return { updated: true, item: data };
+            }
+            case 'add_special': {
+                const { entity_id, title, description, discount_type, discount_value, start_date, end_date, days_of_week } = args;
+                const { data, error } = await gcrDb.from('specials').insert({ entity_id, title, description, discount_type, discount_value, start_date, end_date, days_of_week }).select('id,title').single();
+                if (error) return { error: error.message };
+                return { added: true, special: data };
+            }
+            case 'delete_event': {
+                const { error } = await gcrDb.from('events').delete().eq('id', args.event_id);
+                if (error) return { error: error.message };
+                return { deleted: true, event_id: args.event_id };
+            }
+            case 'delete_special': {
+                const { error } = await gcrDb.from('specials').delete().eq('id', args.special_id);
+                if (error) return { error: error.message };
+                return { deleted: true, special_id: args.special_id };
+            }
+            case 'add_tag': {
+                const { error } = await gcrDb.from('entity_tags').insert({ entity_id: args.entity_id, tag: args.tag });
+                if (error) return { error: error.message };
+                return { added: true, tag: args.tag };
+            }
+            case 'remove_tag': {
+                const { error } = await gcrDb.from('entity_tags').delete().eq('entity_id', args.entity_id).eq('tag', args.tag);
+                if (error) return { error: error.message };
+                return { removed: true, tag: args.tag };
+            }
+            case 'add_feature': {
+                const { error } = await gcrDb.from('entity_features').insert({ entity_id: args.entity_id, feature: args.feature });
+                if (error) return { error: error.message };
+                return { added: true, feature: args.feature };
+            }
+            case 'remove_feature': {
+                const { error } = await gcrDb.from('entity_features').delete().eq('entity_id', args.entity_id).eq('feature', args.feature);
+                if (error) return { error: error.message };
+                return { removed: true, feature: args.feature };
+            }
+            case 'add_gallery_image': {
+                const { entity_id, image_url, caption, is_primary } = args;
+                if (is_primary) await gcrDb.from('entity_gallery').update({ is_primary: false }).eq('entity_id', entity_id);
+                const { data, error } = await gcrDb.from('entity_gallery').insert({ entity_id, image_url, caption, is_primary: !!is_primary }).select('id').single();
+                if (error) return { error: error.message };
+                return { added: true, image_id: data.id };
+            }
+            case 'create_entity': {
+                const { name, entity_type, entity_subtype, address, city, state, zip, phone, website, description, hero_image_url } = args;
+                if (!name || !entity_type) return { error: 'name and entity_type required' };
+                const { data, error } = await gcrDb.from('entity').insert({
+                    name, entity_type, entity_subtype, address, city, state: state || 'AL', zip, phone, website, description, hero_image_url, is_active: false
+                }).select('id,name').single();
+                if (error) return { error: error.message };
+                return { created: true, entity: data };
             }
             // ── Main CyberCheck DB tools ──────────────────────
             case 'get_website_analytics': {
