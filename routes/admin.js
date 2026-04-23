@@ -4607,6 +4607,14 @@ const GCR_AGENT_TOOLS = [
     {
         type: 'function',
         function: {
+            name: 'get_platform_inventory',
+            description: 'Get a full inventory of the GCR platform: total entities, breakdown by category/subtype, and menu item counts per business. Use when asked how many businesses are in each section, how many menu items each business has, or for a full platform overview.',
+            parameters: { type: 'object', properties: {} }
+        }
+    },
+    {
+        type: 'function',
+        function: {
             name: 'get_cybercheck_businesses',
             description: 'Get all CyberCheck platform businesses — the main business accounts with dashboards, logins, plans, and status. Use this when asked about businesses on the platform, how many businesses exist, or to look up a specific business by name.',
             parameters: {
@@ -4831,6 +4839,50 @@ async function executeGCRTool(name, args, { gcrDb, entityId, mainDb }) {
                     missing_description: (data || []).filter(b => !b.description).length,
                     missing_phone: (data || []).filter(b => !b.phone).length,
                     featured_count: (data || []).filter(b => b.featured).length,
+                };
+            }
+            case 'get_platform_inventory': {
+                const [entRes, menuRes, drinkRes, eventRes, specialRes] = await Promise.all([
+                    gcrDb.from('entity').select('id,name,entity_type,entity_subtype,is_active,hero_image_url,description,phone'),
+                    gcrDb.from('menu_items').select('entity_id'),
+                    gcrDb.from('drink_items').select('entity_id'),
+                    gcrDb.from('events').select('entity_id'),
+                    gcrDb.from('specials').select('entity_id'),
+                ]);
+                const entities = entRes.data || [];
+                const menuCounts = {};
+                (menuRes.data || []).forEach(r => { menuCounts[r.entity_id] = (menuCounts[r.entity_id] || 0) + 1; });
+                const drinkCounts = {};
+                (drinkRes.data || []).forEach(r => { drinkCounts[r.entity_id] = (drinkCounts[r.entity_id] || 0) + 1; });
+                const eventCounts = {};
+                (eventRes.data || []).forEach(r => { eventCounts[r.entity_id] = (eventCounts[r.entity_id] || 0) + 1; });
+                const specialCounts = {};
+                (specialRes.data || []).forEach(r => { specialCounts[r.entity_id] = (specialCounts[r.entity_id] || 0) + 1; });
+
+                const bySubtype = {};
+                entities.forEach(e => {
+                    const key = e.entity_subtype || e.entity_type || 'other';
+                    if (!bySubtype[key]) bySubtype[key] = 0;
+                    bySubtype[key]++;
+                });
+
+                return {
+                    total_entities: entities.length,
+                    active: entities.filter(e => e.is_active).length,
+                    inactive: entities.filter(e => !e.is_active).length,
+                    missing_photo: entities.filter(e => !e.hero_image_url).length,
+                    missing_description: entities.filter(e => !e.description).length,
+                    missing_phone: entities.filter(e => !e.phone).length,
+                    by_subtype: bySubtype,
+                    per_business: entities.map(e => ({
+                        name: e.name,
+                        subtype: e.entity_subtype || e.entity_type,
+                        active: e.is_active,
+                        menu_items: menuCounts[e.id] || 0,
+                        drink_items: drinkCounts[e.id] || 0,
+                        events: eventCounts[e.id] || 0,
+                        specials: specialCounts[e.id] || 0,
+                    })).sort((a, b) => (b.menu_items + b.drink_items) - (a.menu_items + a.drink_items)),
                 };
             }
             case 'get_cybercheck_businesses': {
