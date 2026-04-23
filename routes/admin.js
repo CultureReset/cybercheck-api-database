@@ -5123,12 +5123,13 @@ async function executeGCRTool(name, args, { gcrDb, entityId, mainDb }) {
                 };
             }
             case 'get_platform_inventory': {
-                const [entRes, menuRes, drinkRes, eventRes, specialRes] = await Promise.all([
-                    gcrDb.from('entity').select('id,name,entity_type,entity_subtype,is_active,hero_image_url,description,phone'),
+                const [entRes, menuRes, drinkRes, eventRes, specialRes, hhSecRes] = await Promise.all([
+                    gcrDb.from('entity').select('id,name,entity_type,entity_subtype,is_active,hero_image_url,description,phone,hh_days,hh_start,hh_end'),
                     gcrDb.from('menu_items').select('entity_id'),
                     gcrDb.from('drink_items').select('entity_id'),
                     gcrDb.from('events').select('entity_id'),
                     gcrDb.from('specials').select('entity_id'),
+                    gcrDb.from('happy_hour_sections').select('entity_id'),
                 ]);
                 const entities = entRes.data || [];
                 const menuCounts = {};
@@ -5139,6 +5140,7 @@ async function executeGCRTool(name, args, { gcrDb, entityId, mainDb }) {
                 (eventRes.data || []).forEach(r => { eventCounts[r.entity_id] = (eventCounts[r.entity_id] || 0) + 1; });
                 const specialCounts = {};
                 (specialRes.data || []).forEach(r => { specialCounts[r.entity_id] = (specialCounts[r.entity_id] || 0) + 1; });
+                const hhSet = new Set((hhSecRes.data || []).map(r => r.entity_id));
 
                 const bySubtype = {};
                 entities.forEach(e => {
@@ -5147,6 +5149,7 @@ async function executeGCRTool(name, args, { gcrDb, entityId, mainDb }) {
                     bySubtype[key]++;
                 });
 
+                const withHH = entities.filter(e => hhSet.has(e.id) || e.hh_days);
                 return {
                     total_entities: entities.length,
                     active: entities.filter(e => e.is_active).length,
@@ -5154,6 +5157,8 @@ async function executeGCRTool(name, args, { gcrDb, entityId, mainDb }) {
                     missing_photo: entities.filter(e => !e.hero_image_url).length,
                     missing_description: entities.filter(e => !e.description).length,
                     missing_phone: entities.filter(e => !e.phone).length,
+                    with_happy_hour: withHH.length,
+                    missing_happy_hour: entities.filter(e => e.is_active).length - withHH.filter(e => e.is_active).length,
                     by_subtype: bySubtype,
                     per_business: entities.map(e => ({
                         name: e.name,
@@ -5163,6 +5168,7 @@ async function executeGCRTool(name, args, { gcrDb, entityId, mainDb }) {
                         drink_items: drinkCounts[e.id] || 0,
                         events: eventCounts[e.id] || 0,
                         specials: specialCounts[e.id] || 0,
+                        happy_hour: hhSet.has(e.id) || !!e.hh_days,
                     })).sort((a, b) => (b.menu_items + b.drink_items) - (a.menu_items + a.drink_items)),
                 };
             }
