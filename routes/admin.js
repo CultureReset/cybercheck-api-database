@@ -178,6 +178,22 @@ router.post('/businesses', async (req, res) => {
         contact_email: ownerEmail.toLowerCase()
     });
 
+    // Auto-create GCR entity and link via legacy_site_id so write-through sync works
+    try {
+        const slug = finalSubdomain;
+        const { data: entity } = await gcrDb.from('entity').insert({
+            name: businessName,
+            slug,
+            entity_type: 'business',
+            entity_subtype: businessType,
+            legacy_site_id: business.site_id,
+        }).select('id').single();
+        if (entity) {
+            await supabase.from('businesses').update({ metadata: { gcr_entity_id: entity.id } }).eq('site_id', business.site_id);
+            business.gcr_entity_id = entity.id;
+        }
+    } catch(e) { /* non-fatal — business still created */ }
+
     res.status(201).json({ business, user: { id: user.id, email: user.email, name: user.name } });
 });
 
@@ -5459,6 +5475,60 @@ router.post('/ai-chat-organizer', adminRequired, async (req, res) => {
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
+});
+
+// POST /api/admin/businesses/:site_id/link-gcr
+// Links an existing business to GCR (creates entity if none exists, or finds by name/slug)
+router.post('/businesses/:site_id/link-gcr', adminRequired, async (req, res) => {
+    const { site_id } = req.params;
+    try {
+        // Get business details
+        const { data: biz } = await supabase.from('businesses').select('*').eq('site_id', site_id).maybeSingle();
+        if (!biz) return res.status(404).json({ error: 'Business not found' });
+
+        // Check if already linked
+        const { data: existing } = await gcrDb.from('entity').select('id,name').eq('legacy_site_id', site_id).maybeSingle();
+        if (existing) return res.json({ ok: true, entity_id: existing.id, message: 'Already linked to ' + existing.name });
+
+        // Try to find by subdomain/slug
+        const slug = biz.subdomain || biz.name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+        const { data: bySlug } = await gcrDb.from('entity').select('id').eq('slug', slug).maybeSingle();
+        if (bySlug) {
+            await gcrDb.from('entity').update({ legacy_site_id: site_id }).eq('id', bySlug.id);
+            return res.json({ ok: true, entity_id: bySlug.id, message: 'Linked existing GCR entity' });
+        }
+
+        // Create new GCR entity
+        const { data: newEntity } = await gcrDb.from('entity').insert({
+            name: biz.name, slug, entity_type: 'business',
+            entity_subtype: biz.type || 'restaurant', legacy_site_id: site_id,
+        }).select('id').single();
+
+        res.json({ ok: true, entity_id: newEntity.id, message: 'Created and linked new GCR entity' });
+    } catch(e) {
+        res.status(500).json({ error: e.message });
+    }
+});
+
+// POST /api/admin/businesses/link-gcr-all
+// Bulk-links all unlinked businesses to GCR
+router.post('/businesses/link-gcr-all', adminRequired, async (req, res) => {
+    const { data: businesses } = await supabase.from('businesses').select('site_id, name, subdomain, type');
+    let linked = 0, skipped = 0, created = 0;
+    for (const biz of (businesses || [])) {
+        const { data: existing } = await gcrDb.from('entity').select('id').eq('legacy_site_id', biz.site_id).maybeSingle();
+        if (existing) { skipped++; continue; }
+        const slug = biz.subdomain || (biz.name||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+        const { data: bySlug } = await gcrDb.from('entity').select('id').eq('slug', slug).maybeSingle();
+        if (bySlug) {
+            await gcrDb.from('entity').update({ legacy_site_id: biz.site_id }).eq('id', bySlug.id);
+            linked++;
+        } else {
+            await gcrDb.from('entity').insert({ name: biz.name, slug, entity_type: 'business', entity_subtype: biz.type || 'restaurant', legacy_site_id: biz.site_id });
+            created++;
+        }
+    }
+    res.json({ ok: true, linked, created, skipped });
 });
 
 module.exports = router;
