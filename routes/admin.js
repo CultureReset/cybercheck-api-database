@@ -5048,7 +5048,7 @@ router.get('/ai-provider', (req, res) => {
 
 // ── POST /api/admin/gcr/ai-chat — Agentic AI with tool use (provider-agnostic)
 router.post('/gcr/grok-chat', async (req, res) => {
-    const { message, history = [], slug, entity_id, image_url } = req.body;
+    const { message, history = [], slug, entity_id, image_url, provider, model } = req.body;
     if (!message && !image_url) return res.status(400).json({ error: 'message required' });
 
     const db = getGcrDb();
@@ -5095,6 +5095,8 @@ ${entityId ? `Currently viewing entity_id: ${entityId}` : 'Platform-wide view �
             maxRounds: 6,
             temperature: 0.3,
             maxTokens: 1500,
+            ...(provider && { provider }),
+            ...(model && { model }),
         });
         res.json({ reply: result.reply, tools_called: result.tools_called, provider: result.provider });
     } catch (err) {
