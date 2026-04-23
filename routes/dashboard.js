@@ -4088,6 +4088,120 @@ router.post('/events/extract', async (req, res) => {
 });
 
 // ═══════════════════════════════════════════════════════════════
+// PROMOTIONS — QR Menu trigger-based offers
+// ═══════════════════════════════════════════════════════════════
+
+// GET/POST /api/dashboard/promotions
+router.get('/promotions', async (req, res) => {
+    const siteId = req.query.site_id || req.siteId;
+    if (!siteId) return res.status(400).json({ error: 'site_id required' });
+    const { data, error } = await supabase.from('promotions').select('*').eq('site_id', siteId).order('created_at', { ascending: false });
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data || []);
+});
+
+router.post('/promotions', async (req, res) => {
+    const siteId = req.body.site_id || req.siteId;
+    if (!siteId) return res.status(400).json({ error: 'site_id required' });
+    const { title, description, cta_text, cta_url, type, trigger_config, coupon_prefix, discount_text } = req.body;
+    if (!title) return res.status(400).json({ error: 'title required' });
+    const { data, error } = await supabase.from('promotions').insert({
+        site_id: siteId, title, description, cta_text, cta_url,
+        type: type || 'random',
+        trigger_config: trigger_config || {},
+        coupon_prefix: coupon_prefix || 'PROMO',
+        discount_text, active: true,
+    }).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.status(201).json(data);
+});
+
+router.put('/promotions/:id', async (req, res) => {
+    const updates = { ...req.body }; delete updates.id; delete updates.site_id;
+    const { data, error } = await supabase.from('promotions').update(updates).eq('id', req.params.id).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
+router.delete('/promotions/:id', async (req, res) => {
+    const { error } = await supabase.from('promotions').delete().eq('id', req.params.id);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ ok: true });
+});
+
+// POST /api/dashboard/promotions/claim
+// Called when tourist taps a promo and enters their phone number.
+// Creates/finds customer → assigns loyalty number → generates coupon → sends SMS.
+router.post('/promotions/claim', async (req, res) => {
+    const { promotion_id, phone, site_id, name } = req.body;
+    if (!promotion_id || !phone || !site_id) return res.status(400).json({ error: 'promotion_id, phone, site_id required' });
+
+    const cleanPhone = phone.replace(/\D/g, '');
+    if (cleanPhone.length < 10) return res.status(400).json({ error: 'Invalid phone number' });
+
+    try {
+        // Get the promotion
+        const { data: promo } = await supabase.from('promotions').select('*').eq('id', promotion_id).single();
+        if (!promo || !promo.active) return res.status(404).json({ error: 'Promotion not found' });
+
+        // Find or create customer
+        let { data: customer } = await supabase.from('customers').select('*').eq('phone', cleanPhone).eq('site_id', site_id).maybeSingle();
+        if (!customer) {
+            // Generate loyalty number: LOYAL + 6 random digits
+            const loyaltyNum = 'LOYAL' + String(Math.floor(100000 + Math.random() * 900000));
+            const { data: newCust } = await supabase.from('customers').insert({
+                phone: cleanPhone, name: name || null, site_id,
+                loyalty_number: loyaltyNum, loyalty_points: 0,
+                source: 'qr_promo', tier: 'standard',
+            }).select().single();
+            customer = newCust;
+        }
+
+        // Generate unique coupon code
+        const code = (promo.coupon_prefix || 'PROMO') + '-' + cleanPhone.slice(-4) + '-' + Math.random().toString(36).slice(2,6).toUpperCase();
+
+        // Save the claim
+        await supabase.from('coupon_claims').insert({
+            promotion_id, customer_id: customer?.id,
+            site_id, coupon_code: code, phone: cleanPhone,
+        });
+
+        // Increment shown count
+        await supabase.from('promotions').update({ total_claimed: (promo.total_claimed || 0) + 1 }).eq('id', promotion_id);
+
+        // Send SMS with coupon
+        const sid  = process.env.TWILIO_ACCOUNT_SID;
+        const tok  = process.env.TWILIO_AUTH_TOKEN;
+        const from = process.env.TWILIO_PHONE_NUMBER || process.env.TWILIO_FROM_NUMBER;
+        if (sid && tok && from) {
+            const twilio = require('twilio')(sid, tok);
+            const msg = `${promo.title}\n\n${promo.description || ''}\n\nYour code: ${code}${promo.discount_text ? '\n' + promo.discount_text : ''}\n\nYour loyalty #: ${customer?.loyalty_number || ''}`.trim();
+            await twilio.messages.create({ body: msg, from, to: '+1' + cleanPhone }).catch(() => {});
+        }
+
+        res.json({
+            ok: true,
+            coupon_code: code,
+            loyalty_number: customer?.loyalty_number,
+            loyalty_points: customer?.loyalty_points || 0,
+            message: `Your code ${code} has been sent to your phone!`,
+            is_new_customer: !customer?.last_visit,
+        });
+    } catch(err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// GET /api/dashboard/promotions/public?site_id=X — public endpoint for QR menu
+// Returns active promotions for a business (no auth needed — QR menu reads this)
+router.get('/promotions/public', async (req, res) => {
+    const { site_id } = req.query;
+    if (!site_id) return res.status(400).json({ error: 'site_id required' });
+    const { data } = await supabase.from('promotions').select('id,title,description,cta_text,cta_url,type,trigger_config,coupon_prefix,discount_text').eq('site_id', site_id).eq('active', true);
+    res.json(data || []);
+});
+
+// ═══════════════════════════════════════════════════════════════
 // POST /api/dashboard/menu/generate-design
 // AI-powered QR menu designer.
 // Business describes how they want their menu to look.
