@@ -5242,5 +5242,224 @@ router.patch('/sales-leads/:id', adminRequired, async (req, res) => {
     res.json({ ok: true });
 });
 
+// ── Conversational AI Data Organizer ─────────────────────────────────────────
+// POST /api/admin/ai-chat-organizer
+// Body: { messages: [{role,content}], site_id }
+// Runs an agent loop. When AI has enough info it calls save tools directly.
+// Returns { reply, saved } where saved lists what was written to the DB.
+
+const AI_CHAT_SYSTEM = `You are a restaurant data assistant. The user will give you any kind of restaurant information — menus, specials, events, happy hour deals, business details — in any format (text, copied from a website, photos descriptions, etc.).
+
+Your job:
+1. Extract and ORGANIZE the data into structured categories
+2. Ask ONE clarifying question at a time when something is ambiguous (e.g. "Is this the happy hour menu or the regular menu?")
+3. Once you have enough info, call the appropriate save tool to store it
+
+Available save tools:
+- save_menu_items: food, drink, or happy_hour items with name/price/description/category/item_type/modifiers
+- save_specials: daily specials or deals with name, discount_text, days, times
+- save_events: upcoming events with name, date, time, description
+- update_business: name, address, phone, hours, description, website
+
+Rules:
+- Always confirm what you're saving before calling a save tool
+- If item_type is unclear, ask: food, drink, or happy_hour?
+- Keep questions short and specific
+- After saving, tell the user what was saved and ask if there's anything else`;
+
+router.post('/ai-chat-organizer', adminRequired, async (req, res) => {
+    const { messages = [], site_id } = req.body;
+    if (!site_id) return res.status(400).json({ error: 'site_id required' });
+
+    const tools = [
+        {
+            function: {
+                name: 'save_menu_items',
+                description: 'Save menu items (food, drinks, happy hour) to the database',
+                parameters: {
+                    type: 'object',
+                    properties: {
+                        items: {
+                            type: 'array',
+                            items: {
+                                type: 'object',
+                                properties: {
+                                    name: { type: 'string' },
+                                    price: { type: 'number' },
+                                    description: { type: 'string' },
+                                    category: { type: 'string' },
+                                    item_type: { type: 'string', enum: ['food','drink','happy_hour'] },
+                                    modifiers: { type: 'array', items: { type: 'object', properties: { name: { type: 'string' }, price: { type: 'number' } } } }
+                                },
+                                required: ['name']
+                            }
+                        }
+                    },
+                    required: ['items']
+                }
+            }
+        },
+        {
+            function: {
+                name: 'save_specials',
+                description: 'Save daily specials or deals',
+                parameters: {
+                    type: 'object',
+                    properties: {
+                        specials: {
+                            type: 'array',
+                            items: {
+                                type: 'object',
+                                properties: {
+                                    special_name: { type: 'string' },
+                                    discount_text: { type: 'string' },
+                                    description: { type: 'string' },
+                                    days: { type: 'string' },
+                                    start_time: { type: 'string' },
+                                    end_time: { type: 'string' }
+                                },
+                                required: ['special_name']
+                            }
+                        }
+                    },
+                    required: ['specials']
+                }
+            }
+        },
+        {
+            function: {
+                name: 'save_events',
+                description: 'Save upcoming events',
+                parameters: {
+                    type: 'object',
+                    properties: {
+                        events: {
+                            type: 'array',
+                            items: {
+                                type: 'object',
+                                properties: {
+                                    name: { type: 'string' },
+                                    description: { type: 'string' },
+                                    event_date: { type: 'string' },
+                                    start_time: { type: 'string' },
+                                    end_time: { type: 'string' }
+                                },
+                                required: ['name']
+                            }
+                        }
+                    },
+                    required: ['events']
+                }
+            }
+        },
+        {
+            function: {
+                name: 'update_business',
+                description: 'Update business profile info',
+                parameters: {
+                    type: 'object',
+                    properties: {
+                        name: { type: 'string' },
+                        address: { type: 'string' },
+                        phone: { type: 'string' },
+                        hours: { type: 'string' },
+                        description: { type: 'string' },
+                        tagline: { type: 'string' }
+                    }
+                }
+            }
+        }
+    ];
+
+    const saved = [];
+
+    async function executeTool(name, args) {
+        if (name === 'save_menu_items') {
+            let count = 0;
+            for (const item of (args.items || [])) {
+                const { error } = await supabase.from('menu_items').insert({
+                    site_id,
+                    name: item.name,
+                    price: parseFloat(item.price) || 0,
+                    description: item.description || '',
+                    category: item.category || 'Menu Items',
+                    item_type: item.item_type || 'food',
+                    modifiers: item.modifiers || [],
+                    tags: []
+                });
+                if (!error) count++;
+            }
+            saved.push({ type: 'menu_items', count });
+            return `Saved ${count} menu items`;
+        }
+        if (name === 'save_specials') {
+            let count = 0;
+            for (const s of (args.specials || [])) {
+                const { error } = await supabase.from('specials').insert({
+                    site_id,
+                    special_name: s.special_name,
+                    discount_text: s.discount_text || '',
+                    description: s.description || '',
+                    days: s.days || '',
+                    start_time: s.start_time || null,
+                    end_time: s.end_time || null,
+                    active: true
+                });
+                if (!error) count++;
+            }
+            saved.push({ type: 'specials', count });
+            return `Saved ${count} specials`;
+        }
+        if (name === 'save_events') {
+            let count = 0;
+            for (const e of (args.events || [])) {
+                const { error } = await supabase.from('events').insert({
+                    site_id,
+                    name: e.name,
+                    description: e.description || '',
+                    event_date: e.event_date || null,
+                    start_time: e.start_time || null,
+                    end_time: e.end_time || null
+                });
+                if (!error) count++;
+            }
+            saved.push({ type: 'events', count });
+            return `Saved ${count} events`;
+        }
+        if (name === 'update_business') {
+            const updates = {};
+            if (args.name) updates.name = args.name;
+            if (args.tagline) updates.tagline = args.tagline;
+            if (args.description) updates.description = args.description;
+            const meta = {};
+            if (args.hours) meta.hours = args.hours;
+            if (args.phone) meta.phone = args.phone;
+            if (args.address) meta.address = args.address;
+            if (Object.keys(meta).length) updates.metadata = meta;
+            if (Object.keys(updates).length) {
+                await supabase.from('businesses').update(updates).eq('site_id', site_id);
+            }
+            saved.push({ type: 'business', fields: Object.keys(updates) });
+            return `Updated business profile`;
+        }
+        return 'Unknown tool';
+    }
+
+    try {
+        const { reply } = await runAgentLoop({
+            systemPrompt: AI_CHAT_SYSTEM,
+            messages,
+            tools,
+            executeTool,
+            maxRounds: 8,
+            temperature: 0.3,
+            maxTokens: 2000,
+        });
+        res.json({ reply, saved });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
 module.exports = router;
 
