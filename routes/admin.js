@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const supabase = require('../db');
 const getGcrDb = require('../gcr-db');
 const gcrDb = getGcrDb();
-const { runAgentLoop, getProviderInfo } = require('./ai-provider');
+const { runAgentLoop, callAIRound, getProviderInfo } = require('./ai-provider');
 
 const router = express.Router();
 
@@ -5575,6 +5575,157 @@ router.get('/run-migrations', adminRequired, async (req, res) => {
         }
     }
     res.json({ results, note: 'If status is "needs manual creation", run the SQL in your Supabase SQL editor' });
+});
+
+// ═══════════════════════════════════════════════════════════════════════
+// SMART IMPORT — AI-powered structured data import
+// Paste raw text of any format → AI parses → human reviews → saves to DB
+// Never creates entities. Matches venues by name against existing entity table.
+// ═══════════════════════════════════════════════════════════════════════
+
+// Extracts JSON from AI response text, tolerating markdown fences and prose.
+function extractJsonFromText(text) {
+    if (!text) throw new Error('Empty AI response');
+    const t = text.trim();
+    // Try direct parse first
+    try { return JSON.parse(t); } catch {}
+    // Strip markdown fences
+    const fenced = t.match(/```(?:json)?\s*([\s\S]*?)\s*```/);
+    if (fenced) {
+        try { return JSON.parse(fenced[1].trim()); } catch {}
+    }
+    // Find first { or [ and last } or ]
+    const firstObj = t.indexOf('{');
+    const firstArr = t.indexOf('[');
+    const start = firstArr === -1 ? firstObj : (firstObj === -1 ? firstArr : Math.min(firstObj, firstArr));
+    if (start === -1) throw new Error('No JSON in AI response');
+    const lastObj = t.lastIndexOf('}');
+    const lastArr = t.lastIndexOf(']');
+    const end = Math.max(lastObj, lastArr);
+    if (end < start) throw new Error('Malformed JSON in AI response');
+    return JSON.parse(t.slice(start, end + 1));
+}
+
+// ── POST /api/admin/smart-import/parse-events
+//    Body: { raw_text }
+//    Returns: { events: [{ venue_name, event_name, event_type, description, event_date,
+//               day_of_week, start_time, end_time, recurring, cover_charge }, ...] }
+router.post('/smart-import/parse-events', async (req, res) => {
+    const { raw_text } = req.body;
+    if (!raw_text || raw_text.trim().length < 10) {
+        return res.status(400).json({ error: 'raw_text is required (min 10 chars)' });
+    }
+
+    const today = new Date().toISOString().split('T')[0];
+    const systemPrompt = `You extract live event data from messy text into strict JSON.
+
+Today is ${today}. The site covers Orange Beach / Gulf Shores, Alabama.
+
+Return ONLY a JSON object with this exact shape, no prose, no markdown:
+{
+  "events": [
+    {
+      "venue_name": "string — name of the business/venue hosting the event",
+      "event_name": "string — title or artist name of the event",
+      "event_type": "live_music" | "trivia" | "karaoke" | "bingo" | "dj" | "festival" | "other",
+      "description": "string or null",
+      "event_date": "YYYY-MM-DD or null if recurring or unknown",
+      "day_of_week": "Monday|Tuesday|...|Sunday or null for one-time events",
+      "start_time": "HH:MM (24h) or null",
+      "end_time": "HH:MM (24h) or null",
+      "recurring": true | false,
+      "cover_charge": "string like '$10' or 'Free' or null"
+    }
+  ]
+}
+
+Rules:
+- If text says "Thursday" with a specific date, use event_date AND day_of_week.
+- If text says "Every Thursday" or "Weekly", set recurring=true, set day_of_week, leave event_date null.
+- Multi-set entries like "3-6pm Willie | 6-9pm Funky" → TWO separate events, one per set.
+- Events that run multiple days (e.g. Car Show Thu-Sat) → ONE event per day with the correct event_date.
+- Convert times to 24-hour HH:MM. "5pm" → "17:00", "6:30 PM" → "18:30".
+- venue_name should be EXACTLY as written in the source, do not guess.
+- Skip any row that isn't clearly an event.`;
+
+    try {
+        const result = await callAIRound({
+            messages: [{ role: 'user', content: raw_text }],
+            systemPrompt,
+            temperature: 0.1,
+            maxTokens: 4000,
+        });
+        const parsed = extractJsonFromText(result.text || '');
+        const events = Array.isArray(parsed) ? parsed : (parsed.events || []);
+
+        // Attempt to match each venue_name to an existing entity
+        const venueNames = [...new Set(events.map(e => (e.venue_name || '').trim()).filter(Boolean))];
+        const matches = {};
+        if (venueNames.length) {
+            const { data: ents } = await gcrDb
+                .from('entity')
+                .select('id, slug, name')
+                .eq('is_active', true)
+                .limit(2000);
+            const all = ents || [];
+            for (const vn of venueNames) {
+                const low = vn.toLowerCase();
+                const match = all.find(e => e.name && e.name.toLowerCase() === low)
+                    || all.find(e => e.name && (e.name.toLowerCase().includes(low) || low.includes(e.name.toLowerCase())));
+                matches[vn] = match ? { id: match.id, slug: match.slug, name: match.name } : null;
+            }
+        }
+
+        const enriched = events.map(e => ({
+            ...e,
+            matched_entity: matches[(e.venue_name || '').trim()] || null,
+        }));
+
+        res.json({ events: enriched, count: enriched.length });
+    } catch (err) {
+        console.error('smart-import/parse-events error:', err.message);
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// ── POST /api/admin/smart-import/save-events
+//    Body: { events: [{ entity_id, event_name, event_type, description, event_date,
+//             day_of_week, start_time, end_time, recurring, cover_charge }, ...] }
+//    Only inserts events for rows with a valid entity_id. Skips orphans.
+router.post('/smart-import/save-events', async (req, res) => {
+    const { events } = req.body;
+    if (!Array.isArray(events) || events.length === 0) {
+        return res.status(400).json({ error: 'events array required' });
+    }
+
+    const rows = events
+        .filter(e => e && e.entity_id && e.event_name)
+        .map(e => ({
+            entity_id: e.entity_id,
+            event_name: e.event_name,
+            event_type: e.event_type || 'other',
+            description: e.description || null,
+            event_date: e.event_date || null,
+            day_of_week: e.day_of_week || null,
+            start_time: e.start_time || null,
+            end_time: e.end_time || null,
+            recurring: !!e.recurring,
+            cover_charge: e.cover_charge || null,
+            is_active: true,
+        }));
+
+    if (rows.length === 0) {
+        return res.status(400).json({ error: 'No events with valid entity_id + event_name' });
+    }
+
+    try {
+        const { data, error } = await gcrDb.from('entity_events').insert(rows).select('id');
+        if (error) return res.status(500).json({ error: error.message });
+        res.json({ inserted: (data || []).length, skipped: events.length - rows.length });
+    } catch (err) {
+        console.error('smart-import/save-events error:', err.message);
+        res.status(500).json({ error: err.message });
+    }
 });
 
 module.exports = router;
