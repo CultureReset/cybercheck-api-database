@@ -3,6 +3,29 @@
 // Falls back automatically based on which API keys are present.
 // All endpoints share this — change the env var once, everything follows.
 
+const supabase = require('../db');
+
+async function uploadImageToStorage(base64, mime) {
+    try {
+        const fileName = `temp-vision-${Date.now()}-${Math.random().toString(36).slice(2, 9)}.${mime.split('/')[1] || 'jpg'}`;
+        const buffer = Buffer.from(base64, 'base64');
+        const { data, error } = await supabase.storage
+            .from('vision-temp')
+            .upload(fileName, buffer, { contentType: mime, cacheControl: '3600' });
+
+        if (error) throw error;
+
+        const { data: { publicUrl } } = supabase.storage
+            .from('vision-temp')
+            .getPublicUrl(fileName);
+
+        return publicUrl;
+    } catch (e) {
+        console.warn('Supabase upload failed, falling back to data URL:', e.message);
+        return null;
+    }
+}
+
 function getProvider(override) {
     if (override) return override;
     if (process.env.AI_PROVIDER) return process.env.AI_PROVIDER;
@@ -190,7 +213,12 @@ async function _callVision(provider, { base64, mime, systemPrompt, userPrompt, m
         const resolvedModel = model || (isXai
             ? (process.env.XAI_VISION_MODEL || 'grok-2-vision-1212')
             : (process.env.OPENAI_VISION_MODEL || 'gpt-4o'));
-        const dataUrl = `data:${mime};base64,${base64}`;
+
+        // Upload to Supabase Storage for xAI/OpenAI (they don't accept data URLs)
+        let imageUrl = `data:${mime};base64,${base64}`;
+        const storageUrl = await uploadImageToStorage(base64, mime);
+        if (storageUrl) imageUrl = storageUrl;
+
         const resp = await fetch(endpoint, {
             method: 'POST',
             headers: { 'Authorization': `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
@@ -199,7 +227,7 @@ async function _callVision(provider, { base64, mime, systemPrompt, userPrompt, m
                 messages: [
                     { role: 'system', content: systemPrompt },
                     { role: 'user', content: [
-                        { type: 'image_url', image_url: { url: dataUrl } },
+                        { type: 'image_url', image_url: { url: imageUrl } },
                         { type: 'text', text: userPrompt },
                     ]},
                 ],
