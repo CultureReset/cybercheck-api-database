@@ -99,6 +99,11 @@ app.use('/api/dashboard/google-business', googleBusinessRouter);  // /status, /r
 // Analytics (page views, conversions, tracking)
 app.use('/api/analytics', require('./routes/analytics'));
 
+// App catalog + install/uninstall
+app.use('/api/apps', require('./routes/apps'));
+app.use('/api/site', require('./routes/site'));
+
+
 // SMS Inbox — two-way messaging, booking confirmations, promo blasts
 app.use('/api/sms', require('./routes/sms'));
 

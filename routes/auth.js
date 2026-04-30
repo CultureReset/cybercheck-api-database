@@ -349,4 +349,94 @@ router.post('/reset-password', async (req, res) => {
     res.json({ success: true, message: 'Password has been reset. You can now log in.' });
 });
 
+// ============================================
+// POST /api/auth/create-profile — Google OAuth new users
+// Supabase already created the auth user. This creates the
+// businesses + users records so they have a site_id.
+// ============================================
+router.post('/create-profile', async (req, res) => {
+    try {
+        const header = req.headers.authorization;
+        if (!header || !header.startsWith('Bearer ')) {
+            return res.status(401).json({ error: 'No token provided' });
+        }
+        const token = header.split(' ')[1];
+
+        const { data: authData, error: authError } = await supabase.auth.getUser(token);
+        if (authError || !authData.user) {
+            return res.status(401).json({ error: 'Invalid token' });
+        }
+
+        const authId = authData.user.id;
+        const email = authData.user.email;
+        const { businessName, businessType } = req.body;
+
+        if (!businessName) {
+            return res.status(400).json({ error: 'Business name is required' });
+        }
+
+        // If user record already exists, just return a JWT
+        const { data: existingUser } = await supabase
+            .from('users')
+            .select('id, site_id, role')
+            .eq('auth_id', authId)
+            .maybeSingle();
+
+        if (existingUser) {
+            const { data: biz } = await supabase
+                .from('businesses')
+                .select('site_id, name, type, subdomain, plan')
+                .eq('site_id', existingUser.site_id)
+                .single();
+            const token = jwt.sign(
+                { userId: existingUser.id, siteId: existingUser.site_id, role: existingUser.role },
+                process.env.JWT_SECRET,
+                { expiresIn: '7d' }
+            );
+            return res.json({ token, user: existingUser, business: biz });
+        }
+
+        // New user — create business + user records
+        const subdomain = businessName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+        const { data: subExists } = await supabase.from('businesses').select('site_id').eq('subdomain', subdomain).single();
+        const finalSubdomain = subExists ? `${subdomain}-${Date.now().toString(36)}` : subdomain;
+
+        const { data: business, error: bizError } = await supabase
+            .from('businesses')
+            .insert({ name: businessName, type: businessType || 'service', subdomain: finalSubdomain, plan: 'free', status: 'active' })
+            .select().single();
+
+        if (bizError) return res.status(500).json({ error: 'Failed to create business: ' + bizError.message });
+
+        const googleName = (authData.user.user_metadata && (authData.user.user_metadata.full_name || authData.user.user_metadata.name)) || businessName;
+
+        const { data: user, error: userError } = await supabase
+            .from('users')
+            .insert({ auth_id: authId, site_id: business.site_id, email: email.toLowerCase(), name: googleName, role: 'owner' })
+            .select().single();
+
+        if (userError) {
+            await supabase.from('businesses').delete().eq('site_id', business.site_id);
+            return res.status(500).json({ error: 'Failed to create user: ' + userError.message });
+        }
+
+        await supabase.from('site_content').insert({ site_id: business.site_id, contact_email: email.toLowerCase() });
+
+        const newToken = jwt.sign(
+            { userId: user.id, siteId: business.site_id, role: 'owner' },
+            process.env.JWT_SECRET,
+            { expiresIn: '7d' }
+        );
+
+        res.status(201).json({
+            token: newToken,
+            user: { id: user.id, name: user.name, email: user.email, role: user.role },
+            business: { site_id: business.site_id, name: business.name, type: business.type, subdomain: business.subdomain }
+        });
+    } catch (err) {
+        console.error('Create profile error:', err);
+        res.status(500).json({ error: 'Failed to create profile: ' + err.message });
+    }
+});
+
 module.exports = router;
