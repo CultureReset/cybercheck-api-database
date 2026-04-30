@@ -2200,7 +2200,7 @@ router.post('/track', async (req, res) => {
     } = req.body || {};
     const ip = (req.headers['x-forwarded-for'] || '').split(',')[0].trim() || req.ip || null;
     try {
-        await supabase.from('gcr_page_views').insert({
+        await supabase.from('platform_page_views').insert({
             page_path:    page_path    || '/',
             page_title:   page_title   || null,
             referrer:     referrer     || null,
