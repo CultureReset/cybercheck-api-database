@@ -3209,7 +3209,7 @@ router.delete('/qa-pairs/:id', async (req, res) => {
 // POST /api/dashboard/ai-chat — Business owner AI assistant (Claude + tool-use)
 // ============================================
 router.post('/ai-chat', async (req, res) => {
-    const { message = '', history = [], image, url } = req.body;
+    const { message = '', history = [], image, url, conversation_id: clientConvId } = req.body;
     if (!message && !image) return res.status(400).json({ error: 'Message required' });
 
     // Fetch URL content if caller passed a URL
@@ -3238,6 +3238,15 @@ router.post('/ai-chat', async (req, res) => {
     }
 
     const siteId = req.siteId;
+
+    // Load long-term memories (structured by category) for this business
+    const { data: memoriesData } = await supabase
+        .from('business_memories')
+        .select('category, key, value, tags, confidence')
+        .eq('site_id', siteId)
+        .order('category')
+        .order('updated_at', { ascending: false });
+    const memories = memoriesData || [];
     const today = new Date().toISOString().split('T')[0];
     const weekAgo = new Date(Date.now() - 7 * 86400000).toISOString().split('T')[0];
     const twoWeeksAgo = new Date(Date.now() - 14 * 86400000).toISOString().split('T')[0];
@@ -3350,10 +3359,24 @@ router.post('/ai-chat', async (req, res) => {
         upcomingRes.data.forEach(b => { context += `\n• ${b.booking_date} — ${b.customer_name || 'Unknown'} ($${b.total || 0}) [${b.status}]`; });
     }
 
+    // Group memories by category for easy retrieval in the prompt
+    let memoryBlock = '';
+    if (memories.length) {
+        const byCat = {};
+        memories.forEach(m => { (byCat[m.category] = byCat[m.category] || []).push(m); });
+        const labels = { preference:'PREFERENCES', fact:'KNOWN FACTS', goal:'GOALS', decision:'PAST DECISIONS', recurring:'RECURRING TOPICS', note:'NOTES' };
+        memoryBlock = '\n\nWHAT YOU REMEMBER ABOUT THIS BUSINESS (from past conversations):\n';
+        Object.keys(labels).forEach(cat => {
+            if (!byCat[cat]) return;
+            memoryBlock += `\n${labels[cat]}:\n`;
+            byCat[cat].forEach(m => { memoryBlock += `  • [${m.key}] ${m.value}${m.tags?.length ? ` (tags: ${m.tags.join(', ')})` : ''}\n`; });
+        });
+    }
+
     const systemPrompt = `You are the AI assistant for ${biz.name || 'this business'}. You are a full-intelligence assistant — like ChatGPT or Grok — but with direct access to this business's live data and the ability to make real changes.
 
 YOUR BUSINESS DATA:
-${context}${urlContent ? `\n\nWEBPAGE CONTENT (from URL the user shared):\n${urlContent}` : ''}
+${context}${memoryBlock}${urlContent ? `\n\nWEBPAGE CONTENT (from URL the user shared):\n${urlContent}` : ''}
 
 CAPABILITIES:
 1. ANSWER ANYTHING — general knowledge, strategy, marketing ideas, writing, analysis, math, coding
@@ -3367,6 +3390,15 @@ BULK DATA RULES:
 - Parse every single item from a paste or image and call add_menu_items with all of them in one call
 - Classify: beverages (Beer, Wine, Cocktails, Drinks, Spirits) → "drink" | happy hour deals → "happy_hour" | everything else → "food"
 - If user says "replace" or "clear first", call clear_menu_type before adding
+
+MEMORY (you remember things across conversations):
+- When the owner shares a meaningful fact, preference, goal, or decision worth recalling later, call save_memory
+- Categories: "preference" (style/tone/format), "fact" (about the business), "goal" (what they want to achieve), "decision" (past decisions + why), "recurring" (topics that come up often), "note" (misc observations)
+- Use a short slug-style key like "preferred_tone", "busiest_day", "marketing_focus_q2"
+- Keep values concise (1-2 sentences). Add 2-4 tags so it's searchable later.
+- DO NOT save trivial things ("user said hi") — only durable facts/preferences
+- If something you remember is outdated/wrong, call update_memory or delete_memory
+- The "WHAT YOU REMEMBER" block above shows everything you currently know — reference it naturally ("you mentioned earlier that...")
 
 STYLE:
 - Be direct and conversational — like texting a smart colleague
@@ -3501,6 +3533,46 @@ STYLE:
                 },
                 required: ['days','start','end']
             }
+        },
+        {
+            name: 'save_memory',
+            description: 'Save a durable fact, preference, goal, or decision to long-term memory. Use when the owner shares something worth remembering across future conversations. Keys auto-upsert — saving with the same category+key updates the existing memory.',
+            input_schema: {
+                type: 'object',
+                properties: {
+                    category:   { type: 'string', enum: ['preference','fact','goal','decision','recurring','note'] },
+                    key:        { type: 'string', description: 'Short slug like "preferred_tone" or "busiest_day"' },
+                    value:      { type: 'string', description: 'The fact itself, 1-2 sentences' },
+                    tags:       { type: 'array',  items: { type: 'string' }, description: '2-4 lowercase tags for search' },
+                    confidence: { type: 'string', enum: ['high','medium','low'], description: 'How sure you are about this' }
+                },
+                required: ['category','key','value']
+            }
+        },
+        {
+            name: 'update_memory',
+            description: 'Update an existing memory by category+key. Use when info you already remember has changed.',
+            input_schema: {
+                type: 'object',
+                properties: {
+                    category:  { type: 'string', enum: ['preference','fact','goal','decision','recurring','note'] },
+                    key:       { type: 'string' },
+                    new_value: { type: 'string' }
+                },
+                required: ['category','key','new_value']
+            }
+        },
+        {
+            name: 'delete_memory',
+            description: 'Forget something. Use when info is no longer true or owner asks you to forget.',
+            input_schema: {
+                type: 'object',
+                properties: {
+                    category: { type: 'string', enum: ['preference','fact','goal','decision','recurring','note'] },
+                    key:      { type: 'string' }
+                },
+                required: ['category','key']
+            }
         }
     ];
 
@@ -3567,6 +3639,39 @@ STYLE:
             if (error) return { error: error.message };
             return { success: true, schedule: input };
         }
+        if (name === 'save_memory') {
+            const row = {
+                site_id: siteId,
+                category: input.category,
+                key: input.key,
+                value: input.value,
+                tags: input.tags || [],
+                confidence: input.confidence || 'medium',
+                source_message: (message || '').slice(0, 500),
+                updated_at: new Date().toISOString()
+            };
+            const { error } = await supabase
+                .from('business_memories')
+                .upsert(row, { onConflict: 'site_id,category,key' });
+            if (error) return { error: error.message };
+            return { success: true, saved_key: input.key, category: input.category };
+        }
+        if (name === 'update_memory') {
+            const { error } = await supabase
+                .from('business_memories')
+                .update({ value: input.new_value, updated_at: new Date().toISOString() })
+                .eq('site_id', siteId).eq('category', input.category).eq('key', input.key);
+            if (error) return { error: error.message };
+            return { success: true, updated_key: input.key };
+        }
+        if (name === 'delete_memory') {
+            const { error } = await supabase
+                .from('business_memories')
+                .delete()
+                .eq('site_id', siteId).eq('category', input.category).eq('key', input.key);
+            if (error) return { error: error.message };
+            return { success: true, deleted_key: input.key };
+        }
         return { error: 'Unknown tool' };
     }
 
@@ -3621,6 +3726,9 @@ STYLE:
                     if (result.schedule)            toolResults.push({ tool: block.name, schedule: result.schedule });
                     if (result.updated_name)        toolResults.push({ tool: block.name, updated_name: result.updated_name, updates: result.updates });
                     if (result.deleted_name)        toolResults.push({ tool: block.name, deleted_name: result.deleted_name });
+                    if (result.saved_key)           toolResults.push({ tool: block.name, saved_key: result.saved_key, category: result.category });
+                    if (result.updated_key)         toolResults.push({ tool: block.name, updated_key: result.updated_key });
+                    if (result.deleted_key)         toolResults.push({ tool: block.name, deleted_key: result.deleted_key });
                     toolResultMsgs.push({ type: 'tool_result', tool_use_id: block.id, content: JSON.stringify(result) });
                 }
                 loopMessages.push({ role: 'user', content: toolResultMsgs });
@@ -3632,11 +3740,110 @@ STYLE:
             break;
         }
 
-        res.json({ reply: finalReply || "Done!", tool_results: toolResults });
+        // Persist conversation + messages
+        let conversationId = clientConvId || null;
+        try {
+            if (!conversationId) {
+                // Auto-generate a short title from the first user message
+                const title = (message || 'Image conversation').slice(0, 60).replace(/\s+/g, ' ').trim();
+                const { data: conv } = await supabase
+                    .from('ai_conversations')
+                    .insert({ site_id: siteId, title })
+                    .select('id')
+                    .single();
+                conversationId = conv?.id || null;
+            } else {
+                await supabase
+                    .from('ai_conversations')
+                    .update({ updated_at: new Date().toISOString() })
+                    .eq('id', conversationId).eq('site_id', siteId);
+            }
+
+            if (conversationId) {
+                const msgRows = [
+                    { conversation_id: conversationId, role: 'user',      content: message || '(image only)', has_image: !!image, url: url || null, tool_results: null },
+                    { conversation_id: conversationId, role: 'assistant', content: finalReply || 'Done!',     has_image: false,    url: null,        tool_results: toolResults.length ? toolResults : null }
+                ];
+                await supabase.from('ai_messages').insert(msgRows);
+            }
+        } catch (persistErr) {
+            console.warn('AI chat persist failed (non-fatal):', persistErr.message);
+        }
+
+        res.json({ reply: finalReply || "Done!", tool_results: toolResults, conversation_id: conversationId });
     } catch (err) {
         console.error('Dashboard AI chat error:', err.message);
         res.json({ reply: "Something went wrong — try again!" });
     }
+});
+
+// ============================================
+// GET /api/dashboard/ai-chat/conversations — List recent conversations for sidebar
+// ============================================
+router.get('/ai-chat/conversations', async (req, res) => {
+    const { data, error } = await supabase
+        .from('ai_conversations')
+        .select('id, title, created_at, updated_at')
+        .eq('site_id', req.siteId)
+        .order('updated_at', { ascending: false })
+        .limit(50);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ conversations: data || [] });
+});
+
+// ============================================
+// GET /api/dashboard/ai-chat/conversations/:id — Full message history for one chat
+// ============================================
+router.get('/ai-chat/conversations/:id', async (req, res) => {
+    const { data: conv } = await supabase
+        .from('ai_conversations')
+        .select('id, title, created_at')
+        .eq('id', req.params.id).eq('site_id', req.siteId).single();
+    if (!conv) return res.status(404).json({ error: 'Not found' });
+    const { data: msgs } = await supabase
+        .from('ai_messages')
+        .select('id, role, content, has_image, url, tool_results, created_at')
+        .eq('conversation_id', conv.id)
+        .order('created_at');
+    res.json({ conversation: conv, messages: msgs || [] });
+});
+
+// ============================================
+// DELETE /api/dashboard/ai-chat/conversations/:id — Remove a chat thread
+// ============================================
+router.delete('/ai-chat/conversations/:id', async (req, res) => {
+    const { error } = await supabase
+        .from('ai_conversations')
+        .delete()
+        .eq('id', req.params.id).eq('site_id', req.siteId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ============================================
+// GET /api/dashboard/ai-chat/memories — List all long-term memories (for owner review)
+// ============================================
+router.get('/ai-chat/memories', async (req, res) => {
+    const { data, error } = await supabase
+        .from('business_memories')
+        .select('id, category, key, value, tags, confidence, created_at, updated_at')
+        .eq('site_id', req.siteId)
+        .order('category')
+        .order('updated_at', { ascending: false });
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ memories: data || [] });
+});
+
+// ============================================
+// DELETE /api/dashboard/ai-chat/memories/:id — Forget a specific memory
+// ============================================
+router.delete('/ai-chat/memories/:id', async (req, res) => {
+    const { error } = await supabase
+        .from('business_memories')
+        .delete()
+        .eq('id', req.params.id).eq('site_id', req.siteId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
 });
 
 // ============================================
