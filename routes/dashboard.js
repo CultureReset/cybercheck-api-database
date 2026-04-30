@@ -3209,8 +3209,29 @@ router.delete('/qa-pairs/:id', async (req, res) => {
 // POST /api/dashboard/ai-chat — Business owner AI assistant (Claude + tool-use)
 // ============================================
 router.post('/ai-chat', async (req, res) => {
-    const { message, history = [] } = req.body;
-    if (!message) return res.status(400).json({ error: 'Message required' });
+    const { message = '', history = [], image, url } = req.body;
+    if (!message && !image) return res.status(400).json({ error: 'Message required' });
+
+    // Fetch URL content if caller passed a URL
+    let urlContent = '';
+    if (url) {
+        try {
+            const pageRes = await fetch(url, {
+                headers: { 'User-Agent': 'Mozilla/5.0' },
+                signal: AbortSignal.timeout(8000)
+            });
+            const html = await pageRes.text();
+            urlContent = html
+                .replace(/<script[\s\S]*?<\/script>/gi, '')
+                .replace(/<style[\s\S]*?<\/style>/gi, '')
+                .replace(/<[^>]+>/g, ' ')
+                .replace(/\s+/g, ' ')
+                .trim()
+                .slice(0, 6000);
+        } catch (e) {
+            urlContent = `(Could not fetch ${url}: ${e.message})`;
+        }
+    }
 
     if (!process.env.ANTHROPIC_API_KEY) {
         return res.json({ reply: "AI assistant is being set up — check back soon!" });
@@ -3329,29 +3350,30 @@ router.post('/ai-chat', async (req, res) => {
         upcomingRes.data.forEach(b => { context += `\n• ${b.booking_date} — ${b.customer_name || 'Unknown'} ($${b.total || 0}) [${b.status}]`; });
     }
 
-    const systemPrompt = `You are the AI assistant for ${biz.name || 'this business'}. You can both answer questions AND make real changes to the business data.
+    const systemPrompt = `You are the AI assistant for ${biz.name || 'this business'}. You are a full-intelligence assistant — like ChatGPT or Grok — but with direct access to this business's live data and the ability to make real changes.
 
 YOUR BUSINESS DATA:
-${context}
+${context}${urlContent ? `\n\nWEBPAGE CONTENT (from URL the user shared):\n${urlContent}` : ''}
 
-WHAT YOU CAN DO:
-1. ADD DATA — menu items (food/drink/happy hour), specials, events/live music, happy hour schedule
-2. UPDATE ITEMS — change a price, rename an item, update its description or category by name
-3. ANSWER QUESTIONS — bookings, revenue, reviews, marketing, strategy
-4. BULK IMPORT — when the owner pastes a menu, specials board, or event lineup, parse ALL of it and add everything at once using the appropriate tools
+CAPABILITIES:
+1. ANSWER ANYTHING — general knowledge, strategy, marketing ideas, writing, analysis, math, coding
+2. ANALYZE IMAGES — if the user uploads a photo, describe it, extract data from it, or import items from it
+3. READ WEBSITES — if the user shared a URL, you have the page content above; summarize, extract, or act on it
+4. ADD DATA — menu items (food/drink/happy hour), specials, events/live music, happy hour schedule
+5. UPDATE ITEMS — change price, rename, update description or category
+6. BULK IMPORT — when the owner pastes or uploads a menu/specials board/event lineup, parse ALL items and add everything at once
 
 BULK DATA RULES:
-- When someone pastes a menu or large block of text with items, parse every single item and call add_menu_items with all of them in one call
-- Classify each section as food/drink/happy_hour based on what it is
-- If a section name sounds like beverages (Beer, Wine, Cocktails, Drinks, Spirits) → item_type: "drink"
-- If it sounds like happy hour deals → item_type: "happy_hour"
-- Everything else → item_type: "food"
+- Parse every single item from a paste or image and call add_menu_items with all of them in one call
+- Classify: beverages (Beer, Wine, Cocktails, Drinks, Spirits) → "drink" | happy hour deals → "happy_hour" | everything else → "food"
 - If user says "replace" or "clear first", call clear_menu_type before adding
 
 STYLE:
-- After using a tool, confirm briefly what you did ("Added 24 items across 6 sections ✓")
-- For questions, be direct and use real numbers
-- Keep responses short unless they ask for something long like a social post`;
+- Be direct and conversational — like texting a smart colleague
+- Use markdown formatting: **bold**, bullet lists, tables when presenting data
+- After using a tool, confirm briefly ("Added 24 items across 6 sections ✓")
+- For questions about the business, use the real numbers above
+- There is no topic you can't help with — answer everything`;
 
     // ── Tool definitions ──
     const tools = [
@@ -3552,9 +3574,19 @@ STYLE:
         const Anthropic = require('@anthropic-ai/sdk');
         const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
+        // Build user content — add image block if present
+        const userContent = [];
+        if (image && image.base64) {
+            userContent.push({
+                type: 'image',
+                source: { type: 'base64', media_type: image.mimeType || 'image/jpeg', data: image.base64 }
+            });
+        }
+        userContent.push({ type: 'text', text: message || 'What do you see in this image?' });
+
         const messages = [
-            ...history.slice(-8).map(h => ({ role: h.role, content: h.content })),
-            { role: 'user', content: message }
+            ...history.slice(-10).map(h => ({ role: h.role, content: h.content })),
+            { role: 'user', content: userContent.length > 1 ? userContent : message }
         ];
 
         // Agentic loop — Claude may call multiple tools
@@ -3564,8 +3596,8 @@ STYLE:
 
         for (let i = 0; i < 5; i++) {  // max 5 tool-call rounds
             const response = await client.messages.create({
-                model: 'claude-haiku-4-5-20251001',
-                max_tokens: 2048,
+                model: 'claude-sonnet-4-6',
+                max_tokens: 4096,
                 system: systemPrompt,
                 tools,
                 messages: loopMessages
@@ -4005,6 +4037,9 @@ Rules for MODIFIERS (the add-on price upcharges):
 Return ONLY the JSON object. No markdown. No commentary.`;
 
 router.post('/menu/extract', async (req, res) => {
+    // TEMPORARILY DISABLED — rebuilding on new platform
+    return res.status(503).json({ error: 'Menu extraction is temporarily offline for maintenance.' });
+
     const { image_base64, mime_type, provider, model } = req.body;
     if (!image_base64) return res.status(400).json({ error: 'image_base64 required' });
 
