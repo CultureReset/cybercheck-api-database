@@ -335,4 +335,122 @@ router.post('/events', authRequired, async (req, res) => {
     res.status(201).json(data);
 });
 
+// ── FLEET TYPES ──────────────────────────────────────────────────────────────
+
+router.get('/fleet', authRequired, async (req, res) => {
+    const { data, error } = await supabase.from('fleet_types').select('*').eq('site_id', req.siteId).order('sort_order', { ascending: true });
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data || []);
+});
+
+router.post('/fleet', authRequired, async (req, res) => {
+    const { data, error } = await supabase.from('fleet_types').insert({ ...req.body, site_id: req.siteId }).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.status(201).json(data);
+});
+
+router.put('/fleet/:id', authRequired, async (req, res) => {
+    const { data, error } = await supabase.from('fleet_types').update(req.body).eq('id', req.params.id).eq('site_id', req.siteId).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
+router.delete('/fleet/:id', authRequired, async (req, res) => {
+    const { error } = await supabase.from('fleet_types').delete().eq('id', req.params.id).eq('site_id', req.siteId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ── TIME SLOTS ────────────────────────────────────────────────────────────────
+
+router.get('/time-slots', authRequired, async (req, res) => {
+    const { data, error } = await supabase.from('rental_time_slots').select('*').eq('site_id', req.siteId).order('sort_order', { ascending: true });
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data || []);
+});
+
+router.post('/time-slots', authRequired, async (req, res) => {
+    const { data, error } = await supabase.from('rental_time_slots').insert({ ...req.body, site_id: req.siteId }).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.status(201).json(data);
+});
+
+router.put('/time-slots/:id', authRequired, async (req, res) => {
+    const { data, error } = await supabase.from('rental_time_slots').update(req.body).eq('id', req.params.id).eq('site_id', req.siteId).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
+router.delete('/time-slots/:id', authRequired, async (req, res) => {
+    const { error } = await supabase.from('rental_time_slots').delete().eq('id', req.params.id).eq('site_id', req.siteId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ── PRICING ───────────────────────────────────────────────────────────────────
+
+router.get('/pricing', authRequired, async (req, res) => {
+    const { data, error } = await supabase.from('rental_pricing').select('*').eq('site_id', req.siteId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data || []);
+});
+
+router.post('/pricing', authRequired, async (req, res) => {
+    const { fleet_type_id, time_slot_id, price } = req.body;
+    const { data, error } = await supabase.from('rental_pricing')
+        .upsert({ site_id: req.siteId, fleet_type_id, time_slot_id, price }, { onConflict: 'site_id,fleet_type_id,time_slot_id' })
+        .select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
+// ── ADD-ONS ───────────────────────────────────────────────────────────────────
+
+router.get('/addons', authRequired, async (req, res) => {
+    const { data, error } = await supabase.from('rental_addons').select('*').eq('site_id', req.siteId).order('sort_order', { ascending: true });
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data || []);
+});
+
+router.post('/addons', authRequired, async (req, res) => {
+    const { data, error } = await supabase.from('rental_addons').insert({ ...req.body, site_id: req.siteId }).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.status(201).json(data);
+});
+
+router.put('/addons/:id', authRequired, async (req, res) => {
+    const { data, error } = await supabase.from('rental_addons').update(req.body).eq('id', req.params.id).eq('site_id', req.siteId).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
+router.delete('/addons/:id', authRequired, async (req, res) => {
+    const { error } = await supabase.from('rental_addons').delete().eq('id', req.params.id).eq('site_id', req.siteId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ── WAIVERS ───────────────────────────────────────────────────────────────────
+
+router.get('/waivers/template', authRequired, async (req, res) => {
+    const { data, error } = await supabase.from('site_content').select('waiver_text, waiver_required').eq('site_id', req.siteId).single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data || {});
+});
+
+router.put('/waivers/template', authRequired, async (req, res) => {
+    const { waiver_text, waiver_required } = req.body;
+    const { data, error } = await supabase.from('site_content')
+        .upsert({ site_id: req.siteId, waiver_text, waiver_required })
+        .select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
+router.get('/waivers/signed', authRequired, async (req, res) => {
+    const { data, error } = await supabase.from('waivers').select('*').eq('site_id', req.siteId).order('signed_at', { ascending: false });
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data || []);
+});
+
 module.exports = router;
