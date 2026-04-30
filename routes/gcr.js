@@ -2187,4 +2187,35 @@ router.post('/claim', async (req, res) => {
     res.json({ ok: true, id: data?.id || null });
 });
 
+// ============================================
+// POST /api/gcr/track — Platform-wide analytics (GCR + TripSwipe page views)
+// No auth required, never blocks the caller
+// ============================================
+router.post('/track', async (req, res) => {
+    res.json({ ok: true }); // respond immediately — never delay the page
+    const {
+        page_path, page_title, referrer, session_id,
+        utm_source, utm_medium, utm_campaign, utm_term, utm_content,
+        device_type, duration_secs, source
+    } = req.body || {};
+    const ip = (req.headers['x-forwarded-for'] || '').split(',')[0].trim() || req.ip || null;
+    try {
+        await supabase.from('gcr_page_views').insert({
+            page_path:    page_path    || '/',
+            page_title:   page_title   || null,
+            referrer:     referrer     || null,
+            session_id:   session_id   || null,
+            utm_source:   utm_source   || null,
+            utm_medium:   utm_medium   || null,
+            utm_campaign: utm_campaign || null,
+            utm_term:     utm_term     || null,
+            utm_content:  utm_content  || null,
+            device_type:  device_type  || null,
+            duration_secs: duration_secs || null,
+            source:       source       || 'gcr',
+            ip_address:   ip,
+        });
+    } catch (e) { /* non-blocking */ }
+});
+
 module.exports = router;
