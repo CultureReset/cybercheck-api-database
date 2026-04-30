@@ -3652,8 +3652,8 @@ router.get('/platform-analytics', async (req, res) => {
     const today = new Date().toISOString().split('T')[0];
 
     const [pvAll, pvToday, funnelAll, touristCount, saveCount] = await Promise.all([
-        supabase.from('gcr_page_views').select('page_path, utm_source, utm_medium, utm_campaign, device_type, session_id, source, created_at').gte('created_at', since).limit(5000),
-        supabase.from('gcr_page_views').select('session_id, source', { count: 'exact' }).gte('created_at', today + 'T00:00:00Z'),
+        supabase.from('platform_page_views').select('page_path, utm_source, utm_medium, utm_campaign, device_type, session_id, source, created_at').gte('created_at', since).limit(5000),
+        supabase.from('platform_page_views').select('session_id, source', { count: 'exact' }).gte('created_at', today + 'T00:00:00Z'),
         supabase.from('booking_funnel').select('step, step_name, session_id').gte('created_at', since),
         supabase.from('tourist_profiles').select('user_id', { count: 'exact' }).eq('setup_complete', true),
         supabase.from('tourist_saves').select('id', { count: 'exact' }),
