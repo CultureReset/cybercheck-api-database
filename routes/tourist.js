@@ -368,5 +368,347 @@ Return the JSON itinerary now.`;
     }
 });
 
+// ═══════════════════════════════════════════════════════════════════════════
+// TOURIST AI CONCIERGE — chat with memory, fed live GCR data + tourist saves
+// Dual-auth: real tourist token, OR admin token with ?as_tourist=USER_ID
+// (admin testing surface lives in cybercheck-platform admin)
+// ═══════════════════════════════════════════════════════════════════════════
+
+const jwt = require('jsonwebtoken');
+
+async function touristOrAdminAuth(req, res, next) {
+    const header = req.headers.authorization;
+    if (!header || !header.startsWith('Bearer ')) return res.status(401).json({ error: 'No token' });
+    const token = header.split(' ')[1];
+
+    // 1) Try admin JWT first (admin can impersonate any tourist via ?as_tourist=USER_ID)
+    try {
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        if (decoded.role === 'admin') {
+            const asTourist = req.query.as_tourist || req.body?.as_tourist;
+            if (!asTourist) return res.status(400).json({ error: 'Admin must pass as_tourist=USER_ID' });
+            req.touristId = asTourist;
+            req.touristEmail = `admin-test:${asTourist}`;
+            req.isAdminImpersonating = true;
+            return next();
+        }
+    } catch (e) { /* not an admin JWT — try tourist */ }
+
+    // 2) Try tourist Supabase JWT
+    try {
+        const { data, error } = await mainDb.auth.getUser(token);
+        if (error || !data?.user) return res.status(401).json({ error: 'Invalid token' });
+        req.touristId = data.user.id;
+        req.touristEmail = data.user.email;
+        return next();
+    } catch (e) {
+        return res.status(401).json({ error: 'Invalid token' });
+    }
+}
+
+router.post('/ai-chat', touristOrAdminAuth, async (req, res) => {
+    const { message = '', history = [], image, url, conversation_id: clientConvId } = req.body || {};
+    if (!message && !image) return res.status(400).json({ error: 'Message required' });
+
+    if (!process.env.ANTHROPIC_API_KEY) {
+        return res.json({ reply: "AI concierge is being set up — check back soon!" });
+    }
+
+    const touristId = req.touristId;
+
+    // Optional URL fetch
+    let urlContent = '';
+    if (url) {
+        try {
+            const r = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0' }, signal: AbortSignal.timeout(8000) });
+            const html = await r.text();
+            urlContent = html
+                .replace(/<script[\s\S]*?<\/script>/gi, '')
+                .replace(/<style[\s\S]*?<\/style>/gi, '')
+                .replace(/<[^>]+>/g, ' ')
+                .replace(/\s+/g, ' ')
+                .trim().slice(0, 6000);
+        } catch (e) { urlContent = `(Could not fetch ${url}: ${e.message})`; }
+    }
+
+    // Pull tourist context: profile, saves, memories
+    const [profileRes, savesRes, memoriesRes] = await Promise.all([
+        mainDb.from('tourist_profiles').select('name, destination, arrival, departure, trip_days, group_type, budget, interests, stay_status, hotel_name').eq('user_id', touristId).maybeSingle(),
+        mainDb.from('tourist_saves').select('business_name, entity_slug, category, subtitle, rating, price_range').eq('user_id', touristId).order('saved_at', { ascending: false }).limit(50),
+        mainDb.from('tourist_memories').select('category, key, value, tags').eq('user_id', touristId).order('updated_at', { ascending: false })
+    ]);
+    const profile   = profileRes.data || {};
+    const saves     = savesRes.data || [];
+    const memories  = memoriesRes.data || [];
+
+    // Pull live GCR data — top entities so the AI can recommend real places
+    const gcrDb = require('../gcr-db')();
+    const { data: gcrEntities } = await gcrDb
+        .from('entity')
+        .select('name, slug, type, subtypes, city, neighborhood, rating, price_range, tags, is_active')
+        .eq('is_active', true)
+        .order('rating', { ascending: false, nullsFirst: false })
+        .limit(120);
+
+    const gcrContext = (gcrEntities || []).map(e => {
+        const where = [e.neighborhood, e.city].filter(Boolean).join(', ');
+        const tags  = (e.tags || []).slice(0, 4).join(', ');
+        return `• ${e.name} [${e.type}${e.subtypes?.length ? '/' + e.subtypes[0] : ''}] ${where} ${e.rating ? `· ⭐${e.rating}` : ''} ${e.price_range || ''}${tags ? ' · ' + tags : ''} (slug: ${e.slug})`;
+    }).join('\n');
+
+    // Group memories
+    let memoryBlock = '';
+    if (memories.length) {
+        const byCat = {};
+        memories.forEach(m => { (byCat[m.category] = byCat[m.category] || []).push(m); });
+        const labels = { preference:'PREFERENCES', fact:'KNOWN FACTS', goal:'GOALS', decision:'PAST DECISIONS', recurring:'RECURRING TOPICS', note:'NOTES' };
+        memoryBlock = '\n\nWHAT YOU REMEMBER ABOUT THIS TRAVELER (from past chats):\n';
+        Object.keys(labels).forEach(cat => {
+            if (!byCat[cat]) return;
+            memoryBlock += `\n${labels[cat]}:\n`;
+            byCat[cat].forEach(m => { memoryBlock += `  • [${m.key}] ${m.value}${m.tags?.length ? ` (${m.tags.join(', ')})` : ''}\n`; });
+        });
+    }
+
+    // Build profile block
+    let profileBlock = '';
+    if (profile.name) profileBlock += `Name: ${profile.name}\n`;
+    if (profile.destination) profileBlock += `Destination: ${profile.destination}\n`;
+    if (profile.arrival && profile.departure) profileBlock += `Trip dates: ${profile.arrival} → ${profile.departure}${profile.trip_days ? ` (${profile.trip_days} days)` : ''}\n`;
+    if (profile.group_type) profileBlock += `Group: ${profile.group_type}\n`;
+    if (profile.budget) profileBlock += `Budget: ${profile.budget}\n`;
+    if (profile.hotel_name) profileBlock += `Staying at: ${profile.hotel_name}\n`;
+    if (profile.interests?.length) profileBlock += `Interests: ${profile.interests.join(', ')}\n`;
+
+    let savesBlock = '';
+    if (saves.length) {
+        savesBlock = '\nPLACES THEY ALREADY SAVED:\n';
+        saves.slice(0, 25).forEach(s => {
+            savesBlock += `• ${s.business_name} [${s.category || s.subtitle || ''}]${s.rating ? ` ⭐${s.rating}` : ''}\n`;
+        });
+    }
+
+    const systemPrompt = `You are the GulfCoast Concierge — a warm, enthusiastic local who's lived on the Alabama Gulf Coast forever and knows every spot. You're chatting with ${profile.name || 'a traveler'} as their personal trip planner.
+
+YOU ARE TALKING TO:
+${profileBlock || '(unknown traveler)'}
+${savesBlock}${memoryBlock}
+
+LIVE GULF COAST DATA (only recommend places from this list — never invent):
+${gcrContext}
+${urlContent ? `\nWEBPAGE CONTENT (URL they shared):\n${urlContent}\n` : ''}
+HOW TO CHAT:
+- Warm, casual, fun — like texting a friend who's a local. Short sentences.
+- Drop in local flavor: "trust me on this one", "locals don't even tell tourists about this spot"
+- Ask follow-ups to keep it going: "How many in your group?", "Date night or family?", "Crab or oysters mood?"
+- Recommend 1-2 specific spots — not a list of 5. Use the slug from the data so the app can link to it.
+- Add a local tip: "Get there before 6 or you'll wait 45 min", "Sit on the patio if you can"
+- Reference their saved places naturally if relevant ("since you already saved Harbor Docks…")
+
+MEMORY (you remember across chats):
+- When they share durable info (dietary restrictions, group composition, allergies, must-do/avoid lists, return-trip patterns), call save_memory
+- Categories: preference / fact / goal / decision / recurring / note
+- Keep memories concise and tagged. Don't save trivia.
+- If memory is outdated, update_memory or delete_memory
+
+HARD RULES:
+- Only recommend places from the LIVE GULF COAST DATA above
+- Keep replies under 100 words unless they ask for a full plan
+- No phone numbers — they're chatting with you, not calling the place`;
+
+    // ── Tools ──
+    const tools = [
+        {
+            name: 'save_memory',
+            description: 'Remember a durable fact, preference, or pattern about this traveler. Auto-upserts on (category, key).',
+            input_schema: {
+                type: 'object',
+                properties: {
+                    category:   { type: 'string', enum: ['preference','fact','goal','decision','recurring','note'] },
+                    key:        { type: 'string', description: 'Short slug like "dietary" or "favorite_neighborhood"' },
+                    value:      { type: 'string' },
+                    tags:       { type: 'array', items: { type: 'string' } },
+                    confidence: { type: 'string', enum: ['high','medium','low'] }
+                },
+                required: ['category','key','value']
+            }
+        },
+        {
+            name: 'update_memory',
+            description: 'Update an existing memory (when info has changed)',
+            input_schema: {
+                type: 'object',
+                properties: {
+                    category:  { type: 'string', enum: ['preference','fact','goal','decision','recurring','note'] },
+                    key:       { type: 'string' },
+                    new_value: { type: 'string' }
+                },
+                required: ['category','key','new_value']
+            }
+        },
+        {
+            name: 'delete_memory',
+            description: 'Forget a memory',
+            input_schema: {
+                type: 'object',
+                properties: {
+                    category: { type: 'string', enum: ['preference','fact','goal','decision','recurring','note'] },
+                    key:      { type: 'string' }
+                },
+                required: ['category','key']
+            }
+        }
+    ];
+
+    async function executeTool(name, input) {
+        if (name === 'save_memory') {
+            const row = { user_id: touristId, category: input.category, key: input.key, value: input.value, tags: input.tags || [], confidence: input.confidence || 'medium', source_message: (message || '').slice(0, 500), updated_at: new Date().toISOString() };
+            const { error } = await mainDb.from('tourist_memories').upsert(row, { onConflict: 'user_id,category,key' });
+            if (error) return { error: error.message };
+            return { success: true, saved_key: input.key, category: input.category };
+        }
+        if (name === 'update_memory') {
+            const { error } = await mainDb.from('tourist_memories').update({ value: input.new_value, updated_at: new Date().toISOString() }).eq('user_id', touristId).eq('category', input.category).eq('key', input.key);
+            if (error) return { error: error.message };
+            return { success: true, updated_key: input.key };
+        }
+        if (name === 'delete_memory') {
+            const { error } = await mainDb.from('tourist_memories').delete().eq('user_id', touristId).eq('category', input.category).eq('key', input.key);
+            if (error) return { error: error.message };
+            return { success: true, deleted_key: input.key };
+        }
+        return { error: 'Unknown tool' };
+    }
+
+    try {
+        const Anthropic = require('@anthropic-ai/sdk');
+        const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+
+        const userContent = [];
+        if (image && image.base64) {
+            userContent.push({ type: 'image', source: { type: 'base64', media_type: image.mimeType || 'image/jpeg', data: image.base64 } });
+        }
+        userContent.push({ type: 'text', text: message || 'What do you see in this image?' });
+
+        const messages = [
+            ...history.slice(-10).map(h => ({ role: h.role, content: h.content })),
+            { role: 'user', content: userContent.length > 1 ? userContent : (message || 'What do you see in this image?') }
+        ];
+
+        const toolResults = [];
+        let finalReply = '';
+        let loopMessages = [...messages];
+
+        for (let i = 0; i < 4; i++) {
+            const response = await client.messages.create({
+                model: 'claude-sonnet-4-6',
+                max_tokens: 2048,
+                system: systemPrompt,
+                tools,
+                messages: loopMessages
+            });
+
+            if (response.stop_reason === 'end_turn') {
+                finalReply = response.content.filter(b => b.type === 'text').map(b => b.text).join('');
+                break;
+            }
+
+            if (response.stop_reason === 'tool_use') {
+                loopMessages.push({ role: 'assistant', content: response.content });
+                const toolResultMsgs = [];
+                for (const block of response.content) {
+                    if (block.type !== 'tool_use') continue;
+                    const result = await executeTool(block.name, block.input);
+                    if (result.saved_key)   toolResults.push({ tool: block.name, saved_key: result.saved_key, category: result.category });
+                    if (result.updated_key) toolResults.push({ tool: block.name, updated_key: result.updated_key });
+                    if (result.deleted_key) toolResults.push({ tool: block.name, deleted_key: result.deleted_key });
+                    toolResultMsgs.push({ type: 'tool_result', tool_use_id: block.id, content: JSON.stringify(result) });
+                }
+                loopMessages.push({ role: 'user', content: toolResultMsgs });
+                continue;
+            }
+
+            finalReply = response.content.filter(b => b.type === 'text').map(b => b.text).join('') || 'Try rephrasing!';
+            break;
+        }
+
+        // Persist conversation + messages
+        let conversationId = clientConvId || null;
+        try {
+            if (!conversationId) {
+                const title = (message || 'Image conversation').slice(0, 60).replace(/\s+/g, ' ').trim();
+                const { data: conv } = await mainDb.from('tourist_ai_conversations').insert({ user_id: touristId, title }).select('id').single();
+                conversationId = conv?.id || null;
+            } else {
+                await mainDb.from('tourist_ai_conversations').update({ updated_at: new Date().toISOString() }).eq('id', conversationId).eq('user_id', touristId);
+            }
+            if (conversationId) {
+                await mainDb.from('tourist_ai_messages').insert([
+                    { conversation_id: conversationId, role: 'user',      content: message || '(image only)', has_image: !!image, url: url || null, tool_results: null },
+                    { conversation_id: conversationId, role: 'assistant', content: finalReply || 'Done!',     has_image: false,    url: null,        tool_results: toolResults.length ? toolResults : null }
+                ]);
+            }
+        } catch (persistErr) {
+            console.warn('Tourist AI chat persist failed (non-fatal):', persistErr.message);
+        }
+
+        res.json({ reply: finalReply || 'Try rephrasing!', tool_results: toolResults, conversation_id: conversationId });
+    } catch (err) {
+        console.error('Tourist AI chat error:', err.message);
+        res.json({ reply: 'Something went wrong — try again!' });
+    }
+});
+
+// List recent conversations for sidebar
+router.get('/ai-chat/conversations', touristOrAdminAuth, async (req, res) => {
+    const { data, error } = await mainDb
+        .from('tourist_ai_conversations')
+        .select('id, title, created_at, updated_at')
+        .eq('user_id', req.touristId)
+        .order('updated_at', { ascending: false })
+        .limit(50);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ conversations: data || [] });
+});
+
+// Load one conversation's messages
+router.get('/ai-chat/conversations/:id', touristOrAdminAuth, async (req, res) => {
+    const { data: conv } = await mainDb
+        .from('tourist_ai_conversations')
+        .select('id, title, created_at')
+        .eq('id', req.params.id).eq('user_id', req.touristId).single();
+    if (!conv) return res.status(404).json({ error: 'Not found' });
+    const { data: msgs } = await mainDb
+        .from('tourist_ai_messages')
+        .select('id, role, content, has_image, url, tool_results, created_at')
+        .eq('conversation_id', conv.id)
+        .order('created_at');
+    res.json({ conversation: conv, messages: msgs || [] });
+});
+
+router.delete('/ai-chat/conversations/:id', touristOrAdminAuth, async (req, res) => {
+    const { error } = await mainDb.from('tourist_ai_conversations').delete().eq('id', req.params.id).eq('user_id', req.touristId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// List all memories (for the owner / admin to review what AI has remembered)
+router.get('/ai-chat/memories', touristOrAdminAuth, async (req, res) => {
+    const { data, error } = await mainDb
+        .from('tourist_memories')
+        .select('id, category, key, value, tags, confidence, created_at, updated_at')
+        .eq('user_id', req.touristId)
+        .order('category')
+        .order('updated_at', { ascending: false });
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ memories: data || [] });
+});
+
+router.delete('/ai-chat/memories/:id', touristOrAdminAuth, async (req, res) => {
+    const { error } = await mainDb.from('tourist_memories').delete().eq('id', req.params.id).eq('user_id', req.touristId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
 module.exports = router;
 module.exports.touristAuth = touristAuth;
