@@ -62,7 +62,7 @@ function getVisionProvidersStatus() {
             { id: 'gemini',    label: 'Gemini 2.5 Flash',   configured: !!(process.env.GEMINI_API_KEY || process.env.GOOGLE_AI_KEY), defaultModel: process.env.GEMINI_MODEL || 'gemini-2.5-flash' },
             { id: 'xai',       label: 'Grok 2 Vision',      configured: !!(process.env.XAI_API_KEY || process.env.GROK_API_KEY),     defaultModel: process.env.XAI_VISION_MODEL || 'grok-2-vision-1212' },
             { id: 'openai',    label: 'OpenAI GPT-4o mini', configured: !!process.env.OPENAI_API_KEY,                                defaultModel: process.env.OPENAI_VISION_MODEL || 'gpt-4o-mini' },
-            { id: 'anthropic', label: 'Claude Haiku',       configured: !!process.env.ANTHROPIC_API_KEY,                             defaultModel: process.env.ANTHROPIC_VISION_MODEL || 'claude-haiku-4-5-20251001' },
+            { id: 'anthropic', label: 'Claude Sonnet',      configured: !!process.env.ANTHROPIC_API_KEY,                             defaultModel: process.env.ANTHROPIC_VISION_MODEL || 'claude-sonnet-4-6' },
         ],
     };
 }
