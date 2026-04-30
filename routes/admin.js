@@ -3642,6 +3642,185 @@ router.post('/gcr/analytics/convert', async (req, res) => {
     res.json({ success: true });
 });
 
+// ============================================
+// GET /api/admin/platform-analytics — Aggregated platform analytics
+// Queries the main supabase DB (gcr_page_views, booking_funnel, tourist data)
+// ============================================
+router.get('/platform-analytics', async (req, res) => {
+    const days = Math.min(parseInt(req.query.days) || 30, 90);
+    const since = new Date(Date.now() - days * 86400000).toISOString();
+    const today = new Date().toISOString().split('T')[0];
+
+    const [pvAll, pvToday, funnelAll, touristCount, saveCount] = await Promise.all([
+        supabase.from('gcr_page_views').select('page_path, utm_source, utm_medium, utm_campaign, device_type, session_id, source, created_at').gte('created_at', since).limit(5000),
+        supabase.from('gcr_page_views').select('session_id, source', { count: 'exact' }).gte('created_at', today + 'T00:00:00Z'),
+        supabase.from('booking_funnel').select('step, step_name, session_id').gte('created_at', since),
+        supabase.from('tourist_profiles').select('user_id', { count: 'exact' }).eq('setup_complete', true),
+        supabase.from('tourist_saves').select('id', { count: 'exact' }),
+    ]);
+
+    const rows = pvAll.data || [];
+
+    // Totals
+    const totalViews    = rows.length;
+    const uniqueSess    = new Set(rows.map(r => r.session_id).filter(Boolean)).size;
+    const todayViews    = pvToday.count || 0;
+    const gcrViews      = rows.filter(r => r.source === 'gcr').length;
+    const tsViews       = rows.filter(r => r.source === 'tripswipe').length;
+
+    // Top pages
+    const pageCounts = {};
+    rows.forEach(r => { const p = r.page_path || '/'; pageCounts[p] = (pageCounts[p] || 0) + 1; });
+    const topPages = Object.entries(pageCounts).sort((a,b)=>b[1]-a[1]).slice(0,10).map(([p,c])=>({page:p,views:c}));
+
+    // Traffic sources (UTM)
+    const srcCounts = {};
+    rows.forEach(r => {
+        const src = r.utm_source || (r.utm_medium ? r.utm_medium : 'direct');
+        srcCounts[src] = (srcCounts[src] || 0) + 1;
+    });
+    const topSources = Object.entries(srcCounts).sort((a,b)=>b[1]-a[1]).slice(0,8).map(([s,c])=>({source:s,views:c}));
+
+    // Device split
+    const deviceCounts = { mobile: 0, desktop: 0, other: 0 };
+    rows.forEach(r => { const d = r.device_type || 'other'; deviceCounts[d in deviceCounts ? d : 'other']++; });
+
+    // Daily views (last 14 days)
+    const dailyCounts = {};
+    rows.forEach(r => {
+        const day = (r.created_at || '').slice(0, 10);
+        if (day) dailyCounts[day] = (dailyCounts[day] || 0) + 1;
+    });
+    const now = new Date();
+    const daily = Array.from({ length: 14 }, (_, i) => {
+        const d = new Date(now); d.setDate(d.getDate() - (13 - i));
+        const key = d.toISOString().slice(0, 10);
+        return { date: key, views: dailyCounts[key] || 0 };
+    });
+
+    // Booking funnel
+    const funnelSteps = {};
+    (funnelAll.data || []).forEach(r => {
+        const key = r.step_name || ('step_' + r.step);
+        if (!funnelSteps[key]) funnelSteps[key] = { step_name: key, step: r.step, sessions: new Set() };
+        funnelSteps[key].sessions.add(r.session_id);
+    });
+    const funnel = Object.values(funnelSteps)
+        .sort((a, b) => (a.step || 0) - (b.step || 0))
+        .map(s => ({ step_name: s.step_name, count: s.sessions.size }));
+
+    res.json({
+        period_days: days,
+        total_views: totalViews,
+        unique_sessions: uniqueSess,
+        today_views: todayViews,
+        gcr_views: gcrViews,
+        tripswipe_views: tsViews,
+        top_pages: topPages,
+        top_sources: topSources,
+        devices: deviceCounts,
+        daily: daily,
+        funnel: funnel,
+        tourists: touristCount.count || 0,
+        total_saves: saveCount.count || 0,
+    });
+});
+
+// ============================================
+// GET /api/admin/tripswipe-analytics — Real TripSwipe swipe + save data
+// ============================================
+router.get('/tripswipe-analytics', async (req, res) => {
+    const period = req.query.period || 'month';
+    const since = {
+        today: new Date().toISOString().split('T')[0] + 'T00:00:00Z',
+        week:  new Date(Date.now() - 7  * 86400000).toISOString(),
+        month: new Date(Date.now() - 30 * 86400000).toISOString(),
+        all:   '2000-01-01T00:00:00Z',
+    }[period] || new Date(Date.now() - 30 * 86400000).toISOString();
+
+    const [savesRes, profilesRes] = await Promise.all([
+        supabase.from('tourist_saves')
+            .select('entity_slug, business_name, category, rating, hero_image_url, saved_at')
+            .gte('saved_at', since)
+            .limit(5000),
+        supabase.from('tourist_profiles')
+            .select('answers, user_id'),
+    ]);
+
+    const saves = savesRes.data || [];
+    const profiles = profilesRes.data || [];
+
+    // Total likes = saves in period
+    const totalLikes = saves.length;
+
+    // Total seen across all users (no date filter available on seen_slugs)
+    const totalSeen = profiles.reduce((sum, p) => sum + ((p.answers?.seen_slugs || []).length), 0);
+    const totalNopes = Math.max(0, totalSeen - totalLikes);
+    const likeRate = totalSeen > 0 ? Math.round((totalLikes / totalSeen) * 100) : 0;
+
+    // Active tourists = profiles with setup_complete
+    const { count: activeTourists } = await supabase
+        .from('tourist_profiles').select('user_id', { count: 'exact' }).eq('setup_complete', true);
+
+    // Category breakdown from saves
+    const catCounts = {};
+    saves.forEach(s => {
+        const cat = s.category || 'Other';
+        catCounts[cat] = (catCounts[cat] || 0) + 1;
+    });
+    const categories = Object.entries(catCounts)
+        .sort((a, b) => b[1] - a[1])
+        .map(([cat, count]) => ({ cat, count, pct: totalLikes > 0 ? Math.round((count / totalLikes) * 100) : 0 }));
+
+    // Top liked: most saved entity_slugs
+    const slugCounts = {};
+    const slugNames  = {};
+    const slugImages = {};
+    saves.forEach(s => {
+        if (!s.entity_slug) return;
+        slugCounts[s.entity_slug] = (slugCounts[s.entity_slug] || 0) + 1;
+        slugNames[s.entity_slug]  = s.business_name || s.entity_slug;
+        slugImages[s.entity_slug] = s.hero_image_url || null;
+    });
+    const topLiked = Object.entries(slugCounts)
+        .sort((a, b) => b[1] - a[1]).slice(0, 10)
+        .map(([slug, count]) => ({ slug, name: slugNames[slug], count, image: slugImages[slug] }));
+
+    // Most skipped: active entities in gcrDb with fewest saves
+    const { data: activeEntities } = await gcrDb.from('entity')
+        .select('slug, name, type').eq('is_active', true).limit(200);
+    const mostSkipped = (activeEntities || [])
+        .map(e => ({ slug: e.slug, name: e.name, type: e.type, saves: slugCounts[e.slug] || 0 }))
+        .sort((a, b) => a.saves - b.saves)
+        .slice(0, 8);
+
+    // Saves per day (last 14 days)
+    const dailySaves = {};
+    const now = new Date();
+    for (let i = 0; i < 14; i++) {
+        const d = new Date(now); d.setDate(d.getDate() - (13 - i));
+        dailySaves[d.toISOString().slice(0, 10)] = 0;
+    }
+    saves.forEach(s => {
+        const day = (s.saved_at || '').slice(0, 10);
+        if (day in dailySaves) dailySaves[day]++;
+    });
+    const daily = Object.entries(dailySaves).map(([date, count]) => ({ date, count }));
+
+    res.json({
+        period,
+        total_likes:   totalLikes,
+        total_seen:    totalSeen,
+        total_nopes:   totalNopes,
+        like_rate:     likeRate,
+        active_tourists: activeTourists || 0,
+        categories,
+        top_liked:     topLiked,
+        most_skipped:  mostSkipped,
+        daily,
+    });
+});
+
 // ── Messaging Settings ─────────────────────────────────────
 // GET /api/admin/gcr/messaging/:entity_id
 router.get('/gcr/messaging/:entity_id', async (req, res) => {
