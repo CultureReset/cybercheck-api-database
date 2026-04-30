@@ -6628,5 +6628,70 @@ router.post('/smart-import/save', async (req, res) => {
     res.json(result);
 });
 
+// ── APP CATALOG MANAGEMENT ────────────────────────────────────
+
+router.get('/apps', adminRequired, async (req, res) => {
+    const { data, error } = await supabase.from('apps').select('*').order('category').order('name');
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data || []);
+});
+
+router.post('/apps', adminRequired, async (req, res) => {
+    const { data, error } = await supabase.from('apps').insert(req.body).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.status(201).json(data);
+});
+
+router.put('/apps/:appId', adminRequired, async (req, res) => {
+    const { data, error } = await supabase.from('apps').update(req.body).eq('app_id', req.params.appId).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
+router.delete('/apps/:appId', adminRequired, async (req, res) => {
+    await supabase.from('site_apps').delete().eq('app_id', req.params.appId);
+    const { error } = await supabase.from('apps').delete().eq('app_id', req.params.appId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ── BUSINESS APPS MANAGEMENT ──────────────────────────────────
+
+router.get('/businesses', adminRequired, async (req, res) => {
+    const { data: businesses, error } = await supabase.from('businesses').select('site_id, name, type, subdomain, plan, status').order('name');
+    if (error) return res.status(500).json({ error: error.message });
+
+    if (req.query.include_apps === 'true') {
+        const { data: siteApps } = await supabase.from('site_apps').select('site_id, app_id').eq('enabled', true);
+        const appsMap = {};
+        (siteApps || []).forEach(function(a) {
+            if (!appsMap[a.site_id]) appsMap[a.site_id] = [];
+            appsMap[a.site_id].push({ app_id: a.app_id });
+        });
+        const result = (businesses || []).map(function(b) {
+            return Object.assign({}, b, { installed_apps: appsMap[b.site_id] || [] });
+        });
+        return res.json(result);
+    }
+
+    res.json(businesses || []);
+});
+
+router.post('/site-apps', adminRequired, async (req, res) => {
+    const { site_id, app_id } = req.body;
+    const { data, error } = await supabase.from('site_apps')
+        .upsert({ site_id, app_id, enabled: true }, { onConflict: 'site_id,app_id' })
+        .select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
+router.delete('/site-apps', adminRequired, async (req, res) => {
+    const { site_id, app_id } = req.body;
+    const { error } = await supabase.from('site_apps').update({ enabled: false }).eq('site_id', site_id).eq('app_id', app_id);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
 module.exports = router;
 
