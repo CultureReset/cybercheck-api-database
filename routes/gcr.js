@@ -1,8 +1,10 @@
 const express = require('express');
+const multer  = require('multer');
 const supabase = require('../db');
 const getGcrDb = require('../gcr-db');
 
 const router = express.Router();
+const audioUpload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 10 * 1024 * 1024 } });
 
 const gcrDb = getGcrDb();
 
@@ -1054,6 +1056,58 @@ HARD RULES:
     } catch (err) {
         console.error('GCR chat error:', err.message);
         res.json({ reply: "Something went wrong — try again!" });
+    }
+});
+
+// ============================================
+// POST /api/gcr/transcribe — Whisper proxy (keeps OpenAI key server-side)
+// ============================================
+router.post('/transcribe', audioUpload.single('audio'), async (req, res) => {
+    if (!process.env.OPENAI_API_KEY) return res.status(503).json({ error: 'Voice not configured' });
+    if (!req.file) return res.status(400).json({ error: 'No audio file' });
+
+    try {
+        const formData = new FormData();
+        formData.append('file', new Blob([req.file.buffer], { type: req.file.mimetype }), 'audio.wav');
+        formData.append('model', 'whisper-1');
+
+        const whisperRes = await fetch('https://api.openai.com/v1/audio/transcriptions', {
+            method: 'POST',
+            headers: { 'Authorization': 'Bearer ' + process.env.OPENAI_API_KEY },
+            body: formData
+        });
+        const data = await whisperRes.json();
+        if (!whisperRes.ok) throw new Error(data.error?.message || 'Whisper error');
+        res.json({ text: data.text });
+    } catch (err) {
+        console.error('Transcribe error:', err.message);
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// ============================================
+// POST /api/gcr/speak — TTS proxy (keeps OpenAI key server-side)
+// ============================================
+router.post('/speak', async (req, res) => {
+    if (!process.env.OPENAI_API_KEY) return res.status(503).json({ error: 'Voice not configured' });
+    const { text, voice = 'alloy' } = req.body;
+    if (!text) return res.status(400).json({ error: 'text required' });
+
+    try {
+        const ttsRes = await fetch('https://api.openai.com/v1/audio/speech', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + process.env.OPENAI_API_KEY },
+            body: JSON.stringify({ model: 'tts-1', input: text, voice })
+        });
+        if (!ttsRes.ok) {
+            const err = await ttsRes.json();
+            throw new Error(err.error?.message || 'TTS error');
+        }
+        res.set('Content-Type', 'audio/mpeg');
+        ttsRes.body.pipe(res);
+    } catch (err) {
+        console.error('Speak error:', err.message);
+        res.status(500).json({ error: err.message });
     }
 });
 
