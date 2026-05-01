@@ -4329,6 +4329,45 @@ router.post('/events/extract', async (req, res) => {
     }
 });
 
+// POST /api/dashboard/contacts/scan-card — extract contact info from a business card image
+router.post('/contacts/scan-card', async (req, res) => {
+    const { image_base64, mime_type, provider, model } = req.body;
+    if (!image_base64) return res.status(400).json({ error: 'image_base64 required' });
+
+    const prompt = `Extract all contact information from this business card image.
+Return ONLY valid JSON with these fields (use null for any field not visible):
+{
+  "name": "Full name",
+  "title": "Job title or role",
+  "company": "Company or business name",
+  "email": "Email address",
+  "phone": "Primary phone number",
+  "phone2": "Secondary phone number if present",
+  "website": "Website URL",
+  "address": "Full address if present",
+  "notes": "Any other relevant info (tagline, social handles, etc)"
+}`;
+
+    try {
+        const { result, provider: used } = await extractJsonFromImage({
+            imageBase64: image_base64,
+            mimeType: mime_type || 'image/jpeg',
+            systemPrompt: 'You extract contact information from business card images. Return ONLY valid JSON — no markdown, no commentary.',
+            userPrompt: prompt,
+            provider, model,
+            maxTokens: 512,
+        });
+        res.json({ ...result, _provider: used });
+    } catch (err) {
+        console.error('Card scan error:', err);
+        const msg = err.message || 'unknown error';
+        if (msg.startsWith('AI returned non-JSON')) {
+            return res.status(422).json({ error: 'Could not read card — try a clearer, well-lit photo.' });
+        }
+        res.status(500).json({ error: msg });
+    }
+});
+
 // ═══════════════════════════════════════════════════════════════
 // PROMOTIONS — QR Menu trigger-based offers
 // ═══════════════════════════════════════════════════════════════
