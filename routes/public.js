@@ -2482,26 +2482,33 @@ router.get('/docks', async (req, res) => {
 // GET /api/public/links-page — Linktree-style links page data
 // ============================================
 router.get('/links-page', async (req, res) => {
-    const { data: content } = await supabase
-        .from('site_content')
-        .select('social_links, logo_url, hero_text, contact_phone, contact_email')
-        .eq('site_id', req.siteId)
-        .single();
-
-    const { data: business } = await supabase
-        .from('businesses')
-        .select('name, subdomain')
-        .eq('site_id', req.siteId)
-        .single();
+    const [{ data: content }, { data: business }, { data: apps }] = await Promise.all([
+        supabase.from('site_content')
+            .select('social_links, logo_url, hero_text, contact_phone, contact_email, address, city, state, hours, theme_color')
+            .eq('site_id', req.siteId).single(),
+        supabase.from('businesses')
+            .select('name, subdomain, type')
+            .eq('site_id', req.siteId).single(),
+        supabase.from('site_apps')
+            .select('app_id')
+            .eq('site_id', req.siteId).eq('enabled', true)
+    ]);
 
     res.json({
         name: business?.name || '',
         subdomain: business?.subdomain || '',
+        type: business?.type || '',
         logo_url: content?.logo_url || '',
         tagline: content?.hero_text || '',
         phone: content?.contact_phone || '',
         email: content?.contact_email || '',
-        social: content?.social_links || {}
+        address: content?.address || '',
+        city: content?.city || '',
+        state: content?.state || '',
+        hours: content?.hours || null,
+        theme_color: content?.theme_color || '',
+        social: content?.social_links || {},
+        installed_apps: (apps || []).map(a => a.app_id)
     });
 });
 
