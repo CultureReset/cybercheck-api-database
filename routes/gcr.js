@@ -2,6 +2,7 @@ const express = require('express');
 const multer  = require('multer');
 const supabase = require('../db');
 const getGcrDb = require('../gcr-db');
+const { callAIRound } = require('./ai-provider');
 
 const router = express.Router();
 const audioUpload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 10 * 1024 * 1024 } });
@@ -991,9 +992,9 @@ router.post('/chat', async (req, res) => {
     const { message, history = [] } = req.body;
     if (!message) return res.status(400).json({ error: 'Message required' });
 
-    if (!process.env.OPENAI_API_KEY) {
-        return res.json({ reply: "AI is being set up — check back soon!" });
-    }
+    const settings = await getAISettings();
+    const apiKey = settings.chat_api_key || process.env.ANTHROPIC_API_KEY || process.env.OPENAI_API_KEY;
+    if (!apiKey) return res.json({ reply: "AI is being set up — check back soon!" });
 
     const { data: businesses } = await supabase
         .from('businesses')
@@ -1040,19 +1041,39 @@ HARD RULES:
 - Keep each response under 80 words (short texts, not essays)
 - If you don't have a match, say so honestly and suggest what's close`;
 
+    // Detect if question needs live web data → route to Gemini with Google Search
+    const liveWebKeywords = /weather|forecast|right now|open now|currently|today|tonight|this week|current|live|breaking|news|traffic|gas price|tide|surf/i;
+    const needsLiveWeb = liveWebKeywords.test(message);
+
     try {
-        const openaiRes = await fetch('https://api.openai.com/v1/chat/completions', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + process.env.OPENAI_API_KEY },
-            body: JSON.stringify({
-                model: 'gpt-4o-mini',
-                messages: [{ role: 'system', content: systemPrompt }, ...history.slice(-10), { role: 'user', content: message }],
-                max_tokens: 250, temperature: 0.85
-            })
-        });
-        const data = await openaiRes.json();
-        if (!openaiRes.ok) throw new Error(data.error?.message || 'OpenAI error');
-        res.json({ reply: data.choices?.[0]?.message?.content || "Try rephrasing!" });
+        const messages = [...history.slice(-10), { role: 'user', content: message }];
+
+        let reply;
+        if (needsLiveWeb && (process.env.GEMINI_API_KEY || process.env.GOOGLE_AI_KEY)) {
+            // Gemini with Google Search grounding for live/real-time questions
+            const result = await callAIRound({
+                systemPrompt,
+                messages,
+                tools: [{ type: 'google_search', name: 'google_search' }],
+                provider: 'gemini',
+                maxTokens: 250,
+                temperature: 0.7,
+            });
+            reply = result.text;
+        } else {
+            // Default concierge — provider from ai_settings (Claude Haiku, etc.)
+            const result = await callAIRound({
+                systemPrompt,
+                messages,
+                provider: settings.chat_provider || 'anthropic',
+                model: settings.chat_model || 'claude-haiku-4-5-20251001',
+                maxTokens: 250,
+                temperature: 0.85,
+            });
+            reply = result.text;
+        }
+
+        res.json({ reply: reply || "Try rephrasing!" });
     } catch (err) {
         console.error('GCR chat error:', err.message);
         res.json({ reply: "Something went wrong — try again!" });
