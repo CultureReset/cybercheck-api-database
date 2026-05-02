@@ -14,6 +14,7 @@
 const express = require('express');
 const supabase = require('../db');
 const router  = express.Router();
+const { sendSms } = require('../utils/sms');
 
 function getTwilio() {
     const sid   = process.env.TWILIO_ACCOUNT_SID;
@@ -141,16 +142,17 @@ router.post('/inbound', express.urlencoded({ extended: false }), async (req, res
     });
 
     // Forward to owner's cell so they know someone replied
-    if (site.owner_phone) {
+    const notifyPhone = site.owner_phone || process.env.OWNER_PHONE;
+    if (notifyPhone) {
         const twilio = getTwilio();
         const fromNum = getFromNumber();
         if (twilio && fromNum) {
             const displayName = customer?.name || from;
             const preview = body.length > 120 ? body.substring(0, 120) + '...' : body;
             twilio.messages.create({
-                body: `💬 ${displayName}: ${preview}\n\nReply in your dashboard`,
+                body: `💬 INBOUND from ${displayName} (${from}):\n${preview}\n\nReply in your dashboard`,
                 from: fromNum,
-                to:   site.owner_phone
+                to:   notifyPhone
             }).catch(err => console.error('Forward to owner failed:', err.message));
         }
     }
@@ -290,36 +292,23 @@ router.post('/send', async (req, res) => {
         return res.status(400).json({ error: 'site_id, to, body required' });
     }
 
-    const twilio = getTwilio();
-    const fromNum = getFromNumber();
-    if (!twilio || !fromNum) return res.status(503).json({ error: 'Twilio not configured' });
+    const result = await sendSms(to, body, site_id, message_type || 'manual', related_id);
+    if (!result.success) return res.status(503).json({ error: result.reason });
 
-    try {
-        const msg = await twilio.messages.create({
-            body,
-            from: fromNum,
-            to
-        });
+    const customer = await customerByPhone(site_id, to);
+    await storeMessage({
+        siteId:        site_id,
+        customerPhone: to,
+        customerName:  customer?.name || null,
+        customerId:    customer?.id   || null,
+        direction:     'outbound',
+        body,
+        twilioSid:     result.sid || null,
+        twilioStatus:  'sent',
+        messageType:   message_type || 'manual'
+    });
 
-        const customer = await customerByPhone(site_id, to);
-
-        await storeMessage({
-            siteId:        site_id,
-            customerPhone: to,
-            customerName:  customer?.name || null,
-            customerId:    customer?.id   || null,
-            direction:     'outbound',
-            body,
-            twilioSid:     msg.sid,
-            twilioStatus:  msg.status,
-            messageType:   message_type || 'manual'
-        });
-
-        res.json({ success: true, sid: msg.sid });
-    } catch (err) {
-        console.error('SMS send error:', err.message);
-        res.status(500).json({ error: err.message });
-    }
+    res.json({ success: true, sid: result.sid, relayed: result.relayed || false });
 });
 
 
@@ -333,21 +322,11 @@ router.post('/blast', async (req, res) => {
         return res.status(400).json({ error: 'site_id, phones[], body required' });
     }
 
-    const twilio = getTwilio();
-    const fromNum = getFromNumber();
-    if (!twilio || !fromNum) return res.status(503).json({ error: 'Twilio not configured' });
-
     let sent = 0, failed = 0;
 
-    // Send with 100ms delay between each to avoid Twilio rate limits
     for (const phone of phones) {
-        try {
-            const msg = await twilio.messages.create({
-                body,
-                from: fromNum,
-                to:   phone
-            });
-
+        const result = await sendSms(phone, body, site_id, message_type || 'promo');
+        if (result.success) {
             const customer = await customerByPhone(site_id, phone);
             await storeMessage({
                 siteId:        site_id,
@@ -356,17 +335,16 @@ router.post('/blast', async (req, res) => {
                 customerId:    customer?.id   || null,
                 direction:     'outbound',
                 body,
-                twilioSid:     msg.sid,
-                twilioStatus:  msg.status,
+                twilioSid:     result.sid || null,
+                twilioStatus:  'sent',
                 messageType:   message_type || 'promo'
             });
-
             sent++;
-            await new Promise(r => setTimeout(r, 100));
-        } catch (err) {
-            console.error(`Blast failed for ${phone}:`, err.message);
+        } else {
+            console.error(`Blast failed for ${phone}:`, result.reason);
             failed++;
         }
+        await new Promise(r => setTimeout(r, 100));
     }
 
     res.json({ sent, failed, total: phones.length });
@@ -383,10 +361,6 @@ router.get('/send-reminders', async (req, res) => {
     if (secret && req.headers['authorization'] !== 'Bearer ' + secret) {
         return res.status(401).json({ error: 'Unauthorized' });
     }
-
-    const twilio = getTwilio();
-    const fromNum = getFromNumber();
-    if (!twilio || !fromNum) return res.json({ skipped: true, reason: 'twilio_not_configured' });
 
     try {
         // Find confirmed bookings happening tomorrow (within a 15-min window from now + 24h)
@@ -415,13 +389,9 @@ router.get('/send-reminders', async (req, res) => {
                 const rentalType = (b.fleet_types && b.fleet_types.name) || 'boat';
                 const msg = `Reminder: Your ${rentalType} rental is tomorrow${b.booking_time ? ' at ' + b.booking_time : ''}! Please arrive 15 min early. Questions? Reply here.`;
 
-                await twilio.messages.create({
-                    body: msg,
-                    from: fromNum,
-                    to: b.customer_phone
-                });
+                const result = await sendSms(b.customer_phone, msg, b.site_id, 'booking_reminder', b.id);
+                if (!result.success) throw new Error(result.reason);
 
-                // Mark reminder sent
                 await supabase.from('bookings').update({ reminder_sent: new Date().toISOString() }).eq('id', b.id);
 
                 await storeMessage({
@@ -430,8 +400,7 @@ router.get('/send-reminders', async (req, res) => {
                     customerName:  b.customer_name || null,
                     direction:     'outbound',
                     body:          msg,
-                    messageType:   'booking_reminder',
-                    related_id:    b.id
+                    messageType:   'booking_reminder'
                 });
 
                 sent++;
@@ -461,12 +430,6 @@ router.post('/send-day-of-waivers', async (req, res) => {
     const cronSecret = process.env.CRON_SECRET;
     if (cronSecret && req.headers['x-cron-secret'] !== cronSecret) {
         return res.status(401).json({ error: 'Unauthorized' });
-    }
-
-    const twilio  = getTwilio();
-    const fromNum = getFromNumber();
-    if (!twilio || !fromNum) {
-        return res.status(503).json({ error: 'Twilio not configured' });
     }
 
     try {
@@ -540,7 +503,8 @@ router.post('/send-day-of-waivers', async (req, res) => {
                 const firstName = b.customer_name ? b.customer_name.split(' ')[0] : 'there';
                 const msg = `Hi ${firstName}! Your rental is TODAY. Please sign your release waiver before arriving:\n${waiverUrl}\n\nSee you on the water! 🛶`;
 
-                await twilio.messages.create({ body: msg, from: fromNum, to: b.customer_phone });
+                const waiverResult = await sendSms(b.customer_phone, msg, b.site_id, 'waiver_link', b.id);
+                if (!waiverResult.success) throw new Error(waiverResult.reason);
 
                 // Record the message
                 await storeMessage({

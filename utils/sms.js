@@ -20,6 +20,31 @@ function getClient() {
  * @param {string} from - Optional custom from number (overrides default)
  */
 async function sendSms(to, body, siteId, type = 'outgoing', relatedId = null, from = null) {
+    const ownerPhone = process.env.OWNER_PHONE;
+    const relayMode = process.env.OWNER_RELAY_MODE === 'true' && ownerPhone;
+
+    // Owner relay mode: redirect all customer SMS to owner's number for manual forwarding
+    if (relayMode) {
+        const client = getClient();
+        if (!client) {
+            console.warn('Relay mode: Twilio not configured');
+            await logSms(siteId, to, body, type, 'relay_not_configured', relatedId);
+            return { success: false, reason: 'twilio_not_configured' };
+        }
+        const fromNumber = from || process.env.TWILIO_PHONE_NUMBER;
+        const preview = body.length > 280 ? body.substring(0, 280) + '...' : body;
+        const relayBody = `📬 RELAY [${type}]\nSEND TO: ${to}\n──────────\n${preview}\n──────────\nCopy # above → text customer`;
+        try {
+            const msg = await client.messages.create({ body: relayBody, from: fromNumber, to: ownerPhone });
+            await logSms(siteId, to, body, type, 'relayed_to_owner', relatedId, msg.sid);
+            return { success: true, relayed: true, sid: msg.sid };
+        } catch (err) {
+            console.error('Owner relay SMS failed:', err.message);
+            await logSms(siteId, to, body, type, 'relay_failed', relatedId);
+            return { success: false, reason: err.message };
+        }
+    }
+
     const client = getClient();
 
     if (!client) {

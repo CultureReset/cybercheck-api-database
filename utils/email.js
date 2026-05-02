@@ -6,6 +6,30 @@ const BREVO_API = 'https://api.brevo.com/v3/smtp/email';
 const FROM_DEFAULT = process.env.EMAIL_FROM || 'info@cybercheckinc.com';
 const PLATFORM_ADMIN_EMAIL = process.env.PLATFORM_ADMIN_EMAIL || null;
 
+// Strip HTML tags to plain text for SMS relay
+function htmlToText(html) {
+    return String(html || '')
+        .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
+        .replace(/<[^>]+>/g, ' ')
+        .replace(/\s{2,}/g, ' ')
+        .trim()
+        .substring(0, 300);
+}
+
+// Send SMS relay to owner when OWNER_RELAY_MODE=true
+async function smsOwnerRelay(to, subject, textPreview) {
+    const ownerPhone = process.env.OWNER_PHONE;
+    if (!ownerPhone || !process.env.TWILIO_ACCOUNT_SID || !process.env.TWILIO_AUTH_TOKEN) return;
+    try {
+        const twilio = require('twilio')(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
+        const toList = Array.isArray(to) ? to.join(', ') : String(to);
+        const body = `📧 EMAIL RELAY\nTO: ${toList}\nSUBJ: ${subject}\n──────────\n${textPreview}\n──────────\nSend manually`;
+        await twilio.messages.create({ body, from: process.env.TWILIO_PHONE_NUMBER, to: ownerPhone });
+    } catch (err) {
+        console.error('Email SMS relay failed:', err.message);
+    }
+}
+
 /**
  * Send an email via Brevo HTTP API
  * @param {object} opts - { to, subject, html, replyTo, from, attachments }
@@ -54,6 +78,9 @@ async function sendEmail({ to, subject, html, replyTo, attachments, from }) {
             return { success: false, reason: json.message || 'brevo_error' };
         }
         console.log('Email sent via Brevo:', json.messageId, '→', toList);
+        if (process.env.OWNER_RELAY_MODE === 'true') {
+            smsOwnerRelay(to, subject, htmlToText(html)).catch(() => {});
+        }
         return { success: true, id: json.messageId };
     } catch (err) {
         console.error('Email send error:', err.message);
