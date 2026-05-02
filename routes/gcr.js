@@ -2384,4 +2384,123 @@ router.post('/track', async (req, res) => {
     } catch (e) { /* non-blocking */ }
 });
 
+// ═══════════════════════════════════════════════════════════════════════════════
+// GET /api/gcr/menu-editor-data?entity_id=UUID  or  ?slug=xxx
+// Returns full menu (items + drinks + specials) for the owner edit page.
+// No auth beyond entity ID (UUID is hard to guess).
+// ═══════════════════════════════════════════════════════════════════════════════
+router.get('/menu-editor-data', async (req, res) => {
+    // Bypass CDN cache for this endpoint — always fresh
+    res.set('Cache-Control', 'no-store');
+
+    const { entity_id, slug } = req.query;
+    if (!entity_id && !slug) return res.status(400).json({ error: 'entity_id or slug required' });
+
+    try {
+        let entityQuery = gcrDb.from('entity').select('id, slug, name, city, entity_subtype');
+        if (entity_id) entityQuery = entityQuery.eq('id', entity_id);
+        else           entityQuery = entityQuery.eq('slug', slug);
+        const { data: entity, error: eErr } = await entityQuery.single();
+        if (eErr || !entity) return res.status(404).json({ error: 'Entity not found' });
+
+        const eid = entity.id;
+
+        const [
+            { data: menuSections },
+            { data: drinkSections },
+            { data: specials },
+        ] = await Promise.all([
+            gcrDb.from('menu_sections').select('id, section_name, sort_order').eq('entity_id', eid).order('sort_order'),
+            gcrDb.from('drink_sections').select('id, section_name, sort_order').eq('entity_id', eid).order('sort_order'),
+            gcrDb.from('entity_specials').select('*').eq('entity_id', eid).eq('is_active', true),
+        ]);
+
+        const [{ data: menuItems }, { data: drinkItems }] = await Promise.all([
+            gcrDb.from('menu_items').select('id, item_name, description, price, price_text, is_available, image_url, menu_section_id, sort_order').eq('entity_id', eid).order('sort_order'),
+            gcrDb.from('drink_items').select('id, item_name, description, price, price_text, is_available, image_url, drink_section_id, sort_order').eq('entity_id', eid).order('sort_order'),
+        ]);
+
+        res.json({
+            entity,
+            menuSections:  menuSections  || [],
+            drinkSections: drinkSections || [],
+            menuItems:     menuItems     || [],
+            drinkItems:    drinkItems    || [],
+            specials:      specials      || [],
+        });
+    } catch (err) {
+        console.error('menu-editor-data error:', err.message);
+        res.status(500).json({ error: err.message });
+    }
+});
+
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// POST /api/gcr/menu-editor-save
+// Body: { entity_id, item_changes[], drink_changes[], new_specials[], remove_specials[] }
+// ═══════════════════════════════════════════════════════════════════════════════
+router.post('/menu-editor-save', async (req, res) => {
+    const { entity_id, item_changes = [], drink_changes = [], new_specials = [], remove_specials = [] } = req.body;
+    if (!entity_id) return res.status(400).json({ error: 'entity_id required' });
+
+    try {
+        // Verify entity exists
+        const { data: entity } = await gcrDb.from('entity').select('id').eq('id', entity_id).single();
+        if (!entity) return res.status(404).json({ error: 'Entity not found' });
+
+        let items_updated = 0, drinks_updated = 0, specials_added = 0, specials_removed = 0;
+
+        // Update menu items
+        for (const ch of item_changes) {
+            const update = {};
+            if (ch.is_available !== undefined) update.is_available = ch.is_available;
+            if (ch.price !== undefined && ch.price !== null) update.price = ch.price;
+            if (!Object.keys(update).length) continue;
+            const { error } = await gcrDb.from('menu_items').update(update).eq('id', ch.id).eq('entity_id', entity_id);
+            if (!error) items_updated++;
+        }
+
+        // Update drink items
+        for (const ch of drink_changes) {
+            const update = {};
+            if (ch.is_available !== undefined) update.is_available = ch.is_available;
+            if (ch.price !== undefined && ch.price !== null) update.price = ch.price;
+            if (!Object.keys(update).length) continue;
+            const { error } = await gcrDb.from('drink_items').update(update).eq('id', ch.id).eq('entity_id', entity_id);
+            if (!error) drinks_updated++;
+        }
+
+        // Add new specials
+        for (const s of new_specials) {
+            if (!s.name) continue;
+            const today = new Date().toISOString().slice(0, 10);
+            await gcrDb.from('entity_specials').insert({
+                entity_id,
+                special_name: s.name,
+                description:  s.desc || null,
+                price:        s.price || null,
+                is_active:    true,
+                start_date:   today,
+                end_date:     today,
+                special_type: 'daily',
+            });
+            specials_added++;
+        }
+
+        // Remove specials (mark inactive rather than delete)
+        if (remove_specials.length) {
+            const { error } = await gcrDb.from('entity_specials')
+                .update({ is_active: false })
+                .in('id', remove_specials)
+                .eq('entity_id', entity_id);
+            if (!error) specials_removed = remove_specials.length;
+        }
+
+        res.json({ ok: true, items_updated, drinks_updated, specials_added, specials_removed });
+    } catch (err) {
+        console.error('menu-editor-save error:', err.message);
+        res.status(500).json({ error: err.message });
+    }
+});
+
 module.exports = router;

@@ -15,6 +15,8 @@ const express = require('express');
 const supabase = require('../db');
 const router  = express.Router();
 const { sendSms } = require('../utils/sms');
+const getGcrDb = require('../gcr-db');
+function _gcrDb() { try { return getGcrDb(); } catch(e) { return null; } }
 
 function getTwilio() {
     const sid   = process.env.TWILIO_ACCOUNT_SID;
@@ -73,6 +75,103 @@ async function siteByInboundPhone(customerPhone) {
     return null;
 }
 
+// ── Helper: look up GCR entity by business phone ─────────────────────────────
+async function gcrEntityByPhone(phone) {
+    const gcrDb = _gcrDb();
+    if (!gcrDb) return null;
+    const { data } = await gcrDb
+        .from('entity')
+        .select('id, slug, name, phone')
+        .eq('phone', phone)
+        .eq('is_active', true)
+        .maybeSingle();
+    return data || null;
+}
+
+// ── Helper: process owner menu-update commands (SOLD/BACK/SPECIAL/CATCH/DONE) ─
+async function handleOwnerUpdate(entity, body, ownerPhone) {
+    const gcrDb = _gcrDb();
+    if (!gcrDb) return;
+
+    const lines = body.trim().split('\n').map(l => l.trim()).filter(Boolean);
+    const results = [];
+
+    for (const line of lines) {
+        const upper = line.toUpperCase();
+        try {
+            if (/^SOLD /i.test(line)) {
+                const itemName = line.slice(5).trim();
+                const { error } = await gcrDb.from('menu_items')
+                    .update({ is_available: false })
+                    .eq('entity_id', entity.id)
+                    .ilike('item_name', `%${itemName}%`);
+                results.push(error ? `❌ SOLD failed: ${itemName}` : `✅ Sold out: ${itemName}`);
+            } else if (/^BACK /i.test(line)) {
+                const itemName = line.slice(5).trim();
+                const { error } = await gcrDb.from('menu_items')
+                    .update({ is_available: true })
+                    .eq('entity_id', entity.id)
+                    .ilike('item_name', `%${itemName}%`);
+                results.push(error ? `❌ BACK failed: ${itemName}` : `✅ Back in stock: ${itemName}`);
+            } else if (/^SPECIAL /i.test(line)) {
+                // SPECIAL Name $price - description
+                const rest = line.slice(8).trim();
+                const m = rest.match(/^(.+?)\s+\$?([\d.]+)\s*[-–]\s*(.+)$/);
+                if (m) {
+                    const today = new Date().toISOString().slice(0,10);
+                    await gcrDb.from('entity_specials').insert({
+                        entity_id: entity.id,
+                        special_name: m[1].trim(),
+                        description: m[3].trim(),
+                        price: parseFloat(m[2]),
+                        is_active: true,
+                        start_date: today,
+                        end_date: today,
+                        special_type: 'daily'
+                    });
+                    results.push(`✅ Special added: ${m[1].trim()} $${m[2]}`);
+                } else {
+                    results.push(`❌ Format: SPECIAL Name $price - description`);
+                }
+            } else if (/^CATCH /i.test(line)) {
+                // CATCH Fish $price
+                const rest = line.slice(6).trim();
+                const m = rest.match(/^(.+?)\s+\$?([\d.]+)$/);
+                if (m) {
+                    const today = new Date().toISOString().slice(0,10);
+                    await gcrDb.from('entity_specials').insert({
+                        entity_id: entity.id,
+                        special_name: `🎣 Today's Catch: ${m[1].trim()}`,
+                        is_active: true,
+                        price: parseFloat(m[2]),
+                        start_date: today,
+                        end_date: today,
+                        special_type: 'catch'
+                    });
+                    results.push(`✅ Catch added: ${m[1].trim()} $${m[2]}`);
+                } else {
+                    results.push(`❌ Format: CATCH Fish $price`);
+                }
+            } else if (upper === 'DONE') {
+                results.push(`✅ Menu updated for ${entity.name}!`);
+            } else if (upper === 'STATUS') {
+                results.push(`📋 ${entity.name}\nSOLD [item] · BACK [item] · SPECIAL name $p - desc · CATCH fish $p · DONE`);
+            }
+        } catch (err) {
+            results.push(`❌ Error: ${err.message}`);
+        }
+    }
+
+    if (results.length) {
+        const twilio = getTwilio();
+        const fromNum = getFromNumber();
+        if (twilio && fromNum) {
+            twilio.messages.create({ body: results.join('\n'), from: fromNum, to: ownerPhone })
+                .catch(e => console.error('Owner reply SMS failed:', e.message));
+        }
+    }
+}
+
 // ── Helper: look up customer name from phone ──────────────────────────────────
 async function customerByPhone(siteId, phone) {
     const { data } = await supabase
@@ -117,6 +216,15 @@ router.post('/inbound', express.urlencoded({ extended: false }), async (req, res
 
     // Always respond with empty TwiML immediately (Twilio requires fast response)
     res.type('text/xml').send('<?xml version="1.0"?><Response></Response>');
+
+    // Check if this is a GCR business owner sending a menu update command
+    if (/^(SOLD|BACK|SPECIAL|CATCH|DONE|STATUS)\b/i.test(body.trim())) {
+        const gcrEntity = await gcrEntityByPhone(from);
+        if (gcrEntity) {
+            await handleOwnerUpdate(gcrEntity, body, from);
+            return;
+        }
+    }
 
     // Route to correct business via message history (shared platform number)
     const site = await siteByInboundPhone(from);
@@ -529,6 +637,64 @@ router.post('/send-day-of-waivers', async (req, res) => {
         res.json({ sent, failed, total: bookings.length });
     } catch (err) {
         console.error('send-day-of-waivers error:', err.message);
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// GET /api/sms/send-daily-menu-prompts — Vercel Cron: 8am menu update SMS
+// Sends each GCR business their menu URL + command cheat sheet.
+// Protected by CRON_SECRET. Add to vercel.json cron schedule.
+// ═══════════════════════════════════════════════════════════════════════════════
+router.get('/send-daily-menu-prompts', async (req, res) => {
+    const secret = process.env.CRON_SECRET;
+    if (secret && req.headers['authorization'] !== 'Bearer ' + secret) {
+        return res.status(401).json({ error: 'Unauthorized' });
+    }
+
+    const gcrDb = _gcrDb();
+    if (!gcrDb) return res.status(503).json({ error: 'GCR DB not configured' });
+
+    try {
+        const { data: entities, error } = await gcrDb
+            .from('entity')
+            .select('id, slug, name, phone')
+            .eq('is_active', true)
+            .not('phone', 'is', null)
+            .neq('phone', '');
+
+        if (error) throw error;
+        if (!entities?.length) return res.json({ sent: 0, message: 'No entities with phone numbers' });
+
+        const editorBase = process.env.MENU_EDITOR_BASE_URL || 'https://cybercheck-links.vercel.app/menu-update.html';
+        let sent = 0, failed = 0;
+
+        for (const entity of entities) {
+            try {
+                const editorUrl = `${editorBase}?id=${encodeURIComponent(entity.id)}`;
+                const msg = [
+                    `🍽️ Good morning, ${entity.name}!`,
+                    ``,
+                    `Update today's menu here:`,
+                    editorUrl,
+                    ``,
+                    `Toggle sold-out items, adjust prices, add specials — then hit Submit.`,
+                ].join('\n');
+
+                const result = await sendSms(entity.phone, msg, null, 'daily_menu_prompt', entity.id);
+                if (result.success) sent++;
+                else { console.error('Prompt failed for', entity.name, result.reason); failed++; }
+
+                await new Promise(r => setTimeout(r, 200));
+            } catch (err) {
+                console.error('Daily prompt error for', entity.name, err.message);
+                failed++;
+            }
+        }
+
+        res.json({ sent, failed, total: entities.length });
+    } catch (err) {
+        console.error('send-daily-menu-prompts error:', err.message);
         res.status(500).json({ error: err.message });
     }
 });
