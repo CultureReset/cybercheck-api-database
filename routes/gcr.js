@@ -2210,6 +2210,151 @@ router.post('/claim', async (req, res) => {
 
 // ============================================
 // POST /api/gcr/track — Platform-wide analytics (GCR + TripSwipe page views)
+// ═══════════════════════════════════════════════════════════════════════════
+// QR MENU THEME LIBRARY
+// GET  /api/gcr/menu-themes            — public community gallery
+// GET  /api/gcr/menu-themes/:id        — get one theme's full JSON
+// POST /api/gcr/menu-themes/generate   — describe → AI → save + apply (admin)
+// POST /api/gcr/menu-themes/:id/apply  — apply saved theme to entity (admin)
+//
+// Supabase table needed (gcrDb):
+//   create table qr_menu_themes (
+//     id uuid primary key default gen_random_uuid(),
+//     name text not null,
+//     description text,
+//     theme_json jsonb not null,
+//     preview_colors jsonb,   -- ["#hex","#hex","#hex","#hex"]
+//     category text default 'restaurant',
+//     use_count int default 0,
+//     is_public boolean default true,
+//     created_by text,        -- entity slug of creator
+//     created_at timestamptz default now()
+//   );
+// ═══════════════════════════════════════════════════════════════════════════
+
+async function _verifyAdminJwt(req) {
+    try {
+        const jwt = require('jsonwebtoken');
+        const token = (req.headers.authorization || '').replace('Bearer ', '');
+        const payload = jwt.verify(token, process.env.JWT_SECRET);
+        return payload.role === 'admin';
+    } catch { return false; }
+}
+
+// GET /api/gcr/menu-themes?category=&search=&page=
+router.get('/menu-themes', async (req, res) => {
+    const { category, search, page = 1 } = req.query;
+    const limit = 24;
+    let query = gcrDb.from('qr_menu_themes')
+        .select('id, name, description, preview_colors, category, use_count, created_at')
+        .eq('is_public', true)
+        .order('use_count', { ascending: false })
+        .range((page - 1) * limit, page * limit - 1);
+    if (category) query = query.eq('category', category);
+    if (search)   query = query.ilike('name', `%${search}%`);
+    const { data, error } = await query;
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ themes: data || [] });
+});
+
+// GET /api/gcr/menu-themes/:id
+router.get('/menu-themes/:id', async (req, res) => {
+    const { data, error } = await gcrDb.from('qr_menu_themes').select('*').eq('id', req.params.id).single();
+    if (error || !data) return res.status(404).json({ error: 'Theme not found' });
+    res.json(data);
+});
+
+// POST /api/gcr/menu-themes/generate
+router.post('/menu-themes/generate', async (req, res) => {
+    if (!await _verifyAdminJwt(req)) return res.status(403).json({ error: 'Unauthorized' });
+
+    const { description, entity_id, slug, category = 'restaurant' } = req.body;
+    if (!description) return res.status(400).json({ error: 'description required' });
+
+    const systemPrompt = `You are a UI/UX designer specializing in restaurant QR menus. Generate a JSON theme for a digital menu. Return ONLY valid JSON with no explanation, no markdown fences.
+
+Schema (all fields required):
+{
+  "name": "2-3 word memorable theme name",
+  "bg": "#hex background",
+  "surface": "#hex card background (slightly different from bg)",
+  "surface2": "#hex secondary surface",
+  "primary": "#hex main brand color",
+  "primary_dark": "#hex darker variant",
+  "accent": "#hex price/highlight color",
+  "accent_light": "#hex light accent tint",
+  "text": "#hex main text",
+  "text_muted": "#hex secondary text",
+  "text_light": "#hex placeholder text",
+  "border": "#hex divider/border",
+  "font": "font stack string",
+  "radius": "Xpx (8–20)",
+  "hero_height": "Xpx (180–300)",
+  "modules": { "catch_of_day": bool, "live_music": bool, "specials": bool, "happy_hour": bool, "menu": bool, "drinks": bool, "events": bool },
+  "module_order": ["specials","happy_hour","menu","drinks"],
+  "template": "kebab-case-theme-name"
+}
+
+Rules: text must be readable on bg, accent used for prices, primary for headers. Make it beautiful.`;
+
+    try {
+        const result = await callAIRound({
+            systemPrompt,
+            messages: [{ role: 'user', content: `Create a QR menu theme for: ${description}` }],
+            maxTokens: 900,
+            temperature: 0.75,
+        });
+
+        let themeJson;
+        try {
+            const raw = result.text.replace(/```json\n?|\n?```/g, '').trim();
+            themeJson = JSON.parse(raw);
+        } catch {
+            return res.status(500).json({ error: 'AI returned invalid JSON', raw: result.text });
+        }
+
+        const name = themeJson.name || description.substring(0, 40);
+        const previewColors = [themeJson.bg, themeJson.primary, themeJson.accent, themeJson.text].filter(Boolean);
+
+        // Save to community library (one token spend → everyone reuses free)
+        const { data: saved } = await gcrDb.from('qr_menu_themes').insert({
+            name, description, theme_json: themeJson, preview_colors: previewColors,
+            category, use_count: 1, is_public: true, created_by: slug || entity_id || null,
+        }).select('id').single();
+
+        // Apply to entity immediately if provided
+        if (entity_id) {
+            await gcrDb.from('entity').update({ qr_theme: themeJson }).eq('id', entity_id);
+        } else if (slug) {
+            await gcrDb.from('entity').update({ qr_theme: themeJson }).eq('slug', slug);
+        }
+
+        res.json({ theme: themeJson, name, saved_id: saved?.id || null });
+    } catch (err) {
+        console.error('Theme generation error:', err.message);
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// POST /api/gcr/menu-themes/:id/apply
+router.post('/menu-themes/:id/apply', async (req, res) => {
+    if (!await _verifyAdminJwt(req)) return res.status(403).json({ error: 'Unauthorized' });
+
+    const { entity_id, slug } = req.body;
+    if (!entity_id && !slug) return res.status(400).json({ error: 'entity_id or slug required' });
+
+    const { data: theme, error } = await gcrDb.from('qr_menu_themes').select('theme_json, name, use_count').eq('id', req.params.id).single();
+    if (error || !theme) return res.status(404).json({ error: 'Theme not found' });
+
+    if (entity_id) await gcrDb.from('entity').update({ qr_theme: theme.theme_json }).eq('id', entity_id);
+    else if (slug)  await gcrDb.from('entity').update({ qr_theme: theme.theme_json }).eq('slug', slug);
+
+    // Increment use count
+    await gcrDb.from('qr_menu_themes').update({ use_count: (theme.use_count || 0) + 1 }).eq('id', req.params.id);
+
+    res.json({ success: true, theme: theme.theme_json, name: theme.name });
+});
+
 // No auth required, never blocks the caller
 // ============================================
 router.post('/track', async (req, res) => {
