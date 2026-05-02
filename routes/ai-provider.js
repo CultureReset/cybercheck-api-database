@@ -374,7 +374,37 @@ async function callAIRound({ messages, tools = [], systemPrompt = '', provider: 
         return { text: choice.message.content || '', tool_calls: toolCalls, done, assistantMsg, makeToolResultMsgs, provider };
     }
 
-    throw new Error(`Unknown AI provider: "${provider}". Valid options: anthropic, xai, openai`);
+    // ── Gemini ────────────────────────────────────────────────────────────────
+    if (provider === 'gemini') {
+        const apiKey = process.env.GEMINI_API_KEY || process.env.GOOGLE_AI_KEY;
+        if (!apiKey) throw new Error('GEMINI_API_KEY not set');
+        const resolvedModel = model || process.env.GEMINI_MODEL || 'gemini-2.5-flash';
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(resolvedModel)}:generateContent?key=${apiKey}`;
+
+        // Convert messages to Gemini format (user/model alternating)
+        const contents = messages.map(m => ({
+            role: m.role === 'assistant' ? 'model' : 'user',
+            parts: [{ text: typeof m.content === 'string' ? m.content : JSON.stringify(m.content) }],
+        }));
+
+        const body = {
+            system_instruction: systemPrompt ? { parts: [{ text: systemPrompt }] } : undefined,
+            contents,
+            generationConfig: { temperature, maxOutputTokens: maxTokens },
+        };
+
+        // Add Google Search grounding if requested via tools
+        const wantsSearch = tools.some(t => t.name === 'google_search' || t.type === 'google_search');
+        if (wantsSearch) body.tools = [{ google_search: {} }];
+
+        const resp = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+        if (!resp.ok) throw new Error(`Gemini ${resp.status}: ${await resp.text()}`);
+        const data = await resp.json();
+        const text = (data.candidates?.[0]?.content?.parts || []).map(p => p.text || '').join('');
+        return { text, tool_calls: [], done: true, assistantMsg: { role: 'assistant', content: text }, makeToolResultMsgs: () => [], provider };
+    }
+
+    throw new Error(`Unknown AI provider: "${provider}". Valid options: anthropic, gemini, xai, openai`);
 }
 
 // Full agentic loop — calls tools automatically until the AI is done
