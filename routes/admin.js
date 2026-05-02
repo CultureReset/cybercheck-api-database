@@ -4282,25 +4282,16 @@ Use this exact schema:
 Only include fields with actual data found on the page. Use null for unknown fields. Never invent data.`;
 
     try {
-        const r = await fetch('https://api.x.ai/v1/chat/completions', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` },
-            body: JSON.stringify({
-                model: 'grok-3',
-                messages: [
-                    { role: 'system', content: systemPrompt },
-                    { role: 'user', content: `Extract all data from this business page (URL: ${url}):\n\n${cleanText}` }
-                ],
-                max_tokens: 4096,
-                response_format: { type: 'json_object' }
-            })
+        const result = await callAIRound({
+            systemPrompt,
+            messages: [{ role: 'user', content: `Extract all data from this business page (URL: ${url}):\n\n${cleanText}` }],
+            maxTokens: 4096,
+            temperature: 0.1,
         });
-        if (!r.ok) { const e = await r.text(); throw new Error(`Grok ${r.status}: ${e}`); }
-        const d = await r.json();
-        const raw = d.choices?.[0]?.message?.content || '{}';
+        const raw = result.text || '{}';
         const cleaned = raw.replace(/^```(?:json)?\s*/i, '').replace(/\s*```\s*$/, '').trim();
         const structured = JSON.parse(cleaned);
-        res.json({ success: true, url, structured });
+        res.json({ success: true, url, structured, provider: result.provider });
     } catch (e) {
         console.error('ai-scrape-url error:', e.message);
         res.status(500).json({ error: e.message });
