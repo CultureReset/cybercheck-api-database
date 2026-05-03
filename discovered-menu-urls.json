@@ -1,0 +1,602 @@
+[
+  {
+    "slug": "agave-bar-grill",
+    "name": "Agave Bar & Grill",
+    "status": "haiku-failed",
+    "website": "https://agavebargrillal.com/"
+  },
+  {
+    "slug": "alice-mama-thai-cafe",
+    "name": "Alice Mama Thai Cafe",
+    "status": "haiku-failed",
+    "website": "https://alicemamathaicafe.com"
+  },
+  {
+    "slug": "avenue-pub",
+    "name": "AVENUE PUB",
+    "status": "haiku-failed",
+    "website": "https://www.avepub.com"
+  },
+  {
+    "slug": "bar-45",
+    "name": "Bar 45",
+    "status": "haiku-failed",
+    "website": "https://oneclubgulfshores.com/45-restaurant-bar/"
+  },
+  {
+    "slug": "barometer-waterfront-grille",
+    "name": "Barometer Waterfront Grille",
+    "status": "haiku-failed",
+    "website": "https://www.barometerorangebeach.com"
+  },
+  {
+    "slug": "big-mikes-steakhouse",
+    "name": "Big Mike's Steakhouse",
+    "status": "haiku-failed",
+    "website": "https://bigmikessteakhouse.com"
+  },
+  {
+    "slug": "bird-dog-chicken-company",
+    "name": "Bird Dog Chicken Company",
+    "status": "haiku-failed",
+    "website": "http://www.birddogchickencompany.com/"
+  },
+  {
+    "slug": "bleus-burger",
+    "name": "Bleus Burger",
+    "status": "haiku-failed",
+    "website": "https://bleusburger.com"
+  },
+  {
+    "slug": "brick-and-spoon",
+    "name": "Brick & Spoon",
+    "status": "haiku-failed",
+    "website": "https://www.brickandspoon.com"
+  },
+  {
+    "slug": "buzzcatz-coffee-and-sweets",
+    "name": "BuzzCatz Coffee & Sweets",
+    "status": "haiku-failed",
+    "website": "https://www.buzzcatzorangebeach.com"
+  },
+  {
+    "slug": "cactus-cantina-mexican-grill",
+    "name": "Cactus Cantina Mexican Grill",
+    "status": "fetch-failed",
+    "website": "http://mycactuscantina.com/"
+  },
+  {
+    "slug": "carmelo-italian-restaurant",
+    "name": "Carmelo",
+    "status": "haiku-failed",
+    "website": "https://carmeloitalian.com"
+  },
+  {
+    "slug": "china-dragon",
+    "name": "China Dragon",
+    "status": "haiku-failed",
+    "website": "https://www.chinadragonalabama.com"
+  },
+  {
+    "slug": "coast-restaurant",
+    "name": "Coast Restaurant",
+    "status": "haiku-failed",
+    "website": "https://dineatcoast.com"
+  },
+  {
+    "slug": "crave-cookies",
+    "name": "Crave Cookies",
+    "status": "haiku-failed",
+    "website": "https://cravecookies.com"
+  },
+  {
+    "slug": "cricos-pizza-and-subs",
+    "name": "Crico's Pizza & Subs",
+    "status": "haiku-failed",
+    "website": "https://cricospizza.com"
+  },
+  {
+    "slug": "desoto-s-seafood-kitchen",
+    "name": "DeSoto's Seafood Kitchen",
+    "status": "haiku-failed",
+    "website": "https://desotosseafoodkitchen.com"
+  },
+  {
+    "slug": "dicks-last-resort",
+    "name": "Dick's Last Resort",
+    "status": "haiku-failed",
+    "website": "https://dickslastresort.com"
+  },
+  {
+    "slug": "down-south-bbq",
+    "name": "Down South BBQ",
+    "status": "haiku-failed",
+    "website": "https://downsouthbbq.com"
+  },
+  {
+    "slug": "efes-greek-kitchen",
+    "name": "Efes Greek Kitchen",
+    "status": "haiku-failed",
+    "website": "https://efesgreekkitchen.com"
+  },
+  {
+    "slug": "el-toro-mexican-restaurant",
+    "name": "El Toro Mexican Restaurant",
+    "status": "fetch-failed",
+    "website": "https://eltoromexicanrestaurantgulfshoresal.com/"
+  },
+  {
+    "slug": "fish-river-grill",
+    "name": "Fish River Grill",
+    "status": "fetch-failed",
+    "website": "https://www.fishrivergrill.com"
+  },
+  {
+    "slug": "fishermans-corner",
+    "name": "Fisherman's Corner",
+    "status": "haiku-failed",
+    "website": "https://www.fishermanscornerrestaurant.net"
+  },
+  {
+    "slug": "ole-river-grill",
+    "name": "Flora-Bama Ole River Grill",
+    "status": "haiku-failed",
+    "website": "https://www.florabamaolerivergrill.com/"
+  },
+  {
+    "slug": "flora-bama-oyster-bar",
+    "name": "Flora-Bama Oyster Bar",
+    "status": "haiku-failed",
+    "website": "https://florabama.com/oyster-bar"
+  },
+  {
+    "slug": "fort-morgan-pizza",
+    "name": "Fort Morgan Pizza",
+    "status": "haiku-failed",
+    "website": "http://www.fortmorganpizza.com/"
+  },
+  {
+    "slug": "gelato-joes",
+    "name": "Gelato Joe's Italian Restaurant & Bar",
+    "status": "haiku-failed",
+    "website": "https://gelatojoes.com"
+  },
+  {
+    "slug": "gulf-island-grill",
+    "name": "Gulf Island Grill",
+    "status": "haiku-failed",
+    "website": "https://gulfislandgrill.co"
+  },
+  {
+    "slug": "gulf-shores-steamer",
+    "name": "Gulf Shores Steamer",
+    "status": "haiku-failed",
+    "website": "https://gulfshoressteamer.com"
+  },
+  {
+    "slug": "hazels-nook",
+    "name": "Hazel's Nook",
+    "status": "fetch-failed",
+    "website": "https://www.hazelsnook.com"
+  },
+  {
+    "slug": "holiday-harbor-marina-sunset-grille",
+    "name": "Holiday Harbor Marina & Sunset Grille",
+    "status": "haiku-failed",
+    "website": "https://myholidayharbor.com"
+  },
+  {
+    "slug": "hooters-gulf-shores",
+    "name": "Hooters of Gulf Shores",
+    "status": "haiku-failed",
+    "website": "https://www.hooters.com"
+  },
+  {
+    "slug": "hub-staceys-pensacola-perdido",
+    "name": "Hub Stacey's",
+    "status": "haiku-failed",
+    "website": "https://www.hubstaceyspensacolaperdido.com"
+  },
+  {
+    "slug": "hurricane-grill-and-wings",
+    "name": "Hurricane Grill & Wings",
+    "status": "haiku-failed",
+    "website": "https://hurricanewings.com"
+  },
+  {
+    "slug": "island-wing-company",
+    "name": "Island Wing Company",
+    "status": "haiku-failed",
+    "website": "https://islandwing.com"
+  },
+  {
+    "slug": "islander-food-shack",
+    "name": "Islander Food Shack",
+    "status": "haiku-failed",
+    "website": "https://www.islanderfoodshack.com"
+  },
+  {
+    "slug": "janinos-pizza",
+    "name": "Janino's Pizza",
+    "status": "haiku-failed",
+    "website": "https://janinospizza.com"
+  },
+  {
+    "slug": "jesses-restaurant",
+    "name": "Jesse's Restaurant",
+    "status": "haiku-failed",
+    "website": "https://jessesrestaurant.com"
+  },
+  {
+    "slug": "king-neptunes-seafood-restaurant",
+    "name": "King Neptune's Seafood Restaurant",
+    "status": "haiku-failed",
+    "website": "https://kingneptunes.website"
+  },
+  {
+    "slug": "kittys-kafe",
+    "name": "Kitty's Kafe",
+    "status": "haiku-failed",
+    "website": "https://kittyskafe.com"
+  },
+  {
+    "slug": "kiva-grill",
+    "name": "Kiva Grill",
+    "status": "haiku-failed",
+    "website": "https://kivadunesgrill.com"
+  },
+  {
+    "slug": "krispy-kreme-foley",
+    "name": "Krispy Kreme",
+    "status": "haiku-failed",
+    "website": "https://www.krispykreme.com"
+  },
+  {
+    "slug": "lamberts-cafe",
+    "name": "Lambert's Cafe - Home of Throwed Rolls",
+    "status": "haiku-failed",
+    "website": "http://www.throwedrolls.com/"
+  },
+  {
+    "slug": "lillians-pizza",
+    "name": "Lillian's Pizza",
+    "status": "haiku-failed",
+    "website": "https://lillianspizza.com"
+  },
+  {
+    "slug": "louisiana-lagniappe",
+    "name": "Louisiana Lagniappe",
+    "status": "haiku-failed",
+    "website": "http://www.thelouisianalagniappe.com/"
+  },
+  {
+    "slug": "lulus-fun-food-music",
+    "name": "LuLu's Fun Food & Music",
+    "status": "haiku-failed",
+    "website": "https://lulubuffett.com/"
+  },
+  {
+    "slug": "marcos-pizza-cotton-creek-drive-gulf-shores",
+    "name": "Marco's Pizza Cotton Creek Drive, Gulf Shores",
+    "status": "haiku-failed",
+    "website": "https://www.marcos.com"
+  },
+  {
+    "slug": "mikato-japanese-steakhouse",
+    "name": "Mikato Japanese Steakhouse",
+    "status": "haiku-failed",
+    "website": "http://mikatojapanese.com/"
+  },
+  {
+    "slug": "mikeesseafood",
+    "name": "Mikee's Seafood Restaurant",
+    "status": "haiku-failed",
+    "website": "https://mikeesseafood.com"
+  },
+  {
+    "slug": "mile-marker-158-dockside",
+    "name": "Mile Marker 158 Dockside",
+    "status": "haiku-failed",
+    "website": "https://milemarker158.com"
+  },
+  {
+    "slug": "moes-original-bbq",
+    "name": "Moe's Original BBQ",
+    "status": "haiku-failed",
+    "website": "https://moesoriginalbbq.com"
+  },
+  {
+    "slug": "moes-original-bbq-orange-beach",
+    "name": "Moe's Original BBQ Orange Beach",
+    "status": "haiku-failed",
+    "website": "https://www.moesoriginalbbq.com/lo/orange-beach/"
+  },
+  {
+    "slug": "nikis-seafood-thai",
+    "name": "Niki's Seafood & Thai",
+    "status": "haiku-failed",
+    "website": "http://www.nikisseafoodthai.com/"
+  },
+  {
+    "slug": "oso-at-bear-point",
+    "name": "OSO at Bear Point Harbor",
+    "status": "fetch-failed",
+    "website": "https://osobearpoint.com"
+  },
+  {
+    "slug": "oyster-bar-31",
+    "name": "Oyster Bar 31",
+    "status": "haiku-failed",
+    "website": "https://www.oysterbar31.com"
+  },
+  {
+    "slug": "papa-roccos",
+    "name": "Papa Rocco's",
+    "status": "haiku-failed",
+    "website": "https://paparocco.com"
+  },
+  {
+    "slug": "pelican-grill",
+    "name": "Pelican Grill",
+    "status": "haiku-failed",
+    "website": "https://www.pelicangrillob.com"
+  },
+  {
+    "slug": "perch-at-gulf-state-park",
+    "name": "Perch at Gulf State Park",
+    "status": "haiku-failed",
+    "website": "https://perchgsp.com"
+  },
+  {
+    "slug": "perdido-key-sports-bar",
+    "name": "Perdido Key Sports Bar & Restaurant",
+    "status": "haiku-failed",
+    "website": "https://www.perdidokeysportsbar.com"
+  },
+  {
+    "slug": "pho-mo-asian-kitchen-and-grill",
+    "name": "Pho Mo Asian Kitchen & Grill",
+    "status": "haiku-failed",
+    "website": "http://www.phomoasiankitchenandgrill.com/"
+  },
+  {
+    "slug": "picnic-beach",
+    "name": "Picnic Beach",
+    "status": "haiku-failed",
+    "website": "https://picnicbeach.com"
+  },
+  {
+    "slug": "pink-pony-pub",
+    "name": "Pink Pony Pub",
+    "status": "haiku-failed",
+    "website": "https://pinkponypub.net"
+  },
+  {
+    "slug": "pirates-cove",
+    "name": "Pirates Cove",
+    "status": "haiku-failed",
+    "website": "http://piratescoveriffraff.com"
+  },
+  {
+    "slug": "pizza-at-the-pass",
+    "name": "Pizza At The Pass",
+    "status": "haiku-failed",
+    "website": "https://www.pizzaatthepass.com/"
+  },
+  {
+    "slug": "rololos-pizzeria",
+    "name": "Rotolo's Pizzeria",
+    "status": "haiku-failed",
+    "website": "https://rotolos.com"
+  },
+  {
+    "slug": "sea-n-suds",
+    "name": "Sea N Suds - Restaurant and Oyster Bar",
+    "status": "haiku-failed",
+    "website": "https://sea-n-suds.com"
+  },
+  {
+    "slug": "shipps-dockside-grill",
+    "name": "Shipp's Dockside Grill",
+    "status": "haiku-failed",
+    "website": "https://shippsdockside.com"
+  },
+  {
+    "slug": "smoothie-king",
+    "name": "Smoothie King",
+    "status": "haiku-failed",
+    "website": "https://www.smoothieking.com"
+  },
+  {
+    "slug": "subway-gulf-shores",
+    "name": "Subway",
+    "status": "haiku-failed",
+    "website": "https://www.subway.com"
+  },
+  {
+    "slug": "subway-pensacola",
+    "name": "Subway",
+    "status": "haiku-failed",
+    "website": "https://www.subway.com"
+  },
+  {
+    "slug": "subway-orange-beach",
+    "name": "Subway",
+    "status": "haiku-failed",
+    "website": "https://www.subway.com"
+  },
+  {
+    "slug": "subway-pensacola-sorrento-rd",
+    "name": "Subway - 13019 Sorrento Rd",
+    "status": "haiku-failed",
+    "website": "https://www.subway.com"
+  },
+  {
+    "slug": "sunliner-diner",
+    "name": "Sunliner Diner",
+    "status": "haiku-failed",
+    "website": "https://sunlinerdiner.com/"
+  },
+  {
+    "slug": "surfside-pizza",
+    "name": "Surfside Pizza",
+    "status": "haiku-failed",
+    "website": "https://www.surfsidepizza.com"
+  },
+  {
+    "slug": "the-beach-bun",
+    "name": "The Beach Bun",
+    "status": "haiku-failed",
+    "website": "https://thebeachbunoba.com"
+  },
+  {
+    "slug": "the-beach-house-kitchen-cocktails",
+    "name": "The Beach House Kitchen & Cocktails",
+    "status": "haiku-failed",
+    "website": "http://beachhousegs.com/"
+  },
+  {
+    "slug": "the-catch-gulf-shores",
+    "name": "The Catch",
+    "status": "haiku-failed",
+    "website": "https://thecatchgs.com/"
+  },
+  {
+    "slug": "the-clubhouse-bar-grill",
+    "name": "The Clubhouse Bar & Grill",
+    "status": "haiku-failed",
+    "website": "https://craftfarms.com/bar-and-grill/"
+  },
+  {
+    "slug": "the-cove-bar-and-grill",
+    "name": "The Cove Bar and Grill",
+    "status": "haiku-failed",
+    "website": "https://covebargrill.com"
+  },
+  {
+    "slug": "the-galley-on-the-river",
+    "name": "The Galley on the River",
+    "status": "haiku-failed",
+    "website": "https://thegalleyontheriver.com"
+  },
+  {
+    "slug": "the-gulf",
+    "name": "The Gulf",
+    "status": "haiku-failed",
+    "website": "https://thegulf.com"
+  },
+  {
+    "slug": "the-hangout-gulf-shores",
+    "name": "The Hangout Gulf Shores",
+    "status": "haiku-failed",
+    "website": "https://thehangout.com/hangout-gulf-shores/"
+  },
+  {
+    "slug": "the-jellyfish-bar",
+    "name": "The Jellyfish - Seafood Restaurant and Bar",
+    "status": "haiku-failed",
+    "website": "https://thejellyfishbar.com"
+  },
+  {
+    "slug": "the-lodge-at-gulf-state-park",
+    "name": "The Lodge at Gulf State Park - Eat & Drink",
+    "status": "haiku-failed",
+    "website": "https://lodgeatgulfstatepark.com/eat-drink/"
+  },
+  {
+    "slug": "original-oyster-house",
+    "name": "The Original Oyster House",
+    "status": "haiku-failed",
+    "website": "https://originaloysterhouse.com"
+  },
+  {
+    "slug": "perdido-key-oyster-bar-restaurant-and-marina",
+    "name": "The Perdido Key Oyster Bar Restaurant and Marina",
+    "status": "haiku-failed",
+    "website": "https://www.oysterbar31.com"
+  },
+  {
+    "slug": "the-point-restaurant",
+    "name": "The Point Restaurant",
+    "status": "haiku-failed",
+    "website": "http://thepointperdido.com/"
+  },
+  {
+    "slug": "the-sloop",
+    "name": "The Sloop",
+    "status": "haiku-failed",
+    "website": "https://www.thesloop.biz"
+  },
+  {
+    "slug": "the-steamer-baked-oyster-bar",
+    "name": "The Steamer & Baked Oyster Bar",
+    "status": "haiku-failed",
+    "website": "https://gulfcoaststeamer.com"
+  },
+  {
+    "slug": "tin-top-restaurant-oyster-bar",
+    "name": "The Tin Top Restaurant & Oyster Bar",
+    "status": "haiku-failed",
+    "website": "https://tintoprestaurant.com"
+  },
+  {
+    "slug": "the-undertow",
+    "name": "The Undertow",
+    "status": "haiku-failed",
+    "website": "https://theundertow.shop"
+  },
+  {
+    "slug": "the-wharf-oba",
+    "name": "The Wharf OBA",
+    "status": "haiku-failed",
+    "website": "https://thewharfoba.com"
+  },
+  {
+    "slug": "tiki-and-raw-bar-orange-beach",
+    "name": "TIKI & RAW BAR",
+    "status": "haiku-failed",
+    "website": "https://tikibarorangebeach.com"
+  },
+  {
+    "slug": "treehouse",
+    "name": "Treehouse",
+    "status": "fetch-failed",
+    "website": "http://www.treehouse.gs"
+  },
+  {
+    "slug": "tuscany-pizza-and-grill",
+    "name": "Tuscany Pizza and Grill",
+    "status": "haiku-failed",
+    "website": "https://www.tuscanypizzaandgrill.com"
+  },
+  {
+    "slug": "villaggio-grille",
+    "name": "Villaggio Grille",
+    "status": "haiku-failed",
+    "website": "https://villaggiogrille.com/"
+  },
+  {
+    "slug": "vinnys-pizzeria",
+    "name": "Vinny's Pizzeria",
+    "status": "haiku-failed",
+    "website": "http://vinnys.pizza/"
+  },
+  {
+    "slug": "wacked-out-weiner-gulf-shores",
+    "name": "Wacked Out Weiner Gulf Shores",
+    "status": "haiku-failed",
+    "website": "https://wackedoutweiner.com/gulf-shores-alabama"
+  },
+  {
+    "slug": "wolf-bay-restaurant",
+    "name": "Wolf Bay Restaurant",
+    "status": "haiku-failed",
+    "website": "https://wolfbaylodge.com"
+  },
+  {
+    "slug": "woodside-restaurant",
+    "name": "Woodside Restaurant",
+    "status": "haiku-failed",
+    "website": "https://woodsideatgsp.com"
+  }
+]

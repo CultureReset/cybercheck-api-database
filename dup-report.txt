@@ -1,0 +1,6 @@
+=== DRY RUN (use --apply to commit) ===
+
+Address groups with >1 entity: 61
+Total to deactivate: 0
+
+Dry run complete. Run with --apply to commit.

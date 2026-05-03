@@ -231,10 +231,9 @@ router.post('/create-payment', async (req, res) => {
                 try {
                     const { sendSms, fillTemplate, buildTemplateData } = require('../utils/sms');
                     const { sendEmail, customerConfirmationHtml, generateIcsContent } = require('../utils/email');
-                    const [{ data: bookingData }, { data: msgSettingsData }, { data: siteContent }, { data: business }] = await Promise.all([
+                    const [{ data: bookingData }, { data: msgSettingsData }, { data: business }] = await Promise.all([
                         supabase.from('bookings').select('*').eq('id', booking_id).single(),
                         supabase.from('messaging_settings').select('*').eq('site_id', targetSiteId).maybeSingle(),
-                        supabase.from('site_content').select('contact_email').eq('site_id', targetSiteId).maybeSingle(),
                         supabase.from('businesses').select('name, phone').eq('site_id', targetSiteId).single()
                     ]);
                     if (!bookingData) return;
@@ -282,15 +281,32 @@ router.post('/create-payment', async (req, res) => {
                             .catch(err => console.error('Customer SMS failed:', err));
                     }
 
-                    // Owner SMS — gated on dashboard opt-in + notify toggle (falls back to env var if dashboard unset)
-                    const ownerPhone = msgSettings.notification_phone || msgSettings.owner_phone || process.env.OWNER_NOTIFY_PHONE;
-                    const ownerOptedIn = msgSettings.owner_sms_consent === true;
-                    const ownerNotifyEnabled = msgSettings.notify_owner_on_booking !== false;
-                    if (ownerPhone && ownerOptedIn && ownerNotifyEnabled) {
-                        const defaultOwnerTpl = 'NEW BOOKING! {{customer_name}} — {{date}} {{time_slot}} — ${{total}}';
-                        const ownerMsg = fillTemplate(msgSettings.owner_booking_template || defaultOwnerTpl, templateData);
-                        sendSms(ownerPhone, ownerMsg, targetSiteId, 'booking_owner_notify', booking_id)
-                            .catch(err => console.error('Owner SMS failed:', err));
+                    // Admin SMS (platform owner) — full details on payment success
+                    const adminPhone = process.env.ADMIN_SMS_NUMBER;
+                    if (adminPhone) {
+                        const bizName = business?.name || templateData.business_name || 'Client';
+                        const adminMsg = [
+                            `[${bizName}] PAYMENT PAID`,
+                            `Ref: ${templateData.confirmation_number}`,
+                            ``,
+                            `${bookingData.customer_name}`,
+                            `Ph: ${bookingData.customer_phone || 'N/A'}`,
+                            `Em: ${bookingData.customer_email || 'N/A'}`,
+                            ``,
+                            `${templateData.date}`,
+                            `${templateData.time_slot}`,
+                            `${templateData.boat_count}x ${templateData.boat_type}`,
+                            `Guests: ${templateData.guest_count}`,
+                            `Add-ons: ${templateData.addons}`,
+                            ``,
+                            `Total: $${templateData.total}`,
+                            `Receipt: ${bookingData.receipt_number || 'N/A'}`,
+                            templateData.waiver_url ? `Waiver: ${templateData.waiver_url}` : null,
+                            ``,
+                            `Notes: ${bookingData.notes || 'None'}`
+                        ].filter(Boolean).join('\n');
+                        sendSms(adminPhone, adminMsg, targetSiteId, 'booking_owner_notify', booking_id)
+                            .catch(err => console.error('Admin SMS failed:', err));
                     }
                 } catch (e) { console.error('Square post-payment notifications failed:', e.message, e.stack); }
             });

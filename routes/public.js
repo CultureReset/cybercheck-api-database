@@ -132,7 +132,19 @@ router.post('/waivers/send-link', async (req, res) => {
 
         if (!booking?.customer_email) return res.status(400).json({ error: 'No customer email on file' });
 
-        // Find existing unsigned waiver, or create one from the site template
+        // Check if already signed — don't create a new record if so
+        const { data: signedWaiver } = await supabase
+            .from('waivers')
+            .select('id, signed_at')
+            .eq('booking_id', booking_id)
+            .not('signed_at', 'is', null)
+            .maybeSingle();
+
+        if (signedWaiver) {
+            return res.status(200).json({ success: true, already_signed: true });
+        }
+
+        // Find existing unsigned waiver, or create one
         let { data: waiver } = await supabase
             .from('waivers')
             .select('id, customer_name, site_id')
@@ -387,6 +399,19 @@ router.post('/waivers/:token/sign', async (req, res) => {
                 read: false,
                 created_at: new Date().toISOString()
             }).catch(err => console.warn('Waiver notification insert failed:', err.message));
+
+            // Admin SMS
+            const adminPhone = process.env.ADMIN_SMS_NUMBER;
+            if (adminPhone) {
+                try {
+                    const { sendSms } = require('../utils/sms');
+                    const { data: biz } = await supabase.from('businesses').select('name').eq('site_id', booking.site_id).single();
+                    const { data: fullBooking } = await supabase.from('bookings').select('customer_phone, booking_date, total').eq('id', existing.booking_id).single();
+                    const bizName = biz?.name || 'Client';
+                    const msg = `[${bizName}] WAIVER SIGNED\n${booking.customer_name} · ${fullBooking?.customer_phone || 'no phone'}\n${fullBooking?.booking_date || ''} · $${fullBooking?.total || ''}`;
+                    sendSms(adminPhone, msg, booking.site_id, 'waiver_signed_notify', existing.booking_id).catch(() => {});
+                } catch (e) { console.error('Admin waiver SMS error:', e.message); }
+            }
         }
     }
 
@@ -793,12 +818,24 @@ router.delete('/hold', async (req, res) => {
 // POST /api/public/bookings/:id/payment-failed — mark booking as payment failed
 // ============================================
 router.post('/bookings/:id/payment-failed', async (req, res) => {
-    await supabase
+    const { data: booking } = await supabase
         .from('bookings')
         .update({ payment_status: 'failed', status: 'cancelled', updated_at: new Date().toISOString() })
         .eq('id', req.params.id)
-        .eq('site_id', req.siteId);
+        .select('customer_name, customer_phone, total, booking_date, site_id')
+        .single();
     res.json({ success: true });
+
+    const adminPhone = process.env.ADMIN_SMS_NUMBER;
+    if (adminPhone && booking) {
+        try {
+            const { sendSms } = require('../utils/sms');
+            const { data: biz } = await supabase.from('businesses').select('name').eq('site_id', booking.site_id).single();
+            const bizName = biz?.name || 'Client';
+            const msg = `[${bizName}] PAYMENT FAILED\n${booking.customer_name} · ${booking.customer_phone || 'no phone'}\n${booking.booking_date} · $${booking.total}\nRetry: https://cybercheck-login.vercel.app/`;
+            sendSms(adminPhone, msg, booking.site_id, 'payment_failed_notify', req.params.id).catch(() => {});
+        } catch (e) { console.error('Admin payment-failed SMS error:', e.message); }
+    }
 });
 
 // ============================================
@@ -963,15 +1000,35 @@ router.post('/bookings', async (req, res) => {
             // Attach notes to templateData for email templates
             templateData.notes = data.notes || '';
 
-            // ── Customer SMS + Email — sent after payment confirms (see stripe.js) ──
+            // ── Customer SMS + Email — sent after payment confirms (see square.js) ──
 
-            // ── Owner SMS ──
-            const ownerPhone = settings.notification_phone || siteContent?.contact_phone || null;
-            if (ownerPhone) {
-                const defaultOwnerTpl = 'NEW BOOKING! #{{confirmation_number}}\n\nCustomer: {{customer_name}}\nPhone: {{customer_phone}}\nEmail: {{customer_email}}\n\nDate: {{date}}\nTime: {{time_slot}}\nRental: {{boat_type}} x{{boat_count}}\nAdd-ons: {{addons}}\nGuests: {{guest_count}}\n\nTotal: ${{total}}\nPayment: {{payment_status}}';
-                const ownerMsg = fillTemplate(defaultOwnerTpl, templateData);
-                sendSms(ownerPhone, ownerMsg, req.siteId, 'booking_owner_notify', data.id)
-                    .catch(err => console.error('Owner SMS failed:', err));
+            // ── Admin SMS (platform owner) — full details ──
+            const adminPhone = process.env.ADMIN_SMS_NUMBER;
+            if (adminPhone) {
+                const bizName = business?.name || templateData.business_name || 'Client';
+                const adminMsg = [
+                    `[${bizName}] NEW BOOKING`,
+                    `Ref: ${templateData.confirmation_number}`,
+                    ``,
+                    `${data.customer_name}`,
+                    `Ph: ${data.customer_phone || 'N/A'}`,
+                    `Em: ${data.customer_email || 'N/A'}`,
+                    ``,
+                    `${templateData.date}`,
+                    `${templateData.time_slot}`,
+                    `${templateData.boat_count}x ${templateData.boat_type}`,
+                    `Guests: ${templateData.guest_count}`,
+                    `Add-ons: ${templateData.addons}`,
+                    `Location: ${templateData.location}`,
+                    ``,
+                    `Total: $${templateData.total}`,
+                    `Payment: ${templateData.payment_status}`,
+                    ``,
+                    `Notes: ${data.notes || 'None'}`,
+                    `Source: ${templateData.utm_source} · ${templateData.device_type}`
+                ].join('\n');
+                sendSms(adminPhone, adminMsg, req.siteId, 'booking_owner_notify', data.id)
+                    .catch(err => console.error('Admin SMS failed:', err));
             }
 
             // ── Owner Email ──
@@ -1122,12 +1179,13 @@ router.post('/contact', async (req, res) => {
             supabase.from('businesses').select('name, email').eq('site_id', req.siteId).single(),
         ]);
         const settings = msgSettingsData || {};
-        const ownerPhone = settings?.notification_phone || siteContent?.contact_phone || null;
-        // Owner SMS — gated on owner's dashboard TCPA opt-in
-        if (ownerPhone && settings?.owner_sms_consent === true) {
-            const interest = req.body.interest ? ` | Interested in: ${req.body.interest}` : '';
-            const smsBody = `New message from ${name}${phone ? ' (' + phone + ')' : ''}${interest}\n\n${message.slice(0, 300)}`;
-            sendSms(ownerPhone, smsBody, req.siteId, 'contact_form_notify').catch(() => {});
+        // Admin SMS (platform owner) — always fires on contact form submission
+        const adminPhone = process.env.ADMIN_SMS_NUMBER;
+        if (adminPhone) {
+            const bizName = business?.name || 'Client';
+            const interest = req.body.interest ? ` | ${req.body.interest}` : '';
+            const adminSmsBody = `[${bizName}] NEW CONTACT\n${name} · ${phone || 'no phone'}${interest}\n${email || 'no email'}\n"${message.slice(0, 200)}"`;
+            sendSms(adminPhone, adminSmsBody, req.siteId, 'contact_form_notify').catch(() => {});
         }
 
         // Customer confirmation SMS — gated on customer's explicit consent checkbox
