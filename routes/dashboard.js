@@ -67,10 +67,7 @@ async function syncToGcr(siteId, type, data) {
     }
 }
 
-// Auth removed from dashboard routes — the admin login page is the access gate.
-// To re-enable backend auth later, uncomment the line below and remove the next one.
-// router.use(authRequired);
-router.use((req, res, next) => next());
+router.use(authRequired);
 
 async function requireEntity(req, res) {
     const entityId = await resolveEntityId(req);

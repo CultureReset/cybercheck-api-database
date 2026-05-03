@@ -185,49 +185,75 @@ function ownerNotificationHtml(d) {
         <tr><td style="background:#16a34a;padding:28px 32px;text-align:center;">
           <h1 style="margin:0;color:#fff;font-size:22px;">New Booking!</h1>
           <p style="margin:8px 0 0;color:#dcfce7;font-size:14px;">${esc(d.date)} · ${esc(d.time_slot)}</p>
+          ${d.confirmation_number ? `<p style="margin:6px 0 0;color:#bbf7d0;font-size:13px;font-weight:600;">${esc(d.confirmation_number)}</p>` : ''}
         </td></tr>
 
         <!-- Body -->
         <tr><td style="padding:32px;">
-          <h3 style="margin:0 0 12px;color:#111827;font-size:14px;font-weight:600;">Customer Details</h3>
+
+          <!-- Customer -->
+          <h3 style="margin:0 0 12px;color:#111827;font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;">Customer</h3>
           <table width="100%" style="background:#f9fafb;border-radius:10px;padding:20px;border:1px solid #e5e7eb;margin-bottom:20px;" cellpadding="0" cellspacing="0">
-            ${row('👤 Customer', d.customer_name)}
+            ${row('👤 Name', d.customer_name)}
             ${d.customer_phone ? row('📞 Phone', d.customer_phone) : ''}
             ${d.customer_email ? row('📧 Email', d.customer_email) : ''}
           </table>
 
-          <h3 style="margin:20px 0 12px;color:#111827;font-size:14px;font-weight:600;">Booking Details</h3>
+          <!-- Booking Details -->
+          <h3 style="margin:0 0 12px;color:#111827;font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;">Booking Details</h3>
           <table width="100%" style="background:#f9fafb;border-radius:10px;padding:20px;border:1px solid #e5e7eb;margin-bottom:20px;" cellpadding="0" cellspacing="0">
+            ${d.confirmation_number ? row('🔖 Confirmation #', d.confirmation_number) : ''}
             ${row('📅 Date', d.date)}
-            ${row('⏰ Time', d.time_slot)}
-            ${d.boat_type ? row('🚤 Rental', d.boat_type) : ''}
-            ${d.boat_count ? row('🔢 Qty', d.boat_count) : ''}
+            ${row('⏰ Time Slot', d.time_slot)}
+            ${d.boat_type ? row('🚤 Boat Type', d.boat_type) : ''}
+            ${d.boat_count ? row('🔢 Qty', d.boat_count + ' boat' + (Number(d.boat_count) !== 1 ? 's' : '')) : ''}
             ${d.guest_count ? row('👥 Guests', d.guest_count) : ''}
             ${d.addons && d.addons !== 'None' ? row('➕ Add-ons', d.addons) : ''}
-            ${row('💳 Total', '$' + d.total)}
-            ${row('💰 Payment', d.payment_status)}
+            ${d.location ? row('📍 Location', d.location) : ''}
           </table>
 
-          <h3 style="margin:20px 0 12px;color:#111827;font-size:14px;font-weight:600;">Booking Source</h3>
+          <!-- Payment Breakdown -->
+          <h3 style="margin:0 0 12px;color:#111827;font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;">Payment</h3>
+          <table width="100%" style="background:#f9fafb;border-radius:10px;padding:20px;border:1px solid #e5e7eb;margin-bottom:20px;" cellpadding="0" cellspacing="0">
+            ${d.subtotal ? row('Subtotal', '$' + Number(d.subtotal).toFixed(2)) : ''}
+            ${d.platform_fee ? row('Platform Fee', '$' + Number(d.platform_fee).toFixed(2)) : ''}
+            ${d.tax ? row('Tax', '$' + Number(d.tax).toFixed(2)) : ''}
+            ${row('💳 Total', '$' + d.total)}
+            ${row('💰 Status', d.payment_status)}
+            ${d.deposit ? row('Deposit Paid', '$' + Number(d.deposit).toFixed(2)) : ''}
+            ${d.balance_due ? row('Balance Due', '$' + Number(d.balance_due).toFixed(2)) : ''}
+          </table>
+
+          ${d.notes ? `<div style="margin-bottom:20px;padding:16px;background:#fffbeb;border:1px solid #fcd34d;border-radius:10px;">
+            <p style="margin:0 0 6px;font-size:11px;font-weight:600;color:#92400e;text-transform:uppercase;letter-spacing:.5px;">Customer Notes</p>
+            <p style="margin:0;color:#374151;font-size:14px;">${esc(d.notes)}</p>
+          </div>` : ''}
+
+          ${d.waiver_url ? `<div style="margin-bottom:20px;padding:16px;background:#f0f9ff;border:1px solid #bae6fd;border-radius:10px;">
+            <p style="margin:0 0 6px;font-size:11px;font-weight:600;color:#0369a1;text-transform:uppercase;letter-spacing:.5px;">Waiver Link</p>
+            <a href="${esc(d.waiver_url)}" style="color:#0ea5e9;font-size:13px;word-break:break-all;">${esc(d.waiver_url)}</a>
+          </div>` : ''}
+
+          <!-- Payment Reference -->
+          ${(d.receipt_number || d.payment_id) ? `<div style="margin-bottom:20px;background:#f0f9ff;border:1px solid #bae6fd;border-radius:10px;padding:16px;">
+            <p style="margin:0 0 8px;color:#0369a1;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;">Payment Reference</p>
+            ${d.receipt_number ? `<p style="margin:0 0 4px;color:#0c4a6e;font-size:13px;"><strong>Square Receipt #:</strong> ${esc(d.receipt_number)}</p>` : ''}
+            ${d.payment_id ? `<p style="margin:0 0 4px;color:#0c4a6e;font-size:13px;"><strong>Transaction ID:</strong> ${esc(d.payment_id)}</p>` : ''}
+            ${d.receipt_url ? `<p style="margin:4px 0 0;font-size:13px;"><a href="${esc(d.receipt_url)}" style="color:#0ea5e9;">View Square Receipt →</a></p>` : ''}
+          </div>` : ''}
+
+          <!-- Source Analytics -->
+          <h3 style="margin:0 0 12px;color:#111827;font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;">Booking Source</h3>
           <table width="100%" style="background:#fef3c7;border-radius:10px;padding:20px;border:1px solid #fcd34d;" cellpadding="0" cellspacing="0">
             ${row('🔍 Source', d.utm_source)}
             ${row('📢 Medium', d.utm_medium)}
-            ${d.utm_campaign !== '(none)' ? row('📊 Campaign', d.utm_campaign) : ''}
+            ${d.utm_campaign && d.utm_campaign !== '(none)' ? row('📊 Campaign', d.utm_campaign) : ''}
             ${row('🌐 Referrer', d.referrer)}
             ${row('📱 Device', d.device_type)}
             ${row('⏱️ Time on Site', d.session_duration_mins + ' min')}
             ${row('🔗 Landing Page', d.page_source)}
           </table>
 
-          ${d.notes ? `<p style="margin:20px 0 0;color:#374151;font-size:14px;"><strong>Customer notes:</strong> ${esc(d.notes)}</p>` : ''}
-
-          <!-- Payment Reference -->
-          ${(d.receipt_number || d.payment_id) ? `<div style="margin-top:20px;background:#f0f9ff;border:1px solid #bae6fd;border-radius:10px;padding:16px;">
-            <p style="margin:0 0 8px;color:#0369a1;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;">Payment Reference</p>
-            ${d.receipt_number ? `<p style="margin:0 0 4px;color:#0c4a6e;font-size:13px;"><strong>Square Receipt #:</strong> ${esc(d.receipt_number)}</p>` : ''}
-            ${d.payment_id ? `<p style="margin:0 0 4px;color:#0c4a6e;font-size:13px;"><strong>Transaction ID:</strong> ${esc(d.payment_id)}</p>` : ''}
-            ${d.receipt_url ? `<p style="margin:4px 0 0;font-size:13px;"><a href="${esc(d.receipt_url)}" style="color:#0ea5e9;">View Square Receipt →</a></p>` : ''}
-          </div>` : ''}
         </td></tr>
 
         <tr><td style="background:#f9fafb;padding:16px 32px;text-align:center;border-top:1px solid #e5e7eb;">
