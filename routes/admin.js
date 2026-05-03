@@ -6863,5 +6863,72 @@ router.delete('/site-apps', adminRequired, async (req, res) => {
     res.json({ success: true });
 });
 
+// ============================================================
+// TRIPSWIPE BUSINESS SETTINGS
+// Stores per-business TripSwipe overrides (enabled, images)
+// Completely separate from GCR — does not modify GCR data
+// ============================================================
+
+// GET /api/admin/tripswipe/settings — public read so TripSwipe frontend can fetch
+router.get('/tripswipe/settings', async (req, res) => {
+    try {
+        const { data, error } = await gcrDb
+            .from('tripswipe_business_settings')
+            .select('slug, enabled, hero_image, extra_images, updated_at');
+        if (error) {
+            // Table may not exist yet — return empty so app still works
+            if (error.code === '42P01') return res.json({ settings: [] });
+            return res.status(500).json({ error: error.message });
+        }
+        res.json({ settings: data || [] });
+    } catch (e) {
+        res.json({ settings: [] });
+    }
+});
+
+// PUT /api/admin/tripswipe/settings/:slug — save settings for one business
+router.put('/tripswipe/settings/:slug', adminRequired, async (req, res) => {
+    const { slug } = req.params;
+    const { enabled, hero_image, extra_images } = req.body;
+    try {
+        const payload = {
+            slug,
+            enabled: enabled !== false,
+            hero_image: hero_image || null,
+            extra_images: Array.isArray(extra_images) ? extra_images : [],
+            updated_at: new Date().toISOString(),
+        };
+        const { data, error } = await gcrDb
+            .from('tripswipe_business_settings')
+            .upsert(payload, { onConflict: 'slug' })
+            .select()
+            .single();
+        if (error) {
+            // Table missing — auto-create and retry
+            if (error.code === '42P01') {
+                await gcrDb.rpc('exec_sql', { sql: `
+                    CREATE TABLE IF NOT EXISTS tripswipe_business_settings (
+                        slug TEXT PRIMARY KEY,
+                        enabled BOOLEAN DEFAULT true,
+                        hero_image TEXT,
+                        extra_images TEXT[] DEFAULT '{}',
+                        updated_at TIMESTAMPTZ DEFAULT NOW()
+                    );
+                ` }).catch(() => {});
+                const { data: d2, error: e2 } = await gcrDb
+                    .from('tripswipe_business_settings')
+                    .upsert(payload, { onConflict: 'slug' })
+                    .select().single();
+                if (e2) return res.status(500).json({ error: e2.message });
+                return res.json({ setting: d2 });
+            }
+            return res.status(500).json({ error: error.message });
+        }
+        res.json({ setting: data });
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
+});
+
 module.exports = router;
 
