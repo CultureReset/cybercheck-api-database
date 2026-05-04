@@ -5,12 +5,9 @@ const supabase = require('../db');
 const getGcrDb = require('../gcr-db');
 const gcrDb = getGcrDb();
 const { runAgentLoop, callAIRound, getProviderInfo } = require('./ai-provider');
+const { adminRequired } = require('../middleware/auth');
 
 const router = express.Router();
-
-// Auth removed — page login is the gate. Re-enable by restoring the import above
-// and replacing this line: const { adminRequired } = require('../middleware/auth');
-const adminRequired = (req, res, next) => next();
 
 // ============================================
 // ADMIN LOGIN — must be BEFORE adminRequired middleware
@@ -212,15 +209,87 @@ router.put('/businesses/:id', async (req, res) => {
     res.json(data);
 });
 
-router.delete('/businesses/:id', async (req, res) => {
-    // Cascade delete handles all related data
-    const { error } = await supabase
-        .from('businesses')
-        .delete()
-        .eq('site_id', req.params.id);
+router.delete('/businesses/:id', adminRequired, async (req, res) => {
+    const siteId = req.params.id;
+    if (!siteId) return res.status(400).json({ error: 'site_id required' });
 
-    if (error) return res.status(500).json({ error: error.message });
-    res.json({ success: true });
+    // Verify business exists
+    const { data: biz } = await supabase.from('businesses').select('site_id, name').eq('site_id', siteId).single();
+    if (!biz) return res.status(404).json({ error: 'Business not found' });
+
+    try {
+        // Delete all site data in parallel (no FK dependencies between these)
+        await Promise.all([
+            supabase.from('bookings').delete().eq('site_id', siteId),
+            supabase.from('orders').delete().eq('site_id', siteId),
+            supabase.from('customers').delete().eq('site_id', siteId),
+            supabase.from('reviews').delete().eq('site_id', siteId),
+            supabase.from('media').delete().eq('site_id', siteId),
+            supabase.from('business_memories').delete().eq('site_id', siteId),
+            supabase.from('connections').delete().eq('site_id', siteId),
+            supabase.from('faqs').delete().eq('site_id', siteId),
+            supabase.from('specials').delete().eq('site_id', siteId),
+            supabase.from('events').delete().eq('site_id', siteId),
+            supabase.from('menu_items').delete().eq('site_id', siteId),
+            supabase.from('menu_categories').delete().eq('site_id', siteId),
+            supabase.from('menu_sections').delete().eq('site_id', siteId),
+            supabase.from('menu_subcategories').delete().eq('site_id', siteId),
+            supabase.from('fleet_types').delete().eq('site_id', siteId),
+            supabase.from('rental_time_slots').delete().eq('site_id', siteId),
+            supabase.from('rental_pricing').delete().eq('site_id', siteId),
+            supabase.from('rental_addons').delete().eq('site_id', siteId),
+            supabase.from('rental_group_rates').delete().eq('site_id', siteId),
+            supabase.from('site_content').delete().eq('site_id', siteId),
+            supabase.from('site_pages').delete().eq('site_id', siteId),
+            supabase.from('site_apps').delete().eq('site_id', siteId),
+            supabase.from('ai_conversations').delete().eq('site_id', siteId),
+            supabase.from('ai_messages').delete().eq('site_id', siteId),
+            supabase.from('audit_log').delete().eq('site_id', siteId),
+            supabase.from('notifications').delete().eq('site_id', siteId),
+            supabase.from('onboarding_progress').delete().eq('site_id', siteId),
+            supabase.from('staff').delete().eq('site_id', siteId),
+            supabase.from('waivers').delete().eq('site_id', siteId),
+            supabase.from('availability').delete().eq('site_id', siteId),
+            supabase.from('availability_blocks').delete().eq('site_id', siteId),
+            supabase.from('booking_funnel').delete().eq('site_id', siteId),
+            supabase.from('booking_slots').delete().eq('site_id', siteId),
+            supabase.from('coupons').delete().eq('site_id', siteId),
+            supabase.from('sms_campaigns').delete().eq('site_id', siteId),
+            supabase.from('sms_log').delete().eq('site_id', siteId),
+            supabase.from('sms_opt_outs').delete().eq('site_id', siteId),
+            supabase.from('messaging_settings').delete().eq('site_id', siteId),
+            supabase.from('oauth_tokens').delete().eq('site_id', siteId),
+            supabase.from('update_links').delete().eq('site_id', siteId),
+            supabase.from('tripswipe_business_settings').delete().eq('site_id', siteId),
+            supabase.from('page_views').delete().eq('site_id', siteId),
+            supabase.from('session_events').delete().eq('site_id', siteId),
+            supabase.from('sales_leads').delete().eq('site_id', siteId),
+            supabase.from('seo_meta_tags').delete().eq('site_id', siteId),
+            supabase.from('social_media_analytics').delete().eq('site_id', siteId),
+        ]);
+
+        // Delete storage files for this site
+        try {
+            const { data: files } = await supabase.storage.from('media').list(siteId, { limit: 1000 });
+            if (files && files.length) {
+                const paths = files.map(f => `${siteId}/${f.name}`);
+                await supabase.storage.from('media').remove(paths);
+            }
+        } catch (storageErr) {
+            console.error('Storage cleanup error (non-fatal):', storageErr);
+        }
+
+        // Delete users, then the business record itself
+        await supabase.from('users').delete().eq('site_id', siteId);
+        const { error } = await supabase.from('businesses').delete().eq('site_id', siteId);
+        if (error) throw error;
+
+        console.log(`[admin] Deleted business ${siteId} (${biz.name}) by admin ${req.userId}`);
+        res.json({ success: true, deleted: biz.name });
+    } catch (err) {
+        console.error('Business delete failed:', err);
+        res.status(500).json({ error: err.message });
+    }
 });
 
 // ============================================
@@ -6941,6 +7010,41 @@ router.put('/tripswipe/settings/:slug', adminRequired, async (req, res) => {
     } catch (e) {
         res.status(500).json({ error: e.message });
     }
+});
+
+// ── Community Photos (submitted by TripSwipe users, approved by admin) ──────
+
+// GET /api/admin/community-photos — list photos filtered by status
+router.get('/community-photos', adminRequired, async (req, res) => {
+    const { status = 'pending', slug } = req.query;
+    let q = supabase.from('tourist_photos')
+        .select('id, user_id, entity_slug, image_url, caption, uploader_name, category, status, submitted_at, reviewed_at')
+        .order('submitted_at', { ascending: false })
+        .limit(300);
+    if (status !== 'all') q = q.eq('status', status);
+    if (slug) q = q.eq('entity_slug', slug);
+    const { data, error } = await q;
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ photos: data || [] });
+});
+
+// PUT /api/admin/community-photos/:id — approve or reject
+router.put('/community-photos/:id', adminRequired, async (req, res) => {
+    const { status } = req.body;
+    if (!['approved', 'rejected'].includes(status)) return res.status(400).json({ error: 'Invalid status' });
+    const { data, error } = await supabase.from('tourist_photos')
+        .update({ status, reviewed_at: new Date().toISOString(), reviewed_by: 'admin' })
+        .eq('id', req.params.id)
+        .select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ photo: data });
+});
+
+// DELETE /api/admin/community-photos/:id — remove a photo
+router.delete('/community-photos/:id', adminRequired, async (req, res) => {
+    const { error } = await supabase.from('tourist_photos').delete().eq('id', req.params.id);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
 });
 
 module.exports = router;
