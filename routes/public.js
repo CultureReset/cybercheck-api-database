@@ -3117,4 +3117,21 @@ router.get('/waivers/send-reminders', async (req, res) => {
     }
 });
 
+// GET /api/public/gcr-stats — Live GCR business count for home page display
+router.get('/gcr-stats', async (req, res) => {
+    try {
+        const getGcrDb = require('../gcr-db');
+        const gcrDb = getGcrDb();
+        const { count, error } = await gcrDb
+            .from('entity')
+            .select('id', { count: 'exact', head: true })
+            .eq('is_active', true);
+        if (error) throw error;
+        res.set('Cache-Control', 'public, max-age=300'); // cache 5 min
+        res.json({ live_businesses: count || 0 });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
 module.exports = router;
