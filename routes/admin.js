@@ -3212,10 +3212,23 @@ router.put('/gcr/entities/:id', async (req, res) => {
     res.json({ success: true });
 });
 
-// DELETE /api/admin/gcr/entities/:id (soft delete)
+// DELETE /api/admin/gcr/entities/:id — permanently removes entity + all related rows
 router.delete('/gcr/entities/:id', async (req, res) => {
     const { id } = req.params;
-    const { error } = await gcrDb.from('entity').update({ is_active: false, updated_at: new Date().toISOString() }).eq('id', id);
+    await gcrDb.from('entity_tags').delete().eq('entity_id', id);
+    await gcrDb.from('entity_features').delete().eq('entity_id', id);
+    await gcrDb.from('entity_perfect_for').delete().eq('entity_id', id);
+    await gcrDb.from('entity_specials').delete().eq('entity_id', id);
+    await gcrDb.from('entity_events').delete().eq('entity_id', id);
+    await gcrDb.from('menu_items').delete().eq('entity_id', id);
+    await gcrDb.from('menu_sections').delete().eq('entity_id', id);
+    await gcrDb.from('drink_items').delete().eq('entity_id', id);
+    await gcrDb.from('drink_sections').delete().eq('entity_id', id);
+    await gcrDb.from('happy_hour_items').delete().eq('entity_id', id);
+    await gcrDb.from('happy_hour_sections').delete().eq('entity_id', id);
+    await gcrDb.from('packages').delete().eq('entity_id', id);
+    await gcrDb.from('gcr_faqs').delete().eq('entity_id', id);
+    const { error } = await gcrDb.from('entity').delete().eq('id', id);
     if (error) return res.status(500).json({ error: error.message });
     res.json({ success: true });
 });
