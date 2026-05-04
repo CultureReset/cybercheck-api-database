@@ -2503,4 +2503,17 @@ router.post('/menu-editor-save', async (req, res) => {
     }
 });
 
+// GET /api/gcr/community-photos/:slug — approved community photos for a business (public)
+router.get('/community-photos/:slug', async (req, res) => {
+    const { data, error } = await supabase
+        .from('tourist_photos')
+        .select('id, image_url, caption, uploader_name, category, submitted_at')
+        .eq('entity_slug', req.params.slug)
+        .eq('status', 'approved')
+        .order('submitted_at', { ascending: false })
+        .limit(50);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ photos: data || [] });
+});
+
 module.exports = router;

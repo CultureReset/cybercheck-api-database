@@ -710,5 +710,45 @@ router.delete('/ai-chat/memories/:id', touristOrAdminAuth, async (req, res) => {
     res.json({ success: true });
 });
 
+// ── Community Photos ────────────────────────────────────────────────────────
+
+// POST /api/tourist/photos — submit a photo (auth or anon via review link)
+router.post('/photos', async (req, res) => {
+    const { entity_slug, image_url, caption, uploader_name, category } = req.body;
+    if (!entity_slug || !image_url) return res.status(400).json({ error: 'entity_slug and image_url required' });
+    // Attempt to read user_id from token if present (not required)
+    let userId = null;
+    const header = req.headers.authorization;
+    if (header && header.startsWith('Bearer ')) {
+        try {
+            const token = header.slice(7);
+            const { data: { user } } = await mainDb.auth.getUser(token);
+            userId = user?.id || null;
+        } catch (_) {}
+    }
+    const { data, error } = await mainDb.from('tourist_photos').insert({
+        user_id: userId,
+        entity_slug,
+        image_url,
+        caption: caption || null,
+        uploader_name: uploader_name || null,
+        category: category || 'general',
+        status: 'pending',
+    }).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true, photo: data });
+});
+
+// GET /api/tourist/photos — get photos submitted by the logged-in user
+router.get('/photos', touristAuth, async (req, res) => {
+    const { data, error } = await mainDb.from('tourist_photos')
+        .select('id, entity_slug, image_url, caption, category, status, submitted_at, reviewed_at')
+        .eq('user_id', req.touristId)
+        .order('submitted_at', { ascending: false })
+        .limit(100);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ photos: data || [] });
+});
+
 module.exports = router;
 module.exports.touristAuth = touristAuth;
