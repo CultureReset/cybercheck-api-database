@@ -3167,21 +3167,27 @@ router.delete('/businesses/:siteId/events/:itemId', async (req, res) => {
 
 // GET /api/admin/gcr/entities
 router.get('/gcr/entities', adminRequired, async (req, res) => {
+    const { search, limit } = req.query;
+    const pageLimit = Math.min(parseInt(limit) || 1000, 1000);
     // Try with sponsored column first, fall back without it
     let data, error;
-    ({ data, error } = await gcrDb
+    let q = gcrDb
         .from('entity')
         .select('id, slug, name, subtitle, entity_type, entity_subtype, icon, rating, review_count, city, state, is_active, is_sponsored, hero_image_url, phone, address_line_1, directions_url, website_url, created_at')
         .order('name')
-        .range(0, 999));
+        .range(0, pageLimit - 1);
+    if (search) q = q.ilike('name', `%${search}%`);
+    ({ data, error } = await q);
 
     if (error) {
         // Retry without is_sponsored in case column doesn't exist
-        ({ data, error } = await gcrDb
+        let q2 = gcrDb
             .from('entity')
             .select('id, slug, name, subtitle, entity_type, entity_subtype, icon, rating, review_count, city, state, is_active, hero_image_url, phone, address_line_1, directions_url, website_url, created_at')
             .order('name')
-            .range(0, 999));
+            .range(0, pageLimit - 1);
+        if (search) q2 = q2.ilike('name', `%${search}%`);
+        ({ data, error } = await q2);
     }
     if (error) return res.status(500).json({ error: error.message });
 
@@ -4969,10 +4975,11 @@ const GCR_AGENT_TOOLS = [
         type: 'function',
         function: {
             name: 'add_menu_item',
-            description: 'Add a food item to this business\'s menu. Specify section_name to auto-create the section if it doesn\'t exist.',
+            description: 'Add a food item to a business menu. Use entity_id from search_entity if no business was pre-selected.',
             parameters: {
                 type: 'object',
                 properties: {
+                    entity_id: { type: 'string', description: 'Entity UUID — required if no business was pre-selected. Get it from search_entity first.' },
                     name: { type: 'string' }, description: { type: 'string' }, price: { type: 'string' },
                     section_name: { type: 'string', description: 'Menu section name (e.g. "Appetizers")' },
                     section_id: { type: 'string', description: 'Existing section UUID (use instead of section_name if known)' },
@@ -4986,10 +4993,11 @@ const GCR_AGENT_TOOLS = [
         type: 'function',
         function: {
             name: 'add_drink_item',
-            description: 'Add a drink to this business\'s drink menu. Specify section_name to auto-create the section.',
+            description: 'Add a drink to a business drink menu. Use entity_id from search_entity if no business was pre-selected.',
             parameters: {
                 type: 'object',
                 properties: {
+                    entity_id: { type: 'string', description: 'Entity UUID — required if no business was pre-selected.' },
                     name: { type: 'string' }, description: { type: 'string' }, price: { type: 'string' },
                     section_name: { type: 'string', description: 'Drink section name (e.g. "Cocktails")' },
                     section_id: { type: 'string', description: 'Existing section UUID' },
@@ -5003,10 +5011,11 @@ const GCR_AGENT_TOOLS = [
         type: 'function',
         function: {
             name: 'add_event',
-            description: 'Add an upcoming event to this business.',
+            description: 'Add an upcoming event to a business. Use entity_id from search_entity if no business was pre-selected.',
             parameters: {
                 type: 'object',
                 properties: {
+                    entity_id: { type: 'string', description: 'Entity UUID — required if no business was pre-selected.' },
                     title: { type: 'string' }, description: { type: 'string' },
                     event_date: { type: 'string', description: 'YYYY-MM-DD' },
                     start_time: { type: 'string', description: 'HH:MM' },
@@ -5905,56 +5914,59 @@ async function executeGCRTool(name, args, { gcrDb, entityId, mainDb }) {
                 return { success: true, hero_image_url: args.url };
             }
             case 'add_menu_item': {
-                if (!entityId) return { error: 'No business selected' };
+                const eid = args.entity_id || entityId;
+                if (!eid) return { error: 'No business selected — use search_entity first to find the entity_id' };
                 if (!args.name) return { error: 'name required' };
                 let sectionId = args.section_id || null;
                 if (!sectionId && args.section_name) {
-                    const { data: existing } = await gcrDb.from('menu_sections').select('id').eq('entity_id', entityId).ilike('name', args.section_name).maybeSingle();
+                    const { data: existing } = await gcrDb.from('menu_sections').select('id').eq('entity_id', eid).ilike('name', args.section_name).maybeSingle();
                     if (existing) {
                         sectionId = existing.id;
                     } else {
-                        const { data: created } = await gcrDb.from('menu_sections').insert({ entity_id: entityId, name: args.section_name, sort_order: 99 }).select('id').single();
+                        const { data: created } = await gcrDb.from('menu_sections').insert({ entity_id: eid, name: args.section_name, sort_order: 99 }).select('id').single();
                         sectionId = created?.id;
                     }
                 }
                 const { data, error } = await gcrDb.from('menu_items').insert({
-                    entity_id: entityId, section_id: sectionId || null,
-                    name: args.name, description: args.description || null,
+                    entity_id: eid, menu_section_id: sectionId || null,
+                    item_name: args.name, description: args.description || null,
                     price: args.price || null, is_available: true, sort_order: args.sort_order || 99,
-                }).select('id,name').single();
+                }).select('id,item_name').single();
                 if (error) return { error: error.message };
                 return { success: true, item: data };
             }
             case 'add_drink_item': {
-                if (!entityId) return { error: 'No business selected' };
+                const eid = args.entity_id || entityId;
+                if (!eid) return { error: 'No business selected — use search_entity first to find the entity_id' };
                 if (!args.name) return { error: 'name required' };
                 let sectionId = args.section_id || null;
                 if (!sectionId && args.section_name) {
-                    const { data: existing } = await gcrDb.from('drink_sections').select('id').eq('entity_id', entityId).ilike('name', args.section_name).maybeSingle();
+                    const { data: existing } = await gcrDb.from('drink_sections').select('id').eq('entity_id', eid).ilike('name', args.section_name).maybeSingle();
                     if (existing) {
                         sectionId = existing.id;
                     } else {
-                        const { data: created } = await gcrDb.from('drink_sections').insert({ entity_id: entityId, name: args.section_name, sort_order: 99 }).select('id').single();
+                        const { data: created } = await gcrDb.from('drink_sections').insert({ entity_id: eid, name: args.section_name, sort_order: 99 }).select('id').single();
                         sectionId = created?.id;
                     }
                 }
                 const { data, error } = await gcrDb.from('drink_items').insert({
-                    entity_id: entityId, section_id: sectionId || null,
-                    name: args.name, description: args.description || null,
+                    entity_id: eid, drink_section_id: sectionId || null,
+                    item_name: args.name, description: args.description || null,
                     price: args.price || null, sort_order: args.sort_order || 99,
-                }).select('id,name').single();
+                }).select('id,item_name').single();
                 if (error) return { error: error.message };
                 return { success: true, item: data };
             }
             case 'add_event': {
-                if (!entityId) return { error: 'No business selected' };
+                const eid = args.entity_id || entityId;
+                if (!eid) return { error: 'No business selected — use search_entity first to find the entity_id' };
                 if (!args.title || !args.event_date) return { error: 'title and event_date required' };
                 const { data, error } = await gcrDb.from('entity_events').insert({
-                    entity_id: entityId, title: args.title, description: args.description || null,
+                    entity_id: eid, event_name: args.title, description: args.description || null,
                     event_date: args.event_date, start_time: args.start_time || null,
                     end_time: args.end_time || null, image_url: args.image_url || null,
                     ticket_url: args.ticket_url || null, is_active: true,
-                }).select('id,title').single();
+                }).select('id,event_name').single();
                 if (error) return { error: error.message };
                 return { success: true, event: data };
             }
