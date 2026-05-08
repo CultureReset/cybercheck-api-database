@@ -129,6 +129,9 @@ app.use('/update',     updateLinkRouter);   // public: /:token serves the mobile
 // QR Code Tracking — universal numbered scan tracking (tables, cards, ads, stickers)
 app.use('/api/qr', require('./routes/qr'));
 
+// Authentic Review Platform — POS webhooks, SMS review requests, review inbox
+app.use('/api/reviews', require('./routes/reviews'));
+
 // Verified Live Food Photos — standalone module, no auth required
 app.use('/api/live-photo', require('./routes/live-photo'));
 
