@@ -2355,6 +2355,63 @@ router.post('/menu-themes/:id/apply', async (req, res) => {
     res.json({ success: true, theme: theme.theme_json, name: theme.name });
 });
 
+// GET /api/gcr/analytics?days=30
+router.get('/analytics', async (req, res) => {
+    const days = Math.min(parseInt(req.query.days) || 30, 90);
+    const since = new Date(Date.now() - days * 86400000).toISOString();
+
+    try {
+        const { data, error } = await supabase
+            .from('platform_page_views')
+            .select('page_path, page_title, referrer, utm_source, utm_medium, utm_campaign, device_type, duration_secs, session_id, created_at')
+            .gte('created_at', since)
+            .order('created_at', { ascending: false })
+            .limit(10000);
+
+        if (error) return res.status(500).json({ error: error.message });
+        const rows = data || [];
+
+        // Aggregate
+        const pageMap = {}, sourceMap = {}, campaignMap = {}, deviceMap = {}, dailyMap = {};
+        const sessions = new Set();
+        let totalDuration = 0, durationCount = 0;
+
+        rows.forEach(r => {
+            if (r.session_id) sessions.add(r.session_id);
+            const page = r.page_path || '/';
+            pageMap[page] = (pageMap[page] || 0) + 1;
+
+            const src = r.utm_source || (r.referrer ? new URL('http://x' + r.referrer).hostname.replace('www.','') : 'direct') ;
+            sourceMap[src] = (sourceMap[src] || 0) + 1;
+
+            if (r.utm_campaign) campaignMap[r.utm_campaign] = (campaignMap[r.utm_campaign] || 0) + 1;
+            const dev = r.device_type || 'unknown';
+            deviceMap[dev] = (deviceMap[dev] || 0) + 1;
+
+            const day = (r.created_at || '').slice(0, 10);
+            if (day) dailyMap[day] = (dailyMap[day] || 0) + 1;
+
+            if (r.duration_secs > 0) { totalDuration += r.duration_secs; durationCount++; }
+        });
+
+        const topN = (map, n = 10) => Object.entries(map).sort((a,b) => b[1]-a[1]).slice(0, n).map(([k,v]) => ({ name: k, count: v }));
+
+        res.json({
+            total_pageviews: rows.length,
+            unique_sessions: sessions.size,
+            avg_duration_secs: durationCount ? Math.round(totalDuration / durationCount) : 0,
+            top_pages: topN(pageMap, 15),
+            top_sources: topN(sourceMap, 10),
+            top_campaigns: topN(campaignMap, 10),
+            devices: topN(deviceMap, 5),
+            daily: Object.entries(dailyMap).sort((a,b) => a[0] < b[0] ? -1 : 1).map(([d,c]) => ({ date: d, count: c })),
+            days,
+        });
+    } catch(e) {
+        res.status(500).json({ error: e.message });
+    }
+});
+
 // No auth required, never blocks the caller
 // ============================================
 router.post('/track', async (req, res) => {
