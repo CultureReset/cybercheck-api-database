@@ -2359,11 +2359,10 @@ router.post('/menu-themes/:id/apply', async (req, res) => {
 router.get('/analytics', async (req, res) => {
     const days = Math.min(parseInt(req.query.days) || 30, 90);
     const since = new Date(Date.now() - days * 86400000).toISOString();
-
     try {
-        const { data, error } = await supabase
-            .from('platform_page_views')
-            .select('page_path, page_title, referrer, utm_source, utm_medium, utm_campaign, device_type, duration_secs, session_id, created_at')
+        const { data, error } = await gcrDb
+            .from('gcr_page_views')
+            .select('page_path, page_title, referrer, utm_source, utm_medium, utm_campaign, device_type, duration_secs, session_id, country, city, created_at')
             .gte('created_at', since)
             .order('created_at', { ascending: false })
             .limit(10000);
@@ -2371,8 +2370,7 @@ router.get('/analytics', async (req, res) => {
         if (error) return res.status(500).json({ error: error.message });
         const rows = data || [];
 
-        // Aggregate
-        const pageMap = {}, sourceMap = {}, campaignMap = {}, deviceMap = {}, dailyMap = {};
+        const pageMap = {}, sourceMap = {}, campaignMap = {}, deviceMap = {}, dailyMap = {}, countryMap = {}, cityMap = {};
         const sessions = new Set();
         let totalDuration = 0, durationCount = 0;
 
@@ -2381,17 +2379,20 @@ router.get('/analytics', async (req, res) => {
             const page = r.page_path || '/';
             pageMap[page] = (pageMap[page] || 0) + 1;
 
-            const src = r.utm_source || (r.referrer ? new URL('http://x' + r.referrer).hostname.replace('www.','') : 'direct') ;
+            let src = 'direct';
+            if (r.utm_source) src = r.utm_source;
+            else if (r.referrer) { try { src = new URL(r.referrer).hostname.replace('www.',''); } catch {} }
             sourceMap[src] = (sourceMap[src] || 0) + 1;
 
             if (r.utm_campaign) campaignMap[r.utm_campaign] = (campaignMap[r.utm_campaign] || 0) + 1;
-            const dev = r.device_type || 'unknown';
-            deviceMap[dev] = (deviceMap[dev] || 0) + 1;
+            deviceMap[r.device_type || 'unknown'] = (deviceMap[r.device_type || 'unknown'] || 0) + 1;
 
             const day = (r.created_at || '').slice(0, 10);
             if (day) dailyMap[day] = (dailyMap[day] || 0) + 1;
 
             if (r.duration_secs > 0) { totalDuration += r.duration_secs; durationCount++; }
+            if (r.country) countryMap[r.country] = (countryMap[r.country] || 0) + 1;
+            if (r.city) cityMap[r.city] = (cityMap[r.city] || 0) + 1;
         });
 
         const topN = (map, n = 10) => Object.entries(map).sort((a,b) => b[1]-a[1]).slice(0, n).map(([k,v]) => ({ name: k, count: v }));
@@ -2404,6 +2405,8 @@ router.get('/analytics', async (req, res) => {
             top_sources: topN(sourceMap, 10),
             top_campaigns: topN(campaignMap, 10),
             devices: topN(deviceMap, 5),
+            top_countries: topN(countryMap, 15),
+            top_cities: topN(cityMap, 15),
             daily: Object.entries(dailyMap).sort((a,b) => a[0] < b[0] ? -1 : 1).map(([d,c]) => ({ date: d, count: c })),
             days,
         });
@@ -2412,18 +2415,44 @@ router.get('/analytics', async (req, res) => {
     }
 });
 
-// No auth required, never blocks the caller
-// ============================================
+// GET /api/gcr/settings/:key — read a setting
+router.get('/settings/:key', async (req, res) => {
+    const { data } = await gcrDb.from('gcr_settings').select('value').eq('key', req.params.key).single();
+    res.json({ key: req.params.key, value: data?.value || null });
+});
+
+// POST /api/gcr/settings — save a setting (admin only via simple shared secret)
+router.post('/settings', async (req, res) => {
+    const { key, value, secret } = req.body || {};
+    if (secret !== (process.env.GCR_ADMIN_SECRET || 'gcr-admin-2026')) return res.status(403).json({ error: 'unauthorized' });
+    if (!key) return res.status(400).json({ error: 'key required' });
+    const { error } = await gcrDb.from('gcr_settings').upsert({ key, value, updated_at: new Date().toISOString() }, { onConflict: 'key' });
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ ok: true });
+});
+
+// POST /api/gcr/track — page view + geo lookup
 router.post('/track', async (req, res) => {
-    res.json({ ok: true }); // respond immediately — never delay the page
+    res.json({ ok: true });
     const {
         page_path, page_title, referrer, session_id,
         utm_source, utm_medium, utm_campaign, utm_term, utm_content,
         device_type, duration_secs, source
     } = req.body || {};
     const ip = (req.headers['x-forwarded-for'] || '').split(',')[0].trim() || req.ip || null;
+
+    // Geo lookup via ip-api.com (free, no key needed, 45req/min)
+    let country = null, city = null;
+    if (ip && ip !== '127.0.0.1' && ip !== '::1') {
+        try {
+            const geoRes = await fetch(`http://ip-api.com/json/${ip}?fields=country,city,status`, { signal: AbortSignal.timeout(1500) });
+            const geo = await geoRes.json();
+            if (geo.status === 'success') { country = geo.country || null; city = geo.city || null; }
+        } catch {}
+    }
+
     try {
-        await supabase.from('platform_page_views').insert({
+        await gcrDb.from('gcr_page_views').insert({
             page_path:    page_path    || '/',
             page_title:   page_title   || null,
             referrer:     referrer     || null,
@@ -2437,6 +2466,8 @@ router.post('/track', async (req, res) => {
             duration_secs: duration_secs || null,
             source:       source       || 'gcr',
             ip_address:   ip,
+            country,
+            city,
         });
     } catch (e) { /* non-blocking */ }
 });
