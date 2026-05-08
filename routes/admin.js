@@ -3281,6 +3281,60 @@ router.put('/gcr/entities/:id', async (req, res) => {
     res.json({ success: true });
 });
 
+// PATCH /api/admin/gcr/entities/:id — partial update: entity fields, hours, happyHour, photos
+router.patch('/gcr/entities/:id', async (req, res) => {
+    const entityId = req.params.id;
+    const { entity, hours, happyHour, photos } = req.body;
+    const errors = [];
+
+    // 1. Core entity fields
+    if (entity) {
+        const upd = { ...entity, updated_at: new Date().toISOString() };
+        const { error } = await gcrDb.from('entity').update(upd).eq('id', entityId);
+        if (error) errors.push('entity: ' + error.message);
+    }
+
+    // 2. Hours — schedule: [{day, open, close, closed}]
+    if (hours?.schedule) {
+        for (const h of hours.schedule) {
+            const { error } = await gcrDb.from('entity_hours').upsert(
+                { entity_id: entityId, day_of_week: h.day, open_time: h.open || null, close_time: h.close || null, is_closed: !!h.closed },
+                { onConflict: 'entity_id,day_of_week' }
+            );
+            if (error) errors.push('hours ' + h.day + ': ' + error.message);
+        }
+    }
+
+    // 3. Happy hour scalar fields
+    if (happyHour) {
+        const upd = {};
+        if (happyHour.days        !== undefined) upd.hh_days        = happyHour.days;
+        if (happyHour.start       !== undefined) upd.hh_start       = happyHour.start;
+        if (happyHour.end         !== undefined) upd.hh_end         = happyHour.end;
+        if (happyHour.description !== undefined) upd.hh_description = happyHour.description;
+        if (Object.keys(upd).length) {
+            const { error } = await gcrDb.from('entity').update(upd).eq('id', entityId);
+            if (error) errors.push('happy_hour: ' + error.message);
+        }
+    }
+
+    // 4. Photos — add new, delete by id or image_url
+    if (photos?.add?.length) {
+        const rows = photos.add.map((p, i) => ({ entity_id: entityId, image_url: p.image_url, caption: p.caption || null, sort_order: i }));
+        const { error } = await gcrDb.from('entity_photos').insert(rows);
+        if (error) errors.push('photos add: ' + error.message);
+    }
+    if (photos?.delete?.length) {
+        for (const p of photos.delete) {
+            if (p.id) await gcrDb.from('entity_photos').delete().eq('id', p.id);
+            else if (p.image_url) await gcrDb.from('entity_photos').delete().eq('entity_id', entityId).eq('image_url', p.image_url);
+        }
+    }
+
+    if (errors.length) return res.status(207).json({ success: true, errors });
+    res.json({ success: true });
+});
+
 // DELETE /api/admin/gcr/entities/:id — permanently removes entity + all related rows
 router.delete('/gcr/entities/:id', async (req, res) => {
     const { id } = req.params;
