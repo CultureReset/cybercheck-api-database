@@ -5578,15 +5578,16 @@ async function executeGCRTool(name, args, { gcrDb, entityId, mainDb }) {
             }
             case 'get_entity_full': {
                 const id = args.entity_id;
-                const [entRes, menuRes, drinkRes, evtRes, specRes, tagRes, featRes, imgRes] = await Promise.all([
+                const [entRes, menuRes, drinkRes, evtRes, specRes, tagRes, featRes, imgRes, hoursRes] = await Promise.all([
                     gcrDb.from('entity').select('*').eq('id', id).single(),
-                    gcrDb.from('menu_items').select('*').eq('entity_id', id),
-                    gcrDb.from('drink_items').select('*').eq('entity_id', id),
-                    gcrDb.from('events').select('*').eq('entity_id', id),
-                    gcrDb.from('specials').select('*').eq('entity_id', id),
-                    gcrDb.from('entity_tags').select('tag').eq('entity_id', id),
-                    gcrDb.from('entity_features').select('feature').eq('entity_id', id),
-                    gcrDb.from('entity_gallery').select('*').eq('entity_id', id),
+                    gcrDb.from('menu_items').select('*').eq('entity_id', id).order('sort_order'),
+                    gcrDb.from('drink_items').select('*').eq('entity_id', id).order('sort_order'),
+                    gcrDb.from('entity_events').select('*').eq('entity_id', id).eq('is_active', true).order('event_date'),
+                    gcrDb.from('entity_specials').select('*').eq('entity_id', id).eq('is_active', true),
+                    gcrDb.from('entity_tags').select('tag,tag_category').eq('entity_id', id),
+                    gcrDb.from('entity_features').select('label').eq('entity_id', id),
+                    gcrDb.from('entity_photos').select('*').eq('entity_id', id).order('sort_order'),
+                    gcrDb.from('entity_hours').select('*').eq('entity_id', id),
                 ]);
                 if (entRes.error) return { error: entRes.error.message };
                 return {
@@ -5596,8 +5597,9 @@ async function executeGCRTool(name, args, { gcrDb, entityId, mainDb }) {
                     events: evtRes.data || [],
                     specials: specRes.data || [],
                     tags: (tagRes.data || []).map(t => t.tag),
-                    features: (featRes.data || []).map(f => f.feature),
-                    gallery: imgRes.data || [],
+                    features: (featRes.data || []).map(f => f.label),
+                    photos: imgRes.data || [],
+                    hours: hoursRes.data || [],
                 };
             }
             case 'update_entity': {
@@ -5614,23 +5616,33 @@ async function executeGCRTool(name, args, { gcrDb, entityId, mainDb }) {
             }
             case 'update_menu_item': {
                 const { item_id, fields } = args;
-                const { data, error } = await gcrDb.from('menu_items').update(fields).eq('id', item_id).select('id,name').single();
+                const { data, error } = await gcrDb.from('menu_items').update(fields).eq('id', item_id).select('id,item_name').single();
                 if (error) return { error: error.message };
                 return { updated: true, item: data };
             }
             case 'add_special': {
-                const { entity_id, title, description, discount_type, discount_value, start_date, end_date, days_of_week } = args;
-                const { data, error } = await gcrDb.from('specials').insert({ entity_id, title, description, discount_type, discount_value, start_date, end_date, days_of_week }).select('id,title').single();
+                const eid = args.entity_id || entityId;
+                if (!eid) return { error: 'No business selected — use search_entity first' };
+                const { data, error } = await gcrDb.from('entity_specials').insert({
+                    entity_id: eid,
+                    special_name: args.title || args.name,
+                    discount_text: args.discount_text || args.discount_value || null,
+                    description: args.description || null,
+                    days: args.days_of_week || args.days || null,
+                    start_time: args.start_time || null,
+                    end_time: args.end_time || null,
+                    is_active: true,
+                }).select('id,special_name').single();
                 if (error) return { error: error.message };
                 return { added: true, special: data };
             }
             case 'delete_event': {
-                const { error } = await gcrDb.from('events').delete().eq('id', args.event_id);
+                const { error } = await gcrDb.from('entity_events').delete().eq('id', args.event_id);
                 if (error) return { error: error.message };
                 return { deleted: true, event_id: args.event_id };
             }
             case 'delete_special': {
-                const { error } = await gcrDb.from('specials').delete().eq('id', args.special_id);
+                const { error } = await gcrDb.from('entity_specials').delete().eq('id', args.special_id);
                 if (error) return { error: error.message };
                 return { deleted: true, special_id: args.special_id };
             }
@@ -5655,11 +5667,15 @@ async function executeGCRTool(name, args, { gcrDb, entityId, mainDb }) {
                 return { removed: true, feature: args.feature };
             }
             case 'add_gallery_image': {
-                const { entity_id, image_url, caption, is_primary } = args;
-                if (is_primary) await gcrDb.from('entity_gallery').update({ is_primary: false }).eq('entity_id', entity_id);
-                const { data, error } = await gcrDb.from('entity_gallery').insert({ entity_id, image_url, caption, is_primary: !!is_primary }).select('id').single();
+                const eid = args.entity_id || entityId;
+                if (!eid) return { error: 'No business selected — use search_entity first' };
+                const { image_url, caption, sort_order } = args;
+                if (!image_url) return { error: 'image_url required' };
+                const { data, error } = await gcrDb.from('entity_photos').insert({
+                    entity_id: eid, image_url, caption: caption || null, sort_order: sort_order || 99
+                }).select('id').single();
                 if (error) return { error: error.message };
-                return { added: true, image_id: data.id };
+                return { added: true, photo_id: data.id };
             }
             case 'create_entity': {
                 const { name, entity_type, entity_subtype, address, city, state, zip, phone, website, description, hero_image_url } = args;
