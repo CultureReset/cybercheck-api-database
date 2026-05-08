@@ -3236,6 +3236,12 @@ router.post('/ai-chat', async (req, res) => {
 
     const siteId = req.siteId;
 
+    // Look up GCR entity early so executeTool and context can use it
+    const _gcrDb = gcr();
+    const { data: _gcrEntity } = await _gcrDb.from('entity').select('id,slug').eq('legacy_site_id', siteId).maybeSingle();
+    const gcrEntityId = _gcrEntity?.id || null;
+    const gcrEntitySlug = _gcrEntity?.slug || null;
+
     // Load long-term memories (structured by category) for this business
     const { data: memoriesData } = await supabase
         .from('business_memories')
@@ -3356,6 +3362,39 @@ router.post('/ai-chat', async (req, res) => {
         upcomingRes.data.forEach(b => { context += `\n• ${b.booking_date} — ${b.customer_name || 'Unknown'} ($${b.total || 0}) [${b.status}]`; });
     }
 
+    // Load GCR live listing data so AI knows what's on the live site
+    let gcrBlock = '';
+    if (gcrEntityId) {
+        try {
+            const [gcrEnt, gcrHours, gcrTags, gcrMenu, gcrPhotos, gcrSpecials, gcrEvents] = await Promise.all([
+                _gcrDb.from('entity').select('description,hh_days,hh_start,hh_end,hh_description,phone,website_url,address_line_1,city,state,rating,review_count').eq('id', gcrEntityId).single(),
+                _gcrDb.from('entity_hours').select('day_of_week,open_time,close_time,is_closed').eq('entity_id', gcrEntityId),
+                _gcrDb.from('entity_tags').select('tag,tag_category').eq('entity_id', gcrEntityId),
+                _gcrDb.from('menu_items').select('item_name,price,description,category').eq('entity_id', gcrEntityId).limit(50),
+                _gcrDb.from('entity_photos').select('image_url,caption').eq('entity_id', gcrEntityId).order('sort_order').limit(20),
+                _gcrDb.from('entity_specials').select('special_name,discount_text,description,days').eq('entity_id', gcrEntityId).eq('is_active', true).limit(10),
+                _gcrDb.from('entity_events').select('event_name,description,event_date,start_time').eq('entity_id', gcrEntityId).eq('is_active', true).limit(10),
+            ]);
+            const ge = gcrEnt.data || {};
+            gcrBlock = `\n\nLIVE GCR LISTING DATA (what visitors see on gulfcoastradar.com):`;
+            if (ge.description) gcrBlock += `\nDescription: ${ge.description}`;
+            if (ge.rating) gcrBlock += `\nRating: ${ge.rating} (${ge.review_count || 0} reviews)`;
+            if (ge.hh_days) gcrBlock += `\nHappy Hour: ${ge.hh_days} ${ge.hh_start || ''}–${ge.hh_end || ''}${ge.hh_description ? ' — ' + ge.hh_description : ''}`;
+            const hours = gcrHours.data || [];
+            if (hours.length) gcrBlock += `\nHours: ` + hours.map(h => h.is_closed ? `${h.day_of_week}: Closed` : `${h.day_of_week}: ${h.open_time}–${h.close_time}`).join(' | ');
+            const tags = (gcrTags.data || []).map(t => t.tag);
+            if (tags.length) gcrBlock += `\nTags: ${tags.join(', ')}`;
+            const menu = gcrMenu.data || [];
+            if (menu.length) gcrBlock += `\nMenu items (${menu.length}): ` + menu.slice(0,15).map(m => `${m.item_name}${m.price ? ' $'+m.price : ''}`).join(', ') + (menu.length > 15 ? ` + ${menu.length-15} more` : '');
+            const photos = gcrPhotos.data || [];
+            if (photos.length) gcrBlock += `\nPhotos: ${photos.length} photo(s) on listing`;
+            const specials = gcrSpecials.data || [];
+            if (specials.length) gcrBlock += `\nSpecials: ` + specials.map(s => s.special_name).join(', ');
+            const events = gcrEvents.data || [];
+            if (events.length) gcrBlock += `\nEvents: ` + events.map(e => `${e.event_name}${e.event_date ? ' ('+e.event_date+')' : ''}`).join(', ');
+        } catch(e) { /* non-fatal */ }
+    }
+
     // Group memories by category for easy retrieval in the prompt
     let memoryBlock = '';
     if (memories.length) {
@@ -3373,7 +3412,7 @@ router.post('/ai-chat', async (req, res) => {
     const systemPrompt = `You are the AI assistant for ${biz.name || 'this business'}. You are a full-intelligence assistant — like ChatGPT or Grok — but with direct access to this business's live data and the ability to make real changes.
 
 YOUR BUSINESS DATA:
-${context}${memoryBlock}${urlContent ? `\n\nWEBPAGE CONTENT (from URL the user shared):\n${urlContent}` : ''}
+${context}${gcrBlock}${memoryBlock}${urlContent ? `\n\nWEBPAGE CONTENT (from URL the user shared):\n${urlContent}` : ''}
 
 CAPABILITIES:
 1. ANSWER ANYTHING — general knowledge, strategy, marketing ideas, writing, analysis, math, coding
@@ -3576,15 +3615,16 @@ STYLE:
     // ── Tool execution ──
     async function executeTool(name, input) {
         if (name === 'add_menu_items') {
-            const rows = (input.items || []).map(i => ({
-                site_id: siteId, name: i.name, price: i.price || 0,
-                category: i.category, item_type: i.item_type || 'food',
-                description: i.description || '', tags: i.tags || [], modifiers: []
-            }));
-            if (!rows.length) return { success: true, count: 0 };
-            const { error } = await supabase.from('menu_items').insert(rows);
-            if (error) return { error: error.message };
-            return { success: true, count: rows.length };
+            const items = input.items || [];
+            if (!items.length) return { success: true, count: 0 };
+            // Save to GCR DB if entity is linked
+            if (gcrEntityId) {
+                for (const i of items) await syncToGcr(siteId, 'menu_item', i);
+            }
+            // Also save to CyberCheck DB for backward compat
+            const rows = items.map(i => ({ site_id: siteId, name: i.name, price: i.price || 0, category: i.category, item_type: i.item_type || 'food', description: i.description || '', tags: i.tags || [], modifiers: [] }));
+            await supabase.from('menu_items').insert(rows);
+            return { success: true, count: rows.length, saved_to_gcr: !!gcrEntityId };
         }
         if (name === 'clear_menu_type') {
             const { error } = await supabase.from('menu_items').delete().eq('site_id', siteId).eq('item_type', input.item_type);
@@ -3592,18 +3632,24 @@ STYLE:
             return { success: true, cleared: input.item_type };
         }
         if (name === 'add_specials') {
-            const rows = (input.specials || []).map(s => ({ site_id: siteId, ...s }));
-            if (!rows.length) return { success: true, count: 0 };
-            const { error } = await supabase.from('specials').insert(rows);
-            if (error) return { error: error.message };
-            return { success: true, count: rows.length };
+            const specials = input.specials || [];
+            if (!specials.length) return { success: true, count: 0 };
+            if (gcrEntityId) {
+                for (const s of specials) await syncToGcr(siteId, 'special', s);
+            }
+            const rows = specials.map(s => ({ site_id: siteId, ...s }));
+            await supabase.from('specials').insert(rows);
+            return { success: true, count: rows.length, saved_to_gcr: !!gcrEntityId };
         }
         if (name === 'add_events') {
-            const rows = (input.events || []).map(e => ({ site_id: siteId, ...e }));
-            if (!rows.length) return { success: true, count: 0 };
-            const { error } = await supabase.from('events').insert(rows);
-            if (error) return { error: error.message };
-            return { success: true, count: rows.length };
+            const events = input.events || [];
+            if (!events.length) return { success: true, count: 0 };
+            if (gcrEntityId) {
+                for (const e of events) await syncToGcr(siteId, 'event', e);
+            }
+            const rows = events.map(e => ({ site_id: siteId, ...e }));
+            await supabase.from('events').insert(rows);
+            return { success: true, count: rows.length, saved_to_gcr: !!gcrEntityId };
         }
         if (name === 'delete_menu_item') {
             const { data: found, error: findErr } = await supabase
@@ -3630,11 +3676,20 @@ STYLE:
             return { success: true, updated_name: found.name, updates };
         }
         if (name === 'update_hh_schedule') {
+            // Save to GCR entity table (live site)
+            if (gcrEntityId) {
+                const upd = {};
+                if (input.days  !== undefined) upd.hh_days  = input.days;
+                if (input.start !== undefined) upd.hh_start = input.start;
+                if (input.end   !== undefined) upd.hh_end   = input.end;
+                if (input.description !== undefined) upd.hh_description = input.description;
+                if (Object.keys(upd).length) await _gcrDb.from('entity').update(upd).eq('id', gcrEntityId);
+            }
+            // Also save to CyberCheck DB metadata
             const { data: biz } = await supabase.from('businesses').select('metadata').eq('site_id', siteId).single();
             const meta = Object.assign({}, biz?.metadata || {}, { hh_schedule: { days: input.days, start: input.start, end: input.end } });
-            const { error } = await supabase.from('businesses').update({ metadata: meta }).eq('site_id', siteId);
-            if (error) return { error: error.message };
-            return { success: true, schedule: input };
+            await supabase.from('businesses').update({ metadata: meta }).eq('site_id', siteId);
+            return { success: true, schedule: input, saved_to_gcr: !!gcrEntityId };
         }
         if (name === 'save_memory') {
             const row = {
