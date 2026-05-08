@@ -25,6 +25,18 @@
     {
       "path": "/api/sms/send-daily-menu-prompts",
       "schedule": "0 12 * * *"
+    },
+    {
+      "path": "/api/qr/digest/daily",
+      "schedule": "0 8 * * *"
+    },
+    {
+      "path": "/api/qr/digest/weekly",
+      "schedule": "0 8 * * 1"
+    },
+    {
+      "path": "/api/reviews/send-daily",
+      "schedule": "0 10 * * *"
     }
   ],
   "env": {
