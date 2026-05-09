@@ -4384,9 +4384,6 @@ Rules for MODIFIERS (the add-on price upcharges):
 Return ONLY the JSON object. No markdown. No commentary.`;
 
 router.post('/menu/extract', async (req, res) => {
-    // TEMPORARILY DISABLED — rebuilding on new platform
-    return res.status(503).json({ error: 'Menu extraction is temporarily offline for maintenance.' });
-
     const { image_base64, mime_type, provider, model } = req.body;
     if (!image_base64) return res.status(400).json({ error: 'image_base64 required' });
 
