@@ -94,7 +94,7 @@ router.get('/events', async (req, res) => {
     let query = gcrDb
         .from('entity_events')
         .select('*, entity(slug, name, icon, hero_image_url, entity_subtype, city)')
-        .eq('is_active', true)
+        .or('is_active.eq.true,is_active.is.null')
         .order('event_date', { ascending: true });
 
     if (req.query.slug) query = query.eq('entity.slug', req.query.slug);

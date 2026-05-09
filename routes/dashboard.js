@@ -854,6 +854,7 @@ router.get('/events', async (req, res) => {
 router.post('/events', async (req, res) => {
     const e = await requireEntity(req, res); if (!e) return;
     const body = { ...req.body, entity_id: e };
+    if (body.is_active === undefined) body.is_active = true;
     delete body.id; delete body.site_id;
     const { data, error } = await gcr().from('entity_events').insert(body).select().single();
     if (error) return res.status(500).json({ error: error.message });
