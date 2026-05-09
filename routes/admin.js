@@ -4207,7 +4207,19 @@ router.get('/gcr/page-assignments/:catId', async (req, res) => {
             .eq('category_id', catId)
             .order('sort_order', { ascending: true });
         if (error && error.code !== 'PGRST116') return res.status(500).json({ error: error.message });
-        res.json(data || []);
+        const rows = data || [];
+        // Join entity details for each assignment
+        const entityIds = rows.map(r => r.entity_id).filter(Boolean);
+        let entityMap = {};
+        if (entityIds.length) {
+            const { data: entities } = await gcrDb
+                .from('entity')
+                .select('id, name, slug, icon, entity_type, entity_subtype, city, state, hero_image_url, is_active')
+                .in('id', entityIds);
+            (entities || []).forEach(e => { entityMap[e.id] = e; });
+        }
+        const assignments = rows.map(r => ({ ...r, entity: entityMap[r.entity_id] || null }));
+        res.json({ assignments });
     } catch (e) { res.status(500).json({ error: e.message }); }
 });
 
