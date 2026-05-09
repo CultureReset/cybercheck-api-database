@@ -103,6 +103,13 @@ async function validateToken(req, res, next) {
     const { data: link } = await supabase.from('update_links').select('*').eq('token', token).maybeSingle();
     if (!link) return res.status(404).json({ error: 'Link not found' });
     if (link.expires_at && new Date(link.expires_at) < new Date()) return res.status(410).json({ error: 'Link expired' });
+    // Passcode check — skip for GET /update/:token (the redirect page itself)
+    if (link.passcode && req.path !== '/') {
+        const submitted = req.headers['x-link-passcode'] || req.query.passcode;
+        if (submitted !== String(link.passcode)) {
+            return res.status(401).json({ error: 'Passcode required', requires_passcode: true });
+        }
+    }
     req.link = link;
     // site_id businesses are stored as "s:<site_id>" in the entity_id field.
     // Promote to GCR entity_id when entity.legacy_site_id is populated so writes
@@ -139,7 +146,7 @@ async function resolveSlug({ entity_id, site_id, biz_name }) {
 }
 
 router.post('/generate', adminRequired, async (req, res) => {
-    const { entity_id, site_id, biz_name, link_type = 'full', send_phone } = req.body;
+    const { entity_id, site_id, biz_name, link_type = 'full', send_phone, passcode } = req.body;
     const storedId = site_id ? ('s:' + site_id) : entity_id;
     if (!storedId) return res.status(400).json({ error: 'entity_id or site_id required' });
     const today = new Date().toISOString().split('T')[0];
@@ -154,11 +161,22 @@ router.post('/generate', adminRequired, async (req, res) => {
     const { error } = await supabase.from('update_links').insert({
         entity_id: storedId, link_type, link_date: today, token,
         send_phone: send_phone || null,
+        passcode: passcode || null,
         expires_at: new Date(Date.now() + 30 * 3600 * 1000).toISOString(),
     }).select().single();
 
     if (error) return res.status(500).json({ error: error.message });
     res.json({ token, url: linkUrl(token, slug), existing: false });
+});
+
+// PUT /api/update/links/:token/passcode — set or clear a passcode on a link
+router.put('/links/:token/passcode', adminRequired, async (req, res) => {
+    const { passcode } = req.body; // null or empty string = remove passcode
+    const { error } = await supabase.from('update_links')
+        .update({ passcode: passcode || null })
+        .eq('token', req.params.token);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ ok: true, protected: !!passcode });
 });
 
 router.post('/send-sms', adminRequired, async (req, res) => {
