@@ -5,7 +5,7 @@ const supabase = require('../db');
 const getGcrDb = require('../gcr-db');
 const gcrDb = getGcrDb();
 const { runAgentLoop, callAIRound, getProviderInfo } = require('./ai-provider');
-const { adminRequired } = require('../middleware/auth');
+const { adminRequired, authRequired } = require('../middleware/auth');
 
 const router = express.Router();
 
