@@ -49,8 +49,8 @@ router.get('/', authRequired, async (req, res) => {
 router.post('/batch', authRequired, async (req, res) => {
     if (req.role !== 'admin') return res.status(403).json({ error: 'Admin only' });
 
-    const { count = 10, site_id, label_prefix = 'Sticker', type = 'general', destination_url } = req.body;
-    if (count < 1 || count > 500) return res.status(400).json({ error: 'count must be 1–500' });
+    const { count = 10, site_id, label_prefix = 'Sticker', type = 'general', destination_url, location } = req.body;
+    if (count < 1 || count > 5000) return res.status(400).json({ error: 'count must be 1–5000' });
 
     // Get next seq number
     const { data: last } = await supabase
@@ -73,6 +73,7 @@ router.post('/batch', authRequired, async (req, res) => {
             site_id: site_id || null,
             label: `${label_prefix} #${seq}`,
             destination_url: destination_url || null,
+            location: location || null,
             scan_url: `https://cybercheck-links.vercel.app/q.html?c=${code}`,
             scan_count: 0,
             active: true,
@@ -166,6 +167,20 @@ router.get('/:id/scans', authRequired, async (req, res) => {
     res.json(data || []);
 });
 
+// GET /api/qr/:id/events — post-scan events for all scans of a code
+router.get('/:id/events', authRequired, async (req, res) => {
+    try {
+        const { data } = await supabase.from('qr_events')
+            .select('*')
+            .eq('qr_code_id', req.params.id)
+            .order('created_at', { ascending: false })
+            .limit(200);
+        res.json(data || []);
+    } catch (e) {
+        res.json([]); // table may not exist yet
+    }
+});
+
 // GET /api/qr/stats/summary — scan totals across all codes (admin)
 router.get('/stats/summary', authRequired, async (req, res) => {
     let query = supabase.from('qr_codes').select('id, label, seq_number, type, scan_count, active, created_at');
@@ -194,19 +209,32 @@ router.post('/scan/:code', async (req, res) => {
     const ip  = (req.headers['x-forwarded-for'] || req.ip || '').split(',')[0].trim();
     const mob = /mobile|android|iphone|ipad/i.test(ua);
 
-    // Log scan + increment counter (non-blocking)
-    supabase.from('qr_scans').insert({
+    // Log scan + increment counter
+    const { data: scanRow } = await supabase.from('qr_scans').insert({
         qr_code_id:  qr.id,
         device_type: mob ? 'mobile' : 'desktop',
         ip_address:  ip,
         user_agent:  ua,
         scanned_at:  new Date().toISOString(),
-    }).then(() => {});
+    }).select('id').single();
 
+    const newScanCount = (qr.scan_count || 0) + 1;
     supabase.from('qr_codes')
-        .update({ scan_count: (qr.scan_count || 0) + 1 })
+        .update({ scan_count: newScanCount })
         .eq('id', qr.id)
         .then(() => {});
+
+    // ── Instant SMS alert (non-blocking) ──────────────────────────────────────
+    const alertPhone = qr.alert_phone || (qr.metadata && qr.metadata.alert_phone);
+    if (alertPhone) {
+        try {
+            const { sendSms } = require('../utils/sms');
+            const dt = new Date().toLocaleString('en-US', { timeZone: 'America/Chicago', month:'short', day:'numeric', hour:'numeric', minute:'2-digit' });
+            const locLine = qr.location ? `\n📍 ${qr.location}` : '';
+            const body = `🔔 QR Scanned!\n#${qr.seq_number} — ${qr.label}${locLine}\n📱 ${mob ? 'Mobile' : 'Desktop'} · ${dt} CT\nTotal scans: ${newScanCount}`;
+            sendSms(alertPhone, body, qr.site_id, 'qr_alert').catch(() => {});
+        } catch (e) {}
+    }
 
     res.json({
         type:            qr.type,
@@ -215,7 +243,45 @@ router.post('/scan/:code', async (req, res) => {
         destination_url: qr.destination_url,
         metadata:        qr.metadata || {},
         site_id:         qr.site_id,
+        scan_id:         scanRow?.id || null,
+        code:            qr.code,
     });
+});
+
+// POST /api/qr/track — log post-scan behavior event + time-on-page + lead score
+router.post('/track', async (req, res) => {
+    const { scan_id, qr_code_id, event_type, page_url, page_title, duration_seconds, data } = req.body;
+    if (!scan_id && !qr_code_id) return res.status(400).json({ error: 'scan_id or qr_code_id required' });
+    try {
+        await supabase.from('qr_events').insert({
+            scan_id: scan_id || null,
+            qr_code_id: qr_code_id || null,
+            event_type: event_type || 'page_view',
+            page_url: page_url || null,
+            page_title: page_title || null,
+            duration_seconds: duration_seconds || null,
+            data: data || null,
+            created_at: new Date().toISOString(),
+        });
+
+        // Recompute lead score for this scan
+        if (scan_id) {
+            const { data: events } = await supabase.from('qr_events').select('event_type,duration_seconds').eq('scan_id', scan_id);
+            const { data: scan }   = await supabase.from('qr_scans').select('scanner_phone').eq('id', scan_id).single();
+            const totalTime  = (events || []).reduce((s, e) => s + (e.duration_seconds || 0), 0);
+            const pageViews  = (events || []).filter(e => e.event_type === 'page_view').length;
+            const hasPhone   = !!(scan && scan.scanner_phone);
+            // Scoring: 0–100
+            // phone captured = +40 pts, every 30s on page = +10 pts (max 40), page views = +5 each (max 20)
+            let score = 0;
+            if (hasPhone)   score += 40;
+            score += Math.min(40, Math.floor(totalTime / 30) * 10);
+            score += Math.min(20, pageViews * 5);
+            const tier = score >= 70 ? 'on_fire' : score >= 40 ? 'warm' : score >= 15 ? 'interested' : 'cold';
+            supabase.from('qr_scans').update({ lead_score: score, lead_tier: tier, time_on_page: totalTime }).eq('id', scan_id).then(() => {});
+        }
+    } catch (e) {}
+    res.json({ ok: true });
 });
 
 // POST /api/qr/capture/:code  — attach phone number to this scan (hot lead)
@@ -432,6 +498,129 @@ router.get('/partner-portal/:qr_code', async (req, res) => {
         },
         recent_activity: (events || []).slice(0, 20),
     });
+});
+
+// ─────────────────────────────────────────────────────────────────────────────
+// QR Alert Settings — per-code or global (admin)
+// ─────────────────────────────────────────────────────────────────────────────
+
+// PATCH /api/qr/:id/alert — set alert_phone, digest frequency on a code
+router.patch('/:id/alert', authRequired, async (req, res) => {
+    const { alert_phone, digest } = req.body; // digest: 'none' | 'daily' | 'weekly'
+    let query = supabase.from('qr_codes').select('metadata').eq('id', req.params.id);
+    if (req.role !== 'admin') query = query.eq('site_id', req.siteId);
+    const { data: qr } = await query.maybeSingle();
+    if (!qr) return res.status(404).json({ error: 'Not found' });
+
+    const updates = { alert_phone: alert_phone || null };
+    const meta = Object.assign({}, qr.metadata || {});
+    if (digest !== undefined) meta.digest = digest;
+    updates.metadata = meta;
+
+    let uq = supabase.from('qr_codes').update(updates).eq('id', req.params.id);
+    if (req.role !== 'admin') uq = uq.eq('site_id', req.siteId);
+    const { data, error } = await uq.select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
+// POST /api/qr/alert-settings/global — set global alert phone for all codes (admin)
+router.post('/alert-settings/global', authRequired, async (req, res) => {
+    if (req.role !== 'admin') return res.status(403).json({ error: 'Admin only' });
+    const { alert_phone, digest } = req.body;
+    // Store in a settings row — use metadata table or upsert to a config key
+    await supabase.from('app_settings').upsert({ key: 'qr_alert_phone', value: alert_phone || '' }, { onConflict: 'key' }).catch(() => {});
+    await supabase.from('app_settings').upsert({ key: 'qr_digest', value: digest || 'daily' }, { onConflict: 'key' }).catch(() => {});
+    res.json({ ok: true, alert_phone, digest });
+});
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Digest cron — called by Vercel cron daily + weekly
+// GET /api/qr/digest/daily   → send daily SMS summary
+// GET /api/qr/digest/weekly  → send weekly SMS summary
+// ─────────────────────────────────────────────────────────────────────────────
+
+async function buildAndSendDigest(period) {
+    const secret = process.env.CRON_SECRET;
+    const { sendSms } = require('../utils/sms');
+
+    // Get global alert phone
+    const { data: phoneSetting } = await supabase.from('app_settings').select('value').eq('key', 'qr_alert_phone').maybeSingle().catch(() => ({ data: null }));
+    const globalPhone = phoneSetting?.value || process.env.ADMIN_SMS_NUMBER;
+    if (!globalPhone) return { skipped: 'no alert phone configured' };
+
+    const since = new Date();
+    if (period === 'daily')  since.setDate(since.getDate() - 1);
+    if (period === 'weekly') since.setDate(since.getDate() - 7);
+
+    // Get all scans in the period
+    const { data: scans } = await supabase.from('qr_scans')
+        .select('qr_code_id, device_type, scanner_phone, lead_score, lead_tier, time_on_page, scanned_at')
+        .gte('scanned_at', since.toISOString());
+
+    if (!scans || !scans.length) {
+        await sendSms(globalPhone, `📊 QR ${period === 'daily' ? 'Daily' : 'Weekly'} Digest\nNo scans in the last ${period === 'daily' ? '24 hours' : '7 days'}.`, null, 'qr_digest');
+        return { sent: 1, scans: 0 };
+    }
+
+    // Get code labels for scanned codes
+    const codeIds = [...new Set(scans.map(s => s.qr_code_id))];
+    const { data: codes } = await supabase.from('qr_codes').select('id, label, seq_number, location').in('id', codeIds);
+    const codeMap = {};
+    (codes || []).forEach(c => { codeMap[c.id] = c; });
+
+    // Aggregate stats
+    const total    = scans.length;
+    const leads    = scans.filter(s => s.scanner_phone).length;
+    const onFire   = scans.filter(s => s.lead_tier === 'on_fire').length;
+    const warm     = scans.filter(s => s.lead_tier === 'warm').length;
+    const avgTime  = Math.round(scans.reduce((s, x) => s + (x.time_on_page || 0), 0) / total);
+    const mobile   = scans.filter(s => s.device_type === 'mobile').length;
+
+    // Top 3 codes by scans
+    const byCode = {};
+    scans.forEach(s => { byCode[s.qr_code_id] = (byCode[s.qr_code_id] || 0) + 1; });
+    const top3 = Object.entries(byCode).sort((a,b) => b[1]-a[1]).slice(0, 3).map(([id, cnt]) => {
+        const c = codeMap[id] || {};
+        return `  #${c.seq_number||'?'} ${c.label||'?'}: ${cnt} scan${cnt!==1?'s':''}`;
+    });
+
+    const label = period === 'daily' ? 'Daily' : 'Weekly';
+    const msg = [
+        `📊 QR ${label} Digest`,
+        `Period: last ${period === 'daily' ? '24 hrs' : '7 days'}`,
+        ``,
+        `📲 Total scans: ${total}`,
+        `📱 Mobile: ${Math.round(mobile/total*100)}%`,
+        `⏱ Avg time on page: ${avgTime}s`,
+        `📞 Phone leads: ${leads}`,
+        ``,
+        `🔥 Lead heat:`,
+        `  On Fire: ${onFire}`,
+        `  Warm: ${warm}`,
+        `  Interested: ${scans.filter(s=>s.lead_tier==='interested').length}`,
+        `  Cold: ${scans.filter(s=>!s.lead_tier||s.lead_tier==='cold').length}`,
+        ``,
+        `🏆 Top codes:`,
+        ...top3,
+    ].join('\n');
+
+    await sendSms(globalPhone, msg, null, 'qr_digest');
+    return { sent: 1, scans: total };
+}
+
+router.get('/digest/daily', async (req, res) => {
+    const secret = process.env.CRON_SECRET;
+    if (secret && req.headers['authorization'] !== 'Bearer ' + secret) return res.status(401).json({ error: 'Unauthorized' });
+    const result = await buildAndSendDigest('daily').catch(e => ({ error: e.message }));
+    res.json(result);
+});
+
+router.get('/digest/weekly', async (req, res) => {
+    const secret = process.env.CRON_SECRET;
+    if (secret && req.headers['authorization'] !== 'Bearer ' + secret) return res.status(401).json({ error: 'Unauthorized' });
+    const result = await buildAndSendDigest('weekly').catch(e => ({ error: e.message }));
+    res.json(result);
 });
 
 module.exports = router;

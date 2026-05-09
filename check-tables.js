@@ -1,43 +1,48 @@
-require('dotenv').config({ path: '/Users/owner/cybercheck-api-database/.env' });
 const { createClient } = require('@supabase/supabase-js');
 
-const supabase = createClient(
-    process.env.GCR_SUPABASE_URL,
-    process.env.GCR_SUPABASE_KEY
-);
+const gcrUrl = 'https://adpnhipmdefutkzzltbs.supabase.co';
+const gcrKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFkcG5oaXBtZGVmdXRrenpsdGJzIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3NDg2MDA3NCwiZXhwIjoyMDkwNDM2MDc0fQ.qxMRoAuU22Kd6NyVXZsK4iSFFi-_20BUuN5yQfr7oUY';
 
-async function run() {
-    // Check what columns exist on a real entity
-    const { data: entities } = await supabase
-        .from('entity')
-        .select('*')
-        .eq('slug', 'cobalt-the-restaurant')
+const gcrDb = createClient(gcrUrl, gcrKey);
+
+const tables = [
+  'entity',
+  'entity_tags',
+  'entity_features',
+  'entity_photos',
+  'entity_hours',
+  'entity_sections',
+  'section_rich_text',
+  'happy_hour_sections',
+  'happy_hour_items',
+  'entity_specials',
+  'entity_events',
+  'menu_items',
+  'menu_categories',
+  'businesses',
+  'site_content'
+];
+
+(async () => {
+  console.log('Checking which tables exist in GCR Supabase:\n');
+  for (const table of tables) {
+    try {
+      const { count, error } = await gcrDb
+        .from(table)
+        .select('*', { count: 'exact', head: true })
         .limit(1);
-    
-    if (entities && entities[0]) {
-        console.log('Entity columns for Cobalt:');
-        console.log(Object.keys(entities[0]).join(', '));
-        console.log('\n---');
-        // Print non-null values for a sense of what data exists
-        for (const [k, v] of Object.entries(entities[0])) {
-            if (v !== null && v !== undefined && v !== '') {
-                const preview = typeof v === 'string' ? v.slice(0, 80) : 
-                               typeof v === 'object' ? JSON.stringify(v).slice(0, 200) : v;
-                console.log(`  ${k}: ${preview}`);
-            }
+      
+      if (error) {
+        if (error.message.includes('not found')) {
+          console.log(`  ✗ ${table}`);
+        } else {
+          console.log(`  ? ${table} (error: ${error.message.split('\n')[0]})`);
         }
+      } else {
+        console.log(`  ✓ ${table} (${count} rows)`);
+      }
+    } catch (e) {
+      console.log(`  ? ${table} (${e.message.split('\n')[0]})`);
     }
-
-    // Check known related tables
-    console.log('\n=== Checking related tables ===');
-    const tables = ['menu', 'menu_item', 'menu_section', 'item', 'product', 'offering', 'package', 'tour', 'rental', 'price'];
-    for (const t of tables) {
-        const { data, error, count } = await supabase
-            .from(t)
-            .select('*', { count: 'exact', head: true });
-        if (error) console.log(`  ${t}: NOT FOUND (${error.message})`);
-        else console.log(`  ${t}: exists (${count} rows)`);
-    }
-}
-
-run();
+  }
+})();
