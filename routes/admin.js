@@ -7401,6 +7401,25 @@ router.put('/trip-swipe-button', adminRequired, async (req, res) => {
 
 // ── SMS Config ───────────────────────────────────────────────────────────────
 
+// ── Business Leads ────────────────────────────────────────────────────────────
+
+router.get('/business-leads', adminRequired, async (req, res) => {
+    try {
+        const { data } = await supabase.from('business_leads').select('*').order('submitted_at', { ascending: false });
+        res.json(data || []);
+    } catch(e) { res.status(500).json({ error: e.message }); }
+});
+
+router.patch('/business-leads/:id', adminRequired, async (req, res) => {
+    const { status, notes } = req.body;
+    try {
+        await supabase.from('business_leads').update({ status, notes, updated_at: new Date().toISOString() }).eq('id', req.params.id);
+        res.json({ success: true });
+    } catch(e) { res.status(500).json({ error: e.message }); }
+});
+
+// ── SMS Config ───────────────────────────────────────────────────────────────
+
 // GET /api/admin/sms-config — public so Trip Swipe can read popup settings
 router.get('/sms-config', async (req, res) => {
     try {
