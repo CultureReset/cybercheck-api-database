@@ -799,58 +799,33 @@ router.delete('/menu-subcategories/:id', async (req, res) => {
 // ============================================
 
 router.get('/events', async (req, res) => {
-    if (req.role === 'admin') {
-        const e = await requireEntity(req, res); if (!e) return;
-        const { data, error } = await gcr().from('entity_events').select('*').eq('entity_id', e).order('event_date', { ascending: true });
-        if (error) return res.status(500).json({ error: error.message });
-        return res.json(data || []);
-    }
-    const { data, error } = await supabase.from('events').select('*').eq('site_id', req.siteId).order('event_date', { ascending: true });
+    const e = await requireEntity(req, res); if (!e) return;
+    const { data, error } = await gcr().from('entity_events').select('*').eq('entity_id', e).order('event_date', { ascending: true });
     if (error) return res.status(500).json({ error: error.message });
     res.json(data || []);
 });
 
 router.post('/events', async (req, res) => {
-    if (req.role === 'admin') {
-        const e = await requireEntity(req, res); if (!e) return;
-        const body = { ...req.body, entity_id: e };
-        delete body.id; delete body.site_id;
-        const { data, error } = await gcr().from('entity_events').insert(body).select().single();
-        if (error) return res.status(500).json({ error: error.message });
-        return res.status(201).json(data);
-    }
-    const event = { ...req.body, site_id: req.siteId };
-    delete event.id;
-    const { data, error } = await supabase.from('events').insert(event).select().single();
+    const e = await requireEntity(req, res); if (!e) return;
+    const body = { ...req.body, entity_id: e };
+    delete body.id; delete body.site_id;
+    const { data, error } = await gcr().from('entity_events').insert(body).select().single();
     if (error) return res.status(500).json({ error: error.message });
-    syncToGcr(req.siteId || req.body.site_id, 'event', data).catch(() => {});
     res.status(201).json(data);
 });
 
 router.put('/events/:id', async (req, res) => {
-    if (req.role === 'admin') {
-        const e = await requireEntity(req, res); if (!e) return;
-        const updates = { ...req.body };
-        delete updates.id; delete updates.site_id; delete updates.entity_id;
-        const { data, error } = await gcr().from('entity_events').update(updates).eq('id', req.params.id).eq('entity_id', e).select().single();
-        if (error) return res.status(500).json({ error: error.message });
-        return res.json(data);
-    }
+    const e = await requireEntity(req, res); if (!e) return;
     const updates = { ...req.body };
-    delete updates.site_id; delete updates.id;
-    const { data, error } = await supabase.from('events').update(updates).eq('id', req.params.id).eq('site_id', req.siteId).select().single();
+    delete updates.id; delete updates.site_id; delete updates.entity_id;
+    const { data, error } = await gcr().from('entity_events').update(updates).eq('id', req.params.id).eq('entity_id', e).select().single();
     if (error) return res.status(500).json({ error: error.message });
     res.json(data);
 });
 
 router.delete('/events/:id', async (req, res) => {
-    if (req.role === 'admin') {
-        const e = await requireEntity(req, res); if (!e) return;
-        const { error } = await gcr().from('entity_events').delete().eq('id', req.params.id).eq('entity_id', e);
-        if (error) return res.status(500).json({ error: error.message });
-        return res.json({ success: true });
-    }
-    const { error } = await supabase.from('events').delete().eq('id', req.params.id).eq('site_id', req.siteId);
+    const e = await requireEntity(req, res); if (!e) return;
+    const { error } = await gcr().from('entity_events').delete().eq('id', req.params.id).eq('entity_id', e);
     if (error) return res.status(500).json({ error: error.message });
     res.json({ success: true });
 });
