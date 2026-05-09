@@ -138,6 +138,9 @@ app.use('/api/rides', require('./routes/rides'));
 // FareHarbor integration — API key connect, availability sync, webhook
 app.use('/api/integrations/fareharbor', require('./routes/fareharbor'));
 
+// Photographer booking — sessions, schedule, slots, deposit, model release, gallery delivery
+app.use('/api/photographer', require('./routes/photographer'));
+
 // Availability search engine — queries across all connected platforms
 app.use('/api/availability', require('./routes/availability'));
 
