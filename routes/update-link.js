@@ -161,7 +161,6 @@ router.post('/generate', async (req, res) => {
     const { error } = await supabase.from('update_links').insert({
         entity_id: storedId, link_type, link_date: today, token,
         send_phone: send_phone || null,
-        passcode: passcode || null,
         expires_at: new Date(Date.now() + 30 * 3600 * 1000).toISOString(),
     }).select().single();
 
