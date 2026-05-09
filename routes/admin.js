@@ -4849,6 +4849,17 @@ async function saveMenuToEntity({ entityId, categories }, gcrDb) {
     return { success: true, entity_id: entityId, sections: categories.length, items: totalItems, errors };
 }
 
+// ── Upload base64 image to GCR's entity-media bucket and return public URL
+async function uploadEntityMedia(base64, mime, gcrDb) {
+    const ext = (mime || 'image/jpeg').split('/')[1] || 'jpg';
+    const fileName = `chat-uploads/${Date.now()}-${Math.random().toString(36).slice(2,9)}.${ext}`;
+    const buffer = Buffer.from(base64, 'base64');
+    const { error } = await gcrDb.storage.from('entity-media').upload(fileName, buffer, { contentType: mime || 'image/jpeg', upsert: false });
+    if (error) throw new Error(`Upload failed: ${error.message}`);
+    const { data } = gcrDb.storage.from('entity-media').getPublicUrl(fileName);
+    return data.publicUrl;
+}
+
 // ── Resolve a business by any identifier (id, slug, google_place_id, fuzzy name)
 async function lookupBusinessId(args, gcrDb) {
     if (!args) return null;
@@ -5643,6 +5654,24 @@ const GCR_AGENT_TOOLS = [
     {
         type: 'function',
         function: {
+            name: 'add_business_image',
+            description: 'Upload an image attached to the chat (or passed as base64) to permanent storage and either (a) set it as the business hero image (powers BOTH the GCR profile hero AND the Trip Swipe card), or (b) add it to the photo gallery. If image_base64 is omitted, the tool uses the image attached to the current chat turn.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    entity_id: { type: 'string' },
+                    slug: { type: 'string', description: 'Alternative to entity_id' },
+                    as: { type: 'string', enum: ['hero', 'gallery'], description: "Default 'gallery'. Use 'hero' to make this the main GCR + Trip Swipe card image." },
+                    caption: { type: 'string', description: 'Optional caption for gallery photos' },
+                    image_base64: { type: 'string', description: 'Optional — uses attached chat image if omitted' },
+                    image_mime: { type: 'string', description: 'e.g. image/jpeg' }
+                }
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
             name: 'lookup_business',
             description: 'Resolve a business by any identifier. Provide one of: id (uuid), slug, google_place_id, or name (fuzzy). Returns the entity_id you can use with all other tools.',
             parameters: {
@@ -6310,6 +6339,29 @@ async function executeGCRTool(name, args, { gcrDb, entityId, mainDb, attachedIma
                 const saved = await saveMenuToEntity({ entityId: saveTarget, categories: extracted.categories }, gcrDb);
                 return { extracted_categories: extracted.categories.length, extracted_items: extracted.total_items, saved };
             }
+            case 'add_business_image': {
+                const b64 = args.image_base64 || attachedImage?.base64;
+                const mime = args.image_mime || attachedImage?.mime || 'image/jpeg';
+                if (!b64) return { error: 'No image. Attach an image to the chat or pass image_base64.' };
+                let eid = args.entity_id || entityId;
+                if (!eid && args.slug) {
+                    const { data } = await gcrDb.from('entity').select('id').eq('slug', args.slug).maybeSingle();
+                    eid = data?.id;
+                }
+                if (!eid) return { error: 'No business selected. Provide entity_id or slug, or select a business in the chat first.' };
+                let publicUrl;
+                try { publicUrl = await uploadEntityMedia(b64, mime, gcrDb); }
+                catch (e) { return { error: e.message }; }
+                const as = args.as === 'hero' ? 'hero' : 'gallery';
+                if (as === 'hero') {
+                    const { error } = await gcrDb.from('entity').update({ hero_image_url: publicUrl }).eq('id', eid);
+                    if (error) return { error: error.message };
+                    return { success: true, as: 'hero', entity_id: eid, hero_image_url: publicUrl, note: 'Now showing on GCR profile and Trip Swipe card.' };
+                }
+                const { data, error } = await gcrDb.from('entity_photos').insert({ entity_id: eid, image_url: publicUrl, caption: args.caption || '', sort_order: 0 }).select('id').single();
+                if (error) return { error: error.message };
+                return { success: true, as: 'gallery', entity_id: eid, photo_id: data.id, image_url: publicUrl };
+            }
             case 'lookup_business': {
                 const found = await lookupBusinessId(args, gcrDb);
                 if (!found) return { error: 'No business matched the given identifiers' };
@@ -6367,6 +6419,12 @@ URL SCRAPING & FULL-PROFILE CREATION:
 - When the user pastes a website URL or asks you to "go get data from <site>", call scrape_url with that URL. It returns a complete structured object (name, address, hours, menu, drinks, events, specials, happy hour, fleet, pricing, etc.).
 - To save the scraped data to GCR, call save_scraped_business with that structured object. It will upsert the entity and insert all child rows in one shot.
 - You can also assemble a structured object yourself from chat conversation and pass it to save_scraped_business to create a full profile from text.
+
+BUSINESS IMAGES (hero + gallery, drives GCR profile and Trip Swipe cards):
+- When the user attaches a photo and says "make this the hero" / "set as cover" / "use for trip swipe" → call add_business_image with as='hero'.
+- When they say "add to gallery" / "add a photo" / just attach a photo without specifying → call add_business_image with as='gallery'.
+- The image is auto-pulled from the chat attachment; you don't need to pass image_base64.
+- Resolve the business via the selected one or call lookup_business first if they name it.
 
 MENU IMAGE EXTRACTION:
 - When the user attaches an image to the chat (a menu photo, drinks list, happy hour board, specials chalkboard, etc.), call extract_menu_from_image. The image is automatically attached — you do not need to pass image_base64.
