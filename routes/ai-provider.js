@@ -123,7 +123,7 @@ async function extractJsonFromImage({
     const { mimeType: mime, base64 } = normalizeImageInput({ imageBase64, mimeType });
     const primary = getProvider(providerOverride);
 
-    const preferredOrder = ['gemini', 'xai', 'openai', 'anthropic'];
+    const preferredOrder = ['gemini', 'xai', 'openai', 'anthropic', 'ollama'];
     const tryOrder = fallback
         ? [primary, ...preferredOrder.filter(p => p !== primary)]
         : [primary];
@@ -236,6 +236,30 @@ async function _callVision(provider, { base64, mime, systemPrompt, userPrompt, m
         if (!resp.ok) throw new Error(`${isXai ? 'xAI' : 'OpenAI'} ${resp.status}: ${await resp.text()}`);
         const data = await resp.json();
         const text = data.choices?.[0]?.message?.content || '';
+        return parseJsonLoose(text);
+    }
+
+    // ── Ollama (local open-source vision: llava, minicpm-v, qwen2-vl, etc.) ──
+    if (provider === 'ollama') {
+        const baseUrl = process.env.OLLAMA_URL || 'http://localhost:11434';
+        const resolvedModel = model || process.env.OLLAMA_VISION_MODEL || 'minicpm-v';
+        const resp = await fetch(`${baseUrl}/api/chat`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                model: resolvedModel,
+                stream: false,
+                format: 'json',
+                options: { temperature, num_predict: maxTokens },
+                messages: [
+                    { role: 'system', content: systemPrompt },
+                    { role: 'user', content: userPrompt, images: [base64] },
+                ],
+            }),
+        });
+        if (!resp.ok) throw new Error(`Ollama ${resp.status}: ${await resp.text()}`);
+        const data = await resp.json();
+        const text = data.message?.content || '';
         return parseJsonLoose(text);
     }
 

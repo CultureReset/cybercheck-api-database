@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const supabase = require('../db');
 const getGcrDb = require('../gcr-db');
 let gcrDb; try { gcrDb = getGcrDb(); } catch(e) { console.warn('GCR DB not initialized:', e.message); }
-const { runAgentLoop, callAIRound, getProviderInfo } = require('./ai-provider');
+const { runAgentLoop, callAIRound, getProviderInfo, extractJsonFromImage } = require('./ai-provider');
 const { adminRequired, authRequired } = require('../middleware/auth');
 
 const router = express.Router();
@@ -4333,9 +4333,8 @@ router.put('/gcr/category-page-config/:catId', async (req, res) => {
 // Body: { url }
 // Fetches the page, cleans HTML to text, sends to Grok, returns structured preview JSON
 // ============================================
-router.post('/ai-scrape-url', adminRequired, async (req, res) => {
-    const { url } = req.body;
-    if (!url || !url.startsWith('http')) return res.status(400).json({ error: 'Valid URL required' });
+async function scrapeUrlToStructured(url) {
+    if (!url || !url.startsWith('http')) throw new Error('Valid URL required');
 
     // Fetch the page
     let rawHtml;
@@ -4347,10 +4346,10 @@ router.post('/ai-scrape-url', adminRequired, async (req, res) => {
             headers: { 'User-Agent': 'Mozilla/5.0 (compatible; GCRBot/1.0; +https://gulfcoastradar.com)' }
         });
         clearTimeout(timeout);
-        if (!r.ok) return res.status(400).json({ error: `Site returned ${r.status}` });
+        if (!r.ok) throw new Error(`Site returned ${r.status}`);
         rawHtml = await r.text();
     } catch (e) {
-        return res.status(400).json({ error: `Could not fetch URL: ${e.message}` });
+        throw new Error(`Could not fetch URL: ${e.message}`);
     }
 
     // Strip HTML to clean text — keep structure hints
@@ -4373,10 +4372,6 @@ router.post('/ai-scrape-url', adminRequired, async (req, res) => {
         .replace(/\n{3,}/g, '\n\n')
         .trim()
         .slice(0, 14000);
-
-    // Get xAI key
-    const apiKey = process.env.XAI_API_KEY;
-    if (!apiKey) return res.status(503).json({ error: 'XAI_API_KEY not configured' });
 
     const systemPrompt = `You are a data extraction assistant for Gulf Coast Radar, a tourism & dining directory for Orange Beach and Gulf Shores, Alabama.
 
@@ -4469,10 +4464,19 @@ Only include fields with actual data found on the page. Use null for unknown fie
         const raw = result.text || '{}';
         const cleaned = raw.replace(/^```(?:json)?\s*/i, '').replace(/\s*```\s*$/, '').trim();
         const structured = JSON.parse(cleaned);
-        res.json({ success: true, url, structured, provider: result.provider });
+        return { success: true, url, structured, provider: result.provider };
     } catch (e) {
         console.error('ai-scrape-url error:', e.message);
-        res.status(500).json({ error: e.message });
+        throw e;
+    }
+}
+
+router.post('/ai-scrape-url', adminRequired, async (req, res) => {
+    try {
+        const out = await scrapeUrlToStructured(req.body?.url);
+        res.json(out);
+    } catch (e) {
+        res.status(/required|fetch|returned/i.test(e.message) ? 400 : 500).json({ error: e.message });
     }
 });
 
@@ -4481,9 +4485,8 @@ Only include fields with actual data found on the page. Use null for unknown fie
 // Body: { structured } — the reviewed/edited JSON from ai-scrape-url
 // Saves everything to the correct GCR tables in one shot
 // ============================================
-router.post('/ai-scrape-approve', adminRequired, async (req, res) => {
-    const { structured } = req.body;
-    if (!structured?.name) return res.status(400).json({ error: 'structured.name required' });
+async function saveScrapedBusiness(structured, gcrDb) {
+    if (!structured?.name) return { error: 'structured.name required' };
 
     const { upsertTag } = gcrImportHelpers(gcrDb);
     const saved = {};
@@ -4525,7 +4528,7 @@ router.post('/ai-scrape-approve', adminRequired, async (req, res) => {
         .upsert(entityFields, { onConflict: 'slug' })
         .select('id, slug')
         .single();
-    if (entErr || !entity) return res.status(500).json({ error: `Entity save failed: ${entErr?.message}` });
+    if (entErr || !entity) return { error: `Entity save failed: ${entErr?.message}` };
 
     const eid = entity.id;
     saved.entity = { id: eid, slug: entity.slug };
@@ -4741,8 +4744,133 @@ router.post('/ai-scrape-approve', adminRequired, async (req, res) => {
     if (saved.about_bullets)autoSections.push({ entity_id: eid, section_key: 'about',     section_label: 'About',      section_type: 'bullets',   sort_order: 0 });
     await gcrDb.from('entity_sections').insert(autoSections).then(() => {}).catch(() => {});
 
-    res.json({ success: true, entity_id: eid, slug: entity.slug, saved, errors });
+    return { success: true, entity_id: eid, slug: entity.slug, saved, errors };
+}
+
+router.post('/ai-scrape-approve', adminRequired, async (req, res) => {
+    try {
+        const out = await saveScrapedBusiness(req.body?.structured, gcrDb);
+        if (out.error) return res.status(400).json(out);
+        res.json(out);
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
 });
+
+const AGENT_MENU_EXTRACT_PROMPT = `Extract ALL visible menu items from this image into JSON:
+{
+  "categories": [
+    { "name": "Section name", "item_type": "food|drink|happy_hour", "items": [
+        { "name": "Item", "price": 12.99, "description": "", "tags": [], "modifiers": [{ "name": "Add X", "price": 2 }] }
+    ], "section_modifiers": [] }
+  ]
+}
+Rules: extract every item across all columns, price as number (0 if not shown), item_type per section, tags only when clearly indicated, return ONLY JSON.`;
+
+async function extractMenuFromImageHelper({ image_base64, image_mime, provider, model }) {
+    if (!image_base64) return { error: 'image_base64 required' };
+    try {
+        const { result, provider: used } = await extractJsonFromImage({
+            imageBase64: image_base64,
+            mimeType: image_mime,
+            systemPrompt: 'You extract structured menu data from images. Return ONLY valid JSON — no markdown, no commentary.',
+            userPrompt: AGENT_MENU_EXTRACT_PROMPT,
+            provider, model,
+            maxTokens: 4096,
+        });
+        if (!result.categories || !Array.isArray(result.categories)) {
+            return { error: 'No menu items found in image' };
+        }
+        const totalItems = result.categories.reduce((s, c) => s + (c.items?.length || 0), 0);
+        return { ...result, total_items: totalItems, provider: used };
+    } catch (e) {
+        return { error: e.message };
+    }
+}
+
+// Save extracted menu categories+items into GCR menu_sections / menu_items
+async function saveMenuToEntity({ entityId, categories }, gcrDb) {
+    if (!entityId) return { error: 'entity_id required' };
+    if (!categories?.length) return { error: 'categories required' };
+    let totalItems = 0;
+    const errors = [];
+    for (let i = 0; i < categories.length; i++) {
+        const cat = categories[i];
+        const itemType = cat.item_type || 'food';
+        if (itemType === 'drink') {
+            const { data: ds, error: dsErr } = await gcrDb.from('drink_sections')
+                .insert({ entity_id: entityId, section_name: cat.name || 'Drinks', sort_order: i })
+                .select('id').single();
+            if (dsErr || !ds) { errors.push(`drink_section ${cat.name}: ${dsErr?.message}`); continue; }
+            if (cat.items?.length) {
+                const { error } = await gcrDb.from('drink_items').insert(
+                    cat.items.map((it, j) => ({
+                        entity_id: entityId, drink_section_id: ds.id,
+                        item_name: it.name, description: it.description || null,
+                        price: it.price || null, sort_order: j,
+                    }))
+                );
+                if (error) errors.push(`drink_items ${cat.name}: ${error.message}`);
+                else totalItems += cat.items.length;
+            }
+        } else if (itemType === 'happy_hour') {
+            const { data: hs } = await gcrDb.from('happy_hour_sections')
+                .insert({ entity_id: entityId, section_name: cat.name || 'Happy Hour', sort_order: i })
+                .select('id').single();
+            if (hs && cat.items?.length) {
+                const { error } = await gcrDb.from('happy_hour_items').insert(
+                    cat.items.map((it, j) => ({
+                        entity_id: entityId, hh_section_id: hs.id,
+                        item_name: it.name, description: it.description || null,
+                        hh_price: it.price || null, sort_order: j,
+                    }))
+                );
+                if (error) errors.push(`hh_items ${cat.name}: ${error.message}`);
+                else totalItems += cat.items.length;
+            }
+        } else {
+            const { data: ms, error: msErr } = await gcrDb.from('menu_sections')
+                .insert({ entity_id: entityId, section_name: cat.name || 'Menu', sort_order: i })
+                .select('id').single();
+            if (msErr || !ms) { errors.push(`menu_section ${cat.name}: ${msErr?.message}`); continue; }
+            if (cat.items?.length) {
+                const { error } = await gcrDb.from('menu_items').insert(
+                    cat.items.map((it, j) => ({
+                        entity_id: entityId, menu_section_id: ms.id,
+                        item_name: it.name, description: it.description || null,
+                        price: it.price || null, sort_order: j,
+                    }))
+                );
+                if (error) errors.push(`menu_items ${cat.name}: ${error.message}`);
+                else totalItems += cat.items.length;
+            }
+        }
+    }
+    return { success: true, entity_id: entityId, sections: categories.length, items: totalItems, errors };
+}
+
+// ── Resolve a business by any identifier (id, slug, google_place_id, fuzzy name)
+async function lookupBusinessId(args, gcrDb) {
+    if (!args) return null;
+    if (args.id) {
+        const { data } = await gcrDb.from('entity').select('id,name,slug').eq('id', args.id).maybeSingle();
+        return data || null;
+    }
+    if (args.slug) {
+        const { data } = await gcrDb.from('entity').select('id,name,slug').eq('slug', args.slug).maybeSingle();
+        if (data) return data;
+    }
+    if (args.google_place_id) {
+        const { data } = await gcrDb.from('entity').select('id,name,slug').eq('google_place_id', args.google_place_id).maybeSingle();
+        if (data) return data;
+    }
+    if (args.name) {
+        const { data } = await gcrDb.from('entity').select('id,name,slug').ilike('name', `%${args.name}%`).limit(5);
+        if (data && data.length === 1) return data[0];
+        if (data && data.length > 1) return { ambiguous: true, matches: data };
+    }
+    return null;
+}
 
 // ══════════════════════════════════════════════════════════════
 // GROK AGENTIC AI — tool definitions + executor + agent loop
@@ -5467,9 +5595,70 @@ const GCR_AGENT_TOOLS = [
             }
         }
     },
+    {
+        type: 'function',
+        function: {
+            name: 'scrape_url',
+            description: 'Fetch a business website URL and AI-extract all structured data (name, address, hours, menu, drinks, events, specials, happy hour, etc.). Returns a structured object you can review or pass to save_scraped_business.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    url: { type: 'string', description: 'Full http(s) URL of the business website' }
+                },
+                required: ['url']
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'save_scraped_business',
+            description: 'Save a structured business object (from scrape_url or assembled from chat) to the GCR database. Upserts entity by slug and inserts hours, menu, drinks, happy hour, specials, events, fleet, pricing, activities, tags, features, perfect-for, about bullets.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    structured: { type: 'object', description: 'Structured business object matching the scrape_url schema' }
+                },
+                required: ['structured']
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'extract_menu_from_image',
+            description: 'Run open-source / multi-provider vision OCR on an image to extract a structured menu (categories + items + prices + modifiers). If the user attached an image to the chat, leave image_base64 empty and the tool will use that. If entity_id (or use_attached_business=true with a selected business) is provided, the extracted menu is also SAVED directly to that entity\'s menu_sections / menu_items / drink_items / happy_hour_items.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    image_base64: { type: 'string', description: 'Optional — base64-encoded image. If omitted, uses the image attached to this chat turn.' },
+                    image_mime: { type: 'string', description: 'e.g. image/jpeg' },
+                    entity_id: { type: 'string', description: 'If provided, save extracted items to this business' },
+                    use_attached_business: { type: 'boolean', description: 'If true and the chat has a selected business, save to that entity' },
+                    provider: { type: 'string', enum: ['gemini','xai','openai','anthropic','ollama'], description: 'Vision provider override (defaults to env AI_PROVIDER, with auto-fallback)' }
+                }
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'lookup_business',
+            description: 'Resolve a business by any identifier. Provide one of: id (uuid), slug, google_place_id, or name (fuzzy). Returns the entity_id you can use with all other tools.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    id: { type: 'string' },
+                    slug: { type: 'string' },
+                    google_place_id: { type: 'string' },
+                    name: { type: 'string', description: 'Fuzzy match on business name' }
+                }
+            }
+        }
+    },
 ];
 
-async function executeGCRTool(name, args, { gcrDb, entityId, mainDb }) {
+async function executeGCRTool(name, args, { gcrDb, entityId, mainDb, attachedImage }) {
     try {
         switch (name) {
             case 'get_business_profile': {
@@ -6093,6 +6282,39 @@ async function executeGCRTool(name, args, { gcrDb, entityId, mainDb }) {
                 if (error) return { error: error.message };
                 return { success: true, saved: theme };
             }
+            case 'scrape_url': {
+                if (!args.url) return { error: 'url required' };
+                try {
+                    return await scrapeUrlToStructured(args.url);
+                } catch (e) {
+                    return { error: e.message };
+                }
+            }
+            case 'save_scraped_business': {
+                if (!args.structured) return { error: 'structured object required' };
+                return await saveScrapedBusiness(args.structured, gcrDb);
+            }
+            case 'extract_menu_from_image': {
+                const b64 = args.image_base64 || attachedImage?.base64;
+                const mime = args.image_mime || attachedImage?.mime;
+                if (!b64) return { error: 'No image provided. Either attach an image to the chat or pass image_base64.' };
+                const extracted = await extractMenuFromImageHelper({
+                    image_base64: b64, image_mime: mime,
+                    provider: args.provider, model: args.model,
+                });
+                if (extracted.error) return extracted;
+                let saveTarget = args.entity_id || (args.use_attached_business ? entityId : null);
+                if (!saveTarget) {
+                    return { ...extracted, note: 'Preview only — pass entity_id to save these items to a business.' };
+                }
+                const saved = await saveMenuToEntity({ entityId: saveTarget, categories: extracted.categories }, gcrDb);
+                return { extracted_categories: extracted.categories.length, extracted_items: extracted.total_items, saved };
+            }
+            case 'lookup_business': {
+                const found = await lookupBusinessId(args, gcrDb);
+                if (!found) return { error: 'No business matched the given identifiers' };
+                return found;
+            }
             default:
                 return { error: `Unknown tool: ${name}` };
         }
@@ -6108,16 +6330,16 @@ router.get('/ai-provider', (req, res) => {
 
 // ── POST /api/admin/gcr/ai-chat — Agentic AI with tool use (provider-agnostic)
 router.post('/gcr/grok-chat', async (req, res) => {
-    const { message, history = [], slug, entity_id, image_url, image_base64, image_mime, provider, model } = req.body;
+    const { message, history = [], slug, entity_id, google_place_id, name, image_url, image_base64, image_mime, provider, model } = req.body;
     if (!message && !image_url && !image_base64) return res.status(400).json({ error: 'message required' });
 
     const db = getGcrDb();
 
-    // Resolve entity ID from slug if needed
+    // Resolve entity ID from any identifier (id, slug, google_place_id, fuzzy name)
     let entityId = entity_id || null;
-    if (!entityId && slug) {
-        const { data } = await db.from('entity').select('id').eq('slug', slug).maybeSingle();
-        entityId = data?.id || null;
+    if (!entityId) {
+        const found = await lookupBusinessId({ slug, google_place_id, name }, db);
+        if (found && found.id) entityId = found.id;
     }
 
     const systemPrompt = `You are a GCR (Gulf Coast Radar) database agent for Orange Beach and Gulf Shores, Alabama.
@@ -6138,6 +6360,32 @@ WRITE:
 - You can update any entity field, hours, menu, drinks, events, specials, tags, features, gallery.
 - When given a menu image, extract every item with name, price, and description, then ask which business to add them to.
 - Apply changes immediately without confirmation unless deleting more than 10 records at once.
+
+IDENTIFIERS — every business tool accepts the entity_id, but you can also resolve a business by slug, google_place_id, or fuzzy name first via lookup_business, then pass the returned id to the action tool.
+
+URL SCRAPING & FULL-PROFILE CREATION:
+- When the user pastes a website URL or asks you to "go get data from <site>", call scrape_url with that URL. It returns a complete structured object (name, address, hours, menu, drinks, events, specials, happy hour, fleet, pricing, etc.).
+- To save the scraped data to GCR, call save_scraped_business with that structured object. It will upsert the entity and insert all child rows in one shot.
+- You can also assemble a structured object yourself from chat conversation and pass it to save_scraped_business to create a full profile from text.
+
+MENU IMAGE EXTRACTION:
+- When the user attaches an image to the chat (a menu photo, drinks list, happy hour board, specials chalkboard, etc.), call extract_menu_from_image. The image is automatically attached — you do not need to pass image_base64.
+- If a business is currently selected (or the user names one), pass entity_id (or use_attached_business=true) so the items save directly into that business's menu/drinks/happy_hour tables.
+- If no business is selected, the tool returns a preview only — ask the user which business to save to, then call again with entity_id.
+
+POST-SAVE REVIEW — MANDATORY:
+- After ANY tool that creates or modifies business data (save_scraped_business, extract_menu_from_image with save, update_business, update_entity, add_menu_item, add_event, add_special, save_menu_items, save_specials, save_events, set_hero_image, update_hours, etc.), you MUST immediately call get_entity_full for the affected entity_id.
+- Then present a COMPLETE dashboard-format summary that mirrors the admin business editor tabs:
+  📋 Basic Info — name, slug, type/subtype, tagline, phone, email, address, website, price range, social links, status (active/hidden)
+  🕒 Hours — every day_of_week with open/close
+  🍽️ Menu — sections with item counts and a sample
+  🍹 Drinks — sections with counts
+  🎉 Happy Hour — schedule (hh_days/start/end) + items
+  ⭐ Specials — count + names + days
+  📅 Events — count + names + dates
+  🖼️ Hero image / gallery — URLs or "missing"
+  🏷️ Tags / Features / Perfect For — lists
+- End the summary with a single line: "ENTITY_REF:<entity_id>" so the dashboard can render a one-click "Open in Admin Dashboard" button for the user.
 
 - Be concise. Use bullets. Bold key numbers.
 - Today: ${new Date().toISOString().split('T')[0]}
@@ -6170,7 +6418,10 @@ ${entityId ? `Currently viewing entity_id: ${entityId}` : 'Platform-wide view �
             systemPrompt,
             messages,
             tools: GCR_AGENT_TOOLS,
-            executeTool: (toolName, toolArgs) => executeGCRTool(toolName, toolArgs, { gcrDb: db, entityId, mainDb: supabase }),
+            executeTool: (toolName, toolArgs) => executeGCRTool(toolName, toolArgs, {
+                gcrDb: db, entityId, mainDb: supabase,
+                attachedImage: image_base64 ? { base64: image_base64.replace(/^data:[^;]+;base64,/, ''), mime: image_mime || 'image/jpeg' } : null,
+            }),
             maxRounds: 6,
             temperature: 0.3,
             maxTokens: 1500,
