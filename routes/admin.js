@@ -2224,7 +2224,7 @@ router.get('/gcr/events', async (req, res) => {
     res.json(data || []);
 });
 
-router.post('/gcr/events', adminRequired, async (req, res) => {
+router.post('/gcr/events', authRequired, async (req, res) => {
     const db = getGcrDb();
     const { entity_id, event_name, description, event_type, artist_name, artist_about, music_style, venue_location, day_of_week, event_date, start_time, end_time, recurring, recurring_start_date, recurring_end_date, cover_charge, image_url } = req.body;
     if (!entity_id || !event_name) return res.status(400).json({ error: 'entity_id and event_name required' });
@@ -2241,7 +2241,7 @@ router.post('/gcr/events', adminRequired, async (req, res) => {
     res.status(201).json(data);
 });
 
-router.put('/gcr/events/:id', adminRequired, async (req, res) => {
+router.put('/gcr/events/:id', authRequired, async (req, res) => {
     const db = getGcrDb();
     const { event_name, description, event_type, artist_name, artist_about, music_style, venue_location, day_of_week, event_date, start_time, end_time, recurring, recurring_start_date, recurring_end_date, cover_charge, image_url, is_active } = req.body;
     const { data, error } = await db.from('entity_events').update({
@@ -2257,7 +2257,7 @@ router.put('/gcr/events/:id', adminRequired, async (req, res) => {
     res.json(data);
 });
 
-router.delete('/gcr/events/:id', adminRequired, async (req, res) => {
+router.delete('/gcr/events/:id', authRequired, async (req, res) => {
     const db = getGcrDb();
     const { error } = await db.from('entity_events').delete().eq('id', req.params.id);
     if (error) return res.status(500).json({ error: error.message });
@@ -2281,7 +2281,7 @@ router.get('/gcr/specials', async (req, res) => {
     res.json(data || []);
 });
 
-router.post('/gcr/specials', adminRequired, async (req, res) => {
+router.post('/gcr/specials', authRequired, async (req, res) => {
     const db = getGcrDb();
     const { entity_id, special_name, description, special_type, days, start_time, end_time, discount_text, image_url } = req.body;
     if (!entity_id || !special_name) return res.status(400).json({ error: 'entity_id and special_name required' });
@@ -2294,7 +2294,7 @@ router.post('/gcr/specials', adminRequired, async (req, res) => {
     res.status(201).json(data);
 });
 
-router.put('/gcr/specials/:id', adminRequired, async (req, res) => {
+router.put('/gcr/specials/:id', authRequired, async (req, res) => {
     const db = getGcrDb();
     const { special_name, description, special_type, days, start_time, end_time, discount_text, image_url, is_active } = req.body;
     const { data, error } = await db.from('entity_specials').update({
@@ -2307,7 +2307,7 @@ router.put('/gcr/specials/:id', adminRequired, async (req, res) => {
     res.json(data);
 });
 
-router.delete('/gcr/specials/:id', adminRequired, async (req, res) => {
+router.delete('/gcr/specials/:id', authRequired, async (req, res) => {
     const db = getGcrDb();
     const { error } = await db.from('entity_specials').delete().eq('id', req.params.id);
     if (error) return res.status(500).json({ error: error.message });
@@ -2318,7 +2318,7 @@ router.delete('/gcr/specials/:id', adminRequired, async (req, res) => {
 // GCR MENU ITEMS — direct CRUD
 // ============================================
 
-router.put('/gcr/menu-sections/:sectionId', adminRequired, async (req, res) => {
+router.put('/gcr/menu-sections/:sectionId', authRequired, async (req, res) => {
     const db = getGcrDb();
     const { section_name, icon, section_description, sort_order } = req.body;
     const { data, error } = await db.from('menu_sections').update({
@@ -2328,7 +2328,7 @@ router.put('/gcr/menu-sections/:sectionId', adminRequired, async (req, res) => {
     res.json(data);
 });
 
-router.delete('/gcr/menu-sections/:sectionId', adminRequired, async (req, res) => {
+router.delete('/gcr/menu-sections/:sectionId', authRequired, async (req, res) => {
     const db = getGcrDb();
     await db.from('menu_items').delete().eq('menu_section_id', req.params.sectionId);
     const { error } = await db.from('menu_sections').delete().eq('id', req.params.sectionId);
@@ -3303,7 +3303,7 @@ router.get('/gcr/entities/:id/features', async (req, res) => {
 });
 
 // PUT /api/admin/gcr/entities/:id
-router.put('/gcr/entities/:id', adminRequired, async (req, res) => {
+router.put('/gcr/entities/:id', authRequired, async (req, res) => {
     const { id } = req.params;
     const { entity } = req.body;
     const { error } = await gcrDb.from('entity').update({ ...entity, updated_at: new Date().toISOString() }).eq('id', id);
@@ -3312,7 +3312,7 @@ router.put('/gcr/entities/:id', adminRequired, async (req, res) => {
 });
 
 // PATCH /api/admin/gcr/entities/:id — partial update: entity fields, hours, happyHour, photos
-router.patch('/gcr/entities/:id', adminRequired, async (req, res) => {
+router.patch('/gcr/entities/:id', authRequired, async (req, res) => {
     const entityId = req.params.id;
     const { entity, hours, happyHour, photos } = req.body;
     const errors = [];
