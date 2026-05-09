@@ -2375,6 +2375,18 @@ router.put('/gcr/menu-items/:itemId', async (req, res) => {
     res.json(data);
 });
 
+router.patch('/gcr/menu-items/:itemId', async (req, res) => {
+    const db = getGcrDb();
+    const allowed = ['item_name','description','price','price_text','menu_section_id','allergens','image_url','is_available'];
+    const updates = {};
+    for (const k of allowed) { if (req.body[k] !== undefined) updates[k] = req.body[k]; }
+    if (!Object.keys(updates).length) return res.status(400).json({ error: 'No fields to update' });
+    if (updates.price !== undefined) updates.price = updates.price ? parseFloat(updates.price) : null;
+    const { data, error } = await db.from('menu_items').update(updates).eq('id', req.params.itemId).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
 router.delete('/gcr/menu-items/:itemId', async (req, res) => {
     const db = getGcrDb();
     const { error } = await db.from('menu_items').delete().eq('id', req.params.itemId);
@@ -2420,6 +2432,18 @@ router.put('/gcr/drink-items/:itemId', async (req, res) => {
         drink_section_id: drink_section_id||null, item_style: item_style||null,
         image_url: image_url||null, is_available: is_available !== false,
     }).eq('id', req.params.itemId).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
+router.patch('/gcr/drink-items/:itemId', async (req, res) => {
+    const db = getGcrDb();
+    const allowed = ['item_name','description','price','price_text','drink_section_id','item_style','image_url','is_available'];
+    const updates = {};
+    for (const k of allowed) { if (req.body[k] !== undefined) updates[k] = req.body[k]; }
+    if (!Object.keys(updates).length) return res.status(400).json({ error: 'No fields to update' });
+    if (updates.price !== undefined) updates.price = updates.price ? parseFloat(updates.price) : null;
+    const { data, error } = await db.from('drink_items').update(updates).eq('id', req.params.itemId).select().single();
     if (error) return res.status(500).json({ error: error.message });
     res.json(data);
 });
@@ -4981,6 +5005,7 @@ const GCR_AGENT_TOOLS = [
                 properties: {
                     entity_id: { type: 'string', description: 'Entity UUID — required if no business was pre-selected. Get it from search_entity first.' },
                     name: { type: 'string' }, description: { type: 'string' }, price: { type: 'string' },
+                    image_url: { type: 'string', description: 'Public URL of a photo for this specific menu item' },
                     section_name: { type: 'string', description: 'Menu section name (e.g. "Appetizers")' },
                     section_id: { type: 'string', description: 'Existing section UUID (use instead of section_name if known)' },
                     sort_order: { type: 'number' },
@@ -5376,6 +5401,57 @@ const GCR_AGENT_TOOLS = [
                     }
                 },
                 required: ['entity_id']
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'set_qr_theme',
+            description: 'Customize the QR menu layout and colors for a business. Use this when the user describes how they want the menu to look — colors, fonts, which sections to show, their order. Generate a qr_theme JSON object and save it.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    entity_id: { type: 'string', description: 'GCR entity UUID to apply theme to' },
+                    theme: {
+                        type: 'object',
+                        description: 'Theme config object',
+                        properties: {
+                            bg:           { type: 'string', description: 'Background color e.g. #0a0a0a' },
+                            surface:      { type: 'string', description: 'Card/surface color' },
+                            surface2:     { type: 'string', description: 'Secondary surface color' },
+                            primary:      { type: 'string', description: 'Primary accent color (buttons, tabs, borders)' },
+                            primary_dark: { type: 'string', description: 'Darker shade of primary' },
+                            accent:       { type: 'string', description: 'Accent/highlight color' },
+                            accent_light: { type: 'string', description: 'Light accent background' },
+                            text:         { type: 'string', description: 'Main text color' },
+                            text_muted:   { type: 'string', description: 'Muted/secondary text color' },
+                            text_light:   { type: 'string', description: 'Light/tertiary text color' },
+                            border:       { type: 'string', description: 'Border color' },
+                            radius:       { type: 'string', description: 'Border radius e.g. 12px' },
+                            font:         { type: 'string', description: 'Font family name' },
+                            modules: {
+                                type: 'object',
+                                description: 'Which sections to show (true/false)',
+                                properties: {
+                                    menu:        { type: 'boolean' },
+                                    drinks:      { type: 'boolean' },
+                                    specials:    { type: 'boolean' },
+                                    happy_hour:  { type: 'boolean' },
+                                    events:      { type: 'boolean' },
+                                    catch_of_day:{ type: 'boolean' },
+                                    live_music:  { type: 'boolean' },
+                                }
+                            },
+                            module_order: {
+                                type: 'array',
+                                description: 'Order of sections e.g. ["specials","menu","drinks","happy_hour","events"]',
+                                items: { type: 'string' }
+                            },
+                        }
+                    }
+                },
+                required: ['theme']
             }
         }
     },
@@ -5946,7 +6022,8 @@ async function executeGCRTool(name, args, { gcrDb, entityId, mainDb }) {
                 const { data, error } = await gcrDb.from('menu_items').insert({
                     entity_id: eid, menu_section_id: sectionId || null,
                     item_name: args.name, description: args.description || null,
-                    price: args.price || null, is_available: true, sort_order: args.sort_order || 99,
+                    price: args.price || null, image_url: args.image_url || null,
+                    is_available: true, sort_order: args.sort_order || 99,
                 }).select('id,item_name').single();
                 if (error) return { error: error.message };
                 return { success: true, item: data };
@@ -5994,6 +6071,15 @@ async function executeGCRTool(name, args, { gcrDb, entityId, mainDb }) {
                 const { error } = await gcrDb.from('entity').update(update).eq('id', entityId);
                 if (error) return { error: error.message };
                 return { success: true, status: update };
+            }
+            case 'set_qr_theme': {
+                const eid = args.entity_id || entityId;
+                if (!eid) return { error: 'No entity selected' };
+                const theme = args.theme;
+                if (!theme || typeof theme !== 'object') return { error: 'theme object required' };
+                const { error } = await gcrDb.from('entity').update({ qr_theme: theme }).eq('id', eid);
+                if (error) return { error: error.message };
+                return { success: true, saved: theme };
             }
             default:
                 return { error: `Unknown tool: ${name}` };
@@ -7092,6 +7178,194 @@ router.put('/tripswipe/settings/:slug', adminRequired, async (req, res) => {
     } catch (e) {
         res.status(500).json({ error: e.message });
     }
+});
+
+// ============================================================
+// TRIPSWIPE PROMO / TONIGHT CARDS
+// Time-limited promotional cards injected into the swipe deck
+// ============================================================
+
+const PROMO_TABLE = 'tripswipe_promo_cards';
+
+async function ensurePromoTable() {
+    await gcrDb.rpc('exec_sql', { sql: `
+        CREATE TABLE IF NOT EXISTS tripswipe_promo_cards (
+            id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+            title TEXT NOT NULL,
+            image_url TEXT,
+            description TEXT,
+            show_date DATE,
+            cta_label TEXT DEFAULT 'Learn More',
+            cta_url TEXT,
+            linked_slug TEXT,
+            city TEXT,
+            category TEXT DEFAULT 'all',
+            active BOOLEAN DEFAULT true,
+            created_at TIMESTAMPTZ DEFAULT NOW(),
+            updated_at TIMESTAMPTZ DEFAULT NOW()
+        );
+    ` }).catch(() => {});
+}
+
+// GET /api/admin/tripswipe/promo-cards — public read (frontend needs this)
+router.get('/tripswipe/promo-cards', async (req, res) => {
+    try {
+        const { data, error } = await gcrDb.from(PROMO_TABLE)
+            .select('*').order('show_date', { ascending: false });
+        if (error) {
+            if (error.code === '42P01') return res.json({ cards: [] });
+            return res.status(500).json({ error: error.message });
+        }
+        res.json({ cards: data || [] });
+    } catch (e) { res.json({ cards: [] }); }
+});
+
+// POST /api/admin/tripswipe/promo-cards — create new card
+router.post('/tripswipe/promo-cards', adminRequired, async (req, res) => {
+    const { title, image_url, description, show_date, cta_label, cta_url, linked_slug, city, category, active } = req.body;
+    if (!title) return res.status(400).json({ error: 'title required' });
+    try {
+        await ensurePromoTable();
+        const { data, error } = await gcrDb.from(PROMO_TABLE).insert({
+            title, image_url: image_url || null, description: description || null,
+            show_date: show_date || null, cta_label: cta_label || 'Learn More',
+            cta_url: cta_url || null, linked_slug: linked_slug || null,
+            city: city || null, category: category || 'all',
+            active: active !== false,
+        }).select().single();
+        if (error) return res.status(500).json({ error: error.message });
+        res.json({ card: data });
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+// PUT /api/admin/tripswipe/promo-cards/:id — update card
+router.put('/tripswipe/promo-cards/:id', adminRequired, async (req, res) => {
+    const { id } = req.params;
+    const { title, image_url, description, show_date, cta_label, cta_url, linked_slug, city, category, active } = req.body;
+    try {
+        const { data, error } = await gcrDb.from(PROMO_TABLE).update({
+            title, image_url: image_url || null, description: description || null,
+            show_date: show_date || null, cta_label: cta_label || 'Learn More',
+            cta_url: cta_url || null, linked_slug: linked_slug || null,
+            city: city || null, category: category || 'all',
+            active: active !== false,
+            updated_at: new Date().toISOString(),
+        }).eq('id', id).select().single();
+        if (error) return res.status(500).json({ error: error.message });
+        res.json({ card: data });
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+// DELETE /api/admin/tripswipe/promo-cards/:id
+router.delete('/tripswipe/promo-cards/:id', adminRequired, async (req, res) => {
+    const { id } = req.params;
+    try {
+        const { error } = await gcrDb.from(PROMO_TABLE).delete().eq('id', id);
+        if (error) return res.status(500).json({ error: error.message });
+        res.json({ success: true });
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+
+// ============================================================
+// TRIPSWIPE SPONSORED CARDS
+// Businesses that inject every N cards with rotating promo images
+// Always link back to the real business profile
+// ============================================================
+
+const SPONSORED_TABLE = 'tripswipe_sponsored';
+
+async function ensureSponsoredTable() {
+    await gcrDb.rpc('exec_sql', { sql: `
+        CREATE TABLE IF NOT EXISTS tripswipe_sponsored (
+            id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+            slug TEXT NOT NULL,
+            business_name TEXT,
+            images TEXT[] DEFAULT '{}',
+            frequency INT DEFAULT 10,
+            priority INT DEFAULT 0,
+            active BOOLEAN DEFAULT true,
+            created_at TIMESTAMPTZ DEFAULT NOW(),
+            updated_at TIMESTAMPTZ DEFAULT NOW()
+        );
+    ` }).catch(() => {});
+}
+
+// GET /api/admin/tripswipe/sponsored — public read (frontend injects these)
+router.get('/tripswipe/sponsored', async (req, res) => {
+    try {
+        const { data, error } = await gcrDb.from(SPONSORED_TABLE)
+            .select('*').order('priority', { ascending: false });
+        if (error) {
+            if (error.code === '42P01') return res.json({ sponsored: [] });
+            return res.status(500).json({ error: error.message });
+        }
+        res.json({ sponsored: data || [] });
+    } catch (e) { res.json({ sponsored: [] }); }
+});
+
+// POST /api/admin/tripswipe/sponsored
+router.post('/tripswipe/sponsored', adminRequired, async (req, res) => {
+    const { slug, business_name, images, frequency, priority, active } = req.body;
+    if (!slug) return res.status(400).json({ error: 'slug required' });
+    try {
+        await ensureSponsoredTable();
+        const { data, error } = await gcrDb.from(SPONSORED_TABLE).insert({
+            slug, business_name: business_name || null,
+            images: Array.isArray(images) ? images : [],
+            frequency: parseInt(frequency) || 10,
+            priority: parseInt(priority) || 0,
+            active: active !== false,
+        }).select().single();
+        if (error) return res.status(500).json({ error: error.message });
+        res.json({ sponsored: data });
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+// PUT /api/admin/tripswipe/sponsored/:id
+router.put('/tripswipe/sponsored/:id', adminRequired, async (req, res) => {
+    const { slug, business_name, images, frequency, priority, active } = req.body;
+    try {
+        const { data, error } = await gcrDb.from(SPONSORED_TABLE).update({
+            slug, business_name: business_name || null,
+            images: Array.isArray(images) ? images : [],
+            frequency: parseInt(frequency) || 10,
+            priority: parseInt(priority) || 0,
+            active: active !== false,
+            updated_at: new Date().toISOString(),
+        }).eq('id', req.params.id).select().single();
+        if (error) return res.status(500).json({ error: error.message });
+        res.json({ sponsored: data });
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+// DELETE /api/admin/tripswipe/sponsored/:id
+router.delete('/tripswipe/sponsored/:id', adminRequired, async (req, res) => {
+    try {
+        const { error } = await gcrDb.from(SPONSORED_TABLE).delete().eq('id', req.params.id);
+        if (error) return res.status(500).json({ error: error.message });
+        res.json({ success: true });
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+// ── Auth Config — controls which sign-in methods are shown on GCR/TripSwipe ──
+
+// GET /api/admin/auth-config — public so frontend can read it
+router.get('/auth-config', async (req, res) => {
+    try {
+        const { data } = await supabase.from('platform_settings').select('value').eq('key', 'auth_config').maybeSingle();
+        res.json(data?.value || { mode: 'phone_google' });
+    } catch { res.json({ mode: 'email' }); }
+});
+
+// PUT /api/admin/auth-config
+router.put('/auth-config', adminRequired, async (req, res) => {
+    const { mode } = req.body; // 'email' | 'phone_google' | 'all'
+    if (!['email', 'phone_google', 'all'].includes(mode)) return res.status(400).json({ error: 'invalid mode' });
+    const { error } = await supabase.from('platform_settings')
+        .upsert({ key: 'auth_config', value: { mode }, updated_at: new Date().toISOString() }, { onConflict: 'key' });
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true, mode });
 });
 
 // ── Community Photos (submitted by TripSwipe users, approved by admin) ──────
