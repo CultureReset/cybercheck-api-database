@@ -121,7 +121,7 @@ router.get('/events', async (req, res) => {
         });
     }
 
-    const events = (data || []).map(e => ({
+    const mapped = (data || []).map(e => ({
         ...e,
         date: e.event_date,
         businessName:       e.entity?.name || '',
@@ -131,13 +131,26 @@ router.get('/events', async (req, res) => {
         hero_image_url:     e.entity?.hero_image_url || null,
         photos:             photosMap[e.entity_id] || [],
         city:               e.entity?.city || '',
-        // Explicit entity_ prefixed fields for events page
-        // For standalone events (entity_id=null), fall back to venue_location parts
         entity_name:        e.entity?.name || (e.venue_location ? e.venue_location.split(',')[0]?.trim() : '') || '',
         entity_city:        e.entity?.city || (e.venue_location ? e.venue_location.split(',').slice(1).join(',').trim() : '') || '',
         entity_slug:        e.entity?.slug || '',
         entity_hero_image_url: e.entity?.hero_image_url || null,
     }));
+
+    // Server-side dedup: same artist at same venue on same date+time = one card
+    const seenEvents = new Set();
+    const events = mapped.filter(e => {
+        const key = [
+            (e.artist_name || e.event_name || '').toLowerCase().trim(),
+            e.entity_id || '',
+            e.event_date || '',
+            e.start_time || '',
+            (e.day_of_week || '').toLowerCase(),
+        ].join('|');
+        if (seenEvents.has(key)) return false;
+        seenEvents.add(key);
+        return true;
+    });
 
     res.json(events);
 });
@@ -1770,21 +1783,22 @@ router.get('/entity/:slug', async (req, res) => {
 
     const { slug } = req.params;
 
-    // Try exact match first — load active OR inactive (admins can preview before publishing)
-    let { data: entity, error: entErr } = await gcrDb
-        .from('entity')
-        .select('*')
-        .eq('slug', slug)
-        .single();
+    // Try exact slug match first
+    let { data: entity } = await gcrDb.from('entity').select('*').eq('slug', slug).maybeSingle();
 
-    // If not found, try partial match (slug starts with)
-    if (!entity && entErr) {
-        const { data: entities } = await gcrDb
-            .from('entity')
-            .select('*')
-            .ilike('slug', slug + '%')
-            .eq('is_active', true)
-            .limit(1);
+    // Try UUID match
+    if (!entity && /^[0-9a-f-]{36}$/i.test(slug)) {
+        ({ data: entity } = await gcrDb.from('entity').select('*').eq('id', slug).maybeSingle());
+    }
+
+    // Try Google Places ID match
+    if (!entity) {
+        ({ data: entity } = await gcrDb.from('entity').select('*').eq('google_places_id', slug).maybeSingle());
+    }
+
+    // Try partial slug match as fallback
+    if (!entity) {
+        const { data: entities } = await gcrDb.from('entity').select('*').ilike('slug', slug + '%').eq('is_active', true).limit(1);
         if (entities?.length) entity = entities[0];
     }
 
@@ -1812,7 +1826,9 @@ router.get('/entity/:slug', async (req, res) => {
         gcrDb.from('menu_sections').select('*').eq('entity_id', eid).order('sort_order'),
         gcrDb.from('drink_sections').select('*').eq('entity_id', eid).order('sort_order'),
         gcrDb.from('happy_hour_sections').select('*').eq('entity_id', eid).order('sort_order'),
-        gcrDb.from('entity_events').select('*').eq('entity_id', eid).eq('is_active', true).order('event_date'),
+        entity.entity_type === 'artist'
+            ? gcrDb.from('entity_events').select('*').eq('artist_name', entity.name).eq('is_active', true).order('event_date')
+            : gcrDb.from('entity_events').select('*').eq('entity_id', eid).eq('is_active', true).order('event_date'),
         gcrDb.from('entity_specials').select('*').eq('entity_id', eid).eq('is_active', true),
         gcrDb.from('activities').select('*').eq('entity_id', eid).order('sort_order'),
         gcrDb.from('pricing_items').select('*').eq('entity_id', eid).order('sort_order'),
@@ -1867,6 +1883,19 @@ router.get('/entity/:slug', async (req, res) => {
         productItems = itemRes.data || [];
     }
 
+    // For artist entities: enrich events with venue name + slug from entity table
+    let artistEvents = eventsRes.data || [];
+    if (entity.entity_type === 'artist' && artistEvents.length) {
+        const venueIds = [...new Set(artistEvents.map(e => e.entity_id).filter(Boolean))];
+        const { data: venues } = await gcrDb.from('entity').select('id, name, slug').in('id', venueIds);
+        const venueMap = Object.fromEntries((venues || []).map(v => [v.id, v]));
+        artistEvents = artistEvents.map(e => ({
+            ...e,
+            venue_name: venueMap[e.entity_id]?.name || null,
+            venue_slug: venueMap[e.entity_id]?.slug || null,
+        }));
+    }
+
     // Fetch old sections content (keep for backwards compat)
     const sections = sectionsRes.data || [];
     const sectionsWithContent = await Promise.all(sections.map(sec => fetchSectionContent(sec)));
@@ -1894,7 +1923,7 @@ router.get('/entity/:slug', async (req, res) => {
             sections: hhSections,
             items:    hhItems,
         },
-        events:       eventsRes.data      || [],
+        events:       artistEvents,
         specials:     specialsRes.data    || [],
         activities:   activitiesRes.data  || [],
         pricing:      pricingRes.data     || [],
