@@ -141,6 +141,9 @@ app.use('/api/integrations/fareharbor', require('./routes/fareharbor'));
 // Photographer booking — sessions, schedule, slots, deposit, model release, gallery delivery
 app.use('/api/photographer', require('./routes/photographer'));
 
+// Module / App Store — install, uninstall, list available and installed apps
+app.use('/api/modules', require('./routes/modules'));
+
 // Fishing charter booking — listings, departure times, deposit, waiver, gallery delivery
 app.use('/api/charter', require('./routes/charter'));
 
