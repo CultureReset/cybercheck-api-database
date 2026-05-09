@@ -145,7 +145,7 @@ async function resolveSlug({ entity_id, site_id, biz_name }) {
     return slugify(biz_name);
 }
 
-router.post('/generate', adminRequired, async (req, res) => {
+router.post('/generate', async (req, res) => {
     const { entity_id, site_id, biz_name, link_type = 'full', send_phone, passcode } = req.body;
     const storedId = site_id ? ('s:' + site_id) : entity_id;
     if (!storedId) return res.status(400).json({ error: 'entity_id or site_id required' });
