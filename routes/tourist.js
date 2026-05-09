@@ -49,7 +49,7 @@ async function touristAuth(req, res, next) {
 router.get('/me', touristAuth, async (req, res) => {
     const [{ data: profile }, { data: saves }, { data: itin }] = await Promise.all([
         mainDb.from('tourist_profiles').select('*').eq('user_id', req.touristId).maybeSingle(),
-        mainDb.from('tourist_saves').select('*').eq('user_id', req.touristId).order('saved_at', { ascending: false }),
+        mainDb.from('tourist_saves').select('id,entity_slug,entity_id,business_name,hero_image_url,subtitle,category,rating,price_range,is_super_like,saved_at').eq('user_id', req.touristId).order('saved_at', { ascending: false }),
         mainDb.from('tourist_itineraries').select('*').eq('user_id', req.touristId).order('updated_at', { ascending: false }).limit(1).maybeSingle(),
     ]);
     res.json({
@@ -95,7 +95,7 @@ router.get('/saves', touristAuth, async (req, res) => {
 });
 
 router.post('/saves', touristAuth, async (req, res) => {
-    const { entity_slug, entity_id, business_name, hero_image_url, subtitle, category, rating, price_range } = req.body || {};
+    const { entity_slug, entity_id, business_name, hero_image_url, subtitle, category, rating, price_range, is_super_like } = req.body || {};
     if (!entity_slug) return res.status(400).json({ error: 'entity_slug required' });
     const row = {
         user_id: req.touristId,
@@ -107,12 +107,72 @@ router.post('/saves', touristAuth, async (req, res) => {
         category: category || null,
         rating: rating ?? null,
         price_range: price_range || null,
+        is_super_like: !!is_super_like,
     };
-    const { data, error } = await mainDb.from('tourist_saves')
+    let { data, error } = await mainDb.from('tourist_saves')
         .upsert(row, { onConflict: 'user_id,entity_slug' })
         .select().single();
+    // If is_super_like column doesn't exist yet, retry without it
+    if (error && error.message?.includes('is_super_like')) {
+        const { is_super_like: _dropped, ...rowWithout } = row;
+        ({ data, error } = await mainDb.from('tourist_saves')
+            .upsert(rowWithout, { onConflict: 'user_id,entity_slug' })
+            .select().single());
+    }
     if (error) return res.status(500).json({ error: error.message });
     res.json({ save: data });
+});
+
+// DELETE /api/tourist/super-likes/:slug — remove Must Do flag, keep save
+router.delete('/super-likes/:slug', touristAuth, async (req, res) => {
+    const { error } = await mainDb.from('tourist_saves')
+        .update({ is_super_like: false })
+        .eq('user_id', req.touristId)
+        .eq('entity_slug', req.params.slug);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// POST /api/tourist/swipes — record swipe direction per business for analytics
+router.post('/swipes', touristAuth, async (req, res) => {
+    const { events } = req.body || {};
+    if (!Array.isArray(events) || events.length === 0) return res.status(400).json({ error: 'events array required' });
+    const rows = events
+        .filter(e => e.slug && e.direction)
+        .map(e => ({
+            user_id: req.touristId,
+            entity_slug: e.slug,
+            business_name: e.business_name || null,
+            category: e.category || null,
+            direction: e.direction, // 'like' | 'nope' | 'super'
+        }));
+    if (rows.length === 0) return res.json({ ok: true });
+    try {
+        const { error } = await mainDb.from('tourist_swipe_events').insert(rows);
+        if (error) {
+            // Auto-create table if missing
+            if (error.code === '42P01') {
+                await mainDb.rpc('exec_sql', { sql: `
+                    CREATE TABLE IF NOT EXISTS tourist_swipe_events (
+                        id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+                        user_id UUID NOT NULL,
+                        entity_slug TEXT NOT NULL,
+                        business_name TEXT,
+                        category TEXT,
+                        direction TEXT NOT NULL,
+                        swiped_at TIMESTAMPTZ DEFAULT NOW()
+                    );
+                    CREATE INDEX IF NOT EXISTS idx_tse_user ON tourist_swipe_events(user_id);
+                    CREATE INDEX IF NOT EXISTS idx_tse_slug ON tourist_swipe_events(entity_slug);
+                    CREATE INDEX IF NOT EXISTS idx_tse_dir ON tourist_swipe_events(direction);
+                ` }).catch(() => {});
+                await mainDb.from('tourist_swipe_events').insert(rows).catch(() => {});
+            }
+        }
+        res.json({ ok: true, count: rows.length });
+    } catch (e) {
+        res.json({ ok: true }); // non-fatal
+    }
 });
 
 router.delete('/saves/:slug', touristAuth, async (req, res) => {
