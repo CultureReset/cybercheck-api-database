@@ -7399,6 +7399,86 @@ router.put('/trip-swipe-button', adminRequired, async (req, res) => {
     res.json({ success: true, ...value });
 });
 
+// ── SMS Config ───────────────────────────────────────────────────────────────
+
+// GET /api/admin/sms-config — public so Trip Swipe can read popup settings
+router.get('/sms-config', async (req, res) => {
+    try {
+        const { data } = await supabase.from('platform_settings').select('value').eq('key', 'sms_config').maybeSingle();
+        res.json(data?.value || {
+            provider: 'sendblue',
+            popup_enabled: true,
+            popup_trigger: 'time',   // 'time' | 'swipes'
+            popup_value: 5,          // minutes or swipe count
+            automations: {
+                welcome: false,
+                deal_blast: true,
+                event_alert: false,
+            }
+        });
+    } catch { res.json({ provider: 'sendblue', popup_enabled: true, popup_trigger: 'time', popup_value: 5 }); }
+});
+
+// PUT /api/admin/sms-config
+router.put('/sms-config', adminRequired, async (req, res) => {
+    const { provider, sendblue_key_id, sendblue_secret, twilio_sid, twilio_token, twilio_from,
+            popup_enabled, popup_trigger, popup_value, automations } = req.body;
+    if (!['sendblue', 'twilio'].includes(provider)) return res.status(400).json({ error: 'invalid provider' });
+    const value = { provider, sendblue_key_id, sendblue_secret, twilio_sid, twilio_token, twilio_from,
+                    popup_enabled, popup_trigger, popup_value, automations };
+    const { error } = await supabase.from('platform_settings')
+        .upsert({ key: 'sms_config', value, updated_at: new Date().toISOString() }, { onConflict: 'key' });
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// POST /api/admin/sms-blast — send SMS to opted-in tourists via configured provider
+router.post('/sms-blast', adminRequired, async (req, res) => {
+    const { message, audience } = req.body; // audience: 'all' | category slug
+    if (!message) return res.status(400).json({ error: 'message required' });
+    try {
+        // Get SMS config
+        const { data: cfgRow } = await supabase.from('platform_settings').select('value').eq('key', 'sms_config').maybeSingle();
+        const cfg = cfgRow?.value || {};
+
+        // Get opted-in tourists
+        let q = supabase.from('tourist_profiles').select('phone').eq('sms_opt_in', true).not('phone', 'is', null);
+        const { data: tourists, error: tErr } = await q;
+        if (tErr) return res.status(500).json({ error: tErr.message });
+        if (!tourists?.length) return res.json({ success: true, sent: 0 });
+
+        const numbers = tourists.map(t => t.phone).filter(Boolean);
+
+        if (cfg.provider === 'sendblue') {
+            await fetch('https://api.sendblue.com/api/send-group-message', {
+                method: 'POST',
+                headers: {
+                    'sb-api-key-id': cfg.sendblue_key_id,
+                    'sb-api-secret-key': cfg.sendblue_secret,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ numbers, content: message })
+            });
+        } else if (cfg.provider === 'twilio') {
+            const twilio = require('twilio')(cfg.twilio_sid, cfg.twilio_token);
+            await Promise.all(numbers.map(to => twilio.messages.create({ body: message, from: cfg.twilio_from, to })));
+        }
+
+        // Log the blast
+        await supabase.from('sms_blasts').insert({ message, audience: audience || 'all', sent_to: numbers.length, sent_at: new Date().toISOString() }).catch(() => {});
+
+        res.json({ success: true, sent: numbers.length });
+    } catch(e) { res.status(500).json({ error: e.message }); }
+});
+
+// GET /api/admin/sms-blasts — blast history
+router.get('/sms-blasts', adminRequired, async (req, res) => {
+    try {
+        const { data } = await supabase.from('sms_blasts').select('*').order('sent_at', { ascending: false }).limit(50);
+        res.json(data || []);
+    } catch(e) { res.status(500).json({ error: e.message }); }
+});
+
 // ── Community Photos (submitted by TripSwipe users, approved by admin) ──────
 
 // GET /api/admin/community-photos — list photos filtered by status

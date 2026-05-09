@@ -175,6 +175,24 @@ router.post('/swipes', touristAuth, async (req, res) => {
     }
 });
 
+// POST /api/tourist/sms-optin — store phone + opt-in consent
+router.post('/sms-optin', touristAuth, async (req, res) => {
+    const { phone } = req.body;
+    if (!phone) return res.status(400).json({ error: 'phone required' });
+    const { error } = await mainDb.from('tourist_profiles')
+        .upsert({ user_id: req.touristId, phone, sms_opt_in: true, sms_opted_in_at: new Date().toISOString() },
+                 { onConflict: 'user_id' });
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// DELETE /api/tourist/sms-optin — opt out
+router.delete('/sms-optin', touristAuth, async (req, res) => {
+    await mainDb.from('tourist_profiles')
+        .update({ sms_opt_in: false }).eq('user_id', req.touristId);
+    res.json({ success: true });
+});
+
 router.delete('/saves/:slug', touristAuth, async (req, res) => {
     const { error } = await mainDb.from('tourist_saves')
         .delete().eq('user_id', req.touristId).eq('entity_slug', req.params.slug);
