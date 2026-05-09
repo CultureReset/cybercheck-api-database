@@ -799,6 +799,15 @@ router.delete('/menu-subcategories/:id', async (req, res) => {
 // ============================================
 
 router.get('/events', async (req, res) => {
+    // Admin with no entity linked → return all events
+    if (req.role === 'admin') {
+        const e = await resolveEntityId(req);
+        let query = gcr().from('entity_events').select('*, entity(name, city, slug)').order('event_date', { ascending: true });
+        if (e) query = query.eq('entity_id', e);
+        const { data, error } = await query;
+        if (error) return res.status(500).json({ error: error.message });
+        return res.json(data || []);
+    }
     const e = await requireEntity(req, res); if (!e) return;
     const { data, error } = await gcr().from('entity_events').select('*').eq('entity_id', e).order('event_date', { ascending: true });
     if (error) return res.status(500).json({ error: error.message });
