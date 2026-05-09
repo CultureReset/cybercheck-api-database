@@ -7380,6 +7380,25 @@ router.put('/auth-config', adminRequired, async (req, res) => {
     res.json({ success: true, mode });
 });
 
+// GET /api/admin/trip-swipe-button — public so GCR home can read it
+router.get('/trip-swipe-button', async (req, res) => {
+    try {
+        const { data } = await supabase.from('platform_settings').select('value').eq('key', 'trip_swipe_button').maybeSingle();
+        res.json(data?.value || { type: 'iframe', url: 'https://gcr-trip-swipe.vercel.app/swipe/all' });
+    } catch { res.json({ type: 'iframe', url: 'https://gcr-trip-swipe.vercel.app/swipe/all' }); }
+});
+
+// PUT /api/admin/trip-swipe-button
+router.put('/trip-swipe-button', adminRequired, async (req, res) => {
+    const { type, url, app_store_url, play_store_url, title, description } = req.body;
+    if (!['iframe', 'link', 'app_download'].includes(type)) return res.status(400).json({ error: 'invalid type' });
+    const value = { type, url, app_store_url, play_store_url, title, description };
+    const { error } = await supabase.from('platform_settings')
+        .upsert({ key: 'trip_swipe_button', value, updated_at: new Date().toISOString() }, { onConflict: 'key' });
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true, ...value });
+});
+
 // ── Community Photos (submitted by TripSwipe users, approved by admin) ──────
 
 // GET /api/admin/community-photos — list photos filtered by status
