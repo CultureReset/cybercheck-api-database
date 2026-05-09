@@ -37,6 +37,10 @@
     {
       "path": "/api/reviews/send-daily",
       "schedule": "0 10 * * *"
+    },
+    {
+      "path": "/api/rides/expire",
+      "schedule": "* * * * *"
     }
   ],
   "env": {
