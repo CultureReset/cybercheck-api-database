@@ -7,7 +7,7 @@ const { callAIRound } = require('./ai-provider');
 const router = express.Router();
 const audioUpload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 10 * 1024 * 1024 } });
 
-const gcrDb = getGcrDb();
+let gcrDb; try { gcrDb = getGcrDb(); } catch(e) { console.warn('GCR DB not initialized:', e.message); }
 
 // Cache all GET responses on Vercel's CDN for 24 hours
 router.use((req, res, next) => {

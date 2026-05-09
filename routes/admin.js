@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const supabase = require('../db');
 const getGcrDb = require('../gcr-db');
-const gcrDb = getGcrDb();
+let gcrDb; try { gcrDb = getGcrDb(); } catch(e) { console.warn('GCR DB not initialized:', e.message); }
 const { runAgentLoop, callAIRound, getProviderInfo } = require('./ai-provider');
 const { adminRequired, authRequired } = require('../middleware/auth');
 
