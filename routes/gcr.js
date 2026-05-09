@@ -2633,4 +2633,99 @@ router.get('/community-photos/:slug', async (req, res) => {
     res.json({ photos: data || [] });
 });
 
+// ============================================
+// AD NETWORK — rotating ads shown on free-tier QR menus
+// ============================================
+
+// GET /api/gcr/ads — returns N random active ads (weighted)
+router.get('/ads', async (req, res) => {
+    res.set('Cache-Control', 's-maxage=60, stale-while-revalidate=30');
+    const limit = Math.min(parseInt(req.query.limit) || 6, 20);
+    try {
+        const { data, error } = await gcrDb
+            .from('gcr_ads')
+            .select('id, advertiser_name, tagline, image_url, cta_text, cta_url, weight, logo_url, badge_text')
+            .eq('is_active', true)
+            .order('weight', { ascending: false });
+        if (error) return res.json({ ads: [] }); // graceful if table not yet created
+
+        // Weighted shuffle: duplicate by weight then pick limit
+        const pool = [];
+        (data || []).forEach(ad => {
+            for (let i = 0; i < (ad.weight || 1); i++) pool.push(ad);
+        });
+        for (let i = pool.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [pool[i], pool[j]] = [pool[j], pool[i]];
+        }
+        const seen = new Set();
+        const ads = pool.filter(a => { if (seen.has(a.id)) return false; seen.add(a.id); return true; }).slice(0, limit);
+        res.json({ ads });
+    } catch (e) {
+        res.json({ ads: [] });
+    }
+});
+
+// POST /api/gcr/ads/:id/impression — record an ad impression
+router.post('/ads/:id/impression', async (req, res) => {
+    try {
+        await gcrDb.rpc('increment_ad_impression', { ad_id: req.params.id }).catch(() =>
+            gcrDb.from('gcr_ads').select('impressions').eq('id', req.params.id).single().then(({ data }) =>
+                gcrDb.from('gcr_ads').update({ impressions: (data?.impressions || 0) + 1 }).eq('id', req.params.id)
+            )
+        );
+    } catch (_) {}
+    res.json({ ok: true });
+});
+
+// POST /api/gcr/ads/:id/click — record an ad click
+router.post('/ads/:id/click', async (req, res) => {
+    try {
+        await gcrDb.from('gcr_ads').select('clicks').eq('id', req.params.id).single().then(({ data }) =>
+            gcrDb.from('gcr_ads').update({ clicks: (data?.clicks || 0) + 1 }).eq('id', req.params.id)
+        );
+    } catch (_) {}
+    res.json({ ok: true });
+});
+
+// GET /api/admin/gcr/ads — list all ads (admin)
+router.get('/admin/ads', async (req, res) => {
+    const { data, error } = await gcrDb.from('gcr_ads').select('*').order('created_at', { ascending: false });
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ ads: data || [] });
+});
+
+// POST /api/admin/gcr/ads — create ad
+router.post('/admin/ads', async (req, res) => {
+    const { advertiser_name, tagline, image_url, logo_url, cta_text, cta_url, badge_text, weight } = req.body;
+    if (!advertiser_name) return res.status(400).json({ error: 'advertiser_name required' });
+    const { data, error } = await gcrDb.from('gcr_ads').insert({
+        advertiser_name, tagline, image_url, logo_url,
+        cta_text: cta_text || 'Learn More',
+        cta_url, badge_text,
+        weight: weight || 1,
+        is_active: true,
+    }).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ ad: data });
+});
+
+// PUT /api/admin/gcr/ads/:id — update ad
+router.put('/admin/ads/:id', async (req, res) => {
+    const { advertiser_name, tagline, image_url, logo_url, cta_text, cta_url, badge_text, weight, is_active } = req.body;
+    const { data, error } = await gcrDb.from('gcr_ads').update({
+        advertiser_name, tagline, image_url, logo_url, cta_text, cta_url, badge_text,
+        weight: weight || 1, is_active,
+    }).eq('id', req.params.id).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ ad: data });
+});
+
+// DELETE /api/admin/gcr/ads/:id — delete ad
+router.delete('/admin/ads/:id', async (req, res) => {
+    const { error } = await gcrDb.from('gcr_ads').delete().eq('id', req.params.id);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ ok: true });
+});
+
 module.exports = router;
