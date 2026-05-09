@@ -3622,10 +3622,11 @@ STYLE:
         },
         {
             name: 'update_business_profile',
-            description: 'Update the GCR listing profile — name, tagline, description, contact info, social links, hero image, directions, amenities, hours, price range, booking URL. Use when owner asks to change anything about their profile or listing.',
+            description: 'Update the GCR listing profile — name, tagline, description, contact info, social links, hero image, directions, amenities, hours, price range, booking URL. Use when owner asks to change anything about their profile or listing. For admins: include business_slug to edit any business.',
             input_schema: {
                 type: 'object',
                 properties: {
+                    business_slug:        { type: 'string', description: '[Admin only] Slug of business to edit (e.g. "the-wharf", "beachside-circle-boats")' },
                     name:                 { type: 'string' },
                     tagline:              { type: 'string', description: 'Short subtitle shown under the name' },
                     description:          { type: 'string', description: 'About section / business description' },
@@ -3770,8 +3771,17 @@ STYLE:
             return { success: true, saved_key: input.key, category: input.category };
         }
         if (name === 'update_business_profile') {
-            const entityId = await resolveEntityId(req);
-            if (!entityId) return { error: 'No GCR entity linked to this account' };
+            let entityId;
+            // Admin can specify business_slug to edit any business
+            if (req.role === 'admin' && input.business_slug) {
+                const { data: entity } = await gcr().from('entity').select('id').eq('slug', input.business_slug).maybeSingle();
+                if (!entity) return { error: `Business "${input.business_slug}" not found` };
+                entityId = entity.id;
+            } else {
+                // Non-admin or admin without slug: use user's linked entity
+                entityId = await resolveEntityId(req);
+                if (!entityId) return { error: 'No GCR entity linked to this account' };
+            }
             const allowed = ['name','subtitle','description','phone','email','website_url','address_line_1',
                 'city','state','zip','hero_image_url','directions_url','booking_url','reservation_url',
                 'price_range','social_instagram','social_facebook','social_tiktok',
