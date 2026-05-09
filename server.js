@@ -135,6 +135,12 @@ app.use('/api/reviews', require('./routes/reviews'));
 // GCR Rides — SMS dispatch, driver management, lead rotation
 app.use('/api/rides', require('./routes/rides'));
 
+// FareHarbor integration — API key connect, availability sync, webhook
+app.use('/api/integrations/fareharbor', require('./routes/fareharbor'));
+
+// Availability search engine — queries across all connected platforms
+app.use('/api/availability', require('./routes/availability'));
+
 // Verified Live Food Photos — standalone module, no auth required
 app.use('/api/live-photo', require('./routes/live-photo'));
 
