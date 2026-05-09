@@ -1206,7 +1206,7 @@ function gcrImportHelpers(gcrDb) {
 }
 
 // ── POST /api/admin/gcr/import-entity — business row → GCR entity table
-router.post('/gcr/import-entity', async (req, res) => {
+router.post('/gcr/import-entity', adminRequired, async (req, res) => {
     const gcrDb = getGcrDb();
     const row = req.body;
     if (!row.name) return res.status(400).json({ error: 'name required' });
@@ -1276,7 +1276,7 @@ router.post('/gcr/import-entity', async (req, res) => {
 });
 
 // Alias: old endpoint name still works
-router.post('/gcr/import-csv', async (req, res) => {
+router.post('/gcr/import-csv', adminRequired, async (req, res) => {
     req.url = '/gcr/import-entity';
     router.handle(req, res, () => {});
 });
@@ -1373,7 +1373,7 @@ Return ONLY valid JSON: { "rows": [...normalized rows], "questions": ["any clari
 
 // ── POST /api/admin/gcr/import-menu
 // Query params: skip_ai=true to skip Grok normalization
-router.post('/gcr/import-menu', async (req, res) => {
+router.post('/gcr/import-menu', adminRequired, async (req, res) => {
     const gcrDb = getGcrDb();
     let rows = Array.isArray(req.body) ? req.body : [req.body];
     if (!rows.length || rows.every(r => !r || (!r.slug && !r.menu_item_name && !r.menu_section_name)))
@@ -1425,7 +1425,7 @@ router.post('/gcr/import-menu', async (req, res) => {
 });
 
 // ── POST /api/admin/gcr/import-drinks
-router.post('/gcr/import-drinks', async (req, res) => {
+router.post('/gcr/import-drinks', adminRequired, async (req, res) => {
     const gcrDb = getGcrDb();
     let rows = Array.isArray(req.body) ? req.body : [req.body];
     if (!rows.length || rows.every(r => !r || (!r.slug && !r.drink_item_name)))
@@ -1469,7 +1469,7 @@ router.post('/gcr/import-drinks', async (req, res) => {
 });
 
 // ── POST /api/admin/gcr/import-happyhour
-router.post('/gcr/import-happyhour', async (req, res) => {
+router.post('/gcr/import-happyhour', adminRequired, async (req, res) => {
     const gcrDb = getGcrDb();
     let rows = Array.isArray(req.body) ? req.body : [req.body];
     if (!rows.length || rows.every(r => !r || !r.slug))
@@ -1508,7 +1508,7 @@ router.post('/gcr/import-happyhour', async (req, res) => {
 });
 
 // ── POST /api/admin/gcr/import-events
-router.post('/gcr/import-events', async (req, res) => {
+router.post('/gcr/import-events', adminRequired, async (req, res) => {
     const gcrDb = getGcrDb();
     let rows = Array.isArray(req.body) ? req.body : [req.body];
     if (!rows.length || rows.every(r => !r || (!r.slug && !r.event_name)))
@@ -1546,7 +1546,7 @@ router.post('/gcr/import-events', async (req, res) => {
 });
 
 // ── POST /api/admin/gcr/import-specials
-router.post('/gcr/import-specials', async (req, res) => {
+router.post('/gcr/import-specials', adminRequired, async (req, res) => {
     const gcrDb = getGcrDb();
     let rows = Array.isArray(req.body) ? req.body : [req.body];
     if (!rows.length || rows.every(r => !r || (!r.slug && !r.special_name)))
@@ -1576,7 +1576,7 @@ router.post('/gcr/import-specials', async (req, res) => {
 });
 
 // ── POST /api/admin/gcr/import-photos
-router.post('/gcr/import-photos', async (req, res) => {
+router.post('/gcr/import-photos', adminRequired, async (req, res) => {
     const gcrDb = getGcrDb();
     const rows = Array.isArray(req.body) ? req.body : [req.body];
     const { getEntityId } = gcrImportHelpers(gcrDb);
@@ -1599,7 +1599,7 @@ router.post('/gcr/import-photos', async (req, res) => {
 });
 
 // ── POST /api/admin/gcr/import-activities
-router.post('/gcr/import-activities', async (req, res) => {
+router.post('/gcr/import-activities', adminRequired, async (req, res) => {
     const gcrDb = getGcrDb();
     const rows = Array.isArray(req.body) ? req.body : [req.body];
     const { getEntityId, upsertTag } = gcrImportHelpers(gcrDb);
@@ -1627,7 +1627,7 @@ router.post('/gcr/import-activities', async (req, res) => {
 // Accepts rows with columns: restaurant_name, section_type, section, item_name, description, price, tags, ...
 // section_type values: profile | tags | menu | special | event | service | dietary
 // Routes each row to the correct table automatically. Looks up entity by name or creates it.
-router.post('/gcr/import-section-based', async (req, res) => {
+router.post('/gcr/import-section-based', adminRequired, async (req, res) => {
     const gcrDb = getGcrDb();
     let rows = Array.isArray(req.body) ? req.body : [req.body];
     const aiResult = await normalizeRowsWithAI(rows, 'section_based', !!req.query.skip_ai);
@@ -1824,7 +1824,7 @@ router.post('/gcr/import-section-based', async (req, res) => {
 });
 
 // ── POST /api/admin/gcr/import-pricing
-router.post('/gcr/import-pricing', async (req, res) => {
+router.post('/gcr/import-pricing', adminRequired, async (req, res) => {
     const gcrDb = getGcrDb();
     const rows = Array.isArray(req.body) ? req.body : [req.body];
     const { getEntityId } = gcrImportHelpers(gcrDb);
@@ -1851,7 +1851,7 @@ router.post('/gcr/import-pricing', async (req, res) => {
 });
 
 // ── POST /api/admin/gcr/import-slots
-router.post('/gcr/import-slots', async (req, res) => {
+router.post('/gcr/import-slots', adminRequired, async (req, res) => {
     const gcrDb = getGcrDb();
     const rows = Array.isArray(req.body) ? req.body : [req.body];
     const { getEntityId } = gcrImportHelpers(gcrDb);
@@ -1872,7 +1872,7 @@ router.post('/gcr/import-slots', async (req, res) => {
 });
 
 // ── POST /api/admin/gcr/import-fleet
-router.post('/gcr/import-fleet', async (req, res) => {
+router.post('/gcr/import-fleet', adminRequired, async (req, res) => {
     const gcrDb = getGcrDb();
     const rows = Array.isArray(req.body) ? req.body : [req.body];
     const { getEntityId } = gcrImportHelpers(gcrDb);
@@ -1896,7 +1896,7 @@ router.post('/gcr/import-fleet', async (req, res) => {
 });
 
 // ── POST /api/admin/gcr/import-addons
-router.post('/gcr/import-addons', async (req, res) => {
+router.post('/gcr/import-addons', adminRequired, async (req, res) => {
     const gcrDb = getGcrDb();
     const rows = Array.isArray(req.body) ? req.body : [req.body];
     const { getEntityId } = gcrImportHelpers(gcrDb);
@@ -1922,7 +1922,7 @@ router.post('/gcr/import-addons', async (req, res) => {
 });
 
 // ── POST /api/admin/gcr/import-included
-router.post('/gcr/import-included', async (req, res) => {
+router.post('/gcr/import-included', adminRequired, async (req, res) => {
     const gcrDb = getGcrDb();
     const rows = Array.isArray(req.body) ? req.body : [req.body];
     const { getEntityId } = gcrImportHelpers(gcrDb);
@@ -1942,7 +1942,7 @@ router.post('/gcr/import-included', async (req, res) => {
 });
 
 // ── POST /api/admin/gcr/import-requirements
-router.post('/gcr/import-requirements', async (req, res) => {
+router.post('/gcr/import-requirements', adminRequired, async (req, res) => {
     const gcrDb = getGcrDb();
     const rows = Array.isArray(req.body) ? req.body : [req.body];
     const { getEntityId } = gcrImportHelpers(gcrDb);
@@ -1961,7 +1961,7 @@ router.post('/gcr/import-requirements', async (req, res) => {
 });
 
 // ── POST /api/admin/gcr/import-policies
-router.post('/gcr/import-policies', async (req, res) => {
+router.post('/gcr/import-policies', adminRequired, async (req, res) => {
     const gcrDb = getGcrDb();
     const rows = Array.isArray(req.body) ? req.body : [req.body];
     const { getEntityId } = gcrImportHelpers(gcrDb);
@@ -1981,7 +1981,7 @@ router.post('/gcr/import-policies', async (req, res) => {
 });
 
 // ── POST /api/admin/gcr/import-meetingpoint
-router.post('/gcr/import-meetingpoint', async (req, res) => {
+router.post('/gcr/import-meetingpoint', adminRequired, async (req, res) => {
     const gcrDb = getGcrDb();
     const rows = Array.isArray(req.body) ? req.body : [req.body];
     const { getEntityId } = gcrImportHelpers(gcrDb);
@@ -2002,7 +2002,7 @@ router.post('/gcr/import-meetingpoint', async (req, res) => {
 });
 
 // ── POST /api/admin/gcr/import-qna
-router.post('/gcr/import-qna', async (req, res) => {
+router.post('/gcr/import-qna', adminRequired, async (req, res) => {
     const gcrDb = getGcrDb();
     const rows = Array.isArray(req.body) ? req.body : [req.body];
     const { getEntityId } = gcrImportHelpers(gcrDb);
@@ -2022,7 +2022,7 @@ router.post('/gcr/import-qna', async (req, res) => {
 });
 
 // ── POST /api/admin/gcr/import-shopping
-router.post('/gcr/import-shopping', async (req, res) => {
+router.post('/gcr/import-shopping', adminRequired, async (req, res) => {
     const gcrDb = getGcrDb();
     const rows = Array.isArray(req.body) ? req.body : [req.body];
     const { getEntityId, upsertTag, getOrCreate } = gcrImportHelpers(gcrDb);
@@ -2061,7 +2061,7 @@ router.post('/gcr/import-shopping', async (req, res) => {
 });
 
 // ── POST /api/admin/gcr/import-master — routes all record_types from master CSV
-router.post('/gcr/import-master', async (req, res) => {
+router.post('/gcr/import-master', adminRequired, async (req, res) => {
     const rows = Array.isArray(req.body) ? req.body : [req.body];
     const grouped = {};
     const typeToEndpoint = {
@@ -2224,7 +2224,7 @@ router.get('/gcr/events', async (req, res) => {
     res.json(data || []);
 });
 
-router.post('/gcr/events', async (req, res) => {
+router.post('/gcr/events', adminRequired, async (req, res) => {
     const db = getGcrDb();
     const { entity_id, event_name, description, event_type, artist_name, artist_about, music_style, venue_location, day_of_week, event_date, start_time, end_time, recurring, recurring_start_date, recurring_end_date, cover_charge, image_url } = req.body;
     if (!entity_id || !event_name) return res.status(400).json({ error: 'entity_id and event_name required' });
@@ -2241,7 +2241,7 @@ router.post('/gcr/events', async (req, res) => {
     res.status(201).json(data);
 });
 
-router.put('/gcr/events/:id', async (req, res) => {
+router.put('/gcr/events/:id', adminRequired, async (req, res) => {
     const db = getGcrDb();
     const { event_name, description, event_type, artist_name, artist_about, music_style, venue_location, day_of_week, event_date, start_time, end_time, recurring, recurring_start_date, recurring_end_date, cover_charge, image_url, is_active } = req.body;
     const { data, error } = await db.from('entity_events').update({
@@ -2257,7 +2257,7 @@ router.put('/gcr/events/:id', async (req, res) => {
     res.json(data);
 });
 
-router.delete('/gcr/events/:id', async (req, res) => {
+router.delete('/gcr/events/:id', adminRequired, async (req, res) => {
     const db = getGcrDb();
     const { error } = await db.from('entity_events').delete().eq('id', req.params.id);
     if (error) return res.status(500).json({ error: error.message });
@@ -2281,7 +2281,7 @@ router.get('/gcr/specials', async (req, res) => {
     res.json(data || []);
 });
 
-router.post('/gcr/specials', async (req, res) => {
+router.post('/gcr/specials', adminRequired, async (req, res) => {
     const db = getGcrDb();
     const { entity_id, special_name, description, special_type, days, start_time, end_time, discount_text, image_url } = req.body;
     if (!entity_id || !special_name) return res.status(400).json({ error: 'entity_id and special_name required' });
@@ -2294,7 +2294,7 @@ router.post('/gcr/specials', async (req, res) => {
     res.status(201).json(data);
 });
 
-router.put('/gcr/specials/:id', async (req, res) => {
+router.put('/gcr/specials/:id', adminRequired, async (req, res) => {
     const db = getGcrDb();
     const { special_name, description, special_type, days, start_time, end_time, discount_text, image_url, is_active } = req.body;
     const { data, error } = await db.from('entity_specials').update({
@@ -2307,7 +2307,7 @@ router.put('/gcr/specials/:id', async (req, res) => {
     res.json(data);
 });
 
-router.delete('/gcr/specials/:id', async (req, res) => {
+router.delete('/gcr/specials/:id', adminRequired, async (req, res) => {
     const db = getGcrDb();
     const { error } = await db.from('entity_specials').delete().eq('id', req.params.id);
     if (error) return res.status(500).json({ error: error.message });
@@ -2318,7 +2318,7 @@ router.delete('/gcr/specials/:id', async (req, res) => {
 // GCR MENU ITEMS — direct CRUD
 // ============================================
 
-router.put('/gcr/menu-sections/:sectionId', async (req, res) => {
+router.put('/gcr/menu-sections/:sectionId', adminRequired, async (req, res) => {
     const db = getGcrDb();
     const { section_name, icon, section_description, sort_order } = req.body;
     const { data, error } = await db.from('menu_sections').update({
@@ -2328,7 +2328,7 @@ router.put('/gcr/menu-sections/:sectionId', async (req, res) => {
     res.json(data);
 });
 
-router.delete('/gcr/menu-sections/:sectionId', async (req, res) => {
+router.delete('/gcr/menu-sections/:sectionId', adminRequired, async (req, res) => {
     const db = getGcrDb();
     await db.from('menu_items').delete().eq('menu_section_id', req.params.sectionId);
     const { error } = await db.from('menu_sections').delete().eq('id', req.params.sectionId);
@@ -3303,7 +3303,7 @@ router.get('/gcr/entities/:id/features', async (req, res) => {
 });
 
 // PUT /api/admin/gcr/entities/:id
-router.put('/gcr/entities/:id', async (req, res) => {
+router.put('/gcr/entities/:id', adminRequired, async (req, res) => {
     const { id } = req.params;
     const { entity } = req.body;
     const { error } = await gcrDb.from('entity').update({ ...entity, updated_at: new Date().toISOString() }).eq('id', id);
@@ -3312,7 +3312,7 @@ router.put('/gcr/entities/:id', async (req, res) => {
 });
 
 // PATCH /api/admin/gcr/entities/:id — partial update: entity fields, hours, happyHour, photos
-router.patch('/gcr/entities/:id', async (req, res) => {
+router.patch('/gcr/entities/:id', adminRequired, async (req, res) => {
     const entityId = req.params.id;
     const { entity, hours, happyHour, photos } = req.body;
     const errors = [];
