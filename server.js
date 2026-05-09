@@ -132,6 +132,9 @@ app.use('/api/qr', require('./routes/qr'));
 // Authentic Review Platform — POS webhooks, SMS review requests, review inbox
 app.use('/api/reviews', require('./routes/reviews'));
 
+// GCR Rides — SMS dispatch, driver management, lead rotation
+app.use('/api/rides', require('./routes/rides'));
+
 // Verified Live Food Photos — standalone module, no auth required
 app.use('/api/live-photo', require('./routes/live-photo'));
 
