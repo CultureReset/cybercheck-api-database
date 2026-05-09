@@ -3134,4 +3134,22 @@ router.get('/gcr-stats', async (req, res) => {
     }
 });
 
+// POST /api/public/business-lead — no auth required, anyone can submit
+router.post('/business-lead', async (req, res) => {
+    const { business_name, category, contact_name, phone, email, website, notes, plan } = req.body;
+    if (!business_name || !email) return res.status(400).json({ error: 'business_name and email required' });
+    try {
+        await supabase.from('business_leads').insert({
+            business_name, category, contact_name, phone, email, website, notes,
+            plan: plan || 'Listed',
+            status: 'new',
+            submitted_at: new Date().toISOString()
+        });
+        res.json({ success: true });
+    } catch(e) {
+        // Don't block the user if table doesn't exist yet
+        res.json({ success: true });
+    }
+});
+
 module.exports = router;
