@@ -1,0 +1,164 @@
+
+=== Check orphan venues for matches to existing entities ===
+
+Found 223 orphan events
+
+66 unique orphan venues
+
+Top venues + potential entity matches:
+
+ 17 events | "Orange Beach Presbyterian Church"
+            ✓ MATCH: "Orange Beach" (Gulf Shores) [business/service] score=90
+
+ 16 events | "American Legion Post 99, Foley"
+            ✗ no match (score=0)
+
+ 16 events | "Pappa Rocco’s, Gulf Shores"
+            ✓ MATCH: "Gulf Shores Coffee Co." (Gulf Shores) [restaurant/coffee_shop] score=60
+
+ 15 events | "Tacky Jacks, Orange Beach"
+            ✓ MATCH: "Orange Beach" (Gulf Shores) [business/service] score=90
+
+ 12 events | "Tacky Jacks, Gulf Shores"
+            ✓ MATCH: "Tacky Jacks Gulf Shores" (Gulf Shores) [restaurant/seafood_restaurant] score=90
+
+ 11 events | "Woodside Restaurant at Gulf State Park, Gulf Shores"
+            ✓ MATCH: "Woodside Restaurant" (Gulf Shores) [business/restaurant] score=90
+
+ 10 events | "Tacky Jacks, Fort Morgan"
+            ✓ MATCH: "Tacky Jacks Fort Morgan" (Gulf Shores) [restaurant/seafood_restaurant] score=90
+
+  7 events | "all levels welcome, Gulf Shores"
+            ✓ MATCH: "Grand Welcome Gulf Shores Vacation Rental Management" (Gulf Shores) [activity/service] score=75
+
+  6 events | "Bon Secour"
+            ✓ MATCH: "Bon Secour National Wildlife Refuge" (Gulf Shores) [business/attraction] score=85
+
+  6 events | "Dragon Fly Pool Bar, Gulf Shores"
+            ✓ MATCH: "Island Wing Company Grill & Bar - Gulf Shores" (Gulf Shores) [restaurant/bar_and_grill] score=75
+
+  6 events | "American Legion Post 44, Gulf Shores"
+            ✓ MATCH: "Gulf Shores Post Office" (Gulf Shores) [business/government-services] score=75
+
+  6 events | "American Legion Post 199, Fairhope"
+            ✗ no match (score=0)
+
+  4 events | "Foley"
+            ✓ MATCH: "Enterprise Rent-A-Car - Foley, AL" (Foley) [business/rentals] score=85
+
+  4 events | "Brandon Styles Theatre, Foley"
+            ✓ MATCH: "Brandon Styles LIVE" (Foley) [business/entertainment] score=60
+
+  4 events | "CoastAl Restaurant, Orange Beach"
+            ✓ MATCH: "Orange Beach" (Gulf Shores) [business/service] score=90
+
+  4 events | "Orange Beach"
+            ✓ MATCH: "Orange Beach" (Gulf Shores) [business/service] score=100
+
+  4 events | "The Sloop, Gulf Shores"
+            ✓ MATCH: "The Sloop" (Gulf Shores) [restaurant/restaurant] score=90
+
+  4 events | "American Legion Post. 199, Fairhope"
+            ✗ no match (score=0)
+
+  3 events | "GT’s on the Bay, Orange Beach"
+            ✓ MATCH: "Orange Beach" (Gulf Shores) [business/service] score=90
+
+  3 events | "- 2 p.m., Foley"
+            ✗ no match (score=0)
+
+  3 events | "Holy Spirit Episcopal Church, Fort Morgan Rd"
+            ✓ MATCH: "Fort Morgan Oyster Fest" (Gulf Shores) [business/festival] score=60
+
+  3 events | "South Baldwin Community Theater, Gulf Shores"
+            ✓ MATCH: "Gulf Shores Coffee Co." (Gulf Shores) [restaurant/coffee_shop] score=60
+
+  2 events | "(251) 961-2620, Lillian"
+            ✗ no match (score=0)
+
+  2 events | "Luna’s, Orange Beach"
+            ✓ MATCH: "Orange Beach" (Gulf Shores) [business/service] score=90
+
+  2 events | "Fairhope"
+            ✓ MATCH: "Pro Cycle Fairhope" (Gulf Shores) [business/shopping] score=85
+
+  2 events | "Monday evenings at 6 p.m., Orange Beach"
+            ✓ MATCH: "Orange Beach" (Gulf Shores) [business/service] score=90
+
+  2 events | "Gulf Coast Elks Lodge 7282, Foley"
+            ✓ MATCH: "The Lodge at Gulf State Park - Eat & Drink" (Gulf Shores) [business/restaurant] score=60
+
+  2 events | "Perdido Sports Bar, Perdido Key"
+            ✓ MATCH: "Perdido Key Sports Bar & Restaurant" (Pensacola) [business/restaurant] score=90
+
+  2 events | "First Baptist Church of Gulf Shores"
+            ✓ MATCH: "Gulf Shores Coffee Co." (Gulf Shores) [restaurant/coffee_shop] score=60
+
+  2 events | "Vallarta’s, 1145 S. McKenzie St., Foley"
+            ✗ no match (score=0)
+
+  2 events | "Good Time Charlie’s, Foley"
+            ✗ no match (score=0)
+
+  2 events | "9 - 11 a.m every Wednesday, Perdido Bay Baptist Church, 12600 Sorrento Rd. Pensacola"
+            ✓ MATCH: "AT&T Store Pensacola Sorrento Rd" (Pensacola) [business/mobile-phone-store] score=60
+
+  2 events | "AL. Gulf Coast Music Music Hall, Foley"
+            ✓ MATCH: "DRI Gulf Coast" (Orange Beach) [business/restoration-services] score=60
+
+  2 events | "every Thursday, Gulf Shores"
+            ✓ MATCH: "Gulf Shores Coffee Co." (Gulf Shores) [restaurant/coffee_shop] score=60
+
+  2 events | "Gulf Shores First Baptist Church"
+            ✓ MATCH: "Gulf Shores Coffee Co." (Gulf Shores) [restaurant/coffee_shop] score=60
+
+  1 events | "Tiki Raw Bar, Orange Beach"
+            ✓ MATCH: "Tiki & Raw Bar Orange Beach" (Orange Beach) [business/restaurant] score=105
+
+  1 events | "Ms. Nancy’s Lobby Lounge at Perdido Beach Resort, Orange Beach"
+            ✓ MATCH: "Orange Beach" (Gulf Shores) [business/service] score=90
+
+  1 events | "City Hall, Orange Beach"
+            ✓ MATCH: "Orange Beach" (Gulf Shores) [business/service] score=90
+
+  1 events | "Barometer Waterfront Grille, Orange Beach"
+            ✓ MATCH: "Orange Beach" (Gulf Shores) [business/service] score=90
+
+  1 events | "Library meeting room, Orange Beach"
+            ✓ MATCH: "Orange Beach" (Gulf Shores) [business/service] score=90
+
+  1 events | "Adult Activity Center, Gulf Shores"
+            ✓ MATCH: "Gulf Shores & Orange Beach Tourism Operations Center" (Gulf Shores) [business/service] score=75
+
+  1 events | "Live Oak AFG, St John’s Episcopal Church, 401 Live Oak Ave., Pensacola"
+            ✗ no match (score=0)
+
+  1 events | "Warrior Beer Company, 1065 Sorrento Rd., Pensacola"
+            ✓ MATCH: "AT&T Store Pensacola Sorrento Rd" (Pensacola) [business/mobile-phone-store] score=60
+
+  1 events | "Al. Gulf Coast Music Hall, Foley"
+            ✓ MATCH: "DRI Gulf Coast" (Orange Beach) [business/restoration-services] score=60
+
+  1 events | "open to all, Elberta"
+            ✗ no match (score=0)
+
+  1 events | "OWA Theater, Foley"
+            ✗ no match (score=0)
+
+  1 events | "Moe’s BBQ, Foley"
+            ✓ MATCH: "Moe's Original BBQ" (Orange Beach) [restaurant/barbecue_restaurant] score=60
+
+  1 events | "Veterans of Foreign Wars Post 5659, Elberta"
+            ✗ no match (score=0)
+
+  1 events | "The Galley on The River, Bon Secour"
+            ✓ MATCH: "The Galley on the River" (Foley) [business/restaurant] score=90
+
+  1 events | "Foley Library"
+            ✗ no match (score=0)
+
+
+=== SUMMARY ===
+Checked: 50 venues
+Potential matches (score > 50): 38
+Need new entities: 12
