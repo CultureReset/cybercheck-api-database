@@ -174,10 +174,28 @@ function _gcrEntityToAdminProfile(e) {
             type: e.entity_subtype || e.entity_type || '',
             logo_url: e.hero_image_url || '',
             cover_url: e.hero_image_url || '',
-            custom_domain: e.custom_domain || '',
+            hero_image_url: e.hero_image_url || '',
             tagline: e.subtitle || '',
             slug: e.slug,
             entity_id: e.id,
+            price_range: e.price_range || '',
+            booking_url: e.booking_url || '',
+            reservation_url: e.reservation_url || '',
+            directions_url: e.directions_url || '',
+            website_url: e.website_url || '',
+            // Amenities
+            outdoor_seating: e.outdoor_seating || false,
+            live_music: e.live_music || false,
+            delivery: e.delivery || false,
+            dine_in: e.dine_in || false,
+            takeout: e.takeout || false,
+            good_for_groups: e.good_for_groups || false,
+            good_for_children: e.good_for_children || false,
+            wheelchair_accessible: e.wheelchair_accessible || false,
+            parking: e.parking || false,
+            serves_beer: e.serves_beer || false,
+            serves_wine: e.serves_wine || false,
+            serves_cocktails: e.serves_cocktails || false,
         },
         content: {
             hero_text: e.subtitle || '',
@@ -209,7 +227,17 @@ function _adminProfileToGcrEntity(bizUpdates, contentUpdates) {
         if (bizUpdates.type !== undefined) out.entity_subtype = bizUpdates.type;
         if (bizUpdates.logo_url !== undefined) out.hero_image_url = bizUpdates.logo_url;
         if (bizUpdates.cover_url !== undefined && out.hero_image_url === undefined) out.hero_image_url = bizUpdates.cover_url;
+        if (bizUpdates.hero_image_url !== undefined) out.hero_image_url = bizUpdates.hero_image_url;
         if (bizUpdates.tagline !== undefined) out.subtitle = bizUpdates.tagline;
+        if (bizUpdates.price_range !== undefined) out.price_range = bizUpdates.price_range;
+        if (bizUpdates.booking_url !== undefined) out.booking_url = bizUpdates.booking_url;
+        if (bizUpdates.reservation_url !== undefined) out.reservation_url = bizUpdates.reservation_url;
+        if (bizUpdates.directions_url !== undefined) out.directions_url = bizUpdates.directions_url;
+        if (bizUpdates.website_url !== undefined) out.website_url = bizUpdates.website_url;
+        // Amenities
+        const amenities = ['outdoor_seating','live_music','delivery','dine_in','takeout','good_for_groups',
+            'good_for_children','wheelchair_accessible','parking','serves_beer','serves_wine','serves_cocktails'];
+        amenities.forEach(k => { if (bizUpdates[k] !== undefined) out[k] = bizUpdates[k]; });
     }
     if (contentUpdates) {
         if (contentUpdates.hero_text !== undefined) out.subtitle = contentUpdates.hero_text;
@@ -263,6 +291,15 @@ router.put('/profile', async (req, res) => {
         return res.json(_gcrEntityToAdminProfile(data));
     }
 
+    // Try to also update GCR entity for non-admin users
+    const entityId = await resolveEntityId(req);
+    if (entityId) {
+        const entityUpdates = _adminProfileToGcrEntity(bizUpdates, contentUpdates);
+        if (Object.keys(entityUpdates).length) {
+            entityUpdates.updated_at = new Date().toISOString();
+            await gcr().from('entity').update(entityUpdates).eq('id', entityId);
+        }
+    }
     if (bizUpdates) {
         const allowedBizFields = ['name', 'type', 'logo_url', 'cover_url', 'custom_domain'];
         const bizData = {};
@@ -3583,6 +3620,45 @@ STYLE:
             }
         },
         {
+            name: 'update_business_profile',
+            description: 'Update the GCR listing profile — name, tagline, description, contact info, social links, hero image, directions, amenities, hours, price range, booking URL. Use when owner asks to change anything about their profile or listing.',
+            input_schema: {
+                type: 'object',
+                properties: {
+                    name:                 { type: 'string' },
+                    tagline:              { type: 'string', description: 'Short subtitle shown under the name' },
+                    description:          { type: 'string', description: 'About section / business description' },
+                    phone:                { type: 'string' },
+                    email:                { type: 'string' },
+                    website_url:          { type: 'string' },
+                    address:              { type: 'string' },
+                    city:                 { type: 'string' },
+                    state:                { type: 'string' },
+                    zip:                  { type: 'string' },
+                    hero_image_url:       { type: 'string', description: 'URL for the cover/hero image' },
+                    directions_url:       { type: 'string', description: 'Google Maps or directions link' },
+                    booking_url:          { type: 'string' },
+                    reservation_url:      { type: 'string' },
+                    price_range:          { type: 'string', description: 'e.g. "$", "$$", "$$$"' },
+                    social_instagram:     { type: 'string' },
+                    social_facebook:      { type: 'string' },
+                    social_tiktok:        { type: 'string' },
+                    outdoor_seating:      { type: 'boolean' },
+                    live_music:           { type: 'boolean' },
+                    delivery:             { type: 'boolean' },
+                    dine_in:              { type: 'boolean' },
+                    takeout:              { type: 'boolean' },
+                    good_for_groups:      { type: 'boolean' },
+                    good_for_children:    { type: 'boolean' },
+                    wheelchair_accessible:{ type: 'boolean' },
+                    parking:              { type: 'boolean' },
+                    serves_beer:          { type: 'boolean' },
+                    serves_wine:          { type: 'boolean' },
+                    serves_cocktails:     { type: 'boolean' },
+                },
+            }
+        },
+        {
             name: 'delete_memory',
             description: 'Forget something. Use when info is no longer true or owner asks you to forget.',
             input_schema: {
@@ -3691,6 +3767,23 @@ STYLE:
                 .upsert(row, { onConflict: 'site_id,category,key' });
             if (error) return { error: error.message };
             return { success: true, saved_key: input.key, category: input.category };
+        }
+        if (name === 'update_business_profile') {
+            const entityId = await resolveEntityId(req);
+            if (!entityId) return { error: 'No GCR entity linked to this account' };
+            const allowed = ['name','subtitle','description','phone','email','website_url','address_line_1',
+                'city','state','zip','hero_image_url','directions_url','booking_url','reservation_url',
+                'price_range','social_instagram','social_facebook','social_tiktok',
+                'outdoor_seating','live_music','delivery','dine_in','takeout','good_for_groups',
+                'good_for_children','wheelchair_accessible','parking','serves_beer','serves_wine','serves_cocktails'];
+            const updates = { updated_at: new Date().toISOString() };
+            if (input.tagline !== undefined) updates.subtitle = input.tagline;
+            if (input.description !== undefined) updates.description = input.description;
+            if (input.address !== undefined) updates.address_line_1 = input.address;
+            allowed.forEach(k => { if (input[k] !== undefined) updates[k] = input[k]; });
+            const { error } = await gcr().from('entity').update(updates).eq('id', entityId);
+            if (error) return { error: error.message };
+            return { success: true, updated: Object.keys(updates).filter(k => k !== 'updated_at') };
         }
         if (name === 'update_memory') {
             const { error } = await supabase
