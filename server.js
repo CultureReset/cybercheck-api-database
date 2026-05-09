@@ -141,6 +141,12 @@ app.use('/api/integrations/fareharbor', require('./routes/fareharbor'));
 // Photographer booking — sessions, schedule, slots, deposit, model release, gallery delivery
 app.use('/api/photographer', require('./routes/photographer'));
 
+// Fishing charter booking — listings, departure times, deposit, waiver, gallery delivery
+app.use('/api/charter', require('./routes/charter'));
+
+// Boat rental booking — boats, hourly/half-day/full-day/multi-day, deposit, waiver
+app.use('/api/boat-rental', require('./routes/boat-rental'));
+
 // Availability search engine — queries across all connected platforms
 app.use('/api/availability', require('./routes/availability'));
 
