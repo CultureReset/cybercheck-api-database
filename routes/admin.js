@@ -175,38 +175,91 @@ router.post('/businesses', async (req, res) => {
         contact_email: ownerEmail.toLowerCase()
     });
 
-    // Auto-create GCR entity and link via legacy_site_id so write-through sync works
+    // Create GCR entity for launching-gcr display
     try {
         const slug = finalSubdomain;
-        const { data: entity } = await gcrDb.from('entity').insert({
+        const { data: entity, error: entityError } = await gcrDb.from('entity').insert({
             name: businessName,
             slug,
             entity_type: 'business',
             entity_subtype: businessType,
+            is_active: skipOnboarding ? true : false,
             legacy_site_id: business.site_id,
         }).select('id').single();
+
         if (entity) {
-            await supabase.from('businesses').update({ metadata: { gcr_entity_id: entity.id } }).eq('site_id', business.site_id);
+            // Store GCR entity_id in profiles DB metadata for sync
+            await supabase.from('businesses').update({
+                metadata: { gcr_entity_id: entity.id }
+            }).eq('site_id', business.site_id);
             business.gcr_entity_id = entity.id;
+        } else if (entityError) {
+            console.error('GCR entity creation error:', entityError.message);
         }
-    } catch(e) { /* non-fatal — business still created */ }
+    } catch(e) {
+        console.error('GCR entity creation failed:', e.message);
+    }
 
     res.status(201).json({ business, user: { id: user.id, email: user.email, name: user.name } });
 });
 
 router.put('/businesses/:id', async (req, res) => {
+    const siteId = req.params.id;
     const updates = { ...req.body, updated_at: new Date().toISOString() };
     delete updates.site_id;
 
-    const { data, error } = await supabase
-        .from('businesses')
-        .update(updates)
-        .eq('site_id', req.params.id)
-        .select()
-        .single();
+    try {
+        // Get GCR entity_id from profiles DB metadata
+        const { data: biz } = await supabase
+            .from('businesses')
+            .select('metadata')
+            .eq('site_id', siteId)
+            .single();
 
-    if (error) return res.status(500).json({ error: error.message });
-    res.json(data);
+        if (biz?.metadata?.gcr_entity_id) {
+            // Map profiles DB fields to GCR entity fields
+            const gcrUpdates = {
+                name: updates.name,
+                subtitle: updates.tagline,
+                entity_subtype: updates.type,
+                description: updates.description,
+                phone: updates.phone,
+                email: updates.email,
+                website_url: updates.website,
+                address_line_1: updates.address,
+                city: updates.city,
+                state: updates.state,
+                zip: updates.zip,
+                icon: updates.emoji,
+                hh_days: updates.hh_days,
+                hh_start: updates.hh_start,
+                hh_end: updates.hh_end,
+                price_range: updates.price_range,
+                featured: updates.featured,
+                updated_at: new Date().toISOString()
+            };
+
+            // Update GCR entity
+            await gcrDb
+                .from('entity')
+                .update(gcrUpdates)
+                .eq('id', biz.metadata.gcr_entity_id);
+        }
+
+        // Also update profiles DB for account/billing data
+        const { data, error } = await supabase
+            .from('businesses')
+            .update(updates)
+            .eq('site_id', siteId)
+            .select()
+            .single();
+
+        if (error) return res.status(500).json({ error: error.message });
+        res.json(data);
+    } catch (err) {
+        console.error('Business update error:', err.message);
+        res.status(500).json({ error: err.message });
+    }
 });
 
 router.delete('/businesses/:id', adminRequired, async (req, res) => {
