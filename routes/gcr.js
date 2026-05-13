@@ -22,69 +22,7 @@ router.use((req, res, next) => {
 // Old DB no longer used for GCR public pages
 // ============================================
 router.get('/businesses', async (req, res) => {
-    // Redirect to entities endpoint — old DB disabled
     return res.redirect('/api/gcr/entities?' + new URLSearchParams(req.query).toString());
-    /* DISABLED — old DB code below */
-    let query = supabase
-        .from('businesses')
-        .select(`site_id, name, type, subdomain, domain, logo_url, cover_url, status,
-            emoji, tagline, featured, tags, price_range, rating, review_count,
-            happy_hour, kids_friendly, pet_friendly, live_music, outdoor, reservations,
-            alcohol, booking_required, delivery, takeout, sort_order, gcr_listed, gcr_verified,
-            subcategory, waterfront, beachfront,
-            site_content(address, city, state, zip, lat, lng, hours, theme_color, seo_description, about_text, contact_phone, website_url, social_links)`)
-        .eq('status', 'active')
-        .eq('gcr_listed', true)
-        .order('featured', { ascending: false })
-        .order('sort_order', { ascending: true })
-        .order('name', { ascending: true });
-
-    if (req.query.type || req.query.category) query = query.eq('type', req.query.type || req.query.category);
-    if (req.query.subcategory)                query = query.eq('subcategory', req.query.subcategory);
-    if (req.query.search)                     query = query.ilike('name', `%${req.query.search}%`);
-    if (req.query.featured === 'true')        query = query.eq('featured', true);
-    if (req.query.pet_friendly === 'true')    query = query.eq('pet_friendly', true);
-    if (req.query.kids_friendly === 'true')   query = query.eq('kids_friendly', true);
-    if (req.query.live_music === 'true')      query = query.eq('live_music', true);
-    if (req.query.waterfront === 'true')      query = query.eq('waterfront', true);
-
-    const limit = Math.min(parseInt(req.query.limit) || 200, 500);
-    const offset = parseInt(req.query.offset) || 0;
-    query = query.range(offset, offset + limit - 1);
-
-    const { data, error } = await query;
-    if (error) return res.status(500).json({ error: error.message });
-
-    const businesses = (data || []).map(b => {
-        const content = b.site_content || {};
-        delete b.site_content;
-        return {
-            ...b,
-            category:    b.type,        // alias for GCR compatibility
-            subcategory: b.subcategory || null,
-            id:          b.site_id,
-            slug:        b.subdomain || b.site_id,
-            address: content.address || '',
-            city: content.city || '',
-            state: content.state || '',
-            zip: content.zip || '',
-            lat: content.lat || null,
-            lng: content.lng || null,
-            hours: content.hours || {},
-            phone: content.contact_phone || '',
-            website: content.website_url || '',
-            description: content.about_text || content.seo_description || '',
-            social: content.social_links || {},
-            priceRange: b.price_range || '',
-            reviewCount: b.review_count || 0,
-            happyHour: b.happy_hour === true || b.happy_hour === 'true',
-            kidsFriendly: b.kids_friendly || false,
-            petFriendly: b.pet_friendly || false,
-            liveMusic: b.live_music || false,
-        };
-    });
-
-    res.json({ businesses, total: businesses.length, limit, offset });
 });
 
 // ============================================
@@ -651,29 +589,31 @@ router.get('/businesses/:slug', async (req, res) => {
 });
 
 // ============================================
-// GET /api/gcr/business/:id — Single business detail (by UUID — legacy)
+// GET /api/gcr/business/:id — Single business detail (from GCR database)
 // ============================================
 router.get('/business/:id', async (req, res) => {
-    const { data: business } = await supabase
-        .from('businesses')
-        .select('site_id, name, type, subdomain, domain, logo_url, cover_url')
-        .eq('site_id', req.params.id)
-        .eq('status', 'active')
+    const entityId = req.params.id;
+
+    const { data: entity } = await gcrDb
+        .from('entity')
+        .select('id, name, slug, icon, description, address_line_1, city, state, zip, phone, website_url, hero_image_url, entity_subtype, price_range, rating, review_count')
+        .eq('id', entityId)
+        .eq('is_active', true)
         .single();
 
-    if (!business) {
+    if (!entity) {
         return res.status(404).json({ error: 'Business not found' });
     }
 
-    // Get all public data in parallel
-    const [content, services, reviews, faqs, staff, specials, fleet] = await Promise.all([
-        supabase.from('site_content').select('*').eq('site_id', req.params.id).single(),
-        supabase.from('services').select('id, name, description, price, duration_minutes, image_url, category').eq('site_id', req.params.id).eq('available', true).order('sort_order'),
-        supabase.from('reviews').select('id, customer_name, rating, text, created_at').eq('site_id', req.params.id).eq('status', 'published').order('created_at', { ascending: false }),
-        supabase.from('faqs').select('id, question, answer').eq('site_id', req.params.id).order('sort_order'),
-        supabase.from('staff').select('name, role').eq('site_id', req.params.id).eq('active', true),
-        supabase.from('specials').select('name, description, discount_text').eq('site_id', req.params.id).eq('active', true),
-        supabase.from('fleet_types').select('id, name, description, specs, image_url').eq('site_id', req.params.id).eq('available', true).order('sort_order')
+    // Get all public data from GCR in parallel
+    const [services, reviews, faqs, staff, specials, hours, photos] = await Promise.all([
+        gcrDb.from('services').select('id, name, description, price, duration_minutes').eq('entity_id', entityId).eq('is_available', true).order('sort_order'),
+        gcrDb.from('reviews').select('id, customer_name, rating, text, created_at').eq('entity_id', entityId).eq('status', 'published').order('created_at', { ascending: false }),
+        gcrDb.from('faqs').select('id, question, answer').eq('entity_id', entityId).order('sort_order'),
+        gcrDb.from('staff').select('name, position, bio, photo_url, phone, email').eq('entity_id', entityId).eq('active', true),
+        gcrDb.from('entity_specials').select('special_name, description, discount_text').eq('entity_id', entityId).eq('is_active', true),
+        gcrDb.from('entity_hours').select('day_of_week, open_time, close_time, is_closed').eq('entity_id', entityId).order('day_of_week'),
+        gcrDb.from('entity_photos').select('image_url, caption').eq('entity_id', entityId).order('sort_order')
     ]);
 
     const reviewsList = reviews.data || [];
@@ -682,8 +622,7 @@ router.get('/business/:id', async (req, res) => {
         : 0;
 
     res.json({
-        ...business,
-        ...(content.data || {}),
+        ...entity,
         services: services.data || [],
         reviews: reviewsList,
         avg_rating: Math.round(avgRating * 10) / 10,
@@ -691,7 +630,8 @@ router.get('/business/:id', async (req, res) => {
         faqs: faqs.data || [],
         staff: staff.data || [],
         specials: specials.data || [],
-        fleet: fleet.data || []
+        hours: hours.data || [],
+        photos: photos.data || []
     });
 });
 

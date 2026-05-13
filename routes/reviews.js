@@ -8,8 +8,10 @@ const express = require('express');
 const crypto  = require('crypto');
 const { authRequired } = require('../middleware/auth');
 const supabase = require('../db');
+const getGcrDb = require('../gcr-db');
 
 const router = express.Router();
+const gcrDb = getGcrDb();
 
 function getSms() { return require('../utils/sms').sendSms; }
 
@@ -352,11 +354,11 @@ router.post('/inbound-sms', express.urlencoded({ extended: false }), async (req,
             await sendSms(from, `Thank you so much! 🙏 Your review has been saved on our platform. Future visitors will see your experience when choosing where to go. We appreciate you!`, request.site_id, 'review_thanks');
         } else {
             await sendSms(from, `Thank you for being honest — we really appreciate it. Your feedback goes directly to the owner and won't be shown publicly. We'll work to make it right. 🙏`, request.site_id, 'review_thanks');
-            // Notify business owner of critical review
-            const { data: biz } = await supabase.from('businesses').select('owner_phone').eq('site_id', request.site_id).maybeSingle();
-            if (biz?.owner_phone) {
+            // Notify business owner of critical review from GCR database
+            const { data: biz } = await gcrDb.from('entity').select('phone').eq('id', request.site_id).maybeSingle();
+            if (biz?.phone) {
                 const notif = `⚠️ New ${rating}★ internal review from ${request.customer_name || from}:\n\n"${text || '(no text)'}"\n\nVisit: ${request.visit_date || 'recent'}${request.table_number ? ' · Table ' + request.table_number : ''}`;
-                await sendSms(biz.owner_phone, notif, request.site_id, 'review_alert').catch(() => {});
+                await sendSms(biz.phone, notif, request.site_id, 'review_alert').catch(() => {});
             }
         }
     }
@@ -395,13 +397,13 @@ router.post('/submit', async (req, res) => {
         status: 'responded', responded_at: new Date().toISOString()
     }).eq('id', request.id);
 
-    // Alert owner on critical review (1-3 stars)
+    // Alert owner on critical review (1-3 stars) from GCR database
     if (parseInt(rating) <= 3) {
         const sendSms = getSms();
-        const { data: biz } = await supabase.from('businesses').select('owner_phone').eq('site_id', request.site_id).maybeSingle();
-        if (biz?.owner_phone) {
+        const { data: biz } = await gcrDb.from('entity').select('phone').eq('id', request.site_id).maybeSingle();
+        if (biz?.phone) {
             const notif = `⚠️ New ${rating}★ internal review from ${request.customer_name || request.customer_phone}:\n\n"${text || '(no text)'}"\n\nVisit: ${request.visit_date || 'recent'}`;
-            sendSms(biz.owner_phone, notif, request.site_id, 'review_alert').catch(() => {});
+            sendSms(biz.phone, notif, request.site_id, 'review_alert').catch(() => {});
         }
     }
 
@@ -420,8 +422,8 @@ router.get('/request/:token', async (req, res) => {
         .maybeSingle();
     if (!data) return res.status(404).json({ error: 'Not found' });
 
-    // Get business name
-    const { data: biz } = await supabase.from('businesses').select('name').eq('site_id', data.site_id).maybeSingle();
+    // Get business name from GCR database
+    const { data: biz } = await gcrDb.from('entity').select('name').eq('id', data.site_id).maybeSingle();
     res.json({ ...data, business_name: biz?.name || 'Us' });
 });
 
@@ -441,7 +443,7 @@ router.get('/public/:site_id', async (req, res) => {
             .eq('status', 'published')
             .order('created_at', { ascending: false })
             .limit(200),
-        supabase.from('businesses').select('name, logo_url, cover_url').eq('site_id', site_id).maybeSingle(),
+        gcrDb.from('entity').select('name, hero_image_url').eq('id', site_id).maybeSingle(),
     ]);
 
     const reviews = reviewsRes.data || [];
@@ -453,7 +455,7 @@ router.get('/public/:site_id', async (req, res) => {
     reviews.forEach(r => { dist[r.rating] = (dist[r.rating] || 0) + 1; });
 
     res.json({
-        business: { name: biz.name || 'Business', logo_url: biz.logo_url || null, cover_url: biz.cover_url || null },
+        business: { name: biz.name || 'Business', logo_url: biz.hero_image_url || null, cover_url: biz.hero_image_url || null },
         stats: { total, avg: Math.round(avg * 10) / 10, distribution: dist },
         reviews,
     });
