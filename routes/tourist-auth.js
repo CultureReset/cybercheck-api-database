@@ -13,15 +13,34 @@ const express = require('express');
 const crypto  = require('crypto');
 const { createClient } = require('@supabase/supabase-js');
 const { sendEmail } = require('../utils/email');
+const mainDb = require('../db');
 
 const router = express.Router();
 
+// Cached admin client — avoids creating a new instance per request
+let _adminClient = null;
 function admin() {
-    return createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_KEY);
+    if (!_adminClient) _adminClient = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_KEY);
+    return _adminClient;
 }
 
 function makeCode() {
     return String(Math.floor(100000 + Math.random() * 900000));
+}
+
+// Lookup user by email using admin API (scales to any number of users)
+async function getUserByEmail(email) {
+    const sb = admin();
+    // Supabase admin v2: filter by email directly
+    const { data, error } = await sb.auth.admin.listUsers({ perPage: 1, page: 1, filter: `email.eq.${email}` });
+    if (error || !data?.users?.length) {
+        // fallback: try fetching via service role getUserByEmail if available
+        try {
+            const { data: d2 } = await sb.auth.admin.getUserByEmail(email);
+            return d2?.user || null;
+        } catch { return null; }
+    }
+    return data.users[0] || null;
 }
 
 function codeEmailHtml({ code }) {
@@ -62,8 +81,7 @@ router.post('/signup', async (req, res) => {
     const code = makeCode();
     const expiresAt = new Date(Date.now() + 24 * 3600 * 1000).toISOString();
 
-    const { data: list } = await sb.auth.admin.listUsers({ perPage: 1000 });
-    const existing = list?.users?.find(u => (u.email || '').toLowerCase() === email);
+    const existing = await getUserByEmail(email);
 
     if (existing) {
         if (existing.email_confirmed_at) return res.status(409).json({ error: 'Email already registered. Try signing in instead.' });
@@ -99,8 +117,7 @@ router.post('/verify', async (req, res) => {
     if (!code || !email) return res.status(400).json({ error: 'Email and code required' });
 
     const sb = admin();
-    const { data: list } = await sb.auth.admin.listUsers({ perPage: 1000 });
-    const user = list?.users?.find(u => (u.email || '').toLowerCase() === email);
+    const user = await getUserByEmail(email);
     if (!user) return res.status(400).json({ error: 'No account found for that email' });
 
     if (user.email_confirmed_at) return res.json({ success: true });
@@ -116,6 +133,10 @@ router.post('/verify', async (req, res) => {
         user_metadata: { ...stored, verification_code: null, verification_expires_at: null, verified_at: new Date().toISOString() },
     });
     if (error) return res.status(500).json({ error: error.message });
+
+    // Seed a minimal profile row so the account exists even if user drops off before setup
+    await mainDb.from('tourist_profiles')
+        .upsert({ user_id: user.id, setup_complete: false }, { onConflict: 'user_id', ignoreDuplicates: true });
 
     res.json({ success: true });
 });
@@ -168,8 +189,7 @@ router.post('/resend', async (req, res) => {
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return res.status(400).json({ error: 'Invalid email' });
 
     const sb = admin();
-    const { data: list } = await sb.auth.admin.listUsers({ perPage: 1000 });
-    const user = list?.users?.find(u => (u.email || '').toLowerCase() === email);
+    const user = await getUserByEmail(email);
     if (!user) return res.status(404).json({ error: 'No account with that email' });
     if (user.email_confirmed_at) return res.json({ success: true, message: 'Already confirmed — try signing in.' });
 
@@ -197,8 +217,7 @@ router.post('/forgot-password', async (req, res) => {
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return res.status(400).json({ error: 'Invalid email' });
 
     const sb = admin();
-    const { data: list } = await sb.auth.admin.listUsers({ perPage: 1000 });
-    const user = list?.users?.find(u => (u.email || '').toLowerCase() === email);
+    const user = await getUserByEmail(email);
     if (!user) return res.json({ success: true, message: 'If that email is registered, a reset link was sent.' });
 
     const token = crypto.randomBytes(24).toString('hex');
@@ -241,8 +260,7 @@ router.post('/reset-password', async (req, res) => {
     if (password.length < 6) return res.status(400).json({ error: 'Password must be at least 6 characters' });
 
     const sb = admin();
-    const { data: list } = await sb.auth.admin.listUsers({ perPage: 1000 });
-    const user = list?.users?.find(u => (u.email || '').toLowerCase() === email);
+    const user = await getUserByEmail(email);
     if (!user) return res.status(400).json({ error: 'Invalid reset link' });
 
     const md = user.user_metadata || {};

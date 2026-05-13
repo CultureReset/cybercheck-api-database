@@ -899,21 +899,15 @@ router.put('/businesses/:id/full', async (req, res) => {
         }
     }
 
-    // ── 3. Amenity tags (kids_friendly, pet_friendly etc.) ────────────
-    if (hours) {
-        const amenityMap = {
-            kids_friendly: 'kids_friendly', pet_friendly: 'pet_friendly',
-            live_music: 'live_music', outdoor_seating: 'outdoor_seating',
-            reservations: 'reservations', delivery: 'delivery',
-            takeout: 'takeout', alcohol: 'full_bar',
-        };
-        for (const [field, tag] of Object.entries(amenityMap)) {
-            if (hours[field] === undefined) continue;
-            if (hours[field]) {
-                await gcrDb.from('entity_tags').upsert({ entity_id: entityId, tag, tag_category: 'amenity' }, { onConflict: 'entity_id,tag' });
-            } else {
-                await gcrDb.from('entity_tags').delete().eq('entity_id', entityId).eq('tag', tag);
-            }
+    // ── 3. Custom tags — full replace of amenity tags from admin editor ──
+    if (Array.isArray(body.custom_tags)) {
+        const incoming = body.custom_tags.map(t => t.toLowerCase().replace(/[\s\-]+/g, '_')).filter(Boolean);
+        // Delete all existing amenity/search tags for this entity, then re-insert
+        await gcrDb.from('entity_tags').delete().eq('entity_id', entityId).in('tag_category', ['amenity', 'search']);
+        if (incoming.length) {
+            await gcrDb.from('entity_tags').insert(
+                incoming.map(tag => ({ entity_id: entityId, tag, tag_category: 'amenity' }))
+            );
         }
     }
 
@@ -3038,8 +3032,63 @@ router.get('/gcr/business-data/:siteId', async (req, res) => {
         gcrDb.from('qa_pairs').select('*').eq('entity_id', entityId),
         gcrDb.from('business_media').select('*').eq('entity_id', entityId).order('sort_order'),
     ]);
+
+    const entity = entityRes.data || {};
+    const tagSet = new Set((tagsRes.data || []).map(t => t.tag));
+
+    // Map entity_hours rows to content.hours_mon/tue/... format for frontend form fields
+    const hoursMap = {};
+    const dayAbbr = { monday:'mon', tuesday:'tue', wednesday:'wed', thursday:'thu', friday:'fri', saturday:'sat', sunday:'sun' };
+    for (const h of (hoursRes.data || [])) {
+        const abbr = dayAbbr[(h.day_of_week || '').toLowerCase()];
+        if (abbr) hoursMap['hours_' + abbr] = h.is_closed ? 'closed' : `${h.open_time || ''}-${h.close_time || ''}`.replace(/^-$/, '');
+    }
+
+    // business object: GCR entity fields mapped to legacy field names the frontend expects
+    const business = {
+        ...entity,
+        type:       entity.entity_subtype,
+        status:     entity.is_active ? 'active' : 'inactive',
+        emoji:      entity.icon,
+        subdomain:  entity.slug,
+        instagram:  entity.social_instagram,
+        facebook:   entity.social_facebook,
+        tiktok:     entity.social_tiktok,
+        gcr_listed: entity.is_active,
+    };
+
+    // content object: GCR fields mapped to legacy site_content field names the frontend reads
+    const content = {
+        tagline:       entity.subtitle,
+        price_range:   entity.price_range,
+        seo_description: entity.description,
+        address:       entity.address_line_1,
+        city:          entity.city,
+        state:         entity.state,
+        zip:           entity.zip,
+        contact_phone: entity.phone,
+        contact_email: entity.email,
+        website_url:   entity.website_url,
+        ...hoursMap,
+        kids_friendly:    tagSet.has('kids_friendly'),
+        pet_friendly:     tagSet.has('pet_friendly'),
+        live_music:       tagSet.has('live_music'),
+        outdoor_seating:  tagSet.has('outdoor_seating'),
+        reservations:     tagSet.has('reservations'),
+        delivery:         tagSet.has('delivery'),
+        takeout:          tagSet.has('takeout'),
+        alcohol:          tagSet.has('full_bar'),
+        happy_hour: {
+            days:  entity.hh_days,
+            start: entity.hh_start,
+            end:   entity.hh_end,
+            items: hhItemsRes.data || [],
+        },
+    };
+
     res.json({
-        business:      entityRes.data    || {},
+        business,
+        content,
         menu_sections: menuSecRes.data   || [],
         menu:          menuItemsRes.data || [],
         drink_sections:drinkSecRes.data  || [],
@@ -6727,8 +6776,16 @@ Rules:
 - After saving, tell the user what was saved and ask if there's anything else`;
 
 router.post('/ai-chat-organizer', adminRequired, async (req, res) => {
-    const { messages = [], site_id } = req.body;
-    if (!site_id) return res.status(400).json({ error: 'site_id required' });
+    const { messages = [], site_id, entity_id } = req.body;
+    if (!site_id && !entity_id) return res.status(400).json({ error: 'entity_id required' });
+
+    // Resolve GCR entity_id — prefer explicit entity_id, fallback to legacy_site_id lookup
+    let entityId = entity_id;
+    if (!entityId && site_id) {
+        const { data: ent } = await gcrDb.from('entity').select('id').eq('legacy_site_id', site_id).maybeSingle();
+        entityId = ent?.id || null;
+    }
+    if (!entityId) return res.status(400).json({ error: 'No GCR entity found for this business. Link it first.' });
 
     const tools = [
         {
@@ -6834,72 +6891,80 @@ router.post('/ai-chat-organizer', adminRequired, async (req, res) => {
 
     async function executeTool(name, args) {
         if (name === 'save_menu_items') {
-            let count = 0;
+            let foodCount = 0, drinkCount = 0, hhCount = 0;
             for (const item of (args.items || [])) {
-                const { error } = await supabase.from('menu_items').insert({
-                    site_id,
-                    name: item.name,
-                    price: parseFloat(item.price) || 0,
-                    description: item.description || '',
-                    category: item.category || 'Menu Items',
-                    item_type: item.item_type || 'food',
-                    modifiers: item.modifiers || [],
-                    tags: []
-                });
-                if (!error) count++;
+                const itype = item.item_type || 'food';
+                if (itype === 'drink') {
+                    const secName = item.category || 'Drinks';
+                    let { data: sec } = await gcrDb.from('drink_sections').select('id').eq('entity_id', entityId).eq('section_name', secName).maybeSingle();
+                    if (!sec) { const r = await gcrDb.from('drink_sections').insert({ entity_id: entityId, section_name: secName }).select('id').single(); sec = r.data; }
+                    const { error } = await gcrDb.from('drink_items').insert({ entity_id: entityId, drink_section_id: sec?.id || null, item_name: item.name, price: parseFloat(item.price) || null, description: item.description || null, is_available: true });
+                    if (!error) drinkCount++;
+                } else if (itype === 'happy_hour') {
+                    let { data: sec } = await gcrDb.from('happy_hour_sections').select('id').eq('entity_id', entityId).maybeSingle();
+                    if (!sec) { const r = await gcrDb.from('happy_hour_sections').insert({ entity_id: entityId, section_name: 'Happy Hour' }).select('id').single(); sec = r.data; }
+                    const { error } = await gcrDb.from('happy_hour_items').insert({ entity_id: entityId, hh_section_id: sec?.id || null, item_name: item.name, hh_price: parseFloat(item.price) || null, description: item.description || null });
+                    if (!error) hhCount++;
+                } else {
+                    const secName = item.category || 'Menu Items';
+                    let { data: sec } = await gcrDb.from('menu_sections').select('id').eq('entity_id', entityId).eq('section_name', secName).maybeSingle();
+                    if (!sec) { const r = await gcrDb.from('menu_sections').insert({ entity_id: entityId, section_name: secName }).select('id').single(); sec = r.data; }
+                    const { error } = await gcrDb.from('menu_items').insert({ entity_id: entityId, menu_section_id: sec?.id || null, item_name: item.name, price: parseFloat(item.price) || null, description: item.description || null, is_available: true });
+                    if (!error) foodCount++;
+                }
             }
-            saved.push({ type: 'menu_items', count });
-            return `Saved ${count} menu items`;
+            const total = foodCount + drinkCount + hhCount;
+            saved.push({ type: 'menu_items', count: total });
+            return `Saved ${total} items to GCR (${foodCount} food, ${drinkCount} drinks, ${hhCount} happy hour)`;
         }
         if (name === 'save_specials') {
             let count = 0;
             for (const s of (args.specials || [])) {
-                const { error } = await supabase.from('specials').insert({
-                    site_id,
+                const { error } = await gcrDb.from('entity_specials').insert({
+                    entity_id: entityId,
                     special_name: s.special_name,
-                    discount_text: s.discount_text || '',
-                    description: s.description || '',
-                    days: s.days || '',
+                    discount_text: s.discount_text || null,
+                    description: s.description || null,
+                    days: s.days || null,
                     start_time: s.start_time || null,
                     end_time: s.end_time || null,
-                    active: true
+                    is_active: true
                 });
                 if (!error) count++;
             }
             saved.push({ type: 'specials', count });
-            return `Saved ${count} specials`;
+            return `Saved ${count} specials to GCR`;
         }
         if (name === 'save_events') {
             let count = 0;
             for (const e of (args.events || [])) {
-                const { error } = await supabase.from('events').insert({
-                    site_id,
-                    name: e.name,
-                    description: e.description || '',
+                const { error } = await gcrDb.from('entity_events').insert({
+                    entity_id: entityId,
+                    event_name: e.name,
+                    description: e.description || null,
                     event_date: e.event_date || null,
                     start_time: e.start_time || null,
-                    end_time: e.end_time || null
+                    end_time: e.end_time || null,
+                    is_active: true
                 });
                 if (!error) count++;
             }
             saved.push({ type: 'events', count });
-            return `Saved ${count} events`;
+            return `Saved ${count} events to GCR`;
         }
         if (name === 'update_business') {
-            const updates = {};
-            if (args.name) updates.name = args.name;
-            if (args.tagline) updates.tagline = args.tagline;
-            if (args.description) updates.description = args.description;
-            const meta = {};
-            if (args.hours) meta.hours = args.hours;
-            if (args.phone) meta.phone = args.phone;
-            if (args.address) meta.address = args.address;
-            if (Object.keys(meta).length) updates.metadata = meta;
-            if (Object.keys(updates).length) {
-                await supabase.from('businesses').update(updates).eq('site_id', site_id);
+            const upd = {};
+            if (args.name)        upd.name          = args.name;
+            if (args.tagline)     upd.subtitle       = args.tagline;
+            if (args.description) upd.description    = args.description;
+            if (args.phone)       upd.phone          = args.phone;
+            if (args.address)     upd.address_line_1 = args.address;
+            if (Object.keys(upd).length) {
+                upd.updated_at = new Date().toISOString();
+                await gcrDb.from('entity').update(upd).eq('id', entityId);
             }
-            saved.push({ type: 'business', fields: Object.keys(updates) });
-            return `Updated business profile`;
+            saved.push({ type: 'business', fields: Object.keys(upd) });
+            return `Updated business profile in GCR`;
         }
         return 'Unknown tool';
     }
