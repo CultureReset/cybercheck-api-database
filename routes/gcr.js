@@ -1008,22 +1008,36 @@ router.post('/chat', async (req, res) => {
     const apiKey = settings.chat_api_key || process.env.ANTHROPIC_API_KEY || process.env.OPENAI_API_KEY;
     if (!apiKey) return res.json({ reply: "AI is being set up — check back soon!" });
 
-    const { data: businesses } = await supabase
-        .from('businesses')
-        .select(`name, type, subdomain, tagline, area, tags, happy_hour, kids_friendly, pet_friendly, live_music, outdoor, alcohol, price_range, rating, site_content(contact_phone, address, city, hours, website_url)`)
-        .eq('gcr_listed', true).eq('status', 'active').order('name');
+    const { data: entities } = await gcrDb
+        .from('entity')
+        .select('id, name, entity_subtype, slug, subtitle, city, state, price_range, rating, hh_days, hh_start, hh_end, phone, website_url, address_line_1')
+        .eq('is_active', true)
+        .order('name')
+        .limit(80);
 
-    const bizContext = (businesses || []).map(b => {
-        const c = b.site_content || {};
+    // Also pull tags for each entity to build amenity flags
+    const entityIds = (entities || []).map(e => e.id).filter(Boolean);
+    let tagsByEntity = {};
+    if (entityIds.length) {
+        const { data: allTags } = await gcrDb.from('entity_tags').select('entity_id, tag').in('entity_id', entityIds);
+        (allTags || []).forEach(t => {
+            if (!tagsByEntity[t.entity_id]) tagsByEntity[t.entity_id] = [];
+            tagsByEntity[t.entity_id].push(t.tag);
+        });
+    }
+
+    const bizContext = (entities || []).map(e => {
+        const tags = tagsByEntity[e.id] || [];
         const flags = [
-            b.happy_hour    === true && 'happy hour',
-            b.live_music    === true && 'live music',
-            b.kids_friendly === true && 'kid-friendly',
-            b.pet_friendly  === true && 'pet-friendly',
-            b.outdoor       === true && 'outdoor seating',
-            b.alcohol       === true && 'full bar',
+            e.hh_days && 'happy hour',
+            tags.includes('live_music') && 'live music',
+            tags.includes('kids_friendly') && 'kid-friendly',
+            tags.includes('pet_friendly') && 'pet-friendly',
+            tags.includes('outdoor_seating') && 'outdoor seating',
+            tags.includes('full_bar') && 'full bar',
         ].filter(Boolean).join(', ');
-        return `• ${b.name} [${b.type}] ${b.area || ''} — ${b.tagline || ''} | ${flags} | ${b.price_range || ''}`;
+        const location = [e.city, e.state].filter(Boolean).join(', ');
+        return `• ${e.name} [${e.entity_subtype || ''}] ${location} — ${e.subtitle || ''} | ${flags} | ${e.price_range || ''}`;
     }).join('\n');
 
     const systemPrompt = `You are the Gulf Coast Concierge — a friendly, enthusiastic local who's lived on the Alabama Gulf Coast your whole life. You talk like a real person, not a search engine. Think of yourself as the tourist's best friend who knows every spot.
