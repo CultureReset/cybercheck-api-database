@@ -96,6 +96,7 @@ router.get('/events', async (req, res) => {
 // GET /api/gcr/happy-hours — entities with HH data from any source
 // ============================================
 router.get('/happy-hours', async (req, res) => {
+  try {
     // Get entity IDs from actual HH data only — NOT tags (tags are unreliable)
     const [secRes, specialRes, hhDaysRes, hhTableRes] = await Promise.all([
         gcrDb.from('happy_hour_sections').select('entity_id').limit(1000).catch(() => ({ data: [] })),
@@ -198,6 +199,10 @@ router.get('/happy-hours', async (req, res) => {
     }));
 
     res.json(results);
+  } catch (err) {
+    console.error('happy-hours error:', err.message);
+    res.status(500).json({ error: err.message });
+  }
 });
 
 // ============================================
