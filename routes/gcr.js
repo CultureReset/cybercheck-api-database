@@ -98,11 +98,12 @@ router.get('/events', async (req, res) => {
 router.get('/happy-hours', async (req, res) => {
   try {
     // Get entity IDs from actual HH data only — NOT tags (tags are unreliable)
+    const safe = q => Promise.resolve(q).catch(() => ({ data: [] }));
     const [secRes, specialRes, hhDaysRes, hhTableRes] = await Promise.all([
-        gcrDb.from('happy_hour_sections').select('entity_id').limit(1000).catch(() => ({ data: [] })),
-        gcrDb.from('entity_specials').select('entity_id').eq('special_type', 'happy_hour').eq('is_active', true).catch(() => ({ data: [] })),
-        gcrDb.from('entity').select('id').not('hh_days', 'is', null).eq('is_active', true).catch(() => ({ data: [] })),
-        gcrDb.from('entity_happy_hours').select('entity_id').catch(() => ({ data: [] })),
+        safe(gcrDb.from('happy_hour_sections').select('entity_id').limit(1000)),
+        safe(gcrDb.from('entity_specials').select('entity_id').eq('special_type', 'happy_hour').eq('is_active', true)),
+        safe(gcrDb.from('entity').select('id').not('hh_days', 'is', null).eq('is_active', true)),
+        safe(gcrDb.from('entity_happy_hours').select('entity_id')),
     ]);
 
     // Only entities with real HH data
