@@ -1869,7 +1869,13 @@ router.get('/entity/:slug', async (req, res) => {
         entity,
         features:      featuresRes.data   || [],
         perfect_for:   perfectForRes.data || [],
-        tags:          tagsRes.data       || [],
+        tags:          (tagsRes.data || []).map(r => {
+            try {
+                const p = JSON.parse(r.tag);
+                if (p && typeof p === 'object' && p.tag) return { ...r, tag: p.tag, tag_category: p.tag_category || r.tag_category };
+            } catch(e) {}
+            return r;
+        }),
         sections:      sectionsWithContent,
         // New dedicated tables
         hours:         hoursRes.data      || [],
