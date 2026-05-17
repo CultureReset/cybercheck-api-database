@@ -9,6 +9,18 @@ const gcr = () => getGcrDb();
 
 const router = express.Router();
 
+// Upload a base64 image to the GCR entity-media Supabase Storage bucket
+async function uploadEntityMedia(base64, mime) {
+    const ext = (mime || 'image/jpeg').split('/')[1]?.replace('jpeg','jpg') || 'jpg';
+    const fileName = `chat-uploads/${Date.now()}-${Math.random().toString(36).slice(2,9)}.${ext}`;
+    const buffer = Buffer.from(base64, 'base64');
+    const gcrDb = gcr();
+    const { error } = await gcrDb.storage.from('entity-media').upload(fileName, buffer, { contentType: mime || 'image/jpeg', upsert: false });
+    if (error) throw new Error(`Storage upload failed: ${error.message}`);
+    const { data } = gcrDb.storage.from('entity-media').getPublicUrl(fileName);
+    return data.publicUrl;
+}
+
 // ── GCR write-through ────────────────────────────────────────────────────────
 // When data is saved to the main DB via site_id, also mirror it to the GCR
 // entity if one exists with a matching legacy_site_id. Fire-and-forget.
@@ -352,7 +364,24 @@ router.put('/hours', async (req, res) => {
         .single();
 
     if (error) return res.status(500).json({ error: error.message });
-    // TODO: Emit event: business.hours.updated
+
+    // Sync to GCR entity_hours
+    const entityId = await resolveEntityId(req);
+    if (entityId && hours && typeof hours === 'object') {
+        const DAYS = ['monday','tuesday','wednesday','thursday','friday','saturday','sunday'];
+        const rows = DAYS.map(day => {
+            const h = hours[day] || {};
+            return {
+                entity_id: entityId,
+                day_of_week: day,
+                open_time: h.open || h.open_time || null,
+                close_time: h.close || h.close_time || null,
+                is_closed: h.closed || h.is_closed || false,
+            };
+        });
+        await gcr().from('entity_hours').upsert(rows, { onConflict: 'entity_id,day_of_week' }).catch(() => {});
+    }
+
     res.json(data.hours);
 });
 
@@ -437,9 +466,9 @@ function _gcrPhotoToAdmin(p) {
 }
 
 router.get('/gallery', async (req, res) => {
-    if (req.role === 'admin') {
-        const e = await requireEntity(req, res); if (!e) return;
-        const { data, error } = await gcr().from('entity_photos').select('*').eq('entity_id', e).order('sort_order', { ascending: true });
+    const entityId = await resolveEntityId(req);
+    if (entityId) {
+        const { data, error } = await gcr().from('entity_photos').select('*').eq('entity_id', entityId).order('sort_order', { ascending: true });
         if (error) return res.status(500).json({ error: error.message });
         return res.json((data || []).map(_gcrPhotoToAdmin));
     }
@@ -449,10 +478,10 @@ router.get('/gallery', async (req, res) => {
 
 router.post('/gallery', async (req, res) => {
     const { url, filename, alt_text, file_size } = req.body;
-    if (req.role === 'admin') {
-        const e = await requireEntity(req, res); if (!e) return;
+    const entityId = await resolveEntityId(req);
+    if (entityId) {
         const { data, error } = await gcr().from('entity_photos').insert({
-            entity_id: e, image_url: url, caption: filename || null, alt_text: alt_text || null, sort_order: 0
+            entity_id: entityId, image_url: url, caption: filename || null, alt_text: alt_text || null, sort_order: 0
         }).select().single();
         if (error) return res.status(500).json({ error: error.message });
         return res.status(201).json(_gcrPhotoToAdmin(data));
@@ -466,11 +495,11 @@ router.post('/gallery', async (req, res) => {
 
 router.put('/gallery/:id', async (req, res) => {
     const { alt_text, folder } = req.body;
-    if (req.role === 'admin') {
-        const e = await requireEntity(req, res); if (!e) return;
+    const entityId = await resolveEntityId(req);
+    if (entityId) {
         const patch = {};
         if (alt_text !== undefined) patch.alt_text = alt_text;
-        const { data, error } = await gcr().from('entity_photos').update(patch).eq('id', req.params.id).eq('entity_id', e).select().single();
+        const { data, error } = await gcr().from('entity_photos').update(patch).eq('id', req.params.id).eq('entity_id', entityId).select().single();
         if (error) return res.status(500).json({ error: error.message });
         return res.json(_gcrPhotoToAdmin(data));
     }
@@ -480,9 +509,9 @@ router.put('/gallery/:id', async (req, res) => {
 });
 
 router.delete('/gallery/:id', async (req, res) => {
-    if (req.role === 'admin') {
-        const e = await requireEntity(req, res); if (!e) return;
-        const { error } = await gcr().from('entity_photos').delete().eq('id', req.params.id).eq('entity_id', e);
+    const entityId = await resolveEntityId(req);
+    if (entityId) {
+        const { error } = await gcr().from('entity_photos').delete().eq('id', req.params.id).eq('entity_id', entityId);
         if (error) return res.status(500).json({ error: error.message });
         return res.json({ success: true });
     }
@@ -650,9 +679,8 @@ router.delete('/team/:id', async (req, res) => {
 
 // Admin (req.role === 'admin') → GCR DB. Everyone else (e.g. Circle Boats) → old DB.
 router.get('/menu-items', async (req, res) => {
-    if (req.role === 'admin') {
-        const entityId = await requireEntity(req, res);
-        if (!entityId) return;
+    const entityId = await resolveEntityId(req);
+    if (entityId) {
         try { return res.json(await menuGcr.listAllMenuItems(entityId)); }
         catch (err) { return res.status(500).json({ error: err.message }); }
     }
@@ -664,9 +692,8 @@ router.get('/menu-items', async (req, res) => {
 });
 
 router.post('/menu-items', async (req, res) => {
-    if (req.role === 'admin') {
-        const entityId = await requireEntity(req, res);
-        if (!entityId) return;
+    const entityId = await resolveEntityId(req);
+    if (entityId) {
         try { return res.status(201).json(await menuGcr.createMenuItem(entityId, req.body)); }
         catch (err) { return res.status(500).json({ error: err.message }); }
     }
@@ -676,17 +703,12 @@ router.post('/menu-items', async (req, res) => {
     delete item.id;
     const { data, error } = await supabase.from('menu_items').insert(item).select().single();
     if (error) return res.status(500).json({ error: error.message });
-
-    // Write-through to GCR if a matching entity exists via legacy_site_id
-    syncToGcr(siteId, 'menu_item', data).catch(() => {});
-
     res.status(201).json(data);
 });
 
 router.put('/menu-items/:id', async (req, res) => {
-    if (req.role === 'admin') {
-        const entityId = await requireEntity(req, res);
-        if (!entityId) return;
+    const entityId = await resolveEntityId(req);
+    if (entityId) {
         try { return res.json(await menuGcr.updateMenuItem(entityId, req.params.id, req.body)); }
         catch (err) { return res.status(500).json({ error: err.message }); }
     }
@@ -700,9 +722,8 @@ router.put('/menu-items/:id', async (req, res) => {
 });
 
 router.delete('/menu-items/:id', async (req, res) => {
-    if (req.role === 'admin') {
-        const entityId = await requireEntity(req, res);
-        if (!entityId) return;
+    const entityId = await resolveEntityId(req);
+    if (entityId) {
         try { await menuGcr.deleteMenuItem(entityId, req.params.id); return res.json({ success: true }); }
         catch (err) { return res.status(500).json({ error: err.message }); }
     }
@@ -2038,9 +2059,9 @@ router.delete('/coupons/:id', async (req, res) => {
 // ============================================
 
 router.get('/specials', async (req, res) => {
-    if (req.role === 'admin') {
-        const e = await requireEntity(req, res); if (!e) return;
-        const { data, error } = await gcr().from('entity_specials').select('*').eq('entity_id', e);
+    const entityId = await resolveEntityId(req);
+    if (entityId) {
+        const { data, error } = await gcr().from('entity_specials').select('*').eq('entity_id', entityId);
         if (error) return res.status(500).json({ error: error.message });
         return res.json(data || []);
     }
@@ -2049,9 +2070,9 @@ router.get('/specials', async (req, res) => {
 });
 
 router.post('/specials', async (req, res) => {
-    if (req.role === 'admin') {
-        const e = await requireEntity(req, res); if (!e) return;
-        const body = { ...req.body, entity_id: e };
+    const entityId = await resolveEntityId(req);
+    if (entityId) {
+        const body = { ...req.body, entity_id: entityId };
         delete body.id; delete body.site_id;
         const { data, error } = await gcr().from('entity_specials').insert(body).select().single();
         if (error) return res.status(500).json({ error: error.message });
@@ -2061,16 +2082,15 @@ router.post('/specials', async (req, res) => {
     delete special.id;
     const { data, error } = await supabase.from('specials').insert(special).select().single();
     if (error) return res.status(500).json({ error: error.message });
-    syncToGcr(req.siteId || req.body.site_id, 'special', data).catch(() => {});
     res.status(201).json(data);
 });
 
 router.put('/specials/:id', async (req, res) => {
-    if (req.role === 'admin') {
-        const e = await requireEntity(req, res); if (!e) return;
+    const entityId = await resolveEntityId(req);
+    if (entityId) {
         const updates = { ...req.body };
         delete updates.id; delete updates.site_id; delete updates.entity_id;
-        const { data, error } = await gcr().from('entity_specials').update(updates).eq('id', req.params.id).eq('entity_id', e).select().single();
+        const { data, error } = await gcr().from('entity_specials').update(updates).eq('id', req.params.id).eq('entity_id', entityId).select().single();
         if (error) return res.status(500).json({ error: error.message });
         return res.json(data);
     }
@@ -2082,9 +2102,9 @@ router.put('/specials/:id', async (req, res) => {
 });
 
 router.delete('/specials/:id', async (req, res) => {
-    if (req.role === 'admin') {
-        const e = await requireEntity(req, res); if (!e) return;
-        const { error } = await gcr().from('entity_specials').delete().eq('id', req.params.id).eq('entity_id', e);
+    const entityId = await resolveEntityId(req);
+    if (entityId) {
+        const { error } = await gcr().from('entity_specials').delete().eq('id', req.params.id).eq('entity_id', entityId);
         if (error) return res.status(500).json({ error: error.message });
         return res.json({ success: true });
     }
@@ -3441,8 +3461,37 @@ CAPABILITIES:
 2. ANALYZE IMAGES — if the user uploads a photo, describe it, extract data from it, or import items from it
 3. READ WEBSITES — if the user shared a URL, you have the page content above; summarize, extract, or act on it
 4. ADD DATA — menu items (food/drink/happy hour), specials, events/live music, happy hour schedule
-5. UPDATE ITEMS — change price, rename, update description or category
-6. BULK IMPORT — when the owner pastes or uploads a menu/specials board/event lineup, parse ALL items and add everything at once
+5. UPDATE ITEMS — change price, rename, update description or category, delete items, delete specials, delete events
+6. UPDATE PROFILE — change name, description, contact info, social links, amenities, hero image via update_business_profile
+7. UPDATE HOURS — change open/close times for any day via update_hours (syncs to live site immediately)
+8. BULK IMPORT — when the owner pastes or uploads a menu/specials board/event lineup, parse ALL items and add everything at once
+9. FIND BUSINESSES — [Admin] search by name, slug, or UUID using find_business before editing any other business
+
+EDITING TOOLS AVAILABLE:
+- add_menu_items → add food/drink/happy_hour items (bulk ok)
+- clear_menu_type → wipe all items of a type before replacing
+- update_menu_item → change price/name/description of an existing item
+- delete_menu_item → remove an item by name
+- update_hh_item → edit a happy hour item price/name/description
+- add_specials → add specials/deals
+- update_special → edit an existing special
+- delete_special → remove a special by name
+- add_events → add events/live music
+- update_event → edit an existing event name/date/time/description
+- delete_event → remove an event by name
+- update_hh_schedule → set happy hour days + times on the live listing
+- update_hours → set open/close hours per day on the live listing
+- update_business_profile → update name, description, phone, address, social, amenities, image, etc.
+- update_tags → add/remove listing tags (waterfront, live music, outdoor seating, seafood, cocktails, etc.)
+- manage_faq → add, update, or delete FAQ entries shown on the profile
+- add_photo → add a photo to the listing gallery; if user ATTACHED an image file call add_photo with no image_url (it uploads automatically); if they gave a URL pass it as image_url
+- find_business → [Admin] search for any business by name/slug/UUID
+
+ADMIN BUSINESS IDENTIFICATION RULES:
+- When admin says "edit [business name]" or refers to a specific business by name, UUID, slug, or Google name: call find_business FIRST to confirm the match and get the slug
+- Then pass business_slug to update_business_profile or update_hours so the right business is edited
+- Always confirm back: "Found: [Business Name] — making the change now"
+- If multiple matches: list them and ask which one
 
 BULK DATA RULES:
 - Parse every single item from a paste or image and call add_menu_items with all of them in one call
@@ -3671,6 +3720,162 @@ STYLE:
                 },
                 required: ['category','key']
             }
+        },
+        {
+            name: 'update_hours',
+            description: 'Update business hours on the live GCR listing. Use when owner says to change hours for any day.',
+            input_schema: {
+                type: 'object',
+                properties: {
+                    hours: {
+                        type: 'object',
+                        description: 'Object with day keys (monday–sunday). Each value: { open: "HH:MM AM/PM", close: "HH:MM AM/PM", closed: true/false }',
+                        additionalProperties: {
+                            type: 'object',
+                            properties: {
+                                open:   { type: 'string' },
+                                close:  { type: 'string' },
+                                closed: { type: 'boolean' }
+                            }
+                        }
+                    },
+                    business_slug: { type: 'string', description: '[Admin only] Slug or UUID of the business to edit' }
+                },
+                required: ['hours']
+            }
+        },
+        {
+            name: 'delete_special',
+            description: 'Delete a specific special by name.',
+            input_schema: {
+                type: 'object',
+                properties: {
+                    special_name: { type: 'string', description: 'Name of the special to delete (partial match ok)' }
+                },
+                required: ['special_name']
+            }
+        },
+        {
+            name: 'delete_event',
+            description: 'Delete a specific event by name.',
+            input_schema: {
+                type: 'object',
+                properties: {
+                    event_name: { type: 'string', description: 'Name of the event to delete (partial match ok)' }
+                },
+                required: ['event_name']
+            }
+        },
+        {
+            name: 'find_business',
+            description: '[Admin only] Search for a business by name, slug, UUID, Google name, or city. Call this first when the admin says "edit [business name]" or "look up [business]" before calling any edit tools.',
+            input_schema: {
+                type: 'object',
+                properties: {
+                    query: { type: 'string', description: 'Business name, slug, UUID, or Google name to search for' }
+                },
+                required: ['query']
+            }
+        },
+        {
+            name: 'update_tags',
+            description: 'Add or remove tags on the GCR listing (the chips visitors see: waterfront, live music, outdoor seating, seafood, cocktails, etc). Use when owner wants to add/remove features or attributes shown on their profile.',
+            input_schema: {
+                type: 'object',
+                properties: {
+                    add: {
+                        type: 'array',
+                        items: {
+                            type: 'object',
+                            properties: {
+                                tag:          { type: 'string', description: 'Tag value e.g. "waterfront", "live_music", "outdoor_seating"' },
+                                tag_category: { type: 'string', enum: ['food','drink','vibe','service','type'], description: 'food=cuisine, drink=beverages, vibe=atmosphere, service=options, type=category' }
+                            },
+                            required: ['tag','tag_category']
+                        }
+                    },
+                    remove: {
+                        type: 'array',
+                        items: { type: 'string' },
+                        description: 'Tag values to remove (partial match ok)'
+                    },
+                    business_slug: { type: 'string', description: '[Admin only] Slug or UUID of business to edit' }
+                }
+            }
+        },
+        {
+            name: 'manage_faq',
+            description: 'Add, update, or delete a FAQ shown on the business profile page. Use when owner wants to add questions/answers, update an existing one, or remove one.',
+            input_schema: {
+                type: 'object',
+                properties: {
+                    action:   { type: 'string', enum: ['add','update','delete'], description: 'What to do' },
+                    question: { type: 'string', description: 'The question text (required for add; used to find for update/delete)' },
+                    answer:   { type: 'string', description: 'The answer text (required for add/update)' },
+                    business_slug: { type: 'string', description: '[Admin only] Slug or UUID of business to edit' }
+                },
+                required: ['action','question']
+            }
+        },
+        {
+            name: 'add_photo',
+            description: 'Add a photo to the business gallery on the GCR listing. Call this when the owner attaches an image (leave image_url empty — the attached image is uploaded automatically) OR when they provide a URL.',
+            input_schema: {
+                type: 'object',
+                properties: {
+                    image_url:     { type: 'string', description: 'Full URL of the image to add. Omit when user attached an image file — it will be uploaded automatically.' },
+                    caption:       { type: 'string', description: 'Optional caption or label for the photo' },
+                    business_slug: { type: 'string', description: '[Admin only] Slug or UUID of business to edit' }
+                },
+                required: []
+            }
+        },
+        {
+            name: 'update_special',
+            description: 'Edit an existing special — change its name, discount, days, or times.',
+            input_schema: {
+                type: 'object',
+                properties: {
+                    search_name:      { type: 'string', description: 'Current name of the special to find (partial match ok)' },
+                    new_name:         { type: 'string' },
+                    new_discount:     { type: 'string', description: 'e.g. "$5", "Half off"' },
+                    new_description:  { type: 'string' },
+                    new_days:         { type: 'string', description: 'e.g. "Mon-Fri", "Every Day"' },
+                    new_start_time:   { type: 'string' },
+                    new_end_time:     { type: 'string' }
+                },
+                required: ['search_name']
+            }
+        },
+        {
+            name: 'update_event',
+            description: 'Edit an existing event — change its name, date, time, or description.',
+            input_schema: {
+                type: 'object',
+                properties: {
+                    search_name:     { type: 'string', description: 'Current name of the event to find (partial match ok)' },
+                    new_name:        { type: 'string' },
+                    new_date:        { type: 'string', description: 'YYYY-MM-DD' },
+                    new_start_time:  { type: 'string' },
+                    new_end_time:    { type: 'string' },
+                    new_description: { type: 'string' }
+                },
+                required: ['search_name']
+            }
+        },
+        {
+            name: 'update_hh_item',
+            description: 'Edit an existing happy hour item — change its name, price, or description.',
+            input_schema: {
+                type: 'object',
+                properties: {
+                    search_name:     { type: 'string', description: 'Current name of the HH item to find (partial match ok)' },
+                    new_name:        { type: 'string' },
+                    new_price:       { type: 'number' },
+                    new_description: { type: 'string' }
+                },
+                required: ['search_name']
+            }
         }
     ];
 
@@ -3679,63 +3884,110 @@ STYLE:
         if (name === 'add_menu_items') {
             const items = input.items || [];
             if (!items.length) return { success: true, count: 0 };
-            // Save to GCR DB if entity is linked
+            // Save directly to GCR (deduplicates by name+section)
             if (gcrEntityId) {
-                for (const i of items) await syncToGcr(siteId, 'menu_item', i);
+                for (const i of items) {
+                    await menuGcr.createMenuItem(gcrEntityId, { ...i, item_type: i.item_type || 'food' }).catch(() => {});
+                }
+                return { success: true, count: items.length, saved_to_gcr: true };
             }
-            // Also save to CyberCheck DB for backward compat
+            // Fallback: legacy DB only
             const rows = items.map(i => ({ site_id: siteId, name: i.name, price: i.price || 0, category: i.category, item_type: i.item_type || 'food', description: i.description || '', tags: i.tags || [], modifiers: [] }));
             await supabase.from('menu_items').insert(rows);
-            return { success: true, count: rows.length, saved_to_gcr: !!gcrEntityId };
+            return { success: true, count: rows.length, saved_to_gcr: false };
         }
         if (name === 'clear_menu_type') {
-            const { error } = await supabase.from('menu_items').delete().eq('site_id', siteId).eq('item_type', input.item_type);
-            if (error) return { error: error.message };
+            await supabase.from('menu_items').delete().eq('site_id', siteId).eq('item_type', input.item_type);
+            // Also clear from GCR
+            if (gcrEntityId) {
+                const { sectionTable, itemTable } = (() => {
+                    if (input.item_type === 'drink')      return { sectionTable: 'drink_sections',      itemTable: 'drink_items' };
+                    if (input.item_type === 'happy_hour') return { sectionTable: 'happy_hour_sections', itemTable: 'happy_hour_items' };
+                    return { sectionTable: 'menu_sections', itemTable: 'menu_items' };
+                })();
+                await _gcrDb.from(itemTable).delete().eq('entity_id', gcrEntityId);
+                await _gcrDb.from(sectionTable).delete().eq('entity_id', gcrEntityId);
+            }
             return { success: true, cleared: input.item_type };
         }
         if (name === 'add_specials') {
             const specials = input.specials || [];
             if (!specials.length) return { success: true, count: 0 };
             if (gcrEntityId) {
-                for (const s of specials) await syncToGcr(siteId, 'special', s);
+                const rows = specials.map(s => ({ entity_id: gcrEntityId, special_name: s.special_name, discount_text: s.discount_text || '', description: s.description || null, days: s.days || null, start_time: s.start_time || null, end_time: s.end_time || null, is_active: true }));
+                await _gcrDb.from('entity_specials').insert(rows);
+                return { success: true, count: rows.length, saved_to_gcr: true };
             }
             const rows = specials.map(s => ({ site_id: siteId, ...s }));
             await supabase.from('specials').insert(rows);
-            return { success: true, count: rows.length, saved_to_gcr: !!gcrEntityId };
+            return { success: true, count: rows.length, saved_to_gcr: false };
         }
         if (name === 'add_events') {
             const events = input.events || [];
             if (!events.length) return { success: true, count: 0 };
             if (gcrEntityId) {
-                for (const e of events) await syncToGcr(siteId, 'event', e);
+                const rows = events.map(e => ({ entity_id: gcrEntityId, event_name: e.event_name, description: e.description || null, event_date: e.event_date || null, start_time: e.start_time || null, end_time: e.end_time || null, is_active: true }));
+                await _gcrDb.from('entity_events').insert(rows);
+                return { success: true, count: rows.length, saved_to_gcr: true };
             }
             const rows = events.map(e => ({ site_id: siteId, ...e }));
-            await supabase.from('events').insert(rows);
-            return { success: true, count: rows.length, saved_to_gcr: !!gcrEntityId };
+            await supabase.from('events').insert(rows).catch(() => {});
+            return { success: true, count: rows.length, saved_to_gcr: false };
         }
         if (name === 'delete_menu_item') {
-            const { data: found, error: findErr } = await supabase
-                .from('menu_items').select('id,name').eq('site_id', siteId)
-                .ilike('name', `%${input.item_name}%`).limit(1).single();
-            if (findErr || !found) return { error: `Item "${input.item_name}" not found` };
-            const { error } = await supabase.from('menu_items').delete().eq('id', found.id);
-            if (error) return { error: error.message };
-            return { success: true, deleted_name: found.name };
+            // Delete from legacy
+            await supabase.from('menu_items').delete().eq('site_id', siteId).ilike('name', `%${input.item_name}%`);
+            // Delete from GCR — search all item tables by name
+            let deletedName = input.item_name;
+            if (gcrEntityId) {
+                for (const { table, nameCol } of [
+                    { table: 'menu_items',       nameCol: 'item_name' },
+                    { table: 'drink_items',       nameCol: 'item_name' },
+                    { table: 'happy_hour_items',  nameCol: 'item_name' },
+                ]) {
+                    const { data: found } = await _gcrDb.from(table).select('id,item_name').eq('entity_id', gcrEntityId).ilike('item_name', `%${input.item_name}%`).limit(1).maybeSingle();
+                    if (found) {
+                        await _gcrDb.from(table).delete().eq('id', found.id).eq('entity_id', gcrEntityId);
+                        deletedName = found.item_name;
+                        break;
+                    }
+                }
+            }
+            return { success: true, deleted_name: deletedName };
         }
         if (name === 'update_menu_item') {
-            const { data: found, error: findErr } = await supabase
-                .from('menu_items').select('id,name').eq('site_id', siteId)
-                .ilike('name', `%${input.search_name}%`).limit(1).single();
-            if (findErr || !found) return { error: `Item "${input.search_name}" not found` };
-            const updates = {};
-            if (input.new_name        !== undefined) updates.name        = input.new_name;
-            if (input.new_price       !== undefined) updates.price       = input.new_price;
-            if (input.new_description !== undefined) updates.description = input.new_description;
-            if (input.new_category    !== undefined) updates.category    = input.new_category;
-            if (!Object.keys(updates).length) return { error: 'No changes specified' };
-            const { error } = await supabase.from('menu_items').update(updates).eq('id', found.id);
-            if (error) return { error: error.message };
-            return { success: true, updated_name: found.name, updates };
+            // Update legacy
+            const { data: legacyFound } = await supabase.from('menu_items').select('id,name').eq('site_id', siteId).ilike('name', `%${input.search_name}%`).limit(1).maybeSingle();
+            if (legacyFound) {
+                const legacyUpd = {};
+                if (input.new_name        !== undefined) legacyUpd.name        = input.new_name;
+                if (input.new_price       !== undefined) legacyUpd.price       = input.new_price;
+                if (input.new_description !== undefined) legacyUpd.description = input.new_description;
+                if (input.new_category    !== undefined) legacyUpd.category    = input.new_category;
+                if (Object.keys(legacyUpd).length) await supabase.from('menu_items').update(legacyUpd).eq('id', legacyFound.id);
+            }
+            // Update GCR — search all item tables
+            let updatedName = input.search_name;
+            if (gcrEntityId) {
+                for (const { table, nameCol, priceCol } of [
+                    { table: 'menu_items',      nameCol: 'item_name', priceCol: 'price' },
+                    { table: 'drink_items',     nameCol: 'item_name', priceCol: 'price' },
+                    { table: 'happy_hour_items',nameCol: 'item_name', priceCol: 'hh_price' },
+                ]) {
+                    const { data: found } = await _gcrDb.from(table).select('id,item_name').eq('entity_id', gcrEntityId).ilike('item_name', `%${input.search_name}%`).limit(1).maybeSingle();
+                    if (found) {
+                        const gcrUpd = {};
+                        if (input.new_name        !== undefined) gcrUpd.item_name    = input.new_name;
+                        if (input.new_price       !== undefined) gcrUpd[priceCol]    = input.new_price;
+                        if (input.new_description !== undefined) gcrUpd.description  = input.new_description;
+                        if (Object.keys(gcrUpd).length) await _gcrDb.from(table).update(gcrUpd).eq('id', found.id).eq('entity_id', gcrEntityId);
+                        updatedName = found.item_name;
+                        break;
+                    }
+                }
+            }
+            if (!legacyFound && !gcrEntityId) return { error: `Item "${input.search_name}" not found` };
+            return { success: true, updated_name: updatedName };
         }
         if (name === 'update_hh_schedule') {
             // Save to GCR entity table (live site)
@@ -3795,6 +4047,214 @@ STYLE:
             const { error } = await gcr().from('entity').update(updates).eq('id', entityId);
             if (error) return { error: error.message };
             return { success: true, updated: Object.keys(updates).filter(k => k !== 'updated_at') };
+        }
+        if (name === 'update_hours') {
+            // Resolve entity — admin can pass business_slug
+            let targetEntityId = gcrEntityId;
+            if (req.role === 'admin' && input.business_slug) {
+                const q = input.business_slug;
+                const isUuid = /^[0-9a-f-]{36}$/i.test(q);
+                const { data: found } = isUuid
+                    ? await _gcrDb.from('entity').select('id,name').eq('id', q).maybeSingle()
+                    : await _gcrDb.from('entity').select('id,name').eq('slug', q).maybeSingle();
+                if (!found) return { error: `Business "${q}" not found` };
+                targetEntityId = found.id;
+            }
+            if (!targetEntityId) return { error: 'No GCR entity linked' };
+            const DAYS = ['monday','tuesday','wednesday','thursday','friday','saturday','sunday'];
+            const rows = DAYS.filter(d => input.hours[d]).map(d => {
+                const h = input.hours[d];
+                return { entity_id: targetEntityId, day_of_week: d, open_time: h.open || null, close_time: h.close || null, is_closed: h.closed || false };
+            });
+            if (rows.length) await _gcrDb.from('entity_hours').upsert(rows, { onConflict: 'entity_id,day_of_week' });
+            // Also write to legacy site_content
+            await supabase.from('site_content').update({ hours: input.hours, updated_at: new Date().toISOString() }).eq('site_id', siteId);
+            return { success: true, days_updated: rows.map(r => r.day_of_week) };
+        }
+        if (name === 'delete_special') {
+            // Delete from GCR
+            if (gcrEntityId) {
+                const { data: found } = await _gcrDb.from('entity_specials').select('id,special_name').eq('entity_id', gcrEntityId).ilike('special_name', `%${input.special_name}%`).limit(1).maybeSingle();
+                if (found) await _gcrDb.from('entity_specials').delete().eq('id', found.id).eq('entity_id', gcrEntityId);
+            }
+            await supabase.from('specials').delete().eq('site_id', siteId).ilike('special_name', `%${input.special_name}%`);
+            return { success: true, deleted_name: input.special_name };
+        }
+        if (name === 'delete_event') {
+            if (gcrEntityId) {
+                const { data: found } = await _gcrDb.from('entity_events').select('id,event_name').eq('entity_id', gcrEntityId).ilike('event_name', `%${input.event_name}%`).limit(1).maybeSingle();
+                if (found) await _gcrDb.from('entity_events').delete().eq('id', found.id).eq('entity_id', gcrEntityId);
+            }
+            await supabase.from('events').delete().eq('site_id', siteId).ilike('event_name', `%${input.event_name}%`).catch(() => {});
+            return { success: true, deleted_name: input.event_name };
+        }
+        if (name === 'find_business') {
+            const q = input.query.trim();
+            const isUuid = /^[0-9a-f-]{36}$/i.test(q);
+            let results = [];
+            if (isUuid) {
+                const { data } = await _gcrDb.from('entity').select('id,name,slug,entity_subtype,city,state').eq('id', q).limit(1);
+                results = data || [];
+            } else {
+                const { data } = await _gcrDb.from('entity').select('id,name,slug,entity_subtype,city,state')
+                    .or(`name.ilike.%${q}%,slug.ilike.%${q}%`)
+                    .limit(5);
+                results = data || [];
+            }
+            if (!results.length) return { error: `No business found matching "${q}"` };
+            return { success: true, matches: results.map(e => ({ id: e.id, name: e.name, slug: e.slug, type: e.entity_subtype, city: e.city })) };
+        }
+        if (name === 'update_tags') {
+            let targetEntityId = gcrEntityId;
+            if (req.role === 'admin' && input.business_slug) {
+                const q = input.business_slug;
+                const isUuid = /^[0-9a-f-]{36}$/i.test(q);
+                const { data: found } = isUuid
+                    ? await _gcrDb.from('entity').select('id').eq('id', q).maybeSingle()
+                    : await _gcrDb.from('entity').select('id').eq('slug', q).maybeSingle();
+                if (!found) return { error: `Business "${q}" not found` };
+                targetEntityId = found.id;
+            }
+            if (!targetEntityId) return { error: 'No GCR entity linked' };
+            const added = [], removed = [];
+            if (Array.isArray(input.add) && input.add.length) {
+                const rows = input.add.map(t => ({ entity_id: targetEntityId, tag: t.tag.toLowerCase().replace(/\s+/g,'_'), tag_category: t.tag_category }));
+                await _gcrDb.from('entity_tags').upsert(rows, { onConflict: 'entity_id,tag' });
+                added.push(...input.add.map(t => t.tag));
+                // Also flip boolean fields on entity for known tags
+                const boolMap = { waterfront:'waterfront', live_music:'live_music', outdoor_seating:'outdoor_seating', delivery:'delivery', takeout:'takeout', dine_in:'dine_in', good_for_children:'good_for_children', wheelchair_accessible:'wheelchair_accessible' };
+                const entityUpd = {};
+                input.add.forEach(t => { if (boolMap[t.tag]) entityUpd[boolMap[t.tag]] = true; });
+                if (Object.keys(entityUpd).length) await _gcrDb.from('entity').update(entityUpd).eq('id', targetEntityId);
+            }
+            if (Array.isArray(input.remove) && input.remove.length) {
+                for (const tag of input.remove) {
+                    await _gcrDb.from('entity_tags').delete().eq('entity_id', targetEntityId).ilike('tag', `%${tag.toLowerCase().replace(/\s+/g,'_')}%`);
+                    removed.push(tag);
+                    const boolMap = { waterfront:'waterfront', live_music:'live_music', outdoor_seating:'outdoor_seating', delivery:'delivery', takeout:'takeout', dine_in:'dine_in', good_for_children:'good_for_children', wheelchair_accessible:'wheelchair_accessible' };
+                    const key = tag.toLowerCase().replace(/\s+/g,'_');
+                    if (boolMap[key]) await _gcrDb.from('entity').update({ [boolMap[key]]: false }).eq('id', targetEntityId);
+                }
+            }
+            return { success: true, added, removed };
+        }
+        if (name === 'manage_faq') {
+            let targetEntityId = gcrEntityId;
+            if (req.role === 'admin' && input.business_slug) {
+                const q = input.business_slug;
+                const isUuid = /^[0-9a-f-]{36}$/i.test(q);
+                const { data: found } = isUuid
+                    ? await _gcrDb.from('entity').select('id').eq('id', q).maybeSingle()
+                    : await _gcrDb.from('entity').select('id').eq('slug', q).maybeSingle();
+                if (!found) return { error: `Business "${q}" not found` };
+                targetEntityId = found.id;
+            }
+            const table = targetEntityId ? 'faq_items' : null;
+            const db = targetEntityId ? _gcrDb : supabase;
+            const idField = targetEntityId ? 'entity_id' : 'site_id';
+            const idValue = targetEntityId || siteId;
+            const qCol = 'question'; const aCol = 'answer';
+
+            if (input.action === 'add') {
+                if (!input.answer) return { error: 'answer required' };
+                const row = targetEntityId
+                    ? { entity_id: idValue, question: input.question, answer: input.answer, sort_order: 0 }
+                    : { site_id: idValue, question: input.question, answer: input.answer, active: true };
+                const tbl = targetEntityId ? 'faq_items' : 'faqs';
+                const { data, error } = await db.from(tbl).insert(row).select().single();
+                if (error) return { error: error.message };
+                return { success: true, action: 'added', question: input.question };
+            }
+            if (input.action === 'update') {
+                if (!input.answer) return { error: 'answer required for update' };
+                const tbl = targetEntityId ? 'faq_items' : 'faqs';
+                const { data: found } = await db.from(tbl).select('id').eq(idField, idValue).ilike(qCol, `%${input.question}%`).limit(1).maybeSingle();
+                if (!found) return { error: `FAQ matching "${input.question}" not found` };
+                await db.from(tbl).update({ [aCol]: input.answer, [qCol]: input.question }).eq('id', found.id);
+                return { success: true, action: 'updated', question: input.question };
+            }
+            if (input.action === 'delete') {
+                const tbl = targetEntityId ? 'faq_items' : 'faqs';
+                await db.from(tbl).delete().eq(idField, idValue).ilike(qCol, `%${input.question}%`);
+                return { success: true, action: 'deleted', question: input.question };
+            }
+            return { error: 'action must be add, update, or delete' };
+        }
+        if (name === 'add_photo') {
+            let targetEntityId = gcrEntityId;
+            if (req.role === 'admin' && input.business_slug) {
+                const q = input.business_slug;
+                const isUuid = /^[0-9a-f-]{36}$/i.test(q);
+                const { data: found } = isUuid
+                    ? await _gcrDb.from('entity').select('id').eq('id', q).maybeSingle()
+                    : await _gcrDb.from('entity').select('id').eq('slug', q).maybeSingle();
+                if (!found) return { error: `Business "${q}" not found` };
+                targetEntityId = found.id;
+            }
+            // Resolve image URL: prefer explicit URL, fall back to uploading attached image
+            let photoUrl = input.image_url || null;
+            if (!photoUrl && image?.base64) {
+                try {
+                    photoUrl = await uploadEntityMedia(image.base64, image.mimeType || 'image/jpeg');
+                } catch (uploadErr) {
+                    return { error: `Could not upload image: ${uploadErr.message}` };
+                }
+            }
+            if (!photoUrl) return { error: 'Provide an image_url or attach an image to upload' };
+            if (targetEntityId) {
+                const { data: existing } = await _gcrDb.from('entity_photos').select('sort_order').eq('entity_id', targetEntityId).order('sort_order', { ascending: false }).limit(1).maybeSingle();
+                const sort_order = ((existing?.sort_order) || 0) + 1;
+                const { error } = await _gcrDb.from('entity_photos').insert({ entity_id: targetEntityId, image_url: photoUrl, caption: input.caption || null, sort_order });
+                if (error) return { error: error.message };
+                return { success: true, added_url: photoUrl };
+            }
+            // Fallback to legacy media table
+            await supabase.from('media').insert({ site_id: siteId, url: photoUrl, filename: input.caption || null, file_type: 'image', folder: 'gallery' });
+            return { success: true, added_url: photoUrl };
+        }
+        if (name === 'update_special') {
+            const updates = {};
+            if (input.new_name        !== undefined) updates.special_name  = input.new_name;
+            if (input.new_discount    !== undefined) updates.discount_text = input.new_discount;
+            if (input.new_description !== undefined) updates.description   = input.new_description;
+            if (input.new_days        !== undefined) updates.days          = input.new_days;
+            if (input.new_start_time  !== undefined) updates.start_time    = input.new_start_time;
+            if (input.new_end_time    !== undefined) updates.end_time      = input.new_end_time;
+            if (!Object.keys(updates).length) return { error: 'No changes specified' };
+            if (gcrEntityId) {
+                const { data: found } = await _gcrDb.from('entity_specials').select('id,special_name').eq('entity_id', gcrEntityId).ilike('special_name', `%${input.search_name}%`).limit(1).maybeSingle();
+                if (found) { await _gcrDb.from('entity_specials').update(updates).eq('id', found.id).eq('entity_id', gcrEntityId); return { success: true, updated: found.special_name }; }
+            }
+            const { data: found } = await supabase.from('specials').select('id,special_name').eq('site_id', siteId).ilike('special_name', `%${input.search_name}%`).limit(1).maybeSingle();
+            if (!found) return { error: `Special "${input.search_name}" not found` };
+            await supabase.from('specials').update(updates).eq('id', found.id);
+            return { success: true, updated: found.special_name };
+        }
+        if (name === 'update_event') {
+            const updates = {};
+            if (input.new_name        !== undefined) updates.event_name   = input.new_name;
+            if (input.new_date        !== undefined) updates.event_date   = input.new_date;
+            if (input.new_start_time  !== undefined) updates.start_time   = input.new_start_time;
+            if (input.new_end_time    !== undefined) updates.end_time     = input.new_end_time;
+            if (input.new_description !== undefined) updates.description  = input.new_description;
+            if (!Object.keys(updates).length) return { error: 'No changes specified' };
+            if (gcrEntityId) {
+                const { data: found } = await _gcrDb.from('entity_events').select('id,event_name').eq('entity_id', gcrEntityId).ilike('event_name', `%${input.search_name}%`).limit(1).maybeSingle();
+                if (found) { await _gcrDb.from('entity_events').update(updates).eq('id', found.id).eq('entity_id', gcrEntityId); return { success: true, updated: found.event_name }; }
+            }
+            return { error: `Event "${input.search_name}" not found` };
+        }
+        if (name === 'update_hh_item') {
+            if (!gcrEntityId) return { error: 'No GCR entity linked' };
+            const { data: found } = await _gcrDb.from('happy_hour_items').select('id,item_name').eq('entity_id', gcrEntityId).ilike('item_name', `%${input.search_name}%`).limit(1).maybeSingle();
+            if (!found) return { error: `Happy hour item "${input.search_name}" not found` };
+            const updates = {};
+            if (input.new_name        !== undefined) updates.item_name   = input.new_name;
+            if (input.new_price       !== undefined) updates.hh_price    = input.new_price;
+            if (input.new_description !== undefined) updates.description = input.new_description;
+            if (!Object.keys(updates).length) return { error: 'No changes specified' };
+            await _gcrDb.from('happy_hour_items').update(updates).eq('id', found.id).eq('entity_id', gcrEntityId);
+            return { success: true, updated: found.item_name };
         }
         if (name === 'update_memory') {
             const { error } = await supabase
