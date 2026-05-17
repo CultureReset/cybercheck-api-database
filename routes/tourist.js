@@ -170,10 +170,76 @@ router.post('/swipes', touristAuth, async (req, res) => {
             }
         }
         res.json({ ok: true, count: rows.length });
+
+        // Fire-and-forget: update preference scores from swipe events
+        updatePreferenceScores(req.touristId, rows).catch(() => {});
+
     } catch (e) {
         res.json({ ok: true }); // non-fatal
     }
 });
+
+// Score weights per swipe direction
+const SWIPE_WEIGHTS = { like: 5, nope: -4, super: 15, save: 8, book: 20, view: 2 };
+
+async function updatePreferenceScores(touristId, swipeRows) {
+    if (!touristId || !swipeRows?.length) return;
+
+    // Collect all slugs to fetch tags in one query
+    const slugs = [...new Set(swipeRows.map(r => r.entity_slug).filter(Boolean))];
+
+    // Try new unified DB first, fallback to GCR DB
+    let tagMap = {}; // slug → string[]
+    try {
+        const gcrDb = require('../gcr-db')();
+        const { data: entities } = await gcrDb
+            .from('entities')
+            .select('slug, tags, category, subcategory')
+            .in('slug', slugs);
+        (entities || []).forEach(e => {
+            const tags = [
+                ...(Array.isArray(e.tags) ? e.tags : []),
+                e.category,
+                e.subcategory,
+            ].filter(Boolean).map(t => t.toLowerCase().trim());
+            tagMap[e.slug] = [...new Set(tags)];
+        });
+    } catch {}
+
+    // Build (tag, delta) pairs for each swipe
+    const scoreUpdates = []; // { tag, delta }
+    for (const row of swipeRows) {
+        const weight = SWIPE_WEIGHTS[row.direction] || 0;
+        if (!weight) continue;
+
+        const tags = tagMap[row.entity_slug] || [];
+        // Always include category from the swipe event itself
+        if (row.category) tags.push(row.category.toLowerCase().trim());
+        const uniqueTags = [...new Set(tags)];
+
+        uniqueTags.forEach(tag => scoreUpdates.push({ tag, delta: weight }));
+    }
+
+    if (!scoreUpdates.length) return;
+
+    // Upsert scores — try RPC function first (new unified DB), fallback to manual upsert
+    for (const { tag, delta } of scoreUpdates) {
+        try {
+            const { error } = await mainDb.rpc('upsert_preference_score', {
+                p_tourist_id: touristId,
+                p_tag:        tag,
+                p_delta:      delta,
+            });
+            if (error) throw error;
+        } catch {
+            // Manual upsert fallback for old DB
+            await mainDb.from('user_preference_scores')
+                .upsert({ tourist_id: touristId, tag, score: delta, updated_at: new Date().toISOString() },
+                         { onConflict: 'tourist_id,tag' })
+                .catch(() => {});
+        }
+    }
+}
 
 // POST /api/tourist/sms-optin — store phone + opt-in consent
 router.post('/sms-optin', touristAuth, async (req, res) => {
@@ -826,6 +892,207 @@ router.get('/photos', touristAuth, async (req, res) => {
         .limit(100);
     if (error) return res.status(500).json({ error: error.message });
     res.json({ photos: data || [] });
+});
+
+// ─────────────────────────────────────────────────────────────────────────────
+// POST /api/tourist/location — browser sends GPS, we store it + check geofences
+// Body: { lat, lng }
+// ─────────────────────────────────────────────────────────────────────────────
+router.post('/location', touristAuth, async (req, res) => {
+    const { lat, lng } = req.body || {};
+    if (!lat || !lng) return res.status(400).json({ error: 'lat and lng required' });
+
+    // Store location on tourist_profiles
+    await mainDb.from('tourist_profiles')
+        .upsert({
+            user_id:          req.touristId,
+            last_lat:         lat,
+            last_lng:         lng,
+            last_location_at: new Date().toISOString(),
+            updated_at:       new Date().toISOString(),
+        }, { onConflict: 'user_id' }).catch(() => {});
+
+    res.json({ ok: true });
+
+    // Fire-and-forget geofence check
+    checkGeofence(req.touristId, lat, lng).catch(() => {});
+});
+
+// Haversine distance in miles
+function distanceMiles(lat1, lng1, lat2, lng2) {
+    const R = 3958.8;
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLng = (lng2 - lng1) * Math.PI / 180;
+    const a = Math.sin(dLat / 2) ** 2 +
+              Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+              Math.sin(dLng / 2) ** 2;
+    return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
+async function checkGeofence(touristId, lat, lng) {
+    // Get tourist phone + sms_opt_in
+    const { data: profile } = await mainDb
+        .from('tourist_profiles')
+        .select('phone, sms_opt_in')
+        .eq('user_id', touristId)
+        .maybeSingle();
+
+    if (!profile?.phone || !profile.sms_opt_in) return;
+
+    // Get their top preference tags
+    const { data: scores } = await mainDb
+        .from('user_preference_scores')
+        .select('tag, score')
+        .eq('tourist_id', touristId)
+        .order('score', { ascending: false })
+        .limit(10);
+    const topTags = (scores || []).filter(s => s.score > 0).map(s => s.tag);
+
+    // Find businesses within 0.5 miles that have active specials today
+    const gcrDb = require('../gcr-db')();
+    const today = new Date().toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase();
+
+    const { data: nearby } = await gcrDb
+        .from('entities')
+        .select('slug, name, latitude, longitude, tags, category')
+        .not('latitude', 'is', null)
+        .limit(200);
+
+    if (!nearby?.length) return;
+
+    const RADIUS_MILES = 0.5;
+    const close = nearby.filter(b => {
+        if (!b.latitude || !b.longitude) return false;
+        return distanceMiles(lat, lng, b.latitude, b.longitude) <= RADIUS_MILES;
+    });
+
+    if (!close.length) return;
+
+    // Check which of those have an active special today
+    const closeSlugs = close.map(b => b.slug);
+    const { data: specials } = await gcrDb
+        .from('specials')
+        .select('entity_slug, special_name, discount_text')
+        .in('entity_slug', closeSlugs)
+        .eq('is_active', true)
+        .limit(5);
+
+    if (!specials?.length) return;
+
+    // Only ping if they haven't been geofenced for this business in 6 hours
+    const { data: recentLog } = await mainDb
+        .from('tourist_sms_log')
+        .select('id')
+        .eq('tourist_id', touristId)
+        .eq('trigger_type', 'geofence')
+        .in('business_slug', closeSlugs)
+        .gte('sent_at', new Date(Date.now() - 6 * 60 * 60 * 1000).toISOString())
+        .limit(1);
+
+    if (recentLog?.length) return;
+
+    // Pick best matching special (prefer tag overlap)
+    const special = specials[0];
+    const biz = close.find(b => b.slug === special.entity_slug);
+    if (!biz) return;
+
+    const msg = `📍 You're near ${biz.name}!\n${special.special_name}${special.discount_text ? ' — ' + special.discount_text : ''}\n\nEnjoy! 🌊`;
+
+    // Send via Sendblue
+    const { data: cfgRow } = await mainDb.from('platform_settings').select('value').eq('key', 'sms_config').maybeSingle();
+    const keyId  = cfgRow?.value?.sendblue_key_id || process.env.SENDBLUE_KEY_ID;
+    const secret = cfgRow?.value?.sendblue_secret  || process.env.SENDBLUE_SECRET;
+
+    if (!keyId || !secret) return;
+
+    await fetch('https://api.sendblue.co/api/send-message', {
+        method: 'POST',
+        headers: { 'sb-api-key-id': keyId, 'sb-api-secret-key': secret, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ number: profile.phone, content: msg }),
+    }).catch(() => {});
+
+    // Log it
+    await mainDb.from('tourist_sms_log').insert({
+        tourist_id:   touristId,
+        phone:        profile.phone,
+        message:      msg,
+        trigger_type: 'geofence',
+        business_slug: special.entity_slug,
+        status:       'sent',
+        sent_at:      new Date().toISOString(),
+    }).catch(() => {});
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// POST /api/tourist/sms-campaign — admin triggers a targeted Sendblue blast
+// Body: { business_slug, message, tags[], min_score? }
+// Sends ONLY to opted-in tourists whose preference scores match the business tags
+// ─────────────────────────────────────────────────────────────────────────────
+router.post('/sms-campaign', adminRequired, async (req, res) => {
+    const { business_slug, message, tags = [], min_score = 10 } = req.body || {};
+    if (!message) return res.status(400).json({ error: 'message required' });
+    if (!tags.length) return res.status(400).json({ error: 'tags array required' });
+
+    // Load Sendblue config
+    const { data: cfgRow } = await mainDb.from('platform_settings').select('value').eq('key', 'sms_config').maybeSingle();
+    const keyId  = cfgRow?.value?.sendblue_key_id || process.env.SENDBLUE_KEY_ID;
+    const secret = cfgRow?.value?.sendblue_secret  || process.env.SENDBLUE_SECRET;
+    if (!keyId || !secret) return res.status(500).json({ error: 'Sendblue not configured' });
+
+    // Find tourists who match the tags with sufficient score and opted in
+    const { data: matches } = await mainDb
+        .from('user_preference_scores')
+        .select('tourist_id, tag, score')
+        .in('tag', tags.map(t => t.toLowerCase().trim()))
+        .gte('score', min_score);
+
+    if (!matches?.length) return res.json({ sent: 0, message: 'No matching users' });
+
+    // Group by tourist — keep those who match at least one tag
+    const touristIds = [...new Set(matches.map(m => m.tourist_id))];
+
+    // Get opted-in phones — exclude anyone messaged by this business in last 24h
+    const { data: recentSent } = await mainDb
+        .from('tourist_sms_log')
+        .select('tourist_id')
+        .eq('business_slug', business_slug || '')
+        .gte('sent_at', new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString());
+
+    const recentIds = new Set((recentSent || []).map(r => r.tourist_id));
+
+    const eligibleIds = touristIds.filter(id => !recentIds.has(id));
+    if (!eligibleIds.length) return res.json({ sent: 0, message: 'All matched users already messaged in last 24h' });
+
+    const { data: profiles } = await mainDb
+        .from('tourist_profiles')
+        .select('id, phone')
+        .in('id', eligibleIds)
+        .eq('sms_opt_in', true)
+        .not('phone', 'is', null);
+
+    if (!profiles?.length) return res.json({ sent: 0 });
+
+    // Send via Sendblue group message
+    const numbers = profiles.map(p => p.phone);
+    await fetch('https://api.sendblue.co/api/send-group-message', {
+        method: 'POST',
+        headers: { 'sb-api-key-id': keyId, 'sb-api-secret-key': secret, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ numbers, content: message }),
+    });
+
+    // Log each send
+    const logRows = profiles.map(p => ({
+        tourist_id:    p.id,
+        phone:         p.phone,
+        message,
+        trigger_type:  'campaign',
+        business_slug: business_slug || null,
+        status:        'sent',
+        sent_at:       new Date().toISOString(),
+    }));
+    await mainDb.from('tourist_sms_log').insert(logRows).catch(() => {});
+
+    res.json({ sent: profiles.length, numbers });
 });
 
 module.exports = router;
