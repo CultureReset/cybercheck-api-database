@@ -1600,7 +1600,16 @@ router.get('/entities', async (req, res) => {
                 .in('entity_id', chunk);
             (tagRows || []).forEach(r => {
                 if (!tagMap[r.entity_id]) tagMap[r.entity_id] = [];
-                tagMap[r.entity_id].push({ tag: r.tag, tag_category: r.tag_category });
+                // Handle double-encoded tags stored as JSON strings
+                let tag = r.tag, tag_category = r.tag_category;
+                try {
+                    const parsed = JSON.parse(r.tag);
+                    if (parsed && typeof parsed === 'object' && parsed.tag) {
+                        tag = parsed.tag;
+                        tag_category = parsed.tag_category || r.tag_category;
+                    }
+                } catch(e) {}
+                tagMap[r.entity_id].push({ tag, tag_category });
             });
         }
     }
