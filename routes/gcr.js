@@ -1717,6 +1717,9 @@ router.get('/entities', async (req, res) => {
         social_facebook:  e.social_facebook || null,
         social_tiktok:    e.social_tiktok || null,
         email:           e.email || null,
+        // Convert array fields to strings for frontend compatibility
+        secondary_types: Array.isArray(e.secondary_types) ? e.secondary_types.join(',') : (e.secondary_types || ''),
+        google_types:    Array.isArray(e.google_types) ? e.google_types.join(',') : (e.google_types || ''),
         // New fields
         tags:            tagMap[e.id] || [],
         hours:           hoursMap[e.id] || [],
