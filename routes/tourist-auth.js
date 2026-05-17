@@ -276,4 +276,173 @@ router.post('/reset-password', async (req, res) => {
     res.json({ success: true });
 });
 
+// ─────────────────────────────────────────────────────────────────────────────
+// SENDBLUE PHONE OTP — new tourist login via iMessage
+// POST /api/tourist-auth/phone        { phone }        → sends 6-digit OTP via Sendblue
+// POST /api/tourist-auth/phone-verify { phone, code }  → verify OTP → upsert tourist_profile → return token
+// ─────────────────────────────────────────────────────────────────────────────
+
+async function getSendblueConfig() {
+    try {
+        const { data } = await mainDb.from('platform_settings').select('value').eq('key', 'sms_config').maybeSingle();
+        if (data?.value?.sendblue_key_id) return data.value;
+    } catch {}
+    return {
+        sendblue_key_id: process.env.SENDBLUE_KEY_ID,
+        sendblue_secret:  process.env.SENDBLUE_SECRET,
+    };
+}
+
+async function sendblueMessage(phone, content) {
+    const cfg = await getSendblueConfig();
+    if (!cfg.sendblue_key_id || !cfg.sendblue_secret) throw new Error('Sendblue not configured');
+    const res = await fetch('https://api.sendblue.co/api/send-message', {
+        method: 'POST',
+        headers: {
+            'sb-api-key-id':     cfg.sendblue_key_id,
+            'sb-api-secret-key': cfg.sendblue_secret,
+            'Content-Type':      'application/json',
+        },
+        body: JSON.stringify({ number: phone, content }),
+    });
+    if (!res.ok) throw new Error(`Sendblue error: ${res.status}`);
+    return res.json();
+}
+
+function normalizePhone(raw) {
+    const digits = (raw || '').replace(/\D/g, '');
+    if (digits.length === 10) return `+1${digits}`;
+    if (digits.length === 11 && digits[0] === '1') return `+${digits}`;
+    return `+${digits}`;
+}
+
+// POST /phone — send OTP
+router.post('/phone', async (req, res) => {
+    const phone = normalizePhone(req.body?.phone);
+    if (!phone || phone.length < 10) return res.status(400).json({ error: 'Valid phone number required' });
+
+    const code    = String(Math.floor(100000 + Math.random() * 900000));
+    const expires = new Date(Date.now() + 10 * 60 * 1000).toISOString(); // 10 min
+
+    // Store OTP — upsert tourist_profiles row keyed by phone
+    const { error: dbErr } = await mainDb
+        .from('tourist_profiles')
+        .upsert({ phone, otp_code: code, otp_expires: expires, updated_at: new Date().toISOString() }, { onConflict: 'phone' });
+
+    if (dbErr) {
+        // Table may not exist yet in old DB — store in tourist_sessions fallback
+        await mainDb.from('tourist_sessions').upsert(
+            { phone, otp_code: code, otp_expires: expires },
+            { onConflict: 'phone' }
+        ).catch(() => {});
+    }
+
+    try {
+        await sendblueMessage(phone, `Your Gulf Coast Radar code is ${code}\n\nExpires in 10 minutes.`);
+    } catch (e) {
+        console.error('Sendblue OTP send failed:', e.message);
+        return res.status(500).json({ error: 'Failed to send code. Check Sendblue config.' });
+    }
+
+    res.json({ success: true, phone });
+});
+
+// POST /phone-verify — verify OTP → create session
+router.post('/phone-verify', async (req, res) => {
+    const phone = normalizePhone(req.body?.phone);
+    const code  = (req.body?.code || '').trim();
+    if (!phone || !code) return res.status(400).json({ error: 'Phone and code required' });
+
+    // Check tourist_profiles first, fallback to tourist_sessions
+    let storedCode = null, storedExpires = null, profileId = null;
+
+    const { data: profile } = await mainDb
+        .from('tourist_profiles')
+        .select('id, otp_code, otp_expires')
+        .eq('phone', phone)
+        .maybeSingle();
+
+    if (profile) {
+        storedCode    = profile.otp_code;
+        storedExpires = profile.otp_expires;
+        profileId     = profile.id;
+    } else {
+        const { data: session } = await mainDb
+            .from('tourist_sessions')
+            .select('id, otp_code, otp_expires')
+            .eq('phone', phone)
+            .maybeSingle();
+        if (session) { storedCode = session.otp_code; storedExpires = session.otp_expires; }
+    }
+
+    if (!storedCode) return res.status(400).json({ error: 'No code found. Request a new one.' });
+    if (storedCode !== code) return res.status(400).json({ error: 'Incorrect code' });
+    if (new Date(storedExpires) < new Date()) return res.status(400).json({ error: 'Code expired. Request a new one.' });
+
+    // Mark verified — upsert tourist_profiles with phone confirmed
+    const { data: upserted, error: upsertErr } = await mainDb
+        .from('tourist_profiles')
+        .upsert({
+            phone,
+            otp_code:       null,
+            otp_expires:    null,
+            sms_opt_in:     true,
+            sms_opted_in_at: profileId ? undefined : new Date().toISOString(),
+            last_active:    new Date().toISOString(),
+            updated_at:     new Date().toISOString(),
+        }, { onConflict: 'phone' })
+        .select('id, phone, name, setup_complete')
+        .single();
+
+    if (upsertErr) {
+        console.error('tourist_profiles upsert error:', upsertErr.message);
+        return res.status(500).json({ error: 'Could not create profile' });
+    }
+
+    // Sign a Supabase anon session for this user using service role
+    // so the tourist JWT works with existing touristAuth middleware
+    const sb = admin();
+    let accessToken = null;
+    try {
+        // Create/find Supabase auth user keyed by phone as email alias
+        const fakeEmail = `${phone.replace(/\+/, '')}@gcr.tourist`;
+        let authUser = null;
+        try {
+            const { data: existing } = await sb.auth.admin.getUserByEmail(fakeEmail);
+            authUser = existing?.user || null;
+        } catch {}
+
+        if (!authUser) {
+            const { data: created } = await sb.auth.admin.createUser({
+                email: fakeEmail,
+                password: upserted.id, // stable per-user secret
+                email_confirm: true,
+                user_metadata: { phone, tourist_profile_id: upserted.id },
+            });
+            authUser = created?.user || null;
+        }
+
+        if (authUser) {
+            const { data: session } = await sb.auth.admin.generateLink({
+                type: 'magiclink',
+                email: fakeEmail,
+            });
+            // Use service-role signIn to get a real access token
+            const { data: signIn } = await sb.auth.signInWithPassword({
+                email: fakeEmail,
+                password: upserted.id,
+            });
+            accessToken = signIn?.session?.access_token || null;
+        }
+    } catch (e) {
+        console.error('Auth token generation error:', e.message);
+    }
+
+    res.json({
+        success:      true,
+        tourist:      upserted,
+        access_token: accessToken,
+    });
+});
+
 module.exports = router;

@@ -195,13 +195,110 @@ router.post('/twilio', express.urlencoded({ extended: false }), async (req, res)
 // ============================================
 router.post('/google', async (req, res) => {
     console.log('Google webhook:', req.body);
-
-    // TODO: Handle Google Business Profile notifications
-    // - New review posted
-    // - New question asked
-    // - Business info updated externally
-
     res.json({ received: true });
+});
+
+// ============================================
+// POST /api/webhooks/sendblue — inbound iMessage from tourist
+// Set in Sendblue dashboard → Webhooks → Inbound Message URL
+// ============================================
+router.post('/sendblue', async (req, res) => {
+    res.status(200).json({ received: true }); // Sendblue needs fast response
+
+    try {
+        const { number: rawPhone, content = '' } = req.body || {};
+        if (!rawPhone) return;
+
+        const phone = rawPhone.startsWith('+') ? rawPhone : `+${rawPhone.replace(/\D/g, '')}`;
+        const text  = content.trim().toLowerCase();
+
+        // Load Sendblue keys
+        const { data: cfgRow } = await supabase
+            .from('platform_settings')
+            .select('value')
+            .eq('key', 'sms_config')
+            .maybeSingle();
+        const keyId  = cfgRow?.value?.sendblue_key_id || process.env.SENDBLUE_KEY_ID;
+        const secret = cfgRow?.value?.sendblue_secret  || process.env.SENDBLUE_SECRET;
+
+        async function reply(message) {
+            if (!keyId || !secret) return;
+            await fetch('https://api.sendblue.co/api/send-message', {
+                method: 'POST',
+                headers: {
+                    'sb-api-key-id':     keyId,
+                    'sb-api-secret-key': secret,
+                    'Content-Type':      'application/json',
+                },
+                body: JSON.stringify({ number: phone, content: message }),
+            }).catch(() => {});
+        }
+
+        // Find or create tourist_profile
+        let { data: profile } = await supabase
+            .from('tourist_profiles')
+            .select('id, name, sms_opt_in')
+            .eq('phone', phone)
+            .maybeSingle();
+
+        if (!profile) {
+            const { data: created } = await supabase
+                .from('tourist_profiles')
+                .insert({ phone, sms_opt_in: true, sms_opted_in_at: new Date().toISOString() })
+                .select('id, name, sms_opt_in')
+                .single()
+                .catch(() => ({ data: null }));
+            profile = created;
+            await reply(`Hey! 👋 Welcome to Gulf Coast Radar.\n\nYou're signed up for personalized deals and recommendations based on what you love.\n\nText us anything — we're your personal Gulf Coast guide. 🌊`);
+            return;
+        }
+
+        // STOP / opt-out
+        if (['stop', 'unsubscribe', 'cancel', 'quit'].includes(text)) {
+            await supabase.from('tourist_profiles').update({ sms_opt_in: false }).eq('phone', phone);
+            await reply(`You've been unsubscribed. Text START anytime to opt back in.`);
+            return;
+        }
+
+        // Re-subscribe
+        if (['start', 'yes', 'subscribe'].includes(text)) {
+            await supabase.from('tourist_profiles').update({ sms_opt_in: true, sms_opted_in_at: new Date().toISOString() }).eq('phone', phone);
+            await reply(`You're back! 🌊 We'll send you personalized Gulf Coast deals and events again.`);
+            return;
+        }
+
+        // Opt in if not already
+        if (!profile.sms_opt_in) {
+            await supabase.from('tourist_profiles').update({ sms_opt_in: true, sms_opted_in_at: new Date().toISOString() }).eq('phone', phone);
+        }
+
+        // Log inbound message
+        await supabase.from('tourist_sms_log').insert({
+            tourist_id:   profile?.id || null,
+            phone,
+            message:      content,
+            trigger_type: 'inbound',
+            status:       'received',
+            sent_at:      new Date().toISOString(),
+        }).catch(() => {});
+
+        // Forward to AI concierge
+        const aiRes = await fetch(`${process.env.API_BASE}/api/tourist/ai-sms`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ phone, message: content, tourist_id: profile?.id }),
+        }).catch(() => null);
+
+        if (aiRes?.ok) {
+            const { reply: aiReply } = await aiRes.json().catch(() => ({}));
+            if (aiReply) await reply(aiReply);
+        } else {
+            await reply(`Got it! 🌊 Tell us what you're looking for — food, drinks, activities, events — and we'll find the best spots for you.`);
+        }
+
+    } catch (e) {
+        console.error('Sendblue webhook error:', e.message);
+    }
 });
 
 module.exports = router;
