@@ -93,7 +93,7 @@ async function main() {
         }
       }
 
-      const imageFolder = path.join(imageDir, placeId);
+      const imageFolder = path.join(imageDir, folder);
       const imageFiles = fs.readdirSync(imageFolder)
         .filter(f => /\.(jpg|jpeg|png|webp|gif)$/i.test(f))
         .sort();
