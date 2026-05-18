@@ -126,6 +126,9 @@ const updateLinkRouter = require('./routes/update-link');
 app.use('/api/update', updateLinkRouter);   // admin: generate, send, check status
 app.use('/update',     updateLinkRouter);   // public: /:token serves the mobile form
 
+// Simple Menu Editor — slug-based (no tokens needed)
+app.use('/api/simple', require('./routes/simple-menu-edit'));
+
 // QR Code Tracking — universal numbered scan tracking (tables, cards, ads, stickers)
 app.use('/api/qr', require('./routes/qr'));
 
