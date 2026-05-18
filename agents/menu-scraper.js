@@ -99,7 +99,7 @@ async function scrapesite(startUrl) {
     const pdfUrls      = new Set();
     const imageUrls    = new Set();
     let   businessName = null;
-    const MAX_PAGES    = 40;
+    const MAX_PAGES    = 9999;
 
     console.log(`\n  Scraping: ${startUrl}`);
     console.log('─'.repeat(55));
@@ -155,7 +155,7 @@ async function scrapesite(startUrl) {
                     .replace(/[ \t]{2,}/g, ' ')
                     .replace(/\n{3,}/g, '\n\n')
                     .trim()
-                    .substring(0, 40000);
+                    .substring(0, 200000);
 
                 const links = [];
                 document.querySelectorAll('a[href]').forEach(el => {
@@ -343,7 +343,7 @@ async function extractWithClaude(allText, businessUrl, knownName) {
     if (!apiKey) { console.error('❌ ANTHROPIC_API_KEY not set in .env'); process.exit(1); }
 
     // Truncate to 60k for each call — leaves room for the JSON response
-    const truncated = allText.length > 60000 ? allText.substring(0, 60000) + '\n\n[TRUNCATED]' : allText;
+    const truncated = allText.length > 180000 ? allText.substring(0, 180000) + '\n\n[TRUNCATED]' : allText;
 
     console.log(`\n  Claude call 1/2: business info... (${truncated.length.toLocaleString()} chars)`);
 
@@ -446,7 +446,7 @@ async function extractActivityWithClaude(allText, businessUrl, knownName) {
     const apiKey = process.env.ANTHROPIC_API_KEY;
     if (!apiKey) { console.error('❌ ANTHROPIC_API_KEY not set in .env'); process.exit(1); }
 
-    const truncated = allText.length > 60000 ? allText.substring(0, 60000) + '\n\n[TRUNCATED]' : allText;
+    const truncated = allText.length > 180000 ? allText.substring(0, 180000) + '\n\n[TRUNCATED]' : allText;
 
     console.log(`  Claude call 1/2: business info... (${truncated.length.toLocaleString()} chars)`);
 
@@ -574,7 +574,7 @@ function buildTextFromRaw(raw) {
 // SCRAPE ONLY — save raw.json, no Claude
 // ─────────────────────────────────────────────
 
-async function scrapeToFile(startUrl, nameHint, scrapeFolder) {
+async function scrapeToFile(startUrl, nameHint, scrapeFolder, outputFilename = 'raw.json') {
     const { pages, pdfUrls, imageUrls, businessName: detected } = await scrapesite(startUrl);
     const businessName = nameHint || detected || extractDomain(startUrl);
     console.log(`\n  Business: ${businessName}`);
@@ -596,7 +596,7 @@ async function scrapeToFile(startUrl, nameHint, scrapeFolder) {
         imageUrls: [...imageUrls].filter(u => /\.(jpg|jpeg|png|webp)/i.test(u)).slice(0, 50),
     };
 
-    const rawFile = path.join(outDir, 'raw.json');
+    const rawFile = path.join(outDir, outputFilename);
     fs.writeFileSync(rawFile, JSON.stringify(raw, null, 2));
 
     console.log(`  Pages: ${pages.length} | PDFs: ${pdfUrls.length} | Saved → ${rawFile}`);
@@ -619,7 +619,9 @@ async function extractAll() {
 
     const slugs = fs.readdirSync(baseDir).filter(d => {
         const rawFile = path.join(baseDir, d, 'raw.json');
+        const dataFile = path.join(baseDir, d, 'data.json');
         if (!fs.existsSync(rawFile)) return false;
+        if (fs.existsSync(dataFile)) return false;  // SKIP if already extracted
         if (onlyList && !onlyList.includes(d)) return false;
         return true;
     });
@@ -710,19 +712,30 @@ async function main() {
             process.exit(1);
         }
 
-        const list     = JSON.parse(fs.readFileSync(bulkFile, 'utf8'));
-        const results  = [];
-        const failures = [];
-        console.log(`\n  Scraping ${list.length} businesses — NO Claude yet${folderArg ? ' → folder: ' + folderArg : ''}\n`);
+        const list      = JSON.parse(fs.readFileSync(bulkFile, 'utf8'));
+        const results   = [];
+        const failures  = [];
+        const forceArg  = args.includes('--force');
+        const rescrape  = args.includes('--rescrape'); // re-scrape existing, save as raw-new.json
+        const startArg  = args.includes('--start') ? parseInt(args[args.indexOf('--start') + 1]) : 1;
+        const outFile   = rescrape ? 'raw-new.json' : 'raw.json';
+        console.log(`\n  Scraping ${list.length} businesses — NO Claude yet${folderArg ? ' → folder: ' + folderArg : ''}${forceArg ? ' [--force: overwrite]' : ''}${rescrape ? ' [--rescrape: save as raw-new.json]' : ''}${startArg > 1 ? ` [--start: begin at #${startArg}]` : ''}\n`);
 
-        for (let i = 0; i < list.length; i++) {
+        for (let i = startArg - 1; i < list.length; i++) {
             const { name, url } = list[i];
             const startUrl = url.startsWith('http') ? url : `https://${url}`;
 
-            // Skip if already scraped AND pdfs were either none or already parsed
             const slug = slugify(name || extractDomain(startUrl));
             const existingRaw = path.join(__dirname, '../scraped-menus', folderArg || '', slug, 'raw.json');
-            if (fs.existsSync(existingRaw)) {
+
+            // --rescrape: only process businesses that already have raw.json, save as raw-new.json
+            if (rescrape) {
+                if (!fs.existsSync(existingRaw)) {
+                    console.log(`\n[${i + 1}/${list.length}] ⏭️  SKIP (not yet scraped): ${name || url}`);
+                    continue;
+                }
+            } else if (!forceArg && fs.existsSync(existingRaw)) {
+                // Normal mode: skip if already scraped
                 const existing = JSON.parse(fs.readFileSync(existingRaw, 'utf8'));
                 const hasPdfsMissed = (existing.pdfUrls || []).length > 0 && (existing.pdfTexts || []).length === 0;
                 if (!hasPdfsMissed) {
@@ -735,7 +748,7 @@ async function main() {
             console.log(`\n[${i + 1}/${list.length}] ${name || url}`);
             console.log('─'.repeat(55));
             try {
-                results.push(await scrapeToFile(startUrl, name, folderArg));
+                results.push(await scrapeToFile(startUrl, name, folderArg, outFile));
             } catch (err) {
                 console.error(`  ERROR: ${err.message}`);
                 failures.push({ name, url, error: err.message });

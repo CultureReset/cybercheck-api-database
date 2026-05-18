@@ -1,14 +1,16 @@
 {
-  "business_name": "galwayirishpub.com",
-  "tagline": null,
-  "type": null,
+  "business_name": "Galway Irish Pub",
+  "cuisine_type": null,
+  "price_range": null,
+  "description": null,
   "contact": {
     "phone": null,
     "email": null,
     "address": null,
     "city": null,
     "state": null,
-    "zip": null
+    "zip": null,
+    "website": "http://www.galwayirishpub.com"
   },
   "hours": {
     "monday": null,
@@ -17,38 +19,18 @@
     "thursday": null,
     "friday": null,
     "saturday": null,
-    "sunday": null,
-    "notes": null
+    "sunday": null
   },
-  "about": {
-    "description": null,
-    "elevator_pitch": null,
-    "vibe": null,
-    "best_for": [],
-    "established": null,
-    "reservations": null,
-    "insider_tip": null
-  },
-  "tags": [],
-  "features": [],
-  "price_range": null,
-  "social_links": {
-    "instagram": null,
-    "facebook": null,
-    "website": "http://www.galwayirishpub.com"
-  },
-  "specials": [],
-  "events": [],
   "menu": {
     "categories": []
   },
-  "error": "Website returned 404 error - page not found. No data available.",
-  "url": "http://www.galwayirishpub.com",
-  "scraped_at": "2026-03-22T02:46:14.599Z",
-  "extracted_at": "2026-03-23T03:42:36.281Z",
-  "model": "claude-haiku-4-5-20251001",
-  "gallery": [],
-  "sources": [
-    "http://www.galwayirishpub.com"
-  ]
+  "specials": [],
+  "features": [],
+  "social_media": {
+    "facebook": null,
+    "instagram": null,
+    "twitter": null
+  },
+  "images": [],
+  "extracted_at": "2026-05-16T19:20:45.108Z"
 }

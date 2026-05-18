@@ -1,326 +1,189 @@
 {
   "business_name": "The Clubhouse Bar & Grill",
-  "tagline": null,
-  "type": "Bar & Grill",
+  "cuisine_type": "American, Pub Fare, Regional",
+  "price_range": null,
+  "description": "Overlooking Cotton Creek's 18th green with its huge picture windows and veranda, our Clubhouse is the perfect spot for golfers relaxing after their round of golf or for a casual lunch outing with your friends. Our chef crafts a variety of regional features and pub fare on a seasonal basis. Sharable appetizers round out the selections. Popular menu items include our Craft Farms Burger, Crab Cakes & Fried Green Tomatoes, Signature Boar's Head Club Sandwich, Watermelon & Peach Salad, and World-Famous Onion Rings.",
   "contact": {
     "phone": "(251) 968-3002",
     "email": null,
     "address": "3840 Cotton Creek Circle",
     "city": "Gulf Shores",
     "state": "AL",
-    "zip": "36542"
+    "zip": "36542",
+    "website": "https://craftfarms.com/bar-and-grill"
   },
   "hours": {
-    "monday": "Bar: 7:30am - 5:30pm, Breakfast: 7:30am - 11:00am, Lunch: 11:00am - 3:00pm",
-    "tuesday": "Bar: 7:30am - 5:30pm, Breakfast: 7:30am - 11:00am, Lunch: 11:00am - 3:00pm",
-    "wednesday": "Bar: 7:30am - 5:30pm, Breakfast: 7:30am - 11:00am, Lunch: 11:00am - 3:00pm",
-    "thursday": "Bar: 7:30am - 5:30pm, Breakfast: 7:30am - 11:00am, Lunch: 11:00am - 3:00pm",
-    "friday": "Bar: 7:30am - 5:30pm, Breakfast: 7:30am - 11:00am, Lunch: 11:00am - 3:00pm",
-    "saturday": "Bar: 7:30am - 5:30pm, Breakfast: 7:30am - 11:00am, Lunch: 11:00am - 3:00pm",
-    "sunday": "Bar: 7:30am - 5:30pm, Breakfast: 7:30am - 11:00am, Lunch: 11:00am - 3:00pm",
-    "notes": "Open daily for breakfast, lunch, and drinks"
+    "monday": "7:30am-5:30pm",
+    "tuesday": "7:30am-5:30pm",
+    "wednesday": "7:30am-5:30pm",
+    "thursday": "7:30am-5:30pm",
+    "friday": "7:30am-5:30pm",
+    "saturday": "7:30am-5:30pm",
+    "sunday": "7:30am-5:30pm"
   },
-  "about": {
-    "description": "The Bar & Grill at Craft Farms Golf Club overlooks Cotton Creek's 18th green with huge picture windows and a veranda. Perfect for golfers relaxing after their round or casual lunch outings with friends. The chef crafts a variety of regional features and pub fare on a seasonal basis with sharable appetizers.",
-    "elevator_pitch": "Casual golf clubhouse bar and grill featuring regional cuisine, pub fare, and scenic views of Cotton Creek's 18th green.",
-    "vibe": "Relaxed golf club atmosphere with elegant views, perfect for post-round celebrations or casual meals",
-    "best_for": [
-      "golfers",
-      "casual dining",
-      "group gatherings",
-      "lunch outings",
-      "drinks"
-    ],
-    "established": null,
-    "reservations": null,
-    "insider_tip": "Try the World-Famous Onion Rings and grab a beverage from the cart while on the course"
-  },
-  "tags": [
-    "golf club",
-    "casual dining",
-    "pub fare",
-    "regional cuisine",
-    "full bar",
-    "scenic views",
-    "grab and go"
-  ],
-  "features": [
-    "full bar",
-    "outdoor veranda seating",
-    "picture windows with course views",
-    "golf course views of 18th green",
-    "beverage cart service",
-    "grab and go options",
-    "sharable appetizers",
-    "seasonal menu"
-  ],
-  "price_range": "$$",
-  "social_links": {
-    "instagram": null,
-    "facebook": "https://www.facebook.com/CraftFarmsGolf/",
-    "website": "https://craftfarms.com/bar-and-grill/"
-  },
-  "specials": [
-    {
-      "name": "Happy Hour",
-      "description": null,
-      "days": [],
-      "time": null
-    }
-  ],
-  "events": [
-    {
-      "name": "Beverage Cart Service",
-      "description": "Available every day of the week with cart girls serving favorite beers, cocktails, water, soda, Gatorade, snacks, cigars, and round of shots for groups",
-      "recurring": true,
-      "day": "Daily",
-      "time": "During golf rounds"
-    }
-  ],
   "menu": {
     "categories": [
       {
         "name": "Breakfast",
-        "type": "breakfast",
         "items": [
           {
             "name": "Breakfast Biscuit",
             "description": "Egg, cheese and choice of bacon or sausage",
             "price": null,
-            "tags": [
-              "grab and go"
-            ],
-            "allergens": [
-              "eggs",
-              "dairy",
-              "meat"
-            ]
+            "dietary_flags": []
           }
         ]
       },
       {
         "name": "Lunch",
-        "type": "lunch",
         "items": [
           {
             "name": "Craft Farms Burger",
             "description": null,
             "price": null,
-            "tags": [
-              "signature",
-              "popular"
-            ],
-            "allergens": []
+            "dietary_flags": []
           },
           {
-            "name": "Crab Cakes & Fried Green Tomatoes",
+            "name": "Crab Cakes",
             "description": null,
             "price": null,
-            "tags": [
-              "regional",
-              "popular"
-            ],
-            "allergens": [
-              "shellfish",
-              "gluten"
-            ]
+            "dietary_flags": []
+          },
+          {
+            "name": "Fried Green Tomatoes",
+            "description": null,
+            "price": null,
+            "dietary_flags": []
           },
           {
             "name": "Signature Boar's Head Club Sandwich",
             "description": null,
             "price": null,
-            "tags": [
-              "signature",
-              "popular"
-            ],
-            "allergens": [
-              "gluten",
-              "meat"
-            ]
+            "dietary_flags": []
           },
           {
             "name": "Watermelon & Peach Salad",
             "description": null,
             "price": null,
-            "tags": [
-              "seasonal",
-              "popular"
-            ],
-            "allergens": []
+            "dietary_flags": [
+              "vegetarian"
+            ]
           },
           {
             "name": "World-Famous Onion Rings",
             "description": null,
             "price": null,
-            "tags": [
-              "signature",
-              "popular",
-              "must-try"
-            ],
-            "allergens": [
-              "gluten"
+            "dietary_flags": [
+              "vegetarian"
             ]
           }
         ]
       },
       {
         "name": "Grab & Go",
-        "type": "specials",
         "items": [
           {
-            "name": "Breakfast Biscuit",
-            "description": "Egg, cheese and choice of bacon or sausage",
+            "name": "Turkey Wrap",
+            "description": "Freshly made",
             "price": null,
-            "tags": [
-              "quick service",
-              "breakfast"
-            ],
-            "allergens": [
-              "eggs",
-              "dairy",
-              "meat"
-            ]
+            "dietary_flags": []
           },
           {
-            "name": "Turkey or Ham Wrap",
-            "description": "Freshly made, available at the turn during rounds",
+            "name": "Ham Wrap",
+            "description": "Freshly made",
             "price": null,
-            "tags": [
-              "quick service",
-              "lunch"
-            ],
-            "allergens": [
-              "gluten",
-              "meat"
-            ]
+            "dietary_flags": []
           },
           {
-            "name": "Hotdog",
-            "description": "Hot off the grill, served with full toping bar",
+            "name": "Hot Dog",
+            "description": "Hot off the grill with full topping bar",
             "price": null,
-            "tags": [
-              "quick service",
-              "grill"
-            ],
-            "allergens": [
-              "gluten",
-              "meat"
-            ]
+            "dietary_flags": []
           }
         ]
       },
       {
         "name": "Beverages",
-        "type": "drinks",
         "items": [
           {
             "name": "Beer Selection",
-            "description": "Various ice-cold beer options",
+            "description": null,
             "price": null,
-            "tags": [
-              "full bar"
-            ],
-            "allergens": [
-              "gluten"
-            ]
+            "dietary_flags": []
           },
           {
             "name": "Cocktails",
-            "description": "Various cocktail options available",
+            "description": null,
             "price": null,
-            "tags": [
-              "full bar"
-            ],
-            "allergens": []
+            "dietary_flags": []
           },
           {
             "name": "Water",
             "description": null,
             "price": null,
-            "tags": [
-              "non-alcoholic"
-            ],
-            "allergens": []
+            "dietary_flags": []
           },
           {
             "name": "Soda",
             "description": null,
             "price": null,
-            "tags": [
-              "non-alcoholic"
-            ],
-            "allergens": []
+            "dietary_flags": []
           },
           {
             "name": "Gatorade",
             "description": null,
             "price": null,
-            "tags": [
-              "non-alcoholic"
-            ],
-            "allergens": []
-          }
-        ]
-      },
-      {
-        "name": "Appetizers & Sides",
-        "type": "lunch",
-        "items": [
-          {
-            "name": "Sharable Appetizers",
-            "description": "Various sharable appetizer options",
-            "price": null,
-            "tags": [
-              "appetizers"
-            ],
-            "allergens": []
+            "dietary_flags": []
           }
         ]
       }
     ]
   },
-  "url": "https://craftfarms.com/bar-and-grill/",
-  "scraped_at": "2026-03-21T14:07:12.461Z",
-  "extracted_at": "2026-03-23T04:11:44.682Z",
-  "model": "claude-haiku-4-5-20251001",
-  "gallery": [
-    "https://craftfarms.com/wp-content/uploads/2022/07/Craft-Farms-Logo-phone.jpg",
-    "https://craftfarms.com/wp-content/uploads/2022/10/BAR-GRILL-1-400x284.jpg",
-    "https://craftfarms.com/wp-content/uploads/2022/10/BAR-GRILL-3-400x284.jpg",
-    "https://craftfarms.com/wp-content/uploads/2022/10/BAR-GRILL-4-400x284.jpg",
-    "https://craftfarms.com/wp-content/uploads/2022/10/BAR-GRILL-7-400x284.jpg",
-    "https://craftfarms.com/wp-content/uploads/2022/10/GRAB-AND-GO.jpg",
-    "https://craftfarms.com/wp-content/uploads/2023/01/Rachel-1024x767.jpg",
-    "https://craftfarms.com/wp-content/uploads/2025/04/TH-Properties-Color-Logo-300x96.jpg",
-    "https://craftfarms.com/wp-content/uploads/2022/10/SPECIAL-EVENTS-4-400x284.jpg",
-    "https://craftfarms.com/wp-content/uploads/2022/10/SPECIAL-EVENTS-3-400x284.jpg",
-    "https://craftfarms.com/wp-content/uploads/2022/10/SPECIAL-EVENTS-2-400x284.jpg",
-    "https://craftfarms.com/wp-content/uploads/2022/10/SPECIAL-EVENTS-5-400x284.jpg",
-    "https://craftfarms.com/wp-content/uploads/2024/01/vv3-1024x148.png",
-    "https://craftfarms.com/wp-content/uploads/2022/10/ABOUT-US-SLIDE-1-738x600.jpg",
-    "https://craftfarms.com/wp-content/uploads/2022/10/ABOUT-US-SLIDE-2-738x600.jpg",
-    "https://craftfarms.com/wp-content/uploads/2022/10/ABOUT-US-SLIDE-3-738x600.jpg",
-    "https://craftfarms.com/wp-content/uploads/2022/10/reviews-slider-1-738x600.jpg",
-    "https://craftfarms.com/wp-content/uploads/2022/10/reviews-slider-4-738x600.jpg",
-    "https://craftfarms.com/wp-content/uploads/2022/10/reviews-slider-3-738x600.jpg",
-    "https://craftfarms.com/wp-content/uploads/2022/10/reviews-slider-2-738x600.jpg",
-    "https://craftfarms.com/wp-content/uploads/2022/10/OUR-HISTORY-2-400x284.jpg",
-    "https://craftfarms.com/wp-content/uploads/2022/10/OUR-HISTORY-1-400x284.jpg",
-    "https://craftfarms.com/wp-content/uploads/2022/10/OUR-HISTORY-3-400x284.jpg",
-    "https://craftfarms.com/wp-content/uploads/2022/11/OUR-HISTORY-4-400x284.jpg",
-    "https://craftfarms.com/wp-content/uploads/2022/10/Kingdom-Covers.jpg"
+  "specials": [
+    {
+      "name": "Breakfast Service",
+      "description": "Breakfast service daily",
+      "days": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "time": "7:30am-11:00am"
+    },
+    {
+      "name": "Lunch Service",
+      "description": "Lunch service daily",
+      "days": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "time": "11:00am-3:00pm"
+    }
   ],
-  "sources": [
-    "https://craftfarms.com/bar-and-grill",
-    "https://craftfarms.com/cf-menu-web",
-    "https://craftfarms.com/event-calendar",
-    "https://craftfarms.com/special-events",
-    "https://craftfarms.com/special-events-contact-form",
-    "https://craftfarms.com/group-sales-contact-form",
-    "https://craftfarms.com/clubhouse-contact-form",
-    "https://craftfarms.com/membership-contact-form",
-    "https://craftfarms.com/about-us",
-    "https://craftfarms.com/our-history",
-    "https://craftfarms.com/contact-us"
-  ]
+  "features": [
+    "full bar",
+    "outdoor seating/veranda",
+    "picture windows",
+    "golf course views",
+    "beverage cart service",
+    "grab and go options",
+    "appetizers",
+    "sharable items"
+  ],
+  "social_media": {
+    "facebook": "https://www.facebook.com/CraftFarmsGolf/",
+    "instagram": null,
+    "twitter": null
+  },
+  "images": [],
+  "extracted_at": "2026-05-16T19:44:38.176Z"
 }

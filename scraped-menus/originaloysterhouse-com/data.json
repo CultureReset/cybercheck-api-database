@@ -1,109 +1,300 @@
 {
   "business_name": "Original Oyster House",
-  "tagline": "Simply Southern Seafood",
-  "type": "Restaurant",
-  "contact": {
-    "phone": [
-      "(251) 626-2188",
-      "(251) 948-2445"
-    ],
-    "email": null,
-    "locations": [
-      {
-        "name": "Mobile Causeway",
+  "cuisine_type": "Seafood",
+  "price_range": "$$",
+  "description": "The Original Oyster House seafood restaurant first opened its doors in Gulf Shores in 1983. Our restaurant on the Causeway, overlooking Mobile Bay, opened in 1985. Since then we have proudly served the Gulf Coast the best seafood in a casual atmosphere with genuine southern hospitality. Known for hand-shucked and fire-grilled oysters, homemade gumbo, cheesy grits with blackened shrimp, fresh salad bar and handcrafted desserts including famous peanut butter chocolate chip pie.",
+  "locations": [
+    {
+      "name": "Mobile Causeway Location",
+      "contact": {
+        "phone": "(251) 626-2188",
+        "fax": "(251) 626-0161",
+        "email": null,
         "address": "3733 Battleship Parkway/HWY 90",
         "city": "Spanish Fort",
         "state": "Alabama",
         "zip": null,
-        "phone": "(251) 626-2188",
-        "fax": "(251) 626-0161"
+        "website": "https://www.originaloysterhouse.com"
       },
-      {
-        "name": "Gulf Shores Boardwalk",
-        "address": "701 Gulf Shores Parkway",
+      "hours": {
+        "monday": "11:00am-9:30pm",
+        "tuesday": "11:00am-9:30pm",
+        "wednesday": "11:00am-9:30pm",
+        "thursday": "11:00am-9:30pm",
+        "friday": "11:00am-10:00pm",
+        "saturday": "11:00am-10:00pm",
+        "sunday": "11:00am-9:30pm"
+      }
+    },
+    {
+      "name": "Gulf Shores Location",
+      "contact": {
+        "phone": "(251) 948-2445",
+        "fax": "(251) 948-2446",
+        "email": null,
+        "address": "701 Gulf Shores Pkwy",
         "city": "Gulf Shores",
         "state": "Alabama",
         "zip": "36542",
-        "phone": "(251) 948-2445",
-        "fax": "(251) 948-2446"
+        "website": "https://www.originaloysterhouse.com"
+      },
+      "hours": {
+        "monday": "11:00am-10:00pm",
+        "tuesday": "11:00am-10:00pm",
+        "wednesday": "11:00am-10:00pm",
+        "thursday": "11:00am-10:00pm",
+        "friday": "11:00am-10:00pm",
+        "saturday": "11:00am-10:00pm",
+        "sunday": "11:00am-10:00pm"
+      },
+      "winter_hours": {
+        "start_date": "October 27",
+        "end_date": "March 9",
+        "monday": "11:00am-9:00pm",
+        "tuesday": "11:00am-9:00pm",
+        "wednesday": "11:00am-9:00pm",
+        "thursday": "11:00am-9:00pm",
+        "friday": "11:00am-9:00pm",
+        "saturday": "11:00am-9:00pm",
+        "sunday": "11:00am-9:00pm"
+      }
+    }
+  ],
+  "menu": {
+    "categories": [
+      {
+        "name": "Oysters",
+        "items": [
+          {
+            "name": "Fire-Grilled Oysters",
+            "description": "Hand-shucked Gulf oysters fire-grilled",
+            "price": null,
+            "dietary_flags": []
+          },
+          {
+            "name": "Firecracker Oysters",
+            "description": "Baked oysters with jalapeño peppers and Parmesan cheese",
+            "price": null,
+            "dietary_flags": []
+          },
+          {
+            "name": "Easy Baked Oysters",
+            "description": "Baked oysters with cocktail sauce and Swiss cheese",
+            "price": null,
+            "dietary_flags": []
+          },
+          {
+            "name": "Baked Oysters with Tasso Ham Cream Sauce",
+            "description": "Baked oysters topped with tasso ham cream sauce",
+            "price": null,
+            "dietary_flags": []
+          }
+        ]
+      },
+      {
+        "name": "Entrees",
+        "items": [
+          {
+            "name": "Blackened Shrimp and Penne Pasta",
+            "description": "Blackened shrimp served over penne pasta",
+            "price": null,
+            "dietary_flags": []
+          },
+          {
+            "name": "Fried Popcorn Shrimp",
+            "description": "Fried shrimp",
+            "price": null,
+            "dietary_flags": []
+          },
+          {
+            "name": "Broiled Flounder with Pecan Butter",
+            "description": "Broiled flounder with pecan butter",
+            "price": null,
+            "dietary_flags": []
+          },
+          {
+            "name": "Shrimp Scampi",
+            "description": "Shrimp scampi preparation",
+            "price": null,
+            "dietary_flags": []
+          },
+          {
+            "name": "Grilled Shrimp",
+            "description": "Grilled shrimp",
+            "price": null,
+            "dietary_flags": []
+          },
+          {
+            "name": "Baked Stuffed Shrimp",
+            "description": "Baked stuffed shrimp",
+            "price": null,
+            "dietary_flags": []
+          },
+          {
+            "name": "Stuffed Crabs",
+            "description": "Stuffed crab preparation",
+            "price": null,
+            "dietary_flags": []
+          },
+          {
+            "name": "Fried Oysters",
+            "description": "Fried oysters",
+            "price": null,
+            "dietary_flags": []
+          },
+          {
+            "name": "Fried Flounder",
+            "description": "Fried flounder",
+            "price": null,
+            "dietary_flags": []
+          },
+          {
+            "name": "Grilled House Catch",
+            "description": "Grilled house catch of the day",
+            "price": null,
+            "dietary_flags": []
+          },
+          {
+            "name": "Grilled Chicken Breast",
+            "description": "Grilled chicken breast",
+            "price": null,
+            "dietary_flags": [
+              "gluten-free"
+            ]
+          },
+          {
+            "name": "Fried Chicken Tenders",
+            "description": "Fried chicken tenders",
+            "price": null,
+            "dietary_flags": []
+          },
+          {
+            "name": "Rosemary Roasted Pork Loin Jezebel",
+            "description": "Rosemary roasted pork loin with Jezebel sauce",
+            "price": null,
+            "dietary_flags": []
+          },
+          {
+            "name": "Blackened Mahi Down on the Bayou",
+            "description": "Blackened mahi-mahi",
+            "price": null,
+            "dietary_flags": []
+          },
+          {
+            "name": "Stuffed Shrimp Florentine Topped with Alfredo Sauce",
+            "description": "Stuffed shrimp with spinach filling and Alfredo sauce",
+            "price": null,
+            "dietary_flags": []
+          },
+          {
+            "name": "Shrimp & Grits",
+            "description": "Blackened shrimp served over cheese grits",
+            "price": null,
+            "dietary_flags": [
+              "gluten-free"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Sides",
+        "items": [
+          {
+            "name": "House Turnip Greens",
+            "description": "Seasoned turnip greens",
+            "price": null,
+            "dietary_flags": [
+              "vegetarian",
+              "gluten-free"
+            ]
+          },
+          {
+            "name": "Red Beans and Rice",
+            "description": "Red beans and rice",
+            "price": null,
+            "dietary_flags": [
+              "vegetarian"
+            ]
+          },
+          {
+            "name": "Cheese Grits",
+            "description": "Creamy cheese grits",
+            "price": null,
+            "dietary_flags": [
+              "vegetarian",
+              "gluten-free"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Soups",
+        "items": [
+          {
+            "name": "Homemade Seafood Gumbo",
+            "description": "Award-winning seafood gumbo",
+            "price": null,
+            "dietary_flags": []
+          }
+        ]
+      },
+      {
+        "name": "Salads",
+        "items": [
+          {
+            "name": "Fresh Salad Bar",
+            "description": "Fresh salad bar served daily with lunch and dinner",
+            "price": null,
+            "dietary_flags": [
+              "vegetarian",
+              "gluten-free"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Desserts",
+        "items": [
+          {
+            "name": "Homemade Peanut Butter Chocolate Chip Pie",
+            "description": "Famous peanut butter chocolate chip pie",
+            "price": null,
+            "dietary_flags": [
+              "vegetarian"
+            ]
+          },
+          {
+            "name": "Homemade Key Lime Pie",
+            "description": "Key lime pie",
+            "price": null,
+            "dietary_flags": [
+              "vegetarian"
+            ]
+          },
+          {
+            "name": "Bread Pudding with Whiskey Sauce",
+            "description": "Homemade bread pudding with whiskey sauce",
+            "price": null,
+            "dietary_flags": [
+              "vegetarian"
+            ]
+          },
+          {
+            "name": "Homemade Bourbon Bread Pudding",
+            "description": "Homemade bourbon bread pudding",
+            "price": null,
+            "dietary_flags": [
+              "vegetarian"
+            ]
+          }
+        ]
       }
     ]
-  },
-  "hours": {
-    "mobile_causeway": {
-      "monday": "11:00 a.m. - 9:30 p.m.",
-      "tuesday": "11:00 a.m. - 9:30 p.m.",
-      "wednesday": "11:00 a.m. - 9:30 p.m.",
-      "thursday": "11:00 a.m. - 9:30 p.m.",
-      "friday": "11:00 a.m. - 10:00 p.m.",
-      "saturday": "11:00 a.m. - 10:00 p.m.",
-      "sunday": "11:00 a.m. - 9:30 p.m."
-    },
-    "gulf_shores": {
-      "monday": "11:00 a.m. - 10:00 p.m.",
-      "tuesday": "11:00 a.m. - 10:00 p.m.",
-      "wednesday": "11:00 a.m. - 10:00 p.m.",
-      "thursday": "11:00 a.m. - 10:00 p.m.",
-      "friday": "11:00 a.m. - 10:00 p.m.",
-      "saturday": "11:00 a.m. - 10:00 p.m.",
-      "sunday": "11:00 a.m. - 10:00 p.m()",
-      "winter_hours": "October 17th - February: Monday-Sunday 11:00 a.m. - 9:00 p.m."
-    },
-    "notes": "Closed Sunday after Labor Day, Easter, Thanksgiving, Christmas Eve, and Christmas Day"
-  },
-  "about": {
-    "description": "The Original Oyster House seafood restaurant first opened its doors in Gulf Shores in 1983. The restaurant on the Causeway, overlooking Mobile Bay, opened in 1985. Since then they have proudly served the Gulf Coast the best seafood in a casual atmosphere with genuine southern hospitality.",
-    "elevator_pitch": "Award-winning Gulf Coast seafood restaurant known for hand-shucked oysters, homemade gumbo, and waterfront views with over 40 years of family-friendly service.",
-    "vibe": "Casual, family-friendly waterfront dining with a down-home Southern hospitality atmosphere",
-    "best_for": [
-      "families",
-      "date night",
-      "casual dining",
-      "group events",
-      "corporate meetings",
-      "private parties"
-    ],
-    "established": "1983 (Gulf Shores), 1985 (Mobile Causeway)",
-    "reservations": "Available and encouraged for larger groups",
-    "insider_tip": "Famous for hand-shucked oysters, homemade seafood gumbo, cheesy grits with blackened shrimp, and homemade desserts including peanut butter chocolate chip pie and bread pudding"
-  },
-  "tags": [
-    "seafood",
-    "casual dining",
-    "waterfront",
-    "family restaurant",
-    "Gulf Coast",
-    "oysters",
-    "gumbo",
-    "happy hour",
-    "private parties",
-    "group events",
-    "Southern hospitality"
-  ],
-  "features": [
-    "waterfront views",
-    "private party rooms",
-    "salad bar",
-    "kids menu",
-    "gluten-free options",
-    "happy hour",
-    "gift cards",
-    "group event spaces",
-    "virtual tours",
-    "fresh local seafood",
-    "casual dress"
-  ],
-  "price_range": "$$",
-  "social_links": {
-    "instagram": null,
-    "facebook": null,
-    "twitter": "@OriginalOyster",
-    "website": "https://originaloysterhouse.com"
   },
   "specials": [
     {
       "name": "Happy Hour at the Mobile Causeway",
-      "description": "$5 Bloody Marys, $5 Margaritas, $5 local craft beers, $5 well drinks, $5 house wines, $7 & $10 appetizers",
+      "description": "Meet me at the Mobile Causeway Original Oyster House for the best happy hour! Great specials include $5 Bloody Marys, $5 Margaritas, $5 local craft beers, $5 well drinks, $5 house wines and $7 & $10 appetizers.",
       "days": [
         "Monday",
         "Tuesday",
@@ -111,400 +302,109 @@
         "Thursday",
         "Friday"
       ],
-      "time": "3:00 p.m. - 6:00 p.m."
+      "time": "3:00pm-6:00pm",
+      "location": "Mobile Causeway"
     },
     {
       "name": "Valentine's Seafood Special",
-      "description": "Sweetheart Special package for $32.99 per person (not including tax and tip). Includes cup of seafood gumbo, create-your-own seafood platter with choice of three items, two famous sides, and homemade bourbon bread pudding to share",
-      "days": [],
-      "time": null,
-      "dates": "February 13-15"
+      "description": "Sweetheart Special package for $32.99 per person, not including tax and tip. Start with award-winning seafood gumbo, followed by Create-Your-Own-Seafood Platter with choice of three items, served with two famous sides. Finish with homemade bourbon bread pudding to share.",
+      "days": [
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "time": "All Weekend",
+      "date_range": "February 13-15",
+      "price": 32.99
     },
     {
       "name": "Gulf Shores Lunch Specials",
       "description": "Lunch specials available at Gulf Shores location",
-      "days": [],
-      "time": "Lunch hours",
-      "recurring": true
+      "location": "Gulf Shores"
     }
   ],
-  "events": [
-    {
-      "name": "Toys for Tots Event",
-      "description": "US Marines and Original Oyster House Host Toys for Tots Event",
-      "recurring": false,
-      "date": "December 14",
-      "time": null
-    },
-    {
-      "name": "Scholarship Award",
-      "description": "$1,000 Scholarship awarded to a Baldwin County High School Senior",
-      "recurring": true,
-      "date": "March 3, 2026",
-      "time": null
-    }
-  ],
-  "menu": {
-    "description": "Fresh local Gulf seafood, steaks, chicken, salads, pasta, and Southern classics",
-    "signature_items": [
-      "Hand-shucked oysters (fire-grilled)",
-      "Homemade seafood gumbo",
-      "Cheesy grits with blackened shrimp",
-      "Fried shrimp",
-      "Broiled flounder",
-      "Crab dishes",
-      "Fish tacos",
-      "Fresh salad bar",
-      "Peanut butter chocolate chip pie",
-      "Bread pudding with whiskey sauce",
-      "Key lime pie"
-    ],
-    "categories": [
-      {
-        "name": "Create-Your-Own Seafood Platter",
-        "type": "lunch",
-        "options": [
-          "Fried Shrimp",
-          "Stuffed Crabs",
-          "Fried Oysters",
-          "Fried Flounder",
-          "Grilled Chicken Breast",
-          "Grilled House Catch",
-          "Grilled Shrimp",
-          "Baked Stuffed Shrimp",
-          "Shrimp Scampi"
-        ]
-      },
-      {
-        "name": "Seafood Buffet Options",
-        "type": "lunch",
-        "items": [
-          {
-            "name": "Blackened Shrimp and Penne Pasta",
-            "description": null,
-            "price": null
-          },
-          {
-            "name": "Fried Popcorn Shrimp",
-            "description": null,
-            "price": null
-          },
-          {
-            "name": "Broiled Flounder with Pecan Butter",
-            "description": null,
-            "price": null
-          },
-          {
-            "name": "Fried Chicken Tenders",
-            "description": null,
-            "price": null
-          },
-          {
-            "name": "Rosemary Roasted Pork Loin Jezebel",
-            "description": null,
-            "price": null
-          }
-        ]
-      },
-      {
-        "name": "Sides",
-        "type": "lunch",
-        "items": [
-          {
-            "name": "House Turnip Greens",
-            "description": null,
-            "price": null
-          },
-          {
-            "name": "Red Beans and Rice",
-            "description": null,
-            "price": null
-          },
-          {
-            "name": "Famous Cheese Grits",
-            "description": null,
-            "price": null
-          }
-        ]
-      },
-      {
-        "name": "Desserts",
-        "type": "desserts",
-        "items": [
-          {
-            "name": "Homemade Seafood Gumbo",
-            "description": "Award-winning gumbo",
-            "price": null
-          },
-          {
-            "name": "Homemade Key Lime Pie",
-            "description": null,
-            "price": null
-          },
-          {
-            "name": "Bread Pudding with Whiskey Sauce",
-            "description": null,
-            "price": null
-          },
-          {
-            "name": "Peanut Butter Chocolate Chip Pie",
-            "description": "Local favorite",
-            "price": null
-          }
-        ]
-      },
-      {
-        "name": "Happy Hour",
-        "type": "drinks",
-        "location": "Mobile Causeway only",
-        "time": "3:00 p.m. - 6:00 p.m. Monday-Friday",
-        "items": [
-          {
-            "name": "Bloody Mary",
-            "price": 5
-          },
-          {
-            "name": "Margarita",
-            "price": 5
-          },
-          {
-            "name": "Local Craft Beer",
-            "price": 5
-          },
-          {
-            "name": "Well Drinks",
-            "price": 5
-          },
-          {
-            "name": "House Wine",
-            "price": 5
-          },
-          {
-            "name": "Appetizers",
-            "price": "7.00-10.00"
-          }
-        ]
-      },
-      {
-        "name": "Dietary Options",
-        "type": "dietary",
-        "items": [
-          {
-            "name": "Gluten-Free Menu",
-            "description": "Available at both locations",
-            "price": null
-          },
-          {
-            "name": "Kids Menu",
-            "description": "Available at both locations",
-            "price": null
-          }
-        ]
-      },
-      {
-        "name": "Additional Features",
-        "type": "lunch",
-        "items": [
-          {
-            "name": "Fresh Salad Bar",
-            "description": "Served with lunch and dinner daily at both locations",
-            "price": null
-          }
-        ]
-      }
-    ]
-  },
-  "banquet_rooms": [
+  "private_event_spaces": [
     {
       "name": "Banquet Room",
       "location": "Mobile Causeway",
       "capacity": "30-100 guests",
-      "description": "2,000 square foot space surrounded by Mobile Delta with views of Mobile skyline. Features panoramic waterfront views, podium, AV and screen, private bathrooms",
-      "best_for": [
-        "corporate events",
-        "large receptions",
-        "bridal rehearsal dinners",
-        "birthday parties",
-        "presentations"
-      ],
-      "amenities": [
-        "Podium",
-        "AV equipment",
-        "Screen",
-        "Private bathrooms",
-        "Waterfront views",
-        "Create-your-own buffet"
-      ]
+      "description": "2,000 square foot space surrounded by the Mobile Delta with panoramic views of Mobile's skyline. Fully equipped with podium, AV and screen, private bathrooms. Perfect for corporate meetings, receptions, bridal rehearsal dinners, retirement or birthday parties, presentations and celebrations."
     },
     {
       "name": "Chart Room",
       "location": "Mobile Causeway",
       "capacity": "Up to 20 guests",
-      "description": "Rustic tone with clean lines, intimate setting. 48-inch flat screen TV available",
-      "best_for": [
-        "small business meetings",
-        "presentations",
-        "board meetings",
-        "retirement parties",
-        "rehearsal dinners"
-      ]
+      "description": "Small, intimate private dining room with rustic tone and clean lines. Features 48-inch flat screen TV for presentations. Good for board meetings, sales presentations, small rehearsal dinners."
     },
     {
       "name": "Delta Room",
       "location": "Mobile Causeway",
       "capacity": "Up to 40 guests",
-      "description": "Old world, vintage tone with sea turtle window graphics and memorabilia",
-      "best_for": [
-        "business meetings",
-        "birthday celebrations",
-        "private parties"
-      ]
+      "description": "Private dining room with old world, vintage tone. Features memorabilia on walls and sea turtle window graphics. Well-suited for business meetings and birthday celebrations."
     },
     {
       "name": "Lighthouse Room",
       "location": "Gulf Shores",
       "capacity": "Up to 45 guests",
-      "description": "Private dining hall with rustic tone and clean lines. 48-inch flat screen TV for presentations",
-      "best_for": [
-        "small to medium business meetings",
-        "private parties",
-        "office parties",
-        "family gatherings"
-      ]
+      "description": "Private dining room for small to medium business meetings or private parties. Rustic tone with clean lines. Features 48-inch flat screen TV for presentations. Available in off-peak seasons."
     },
     {
       "name": "Pelican's Landing",
       "location": "Gulf Shores",
       "capacity": "Up to 40 guests",
-      "description": "Semi-private dining room with casual seating and stunning waterfront view",
-      "best_for": [
-        "small to medium meetings",
-        "private parties",
-        "family gatherings",
-        "office parties"
-      ]
+      "description": "Semi-private dining room with casual seating and stunning waterfront view. Comfortably accommodates groups. Available in off-peak seasons. Perfect for family gatherings and office parties."
     }
   ],
-  "group_event_services": {
-    "private_party_menu": "Available with variety of seafood and non-seafood options",
-    "seafood_buffet": {
-      "lunch": "2 entrees and 2 sides",
-      "dinner": "3 entrees and 3 sides OR 4 entrees and 3 sides"
+  "features": [
+    "Full bar",
+    "Salad bar",
+    "Takeout",
+    "Dine-in",
+    "Waterfront views",
+    "Private party rooms",
+    "Kids menu",
+    "Outdoor playground",
+    "Oyster shell recycling",
+    "Oyster garden/reef restoration",
+    "Gift cards",
+    "E-gifts",
+    "Casual dress",
+    "Major credit cards accepted",
+    "Handicap accessible",
+    "Virtual tours available",
+    "Private seafood buffet",
+    "Create-your-own entree platters"
+  ],
+  "social_media": {
+    "facebook": null,
+    "instagram": null,
+    "twitter": "https://twitter.com/OriginalOyster"
+  },
+  "special_programs": [
+    {
+      "name": "Chelsea Garvin Spirit Award Scholarship",
+      "description": "Annual $1,000 scholarship awarded to a Baldwin County high school senior. Created in 2006 in memory of Chelsea Garvin. Requirements: high school senior in Baldwin County with minimum 2.5 GPA, participated in school or community art event, submit artwork reflecting Original Oyster House brand.",
+      "amount": 1000,
+      "deadline": "April 17, 2026"
     },
-    "minimum_group_size": "30 guests for Banquet Room",
-    "contact_for_details": "(251) 626-2188 (Mobile) or (251) 948-2445 (Gulf Shores)"
-  },
-  "awards_programs": {
-    "scholarship": {
-      "name": "Original Oyster House Scholarship",
-      "amount": "$1,000",
-      "eligibility": "Baldwin County High School Senior"
+    {
+      "name": "Sustainable Energy/Oyster Shell Recycling",
+      "description": "First restaurant in Alabama to recycle oyster shells through Alabama Coastal Foundation. One of only restaurants to grow stocker oysters for reef restoration."
+    },
+    {
+      "name": "Toys for Tots Event",
+      "description": "Annual event co-hosted with US Marines"
     }
-  },
-  "additional_info": {
-    "mission": "To exceed customers' expectations with the best employees in the world",
-    "values": "Family, integrity, and great service",
-    "employer_recognition": "Known as an employer of choice with long-time, loyal employees",
-    "payment": "Major credit cards accepted",
-    "gift_cards": "Available for all occasions",
-    "merchandise": "OOH Trading Company shop available"
-  },
-  "url": "https://originaloysterhouse.com",
-  "scraped_at": "2026-03-22T16:53:19.640Z",
-  "extracted_at": "2026-03-23T04:43:45.820Z",
-  "model": "claude-haiku-4-5-20251001",
-  "gallery": [
-    "https://www.originaloysterhouse.com/wp-content/uploads/2019/06/logo.png",
-    "https://www.originaloysterhouse.com/wp-content/uploads/2019/06/home-news-300x112.png",
-    "https://www.originaloysterhouse.com/wp-content/uploads/2019/03/ChelseaGarvin22Sm.jpg",
-    "https://www.originaloysterhouse.com/wp-content/uploads/2019/06/1401827829_OYST101-Salad-562e.jpg",
-    "https://www.originaloysterhouse.com/wp-content/uploads/2020/02/Happy-HourSquarepsd-1.jpg",
-    "https://www.originaloysterhouse.com/wp-content/uploads/2019/06/quicklinks.png",
-    "https://www.originaloysterhouse.com/wp-content/uploads/2019/06/serving-sidebar-300x219.png",
-    "https://www.originaloysterhouse.com/wp-content/uploads/2019/06/lighthouse-room-1.jpg",
-    "https://www.originaloysterhouse.com/wp-content/uploads/2019/06/pelicans-landing.jpg",
-    "https://www.originaloysterhouse.com/wp-content/uploads/2019/06/DeltaRoom.jpg",
-    "https://www.originaloysterhouse.com/wp-content/uploads/2022/04/Delta-RM-Sea-turtle-Graphics-300x189.jpg",
-    "https://www.originaloysterhouse.com/wp-content/uploads/2019/06/chart-room.jpg",
-    "https://www.originaloysterhouse.com/wp-content/uploads/2021/12/Margaret-EOY-copy-300x253.jpg",
-    "https://www.originaloysterhouse.com/wp-content/uploads/2021/12/GS-Employees-of-the-Year-2021-copy-300x195.jpg",
-    "https://www.originaloysterhouse.com/wp-content/uploads/2021/04/Employment-300x200.jpg",
-    "https://www.originaloysterhouse.com/wp-content/uploads/2019/06/AddToAbout.jpg",
-    "https://www.originaloysterhouse.com/wp-content/uploads/2019/06/our-food-1.jpg",
-    "https://www.originaloysterhouse.com/wp-content/uploads/2019/06/our-food-2.jpg",
-    "https://www.originaloysterhouse.com/wp-content/uploads/2019/06/our-food-3.jpg",
-    "https://www.originaloysterhouse.com/wp-content/uploads/2019/06/our-food-4.jpg",
-    "http://ooh.elite03.com/wp-content/uploads/2019/06/tripadvisor_logo_117x18-24177-2.png",
-    "https://static.tacdn.com/img2/t4b/Stacked_TA_logo.png",
-    "https://www.originaloysterhouse.com/wp-content/uploads/2019/06/ooh-high-logo.png",
-    "https://www.originaloysterhouse.com/wp-content/uploads/2019/06/ooh_boardwalk.png",
-    "https://www.originaloysterhouse.com/wp-content/uploads/2019/06/ooh-trading-high-logo.png",
-    "https://www.originaloysterhouse.com/wp-content/uploads/2019/06/jd-high-logo.png",
-    "https://www.originaloysterhouse.com/wp-content/uploads/2021/12/Cedric-Hudson-square-300x272.jpg",
-    "https://www.originaloysterhouse.com/wp-content/uploads/2019/06/our-story-1.jpg",
-    "https://www.originaloysterhouse.com/wp-content/uploads/2019/06/our-story-2.jpg",
-    "https://www.originaloysterhouse.com/wp-content/uploads/2019/06/our-story-3.jpg",
-    "https://www.originaloysterhouse.com/wp-content/uploads/2019/06/prayer_img.jpg",
-    "https://www.originaloysterhouse.com/wp-content/uploads/2023/08/Our-Story-Quote-David-Dekle-copy.jpg",
-    "https://www.originaloysterhouse.com/wp-content/uploads/2021/02/JamesNailChristmas.jpg",
-    "https://www.originaloysterhouse.com/wp-content/uploads/2023/08/Anatolie.jpg",
-    "https://www.originaloysterhouse.com/wp-content/uploads/2019/06/1401982301_Tim.jpg",
-    "https://www.originaloysterhouse.com/wp-content/uploads/2023/09/Dre-LR.jpg",
-    "https://www.originaloysterhouse.com/wp-content/uploads/2024/10/GS-group-shot-1-1024x892.jpg",
-    "https://www.originaloysterhouse.com/wp-content/uploads/2024/10/GS-group-shot-2-1024x1009.jpg",
-    "https://www.originaloysterhouse.com/wp-content/uploads/2024/10/GS-Group-Shot-3-1024x910.jpg",
-    "https://www.originaloysterhouse.com/wp-content/uploads/2019/06/OurTeam4.jpg",
-    "https://www.originaloysterhouse.com/wp-content/uploads/2024/10/FishPoster-copy-790x1024.jpg",
-    "https://www.originaloysterhouse.com/wp-content/uploads/2019/06/1401825673_FireGrilledOysters.jpg",
-    "https://www.originaloysterhouse.com/wp-content/uploads/2019/06/1401833091_FirecrackerOysters_smallimage.jpg",
-    "https://www.originaloysterhouse.com/wp-content/uploads/2019/06/1400181256_pbutter_new.jpg",
-    "https://www.originaloysterhouse.com/wp-content/uploads/2019/06/1400181146_keylime_new.jpg",
-    "https://www.originaloysterhouse.com/wp-content/uploads/2019/06/1452799235_KeyLImeDelight.jpeg",
-    "https://www.originaloysterhouse.com/wp-content/uploads/2019/06/img-cooming-soon.png",
-    "https://www.originaloysterhouse.com/wp-content/uploads/2019/06/shrimp_florentine2.jpg",
-    "https://www.originaloysterhouse.com/wp-content/uploads/2019/06/1475518874_OYST101-Menu-307.jpg",
-    "https://www.originaloysterhouse.com/wp-content/uploads/2026/03/2026-Chelsea-Garvin-Poster-243x300.jpg"
   ],
-  "sources": [
-    "https://originaloysterhouse.com",
-    "https://www.originaloysterhouse.com/promos/happy-hour-at-the-mobile-causeway",
-    "https://www.originaloysterhouse.com/gulf-shores-lunch-specials-are-back",
-    "https://www.originaloysterhouse.com/valentines-seafood-special",
-    "https://www.originaloysterhouse.com/contact-us",
-    "https://www.originaloysterhouse.com/group-events-lighthouse-room",
-    "https://www.originaloysterhouse.com/group-events-pelicans-landing-room",
-    "https://www.originaloysterhouse.com/group-events-delta-room",
-    "https://www.originaloysterhouse.com/group-events-chart-room",
-    "https://www.originaloysterhouse.com/group-events-banquet-room",
-    "https://www.originaloysterhouse.com/corporate-events",
-    "https://www.originaloysterhouse.com/seafood-buffet",
-    "https://www.originaloysterhouse.com/about",
-    "https://www.originaloysterhouse.com/group-event-request",
-    "https://www.originaloysterhouse.com/group-events",
-    "https://www.originaloysterhouse.com/causeway-gluten-free-menu",
-    "https://www.originaloysterhouse.com/causeway-banquet-menu",
-    "https://www.originaloysterhouse.com/causeway-kids-menu",
-    "https://www.originaloysterhouse.com/causeway-drinks-desserts-menu",
-    "https://www.originaloysterhouse.com/happy-hour-menu",
-    "https://www.originaloysterhouse.com/causeway-lunch-and-dinner-menu",
-    "https://www.originaloysterhouse.com/gulf-shores-gluten-free-menu",
-    "https://www.originaloysterhouse.com/gulf-shores-kids-menu",
-    "https://www.originaloysterhouse.com/gulf-shores-drinks-desserts-menu",
-    "https://www.originaloysterhouse.com/gulf-shores-lunch-menu",
-    "https://www.originaloysterhouse.com/gulf-shores-dinner-menu",
-    "https://www.originaloysterhouse.com/gulf-shores-virtual-tour",
-    "https://www.originaloysterhouse.com/mobile-causeway-virtual-tour",
-    "https://www.originaloysterhouse.com/our-food",
-    "https://www.originaloysterhouse.com",
-    "https://www.originaloysterhouse.com/locations",
-    "https://www.originaloysterhouse.com/employment",
-    "https://www.originaloysterhouse.com/store",
-    "https://www.originaloysterhouse.com/our-story",
-    "https://www.originaloysterhouse.com/our-team",
-    "https://www.originaloysterhouse.com/our-mission",
-    "https://www.originaloysterhouse.com/take-out-grab-n-go",
-    "https://www.originaloysterhouse.com/grabngocauseway",
-    "https://www.originaloysterhouse.com/recipes",
-    "https://www.originaloysterhouse.com/news"
-  ]
+  "closed_days": [
+    "Sunday after Labor Day",
+    "Easter",
+    "Thanksgiving",
+    "Christmas Eve",
+    "Christmas Day"
+  ],
+  "website": "https://www.originaloysterhouse.com",
+  "founded_year": 1983,
+  "parent_company": "Ark Restaurants (owned since 2016)",
+  "extracted_at": "2026-05-16T19:31:33.478Z"
 }

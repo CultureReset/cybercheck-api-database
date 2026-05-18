@@ -11,38 +11,90 @@
     "zip": "36608"
   },
   "hours": {
-    "monday": "Lunch: 11:00 am - 3:30 pm, Dinner: 4:30 pm - 9:00 pm",
-    "tuesday": "Lunch: 11:00 am - 3:30 pm, Dinner: 4:30 pm - 9:00 pm",
-    "wednesday": "Lunch: 11:00 am - 3:30 pm, Dinner: 4:30 pm - 9:00 pm",
-    "thursday": "Lunch: 11:00 am - 3:30 pm, Dinner: 4:30 pm - 9:00 pm",
-    "friday": "Lunch: 11:00 am - 3:30 pm, Dinner: 4:30 pm - 9:00 pm",
-    "saturday": "Lunch: 11:00 am - 3:30 pm, Dinner: 4:30 pm - 10:00 pm",
-    "sunday": "Lunch: 11:00 am - 3:30 pm, Dinner: 4:30 pm - 9:00 pm",
-    "notes": null
+    "monday": "Lunch: 11:00 am - 3:30 pm | Dinner: 4:30 pm - 9:00 pm",
+    "tuesday": "Lunch: 11:00 am - 3:30 pm | Dinner: 4:30 pm - 9:00 pm",
+    "wednesday": "Lunch: 11:00 am - 3:30 pm | Dinner: 4:30 pm - 9:00 pm",
+    "thursday": "Lunch: 11:00 am - 3:30 pm | Dinner: 4:30 pm - 9:00 pm",
+    "friday": "Lunch: 11:00 am - 3:30 pm | Dinner: 4:30 pm - 9:00 pm",
+    "saturday": "Lunch: 11:00 am - 3:30 pm | Dinner: 4:30 pm - 10:00 pm",
+    "sunday": "Lunch: 11:00 am - 3:30 pm | Dinner: 4:30 pm - 9:00 pm",
+    "notes": "Menu and prices subject to change. Call restaurant for current prices and selections."
   },
   "about": {
-    "description": "Thai restaurant offering authentic Thai cuisine",
-    "elevator_pitch": "Authentic Thai restaurant in Mobile, AL serving lunch and dinner with separate menus and pricing.",
-    "vibe": null,
-    "best_for": [],
+    "description": "Casual outpost offering familiar Thai noodles and curries, plus a lunch buffet, amid Asian decor.",
+    "elevator_pitch": "Bangkok Thai Cuisine brings authentic Thai flavors to Mobile, Alabama, with a welcoming lunch buffet and a full dinner menu of classic noodles and curries in a warm, Asian-inspired setting.",
     "established": null,
-    "reservations": "Available - call for reservations",
-    "insider_tip": null
+    "owner": null,
+    "chef": null,
+    "vibe": "Casual, cozy Asian-inspired dining with authentic flair",
+    "best_for": [
+      "families",
+      "lunch crowds",
+      "date night",
+      "groups"
+    ],
+    "age_restriction": null,
+    "dress_code": null,
+    "parking": null,
+    "accessibility": null,
+    "reservations": "Call restaurant directly during business hours",
+    "insider_tip": "Take advantage of the lunch buffet on weekdays for the best value and variety.",
+    "awards": [],
+    "press": []
   },
   "tags": [
+    "Thai food",
+    "lunch buffet",
+    "noodles",
+    "curries",
+    "casual dining",
+    "Asian decor",
+    "catering"
+  ],
+  "hashtags": [
+    "#BangkokThaiCuisine",
+    "#MobileAL",
+    "#ThaiFood",
+    "#MobileEats",
+    "#AlabamaEats",
+    "#LunchBuffet",
+    "#ThaiCurry",
+    "#ThaiNoodles",
+    "#MobileRestaurants",
+    "#AuthenticThai"
+  ],
+  "categories": [
+    "Restaurant",
+    "Thai Cuisine"
+  ],
+  "cuisine_types": [
     "Thai",
-    "Asian",
-    "Lunch",
-    "Dinner"
+    "Asian"
+  ],
+  "atmosphere": [
+    "Casual",
+    "Family-Friendly",
+    "Cozy"
   ],
   "features": [
-    "Catering available"
+    "lunch buffet",
+    "dine-in",
+    "takeout",
+    "catering"
   ],
   "price_range": "$$",
+  "neighborhood": null,
   "social_links": {
     "instagram": null,
     "facebook": null,
-    "website": "http://www.bangkokthaicuisinemobile.com"
+    "twitter": null,
+    "tiktok": null,
+    "youtube": null,
+    "yelp": null,
+    "tripadvisor": null,
+    "opentable": null,
+    "google_maps": null,
+    "website": "http://www.bangkokthaicuisinemobile.com/"
   },
   "specials": [],
   "events": [],
@@ -51,8 +103,15 @@
   },
   "url": "http://www.bangkokthaicuisinemobile.com/",
   "scraped_at": "2026-03-22T02:34:17.148Z",
-  "extracted_at": "2026-03-23T03:30:24.952Z",
-  "model": "claude-haiku-4-5-20251001",
+  "extracted_at": "2026-05-15T19:01:35.810Z",
+  "sources": [
+    "http://www.bangkokthaicuisinemobile.com",
+    "http://www.bangkokthaicuisinemobile.com/media/5323/1.jpg?width=1080&height=1080",
+    "http://www.bangkokthaicuisinemobile.com/media/5324/2.jpg?width=1080&height=1080",
+    "http://www.bangkokthaicuisinemobile.com/media/5325/3.jpg?width=1080&height=1080",
+    "http://www.bangkokthaicuisinemobile.com/media/5326/4.jpg?width=1080&height=1080",
+    "http://www.bangkokthaicuisinemobile.com/media/5327/5.jpg?width=1080&height=1080"
+  ],
   "gallery": [
     "http://www.bangkokthaicuisinemobile.com/media/5323/1.jpg?width=320&height=320",
     "http://www.bangkokthaicuisinemobile.com/media/5324/2.jpg?width=320&height=320",
@@ -61,14 +120,6 @@
     "http://www.bangkokthaicuisinemobile.com/media/5327/5.jpg?width=320&height=320",
     "http://www.bangkokthaicuisinemobile.com/restaurant/assets/img/background/footer-back-1.png",
     "http://www.bangkokthaicuisinemobile.com/restaurant/assets/img/background/footer-back-2.png",
-    "http://www.bangkokthaicuisinemobile.com/media/5323/1.jpg?width=1080&height=1080",
-    "http://www.bangkokthaicuisinemobile.com/media/5324/2.jpg?width=1080&height=1080",
-    "http://www.bangkokthaicuisinemobile.com/media/5325/3.jpg?width=1080&height=1080",
-    "http://www.bangkokthaicuisinemobile.com/media/5326/4.jpg?width=1080&height=1080",
-    "http://www.bangkokthaicuisinemobile.com/media/5327/5.jpg?width=1080&height=1080"
-  ],
-  "sources": [
-    "http://www.bangkokthaicuisinemobile.com",
     "http://www.bangkokthaicuisinemobile.com/media/5323/1.jpg?width=1080&height=1080",
     "http://www.bangkokthaicuisinemobile.com/media/5324/2.jpg?width=1080&height=1080",
     "http://www.bangkokthaicuisinemobile.com/media/5325/3.jpg?width=1080&height=1080",

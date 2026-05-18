@@ -1,14 +1,16 @@
 {
   "business_name": "Pirates Cove",
-  "tagline": "Gulf Coast Bar & Grill | Drinks, Food & Live Music Since 1957",
-  "type": "Bar & Grill",
+  "cuisine_type": "Gulf Coast Bar & Grill",
+  "price_range": null,
+  "description": "Gulf Coast Bar & Grill | Drinks, Food & Live Music Since 1957",
   "contact": {
     "phone": "251-987-1224",
     "email": "info@piratescoveriffraff.com",
     "address": "6664 Co Rd 95",
     "city": "Elberta",
     "state": "AL",
-    "zip": "36530"
+    "zip": "36530",
+    "website": "http://www.piratescoveriffraff.com"
   },
   "hours": {
     "monday": null,
@@ -17,75 +19,22 @@
     "thursday": null,
     "friday": null,
     "saturday": null,
-    "sunday": null,
-    "notes": null
+    "sunday": null
   },
-  "about": {
-    "description": "Gulf Coast Bar & Grill featuring drinks, food, and live music",
-    "elevator_pitch": "A legendary Gulf Coast bar and grill with live music and entertainment since 1957.",
-    "vibe": "Pirate-themed, casual, fun atmosphere with the motto 'Abandon All Hope Ye Who Enter Here'",
-    "best_for": [
-      "live music",
-      "drinks",
-      "casual dining",
-      "entertainment"
-    ],
-    "established": "1957",
-    "reservations": null,
-    "insider_tip": "Features multiple stages - Main Stage and Sandbar Stage for live music performances"
-  },
-  "tags": [
-    "bar",
-    "grill",
-    "live music",
-    "drinks",
-    "casual",
-    "Gulf Coast",
-    "seafood likely"
-  ],
-  "features": [
-    "full bar",
-    "live music",
-    "Main Stage",
-    "Sandbar Stage",
-    "online ordering"
-  ],
-  "price_range": "$$",
-  "social_links": {
-    "instagram": "https://instagram.com/piratescoveriffraff",
-    "facebook": "https://facebook.com/piratescoveriffraff",
-    "website": "http://www.piratescoveriffraff.com"
-  },
-  "specials": [],
-  "events": [
-    {
-      "name": "Live Music | Main Stage",
-      "description": "Live music performances on the main stage",
-      "recurring": true,
-      "day": null,
-      "time": null
-    },
-    {
-      "name": "The Sandbar Stage Music Schedule",
-      "description": "Live music performances on the Sandbar Stage",
-      "recurring": true,
-      "day": null,
-      "time": null
-    }
-  ],
   "menu": {
     "categories": []
   },
-  "url": "http://www.piratescoveriffraff.com",
-  "scraped_at": "2026-03-22T18:31:33.293Z",
-  "extracted_at": "2026-03-23T04:03:59.682Z",
-  "model": "claude-haiku-4-5-20251001",
-  "gallery": [
-    "https://piratescoveriffraff.com/wp-content/uploads/2025/04/output-onlinepngtools-2.png",
-    "http://piratescoveriffraff.com/wp-content/uploads/2026/03/Upcoming-Band-Weekly-Schedule-FINAl-1024x1024.png",
-    "http://piratescoveriffraff.com/wp-content/uploads/2026/01/Black-and-White-Bold-Music-Festival-Poster-2-768x1024.png"
+  "specials": [],
+  "features": [
+    "full bar",
+    "live music",
+    "outdoor seating"
   ],
-  "sources": [
-    "http://www.piratescoveriffraff.com"
-  ]
+  "social_media": {
+    "facebook": "https://www.facebook.com/piratescoveriffraff",
+    "instagram": "https://www.instagram.com/piratescoveriffraff",
+    "twitter": null
+  },
+  "images": [],
+  "extracted_at": "2026-05-16T19:38:20.914Z"
 }

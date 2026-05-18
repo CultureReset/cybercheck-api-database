@@ -18,7 +18,7 @@ const path = require('path');
 
 puppeteer.use(StealthPlugin());
 
-const MAX_PAGES = 40;
+const MAX_PAGES = 100;
 const BASE_DIR  = path.join(__dirname, '../scraped-menus');
 
 function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
@@ -86,14 +86,17 @@ async function scrapeSite(startUrl) {
             const resp = await page.goto(url, { waitUntil: 'networkidle2', timeout: 30000 });
             if (!resp) continue;
 
-            // Wait a bit for JS to render
-            await sleep(1500);
+            // Wait for JS to render
+            await sleep(3500);
 
             // Dismiss popups
             await dismissPopups(page);
 
             // Expand menus/tabs
             await expandSections(page);
+
+            // Wait for expanded content to load
+            await sleep(2000);
 
             // Get page content
             const content = await page.evaluate(() => {
@@ -186,7 +189,7 @@ async function dismissPopups(page) {
         for (const sel of selectors) {
             try {
                 const btn = await page.$(sel);
-                if (btn) { await btn.click(); await sleep(300); }
+                if (btn) { await btn.click(); await sleep(600); }
             } catch {}
         }
     } catch {}
@@ -194,19 +197,18 @@ async function dismissPopups(page) {
 
 async function expandSections(page) {
     try {
-        // Click tabs, accordions, "show more" buttons
-        const selectors = [
-            '[class*="tab"]', '[role="tab"]', '[class*="accordion"]',
-            '[class*="toggle"]', 'button[class*="menu"]',
-            'button:has-text("Menu")', 'button:has-text("See More")',
-            'button:has-text("Show More")', 'button:has-text("View Menu")',
-        ];
-        for (const sel of selectors) {
+        // Find ALL buttons/links and click ones with menu text
+        const elements = await page.$$('a, button');
+        for (const el of elements) {
             try {
-                const btns = await page.$$(sel);
-                for (const btn of btns.slice(0, 10)) {
-                    const visible = await btn.isIntersectingViewport().catch(() => false);
-                    if (visible) { await btn.click(); await sleep(400); }
+                const text = await el.evaluate(e => e.innerText || e.textContent || '');
+                if (/menu|lunch|dinner|drinks|bar|appetizer|entree|kids|specials/i.test(text)) {
+                    const visible = await el.isIntersectingViewport().catch(() => false);
+                    if (visible) {
+                        console.log(`    Clicking: ${text.trim().substring(0, 40)}`);
+                        await el.click();
+                        await sleep(1500);
+                    }
                 }
             } catch {}
         }

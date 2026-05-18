@@ -1,14 +1,16 @@
 {
   "business_name": "Peking Garden Restaurant",
-  "tagline": "Passion For The Perfect Taste",
-  "type": "Restaurant",
+  "cuisine_type": "Chinese",
+  "price_range": null,
+  "description": "Welcome to Peking Garden Restaurant. Located at 2316 St Stephens Rd, Mobile, AL 36617, our restaurant is a hidden gem in the heart of Mobile Circle Square. Our restaurant's story is one of passion, tradition, and a love for bringing people together through exceptional food. For generations, our dedicated itself to perfecting the art of cooking, blending the timeless elegance of Chinese cuisine with the bold, hearty flavors of American dishes. It all comes together in a warm and inviting setting that feels just like home. At our restaurant, we take pride in offering a diverse menu that caters to every palate. From exquisite sushi rolls that artfully combine flavors and textures to soul-warming ramen that warms you from the inside out, We believe that a meal is more than just sustenance; it's a chance to connect, share stories, and create cherished memories. Our restaurant is built on the values of community and family. We consider every guest who walks through our doors as an extension of our family, and we treat them as such. We take pride in serving not only delicious food but also warm hospitality that makes you feel right at home.",
   "contact": {
     "phone": "(251) 330-0207",
     "email": null,
     "address": "2316 St Stephens Rd",
     "city": "Mobile",
     "state": "AL",
-    "zip": "36617"
+    "zip": "36617",
+    "website": "http://pekinggarden.top"
   },
   "hours": {
     "monday": "10:30 AM–9 PM",
@@ -17,263 +19,136 @@
     "thursday": "10:30 AM–9 PM",
     "friday": "10:30 AM–10:30 PM",
     "saturday": "10:30 AM–10:30 PM",
-    "sunday": "10:30 AM–9:30 PM",
-    "notes": null
+    "sunday": "10:30 AM–9:30 PM"
   },
-  "about": {
-    "description": "Located at 2316 St Stephens Rd in Mobile Circle Square, Peking Garden Restaurant is a hidden gem dedicated to perfecting the art of cooking by blending the timeless elegance of Chinese cuisine with bold, hearty flavors of American dishes. The restaurant is built on values of community and family, offering exquisite sushi rolls, soul-warming ramen, and diverse menu options in a warm and inviting setting.",
-    "elevator_pitch": "A hidden gem in Mobile Circle Square blending traditional Chinese cuisine with American flavors in a warm, family-oriented setting.",
-    "vibe": "Warm and inviting, family-friendly atmosphere that feels like home with passionate service and exceptional food",
-    "best_for": [
-      "families",
-      "casual dining",
-      "community gatherings",
-      "takeout"
-    ],
-    "established": null,
-    "reservations": null,
-    "insider_tip": "The restaurant was packed with people but diners didn't have to wait long; known for crispy vegetables, delicious sauce, and generous portions"
-  },
-  "tags": [
-    "Chinese cuisine",
-    "American dishes",
-    "sushi",
-    "ramen",
-    "casual dining",
-    "family-friendly",
-    "takeout available"
-  ],
-  "features": [
-    "takeout menu",
-    "diverse menu",
-    "full service restaurant"
-  ],
-  "price_range": "$$",
-  "social_links": {
-    "instagram": null,
-    "facebook": null,
-    "website": "http://pekinggarden.top"
-  },
-  "specials": [],
-  "events": [],
   "menu": {
     "categories": [
       {
         "name": "Appetizers",
-        "type": "lunch",
         "items": [
           {
             "name": "Appetizers Deluxe For 2",
-            "description": "Combination of fried prawns, egg roll and crab butterfly",
+            "description": "Combination of fried prawns, egg roll and crab butterfly.",
             "price": 6.55,
-            "tags": [
-              "seafood",
-              "fried"
-            ],
-            "allergens": []
+            "dietary_flags": []
           },
           {
             "name": "Egg Rolls",
             "description": null,
             "price": 4.25,
-            "tags": [
-              "fried"
-            ],
-            "allergens": []
+            "dietary_flags": []
           }
         ]
       },
       {
         "name": "Soup",
-        "type": "lunch",
         "items": [
           {
             "name": "Hot And Sour Soup",
             "description": null,
             "price": 4.55,
-            "tags": [
-              "soup"
-            ],
-            "allergens": []
+            "dietary_flags": []
           },
           {
             "name": "Won Ton Soup",
-            "description": "Quick and easy wonton soup loaded with veggies, takes under 15 minutes to make thanks to frozen wontons",
+            "description": "Quick and easy wonton soup is super simple, loaded with veggies and takes under 15 minutes to make thanks to the frozen wontons.",
             "price": 4.55,
-            "tags": [
-              "soup",
-              "vegetarian"
-            ],
-            "allergens": []
-          },
-          {
-            "name": "Wonton Soup",
-            "description": null,
-            "price": null,
-            "tags": [
-              "soup"
-            ],
-            "allergens": []
+            "dietary_flags": []
           }
         ]
       },
       {
         "name": "Egg Foo Young",
-        "type": "lunch",
         "items": [
           {
             "name": "Vegetable Egg Foo Young",
             "description": null,
             "price": 6.95,
-            "tags": [
-              "vegetarian",
-              "egg"
-            ],
-            "allergens": [
-              "eggs"
+            "dietary_flags": [
+              "vegetarian"
             ]
           },
           {
             "name": "Pork Egg Foo Young",
             "description": null,
             "price": 6.95,
-            "tags": [
-              "pork",
-              "egg"
-            ],
-            "allergens": [
-              "eggs"
-            ]
+            "dietary_flags": []
           }
         ]
       },
       {
         "name": "Noodles",
-        "type": "lunch",
         "items": [
           {
             "name": "Beef Chow Mein",
             "description": null,
             "price": 4.95,
-            "tags": [
-              "beef",
-              "noodles"
-            ],
-            "allergens": []
+            "dietary_flags": []
           },
           {
             "name": "Chicken Chow Mein",
             "description": null,
             "price": 4.95,
-            "tags": [
-              "chicken",
-              "noodles"
-            ],
-            "allergens": []
-          },
-          {
-            "name": "Chicken Lo Mein",
-            "description": "Can be ordered spicy",
-            "price": null,
-            "tags": [
-              "chicken",
-              "noodles",
-              "customizable"
-            ],
-            "allergens": []
+            "dietary_flags": []
           }
         ]
       },
       {
         "name": "Rice",
-        "type": "lunch",
         "items": [
           {
             "name": "Beef Fried Rice",
             "description": null,
             "price": 4.95,
-            "tags": [
-              "beef",
-              "rice"
-            ],
-            "allergens": []
+            "dietary_flags": []
           },
           {
             "name": "Chicken Fried Rice",
             "description": null,
             "price": 4.95,
-            "tags": [
-              "chicken",
-              "rice"
-            ],
-            "allergens": []
-          }
-        ]
-      },
-      {
-        "name": "Chef Specials",
-        "type": "dinner",
-        "items": [
-          {
-            "name": "Chef Special Seafood & Tofu Casserole",
-            "description": "A comforting dish with an interesting combination of silken tofu and seafood cooked in an earthenware pot",
-            "price": null,
-            "tags": [
-              "seafood",
-              "tofu",
-              "vegetarian",
-              "special"
-            ],
-            "allergens": [
-              "seafood",
-              "soy"
-            ]
-          },
-          {
-            "name": "Beef In Savory Pot",
-            "description": "Made with beef blade chuck roast boneless with salt, black pepper, and reduced sodium beef broth",
-            "price": null,
-            "tags": [
-              "beef",
-              "special"
-            ],
-            "allergens": []
+            "dietary_flags": []
           }
         ]
       }
     ]
   },
-  "url": "http://pekinggarden.top/",
-  "scraped_at": "2026-03-21T14:28:21.654Z",
-  "extracted_at": "2026-03-23T03:57:08.331Z",
-  "model": "claude-haiku-4-5-20251001",
-  "gallery": [
-    "https://pekinggarden.top/img/photos/1702710349.jpg",
-    "https://pekinggarden.top/img/photos/1702689796.jpg",
-    "https://pekinggarden.top/img/photos/1702710581.jpg",
-    "https://pekinggarden.top/img/photos/1702710168.jpg",
-    "https://pekinggarden.top/img/photos/1702713196.jpg",
-    "https://pekinggarden.top/img/photos/1702712514.jpg",
-    "https://pekinggarden.top/img/photos/1702709743.jpg",
-    "https://pekinggarden.top/img/photos/1702712060.jpg",
-    "https://pekinggarden.top/img/photos/1702689575.jpg",
-    "https://pekinggarden.top/img/photos/1702709167.jpg",
-    "https://pekinggarden.top/img/photos/1702321653.jpg",
-    "https://pekinggarden.top/img/photos/1702374499.jpg",
-    "https://pekinggarden.top/img/photos/1702368985.jpg",
-    "https://pekinggarden.top/content/S1/picture/avatar-01.jpg",
-    "https://pekinggarden.top/content/S1/picture/avatar-04.jpg",
-    "https://pekinggarden.top/content/S1/picture/avatar-05.jpg",
-    "https://pekinggarden.top/img/photos/1702712828.jpg",
-    "https://pekinggarden.top/img/photos/1702712479.jpg",
-    "https://pekinggarden.top/img/photos/1702709493.jpg"
+  "specials": [
+    {
+      "name": "Chef Special Seafood & Tofu Casserole",
+      "description": "This Seafood and Tofu Casserole is a comforting dish with an interesting combination of silken tofu and seafood cooked in an earthenware pot.",
+      "days": null,
+      "time": null
+    },
+    {
+      "name": "Beef In Savory Pot",
+      "description": "Ingredients: 1 beef Blade Chuck Roast Boneless (2-1/2 pounds); 1/2 teaspoon salt; 1/2 teaspoon black pepper; 1 can (14-1/2 ounces) reduced sodium beef",
+      "days": null,
+      "time": null
+    }
   ],
-  "sources": [
-    "http://pekinggarden.top",
-    "https://pekinggarden.top/gallery",
-    "https://pekinggarden.top",
-    "https://pekinggarden.top/menu",
-    "https://pekinggarden.top/about",
-    "https://pekinggarden.top/contact"
-  ]
+  "features": [
+    "takeout",
+    "dine-in"
+  ],
+  "social_media": {
+    "facebook": null,
+    "instagram": null,
+    "twitter": null
+  },
+  "reviews": [
+    {
+      "author": "Petter",
+      "text": "Hungry on my way home after a full day of walking through the streets of Mobile, I stumbled over this place. It was packed with people, but I did not have to wait Long. The Staff was very friendly and the food excellent. The vegetables were crispy and perfectly cooked, the sauce delicious and tasty. I hope I'll find this place again."
+    },
+    {
+      "author": "Holton",
+      "text": "Me and my bestie enjoyed the food so much!!! They have very big servings with just the best price. and the taste is just delish!!! Polite staffs too!Did a take out order of Chicken Lo Mein and asked for it to be spicy. This might be the best Chinese food I've had. The spice was perfectly added and pretty sure it unlocked some past memories."
+    },
+    {
+      "author": "Zhao",
+      "text": "This is the best Chinese for me after about two years haven't went to a real Chinese restaurant. It was a short travel in NYC with my family. As a Chinese, the taste of the food are really decent. The price for the location is very reasonable. The servers are awesome, I wish my coworkers can as good as they are lol"
+    }
+  ],
+  "images": [],
+  "extracted_at": "2026-05-16T19:33:12.444Z"
 }

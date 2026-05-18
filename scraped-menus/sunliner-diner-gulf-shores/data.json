@@ -1,14 +1,16 @@
 {
-  "business_name": "Sunliner Diner",
-  "tagline": "A Classic 1950s Themed American Diner",
-  "type": "Restaurant",
+  "business_name": "Sunliner Diner - Gulf Shores",
+  "cuisine_type": "American Diner",
+  "price_range": null,
+  "description": "A Classic 1950s Themed American Diner with retro newspaper menus, collector cars, hand-spun milkshakes, classic diner cuisine and breakfast all-day. The Sunliner Diner is a family-friendly spot featuring a Gift Shop and retro atmosphere.",
   "contact": {
     "phone": null,
     "email": null,
     "address": null,
     "city": "Gulf Shores",
-    "state": null,
-    "zip": null
+    "state": "Alabama",
+    "zip": null,
+    "website": "https://www.sunlinerdiner.com"
   },
   "hours": {
     "monday": null,
@@ -17,69 +19,41 @@
     "thursday": null,
     "friday": null,
     "saturday": null,
-    "sunday": null,
-    "notes": null
+    "sunday": null
   },
-  "about": {
-    "description": "A Classic 1950s Themed American Diner with retro newspaper menus, collector cars, hand-spun milkshakes, classic diner cuisine and breakfast all-day. Features a Gift Shop for souvenirs.",
-    "elevator_pitch": "A retro 1950s-themed diner offering classic American cuisine, breakfast all-day, and hand-spun milkshakes in a fun, nostalgic atmosphere.",
-    "vibe": "Nostalgic 1950s atmosphere with collector cars, retro decor, and family-friendly fun",
-    "best_for": [
-      "families",
-      "casual dining",
-      "nostalgia",
-      "groups"
-    ],
-    "established": null,
-    "reservations": null,
-    "insider_tip": "Visit the Gift Shop to take home souvenirs from your visit"
-  },
-  "tags": [
-    "american",
-    "casual",
-    "diner",
-    "retro",
-    "breakfast",
-    "family-friendly",
-    "milkshakes"
-  ],
-  "features": [
-    "collector cars",
-    "gift shop",
-    "all-day breakfast",
-    "hand-spun milkshakes",
-    "retro newspaper menus"
-  ],
-  "price_range": "$$",
-  "social_links": {
-    "instagram": "sunlinerdiner",
-    "facebook": null,
-    "website": "https://www.sunlinerdiner.com"
-  },
-  "specials": [],
-  "events": [],
   "menu": {
     "categories": []
   },
-  "url": "https://www.sunlinerdiner.com/",
-  "scraped_at": "2026-03-22T18:35:19.334Z",
-  "extracted_at": "2026-03-23T04:48:34.504Z",
-  "model": "claude-haiku-4-5-20251001",
-  "gallery": [
-    "https://sunlinerdiner.com/wp-content/uploads/2019/07/SUN-Footer-Logo.png.webp",
-    "https://sunlinerdiner.com/wp-content/uploads/2026/03/unspecified-45.jpeg.webp",
-    "https://sunlinerdiner.com/wp-content/uploads/2026/03/Group-1707480056.jpg.webp",
-    "https://sunlinerdiner.com/wp-content/uploads/2026/03/DSC_0725.jpg.webp",
-    "https://sunlinerdiner.com/wp-content/uploads/2026/03/Logan-Mike-16.jpg.webp",
-    "https://sunlinerdiner.com/wp-content/uploads/2026/03/image00008.jpeg.webp",
-    "https://sunlinerdiner.com/wp-content/uploads/2026/03/cafd482b-460e-4004-8b17-cfb9eebd799e.jpg.webp",
-    "https://sunlinerdiner.com/wp-content/uploads/2026/03/123_1.jpeg.webp",
-    "https://sunlinerdiner.com/wp-content/uploads/2026/03/Image-Dec-4-2025-04_43_48-AM.jpg.webp",
-    "https://sunlinerdiner.com/wp-content/uploads/2026/03/DSC_0725.jpg",
-    "https://sunlinerdiner.com/wp-content/uploads/2026/03/image00008.jpeg",
-    "https://sunlinerdiner.com/wp-content/uploads/2026/03/Kim-Hesebeck-1.jpg"
+  "specials": [],
+  "features": [
+    "breakfast all-day",
+    "gift shop",
+    "retro 1950s themed",
+    "collector cars",
+    "hand-spun milkshakes"
   ],
-  "sources": [
-    "https://www.sunlinerdiner.com"
-  ]
+  "social_media": {
+    "facebook": null,
+    "instagram": "https://www.instagram.com/sunlinerdiner",
+    "twitter": null
+  },
+  "images": [],
+  "locations": [
+    {
+      "name": "Gulf Shores",
+      "city": "Gulf Shores",
+      "state": "Alabama"
+    },
+    {
+      "name": "Pigeon Forge",
+      "city": "Pigeon Forge",
+      "state": "Tennessee"
+    },
+    {
+      "name": "Orange Beach",
+      "city": "Orange Beach",
+      "state": "Alabama"
+    }
+  ],
+  "extracted_at": "2026-05-16T19:43:26.575Z"
 }

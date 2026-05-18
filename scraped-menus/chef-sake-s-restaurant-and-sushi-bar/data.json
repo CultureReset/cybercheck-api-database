@@ -1,176 +1,85 @@
 {
   "business_name": "Chef Sake's Restaurant and Sushi Bar",
-  "tagline": null,
-  "type": "Restaurant | Sushi Bar",
+  "cuisine_type": "Japanese, Sushi",
+  "price_range": null,
+  "description": "Chef Sakes Restaurant and Sushi Bar focuses to serve guests with unique, fresh and flavorful dishes and everyone is welcomed as family and friends. For more than a decade, our chef, Chef Sake is a renowned sushi chef who has delivered his innovative approach to sushi making craft in Mobile. Using the very best ingredients; combined with traditional Japanese cooking techniques, makes Chef Sakes Restaurant and Sushi Bars offers flavors of authentic Japanese cuisine with a twist of fusion that has been taken to a higher level. Enjoy a glass of sake or beer that has been carefully selected to compliment the spices and sauces in Japanese cuisine. Chef Sakes Restaurant and Sushi Bar is located across from University of South Alabama campus.",
   "contact": {
     "phone": "(251) 445-8490",
     "email": null,
     "address": "5821 Old Shell Rd Suite C",
     "city": "Mobile",
     "state": "AL",
-    "zip": "36608"
+    "zip": "36608",
+    "website": "http://www.chef-sake.com"
   },
   "hours": {
-    "monday": "4:00 PM - 9:00 PM",
-    "tuesday": "4:00 PM - 9:00 PM",
-    "wednesday": "4:00 PM - 9:00 PM",
-    "thursday": "4:00 PM - 9:00 PM",
-    "friday": "4:00 PM - 9:00 PM",
-    "saturday": "4:00 PM - 9:00 PM",
-    "sunday": null,
-    "notes": "MON-SAT only"
+    "monday": "4:00pm-9:00pm",
+    "tuesday": "4:00pm-9:00pm",
+    "wednesday": "4:00pm-9:00pm",
+    "thursday": "4:00pm-9:00pm",
+    "friday": "4:00pm-9:00pm",
+    "saturday": "4:00pm-9:00pm",
+    "sunday": null
   },
-  "about": {
-    "description": "Chef Sake's Restaurant and Sushi Bar focuses on serving guests with unique, fresh and flavorful dishes using the very best ingredients combined with traditional Japanese cooking techniques. Chef Sake is a renowned sushi chef with more than a decade of experience who brings an innovative approach to sushi making with authentic Japanese cuisine and a twist of fusion. The restaurant features a carefully selected sake and beer selection to complement Japanese cuisine.",
-    "elevator_pitch": "A renowned sushi restaurant serving authentic Japanese cuisine with innovative fusion dishes in an exciting and romantic atmosphere.",
-    "vibe": "Exciting and romantic atmosphere created for relaxation and fine dining",
-    "best_for": [
-      "date night",
-      "special occasions",
-      "sushi enthusiasts",
-      "families"
-    ],
-    "established": null,
-    "reservations": null,
-    "insider_tip": "Located across from University of South Alabama campus"
-  },
-  "tags": [
-    "sushi",
-    "Japanese",
-    "hibachi",
-    "seafood",
-    "fusion",
-    "casual dining",
-    "sake bar"
-  ],
-  "features": [
-    "full bar",
-    "sake selection",
-    "beer selection",
-    "hibachi dining"
-  ],
-  "price_range": "$$",
-  "social_links": {
-    "instagram": null,
-    "facebook": null,
-    "website": "https://www.chef-sake.com"
-  },
-  "specials": [],
-  "events": [],
   "menu": {
     "categories": [
       {
         "name": "Starters",
-        "type": "appetizers",
         "items": [
           {
             "name": "Pork Buns",
             "description": null,
             "price": null,
-            "tags": [],
-            "allergens": []
+            "dietary_flags": []
           }
         ]
       },
       {
-        "name": "Signature Menu",
-        "type": "dinner",
-        "items": []
-      },
-      {
         "name": "Maki Roll Menu",
-        "type": "dinner",
         "items": [
           {
             "name": "Rookie Roll",
             "description": null,
             "price": null,
-            "tags": [],
-            "allergens": []
-          },
-          {
-            "name": "Cucumber Wrap",
-            "description": null,
-            "price": null,
-            "tags": [],
-            "allergens": []
-          }
-        ]
-      },
-      {
-        "name": "Hibachi Menu",
-        "type": "dinner",
-        "items": [
-          {
-            "name": "Lobster Tail & Filet Mignon Hibachi",
-            "description": "Served with Clear Soup or Fresh House Salad (Two Dressings: House Sauce & Ginger Sauce), Fresh Vegetables, Stir-Fried Noodles and Fried Rice",
-            "price": null,
-            "tags": [
-              "lobster",
-              "filet mignon"
-            ],
-            "allergens": []
+            "dietary_flags": []
           },
           {
             "name": "Tuna Kobachi",
             "description": null,
             "price": null,
-            "tags": [
-              "tuna"
-            ],
-            "allergens": []
+            "dietary_flags": []
+          },
+          {
+            "name": "Cucumber Wrap",
+            "description": null,
+            "price": null,
+            "dietary_flags": []
+          }
+        ]
+      },
+      {
+        "name": "Hibachi Menu",
+        "items": [
+          {
+            "name": "Lobster Tail & Filet Mignon Hibachi",
+            "description": "Served with Clear Soup or Fresh House Salad (Two Dressings: House Sauce & Ginger Sauce), Fresh Vegetables, Stir-Fried Noodles and Fried Rice",
+            "price": null,
+            "dietary_flags": []
           }
         ]
       }
     ]
   },
-  "url": "http://www.chef-sake.com/",
-  "scraped_at": "2026-03-21T14:25:46.708Z",
-  "extracted_at": "2026-03-23T03:34:09.803Z",
-  "model": "claude-haiku-4-5-20251001",
-  "gallery": [
-    "https://static.wixstatic.com/media/91ef6b_5d6ac17db9364bf98d8b21f05a50e7ae.jpg/v1/fill/w_1280,h_900,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/91ef6b_5d6ac17db9364bf98d8b21f05a50e7ae.jpg",
-    "https://static.wixstatic.com/media/91ef6b_7105ce27f58a44eaa9bb75f92c821b52~mv2_d_4032_3024_s_4_2.jpg/v1/fill/w_916,h_511,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/91ef6b_7105ce27f58a44eaa9bb75f92c821b52~mv2_d_4032_3024_s_4_2.jpg",
-    "https://static.wixstatic.com/media/91ef6b_aa333bf67fe642c998e0d51fdd7ab70e~mv2_d_2534_1460_s_2.jpg/v1/fill/w_916,h_511,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/91ef6b_aa333bf67fe642c998e0d51fdd7ab70e~mv2_d_2534_1460_s_2.jpg",
-    "https://static.wixstatic.com/media/91ef6b_ee3bd98947394c9aa22fb5731c0a9e62.jpg/v1/fill/w_835,h_466,al_c,lg_1,q_85,enc_avif,quality_auto/91ef6b_ee3bd98947394c9aa22fb5731c0a9e62.jpg",
-    "https://static.wixstatic.com/media/91ef6b_477464ffa7b1403983b0b1bd20409fcd.jpg/v1/fill/w_187,h_187,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/91ef6b_477464ffa7b1403983b0b1bd20409fcd.jpg",
-    "https://static.wixstatic.com/media/91ef6b_5ee535ed4ae045d4ac9fbf8a89282842~mv2_d_3913_2934_s_4_2.jpg/v1/fill/w_187,h_187,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/91ef6b_5ee535ed4ae045d4ac9fbf8a89282842~mv2_d_3913_2934_s_4_2.jpg",
-    "https://static.wixstatic.com/media/91ef6b_548f3e0f3646452b977fdaac55b1d124~mv2_d_2822_3904_s_4_2.jpg/v1/fill/w_187,h_187,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/91ef6b_548f3e0f3646452b977fdaac55b1d124~mv2_d_2822_3904_s_4_2.jpg",
-    "https://static.wixstatic.com/media/91ef6b_528e4d1bc284402685267b5e81e901e8.jpg/v1/fill/w_187,h_187,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/91ef6b_528e4d1bc284402685267b5e81e901e8.jpg",
-    "https://static.wixstatic.com/media/91ef6b_c90b9783e5aa4f3cbe40e65ddb8de33b.jpg/v1/fill/w_147,h_110,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/91ef6b_c90b9783e5aa4f3cbe40e65ddb8de33b.jpg",
-    "https://static.wixstatic.com/media/91ef6b_6e97dc609fb74e38ab77451fd063c0c9.jpg/v1/fill/w_147,h_110,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/91ef6b_6e97dc609fb74e38ab77451fd063c0c9.jpg",
-    "https://static.wixstatic.com/media/91ef6b_c4a1c56ceb754b3ab663229450f962d8.jpg/v1/fill/w_144,h_71,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/91ef6b_c4a1c56ceb754b3ab663229450f962d8.jpg",
-    "https://static.wixstatic.com/media/91ef6b_04373f92c0014c87a679666a8ac95354.jpg/v1/fill/w_147,h_110,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/91ef6b_04373f92c0014c87a679666a8ac95354.jpg",
-    "https://static.wixstatic.com/media/91ef6b_77ed5e0df4c445fea06e88a713857763.jpg/v1/fill/w_147,h_93,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/91ef6b_77ed5e0df4c445fea06e88a713857763.jpg",
-    "https://static.wixstatic.com/media/91ef6b_9630b860a329404bbe31f4eb3610dfba.jpg/v1/fill/w_147,h_110,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/91ef6b_9630b860a329404bbe31f4eb3610dfba.jpg",
-    "https://static.wixstatic.com/media/91ef6b_2dacbf7e64604b128ba0a5efc9b7a393.jpg/v1/fill/w_147,h_110,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/91ef6b_2dacbf7e64604b128ba0a5efc9b7a393.jpg",
-    "https://static.wixstatic.com/media/91ef6b_b2bdc7500c1544bcb82603f6af67efeb.jpg/v1/fill/w_147,h_92,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/91ef6b_b2bdc7500c1544bcb82603f6af67efeb.jpg",
-    "https://static.wixstatic.com/media/91ef6b_d3001c12b81c40b0a56d50b793bebc4b.jpg/v1/fill/w_144,h_90,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/91ef6b_d3001c12b81c40b0a56d50b793bebc4b.jpg",
-    "https://static.wixstatic.com/media/91ef6b_477464ffa7b1403983b0b1bd20409fcd.jpg/v1/fill/w_104,h_130,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/91ef6b_477464ffa7b1403983b0b1bd20409fcd.jpg",
-    "https://static.wixstatic.com/media/91ef6b_5ee535ed4ae045d4ac9fbf8a89282842~mv2_d_3913_2934_s_4_2.jpg/v1/fill/w_147,h_110,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/91ef6b_5ee535ed4ae045d4ac9fbf8a89282842~mv2_d_3913_2934_s_4_2.jpg",
-    "https://static.wixstatic.com/media/91ef6b_548f3e0f3646452b977fdaac55b1d124~mv2_d_2822_3904_s_4_2.jpg/v1/fill/w_147,h_203,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/91ef6b_548f3e0f3646452b977fdaac55b1d124~mv2_d_2822_3904_s_4_2.jpg",
-    "https://static.wixstatic.com/media/91ef6b_528e4d1bc284402685267b5e81e901e8.jpg/v1/fill/w_147,h_83,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/91ef6b_528e4d1bc284402685267b5e81e901e8.jpg",
-    "https://static.wixstatic.com/media/91ef6b_07880113142b453baf0aa6de048ebb55.jpg/v1/fill/w_284,h_296,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/91ef6b_07880113142b453baf0aa6de048ebb55.jpg",
-    "https://static.wixstatic.com/media/91ef6b_0d6f743cf83047ffb2efb7f3e8b81c4e.jpg/v1/fill/w_284,h_301,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/91ef6b_0d6f743cf83047ffb2efb7f3e8b81c4e.jpg",
-    "https://static.wixstatic.com/media/91ef6b_5d6ac17db9364bf98d8b21f05a50e7ae.jpg/v1/fill/w_1280,h_900,al_t,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/91ef6b_5d6ac17db9364bf98d8b21f05a50e7ae.jpg",
-    "https://static.wixstatic.com/media/91ef6b_d3001c12b81c40b0a56d50b793bebc4b.jpg/v1/fill/w_212,h_221,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/91ef6b_d3001c12b81c40b0a56d50b793bebc4b.jpg",
-    "https://static.wixstatic.com/media/91ef6b_477464ffa7b1403983b0b1bd20409fcd.jpg/v1/fill/w_212,h_221,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/91ef6b_477464ffa7b1403983b0b1bd20409fcd.jpg",
-    "https://static.wixstatic.com/media/91ef6b_9630b860a329404bbe31f4eb3610dfba.jpg/v1/fill/w_212,h_221,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/91ef6b_9630b860a329404bbe31f4eb3610dfba.jpg",
-    "https://static.wixstatic.com/media/91ef6b_c90b9783e5aa4f3cbe40e65ddb8de33b.jpg/v1/fill/w_212,h_221,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/91ef6b_c90b9783e5aa4f3cbe40e65ddb8de33b.jpg",
-    "https://static.wixstatic.com/media/91ef6b_8a980643900b4a03933e1266f3bd2fa6.jpg/v1/fill/w_212,h_221,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/91ef6b_8a980643900b4a03933e1266f3bd2fa6.jpg",
-    "https://static.wixstatic.com/media/91ef6b_77ed5e0df4c445fea06e88a713857763.jpg/v1/fill/w_212,h_221,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/91ef6b_77ed5e0df4c445fea06e88a713857763.jpg",
-    "https://static.wixstatic.com/media/91ef6b_609a352b2830468ba41c1f95f9240084.jpg/v1/fill/w_212,h_221,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/91ef6b_609a352b2830468ba41c1f95f9240084.jpg",
-    "https://static.wixstatic.com/media/91ef6b_6e97dc609fb74e38ab77451fd063c0c9.jpg/v1/fill/w_212,h_221,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/91ef6b_6e97dc609fb74e38ab77451fd063c0c9.jpg",
-    "https://static.wixstatic.com/media/91ef6b_d29105f18a994575b8cb76e7f4e4d3b3.jpg/v1/fill/w_431,h_534,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/91ef6b_d29105f18a994575b8cb76e7f4e4d3b3.jpg",
-    "https://static.wixstatic.com/media/91ef6b_d29105f18a994575b8cb76e7f4e4d3b3.jpg/v1/fill/w_431,h_553,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/91ef6b_d29105f18a994575b8cb76e7f4e4d3b3.jpg"
+  "specials": [],
+  "features": [
+    "sushi bar",
+    "hibachi"
   ],
-  "sources": [
-    "http://www.chef-sake.com",
-    "https://www.chef-sake.com/hibachi-menu",
-    "https://www.chef-sake.com/copy-of-signature-menu",
-    "https://www.chef-sake.com/signature-menu",
-    "https://www.chef-sake.com/menu",
-    "https://www.chef-sake.com/about_us",
-    "https://www.chef-sake.com/contact"
-  ]
+  "social_media": {
+    "facebook": null,
+    "instagram": null,
+    "twitter": null
+  },
+  "images": [],
+  "extracted_at": "2026-05-16T19:11:42.622Z"
 }

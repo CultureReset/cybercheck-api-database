@@ -1,493 +1,198 @@
 {
   "business_name": "DeSoto's Seafood Kitchen",
-  "tagline": "Locally-Owned Seafood Restaurant",
-  "type": "Restaurant",
+  "cuisine_type": "Seafood",
+  "price_range": "$$",
+  "description": "Award winning DeSoto's Seafood Kitchen, one of Gulf Shores, Alabama's favorite family restaurants features fresh seafood, chicken, pasta, steak, home style sides, salads and sandwiches. Our daily lunch specials include seafood, chicken, country fried and hamburger steak, ham, 12 great homemade sides, and our fabulous fresh baked rolls. Our dinner menu features exquisite appetizers, seafood favorites prepared your way: fried, broiled, grilled, blackened, steamed, or Cajun style, plus chicken and pasta dishes and one great Hawaiian Ribeye steak. Try the fresh catch and have it prepared New Orleans, Mediterranean, Caribbean, or our house favorite Pecan Encrusted Style. We offer an excellent wine choices and homemade desserts to compliment your meal. Voted Best Lunch and Best Dinner 14 Years in a Row. People's Choice winner for Friendliest staff for 5 Years Since 2006. One of Gulf Shores Favorite Family Dining Establishments Since 2000.",
   "contact": {
     "phone": "(251) 948-7294",
     "email": null,
     "address": "138 West 1st Ave.",
     "city": "Gulf Shores",
     "state": "AL",
-    "zip": null
-  },
-  "hours": {
-    "monday": "11 am - 3 pm (Lunch), 3 pm - 9 pm (Dinner)",
-    "tuesday": "11 am - 3 pm (Lunch), 3 pm - 9 pm (Dinner)",
-    "wednesday": "11 am - 3 pm (Lunch), 3 pm - 9 pm (Dinner)",
-    "thursday": "11 am - 3 pm (Lunch), 3 pm - 9 pm (Dinner)",
-    "friday": "11 am - 3 pm (Lunch), 3 pm - 9 pm (Dinner)",
-    "saturday": "11 am - 3 pm (Lunch), 3 pm - 9 pm (Dinner)",
-    "sunday": "11 am - 3 pm (Lunch), 3 pm - 9 pm (Dinner)",
-    "notes": "Off-Season Hours listed. Location 1 block north of the beach, behind Souvenir City"
-  },
-  "about": {
-    "description": "Award winning DeSoto's Seafood Kitchen features fresh seafood, chicken, pasta, steak, home style sides, salads and sandwiches. Daily lunch specials include seafood, chicken, country fried and hamburger steak, ham with 12 great homemade sides and fresh baked rolls. Dinner menu features exquisite appetizers, seafood prepared fried, broiled, grilled, blackened, steamed, or Cajun style, plus chicken and pasta dishes and Hawaiian Ribeye steak.",
-    "elevator_pitch": "Award-winning family seafood restaurant in Gulf Shores serving fresh daily specials, Gulf Coast favorites, and voted best lunch and dinner for 14 years running.",
-    "vibe": "Casual family dining establishment with beachside atmosphere. Not too fancy, not too simple. Welcoming and friendly staff.",
-    "best_for": [
-      "families",
-      "casual dining",
-      "fresh seafood",
-      "lunch specials",
-      "beach vacation dining"
-    ],
-    "established": "2000",
-    "reservations": null,
-    "insider_tip": "1 block north of the Gulf of Mexico. When on a wait, add party to wait list. Can have snack at Sassy Bass in parking lot while waiting or get bar drinks outside."
-  },
-  "tags": [
-    "seafood",
-    "casual",
-    "family-friendly",
-    "fresh food made from scratch",
-    "lunch specials",
-    "dinner specials",
-    "locally-owned",
-    "award-winning",
-    "beachside"
-  ],
-  "features": [
-    "full bar",
-    "online ordering",
-    "wait list system",
-    "wine selection",
-    "homemade desserts",
-    "fresh baked rolls",
-    "multiple preparation styles (fried, broiled, grilled, blackened, steamed, Cajun)"
-  ],
-  "price_range": "$$",
-  "social_links": {
-    "instagram": null,
-    "facebook": "https://www.facebook.com/desotosseafoodkitchen",
-    "yelp": "https://www.yelp.com/biz/desoto-s-seafood-kitchen-gulf-shores",
+    "zip": null,
     "website": "https://desotosseafoodkitchen.com"
   },
-  "specials": [
-    {
-      "name": "Monday Lunch Special",
-      "description": "Fried Chicken with two sides, bread & tea",
-      "price": 12.5,
-      "days": [
-        "Monday"
-      ],
-      "time": "11 am - 3 pm"
-    },
-    {
-      "name": "Tuesday Lunch Special",
-      "description": "Bar-B-Q Meat Loaf with two sides, bread & tea",
-      "price": 12.5,
-      "days": [
-        "Tuesday"
-      ],
-      "time": "11 am - 3 pm"
-    },
-    {
-      "name": "Wednesday Lunch Special",
-      "description": "Chicken-N-Dumplings with two sides, bread & tea",
-      "price": 12.5,
-      "days": [
-        "Wednesday"
-      ],
-      "time": "11 am - 3 pm"
-    },
-    {
-      "name": "Thursday Lunch Special",
-      "description": "Beef Tips over Rice with two sides, bread & tea",
-      "price": 12.5,
-      "days": [
-        "Thursday"
-      ],
-      "time": "11 am - 3 pm"
-    },
-    {
-      "name": "Friday Lunch Special",
-      "description": "Fried Parmesan Encrusted Flounder with two sides, bread & tea",
-      "price": 12.5,
-      "days": [
-        "Friday"
-      ],
-      "time": "11 am - 3 pm"
-    },
-    {
-      "name": "$1 Off Any Dinner Entree",
-      "description": "Printable coupon - Valid only during dinner hours, excludes senior menu, not valid with any other offer",
-      "price": null,
-      "days": [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-        "Sunday"
-      ],
-      "time": "3 pm - 9 pm"
-    }
-  ],
-  "events": [],
+  "hours": {
+    "monday": "11am-3pm lunch, 3pm-9pm dinner",
+    "tuesday": "11am-3pm lunch, 3pm-9pm dinner",
+    "wednesday": "11am-3pm lunch, 3pm-9pm dinner",
+    "thursday": "11am-3pm lunch, 3pm-9pm dinner",
+    "friday": "11am-3pm lunch, 3pm-9pm dinner",
+    "saturday": "11am-3pm lunch, 3pm-9pm dinner",
+    "sunday": "11am-3pm lunch, 3pm-9pm dinner"
+  },
   "menu": {
     "categories": [
       {
         "name": "Daily Lunch Specials",
-        "type": "lunch",
         "items": [
           {
             "name": "Fried Chicken",
-            "description": "Served with two sides, bread & tea",
+            "description": null,
             "price": 12.5,
-            "days": [
-              "Monday"
-            ],
-            "tags": [
-              "poultry",
-              "fried"
-            ]
+            "dietary_flags": []
           },
           {
             "name": "Bar-B-Q Meat Loaf",
-            "description": "Served with two sides, bread & tea",
+            "description": null,
             "price": 12.5,
-            "days": [
-              "Tuesday"
-            ],
-            "tags": [
-              "beef",
-              "grilled"
-            ]
+            "dietary_flags": []
           },
           {
-            "name": "Chicken-N-Dumplings",
-            "description": "Served with two sides, bread & tea",
+            "name": "Chicken-N-Dumplins",
+            "description": null,
             "price": 12.5,
-            "days": [
-              "Wednesday"
-            ],
-            "tags": [
-              "poultry",
-              "comfort food"
-            ]
+            "dietary_flags": []
           },
           {
             "name": "Beef Tips over Rice",
-            "description": "Served with two sides, bread & tea",
+            "description": null,
             "price": 12.5,
-            "days": [
-              "Thursday"
-            ],
-            "tags": [
-              "beef"
-            ]
+            "dietary_flags": []
           },
           {
-            "name": "Fried Parmesan Encrusted Flounder",
-            "description": "Served with two sides, bread & tea",
+            "name": "Fried parmesan encrusted flounder",
+            "description": null,
             "price": 12.5,
-            "days": [
-              "Friday"
-            ],
-            "tags": [
-              "seafood",
-              "fried",
-              "flounder"
-            ]
+            "dietary_flags": []
           }
         ]
       },
       {
         "name": "Seniors Menu",
-        "type": "specials",
         "items": [
           {
             "name": "Coconut Shrimp",
-            "description": "With spicy orange marmalade. Served with two sides & Iced Tea. 55 & over only.",
+            "description": "with spicy orange marmalade",
             "price": 17.99,
-            "tags": [
-              "seafood",
-              "shrimp",
-              "fried"
-            ]
+            "dietary_flags": []
           },
           {
             "name": "Stuffed Shrimp",
-            "description": "Bacon wrapped, stuffed with crabmeat dressing & monterey jack cheese. Served with two sides & Iced Tea. 55 & over only.",
+            "description": "bacon wrapped, stuffed with crabmeat dressing & monterey jack cheese",
             "price": 17.99,
-            "tags": [
-              "seafood",
-              "shrimp"
-            ]
+            "dietary_flags": []
           },
           {
             "name": "Fried Shrimp",
-            "description": "Tail-less. Served with two sides & Iced Tea. 55 & over only.",
+            "description": "tail-less",
             "price": 13.99,
-            "tags": [
-              "seafood",
-              "shrimp",
-              "fried"
-            ]
+            "dietary_flags": []
           },
           {
             "name": "Grilled Shrimp",
-            "description": "Over yellow rice. Served with two sides & Iced Tea. 55 & over only.",
+            "description": "over yellow rice",
             "price": 15.99,
-            "tags": [
-              "seafood",
-              "shrimp",
-              "grilled"
-            ]
+            "dietary_flags": []
           },
           {
             "name": "Fried Oysters",
-            "description": "With cocktail sauce. Market price. Served with two sides & Iced Tea. 55 & over only.",
+            "description": "with cocktail sauce",
             "price": null,
-            "tags": [
-              "seafood",
-              "oysters",
-              "fried"
-            ]
+            "dietary_flags": []
           },
           {
             "name": "Fried Seafood Platter",
-            "description": "Shrimp, oysters, flounder, crab claws. Served with two sides & Iced Tea. 55 & over only.",
+            "description": "shrimp, oysters, flounder, crab claws",
             "price": 20.99,
-            "tags": [
-              "seafood",
-              "fried",
-              "platter"
-            ]
+            "dietary_flags": []
           },
           {
             "name": "Broiled Seafood Platter",
-            "description": "Shrimp, scallops, flounder almondine. Served with two sides & Iced Tea. 55 & over only.",
+            "description": "shrimp, scallops, flounder almondine",
             "price": 19.99,
-            "tags": [
-              "seafood",
-              "broiled",
-              "platter"
-            ]
+            "dietary_flags": []
           },
           {
             "name": "Fried Chicken Tenders",
-            "description": "With honey mustard. Served with two sides & Iced Tea. 55 & over only.",
+            "description": "with honey mustard",
             "price": 13.99,
-            "tags": [
-              "poultry",
-              "chicken",
-              "fried"
-            ]
+            "dietary_flags": []
           },
           {
             "name": "Grilled Chicken Breast",
-            "description": "With a light touch of lemon-herb oil. Served with two sides & Iced Tea. 55 & over only.",
+            "description": "with a light touch of lemon-herb oil",
             "price": 13.99,
-            "tags": [
-              "poultry",
-              "chicken",
-              "grilled"
-            ]
+            "dietary_flags": []
           },
           {
             "name": "Yellow-Fin Tuna",
-            "description": "Grilled or blackened. Served with two sides & Iced Tea. 55 & over only.",
+            "description": "grilled or blackened",
             "price": 16.99,
-            "tags": [
-              "seafood",
-              "tuna"
-            ]
+            "dietary_flags": []
           },
           {
             "name": "Trigger",
-            "description": "Grilled, blackened or broiled almandine. Served with two sides & Iced Tea. 55 & over only.",
+            "description": "grilled, blackened or broiled almandine",
             "price": 16.99,
-            "tags": [
-              "seafood",
-              "fish"
-            ]
+            "dietary_flags": []
           },
           {
             "name": "Flounder",
-            "description": "Fried or broiled almandine. Served with two sides & Iced Tea. 55 & over only.",
+            "description": "fried or broiled almandine",
             "price": 13.99,
-            "tags": [
-              "seafood",
-              "flounder"
-            ]
+            "dietary_flags": []
           },
           {
             "name": "Grouper",
-            "description": "Grilled, blackened, broiled almandine or fried. Served with two sides & Iced Tea. 55 & over only.",
+            "description": "grilled, blackened, broiled almandine or fried",
             "price": 16.99,
-            "tags": [
-              "seafood",
-              "grouper"
-            ]
-          }
-        ]
-      },
-      {
-        "name": "Senior Side Dishes",
-        "type": "sides",
-        "items": [
-          {
-            "name": "Sweet Potato Casserole",
-            "description": null,
-            "price": null,
-            "tags": [
-              "vegetable",
-              "side"
-            ]
-          },
-          {
-            "name": "Steamed Vegetables",
-            "description": null,
-            "price": null,
-            "tags": [
-              "vegetable",
-              "side"
-            ]
-          },
-          {
-            "name": "Cole Slaw",
-            "description": null,
-            "price": null,
-            "tags": [
-              "vegetable",
-              "side"
-            ]
-          },
-          {
-            "name": "French Fries",
-            "description": null,
-            "price": null,
-            "tags": [
-              "side"
-            ]
-          },
-          {
-            "name": "Baked Potato",
-            "description": null,
-            "price": null,
-            "tags": [
-              "side"
-            ]
-          },
-          {
-            "name": "Yellow Rice",
-            "description": null,
-            "price": null,
-            "tags": [
-              "side"
-            ]
-          },
-          {
-            "name": "Fried Green Tomatoes",
-            "description": null,
-            "price": null,
-            "tags": [
-              "vegetable",
-              "side",
-              "fried"
-            ]
-          },
-          {
-            "name": "House Salad",
-            "description": "Substitute for a side dish",
-            "price": 2.75,
-            "tags": [
-              "salad",
-              "side"
-            ]
-          },
-          {
-            "name": "Caesar Salad",
-            "description": "Substitute for a side dish",
-            "price": 2.75,
-            "tags": [
-              "salad",
-              "side"
-            ]
+            "dietary_flags": []
           }
         ]
       },
       {
         "name": "Kids Menu",
-        "type": "kids",
         "items": [
           {
             "name": "Fish Sticks",
-            "description": "Served with French Fries or Applesauce. 10 years and under only.",
+            "description": null,
             "price": 8.99,
-            "tags": [
-              "seafood",
-              "kids",
-              "fried"
-            ]
+            "dietary_flags": []
           },
           {
             "name": "Corn Dog",
-            "description": "Served with French Fries or Applesauce. 10 years and under only.",
+            "description": null,
             "price": 8.99,
-            "tags": [
-              "kids",
-              "fried"
-            ]
+            "dietary_flags": []
           },
           {
             "name": "Fried Shrimp",
-            "description": "Served with French Fries or Applesauce. 10 years and under only.",
+            "description": null,
             "price": 8.99,
-            "tags": [
-              "seafood",
-              "shrimp",
-              "kids",
-              "fried"
-            ]
+            "dietary_flags": []
           },
           {
             "name": "Hamburger",
-            "description": "Served with French Fries or Applesauce. 10 years and under only.",
+            "description": null,
             "price": 7.99,
-            "tags": [
-              "beef",
-              "kids"
-            ]
+            "dietary_flags": []
           },
           {
             "name": "Chicken Fingers",
-            "description": "Served with French Fries or Applesauce. 10 years and under only.",
+            "description": null,
             "price": 8.99,
-            "tags": [
-              "poultry",
-              "chicken",
-              "kids",
-              "fried"
-            ]
+            "dietary_flags": []
           },
           {
             "name": "Grilled Cheese",
-            "description": "Served with French Fries or Applesauce. 10 years and under only.",
+            "description": null,
             "price": 8.99,
-            "tags": [
-              "kids",
+            "dietary_flags": [
               "vegetarian"
             ]
           },
           {
             "name": "Cheeseburger",
-            "description": "Served with French Fries or Applesauce. 10 years and under only.",
+            "description": null,
             "price": 5.99,
-            "tags": [
-              "beef",
-              "kids"
-            ]
+            "dietary_flags": []
           },
           {
             "name": "Fettuccine Alfredo",
-            "description": "No side included. 10 years and under only.",
+            "description": "no side",
             "price": 9.99,
-            "tags": [
-              "pasta",
-              "kids",
+            "dietary_flags": [
               "vegetarian"
             ]
           }
@@ -495,30 +200,70 @@
       }
     ]
   },
-  "url": "https://desotosseafoodkitchen.com",
-  "scraped_at": "2026-03-21T20:02:10.310Z",
-  "extracted_at": "2026-03-23T03:38:31.328Z",
-  "model": "claude-haiku-4-5-20251001",
-  "gallery": [
-    "https://desotosseafoodkitchen.com/wp-content/uploads/2025/01/food8-scaled-1-400x284.jpg",
-    "https://desotosseafoodkitchen.com/wp-content/uploads/2025/01/food7-scaled-1-400x284.jpg",
-    "https://desotosseafoodkitchen.com/wp-content/uploads/2025/01/food6-scaled-1-400x284.jpg",
-    "https://desotosseafoodkitchen.com/wp-content/uploads/2025/01/food3-scaled-1-400x284.jpg",
-    "https://desotosseafoodkitchen.com/wp-content/uploads/2025/01/food2-scaled-1-400x284.jpg",
-    "https://desotosseafoodkitchen.com/wp-content/uploads/2025/01/Food1-scaled-1-400x284.jpg",
-    "https://desotosseafoodkitchen.com/wp-content/plugins/wp-google-maps/images/spotlight-poi3.png",
-    "https://desotosseafoodkitchen.com/wp-content/uploads/2025/02/A67A6093-scaled.jpg",
-    "https://desotosseafoodkitchen.com/wp-content/uploads/2025/02/A67A5992-scaled.jpg",
-    "https://desotosseafoodkitchen.com/wp-content/uploads/2025/02/A67A6006-scaled.jpg",
-    "https://desotosseafoodkitchen.com/wp-content/uploads/2025/02/A67A6013-scaled.jpg",
-    "https://desotosseafoodkitchen.com/wp-content/uploads/2025/02/A67A6027-scaled.jpg",
-    "https://desotosseafoodkitchen.com/wp-content/uploads/2025/02/A67A5989-scaled.jpg"
+  "specials": [
+    {
+      "name": "$1 Off Any Dinner Entree",
+      "description": "Valid only during Dinner Hours. Excludes Senior Menu. Not valid with any other offer.",
+      "days": null,
+      "time": "Dinner Hours"
+    },
+    {
+      "name": "Monday Lunch Special",
+      "description": "Fried Chicken",
+      "days": [
+        "Monday"
+      ],
+      "time": "11am-3pm"
+    },
+    {
+      "name": "Tuesday Lunch Special",
+      "description": "Bar-B-Q Meat Loaf",
+      "days": [
+        "Tuesday"
+      ],
+      "time": "11am-3pm"
+    },
+    {
+      "name": "Wednesday Lunch Special",
+      "description": "Chicken-N-Dumplins",
+      "days": [
+        "Wednesday"
+      ],
+      "time": "11am-3pm"
+    },
+    {
+      "name": "Thursday Lunch Special",
+      "description": "Beef Tips over Rice",
+      "days": [
+        "Thursday"
+      ],
+      "time": "11am-3pm"
+    },
+    {
+      "name": "Friday Lunch Special",
+      "description": "Fried parmesan encrusted flounder",
+      "days": [
+        "Friday"
+      ],
+      "time": "11am-3pm"
+    }
   ],
-  "sources": [
-    "https://desotosseafoodkitchen.com",
-    "https://desotosseafoodkitchen.com/contact",
-    "https://desotosseafoodkitchen.com/gift-cards",
-    "https://desotosseafoodkitchen.com/coupons",
-    "https://desotosseafoodkitchen.com/specials"
-  ]
+  "features": [
+    "full bar",
+    "takeout",
+    "online ordering",
+    "gift cards",
+    "family dining",
+    "senior menu",
+    "kids menu",
+    "wait list",
+    "wine selection"
+  ],
+  "social_media": {
+    "facebook": "https://facebook.com/desotosseafoodkitchen",
+    "instagram": null,
+    "twitter": null
+  },
+  "images": [],
+  "extracted_at": "2026-05-16T19:14:50.172Z"
 }

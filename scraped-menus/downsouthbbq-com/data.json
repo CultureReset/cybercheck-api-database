@@ -1,211 +1,153 @@
 {
   "business_name": "Down South BBQ",
-  "tagline": "Serving the Best Barbecue on the Coast",
-  "type": "Restaurant",
+  "cuisine_type": "Barbecue",
+  "price_range": null,
+  "description": "Down South Barbecue - Serving the Best Barbecue on the Coast from our Down South location right on the way to the Alabama Beach. Drop by and eat your lunch or supper under our family size umbrella covered tables. After a long drive to the beach don't worry about cooking! Let Mama relax. Get a complete meal for all your family. Great food at a Fair price.",
   "contact": {
     "phone": "251-955-6622",
     "email": null,
     "address": "19891 County Rd. 10",
     "city": "Foley",
     "state": "Alabama",
-    "zip": null
+    "zip": null,
+    "website": "https://downsouthbbq.com"
   },
   "hours": {
     "monday": null,
     "tuesday": null,
-    "wednesday": "Closed",
-    "thursday": "7:00 AM - 3:00 PM",
-    "friday": "7:00 AM - 3:00 PM",
-    "saturday": "7:00 AM - 3:00 PM",
-    "sunday": "Closed",
-    "notes": "Open Thursday-Saturday only. Closed Sunday-Wednesday."
+    "wednesday": null,
+    "thursday": "7:00am-3:00pm",
+    "friday": "7:00am-3:00pm",
+    "saturday": "7:00am-3:00pm",
+    "sunday": null
   },
-  "about": {
-    "description": "Down South Barbecue is located between Foley and Gulf Shores on the way to the Alabama Beach. They serve lunch and supper under family size umbrella covered tables. The restaurant offers complete meals for families at fair prices and now serves breakfast.",
-    "elevator_pitch": "Trip Advisor top rated barbecue restaurant in the Gulf Shores and Orange Beach area serving authentic Southern barbecue.",
-    "vibe": "Local, casual family-friendly barbecue spot with outdoor umbrella covered seating",
-    "best_for": [
-      "families",
-      "casual dining",
-      "beach travelers",
-      "groups"
-    ],
-    "established": "2007",
-    "reservations": "Call ahead for big orders: 251-955-6622",
-    "insider_tip": "Call ahead on all big orders so they have time to properly prepare the food. Orders are picked up fast and hot. Let 'Mama' relax - get a complete meal for your family."
-  },
-  "tags": [
-    "barbecue",
-    "BBQ",
-    "casual",
-    "family-friendly",
-    "local",
-    "Southern food",
-    "takeout",
-    "catering"
-  ],
-  "features": [
-    "outdoor seating",
-    "umbrella covered tables",
-    "catering available",
-    "virtual tour available",
-    "call ahead ordering",
-    "breakfast service"
-  ],
-  "price_range": "$$",
-  "social_links": {
-    "instagram": null,
-    "facebook": null,
-    "website": "https://downsouthbbq.com"
-  },
-  "specials": [],
-  "events": [],
   "menu": {
     "categories": [
       {
         "name": "Plates (With Bread & 2 Sides)",
-        "type": "lunch",
         "items": [
           {
             "name": "Rib Plate",
             "description": null,
             "price": null,
-            "tags": [],
-            "allergens": []
+            "dietary_flags": []
           },
           {
             "name": "Wing Plate",
             "description": null,
             "price": null,
-            "tags": [],
-            "allergens": []
+            "dietary_flags": []
           },
           {
             "name": "Beef",
             "description": null,
             "price": null,
-            "tags": [],
-            "allergens": []
+            "dietary_flags": []
           },
           {
             "name": "Pork",
             "description": null,
             "price": null,
-            "tags": [],
-            "allergens": []
+            "dietary_flags": []
           },
           {
             "name": "Sausage",
             "description": null,
             "price": null,
-            "tags": [],
-            "allergens": []
+            "dietary_flags": []
           },
           {
             "name": "Pork Chops",
             "description": null,
             "price": null,
-            "tags": [],
-            "allergens": []
+            "dietary_flags": []
           },
           {
             "name": "1/2 Chicken",
             "description": null,
             "price": null,
-            "tags": [],
-            "allergens": []
+            "dietary_flags": []
           }
         ]
       },
       {
         "name": "Sandwiches",
-        "type": "lunch",
         "items": [
           {
-            "name": "Rib Sandwich",
+            "name": "Rib",
             "description": null,
             "price": null,
-            "tags": [],
-            "allergens": []
+            "dietary_flags": []
           },
           {
-            "name": "Sausage Sandwich",
+            "name": "Sausage",
             "description": null,
             "price": null,
-            "tags": [],
-            "allergens": []
+            "dietary_flags": []
           },
           {
-            "name": "Corn Bread Sandwich",
+            "name": "Corn Bread",
             "description": null,
             "price": null,
-            "tags": [],
-            "allergens": []
+            "dietary_flags": []
           },
           {
-            "name": "Pork Chop Sandwich",
+            "name": "Pork Chop",
             "description": null,
             "price": null,
-            "tags": [],
-            "allergens": []
+            "dietary_flags": []
           },
           {
-            "name": "Beef, Turkey, Chicken, Pork Sandwich",
+            "name": "Beef, Turkey, Chicken, Pork",
             "description": null,
             "price": null,
-            "tags": [],
-            "allergens": []
+            "dietary_flags": []
           },
           {
-            "name": "Steak Sandwich",
+            "name": "Steak",
             "description": null,
             "price": null,
-            "tags": [],
-            "allergens": []
+            "dietary_flags": []
           },
           {
-            "name": "All The Way Sandwich",
+            "name": "All The Way",
             "description": null,
             "price": null,
-            "tags": [],
-            "allergens": []
-          }
-        ]
-      },
-      {
-        "name": "Breakfast",
-        "type": "breakfast",
-        "items": [
-          {
-            "name": "Breakfast",
-            "description": "Now serving breakfast",
-            "price": null,
-            "tags": [],
-            "allergens": []
+            "dietary_flags": []
           }
         ]
       }
     ]
   },
-  "url": "https://downsouthbbq.com",
-  "scraped_at": "2026-03-21T19:33:40.259Z",
-  "extracted_at": "2026-03-23T03:39:22.742Z",
-  "model": "claude-haiku-4-5-20251001",
-  "gallery": [
-    "https://downsouthbbq.com/sign2020.jpg",
-    "https://downsouthbbq.com/BeadedSign-131x175-JPG.jpg",
-    "https://downsouthbbq.com/sign2020a.jpg",
-    "https://downsouthbbq.com/ribs.jpg",
-    "https://downsouthbbq.com/pork.jpg",
-    "https://downsouthbbq.com/chicken.jpg",
-    "https://downsouthbbq.com/downsouthbbqmenu.jpg",
-    "https://downsouthbbq.com/hog.jpg"
+  "specials": [
+    {
+      "name": "Catering",
+      "description": "We Cater! Call Ahead on all BIG Orders so we have time to properly prepare the very best Southern Barbeque for your group!",
+      "days": null,
+      "time": null
+    },
+    {
+      "name": "Breakfast Service",
+      "description": "Now serving breakfast!",
+      "days": [
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
+      "time": "7:00am-3:00pm"
+    }
   ],
-  "sources": [
-    "https://downsouthbbq.com",
-    "https://downsouthbbq.com/tour.html",
-    "https://downsouthbbq.com/down-south-bbq-map.html",
-    "https://downsouthbbq.com/down-south-bbq-menu.html",
-    "https://downsouthbbq.com/index.html"
-  ]
+  "features": [
+    "outdoor seating",
+    "takeout",
+    "catering",
+    "breakfast service"
+  ],
+  "social_media": {
+    "facebook": null,
+    "instagram": null,
+    "twitter": null
+  },
+  "images": [],
+  "extracted_at": "2026-05-16T19:16:05.083Z"
 }

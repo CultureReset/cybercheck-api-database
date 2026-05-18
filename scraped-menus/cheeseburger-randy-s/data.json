@@ -1,14 +1,16 @@
 {
   "business_name": "Cheeseburger Randy's",
-  "tagline": null,
-  "type": "Restaurant",
+  "cuisine_type": null,
+  "price_range": null,
+  "description": null,
   "contact": {
     "phone": null,
     "email": null,
     "address": "209 S Alston St",
     "city": "Foley",
     "state": "AL",
-    "zip": "36535"
+    "zip": "36535",
+    "website": "https://cheeseburgerrandys.com"
   },
   "hours": {
     "monday": null,
@@ -17,39 +19,18 @@
     "thursday": null,
     "friday": null,
     "saturday": null,
-    "sunday": null,
-    "notes": "Coming Soon"
+    "sunday": null
   },
-  "about": {
-    "description": null,
-    "elevator_pitch": null,
-    "vibe": null,
-    "best_for": [],
-    "established": null,
-    "reservations": null,
-    "insider_tip": null
-  },
-  "tags": [
-    "burger"
-  ],
-  "features": [],
-  "price_range": null,
-  "social_links": {
-    "instagram": null,
-    "facebook": null,
-    "website": "https://cheeseburgerrandys.com"
-  },
-  "specials": [],
-  "events": [],
   "menu": {
     "categories": []
   },
-  "url": "https://cheeseburgerrandys.com/",
-  "scraped_at": "2026-03-22T02:38:33.954Z",
-  "extracted_at": "2026-03-23T03:33:40.926Z",
-  "model": "claude-haiku-4-5-20251001",
-  "gallery": [],
-  "sources": [
-    "https://cheeseburgerrandys.com"
-  ]
+  "specials": [],
+  "features": [],
+  "social_media": {
+    "facebook": null,
+    "instagram": null,
+    "twitter": null
+  },
+  "images": [],
+  "extracted_at": "2026-05-16T19:11:14.228Z"
 }

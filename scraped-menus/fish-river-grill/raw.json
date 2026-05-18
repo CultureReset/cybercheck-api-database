@@ -1,10 +1,7 @@
 {
   "business_name": "Fish River Grill",
-  "url": "https://fishrivergrillgs.com/",
-  "scraped_at": "2026-03-22T02:45:54.468Z",
-  "scraper": "chrome-visible",
+  "url": "http://www.fishrivergrill.com/",
+  "scraped_at": "2026-05-16T14:40:48.370Z",
   "pages": [],
-  "pdfUrls": [],
-  "pdfTexts": [],
   "imageUrls": []
 }

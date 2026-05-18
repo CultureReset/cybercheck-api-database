@@ -1,145 +1,44 @@
 {
   "business_name": "Big Beach Brewing Company",
-  "tagline": "Alabama's southernmost brewery",
-  "type": "Brewery",
+  "cuisine_type": "Brewery",
+  "price_range": null,
+  "description": "Big Beach Brewing Company is the southernmost brewery in Alabama located in the heart of Gulf Shores. The brewery features a beautiful open-air taproom with fireplace and comfortable seating. They operate a 10 barrel brewing system with six fermenters capable of producing up to 12 beers on tap at a time, specializing in craft ales including IPAs, Stouts, Cream Ales, and Belgian style beers. The taproom offers flatbreads and shareable snacks from their Taproom Table Kitchen. They carry Pensacola-made Big Jerk Soda for non-drinkers and operate on a tank-to-tap system with eight 300-gallon vessels for the freshest beer. The space is family-friendly with outdoor seating and four garage doors for coastal breeze flow.",
   "contact": {
     "phone": "251-948-2337",
     "email": "info@bigbeachbrewing.com",
     "address": "300 East 24th Avenue",
     "city": "Gulf Shores",
     "state": "AL",
-    "zip": "36542"
+    "zip": "36542",
+    "website": "https://www.bigbeachbrewing.com"
   },
   "hours": {
-    "monday": "Noon-10pm",
-    "tuesday": "Noon-10pm",
-    "wednesday": "Noon-10pm",
-    "thursday": "Noon-10pm",
-    "friday": "Noon-11pm",
-    "saturday": "Noon-11pm",
-    "sunday": "Noon-10pm",
-    "notes": null
+    "monday": "12pm-10pm",
+    "tuesday": "12pm-10pm",
+    "wednesday": "12pm-10pm",
+    "thursday": "12pm-10pm",
+    "friday": "12pm-11pm",
+    "saturday": "12pm-11pm",
+    "sunday": "12pm-10pm"
   },
-  "about": {
-    "description": "Alabama's southernmost brewery, Big Beach Brewing Company, is located in Gulf Shores, Alabama.",
-    "elevator_pitch": "Big Beach Brewing is Alabama's southernmost craft brewery, serving up locally brewed beer in the heart of Gulf Shores just steps from the Gulf Coast.",
-    "established": null,
-    "owner": null,
-    "chef": null,
-    "vibe": "Laid-back coastal brewery with a beach town feel",
-    "best_for": [
-      "groups",
-      "families",
-      "casual drinks",
-      "beach crowd",
-      "locals and tourists"
-    ],
-    "age_restriction": "Must be 21+ to enter",
-    "dress_code": null,
-    "parking": null,
-    "accessibility": null,
-    "reservations": null,
-    "insider_tip": "Check the events calendar for live music nights which run later on weekends.",
-    "awards": [],
-    "press": []
-  },
-  "tags": [
-    "brewery",
-    "craft beer",
-    "gulf coast",
-    "live music",
-    "beach town",
-    "gulf shores",
-    "local brewery",
-    "alabama beer"
-  ],
-  "hashtags": [
-    "#bigbeachbrewing",
-    "#gulfshores",
-    "#alabamabrewery",
-    "#craftbeer",
-    "#gulfcoast",
-    "#orangebeach",
-    "#alabamabeer",
-    "#southernbrewery",
-    "#beachbrewery"
-  ],
-  "categories": [
-    "Brewery",
-    "Bar",
-    "Live Music Venue"
-  ],
-  "cuisine_types": [
-    "Craft Beer",
-    "Beer & Wine"
-  ],
-  "atmosphere": [
-    "Casual",
-    "Lively",
-    "Beach Vibe",
-    "Family-Friendly",
-    "Local Hangout"
-  ],
-  "features": [
-    "craft brewery",
-    "beer on tap",
-    "wine on tap",
-    "live music",
-    "events",
-    "photo gallery"
-  ],
-  "price_range": "$$",
-  "neighborhood": "Gulf Shores",
-  "social_links": {
-    "instagram": null,
-    "facebook": null,
-    "twitter": null,
-    "tiktok": null,
-    "youtube": null,
-    "yelp": null,
-    "tripadvisor": null,
-    "opentable": null,
-    "google_maps": null,
-    "website": "https://bigbeachbrewing.com"
+  "menu": {
+    "categories": []
   },
   "specials": [],
-  "events": [
-    {
-      "name": "Live Music & Events",
-      "description": "Big Beach Brewing hosts live music and special events. Check the Live Music + Events page for the current schedule.",
-      "recurring": true,
-      "day": null,
-      "time": null,
-      "frequency": "Regular"
-    }
+  "features": [
+    "brewery",
+    "taproom",
+    "outdoor seating",
+    "family-friendly",
+    "fireplace",
+    "live music and events",
+    "kitchen"
   ],
-  "menu": {
-    "categories": [
-      {
-        "name": "Beer & Wine on Tap",
-        "type": "drinks",
-        "description": "Craft beers brewed in-house plus wine on tap available during all open hours.",
-        "subcategories": [],
-        "items": []
-      }
-    ]
+  "social_media": {
+    "facebook": null,
+    "instagram": null,
+    "twitter": null
   },
-  "url": "https://bigbeachbrewing.com",
-  "scraped_at": "2026-03-21T12:51:54.888Z",
-  "extracted_at": "2026-03-21T13:24:46.079Z",
-  "sources": [
-    "https://bigbeachbrewing.com"
-  ],
-  "gallery": [
-    "https://static.wixstatic.com/media/7c16f9_c5a19ed259234312a4164fc6ff92b8a6~mv2.jpg/v1/fill/w_948,h_800,al_c,q_85,enc_avif,quality_auto/7c16f9_c5a19ed259234312a4164fc6ff92b8a6~mv2.jpg",
-    "https://static.wixstatic.com/media/7c16f9_6e5ffac57d1d4be099f9d26a66c34ce6~mv2.png/v1/fill/w_150,h_146,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/HOPLOGO_TINTACKER_RT.png",
-    "https://static.wixstatic.com/media/7c16f9_5f269b10c9a54d5692f45f9b880e88b5~mv2.png/v1/fill/w_222,h_221,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/HOPLOGO_TINTACKER-01.png",
-    "https://static.wixstatic.com/media/e316f544f9094143b9eac01f1f19e697.png/v1/fill/w_45,h_45,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/e316f544f9094143b9eac01f1f19e697.png",
-    "https://static.wixstatic.com/media/c090bd269d424abf8f035befe86158de.png/v1/fill/w_45,h_45,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/c090bd269d424abf8f035befe86158de.png",
-    "https://static.wixstatic.com/media/11062b_8d01f81c92b14c0dab40c952ef35ee99~mv2.png/v1/fill/w_45,h_45,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_8d01f81c92b14c0dab40c952ef35ee99~mv2.png",
-    "https://static.wixstatic.com/media/7c16f9_8ccf053740c047dc841e8477e9880d05~mv2.jpg/v1/fill/w_100,h_100,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/7c16f9_8ccf053740c047dc841e8477e9880d05~mv2.jpg",
-    "https://static.wixstatic.com/media/7c16f9_5f64c6d6ad314bf89bbbc016b6b68273~mv2.png/v1/fill/w_160,h_69,al_c,q_85,enc_avif,quality_auto/7c16f9_5f64c6d6ad314bf89bbbc016b6b68273~mv2.png",
-    "https://static.wixstatic.com/media/7c16f9_c458ea8dd71344cb873b197334b26c68~mv2.jpg/v1/fill/w_69,h_119,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/7c16f9_c458ea8dd71344cb873b197334b26c68~mv2.jpg",
-    "https://static.wixstatic.com/media/7c16f9_270c5839fd314e079d26cf1443d41877~mv2.png/v1/fill/w_201,h_60,al_c,q_85,enc_avif,quality_auto/logo-horz-sq.png"
-  ]
+  "images": [],
+  "extracted_at": "2026-05-16T19:09:13.399Z"
 }

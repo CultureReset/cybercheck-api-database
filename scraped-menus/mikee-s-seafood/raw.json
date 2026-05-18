@@ -1,7 +1,7 @@
 {
   "business_name": "Mikee's Seafood",
   "url": "https://mikeesseafood.com/",
-  "scraped_at": "2026-03-21T15:11:49.343Z",
+  "scraped_at": "2026-05-15T07:23:08.499Z",
   "pages": [
     {
       "url": "https://mikeesseafood.com",
@@ -162,7 +162,7 @@
         "og:image:width": "350",
         "og:image:height": "212",
         "og:image:type": "image/png",
-        "generator": "Site Kit by Google 1.174.0"
+        "generator": "Site Kit by Google 1.178.0"
       }
     },
     {
@@ -281,7 +281,7 @@
         "og:image:width": "350",
         "og:image:height": "212",
         "og:image:type": "image/png",
-        "generator": "Site Kit by Google 1.174.0"
+        "generator": "Site Kit by Google 1.178.0"
       }
     },
     {
@@ -448,7 +448,7 @@
         "og:image:width": "350",
         "og:image:height": "212",
         "og:image:type": "image/png",
-        "generator": "Site Kit by Google 1.174.0"
+        "generator": "Site Kit by Google 1.178.0"
       }
     },
     {
@@ -614,7 +614,7 @@
         "og:image:width": "350",
         "og:image:height": "212",
         "og:image:type": "image/png",
-        "generator": "Site Kit by Google 1.174.0"
+        "generator": "Site Kit by Google 1.178.0"
       }
     },
     {
@@ -781,7 +781,7 @@
         "og:image:width": "350",
         "og:image:height": "212",
         "og:image:type": "image/png",
-        "generator": "Site Kit by Google 1.174.0"
+        "generator": "Site Kit by Google 1.178.0"
       }
     },
     {
@@ -948,7 +948,7 @@
         "og:image:width": "350",
         "og:image:height": "212",
         "og:image:type": "image/png",
-        "generator": "Site Kit by Google 1.174.0"
+        "generator": "Site Kit by Google 1.178.0"
       }
     },
     {
@@ -1115,7 +1115,7 @@
         "og:image:width": "350",
         "og:image:height": "212",
         "og:image:type": "image/png",
-        "generator": "Site Kit by Google 1.174.0"
+        "generator": "Site Kit by Google 1.178.0"
       }
     }
   ],

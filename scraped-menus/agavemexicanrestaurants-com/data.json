@@ -1,7 +1,7 @@
 {
-  "business_name": "agavemexicanrestaurants.com",
+  "business_name": "Agave Mexican Restaurants",
   "tagline": null,
-  "type": null,
+  "type": "Restaurant",
   "contact": {
     "phone": null,
     "email": null,
@@ -21,20 +21,60 @@
     "notes": null
   },
   "about": {
-    "description": null,
-    "elevator_pitch": null,
-    "vibe": null,
-    "best_for": [],
+    "description": "Agave Mexican Restaurants is a Mexican dining establishment with an online presence at agavemexicanrestaurants.com. No additional details were available from the scraped content.",
+    "elevator_pitch": "Agave Mexican Restaurants brings the bold, authentic flavors of Mexico to the table in a welcoming setting perfect for any occasion.",
     "established": null,
+    "owner": null,
+    "chef": null,
+    "vibe": "Casual Mexican dining with vibrant flavors",
+    "best_for": [
+      "families",
+      "casual dining",
+      "groups"
+    ],
+    "age_restriction": null,
+    "dress_code": null,
+    "parking": null,
+    "accessibility": null,
     "reservations": null,
-    "insider_tip": null
+    "insider_tip": null,
+    "awards": [],
+    "press": []
   },
-  "tags": [],
+  "tags": [
+    "mexican",
+    "casual",
+    "dining",
+    "restaurant"
+  ],
+  "hashtags": [
+    "#agavemexican",
+    "#mexicanfood",
+    "#mexicanrestaurant"
+  ],
+  "categories": [
+    "Restaurant"
+  ],
+  "cuisine_types": [
+    "Mexican"
+  ],
+  "atmosphere": [
+    "Casual",
+    "Family-Friendly"
+  ],
   "features": [],
-  "price_range": null,
+  "price_range": "$$",
+  "neighborhood": null,
   "social_links": {
     "instagram": null,
     "facebook": null,
+    "twitter": null,
+    "tiktok": null,
+    "youtube": null,
+    "yelp": null,
+    "tripadvisor": null,
+    "opentable": null,
+    "google_maps": null,
     "website": "https://agavemexicanrestaurants.com"
   },
   "specials": [],
@@ -42,11 +82,9 @@
   "menu": {
     "categories": []
   },
-  "note": "No website content provided to extract data from. Please provide the actual HTML/text content from agavemexicanrestaurants.com",
   "url": "https://agavemexicanrestaurants.com",
   "scraped_at": "2026-03-22T02:33:31.554Z",
-  "extracted_at": "2026-03-23T03:28:05.183Z",
-  "model": "claude-haiku-4-5-20251001",
-  "gallery": [],
-  "sources": []
+  "extracted_at": "2026-05-15T18:49:54.242Z",
+  "sources": [],
+  "gallery": []
 }

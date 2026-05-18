@@ -1,205 +1,291 @@
 {
   "business_name": "A Specialty Bakery and Party Shoppe",
-  "tagline": "Welcome to Our World of Sweetness!",
+  "tagline": "Taste and see that the LORD is good!! – Psalm 34:8",
   "type": "Bakery",
   "contact": {
     "phone": "251-968-2253",
     "email": "aspecialtybakery@gulftel.com",
     "address": "2200 East 2nd Street",
     "city": "Gulf Shores",
-    "state": "Alabama",
+    "state": "AL",
     "zip": null
   },
   "hours": {
-    "monday": "CLOSED",
+    "monday": "Closed",
     "tuesday": "9:00 AM - 4:00 PM",
     "wednesday": "9:00 AM - 4:00 PM",
     "thursday": "9:00 AM - 4:00 PM",
     "friday": "9:00 AM - 4:00 PM",
     "saturday": "9:00 AM - 12:00 PM",
-    "sunday": "CLOSED",
-    "notes": null
+    "sunday": "Closed",
+    "notes": "Custom cake orders recommended at least 2 weeks in advance"
   },
   "about": {
-    "description": "A Specialty Bakery and Party Shoppe has been the go-to destination in Gulf Shores, AL, for those looking to add a touch of sweetness and joy to their celebrations. Our dedication to quality, creativity, and customer satisfaction sets us apart. Making custom cakes that are as beautiful to look at as they are to eat, we're here to ensure your special moments are unforgettable.",
-    "elevator_pitch": "Custom specialty bakery in Gulf Shores creating unforgettable custom sweets for celebrations and special occasions.",
-    "vibe": "Warm, creative, celebration-focused bakery with emphasis on custom artisan cakes and specialty items",
+    "description": "A Specialty Bakery and Party Shoppe is the go-to destination in Gulf Shores, AL for custom cakes, cookies, cupcakes, truffles, and more. They specialize in creating beautiful, delicious custom sweets for weddings, birthdays, and all special occasions, with a wide range of cake flavors and icing options.",
+    "elevator_pitch": "Gulf Shores' beloved custom bakery crafting stunning, faith-inspired celebration cakes and sweets that are as beautiful to look at as they are to eat.",
+    "established": null,
+    "owner": null,
+    "chef": null,
+    "vibe": "Warm, faith-inspired, creative, community-focused sweet shop",
     "best_for": [
+      "families",
+      "celebrations",
       "weddings",
-      "birthday parties",
-      "custom celebrations",
+      "birthdays",
       "special occasions"
     ],
-    "established": null,
-    "reservations": null,
-    "insider_tip": "Place custom cake orders at least 2 weeks in advance by calling, visiting in person, or Facebook messaging"
+    "age_restriction": null,
+    "dress_code": null,
+    "parking": null,
+    "accessibility": null,
+    "reservations": "Custom cake orders recommended at least 2 weeks in advance; orders can be placed by phone, in-store, or Facebook message",
+    "insider_tip": "Place your custom cake order at least 2 weeks in advance, and message them on Facebook for quick communication.",
+    "awards": [],
+    "press": []
   },
   "tags": [
-    "bakery",
     "custom cakes",
+    "bakery",
+    "wedding cakes",
     "cupcakes",
     "cookies",
     "truffles",
-    "wedding cakes",
-    "specialty items",
-    "custom desserts"
+    "faith-based",
+    "celebrations",
+    "party",
+    "Gulf Shores"
+  ],
+  "hashtags": [
+    "#aspecialtybakery",
+    "#gulfshores",
+    "#alabamabakery",
+    "#customcakes",
+    "#weddingcake",
+    "#gulfshoresal",
+    "#sweettooth",
+    "#celebrationcakes",
+    "#alabamaeats",
+    "#partyshoppe"
+  ],
+  "categories": [
+    "Bakery",
+    "Desserts",
+    "Wedding Services",
+    "Party Supplies"
+  ],
+  "cuisine_types": [
+    "Bakery",
+    "Desserts",
+    "Pastry"
+  ],
+  "atmosphere": [
+    "Casual",
+    "Family-Friendly",
+    "Charming",
+    "Faith-Inspired"
   ],
   "features": [
-    "custom cake design",
+    "custom cakes",
     "wedding cakes",
     "specialty items",
-    "party planning services"
+    "cookies",
+    "cupcakes",
+    "truffles",
+    "takeout",
+    "in-store ordering",
+    "online ordering",
+    "hiring"
   ],
   "price_range": "$$",
+  "neighborhood": "Gulf Shores",
   "social_links": {
-    "instagram": "https://www.instagram.com/aspecialtybakery",
-    "facebook": "https://www.facebook.com/aspecialtybakery",
-    "website": "https://www.aspecialtybakery.net/"
+    "instagram": null,
+    "facebook": null,
+    "twitter": null,
+    "tiktok": null,
+    "youtube": null,
+    "yelp": null,
+    "tripadvisor": null,
+    "opentable": null,
+    "google_maps": null,
+    "website": "http://aspecialtybakery.net/"
   },
   "specials": [],
-  "events": [
-    {
-      "name": "Join Our Team",
-      "description": "Hiring decorators and cake bakers. Bring resume to store or call.",
-      "recurring": false,
-      "day": null,
-      "time": null
-    }
-  ],
+  "events": [],
   "menu": {
     "categories": [
       {
-        "name": "Cake Flavors",
+        "name": "Custom Cakes",
         "type": "desserts",
+        "description": "Custom cakes that combine art with flavor for any occasion. Order at least 2 weeks in advance.",
+        "subcategories": [
+          "Cake Flavors",
+          "Icing Options"
+        ],
         "items": [
           {
             "name": "White Cake",
-            "description": null,
+            "description": "Custom cake with white flavor",
             "price": null,
+            "subcategory": "Cake Flavors",
             "tags": [],
             "allergens": []
           },
           {
             "name": "Butter Cake",
-            "description": null,
+            "description": "Custom cake with butter flavor",
             "price": null,
+            "subcategory": "Cake Flavors",
             "tags": [],
-            "allergens": []
+            "allergens": [
+              "dairy"
+            ]
           },
           {
             "name": "Yellow Cake",
-            "description": null,
+            "description": "Custom cake with yellow flavor",
             "price": null,
+            "subcategory": "Cake Flavors",
             "tags": [],
             "allergens": []
           },
           {
             "name": "Chocolate Cake",
-            "description": null,
+            "description": "Custom cake with chocolate flavor",
             "price": null,
+            "subcategory": "Cake Flavors",
             "tags": [],
             "allergens": []
           },
           {
             "name": "German Chocolate Cake",
-            "description": null,
+            "description": "Custom cake with German chocolate flavor",
             "price": null,
+            "subcategory": "Cake Flavors",
             "tags": [],
-            "allergens": []
+            "allergens": [
+              "dairy"
+            ]
           },
           {
             "name": "Strawberry Cake",
-            "description": null,
+            "description": "Custom cake with strawberry flavor",
             "price": null,
+            "subcategory": "Cake Flavors",
             "tags": [],
             "allergens": []
           },
           {
             "name": "Red Velvet Cake",
-            "description": null,
+            "description": "Custom cake with red velvet flavor",
             "price": null,
+            "subcategory": "Cake Flavors",
             "tags": [],
             "allergens": []
           },
           {
             "name": "Carrot Cake",
-            "description": null,
+            "description": "Custom cake with carrot flavor",
             "price": null,
+            "subcategory": "Cake Flavors",
             "tags": [],
             "allergens": []
           },
           {
             "name": "Marble Cake",
-            "description": null,
+            "description": "Custom cake with marble flavor",
             "price": null,
+            "subcategory": "Cake Flavors",
             "tags": [],
             "allergens": []
           },
           {
             "name": "Almond Cake",
-            "description": null,
+            "description": "Custom cake with almond flavor",
             "price": null,
-            "tags": [],
-            "allergens": []
-          },
-          {
-            "name": "Lemon Cake",
-            "description": null,
-            "price": null,
-            "tags": [],
-            "allergens": []
-          }
-        ]
-      },
-      {
-        "name": "Frosting Options",
-        "type": "desserts",
-        "items": [
-          {
-            "name": "Buttercream",
-            "description": null,
-            "price": null,
-            "tags": [],
-            "allergens": []
-          },
-          {
-            "name": "Cream Cheese",
-            "description": null,
-            "price": null,
-            "tags": [],
-            "allergens": []
-          },
-          {
-            "name": "Chocolate Buttercream",
-            "description": null,
-            "price": null,
-            "tags": [],
-            "allergens": []
-          },
-          {
-            "name": "Peanut Butter Buttercream",
-            "description": null,
-            "price": null,
+            "subcategory": "Cake Flavors",
             "tags": [],
             "allergens": [
-              "peanuts"
+              "nuts"
             ]
           },
           {
-            "name": "Caramel",
-            "description": null,
+            "name": "Lemon Cake",
+            "description": "Custom cake with lemon flavor",
             "price": null,
+            "subcategory": "Cake Flavors",
             "tags": [],
             "allergens": []
           },
           {
-            "name": "Coconut Pecan",
-            "description": null,
+            "name": "Wedding Cake",
+            "description": "A special cake for the most special day",
             "price": null,
+            "subcategory": null,
+            "tags": [
+              "popular"
+            ],
+            "allergens": []
+          },
+          {
+            "name": "Buttercream Icing",
+            "description": "Classic buttercream icing option",
+            "price": null,
+            "subcategory": "Icing Options",
             "tags": [],
             "allergens": [
-              "coconut",
-              "pecans"
+              "dairy"
+            ]
+          },
+          {
+            "name": "Cream Cheese Icing",
+            "description": "Cream cheese icing option",
+            "price": null,
+            "subcategory": "Icing Options",
+            "tags": [],
+            "allergens": [
+              "dairy"
+            ]
+          },
+          {
+            "name": "Chocolate Buttercream Icing",
+            "description": "Chocolate buttercream icing option",
+            "price": null,
+            "subcategory": "Icing Options",
+            "tags": [],
+            "allergens": [
+              "dairy"
+            ]
+          },
+          {
+            "name": "Peanut Butter Buttercream Icing",
+            "description": "Peanut butter buttercream icing option",
+            "price": null,
+            "subcategory": "Icing Options",
+            "tags": [],
+            "allergens": [
+              "nuts",
+              "dairy"
+            ]
+          },
+          {
+            "name": "Caramel Icing",
+            "description": "Caramel icing option",
+            "price": null,
+            "subcategory": "Icing Options",
+            "tags": [],
+            "allergens": [
+              "dairy"
+            ]
+          },
+          {
+            "name": "Coconut Pecan Icing",
+            "description": "Coconut pecan icing option",
+            "price": null,
+            "subcategory": "Icing Options",
+            "tags": [],
+            "allergens": [
+              "nuts"
             ]
           }
         ]
@@ -207,27 +293,34 @@
       {
         "name": "Specialty Items",
         "type": "desserts",
+        "description": "From cookies to cupcakes to truffles and so much more!!",
+        "subcategories": [],
         "items": [
           {
             "name": "Cookies",
-            "description": null,
+            "description": "Specialty baked cookies",
             "price": null,
+            "subcategory": null,
             "tags": [],
             "allergens": []
           },
           {
             "name": "Cupcakes",
-            "description": null,
+            "description": "Specialty baked cupcakes",
             "price": null,
+            "subcategory": null,
             "tags": [],
             "allergens": []
           },
           {
             "name": "Truffles",
-            "description": null,
+            "description": "Specialty handmade truffles",
             "price": null,
+            "subcategory": null,
             "tags": [],
-            "allergens": []
+            "allergens": [
+              "dairy"
+            ]
           }
         ]
       }
@@ -235,15 +328,14 @@
   },
   "url": "http://aspecialtybakery.net/",
   "scraped_at": "2026-03-21T15:05:04.628Z",
-  "extracted_at": "2026-03-23T03:27:54.386Z",
-  "model": "claude-haiku-4-5-20251001",
+  "extracted_at": "2026-05-15T18:49:12.168Z",
+  "sources": [
+    "http://aspecialtybakery.net"
+  ],
   "gallery": [
     "https://primary.jwwb.nl/public/k/d/f/temp-jgjnboiczzcscwkfwiyn/screenshot-2024-05-02-at-6-38-48-pm-high.png?enable-io=true&enable=upscale&crop=0.8333%3A1&width=800",
     "https://primary.jwwb.nl/public/k/d/f/temp-jgjnboiczzcscwkfwiyn/screenshot-2024-05-02-at-6-22-51-pm-high.png?enable-io=true&enable=upscale&crop=0.8333%3A1&width=800",
     "https://primary.jwwb.nl/public/k/d/f/temp-jgjnboiczzcscwkfwiyn/img_1256-high.jpg?enable-io=true&enable=upscale&crop=0.8333%3A1&width=800",
     "https://primary.jwwb.nl/unsplash/5K5Nc3AGF1w.jpg"
-  ],
-  "sources": [
-    "http://aspecialtybakery.net"
   ]
 }

@@ -1,89 +1,77 @@
 {
   "business_name": "LuLu's Fun Food & Music",
-  "tagline": "Bonafide Coastal Cuisine",
-  "type": "Restaurant & Bar",
+  "cuisine_type": "Coastal Cuisine",
+  "price_range": null,
+  "description": "At LuLu's, every dish we prepare for you comes from recipes created by Lucy Buffett in her very own kitchen. Our entire menu—including our dressings and sauces and allergy menu—are scratch-made and never frozen. At LuLu's table, you'll enjoy authentic coastal cuisine served with a heapin' helpin' of Crazy Sista love!",
   "contact": {
-    "phone": [
-      "(251) 967-5858",
-      "(850) 710-5858",
-      "(843) 491-5011"
-    ],
+    "phone": null,
     "email": null,
-    "locations": [
-      {
-        "address": "200 East 25th Avenue",
-        "city": "Gulf Shores",
-        "state": "AL",
-        "zip": "36542"
-      },
-      {
-        "address": "4607 Legendary Marina Drive",
-        "city": "Destin",
-        "state": "FL",
-        "zip": "32541"
-      },
-      {
-        "address": "4954 Hwy 17 South",
-        "city": "North Myrtle Beach",
-        "state": "SC",
-        "zip": "29582"
+    "address": null,
+    "city": null,
+    "state": null,
+    "zip": null,
+    "website": "https://lulubuffett.com"
+  },
+  "locations": [
+    {
+      "name": "Gulf Shores, AL",
+      "address": "200 East 25th Avenue",
+      "city": "Gulf Shores",
+      "state": "AL",
+      "zip": "36542",
+      "phone": "(251) 967-5858",
+      "hours": {
+        "monday": "11am-9pm",
+        "tuesday": "11am-9pm",
+        "wednesday": "11am-9pm",
+        "thursday": "11am-9pm",
+        "friday": "11am-9pm",
+        "saturday": "11am-9pm",
+        "sunday": "11am-9pm"
       }
-    ]
-  },
-  "hours": {
-    "monday": "11am - 9pm",
-    "tuesday": "11am - 9pm",
-    "wednesday": "11am - 9pm",
-    "thursday": "11am - 9pm",
-    "friday": "11am - 9pm",
-    "saturday": "11am - 9pm",
-    "sunday": "11am - 9pm",
-    "notes": "Open daily at 11am"
-  },
-  "about": {
-    "description": "At LuLu's, every dish comes from recipes created by Lucy Buffett in her very own kitchen. The entire menu—including dressings, sauces, and allergy menu—are scratch-made and never frozen. Authentic coastal cuisine served with Crazy Sista love.",
-    "elevator_pitch": "Authentic scratch-made coastal cuisine inspired by Lucy Buffett's personal recipes with live music and fun atmosphere.",
-    "vibe": "Fun, casual beachside dining with live entertainment and family-friendly atmosphere",
-    "best_for": [
-      "families",
-      "casual dining",
-      "live music",
-      "coastal getaways"
-    ],
-    "established": null,
-    "reservations": null,
-    "insider_tip": "Live music Monday-Friday 5:00pm-9:00pm (beginning March 2)"
-  },
-  "tags": [
-    "seafood",
-    "coastal cuisine",
-    "scratch-made",
-    "casual",
-    "family-friendly",
-    "live music",
-    "beach destination"
+    },
+    {
+      "name": "Destin, FL",
+      "address": "4607 Legendary Marina Drive",
+      "city": "Destin",
+      "state": "FL",
+      "zip": "32541",
+      "phone": "(850) 710-5858",
+      "hours": {
+        "monday": "11am-9pm",
+        "tuesday": "11am-9pm",
+        "wednesday": "11am-9pm",
+        "thursday": "11am-9pm",
+        "friday": "11am-9pm",
+        "saturday": "11am-9pm",
+        "sunday": "11am-9pm"
+      }
+    },
+    {
+      "name": "North Myrtle Beach, SC",
+      "address": "4954 Hwy 17 South",
+      "city": "North Myrtle Beach",
+      "state": "SC",
+      "zip": "29582",
+      "phone": "(843) 491-5011",
+      "hours": {
+        "monday": "11am-9pm",
+        "tuesday": "11am-9pm",
+        "wednesday": "11am-9pm",
+        "thursday": "11am-9pm",
+        "friday": "11am-9pm",
+        "saturday": "11am-9pm",
+        "sunday": "11am-9pm"
+      }
+    }
   ],
-  "features": [
-    "live music",
-    "full bar",
-    "allergy menus available",
-    "scratch-made menu",
-    "gift cards",
-    "loyalty cards",
-    "events hosting",
-    "online shop",
-    "newsletter signup"
-  ],
-  "price_range": "$$",
-  "social_links": {
-    "instagram": null,
-    "facebook": null,
-    "website": "https://lulusfunfoodmusic.com"
+  "menu": {
+    "categories": []
   },
   "specials": [
     {
-      "name": "Live Music Schedule",
-      "description": "Live music performances",
+      "name": "Live Music",
+      "description": "Live music Monday - Friday 5:00pm - 9:00pm",
       "days": [
         "Monday",
         "Tuesday",
@@ -91,86 +79,25 @@
         "Thursday",
         "Friday"
       ],
-      "time": "5:00pm - 9:00pm",
-      "recurring": true,
-      "start_date": "March 2"
+      "time": "5:00pm-9:00pm"
     }
   ],
-  "events": [
-    {
-      "name": "Events at LuLu's",
-      "description": "Various upcoming events hosted at LuLu's locations",
-      "recurring": null,
-      "details": "See website for full events calendar"
-    }
+  "features": [
+    "live music",
+    "scratch-made menu",
+    "allergy menus",
+    "gift cards",
+    "loyalty cards",
+    "events",
+    "merchandise shop"
   ],
-  "menu": {
-    "note": "Full menu available on website. Scratch-made items include:",
-    "categories": [
-      {
-        "name": "Food",
-        "type": "lunch|dinner",
-        "items": [
-          {
-            "name": "Full Menu Available",
-            "description": "Coastal cuisine with scratch-made recipes by Lucy Buffett",
-            "price": null,
-            "tags": [
-              "seafood",
-              "coastal"
-            ],
-            "allergens": []
-          }
-        ]
-      },
-      {
-        "name": "Beverages",
-        "type": "drinks",
-        "items": []
-      },
-      {
-        "name": "Allergy Menus",
-        "type": "dietary",
-        "items": [
-          {
-            "name": "Allergy Menu",
-            "description": "Scratch-made allergy menu available",
-            "price": null,
-            "tags": [],
-            "allergens": []
-          }
-        ]
-      }
-    ]
+  "social_media": {
+    "facebook": null,
+    "instagram": null,
+    "twitter": null
   },
-  "additional_info": {
-    "gift_cards": "Available for all three locations",
-    "loyalty_program": "Golden Coconuts loyalty cards",
-    "merchandise": "Shop available with LuLu's branded items",
-    "careers": "Job opportunities available"
-  },
-  "url": "https://lulubuffett.com",
-  "scraped_at": "2026-03-21T19:37:07.513Z",
-  "extracted_at": "2026-03-23T03:52:03.169Z",
-  "model": "claude-haiku-4-5-20251001",
-  "gallery": [
-    "https://lulusfunfoodmusic.com/wp-content/uploads/2025/03/LuLus_Logo_Solid_PMS.png",
-    "https://lulusfunfoodmusic.com/wp-content/uploads/2024/07/downarrow.png",
-    "https://lulusfunfoodmusic.com/wp-content/uploads/2024/07/white-hamburger.png",
-    "https://lulusfunfoodmusic.com/wp-content/uploads/2026/03/272-LuLus-Easter-Dash-Facebook-Cover.png",
-    "https://lulusfunfoodmusic.com/wp-content/uploads/2025/12/NYE_Hero.png",
-    "https://lulusfunfoodmusic.com/wp-content/uploads/2024/07/left-pattern-1.png",
-    "https://lulusfunfoodmusic.com/wp-content/uploads/2024/07/rightpattern-1.png",
-    "https://lulusfunfoodmusic.com/wp-content/uploads/2024/07/food-group.png",
-    "https://lulusfunfoodmusic.com/wp-content/uploads/2024/07/squig-1.png",
-    "https://lulusfunfoodmusic.com/wp-content/uploads/2024/07/sun.png",
-    "https://lulusfunfoodmusic.com/wp-content/uploads/2024/07/toys-in-sand.png",
-    "https://lulusfunfoodmusic.com/wp-content/uploads/2024/10/Gulf-Shores-Image.jpg",
-    "https://lulusfunfoodmusic.com/wp-content/uploads/2024/10/Destin-Location-Image.jpg",
-    "https://lulusfunfoodmusic.com/wp-content/uploads/2024/10/NMB-Image.jpg",
-    "https://lulusfunfoodmusic.com/wp-content/uploads/2024/07/save-ig.png"
+  "images": [
+    "https://lulusfunfoodmusic.com/wp-content/uploads/2024/07/home-page-hero-scaled.jpg"
   ],
-  "sources": [
-    "https://lulubuffett.com"
-  ]
+  "extracted_at": "2026-05-16T19:28:49.947Z"
 }

@@ -1,99 +1,36 @@
 {
   "business_name": "Bird Dog Chicken Company",
-  "tagline": "More Than Chicken!",
-  "type": "Restaurant",
+  "cuisine_type": "Chicken, Fried Shrimp, Sandwiches, Salads",
+  "price_range": null,
+  "description": "More Than Chicken! Sandwiches, Breakfast, Fried Shrimp, Salads & Chicken",
   "contact": {
     "phone": "251-303-8555",
     "email": null,
     "address": "4575 Orange Beach Blvd, Suite 106",
     "city": "Orange Beach",
     "state": "AL",
-    "zip": "36561"
-  },
-  "hours": {
-    "monday": "7:00 am - 9:00 pm",
-    "tuesday": "7:00 am - 9:00 pm",
-    "wednesday": "7:00 am - 9:00 pm",
-    "thursday": "7:00 am - 9:00 pm",
-    "friday": "7:00 am - 9:00 pm",
-    "saturday": "7:00 am - 9:00 pm",
-    "sunday": "7:00 am - 9:00 pm",
-    "notes": null
-  },
-  "about": {
-    "description": null,
-    "elevator_pitch": "Casual chicken restaurant offering sandwiches, breakfast, fried shrimp, salads, and chicken.",
-    "vibe": null,
-    "best_for": [],
-    "established": null,
-    "reservations": null,
-    "insider_tip": null
-  },
-  "tags": [
-    "chicken",
-    "sandwiches",
-    "breakfast",
-    "fried shrimp",
-    "salads",
-    "casual"
-  ],
-  "features": [],
-  "price_range": "$$",
-  "social_links": {
-    "instagram": null,
-    "facebook": null,
+    "zip": "36561",
     "website": "http://www.birddogchickencompany.com"
   },
-  "specials": [],
-  "events": [],
-  "menu": {
-    "categories": [
-      {
-        "name": "Sandwiches",
-        "type": "lunch",
-        "items": []
-      },
-      {
-        "name": "Breakfast",
-        "type": "breakfast",
-        "items": []
-      },
-      {
-        "name": "Fried Shrimp",
-        "type": "lunch",
-        "items": []
-      },
-      {
-        "name": "Salads",
-        "type": "lunch",
-        "items": []
-      },
-      {
-        "name": "Chicken",
-        "type": "lunch",
-        "items": []
-      }
-    ]
+  "hours": {
+    "monday": "7:00am-9:00pm",
+    "tuesday": "7:00am-9:00pm",
+    "wednesday": "7:00am-9:00pm",
+    "thursday": "7:00am-9:00pm",
+    "friday": "7:00am-9:00pm",
+    "saturday": "7:00am-9:00pm",
+    "sunday": "7:00am-9:00pm"
   },
-  "url": "http://www.birddogchickencompany.com/",
-  "scraped_at": "2026-03-22T02:35:19.929Z",
-  "extracted_at": "2026-03-23T03:31:42.724Z",
-  "model": "claude-haiku-4-5-20251001",
-  "gallery": [
-    "https://lirp.cdn-website.com/78c4bdfc/dms3rep/multi/opt/logo+bad-170w.png",
-    "https://lirp.cdn-website.com/78c4bdfc/dms3rep/multi/opt/Bird+Dog+Chicken+Orange+Beach-350w.png",
-    "https://lirp.cdn-website.com/78c4bdfc/dms3rep/multi/opt/Bird+Dog+Chicken+Orange+Beach-1440w.png",
-    "https://lirp.cdn-website.com/78c4bdfc/dms3rep/multi/opt/chicken+wings+transparent-720w.png",
-    "https://lirp.cdn-website.com/78c4bdfc/dms3rep/multi/opt/menu+clear-801h.png",
-    "https://lirp.cdn-website.com/78c4bdfc/dms3rep/multi/opt/Appetizer+Bird+Dog+Chicken+24+b-1034h.png",
-    "https://lirp.cdn-website.com/78c4bdfc/dms3rep/multi/opt/Wings+Tenders+Bird+Dog+24-1061h.png",
-    "https://lirp.cdn-website.com/78c4bdfc/dms3rep/multi/opt/Sandwiches+and+wraps+birdog+24-1297h.png",
-    "https://lirp.cdn-website.com/78c4bdfc/dms3rep/multi/opt/Sauces+and+drinks+Bird+Dog+Chicken+Restaurant+B-1161h.png",
-    "https://lirp.cdn-website.com/78c4bdfc/dms3rep/multi/opt/Breakfast+24-1184h.png",
-    "https://lirp.cdn-website.com/78c4bdfc/dms3rep/multi/opt/Bird+Dog+Chicken+Orange+Beach-480w.png"
-  ],
-  "sources": [
-    "http://www.birddogchickencompany.com",
-    "https://www.birddogchickencompany.com"
-  ]
+  "menu": {
+    "categories": []
+  },
+  "specials": [],
+  "features": [],
+  "social_media": {
+    "facebook": null,
+    "instagram": null,
+    "twitter": null
+  },
+  "images": [],
+  "extracted_at": "2026-05-16T19:09:37.299Z"
 }

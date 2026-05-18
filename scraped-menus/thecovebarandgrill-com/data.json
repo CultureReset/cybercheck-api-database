@@ -1,258 +1,273 @@
 {
   "business_name": "The Cove Bar and Grill",
-  "tagline": "High energy local bar and restaurant in Murrieta, CA",
-  "type": "Bar & Grill / Sports Bar",
+  "cuisine_type": "American Bar & Grill",
+  "price_range": "$$",
+  "description": "High energy local bar and restaurant with live entertainment in Murrieta, CA. The Cove Bar and Grill was re-opened two years ago by three retired firefighters. Open and natural light filled with generous beverage offerings, guest curated music resonating throughout the day. Features NFL football, UFC events, live local touring bands, karaoke, pool tables, great food and weekend brunch.",
   "contact": {
-    "phone": "951-696-2211",
-    "email": null,
-    "address": "40675 Murrieta Hot Springs Rd",
+    "phone": "(951) 696-2211",
+    "email": "info@thecovebarandgrill.com",
+    "address": "40675 Murrieta Hot Springs Road",
     "city": "Murrieta",
     "state": "CA",
-    "zip": "92562"
-  },
-  "hours": {
-    "monday": null,
-    "tuesday": null,
-    "wednesday": null,
-    "thursday": null,
-    "friday": null,
-    "saturday": null,
-    "sunday": null,
-    "notes": "Not specified in provided data"
-  },
-  "about": {
-    "description": "Sportsbar with scheduled live music and wonderful drinks and food. High energy local bar and restaurant offering food, drinks, and entertainment.",
-    "elevator_pitch": "A high-energy local sports bar in Murrieta, California featuring scheduled live music, excellent food and drinks.",
-    "vibe": "Lively, casual sports bar atmosphere with regular entertainment events",
-    "best_for": [
-      "sports watching",
-      "live music",
-      "casual dining",
-      "group gatherings",
-      "trivia nights",
-      "karaoke"
-    ],
-    "established": null,
-    "reservations": null,
-    "insider_tip": "Popular for weekly themed nights including Karaoke with Julian on Tuesdays, Whiskey & Wings Wednesday, and regular trivia/bingo nights"
-  },
-  "tags": [
-    "sports bar",
-    "live music",
-    "casual dining",
-    "nightlife",
-    "karaoke",
-    "trivia",
-    "bingo",
-    "Mexican food",
-    "wings",
-    "burgers"
-  ],
-  "features": [
-    "full bar",
-    "live music",
-    "sports broadcasting",
-    "karaoke",
-    "trivia nights",
-    "bingo nights",
-    "dine-in seating",
-    "line dancing"
-  ],
-  "price_range": "$$",
-  "social_links": {
-    "instagram": null,
-    "facebook": null,
+    "zip": "92562",
     "website": "https://thecovebarandgrill.com"
   },
-  "specials": [
-    {
-      "name": "Old School Burger & Fries",
-      "description": "Dine In Only",
-      "price": 12,
-      "days": [
-        "Monday",
-        "Wednesday"
-      ],
-      "time": null
-    },
-    {
-      "name": "Taco Flight Special",
-      "description": "Mix-n-Match 4 Street Tacos - Carne Asada, Chicken or Shrimp + Chips & Guac. Dine In Only",
-      "price": 15,
-      "days": [
-        "Tuesday",
-        "Thursday"
-      ],
-      "time": "11:00 AM - 10:00 PM"
-    },
-    {
-      "name": "Whiskey & Wings Wednesday",
-      "description": "$1 Off Whiskey, $1 Each Wings (Dine In Only), $4 Pints 7-11pm, Line Dancing 7pm",
-      "price": null,
-      "days": [
-        "Wednesday"
-      ],
-      "time": null
-    }
-  ],
-  "events": [
-    {
-      "name": "Karaoke with Julian",
-      "description": "Every Tuesday Night",
-      "recurring": true,
-      "day": "Tuesday",
-      "time": "7:00 PM - 11:00 PM"
-    },
-    {
-      "name": "Trivia Night",
-      "description": "That Bingo Guy brings fast questions and loud fun. Prizes. Drinks. Bragging rights.",
-      "recurring": true,
-      "day": "Monday",
-      "time": "7:00 PM - 9:00 PM"
-    },
-    {
-      "name": "Bingo Night",
-      "description": "The Bingo Guy takes over. Free to play, Prizes ready, Drinks flowing",
-      "recurring": true,
-      "day": "Tuesday",
-      "time": "8:00 AM - 5:00 PM"
-    },
-    {
-      "name": "Whiskey & Wings Wednesday",
-      "description": "Line dancing, discounted whiskey and wings",
-      "recurring": true,
-      "day": "Wednesday",
-      "time": "7:00 PM - 11:00 PM"
-    },
-    {
-      "name": "Finding EMO",
-      "description": "Live music event",
-      "recurring": false,
-      "day": "Saturday, March 21, 2026",
-      "time": "8:30 PM - 11:30 PM"
-    },
-    {
-      "name": "The Tones",
-      "description": "No Cover Reggae",
-      "recurring": false,
-      "day": "Sunday, March 22, 2026",
-      "time": "4:00 PM - 7:00 PM"
-    },
-    {
-      "name": "Circuit Breakers",
-      "description": "Classic rock cover band bringing hits from the 60s-00s",
-      "recurring": false,
-      "day": "Saturday",
-      "time": "8:00 PM - 11:30 PM"
-    },
-    {
-      "name": "SKUNKDUB",
-      "description": "Roots, Rock, Reggae Music",
-      "recurring": false,
-      "day": "Friday",
-      "time": "8:30 PM - 11:30 PM"
-    }
-  ],
+  "hours": {
+    "monday": "11am-1:30am",
+    "tuesday": "11am-1:30am",
+    "wednesday": "11am-1:30am",
+    "thursday": "11am-1:30am",
+    "friday": "11am-1:30am",
+    "saturday": "9am-1:30am",
+    "sunday": "9am-1:30am"
+  },
   "menu": {
     "categories": [
       {
-        "name": "Weekly Promotions",
-        "type": "specials",
+        "name": "Burgers & Sandwiches",
         "items": [
           {
             "name": "Old School Burger & Fries",
-            "description": "Dine In Only",
+            "description": "Classic burger with fries",
             "price": 12,
-            "tags": [
-              "burger",
-              "fries",
-              "special"
-            ],
-            "allergens": []
+            "dietary_flags": []
+          },
+          {
+            "name": "French Dip",
+            "description": null,
+            "price": null,
+            "dietary_flags": []
+          },
+          {
+            "name": "Philly Cheese Steak",
+            "description": null,
+            "price": null,
+            "dietary_flags": []
+          }
+        ]
+      },
+      {
+        "name": "Salads",
+        "items": [
+          {
+            "name": "Caesar Salad",
+            "description": null,
+            "price": null,
+            "dietary_flags": [
+              "vegetarian"
+            ]
+          },
+          {
+            "name": "Blackened Shrimp Salad",
+            "description": null,
+            "price": null,
+            "dietary_flags": []
+          },
+          {
+            "name": "Salmon Salad",
+            "description": null,
+            "price": null,
+            "dietary_flags": []
+          }
+        ]
+      },
+      {
+        "name": "Entrees",
+        "items": [
+          {
+            "name": "Tenderloin Steak",
+            "description": null,
+            "price": null,
+            "dietary_flags": []
+          },
+          {
+            "name": "Blackened Shrimp",
+            "description": null,
+            "price": null,
+            "dietary_flags": []
+          },
+          {
+            "name": "Lasagna",
+            "description": null,
+            "price": null,
+            "dietary_flags": []
+          }
+        ]
+      },
+      {
+        "name": "Pasta",
+        "items": [
+          {
+            "name": "Spicy Senorita Pasta",
+            "description": null,
+            "price": null,
+            "dietary_flags": []
+          },
+          {
+            "name": "Godfather Pasta",
+            "description": null,
+            "price": null,
+            "dietary_flags": []
+          }
+        ]
+      },
+      {
+        "name": "Tacos",
+        "items": [
+          {
+            "name": "Shrimp Mango Tacos",
+            "description": null,
+            "price": null,
+            "dietary_flags": []
           },
           {
             "name": "Taco Flight Special",
-            "description": "Mix-n-Match 4 Street Tacos - Carne Asada, Chicken or Shrimp + Chips & Guac",
+            "description": "Mix-n-Match 4 Street Tacos - Carne Asada, Chicken or Shrimp + Chips & Guac (Dine In Only)",
             "price": 15,
-            "tags": [
-              "tacos",
-              "mexican",
-              "special"
-            ],
-            "allergens": []
+            "dietary_flags": []
+          }
+        ]
+      },
+      {
+        "name": "Happy Hour Menu",
+        "items": [
+          {
+            "name": "Chicken Wings",
+            "description": null,
+            "price": null,
+            "dietary_flags": []
           },
           {
-            "name": "Whiskey & Wings",
-            "description": "Wings with $1 off whiskey selection",
+            "name": "Nachos",
+            "description": null,
             "price": null,
-            "tags": [
-              "wings",
-              "whiskey",
-              "special"
-            ],
-            "allergens": []
+            "dietary_flags": []
+          },
+          {
+            "name": "Pretzel Sticks",
+            "description": null,
+            "price": null,
+            "dietary_flags": []
+          },
+          {
+            "name": "Sliders",
+            "description": null,
+            "price": null,
+            "dietary_flags": []
+          },
+          {
+            "name": "Lamb Lollipops",
+            "description": null,
+            "price": null,
+            "dietary_flags": []
+          },
+          {
+            "name": "Chorizo Fries",
+            "description": null,
+            "price": null,
+            "dietary_flags": []
           }
         ]
       }
     ]
   },
-  "url": "https://thecovebarandgrill.com",
-  "scraped_at": "2026-03-21T20:01:33.948Z",
-  "extracted_at": "2026-03-23T04:13:17.663Z",
-  "model": "claude-haiku-4-5-20251001",
-  "gallery": [
+  "specials": [
+    {
+      "name": "Happy Hour",
+      "description": "Murrieta's best happy hour. Enjoy friendly and fun atmosphere with ice-cold draft beer, fine wine, craft cocktails, or extensive selection of fine whiskeys. Includes delicious happy hour menu.",
+      "days": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "time": "3pm-7pm"
+    },
+    {
+      "name": "Old School Burger & Fries",
+      "description": "Dine In Only",
+      "days": [
+        "Monday",
+        "Wednesday"
+      ],
+      "time": "All day",
+      "price": 12
+    },
+    {
+      "name": "Whiskey & Wings Wednesday",
+      "description": null,
+      "days": [
+        "Wednesday"
+      ],
+      "time": "All day"
+    },
+    {
+      "name": "Taco Flight Special",
+      "description": "Mix-n-Match 4 Street Tacos - Carne Asada, Chicken or Shrimp + Chips & Guac (Dine In Only)",
+      "days": [
+        "Tuesday",
+        "Thursday"
+      ],
+      "time": "11am-10pm",
+      "price": 15
+    },
+    {
+      "name": "Trivia Night",
+      "description": "That Bingo Guy brings fast questions and loud fun. Prizes. Drinks. Bragging rights. Grab your crew. Claim a table early. Think quick.",
+      "days": [
+        "Monday"
+      ],
+      "time": "7pm-9pm"
+    },
+    {
+      "name": "Bingo Night",
+      "description": "The Bingo Guy takes over. Free to play. Prizes ready. Drinks flowing. Bring your crew. Call BINGO loud.",
+      "days": [
+        "Tuesday"
+      ],
+      "time": "7pm-11pm"
+    },
+    {
+      "name": "Karaoke with Julian",
+      "description": null,
+      "days": [
+        "Tuesday"
+      ],
+      "time": "Evening"
+    }
+  ],
+  "features": [
+    "full bar",
+    "craft cocktails",
+    "extensive wine selection",
+    "high-end spirits",
+    "live music",
+    "live entertainment",
+    "karaoke",
+    "pool tables",
+    "NFL football",
+    "UFC events",
+    "trivia night",
+    "bingo night",
+    "weekend brunch",
+    "catering",
+    "dine-in",
+    "natural light"
+  ],
+  "social_media": {
+    "facebook": "https://facebook.com/thecovebarandgrill",
+    "instagram": "https://instagram.com/thecovebarandgrill",
+    "twitter": "https://twitter.com/thecovebarandgrill"
+  },
+  "images": [
+    "https://thecovebarandgrill.com/wp-content/uploads/2022/05/the-cove-logo.png",
+    "https://thecovebarandgrill.com/wp-content/uploads/2025/07/event-weekly-promo-tue-thu-taco-flight.jpg",
+    "https://thecovebarandgrill.com/wp-content/uploads/2025/07/event-weekly-promo-mon-wed-burger-fries.jpg",
     "https://thecovebarandgrill.com/wp-content/uploads/2025/10/event-finding-emo.jpg",
     "https://thecovebarandgrill.com/wp-content/uploads/2022/01/B210FABA-62A2-4D0F-A6FD-711A6072EF8C-e1643130133491.png",
-    "https://thecovebarandgrill.com/wp-content/uploads/2025/10/event-finding-emo-213x120.jpg",
-    "https://thecovebarandgrill.com/wp-content/uploads/2022/01/B210FABA-62A2-4D0F-A6FD-711A6072EF8C-e1643130133491-213x120.png",
-    "https://thecovebarandgrill.com/wp-content/uploads/2026/02/event-trivia-night-that-bingo-guy-213x120.jpg",
-    "https://thecovebarandgrill.com/wp-content/uploads/2026/02/event-bingo-night-that-bingo-guy-213x120.jpg",
-    "https://thecovebarandgrill.com/wp-content/uploads/2021/10/event-karaoke-night-213x120.jpg",
-    "https://thecovebarandgrill.com/wp-content/uploads/2025/07/event-weekly-promo-mon-wed-burger-fries-213x120.jpg",
-    "https://thecovebarandgrill.com/wp-content/uploads/2025/07/event-weekly-promo-tue-thu-taco-flight-213x120.jpg",
-    "https://thecovebarandgrill.com/wp-content/uploads/2025/07/event-weekly-promo-wed-whiskey-wings-213x120.jpg",
-    "https://thecovebarandgrill.com/wp-content/uploads/2025/07/event-weekly-promo-tue-thu-taco-flight.jpg"
+    "https://thecovebarandgrill.com/wp-content/uploads/2026/02/event-trivia-night-that-bingo-guy.jpg",
+    "https://thecovebarandgrill.com/wp-content/uploads/2026/02/event-bingo-night-that-bingo-guy.jpg"
   ],
-  "sources": [
-    "https://thecovebarandgrill.com",
-    "https://thecovebarandgrill.com/event/taco-flight-special-15/2026-03-26",
-    "https://thecovebarandgrill.com/events/category/weekly-promotions",
-    "https://thecovebarandgrill.com/events/category/weekly-promotions/list/?eventDisplay=past",
-    "https://thecovebarandgrill.com/events/category/weekly-promotions/photo",
-    "https://thecovebarandgrill.com/events/category/weekly-promotions/photo/?eventDisplay=past",
-    "https://thecovebarandgrill.com/events/category/weekly-promotions/month",
-    "https://thecovebarandgrill.com/events/category/weekly-promotions/2026-04",
-    "https://thecovebarandgrill.com/events/category/weekly-promotions/2026-05",
-    "https://thecovebarandgrill.com/events/category/weekly-promotions/2026-06",
-    "https://thecovebarandgrill.com/events/category/weekly-promotions/2026-07",
-    "https://thecovebarandgrill.com/events/category/weekly-promotions/2026-08",
-    "https://thecovebarandgrill.com/events/category/weekly-promotions/2026-09",
-    "https://thecovebarandgrill.com/events/category/weekly-promotions/2026-10",
-    "https://thecovebarandgrill.com/events/category/weekly-promotions/2026-11",
-    "https://thecovebarandgrill.com/events/category/weekly-promotions/2026-12",
-    "https://thecovebarandgrill.com/events/category/weekly-promotions/2027-01",
-    "https://thecovebarandgrill.com/events/category/weekly-promotions/2027-02",
-    "https://thecovebarandgrill.com/events/category/weekly-promotions/2027-03",
-    "https://thecovebarandgrill.com/events/category/weekly-promotions/2027-04",
-    "https://thecovebarandgrill.com/events/category/weekly-promotions/2027-05",
-    "https://thecovebarandgrill.com/events/category/weekly-promotions/2027-06",
-    "https://thecovebarandgrill.com/events/category/weekly-promotions/2027-07",
-    "https://thecovebarandgrill.com/events/category/weekly-promotions/2027-08",
-    "https://thecovebarandgrill.com/events/category/weekly-promotions/2027-09",
-    "https://thecovebarandgrill.com/events/category/weekly-promotions/2027-10",
-    "https://thecovebarandgrill.com/events/category/weekly-promotions/2027-11",
-    "https://thecovebarandgrill.com/events/category/weekly-promotions/2027-12",
-    "https://thecovebarandgrill.com/events/category/weekly-promotions/2028-01",
-    "https://thecovebarandgrill.com/events/category/weekly-promotions/2028-02",
-    "https://thecovebarandgrill.com/events/category/weekly-promotions/2028-03",
-    "https://thecovebarandgrill.com/events/category/weekly-promotions/2028-04",
-    "https://thecovebarandgrill.com/events/category/weekly-promotions/2028-05",
-    "https://thecovebarandgrill.com/events/category/weekly-promotions/2028-06",
-    "https://thecovebarandgrill.com/events/category/weekly-promotions/2028-07",
-    "https://thecovebarandgrill.com/events/category/weekly-promotions/2028-08",
-    "https://thecovebarandgrill.com/events/category/weekly-promotions/2028-09",
-    "https://thecovebarandgrill.com/events/category/weekly-promotions/2028-10",
-    "https://thecovebarandgrill.com/events/category/weekly-promotions/2028-11",
-    "https://thecovebarandgrill.com/events/category/weekly-promotions/2028-12"
-  ]
+  "extracted_at": "2026-05-16T19:47:59.439Z"
 }

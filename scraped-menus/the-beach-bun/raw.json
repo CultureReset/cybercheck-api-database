@@ -1,159 +1,136 @@
 {
   "business_name": "The Beach Bun",
-  "url": "https://thebeachbunoba.com/",
-  "scraped_at": "2026-03-22T18:47:56.330Z",
-  "scraper": "chrome-visible",
+  "url": "https://www.thebeachbunoba.com",
+  "scraped_at": "2026-05-15T21:45:10.245Z",
   "pages": [
     {
-      "url": "https://thebeachbunoba.com",
+      "url": "https://www.thebeachbunoba.com",
       "title": "The Beach Bun | Family-Owned Burgers & Dogs in Orange Beach",
-      "text": "Skip to Content\nThe Beach Bun\nMenu\nAbout\nContact\nLocation\n\n25775 Perdido Beach Blvd Ste A, Orange Beach, AL 36561\n\nHours\n\nSunday — Thursday\n11:00am — 06:00pm\n\nFriday — Saturday \n11:00am — 08:00pm\n\nContact\n\nTheBeachBun@LyonsDenHoldingsLLC.com\n\n\n(251) 398-2866",
-      "structuredData": [],
+      "text": "0\n \n \n \n \n \n\n \n\n \n \n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n\n \n \n \n \n\n \n \n \n \n \n \n \n\n \n\n \n \n \n Skip to Content\n \n \n\n \n \n \n \n\n \n \n \n\n \n \n\n \n\n \n\n \n\n \n\n \n \n \n \n \n \n \n \n \n \n\n \n\n \n \n \n \n \n \n \n The Beach Bun\n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n Menu\n \n \n \n \n \n\n \n \n \n About\n \n \n \n \n \n\n \n \n \n Contact\n \n \n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n\n \n \n\n \n \n \n \n\n \n \n \n \n\n \n \n \n \n\n \n Open Menu\n Close Menu\n \n \n \n \n \n \n \n \n\n \n\n \n \n \n \n \n \n \n \n \n \n \n\n \n\n \n \n \n \n \n \n \n The Beach Bun\n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n Menu\n \n \n \n \n \n\n \n \n \n About\n \n \n \n \n \n\n \n \n \n Contact\n \n \n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n\n \n \n\n \n \n \n \n\n \n \n \n \n\n \n \n \n \n\n \n Open Menu\n Close Menu\n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n \n Menu\n \n \n \n \n \n \n \n \n \n \n \n \n \n About\n \n \n \n \n \n \n \n \n \n \n \n \n \n Contact\n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n\n \n \n \n \n\n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n\n \n \n \n \n \n \n\n \n\n \n\n \n \n \n \n\n \n\n \n\n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Location25775 Perdido Beach Blvd Ste A, Orange Beach, AL 36561\n\n \n\n \n\n \n HoursSunday — Thursday11:00am — 06:00pmFriday — Saturday 11:00am — 08:00pm\n\n \n\n \n\n \n ContactTheBeachBun@LyonsDenHoldingsLLC.com(251) 398-2866",
+      "structuredData": [
+        {
+          "url": "https://www.thebeachbunoba.com",
+          "name": "The Beach Bun",
+          "description": "",
+          "@context": "http://schema.org",
+          "@type": "WebSite"
+        },
+        {
+          "address": "",
+          "openingHours": "",
+          "@context": "http://schema.org",
+          "@type": "LocalBusiness"
+        }
+      ],
       "meta": {
-        "description": "The Beach Bun brings burgers, dogs, and more to Orange Beach! Family-owned, \nfun, and full of flavor—come grab your new go-to meal."
-      },
-      "links": [
-        "https://www.thebeachbunoba.com/cart",
-        "https://www.thebeachbunoba.com/#page",
-        "https://www.thebeachbunoba.com/",
-        "https://www.thebeachbunoba.com/menu",
-        "https://www.thebeachbunoba.com/about",
-        "https://www.thebeachbunoba.com/contact",
-        "https://www.thebeachbunoba.com/",
-        "https://www.thebeachbunoba.com/menu",
-        "https://www.thebeachbunoba.com/about",
-        "https://www.thebeachbunoba.com/contact",
-        "https://www.thebeachbunoba.com/menu",
-        "https://www.thebeachbunoba.com/about",
-        "https://www.thebeachbunoba.com/contact",
-        "https://www.google.com/search?q=the+beach+bun+orange+beach&rlz=1C1VDKB_enUS1187US1188&oq=the+be&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGDsyBggCEEUYOTIGCAMQRRg7MgcIBBAAGI8CMgYIBRBFGD0yBggGEEUYPTIGCAcQRRg80gEHODIzajBqN6gCALACAA&sourceid=chrome&ie=UTF-8#"
-      ]
-    },
-    {
-      "url": "https://www.thebeachbunoba.com/contact",
-      "title": "Contact | Get in Touch Today — The Beach Bun",
-      "text": "Skip to Content\nThe Beach Bun\nMenu\nAbout\nContact\nContact Us\n\nAt The Beach Bun, we believe great food starts with great people—our guests. Whether you have a question, want to share feedback, or just want to say hello, we’re always happy to hear from you. Reach out anytime, and our family will get back to you as soon as we can.\n\nTheBeachBun@LyonsDenHoldingsLLC.com\n(251) 398-2866\n\nName\nFirst Name\n(required)\nLast Name\n(required)\nEmail\n(required)\nMessage\n(required)\nSEND\nLocation\n\n25775 Perdido Beach Blvd Ste A, Orange Beach, AL 36561\n\nHours\n\nSunday — Thursday\n11:00am — 06:00pm\n\nFriday — Saturday \n11:00am — 08:00pm\n\nContact\n\nTheBeachBun@LyonsDenHoldingsLLC.com\n\n\n(251) 398-2866",
-      "structuredData": [],
-      "meta": {
-        "description": "Contact page for The Beach Bun restaurant. Reach out with questions, \nfeedback, or greetings. Located in Orange Beach, AL. Open from 11am daily."
-      },
-      "links": [
-        "https://www.thebeachbunoba.com/cart",
-        "https://www.thebeachbunoba.com/contact#page",
-        "https://www.thebeachbunoba.com/",
-        "https://www.thebeachbunoba.com/menu",
-        "https://www.thebeachbunoba.com/about",
-        "https://www.thebeachbunoba.com/contact",
-        "https://www.thebeachbunoba.com/",
-        "https://www.thebeachbunoba.com/menu",
-        "https://www.thebeachbunoba.com/about",
-        "https://www.thebeachbunoba.com/contact",
-        "https://www.thebeachbunoba.com/menu",
-        "https://www.thebeachbunoba.com/about",
-        "https://www.thebeachbunoba.com/contact",
-        "https://www.google.com/search?q=the+beach+bun+orange+beach&rlz=1C1VDKB_enUS1187US1188&oq=the+be&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGDsyBggCEEUYOTIGCAMQRRg7MgcIBBAAGI8CMgYIBRBFGD0yBggGEEUYPTIGCAcQRRg80gEHODIzajBqN6gCALACAA&sourceid=chrome&ie=UTF-8#",
-        "https://www.google.com/search?q=the+beach+bun+orange+beach&rlz=1C1VDKB_enUS1187US1188&oq=the+be&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGDsyBggCEEUYOTIGCAMQRRg7MgcIBBAAGI8CMgYIBRBFGD0yBggGEEUYPTIGCAcQRRg80gEHODIzajBqN6gCALACAA&sourceid=chrome&ie=UTF-8#"
-      ]
-    },
-    {
-      "url": "https://www.thebeachbunoba.com/about",
-      "title": "About Us | Meet the Family Behind The Beach Bun — The Beach Bun",
-      "text": "Skip to Content\nThe Beach Bun\nMenu\nAbout\nContact\nWho we are\n\nWelcome to The Beach Bun, where the sun is bright, the vibe is easy, and the food hits the spot every single time.\n\nWe’re a family-owned, family-loved beachside restaurant built around one simple idea: great food makes great memories. Our crew has always believed that the best days are the ones spent together — toes in the sand, stomachs full, and smiles big. So we created a place that feels exactly like that.\n\nHere, we keep things fun, fresh, and full of flavor. Our smash burgers sizzle, our hot dogs are legendary, and every bite is meant to taste like summer. Whether you’re rolling in straight from the beach, grabbing a quick bite with the kids, or settling in for an easygoing meal, we’ve got you covered.\n\nAt The Beach Bun, you’re not just a customer — you’re part of the beach day.\n\nAnd around here, Beach Days Forever isn’t just a slogan. It’s the way we live! \n\nContact us\n\nInterested in working together? Fill out some info and we will be in touch shortly. We can’t wait to hear from you!\n\nName\nFirst Name\n(required)\nLast Name\n(required)\nEmail\n(required)\nSign up for news and updates\nMessage\n(required)\nSubmit\nLocation\n\n25775 Perdido Beach Blvd Ste A, Orange Beach, AL 36561\n\nHours\n\nSunday — Thursday\n11:00am — 06:00pm\n\nFriday — Saturday \n11:00am — 08:00pm\n\nContact\n\nTheBeachBun@LyonsDenHoldingsLLC.com\n\n\n(251) 398-2866",
-      "structuredData": [],
-      "meta": {
-        "description": "Get to know the family bringing burgers, dogs, and beachy good vibes to \nOrange Beach. The Beach Bun is where flavor, fun, and family come together."
-      },
-      "links": [
-        "https://www.thebeachbunoba.com/cart",
-        "https://www.thebeachbunoba.com/about#page",
-        "https://www.thebeachbunoba.com/",
-        "https://www.thebeachbunoba.com/menu",
-        "https://www.thebeachbunoba.com/about",
-        "https://www.thebeachbunoba.com/contact",
-        "https://www.thebeachbunoba.com/",
-        "https://www.thebeachbunoba.com/menu",
-        "https://www.thebeachbunoba.com/about",
-        "https://www.thebeachbunoba.com/contact",
-        "https://www.thebeachbunoba.com/menu",
-        "https://www.thebeachbunoba.com/about",
-        "https://www.thebeachbunoba.com/contact",
-        "https://www.google.com/search?q=the+beach+bun+orange+beach&rlz=1C1VDKB_enUS1187US1188&oq=the+be&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGDsyBggCEEUYOTIGCAMQRRg7MgcIBBAAGI8CMgYIBRBFGD0yBggGEEUYPTIGCAcQRRg80gEHODIzajBqN6gCALACAA&sourceid=chrome&ie=UTF-8#"
-      ]
+        "viewport": "width=device-width, initial-scale=1",
+        "og:site_name": "The Beach Bun",
+        "og:title": "The Beach Bun | Family-Owned Burgers & Dogs in Orange Beach",
+        "og:url": "https://www.thebeachbunoba.com",
+        "og:type": "website",
+        "og:description": "The Beach Bun brings burgers, dogs, and more to Orange Beach! Family-owned, fun, and full of flavor—come grab your new go-to meal.",
+        "twitter:title": "The Beach Bun | Family-Owned Burgers & Dogs in Orange Beach",
+        "twitter:url": "https://www.thebeachbunoba.com",
+        "twitter:card": "summary",
+        "twitter:description": "The Beach Bun brings burgers, dogs, and more to Orange Beach! Family-owned, fun, and full of flavor—come grab your new go-to meal.",
+        "description": "The Beach Bun brings burgers, dogs, and more to Orange Beach! Family-owned, fun, and full of flavor—come grab your new go-to meal."
+      }
     },
     {
       "url": "https://www.thebeachbunoba.com/menu",
       "title": "Menu 1 — The Beach Bun",
-      "text": "Skip to Content\nThe Beach Bun\nMenu\nAbout\nContact\nOur menu.\nWelcome Boardwalk Bites From the Lifeguard Stand Beach Dogs Surf Shack Smash Burgers Lil' Surfers Menu Soft Drinks & Shakes\nSoft Drinks & Shakes\nSodas\nCoke, Diet-Coke, Coke-Zero, Sprite, Lemonade, Powerade, Mr.Pibb, Root-Beer, Iced Tea\n$3\nShakes\nChocolate, Strawberry, Vanilla\n$7.50\nLocation\n\n25775 Perdido Beach Blvd Ste A, Orange Beach, AL 36561\n\nHours\n\nSunday — Thursday\n11:00am — 06:00pm\n\nFriday — Saturday \n11:00am — 08:00pm\n\nContact\n\nTheBeachBun@LyonsDenHoldingsLLC.com\n\n\n(251) 398-2866",
-      "structuredData": [],
+      "text": "0\n \n \n \n \n \n\n \n\n \n \n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n\n \n \n \n \n\n \n \n \n \n \n \n \n\n \n\n \n \n \n Skip to Content\n \n \n\n \n \n \n \n\n \n \n \n\n \n \n\n \n\n \n\n \n\n \n\n \n \n \n \n \n \n \n \n \n \n\n \n\n \n \n \n \n \n \n \n The Beach Bun\n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n Menu\n \n \n \n \n \n\n \n \n \n About\n \n \n \n \n \n\n \n \n \n Contact\n \n \n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n\n \n \n\n \n \n \n \n\n \n \n \n \n\n \n \n \n \n\n \n Open Menu\n Close Menu\n \n \n \n \n \n \n \n \n\n \n\n \n \n \n \n \n \n \n \n \n \n \n\n \n\n \n \n \n \n \n \n \n The Beach Bun\n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n Menu\n \n \n \n \n \n\n \n \n \n About\n \n \n \n \n \n\n \n \n \n Contact\n \n \n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n\n \n \n\n \n \n \n \n\n \n \n \n \n\n \n \n \n \n\n \n Open Menu\n Close Menu\n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n \n Menu\n \n \n \n \n \n \n \n \n \n \n \n \n \n About\n \n \n \n \n \n \n \n \n \n \n \n \n \n Contact\n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n\n \n \n \n \n\n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Our menu.\n\n \n\n \n\n \n \n \n \n Welcome\n \n \n \n Boardwalk Bites\n \n \n \n From the Lifeguard Stand\n \n \n \n Beach Dogs\n \n \n \n Surf Shack Smash Burgers\n \n \n \n Lil' Surfers Menu\n \n \n \n Soft Drinks & Shakes\n \n \n \n \n\n \n \n \n\n \n \n Pick a section above to explore our homemade favorites.\n \n \n\n \n \n\n \n \n Surf's Up Smash Burgers & Hotdogs\n Served with skin-on boardwalk fries or gnarly chips\n \n \n\n \n \n \n \n \n \n $1.00 Extra for Wipeout Onion Rings!\n \n \n \n\n \n \n\n \n \n \n $1.00 Extra for Wipeout Onion Rings!\n \n \n \n\n \n\n \n \n \n\n \n \n\n \n \n \n\n \n\n \n \n\n \n \n Boardwalk Bites\n \n \n \n\n \n \n \n \n \n \n $9.50 \n \n \n \n\n Tiki Fries\n Skin-on fries topped with house-made chili, hot sauce, onions, shredded cheddar & jalapeños\n\n \n \n \n $9.50 \n \n \n \n\n \n\n \n \n \n \n \n \n $11.50 \n \n \n \n\n Sunset Spread\n House-made Pimento cheese topped with jalapenos and honey drizzle served with warm toasted buns\n\n \n \n \n $11.50 \n \n \n \n\n \n\n \n \n \n \n \n \n $MKT\n \n \n \n\n Drifter's Trust Fries\n Let the kitchen crew top your fries with their wildest seaside creation - always a tasty adventure!\n\n \n \n \n $MKT\n \n \n \n\n \n\n \n \n \n \n \n \n $10.50 \n \n \n \n\n Offshore Chips\n Topped with house-made chili, hot sauce, onions, shredded cheddar & jalapenos\n\n \n \n \n $10.50 \n \n \n \n\n \n\n \n \n \n\n \n \n\n \n \n \n\n \n\n \n \n\n \n \n From the Lifeguard Stand\n \n \n \n\n \n \n \n \n \n \n $12.50 \n \n \n \n\n Seaside Chick\n Fried chicken breast dusted to perfection, topped with house-made pimento cheese and honey drizzle\n\n \n \n \n $12.50 \n \n \n \n\n \n\n \n \n \n \n \n \n $13.50 \n \n \n \n\n The Jetty\n Polish dog, spicey brown mustard, Swiss cheese sauerkraut, jalapenos with a celery seed dusting\n\n \n \n \n $13.50 \n \n \n \n\n \n\n \n \n \n\n \n \n\n \n \n \n\n \n\n \n \n\n \n \n Beach Dogs\n \n \n \n\n \n \n \n \n \n \n $10.50 \n \n \n \n\n Pier Stroll\n Two kosher dogs topped with ketchup, mustard and relish Classic and Breezy\n\n \n \n \n $10.50 \n \n \n \n\n \n\n \n \n \n \n \n \n $11.50 \n \n \n \n\n Wave Rider\n Two Kosher dogs topped with mustard, house-made chili, and sprinkle of beachy cheddar Sandcastle Special\n\n \n \n \n $11.50 \n \n \n \n\n \n\n \n \n \n \n \n \n $11 \n \n \n \n\n Sandcastle Special\n Two Kosher dogs with golden mustard and a scoop of tangy purple slaw\n\n \n \n \n $11 \n \n \n \n\n \n\n \n \n \n \n \n \n $12.50 \n \n \n \n\n High Tide Heat\n Two Kosher dogs with hot sauce, house-made chili, onions, cheddar & jalapenos for that extra spice\n\n \n \n \n $12.50 \n \n \n \n\n \n\n \n \n \n \n \n \n $12 \n \n \n \n\n Seashell Slam\n Two kosher dogs with yellow mustard, house-made chili, onion and shredded cheddar cheese\n\n \n \n \n $12 \n \n \n \n\n \n\n \n \n \n \n \n \n $13 \n \n \n \n\n Boardwalk Bombshell\n Two Kosher dogs with yellow mustard, house-made chili, on-ion, cheddar and purple slaw- the crowd favorite\n\n \n \n \n $13 \n \n \n \n\n \n\n \n \n \n \n \n \n $MKT\n \n \n \n\n Captains Catch Dog\n Let the chef captain the flavor wave-you never know what toppings you'll reel in!\n\n \n \n \n $MKT\n \n \n \n\n \n\n \n \n \n\n \n \n\n \n \n \n\n \n\n \n \n\n \n \n Surf Shack Smash Burgers\n \n \n \n\n \n \n \n \n \n \n $12 \n \n \n \n\n Shoreline Classic\n Ketchup, mustard, American cheese shredded lettuce, onion and pickle\n\n \n \n \n $12 \n \n \n \n\n \n\n \n \n \n \n \n \n $13.50 \n \n \n \n\n Riptide Rush\n Hot sauce, house-made chili, crispy fried onions, pepper jack cheese & jalapenos - hold on to your surfboard!\n\n \n \n \n $13.50 \n \n \n \n\n \n\n \n \n \n \n \n \n $13 \n \n \n \n\n Reef Rider\n Sautéed mushrooms, onions, Swiss cheese & house sauce\n\n \n \n \n $13 \n \n \n \n\n \n\n \n \n \n \n \n \n $12 \n \n \n \n\n Beach Breeze\n Yellow mustard and tangy purple slaw - light, fresh and coastal\n\n \n \n \n $12 \n \n \n \n\n \n\n \n \n \n \n \n \n $13.50 \n \n \n \n\n Seagull Stopper\n House-made chili, crispy fried onions, house sauce and cheddar cheese\n\n \n \n \n $13.50 \n \n \n \n\n \n\n \n \n \n \n \n \n $14.50 \n \n \n \n\n Big Kahuna\n House-made chili, crispy fried onions, house sauce, cheddar cheese and purple slaw\n\n \n \n \n $14.50 \n \n \n \n\n \n\n \n \n \n \n \n \n $MKT\n \n \n \n\n Beachcomber's Trust Burger\n Ride the wave of surprise- the chef picks your toppings for a one-of-a-kind bite!\n\n \n \n \n $MKT\n \n \n \n\n \n\n \n \n \n\n \n \n\n \n \n \n\n \n\n \n \n\n \n \n Lil' Surfers Menu\n \n \n \n\n \n \n \n \n \n \n $7 \n \n \n \n\n Mini Surfer Dog\n One Kosher dog topped with Ketchup and Mustard\n\n \n \n \n $7 \n \n \n \n\n \n\n \n \n \n \n \n \n $7 \n \n \n \n\n Little Lifeguard Burger\n Ketchup, mustard, American cheese, and pickle\n\n \n \n \n $7 \n \n \n \n\n \n\n \n \n \n \n \n \n $7.50 \n \n \n \n\n Groundswell\n Lightly dusted chicken chunks served with honey mustard\n\n \n \n \n $7.50 \n \n \n \n\n \n\n \n \n \n\n \n \n\n \n \n \n\n \n\n \n \n\n \n \n Soft Drinks & Shakes\n \n \n \n\n \n \n \n \n \n \n $3 \n \n \n \n\n Sodas\n Coke, Diet-Coke, Coke-Zero, Sprite, Lemonade, Powerade, Mr.Pibb, Root-Beer, Iced Tea\n\n \n \n \n $3 \n \n \n \n\n \n\n \n \n \n \n \n \n $7.50 \n \n \n \n\n Shakes\n Chocolate, Strawberry, Vanilla\n\n \n \n \n $7.50 \n \n \n \n\n \n\n \n \n \n\n \n \n\n \n \n \n\n \n\n \n \n \n \n\n \n\n \n\n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Location25775 Perdido Beach Blvd Ste A, Orange Beach, AL 36561\n\n \n\n \n\n \n HoursSunday — Thursday11:00am — 06:00pmFriday — Saturday 11:00am — 08:00pm\n\n \n\n \n\n \n ContactTheBeachBun@LyonsDenHoldingsLLC.com(251) 398-2866",
+      "structuredData": [
+        {
+          "url": "https://www.thebeachbunoba.com",
+          "name": "The Beach Bun",
+          "description": "",
+          "@context": "http://schema.org",
+          "@type": "WebSite"
+        },
+        {
+          "address": "",
+          "openingHours": "",
+          "@context": "http://schema.org",
+          "@type": "LocalBusiness"
+        }
+      ],
       "meta": {
-        "description": ""
-      },
-      "links": [
-        "https://www.thebeachbunoba.com/cart",
-        "https://www.thebeachbunoba.com/menu#page",
-        "https://www.thebeachbunoba.com/",
-        "https://www.thebeachbunoba.com/menu",
-        "https://www.thebeachbunoba.com/about",
-        "https://www.thebeachbunoba.com/contact",
-        "https://www.thebeachbunoba.com/",
-        "https://www.thebeachbunoba.com/menu",
-        "https://www.thebeachbunoba.com/about",
-        "https://www.thebeachbunoba.com/contact",
-        "https://www.thebeachbunoba.com/menu",
-        "https://www.thebeachbunoba.com/about",
-        "https://www.thebeachbunoba.com/contact",
-        "https://www.google.com/search?q=the+beach+bun+orange+beach&rlz=1C1VDKB_enUS1187US1188&oq=the+be&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGDsyBggCEEUYOTIGCAMQRRg7MgcIBBAAGI8CMgYIBRBFGD0yBggGEEUYPTIGCAcQRRg80gEHODIzajBqN6gCALACAA&sourceid=chrome&ie=UTF-8#"
-      ]
+        "viewport": "width=device-width, initial-scale=1",
+        "og:site_name": "The Beach Bun",
+        "og:title": "Menu 1 — The Beach Bun",
+        "og:url": "https://www.thebeachbunoba.com/menu",
+        "og:type": "website",
+        "twitter:title": "Menu 1 — The Beach Bun",
+        "twitter:url": "https://www.thebeachbunoba.com/menu",
+        "twitter:card": "summary"
+      }
     },
     {
-      "url": "https://www.thebeachbunoba.com/cart",
-      "title": "The Beach Bun",
-      "text": "Skip to Content\nThe Beach Bun\nMenu\nAbout\nContact\nLocation\n\n25775 Perdido Beach Blvd Ste A, Orange Beach, AL 36561\n\nHours\n\nSunday — Thursday\n11:00am — 06:00pm\n\nFriday — Saturday \n11:00am — 08:00pm\n\nContact\n\nTheBeachBun@LyonsDenHoldingsLLC.com\n\n\n(251) 398-2866",
-      "structuredData": [],
+      "url": "https://www.thebeachbunoba.com/about",
+      "title": "About Us | Meet the Family Behind The Beach Bun — The Beach Bun",
+      "text": "0\n \n \n \n \n \n\n \n\n \n \n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n\n \n \n \n \n\n \n \n \n \n \n \n \n\n \n\n \n \n \n Skip to Content\n \n \n\n \n \n \n \n\n \n \n \n\n \n \n\n \n\n \n\n \n\n \n\n \n \n \n \n \n \n \n \n \n \n\n \n\n \n \n \n \n \n \n \n The Beach Bun\n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n Menu\n \n \n \n \n \n\n \n \n \n About\n \n \n \n \n \n\n \n \n \n Contact\n \n \n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n\n \n \n\n \n \n \n \n\n \n \n \n \n\n \n \n \n \n\n \n Open Menu\n Close Menu\n \n \n \n \n \n \n \n \n\n \n\n \n \n \n \n \n \n \n \n \n \n \n\n \n\n \n \n \n \n \n \n \n The Beach Bun\n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n Menu\n \n \n \n \n \n\n \n \n \n About\n \n \n \n \n \n\n \n \n \n Contact\n \n \n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n\n \n \n\n \n \n \n \n\n \n \n \n \n\n \n \n \n \n\n \n Open Menu\n Close Menu\n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n \n Menu\n \n \n \n \n \n \n \n \n \n \n \n \n \n About\n \n \n \n \n \n \n \n \n \n \n \n \n \n Contact\n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n\n \n \n \n \n\n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Who we are\n\n \n\n \n\n \n Welcome to The Beach Bun, where the sun is bright, the vibe is easy, and the food hits the spot every single time.We’re a family-owned, family-loved beachside restaurant built around one simple idea: great food makes great memories. Our crew has always believed that the best days are the ones spent together — toes in the sand, stomachs full, and smiles big. So we created a place that feels exactly like that.Here, we keep things fun, fresh, and full of flavor. Our smash burgers sizzle, our hot dogs are legendary, and every bite is meant to taste like summer. Whether you’re rolling in straight from the beach, grabbing a quick bite with the kids, or settling in for an easygoing meal, we’ve got you covered.At The Beach Bun, you’re not just a customer — you’re part of the beach day.And around here, Beach Days Forever isn’t just a slogan. It’s the way we live! \n\n \n\n \n\n \n \n \n \n\n \n \n \n\n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Contact usInterested in working together? Fill out some info and we will be in touch shortly. We can’t wait to hear from you!\n\n \n\n \n\n \n \n \n \n \n \n \n\n \n \n \n \n \n \n\n \n \n \n \n \n\n \n \n\n \n\n NameFirst Name(required)Last Name(required)Email(required)Sign up for news and updatesMessage(required)SubmitSubmit\n \n \n \n \n \n \n\n \n\n \n\n \n \n \n \n\n \n\n \n\n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Location25775 Perdido Beach Blvd Ste A, Orange Beach, AL 36561\n\n \n\n \n\n \n HoursSunday — Thursday11:00am — 06:00pmFriday — Saturday 11:00am — 08:00pm\n\n \n\n \n\n \n ContactTheBeachBun@LyonsDenHoldingsLLC.com(251) 398-2866",
+      "structuredData": [
+        {
+          "url": "https://www.thebeachbunoba.com",
+          "name": "The Beach Bun",
+          "description": "",
+          "@context": "http://schema.org",
+          "@type": "WebSite"
+        },
+        {
+          "address": "",
+          "openingHours": "",
+          "@context": "http://schema.org",
+          "@type": "LocalBusiness"
+        }
+      ],
       "meta": {
-        "description": ""
-      },
-      "links": [
-        "https://www.thebeachbunoba.com/cart",
-        "https://www.thebeachbunoba.com/cart#page",
-        "https://www.thebeachbunoba.com/",
-        "https://www.thebeachbunoba.com/menu",
-        "https://www.thebeachbunoba.com/about",
-        "https://www.thebeachbunoba.com/contact",
-        "https://www.thebeachbunoba.com/",
-        "https://www.thebeachbunoba.com/menu",
-        "https://www.thebeachbunoba.com/about",
-        "https://www.thebeachbunoba.com/contact",
-        "https://www.thebeachbunoba.com/menu",
-        "https://www.thebeachbunoba.com/about",
-        "https://www.thebeachbunoba.com/contact",
-        "https://www.google.com/search?q=the+beach+bun+orange+beach&rlz=1C1VDKB_enUS1187US1188&oq=the+be&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGDsyBggCEEUYOTIGCAMQRRg7MgcIBBAAGI8CMgYIBRBFGD0yBggGEEUYPTIGCAcQRRg80gEHODIzajBqN6gCALACAA&sourceid=chrome&ie=UTF-8#"
-      ]
+        "viewport": "width=device-width, initial-scale=1",
+        "og:site_name": "The Beach Bun",
+        "og:title": "About Us | Meet the Family Behind The Beach Bun — The Beach Bun",
+        "og:url": "https://www.thebeachbunoba.com/about",
+        "og:type": "website",
+        "og:description": "Get to know the family bringing burgers, dogs, and beachy good vibes to Orange Beach. The Beach Bun is where flavor, fun, and family come together.",
+        "twitter:title": "About Us | Meet the Family Behind The Beach Bun — The Beach Bun",
+        "twitter:url": "https://www.thebeachbunoba.com/about",
+        "twitter:card": "summary",
+        "twitter:description": "Get to know the family bringing burgers, dogs, and beachy good vibes to Orange Beach. The Beach Bun is where flavor, fun, and family come together.",
+        "description": "Get to know the family bringing burgers, dogs, and beachy good vibes to Orange Beach. The Beach Bun is where flavor, fun, and family come together."
+      }
     },
     {
-      "url": "https://www.thebeachbunoba.com",
-      "title": "The Beach Bun | Family-Owned Burgers & Dogs in Orange Beach",
-      "text": "Skip to Content\nThe Beach Bun\nMenu\nAbout\nContact\nLocation\n\n25775 Perdido Beach Blvd Ste A, Orange Beach, AL 36561\n\nHours\n\nSunday — Thursday\n11:00am — 06:00pm\n\nFriday — Saturday \n11:00am — 08:00pm\n\nContact\n\nTheBeachBun@LyonsDenHoldingsLLC.com\n\n\n(251) 398-2866",
-      "structuredData": [],
+      "url": "https://www.thebeachbunoba.com/contact",
+      "title": "Contact | Get in Touch Today — The Beach Bun",
+      "text": "0\n \n \n \n \n \n\n \n\n \n \n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n\n \n \n \n \n\n \n \n \n \n \n \n \n\n \n\n \n \n \n Skip to Content\n \n \n\n \n \n \n \n\n \n \n \n\n \n \n\n \n\n \n\n \n\n \n\n \n \n \n \n \n \n \n \n \n \n\n \n\n \n \n \n \n \n \n \n The Beach Bun\n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n Menu\n \n \n \n \n \n\n \n \n \n About\n \n \n \n \n \n\n \n \n \n Contact\n \n \n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n\n \n \n\n \n \n \n \n\n \n \n \n \n\n \n \n \n \n\n \n Open Menu\n Close Menu\n \n \n \n \n \n \n \n \n\n \n\n \n \n \n \n \n \n \n \n \n \n \n\n \n\n \n \n \n \n \n \n \n The Beach Bun\n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n Menu\n \n \n \n \n \n\n \n \n \n About\n \n \n \n \n \n\n \n \n \n Contact\n \n \n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n\n \n \n\n \n \n \n \n\n \n \n \n \n\n \n \n \n \n\n \n Open Menu\n Close Menu\n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n \n Menu\n \n \n \n \n \n \n \n \n \n \n \n \n \n About\n \n \n \n \n \n \n \n \n \n \n \n \n \n Contact\n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n\n \n \n \n \n\n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Contact Us\n\n \n\n \n\n \n At The Beach Bun, we believe great food starts with great people—our guests. Whether you have a question, want to share feedback, or just want to say hello, we’re always happy to hear from you. Reach out anytime, and our family will get back to you as soon as we can.TheBeachBun@LyonsDenHoldingsLLC.com(251) 398-2866\n\n \n\n \n\n \n \n \n \n \n \n \n\n \n \n \n \n \n \n\n \n \n \n \n \n\n \n \n\n \n\n NameFirst Name(required)Last Name(required)Email(required)Message(required)SENDSEND\n \n \n \n \n \n \n\n \n\n \n\n \n \n \n \n\n \n\n \n\n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Location25775 Perdido Beach Blvd Ste A, Orange Beach, AL 36561\n\n \n\n \n\n \n HoursSunday — Thursday11:00am — 06:00pmFriday — Saturday 11:00am — 08:00pm\n\n \n\n \n\n \n ContactTheBeachBun@LyonsDenHoldingsLLC.com(251) 398-2866",
+      "structuredData": [
+        {
+          "url": "https://www.thebeachbunoba.com",
+          "name": "The Beach Bun",
+          "description": "",
+          "@context": "http://schema.org",
+          "@type": "WebSite"
+        },
+        {
+          "address": "",
+          "openingHours": "",
+          "@context": "http://schema.org",
+          "@type": "LocalBusiness"
+        }
+      ],
       "meta": {
-        "description": "The Beach Bun brings burgers, dogs, and more to Orange Beach! Family-owned, \nfun, and full of flavor—come grab your new go-to meal."
-      },
-      "links": [
-        "https://www.thebeachbunoba.com/cart",
-        "https://www.thebeachbunoba.com/#page",
-        "https://www.thebeachbunoba.com/",
-        "https://www.thebeachbunoba.com/menu",
-        "https://www.thebeachbunoba.com/about",
-        "https://www.thebeachbunoba.com/contact",
-        "https://www.thebeachbunoba.com/",
-        "https://www.thebeachbunoba.com/menu",
-        "https://www.thebeachbunoba.com/about",
-        "https://www.thebeachbunoba.com/contact",
-        "https://www.thebeachbunoba.com/menu",
-        "https://www.thebeachbunoba.com/about",
-        "https://www.thebeachbunoba.com/contact",
-        "https://www.google.com/search?q=the+beach+bun+orange+beach&rlz=1C1VDKB_enUS1187US1188&oq=the+be&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGDsyBggCEEUYOTIGCAMQRRg7MgcIBBAAGI8CMgYIBRBFGD0yBggGEEUYPTIGCAcQRRg80gEHODIzajBqN6gCALACAA&sourceid=chrome&ie=UTF-8#"
-      ]
+        "viewport": "width=device-width, initial-scale=1",
+        "og:site_name": "The Beach Bun",
+        "og:title": "Contact | Get in Touch Today — The Beach Bun",
+        "og:url": "https://www.thebeachbunoba.com/contact",
+        "og:type": "website",
+        "og:description": "Contact page for The Beach Bun restaurant. Reach out with questions, feedback, or greetings. Located in Orange Beach, AL. Open from 11am daily.",
+        "twitter:title": "Contact | Get in Touch Today — The Beach Bun",
+        "twitter:url": "https://www.thebeachbunoba.com/contact",
+        "twitter:card": "summary",
+        "twitter:description": "Contact page for The Beach Bun restaurant. Reach out with questions, feedback, or greetings. Located in Orange Beach, AL. Open from 11am daily.",
+        "description": "Contact page for The Beach Bun restaurant. Reach out with questions, feedback, or greetings. Located in Orange Beach, AL. Open from 11am daily."
+      }
     }
   ],
   "pdfUrls": [],

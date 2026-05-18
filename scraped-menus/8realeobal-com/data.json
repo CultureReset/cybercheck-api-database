@@ -18,64 +18,63 @@
     "friday": "5pm - Until",
     "saturday": "5pm - Until",
     "sunday": "5pm - Until",
-    "notes": "Non-Members 5pm - Until (everyday)"
+    "notes": "Non-Members 5pm - Until (Everyday)"
   },
   "about": {
-    "description": "8 Reale is a hidden speakeasy-style cocktail bar located in Orange Beach, Alabama. Transporting guests back to the days of Prohibition with a modern twist, it offers an experience centered on ambiance, secrecy, and craftsmanship. Skilled mixologists craft everything from classics like the Old Fashioned and Sidecar to contemporary creations featuring fresh, local ingredients. Access is through a hidden vaulted door, making it a true coastal hideaway.",
-    "elevator_pitch": "A Prohibition-era speakeasy with a modern coastal twist, 8 Reale is Orange Beach's most intriguing hidden gem — entered through a secret vaulted door and renowned for masterfully crafted cocktails.",
+    "description": "8 Reale is a hidden speakeasy cocktail bar located in Orange Beach, AL. Transporting guests back to the days of Prohibition with a modern twist, it offers expertly crafted cocktails — from classics like the Old Fashioned and Sidecar to contemporary creations featuring fresh, local ingredients — all behind a hidden vaulted door. The experience emphasizes ambiance, secrecy, and bartending craftsmanship.",
+    "elevator_pitch": "A modern Prohibition-era speakeasy tucked behind a hidden vaulted door in Orange Beach, offering expertly crafted cocktails and an atmosphere of mystery and sophistication.",
     "established": null,
     "owner": null,
     "chef": null,
-    "vibe": "Mysterious, sophisticated, Prohibition-era speakeasy with coastal charm",
+    "vibe": "Mysterious, sophisticated, Prohibition-era coastal hideaway",
     "best_for": [
       "date night",
       "groups",
       "cocktail enthusiasts",
-      "nightlife",
-      "special occasions"
+      "nightlife"
     ],
     "age_restriction": "21+",
     "dress_code": null,
     "parking": null,
     "accessibility": null,
     "reservations": null,
-    "insider_tip": "Look for the hidden vaulted door — the secret code changes daily, so check 'Today's Secret Code' on their website before you go.",
+    "insider_tip": "Keep an eye on 'Today's Secret Code' on their website — it's likely needed to gain entry to this speakeasy.",
     "awards": [],
     "press": [
-      "Gulf Coast Media - Morgan Freeman Spotted",
+      "Gulf Coast Media – Morgan Freeman Spotted",
       "Scenic 98 Coastal Feature",
       "The Iowa Gallivant Review"
     ]
   },
   "tags": [
     "speakeasy",
+    "cocktails",
     "craft cocktails",
+    "nightlife",
     "hidden bar",
     "prohibition",
-    "date night",
-    "nightlife",
+    "coastal",
     "cocktail classes",
-    "rentals",
-    "secret code",
-    "coastal"
+    "rental",
+    "membership"
   ],
   "hashtags": [
     "#8Reale",
     "#OrangeBeach",
     "#Speakeasy",
     "#CraftCocktails",
-    "#HiddenBar",
-    "#AlabamaBar",
+    "#AlabamaBars",
     "#CoastalHideaway",
-    "#OrangeBeachNightlife",
     "#ProhibitionBar",
-    "#GulfCoastBar"
+    "#OrangeBeachNightlife",
+    "#GulfCoastBars",
+    "#HiddenBar"
   ],
   "categories": [
     "Bar",
     "Speakeasy",
-    "Cocktail Bar",
-    "Event Venue"
+    "Event Venue",
+    "Cocktail Lounge"
   ],
   "cuisine_types": [
     "Cocktails",
@@ -83,20 +82,20 @@
   ],
   "atmosphere": [
     "Upscale",
-    "Mysterious",
     "Intimate",
+    "Mysterious",
     "Sophisticated",
-    "Speakeasy"
+    "Romantic"
   ],
   "features": [
     "full bar",
     "craft cocktails",
     "cocktail classes",
-    "venue rental",
+    "space rental",
     "online store",
-    "secret entry",
-    "membership",
-    "private events"
+    "membership program",
+    "secret entry code",
+    "hidden entrance"
   ],
   "price_range": "$$$",
   "neighborhood": "The Wharf",
@@ -116,11 +115,11 @@
   "events": [
     {
       "name": "Cocktail Classes",
-      "description": "Hands-on cocktail crafting classes teaching high-end cocktail recipes, ingredient pairings, and the history of classic drinks. All bartending supplies provided.",
+      "description": "Hands-on cocktail crafting classes covering high-end cocktail recipes, ingredient harmony, and the history of classic drinks. All bartending supplies provided.",
       "recurring": true,
       "day": null,
       "time": null,
-      "frequency": "Check website for schedule"
+      "frequency": "Scheduled — tickets available online"
     }
   ],
   "menu": {
@@ -128,7 +127,7 @@
   },
   "url": "http://www.8realeobal.com",
   "scraped_at": "2026-03-21T20:24:26.696Z",
-  "extracted_at": "2026-03-28T07:14:13.225Z",
+  "extracted_at": "2026-05-15T18:48:45.916Z",
   "sources": [
     "http://www.8realeobal.com",
     "https://www.8realeobal.com/classes",

@@ -1,14 +1,16 @@
 {
   "business_name": "Pedros Tacos & Tequila Bar",
-  "tagline": null,
-  "type": "Mexican Restaurant & Tequila Bar",
+  "cuisine_type": "Mexican",
+  "price_range": "$$",
+  "description": "Pedro's Tacos & Tequila Bar offers a captivating Mexican-American dining experience that begins the moment you walk through our doors. Immerse yourself in our world of agave and maize, entering a space that evokes the spirit of new-wave Mexico. Our Chicano-inspired ambiance, coupled with our dedication to personalized service, ensures that every visit feels like dining with friends. Indulge in modern Mexican cuisine that honors Mexico's culinary pioneers, blending traditional flavors with innovative artistry. From our taqueria origins, we've committed to sharing our vision of Mexico with every dish we serve. Whether you're drawn to our vibrant atmosphere or seeking the finest Mexican takeout, Pedro's promises a dining experience like no other. Join us for an unforgettable journey of flavors and culture.",
   "contact": {
     "phone": "(850) 492-1701",
     "email": "polo1970maldonado@gmail.com",
     "address": "13584 Perdido Key Dr",
     "city": "Pensacola",
     "state": "FL",
-    "zip": "32507"
+    "zip": "32507",
+    "website": "https://pedrostacosandtequilaperdidokey.com"
   },
   "hours": {
     "monday": "11:00 AM - 9:30 PM",
@@ -17,63 +19,269 @@
     "thursday": "11:00 AM - 9:30 PM",
     "friday": "11:00 AM - 10:30 PM",
     "saturday": "11:00 AM - 10:30 PM",
-    "sunday": "9:00 AM - 9:00 PM",
-    "notes": "Holiday hours may vary. Please call for details."
+    "sunday": "9:00 AM - 9:00 PM"
   },
-  "about": {
-    "description": "Pedro's Tacos & Tequila Bar offers a captivating Mexican-American dining experience that begins the moment you walk through our doors. Immerse yourself in our world of agave and maize, entering a space that evokes the spirit of new-wave Mexico. Our Chicano-inspired ambiance, coupled with our dedication to personalized service, ensures that every visit feels like dining with friends. Indulge in modern Mexican cuisine that honors Mexico's culinary pioneers, blending traditional flavors with innovative artistry. From our taqueria origins, we've committed to sharing our vision of Mexico with every dish we serve.",
-    "elevator_pitch": "A vibrant Mexican-American restaurant featuring modern cuisine with authentic flavors and Chicano-inspired ambiance near Perdido Key.",
-    "vibe": "Chicano-inspired, new-wave Mexico atmosphere with personalized service that feels like dining with friends; casual and welcoming.",
-    "best_for": [
-      "families",
-      "groups",
-      "casual dining",
-      "happy hour",
-      "takeout",
-      "vacationers"
-    ],
-    "established": "2018",
-    "reservations": "Recommended for large parties; walk-ins welcome. Call (850) 492-1701 to reserve.",
-    "insider_tip": "Generous portion sizes, affordable lunch specials at $9.99, and their tres leche cake dessert is highly praised by customers."
-  },
-  "tags": [
-    "Mexican cuisine",
-    "tacos",
-    "tequila",
-    "authentic",
-    "casual dining",
-    "family-friendly",
-    "takeout",
-    "delivery",
-    "happy hour",
-    "Chicano",
-    "modern Mexican",
-    "margaritas"
-  ],
-  "features": [
-    "family-friendly restaurant",
-    "casual dining",
-    "kid's menu",
-    "takeout",
-    "outdoor seating",
-    "dine-in",
-    "free parking",
-    "online ordering",
-    "happy hour",
-    "delivery",
-    "wheelchair accessible",
-    "tequila bar"
-  ],
-  "price_range": "$$",
-  "social_links": {
-    "instagram": null,
-    "facebook": "https://www.facebook.com/Pedrosperdidokeyfl",
-    "website": "https://pedrostacosandtequilaperdidokey.com/"
+  "menu": {
+    "categories": [
+      {
+        "name": "Appetizers",
+        "items": [
+          {
+            "name": "Chips and Salsa",
+            "description": null,
+            "price": null,
+            "dietary_flags": []
+          },
+          {
+            "name": "Homemade Guacamole",
+            "description": null,
+            "price": null,
+            "dietary_flags": [
+              "vegetarian"
+            ]
+          },
+          {
+            "name": "Queso",
+            "description": null,
+            "price": null,
+            "dietary_flags": [
+              "vegetarian"
+            ]
+          },
+          {
+            "name": "Nachos",
+            "description": null,
+            "price": null,
+            "dietary_flags": []
+          }
+        ]
+      },
+      {
+        "name": "Entrees",
+        "items": [
+          {
+            "name": "Tacos",
+            "description": null,
+            "price": null,
+            "dietary_flags": []
+          },
+          {
+            "name": "Enchiladas",
+            "description": null,
+            "price": null,
+            "dietary_flags": []
+          },
+          {
+            "name": "Burritos",
+            "description": null,
+            "price": null,
+            "dietary_flags": []
+          },
+          {
+            "name": "Quesadillas",
+            "description": null,
+            "price": null,
+            "dietary_flags": [
+              "vegetarian"
+            ]
+          },
+          {
+            "name": "Fajitas",
+            "description": null,
+            "price": null,
+            "dietary_flags": []
+          },
+          {
+            "name": "Carne Asada Chilaquiles Rojos",
+            "description": null,
+            "price": null,
+            "dietary_flags": []
+          },
+          {
+            "name": "Tamales",
+            "description": null,
+            "price": null,
+            "dietary_flags": []
+          },
+          {
+            "name": "Taco Salad",
+            "description": null,
+            "price": null,
+            "dietary_flags": []
+          },
+          {
+            "name": "Pollo Asado",
+            "description": null,
+            "price": null,
+            "dietary_flags": []
+          },
+          {
+            "name": "Seafood",
+            "description": null,
+            "price": null,
+            "dietary_flags": []
+          }
+        ]
+      },
+      {
+        "name": "Soups & Salads",
+        "items": [
+          {
+            "name": "Tortilla Soup",
+            "description": null,
+            "price": null,
+            "dietary_flags": []
+          },
+          {
+            "name": "Salads",
+            "description": null,
+            "price": null,
+            "dietary_flags": [
+              "vegetarian"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Sides",
+        "items": [
+          {
+            "name": "Burgers",
+            "description": null,
+            "price": null,
+            "dietary_flags": []
+          },
+          {
+            "name": "Steak",
+            "description": null,
+            "price": null,
+            "dietary_flags": []
+          },
+          {
+            "name": "Chicken",
+            "description": null,
+            "price": null,
+            "dietary_flags": []
+          }
+        ]
+      },
+      {
+        "name": "Desserts",
+        "items": [
+          {
+            "name": "Fried Ice Cream",
+            "description": null,
+            "price": null,
+            "dietary_flags": [
+              "vegetarian"
+            ]
+          },
+          {
+            "name": "Tres Leche Cake",
+            "description": null,
+            "price": null,
+            "dietary_flags": [
+              "vegetarian"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Beverages",
+        "items": [
+          {
+            "name": "Margaritas",
+            "description": null,
+            "price": null,
+            "dietary_flags": [
+              "vegan"
+            ]
+          },
+          {
+            "name": "Mexican Martinis",
+            "description": null,
+            "price": null,
+            "dietary_flags": []
+          },
+          {
+            "name": "Tequila Cocktails",
+            "description": null,
+            "price": null,
+            "dietary_flags": []
+          },
+          {
+            "name": "Micheladas",
+            "description": null,
+            "price": null,
+            "dietary_flags": [
+              "vegan"
+            ]
+          },
+          {
+            "name": "Beer",
+            "description": null,
+            "price": null,
+            "dietary_flags": [
+              "vegan"
+            ]
+          },
+          {
+            "name": "Wine",
+            "description": null,
+            "price": null,
+            "dietary_flags": [
+              "vegan"
+            ]
+          },
+          {
+            "name": "Cocktails",
+            "description": null,
+            "price": null,
+            "dietary_flags": []
+          },
+          {
+            "name": "Coffee",
+            "description": null,
+            "price": null,
+            "dietary_flags": [
+              "vegan"
+            ]
+          },
+          {
+            "name": "Liquor",
+            "description": null,
+            "price": null,
+            "dietary_flags": []
+          }
+        ]
+      },
+      {
+        "name": "Special Diets",
+        "items": [
+          {
+            "name": "Vegan Mexican Dishes",
+            "description": null,
+            "price": null,
+            "dietary_flags": [
+              "vegan"
+            ]
+          },
+          {
+            "name": "Vegetarian Dishes",
+            "description": null,
+            "price": null,
+            "dietary_flags": [
+              "vegetarian"
+            ]
+          }
+        ]
+      }
+    ]
   },
   "specials": [
     {
       "name": "Lunch Specials",
-      "description": "Affordable lunch combos available",
+      "description": "Lunch specials available at $9.99",
       "days": [
         "Monday",
         "Tuesday",
@@ -83,345 +291,48 @@
         "Saturday",
         "Sunday"
       ],
-      "price": 9.99,
       "time": "Lunch hours"
     },
     {
       "name": "Happy Hour",
-      "description": "Frozen margaritas and other drinks at special pricing",
-      "days": null,
-      "time": null,
-      "price": null
-    }
-  ],
-  "events": [
-    {
-      "name": "Happy Hour",
-      "description": "Frozen margaritas and drinks at discounted prices",
-      "recurring": true,
-      "day": null,
+      "description": "Frozen margaritas at a deal",
+      "days": [],
       "time": null
     }
   ],
-  "menu": {
-    "categories": [
-      {
-        "name": "Appetizers",
-        "type": "appetizers",
-        "items": [
-          {
-            "name": "Chips and Salsa",
-            "description": null,
-            "price": null,
-            "tags": [],
-            "allergens": []
-          },
-          {
-            "name": "Fresh Salsa",
-            "description": null,
-            "price": null,
-            "tags": [],
-            "allergens": []
-          },
-          {
-            "name": "Queso",
-            "description": null,
-            "price": null,
-            "tags": [],
-            "allergens": []
-          },
-          {
-            "name": "Nachos",
-            "description": null,
-            "price": null,
-            "tags": [],
-            "allergens": []
-          },
-          {
-            "name": "Homemade Guacamole",
-            "description": null,
-            "price": null,
-            "tags": [],
-            "allergens": []
-          }
-        ]
-      },
-      {
-        "name": "Soups",
-        "type": "lunch",
-        "items": [
-          {
-            "name": "Tortilla Soup",
-            "description": null,
-            "price": null,
-            "tags": [],
-            "allergens": []
-          }
-        ]
-      },
-      {
-        "name": "Salads",
-        "type": "lunch",
-        "items": [
-          {
-            "name": "Taco Salad",
-            "description": null,
-            "price": null,
-            "tags": [],
-            "allergens": []
-          }
-        ]
-      },
-      {
-        "name": "Main Dishes",
-        "type": "lunch",
-        "items": [
-          {
-            "name": "Tacos",
-            "description": null,
-            "price": null,
-            "tags": [],
-            "allergens": []
-          },
-          {
-            "name": "Chicken Soft Tacos",
-            "description": null,
-            "price": null,
-            "tags": [],
-            "allergens": []
-          },
-          {
-            "name": "Enchiladas",
-            "description": null,
-            "price": null,
-            "tags": [],
-            "allergens": []
-          },
-          {
-            "name": "Burritos",
-            "description": null,
-            "price": null,
-            "tags": [],
-            "allergens": []
-          },
-          {
-            "name": "Quesadillas",
-            "description": null,
-            "price": null,
-            "tags": [],
-            "allergens": []
-          },
-          {
-            "name": "Chimichangas",
-            "description": null,
-            "price": null,
-            "tags": [],
-            "allergens": []
-          },
-          {
-            "name": "Fajitas",
-            "description": null,
-            "price": null,
-            "tags": [],
-            "allergens": []
-          },
-          {
-            "name": "Carne Asada Chilaquiles Rojos",
-            "description": null,
-            "price": null,
-            "tags": [],
-            "allergens": []
-          },
-          {
-            "name": "Pollo Asado",
-            "description": null,
-            "price": null,
-            "tags": [],
-            "allergens": []
-          },
-          {
-            "name": "Tamales",
-            "description": null,
-            "price": null,
-            "tags": [],
-            "allergens": []
-          }
-        ]
-      },
-      {
-        "name": "Proteins",
-        "type": "lunch",
-        "items": [
-          {
-            "name": "Chicken",
-            "description": null,
-            "price": null,
-            "tags": [],
-            "allergens": []
-          },
-          {
-            "name": "Seafood",
-            "description": null,
-            "price": null,
-            "tags": [],
-            "allergens": []
-          },
-          {
-            "name": "Steak",
-            "description": null,
-            "price": null,
-            "tags": [],
-            "allergens": []
-          }
-        ]
-      },
-      {
-        "name": "Other Entrees",
-        "type": "lunch",
-        "items": [
-          {
-            "name": "Burgers",
-            "description": null,
-            "price": null,
-            "tags": [],
-            "allergens": []
-          },
-          {
-            "name": "Combination Plates",
-            "description": null,
-            "price": null,
-            "tags": [],
-            "allergens": []
-          }
-        ]
-      },
-      {
-        "name": "Vegetarian Dishes",
-        "type": "dietary",
-        "items": [
-          {
-            "name": "Vegetarian Dishes",
-            "description": null,
-            "price": null,
-            "tags": [
-              "vegetarian"
-            ],
-            "allergens": []
-          },
-          {
-            "name": "Vegan Mexican Dishes",
-            "description": null,
-            "price": null,
-            "tags": [
-              "vegan"
-            ],
-            "allergens": []
-          }
-        ]
-      },
-      {
-        "name": "Desserts",
-        "type": "desserts",
-        "items": [
-          {
-            "name": "Tres Leche Cake",
-            "description": "Highly praised by customers; one of the best",
-            "price": null,
-            "tags": [
-              "popular"
-            ],
-            "allergens": []
-          },
-          {
-            "name": "Fried Ice Cream",
-            "description": null,
-            "price": null,
-            "tags": [],
-            "allergens": []
-          },
-          {
-            "name": "Desserts",
-            "description": null,
-            "price": null,
-            "tags": [],
-            "allergens": []
-          }
-        ]
-      },
-      {
-        "name": "Drinks",
-        "type": "drinks",
-        "items": [
-          {
-            "name": "Margaritas",
-            "description": "Frozen margaritas available in small, medium, and large sizes",
-            "price": null,
-            "tags": [
-              "signature",
-              "happy hour"
-            ],
-            "allergens": []
-          },
-          {
-            "name": "Tequila Cocktails",
-            "description": null,
-            "price": null,
-            "tags": [],
-            "allergens": []
-          },
-          {
-            "name": "Mexican Martinis",
-            "description": null,
-            "price": null,
-            "tags": [],
-            "allergens": []
-          },
-          {
-            "name": "Micheladas",
-            "description": null,
-            "price": null,
-            "tags": [],
-            "allergens": []
-          },
-          {
-            "name": "Beer",
-            "description": null,
-            "price": null,
-            "tags": [],
-            "allergens": []
-          },
-          {
-            "name": "Wine",
-            "description": null,
-            "price": null,
-            "tags": [],
-            "allergens": []
-          },
-          {
-            "name": "Cocktails",
-            "description": null,
-            "price": null,
-            "tags": [],
-            "allergens": []
-          },
-          {
-            "name": "Liquor",
-            "description": null,
-            "price": null,
-            "tags": [],
-            "allergens": []
-          },
-          {
-            "name": "Coffee",
-            "description": null,
-            "price": null,
-            "tags": [],
-            "allergens": []
-          }
-        ]
-      }
-    ]
+  "features": [
+    "Family-Friendly Restaurant",
+    "Casual Dining",
+    "Kid's Menu",
+    "Takeout",
+    "Outdoor Seating",
+    "Lunch",
+    "Dinner",
+    "Delivery",
+    "Dine-In",
+    "Free Parking",
+    "Online Ordering",
+    "Happy Hour",
+    "Authentic Mexican Cuisine",
+    "Wheelchair Accessible"
+  ],
+  "social_media": {
+    "facebook": "https://www.facebook.com/Pedrosperdidokeyfl",
+    "instagram": null,
+    "twitter": null
   },
+  "images": [
+    "https://du9m0k402rjmo.cloudfront.net/images/P_41555/cbc9990c-9a56-4ae4-a685-1c1bf39735b8.jpg"
+  ],
+  "established_year": 2018,
+  "areas_served": [
+    "Perdido Key, FL",
+    "Pensacola, FL",
+    "Orange Beach, AL",
+    "Gulf Shores, AL",
+    "Elberta, AL",
+    "Lillian, AL"
+  ],
   "payment_methods": [
     "American Express",
     "Android Pay",
@@ -432,75 +343,5 @@
     "PayPal",
     "Visa"
   ],
-  "areas_served": [
-    "Perdido Key, FL",
-    "Pensacola, FL",
-    "Orange Beach, AL",
-    "Gulf Shores, AL",
-    "Elberta, AL",
-    "Lillian, AL"
-  ],
-  "coordinates": {
-    "latitude": 30.3006975,
-    "longitude": -87.4278187
-  },
-  "website": "https://pedrostacosandtequilaperdidokey.com/",
-  "image_url": "https://du9m0k402rjmo.cloudfront.net/images/P_41555/cbc9990c-9a56-4ae4-a685-1c1bf39735b8.jpg",
-  "url": "https://pedrostacosandtequilaperdidokey.com/",
-  "scraped_at": "2026-03-21T13:43:42.748Z",
-  "extracted_at": "2026-03-23T04:44:14.204Z",
-  "model": "claude-haiku-4-5-20251001",
-  "gallery": [
-    "https://du9m0k402rjmo.cloudfront.net/images/P_41555/cbc9990c-9a56-4ae4-a685-1c1bf39735b8.jpg",
-    "https://pedrostacosandtequilaperdidokey.com/content/profile/images/star_circle_5.0.png",
-    "https://pedrostacosandtequilaperdidokey.com/content/profile/images/star_yellow_5.0.png",
-    "https://pedrostacosandtequilaperdidokey.com/content/domains/google.png",
-    "https://pedrostacosandtequilaperdidokey.com/content/profile/images/star_circle_4.0.png",
-    "https://pedrostacosandtequilaperdidokey.com/content/profile/images/star_yellow_4.0.png",
-    "https://du9m0k402rjmo.cloudfront.net/images/P_41555/1aa242c7-1349-4a33-bcab-7fb8a5e616c1.jpg",
-    "https://du9m0k402rjmo.cloudfront.net/images/P_41555/4c11502f-e27f-485b-abc8-146e9d8e1b90.jpg",
-    "https://du9m0k402rjmo.cloudfront.net/images/P_41555/96caf1b5-a241-45b4-a67e-2cadb3394844.jpg",
-    "https://du9m0k402rjmo.cloudfront.net/images/P_41555/9d6af6e8-1a7a-402b-82f5-ee4fa853dc56.jpg",
-    "https://du9m0k402rjmo.cloudfront.net/images/P_41555/e72b4a1c-a662-4bf6-9fec-770dbf21d4e9.jpg",
-    "https://du9m0k402rjmo.cloudfront.net/images/P_41555/ceac4b04-a834-49de-ad1a-59c1483907e1.jpg",
-    "https://du9m0k402rjmo.cloudfront.net/images/P_41555/03b91875-598a-467e-93ab-37b58313b89e.jpg",
-    "https://du9m0k402rjmo.cloudfront.net/images/P_41555/eb429cdc-3328-4ab2-8d9c-361bceb48f08.jpg",
-    "https://du9m0k402rjmo.cloudfront.net/images/P_41555/d07fd266-6038-4cf6-86b0-307d2a0b9a0e.jpg",
-    "https://du9m0k402rjmo.cloudfront.net/images/P_41555/9a8a7072-66ef-4489-b5a7-56b63e9ebd01.jpg",
-    "https://du9m0k402rjmo.cloudfront.net/images/P_41555/c1cecdd4-4257-4ddd-abec-ff23f17e8a1b.jpg",
-    "https://du9m0k402rjmo.cloudfront.net/images/P_41555/5377085c-865c-487f-9b56-9d6928789aea.jpg",
-    "https://du9m0k402rjmo.cloudfront.net/images/P_41555/dcaa7cfc-9cf3-4610-b808-02b179125175.jpg",
-    "https://du9m0k402rjmo.cloudfront.net/images/P_41555/1964ac7e-2588-4737-bfd8-eed55174db87.jpg",
-    "https://du9m0k402rjmo.cloudfront.net/images/P_41555/27e0d2d8-a4f1-43d0-86b0-e6815d28637c.jpg",
-    "https://du9m0k402rjmo.cloudfront.net/images/P_41555/1b53fe5c-62f7-4869-bfb9-771f940f04eb.jpg",
-    "https://du9m0k402rjmo.cloudfront.net/images/P_41555/766f41e6-c98e-4a4a-ad5c-d413b49f4fed.jpg",
-    "https://du9m0k402rjmo.cloudfront.net/images/P_41555/dc999cbe-555c-465a-ba37-62dc30d11814.jpg",
-    "https://du9m0k402rjmo.cloudfront.net/images/P_41555/64327f6e-a207-4540-8086-bfd3e27cbff5.jpg",
-    "https://du9m0k402rjmo.cloudfront.net/images/P_41555/fcf8db47-8485-485b-9ba3-2403563f83d0.jpg",
-    "https://du9m0k402rjmo.cloudfront.net/images/P_41555/41f2d7ad-86ca-4650-b8d5-33fe8cd9feaa.jpg",
-    "https://du9m0k402rjmo.cloudfront.net/images/P_41555/4b9eb144-a7e1-4707-947f-1e744820403b.jpg",
-    "https://du9m0k402rjmo.cloudfront.net/images/P_41555/689760cf-3411-4f6d-a1bc-e0c5277e9e19.jpg",
-    "https://du9m0k402rjmo.cloudfront.net/images/P_41555/8672ee64-327e-49d7-a7e8-b45e6ce19fa8.jpg",
-    "https://du9m0k402rjmo.cloudfront.net/images/P_41555/ccb1ebbc-be3c-41ad-b543-76640ba3d77e.jpg",
-    "https://du9m0k402rjmo.cloudfront.net/images/P_41555/9a816678-8901-44ce-b832-920f74e8d9b8.jpg",
-    "https://du9m0k402rjmo.cloudfront.net/images/P_41555/c997ddf0-f13e-44d7-ada2-21dc600a0b7a.jpg",
-    "https://du9m0k402rjmo.cloudfront.net/images/P_41555/844539f6-460e-425a-9481-d45cab95d788.jpg",
-    "https://pedrostacosandtequilaperdidokey.com/content/Templates/images/payment/americanexpress.png",
-    "https://pedrostacosandtequilaperdidokey.com/content/Templates/images/payment/androidpay.png",
-    "https://pedrostacosandtequilaperdidokey.com/content/Templates/images/payment/applepay.png",
-    "https://pedrostacosandtequilaperdidokey.com/content/Templates/images/payment/discover.png",
-    "https://pedrostacosandtequilaperdidokey.com/content/Templates/images/payment/mastercard.png",
-    "https://pedrostacosandtequilaperdidokey.com/content/Templates/images/payment/paypal.png",
-    "https://pedrostacosandtequilaperdidokey.com/content/Templates/images/payment/visa.png",
-    "https://pedrostacosandtequilaperdidokey.com/Content/Templates/images/accessibility_icon.png",
-    "https://pedrostacosandtequilaperdidokey.com/Content/Templates/images/chat_icon.png"
-  ],
-  "sources": [
-    "https://pedrostacosandtequilaperdidokey.com",
-    "https://pedrostacosandtequilaperdidokey.com/Accessibility?domain=pedrostacosandtequilaperdidokey",
-    "https://pedrostacosandtequilaperdidokey.com/Accessibility/PrivacyPolicy",
-    "https://pedrostacosandtequilaperdidokey.com/Accessibility/TermsOfUse",
-    "https://pedrostacosandtequilaperdidokey.com/Home/PrivacyPolicy",
-    "https://pedrostacosandtequilaperdidokey.com/Home/TermsOfUse"
-  ]
+  "extracted_at": "2026-05-16T19:32:55.347Z"
 }

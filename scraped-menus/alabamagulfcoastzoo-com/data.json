@@ -1,94 +1,647 @@
 {
   "business_name": "Alabama Gulf Coast Zoo",
   "tagline": null,
-  "type": "Zoo",
+  "type": "Attraction",
   "contact": {
-    "phone": null,
+    "phone": "251-256-7008",
     "email": null,
-    "address": "20499 Oak Rd E",
+    "address": "20499 Oak Road East",
     "city": "Gulf Shores",
     "state": "AL",
     "zip": "36542"
   },
   "hours": {
-    "monday": "9am - 4pm",
-    "tuesday": "9am - 4pm",
-    "wednesday": "9am - 4pm",
-    "thursday": "9am - 4pm",
-    "friday": "9am - 4pm",
-    "saturday": "9am - 4pm",
-    "sunday": "9am - 4pm",
-    "notes": "Open daily"
+    "monday": "9:00 AM - 4:00 PM",
+    "tuesday": "9:00 AM - 4:00 PM",
+    "wednesday": "9:00 AM - 4:00 PM",
+    "thursday": "9:00 AM - 4:00 PM",
+    "friday": "9:00 AM - 4:00 PM",
+    "saturday": "9:00 AM - 4:00 PM",
+    "sunday": "9:00 AM - 4:00 PM",
+    "notes": "Open daily 9am - 4pm"
   },
   "about": {
-    "description": "The Alabama Gulf Coast Zoo is a small-town community zoo located in Gulf Shores featuring a richly diverse and unique population of animals. The zoo offers interactive experiences such as giraffe feeding and walking in lemur enclosures.",
-    "elevator_pitch": "A compact, family-friendly zoo in Gulf Shores with diverse animals and interactive feeding experiences.",
-    "vibe": "Family-oriented, clean facilities, well-laid-out exhibits, friendly staff",
+    "description": "The Alabama Gulf Coast Zoo is a richly diverse and decidedly unique small-town community zoo located in Gulf Shores, Alabama. Every animal at the zoo has a story. The zoo features a wide variety of animals including giraffes, big cats, monkeys, baboons, bobcats, camels, reptiles, birds, and more. Guests can enjoy daily keeper chats, animal feedings, a walk-through aviary, a contact barn, and special add-on experiences like walking in the lemur enclosure and giraffe feeding tickets. The zoo also hosts special events such as the Art on the Wild Side: Wine & Whiskey Stroll.",
+    "elevator_pitch": "A uniquely diverse Gulf Shores zoo where every animal has a story and guests can enjoy daily keeper chats, giraffe feedings, and immersive animal encounters.",
+    "established": null,
+    "owner": null,
+    "vibe": "Family-friendly, educational, intimate community zoo",
     "best_for": [
       "families",
-      "children",
+      "groups",
       "animal lovers",
-      "interactive experiences"
+      "kids"
     ],
-    "established": null,
-    "reservations": null,
-    "insider_tip": "Giraffe feeding is a popular highlight; arrive early for the best animal activity levels"
+    "capacity": null,
+    "duration_options": [
+      "half day",
+      "full day"
+    ],
+    "departure_location": null,
+    "what_provided": [
+      "daily keeper chats included with admission",
+      "walk-through aviary",
+      "contact barn access"
+    ],
+    "what_to_bring": [
+      "sunscreen",
+      "comfortable walking shoes",
+      "water"
+    ],
+    "age_restriction": "Some events are 18+ or 21+ (e.g., Wine & Whiskey Stroll)",
+    "weight_restriction": null,
+    "reservations": "Tickets available online; some add-on experiences (giraffe feeding, lemur enclosure walk) require separate purchase",
+    "insider_tip": "Arrive early for the 9:15 AM Bird Chat at South American Adventure, and budget extra for the giraffe feeding experience — kids love it!",
+    "cancellation_policy": null
   },
   "tags": [
     "zoo",
+    "family fun",
     "animals",
-    "family-friendly",
-    "interactive",
-    "educational",
-    "Gulf Shores",
-    "attraction"
+    "gulf shores",
+    "attraction",
+    "wildlife",
+    "keeper chats",
+    "giraffe feeding",
+    "lemur encounter",
+    "education"
+  ],
+  "hashtags": [
+    "#alabamagulfcoastzoo",
+    "#gulfshores",
+    "#alabama",
+    "#zoo",
+    "#familyfun",
+    "#wildlife",
+    "#thingstodoinGulfShores",
+    "#animalsofinstagram"
+  ],
+  "categories": [
+    "Attraction",
+    "Zoo",
+    "Family Activity",
+    "Wildlife Experience"
   ],
   "features": [
-    "Giraffe feeding",
-    "Lemur enclosure walk",
-    "Multiple animal exhibits",
-    "Gift shop",
-    "Walking paths",
-    "Monkeys",
-    "Cats",
-    "Diverse animal collection"
+    "daily keeper chats included with admission",
+    "giraffe feeding (add-on)",
+    "lemur enclosure walk (add-on, $25)",
+    "walk-through aviary",
+    "contact barn",
+    "animal ambassador walkabouts",
+    "special events",
+    "gift shop",
+    "diverse animal collection",
+    "family friendly"
   ],
-  "price_range": "$$",
   "social_links": {
     "instagram": null,
     "facebook": null,
+    "youtube": "https://www.youtube.com/embed/-xj_LCg9lgk",
+    "tripadvisor": null,
     "website": "https://www.alabamagulfcoastzoo.com"
   },
-  "specials": [],
-  "events": [
+  "specials": [
     {
-      "name": "Art on the Wild Side Wine Whiskey Stroll",
-      "description": "Special event featuring art, wine, and whiskey",
-      "recurring": false,
-      "day": "March 28",
+      "name": "Giraffe Feeding",
+      "description": "Purchase add-on tickets to hand-feed the giraffes — a crowd favorite especially for kids.",
+      "days": [],
       "time": null
     },
     {
-      "name": "New Animal Ambassador Introduction",
-      "description": "Introduction of Clint Eatswood, a North American Beaver, as a new animal ambassador",
-      "recurring": false,
-      "day": null,
+      "name": "Lemur Enclosure Walk",
+      "description": "Walk inside the lemur enclosure for an up-close wildlife experience. Available for an additional $25 per person.",
+      "days": [],
       "time": null
+    },
+    {
+      "name": "Art on the Wild Side: Wine & Whiskey Stroll",
+      "description": "Annual adult event (21+) featuring an online auction of exclusive artwork created by the zoo animals, running March 21–28 with an in-person stroll on March 28.",
+      "days": [
+        "Saturday"
+      ],
+      "time": "March 28, 2026"
     }
   ],
-  "menu": {
-    "categories": []
-  },
-  "ratings": {
-    "average_rating": 4.1,
-    "total_reviews": 8167,
-    "best_rating": 5,
-    "worst_rating": 1
-  },
+  "events": [
+    {
+      "name": "Bird Chat at South American Adventure",
+      "description": "Daily keeper chat at South American Adventure. Included with regular paid admission.",
+      "recurring": true,
+      "day": "Daily",
+      "time": "9:15 AM - 9:45 AM"
+    },
+    {
+      "name": "Goat Agility Training",
+      "description": "Watch goats show off their agility skills. Included with regular paid admission.",
+      "recurring": true,
+      "day": "Saturday, Sunday",
+      "time": "10:00 AM - 10:15 AM"
+    },
+    {
+      "name": "Bobcat Chat",
+      "description": "Learn about North America's bobcats with a keeper. Included with regular paid admission.",
+      "recurring": true,
+      "day": "Tuesday",
+      "time": "10:00 AM - 10:15 AM"
+    },
+    {
+      "name": "Animal Ambassador Walkabout",
+      "description": "Meet animal ambassadors up close starting at the Event Stage. Included with regular paid admission.",
+      "recurring": true,
+      "day": "Daily",
+      "time": "10:45 AM - 11:15 AM"
+    },
+    {
+      "name": "Big Cat Chat",
+      "description": "Step into the world of big cats with a keeper chat. Included with regular paid admission.",
+      "recurring": true,
+      "day": "Monday, Wednesday, Friday",
+      "time": "Monday 11:00 AM - 11:15 AM; Wed & Fri 2:00 PM - 2:15 PM"
+    },
+    {
+      "name": "Camel Chat",
+      "description": "A keeper chat featuring the zoo's camels. Included with regular paid admission.",
+      "recurring": true,
+      "day": "Sunday",
+      "time": "11:00 AM - 11:15 AM"
+    },
+    {
+      "name": "Reptile House Keeper Chat",
+      "description": "Dive into the world of reptiles including small gators. Included with regular paid admission.",
+      "recurring": true,
+      "day": "Tuesday",
+      "time": "11:00 AM - 11:15 AM"
+    },
+    {
+      "name": "Training Tales",
+      "description": "Watch animal training demonstrations at the Alabama Gulf Coast Zoo. Included with regular paid admission.",
+      "recurring": true,
+      "day": "Tuesday, Thursday, Saturday, Sunday",
+      "time": "1:45 PM - 2:15 PM"
+    },
+    {
+      "name": "Aviary Feeding Chat",
+      "description": "Join keepers in the walk-through aviary for a feeding chat. Included with regular paid admission.",
+      "recurring": true,
+      "day": "Daily",
+      "time": "2:15 PM - 2:45 PM"
+    },
+    {
+      "name": "Contact Barn Chat",
+      "description": "Experience animal interaction at the Contact Barn with a keeper chat. Included with regular paid admission.",
+      "recurring": true,
+      "day": "Daily",
+      "time": "2:45 PM - 3:15 PM"
+    },
+    {
+      "name": "Baboons Chat",
+      "description": "A keeper chat focused on the zoo's baboons. Included with regular paid admission.",
+      "recurring": true,
+      "day": "Tuesday",
+      "time": "3:00 PM - 3:15 PM"
+    }
+  ],
+  "packages": [
+    {
+      "name": "General Zoo Admission",
+      "type": "attraction",
+      "description": "General admission to the Alabama Gulf Coast Zoo, including access to all animal exhibits and all included keeper chats/events.",
+      "duration": "Open 9am - 4pm daily",
+      "price": null,
+      "price_type": "per person",
+      "price_note": "Exact admission price not listed in provided data; reviewer comments suggest pricing is on the higher side",
+      "min_people": 1,
+      "max_people": null,
+      "what_included": [
+        "Access to all animal exhibits",
+        "All keeper chats (Bird Chat, Aviary Feeding Chat, Contact Barn Chat, Animal Ambassador Walkabout, Camel Chat, Goat Agility Training, Training Tales, Big Cat Chat, Bobcat Chat, Baboons Chat, Reptile House Keeper Chat)"
+      ],
+      "what_not_included": [
+        "Giraffe feeding (separate ticket)",
+        "Lemur enclosure walk-in (extra charge, noted as $25 by reviewer)",
+        "Food/snacks",
+        "Stuffed animals from gift shop ($25 each per reviewer)"
+      ],
+      "departure_times": null,
+      "days_available": "Daily",
+      "age_min": null,
+      "weight_max": null,
+      "booking_url": "https://www.alabamagulfcoastzoo.com",
+      "notes": "Zoo is located at 20499 Oak Road East, Gulf Shores, AL 36542. Phone: 251-256-7008."
+    },
+    {
+      "name": "Giraffe Feeding",
+      "type": "attraction",
+      "description": "Purchase tickets to hand-feed the giraffes at the Alabama Gulf Coast Zoo. Mentioned by multiple reviewers as a popular add-on activity.",
+      "duration": null,
+      "price": null,
+      "price_type": "per person",
+      "price_note": "Separate ticket required; exact price not listed in provided data",
+      "min_people": 1,
+      "max_people": null,
+      "what_included": [
+        "Giraffe feeding experience"
+      ],
+      "what_not_included": [
+        "General zoo admission (sold separately)"
+      ],
+      "departure_times": null,
+      "days_available": "Daily",
+      "age_min": null,
+      "weight_max": null,
+      "booking_url": "https://www.alabamagulfcoastzoo.com",
+      "notes": "Referenced by multiple visitor reviews as a ticketed add-on experience."
+    },
+    {
+      "name": "Lemur Enclosure Walk-In",
+      "type": "attraction",
+      "description": "Walk inside the lemur enclosure for an up-close experience with lemurs. This is an extra-cost add-on beyond general admission.",
+      "duration": null,
+      "price": 25,
+      "price_type": "per person",
+      "price_note": "Price sourced from visitor review comment; not officially listed on website data provided",
+      "min_people": 1,
+      "max_people": null,
+      "what_included": [
+        "Walk-in access to lemur enclosure"
+      ],
+      "what_not_included": [
+        "General zoo admission (sold separately)"
+      ],
+      "departure_times": null,
+      "days_available": "Daily",
+      "age_min": null,
+      "weight_max": null,
+      "booking_url": "https://www.alabamagulfcoastzoo.com",
+      "notes": "Price of $25 cited by reviewer 'kim burt'; not confirmed via official website pricing page in provided data."
+    },
+    {
+      "name": "Art on the Wild Side: Wine & Whiskey Stroll",
+      "type": "other",
+      "description": "A special ticketed event at the Alabama Gulf Coast Zoo featuring an online auction of exclusive artwork created by the zoo's animals (auction runs March 21–28, 2026, ending at 9pm), plus an in-person Wine & Whiskey Stroll on March 28, 2026. The event is 21-and-older. Tickets are on sale.",
+      "duration": "Online auction: March 21–28, 2026; In-person event: March 28, 2026",
+      "price": null,
+      "price_type": "per person",
+      "price_note": "Ticket price not listed in provided data; tickets are on sale via the zoo website",
+      "min_people": 1,
+      "max_people": null,
+      "what_included": [
+        "Access to Wine & Whiskey Stroll event",
+        "Online auction of animal-created artwork"
+      ],
+      "what_not_included": [
+        "General zoo day admission (unclear if bundled)"
+      ],
+      "departure_times": null,
+      "days_available": [
+        "Saturday"
+      ],
+      "age_min": 21,
+      "weight_max": null,
+      "booking_url": "https://www.alabamagulfcoastzoo.com/event/art-on-the-wild-side/",
+      "notes": "Annual fundraising event. Auction begins March 21, 2026 and ends March 28, 2026 at 9pm. In-person stroll is March 28, 2026. Must be 21+ to attend."
+    },
+    {
+      "name": "Bird Chat at South American Adventure",
+      "type": "attraction",
+      "description": "Daily keeper chat at the South American Adventure area of the zoo. Guests can experience up-close bird interactions and learn from zoo keepers. Included with regular paid admission.",
+      "duration": "30 minutes (9:15am - 9:45am)",
+      "price": null,
+      "price_type": "per person",
+      "price_note": "Included with regular paid zoo admission",
+      "min_people": 1,
+      "max_people": null,
+      "what_included": [
+        "Keeper-led bird chat and educational experience"
+      ],
+      "what_not_included": [
+        "Zoo admission (must be purchased separately)"
+      ],
+      "departure_times": [
+        "9:15am"
+      ],
+      "days_available": "Daily",
+      "age_min": null,
+      "weight_max": null,
+      "booking_url": "https://www.alabamagulfcoastzoo.com/event/bird-chat/",
+      "notes": "Held daily at South American Adventure area."
+    },
+    {
+      "name": "Aviary Feeding Chat",
+      "type": "attraction",
+      "description": "Keeper-led feeding chat held inside the walk-through aviary. Guests learn about the birds and observe feeding. Included with regular paid admission.",
+      "duration": "30 minutes (2:15pm - 2:45pm)",
+      "price": null,
+      "price_type": "per person",
+      "price_note": "Included with regular paid zoo admission",
+      "min_people": 1,
+      "max_people": null,
+      "what_included": [
+        "Keeper-led aviary feeding demonstration and chat"
+      ],
+      "what_not_included": [
+        "Zoo admission (must be purchased separately)"
+      ],
+      "departure_times": [
+        "2:15pm"
+      ],
+      "days_available": "Daily",
+      "age_min": null,
+      "weight_max": null,
+      "booking_url": "https://www.alabamagulfcoastzoo.com/event/aviary-feeding-chat/",
+      "notes": "Meet in the walk-through aviary."
+    },
+    {
+      "name": "Contact Barn Chat",
+      "type": "attraction",
+      "description": "Interactive keeper chat at the Contact Barn where guests can experience hands-on animal interaction. Included with regular paid admission.",
+      "duration": "30 minutes (2:45pm - 3:15pm)",
+      "price": null,
+      "price_type": "per person",
+      "price_note": "Included with regular paid zoo admission",
+      "min_people": 1,
+      "max_people": null,
+      "what_included": [
+        "Animal interaction experience at the Contact Barn"
+      ],
+      "what_not_included": [
+        "Zoo admission (must be purchased separately)"
+      ],
+      "departure_times": [
+        "2:45pm"
+      ],
+      "days_available": "Daily",
+      "age_min": null,
+      "weight_max": null,
+      "booking_url": "https://www.alabamagulfcoastzoo.com/event/contact-barn-chat/",
+      "notes": "Meet at the Contact Barn."
+    },
+    {
+      "name": "Goat Agility Training",
+      "type": "attraction",
+      "description": "Fun keeper demonstration of goat agility training. Included with regular paid admission.",
+      "duration": "15 minutes (10:00am - 10:15am)",
+      "price": null,
+      "price_type": "per person",
+      "price_note": "Included with regular paid zoo admission",
+      "min_people": 1,
+      "max_people": null,
+      "what_included": [
+        "Goat agility training demonstration"
+      ],
+      "what_not_included": [
+        "Zoo admission (must be purchased separately)"
+      ],
+      "departure_times": [
+        "10:00am"
+      ],
+      "days_available": [
+        "Saturday",
+        "Sunday"
+      ],
+      "age_min": null,
+      "weight_max": null,
+      "booking_url": "https://www.alabamagulfcoastzoo.com/event/goat-agility-training-2-2/",
+      "notes": "Held on Saturdays and Sundays only."
+    },
+    {
+      "name": "Animal Ambassador Walkabout",
+      "type": "attraction",
+      "description": "A roaming keeper experience starting at the Event Stage where animal ambassadors are brought out for guests to discover. Included with regular paid admission.",
+      "duration": "30 minutes (10:45am - 11:15am)",
+      "price": null,
+      "price_type": "per person",
+      "price_note": "Included with regular paid zoo admission",
+      "min_people": 1,
+      "max_people": null,
+      "what_included": [
+        "Wildlife ambassador animal encounters"
+      ],
+      "what_not_included": [
+        "Zoo admission (must be purchased separately)"
+      ],
+      "departure_times": [
+        "10:45am"
+      ],
+      "days_available": "Daily",
+      "age_min": null,
+      "weight_max": null,
+      "booking_url": "https://www.alabamagulfcoastzoo.com/event/animal-ambassador-walkabout/",
+      "notes": "Starts at the Event Stage."
+    },
+    {
+      "name": "Camel Chat",
+      "type": "attraction",
+      "description": "Keeper-led educational chat about camels. Included with regular paid admission.",
+      "duration": "15 minutes (11:00am - 11:15am)",
+      "price": null,
+      "price_type": "per person",
+      "price_note": "Included with regular paid zoo admission",
+      "min_people": 1,
+      "max_people": null,
+      "what_included": [
+        "Keeper-led camel educational chat"
+      ],
+      "what_not_included": [
+        "Zoo admission (must be purchased separately)"
+      ],
+      "departure_times": [
+        "11:00am"
+      ],
+      "days_available": [
+        "Sunday"
+      ],
+      "age_min": null,
+      "weight_max": null,
+      "booking_url": "https://www.alabamagulfcoastzoo.com/event/camel-chat/",
+      "notes": "Held on Sundays only."
+    },
+    {
+      "name": "Training Tales",
+      "type": "attraction",
+      "description": "Keeper demonstration showing animal training techniques and animal behavior at the Alabama Gulf Coast Zoo. Included with regular paid admission.",
+      "duration": "30 minutes (1:45pm - 2:15pm)",
+      "price": null,
+      "price_type": "per person",
+      "price_note": "Included with regular paid zoo admission",
+      "min_people": 1,
+      "max_people": null,
+      "what_included": [
+        "Animal training demonstration"
+      ],
+      "what_not_included": [
+        "Zoo admission (must be purchased separately)"
+      ],
+      "departure_times": [
+        "1:45pm"
+      ],
+      "days_available": [
+        "Tuesday",
+        "Thursday",
+        "Saturday",
+        "Sunday"
+      ],
+      "age_min": null,
+      "weight_max": null,
+      "booking_url": "https://www.alabamagulfcoastzoo.com/event/training-tales-2/",
+      "notes": "Held Tuesdays, Thursdays, Saturdays, and Sundays."
+    },
+    {
+      "name": "Big Cat Chat",
+      "type": "attraction",
+      "description": "Keeper-led educational chat about big cats at the zoo. Included with regular paid admission.",
+      "duration": "15 minutes",
+      "price": null,
+      "price_type": "per person",
+      "price_note": "Included with regular paid zoo admission",
+      "min_people": 1,
+      "max_people": null,
+      "what_included": [
+        "Keeper-led big cat educational chat"
+      ],
+      "what_not_included": [
+        "Zoo admission (must be purchased separately)"
+      ],
+      "departure_times": [
+        "11:00am",
+        "2:00pm"
+      ],
+      "days_available": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "age_min": null,
+      "weight_max": null,
+      "booking_url": "https://www.alabamagulfcoastzoo.com/event/big-cat-chat/",
+      "notes": "Mondays at 11:00am–11:15am; Wednesdays & Fridays at 2:00pm–2:15pm."
+    },
+    {
+      "name": "Bobcat Chat",
+      "type": "attraction",
+      "description": "Keeper-led educational chat about bobcats, one of North America's most fascinating predators. Included with regular paid admission.",
+      "duration": "15 minutes (10:00am - 10:15am)",
+      "price": null,
+      "price_type": "per person",
+      "price_note": "Included with regular paid zoo admission",
+      "min_people": 1,
+      "max_people": null,
+      "what_included": [
+        "Keeper-led bobcat educational chat"
+      ],
+      "what_not_included": [
+        "Zoo admission (must be purchased separately)"
+      ],
+      "departure_times": [
+        "10:00am"
+      ],
+      "days_available": [
+        "Tuesday"
+      ],
+      "age_min": null,
+      "weight_max": null,
+      "booking_url": "https://www.alabamagulfcoastzoo.com/event/bobcat-chat/",
+      "notes": "Schedule based on structured data; held on Tuesdays."
+    },
+    {
+      "name": "Reptile House Keeper Chat (Small Gators)",
+      "type": "attraction",
+      "description": "Keeper-led chat at the Reptile House featuring small alligators and other reptiles. Included with regular paid admission.",
+      "duration": "15 minutes (11:00am - 11:15am)",
+      "price": null,
+      "price_type": "per person",
+      "price_note": "Included with regular paid zoo admission",
+      "min_people": 1,
+      "max_people": null,
+      "what_included": [
+        "Reptile house keeper demonstration with small gators"
+      ],
+      "what_not_included": [
+        "Zoo admission (must be purchased separately)"
+      ],
+      "departure_times": [
+        "11:00am"
+      ],
+      "days_available": [
+        "Tuesday"
+      ],
+      "age_min": null,
+      "weight_max": null,
+      "booking_url": "https://www.alabamagulfcoastzoo.com/event/reptile-feeding-small-gators/",
+      "notes": "Held on Tuesdays."
+    },
+    {
+      "name": "Baboons Chat",
+      "type": "attraction",
+      "description": "Keeper-led educational chat about baboons at the Alabama Gulf Coast Zoo. Included with regular paid admission.",
+      "duration": "15 minutes (3:00pm - 3:15pm)",
+      "price": null,
+      "price_type": "per person",
+      "price_note": "Included with regular paid zoo admission",
+      "min_people": 1,
+      "max_people": null,
+      "what_included": [
+        "Keeper-led baboon educational chat"
+      ],
+      "what_not_included": [
+        "Zoo admission (must be purchased separately)"
+      ],
+      "departure_times": [
+        "3:00pm"
+      ],
+      "days_available": [
+        "Tuesday"
+      ],
+      "age_min": null,
+      "weight_max": null,
+      "booking_url": "https://www.alabamagulfcoastzoo.com/event/baboons-chat/",
+      "notes": "Held on Tuesdays."
+    }
+  ],
   "url": "https://www.alabamagulfcoastzoo.com",
   "scraped_at": "2026-03-21T19:49:13.762Z",
-  "extracted_at": "2026-03-23T03:28:11.670Z",
-  "model": "claude-haiku-4-5-20251001",
+  "extracted_at": "2026-05-15T18:51:23.655Z",
+  "sources": [
+    "https://www.alabamagulfcoastzoo.com",
+    "https://www.alabamagulfcoastzoo.com/tickets-on-sale-now-for-art-on-the-wild-side-wine-whiskey-stroll-march-28-2026",
+    "https://www.alabamagulfcoastzoo.com/event",
+    "https://www.alabamagulfcoastzoo.com/event/contact-barn-chat/2026-03-22",
+    "https://www.alabamagulfcoastzoo.com/event/contact-barn-chat/2024-07-22",
+    "https://www.alabamagulfcoastzoo.com/event/contact-barn-chat/2026-03-21",
+    "https://www.alabamagulfcoastzoo.com/events/list/page/2/?shortcode=24f53d40",
+    "https://www.alabamagulfcoastzoo.com/event/contact-barn-chat/2026-03-24",
+    "https://www.alabamagulfcoastzoo.com/event/contact-barn-chat/2026-03-23",
+    "https://www.alabamagulfcoastzoo.com/events/list/page/2/?shortcode=24f53d40&eventDisplay=past",
+    "https://www.alabamagulfcoastzoo.com/events/list/?shortcode=24f53d40&eventDisplay=past",
+    "https://www.alabamagulfcoastzoo.com/events/summary/?shortcode=24f53d40",
+    "https://www.alabamagulfcoastzoo.com/events/summary/?shortcode=24f53d40&eventDisplay=past",
+    "https://www.alabamagulfcoastzoo.com/events/map/?shortcode=24f53d40",
+    "https://www.alabamagulfcoastzoo.com/events/map/?shortcode=24f53d40&eventDisplay=past",
+    "https://www.alabamagulfcoastzoo.com/events/week/?shortcode=24f53d40",
+    "https://www.alabamagulfcoastzoo.com/events/week/?shortcode=24f53d40&eventDisplay=past",
+    "https://www.alabamagulfcoastzoo.com/events/photo/?shortcode=24f53d40",
+    "https://www.alabamagulfcoastzoo.com/events/photo/?shortcode=24f53d40&eventDisplay=past",
+    "https://www.alabamagulfcoastzoo.com/events/today/?shortcode=24f53d40",
+    "https://www.alabamagulfcoastzoo.com/events/today/?shortcode=24f53d40&eventDisplay=past",
+    "https://www.alabamagulfcoastzoo.com/events/month/?shortcode=24f53d40",
+    "https://www.alabamagulfcoastzoo.com/events/month/?shortcode=24f53d40&eventDisplay=past",
+    "https://www.alabamagulfcoastzoo.com/events/list/?shortcode=24f53d40",
+    "https://www.alabamagulfcoastzoo.com/event/art-on-the-wild-side",
+    "https://www.alabamagulfcoastzoo.com/private-parties",
+    "https://www.alabamagulfcoastzoo.com/events",
+    "https://www.alabamagulfcoastzoo.com/directions",
+    "https://www.alabamagulfcoastzoo.com/about-the-zoo",
+    "https://www.alabamagulfcoastzoo.com/history",
+    "https://www.alabamagulfcoastzoo.com/contact",
+    "https://www.alabamagulfcoastzoo.com/about",
+    "https://www.alabamagulfcoastzoo.com/event/animal-ambassador-walkabout/2026-03-22",
+    "https://www.alabamagulfcoastzoo.com/event/animal-ambassador-walkabout/2024-07-22",
+    "https://www.alabamagulfcoastzoo.com/event/animal-ambassador-walkabout/2026-03-23",
+    "https://www.alabamagulfcoastzoo.com/event/animal-ambassador-walkabout/2026-03-24",
+    "https://www.alabamagulfcoastzoo.com/wp-content/uploads/2025/10/Oct-2025-VenueRental-updated-2025-2026.pdf",
+    "https://www.alabamagulfcoastzoo.com/wp-content/uploads/2024/03/Alabama-Gulf-Coast-Zoo-Map.pdf"
+  ],
   "gallery": [
     "https://www.alabamagulfcoastzoo.com/wp-content/uploads/2023/07/Zoo-Logo-misson-trans-300x209-1.webp",
     "https://www.alabamagulfcoastzoo.com/wp-content/uploads/2024/02/Alabama-Gulf-Coast-Zoo-Logo-White-and-Color.png",
@@ -140,43 +693,5 @@
     "https://www.alabamagulfcoastzoo.com/wp-content/uploads/2023/08/GulfShores-OrangeBeach.png",
     "https://www.alabamagulfcoastzoo.com/wp-content/uploads/2023/08/CABC_Logo_Square.jpg",
     "https://www.alabamagulfcoastzoo.com/wp-content/uploads/2023/08/home_of_logo.png"
-  ],
-  "sources": [
-    "https://www.alabamagulfcoastzoo.com",
-    "https://www.alabamagulfcoastzoo.com/tickets-on-sale-now-for-art-on-the-wild-side-wine-whiskey-stroll-march-28-2026",
-    "https://www.alabamagulfcoastzoo.com/event",
-    "https://www.alabamagulfcoastzoo.com/event/contact-barn-chat/2026-03-22",
-    "https://www.alabamagulfcoastzoo.com/event/contact-barn-chat/2024-07-22",
-    "https://www.alabamagulfcoastzoo.com/event/contact-barn-chat/2026-03-21",
-    "https://www.alabamagulfcoastzoo.com/events/list/page/2/?shortcode=24f53d40",
-    "https://www.alabamagulfcoastzoo.com/event/contact-barn-chat/2026-03-24",
-    "https://www.alabamagulfcoastzoo.com/event/contact-barn-chat/2026-03-23",
-    "https://www.alabamagulfcoastzoo.com/events/list/page/2/?shortcode=24f53d40&eventDisplay=past",
-    "https://www.alabamagulfcoastzoo.com/events/list/?shortcode=24f53d40&eventDisplay=past",
-    "https://www.alabamagulfcoastzoo.com/events/summary/?shortcode=24f53d40",
-    "https://www.alabamagulfcoastzoo.com/events/summary/?shortcode=24f53d40&eventDisplay=past",
-    "https://www.alabamagulfcoastzoo.com/events/map/?shortcode=24f53d40",
-    "https://www.alabamagulfcoastzoo.com/events/map/?shortcode=24f53d40&eventDisplay=past",
-    "https://www.alabamagulfcoastzoo.com/events/week/?shortcode=24f53d40",
-    "https://www.alabamagulfcoastzoo.com/events/week/?shortcode=24f53d40&eventDisplay=past",
-    "https://www.alabamagulfcoastzoo.com/events/photo/?shortcode=24f53d40",
-    "https://www.alabamagulfcoastzoo.com/events/photo/?shortcode=24f53d40&eventDisplay=past",
-    "https://www.alabamagulfcoastzoo.com/events/today/?shortcode=24f53d40",
-    "https://www.alabamagulfcoastzoo.com/events/today/?shortcode=24f53d40&eventDisplay=past",
-    "https://www.alabamagulfcoastzoo.com/events/month/?shortcode=24f53d40",
-    "https://www.alabamagulfcoastzoo.com/events/month/?shortcode=24f53d40&eventDisplay=past",
-    "https://www.alabamagulfcoastzoo.com/events/list/?shortcode=24f53d40",
-    "https://www.alabamagulfcoastzoo.com/event/art-on-the-wild-side",
-    "https://www.alabamagulfcoastzoo.com/private-parties",
-    "https://www.alabamagulfcoastzoo.com/events",
-    "https://www.alabamagulfcoastzoo.com/directions",
-    "https://www.alabamagulfcoastzoo.com/about-the-zoo",
-    "https://www.alabamagulfcoastzoo.com/history",
-    "https://www.alabamagulfcoastzoo.com/contact",
-    "https://www.alabamagulfcoastzoo.com/about",
-    "https://www.alabamagulfcoastzoo.com/event/animal-ambassador-walkabout/2026-03-22",
-    "https://www.alabamagulfcoastzoo.com/event/animal-ambassador-walkabout/2024-07-22",
-    "https://www.alabamagulfcoastzoo.com/event/animal-ambassador-walkabout/2026-03-23",
-    "https://www.alabamagulfcoastzoo.com/event/animal-ambassador-walkabout/2026-03-24"
   ]
 }

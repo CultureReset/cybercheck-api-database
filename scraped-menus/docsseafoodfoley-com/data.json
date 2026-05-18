@@ -1,331 +1,116 @@
 {
-  "business_name": "Doc's Seafood Shack Foley",
-  "tagline": "The BEST Shrimp In The Entire Civilized World!",
-  "type": "Restaurant",
+  "business_name": "Doc's Seafood Shack",
+  "cuisine_type": "Gulf Coast Seafood & Steaks",
+  "price_range": "$$",
+  "description": "Doc's Seafood Shack in Foley serves Gulf Coast classics with big portions and laid-back, family-friendly coastal atmosphere. Fresh Gulf flavor, cooked to order. Features fried shrimp, oysters, seafood platters, gumbo, steaks, po'boys, and Southern favorites. 32 years of experience cooking seafood.",
   "contact": {
     "phone": "(251) 334-2888",
     "email": null,
     "address": "20520 Miflin Rd.",
     "city": "Foley",
     "state": "AL",
-    "zip": "36565"
-  },
-  "hours": {
-    "monday": "11:00 AM - 9:00 PM",
-    "tuesday": "11:00 AM - 9:00 PM",
-    "wednesday": "11:00 AM - 9:00 PM",
-    "thursday": "11:00 AM - 10:00 PM",
-    "friday": "11:00 AM - 10:00 PM",
-    "saturday": "11:00 AM - 10:00 PM",
-    "sunday": "10:00 AM - 9:00 PM",
-    "notes": "Pickup and delivery hours may vary. Delivery hrs: 11:00 AM - 8:30 PM"
-  },
-  "about": {
-    "description": "Doc's Seafood Shack in Foley serves Gulf Coast classics with big portions and laid-back coastal atmosphere. Fresh seafood including fried shrimp, oysters, fish, steaks, po'boys, gumbo, and Southern favorites made to order. Operating for 32 years of experience cooking the best seafood.",
-    "elevator_pitch": "Fresh Gulf Coast seafood, steaks, and Southern classics served hot with big portions and coastal charm.",
-    "vibe": "Casual, laid-back Gulf Coast dining with family-friendly atmosphere and local favorite status.",
-    "best_for": [
-      "families",
-      "casual dining",
-      "seafood lovers",
-      "locals and visitors",
-      "quick pickup",
-      "delivery"
-    ],
-    "established": "32 years of experience (approximately 1994)",
-    "reservations": null,
-    "insider_tip": "Large orders? Call ahead so they can time it perfectly. Try the famous fried shrimp."
-  },
-  "tags": [
-    "seafood",
-    "casual dining",
-    "steaks",
-    "Gulf Coast",
-    "fried shrimp",
-    "oysters",
-    "gumbo",
-    "po'boys",
-    "Southern classics",
-    "family-friendly",
-    "delivery",
-    "pickup",
-    "Alabama"
-  ],
-  "features": [
-    "Dine-in",
-    "Pickup",
-    "Delivery (DoorDash, Toast)",
-    "Full menu viewing online",
-    "Gift cards available",
-    "Online store (merchandise, spices, sauces)",
-    "Multiple Doc's locations",
-    "Made to order cooking"
-  ],
-  "price_range": "$$",
-  "social_links": {
-    "instagram": null,
-    "facebook": null,
+    "zip": "36565",
     "website": "https://docsseafoodfoley.com"
   },
-  "specials": [
-    {
-      "name": "Blue Plate Lunch Specials",
-      "description": "Daily rotating Southern favorites served hot with classic sides and big portions",
-      "days": [],
-      "time": "Lunch"
-    },
-    {
-      "name": "Early Bird Specials",
-      "description": "Great value meals featuring Doc's favorites. Example: Best Fried Shrimp in the Entire Civilized World - 4 Fried Shrimp, 1 Stuffed Crab, 2 Fish Filets",
-      "days": [],
-      "time": "Select hours"
-    }
-  ],
-  "events": [],
+  "hours": {
+    "monday": "11:00am-9:00pm",
+    "tuesday": "11:00am-9:00pm",
+    "wednesday": "11:00am-9:00pm",
+    "thursday": "11:00am-10:00pm",
+    "friday": "11:00am-10:00pm",
+    "saturday": "11:00am-10:00pm",
+    "sunday": "10:00am-9:00pm"
+  },
   "menu": {
     "categories": [
       {
         "name": "Signature Plates",
-        "type": "dinner",
         "items": [
           {
             "name": "Doc's Super Seafood Platter",
             "description": "Crispy fried shrimp, house stuffed crab, golden fried fish fillets, classic Southern sides",
             "price": 37.99,
-            "tags": [
-              "signature",
-              "seafood",
-              "platter"
-            ],
-            "allergens": [
-              "shellfish",
-              "fish"
-            ]
+            "dietary_flags": []
           },
           {
             "name": "14oz Ribeye",
-            "description": "Hand-cut ribeye, char-grilled to order, juicy and tender, choice of two sides",
+            "description": "Hand-cut ribeye, char-grilled to order, juicy, tender, full flavor, choice of two sides",
             "price": 43.99,
-            "tags": [
-              "steak",
-              "signature"
-            ],
-            "allergens": []
+            "dietary_flags": []
           }
         ]
       },
       {
-        "name": "Blue Plate Lunch Specials",
-        "type": "lunch",
+        "name": "Blue Plate Specials",
         "items": [
           {
             "name": "Gumbo & Salad Bar",
             "description": "Bowl of Gumbo, 1 Trip Salad Bar",
             "price": 14.99,
-            "tags": [
-              "special",
-              "lunch"
-            ],
-            "allergens": [
-              "shellfish",
-              "seafood"
-            ]
+            "dietary_flags": []
           }
         ]
       },
       {
         "name": "Early Bird Specials",
-        "type": "specials",
         "items": [
           {
             "name": "Best Fried Shrimp in the Entire Civilized World",
             "description": "4 Fried Shrimp, 1 Stuffed Crab, 2 Fish Filets",
             "price": 13.99,
-            "tags": [
-              "special",
-              "early bird",
-              "signature",
-              "seafood"
-            ],
-            "allergens": [
-              "shellfish",
-              "fish"
-            ]
+            "dietary_flags": []
           }
         ]
       },
       {
         "name": "Appetizers",
-        "type": "appetizers",
         "items": [
           {
             "name": "Dynamite Shrimp",
             "description": "Doc's signature Dynamite Shrimp, lightly fried, saucy, savory, bold",
             "price": 16.99,
-            "tags": [
-              "appetizer",
-              "signature",
-              "shrimp"
-            ],
-            "allergens": [
-              "shellfish"
-            ]
-          }
-        ]
-      },
-      {
-        "name": "Main Menu",
-        "type": "dinner",
-        "items": [
-          {
-            "name": "Fried Shrimp",
-            "description": "Gulf Coast fried shrimp",
-            "price": null,
-            "tags": [
-              "seafood",
-              "main"
-            ],
-            "allergens": [
-              "shellfish"
-            ]
-          },
-          {
-            "name": "Oysters",
-            "description": "Chargrilled oysters or oysters on the half shell",
-            "price": null,
-            "tags": [
-              "seafood",
-              "main"
-            ],
-            "allergens": [
-              "shellfish"
-            ]
-          },
-          {
-            "name": "Seafood Platters",
-            "description": "Mixed seafood platters with various preparations",
-            "price": null,
-            "tags": [
-              "seafood",
-              "platter"
-            ],
-            "allergens": [
-              "shellfish",
-              "fish"
-            ]
-          },
-          {
-            "name": "Fish Fillets",
-            "description": "Golden fried fish fillets",
-            "price": null,
-            "tags": [
-              "seafood",
-              "main"
-            ],
-            "allergens": [
-              "fish"
-            ]
-          },
-          {
-            "name": "Po'Boys",
-            "description": "Gulf Coast po'boy sandwiches",
-            "price": null,
-            "tags": [
-              "sandwich",
-              "main"
-            ],
-            "allergens": []
-          },
-          {
-            "name": "Seafood Gumbo",
-            "description": "Classic Southern seafood gumbo",
-            "price": null,
-            "tags": [
-              "soup",
-              "seafood",
-              "Southern"
-            ],
-            "allergens": [
-              "shellfish",
-              "seafood"
-            ]
-          },
-          {
-            "name": "Steaks",
-            "description": "Char-grilled steaks",
-            "price": null,
-            "tags": [
-              "steak",
-              "main"
-            ],
-            "allergens": []
-          },
-          {
-            "name": "Steak and Shrimp Combinations",
-            "description": "Combination of juicy steak with Gulf shrimp",
-            "price": null,
-            "tags": [
-              "combination",
-              "steak",
-              "seafood"
-            ],
-            "allergens": [
-              "shellfish"
-            ]
-          }
-        ]
-      },
-      {
-        "name": "Kids Menu",
-        "type": "kids",
-        "items": [
-          {
-            "name": "Kids Menu Items",
-            "description": "Kid-friendly meals with smaller portions of Doc's most popular dishes",
-            "price": null,
-            "tags": [
-              "kids"
-            ],
-            "allergens": []
+            "dietary_flags": []
           }
         ]
       }
     ]
   },
-  "url": "https://docsseafoodfoley.com",
-  "scraped_at": "2026-03-21T20:29:45.889Z",
-  "extracted_at": "2026-03-23T03:39:13.936Z",
-  "model": "claude-haiku-4-5-20251001",
-  "gallery": [
-    "https://docsseafoodfoley.com/wp-content/uploads/2026/02/Docs-Seafood-Foley-logo-SIGN300.png",
-    "https://docsseafoodfoley.com/wp-content/uploads/2026/02/door-dash-icon.png",
-    "https://docsseafoodfoley.com/wp-content/uploads/2026/02/toast-1.png",
-    "https://docsseafoodfoley.com/wp-content/uploads/2025/09/Docs-Seafood-and-Steaks-Order-Delivery-icon-truck-1.png",
-    "https://docsseafoodfoley.com/wp-content/uploads/2025/09/Docs-Seafood-and-Steaks-Menus-icon.png",
-    "https://docsseafoodfoley.com/wp-content/uploads/2025/09/Docs-Seafood-and-Steaks-Order-Pickup-icon4.png",
-    "https://docsseafoodfoley.com/wp-content/uploads/2025/09/Docs-Seafood-Shack-Foley-Alabama.jpg",
-    "https://docsseafoodfoley.com/wp-content/uploads/2026/02/Docs-Seafood-Shack-Super-Seafood-Platter.jpg",
-    "https://docsseafoodfoley.com/wp-content/uploads/2026/02/Docs-Seafood-Shack-14-oz-Ribeye.jpg",
-    "https://docsseafoodfoley.com/wp-content/uploads/2026/02/Docs-Seafood-Shack-Gumbo.jpg",
-    "https://docsseafoodfoley.com/wp-content/uploads/2026/02/Docs-Seafood-Shack-6-Dozen-Fried-Shrimp.jpg",
-    "https://docsseafoodfoley.com/wp-content/uploads/2026/02/Docs-Seafood-Shack-Dynamite-Shrimp.jpg",
-    "https://maps.gstatic.com/mapfiles/transparent.png",
-    "https://docsseafoodfoley.com/wp-content/uploads/2026/01/docs-seafood-foley-logo.png",
-    "https://www.docsseafoodshack.com/wp-content/uploads/2020/03/facebook-icon-white.png",
-    "https://www.docsseafoodshack.com/wp-content/uploads/2020/03/google-my-business-icon-white.png",
-    "https://www.docsseafoodshack.com/wp-content/uploads/2020/03/google-maps-icon-white.png",
-    "https://www.docsseafoodshack.com/wp-content/uploads/2020/03/google-reviews-icon-white.png",
-    "https://docsseafoodfoley.com/wp-content/uploads/2026/02/Docs-Seafood-Shack-Website-Logo-w-300x174.png",
-    "https://docsseafoodfoley.com/wp-content/uploads/2026/02/DOCS-Seafood-and-Steak-website-logo.png",
-    "https://docsseafoodfoley.com/wp-content/uploads/2026/03/docs-seafood-foley-blueplate-menu-thumb.png",
-    "https://docsseafoodfoley.com/wp-content/uploads/2026/03/docs-seafood-foley-earlybird-menu-thumb.png",
-    "https://docsseafoodfoley.com/wp-content/uploads/2026/03/docs-seafood-foley-kids-menu-thumb.png",
-    "https://docsseafoodfoley.com/wp-content/uploads/2026/03/docs-seafood-foley-main-menu-thumb.png"
+  "specials": [
+    {
+      "name": "Early Bird Specials",
+      "description": "Great value meals featuring Doc's favorites",
+      "days": null,
+      "time": null
+    },
+    {
+      "name": "Blue Plate Specials",
+      "description": "Daily rotating Southern favorites served hot with classic sides and big portions",
+      "days": null,
+      "time": null
+    }
   ],
-  "sources": [
-    "https://docsseafoodfoley.com",
-    "https://docsseafoodfoley.com/docs-seafood-foley-faq",
-    "https://docsseafoodfoley.com/contact-docs-seafood-foley",
-    "https://docsseafoodfoley.com/docs-seafood-foley-menus"
-  ]
+  "features": [
+    "takeout",
+    "delivery",
+    "dine-in",
+    "seafood",
+    "steaks",
+    "oysters",
+    "casual coastal dining",
+    "family-friendly",
+    "DoorDash delivery",
+    "Toast ordering",
+    "gift cards available",
+    "online store"
+  ],
+  "social_media": {
+    "facebook": null,
+    "instagram": null,
+    "twitter": null
+  },
+  "images": [
+    "https://docsseafoodfoley.com/wp-content/uploads/2025/09/Docs-Seafood-Shack-Foley-Alabama-pic.jpg",
+    "https://docsseafoodfoley.com/wp-content/uploads/2026/03/docs-seafood-foley-blueplate-menu-thumb.png"
+  ],
+  "extracted_at": "2026-05-16T19:15:46.904Z"
 }

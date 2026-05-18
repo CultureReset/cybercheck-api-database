@@ -1,333 +1,187 @@
 {
   "business_name": "Efes Greek Kitchen",
-  "tagline": null,
-  "type": "Restaurant",
+  "cuisine_type": "Mediterranean",
+  "price_range": "$$",
+  "description": "We are a Mediterranean restaurant featuring casual quick service classics. Offering drive through pickup with a small outside patio.",
   "contact": {
-    "phone": "(256) 342-1000",
+    "phone": "256-342-1000",
     "email": null,
     "address": "1550 AL-59",
     "city": "Gulf Shores",
     "state": "Alabama",
-    "zip": "36542"
-  },
-  "hours": {
-    "monday": "10:30am - 10:00pm",
-    "tuesday": "10:30am - 10:00pm",
-    "wednesday": "10:30am - 10:00pm",
-    "thursday": "10:30am - 10:00pm",
-    "friday": "10:30am - 10:00pm",
-    "saturday": "10:30am - 10:00pm",
-    "sunday": "10:30am - 10:00pm",
-    "notes": null
-  },
-  "about": {
-    "description": "Mediterranean restaurant featuring casual quick service classics. Offering drive through pickup with a small outside patio.",
-    "elevator_pitch": "A casual Mediterranean restaurant in Gulf Shores offering quick service classics with drive-through pickup.",
-    "vibe": "Casual, quick service",
-    "best_for": [
-      "quick meals",
-      "drive-through pickup",
-      "casual dining"
-    ],
-    "established": null,
-    "reservations": null,
-    "insider_tip": null
-  },
-  "tags": [
-    "Mediterranean",
-    "Greek",
-    "casual",
-    "quick service",
-    "drive-through"
-  ],
-  "features": [
-    "drive-through pickup",
-    "outdoor patio",
-    "handcut fries"
-  ],
-  "price_range": "$$",
-  "social_links": {
-    "instagram": null,
-    "facebook": "https://www.facebook.com/efesgreekkitchen",
+    "zip": "36542",
     "website": "https://efesgreekkitchen.com"
   },
-  "specials": [],
-  "events": [],
+  "hours": {
+    "monday": "10:30am-10:00pm",
+    "tuesday": "10:30am-10:00pm",
+    "wednesday": "10:30am-10:00pm",
+    "thursday": "10:30am-10:00pm",
+    "friday": "10:30am-10:00pm",
+    "saturday": "10:30am-10:00pm",
+    "sunday": "10:30am-10:00pm"
+  },
   "menu": {
     "categories": [
       {
-        "name": "Sandwiches & Wraps",
-        "type": "lunch",
+        "name": "Sandwiches & Combos",
         "items": [
           {
             "name": "Chicken Pita Combo",
             "description": "Grilled chicken on a pita bread with lettuce, tomato, onion and tzatziki sauce. Comes with Fries.",
             "price": 12.39,
-            "tags": [
-              "chicken",
-              "pita",
-              "includes fries"
-            ],
-            "allergens": [
-              "gluten"
-            ]
+            "dietary_flags": []
           },
           {
             "name": "Gyro Combo",
             "description": "Mix of lamb and beef meat on a pita bread with lettuce, tomato, onion and tzatziki sauce. Comes with fries.",
             "price": 12.39,
-            "tags": [
-              "lamb",
-              "beef",
-              "pita",
-              "includes fries"
-            ],
-            "allergens": [
-              "gluten"
-            ]
+            "dietary_flags": []
           },
           {
             "name": "Falafel Wrap Combo",
             "description": "Fried chicpeas on a pita bread with lettuce, tomato, onion and hummus. Comes with fries.",
             "price": 11.89,
-            "tags": [
-              "vegetarian",
-              "falafel",
-              "pita",
-              "includes fries"
-            ],
-            "allergens": [
-              "gluten",
-              "chickpeas"
+            "dietary_flags": [
+              "vegetarian"
             ]
           },
           {
             "name": "Philly Cheesesteak Combo",
             "description": "Comes with onions and green peppers. Comes with fries.",
             "price": 12.39,
-            "tags": [
-              "beef",
-              "cheese",
-              "includes fries"
-            ],
-            "allergens": [
-              "gluten",
-              "dairy"
-            ]
+            "dietary_flags": []
           },
           {
             "name": "Cheeseburger Combo",
             "description": "Comes with fries",
             "price": 10.89,
-            "tags": [
-              "beef",
-              "cheese",
-              "includes fries"
-            ],
-            "allergens": [
-              "gluten",
-              "dairy"
-            ]
+            "dietary_flags": []
           },
           {
             "name": "Hot Dog Combo",
             "description": "Comes with fries",
             "price": 8.2,
-            "tags": [
-              "hot dog",
-              "includes fries"
-            ],
-            "allergens": [
-              "gluten"
-            ]
+            "dietary_flags": []
           }
         ]
       },
       {
         "name": "Appetizers & Sides",
-        "type": "lunch",
         "items": [
           {
             "name": "Grilled Pita with Hummus",
             "description": null,
             "price": 7.49,
-            "tags": [
-              "vegetarian",
-              "hummus"
-            ],
-            "allergens": [
-              "gluten",
-              "sesame"
+            "dietary_flags": [
+              "vegetarian"
             ]
           },
           {
             "name": "Greek Fries",
             "description": "Our famous handcut fries, gyro meat, onions, tomatoes, feta and tzatziki sauce",
             "price": 10,
-            "tags": [
-              "handcut",
-              "feta",
-              "gyro meat"
-            ],
-            "allergens": [
-              "dairy"
-            ]
+            "dietary_flags": []
           },
           {
             "name": "Fresh Cut Cheese Fries",
             "description": "Our famous handcut fries with cheese",
             "price": 7,
-            "tags": [
-              "handcut",
-              "cheese"
-            ],
-            "allergens": [
-              "dairy"
+            "dietary_flags": [
+              "vegetarian"
             ]
+          },
+          {
+            "name": "Chicken Tenders Basket",
+            "description": "3 tenders with fries",
+            "price": 11.89,
+            "dietary_flags": []
           }
         ]
       },
       {
         "name": "Salads",
-        "type": "lunch",
         "items": [
           {
             "name": "Greek Salad",
-            "description": "Romain lettuce, onions, tomatoes, cucumbers, olives, banana peppers, feta cheese and greek dressing. * Add chicken or lamb meat 2.00",
+            "description": "Romain lettuce, onions, tomatoes, cucumbers, olives, banana peppers, feta cheese and greek dressing. Add chicken or lamb meat 2.00",
             "price": 7,
-            "tags": [
-              "vegetarian",
-              "salad",
-              "feta",
-              "upgradeable"
-            ],
-            "allergens": [
-              "dairy"
-            ]
-          }
-        ]
-      },
-      {
-        "name": "Entrees",
-        "type": "lunch",
-        "items": [
-          {
-            "name": "Chicken Tenders Basket",
-            "description": "3 tenders with fries",
-            "price": 11.89,
-            "tags": [
-              "chicken",
-              "includes fries"
-            ],
-            "allergens": [
-              "gluten"
+            "dietary_flags": [
+              "vegetarian"
             ]
           }
         ]
       },
       {
         "name": "Extras",
-        "type": "lunch",
         "items": [
           {
             "name": "Feta Cheese",
             "description": null,
             "price": 0.75,
-            "tags": [
-              "add-on"
-            ],
-            "allergens": [
-              "dairy"
+            "dietary_flags": [
+              "vegetarian"
             ]
           },
           {
-            "name": "Tzatziki Sauce",
+            "name": "Tzatziki sauce",
             "description": null,
             "price": 0.75,
-            "tags": [
-              "add-on"
-            ],
-            "allergens": [
-              "dairy"
+            "dietary_flags": [
+              "vegetarian"
             ]
           }
         ]
       },
       {
-        "name": "Desserts & Treats",
-        "type": "desserts",
+        "name": "Desserts & Beverages",
         "items": [
           {
             "name": "Milkshake",
             "description": "Chocolate, vanilla, strawberry. Made with real ice cream",
             "price": 8,
-            "tags": [
-              "dessert",
-              "ice cream"
-            ],
-            "allergens": [
-              "dairy"
+            "dietary_flags": [
+              "vegetarian"
             ]
           },
           {
             "name": "Ice Cream",
             "description": "Chocolate, vanilla, strawberry. 2 scoops in a cup",
             "price": 7,
-            "tags": [
-              "dessert"
-            ],
-            "allergens": [
-              "dairy"
+            "dietary_flags": [
+              "vegetarian"
             ]
-          }
-        ]
-      },
-      {
-        "name": "Beverages",
-        "type": "drinks",
-        "items": [
+          },
           {
             "name": "Cold Drinks",
             "description": null,
             "price": 3,
-            "tags": [
-              "beverage"
-            ],
-            "allergens": []
+            "dietary_flags": []
           },
           {
             "name": "Lemonade or Sweet Tea",
             "description": null,
             "price": 3,
-            "tags": [
-              "beverage"
-            ],
-            "allergens": []
+            "dietary_flags": [
+              "vegetarian"
+            ]
           }
         ]
       }
     ]
   },
-  "url": "https://efesgreekkitchen.com",
-  "scraped_at": "2026-03-21T19:34:16.050Z",
-  "extracted_at": "2026-03-23T03:40:05.136Z",
-  "model": "claude-haiku-4-5-20251001",
-  "gallery": [
-    "https://efesgreekkitchen.com/wp-content/uploads/2020/09/drivethroughcover.jpg",
-    "https://efesgreekkitchen.com/wp-content/uploads/2020/09/efesfrontcoverpic.jpg",
-    "http://efesgreekkitchen.com/wp-content/uploads/2020/09/efeslogo.jpg",
-    "https://efesgreekkitchen.com/wp-content/uploads/2020/09/menucover.jpg",
-    "https://efesgreekkitchen.com/wp-content/uploads/2020/09/efesgreekkitchengulfshoreschickengrro-150x150.jpg",
-    "https://efesgreekkitchen.com/wp-content/uploads/2020/09/efesgreekkitchengulfshoresgyro-150x150.jpg",
-    "https://efesgreekkitchen.com/wp-content/uploads/2020/09/efesgreekkitchengulfshoresfalafelsandwich-150x150.jpg",
-    "https://efesgreekkitchen.com/wp-content/uploads/2020/09/efesgreekkitchengulfshoresphilly-150x150.jpg",
-    "https://efesgreekkitchen.com/wp-content/uploads/2020/09/efesgreekkitchengulfshoresburger-150x150.jpg"
+  "specials": [],
+  "features": [
+    "drive through",
+    "outdoor patio",
+    "casual dining",
+    "quick service"
   ],
-  "sources": [
-    "https://efesgreekkitchen.com",
-    "http://efesgreekkitchen.com/index.php/menu",
-    "https://efesgreekkitchen.com/index.php/menu",
-    "https://efesgreekkitchen.com/index.php/contact",
-    "http://efesgreekkitchen.com/index.php/contact"
-  ]
+  "social_media": {
+    "facebook": "https://www.facebook.com/efesgreekkitchen",
+    "instagram": null,
+    "twitter": null
+  },
+  "images": [],
+  "extracted_at": "2026-05-16T19:16:20.440Z"
 }

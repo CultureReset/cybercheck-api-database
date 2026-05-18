@@ -1,71 +1,293 @@
 {
   "business_name": "Scuttlebutt Pub & Cocktails",
-  "tagline": "Enter as a Stranger, Leave as a Friend",
-  "type": "Bar",
+  "cuisine_type": "Pub",
+  "price_range": null,
+  "description": "At Scuttlebutt Pub & Cocktails, no one is a stranger. Whether you've known someone for 8 years or your entire life. Rest assured, when you walk into Scuttlebutt Pub & Cocktails, we will make you feel comfortable. Our goal, mission, and passion are to make sure all of our guests have the most amazing time. When you're here, whether you are a stranger, you will be having fun and leave as a friend. Opened in 2005, Scuttlebutt Pub & Cocktails derives its name from the term coined on a Navy ship, where rumors and gossip would be exchanged. Throughout its 18-year history, this hidden gem has had only three owners. The story of Marti and Daniel's discovery of Scuttlebutt Pub & Cocktails is an intriguing one. Following a dinner party, Chef Ira from the renowned restaurant Local & Co. suggested a karaoke night at Scuttlebutt Pub & Cocktails. Surprisingly, most of the group had never heard of this establishment. Upon entering, Daniel experienced love at first sight and immediately inquired about the pub's availability for sale. He was captivated by the notion that it could have been a cherished spot for Marti's late father, Joe Kanarick. Within a swift 30 days, Marti and Daniel purchased the business in November 2021. Since acquiring Scuttlebutt Pub & Cocktails, we have transformed the humble liquor inventory of only seven bottles into an impressive collection of over 257 bottles. Our establishment now boasts an extensive selection of tequila, bourbon, whiskey, scotch, vodka, and more. We take pride in our expertise in crafting tiki-style drinks and classic old fashioneds. There is no libation we won't endeavor to create.",
   "contact": {
     "phone": "(251) 971-6403",
     "email": null,
     "address": "319A N McKenzie St",
     "city": "Foley",
     "state": "AL",
-    "zip": "36535"
+    "zip": "36535",
+    "website": "https://scuttlebuttpubfoley.com"
   },
   "hours": {
-    "monday": "11am - 2am",
-    "tuesday": "11am - 2am",
-    "wednesday": "11am - 2am",
-    "thursday": "11am - 2am",
-    "friday": "11am - 2am",
-    "saturday": "11am - 2am",
-    "sunday": "11am - 2am",
-    "notes": "Open Daily"
+    "monday": "11am-2am",
+    "tuesday": "11am-2am",
+    "wednesday": "11am-2am",
+    "thursday": "11am-2am",
+    "friday": "11am-2am",
+    "saturday": "11am-2am",
+    "sunday": "11am-2am"
   },
-  "about": {
-    "description": "At Scuttlebutt Pub & Cocktails, no one is a stranger. Opened in 2005, the establishment derives its name from the Navy term for rumors and gossip. Owned by Marti and Daniel since November 2021, the pub has transformed from a humble 7-bottle liquor inventory to an impressive collection of over 257 bottles including tequila, bourbon, whiskey, scotch, and vodka. The pub specializes in tiki-style drinks and classic old fashioneds.",
-    "elevator_pitch": "A welcoming neighborhood pub with an extensive spirits collection and craft cocktails where everyone becomes a friend.",
-    "vibe": "Casual, inclusive, fun neighborhood gathering spot with karaoke, live music, and a commitment to world-class hospitality",
-    "best_for": [
-      "karaoke nights",
-      "live music",
-      "cocktails",
-      "service industry workers",
-      "pool games",
-      "socializing"
-    ],
-    "established": "2005",
-    "reservations": "Available for private events",
-    "insider_tip": "Visit during Happy Hour (Monday-Saturday 11am-7pm, all day Sunday) for discounted drinks and specials"
-  },
-  "tags": [
-    "bar",
-    "cocktails",
-    "karaoke",
-    "live music",
-    "pool",
-    "happy hour",
-    "craft cocktails",
-    "spirits",
-    "tiki drinks"
-  ],
-  "features": [
-    "full bar",
-    "karaoke",
-    "live music",
-    "pool tables",
-    "private events available",
-    "extensive liquor selection",
-    "craft cocktails"
-  ],
-  "price_range": "$$",
-  "social_links": {
-    "instagram": "https://instagram.com/scuttlebuttpubfoley",
-    "facebook": "https://facebook.com/scuttlebuttpubfoley",
-    "website": "https://scuttlebuttpubfoley.com"
+  "menu": {
+    "categories": [
+      {
+        "name": "Light Beers",
+        "items": [
+          {
+            "name": "Bud Light",
+            "description": null,
+            "price": 4,
+            "dietary_flags": []
+          },
+          {
+            "name": "Bud Light Lime",
+            "description": null,
+            "price": 3,
+            "dietary_flags": []
+          },
+          {
+            "name": "Busch Light",
+            "description": null,
+            "price": 4,
+            "dietary_flags": []
+          },
+          {
+            "name": "Coors Light",
+            "description": null,
+            "price": 4,
+            "dietary_flags": []
+          },
+          {
+            "name": "Miller Lite",
+            "description": null,
+            "price": 4,
+            "dietary_flags": []
+          },
+          {
+            "name": "Michelob Ultra",
+            "description": null,
+            "price": 4,
+            "dietary_flags": []
+          },
+          {
+            "name": "Michelob Lite",
+            "description": null,
+            "price": 4,
+            "dietary_flags": []
+          },
+          {
+            "name": "Michelob Gold",
+            "description": null,
+            "price": 4,
+            "dietary_flags": []
+          }
+        ]
+      },
+      {
+        "name": "Lagers",
+        "items": [
+          {
+            "name": "Budweiser",
+            "description": null,
+            "price": 4,
+            "dietary_flags": []
+          },
+          {
+            "name": "Busch",
+            "description": null,
+            "price": 3,
+            "dietary_flags": []
+          },
+          {
+            "name": "Miller High Life",
+            "description": null,
+            "price": 4,
+            "dietary_flags": []
+          },
+          {
+            "name": "PBR",
+            "description": null,
+            "price": 4,
+            "dietary_flags": []
+          },
+          {
+            "name": "Yuengling",
+            "description": null,
+            "price": 3,
+            "dietary_flags": []
+          }
+        ]
+      },
+      {
+        "name": "Island-Style",
+        "items": [
+          {
+            "name": "Corona",
+            "description": null,
+            "price": 5,
+            "dietary_flags": []
+          },
+          {
+            "name": "Dos Equis",
+            "description": null,
+            "price": 5,
+            "dietary_flags": []
+          }
+        ]
+      },
+      {
+        "name": "Import",
+        "items": [
+          {
+            "name": "Red Stripe",
+            "description": null,
+            "price": 3,
+            "dietary_flags": []
+          },
+          {
+            "name": "Guinness",
+            "description": null,
+            "price": 7,
+            "dietary_flags": []
+          }
+        ]
+      },
+      {
+        "name": "Cider",
+        "items": [
+          {
+            "name": "Angry Orchard",
+            "description": null,
+            "price": 5,
+            "dietary_flags": []
+          },
+          {
+            "name": "Ace Guava",
+            "description": null,
+            "price": 7,
+            "dietary_flags": []
+          }
+        ]
+      },
+      {
+        "name": "White Wine",
+        "items": [
+          {
+            "name": "Sonoroso Sweet White",
+            "description": null,
+            "price": 7,
+            "dietary_flags": [
+              "vegetarian"
+            ]
+          },
+          {
+            "name": "Franciscan Chardonnay",
+            "description": null,
+            "price": 9,
+            "dietary_flags": [
+              "vegetarian"
+            ]
+          },
+          {
+            "name": "Frontera Chardonnay",
+            "description": null,
+            "price": 6,
+            "dietary_flags": [
+              "vegetarian"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Red Wine",
+        "items": [
+          {
+            "name": "Frontera Cabernet Sauvignon",
+            "description": null,
+            "price": 6,
+            "dietary_flags": [
+              "vegetarian"
+            ]
+          },
+          {
+            "name": "Sonoroso Sweet Red",
+            "description": null,
+            "price": 7,
+            "dietary_flags": [
+              "vegetarian"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Shooters",
+        "items": [
+          {
+            "name": "Double D's",
+            "description": "Blue Chair Key Lime, Blue Chair Pineapple, and bitters",
+            "price": 6,
+            "dietary_flags": []
+          },
+          {
+            "name": "Painkiller",
+            "description": "Pineapple and orange juice, Coco Lopez, and dark rum",
+            "price": 5,
+            "dietary_flags": []
+          },
+          {
+            "name": "Lemon Drop",
+            "description": "Lemon vodka, lemon juice, and sugar",
+            "price": 5,
+            "dietary_flags": []
+          },
+          {
+            "name": "Green Tea",
+            "description": "Irish Whiskey, peach schnapps, and sour",
+            "price": 7,
+            "dietary_flags": []
+          },
+          {
+            "name": "'Butt Punch",
+            "description": "Fresh juice, dark rum, bitters, and nutmeg",
+            "price": 5,
+            "dietary_flags": []
+          },
+          {
+            "name": "Ginger",
+            "description": "Gin, Domaine de Canton, lemon juice",
+            "price": 8,
+            "dietary_flags": []
+          }
+        ]
+      },
+      {
+        "name": "One & One",
+        "items": [
+          {
+            "name": "Bartender's Handshake",
+            "description": "Budweiser Lager & Jameson Irish Whiskey",
+            "price": 12,
+            "dietary_flags": []
+          },
+          {
+            "name": "Angry Balls",
+            "description": "Angry Orchard Hard Cider & Fireball",
+            "price": 8,
+            "dietary_flags": []
+          },
+          {
+            "name": "Salt & Lime",
+            "description": "Good People Muchacho & Corazon tequila",
+            "price": 11,
+            "dietary_flags": []
+          },
+          {
+            "name": "The Usual",
+            "description": "Crown Royal Canadian Whiskey & Budweiser Lager",
+            "price": 9,
+            "dietary_flags": []
+          }
+        ]
+      }
+    ]
   },
   "specials": [
     {
       "name": "Happy Hour",
-      "description": "$1 off bottled beer, Jagermeister, Fireball, Crown Royal, Skrewball; $5 Double D's, Baby Bombs, Old Fashioneds, Jose Gold; $6 Martinis, Margaritas, Green Teas, Vegas Bomb, Titos",
+      "description": "$1 off bottled beer, Jagermeister, Fireball, Crown Royal, Skrewball. $5 Double D's, Baby Bombs, Old Fashioneds, José Gold. $6 Martinis, Margaritas, Green Teas, Vegas Bomb, Titos",
       "days": [
         "Monday",
         "Tuesday",
@@ -75,7 +297,7 @@
         "Saturday",
         "Sunday"
       ],
-      "time": "Monday-Saturday 11am-7pm, All Day Sunday"
+      "time": "11am-7pm Monday-Saturday, All Day Sunday"
     },
     {
       "name": "Martini Mondays",
@@ -100,469 +322,69 @@
         "Wednesday"
       ],
       "time": null
-    }
-  ],
-  "events": [
+    },
     {
       "name": "Free Pool Play",
-      "description": "Free pool games available",
-      "recurring": true,
-      "day": "Sunday, Monday",
+      "description": "Free Pool Play",
+      "days": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
       "time": "11am"
     },
     {
       "name": "Service Industry Night",
-      "description": "Special night for service industry workers",
-      "recurring": true,
-      "day": "Wednesday",
+      "description": "Service Industry Night",
+      "days": [
+        "Wednesday"
+      ],
       "time": "9pm"
     },
     {
-      "name": "Karaoke Night",
-      "description": "Karaoke entertainment",
-      "recurring": true,
-      "day": "Thursday, Friday",
+      "name": "Karoke Night",
+      "description": "Karoke Night",
+      "days": [
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
       "time": "9pm"
     },
     {
       "name": "Third Thursday Downtown Foley",
-      "description": "Downtown Foley community event",
-      "recurring": true,
-      "day": "Third Thursday of each month",
+      "description": "Third Thursday Downtown Foley",
+      "days": [
+        "Thursday"
+      ],
       "time": "4pm"
     },
     {
       "name": "Live Music",
-      "description": "Live music entertainment",
-      "recurring": true,
-      "day": "Saturday",
+      "description": "Live Music",
+      "days": [
+        "Saturday"
+      ],
       "time": "9pm"
     }
   ],
-  "menu": {
-    "categories": [
-      {
-        "name": "Light Beers",
-        "type": "drinks",
-        "items": [
-          {
-            "name": "Bud Light",
-            "description": null,
-            "price": 4,
-            "tags": [
-              "beer",
-              "light"
-            ],
-            "allergens": []
-          },
-          {
-            "name": "Bud Light Lime",
-            "description": null,
-            "price": 3,
-            "tags": [
-              "beer",
-              "light"
-            ],
-            "allergens": []
-          },
-          {
-            "name": "Busch Light",
-            "description": null,
-            "price": 4,
-            "tags": [
-              "beer",
-              "light"
-            ],
-            "allergens": []
-          },
-          {
-            "name": "Coors Light",
-            "description": null,
-            "price": 4,
-            "tags": [
-              "beer",
-              "light"
-            ],
-            "allergens": []
-          },
-          {
-            "name": "Miller Lite",
-            "description": null,
-            "price": 4,
-            "tags": [
-              "beer",
-              "light"
-            ],
-            "allergens": []
-          },
-          {
-            "name": "Michelob Ultra",
-            "description": null,
-            "price": 4,
-            "tags": [
-              "beer",
-              "light"
-            ],
-            "allergens": []
-          },
-          {
-            "name": "Michelob Lite",
-            "description": null,
-            "price": 4,
-            "tags": [
-              "beer",
-              "light"
-            ],
-            "allergens": []
-          },
-          {
-            "name": "Michelob Gold",
-            "description": null,
-            "price": 4,
-            "tags": [
-              "beer",
-              "light"
-            ],
-            "allergens": []
-          }
-        ]
-      },
-      {
-        "name": "Lagers",
-        "type": "drinks",
-        "items": [
-          {
-            "name": "Budweiser",
-            "description": null,
-            "price": 4,
-            "tags": [
-              "beer",
-              "lager"
-            ],
-            "allergens": []
-          },
-          {
-            "name": "Busch",
-            "description": null,
-            "price": 3,
-            "tags": [
-              "beer",
-              "lager"
-            ],
-            "allergens": []
-          },
-          {
-            "name": "Miller High Life",
-            "description": null,
-            "price": 4,
-            "tags": [
-              "beer",
-              "lager"
-            ],
-            "allergens": []
-          },
-          {
-            "name": "PBR",
-            "description": null,
-            "price": 4,
-            "tags": [
-              "beer",
-              "lager"
-            ],
-            "allergens": []
-          },
-          {
-            "name": "Yuengling",
-            "description": null,
-            "price": 3,
-            "tags": [
-              "beer",
-              "lager"
-            ],
-            "allergens": []
-          }
-        ]
-      },
-      {
-        "name": "Island-Style",
-        "type": "drinks",
-        "items": [
-          {
-            "name": "Corona",
-            "description": null,
-            "price": 5,
-            "tags": [
-              "beer",
-              "island"
-            ],
-            "allergens": []
-          },
-          {
-            "name": "Dos Equis",
-            "description": null,
-            "price": 5,
-            "tags": [
-              "beer",
-              "island"
-            ],
-            "allergens": []
-          }
-        ]
-      },
-      {
-        "name": "Import",
-        "type": "drinks",
-        "items": [
-          {
-            "name": "Red Stripe",
-            "description": null,
-            "price": 3,
-            "tags": [
-              "beer",
-              "import"
-            ],
-            "allergens": []
-          },
-          {
-            "name": "Guinness",
-            "description": null,
-            "price": 7,
-            "tags": [
-              "beer",
-              "import",
-              "stout"
-            ],
-            "allergens": []
-          }
-        ]
-      },
-      {
-        "name": "Cider",
-        "type": "drinks",
-        "items": [
-          {
-            "name": "Angry Orchard",
-            "description": null,
-            "price": 5,
-            "tags": [
-              "cider"
-            ],
-            "allergens": []
-          },
-          {
-            "name": "Ace Guava",
-            "description": null,
-            "price": 7,
-            "tags": [
-              "cider"
-            ],
-            "allergens": []
-          }
-        ]
-      },
-      {
-        "name": "Wine - White",
-        "type": "drinks",
-        "items": [
-          {
-            "name": "Sonoroso Sweet White",
-            "description": null,
-            "price": 7,
-            "tags": [
-              "wine",
-              "white"
-            ],
-            "allergens": []
-          },
-          {
-            "name": "Franciscan Chardonnay",
-            "description": null,
-            "price": 9,
-            "tags": [
-              "wine",
-              "white"
-            ],
-            "allergens": []
-          },
-          {
-            "name": "Frontera Chardonnay",
-            "description": null,
-            "price": 6,
-            "tags": [
-              "wine",
-              "white"
-            ],
-            "allergens": []
-          }
-        ]
-      },
-      {
-        "name": "Wine - Red",
-        "type": "drinks",
-        "items": [
-          {
-            "name": "Frontera Cabernet Sauvignon",
-            "description": null,
-            "price": 6,
-            "tags": [
-              "wine",
-              "red"
-            ],
-            "allergens": []
-          },
-          {
-            "name": "Sonoroso Sweet Red",
-            "description": null,
-            "price": 7,
-            "tags": [
-              "wine",
-              "red"
-            ],
-            "allergens": []
-          }
-        ]
-      },
-      {
-        "name": "Shooters",
-        "type": "drinks",
-        "items": [
-          {
-            "name": "Double D's",
-            "description": "Blue Chair Key Lime, Blue Chair Pineapple, and bitters",
-            "price": 6,
-            "tags": [
-              "shooter"
-            ],
-            "allergens": []
-          },
-          {
-            "name": "Painkiller",
-            "description": "Pineapple and orange juice, Coco Lopez, and dark rum",
-            "price": 5,
-            "tags": [
-              "shooter"
-            ],
-            "allergens": []
-          },
-          {
-            "name": "Lemon Drop",
-            "description": "Lemon vodka, lemon juice, and sugar",
-            "price": 5,
-            "tags": [
-              "shooter"
-            ],
-            "allergens": []
-          },
-          {
-            "name": "Green Tea",
-            "description": "Irish Whiskey, peach schnapps, and sour",
-            "price": 7,
-            "tags": [
-              "shooter"
-            ],
-            "allergens": []
-          },
-          {
-            "name": "'Butt Punch",
-            "description": "Fresh juice, dark rum, bitters, and nutmeg",
-            "price": 5,
-            "tags": [
-              "shooter"
-            ],
-            "allergens": []
-          },
-          {
-            "name": "Ginger",
-            "description": "Gin, Domaine de Canton, lemon juice",
-            "price": 8,
-            "tags": [
-              "shooter"
-            ],
-            "allergens": []
-          }
-        ]
-      },
-      {
-        "name": "One & One",
-        "type": "drinks",
-        "items": [
-          {
-            "name": "Bartender's Handshake",
-            "description": "Budweiser Lager & Jameson Irish Whiskey",
-            "price": 12,
-            "tags": [
-              "beer and shot",
-              "whiskey"
-            ],
-            "allergens": []
-          },
-          {
-            "name": "Angry Balls",
-            "description": "Angry Orchard Hard Cider & Fireball",
-            "price": 8,
-            "tags": [
-              "cider and shot",
-              "cinnamon"
-            ],
-            "allergens": []
-          },
-          {
-            "name": "Salt & Lime",
-            "description": "Good People Muchacho & Corazon tequila",
-            "price": 11,
-            "tags": [
-              "beer and shot",
-              "tequila"
-            ],
-            "allergens": []
-          },
-          {
-            "name": "The Usual",
-            "description": "Crown Royal Canadian Whiskey & Budweiser Lager",
-            "price": 9,
-            "tags": [
-              "beer and shot",
-              "whiskey"
-            ],
-            "allergens": []
-          }
-        ]
-      },
-      {
-        "name": "Buckets (32 oz)",
-        "type": "drinks",
-        "items": [
-          {
-            "name": "Beer Buckets",
-            "description": "32 oz buckets of various beers available",
-            "price": null,
-            "tags": [
-              "bucket",
-              "beer"
-            ],
-            "allergens": []
-          }
-        ]
-      }
-    ]
-  },
-  "url": "https://scuttlebuttpubfoley.com",
-  "scraped_at": "2026-03-21T20:44:54.878Z",
-  "extracted_at": "2026-03-23T04:06:34.415Z",
-  "model": "claude-haiku-4-5-20251001",
-  "gallery": [
-    "https://scuttlebuttpubfoley.com/images/design/logo.webp",
-    "https://scuttlebuttpubfoley.com/images/bg/slide1.webp",
-    "https://scuttlebuttpubfoley.com/spillover/emailer2020/img/scuttlebuttpubfoley/SCUTTLEBUTT-MENU--(2)-1.png",
-    "https://scuttlebuttpubfoley.com/spillover/emailer2020/img/scuttlebuttpubfoley/SCUTTLEBUTT-MENU--(2)-3.png",
-    "https://scuttlebuttpubfoley.com/spillover/emailer2020/img/scuttlebuttpubfoley/SCUTTLEBUTT-MENU--(2)-4.png"
+  "features": [
+    "full bar",
+    "craft cocktails",
+    "karaoke",
+    "live music",
+    "pool tables",
+    "private events",
+    "extensive liquor selection"
   ],
-  "sources": [
-    "https://scuttlebuttpubfoley.com",
-    "https://scuttlebuttpubfoley.com/calendar",
-    "https://scuttlebuttpubfoley.com/private-events",
-    "https://scuttlebuttpubfoley.com/menu",
-    "https://scuttlebuttpubfoley.com/about",
-    "https://scuttlebuttpubfoley.com/contact"
-  ]
+  "social_media": {
+    "facebook": "https://facebook.com/scuttlebuttpubfoley",
+    "instagram": "https://instagram.com/scuttlebuttpubfoley",
+    "twitter": "https://twitter.com/scuttlebuttpubfoley"
+  },
+  "images": [],
+  "extracted_at": "2026-05-16T19:41:22.355Z"
 }

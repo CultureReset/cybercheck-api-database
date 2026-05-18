@@ -1,75 +1,41 @@
 {
   "business_name": "Thai Time Restaurant",
-  "tagline": null,
-  "type": "Restaurant",
+  "cuisine_type": "Thai",
+  "price_range": null,
+  "description": "Thai Time, AL welcomes Mobile diners to experience the journey of Thai taste with our friendly service. Truly Thai in spirit, Thai Time, AL evokes a sense of culture and authenticity by fusing Thai culinary traditions with a modern interpretation.",
   "contact": {
-    "phone": "(251) 344-9995",
+    "phone": "251-344-9995",
     "email": "thaitimemob@gmail.com",
     "address": "3821 Airport Blvd",
     "city": "Mobile",
     "state": "AL",
-    "zip": "36608"
-  },
-  "hours": {
-    "monday": "11:00 AM - 2:30 PM, 4:00 PM - 9:00 PM",
-    "tuesday": "11:00 AM - 2:30 PM, 4:00 PM - 9:00 PM",
-    "wednesday": "Closed",
-    "thursday": "11:00 AM - 2:30 PM, 4:00 PM - 9:00 PM",
-    "friday": "11:00 AM - 2:30 PM, 4:00 PM - 9:00 PM",
-    "saturday": "11:00 AM - 2:30 PM, 4:00 PM - 9:00 PM",
-    "sunday": "11:00 AM - 2:30 PM, 4:00 PM - 9:00 PM",
-    "notes": "Lunch (L) 11:00 AM - 2:30 PM, Dinner (D) 4:00 PM - 9:00 PM"
-  },
-  "about": {
-    "description": "Thai Time welcomes Mobile diners to experience the journey of Thai taste with friendly service. Truly Thai in spirit, the restaurant evokes a sense of culture and authenticity by fusing Thai culinary traditions with a modern interpretation.",
-    "elevator_pitch": "Authentic Thai cuisine with modern flair served by friendly staff in Mobile, AL.",
-    "vibe": "Cultural and authentic with modern interpretation",
-    "best_for": [],
-    "established": null,
-    "reservations": "Available via phone: (251) 344-9995",
-    "insider_tip": null
-  },
-  "tags": [
-    "Thai cuisine",
-    "authentic",
-    "modern",
-    "friendly service"
-  ],
-  "features": [
-    "Online ordering",
-    "Reservations available"
-  ],
-  "price_range": null,
-  "social_links": {
-    "instagram": null,
-    "facebook": null,
+    "zip": "36608",
     "website": "https://thaitimemobile.com"
   },
-  "specials": [],
-  "events": [],
+  "hours": {
+    "monday": "11:00am-2:30pm, 4:00pm-9:00pm",
+    "tuesday": "11:00am-2:30pm, 4:00pm-9:00pm",
+    "wednesday": "Closed",
+    "thursday": "11:00am-2:30pm, 4:00pm-9:00pm",
+    "friday": "11:00am-2:30pm, 4:00pm-9:00pm",
+    "saturday": "11:00am-2:30pm, 4:00pm-9:00pm",
+    "sunday": "11:00am-2:30pm, 4:00pm-9:00pm"
+  },
   "menu": {
     "categories": []
   },
-  "url": "https://thaitimemobile.com/",
-  "scraped_at": "2026-03-22T18:47:14.211Z",
-  "extracted_at": "2026-03-23T04:11:30.345Z",
-  "model": "claude-haiku-4-5-20251001",
-  "gallery": [
-    "https://thaitimemobile.com/assets/images/xs_logo.png",
-    "https://thaitimemobile.com/assets/images/Buttomsmiledining.png",
-    "https://thaitimemobile.com/assets/images/img-1.jpg",
-    "https://thaitimemobile.com/assets/images/img-2.jpg",
-    "https://thaitimemobile.com/assets/images/img-3.jpg",
-    "https://thaitimemobile.com/assets/images/img-4.jpg",
-    "https://thaitimemobile.com/assets/images/img-5.jpg",
-    "https://thaitimemobile.com/assets/images/img-6.jpg",
-    "https://thaitimemobile.com/assets/images/img-7.jpg",
-    "https://thaitimemobile.com/assets/images/img-8.jpg",
-    "https://thaitimemobile.com/assets/images/xs_logo_white.png"
+  "specials": [],
+  "features": [
+    "online order",
+    "reservation",
+    "takeout"
   ],
-  "sources": [
-    "https://thaitimemobile.com",
-    "https://thaitimemobile.com/index.html",
+  "social_media": {
+    "facebook": null,
+    "instagram": null,
+    "twitter": null
+  },
+  "images": [
     "https://thaitimemobile.com/assets/images/img-1.jpg",
     "https://thaitimemobile.com/assets/images/img-2.jpg",
     "https://thaitimemobile.com/assets/images/img-3.jpg",
@@ -78,5 +44,6 @@
     "https://thaitimemobile.com/assets/images/img-6.jpg",
     "https://thaitimemobile.com/assets/images/img-7.jpg",
     "https://thaitimemobile.com/assets/images/img-8.jpg"
-  ]
+  ],
+  "extracted_at": "2026-05-16T19:44:22.806Z"
 }
