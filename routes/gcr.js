@@ -2707,4 +2707,184 @@ router.delete('/admin/ads/:id', async (req, res) => {
     res.json({ ok: true });
 });
 
+// ============================================
+// GET /api/gcr/live-now — businesses with active signals right now
+// Returns: happy hours active, events tonight, specials active, booking slots available
+// Optional: ?tourist_id=UUID to sort by preference match
+// Optional: ?limit=20
+// ============================================
+router.get('/live-now', async (req, res) => {
+    res.set('Cache-Control', 'no-store'); // always fresh — real-time
+
+    const now = new Date();
+    const todayInt  = now.getDay(); // 0=Sun..6=Sat
+    const todayStr  = now.toISOString().slice(0, 10);
+    const timeStr   = now.toTimeString().slice(0, 5); // 'HH:MM'
+    const dayNames  = ['sunday','monday','tuesday','wednesday','thursday','friday','saturday'];
+    const todayName = dayNames[todayInt];
+    const limit     = Math.min(parseInt(req.query.limit) || 30, 100);
+    const touristId = req.query.tourist_id || null;
+
+    // --- Run all queries in parallel ---
+    const [hhRes, eventsRes, specialsRes] = await Promise.all([
+        // Happy hours: entities with hh_start/hh_end that bracket current time
+        gcrDb.from('entity')
+            .select('id, slug, name, hero_image_url, entity_subtype, city, hh_start, hh_end, hh_days, hh_description, rating, booking_url, phone')
+            .not('hh_start', 'is', null)
+            .not('hh_end', 'is', null)
+            .eq('is_active', true)
+            .lte('hh_start', timeStr)
+            .gte('hh_end', timeStr)
+            .limit(100),
+
+        // Events today: specific date OR recurring day_of_week match
+        gcrDb.from('entity_events')
+            .select('entity_id, event_name, artist_name, start_time, end_time, event_type, event_date, day_of_week, recurring, entity(id, slug, name, hero_image_url, entity_subtype, city, rating, booking_url)')
+            .eq('is_active', true)
+            .or(`event_date.eq.${todayStr},day_of_week.eq.${todayInt}`)
+            .limit(100),
+
+        // Active specials
+        gcrDb.from('entity_specials')
+            .select('entity_id, special_name, description, discount_text, special_type, entity(id, slug, name, hero_image_url, entity_subtype, city, rating, booking_url)')
+            .eq('is_active', true)
+            .limit(100),
+    ]);
+
+    // Filter happy hours by day — hh_days is stored as comma-separated day names or JSON array
+    const activeHH = (hhRes.data || []).filter(e => {
+        if (!e.hh_days) return true; // no day restriction = always
+        const days = typeof e.hh_days === 'string'
+            ? e.hh_days.toLowerCase().replace(/[[\]"]/g, '').split(/[\s,]+/)
+            : (Array.isArray(e.hh_days) ? e.hh_days.map(d => d.toLowerCase()) : []);
+        return days.length === 0 || days.some(d => todayName.startsWith(d.slice(0,3)));
+    });
+
+    // Build a map: slug → signals[]
+    const signalMap = {}; // slug → { entity, signals[] }
+
+    const addSignal = (entity, signal) => {
+        if (!entity?.slug) return;
+        if (!signalMap[entity.slug]) signalMap[entity.slug] = { entity, signals: [] };
+        signalMap[entity.slug].signals.push(signal);
+    };
+
+    for (const e of activeHH) {
+        addSignal(e, {
+            type: 'happy_hour',
+            label: `🍹 Happy Hour until ${fmt12(e.hh_end)}`,
+            detail: e.hh_description || null,
+        });
+    }
+
+    for (const ev of (eventsRes.data || [])) {
+        const ent = ev.entity;
+        if (!ent) continue;
+        addSignal(ent, {
+            type: 'event',
+            label: `🎵 ${ev.event_name || 'Live Tonight'}`,
+            detail: ev.artist_name || null,
+            start_time: ev.start_time || null,
+        });
+    }
+
+    for (const sp of (specialsRes.data || [])) {
+        const ent = sp.entity;
+        if (!ent) continue;
+        addSignal(ent, {
+            type: 'special',
+            label: `🏷️ ${sp.special_name || 'Special'}`,
+            detail: sp.discount_text || sp.description || null,
+        });
+    }
+
+    // Fetch tags for preference matching if tourist_id provided
+    let prefMap = {};
+    if (touristId) {
+        try {
+            const mainDb = require('../db')();
+            const { data: scores } = await mainDb
+                .from('user_preference_scores')
+                .select('tag, score')
+                .eq('tourist_id', touristId)
+                .gt('score', 0)
+                .order('score', { ascending: false })
+                .limit(30);
+            for (const s of (scores || [])) prefMap[s.tag.toLowerCase()] = s.score;
+        } catch {}
+    }
+
+    // Fetch entity_tags for all slugs so we can score them
+    const slugList = Object.keys(signalMap);
+    let entityTagMap = {};
+    if (slugList.length && Object.keys(prefMap).length) {
+        try {
+            const { data: tagRows } = await gcrDb
+                .from('entity_tags')
+                .select('entity_id, tag')
+                .in('entity_id', Object.values(signalMap).map(s => s.entity.id).filter(Boolean));
+
+            const entityIdToSlug = {};
+            for (const [slug, v] of Object.entries(signalMap)) {
+                if (v.entity.id) entityIdToSlug[v.entity.id] = slug;
+            }
+            for (const row of (tagRows || [])) {
+                const slug = entityIdToSlug[row.entity_id];
+                if (!slug) continue;
+                let tag = row.tag;
+                try { const p = JSON.parse(tag); tag = p?.tag || tag; } catch {}
+                if (!entityTagMap[slug]) entityTagMap[slug] = [];
+                entityTagMap[slug].push(tag.toLowerCase().trim());
+            }
+        } catch {}
+    }
+
+    // Score and sort results
+    let results = Object.values(signalMap).map(({ entity, signals }) => {
+        const tags = entityTagMap[entity.slug] || [];
+        const matchScore = tags.reduce((sum, tag) => sum + (prefMap[tag] || 0), 0)
+            + (prefMap[entity.entity_subtype?.toLowerCase()] || 0);
+        return {
+            slug:          entity.slug,
+            name:          entity.name,
+            hero_image_url:entity.hero_image_url,
+            category:      entity.entity_subtype,
+            city:          entity.city,
+            rating:        entity.rating,
+            booking_url:   entity.booking_url,
+            phone:         entity.phone,
+            signals,
+            match_score:   matchScore,
+            is_match:      matchScore >= 10,
+        };
+    });
+
+    // Sort: matched first, then by number of signals, then by rating
+    results.sort((a, b) => {
+        if (b.match_score !== a.match_score) return b.match_score - a.match_score;
+        if (b.signals.length !== a.signals.length) return b.signals.length - a.signals.length;
+        return (b.rating || 0) - (a.rating || 0);
+    });
+
+    results = results.slice(0, limit);
+
+    res.json({
+        time:        timeStr,
+        day:         todayName,
+        date:        todayStr,
+        count:       results.length,
+        personalized: !!touristId,
+        results,
+    });
+});
+
+function fmt12(t) {
+    if (!t) return '';
+    const [h, m] = t.split(':');
+    const hr = parseInt(h, 10);
+    const ampm = hr >= 12 ? 'PM' : 'AM';
+    const h12 = hr === 0 ? 12 : hr > 12 ? hr - 12 : hr;
+    return `${h12}:${m} ${ampm}`;
+}
+
 module.exports = router;

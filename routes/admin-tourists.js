@@ -115,4 +115,44 @@ router.delete('/:user_id', adminRequired, async (req, res) => {
     res.json({ success: true });
 });
 
+// GET /api/admin/tourists/:user_id/preferences — full preference scores for one tourist
+router.get('/:user_id/preferences', adminRequired, async (req, res) => {
+    const db = admin();
+    const uid = req.params.user_id;
+
+    const [scoresRes, swipeRes, savesRes] = await Promise.all([
+        db.from('user_preference_scores').select('tag, score, updated_at').eq('tourist_id', uid).order('score', { ascending: false }),
+        db.from('tourist_swipe_events').select('direction').eq('user_id', uid),
+        db.from('tourist_saves').select('id').eq('user_id', uid),
+    ]);
+
+    const all = scoresRes.data || [];
+    const counts = { like: 0, nope: 0, super: 0 };
+    for (const s of (swipeRes.data || [])) counts[s.direction] = (counts[s.direction] || 0) + 1;
+
+    res.json({
+        loves:        all.filter(s => s.score >= 20),
+        likes:        all.filter(s => s.score > 0 && s.score < 20),
+        dislikes:     all.filter(s => s.score < 0),
+        total_tags:   all.length,
+        swipe_counts: counts,
+        saves_count:  (savesRes.data || []).length,
+        top_tags:     all.filter(s => s.score > 0).slice(0, 20).map(s => s.tag),
+    });
+});
+
+// POST /api/admin/tourists/:user_id/recompute-preferences — rebuild scores from full history
+router.post('/:user_id/recompute-preferences', adminRequired, async (req, res) => {
+    const uid = req.params.user_id;
+    res.json({ ok: true, message: 'Recomputing in background…' });
+    // Import the recompute function from tourist.js by calling the endpoint internally
+    // We trigger it by calling the shared logic directly
+    try {
+        const touristRouter = require('./tourist');
+        if (typeof touristRouter._recomputeAllPreferences === 'function') {
+            touristRouter._recomputeAllPreferences(uid).catch(() => {});
+        }
+    } catch {}
+});
+
 module.exports = router;

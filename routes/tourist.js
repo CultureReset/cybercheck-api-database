@@ -182,48 +182,68 @@ router.post('/swipes', touristAuth, async (req, res) => {
 // Score weights per swipe direction
 const SWIPE_WEIGHTS = { like: 5, nope: -4, super: 15, save: 8, book: 20, view: 2 };
 
-async function updatePreferenceScores(touristId, swipeRows) {
-    if (!touristId || !swipeRows?.length) return;
+// Fetch entity tags from the correct GCR tables (entity + entity_tags)
+async function fetchEntityTagMap(slugs) {
+    if (!slugs?.length) return {};
+    const gcrDb = require('../gcr-db')();
+    const tagMap = {}; // slug → string[]
 
-    // Collect all slugs to fetch tags in one query
-    const slugs = [...new Set(swipeRows.map(r => r.entity_slug).filter(Boolean))];
-
-    // Try new unified DB first, fallback to GCR DB
-    let tagMap = {}; // slug → string[]
     try {
-        const gcrDb = require('../gcr-db')();
+        // Fetch entity rows — correct table is 'entity' not 'entities'
         const { data: entities } = await gcrDb
-            .from('entities')
-            .select('slug, tags, category, subcategory')
+            .from('entity')
+            .select('id, slug, entity_type, entity_subtype')
             .in('slug', slugs);
-        (entities || []).forEach(e => {
-            const tags = [
-                ...(Array.isArray(e.tags) ? e.tags : []),
-                e.category,
-                e.subcategory,
-            ].filter(Boolean).map(t => t.toLowerCase().trim());
-            tagMap[e.slug] = [...new Set(tags)];
-        });
-    } catch {}
 
-    // Build (tag, delta) pairs for each swipe
-    const scoreUpdates = []; // { tag, delta }
-    for (const row of swipeRows) {
-        const weight = SWIPE_WEIGHTS[row.direction] || 0;
-        if (!weight) continue;
+        if (!entities?.length) return tagMap;
 
-        const tags = tagMap[row.entity_slug] || [];
-        // Always include category from the swipe event itself
-        if (row.category) tags.push(row.category.toLowerCase().trim());
-        const uniqueTags = [...new Set(tags)];
+        const entityIds = entities.map(e => e.id);
+        const entityById = Object.fromEntries(entities.map(e => [e.id, e]));
+        const entityBySlug = Object.fromEntries(entities.map(e => [e.slug, e]));
 
-        uniqueTags.forEach(tag => scoreUpdates.push({ tag, delta: weight }));
+        // Fetch tags from entity_tags table — this is where real tags live
+        const { data: tagRows } = await gcrDb
+            .from('entity_tags')
+            .select('entity_id, tag')
+            .in('entity_id', entityIds);
+
+        // Build tag map per slug
+        for (const e of entities) {
+            const tags = new Set();
+            if (e.entity_type)    tags.add(e.entity_type.toLowerCase().trim());
+            if (e.entity_subtype) tags.add(e.entity_subtype.toLowerCase().trim());
+            tagMap[e.slug] = tags;
+        }
+
+        for (const row of (tagRows || [])) {
+            const entity = entityById[row.entity_id];
+            if (!entity || !row.tag) continue;
+            // Tags can be JSON-encoded strings
+            let tagVal = row.tag;
+            try { const p = JSON.parse(tagVal); tagVal = p?.tag || tagVal; } catch {}
+            if (tagVal) tagMap[entity.slug]?.add(tagVal.toLowerCase().trim());
+        }
+
+        // Convert Sets to arrays
+        for (const slug of Object.keys(tagMap)) {
+            tagMap[slug] = [...tagMap[slug]].filter(Boolean);
+        }
+    } catch (err) {
+        console.error('[preference] tag fetch error:', err?.message);
     }
 
-    if (!scoreUpdates.length) return;
+    return tagMap;
+}
 
-    // Upsert scores — try RPC function first (new unified DB), fallback to manual upsert
-    for (const { tag, delta } of scoreUpdates) {
+// Write accumulated score deltas — uses RPC with clamping, falls back to SQL increment
+async function applyScoreDeltas(touristId, updates) {
+    // Aggregate deltas per tag so we do one write per tag
+    const totals = {};
+    for (const { tag, delta } of updates) {
+        totals[tag] = (totals[tag] || 0) + delta;
+    }
+
+    for (const [tag, delta] of Object.entries(totals)) {
         try {
             const { error } = await mainDb.rpc('upsert_preference_score', {
                 p_tourist_id: touristId,
@@ -232,14 +252,144 @@ async function updatePreferenceScores(touristId, swipeRows) {
             });
             if (error) throw error;
         } catch {
-            // Manual upsert fallback for old DB
-            await mainDb.from('user_preference_scores')
-                .upsert({ tourist_id: touristId, tag, score: delta, updated_at: new Date().toISOString() },
-                         { onConflict: 'tourist_id,tag' })
-                .catch(() => {});
+            // Fallback: increment existing score, insert if new, clamp between -50 and 200
+            await mainDb.rpc('exec_sql', { sql: `
+                INSERT INTO user_preference_scores (tourist_id, tag, score, updated_at)
+                VALUES ('${touristId}', '${tag.replace(/'/g, "''")}', GREATEST(-50, LEAST(200, ${delta})), NOW())
+                ON CONFLICT (tourist_id, tag)
+                DO UPDATE SET
+                    score = GREATEST(-50, LEAST(200, user_preference_scores.score + ${delta})),
+                    updated_at = NOW()
+            ` }).catch(() => {});
         }
     }
 }
+
+async function updatePreferenceScores(touristId, swipeRows) {
+    if (!touristId || !swipeRows?.length) return;
+
+    const slugs = [...new Set(swipeRows.map(r => r.entity_slug).filter(Boolean))];
+    const tagMap = await fetchEntityTagMap(slugs);
+
+    const scoreUpdates = [];
+    for (const row of swipeRows) {
+        const weight = SWIPE_WEIGHTS[row.direction] || 0;
+        if (!weight) continue;
+
+        const tags = new Set(tagMap[row.entity_slug] || []);
+        // Always score the category from the swipe event itself as a signal
+        if (row.category) tags.add(row.category.toLowerCase().trim());
+
+        for (const tag of tags) {
+            scoreUpdates.push({ tag, delta: weight });
+        }
+    }
+
+    if (!scoreUpdates.length) return;
+    await applyScoreDeltas(touristId, scoreUpdates);
+}
+
+// Full recompute from swipe history — applies time decay so recent swipes matter more
+// decay factor: swipes older than 30 days lose 20% weight, older than 90 days lose 50%
+async function recomputeAllPreferences(touristId) {
+    if (!touristId) return;
+
+    // Wipe existing scores so we recompute clean
+    await mainDb.from('user_preference_scores').delete().eq('tourist_id', touristId).catch(() => {});
+
+    // Load full swipe history
+    const { data: events } = await mainDb
+        .from('tourist_swipe_events')
+        .select('entity_slug, direction, category, swiped_at')
+        .eq('user_id', touristId)
+        .order('swiped_at', { ascending: false });
+
+    if (!events?.length) return;
+
+    const now = Date.now();
+    const slugs = [...new Set(events.map(e => e.entity_slug).filter(Boolean))];
+    const tagMap = await fetchEntityTagMap(slugs);
+
+    const scoreUpdates = [];
+    for (const ev of events) {
+        const baseWeight = SWIPE_WEIGHTS[ev.direction] || 0;
+        if (!baseWeight) continue;
+
+        // Time decay
+        const ageDays = (now - new Date(ev.swiped_at).getTime()) / (1000 * 60 * 60 * 24);
+        const decay = ageDays > 90 ? 0.5 : ageDays > 30 ? 0.8 : 1.0;
+        const weight = Math.round(baseWeight * decay);
+        if (!weight) continue;
+
+        const tags = new Set(tagMap[ev.entity_slug] || []);
+        if (ev.category) tags.add(ev.category.toLowerCase().trim());
+
+        for (const tag of tags) {
+            scoreUpdates.push({ tag, delta: weight });
+        }
+    }
+
+    // Also score saves (stronger signal than swipes)
+    const { data: saves } = await mainDb
+        .from('tourist_saves')
+        .select('entity_slug, category, is_super_like, saved_at')
+        .eq('user_id', touristId);
+
+    for (const save of (saves || [])) {
+        const baseWeight = save.is_super_like ? SWIPE_WEIGHTS.super : SWIPE_WEIGHTS.save;
+        const ageDays = (now - new Date(save.saved_at).getTime()) / (1000 * 60 * 60 * 24);
+        const decay = ageDays > 90 ? 0.5 : ageDays > 30 ? 0.8 : 1.0;
+        const weight = Math.round(baseWeight * decay);
+
+        const tags = new Set(tagMap[save.entity_slug] || []);
+        if (save.category) tags.add(save.category.toLowerCase().trim());
+        for (const tag of tags) scoreUpdates.push({ tag, delta: weight });
+    }
+
+    if (scoreUpdates.length) await applyScoreDeltas(touristId, scoreUpdates);
+}
+
+// GET /api/tourist/preferences — full preference profile for this user
+router.get('/preferences', touristAuth, async (req, res) => {
+    const touristId = req.touristId;
+
+    const { data: scores } = await mainDb
+        .from('user_preference_scores')
+        .select('tag, score, updated_at')
+        .eq('tourist_id', touristId)
+        .order('score', { ascending: false });
+
+    const all = scores || [];
+    const loves    = all.filter(s => s.score >= 20).slice(0, 15);
+    const likes    = all.filter(s => s.score > 0 && s.score < 20).slice(0, 10);
+    const dislikes = all.filter(s => s.score < 0).slice(0, 10);
+
+    // Swipe counts for context
+    const { data: swipeStats } = await mainDb
+        .from('tourist_swipe_events')
+        .select('direction')
+        .eq('user_id', touristId);
+
+    const counts = { like: 0, nope: 0, super: 0 };
+    for (const s of (swipeStats || [])) counts[s.direction] = (counts[s.direction] || 0) + 1;
+
+    res.json({
+        loves,
+        likes,
+        dislikes,
+        total_tags: all.length,
+        swipe_counts: counts,
+        top_tags: loves.concat(likes).map(s => s.tag),
+    });
+});
+
+// POST /api/tourist/recompute-preferences — rebuild all scores from full swipe history
+router.post('/recompute-preferences', touristAuth, async (req, res) => {
+    res.json({ ok: true, message: 'Recomputing in background…' });
+    recomputeAllPreferences(req.touristId).catch(err =>
+        console.error('[preference] recompute error:', err?.message)
+    );
+});
 
 // POST /api/tourist/sms-optin — store phone + opt-in consent
 router.post('/sms-optin', touristAuth, async (req, res) => {
@@ -953,10 +1103,11 @@ async function checkGeofence(touristId, lat, lng) {
     const today = new Date().toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase();
 
     const { data: nearby } = await gcrDb
-        .from('entities')
-        .select('slug, name, latitude, longitude, tags, category')
+        .from('entity')
+        .select('slug, name, latitude, longitude, entity_subtype, entity_type')
         .not('latitude', 'is', null)
-        .limit(200);
+        .eq('is_active', true)
+        .limit(500);
 
     if (!nearby?.length) return;
 
@@ -1097,3 +1248,4 @@ router.post('/sms-campaign', adminRequired, async (req, res) => {
 
 module.exports = router;
 module.exports.touristAuth = touristAuth;
+module.exports._recomputeAllPreferences = recomputeAllPreferences;
