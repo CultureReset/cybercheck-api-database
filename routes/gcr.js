@@ -26,70 +26,65 @@ router.get('/businesses', async (req, res) => {
 });
 
 // ============================================
-// GET /api/gcr/events — old DB events matched to GCR entities by slug
+// GET /api/gcr/events — events from MASTER-BUSINESSES-WITH-EVENTS
 // ============================================
 router.get('/events', async (req, res) => {
-    let query = gcrDb
-        .from('entity_events')
-        .select('*, entity(slug, name, icon, hero_image_url, entity_subtype, city)')
-        .order('event_date', { ascending: true });
+    try {
+        // Get events from entity_events table with entity details
+        const { data: events, error } = await gcrDb
+            .from('entity_events')
+            .select(`
+                id,
+                event_name,
+                artist_name,
+                event_date,
+                start_time,
+                description,
+                event_type,
+                venue_location,
+                cover_charge,
+                entity_id,
+                entity:entity_id(id, name, slug, city, hero_image_url, icon)
+            `)
+            .eq('is_active', true)
+            .order('event_date', { ascending: true });
 
-    if (req.query.slug) query = query.eq('entity.slug', req.query.slug);
-    if (req.query.upcoming === 'true') {
-        const today = new Date().toISOString().split('T')[0];
-        query = query.or(`event_date.gte.${today},recurring.eq.true`);
+        if (error) {
+            console.error('Error loading events:', error.message);
+            return res.status(500).json({ error: error.message });
+        }
+
+        // Flatten and enrich events with entity details
+        const allEvents = (events || []).map(ev => ({
+            id: ev.id,
+            event_name: ev.event_name,
+            artist_name: ev.artist_name,
+            event_date: ev.event_date,
+            start_time: ev.start_time,
+            description: ev.description,
+            event_type: ev.event_type,
+            venue_location: ev.venue_location,
+            cover_charge: ev.cover_charge,
+            entity_name: ev.entity?.name,
+            entity_slug: ev.entity?.slug,
+            entity_hero_image_url: ev.entity?.hero_image_url,
+            city: ev.entity?.city,
+            entity_city: ev.entity?.city,
+            businessName: ev.entity?.name,
+            slug: ev.entity?.slug,
+        }));
+
+        // Filter by slug if requested
+        let results = allEvents;
+        if (req.query.slug) {
+            results = allEvents.filter(e => e.slug === req.query.slug);
+        }
+
+        res.json(results);
+    } catch (e) {
+        console.error('Error loading events:', e.message);
+        res.status(500).json({ error: e.message });
     }
-
-    const { data, error } = await query;
-    if (error) return res.status(500).json({ error: error.message });
-
-    // Fetch photos for all entities in events
-    let photosMap = {};
-    const entityIds = (data || []).filter(e => e.entity_id).map(e => e.entity_id);
-    if (entityIds.length) {
-        const { data: photosData } = await gcrDb
-            .from('entity_photos')
-            .select('entity_id, image_url, caption, sort_order')
-            .in('entity_id', entityIds)
-            .order('sort_order');
-        (photosData || []).forEach(p => {
-            if (!photosMap[p.entity_id]) photosMap[p.entity_id] = [];
-            photosMap[p.entity_id].push({ image_url: p.image_url, caption: p.caption });
-        });
-    }
-
-    const mapped = (data || []).map(e => ({
-        ...e,
-        date: e.event_date,
-        businessName:       e.entity?.name || '',
-        businessEmoji:      e.entity?.icon || '🏪',
-        category:           e.entity?.entity_subtype || '',
-        slug:               e.entity?.slug || '',
-        hero_image_url:     e.entity?.hero_image_url || null,
-        photos:             photosMap[e.entity_id] || [],
-        city:               e.entity?.city || '',
-        entity_name:        e.entity?.name || (e.venue_location ? e.venue_location.split(',')[0]?.trim() : '') || '',
-        entity_city:        e.entity?.city || (e.venue_location ? e.venue_location.split(',').slice(1).join(',').trim() : '') || '',
-        entity_slug:        e.entity?.slug || '',
-        entity_hero_image_url: e.entity?.hero_image_url || null,
-    }));
-
-    // Server-side dedup: same artist at same venue on same date+time = one card
-    const seenEvents = new Set();
-    const events = mapped.filter(e => {
-        const key = [
-            (e.artist_name || e.event_name || '').toLowerCase().trim(),
-            e.entity_id || '',
-            e.event_date || '',
-            e.start_time || '',
-            (e.day_of_week || '').toLowerCase(),
-        ].join('|');
-        if (seenEvents.has(key)) return false;
-        seenEvents.add(key);
-        return true;
-    });
-
-    res.json(events);
 });
 
 // ============================================
