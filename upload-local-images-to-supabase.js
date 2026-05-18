@@ -20,6 +20,9 @@ const IMAGE_DIRS = [
   '/Users/owner/cybercheck-api-database/specialty-photos',
   '/Users/owner/cybercheck-api-database/activity-photos',
   '/Users/owner/cybercheck-api-database/shopping-services-photos',
+  '/Users/owner/condos_images',
+  '/Users/owner/vacationhomes_images',
+  '/Users/owner/tripshock_images',
 ];
 
 async function main() {
@@ -57,17 +60,37 @@ async function main() {
       continue;
     }
 
-    const placeIds = fs.readdirSync(imageDir).filter(f => {
+    const folders = fs.readdirSync(imageDir).filter(f => {
       return fs.statSync(path.join(imageDir, f)).isDirectory();
     });
 
-    console.log(`\n📁 ${path.basename(imageDir)}: ${placeIds.length} place directories`);
+    const isByPlaceId = imageDir.includes('restaurant') || imageDir.includes('specialty') ||
+                        imageDir.includes('activity') || imageDir.includes('shopping');
 
-    for (const placeId of placeIds) {
-      const entity = placeIdMap[placeId];
-      if (!entity) {
-        noMatchCount++;
-        continue;
+    console.log(`\n📁 ${path.basename(imageDir)}: ${folders.length} ${isByPlaceId ? 'place_id' : 'name'} directories`);
+
+    for (const folder of folders) {
+      let entity;
+
+      if (isByPlaceId) {
+        entity = placeIdMap[folder];
+        if (!entity) {
+          noMatchCount++;
+          continue;
+        }
+      } else {
+        // Match by normalized name for condos/rentals
+        const normalize = (str) => (str || '').toLowerCase().replace(/[^a-z0-9]/g, '').trim();
+        const folderKey = normalize(folder);
+
+        entity = (entities || []).find(e => {
+          return normalize(e.name).includes(folderKey) || folderKey.includes(normalize(e.name));
+        });
+
+        if (!entity) {
+          noMatchCount++;
+          continue;
+        }
       }
 
       const imageFolder = path.join(imageDir, placeId);
