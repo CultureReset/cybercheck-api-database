@@ -109,8 +109,8 @@ router.get('/businesses', async (req, res) => {
     }
 
     const { data, error } = await query;
-    if (error) return res.status(500).json({ error: error.message });
-    res.json(data || []);
+    if (error) return res.status(500).json({ success: false, error: error.message });
+    res.json({ success: true, businesses: data || [], count: (data || []).length });
 });
 
 router.get('/businesses/:id', async (req, res) => {
@@ -2248,8 +2248,8 @@ router.get('/gcr/businesses', adminRequired, async (req, res) => {
     if (category) query = query.ilike('entity_subtype', `%${category}%`);
     if (search) query = query.ilike('name', `%${search}%`);
     const { data, error } = await query;
-    if (error) return res.status(500).json({ error: error.message });
-    res.json(data || []);
+    if (error) return res.status(500).json({ success: false, error: error.message });
+    res.json({ success: true, businesses: data || [], count: (data || []).length });
 });
 
 // ============================================
