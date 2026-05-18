@@ -7878,22 +7878,69 @@ router.put('/sms-config', adminRequired, async (req, res) => {
     res.json({ success: true });
 });
 
-// POST /api/admin/sms-blast — send SMS to opted-in tourists via configured provider
+// Helper: Get tourists matching preference targets
+async function getTouristsMatchingPrefs(tags, min_score, match_type) {
+    const { data: scores } = await supabase
+        .from('user_preference_scores')
+        .select('tourist_id, tag, score')
+        .in('tag', tags)
+        .gte('score', min_score);
+
+    const matchedIds = new Set();
+    const tagCounts = {};
+
+    for (const score of (scores || [])) {
+        tagCounts[score.tourist_id] = (tagCounts[score.tourist_id] || 0) + 1;
+    }
+
+    if (match_type === 'all') {
+        for (const [id, count] of Object.entries(tagCounts)) {
+            if (count === tags.length) matchedIds.add(id);
+        }
+    } else {
+        for (const id of Object.keys(tagCounts)) {
+            matchedIds.add(id);
+        }
+    }
+
+    if (matchedIds.size === 0) return [];
+
+    const { data: profiles } = await supabase
+        .from('tourist_profiles')
+        .select('phone')
+        .in('user_id', Array.from(matchedIds))
+        .eq('sms_opt_in', true)
+        .not('phone', 'is', null);
+
+    return (profiles || []).map(p => p.phone);
+}
+
+// POST /api/admin/sms-blast — send SMS to opted-in tourists (all or by preference)
 router.post('/sms-blast', adminRequired, async (req, res) => {
-    const { message, audience } = req.body; // audience: 'all' | category slug
+    const { message, tags, min_score, match_type } = req.body;
     if (!message) return res.status(400).json({ error: 'message required' });
     try {
-        // Get SMS config
         const { data: cfgRow } = await supabase.from('platform_settings').select('value').eq('key', 'sms_config').maybeSingle();
         const cfg = cfgRow?.value || {};
 
-        // Get opted-in tourists
-        let q = supabase.from('tourist_profiles').select('phone').eq('sms_opt_in', true).not('phone', 'is', null);
-        const { data: tourists, error: tErr } = await q;
-        if (tErr) return res.status(500).json({ error: tErr.message });
-        if (!tourists?.length) return res.json({ success: true, sent: 0 });
+        let numbers;
+        let audience = 'all';
 
-        const numbers = tourists.map(t => t.phone).filter(Boolean);
+        if (tags && tags.length) {
+            // Preference-targeted campaign
+            numbers = await getTouristsMatchingPrefs(tags, min_score || 0, match_type || 'any');
+            audience = `tags: ${tags.join(', ')} (${match_type || 'any'})`;
+        } else {
+            // Mass blast to all opted-in
+            const { data: tourists } = await supabase
+                .from('tourist_profiles')
+                .select('phone')
+                .eq('sms_opt_in', true)
+                .not('phone', 'is', null);
+            numbers = (tourists || []).map(t => t.phone).filter(Boolean);
+        }
+
+        if (!numbers.length) return res.json({ success: true, sent: 0 });
 
         if (cfg.provider === 'sendblue') {
             await fetch('https://api.sendblue.com/api/send-group-message', {
@@ -7910,10 +7957,19 @@ router.post('/sms-blast', adminRequired, async (req, res) => {
             await Promise.all(numbers.map(to => twilio.messages.create({ body: message, from: cfg.twilio_from, to })));
         }
 
-        // Log the blast
-        await supabase.from('sms_blasts').insert({ message, audience: audience || 'all', sent_to: numbers.length, sent_at: new Date().toISOString() }).catch(() => {});
+        await supabase.from('sms_blasts').insert({ message, audience, sent_to: numbers.length, sent_at: new Date().toISOString() }).catch(() => {});
 
         res.json({ success: true, sent: numbers.length });
+    } catch(e) { res.status(500).json({ error: e.message }); }
+});
+
+// POST /api/admin/sms-campaign-preview — preview how many users match preference targets
+router.post('/sms-campaign-preview', adminRequired, async (req, res) => {
+    const { tags, min_score, match_type } = req.body;
+    if (!tags || !tags.length) return res.status(400).json({ error: 'tags required' });
+    try {
+        const numbers = await getTouristsMatchingPrefs(tags, min_score || 0, match_type || 'any');
+        res.json({ count: numbers.length });
     } catch(e) { res.status(500).json({ error: e.message }); }
 });
 
