@@ -2052,7 +2052,11 @@ router.get('/entity/:slug', async (req, res) => {
             items:    mergedHhItems,
         },
         events:       artistEvents,
-        specials:     specialsRes.data    || [],
+        specials:     (specialsRes.data || []).reduce((acc, spec) => {
+            if (!spec.discount_text || !spec.discount_text.trim()) return acc;
+            if (acc.find(s => s.discount_text === spec.discount_text)) return acc;
+            return [...acc, { ...spec, special_name: spec.special_name || (spec.discount_text || 'Special') }];
+        }, []),
         activities:   activitiesRes.data  || [],
         pricing:      pricingRes.data     || [],
         booking_slots: slotsRes.data      || [],
