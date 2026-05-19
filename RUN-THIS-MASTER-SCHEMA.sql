@@ -639,6 +639,20 @@ CREATE TABLE IF NOT EXISTS gcr_page_views (
     created_at TIMESTAMP DEFAULT NOW()
 );
 
+-- Track tourist user profiles (linked to Supabase auth.users.id)
+CREATE TABLE IF NOT EXISTS tourist_profiles (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    tourist_id UUID NOT NULL UNIQUE,
+    phone TEXT UNIQUE,
+    email TEXT,
+    name TEXT,
+    interests TEXT[],
+    total_saves INTEGER DEFAULT 0,
+    total_visits INTEGER DEFAULT 0,
+    created_at TIMESTAMP DEFAULT NOW(),
+    updated_at TIMESTAMP DEFAULT NOW()
+);
+
 -- Track tourist user preferences (what they like)
 CREATE TABLE IF NOT EXISTS user_preference_scores (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -667,20 +681,6 @@ CREATE TABLE IF NOT EXISTS tourist_saves (
     save_type TEXT DEFAULT 'bookmark',
     notes TEXT,
     created_at TIMESTAMP DEFAULT NOW()
-);
-
--- Track tourist user profiles
-CREATE TABLE IF NOT EXISTS tourist_profiles (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    tourist_id UUID NOT NULL UNIQUE,
-    phone TEXT UNIQUE,
-    email TEXT,
-    name TEXT,
-    interests TEXT[],
-    total_saves INTEGER DEFAULT 0,
-    total_visits INTEGER DEFAULT 0,
-    created_at TIMESTAMP DEFAULT NOW(),
-    updated_at TIMESTAMP DEFAULT NOW()
 );
 
 -- Track tourist photos uploaded
