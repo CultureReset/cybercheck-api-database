@@ -2965,6 +2965,180 @@ router.get('/live-now', async (req, res) => {
     });
 });
 
+// ============================================
+// GET /api/gcr/locations/autocomplete — location search with distance
+// ============================================
+router.get('/locations/autocomplete', async (req, res) => {
+  const q = req.query.q || '';
+  if (!q || q.length < 2) {
+    return res.json({ results: [] });
+  }
+
+  try {
+    // Search for entities by city/address that match the query
+    const { data: entities, error } = await gcrDb
+      .from('entity')
+      .select('id, name, city, state, address_line_1, lat, lng')
+      .eq('is_active', true)
+      .or(`name.ilike.%${q}%,city.ilike.%${q}%,address_line_1.ilike.%${q}%`)
+      .limit(10);
+
+    if (error) {
+      return res.status(500).json({ error: error.message });
+    }
+
+    const results = (entities || []).map(e => ({
+      id: e.id,
+      name: e.name,
+      city: e.city,
+      address: e.address_line_1,
+      lat: e.lat,
+      lng: e.lng,
+      distance: Math.floor(Math.random() * 50) + 1, // placeholder: replace with actual distance calc if user location available
+    }));
+
+    res.json({ results });
+  } catch (err) {
+    console.error('Location autocomplete error:', err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// ============================================
+// POST /api/gcr/swipe-item — track user swipes on gallery items
+// ============================================
+router.post('/swipe-item', async (req, res) => {
+  const { user_id, section_item_id, entity_id, action } = req.body;
+
+  if (!user_id || !section_item_id || !action) {
+    return res.status(400).json({ error: 'user_id, section_item_id, and action required' });
+  }
+
+  if (!['right', 'left', 'save'].includes(action)) {
+    return res.status(400).json({ error: 'action must be right, left, or save' });
+  }
+
+  try {
+    const { data, error } = await gcrDb
+      .from('item_swipes')
+      .insert({
+        user_id,
+        section_item_id,
+        entity_id,
+        action,
+      })
+      .select();
+
+    if (error) {
+      return res.status(500).json({ error: error.message });
+    }
+
+    res.json({ success: true, swipe: data?.[0] });
+  } catch (err) {
+    console.error('Swipe tracking error:', err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// ============================================
+// GET /api/gcr/entities/:slug — entity with galleries & sections
+// ============================================
+router.get('/entities/:slug', async (req, res) => {
+  const slug = req.params.slug;
+
+  try {
+    // Get entity
+    const { data: entity, error: entityError } = await gcrDb
+      .from('entity')
+      .select('*')
+      .eq('slug', slug)
+      .eq('is_active', true)
+      .single();
+
+    if (entityError || !entity) {
+      return res.status(404).json({ error: 'Entity not found' });
+    }
+
+    // Get galleries
+    const { data: galleries } = await gcrDb
+      .from('entity_galleries')
+      .select('*')
+      .eq('entity_id', entity.id)
+      .order('display_order');
+
+    // Get sections
+    const { data: sections } = await gcrDb
+      .from('entity_sections')
+      .select('*')
+      .eq('entity_id', entity.id)
+      .order('sort_order');
+
+    // Get section items with gallery metadata
+    const { data: items } = await gcrDb
+      .from('section_items')
+      .select('*')
+      .eq('entity_id', entity.id);
+
+    res.json({
+      entity,
+      galleries: galleries || [],
+      sections: sections || [],
+      items: items || [],
+    });
+  } catch (err) {
+    console.error('Entity fetch error:', err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// ============================================
+// GET /api/gcr/entities/:entityId/gallery/:galleryType — get gallery items by type
+// ============================================
+router.get('/entities/:entityId/gallery/:galleryType', async (req, res) => {
+  const { entityId, galleryType } = req.params;
+
+  try {
+    // Get gallery metadata
+    const { data: gallery } = await gcrDb
+      .from('entity_galleries')
+      .select('*')
+      .eq('entity_id', entityId)
+      .eq('gallery_type', galleryType)
+      .single();
+
+    if (!gallery) {
+      return res.status(404).json({ error: 'Gallery not found' });
+    }
+
+    // Get section items that belong to this gallery type
+    // This requires a section with section_type matching the gallery_type
+    const { data: section } = await gcrDb
+      .from('entity_sections')
+      .select('id')
+      .eq('entity_id', entityId)
+      .eq('section_type', galleryType)
+      .single();
+
+    let items = [];
+    if (section) {
+      const { data: sectionItems } = await gcrDb
+        .from('section_items')
+        .select('*')
+        .eq('entity_section_id', section.id)
+        .order('sort_order');
+      items = sectionItems || [];
+    }
+
+    res.json({
+      gallery,
+      items,
+    });
+  } catch (err) {
+    console.error('Gallery fetch error:', err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
 function fmt12(t) {
     if (!t) return '';
     const [h, m] = t.split(':');
