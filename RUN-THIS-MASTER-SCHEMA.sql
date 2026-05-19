@@ -615,6 +615,85 @@ CREATE TABLE IF NOT EXISTS meeting_points (
 );
 
 -- ========================================
+-- USER BEHAVIOR & ANALYTICS TRACKING
+-- ========================================
+
+-- Track every page view across GCR (device, duration, UTM, location)
+CREATE TABLE IF NOT EXISTS gcr_page_views (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    session_id TEXT,
+    page_path TEXT NOT NULL,
+    page_title TEXT,
+    referrer TEXT,
+    utm_source TEXT,
+    utm_medium TEXT,
+    utm_campaign TEXT,
+    utm_term TEXT,
+    utm_content TEXT,
+    device_type TEXT,
+    duration_secs INTEGER,
+    source TEXT DEFAULT 'gcr',
+    ip_address TEXT,
+    country TEXT,
+    city TEXT,
+    created_at TIMESTAMP DEFAULT NOW()
+);
+
+-- Track tourist user preferences (what they like)
+CREATE TABLE IF NOT EXISTS user_preference_scores (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    tourist_id UUID NOT NULL,
+    tag TEXT NOT NULL,
+    score INTEGER DEFAULT 0,
+    updated_at TIMESTAMP DEFAULT NOW(),
+    UNIQUE(tourist_id, tag)
+);
+
+-- Track tourist sessions and signups
+CREATE TABLE IF NOT EXISTS tourist_sessions (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    phone TEXT UNIQUE,
+    otp_code TEXT,
+    otp_expires TIMESTAMP,
+    created_at TIMESTAMP DEFAULT NOW(),
+    updated_at TIMESTAMP DEFAULT NOW()
+);
+
+-- Track what restaurants/activities tourists save/bookmark
+CREATE TABLE IF NOT EXISTS tourist_saves (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    tourist_id UUID NOT NULL,
+    entity_id UUID NOT NULL REFERENCES entity(id) ON DELETE CASCADE,
+    save_type TEXT DEFAULT 'bookmark',
+    notes TEXT,
+    created_at TIMESTAMP DEFAULT NOW()
+);
+
+-- Track tourist user profiles
+CREATE TABLE IF NOT EXISTS tourist_profiles (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    tourist_id UUID NOT NULL UNIQUE,
+    phone TEXT UNIQUE,
+    email TEXT,
+    name TEXT,
+    interests TEXT[],
+    total_saves INTEGER DEFAULT 0,
+    total_visits INTEGER DEFAULT 0,
+    created_at TIMESTAMP DEFAULT NOW(),
+    updated_at TIMESTAMP DEFAULT NOW()
+);
+
+-- Track tourist photos uploaded
+CREATE TABLE IF NOT EXISTS tourist_photos (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    tourist_id UUID NOT NULL,
+    entity_id UUID REFERENCES entity(id) ON DELETE CASCADE,
+    image_url TEXT,
+    caption TEXT,
+    created_at TIMESTAMP DEFAULT NOW()
+);
+
+-- ========================================
 -- INDEXES FOR PERFORMANCE
 -- ========================================
 CREATE INDEX IF NOT EXISTS idx_entity_slug ON entity(slug);
@@ -639,6 +718,13 @@ CREATE INDEX IF NOT EXISTS idx_qr_scans_code ON qr_scans(qr_code_id);
 CREATE INDEX IF NOT EXISTS idx_qr_scans_phone ON qr_scans(scanner_phone);
 CREATE INDEX IF NOT EXISTS idx_qr_events_code ON qr_events(qr_code_id);
 CREATE INDEX IF NOT EXISTS idx_qr_events_scan ON qr_events(scan_id);
+CREATE INDEX IF NOT EXISTS idx_gcr_page_views_session ON gcr_page_views(session_id);
+CREATE INDEX IF NOT EXISTS idx_gcr_page_views_path ON gcr_page_views(page_path);
+CREATE INDEX IF NOT EXISTS idx_gcr_page_views_created ON gcr_page_views(created_at);
+CREATE INDEX IF NOT EXISTS idx_user_pref_scores_tourist ON user_preference_scores(tourist_id);
+CREATE INDEX IF NOT EXISTS idx_tourist_saves_tourist ON tourist_saves(tourist_id);
+CREATE INDEX IF NOT EXISTS idx_tourist_saves_entity ON tourist_saves(entity_id);
+CREATE INDEX IF NOT EXISTS idx_tourist_photos_tourist ON tourist_photos(tourist_id);
 
 -- ========================================
 -- AUDIT TRIGGERS
