@@ -1868,6 +1868,19 @@ router.get('/entity/:slug', async (req, res) => {
     const sections = sectionsRes.data || [];
     const sectionsWithContent = await Promise.all(sections.map(sec => fetchSectionContent(sec)));
 
+    // Fetch section_items and section_bullets for all sections
+    const sectionIds = sections.map(s => s.id);
+    let sectionItems = [];
+    let sectionBullets = [];
+    if (sectionIds.length) {
+        const [itemsRes, bulletsRes] = await Promise.all([
+            gcrDb.from('section_items').select('*').in('section_id', sectionIds).order('sort_order'),
+            gcrDb.from('section_bullets').select('*').in('section_id', sectionIds).order('sort_order'),
+        ]);
+        sectionItems = itemsRes.data || [];
+        sectionBullets = bulletsRes.data || [];
+    }
+
     res.json({
         entity,
         features:      featuresRes.data   || [],
@@ -1880,6 +1893,8 @@ router.get('/entity/:slug', async (req, res) => {
             return r;
         }),
         sections:      sectionsWithContent,
+        sectionItems:  sectionItems,
+        sectionBullets: sectionBullets,
         // New dedicated tables
         hours:         hoursRes.data      || [],
         about_bullets: bulletsRes.data    || [],
