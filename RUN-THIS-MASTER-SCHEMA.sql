@@ -121,6 +121,16 @@ CREATE TABLE IF NOT EXISTS entity (
     _extra_photos TEXT,
     metadata_json JSONB,
 
+    -- Theme & Design
+    theme_preset TEXT,
+    theme_bg TEXT,
+    theme_surface TEXT,
+    theme_primary TEXT,
+    theme_accent TEXT,
+    theme_text TEXT,
+    theme_border_radius TEXT,
+    custom_css TEXT,
+
     -- Timestamps
     created_at TIMESTAMP DEFAULT NOW(),
     updated_at TIMESTAMP DEFAULT NOW(),
@@ -300,6 +310,83 @@ CREATE TABLE IF NOT EXISTS entity_happy_hours (
     deal_name TEXT,
     hh_price NUMERIC(10,2),
     discount_percent INTEGER,
+    created_at TIMESTAMP DEFAULT NOW()
+);
+
+-- ========================================
+-- PROMOTIONS (GCR)
+-- ========================================
+CREATE TABLE IF NOT EXISTS entity_promotions (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    entity_id UUID NOT NULL REFERENCES entity(id) ON DELETE CASCADE,
+    title TEXT NOT NULL,
+    description TEXT,
+    promo_code TEXT,
+    discount_type TEXT,
+    discount_value NUMERIC(10,2),
+    discount_percent INTEGER,
+    discount_text TEXT,
+    start_date DATE,
+    end_date DATE,
+    cta_text TEXT,
+    cta_url TEXT,
+    type TEXT DEFAULT 'random',
+    trigger_config JSONB,
+    coupon_prefix TEXT,
+    is_active BOOLEAN DEFAULT true,
+    active BOOLEAN DEFAULT true,
+    sort_order INTEGER DEFAULT 0,
+    created_at TIMESTAMP DEFAULT NOW(),
+    updated_at TIMESTAMP DEFAULT NOW()
+);
+
+-- ========================================
+-- QR CODE TRACKING
+-- ========================================
+CREATE TABLE IF NOT EXISTS qr_codes (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    code TEXT UNIQUE NOT NULL,
+    seq_number INTEGER UNIQUE,
+    type TEXT DEFAULT 'general',
+    site_id UUID,
+    label TEXT,
+    destination_url TEXT,
+    scan_url TEXT,
+    metadata JSONB,
+    notes TEXT,
+    location TEXT,
+    placement TEXT,
+    scan_count INTEGER DEFAULT 0,
+    active BOOLEAN DEFAULT true,
+    alert_phone TEXT,
+    created_at TIMESTAMP DEFAULT NOW(),
+    updated_at TIMESTAMP DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS qr_scans (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    qr_code_id UUID NOT NULL REFERENCES qr_codes(id) ON DELETE CASCADE,
+    device_type TEXT,
+    ip_address TEXT,
+    user_agent TEXT,
+    scanned_at TIMESTAMP DEFAULT NOW(),
+    scanner_phone TEXT,
+    scanner_name TEXT,
+    lead_score INTEGER DEFAULT 0,
+    lead_tier TEXT DEFAULT 'cold',
+    time_on_page INTEGER,
+    created_at TIMESTAMP DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS qr_events (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    scan_id UUID REFERENCES qr_scans(id) ON DELETE CASCADE,
+    qr_code_id UUID NOT NULL REFERENCES qr_codes(id) ON DELETE CASCADE,
+    event_type TEXT,
+    page_url TEXT,
+    page_title TEXT,
+    duration_seconds INTEGER,
+    data JSONB,
     created_at TIMESTAMP DEFAULT NOW()
 );
 
@@ -544,6 +631,14 @@ CREATE INDEX IF NOT EXISTS idx_entity_specials_entity ON entity_specials(entity_
 CREATE INDEX IF NOT EXISTS idx_entity_specials_active ON entity_specials(is_active);
 CREATE INDEX IF NOT EXISTS idx_entity_tags_entity ON entity_tags(entity_id);
 CREATE INDEX IF NOT EXISTS idx_entity_features_entity ON entity_features(entity_id);
+CREATE INDEX IF NOT EXISTS idx_entity_promotions_entity ON entity_promotions(entity_id);
+CREATE INDEX IF NOT EXISTS idx_entity_promotions_active ON entity_promotions(is_active);
+CREATE INDEX IF NOT EXISTS idx_qr_codes_code ON qr_codes(code);
+CREATE INDEX IF NOT EXISTS idx_qr_codes_site ON qr_codes(site_id);
+CREATE INDEX IF NOT EXISTS idx_qr_scans_code ON qr_scans(qr_code_id);
+CREATE INDEX IF NOT EXISTS idx_qr_scans_phone ON qr_scans(scanner_phone);
+CREATE INDEX IF NOT EXISTS idx_qr_events_code ON qr_events(qr_code_id);
+CREATE INDEX IF NOT EXISTS idx_qr_events_scan ON qr_events(scan_id);
 
 -- ========================================
 -- AUDIT TRIGGERS
@@ -583,6 +678,12 @@ EXECUTE FUNCTION update_entity_timestamp();
 DROP TRIGGER IF EXISTS entity_events_update_timestamp ON entity_events;
 CREATE TRIGGER entity_events_update_timestamp
 BEFORE UPDATE ON entity_events
+FOR EACH ROW
+EXECUTE FUNCTION update_entity_timestamp();
+
+DROP TRIGGER IF EXISTS entity_promotions_update_timestamp ON entity_promotions;
+CREATE TRIGGER entity_promotions_update_timestamp
+BEFORE UPDATE ON entity_promotions
 FOR EACH ROW
 EXECUTE FUNCTION update_entity_timestamp();
 

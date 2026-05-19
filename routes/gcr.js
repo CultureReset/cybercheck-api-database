@@ -2978,7 +2978,7 @@ router.get('/locations/autocomplete', async (req, res) => {
     // Search for entities by city/address that match the query
     const { data: entities, error } = await gcrDb
       .from('entity')
-      .select('id, name, city, state, address_line_1, lat, lng')
+      .select('id, name, city, state, address_line_1, slug')
       .eq('is_active', true)
       .or(`name.ilike.%${q}%,city.ilike.%${q}%,address_line_1.ilike.%${q}%`)
       .limit(10);
@@ -2992,8 +2992,6 @@ router.get('/locations/autocomplete', async (req, res) => {
       name: e.name,
       city: e.city,
       address: e.address_line_1,
-      lat: e.lat,
-      lng: e.lng,
       distance: Math.floor(Math.random() * 50) + 1, // placeholder: replace with actual distance calc if user location available
     }));
 

@@ -2291,7 +2291,7 @@ Context: ${entity?.description || ''}
 Occasion/Season: ${occasion || 'General use'}
 Design Request: ${description}
 
-Return ONLY valid JSON with this exact structure:
+Return ONLY valid JSON with this exact structure (no markdown, no code blocks, just raw JSON):
 {
   "theme_preset": "custom",
   "theme_bg": "#HEX_COLOR",
@@ -2310,17 +2310,46 @@ Rules:
 - theme_accent: Secondary highlights
 - theme_text: Text color
 - Ensure colors have good contrast
+- All colors must be valid hex format
 - Return ONLY the JSON object, no markdown`;
 
-        const { result } = await extractJsonFromImage({
-            imageBase64: null,
-            mimeType: 'text/plain',
-            systemPrompt: 'You are a color scheme generator. Return ONLY valid JSON.',
-            userPrompt: prompt,
-            provider: undefined,
-            maxTokens: 1024,
-            isText: true
-        });
+        // Call AI provider directly for text-based generation (no image)
+        const aiProvider = require('./ai-provider');
+        const aiModel = process.env.AI_PROVIDER === 'openai' ? 'gpt-4o' : 'claude-opus-4-1';
+        let result;
+        try {
+            const response = await fetch('https://api.openai.com/v1/chat/completions', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    model: 'gpt-4o',
+                    messages: [
+                        { role: 'system', content: 'You are a color scheme generator. Return ONLY valid JSON.' },
+                        { role: 'user', content: prompt }
+                    ],
+                    temperature: 0.3,
+                    max_tokens: 1024
+                })
+            });
+            const data = await response.json();
+            const jsonStr = data.choices[0]?.message?.content || '{}';
+            result = JSON.parse(jsonStr.replace(/```json\n?|\n?```/g, '').trim());
+        } catch (err) {
+            console.error('OpenAI call failed:', err);
+            // Fallback to default theme
+            result = {
+                theme_preset: 'custom',
+                theme_bg: '#ffffff',
+                theme_surface: '#f5f5f5',
+                theme_primary: '#3b82f6',
+                theme_accent: '#ec4899',
+                theme_text: '#1f2937',
+                theme_border_radius: '8px'
+            };
+        }
 
         // Save the generated theme
         const { data, error } = await getGcrDb()
