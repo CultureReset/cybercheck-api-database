@@ -1252,6 +1252,25 @@ function gcrImportHelpers(gcrDb) {
     return { getEntityId, upsertTag, getOrCreate };
 }
 
+// ── GET /api/admin/gcr/businesses — List all GCR entities (admin view, includes inactive)
+router.get('/gcr/businesses', adminRequired, async (req, res) => {
+    try {
+        const gcrDb = getGcrDb();
+        const { data, error } = await gcrDb
+            .from('entity')
+            .select('id, slug, name, entity_subtype, is_active, icon, city, created_at, updated_at')
+            .order('name');
+
+        if (error) {
+            return res.status(500).json({ error: error.message });
+        }
+
+        res.json(data || []);
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
+});
+
 // ── POST /api/admin/gcr/import-entity — business row → GCR entity table
 router.post('/gcr/import-entity', adminRequired, async (req, res) => {
     const gcrDb = getGcrDb();
