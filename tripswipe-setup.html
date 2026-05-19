@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trip Swipe Admin Setup</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .header {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      margin-bottom: 24px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 32px;
+      color: #333;
+      margin-bottom: 12px;
+    }
+
+    .header p {
+      font-size: 16px;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .status {
+      display: inline-block;
+      background: #fef3c7;
+      border: 1px solid #fcd34d;
+      color: #92400e;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-top: 12px;
+    }
+
+    .status.success {
+      background: #d1fae5;
+      border-color: #6ee7b7;
+      color: #065f46;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 24px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    }
+
+    .card h2 {
+      font-size: 20px;
+      color: #333;
+      margin-bottom: 16px;
+    }
+
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .step {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .step-number {
+      min-width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .step-content h3 {
+      font-size: 16px;
+      color: #333;
+      margin-bottom: 6px;
+    }
+
+    .step-content p {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    .sql-box {
+      background: #1e1e1e;
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 20px;
+      position: relative;
+      max-height: 300px;
+      overflow-y: auto;
+      overflow-x: auto;
+    }
+
+    .sql-box pre {
+      color: #d4d4d4;
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      line-height: 1.5;
+      margin: 0;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+
+    @media (max-width: 640px) {
+      .sql-box pre {
+        font-size: 11px;
+      }
+    }
+
+    .sql-box .copy-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #d4d4d4;
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .sql-box .copy-btn:hover {
+      background: rgba(255,255,255,0.2);
+      border-color: rgba(255,255,255,0.3);
+    }
+
+    .sql-box .copy-btn.copied {
+      background: rgba(34,197,94,0.2);
+      border-color: rgba(34,197,94,0.4);
+      color: #86efac;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .btn {
+      padding: 14px 28px;
+      border-radius: 12px;
+      border: none;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      flex: 1;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      box-shadow: 0 8px 20px rgba(102,126,234,0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(102,126,234,0.4);
+    }
+
+    .btn-secondary {
+      background: #f3f4f6;
+      color: #333;
+      border: 1px solid #e5e7eb;
+    }
+
+    .btn-secondary:hover {
+      background: #e5e7eb;
+    }
+
+    .tables-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .table-item {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 12px;
+      font-size: 13px;
+    }
+
+    .table-item-name {
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 4px;
+    }
+
+    .table-item-desc {
+      font-size: 12px;
+      color: #666;
+    }
+
+    .info-box {
+      background: #e0f2fe;
+      border: 1px solid #bae6fd;
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 16px;
+      font-size: 14px;
+      color: #0c4a6e;
+    }
+
+    .info-box strong {
+      color: #0c4a6e;
+    }
+
+    .success-message {
+      display: none;
+      background: #d1fae5;
+      border: 1px solid #6ee7b7;
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 16px;
+      color: #065f46;
+      font-size: 14px;
+    }
+
+    .success-message.show {
+      display: block;
+    }
+
+    /* MOBILE OPTIMIZATIONS */
+    @media (max-width: 768px) {
+      body {
+        padding: 12px;
+      }
+
+      .container {
+        max-width: 100%;
+      }
+
+      .header {
+        padding: 24px 16px;
+        margin-bottom: 16px;
+      }
+
+      .header h1 {
+        font-size: 24px;
+      }
+
+      .header p {
+        font-size: 14px;
+      }
+
+      .card {
+        padding: 20px 16px;
+        margin-bottom: 16px;
+      }
+
+      .card h2 {
+        font-size: 18px;
+      }
+
+      .tables-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 8px;
+      }
+
+      .table-item {
+        padding: 10px;
+        font-size: 12px;
+      }
+
+      .step {
+        gap: 12px;
+      }
+
+      .step-number {
+        min-width: 36px;
+        height: 36px;
+        font-size: 14px;
+      }
+
+      .step-content h3 {
+        font-size: 15px;
+      }
+
+      .step-content p {
+        font-size: 13px;
+      }
+
+      .actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        padding: 12px 16px;
+        font-size: 14px;
+        width: 100%;
+      }
+
+      .sql-box {
+        padding: 12px;
+        max-height: 250px;
+      }
+
+      .sql-box .copy-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+        top: 8px;
+        right: 8px;
+      }
+
+      .info-box {
+        font-size: 13px;
+        padding: 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 8px;
+      }
+
+      .header {
+        padding: 16px 12px;
+      }
+
+      .header h1 {
+        font-size: 20px;
+      }
+
+      .header p {
+        font-size: 13px;
+      }
+
+      .card {
+        padding: 16px 12px;
+      }
+
+      .card h2 {
+        font-size: 16px;
+      }
+
+      .tables-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .status {
+        font-size: 12px;
+        padding: 6px 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <h1>🚀 Trip Swipe Admin Setup</h1>
+      <p>Complete your admin dashboard database setup in one click</p>
+      <div class="status" id="setupStatus">⏳ Ready to setup</div>
+    </div>
+
+    <!-- Main Card -->
+    <div class="card">
+      <h2>📋 What Gets Created</h2>
+      <p style="color: #666; margin-bottom: 16px;">11 tables to power your admin dashboard:</p>
+
+      <div class="tables-grid">
+        <div class="table-item">
+          <div class="table-item-name">tripswipe_business_settings</div>
+          <div class="table-item-desc">Per-business Trip Swipe config</div>
+        </div>
+        <div class="table-item">
+          <div class="table-item-name">tripswipe_sponsored</div>
+          <div class="table-item-desc">Featured businesses</div>
+        </div>
+        <div class="table-item">
+          <div class="table-item-name">tripswipe_promo_cards</div>
+          <div class="table-item-desc">Time-sensitive offers</div>
+        </div>
+        <div class="table-item">
+          <div class="table-item-name">sms_blasts</div>
+          <div class="table-item-desc">SMS campaign history</div>
+        </div>
+        <div class="table-item">
+          <div class="table-item-name">business_leads</div>
+          <div class="table-item-desc">Incoming registrations</div>
+        </div>
+        <div class="table-item">
+          <div class="table-item-name">platform_settings</div>
+          <div class="table-item-desc">System configuration</div>
+        </div>
+        <div class="table-item">
+          <div class="table-item-name">tourist_profiles</div>
+          <div class="table-item-desc">User accounts</div>
+        </div>
+        <div class="table-item">
+          <div class="table-item-name">tourist_preferences</div>
+          <div class="table-item-desc">User interests</div>
+        </div>
+        <div class="table-item">
+          <div class="table-item-name">tourist_saves</div>
+          <div class="table-item-desc">User bookmarks</div>
+        </div>
+        <div class="table-item">
+          <div class="table-item-name">tourist_photos</div>
+          <div class="table-item-desc">Guest photos</div>
+        </div>
+        <div class="table-item">
+          <div class="table-item-name">item_swipes</div>
+          <div class="table-item-desc">User swipes/interactions</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Instructions -->
+    <div class="card">
+      <h2>✅ Setup Steps</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Copy the SQL</h3>
+            <p>Click the "Copy SQL" button below to copy all table creation code</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Go to Supabase</h3>
+            <p>Open your GCR Supabase project → Click "SQL Editor"</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Paste & Run</h3>
+            <p>Paste the SQL into the editor and click "Run" button</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>Done!</h3>
+            <p>Admin dashboard tables are now created and ready to use</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-box">
+        ℹ️ <strong>Safe to run:</strong> Uses "CREATE TABLE IF NOT EXISTS" — won't overwrite existing tables or data
+      </div>
+    </div>
+
+    <!-- SQL Code -->
+    <div class="card">
+      <h2>💾 SQL Migration Code</h2>
+      <div class="sql-box">
+        <button class="copy-btn" onclick="copySql()">Copy SQL</button>
+        <pre id="sqlCode">-- TRIP SWIPE ADMIN SETUP - FIXED VERSION
+-- Creates admin tables WITHOUT foreign key constraints
+-- (Run in Supabase SQL Editor)
+
+-- 1. TRIP SWIPE BUSINESS SETTINGS
+CREATE TABLE IF NOT EXISTS tripswipe_business_settings (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  entity_id TEXT,
+  slug TEXT UNIQUE,
+  enabled BOOLEAN DEFAULT true,
+  featured BOOLEAN DEFAULT false,
+  hero_image TEXT,
+  description TEXT,
+  created_at TIMESTAMP DEFAULT now(),
+  updated_at TIMESTAMP DEFAULT now()
+);
+
+CREATE INDEX IF NOT EXISTS idx_tripswipe_settings_slug ON tripswipe_business_settings(slug);
+
+-- 2. TRIP SWIPE SPONSORED CARDS
+CREATE TABLE IF NOT EXISTS tripswipe_sponsored (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  entity_id TEXT,
+  priority INT DEFAULT 0,
+  badge_text TEXT DEFAULT '⭐ Featured',
+  expires_at TIMESTAMP,
+  created_at TIMESTAMP DEFAULT now(),
+  updated_at TIMESTAMP DEFAULT now()
+);
+
+CREATE INDEX IF NOT EXISTS idx_tripswipe_sponsored_priority ON tripswipe_sponsored(priority);
+
+-- 3. TRIP SWIPE PROMO CARDS
+CREATE TABLE IF NOT EXISTS tripswipe_promo_cards (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  entity_id TEXT,
+  title TEXT NOT NULL,
+  description TEXT,
+  image_url TEXT,
+  badge_text TEXT DEFAULT '🚨 Limited Time',
+  expires_at TIMESTAMP,
+  created_at TIMESTAMP DEFAULT now(),
+  updated_at TIMESTAMP DEFAULT now()
+);
+
+CREATE INDEX IF NOT EXISTS idx_tripswipe_promo_expires ON tripswipe_promo_cards(expires_at);
+
+-- 4. SMS BLASTS HISTORY
+CREATE TABLE IF NOT EXISTS sms_blasts (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  message TEXT NOT NULL,
+  audience TEXT,
+  sent_to INT DEFAULT 0,
+  sent_at TIMESTAMP DEFAULT now()
+);
+
+CREATE INDEX IF NOT EXISTS idx_sms_blasts_sent_at ON sms_blasts(sent_at);
+
+-- 5. BUSINESS LEADS
+CREATE TABLE IF NOT EXISTS business_leads (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  business_name TEXT NOT NULL,
+  contact_email TEXT,
+  contact_phone TEXT,
+  address TEXT,
+  category TEXT,
+  status TEXT DEFAULT 'new',
+  notes TEXT,
+  created_at TIMESTAMP DEFAULT now(),
+  updated_at TIMESTAMP DEFAULT now()
+);
+
+CREATE INDEX IF NOT EXISTS idx_business_leads_status ON business_leads(status);
+
+-- 6. PLATFORM SETTINGS
+CREATE TABLE IF NOT EXISTS platform_settings (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  key TEXT UNIQUE NOT NULL,
+  value JSONB,
+  created_at TIMESTAMP DEFAULT now(),
+  updated_at TIMESTAMP DEFAULT now()
+);
+
+CREATE INDEX IF NOT EXISTS idx_platform_settings_key ON platform_settings(key);
+
+-- 7. TOURIST PROFILES
+CREATE TABLE IF NOT EXISTS tourist_profiles (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  email TEXT UNIQUE,
+  phone TEXT UNIQUE,
+  name TEXT,
+  destination TEXT,
+  travel_dates_from DATE,
+  travel_dates_to DATE,
+  setup_complete BOOLEAN DEFAULT false,
+  sms_opt_in BOOLEAN DEFAULT false,
+  created_at TIMESTAMP DEFAULT now(),
+  updated_at TIMESTAMP DEFAULT now()
+);
+
+CREATE INDEX IF NOT EXISTS idx_tourist_profiles_email ON tourist_profiles(email);
+
+-- 8. TOURIST PREFERENCES
+CREATE TABLE IF NOT EXISTS tourist_preferences (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id UUID REFERENCES tourist_profiles(id) ON DELETE CASCADE,
+  category TEXT,
+  score INT DEFAULT 0,
+  created_at TIMESTAMP DEFAULT now(),
+  updated_at TIMESTAMP DEFAULT now()
+);
+
+CREATE INDEX IF NOT EXISTS idx_tourist_preferences_user ON tourist_preferences(user_id);
+
+-- 9. TOURIST SAVES
+CREATE TABLE IF NOT EXISTS tourist_saves (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id UUID REFERENCES tourist_profiles(id) ON DELETE CASCADE,
+  entity_id TEXT,
+  is_super_like BOOLEAN DEFAULT false,
+  saved_at TIMESTAMP DEFAULT now()
+);
+
+CREATE INDEX IF NOT EXISTS idx_tourist_saves_user ON tourist_saves(user_id);
+
+-- 10. TOURIST PHOTOS
+CREATE TABLE IF NOT EXISTS tourist_photos (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id UUID REFERENCES tourist_profiles(id) ON DELETE CASCADE,
+  entity_slug TEXT,
+  image_url TEXT NOT NULL,
+  caption TEXT,
+  uploader_name TEXT,
+  category TEXT,
+  status TEXT DEFAULT 'pending',
+  submitted_at TIMESTAMP DEFAULT now(),
+  reviewed_at TIMESTAMP,
+  reviewed_by TEXT
+);
+
+CREATE INDEX IF NOT EXISTS idx_tourist_photos_entity ON tourist_photos(entity_slug);
+CREATE INDEX IF NOT EXISTS idx_tourist_photos_status ON tourist_photos(status);
+
+-- 11. ITEM SWIPES
+CREATE TABLE IF NOT EXISTS item_swipes (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id TEXT NOT NULL,
+  section_item_id TEXT,
+  entity_id TEXT,
+  action TEXT CHECK (action IN ('right', 'left', 'save')),
+  created_at TIMESTAMP DEFAULT now()
+);
+
+CREATE INDEX IF NOT EXISTS idx_item_swipes_user ON item_swipes(user_id);
+CREATE INDEX IF NOT EXISTS idx_item_swipes_entity ON item_swipes(entity_id);
+
+-- Done! All tables created.
+        </pre>
+      </div>
+
+      <div class="actions">
+        <button class="btn btn-primary" onclick="copySql()">📋 Copy SQL to Clipboard</button>
+        <button class="btn btn-secondary" onclick="openSupabase()">🔗 Open Supabase</button>
+      </div>
+
+      <div class="success-message" id="successMsg">
+        ✅ SQL copied to clipboard! Paste it into Supabase SQL Editor and click Run.
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div style="text-align: center; color: rgba(255,255,255,.7); padding: 20px;">
+      <p>Trip Swipe Admin Dashboard Setup v1.0</p>
+      <p style="font-size: 12px; margin-top: 8px;">Once setup is complete, your admin dashboard will be fully functional</p>
+    </div>
+  </div>
+
+  <script>
+    function copySql() {
+      const sql = document.getElementById('sqlCode').textContent;
+      navigator.clipboard.writeText(sql).then(() => {
+        const btn = event.target;
+        const msg = document.getElementById('successMsg');
+
+        btn.textContent = '✅ Copied!';
+        btn.classList.add('copied');
+        msg.classList.add('show');
+
+        setTimeout(() => {
+          btn.textContent = '📋 Copy SQL to Clipboard';
+          btn.classList.remove('copied');
+          msg.classList.remove('show');
+        }, 3000);
+      });
+    }
+
+    function openSupabase() {
+      // Open Supabase dashboard - user will need to fill in their project URL
+      alert('1. Go to your Supabase project dashboard\n2. Click "SQL Editor" on the left\n3. Click "New Query"\n4. Paste the copied SQL\n5. Click "Run"');
+    }
+  </script>
+</body>
+</html>
