@@ -1256,10 +1256,19 @@ function gcrImportHelpers(gcrDb) {
 router.get('/gcr/businesses', adminRequired, async (req, res) => {
     try {
         const gcrDb = getGcrDb();
-        const { data, error } = await gcrDb
+        const { search, category, status } = req.query;
+
+        let query = gcrDb
             .from('entity')
-            .select('id, slug, name, entity_subtype, is_active, icon, city, created_at, updated_at')
+            .select('id, slug, name, entity_subtype, is_active, icon, hero_image_url, phone, city, state, created_at, updated_at')
             .order('name');
+
+        if (status === 'active') query = query.eq('is_active', true);
+        if (status === 'hidden') query = query.eq('is_active', false);
+        if (category) query = query.ilike('entity_subtype', `%${category}%`);
+        if (search) query = query.ilike('name', `%${search}%`);
+
+        const { data, error } = await query;
 
         if (error) {
             return res.status(500).json({ error: error.message });
@@ -2257,23 +2266,6 @@ router.post('/gcr/auto-activate-top5', async (req, res) => {
         summary,
     });
 });
-
-router.get('/gcr/businesses', adminRequired, async (req, res) => {
-    const { search, category, status } = req.query;
-    const db = getGcrDb();
-    let query = db.from('entity').select('id, slug, name, entity_subtype, is_active, hero_image_url, phone, city, state').order('name', { ascending: true });
-    if (status === 'active') query = query.eq('is_active', true);
-    if (status === 'hidden') query = query.eq('is_active', false);
-    if (category) query = query.ilike('entity_subtype', `%${category}%`);
-    if (search) query = query.ilike('name', `%${search}%`);
-    const { data, error } = await query;
-    if (error) return res.status(500).json({ success: false, error: error.message });
-    res.json({ success: true, businesses: data || [], count: (data || []).length });
-});
-
-// ============================================
-// GCR EVENTS — stored as section_cards in entity sections
-// ============================================
 
 // ============================================
 // GCR EVENTS — new entity_events table
@@ -3470,6 +3462,46 @@ router.get('/gcr/entities/:id/features', async (req, res) => {
     } catch (e) { res.status(500).json({ error: e.message }); }
 });
 
+// GET /api/gcr/entities/:id/children — Get all child rental units for a parent property
+// Public endpoint: filters by bed/bath/price ranges
+router.get('/gcr/entities/:id/children', async (req, res) => {
+    try {
+        const gcrDb = getGcrDb();
+        const { id } = req.params;
+        const { beds, baths, price_min, price_max } = req.query;
+
+        let q = gcrDb
+            .from('entity')
+            .select('id, slug, name, subtitle, entity_type, entity_subtype, icon, rating, review_count, city, state, is_active, hero_image_url, phone, address_line_1, directions_url, website_url, bedrooms, bathrooms, price_range, rental_company')
+            .eq('parent_entity_id', id)
+            .eq('is_active', true)
+            .order('name');
+
+        // Apply filters
+        if (beds) q = q.eq('bedrooms', parseInt(beds));
+        if (baths) q = q.eq('bathrooms', parseInt(baths));
+
+        const { data, error } = await q;
+        if (error) return res.status(500).json({ error: error.message });
+
+        // Filter by price range on client side (price_range is text like "$50-150")
+        let children = data || [];
+        if (price_min || price_max) {
+            children = children.filter(c => {
+                if (!c.price_range) return false;
+                const match = c.price_range.match(/\$(\d+)/);
+                const price = match ? parseInt(match[1]) : null;
+                if (!price) return false;
+                if (price_min && price < parseInt(price_min)) return false;
+                if (price_max && price > parseInt(price_max)) return false;
+                return true;
+            });
+        }
+
+        res.json({ children });
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
 // PUT /api/admin/gcr/entities/:id
 router.put('/gcr/entities/:id', authRequired, async (req, res) => {
     const { id } = req.params;
@@ -3804,21 +3836,34 @@ router.patch('/gcr/entities/:id', authRequired, async (req, res) => {
 });
 
 // DELETE /api/admin/gcr/entities/:id — permanently removes entity + all related rows
+// Deletes from all 22 standardized entity tables (children first, parent last)
 router.delete('/gcr/entities/:id', async (req, res) => {
     const { id } = req.params;
+    // Child tables (delete first to avoid FK constraints)
+    await gcrDb.from('entity_section_bullets').delete().eq('entity_id', id);
+    await gcrDb.from('entity_section_items').delete().eq('entity_id', id);
+    await gcrDb.from('entity_happy_hour_items').delete().eq('entity_id', id);
+    await gcrDb.from('entity_menu_items').delete().eq('entity_id', id);
+    await gcrDb.from('entity_drink_items').delete().eq('entity_id', id);
+    // Parent/standalone tables
+    await gcrDb.from('entity_sections').delete().eq('entity_id', id);
+    await gcrDb.from('entity_happy_hours').delete().eq('entity_id', id);
+    await gcrDb.from('entity_menu_sections').delete().eq('entity_id', id);
+    await gcrDb.from('entity_drink_sections').delete().eq('entity_id', id);
+    await gcrDb.from('entity_hours').delete().eq('entity_id', id);
     await gcrDb.from('entity_tags').delete().eq('entity_id', id);
     await gcrDb.from('entity_features').delete().eq('entity_id', id);
     await gcrDb.from('entity_perfect_for').delete().eq('entity_id', id);
+    await gcrDb.from('entity_photos').delete().eq('entity_id', id);
     await gcrDb.from('entity_specials').delete().eq('entity_id', id);
     await gcrDb.from('entity_events').delete().eq('entity_id', id);
-    await gcrDb.from('menu_items').delete().eq('entity_id', id);
-    await gcrDb.from('menu_sections').delete().eq('entity_id', id);
-    await gcrDb.from('drink_items').delete().eq('entity_id', id);
-    await gcrDb.from('drink_sections').delete().eq('entity_id', id);
-    await gcrDb.from('happy_hour_items').delete().eq('entity_id', id);
-    await gcrDb.from('happy_hour_sections').delete().eq('entity_id', id);
-    await gcrDb.from('packages').delete().eq('entity_id', id);
-    await gcrDb.from('gcr_faqs').delete().eq('entity_id', id);
+    await gcrDb.from('entity_activities').delete().eq('entity_id', id);
+    await gcrDb.from('entity_pricing').delete().eq('entity_id', id);
+    await gcrDb.from('entity_booking_slots').delete().eq('entity_id', id);
+    await gcrDb.from('entity_policies').delete().eq('entity_id', id);
+    await gcrDb.from('entity_requirements').delete().eq('entity_id', id);
+    await gcrDb.from('entity_qna').delete().eq('entity_id', id);
+    // Parent entity table (delete last)
     const { error } = await gcrDb.from('entity').delete().eq('id', id);
     if (error) return res.status(500).json({ error: error.message });
     res.json({ success: true });
