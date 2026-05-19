@@ -326,7 +326,7 @@ router.get('/:token/data', validateToken, async (req, res) => {
 
     const eid = req.entityId;
     const g = db();
-    const [entity, specials, menuSections, menuItems, drinkSections, drinkItems, hhSections, hhItems, events, photos] = await Promise.all([
+    const [entity, specials, menuSections, menuItems, drinkSections, drinkItems, hhSections, hhItems, events, photos, sections, sectionItems] = await Promise.all([
         g.from('entity').select('name,icon,description,hh_days,hh_start,hh_end,hh_description,hero_image_url,slug').eq('id', eid).single(),
         g.from('entity_specials').select('*').eq('entity_id', eid).order('created_at'),
         g.from('menu_sections').select('*').eq('entity_id', eid).order('sort_order'),
@@ -337,16 +337,86 @@ router.get('/:token/data', validateToken, async (req, res) => {
         g.from('happy_hour_items').select('*').eq('entity_id', eid).order('created_at'),
         g.from('entity_events').select('*').eq('entity_id', eid).eq('is_active', true).order('event_date'),
         g.from('entity_photos').select('*').eq('entity_id', eid).order('sort_order').limit(20),
+        g.from('entity_sections').select('*').eq('entity_id', eid).order('sort_order'),
+        g.from('section_items').select('*,section_id(id,entity_id,section_type)').eq('entity_id', eid).order('sort_order'),
     ]);
+
+    // Merge section_items into menu/drink/hh items
+    const allSections = sections.data || [];
+    const allSectionItems = sectionItems.data || [];
+
+    const menuSectionIds = new Set(allSections.filter(s => s.section_type === 'menu' || s.section_type === 'grouped_items').map(s => s.id));
+    const drinkSectionIds = new Set(allSections.filter(s => s.section_type === 'drinks').map(s => s.id));
+    const hhSectionIds = new Set(allSections.filter(s => s.section_type === 'happy_hour').map(s => s.id));
+
+    const mapSectionItemToMenuItem = (item) => ({
+        id: item.id,
+        entity_id: item.entity_id,
+        menu_section_id: item.section_id,
+        item_name: item.item_name,
+        name: item.item_name,
+        description: item.item_description || null,
+        price: item.price_numeric,
+        price_text: item.price_text,
+        image_url: item.image_url,
+        is_available: true,
+        sort_order: item.sort_order,
+    });
+
+    const mergedMenuItems = [
+        ...(menuItems.data || []),
+        ...allSectionItems.filter(i => menuSectionIds.has(i.section_id)).map(mapSectionItemToMenuItem),
+    ];
+
+    const mergedDrinkItems = [
+        ...(drinkItems.data || []),
+        ...allSectionItems.filter(i => drinkSectionIds.has(i.section_id)).map(mapSectionItemToMenuItem),
+    ];
+
+    const mergedHhItems = [
+        ...(hhItems.data || []),
+        ...allSectionItems.filter(i => hhSectionIds.has(i.section_id)).map(mapSectionItemToMenuItem),
+    ];
+
+    const mergedMenuSections = [
+        ...(menuSections.data || []),
+        ...allSections.filter(s => s.section_type === 'menu' || s.section_type === 'grouped_items').map(s => ({
+            id: s.id,
+            entity_id: s.entity_id,
+            section_name: s.section_label || s.section_type,
+            sort_order: s.sort_order,
+        })),
+    ];
+
+    const mergedDrinkSections = [
+        ...(drinkSections.data || []),
+        ...allSections.filter(s => s.section_type === 'drinks').map(s => ({
+            id: s.id,
+            entity_id: s.entity_id,
+            section_name: s.section_label || 'Drinks',
+            sort_order: s.sort_order,
+        })),
+    ];
+
+    const mergedHhSections = [
+        ...(hhSections.data || []),
+        ...allSections.filter(s => s.section_type === 'happy_hour').map(s => ({
+            id: s.id,
+            entity_id: s.entity_id,
+            section_name: s.section_label || 'Happy Hour',
+            sort_order: s.sort_order,
+        })),
+    ];
+
     res.json({
         entity: entity.data,
         specials: specials.data || [],
-        menu_sections: menuSections.data || [],
-        menu_items: menuItems.data || [],
-        drink_sections: drinkSections.data || [],
-        drink_items: drinkItems.data || [],
-        hh_sections: hhSections.data || [],
-        hh_items: hhItems.data || [],
+        menu_sections: mergedMenuSections,
+        menu_items: mergedMenuItems,
+        drink_sections: mergedDrinkSections,
+        drink_items: mergedDrinkItems,
+        hh_sections: mergedHhSections,
+        hh_items: mergedHhItems,
         events: events.data || [],
         photos: photos.data || [],
     });
