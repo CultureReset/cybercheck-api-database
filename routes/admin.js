@@ -8082,5 +8082,137 @@ router.delete('/community-photos/:id', adminRequired, async (req, res) => {
     res.json({ success: true });
 });
 
+// ============================================
+// TRIP SWIPE TOURISTS ADMIN
+// ============================================
+
+// GET /api/admin/tourists — list all tourists with their activity
+router.get('/tourists', adminRequired, async (req, res) => {
+    try {
+        const { data: tourists, error } = await supabase
+            .from('tourist_profiles')
+            .select(`
+                id, name, email, phone,
+                setup_complete, created_at, updated_at,
+                destination, travel_dates_from, travel_dates_to
+            `)
+            .order('created_at', { ascending: false })
+            .limit(500);
+
+        if (error) return res.status(500).json({ error: error.message });
+
+        // Get swipes and saves for each tourist
+        const tourismWithStats = await Promise.all((tourists || []).map(async (t) => {
+            const [{ count: swipes }, { count: saves }, { count: itineraries }] = await Promise.all([
+                supabase.from('item_swipes').select('id', { count: 'exact' }).eq('user_id', t.id),
+                supabase.from('tourist_saves').select('id', { count: 'exact' }).eq('user_id', t.id),
+                supabase.from('itineraries').select('id', { count: 'exact' }).eq('user_id', t.id)
+            ]);
+
+            return {
+                user_id: t.id,
+                name: t.name || (t.email || '').split('@')[0] || 'Tourist',
+                email: t.email,
+                phone: t.phone,
+                destination: t.destination,
+                travel_dates: t.travel_dates_from ? `${t.travel_dates_from} to ${t.travel_dates_to}` : null,
+                setup_complete: t.setup_complete,
+                created_at: t.created_at,
+                swipes: swipes || 0,
+                saves: saves || 0,
+                itineraries_count: itineraries || 0,
+            };
+        }));
+
+        res.json({ tourists: tourismWithStats });
+    } catch (e) {
+        console.error('GET /tourists error:', e);
+        res.status(500).json({ error: e.message });
+    }
+});
+
+// GET /api/admin/tourists/:id — detailed tourist profile
+router.get('/tourists/:id', adminRequired, async (req, res) => {
+    try {
+        const { data: tourist, error } = await supabase
+            .from('tourist_profiles')
+            .select('*')
+            .eq('id', req.params.id)
+            .single();
+
+        if (error || !tourist) return res.status(404).json({ error: 'Tourist not found' });
+
+        // Get preferences
+        const { data: prefs } = await supabase
+            .from('tourist_preferences')
+            .select('*')
+            .eq('user_id', req.params.id);
+
+        // Get saves
+        const { data: saves } = await supabase
+            .from('tourist_saves')
+            .select('entity_id, entity:entity_id(slug, name, icon), saved_at')
+            .eq('user_id', req.params.id)
+            .order('saved_at', { ascending: false });
+
+        res.json({
+            tourist: { ...tourist, id: tourist.id, user_id: tourist.id },
+            preferences: prefs || [],
+            saves: saves || [],
+        });
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
+});
+
+// GET /api/admin/tourists/:id/preferences — read tourist preferences
+router.get('/tourists/:id/preferences', adminRequired, async (req, res) => {
+    try {
+        const { data, error } = await supabase
+            .from('tourist_preferences')
+            .select('*')
+            .eq('user_id', req.params.id);
+
+        if (error) return res.status(500).json({ error: error.message });
+        res.json({ preferences: data || [] });
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
+});
+
+// PUT /api/admin/tourists/:id/preferences — update preferences
+router.put('/tourists/:id/preferences', adminRequired, async (req, res) => {
+    try {
+        const { preferences } = req.body;
+        const { data, error } = await supabase
+            .from('tourist_preferences')
+            .upsert(
+                { user_id: req.params.id, ...preferences, updated_at: new Date().toISOString() },
+                { onConflict: 'user_id' }
+            )
+            .select();
+
+        if (error) return res.status(500).json({ error: error.message });
+        res.json({ preferences: data || [] });
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
+});
+
+// DELETE /api/admin/tourists/:id — remove a tourist (GDPR delete)
+router.delete('/tourists/:id', adminRequired, async (req, res) => {
+    try {
+        await Promise.all([
+            supabase.from('tourist_profiles').delete().eq('id', req.params.id),
+            supabase.from('item_swipes').delete().eq('user_id', req.params.id),
+            supabase.from('tourist_saves').delete().eq('user_id', req.params.id),
+            supabase.from('tourist_preferences').delete().eq('user_id', req.params.id),
+        ]);
+        res.json({ success: true });
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
+});
+
 module.exports = router;
 
