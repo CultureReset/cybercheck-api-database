@@ -527,12 +527,33 @@ router.post('/:token/menu-items', validateToken, async (req, res) => {
     } else {
         const { id, item_name, description, price, price_text, menu_section_id, image_url, is_available = true } = req.body;
         if (!item_name) return res.status(400).json({ error: 'item_name required' });
-        const payload = { item_name, description: description || null, price: price !== '' && price != null ? parseFloat(price) : null, price_text: price_text || null, menu_section_id: menu_section_id || null, image_url: image_url || null, is_available };
         const g = db();
-        if (id) {
-            ({ data, error } = await g.from('menu_items').update(payload).eq('id', id).eq('entity_id', req.entityId).select().single());
+
+        // Determine if section is from entity_sections (section_type) or menu_sections
+        let targetTable = 'menu_items';
+        let sectionField = 'menu_section_id';
+        if (menu_section_id) {
+            const { data: sec } = await g.from('entity_sections').select('id').eq('id', menu_section_id).maybeSingle();
+            if (sec) {
+                targetTable = 'section_items';
+                sectionField = 'section_id';
+            }
+        }
+
+        if (targetTable === 'section_items') {
+            const payload = { item_name, item_description: description || null, price_numeric: price !== '' && price != null ? parseFloat(price) : null, price_text: price_text || null, section_id: menu_section_id || null, image_url: image_url || null, sort_order: 0 };
+            if (id) {
+                ({ data, error } = await g.from('section_items').update(payload).eq('id', id).eq('entity_id', req.entityId).select().single());
+            } else {
+                ({ data, error } = await g.from('section_items').insert({ entity_id: req.entityId, ...payload }).select().single());
+            }
         } else {
-            ({ data, error } = await g.from('menu_items').insert({ entity_id: req.entityId, ...payload }).select().single());
+            const payload = { item_name, description: description || null, price: price !== '' && price != null ? parseFloat(price) : null, price_text: price_text || null, menu_section_id: menu_section_id || null, image_url: image_url || null, is_available };
+            if (id) {
+                ({ data, error } = await g.from('menu_items').update(payload).eq('id', id).eq('entity_id', req.entityId).select().single());
+            } else {
+                ({ data, error } = await g.from('menu_items').insert({ entity_id: req.entityId, ...payload }).select().single());
+            }
         }
     }
     if (error) return res.status(500).json({ error: error.message });
@@ -541,10 +562,16 @@ router.post('/:token/menu-items', validateToken, async (req, res) => {
 });
 
 router.delete('/:token/menu-items/:id', validateToken, async (req, res) => {
-    const { error } = req.siteId
-        ? (await mainDb.from('menu_items').delete().eq('id', req.params.id).eq('site_id', req.siteId))
-        : (await db().from('menu_items').delete().eq('id', req.params.id).eq('entity_id', req.entityId));
-    if (error) return res.status(500).json({ error: error.message });
+    if (req.siteId) {
+        const { error } = await mainDb.from('menu_items').delete().eq('id', req.params.id).eq('site_id', req.siteId);
+        if (error) return res.status(500).json({ error: error.message });
+    } else {
+        const g = db();
+        const id = req.params.id;
+        // Try section_items first (where new data goes), then menu_items (legacy)
+        await g.from('section_items').delete().eq('id', id).eq('entity_id', req.entityId).then(() => {}).catch(() => {});
+        await g.from('menu_items').delete().eq('id', id).eq('entity_id', req.entityId).then(() => {}).catch(() => {});
+    }
     res.json({ success: true });
 });
 
@@ -552,21 +579,43 @@ router.delete('/:token/menu-items/:id', validateToken, async (req, res) => {
 router.post('/:token/drink-items', validateToken, async (req, res) => {
     const { id, item_name, description, price, price_text, drink_section_id, image_url, is_available = true } = req.body;
     if (!item_name) return res.status(400).json({ error: 'item_name required' });
-    const payload = { item_name, description: description || null, price: price !== '' && price != null ? parseFloat(price) : null, price_text: price_text || null, drink_section_id: drink_section_id || null, image_url: image_url || null, is_available };
     const g = db();
+
+    // Determine if section is from entity_sections (section_type) or drink_sections
+    let targetTable = 'drink_items';
+    if (drink_section_id) {
+        const { data: sec } = await g.from('entity_sections').select('id').eq('id', drink_section_id).maybeSingle();
+        if (sec) {
+            targetTable = 'section_items';
+        }
+    }
+
     let data, error;
-    if (id) {
-        ({ data, error } = await g.from('drink_items').update(payload).eq('id', id).eq('entity_id', req.entityId).select().single());
+    if (targetTable === 'section_items') {
+        const payload = { item_name, item_description: description || null, price_numeric: price !== '' && price != null ? parseFloat(price) : null, price_text: price_text || null, section_id: drink_section_id || null, image_url: image_url || null, sort_order: 0 };
+        if (id) {
+            ({ data, error } = await g.from('section_items').update(payload).eq('id', id).eq('entity_id', req.entityId).select().single());
+        } else {
+            ({ data, error } = await g.from('section_items').insert({ entity_id: req.entityId, ...payload }).select().single());
+        }
     } else {
-        ({ data, error } = await g.from('drink_items').insert({ entity_id: req.entityId, ...payload }).select().single());
+        const payload = { item_name, description: description || null, price: price !== '' && price != null ? parseFloat(price) : null, price_text: price_text || null, drink_section_id: drink_section_id || null, image_url: image_url || null, is_available };
+        if (id) {
+            ({ data, error } = await g.from('drink_items').update(payload).eq('id', id).eq('entity_id', req.entityId).select().single());
+        } else {
+            ({ data, error } = await g.from('drink_items').insert({ entity_id: req.entityId, ...payload }).select().single());
+        }
     }
     if (error) return res.status(500).json({ error: error.message });
     res.json({ item: data });
 });
 
 router.delete('/:token/drink-items/:id', validateToken, async (req, res) => {
-    const { error } = await db().from('drink_items').delete().eq('id', req.params.id).eq('entity_id', req.entityId);
-    if (error) return res.status(500).json({ error: error.message });
+    const g = db();
+    const id = req.params.id;
+    // Try section_items first (where new data goes), then drink_items (legacy)
+    await g.from('section_items').delete().eq('id', id).eq('entity_id', req.entityId).then(() => {}).catch(() => {});
+    await g.from('drink_items').delete().eq('id', id).eq('entity_id', req.entityId).then(() => {}).catch(() => {});
     res.json({ success: true });
 });
 
