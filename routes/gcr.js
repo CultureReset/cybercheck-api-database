@@ -2821,45 +2821,6 @@ router.post('/ads/:id/click', async (req, res) => {
 });
 
 // GET /api/admin/gcr/ads — list all ads (admin)
-router.get('/admin/ads', async (req, res) => {
-    const { data, error } = await gcrDb.from('gcr_ads').select('*').order('created_at', { ascending: false });
-    if (error) return res.status(500).json({ error: error.message });
-    res.json({ ads: data || [] });
-});
-
-// POST /api/admin/gcr/ads — create ad
-router.post('/admin/ads', async (req, res) => {
-    const { advertiser_name, tagline, image_url, logo_url, cta_text, cta_url, badge_text, weight } = req.body;
-    if (!advertiser_name) return res.status(400).json({ error: 'advertiser_name required' });
-    const { data, error } = await gcrDb.from('gcr_ads').insert({
-        advertiser_name, tagline, image_url, logo_url,
-        cta_text: cta_text || 'Learn More',
-        cta_url, badge_text,
-        weight: weight || 1,
-        is_active: true,
-    }).select().single();
-    if (error) return res.status(500).json({ error: error.message });
-    res.json({ ad: data });
-});
-
-// PUT /api/admin/gcr/ads/:id — update ad
-router.put('/admin/ads/:id', async (req, res) => {
-    const { advertiser_name, tagline, image_url, logo_url, cta_text, cta_url, badge_text, weight, is_active } = req.body;
-    const { data, error } = await gcrDb.from('gcr_ads').update({
-        advertiser_name, tagline, image_url, logo_url, cta_text, cta_url, badge_text,
-        weight: weight || 1, is_active,
-    }).eq('id', req.params.id).select().single();
-    if (error) return res.status(500).json({ error: error.message });
-    res.json({ ad: data });
-});
-
-// DELETE /api/admin/gcr/ads/:id — delete ad
-router.delete('/admin/ads/:id', async (req, res) => {
-    const { error } = await gcrDb.from('gcr_ads').delete().eq('id', req.params.id);
-    if (error) return res.status(500).json({ error: error.message });
-    res.json({ ok: true });
-});
-
 // ============================================
 // GET /api/gcr/live-now — businesses with active signals right now
 // Returns: happy hours active, events tonight, specials active, booking slots available

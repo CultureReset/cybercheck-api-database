@@ -8531,3 +8531,275 @@ router.delete('/tourists/:id', adminRequired, async (req, res) => {
 
 module.exports = router;
 
+
+// ============================================================
+// GEOFENCING SYSTEM — Location-based SMS marketing
+// ============================================================
+
+// POST /api/tourist/location — Tourist sends current location
+router.post('/tourist/location', async (req, res) => {
+  const token = req.headers.authorization?.split(' ')[1];
+  if (!token) return res.status(401).json({ error: 'Unauthorized' });
+
+  try {
+    const { data: { user }, error: authErr } = await supabase.auth.getUser(token);
+    if (authErr || !user) return res.status(401).json({ error: 'Invalid token' });
+
+    const { lat, lng, accuracy_meters } = req.body;
+    if (!lat || !lng) return res.status(400).json({ error: 'lat and lng required' });
+
+    const gcrDb = getGcrDb();
+
+    // 1. Store location
+    const { data: locData, error: locErr } = await gcrDb
+      .from('tourist_locations')
+      .insert({
+        tourist_id: user.id,
+        lat,
+        lng,
+        accuracy_meters: accuracy_meters || 30
+      })
+      .select()
+      .single();
+
+    if (locErr) return res.status(500).json({ error: locErr.message });
+
+    // 2. Check for nearby geofences (within 2 miles)
+    const nearbyGeofences = await gcrDb.rpc('find_nearby_geofences', {
+      user_lat: lat,
+      user_lng: lng,
+      max_distance_miles: 2.0
+    }).catch(() => ({ data: [] }));
+
+    // 3. Check which geofences they entered
+    const triggers = [];
+    for (const geofence of (nearbyGeofences?.data || [])) {
+      // Calculate actual distance
+      const earthRadius = 3958.8; // miles
+      const dLat = (geofence.center_lat - lat) * Math.PI / 180;
+      const dLng = (geofence.center_lng - lng) * Math.PI / 180;
+      const a = Math.sin(dLat / 2) ** 2 +
+        Math.cos(lat * Math.PI / 180) * Math.cos(geofence.center_lat * Math.PI / 180) * Math.sin(dLng / 2) ** 2;
+      const distance = earthRadius * 2 * Math.asin(Math.sqrt(a));
+
+      if (distance <= geofence.radius_miles) {
+        // They're IN this geofence
+        // Check if already triggered today
+        const { data: existing } = await gcrDb
+          .from('geofence_triggers')
+          .select('id')
+          .eq('tourist_id', user.id)
+          .eq('geofence_id', geofence.id)
+          .gte('triggered_at', new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString())
+          .single()
+          .catch(() => ({ data: null }));
+
+        if (!existing) {
+          // New trigger!
+          const { data: trigger } = await gcrDb
+            .from('geofence_triggers')
+            .insert({
+              tourist_id: user.id,
+              geofence_id: geofence.id,
+              entity_id: geofence.entity_id
+            })
+            .select()
+            .single();
+
+          if (trigger) triggers.push(trigger);
+        }
+      }
+    }
+
+    res.json({
+      location: locData,
+      nearby_geofences: nearbyGeofences?.data || [],
+      new_triggers: triggers
+    });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// PUT /api/tourist/location-settings — Enable/disable location sharing
+router.put('/tourist/location-settings', authRequired, async (req, res) => {
+  try {
+    const { userId } = req.user;
+    const {
+      location_sharing_enabled,
+      geofence_radius_miles,
+      sms_frequency,
+      sms_quiet_hours_start,
+      sms_quiet_hours_end,
+      sms_categories
+    } = req.body;
+
+    const gcrDb = getGcrDb();
+    const { data, error } = await gcrDb
+      .from('tourist_location_settings')
+      .upsert({
+        tourist_id: userId,
+        location_sharing_enabled: location_sharing_enabled !== false,
+        geofence_radius_miles: geofence_radius_miles || 1.0,
+        sms_frequency: sms_frequency || 'once_per_day',
+        sms_quiet_hours_start,
+        sms_quiet_hours_end,
+        sms_categories: sms_categories || ['food', 'nightlife'],
+        updated_at: new Date().toISOString()
+      }, { onConflict: 'tourist_id' })
+      .select()
+      .single();
+
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ settings: data });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// GET /api/admin/geofences — List all geofences
+router.get('/geofences', adminRequired, async (req, res) => {
+  try {
+    const gcrDb = getGcrDb();
+    const { data, error } = await gcrDb
+      .from('geofences')
+      .select('*, entity:entity_id(name, slug, category)')
+      .order('created_at', { ascending: false });
+
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ geofences: data });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// POST /api/admin/geofences — Create geofence for business
+router.post('/geofences', adminRequired, async (req, res) => {
+  try {
+    const {
+      entity_id,
+      center_lat,
+      center_lng,
+      radius_miles,
+      peak_hours,
+      current_offer
+    } = req.body;
+
+    if (!entity_id || !center_lat || !center_lng) {
+      return res.status(400).json({ error: 'entity_id, center_lat, center_lng required' });
+    }
+
+    const gcrDb = getGcrDb();
+    const { data, error } = await gcrDb
+      .from('geofences')
+      .insert({
+        entity_id,
+        center_lat,
+        center_lng,
+        radius_miles: radius_miles || 0.5,
+        peak_hours: peak_hours || {},
+        current_offer,
+        active: true
+      })
+      .select()
+      .single();
+
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ geofence: data });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// PUT /api/admin/geofences/:id — Update geofence
+router.put('/geofences/:id', adminRequired, async (req, res) => {
+  try {
+    const { id } = req.params;
+    const {
+      radius_miles,
+      peak_hours,
+      current_offer,
+      offer_valid_until,
+      min_match_score,
+      active
+    } = req.body;
+
+    const gcrDb = getGcrDb();
+    const { data, error } = await gcrDb
+      .from('geofences')
+      .update({
+        radius_miles,
+        peak_hours,
+        current_offer,
+        offer_valid_until,
+        min_match_score,
+        active,
+        updated_at: new Date().toISOString()
+      })
+      .eq('id', id)
+      .select()
+      .single();
+
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ geofence: data });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// GET /api/admin/geofence-analytics — Analytics on geofence performance
+router.get('/geofence-analytics', adminRequired, async (req, res) => {
+  try {
+    const gcrDb = getGcrDb();
+    const { data, error } = await gcrDb.rpc('get_geofence_analytics');
+
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ analytics: data });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// ============================================
+// GCR ADS MANAGEMENT
+// ============================================
+
+// GET /api/admin/gcr/ads — list all ads
+router.get('/gcr/ads', async (req, res) => {
+    const { data, error } = await getGcrDb().from('gcr_ads').select('*').order('created_at', { ascending: false });
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ ads: data || [] });
+});
+
+// POST /api/admin/gcr/ads — create ad
+router.post('/gcr/ads', async (req, res) => {
+    const { advertiser_name, tagline, image_url, logo_url, cta_text, cta_url, badge_text, weight } = req.body;
+    if (!advertiser_name) return res.status(400).json({ error: 'advertiser_name required' });
+    const { data, error } = await getGcrDb().from('gcr_ads').insert({
+        advertiser_name, tagline, image_url, logo_url,
+        cta_text: cta_text || 'Learn More',
+        cta_url, badge_text,
+        weight: weight || 1,
+        is_active: true,
+    }).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ ad: data });
+});
+
+// PUT /api/admin/gcr/ads/:id — update ad
+router.put('/gcr/ads/:id', async (req, res) => {
+    const { advertiser_name, tagline, image_url, logo_url, cta_text, cta_url, badge_text, weight, is_active } = req.body;
+    const { data, error } = await getGcrDb().from('gcr_ads').update({
+        advertiser_name, tagline, image_url, logo_url, cta_text, cta_url, badge_text,
+        weight: weight || 1, is_active,
+    }).eq('id', req.params.id).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ ad: data });
+});
+
+// DELETE /api/admin/gcr/ads/:id — delete ad
+router.delete('/gcr/ads/:id', async (req, res) => {
+    const { error } = await getGcrDb().from('gcr_ads').delete().eq('id', req.params.id);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ ok: true });
+});
