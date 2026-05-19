@@ -76,28 +76,45 @@ async function main() {
           continue;
         }
 
-        // Create amenities section
-        const { data: section, error: secErr } = await db
+        // Check if section already exists
+        const { data: existingSection } = await db
           .from('entity_sections')
-          .insert({
-            entity_id: entity.id,
-            section_key: 'amenities',
-            section_label: 'Amenities',
-            section_type: 'bullets',
-          })
-          .select()
+          .select('id')
+          .eq('entity_id', entity.id)
+          .eq('section_key', 'amenities')
           .single();
 
-        if (secErr) {
-          console.error(`  ✗ ${propertyName}: ${secErr.message}`);
-          failed++;
-          continue;
+        let section = existingSection;
+
+        // Create section if doesn't exist
+        if (!section) {
+          const { data: newSection, error: secErr } = await db
+            .from('entity_sections')
+            .insert({
+              entity_id: entity.id,
+              section_key: 'amenities',
+              section_label: 'Amenities',
+              section_type: 'bullets',
+            })
+            .select()
+            .single();
+
+          if (secErr) {
+            console.error(`  ✗ ${propertyName}: ${secErr.message}`);
+            failed++;
+            continue;
+          }
+
+          section = newSection;
         }
+
+        // Delete existing bullets for this section
+        await db.from('section_bullets').delete().eq('section_id', section.id);
 
         // Add amenity bullets
         const bullets = amenities.map((amenity, idx) => ({
           section_id: section.id,
-          bullet_order: idx,
+          sort_order: idx,
           bullet_text: amenity,
         }));
 

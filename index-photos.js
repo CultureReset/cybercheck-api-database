@@ -23,67 +23,73 @@ async function main() {
   let indexed = 0;
   let skipped = 0;
 
-  // List all files in entity-media bucket
-  const { data: files, error: listErr } = await db.storage
-    .from('entity-media')
-    .list('', { limit: 10000 });
+  // List all entity folders in entity-images bucket
+  const { data: entityFolders, error: listErr } = await db.storage
+    .from('entity-images')
+    .list('entity-images', { limit: 10000 });
 
   if (listErr) {
-    console.error('Error listing files:', listErr.message);
+    console.error('Error listing entity folders:', listErr.message);
     process.exit(1);
   }
 
-  console.log(`Found ${files.length} file(s) in storage\n`);
+  console.log(`Found ${entityFolders.length} entity folder(s) in storage\n`);
 
-  for (const file of files) {
-    // Parse path: entity-images/entity-id/filename or update-links/entity-id/filename etc
-    const parts = file.name.split('/');
-    if (parts.length < 2) {
-      skipped++;
-      continue;
-    }
+  for (const folder of entityFolders) {
+    const entityId = folder.name;
 
-    const entityId = parts[1];
     if (!entityIds.has(entityId)) {
       skipped++;
       continue;
     }
 
-    // Build full path and public URL
-    const storagePath = `${file.name}`;
-    const publicUrl = `${process.env.GCR_SUPABASE_URL.replace(/\/$/, '')}/storage/v1/object/public/entity-media/${storagePath}`;
+    // List images in this entity's folder
+    const { data: images, error: imgErr } = await db.storage
+      .from('entity-images')
+      .list(`entity-images/${entityId}`, { limit: 1000 });
+
+    if (imgErr || !images) {
+      console.error(`  ✗ ${entityId}: ${imgErr?.message || 'no images'}`);
+      continue;
+    }
 
     if (DRY_RUN) {
-      console.log(`  ✓ ${entityId}: ${file.name}`);
-      indexed++;
+      console.log(`  ✓ ${entityId}: ${images.length} image(s)`);
+      indexed += images.length;
       continue;
     }
 
     try {
-      // Check if already exists
-      const { data: existing } = await db
-        .from('entity_photos')
-        .select('id')
-        .eq('entity_id', entityId)
-        .eq('image_url', publicUrl)
-        .limit(1);
+      for (const image of images) {
+        const storagePath = `entity-images/${entityId}/${image.name}`;
+        const publicUrl = `${process.env.GCR_SUPABASE_URL.replace(/\/$/, '')}/storage/v1/object/public/entity-images/${storagePath}`;
 
-      if (existing && existing.length > 0) {
-        skipped++;
-        continue;
+        // Check if already exists
+        const { data: existing } = await db
+          .from('entity_photos')
+          .select('id')
+          .eq('entity_id', entityId)
+          .eq('image_url', publicUrl)
+          .limit(1);
+
+        if (existing && existing.length > 0) {
+          skipped++;
+          continue;
+        }
+
+        // Insert
+        const { error: insErr } = await db
+          .from('entity_photos')
+          .insert({ entity_id: entityId, image_url: publicUrl });
+
+        if (insErr) {
+          console.error(`    ✗ ${image.name}: ${insErr.message}`);
+          continue;
+        }
+
+        indexed++;
       }
 
-      // Insert
-      const { error: insErr } = await db
-        .from('entity_photos')
-        .insert({ entity_id: entityId, image_url: publicUrl });
-
-      if (insErr) {
-        console.error(`  ✗ ${entityId}: ${insErr.message}`);
-        continue;
-      }
-
-      indexed++;
       if (indexed % 100 === 0) console.log(`  ... ${indexed} indexed`);
     } catch (e) {
       console.error(`  ✗ ${entityId}: ${e.message}`);

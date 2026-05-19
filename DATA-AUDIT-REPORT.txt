@@ -1,0 +1,40 @@
+COMPREHENSIVE DATA AUDIT REPORT
+Generated: 2026-05-19T03:10:06.880Z
+
+═══════════════════════════════════════════════════════════════
+
+ENTITIES: 921
+  Phone: 803/921 (87.2%)
+  Address: 920/921 (99.9%)
+  Description: 372/921 (40.4%)
+  Hero Image: 611/921 (66.3%)
+  Place ID: 883/921 (95.9%)
+
+EVENTS: 1000
+  Tied to active: 903/1000
+  Orphaned: 97/1000
+  Coverage: 90.3%
+
+SPECIALS: 77
+  Tied to active: 52/77
+  Orphaned: 25/77
+  Coverage: 67.5%
+
+HAPPY HOURS: 26
+  Tied to active: 15/26
+  Orphaned: 11/26
+  Coverage: 57.7%
+
+SECTIONS: 158
+  Tied to active: 157/158
+  Orphaned: 1/158
+  Coverage: 99.4%
+
+SUMMARY:
+  Total records: 2182
+  Properly linked: 2048 (93.9%)
+  Orphaned: 134 (6.1%)
+
+ENTITY CONTENT COVERAGE:
+  With content: 128/921 (13.9%)
+  Without content: 793/921 (86.1%)
