@@ -2219,18 +2219,44 @@ router.delete('/pages/:id', async (req, res) => {
 // ============================================
 
 router.get('/theme', async (req, res) => {
+    const entityId = await resolveEntityId(req);
+    if (entityId) {
+        // Get theme from GCR
+        const { data } = await getGcrDb()
+            .from('entity')
+            .select('theme_preset, theme_bg, theme_surface, theme_primary, theme_accent, theme_text, theme_border_radius, custom_css')
+            .eq('id', entityId)
+            .single();
+        return res.json(data || {});
+    }
+    // Fallback for CyberCheck sites
     const { data } = await supabase
         .from('site_content')
         .select('theme_color, theme_font, custom_css')
         .eq('site_id', req.siteId)
         .single();
-
     res.json(data || {});
 });
 
 router.put('/theme', async (req, res) => {
+    const entityId = await resolveEntityId(req);
+    if (entityId) {
+        // Save theme to GCR entity
+        const { theme_preset, theme_bg, theme_surface, theme_primary, theme_accent, theme_text, theme_border_radius, custom_css } = req.body;
+        const { data, error } = await getGcrDb()
+            .from('entity')
+            .update({
+                theme_preset, theme_bg, theme_surface, theme_primary, theme_accent, theme_text, theme_border_radius, custom_css,
+                updated_at: new Date().toISOString()
+            })
+            .eq('id', entityId)
+            .select('theme_preset, theme_bg, theme_surface, theme_primary, theme_accent, theme_text, theme_border_radius, custom_css')
+            .single();
+        if (error) return res.status(500).json({ error: error.message });
+        return res.json(data);
+    }
+    // Fallback for CyberCheck sites
     const { theme_color, theme_font, custom_css } = req.body;
-
     const { data, error } = await supabase
         .from('site_content')
         .update({ theme_color, theme_font, custom_css, updated_at: new Date().toISOString() })
@@ -2240,6 +2266,79 @@ router.put('/theme', async (req, res) => {
 
     if (error) return res.status(500).json({ error: error.message });
     res.json(data);
+});
+
+// POST /api/dashboard/theme/ai-design — Generate custom theme via AI
+router.post('/theme/ai-design', async (req, res) => {
+    const entityId = await resolveEntityId(req);
+    if (!entityId) return res.status(400).json({ error: 'entity_id required' });
+
+    const { description, occasion } = req.body;
+    if (!description) return res.status(400).json({ error: 'description required' });
+
+    try {
+        // Get restaurant data for context
+        const { data: entity } = await getGcrDb()
+            .from('entity')
+            .select('name, description')
+            .eq('id', entityId)
+            .single();
+
+        const prompt = `You are a restaurant menu design expert. Based on this description and the restaurant context, generate a custom color scheme and design for their QR menu.
+
+Restaurant: ${entity?.name || 'Restaurant'}
+Context: ${entity?.description || ''}
+Occasion/Season: ${occasion || 'General use'}
+Design Request: ${description}
+
+Return ONLY valid JSON with this exact structure:
+{
+  "theme_preset": "custom",
+  "theme_bg": "#HEX_COLOR",
+  "theme_surface": "#HEX_COLOR",
+  "theme_primary": "#HEX_COLOR",
+  "theme_accent": "#HEX_COLOR",
+  "theme_text": "#HEX_COLOR",
+  "theme_border_radius": "8px",
+  "custom_css": "/* Optional CSS for advanced styling */"
+}
+
+Rules:
+- theme_bg: Main background color
+- theme_surface: Card/panel background
+- theme_primary: Buttons, highlights
+- theme_accent: Secondary highlights
+- theme_text: Text color
+- Ensure colors have good contrast
+- Return ONLY the JSON object, no markdown`;
+
+        const { result } = await extractJsonFromImage({
+            imageBase64: null,
+            mimeType: 'text/plain',
+            systemPrompt: 'You are a color scheme generator. Return ONLY valid JSON.',
+            userPrompt: prompt,
+            provider: undefined,
+            maxTokens: 1024,
+            isText: true
+        });
+
+        // Save the generated theme
+        const { data, error } = await getGcrDb()
+            .from('entity')
+            .update({
+                ...result,
+                updated_at: new Date().toISOString()
+            })
+            .eq('id', entityId)
+            .select('theme_preset, theme_bg, theme_surface, theme_primary, theme_accent, theme_text, theme_border_radius, custom_css')
+            .single();
+
+        if (error) return res.status(500).json({ error: error.message });
+        res.json(data);
+    } catch (err) {
+        console.error('AI design error:', err);
+        res.status(500).json({ error: 'AI design generation failed: ' + (err.message || err) });
+    }
 });
 
 // ============================================
@@ -4971,6 +5070,18 @@ Return ONLY valid JSON with these fields (use null for any field not visible):
 
 // GET/POST /api/dashboard/promotions
 router.get('/promotions', async (req, res) => {
+    const entityId = await resolveEntityId(req);
+    if (entityId) {
+        // Get promotions from GCR
+        const { data, error } = await getGcrDb()
+            .from('entity_promotions')
+            .select('*')
+            .eq('entity_id', entityId)
+            .order('created_at', { ascending: false });
+        if (error) return res.status(500).json({ error: error.message });
+        return res.json(data || []);
+    }
+    // Fallback for CyberCheck
     const siteId = req.query.site_id || req.siteId;
     if (!siteId) return res.status(400).json({ error: 'site_id required' });
     const { data, error } = await supabase.from('promotions').select('*').eq('site_id', siteId).order('created_at', { ascending: false });
@@ -4979,6 +5090,27 @@ router.get('/promotions', async (req, res) => {
 });
 
 router.post('/promotions', async (req, res) => {
+    const entityId = await resolveEntityId(req);
+    if (entityId) {
+        // Save to GCR
+        const { title, description, cta_text, cta_url, type, trigger_config, coupon_prefix, discount_text } = req.body;
+        if (!title) return res.status(400).json({ error: 'title required' });
+        const { data, error } = await getGcrDb()
+            .from('entity_promotions')
+            .insert({
+                entity_id: entityId,
+                title, description, cta_text, cta_url,
+                type: type || 'random',
+                trigger_config: trigger_config || {},
+                coupon_prefix: coupon_prefix || 'PROMO',
+                discount_text, active: true,
+            })
+            .select()
+            .single();
+        if (error) return res.status(500).json({ error: error.message });
+        return res.status(201).json(data);
+    }
+    // Fallback for CyberCheck
     const siteId = req.body.site_id || req.siteId;
     if (!siteId) return res.status(400).json({ error: 'site_id required' });
     const { title, description, cta_text, cta_url, type, trigger_config, coupon_prefix, discount_text } = req.body;
@@ -4995,6 +5127,21 @@ router.post('/promotions', async (req, res) => {
 });
 
 router.put('/promotions/:id', async (req, res) => {
+    const entityId = await resolveEntityId(req);
+    if (entityId) {
+        // Update in GCR
+        const updates = { ...req.body }; delete updates.id; delete updates.entity_id; delete updates.site_id;
+        const { data, error } = await getGcrDb()
+            .from('entity_promotions')
+            .update(updates)
+            .eq('id', req.params.id)
+            .eq('entity_id', entityId)
+            .select()
+            .single();
+        if (error) return res.status(500).json({ error: error.message });
+        return res.json(data);
+    }
+    // Fallback for CyberCheck
     const updates = { ...req.body }; delete updates.id; delete updates.site_id;
     const { data, error } = await supabase.from('promotions').update(updates).eq('id', req.params.id).select().single();
     if (error) return res.status(500).json({ error: error.message });
@@ -5002,6 +5149,18 @@ router.put('/promotions/:id', async (req, res) => {
 });
 
 router.delete('/promotions/:id', async (req, res) => {
+    const entityId = await resolveEntityId(req);
+    if (entityId) {
+        // Delete from GCR
+        const { error } = await getGcrDb()
+            .from('entity_promotions')
+            .delete()
+            .eq('id', req.params.id)
+            .eq('entity_id', entityId);
+        if (error) return res.status(500).json({ error: error.message });
+        return res.json({ ok: true });
+    }
+    // Fallback for CyberCheck
     const { error } = await supabase.from('promotions').delete().eq('id', req.params.id);
     if (error) return res.status(500).json({ error: error.message });
     res.json({ ok: true });
