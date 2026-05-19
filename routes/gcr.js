@@ -267,18 +267,19 @@ router.post('/search', async (req, res) => {
     // Search across all new GCR DB tables in parallel — NOTE: tags intentionally excluded
     // so searches only match real, meaningful content (names, descriptions, menu items, etc.)
     const [
-        byEntity, byMenuItems, byDrinkItems,
-        byHHItems, bySpecials, byEvents, byActivities
+        byEntity, byAllSectionItems, bySectionTypes,
+        bySpecials, byEvents, byActivities
     ] = await Promise.all([
         // Entity fields: name, subtitle, description, city, entity_subtype
         gcrDb.from('entity').select('id').eq('is_active', true)
             .or(kf('name','subtitle','description','city','entity_subtype')),
-        // Menu items: name + description
-        gcrDb.from('menu_items').select('entity_id').or(kf('item_name','description')),
-        // Drink items: name + description + brewery + item_style
-        gcrDb.from('drink_items').select('entity_id').or(kf('item_name','description','brewery','item_style')),
-        // Happy hour items
-        gcrDb.from('happy_hour_items').select('entity_id').or(kf('item_name','description')),
+        // Section items from all types (menu/drinks/happy_hour)
+        gcrDb.from('section_items')
+            .select('section_id')
+            .or(kf('item_name','item_description')),
+        // Get section type info for matched items
+        gcrDb.from('entity_sections')
+            .select('id, entity_id, section_type'),
         // Specials
         gcrDb.from('entity_specials').select('entity_id').eq('is_active', true).or(kf('special_name','description','discount_text')),
         // Events
@@ -286,6 +287,30 @@ router.post('/search', async (req, res) => {
         // Activities (Things To Do)
         gcrDb.from('activities').select('entity_id').or(kf('activity_name','description','activity_type')),
     ]);
+
+    // Resolve section_items to entity_ids by joining with entity_sections
+    let byMenuItems = { data: [] }, byDrinkItems = { data: [] }, byHHItems = { data: [] };
+    const sectionItemSectionIds = (byAllSectionItems.data || []).map(r => r.section_id);
+    const sectionMap = Object.fromEntries((bySectionTypes.data || []).map(s => [s.id, s]));
+
+    if (sectionItemSectionIds.length) {
+        const menuIds = sectionItemSectionIds
+            .map(id => sectionMap[id])
+            .filter(s => s && (s.section_type === 'menu' || s.section_type === 'grouped_items'))
+            .map(s => s.entity_id);
+        const drinkIds = sectionItemSectionIds
+            .map(id => sectionMap[id])
+            .filter(s => s && s.section_type === 'drinks')
+            .map(s => s.entity_id);
+        const hhIds = sectionItemSectionIds
+            .map(id => sectionMap[id])
+            .filter(s => s && s.section_type === 'happy_hour')
+            .map(s => s.entity_id);
+
+        byMenuItems = { data: [...new Set(menuIds)].map(id => ({ entity_id: id })) };
+        byDrinkItems = { data: [...new Set(drinkIds)].map(id => ({ entity_id: id })) };
+        byHHItems = { data: [...new Set(hhIds)].map(id => ({ entity_id: id })) };
+    }
 
     // Collect all matching entity IDs — filter out undefined/null to prevent UUID parse errors
     [byEntity, byMenuItems, byDrinkItems, byHHItems, bySpecials, byEvents, byActivities]
@@ -334,26 +359,63 @@ router.post('/search', async (req, res) => {
 
     // Require a real description on menu/drink/HH items — filters out tag-like rows
     // where item_name is just a keyword with no real item info
-    const hasRealDescription = (item) => ((item.description || '').trim().length > 0);
+    const hasRealDescription = (item) => ((item.description || item.item_description || '').trim().length > 0);
 
     if (entityIdList.length) {
-        const [menuMatches, drinkMatches, hhMatches, specialMatches, eventMatches] = await Promise.all([
-            gcrDb.from('menu_items').select('entity_id, item_name, description, price, price_text')
-                .or(`item_name.ilike.%${q}%,description.ilike.%${q}%`).in('entity_id', entityIdList),
-            gcrDb.from('drink_items').select('entity_id, item_name, description, price, price_text, item_style, brewery')
-                .or(`item_name.ilike.%${q}%,description.ilike.%${q}%,item_style.ilike.%${q}%`).in('entity_id', entityIdList),
-            gcrDb.from('happy_hour_items').select('entity_id, item_name, description, hh_price, price_text')
-                .or(`item_name.ilike.%${q}%,description.ilike.%${q}%`).in('entity_id', entityIdList),
+        const [sectionItemMatches, specialMatches, eventMatches] = await Promise.all([
+            // All section items matching query (will filter by section_type after)
+            gcrDb.from('section_items')
+                .select('section_id, item_name, item_description, price_text, price_numeric')
+                .or(`item_name.ilike.%${q}%,item_description.ilike.%${q}%`),
             gcrDb.from('entity_specials').select('entity_id, special_name, description, discount_text').eq('is_active', true)
                 .or(`special_name.ilike.%${q}%,description.ilike.%${q}%,discount_text.ilike.%${q}%`).in('entity_id', entityIdList),
             gcrDb.from('entity_events').select('entity_id, event_name, event_date, day_of_week').eq('is_active', true)
                 .or(`event_name.ilike.%${q}%,description.ilike.%${q}%`).in('entity_id', entityIdList),
         ]);
-        (menuMatches.data || []).filter(hasRealDescription).forEach(m => { if (!menuMatchMap[m.entity_id]) menuMatchMap[m.entity_id] = []; menuMatchMap[m.entity_id].push({ ...m, _type: 'menu' }); });
-        (drinkMatches.data || []).filter(hasRealDescription).forEach(m => { if (!drinkMatchMap[m.entity_id]) drinkMatchMap[m.entity_id] = []; drinkMatchMap[m.entity_id].push({ ...m, _type: 'drink' }); });
-        (hhMatches.data || []).filter(hasRealDescription).forEach(m => { if (!hhMatchMap[m.entity_id]) hhMatchMap[m.entity_id] = []; hhMatchMap[m.entity_id].push({ ...m, _type: 'happy_hour' }); });
+
+        // Map section items by entity_id and section_type
+        const sectionItemsByEntity = {};
+        (sectionItemMatches.data || []).forEach(item => {
+            const section = sectionMap[item.section_id];
+            if (!section) return; // No section found
+
+            const entityId = section.entity_id;
+            if (!entityIdList.includes(entityId)) return; // Not in search results
+
+            const mapped = {
+                entity_id: entityId,
+                item_name: item.item_name,
+                description: item.item_description || '',
+                price: item.price_numeric,
+                price_text: item.price_text,
+                hh_price: item.price_numeric,
+            };
+
+            if (section.section_type === 'menu' || section.section_type === 'grouped_items') {
+                if (!menuMatchMap[entityId]) menuMatchMap[entityId] = [];
+                menuMatchMap[entityId].push({ ...mapped, _type: 'menu' });
+            } else if (section.section_type === 'drinks') {
+                if (!drinkMatchMap[entityId]) drinkMatchMap[entityId] = [];
+                drinkMatchMap[entityId].push({ ...mapped, _type: 'drink' });
+            } else if (section.section_type === 'happy_hour') {
+                if (!hhMatchMap[entityId]) hhMatchMap[entityId] = [];
+                hhMatchMap[entityId].push({ ...mapped, _type: 'happy_hour' });
+            }
+        });
+
         (specialMatches.data || []).forEach(s => { if (!specialMatchMap[s.entity_id]) specialMatchMap[s.entity_id] = []; specialMatchMap[s.entity_id].push(s); });
         (eventMatches.data || []).forEach(e => { if (!eventMatchMap[e.entity_id]) eventMatchMap[e.entity_id] = []; eventMatchMap[e.entity_id].push(e); });
+
+        // Filter out items without real descriptions
+        Object.keys(menuMatchMap).forEach(eid => {
+            menuMatchMap[eid] = menuMatchMap[eid].filter(hasRealDescription);
+        });
+        Object.keys(drinkMatchMap).forEach(eid => {
+            drinkMatchMap[eid] = drinkMatchMap[eid].filter(hasRealDescription);
+        });
+        Object.keys(hhMatchMap).forEach(eid => {
+            hhMatchMap[eid] = hhMatchMap[eid].filter(hasRealDescription);
+        });
     }
 
     // Score items by match quality (exact > starts_with > contains)
