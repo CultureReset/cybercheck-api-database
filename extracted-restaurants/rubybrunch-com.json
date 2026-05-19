@@ -1,0 +1,51 @@
+{
+  "name": "Ruby Brunch",
+  "type": "Restaurant",
+  "website": "https://www.rubybrunch.com",
+  "contact": {
+    "phone": "",
+    "address": "",
+    "city": "",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": null
+  },
+  "about": {
+    "description": "A brunch-focused restaurant serving sweet, savory, and syrupy dishes with legendary fresh-baked biscuits crafted from scratch daily.",
+    "elevator_pitch": "Ruby Brunch specializes in all-day brunch with legendary fresh-baked biscuits and signature cane-syrup butter.",
+    "vibe": "Casual brunch destination",
+    "best_for": [
+      "brunch lovers"
+    ],
+    "established": null,
+    "reservations": "Waitlist available",
+    "insider_tip": "Ruby Brunch serves over 40,000 biscuits a week - their buttery biscuits with house-made cane-syrup butter are legendary."
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://www.rubybrunch.com"
+  },
+  "menu": [
+    {
+      "category": "Brunch",
+      "name": "Fresh-Baked Biscuits",
+      "description": "Legendary biscuits crafted from scratch and baked fresh all day, every day. Served with signature house-made cane-syrup butter.",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 6,
+  "scraped_at": "2026-03-22T18:32:43.595Z"
+}

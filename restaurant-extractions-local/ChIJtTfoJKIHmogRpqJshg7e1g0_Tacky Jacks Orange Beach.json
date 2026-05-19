@@ -1,0 +1,170 @@
+{
+  "business_name": "Tacky Jacks Seafood Restaurant and Tavern",
+  "cuisine_type": "Seafood",
+  "price_range": null,
+  "description": "Tacky Jacks Seafood Restaurant and Tavern in Orange Beach, Gulf Shores, and Fort Morgan AL. The best waterfront seafood restaurants in Orange Beach and Gulf Shores AL. Great Food, Casual Dining, Waterfront Views",
+  "atmosphere": "Casual Dining, Waterfront",
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": null,
+    "website": "https://www.tackyjacks.com",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": null,
+      "instagram": null,
+      "twitter": null,
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": true,
+    "takeout_available": null,
+    "delivery_available": null,
+    "curbside_available": null,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [],
+    "wine_list": null,
+    "beer_selection": null,
+    "cocktails": null,
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": null,
+      "vegan": null,
+      "gluten_free": null,
+      "dairy_free": null,
+      "nut_free": null,
+      "kosher": null,
+      "halal": null
+    }
+  },
+  "happy_hour": {
+    "available": null,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [
+    {
+      "type": "holiday_promotion",
+      "day_of_week": null,
+      "name": "Holiday Gift Card Special",
+      "description": "Buy $100 in Gift Cards Get $20 Free",
+      "discount": "$20 free",
+      "valid_until": "December 31, 2025"
+    }
+  ],
+  "entertainment_and_events": [],
+  "private_events": {
+    "available": null,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": null,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": null,
+    "pets_allowed": null
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": null,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": null,
+    "private_dining": null
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": true,
+    "email_signup": null,
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": null,
+    "farm_to_table": null,
+    "sustainable": null,
+    "organic": null,
+    "details": null
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [],
+    "common_praise": [],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "restaurant",
+      "url": "https://images.squarespace-cdn.com/content/v1/59e72205f09ca4e836d8a3a9/1509393280915-G74DKZC74ER3F3UE0EI1/OB.jpg",
+      "description": "Orange Beach location"
+    },
+    {
+      "type": "restaurant",
+      "url": "https://images.squarespace-cdn.com/content/v1/59e72205f09ca4e836d8a3a9/1715717063794-WNYKBQE4Q93O1RFH45KU/DJI_0206.JPG",
+      "description": "Aerial view of restaurant"
+    },
+    {
+      "type": "restaurant",
+      "url": "https://images.squarespace-cdn.com/content/v1/59e72205f09ca4e836d8a3a9/1508862261524-HNFNULPCV4ASFPSRI2KM/best2.JPG",
+      "description": "Restaurant interior/exterior"
+    },
+    {
+      "type": "event",
+      "url": "https://images.squarespace-cdn.com/content/v1/59e72205f09ca4e836d8a3a9/1508862806375-AZ1E3WFH8QPUD36G8TPP/music.jpg",
+      "description": "Live music events"
+    },
+    {
+      "type": "branding",
+      "url": "//images.squarespace-cdn.com/content/v1/59e72205f09ca4e836d8a3a9/1508334248750-FUCN1OGSV1FWN3KI3SYC/TackyJacks-New-Fish-Logo-png.png",
+      "description": "Tacky Jacks logo"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "Tacky Jacks Seafood Restaurant and Tavern. The best waterfront seafood restaurants in Orange Beach and Gulf Shores AL. Great Food, Casual Dining, Waterfront Views. Multiple locations in Orange Beach, Gulf Shores, and Fort Morgan AL. Navigation includes: Home, Locations (Orange Beach, Gulf Shores, Fort Morgan), Menu, About Us, Shop, Join Our Team, Contact. Announcement: Buy $100 in Gift Cards Get $20 Free until December 31, 2025. Featured sections show location buttons for Orange Beach, Gulf Shores, and Fort Morgan.",
+  "extraction_confidence": "medium",
+  "extraction_notes": "This is a homepage/index page of a Squarespace website with limited detailed information. The HTML contains primarily navigation and layout structure. Detailed information such as hours, phone numbers, full menu items, pricing, contact details, and dining policy information is not visible in the provided HTML. The page appears to be designed primarily as a directory/hub with links to location pages and menu downloads. Multiple location pages exist but are not included in this HTML. Gift card promotion is visible in the announcement bar. No detailed menu, pricing, hours, or dining policies could be extracted from this homepage content. Email addresses and phone numbers are likely on location-specific pages or contact page.",
+  "folder": "ChIJtTfoJKIHmogRpqJshg7e1g0_Tacky Jacks Orange Beach",
+  "extracted_at": "2026-05-15T06:38:05.101Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJtTfoJKIHmogRpqJshg7e1g0_Tacky Jacks Orange Beach/01_raw_html.html"
+}

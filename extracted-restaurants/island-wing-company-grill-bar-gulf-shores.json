@@ -1,0 +1,231 @@
+{
+  "name": "Island Wing Co.",
+  "type": "Restaurant",
+  "website": "http://www.islandwing.com/",
+  "contact": {
+    "phone": "",
+    "address": "",
+    "city": "",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null
+  },
+  "about": {
+    "description": "Everything is baked—not fried. Island Wing offers fresh, clean ingredients with a wide array of flavorful options including vegetarian and vegan choices.",
+    "cuisine_type": "American/Seafood"
+  },
+  "social": {},
+  "menu": [
+    {
+      "category": "Appetizers",
+      "name": "Cheesy Buffalo Chicken Dip",
+      "description": "Chicken, mild buffalo sauce, ranch, and a three-cheese blend. Served with tortilla chips.",
+      "price": "$10.95"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Crispy Coconut Shrimp",
+      "description": "Shrimp in coconut breading, baked golden, with tropical Asian sauce.",
+      "price": "$11.95"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Crispy Pickle Chips",
+      "description": "Panko-breaded pickle chips with ranch.",
+      "price": "$10.95"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Baked and Battered Green Beans",
+      "description": "Crispy-battered green beans with ranch or wasabi ranch.",
+      "price": "$10.95"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Basket of Island Fries",
+      "description": "Baked fries with two dipping sauces.",
+      "price": "$7.95"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Ahi Poke Nachos",
+      "description": "Wonton chips, ahi tuna, pineapple, spicy garlic teriyaki, Korean aioli, topped with sesame seeds and green onion.",
+      "price": "$16.95"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Beer Battered Mozzarella Sticks",
+      "description": "Mozzarella sticks with crispy batter and marinara.",
+      "price": "$9.95"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Chips & Fire Roasted Salsa",
+      "description": "Tortilla chips with salsa.",
+      "price": "$6.95"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Chips & Fire Roasted Salsa Trio with Queso",
+      "description": "",
+      "price": "$9.95"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Mini Crab Cakes",
+      "description": "Wild-caught claw meat, Chesapeake style, served with remoulade and green onions.",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Tuna Tataki",
+      "description": "Seared and thinly sliced tuna, tropical Asian sauce, cucumber wasabi aioli, served with spring mix, wontons, and carrots.",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "House-Made Smoked Yellowfin Tuna Dip",
+      "description": "Smoked tuna with peppadews, pickled jalapeño, celery sticks, green onion, chipotle powder and crackers.",
+      "price": "$12.95"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Spicy Smoked Yellowfin Tuna Dip",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Drinks",
+      "name": "Pina Colada",
+      "description": "Pineapple and coconut blended together with light rum for that smooth and creamy Island flavor.",
+      "price": "$8.95"
+    },
+    {
+      "category": "Drinks",
+      "name": "Rum Runner",
+      "description": "A blend of tropical fruits, fresh juices, and light rum.",
+      "price": "$8.95"
+    },
+    {
+      "category": "Drinks",
+      "name": "Hurricane",
+      "description": "Passion fruit puree and light and dark rums all blended at a Category 5 level.",
+      "price": "$8.95"
+    },
+    {
+      "category": "Drinks",
+      "name": "Strawberry Daiquiri",
+      "description": "A mix of strawberry puree and light rum blended for that familiar flavor.",
+      "price": "$8.95"
+    },
+    {
+      "category": "Drinks",
+      "name": "Mango Colada",
+      "description": "All the flavor of a creamy concoction with a ribbon of fresh mango puree blended in.",
+      "price": "$8.95"
+    },
+    {
+      "category": "Drinks",
+      "name": "Margarita",
+      "description": "A refreshing blend of tangy margarita mix and gold tequila blended and chilled.",
+      "price": "$8.95"
+    },
+    {
+      "category": "Drinks",
+      "name": "Mango Margarita",
+      "description": "Everything you'd expect from a classic margarita with fresh mango puree added.",
+      "price": "$8.95"
+    },
+    {
+      "category": "Drinks",
+      "name": "Island Time",
+      "description": "A blend of dark rum, light rum, coconut cream, raspberry puree, and tangy key lime juice.",
+      "price": "$8.95"
+    },
+    {
+      "category": "Drinks",
+      "name": "Orange Dreamsicle",
+      "description": "Made with Grand Marnier Liqueur, Vanilla Vodka, Triple Sec, orange juice, coconut cream, and whipped cream.",
+      "price": "$8.95"
+    },
+    {
+      "category": "Drinks",
+      "name": "Bushwacker",
+      "description": "A blend of light rum, 151 rum, coffee liqueur, chocolate liqueur, coconut cream, and half and half.",
+      "price": "$8.95"
+    },
+    {
+      "category": "Drinks",
+      "name": "Traditional Mojito",
+      "description": "Light Rum, fresh mint, freshly squeezed limes, simple syrup, and Sprite.",
+      "price": "$8.95"
+    },
+    {
+      "category": "Drinks",
+      "name": "Jalapeno Citrus Mojito",
+      "description": "Light Rum, fresh mint, fresh jalapeno slices, freshly squeezed limes, orange juice, and pineapple juice.",
+      "price": "$8.95"
+    },
+    {
+      "category": "Drinks",
+      "name": "Raspberry Mojito",
+      "description": "Light Rum, fresh mint, freshly squeezed limes, and raspberry puree.",
+      "price": "$8.95"
+    },
+    {
+      "category": "Drinks",
+      "name": "Mango Mojito",
+      "description": "Mango Rum, fresh mint, freshly squeezed limes, and mango puree.",
+      "price": "$8.95"
+    },
+    {
+      "category": "Drinks",
+      "name": "Coconut Key Lime Martini",
+      "description": "A delicious blend of Vanilla Vodka, Coconut Rum, coconut cream, and key lime juice.",
+      "price": "$8.95"
+    },
+    {
+      "category": "Drinks",
+      "name": "Montego Bay Martini",
+      "description": "A fresh mixture of Vodka, Coconut Rum, mango puree, orange juice, pineapple juice, and grenadine.",
+      "price": "$8.95"
+    },
+    {
+      "category": "Drinks",
+      "name": "Island Cosmo",
+      "description": "A refreshing combination of Coconut Rum, Citrus Vodka, fresh lime juice, pomegranate juice, and grenadine.",
+      "price": "$8.95"
+    },
+    {
+      "category": "Drinks",
+      "name": "Mai Tai",
+      "description": "A tasty classic with an Island twist! Made with Dark Rum, Amaretto Liqueur, pineapple juice, and lemon juices.",
+      "price": "$8.95"
+    },
+    {
+      "category": "Drinks",
+      "name": "Baked on the Beach",
+      "description": "A refreshing blend of Vodka, Light Rum, Gin, Peach Schnapps, Triple Sec, pomegranate juice, and lemon juice.",
+      "price": "$8.95"
+    },
+    {
+      "category": "Drinks",
+      "name": "Sunset Celebration",
+      "description": "A blend of Vodka, refreshing grapefruit juice.",
+      "price": "$8.95"
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-03-21T14:55:09.816Z"
+}

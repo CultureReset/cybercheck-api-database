@@ -1,0 +1,141 @@
+{
+  "business_name": "Lartigue's Original Fresh Seafood Market",
+  "cuisine_type": "Seafood",
+  "price_range": null,
+  "description": null,
+  "atmosphere": null,
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": null,
+    "website": "https://www.lartigueseafood.com",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": null,
+      "instagram": null,
+      "twitter": null,
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": null,
+    "takeout_available": null,
+    "delivery_available": null,
+    "curbside_available": null,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [],
+    "wine_list": null,
+    "beer_selection": null,
+    "cocktails": null,
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": false,
+      "vegan": false,
+      "gluten_free": false,
+      "dairy_free": false,
+      "nut_free": false,
+      "kosher": false,
+      "halal": false
+    }
+  },
+  "happy_hour": {
+    "available": false,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [],
+  "entertainment_and_events": [],
+  "private_events": {
+    "available": false,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": false,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": false,
+    "accessible_restroom": false,
+    "parking_accessible": false,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": null,
+    "pets_allowed": false
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": false,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": false,
+    "private_dining": false
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": false,
+    "email_signup": null,
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": false,
+    "farm_to_table": false,
+    "sustainable": false,
+    "organic": false,
+    "details": null
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [],
+    "common_praise": [],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "restaurant",
+      "url": "https://images.squarespace-cdn.com/content/v1/685d8adb368bc17fcf449897/93432e80-baea-43a2-a681-ea2e2df09257/Shop+Sign.jpg",
+      "description": "Shop Sign"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "Lartigue's Original Fresh Seafood Market. Menu. Order Online. Lartigue Brand. Catering. About. Cart (0).",
+  "extraction_confidence": "low",
+  "extraction_notes": "This HTML appears to be a Squarespace website homepage with header, navigation, and template structure loaded, but the main content sections are not fully rendered or visible in the provided HTML. The page contains navigation links to Menu, Order Online (external link to order.online), Lartigue Brand (shop), Catering, and About sections, but the actual content pages are not included in this HTML snippet. Key business information such as phone, address, hours, full menu details, pricing, and social media links are not visible in the provided code. A background image of a 'Shop Sign' is referenced but full page content is missing. The HTML shows this is a restaurant/seafood market website but detailed information would require accessing the linked pages (/menu, /shop, /catering, /about) separately.",
+  "folder": "ChIJ6V6UdzwEmogRgUwOBr9mk_o_Lartigue's Original Fresh Seafood Market",
+  "extracted_at": "2026-05-15T06:06:19.319Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJ6V6UdzwEmogRgUwOBr9mk_o_Lartigue's Original Fresh Seafood Market/01_raw_html.html"
+}

@@ -1,0 +1,85 @@
+{
+  "name": "Brett/Robinson Vacation Rentals",
+  "type": "Vacation Rental Management Company",
+  "website": "https://www.brett-robinson.com/beach-condo/windemere/",
+  "contact": {
+    "phone": "+1-251-968-7363",
+    "address": "3259 Gulf Shores Parkway",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {},
+  "about": {
+    "description": "Premier vacation rental management company with 50+ years of experience offering beachfront condos and family-friendly rentals in Gulf Shores and Orange Beach, Alabama. Manages thousands of properties ranging from cozy condos to spacious beach houses and luxury villas with direct beach access, modern amenities, and local on-the-ground support.",
+    "elevator_pitch": "50+ years of exceptional beachfront vacation rental management across Gulf Shores and Orange Beach with quality standards, local guest support, and exclusive specials.",
+    "total_units": null,
+    "floors": null,
+    "year_built": null,
+    "pet_friendly": true,
+    "minimum_stay": "3 nights for promotional offers",
+    "check_in": null,
+    "check_out": null,
+    "age_restriction": null
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/brett_robinson_vacations",
+    "facebook": "https://www.facebook.com/BrettRobinsonVacations",
+    "linkedin": "https://www.linkedin.com/company/brett-robinson-vacation-rentals",
+    "pinterest": null,
+    "twitter": null,
+    "website": "https://www.brett-robinson.com/"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Seasonal Discounts",
+      "description": "Seasonal promotions on select Gulf Shores and Orange Beach condos with varying dates throughout the year",
+      "discount": ""
+    },
+    {
+      "name": "Snowbird Specials",
+      "description": "Special rates for longer stays, ideal for winter visitors looking for extended beach vacations",
+      "discount": ""
+    },
+    {
+      "name": "Last-Minute Deals",
+      "description": "Hot deals on select rentals with limited time remaining on featured offers",
+      "discount": ""
+    },
+    {
+      "name": "Promo Codes",
+      "description": "Percentage-off promotions like 10% savings with codes (e.g., Bama2025 for 2025 bookings)",
+      "discount": ""
+    },
+    {
+      "name": "Memorial Day Weekend",
+      "description": "Special promotions for Memorial Day bookings with 3-night minimum, May 21-24, 2026",
+      "discount": ""
+    },
+    {
+      "name": "Mother's Day",
+      "description": "Special promotions for Mother's Day weekend getaways",
+      "discount": ""
+    },
+    {
+      "name": "4+ Bedroom Properties",
+      "description": "Special rates on properties with 4-8 bedrooms accommodating up to 22 guests, June 28 - July 1, 2026",
+      "discount": ""
+    },
+    {
+      "name": "Charming Beachfront Stays",
+      "description": "Hidden gems and charming properties with 1-8 bedrooms for tranquil getaways, June 28 - July 1, 2026",
+      "discount": ""
+    },
+    {
+      "name": "Electric Vehicle Charger Specials",
+      "description": "Amenities-based specials for properties with electric vehicle chargers",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 23,
+  "scraped_at": "2026-03-21T22:12:10.212Z"
+}

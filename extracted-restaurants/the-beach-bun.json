@@ -1,0 +1,62 @@
+{
+  "name": "The Beach Bun",
+  "type": "Restaurant",
+  "website": "https://thebeachbunoba.com",
+  "contact": {
+    "phone": "(251) 398-2866",
+    "address": "25775 Perdido Beach Blvd Ste A",
+    "city": "Orange Beach",
+    "email": "TheBeachBun@LyonsDenHoldingsLLC.com"
+  },
+  "hours": {
+    "monday": "11:00am — 06:00pm",
+    "tuesday": "11:00am — 06:00pm",
+    "wednesday": "11:00am — 06:00pm",
+    "thursday": "11:00am — 06:00pm",
+    "friday": "11:00am — 08:00pm",
+    "saturday": "11:00am — 08:00pm",
+    "sunday": "11:00am — 06:00pm",
+    "notes": null
+  },
+  "about": {
+    "description": "The Beach Bun brings burgers, dogs, and more to Orange Beach! Family-owned, fun, and full of flavor—come grab your new go-to meal.",
+    "elevator_pitch": "A family-owned burger and hot dog joint on the Alabama Gulf Coast serving up fun, flavorful meals in a laid-back beach atmosphere.",
+    "established": null,
+    "owner": null,
+    "chef": null,
+    "vibe": "Casual, fun, family-friendly beach eatery",
+    "best_for": [
+      "families",
+      "casual dining",
+      "groups",
+      "lunch"
+    ],
+    "age_restriction": null,
+    "dress_code": null,
+    "parking": null,
+    "accessibility": null,
+    "reservations": null,
+    "insider_tip": null,
+    "awards": [],
+    "press": []
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "twitter": null,
+    "tiktok": null,
+    "youtube": null,
+    "yelp": null,
+    "tripadvisor": null,
+    "opentable": null,
+    "google_maps": null,
+    "website": "https://thebeachbunoba.com"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 1,
+  "scraped_at": "2026-03-21T13:19:26.449Z"
+}

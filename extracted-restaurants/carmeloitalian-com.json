@@ -1,0 +1,52 @@
+{
+  "name": "Carmelo",
+  "type": "Restaurant",
+  "website": "https://carmeloitalian.com",
+  "contact": {
+    "phone": "(251) 200-4375",
+    "address": "25747 Perdido Beach Bvd Suite 1",
+    "city": "Orange Beach",
+    "email": "info@kolhospitality.com"
+  },
+  "hours": {
+    "monday": "3pm - 9pm",
+    "tuesday": "3pm - 9pm",
+    "wednesday": "3pm - 9pm",
+    "thursday": "3pm - 9pm",
+    "friday": "3pm - 10pm",
+    "saturday": "3pm - 10pm",
+    "sunday": "3pm - 9pm",
+    "notes": null
+  },
+  "about": {
+    "description": "Located in Orange Beach, Alabama is a purveyor of fine Italian dining. Italian hospitality and innovated Italian cuisine that is guaranteed to grow your appetite. Enjoy choosing the perfect wine from our expansive collection to complement your meal as you sit in our dining room that combines contemporary decor with vintage Italian staples.",
+    "elevator_pitch": "A fine Italian dining establishment in Orange Beach featuring classic and innovative Italian cuisine with an expansive wine collection.",
+    "vibe": "Contemporary decor with vintage Italian staples in an upscale dining atmosphere",
+    "best_for": [
+      "date night",
+      "special occasions",
+      "wine lovers"
+    ],
+    "established": null,
+    "reservations": "Available - Make a Reservation",
+    "insider_tip": null
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://www.carmeloitalian.com"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [
+    {
+      "name": "Wine Dinner",
+      "day": "March 19th",
+      "time": ""
+    }
+  ],
+  "gallery": 21,
+  "scraped_at": "2026-03-21T19:24:11.259Z"
+}

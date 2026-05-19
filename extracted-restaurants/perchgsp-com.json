@@ -1,0 +1,261 @@
+{
+  "name": "Perch",
+  "type": "Restaurant",
+  "website": "https://perchgsp.com",
+  "contact": {
+    "phone": "",
+    "address": "",
+    "city": "Greenville",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null
+  },
+  "about": {
+    "description": null,
+    "cuisine_type": "seafood"
+  },
+  "social": {},
+  "menu": [
+    {
+      "category": "Chilled Seafood",
+      "name": "Perch Seafood Tower",
+      "description": "Serves 2-4 people. Citrus Poached Gulf Shrimp, Lobster Tail, Oysters, Smoked Gulf Fish Salad, Crab Ceviche, Cranberry Mignonette, Tequila - Lime Cocktail Sauce, Lemon, Horseradish, Lavash Cracker",
+      "price": "$110"
+    },
+    {
+      "category": "Chilled Seafood",
+      "name": "Gulf Shrimp Cocktail",
+      "description": "Marie Rose Sauce, Cocktail Sauce, Grapefruit, Mint & Coconut Salad",
+      "price": "$16"
+    },
+    {
+      "category": "Chilled Seafood",
+      "name": "Half Dozen Raw Oysters",
+      "description": "Cranberry Mignonette, Tequila - Lime Cocktail Sauce, Lemon",
+      "price": "$17"
+    },
+    {
+      "category": "Soup & Salads",
+      "name": "Creamy Lobster Bisque",
+      "description": "Cold-Water Lobster, Tarragon, Sherry",
+      "price": "$12"
+    },
+    {
+      "category": "Soup & Salads",
+      "name": "Arugula & Chevre Salad",
+      "description": "Pomegranate Vinaigrette, Orange, Shaved Red Onion, Candied Pecans",
+      "price": "$14"
+    },
+    {
+      "category": "Soup & Salads",
+      "name": "Romaine Wedge",
+      "description": "Creamy Parmesan Dressing, Fried Garlic Crouton, Heirloom Tomato, Lardons, Shredded Parmesan",
+      "price": "$15"
+    },
+    {
+      "category": "Tidbits",
+      "name": "Grilled Colossal Shrimp",
+      "description": "Stewed Pink Lady Peas, Tasso Ham, Grilled Bread",
+      "price": "$22"
+    },
+    {
+      "category": "Tidbits",
+      "name": "Spanish-Style Braised Octopus",
+      "description": "Fingerling Potatoes, Chorizo, Grilled Bread",
+      "price": "$18"
+    },
+    {
+      "category": "Tidbits",
+      "name": "Rosemary Honey Glazed Pork Belly",
+      "description": "Brie Polenta",
+      "price": "$17"
+    },
+    {
+      "category": "Tidbits",
+      "name": "Artisan Stuffed Pretzel",
+      "description": "Serves 2 people. Baked Soft Pretzel, Artichoke Hearts, Artisan Cheeses, Mixed Olives, Spiced Pecans, Cured Meats, Craft Mustard",
+      "price": "$29"
+    },
+    {
+      "category": "Bread",
+      "name": "Roasted Garlic Bread",
+      "description": "Whipped Butter",
+      "price": "$8"
+    },
+    {
+      "category": "Specialties",
+      "name": "Fried Whole Fish",
+      "description": "Spanish Sofrito, Cabbage and Radish Salad with Dijon - Lime Vinaigrette",
+      "price": "$46"
+    },
+    {
+      "category": "Specialties",
+      "name": "Beef Cheek Ragu with Tagliatelle",
+      "description": "Whipped Ricotta, Roasted Pearl Onion, Sundried Tomato",
+      "price": "$36"
+    },
+    {
+      "category": "Specialties",
+      "name": "Seared Gulf Fish",
+      "description": "Corn and Crab Chowder, Lardons, Fingerling Potatoes",
+      "price": "$42"
+    },
+    {
+      "category": "Specialties",
+      "name": "Roasted Chicken Breast",
+      "description": "Creamy Mushroom with Pancetta, Whipped Herb Potato",
+      "price": "$38"
+    },
+    {
+      "category": "Specialties",
+      "name": "Seared Scallops & Cider Glazed Brussels Sprouts",
+      "description": "Sweet Potato Purée, Dried Cherries, Walnut Butter, Lardons",
+      "price": "$38"
+    },
+    {
+      "category": "The Butcher Block",
+      "name": "8 oz. Center-Cut Filet Mignon",
+      "description": "Parsnip Purée, Caramelized Pearl Onion, Fried Sweet Potato",
+      "price": "$47"
+    },
+    {
+      "category": "The Butcher Block",
+      "name": "Delmonico Ribeye",
+      "description": "Roasted Potato & Haricot Vert Salad with Bacon Thyme Vinaigrette",
+      "price": "$65"
+    },
+    {
+      "category": "The Butcher Block",
+      "name": "Coffee-Rubbed New York Strip",
+      "description": "Roasted Cauliflower, Brie Mornay Sauce",
+      "price": "$54"
+    },
+    {
+      "category": "The Butcher Block",
+      "name": "Double Bone Berkshire Pork Chop",
+      "description": "Mustard Braised Cabbage",
+      "price": "$48"
+    },
+    {
+      "category": "The Butcher Block",
+      "name": "Roasted Lamb Shank",
+      "description": "Stewed White Bean with Root Vegetables, Grilled Sourdough",
+      "price": "$46"
+    },
+    {
+      "category": "Add-Ons",
+      "name": "Half Lobster Tail",
+      "description": "",
+      "price": "$22"
+    },
+    {
+      "category": "Add-Ons",
+      "name": "Gulf Shrimp",
+      "description": "",
+      "price": "$12"
+    },
+    {
+      "category": "Add-Ons",
+      "name": "Seared Scallops",
+      "description": "",
+      "price": "$16"
+    },
+    {
+      "category": "Add-Ons",
+      "name": "Lump Crab",
+      "description": "",
+      "price": "$14"
+    },
+    {
+      "category": "Sauces",
+      "name": "Rosemary Bordelaise",
+      "description": "",
+      "price": "$4"
+    },
+    {
+      "category": "Sauces",
+      "name": "Horseradish Bleu Cheese",
+      "description": "",
+      "price": "$4"
+    },
+    {
+      "category": "Sauces",
+      "name": "Chimichurri Rojo",
+      "description": "",
+      "price": "$4"
+    },
+    {
+      "category": "Complements",
+      "name": "Mushroom Ragu",
+      "description": "",
+      "price": "$10"
+    },
+    {
+      "category": "Complements",
+      "name": "Grilled Asparagus",
+      "description": "",
+      "price": "$8"
+    },
+    {
+      "category": "Complements",
+      "name": "Sweet Potato Gratin",
+      "description": "",
+      "price": "$8"
+    },
+    {
+      "category": "Complements",
+      "name": "Garlic Broccolini",
+      "description": "",
+      "price": "$10"
+    },
+    {
+      "category": "Complements",
+      "name": "Hot Honey Fried Brussels Sprouts",
+      "description": "",
+      "price": "$8"
+    },
+    {
+      "category": "Complements",
+      "name": "Parmesan Herb Pomme Frites",
+      "description": "",
+      "price": "$10"
+    },
+    {
+      "category": "Desserts",
+      "name": "Key Lime Cheesecake",
+      "description": "Mango Puree, Coconut Sorbet, Graham Cracker Crust",
+      "price": "$13"
+    },
+    {
+      "category": "Desserts",
+      "name": "Masala Chai Cream Brûlée",
+      "description": "Candied Orange, Hazelnuts",
+      "price": "$13"
+    },
+    {
+      "category": "Desserts",
+      "name": "Signature Chocolate Cake",
+      "description": "Cranberry Jam, Créme Anglaise, Candied Pecans",
+      "price": "$12"
+    },
+    {
+      "category": "Desserts",
+      "name": "Coffee Panna Cotta",
+      "description": "",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-03-21T20:05:05.525Z"
+}

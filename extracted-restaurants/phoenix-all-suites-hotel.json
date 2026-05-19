@@ -1,0 +1,52 @@
+{
+  "name": "Phoenix All Suites Hotel",
+  "type": "Hotel",
+  "website": "https://www.brett-robinson.com/beach-condo/phoenix-all-suites-hotel/",
+  "contact": {
+    "phone": "1-800-211-7892",
+    "address": "3259 Gulf Shores Parkway",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {},
+  "about": {
+    "description": "Phoenix All Suites Hotel is a beachfront vacation rental and resort-style property managed by Brett/Robinson Vacation Rentals, offering suite-style accommodations with modern amenities and direct beach access in Gulf Shores, Alabama.",
+    "elevator_pitch": "Beachfront suite-style hotel accommodations in Gulf Shores with resort amenities and modern conveniences.",
+    "total_units": null,
+    "floors": null,
+    "year_built": null,
+    "pet_friendly": true,
+    "minimum_stay": null,
+    "check_in": null,
+    "check_out": null,
+    "age_restriction": null
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/brett_robinson_vacations",
+    "facebook": "https://www.facebook.com/BrettRobinsonVacations",
+    "website": "https://www.brett-robinson.com/beach-condo/phoenix-all-suites-hotel/"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Hot Deals",
+      "description": "Seasonal offers and last-minute savings available for various properties including Phoenix All Suites West Hotel",
+      "discount": ""
+    },
+    {
+      "name": "1 or 2 Night Stays",
+      "description": "Short stay options available",
+      "discount": ""
+    },
+    {
+      "name": "Seasonal Monthly Rentals",
+      "description": "Extended stay discounts available",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 19,
+  "scraped_at": "2026-03-21T20:29:25.716Z"
+}

@@ -1,0 +1,72 @@
+{
+  "name": "Lighthouse",
+  "type": "Vacation Rental Condo",
+  "website": "https://www.brett-robinson.com/beach-condo/lighthouse/",
+  "contact": {
+    "phone": "1-800-211-7892",
+    "address": "455 East Beach Blvd",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {},
+  "about": {
+    "description": "Lighthouse is a beachfront condo vacation rental operated by Brett/Robinson Vacation Rentals, a family-owned and operated company with over 40 years of experience in Gulf Shores and Orange Beach, Alabama. The property offers quality accommodations with dedicated on-site customer service staff and area expertise.",
+    "elevator_pitch": "Beachfront condo vacation rental in Gulf Shores with direct beach access, modern amenities, and family-friendly accommodations managed by a 40+ year established company.",
+    "total_units": null,
+    "floors": null,
+    "year_built": null,
+    "pet_friendly": null,
+    "minimum_stay": null,
+    "check_in": null,
+    "check_out": null,
+    "age_restriction": null
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/brett_robinson_vacations",
+    "facebook": "https://www.facebook.com/BrettRobinsonVacations",
+    "website": "https://www.brett-robinson.com/beach-condo/lighthouse/"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Hot Deals",
+      "description": "Current promotional offers on select units with savings applied",
+      "discount": ""
+    },
+    {
+      "name": "4-Bedroom Beachfront Stays",
+      "description": "Specials on 4+ bedroom properties for large groups, up to 22 guests",
+      "discount": ""
+    },
+    {
+      "name": "Charming Beachfront Stays for Tranquil Getaway",
+      "description": "Hidden gem properties from 1-8 bedrooms with special pricing",
+      "discount": ""
+    },
+    {
+      "name": "Memorial Day Special",
+      "description": "Promotional pricing for Memorial Day weekend stays",
+      "discount": ""
+    },
+    {
+      "name": "Seasonal Discounts",
+      "description": "Various seasonal promotions throughout the year",
+      "discount": ""
+    },
+    {
+      "name": "Snowbird Specials",
+      "description": "Special pricing for extended longer stays",
+      "discount": ""
+    },
+    {
+      "name": "Last-Minute Deals",
+      "description": "Discounted rates on select rentals with availability",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 23,
+  "scraped_at": "2026-03-21T21:34:28.943Z"
+}

@@ -1,0 +1,205 @@
+{
+  "name": "The Gulf",
+  "type": "Restaurant & Bar",
+  "website": "https://thegulf.com/locations/orange-beach/",
+  "contact": {
+    "phone": "",
+    "address": "",
+    "city": "",
+    "email": ""
+  },
+  "hours": {},
+  "about": {
+    "description": "The Gulf is a waterfront hideaway with a casual chic atmosphere offering fresh seafood fare and handcrafted cocktails. Located at two beachside locations in Orange Beach and Okaloosa Island (Fort Walton Beach), the restaurant features a design with shipping containers, reclaimed, recycled and salvaged building materials that contrast with the sand, surf and palms.",
+    "elevator_pitch": "A casual-chic waterfront restaurant specializing in fresh Gulf Coast seafood and cocktails with stunning water views.",
+    "vibe": "Enchanting seaside setting with casual elegance, warm and inviting atmosphere, beach-house vibes with open-air seating",
+    "best_for": [
+      "families",
+      "date night",
+      "special events",
+      "weddings",
+      "corporate events",
+      "celebrations",
+      "casual dining"
+    ],
+    "established": null,
+    "reservations": "Available for special events and catering",
+    "insider_tip": "Revolving seasonal menu featuring the freshest local ingredients; ask about the daily fresh catch"
+  },
+  "social": {
+    "instagram": "thegulfal",
+    "facebook": null,
+    "website": "https://thegulf.com/"
+  },
+  "menu": [
+    {
+      "category": "Sides and Shares",
+      "name": "Smoked Tuna Dip",
+      "description": "Served with Pita Chips",
+      "price": ""
+    },
+    {
+      "category": "Sides and Shares",
+      "name": "Guacamole",
+      "description": "Served with Purple Tortilla Chips",
+      "price": ""
+    },
+    {
+      "category": "Sides and Shares",
+      "name": "Queso",
+      "description": "Served with Purple Tortilla Chips",
+      "price": ""
+    },
+    {
+      "category": "Sides and Shares",
+      "name": "Hand-Cut Fries",
+      "description": "Fresh cut fries",
+      "price": ""
+    },
+    {
+      "category": "Sides and Shares",
+      "name": "Loaded Fries",
+      "description": "Fresh Cut Fries Topped with Queso, Chopped Bacon and Green Onion",
+      "price": ""
+    },
+    {
+      "category": "Sides and Shares",
+      "name": "Rice and Beans",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sides and Shares",
+      "name": "Parmesan Truffle Fries",
+      "description": "White Truffle Oil, Shredded Parmesan, Fresh Parsley and Garlic Aioli",
+      "price": ""
+    },
+    {
+      "category": "Sides and Shares",
+      "name": "Coconut Fried Fish Bites",
+      "description": "Daily Catch hand battered in Coconut Breading. Served with Fresh Romaine Hearts and Sweet Fire Aioli",
+      "price": ""
+    },
+    {
+      "category": "Sides and Shares",
+      "name": "Cauliflower Bites",
+      "description": "Fried Cauliflower Florets tossed in a House-Made Sweet Chili Dijon Sauce",
+      "price": ""
+    },
+    {
+      "category": "Sides and Shares",
+      "name": "Lobster & Shrimp Salad",
+      "description": "Maine Lobster, Gulf Shrimp, Lemon Aioli and Fresh Chives Served with Purple Tortilla Chips",
+      "price": ""
+    },
+    {
+      "category": "Salads",
+      "name": "Mixed Green Salad",
+      "description": "Cucumbers, Cherry Tomatoes and Creamy Balsamic Vinaigrette. Add Chicken, Add Shrimp, Add Grouper for an additional charge",
+      "price": ""
+    },
+    {
+      "category": "Chef's Specials",
+      "name": "Jerk Surf N' Turf Bowl",
+      "description": "Jerk Marinated Steak & Blackened Shrimp over White Rice with Pickled Carrots, Jalapenos, Pineapple, Black Beans and Cilantro",
+      "price": ""
+    },
+    {
+      "category": "Chef's Specials",
+      "name": "Fried Shrimp Platter",
+      "description": "Breaded Fried Gulf Shrimp Served with Hand-Cut Fries and House-Made Coleslaw",
+      "price": ""
+    },
+    {
+      "category": "Chef's Specials",
+      "name": "Fresh Catch",
+      "description": "Prepared Fried, Grilled or Blackened. Served as an Entree with Rice & Seasonal Vegetables, on Top of a Mixed Green Salad, or as a Sandwich with Hand-Cut Fries",
+      "price": ""
+    },
+    {
+      "category": "Chef's Specials",
+      "name": "Creole Cobia",
+      "description": "Creole Spiced & Perfectly Seared Cobia, Laid Over Golden Saffron Rice & Smothered in Rich Crawfish Creole Sauce. Served with Seasonal Vegetables",
+      "price": ""
+    },
+    {
+      "category": "Chef's Specials",
+      "name": "Beef Bulgogi Rice Bowl",
+      "description": "Tender Caramelized Beef Bulgogi Piled Over Fluffy White Rice. Topped with Bright Pickled Carrots, Sauteed Bok Choy, Fresh Green Onions & a Sprinkle of Sesame Seeds",
+      "price": ""
+    },
+    {
+      "category": "Chef's Specials",
+      "name": "Lobster & Shrimp Roll",
+      "description": "Premium Maine Lobster & Gulf Shrimp, Tossed in a Lemon Aioli with Fresh Chives & Celery. Served on a Split Top Brioche Roll with a Side of Hand-Cut Fries",
+      "price": ""
+    },
+    {
+      "category": "Tacos",
+      "name": "Shrimp Tacos",
+      "description": "Three Flour Tortilla Tacos OR Served in a Bowl over Brown Rice & Black Beans. Blackened Gulf Shrimp and Sweet-Chili Aioli with Pineapple Slaw, Diced Tomatoes, Cilantro and Lime",
+      "price": ""
+    },
+    {
+      "category": "Tacos",
+      "name": "Mahi-Mahi Tacos",
+      "description": "Three Flour Tortilla Tacos OR Served in a Bowl over Brown Rice & Black Beans. Blackened Mahi with Cajun Aioli, Pineapple Slaw, Diced Tomatoes, Cilantro and Lime",
+      "price": ""
+    },
+    {
+      "category": "From the Sea",
+      "name": "Tuna Poke Bowl",
+      "description": "Sushi Grade Tuna, Heirloom Tomatoes, Cucumber, Pineapple, and Seaweed Served over Sushi Rice, Topped with a House Made Spicy Mayo and House Made Ponzu",
+      "price": ""
+    },
+    {
+      "category": "From the Sea",
+      "name": "Peel-N-Eat",
+      "description": "Seafood boils with snow crab legs",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Cajun Fish & Grits",
+      "description": "Blackened cod over house cheddar grits with Cajun cream of tasso, celery, onion, and bell peppers",
+      "discount": ""
+    },
+    {
+      "name": "Beef Tips with Mushroom Orzo",
+      "description": "Pan-seared beef tips and asparagus over orzo with a rich mushroom cream sauce",
+      "discount": ""
+    },
+    {
+      "name": "Fresh Catch",
+      "description": "Daily fresh catch available - inquire for preparation options",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [
+    {
+      "name": "Weddings",
+      "day": "",
+      "time": ""
+    },
+    {
+      "name": "Corporate Events",
+      "day": "",
+      "time": ""
+    },
+    {
+      "name": "Private Parties",
+      "day": "",
+      "time": ""
+    },
+    {
+      "name": "Special Events & Celebrations",
+      "day": "",
+      "time": ""
+    }
+  ],
+  "gallery": 34,
+  "scraped_at": "2026-03-21T20:16:33.073Z"
+}

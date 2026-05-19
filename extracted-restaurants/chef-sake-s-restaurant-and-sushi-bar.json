@@ -1,0 +1,60 @@
+{
+  "name": "Chef Sake's Restaurant and Sushi Bar",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "(251) 445-8490",
+    "address": "5821 Old Shell Rd Suite C",
+    "city": "Mobile",
+    "email": ""
+  },
+  "hours": {
+    "monday": "4:00pm-9:00pm",
+    "tuesday": "4:00pm-9:00pm",
+    "wednesday": "4:00pm-9:00pm",
+    "thursday": "4:00pm-9:00pm",
+    "friday": "4:00pm-9:00pm",
+    "saturday": "4:00pm-9:00pm",
+    "sunday": null
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Starters",
+      "name": "Pork Buns",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Maki Roll Menu",
+      "name": "Rookie Roll",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Maki Roll Menu",
+      "name": "Tuna Kobachi",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Maki Roll Menu",
+      "name": "Cucumber Wrap",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Hibachi Menu",
+      "name": "Lobster Tail & Filet Mignon Hibachi",
+      "description": "Served with Clear Soup or Fresh House Salad (Two Dressings: House Sauce & Ginger Sauce), Fresh Vegetables, Stir-Fried Noodles and Fried Rice",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:50.104Z"
+}

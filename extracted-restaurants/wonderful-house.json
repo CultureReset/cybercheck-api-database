@@ -1,0 +1,231 @@
+{
+  "name": "Wonderful House",
+  "type": "Restaurant",
+  "website": "https://wonderfulhouseonline.com/",
+  "contact": {
+    "phone": "(970) 867-8899",
+    "address": "629 Main St",
+    "city": "Fort Morgan",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null
+  },
+  "about": {
+    "description": "Wonderful House offers traditional Chinese cuisine with a variety of stir-fried dishes, soups, and appetizers in Fort Morgan, Colorado.",
+    "cuisine_type": "Chinese"
+  },
+  "social": {},
+  "menu": [
+    {
+      "category": "Appetizers",
+      "name": "Spring Egg Roll",
+      "description": "",
+      "price": "$5.25"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Crab Rangoon",
+      "description": "Crispy wontons filled with crab and cream cheese, served with a sweet chili sauce.",
+      "price": "$5.25"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Sesame Balls (9)",
+      "description": "",
+      "price": "$9.25"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Special Pot Sticker (6)",
+      "description": "",
+      "price": "$9.75"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Special Foil Wrapped Chicken (8)",
+      "description": "",
+      "price": "$10.25"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Golden Fried Shrimp",
+      "description": "",
+      "price": "$5.75"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Deep Fried Squid",
+      "description": "",
+      "price": "$11.75"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Teriyaki Beef on Stick (4)",
+      "description": "",
+      "price": "$11.75"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Fried Chicken Wings (5)",
+      "description": "Crispy fried chicken wings, served hot and ready to enjoy.",
+      "price": "$15.25"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Special Po Po Tray (for 2)",
+      "description": "Teriyaki Beef, Golden Fried Shrimp, Egg Roll, Foil Wrapped Chicken, Crab Rangoon, Chicken Wings",
+      "price": "$20.50"
+    },
+    {
+      "category": "Soup",
+      "name": "Hot & Sour Soup",
+      "description": "Classic comfort soup with a balance of spicy and tangy flavors in a rich broth.",
+      "price": "$9.75"
+    },
+    {
+      "category": "Soup",
+      "name": "Egg Flower Soup",
+      "description": "Delicate egg drops and flower-shaped wontons in a light, comforting broth.",
+      "price": "$9.75"
+    },
+    {
+      "category": "Soup",
+      "name": "Wonton Soup",
+      "description": "Tender wontons, served in a light broth.",
+      "price": "$12.25"
+    },
+    {
+      "category": "Soup",
+      "name": "Wor Wonton Soup",
+      "description": "Tender wontons filled with pork and served in a light, comforting broth.",
+      "price": "$12.25"
+    },
+    {
+      "category": "Soup",
+      "name": "House Noodle Soup",
+      "description": "Shrimp, Beef, Chicken with Vegetables",
+      "price": "$12.25"
+    },
+    {
+      "category": "Soup",
+      "name": "Seafood Combination Soup",
+      "description": "Rich and flavorful broth filled with a variety of seafood, perfect for a comforting meal.",
+      "price": "$13.95"
+    },
+    {
+      "category": "Beef",
+      "name": "Mongolian Beef",
+      "description": "Tender beef strips stir-fried with vegetables in a sweet and spicy sauce.",
+      "price": "$17.25"
+    },
+    {
+      "category": "Beef",
+      "name": "Beef with Broccoli",
+      "description": "Tender beef and steamed broccoli in a flavorful sauce.",
+      "price": "$17.25"
+    },
+    {
+      "category": "Beef",
+      "name": "Szechuan Beef",
+      "description": "Tender beef stir-fried with Szechuan spices.",
+      "price": "$17.25"
+    },
+    {
+      "category": "Beef",
+      "name": "Beef with Snow Peas",
+      "description": "Tender beef strips stir-fried with crisp snow peas in a light, flavorful sauce.",
+      "price": "$17.25"
+    },
+    {
+      "category": "Beef",
+      "name": "Beef with Mixed Vegetables",
+      "description": "Tender beef stir-fried with a colorful mix of vegetables, served hot and fresh.",
+      "price": "$17.25"
+    },
+    {
+      "category": "Beef",
+      "name": "Pepper Steak",
+      "description": "",
+      "price": "$17.25"
+    },
+    {
+      "category": "Beef",
+      "name": "Beef with Mushroom",
+      "description": "Tender beef and sautéed mushrooms in a rich, flavorful sauce, served hot and satisfying.",
+      "price": "$17.25"
+    },
+    {
+      "category": "Beef",
+      "name": "Beef with Hot Garlic Sauce",
+      "description": "",
+      "price": "$17.25"
+    },
+    {
+      "category": "Beef",
+      "name": "Hunan Beef",
+      "description": "Stir-fried beef in a spicy Hunan sauce.",
+      "price": "$17.25"
+    },
+    {
+      "category": "Beef",
+      "name": "Kung Pao Beef",
+      "description": "Stir-fried beef, peanuts, and vegetables in a spicy sauce, served with steamed rice.",
+      "price": "$17.25"
+    },
+    {
+      "category": "Pork",
+      "name": "Pork with Mixed Vegetables",
+      "description": "Tender pork stir-fried with a colorful mix of vegetables, served hot and fresh.",
+      "price": "$15.95"
+    },
+    {
+      "category": "Pork",
+      "name": "Pork with Snow Peas",
+      "description": "",
+      "price": "$15.95"
+    },
+    {
+      "category": "Pork",
+      "name": "Twice Cooked Pork",
+      "description": "Tender pork belly, slow-cooked to perfection and crisped to a golden finish.",
+      "price": "$15.95"
+    },
+    {
+      "category": "Pork",
+      "name": "Szechuan Pork Strips",
+      "description": "",
+      "price": "$15.95"
+    },
+    {
+      "category": "Pork",
+      "name": "Broccoli with Pork",
+      "description": "",
+      "price": "$15.95"
+    },
+    {
+      "category": "Pork",
+      "name": "Pork with Hot Garlic Sauce",
+      "description": "",
+      "price": "$15.95"
+    },
+    {
+      "category": "Pork",
+      "name": "Sweet & Sour Pork",
+      "description": "Tender pork pieces coated in a tangy sweet and sour sauce.",
+      "price": "$17.25"
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-03-22T18:53:43.935Z"
+}

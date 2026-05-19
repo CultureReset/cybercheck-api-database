@@ -1,0 +1,298 @@
+{
+  "business_name": "Lillians Pizza",
+  "cuisine_type": "Pizza, Italian",
+  "price_range": "$$",
+  "description": "Welcome to Lillian's Pizza, located in Pensacola, Florida. Rolling in the dough since 1989. Voted Best Pizza. Daily drink specials including beer specials and frozen daiquiris.",
+  "atmosphere": "Casual dining with bar, entertainment options including music bingo, trivia, family feud, and live entertainment",
+  "chef_info": null,
+  "awards": [
+    "Voted Best Pizza"
+  ],
+  "contact": {
+    "phone": "(850) 492-0131",
+    "email": null,
+    "address": "Pensacola, Florida",
+    "website": "https://lillianspizza.com",
+    "hours_phone": "(850) 492-0131",
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": null,
+      "instagram": null,
+      "twitter": null,
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": "11am-2pm lunch buffet, 5pm-9pm drink specials",
+    "tuesday": "11am-2pm lunch buffet, 5pm-9pm drink specials",
+    "wednesday": "11am-2pm lunch buffet, 5pm-9pm drink specials",
+    "thursday": null,
+    "friday": "11am-2pm lunch buffet",
+    "saturday": "Open, $5 draft all day",
+    "sunday": "Open, $5 draft all day",
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": true,
+    "takeout_available": true,
+    "delivery_available": false,
+    "curbside_available": false,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [
+      {
+        "name": "Cash Discounted Price Menu",
+        "description": "Full menu with discounted cash prices",
+        "items": []
+      },
+      {
+        "name": "Full Retail Price Menu",
+        "description": "Complete menu at regular retail prices",
+        "items": []
+      },
+      {
+        "name": "Daiquiri Menu",
+        "description": "Selection of daiquiris and frozen drinks",
+        "items": []
+      },
+      {
+        "name": "Lunch Buffet",
+        "description": "Pizza and salad buffet Monday-Friday",
+        "items": [
+          {
+            "name": "Lunch Buffet - Adults",
+            "description": "Pizza and salad buffet",
+            "price": "$13.99",
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": "Monday-Friday 11am-2pm"
+          },
+          {
+            "name": "Lunch Buffet - Kids",
+            "description": "Pizza and salad buffet for children",
+            "price": "$7.99",
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": "Monday-Friday 11am-2pm"
+          }
+        ]
+      }
+    ],
+    "wine_list": null,
+    "beer_selection": "Domestic bottles, Import bottles",
+    "cocktails": "Daiquiris, Margaritas, Frozen drinks",
+    "kids_menu": "$7.99 kids lunch buffet option",
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": true,
+      "vegan": false,
+      "gluten_free": false,
+      "dairy_free": false,
+      "nut_free": false,
+      "kosher": false,
+      "halal": false
+    }
+  },
+  "happy_hour": {
+    "available": true,
+    "days": "Monday, Tuesday, Wednesday, Saturday, Sunday",
+    "start_time": "5pm (Mon-Wed), All day (Sat-Sun)",
+    "end_time": "9pm (Mon-Wed)",
+    "drink_specials": "$5 draft beer Monday-Wednesday 5pm-9pm, $5 draft all day Saturday-Sunday, $6 Margarita Monday (frozen or rocks), $7 Frozen Friday (any daiquiri or frozen drink), 6 domestic bottle beers for $30, 6 import bottle beers for $35, $4 domestic bottle, $6 import bottle, 50% off daiquiris",
+    "food_specials": null,
+    "full_details": "Happy hour Monday-Wednesday 5pm-9pm with $5 draft specials. All day Saturday-Sunday with $5 draft. Daily specials include beer and daiquiri discounts."
+  },
+  "specials_and_promotions": [
+    {
+      "type": "holiday_promotion",
+      "day_of_week": null,
+      "name": "Holiday Gift Card Promo",
+      "description": "Receive a $100 gift card for only $75 or a $50 gift card for only $40",
+      "discount": "25% off $100 card, 20% off $50 card",
+      "valid_until": "January 1"
+    },
+    {
+      "type": "daily_special",
+      "day_of_week": "Monday",
+      "name": "Margarita Monday",
+      "description": "Your choice of frozen or on the rocks margaritas",
+      "discount": "$6",
+      "valid_until": null
+    },
+    {
+      "type": "daily_special",
+      "day_of_week": "Friday",
+      "name": "Frozen Friday",
+      "description": "Any daiquiri or frozen drink",
+      "discount": "$7",
+      "valid_until": null
+    },
+    {
+      "type": "daily_special",
+      "day_of_week": "Monday, Tuesday, Wednesday",
+      "name": "Weekday Happy Hour",
+      "description": "$5 draft beer",
+      "discount": null,
+      "valid_until": "5pm-9pm"
+    },
+    {
+      "type": "daily_special",
+      "day_of_week": "Saturday, Sunday",
+      "name": "Weekend Draft Special",
+      "description": "$5 draft beer all day",
+      "discount": null,
+      "valid_until": null
+    },
+    {
+      "type": "beer_special",
+      "day_of_week": null,
+      "name": "Beer Specials",
+      "description": "6 domestic bottle beers for $30, 6 import bottle beers for $35, $4 domestic bottle individual, $6 import bottle individual, 50% off daiquiris",
+      "discount": null,
+      "valid_until": null
+    }
+  ],
+  "entertainment_and_events": [
+    {
+      "type": "music_bingo",
+      "name": "Music Bingo",
+      "days": null,
+      "start_time": null,
+      "end_time": null,
+      "description": "Music bingo entertainment",
+      "cover_charge": null,
+      "featured_artist": null
+    },
+    {
+      "type": "trivia",
+      "name": "Trivia",
+      "days": null,
+      "start_time": null,
+      "end_time": null,
+      "description": "Trivia game night",
+      "cover_charge": null,
+      "featured_artist": null
+    },
+    {
+      "type": "family_feud",
+      "name": "Family Feud",
+      "days": null,
+      "start_time": null,
+      "end_time": null,
+      "description": "Family Feud game event",
+      "cover_charge": null,
+      "featured_artist": null
+    }
+  ],
+  "private_events": {
+    "available": false,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": false,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [
+      "Credit cards",
+      "Online ordering accepted"
+    ],
+    "kids_policy": "Kids lunch buffet available",
+    "pets_allowed": false
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": false,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": false,
+    "private_dining": false
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": true,
+    "email_signup": null,
+    "rewards_details": "Gift cards available for purchase online and in-store. Holiday promotion offers 25% discount on $100 gift cards and 20% discount on $50 gift cards through January 1"
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": false,
+    "farm_to_table": false,
+    "sustainable": false,
+    "organic": false,
+    "details": null
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [
+      "Pizza"
+    ],
+    "common_praise": [
+      "Best Pizza",
+      "Voted Best Pizza"
+    ],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "logo",
+      "url": "https://lillianspizza.com/wp-content/uploads/2024/06/logo.png",
+      "description": "Lillians Pizza logo"
+    },
+    {
+      "type": "restaurant",
+      "url": "https://lillianspizza.com/wp-content/uploads/2024/06/lillianslogo.png",
+      "description": "Restaurant branding"
+    },
+    {
+      "type": "food",
+      "url": "https://lillianspizza.mystagingwebsite.com/wp-content/uploads/2023/09/pizza-5.png",
+      "description": "Pizza image"
+    },
+    {
+      "type": "event_promotional",
+      "url": "https://lillianspizza.com/wp-content/uploads/2025/09/music-bingo.png",
+      "description": "Music Bingo event promotion"
+    },
+    {
+      "type": "event_promotional",
+      "url": "https://lillianspizza.com/wp-content/uploads/2025/09/trivia.png",
+      "description": "Trivia event promotion"
+    },
+    {
+      "type": "event_promotional",
+      "url": "https://lillianspizza.com/wp-content/uploads/2025/09/feud.png",
+      "description": "Family Feud event promotion"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "Lillians Pizza - Rolling in the dough since 1989. Voted Best Pizza. Daily Drink Specials: Beer Specials - 6 domestic bottle beers for $30, 6 import bottle beers for $35. $7 Frozen Friday - Any daiquiri or frozen drink you can think of. $6 Margarita Monday - Your choice of frozen or on the rocks. Welcome to Lillian's Pizza, located in Pensacola, Florida. Lunch Buffet (pizza and salad) on Monday thru Friday from 11am-2pm. $13.99 adults and $7.99 kids. On Monday, Tuesday and Wednesday from 5pm-9pm, enjoy $5 draft. $4 domestic bottle, $6 import bottle and 50% off daiquiris. We are also offering $5 draft all day on Saturday and Sunday. Menu links available for Cash Discounted Price Menu, Full Retail Price Menu, and Daiquiri Menu. Gift cards available with holiday promotion. Contact: (850) 492-0131. Order Online available. Entertainment includes Music Bingo, Trivia, and Family Feud. Holiday Gift Card Promo Through January 1: Receive a $100 Gift Card for only $75 or a $50 Gift Card for only $40.",
+  "extraction_confidence": "high",
+  "extraction_notes": "Successfully extracted comprehensive restaurant data from Lillians Pizza website. All major sections populated with available information. Menus are available as PDF downloads but specific menu items were not detailed in the HTML. Hours are partially detailed through promotions and specials. Social media links not found in HTML. Address is general (Pensacola, Florida) but full street address not visible in provided HTML. Phone number and online ordering confirmed. Entertainment events and daily specials are clearly highlighted. Gift card information and holiday promotions are prominent.",
+  "folder": "ChIJX-UjrECvkIgRIWzBc4_nZGI_Lillian’s Pizza",
+  "extracted_at": "2026-05-15T06:23:37.839Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJX-UjrECvkIgRIWzBc4_nZGI_Lillian’s Pizza/01_raw_html.html"
+}

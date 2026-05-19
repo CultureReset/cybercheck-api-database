@@ -1,0 +1,36 @@
+{
+  "name": "Phoenix All Suites",
+  "type": "Hotel",
+  "website": "https://www.phoenixallsuites.com",
+  "contact": {
+    "phone": "1-800-211-7892",
+    "address": "201 E. Beach Blvd. / 533 W. Beach Blvd.",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {},
+  "about": {
+    "description": "Two beachfront hotels in Gulf Shores offering condo-style amenities with hotel service. Features one-bedroom suites with fully-equipped kitchens, balconies overlooking the Gulf of Mexico, and convenient access to beaches, restaurants, and downtown Gulf Shores.",
+    "elevator_pitch": "Luxury beachfront hotels combining condo-style amenities with hotel service in Gulf Shores, Alabama.",
+    "total_units": null,
+    "floors": null,
+    "year_built": null,
+    "pet_friendly": null,
+    "minimum_stay": null,
+    "check_in": null,
+    "check_out": null,
+    "age_restriction": null
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://www.phoenixallsuites.com"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 26,
+  "scraped_at": "2026-03-21T22:21:33.863Z"
+}

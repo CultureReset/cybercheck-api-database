@@ -1,0 +1,57 @@
+{
+  "name": "Phoenix VII",
+  "type": "Vacation Rental | Condo",
+  "website": "https://www.brett-robinson.com/beach-condo/phoenix-vii/",
+  "contact": {
+    "phone": "1-800-211-7892",
+    "address": "26802 Perdido Beach Blvd",
+    "city": "Orange Beach",
+    "email": ""
+  },
+  "hours": {},
+  "about": {
+    "description": "Phoenix VII is a 15-story, steel-and-concrete beachfront tower featuring 247 Gulf-front condos in Orange Beach, Alabama. All units face the water and provide uninterrupted Gulf views. The property offers spacious 1-, 2-, and 3-bedroom vacation rentals, many with custom updates including granite countertops and enhanced finishes. Each condo includes a private Gulf-front balcony, fully equipped kitchen, in-unit washer and dryer, large closets, and modern connectivity. Popular with families, snowbirds, destination wedding groups, and long-term owners.",
+    "elevator_pitch": "Phoenix VII is a 15-story beachfront condo tower in Orange Beach offering 247 Gulf-front units with direct beach access and year-round amenities for families and vacation renters.",
+    "total_units": "247",
+    "floors": "15",
+    "year_built": null,
+    "pet_friendly": false,
+    "minimum_stay": null,
+    "check_in": "Varies by season",
+    "check_out": "Varies by season",
+    "age_restriction": null
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/brett_robinson_vacations",
+    "facebook": "https://www.facebook.com/BrettRobinsonVacations",
+    "website": "https://www.brett-robinson.com/beach-condo/phoenix-vii/"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Current Promotions",
+      "description": "Seasonal discounts, snowbird specials for longer stays, last-minute deals on select rentals, and occasional percentage-off promotions",
+      "discount": ""
+    },
+    {
+      "name": "Promo Codes",
+      "description": "10% savings with codes like Bama2025 for 2025 bookings",
+      "discount": ""
+    },
+    {
+      "name": "Early Booking Discounts",
+      "description": "Lock in best rates by booking early",
+      "discount": ""
+    },
+    {
+      "name": "Last-Minute Deals",
+      "description": "Select last-minute deals on featured properties",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 23,
+  "scraped_at": "2026-03-21T20:57:22.850Z"
+}

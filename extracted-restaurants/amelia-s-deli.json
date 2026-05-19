@@ -1,0 +1,400 @@
+{
+  "name": "Amelia's Deli",
+  "type": "Deli",
+  "website": "http://ameliasdeli.com/",
+  "contact": {
+    "phone": "(251) 968-8333",
+    "address": "2200 E 2nd St., Suite A",
+    "city": "Gulf Shores",
+    "email": "ameliasdeligulfshores@gmail.com"
+  },
+  "hours": {
+    "monday": "10:00am - 3:00pm",
+    "tuesday": "10:00am - 3:00pm",
+    "wednesday": "10:00am - 3:00pm",
+    "thursday": "10:00am - 3:00pm",
+    "friday": "10:00am - 3:00pm",
+    "saturday": "Closed",
+    "sunday": "Closed",
+    "notes": "Monday through Friday only, 10am to 3pm"
+  },
+  "about": {
+    "description": "Amelia's Deli has been serving the Alabama Gulf Coast since 1996, located in Gulf Shores, Alabama. Known for hearty sandwiches, creative wraps, fresh salads, and indulgent whole cakes including Black Russian, Red Velvet, Hummingbird, and Iced Lemon Pound Cake. They also offer sandwich platters and boxed lunches for events and meetings.",
+    "elevator_pitch": "A Gulf Shores institution since 1996, Amelia's Deli crafts legendary sandwiches and show-stopping whole cakes that make it the go-to lunch spot on Pleasure Island.",
+    "established": "1996",
+    "owner": null,
+    "chef": null,
+    "vibe": "Casual, local, welcoming Gulf Coast lunch spot",
+    "best_for": [
+      "families",
+      "lunch crowds",
+      "business meetings",
+      "catering events",
+      "locals"
+    ],
+    "age_restriction": null,
+    "dress_code": null,
+    "parking": null,
+    "accessibility": null,
+    "reservations": null,
+    "insider_tip": "Order a whole cake with at least 3 days notice — the Black Russian chocolate cake with vodka and Kahlua is a must-try.",
+    "awards": [],
+    "press": []
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "twitter": null,
+    "tiktok": null,
+    "youtube": null,
+    "yelp": null,
+    "tripadvisor": null,
+    "opentable": null,
+    "google_maps": null,
+    "website": "http://ameliasdeli.com/"
+  },
+  "menu": [
+    {
+      "category": "Creations",
+      "name": "Dockside Italian",
+      "description": "mortadella, salami, prosciutto, ham, pepperoni, roasted red peppers, onions, lettuce, roasted tomato, provolone cheese topped with Italian dressing, on a french roll",
+      "price": 10.85
+    },
+    {
+      "category": "Creations",
+      "name": "Boardwalk Blues",
+      "description": "slow roasted shaved beef, blue cheese, carmelized onion jam, roasted tomato, and lettuce on a ciabatta bun",
+      "price": 11.5
+    },
+    {
+      "category": "Creations",
+      "name": "The Beach Dip",
+      "description": "braised beef, Au jus, provolone cheese, with roasted garlic aioli on a french roll",
+      "price": 10.86
+    },
+    {
+      "category": "Creations",
+      "name": "The Beach Bunny",
+      "description": "hummus, roasted red peppers, avocado, cucumber, roasted tomato, lettuce, black olives on wheat bread",
+      "price": 9
+    },
+    {
+      "category": "Creations",
+      "name": "Pepperoni e Amici",
+      "description": "hot ham, pepperoni, pepperoni aioli, pepperochini, mozzarella, roasted tomato, crispy pepperoni on a housemade foccacia",
+      "price": 10.35
+    },
+    {
+      "category": "Creations",
+      "name": "The Big Dill",
+      "description": "housemade turkey, havarti cheese, dill pickles, Miss Vickies Spicy Dill pickle chips, garlic dill aioli, lettuce on a housemade mustard bun",
+      "price": 11
+    },
+    {
+      "category": "Creations",
+      "name": "Baja Breeze",
+      "description": "shaved chipotle chicken, bacon, cheddar cheese, tomato, lettuce and Chipotle Aioli on a Ciabatta Bun",
+      "price": 10.6
+    },
+    {
+      "category": "Add-Ons",
+      "name": "Chicken (Add-On)",
+      "description": "",
+      "price": 2.25
+    },
+    {
+      "category": "Add-Ons",
+      "name": "Bacon (Add-On)",
+      "description": "",
+      "price": 2.25
+    },
+    {
+      "category": "Add-Ons",
+      "name": "Turkey (Add-On)",
+      "description": "",
+      "price": 2.25
+    },
+    {
+      "category": "Add-Ons",
+      "name": "Ham (Add-On)",
+      "description": "",
+      "price": 2.25
+    },
+    {
+      "category": "Add-Ons",
+      "name": "Boiled Egg (Add-On)",
+      "description": "",
+      "price": 1.55
+    },
+    {
+      "category": "Add-Ons",
+      "name": "Avocado (Add-On)",
+      "description": "",
+      "price": 1.55
+    },
+    {
+      "category": "Add-Ons",
+      "name": "Extra Cheese (Add-On)",
+      "description": "",
+      "price": 0.65
+    },
+    {
+      "category": "Classics",
+      "name": "Amelia's Club",
+      "description": "toasted sourdough, bacon, turkey, ham, swiss cheese, lettuce, tomato, mayo and deli mustard",
+      "price": 10.5
+    },
+    {
+      "category": "Classics",
+      "name": "Ham & Swiss",
+      "description": "ham, swiss cheese, lettuce, tomato, mayo, mustard on rye bread",
+      "price": 8.75
+    },
+    {
+      "category": "Classics",
+      "name": "Turkey & Cheddar",
+      "description": "turkey, cheddar cheese, lettuce, tomato, mayo, mustard on wheat bread",
+      "price": 8.75
+    },
+    {
+      "category": "Classics",
+      "name": "B.L.T.",
+      "description": "bacon, lettuce, tomato, and mayo on toasted sourdough",
+      "price": 8.75
+    },
+    {
+      "category": "Classics",
+      "name": "Cuban",
+      "description": "shaved ham, braised pork, swiss cheese, pickles, and mustard on a pressed gambino roll",
+      "price": 9.85
+    },
+    {
+      "category": "Classics",
+      "name": "Caprese",
+      "description": "Mozzerella cheese, pesto, tomato and a balsamic reduction on a toasted french roll",
+      "price": 10.5
+    },
+    {
+      "category": "Classics",
+      "name": "Glorified Grilled Cheese",
+      "description": "toasted sourdough, swiss provolone and cheddar cheese pressed to perfection",
+      "price": 6.95
+    },
+    {
+      "category": "Classics",
+      "name": "Chicken/Tuna/Egg Salad",
+      "description": "your choice of tuna, chicken or egg salad on a croissant with lettuce and tomato",
+      "price": 7.5
+    },
+    {
+      "category": "Classics",
+      "name": "Reuben",
+      "description": "house roasted corned beef, sauerkraut, swiss cheese and house made thousand island dressing on toasted marble rye",
+      "price": 10.75
+    },
+    {
+      "category": "Salads",
+      "name": "Chef Salad",
+      "description": "Lettuce, ham, turkey, boiled egg, shredded cheese, tomato, black olives",
+      "price": 10.35
+    },
+    {
+      "category": "Salads",
+      "name": "Healthy Salad",
+      "description": "kale, fresh herbs, roasted garbanzo beans, cherry tomatoes, red onion, cucumber, marinated mozzarella, and italian dressing",
+      "price": 11
+    },
+    {
+      "category": "Salads",
+      "name": "Cobb Salad",
+      "description": "lettuce, chicken, avocado, tomato, bacon, blue cheese crumbles, boiled egg, with housemade blue cheese dressing",
+      "price": 11.25
+    },
+    {
+      "category": "Salads",
+      "name": "Salad Salad",
+      "description": "your choice of chicken, tuna or egg salad on a bed of lettuce with tomato and cucumber served with crackers",
+      "price": 9.25
+    },
+    {
+      "category": "Salads",
+      "name": "Caesar Salad",
+      "description": "Lettuce, parmesan cheese, roasted tomatoes, croutons and house made caesar dressing",
+      "price": 9.25
+    },
+    {
+      "category": "Salads",
+      "name": "Chicken (Salad Add-On)",
+      "description": "",
+      "price": 2.25
+    },
+    {
+      "category": "Salads",
+      "name": "Bacon (Salad Add-On)",
+      "description": "",
+      "price": 2.25
+    },
+    {
+      "category": "Salads",
+      "name": "Boiled Egg (Salad Add-On)",
+      "description": "",
+      "price": 1.5
+    },
+    {
+      "category": "Salads",
+      "name": "Avocado (Salad Add-On)",
+      "description": "",
+      "price": 1.5
+    },
+    {
+      "category": "Salads",
+      "name": "Extra Dressing",
+      "description": "Greek, Honey Mustard, Housemade Blue Cheese, Housemade Ranch, Housemade Balsamic Vinaigrette, Housemade Caesar and Housemade Thousand Island",
+      "price": 0.5
+    },
+    {
+      "category": "Wraps",
+      "name": "Veggie Wrap",
+      "description": "hummus, avocado, roasted red peppers, cucumber, tomato, and lettuce",
+      "price": 8.25
+    },
+    {
+      "category": "Wraps",
+      "name": "Buffalo Wrap",
+      "description": "lettuce, buffalo chicken, tomato, red onion, celery, housemade blue cheese dressing",
+      "price": 8.25
+    },
+    {
+      "category": "Wraps",
+      "name": "Caesar Wrap",
+      "description": "lettuce, roasted tomatos, parmesan, chicken, housemade caesar dressing",
+      "price": 8.25
+    },
+    {
+      "category": "Wraps",
+      "name": "Grinder Wrap",
+      "description": "chopped salami, ham pepperoni, provolone, parmesan, lettuce, tomato, mayo, Italian dressing, Italian seasoning, red onions, banana peppers and black olives",
+      "price": 10.35
+    },
+    {
+      "category": "Wraps",
+      "name": "Turkey Wrap",
+      "description": "turkey, lettuce, tomato, cheddar, avocado, bacon, and honey mustard dressing",
+      "price": 8.25
+    },
+    {
+      "category": "Kids",
+      "name": "PB&J",
+      "description": "peanut butter and jelly on white bread",
+      "price": 4
+    },
+    {
+      "category": "Kids",
+      "name": "Turkey & Cheddar (Kids)",
+      "description": "turkey, cheddar and mayo on wheat bread",
+      "price": 5
+    },
+    {
+      "category": "Kids",
+      "name": "Ham & Swiss (Kids)",
+      "description": "ham, swiss cheese and mayo on white bread",
+      "price": 5
+    },
+    {
+      "category": "Kids",
+      "name": "Grilled Cheese (Kids)",
+      "description": "American cheese on white bread",
+      "price": 4
+    },
+    {
+      "category": "Kids",
+      "name": "Grilled Ham & Cheese (Kids)",
+      "description": "ham, and American on white bread",
+      "price": 5
+    },
+    {
+      "category": "Sides & Drinks",
+      "name": "Potato Salad",
+      "description": "",
+      "price": 2.35
+    },
+    {
+      "category": "Sides & Drinks",
+      "name": "Pasta Salad",
+      "description": "",
+      "price": 2.35
+    },
+    {
+      "category": "Sides & Drinks",
+      "name": "Potato Chips",
+      "description": "Miss Vickies Assorted Chips",
+      "price": 2.35
+    },
+    {
+      "category": "Sides & Drinks",
+      "name": "Side Salad",
+      "description": "Lettuce, tomato and cucumber",
+      "price": 2.35
+    },
+    {
+      "category": "Sides & Drinks",
+      "name": "Soup (Cup)",
+      "description": "",
+      "price": 4
+    },
+    {
+      "category": "Sides & Drinks",
+      "name": "Soup (Bowl)",
+      "description": "",
+      "price": 6
+    },
+    {
+      "category": "Sides & Drinks",
+      "name": "Tea",
+      "description": "",
+      "price": 2.2
+    },
+    {
+      "category": "Sides & Drinks",
+      "name": "Coffee",
+      "description": "",
+      "price": 2.2
+    },
+    {
+      "category": "Sides & Drinks",
+      "name": "Bottled Beverage",
+      "description": "",
+      "price": 3.07
+    },
+    {
+      "category": "Cakes",
+      "name": "Black Russian",
+      "description": "A true chocolate lovers dream! Chocolate cake with vodka AND kahlua covered in chocolate fudge icing!",
+      "price": ""
+    },
+    {
+      "category": "Cakes",
+      "name": "Iced Lemon Pound Cake",
+      "description": "Classic southern pound cake with a twist. Beautifully baked cake with delightful lemon icing on top.",
+      "price": ""
+    },
+    {
+      "category": "Cakes",
+      "name": "Red Velvet",
+      "description": "Frosted with cream cheese icing, sprinkled with cake crumbs and love. Baked in a bundt pan to keep it moist.",
+      "price": ""
+    },
+    {
+      "category": "Cakes",
+      "name": "Hummingbird",
+      "description": "Bananas, pineapple, and pecans baked into two beautiful layers.",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 15,
+  "scraped_at": "2026-03-22T01:29:29.327Z"
+}

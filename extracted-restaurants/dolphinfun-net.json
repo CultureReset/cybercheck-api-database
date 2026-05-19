@@ -1,0 +1,87 @@
+{
+  "name": "The Fun Boats™ - Dolphin Cruises",
+  "type": "Dolphin Cruise",
+  "website": "https://www.dolphinfun.net",
+  "contact": {
+    "phone": "(251) 971-1893",
+    "address": "3900 Bayou Road",
+    "city": "Orange Beach",
+    "email": "thefunboats@gmail.com"
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": "Daytime and sunset cruises available; during off-season typically only one boat goes out"
+  },
+  "about": {
+    "description": "The Fun Boats™ offers 2-hour dolphin cruises out of Orange Beach, AL, combining a dolphin watching experience, an educational hands-on sea-life experience, and an optional water fight between two boats. Guests can choose to get wet or stay dry — both boats have an indoor cabin for those who prefer to stay dry. Daytime and sunset cruise options are available. The captain and crew share history of the area and marine life, and snacks and drinks are available for purchase on board. The business describes itself as a family-friendly, Christian business.",
+    "elevator_pitch": "The only dolphin cruise that combines wildlife watching, hands-on sea-life education, and an epic boat-to-boat water fight — all for one low price in Orange Beach.",
+    "established": null,
+    "owner": "Captain Dean",
+    "vibe": "Family-friendly, fun, educational, Christian, interactive",
+    "best_for": [
+      "families",
+      "groups",
+      "kids",
+      "grandparents",
+      "couples"
+    ],
+    "capacity": null,
+    "duration_options": [
+      "2 hours"
+    ],
+    "departure_location": "3900 Bayou Road, Orange Beach, AL (note: 2 identical boats at same marina load from different parking lots — check your confirmation for correct address)",
+    "what_provided": [
+      "life jackets",
+      "restrooms on board",
+      "inside and outside seating",
+      "drinks and snacks for purchase",
+      "sea-life handling experience"
+    ],
+    "what_to_bring": [
+      "sunscreen",
+      "change of clothes if participating in water fight"
+    ],
+    "age_restriction": "Infants under age 2 admitted at $15 (+tax); ages 2-11 at $21 (+tax); ages 12+ at $26 (+tax)",
+    "weight_restriction": null,
+    "reservations": "Book online; boats fill quickly; gift cards available",
+    "insider_tip": "Two identical boats load from different parking lots at the same marina — pay close attention to the address emailed or texted to you after booking.",
+    "cancellation_policy": "Refund or reschedule offered in the event of bad weather"
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/the_fun_boats_dolphin_cruises",
+    "facebook": "https://www.facebook.com/DolphinFunCruise",
+    "youtube": "https://www.youtube.com/channel/UCEVBfIqg_SU3qDR-nMihSeg",
+    "tripadvisor": null,
+    "website": "https://www.dolphinfun.net"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Gift Cards Available",
+      "description": "Gift cards available for purchase for dolphin cruise experiences.",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [
+    {
+      "name": "Daytime Dolphin Fun Cruise",
+      "day": "",
+      "time": ""
+    },
+    {
+      "name": "Sunset Dolphin Cruise",
+      "day": "",
+      "time": "Sunset"
+    }
+  ],
+  "gallery": 8,
+  "scraped_at": "2026-03-21T19:28:16.659Z"
+}

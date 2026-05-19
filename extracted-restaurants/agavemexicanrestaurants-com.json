@@ -1,0 +1,61 @@
+{
+  "name": "Agave Mexican Restaurants",
+  "type": "Restaurant",
+  "website": "https://agavemexicanrestaurants.com",
+  "contact": {
+    "phone": "",
+    "address": "",
+    "city": "",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": null
+  },
+  "about": {
+    "description": "Agave Mexican Restaurants is a Mexican dining establishment with an online presence at agavemexicanrestaurants.com. No additional details were available from the scraped content.",
+    "elevator_pitch": "Agave Mexican Restaurants brings the bold, authentic flavors of Mexico to the table in a welcoming setting perfect for any occasion.",
+    "established": null,
+    "owner": null,
+    "chef": null,
+    "vibe": "Casual Mexican dining with vibrant flavors",
+    "best_for": [
+      "families",
+      "casual dining",
+      "groups"
+    ],
+    "age_restriction": null,
+    "dress_code": null,
+    "parking": null,
+    "accessibility": null,
+    "reservations": null,
+    "insider_tip": null,
+    "awards": [],
+    "press": []
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "twitter": null,
+    "tiktok": null,
+    "youtube": null,
+    "yelp": null,
+    "tripadvisor": null,
+    "opentable": null,
+    "google_maps": null,
+    "website": "https://agavemexicanrestaurants.com"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-03-22T02:33:31.554Z"
+}

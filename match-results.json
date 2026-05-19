@@ -1,0 +1,1362 @@
+{
+  "timestamp": "2026-05-19T05:32:26.378Z",
+  "summary": {
+    "exact_matches": 88,
+    "partial_matches": 92,
+    "unmatched": 352,
+    "total_extracted": 532,
+    "total_entities": 921
+  },
+  "exact_matches": [
+    {
+      "entity_id": "62e40976-cb7a-4742-806f-bb978a7a6019",
+      "entity_name": "Acme Oyster House",
+      "extracted_name": "Acme Oyster House",
+      "menu_items": 0,
+      "specials": 0,
+      "folder": "acme-oyster-house"
+    },
+    {
+      "entity_id": "011dde93-86af-429c-a797-f1ae143bab33",
+      "entity_name": "Agave Bar & Grill",
+      "extracted_name": "Agave Bar & Grill",
+      "menu_items": 3,
+      "specials": 1,
+      "folder": "agave-bar-grill"
+    },
+    {
+      "entity_id": "0a90a2a8-4aea-43eb-83c7-80cca9eac0ea",
+      "entity_name": "Alabama Gulf Coast Zoo",
+      "extracted_name": "Alabama Gulf Coast Zoo",
+      "menu_items": 0,
+      "specials": 3,
+      "folder": "alabamagulfcoastzoo-com"
+    },
+    {
+      "entity_id": "874af2dd-9540-43e4-beaa-6aa50f700626",
+      "entity_name": "Amelia's Deli",
+      "extracted_name": "Amelia's Deli",
+      "menu_items": 56,
+      "specials": 0,
+      "folder": "amelia-s-deli"
+    },
+    {
+      "entity_id": "29b18fa1-77d0-46f9-bbaa-ef5f805835aa",
+      "entity_name": "Angry Crab Shack",
+      "extracted_name": "Angry Crab Shack",
+      "menu_items": 2,
+      "specials": 3,
+      "folder": "angrycrabshack-com"
+    },
+    {
+      "entity_id": "3ab43d9c-4a10-487b-a1a4-2afd6c063df9",
+      "entity_name": "Another Broken Egg Cafe",
+      "extracted_name": "Another Broken Egg Cafe",
+      "menu_items": 40,
+      "specials": 0,
+      "folder": "another-broken-egg-cafe"
+    },
+    {
+      "entity_id": "5a540bdc-7344-40f3-a96a-c30bfff1b0db",
+      "entity_name": "Bar 45",
+      "extracted_name": "Bar 45",
+      "menu_items": 6,
+      "specials": 2,
+      "folder": "bar-45"
+    },
+    {
+      "entity_id": "eb725330-7a9c-4e23-b8c2-bb401cbd1dde",
+      "entity_name": "Barometer Waterfront Grille",
+      "extracted_name": "Barometer Waterfront Grille",
+      "menu_items": 0,
+      "specials": 1,
+      "folder": "barometer"
+    },
+    {
+      "entity_id": "eb725330-7a9c-4e23-b8c2-bb401cbd1dde",
+      "entity_name": "Barometer Waterfront Grille",
+      "extracted_name": "Barometer Waterfront Grille",
+      "menu_items": 0,
+      "specials": 1,
+      "folder": "barometer-waterfront-grille"
+    },
+    {
+      "entity_id": "be165aa2-cc9d-46b5-8abc-e2baa0b67cd9",
+      "entity_name": "Beach Girl Coffee",
+      "extracted_name": "Beach Girl Coffee",
+      "menu_items": 36,
+      "specials": 0,
+      "folder": "beach-girl-coffee"
+    },
+    {
+      "entity_id": "a9d0eef1-014c-445c-ac5e-8e1d17941501",
+      "entity_name": "Beachside Circle Boat Rentals and Sales",
+      "extracted_name": "Beachside Circle Boat Rentals and Sales",
+      "menu_items": 0,
+      "specials": 1,
+      "folder": "beachsidecircleboats-com"
+    },
+    {
+      "entity_id": "bf64e833-e56b-4304-9039-1061fa03aff4",
+      "entity_name": "Bird Dog Chicken Company",
+      "extracted_name": "Bird Dog Chicken Company",
+      "menu_items": 0,
+      "specials": 0,
+      "folder": "bird-dog-chicken-company"
+    },
+    {
+      "entity_id": "2555fa2b-30af-4f82-be2d-42d36bedc430",
+      "entity_name": "Brett/Robinson Vacation Rentals",
+      "extracted_name": "Brett/Robinson Vacation Rentals",
+      "menu_items": 0,
+      "specials": 5,
+      "folder": "brett-robinson-orange-beach-condos"
+    },
+    {
+      "entity_id": "eb9faa54-5fee-4a35-9c9a-c618b9672f5c",
+      "entity_name": "Caribe Resort",
+      "extracted_name": "Caribe Resort",
+      "menu_items": 0,
+      "specials": 3,
+      "folder": "caribe-resort"
+    },
+    {
+      "entity_id": "3cd884a0-6a5d-4fa3-8236-b26ad818e373",
+      "entity_name": "Chicken Salad Chick",
+      "extracted_name": "Chicken Salad Chick",
+      "menu_items": 1,
+      "specials": 0,
+      "folder": "chicken-salad-chick"
+    },
+    {
+      "entity_id": "d966ebb1-d1b7-4de5-9f3f-41900e7e07f9",
+      "entity_name": "Colonnades",
+      "extracted_name": "Colonnades",
+      "menu_items": 0,
+      "specials": 3,
+      "folder": "colonnades-orange-beach"
+    },
+    {
+      "entity_id": "d9895bd7-a4e9-4624-81e4-8a2d63f7ff3b",
+      "entity_name": "Cool Change Charters",
+      "extracted_name": "Cool Change Charters",
+      "menu_items": 0,
+      "specials": 1,
+      "folder": "coolchangecharter-com"
+    },
+    {
+      "entity_id": "56ab8570-24f0-4d1f-b3fd-fcef9f205644",
+      "entity_name": "Cosmo's Restaurant & Bar",
+      "extracted_name": "Cosmo's Restaurant & Bar",
+      "menu_items": 13,
+      "specials": 1,
+      "folder": "cosmo-s-restaurant-bar"
+    },
+    {
+      "entity_id": "56ab8570-24f0-4d1f-b3fd-fcef9f205644",
+      "entity_name": "Cosmo's Restaurant & Bar",
+      "extracted_name": "Cosmo's Restaurant & Bar",
+      "menu_items": 22,
+      "specials": 2,
+      "folder": "cosmos-restaurant-and-bar"
+    },
+    {
+      "entity_id": "ba4850cb-e1a8-4702-953a-955c0f09a49e",
+      "entity_name": "Cotton Bayou Public Beach Access",
+      "extracted_name": "Cotton Bayou Public Beach Access",
+      "menu_items": 0,
+      "specials": 0,
+      "folder": "cotton-bayou-public-beach-access"
+    },
+    {
+      "entity_id": "b0576ccd-0482-4ee3-bbca-ecf1b125f075",
+      "entity_name": "Cotton's Restaurant",
+      "extracted_name": "Cotton's Restaurant",
+      "menu_items": 51,
+      "specials": 1,
+      "folder": "cotton-s-restaurant"
+    },
+    {
+      "entity_id": "b0576ccd-0482-4ee3-bbca-ecf1b125f075",
+      "entity_name": "Cotton's Restaurant",
+      "extracted_name": "Cotton's Restaurant",
+      "menu_items": 14,
+      "specials": 1,
+      "folder": "cottonsorangebeach-com"
+    },
+    {
+      "entity_id": "32ed3e81-fa84-4e4c-a0ae-99a2b835d082",
+      "entity_name": "Crico's Pizza & Subs",
+      "extracted_name": "Crico's Pizza & Subs",
+      "menu_items": 0,
+      "specials": 0,
+      "folder": "cricospizza-com"
+    },
+    {
+      "entity_id": "a9df40c4-8889-48b5-ba16-b73397abf5f4",
+      "entity_name": "Crystal Tower",
+      "extracted_name": "Crystal Tower",
+      "menu_items": 0,
+      "specials": 4,
+      "folder": "crystal-tower"
+    },
+    {
+      "entity_id": "3b7ac80c-b0d5-4cfc-a2f0-9bcae07d57e0",
+      "entity_name": "De Soto's Seafood Kitchen",
+      "extracted_name": "De Soto's Seafood Kitchen",
+      "menu_items": 0,
+      "specials": 1,
+      "folder": "de-soto-s-seafood-kitchen"
+    },
+    {
+      "entity_id": "d22b723e-5830-48f1-9797-50392ac64ece",
+      "entity_name": "Del's ice cream",
+      "extracted_name": "Del's Ice Cream",
+      "menu_items": 7,
+      "specials": 0,
+      "folder": "del-s-ice-cream"
+    },
+    {
+      "entity_id": "0604b9f1-e65c-468d-8551-6a53f3eb226b",
+      "entity_name": "Distraction Charters",
+      "extracted_name": "Distraction Charters",
+      "menu_items": 0,
+      "specials": 0,
+      "folder": "distractioncharters-com"
+    },
+    {
+      "entity_id": "55811c01-7fba-4ca5-9be9-e4983ed6587a",
+      "entity_name": "Doc's Seafood Shack & Oyster Bar",
+      "extracted_name": "Doc's Seafood Shack & Oyster Bar",
+      "menu_items": 15,
+      "specials": 2,
+      "folder": "doc-s-seafood-shack"
+    },
+    {
+      "entity_id": "55811c01-7fba-4ca5-9be9-e4983ed6587a",
+      "entity_name": "Doc's Seafood Shack & Oyster Bar",
+      "extracted_name": "Doc's Seafood Shack & Oyster Bar",
+      "menu_items": 10,
+      "specials": 2,
+      "folder": "doc-s-seafood-shack-oyster-bar"
+    },
+    {
+      "entity_id": "2444091b-f328-4932-a0d8-451925a43d3f",
+      "entity_name": "Down South BBQ",
+      "extracted_name": "Down South BBQ",
+      "menu_items": 14,
+      "specials": 2,
+      "folder": "downsouthbbq-com"
+    },
+    {
+      "entity_id": "45bf863a-faf8-4fc9-80fd-bbc86fe4fa1d",
+      "entity_name": "Duck's Diner Orange Beach",
+      "extracted_name": "Duck's Diner Orange Beach",
+      "menu_items": 0,
+      "specials": 0,
+      "folder": "duck-s-diner-orange-beach"
+    },
+    {
+      "entity_id": "365465d6-9aa1-4471-b39c-0a20615f6658",
+      "entity_name": "Efes Greek Kitchen",
+      "extracted_name": "Efes Greek Kitchen",
+      "menu_items": 17,
+      "specials": 0,
+      "folder": "efesgreekkitchen-com"
+    },
+    {
+      "entity_id": "937332ce-54b6-46c3-b0b1-2b636ee077b3",
+      "entity_name": "El Toro Mexican Restaurant",
+      "extracted_name": "El Toro Mexican Restaurant",
+      "menu_items": 3,
+      "specials": 0,
+      "folder": "el-toro-mexican-restaurant"
+    },
+    {
+      "entity_id": "d4b9ab3c-6e11-418d-822f-c5bd4425098a",
+      "entity_name": "Extreme Chaos Fishing Charters",
+      "extracted_name": "Extreme Chaos Fishing Charters",
+      "menu_items": 4,
+      "specials": 0,
+      "folder": "extremechaos-fish"
+    },
+    {
+      "entity_id": "caa08999-ba8a-4297-a420-e6466e34497f",
+      "entity_name": "Fish River Grill",
+      "extracted_name": "Fish River Grill",
+      "menu_items": 0,
+      "specials": 0,
+      "folder": "fish-river-grill"
+    },
+    {
+      "entity_id": "caa08999-ba8a-4297-a420-e6466e34497f",
+      "entity_name": "Fish River Grill",
+      "extracted_name": "Fish River Grill",
+      "menu_items": 5,
+      "specials": 0,
+      "folder": "fishrivergrill-com"
+    },
+    {
+      "entity_id": "d7056e6c-3dcc-420d-8b2b-c89ac2a88c10",
+      "entity_name": "Flora-Bama",
+      "extracted_name": "flora-bama",
+      "menu_items": 0,
+      "specials": 0,
+      "folder": "flora-bama"
+    },
+    {
+      "entity_id": "ecc4d748-db9c-4d9c-9f77-28e7248f8ec0",
+      "entity_name": "Flora-Bama Ole River Grill",
+      "extracted_name": "Flora-Bama Ole River Grill",
+      "menu_items": 37,
+      "specials": 1,
+      "folder": "flora-bama-ole-river-grill"
+    },
+    {
+      "entity_id": "9086a10b-dce4-4e42-a1fb-793aa6a8133b",
+      "entity_name": "Foodcraft",
+      "extracted_name": "foodcraft",
+      "menu_items": 0,
+      "specials": 0,
+      "folder": "foodcraft"
+    },
+    {
+      "entity_id": "91455d06-dda5-4595-a193-eb4cb94b5527",
+      "entity_name": "Gary's Brewery & Biergarten",
+      "extracted_name": "Gary's Brewery & Biergarten",
+      "menu_items": 18,
+      "specials": 0,
+      "folder": "gary-s-brewery-biergarten"
+    },
+    {
+      "entity_id": "853c8177-c622-40b7-8a8e-f495e91d6dff",
+      "entity_name": "Getaway Charters",
+      "extracted_name": "Getaway Charters",
+      "menu_items": 0,
+      "specials": 0,
+      "folder": "getawaygulffishing-com"
+    },
+    {
+      "entity_id": "c610bda6-49dc-4028-9f4c-8fdd61ac43d3",
+      "entity_name": "Ginny Lane Bar and Grill",
+      "extracted_name": "Ginny Lane Bar and Grill",
+      "menu_items": 2,
+      "specials": 4,
+      "folder": "ginny-lane-bar-and-grill"
+    },
+    {
+      "entity_id": "3e038903-8dc8-40c8-b981-b38c12ec86ba",
+      "entity_name": "GTs On The Bay",
+      "extracted_name": "GTs on the Bay",
+      "menu_items": 33,
+      "specials": 2,
+      "folder": "gtsonthebay-com"
+    },
+    {
+      "entity_id": "8333b32e-825d-427f-8c92-6f689f8b483d",
+      "entity_name": "Gulf Shores Seafood",
+      "extracted_name": "Gulf Shores Seafood",
+      "menu_items": 43,
+      "specials": 1,
+      "folder": "gulf-shores-seafood"
+    },
+    {
+      "entity_id": "3814fa18-b8b9-464c-98db-cb0794fad702",
+      "entity_name": "Gulf Shores Surf & Racquet",
+      "extracted_name": "Gulf Shores Surf & Racquet",
+      "menu_items": 0,
+      "specials": 5,
+      "folder": "gulf-shores-surf-and-racquet"
+    },
+    {
+      "entity_id": "d4269aa1-fe30-4814-bcb6-af197406aedd",
+      "entity_name": "Gulf Village",
+      "extracted_name": "Gulf Village",
+      "menu_items": 0,
+      "specials": 4,
+      "folder": "gulf-village-gulf-shores"
+    },
+    {
+      "entity_id": "453fb619-1b69-4105-a5c9-abf7efdb938b",
+      "entity_name": "Gulf Island Grill",
+      "extracted_name": "Gulf Island Grill",
+      "menu_items": 15,
+      "specials": 0,
+      "folder": "gulfislandgrill-co"
+    },
+    {
+      "entity_id": "5514b636-d0ba-4ce0-9169-76840433f63e",
+      "entity_name": "Gulf Rebel Charters",
+      "extracted_name": "Gulf Rebel Charters",
+      "menu_items": 0,
+      "specials": 2,
+      "folder": "gulfrebelcharters-com"
+    },
+    {
+      "entity_id": "15630338-5957-48ff-9a1b-545f6a7c4c5c",
+      "entity_name": "Gulf Shores Steamer",
+      "extracted_name": "Gulf Shores Steamer",
+      "menu_items": 39,
+      "specials": 0,
+      "folder": "gulfshoressteamer-com"
+    },
+    {
+      "entity_id": "a52c2617-6150-4f27-b2c2-249add4d05be",
+      "entity_name": "Happy Pappys Coffeehouse",
+      "extracted_name": "Happy Pappys Coffeehouse",
+      "menu_items": 5,
+      "specials": 1,
+      "folder": "happy-pappys-coffeehouse"
+    },
+    {
+      "entity_id": "33827fbf-387b-4523-84d6-7cdaa445f817",
+      "entity_name": "Island Ice Cream & Treats",
+      "extracted_name": "Island Ice Cream & Treats",
+      "menu_items": 14,
+      "specials": 1,
+      "folder": "island-ice-cream-treats"
+    },
+    {
+      "entity_id": "44148e94-b69d-450a-bb8e-c0bba26a2df0",
+      "entity_name": "Island Tower",
+      "extracted_name": "Island Tower",
+      "menu_items": 0,
+      "specials": 4,
+      "folder": "island-tower"
+    },
+    {
+      "entity_id": "14b827de-e5d4-429b-b01b-e2bd6e358aaf",
+      "entity_name": "Kitty's Kafe",
+      "extracted_name": "Kitty's Kafe",
+      "menu_items": 0,
+      "specials": 0,
+      "folder": "kittyskafe-com"
+    },
+    {
+      "entity_id": "22e17848-12ed-4435-9ba5-7de03c8d7ab4",
+      "entity_name": "Lagoon Tower",
+      "extracted_name": "Lagoon Tower",
+      "menu_items": 0,
+      "specials": 4,
+      "folder": "lagoon-tower"
+    },
+    {
+      "entity_id": "55ad66cd-5f9d-491d-88bf-5752909870fd",
+      "entity_name": "Lambert's Cafe",
+      "extracted_name": "Lambert's Cafe",
+      "menu_items": 2,
+      "specials": 0,
+      "folder": "lambert-s-cafe"
+    },
+    {
+      "entity_id": "867346b9-93d6-400f-b2b2-c2d02c3f1bb3",
+      "entity_name": "Lighthouse",
+      "extracted_name": "Lighthouse",
+      "menu_items": 0,
+      "specials": 7,
+      "folder": "lighthouse-orange-beach"
+    },
+    {
+      "entity_id": "7bdfa2de-bbca-4fa2-9523-fa87753dad30",
+      "entity_name": "Luna's Eat & Drink",
+      "extracted_name": "Luna's Eat & Drink",
+      "menu_items": 39,
+      "specials": 2,
+      "folder": "luna-s-eat-drink"
+    },
+    {
+      "entity_id": "7bdfa2de-bbca-4fa2-9523-fa87753dad30",
+      "entity_name": "Luna's Eat & Drink",
+      "extracted_name": "Luna's Eat & Drink",
+      "menu_items": 3,
+      "specials": 1,
+      "folder": "lunaseatanddrink-com"
+    },
+    {
+      "entity_id": "7162176b-894b-4cfd-8dac-554b1991d8e2",
+      "entity_name": "Papa Rocco's",
+      "extracted_name": "Papa Rocco's",
+      "menu_items": 1,
+      "specials": 5,
+      "folder": "paparocco-com"
+    },
+    {
+      "entity_id": "39dd4b03-ad4e-4bdc-a6c8-798aa1e771c1",
+      "entity_name": "Perdido Dunes Tower",
+      "extracted_name": "Perdido Dunes Tower",
+      "menu_items": 0,
+      "specials": 4,
+      "folder": "perdido-dunes-tower"
+    },
+    {
+      "entity_id": "8367fa11-bde7-4a29-b1cc-3ff32948495c",
+      "entity_name": "Perdido Beach Resort",
+      "extracted_name": "Perdido Beach Resort",
+      "menu_items": 0,
+      "specials": 6,
+      "folder": "perdidobeachresort-com"
+    },
+    {
+      "entity_id": "2555fa2b-30af-4f82-be2d-42d36bedc430",
+      "entity_name": "Brett/Robinson Vacation Rentals",
+      "extracted_name": "Brett/Robinson Vacation Rentals",
+      "menu_items": 0,
+      "specials": 0,
+      "folder": "phoenix-i"
+    },
+    {
+      "entity_id": "d95f3f74-8915-4ea5-beb8-778cba8073e0",
+      "entity_name": "Phoenix II",
+      "extracted_name": "phoenix-ii",
+      "menu_items": 0,
+      "specials": 0,
+      "folder": "phoenix-ii"
+    },
+    {
+      "entity_id": "2555fa2b-30af-4f82-be2d-42d36bedc430",
+      "entity_name": "Brett/Robinson Vacation Rentals",
+      "extracted_name": "Brett/Robinson Vacation Rentals",
+      "menu_items": 0,
+      "specials": 5,
+      "folder": "phoenix-iii"
+    },
+    {
+      "entity_id": "0138346f-351e-4a71-8ddd-2d64d1cd9ce1",
+      "entity_name": "Phoenix IV",
+      "extracted_name": "Phoenix IV",
+      "menu_items": 0,
+      "specials": 3,
+      "folder": "phoenix-iv"
+    },
+    {
+      "entity_id": "c473f500-7129-40fc-a236-1c1ee5ea51bb",
+      "entity_name": "Phoenix IX",
+      "extracted_name": "Brett/Robinson Vacation Rentals - Phoenix IX",
+      "menu_items": 0,
+      "specials": 6,
+      "folder": "phoenix-ix"
+    },
+    {
+      "entity_id": "ef519791-fb75-442d-b222-0678b30d7963",
+      "entity_name": "Phoenix on the Bay",
+      "extracted_name": "Phoenix on the Bay",
+      "menu_items": 0,
+      "specials": 5,
+      "folder": "phoenix-on-the-bay"
+    },
+    {
+      "entity_id": "43eaf93f-0e48-4c7b-8f01-1dc705bd8366",
+      "entity_name": "Phoenix V",
+      "extracted_name": "Brett/Robinson Vacation Rentals - Phoenix V",
+      "menu_items": 0,
+      "specials": 4,
+      "folder": "phoenix-v"
+    },
+    {
+      "entity_id": "f9aee97a-cde7-4132-866d-475d026ca52f",
+      "entity_name": "Phoenix VI",
+      "extracted_name": "Phoenix VI",
+      "menu_items": 0,
+      "specials": 5,
+      "folder": "phoenix-vi"
+    },
+    {
+      "entity_id": "a38e62fa-4a5f-4186-b8f4-ec525f33ee15",
+      "entity_name": "Phoenix VII",
+      "extracted_name": "Phoenix VII",
+      "menu_items": 0,
+      "specials": 4,
+      "folder": "phoenix-vii"
+    },
+    {
+      "entity_id": "c0b8a200-6e19-481e-ac40-fbd7c15f3e34",
+      "entity_name": "Phoenix VIII",
+      "extracted_name": "Phoenix VIII",
+      "menu_items": 0,
+      "specials": 4,
+      "folder": "phoenix-viii"
+    },
+    {
+      "entity_id": "9faf268b-f8b1-476f-ac89-68a23890a53d",
+      "entity_name": "Phoenix West",
+      "extracted_name": "Phoenix West",
+      "menu_items": 0,
+      "specials": 4,
+      "folder": "phoenix-west"
+    },
+    {
+      "entity_id": "2555fa2b-30af-4f82-be2d-42d36bedc430",
+      "entity_name": "Brett/Robinson Vacation Rentals",
+      "extracted_name": "Brett/Robinson Vacation Rentals",
+      "menu_items": 0,
+      "specials": 4,
+      "folder": "phoenix-x"
+    },
+    {
+      "entity_id": "a77c4d39-fdd5-4666-b94e-5ed59f176fcd",
+      "entity_name": "Pirates Cove",
+      "extracted_name": "Pirates Cove",
+      "menu_items": 37,
+      "specials": 3,
+      "folder": "pirates-cove"
+    },
+    {
+      "entity_id": "a77c4d39-fdd5-4666-b94e-5ed59f176fcd",
+      "entity_name": "Pirates Cove",
+      "extracted_name": "Pirates Cove",
+      "menu_items": 0,
+      "specials": 0,
+      "folder": "piratescoveriffraff-com"
+    },
+    {
+      "entity_id": "7c7cb319-ac0b-4631-b1c0-af264ea03fb9",
+      "entity_name": "San Carlos",
+      "extracted_name": "San Carlos",
+      "menu_items": 0,
+      "specials": 4,
+      "folder": "san-carlos-orange-beach"
+    },
+    {
+      "entity_id": "ca5dcc02-6204-434e-98fb-8403a29fcbd9",
+      "entity_name": "Sunliner Diner",
+      "extracted_name": "Sunliner Diner",
+      "menu_items": 9,
+      "specials": 0,
+      "folder": "sunlinerdiner-com"
+    },
+    {
+      "entity_id": "22db2db6-baa8-46dc-bac2-c5a8502c1b1f",
+      "entity_name": "Tanger Outlets Foley",
+      "extracted_name": "Tanger Outlets Foley",
+      "menu_items": 0,
+      "specials": 1,
+      "folder": "tanger-outlets-foley"
+    },
+    {
+      "entity_id": "bb5436f5-78da-4d34-9ec8-db37323541a0",
+      "entity_name": "The Beach Bun",
+      "extracted_name": "The Beach Bun",
+      "menu_items": 0,
+      "specials": 0,
+      "folder": "the-beach-bun"
+    },
+    {
+      "entity_id": "868994b9-50c2-4a00-8d47-5693ac189e10",
+      "entity_name": "The Dunes",
+      "extracted_name": "The Dunes",
+      "menu_items": 0,
+      "specials": 7,
+      "folder": "the-dunes-orange-beach"
+    },
+    {
+      "entity_id": "c06821ca-04b7-4f50-9db9-f9ec7289a9fc",
+      "entity_name": "The Hangout",
+      "extracted_name": "The Hangout",
+      "menu_items": 5,
+      "specials": 3,
+      "folder": "the-hangout"
+    },
+    {
+      "entity_id": "263753e0-ecd6-4056-886f-859d28759426",
+      "entity_name": "The Jellyfish - Seafood Restaurant and Bar",
+      "extracted_name": "The Jellyfish - Seafood Restaurant and Bar",
+      "menu_items": 9,
+      "specials": 3,
+      "folder": "the-jellyfish-seafood-restaurant-and-bar"
+    },
+    {
+      "entity_id": "8d272f2b-1758-4093-9c00-de1186aff5fb",
+      "entity_name": "The Southern Grind Coffee House at the WHARF",
+      "extracted_name": "The Southern Grind Coffee House at the WHARF",
+      "menu_items": 15,
+      "specials": 2,
+      "folder": "the-southern-grind-coffee-house-at-the-wharf"
+    },
+    {
+      "entity_id": "af6fe582-d39c-4ff0-a2fa-7053d6e985b0",
+      "entity_name": "The Yard Milkshake Bar",
+      "extracted_name": "The Yard Milkshake Bar",
+      "menu_items": 33,
+      "specials": 0,
+      "folder": "the-yard-milkshake-bar"
+    },
+    {
+      "entity_id": "00daf9cb-232d-4bdc-9f58-d886b7000785",
+      "entity_name": "The Gulf",
+      "extracted_name": "The Gulf",
+      "menu_items": 21,
+      "specials": 3,
+      "folder": "thegulf-com"
+    },
+    {
+      "entity_id": "efd52778-949e-43ae-b5a5-b4aea7d50994",
+      "entity_name": "Turquoise Place",
+      "extracted_name": "Turquoise Place",
+      "menu_items": 0,
+      "specials": 4,
+      "folder": "turquoise-place"
+    },
+    {
+      "entity_id": "2555fa2b-30af-4f82-be2d-42d36bedc430",
+      "entity_name": "Brett/Robinson Vacation Rentals",
+      "extracted_name": "Brett/Robinson Vacation Rentals",
+      "menu_items": 0,
+      "specials": 9,
+      "folder": "windemere-orange-beach"
+    },
+    {
+      "entity_id": "064a67ed-dfbb-4390-a2bd-52fb991ae0e7",
+      "entity_name": "Woodside Restaurant",
+      "extracted_name": "Woodside Restaurant",
+      "menu_items": 0,
+      "specials": 1,
+      "folder": "woodside-restaurant"
+    }
+  ],
+  "partial_matches": [
+    {
+      "entity_id": "38b203d0-02ed-43b7-8281-5910b18540f5",
+      "entity_name": "A Specialty Bakery",
+      "extracted_name": "A Specialty Bakery and Party Shoppe",
+      "menu_items": 21,
+      "folder": "a-specialty-bakery"
+    },
+    {
+      "entity_id": "3e16d46a-b05c-43ee-aeb0-744198a97766",
+      "entity_name": "SWEET CONE ALABAMA ICE CREAM",
+      "extracted_name": "Alabama Sweet Tea Co.",
+      "menu_items": 10,
+      "folder": "alabama-sweet-tea-co"
+    },
+    {
+      "entity_id": "554d4e7d-28ed-4af4-b74a-40ad585ce58a",
+      "entity_name": "Avenue Pub - Orange Beach",
+      "extracted_name": "AVENUE PUB",
+      "menu_items": 0,
+      "folder": "avenue-pub"
+    },
+    {
+      "entity_id": "554d4e7d-28ed-4af4-b74a-40ad585ce58a",
+      "entity_name": "Avenue Pub - Orange Beach",
+      "extracted_name": "Avenue Pub",
+      "menu_items": 0,
+      "folder": "avenue-pub-orange-beach"
+    },
+    {
+      "entity_id": "86a5a704-a985-4717-8c38-204506741cbf",
+      "entity_name": "Gulf Shores Sports Complex",
+      "extracted_name": "Avenue Pub Gulf Shores",
+      "menu_items": 0,
+      "folder": "avenuepubgulfshores-com"
+    },
+    {
+      "entity_id": "84157877-e26b-47c7-980f-f3e52dfe1d79",
+      "entity_name": "Bahama Bob's Beach Side Cafe",
+      "extracted_name": "Bahama Bob's",
+      "menu_items": 99,
+      "folder": "bahamabobs-com"
+    },
+    {
+      "entity_id": "719b9dec-0eb5-4b71-9248-f33954190905",
+      "entity_name": "High Tide Daiquiris & Mimosas",
+      "extracted_name": "High Tide #3",
+      "menu_items": 76,
+      "folder": "bamboo-steakhouse-sushi-bar"
+    },
+    {
+      "entity_id": "a9d0eef1-014c-445c-ac5e-8e1d17941501",
+      "entity_name": "Beachside Circle Boat Rentals and Sales",
+      "extracted_name": "Beachside Circle Boats",
+      "menu_items": 0,
+      "folder": "beachside-circle-boats"
+    },
+    {
+      "entity_id": "cb0e5a76-e394-4f53-b0c5-fefe820bf03a",
+      "entity_name": "Big Beach Brewing",
+      "extracted_name": "Big Beach Brewing Company",
+      "menu_items": 0,
+      "folder": "big-beach-brewing"
+    },
+    {
+      "entity_id": "011d44e8-a653-42be-a487-e9e32d9cdd1d",
+      "entity_name": "Blalock Seafood & Specialty Gulf Shores",
+      "extracted_name": "Blalock Seafood & Specialty Market",
+      "menu_items": 19,
+      "folder": "blalock-seafood-orange-beach"
+    },
+    {
+      "entity_id": "011d44e8-a653-42be-a487-e9e32d9cdd1d",
+      "entity_name": "Blalock Seafood & Specialty Gulf Shores",
+      "extracted_name": "Blalock Seafood & Specialty Market",
+      "menu_items": 18,
+      "folder": "blalock-seafood-specialty-gulf-shores"
+    },
+    {
+      "entity_id": "011d44e8-a653-42be-a487-e9e32d9cdd1d",
+      "entity_name": "Blalock Seafood & Specialty Gulf Shores",
+      "extracted_name": "Blalock Seafood & Specialty Market",
+      "menu_items": 20,
+      "folder": "blalock-seafood-specialty-market"
+    },
+    {
+      "entity_id": "1dddfdd8-47e0-4529-91ec-623af5a45849",
+      "entity_name": "Brick & Spoon - Orange Beach",
+      "extracted_name": "Brick & Spoon",
+      "menu_items": 44,
+      "folder": "brickandspoon-com"
+    },
+    {
+      "entity_id": "7c299ea9-3de9-4d1f-b6b4-16be5627eb44",
+      "entity_name": "Cactus Cantina Gulf Shores",
+      "extracted_name": "Cactus Cantina Mexican Grill",
+      "menu_items": 0,
+      "folder": "cactus-cantina-gulf-shores"
+    },
+    {
+      "entity_id": "c610bda6-49dc-4028-9f4c-8fdd61ac43d3",
+      "entity_name": "Ginny Lane Bar and Grill",
+      "extracted_name": "Chef Sake's Restaurant and Sushi Bar",
+      "menu_items": 5,
+      "folder": "chef-sake-s-restaurant-and-sushi-bar"
+    },
+    {
+      "entity_id": "5bbf3633-f1b6-4db1-873d-127d90f6d5f9",
+      "entity_name": "Class Act Charters Fishing",
+      "extracted_name": "Class Act Fishing",
+      "menu_items": 0,
+      "folder": "classactfishing-net"
+    },
+    {
+      "entity_id": "7c7bae08-fe85-4809-8092-779e4a63b0a3",
+      "entity_name": "Cobalt the Restaurant",
+      "extracted_name": "Cobalt, The Restaurant",
+      "menu_items": 9,
+      "folder": "cobalt-the-restaurant"
+    },
+    {
+      "entity_id": "7c7bae08-fe85-4809-8092-779e4a63b0a3",
+      "entity_name": "Cobalt the Restaurant",
+      "extracted_name": "Cobalt, The Restaurant",
+      "menu_items": 27,
+      "folder": "cobaltrestaurant-net"
+    },
+    {
+      "entity_id": "c610bda6-49dc-4028-9f4c-8fdd61ac43d3",
+      "entity_name": "Ginny Lane Bar and Grill",
+      "extracted_name": "Cozumel Bar & Grill",
+      "menu_items": 9,
+      "folder": "cozumelmexicangrillandbar-com"
+    },
+    {
+      "entity_id": "c610bda6-49dc-4028-9f4c-8fdd61ac43d3",
+      "entity_name": "Ginny Lane Bar and Grill",
+      "extracted_name": "Craft Farms Golf Club - Bar and Grill",
+      "menu_items": 10,
+      "folder": "craft-farms-golf-club-bar-and-grill"
+    },
+    {
+      "entity_id": "5e9c002d-c583-47da-8fe4-5d3fb88a4d02",
+      "entity_name": "Cruisin' Tikis Orange Beach",
+      "extracted_name": "Cruisin' Tikis",
+      "menu_items": 0,
+      "folder": "cruisin-tikis-com"
+    },
+    {
+      "entity_id": "3b7ac80c-b0d5-4cfc-a2f0-9bcae07d57e0",
+      "entity_name": "De Soto's Seafood Kitchen",
+      "extracted_name": "DeSoto's Seafood Kitchen",
+      "menu_items": 26,
+      "folder": "desoto-s-seafood-kitchen"
+    },
+    {
+      "entity_id": "3b7ac80c-b0d5-4cfc-a2f0-9bcae07d57e0",
+      "entity_name": "De Soto's Seafood Kitchen",
+      "extracted_name": "DeSoto's Seafood Kitchen",
+      "menu_items": 26,
+      "folder": "desotosseafoodkitchen-com"
+    },
+    {
+      "entity_id": "55811c01-7fba-4ca5-9be9-e4983ed6587a",
+      "entity_name": "Doc's Seafood Shack & Oyster Bar",
+      "extracted_name": "Doc's Seafood and Steaks",
+      "menu_items": 20,
+      "folder": "doc-s-seafood-and-steaks"
+    },
+    {
+      "entity_id": "55811c01-7fba-4ca5-9be9-e4983ed6587a",
+      "entity_name": "Doc's Seafood Shack & Oyster Bar",
+      "extracted_name": "Doc's Seafood Shack",
+      "menu_items": 5,
+      "folder": "docsseafoodfoley-com"
+    },
+    {
+      "entity_id": "a7e2f427-7446-4bef-b391-de67af55aa5e",
+      "entity_name": "Dolphin Cove Marina Gulf Shores, AL",
+      "extracted_name": "Dolphin Cove Marina",
+      "menu_items": 12,
+      "folder": "dolphin-cove-marina-gulf-shores-al"
+    },
+    {
+      "entity_id": "0d90673c-63a1-4511-a5bd-6fd907f4f02e",
+      "entity_name": "Dolphin Cruises Aboard Cruise Orange Beach",
+      "extracted_name": "The Fun Boats™ - Dolphin Cruises",
+      "menu_items": 0,
+      "folder": "dolphinfun-net"
+    },
+    {
+      "entity_id": "6360b230-e547-4803-a48e-3aec29ceccf1",
+      "entity_name": "Counter Culture Foley",
+      "extracted_name": "Counter Culture",
+      "menu_items": 18,
+      "folder": "eatcounterculture-com"
+    },
+    {
+      "entity_id": "81cc1b18-be74-43d3-b15b-d164ffad5663",
+      "entity_name": "Hooked Up Fishing Charters",
+      "extracted_name": "Intimidator Deep Sea Fishing Charters",
+      "menu_items": 0,
+      "folder": "fishorangebeach-com"
+    },
+    {
+      "entity_id": "f068439e-1795-4a6d-a3d6-f5cca12201bf",
+      "entity_name": "The Flora-Bama Yacht Club",
+      "extracted_name": "Flora-Bama Yacht Club",
+      "menu_items": 18,
+      "folder": "florabamayachtclub-com"
+    },
+    {
+      "entity_id": "91455d06-dda5-4595-a193-eb4cb94b5527",
+      "entity_name": "Gary's Brewery & Biergarten",
+      "extracted_name": "Gary's Brewery",
+      "menu_items": 0,
+      "folder": "gary-s-brewery"
+    },
+    {
+      "entity_id": "c610bda6-49dc-4028-9f4c-8fdd61ac43d3",
+      "entity_name": "Ginny Lane Bar and Grill",
+      "extracted_name": "Ginny Lane Bar & Grill",
+      "menu_items": 2,
+      "folder": "ginny-lane-bar-grill"
+    },
+    {
+      "entity_id": "f81a1ce9-4da1-4d50-ab0d-7a9b1c7e7459",
+      "entity_name": "Alabama gulf coast",
+      "extracted_name": "Gulf Coast Wellness and Recovery Spa",
+      "menu_items": 0,
+      "folder": "gulf-shores-wellness-recovery-spa"
+    },
+    {
+      "entity_id": "1ed7a1fb-6124-4488-8141-5beb5dd24870",
+      "entity_name": "Hammered Crab",
+      "extracted_name": "The Hammered Crab",
+      "menu_items": 53,
+      "folder": "hammered-crab"
+    },
+    {
+      "entity_id": "719b9dec-0eb5-4b71-9248-f33954190905",
+      "entity_name": "High Tide Daiquiris & Mimosas",
+      "extracted_name": "High Tide Daiquiris & Mimosas West Beach",
+      "menu_items": 0,
+      "folder": "high-tide-daiquiris-mimosas-west-beach"
+    },
+    {
+      "entity_id": "cab5476a-0bdd-4e86-972f-4d030a017a25",
+      "entity_name": "Island Wing Company Grill & Bar - Gulf Shores",
+      "extracted_name": "Island Wing Co.",
+      "menu_items": 33,
+      "folder": "island-wing-company-grill-bar-gulf-shores"
+    },
+    {
+      "entity_id": "56ab8570-24f0-4d1f-b3fd-fcef9f205644",
+      "entity_name": "Cosmo's Restaurant & Bar",
+      "extracted_name": "Islanders Restaurant & Bar",
+      "menu_items": 0,
+      "folder": "islanders-restaurant-bar"
+    },
+    {
+      "entity_id": "cab5476a-0bdd-4e86-972f-4d030a017a25",
+      "entity_name": "Island Wing Company Grill & Bar - Gulf Shores",
+      "extracted_name": "Island Wing Company",
+      "menu_items": 47,
+      "folder": "islandwing-com"
+    },
+    {
+      "entity_id": "3e16d46a-b05c-43ee-aeb0-744198a97766",
+      "entity_name": "SWEET CONE ALABAMA ICE CREAM",
+      "extracted_name": "Kayden's Homemade Candies & Ice Cream",
+      "menu_items": 0,
+      "folder": "kayden-s-homemade-candies-ice-cream"
+    },
+    {
+      "entity_id": "ab9d279a-4141-4722-b975-c5780dee59b6",
+      "entity_name": "Hibas Gulf Shores Karaoke & Arcade Bar",
+      "extracted_name": "Hibas Karaoke & Arcade Bar",
+      "menu_items": 0,
+      "folder": "kohinoor-indian-cuisine"
+    },
+    {
+      "entity_id": "6928c86d-39bc-46f6-8cbe-81dbc46dd529",
+      "entity_name": "Fresh Market Seafood",
+      "extracted_name": "Lartigue's Original Fresh Seafood Market",
+      "menu_items": 16,
+      "folder": "lartigue-s-original-fresh-seafood-market"
+    },
+    {
+      "entity_id": "a9b385ea-59bc-4192-a788-5a90ad81c409",
+      "entity_name": "Artworks Local Art and Gifts LLC",
+      "extracted_name": "Local and Company Food+Drink",
+      "menu_items": 39,
+      "folder": "localandcompanyrestaurant-com"
+    },
+    {
+      "entity_id": "abefd73f-dd6b-4e01-9862-411cfa826ad5",
+      "entity_name": "Milkshake Momma (Mama) Orange Beach",
+      "extracted_name": "Milkshake Momma",
+      "menu_items": 27,
+      "folder": "milkshake-momma-mama-orange-beach"
+    },
+    {
+      "entity_id": "81cc1b18-be74-43d3-b15b-d164ffad5663",
+      "entity_name": "Hooked Up Fishing Charters",
+      "extracted_name": "MSC Fishing Charters",
+      "menu_items": 0,
+      "folder": "mscfishing-com"
+    },
+    {
+      "entity_id": "add7e1a8-1d66-4cc3-aaa0-0c052d4d61cd",
+      "entity_name": "Bamboo Willie's Beachside Bar on Pensacola Beach",
+      "extracted_name": "Oasis Beachside Café & Bar",
+      "menu_items": 0,
+      "folder": "oasis-beachside-caf-bar"
+    },
+    {
+      "entity_id": "add7e1a8-1d66-4cc3-aaa0-0c052d4d61cd",
+      "entity_name": "Bamboo Willie's Beachside Bar on Pensacola Beach",
+      "extracted_name": "Oasis Beachside Cafe & Bar",
+      "menu_items": 0,
+      "folder": "oasis-beachside-cafe-bar"
+    },
+    {
+      "entity_id": "1dddfdd8-47e0-4529-91ec-623af5a45849",
+      "entity_name": "Brick & Spoon - Orange Beach",
+      "extracted_name": "City of Orange Beach",
+      "menu_items": 0,
+      "folder": "orangebeachal-gov"
+    },
+    {
+      "entity_id": "81cc1b18-be74-43d3-b15b-d164ffad5663",
+      "entity_name": "Hooked Up Fishing Charters",
+      "extracted_name": "Orange Beach Fishing Charters",
+      "menu_items": 0,
+      "folder": "orangebeachfishingcharters-com"
+    },
+    {
+      "entity_id": "62e40976-cb7a-4742-806f-bb978a7a6019",
+      "entity_name": "Acme Oyster House",
+      "extracted_name": "Original Oyster House Boardwalk",
+      "menu_items": 0,
+      "folder": "original-oyster-house-boardwalk"
+    },
+    {
+      "entity_id": "62e40976-cb7a-4742-806f-bb978a7a6019",
+      "entity_name": "Acme Oyster House",
+      "extracted_name": "Original Oyster House",
+      "menu_items": 29,
+      "folder": "originaloysterhouse-com"
+    },
+    {
+      "entity_id": "7e5b206c-5e9c-4d36-8fa1-907b9089f953",
+      "entity_name": "Bear Point Plaza",
+      "extracted_name": "OSO at Bear Point Harbor",
+      "menu_items": 21,
+      "folder": "osobearpoint-com"
+    },
+    {
+      "entity_id": "55811c01-7fba-4ca5-9be9-e4983ed6587a",
+      "entity_name": "Doc's Seafood Shack & Oyster Bar",
+      "extracted_name": "The Perdido Key Oyster Bar Restaurant and Marina",
+      "menu_items": 43,
+      "folder": "oyster-bar-31"
+    },
+    {
+      "entity_id": "55811c01-7fba-4ca5-9be9-e4983ed6587a",
+      "entity_name": "Doc's Seafood Shack & Oyster Bar",
+      "extracted_name": "The Perdido Key Oyster Bar Restaurant & Marina",
+      "menu_items": 42,
+      "folder": "oyster-bar-restaurant-and-marina"
+    },
+    {
+      "entity_id": "f7d22a4b-ffce-4cf2-93b6-6e21c724a292",
+      "entity_name": "Chute Em Up Parasail",
+      "extracted_name": "Chute 'Em Up Parasail",
+      "menu_items": 0,
+      "folder": "parasailorangebeach-com"
+    },
+    {
+      "entity_id": "f6ec01bb-2885-42e9-9b06-fbd06299dfd3",
+      "entity_name": "El Paso Tacos & Tequila",
+      "extracted_name": "Pedros Tacos & Tequila Bar",
+      "menu_items": 32,
+      "folder": "pedros-tacos-tequila-bar"
+    },
+    {
+      "entity_id": "5a6dc590-ec18-43ce-8636-718b9ffba73a",
+      "entity_name": "Lost Key Golf Club",
+      "extracted_name": "Peninsula Golf & Racquet Club",
+      "menu_items": 0,
+      "folder": "peninsulagolfclub-com"
+    },
+    {
+      "entity_id": "c913d069-e615-4753-ab61-1295d235092e",
+      "entity_name": "Grand Welcome Orange Beach & Perdido Key Vacation Rental Management",
+      "extracted_name": "Perdido Key Sports Bar & Restaurant",
+      "menu_items": 3,
+      "folder": "perdido-key-sports-bar-restaurant"
+    },
+    {
+      "entity_id": "c913d069-e615-4753-ab61-1295d235092e",
+      "entity_name": "Grand Welcome Orange Beach & Perdido Key Vacation Rental Management",
+      "extracted_name": "Perdido Key Sports Bar",
+      "menu_items": 3,
+      "folder": "perdido-keys-sports-bar"
+    },
+    {
+      "entity_id": "0138346f-351e-4a71-8ddd-2d64d1cd9ce1",
+      "entity_name": "Phoenix IV",
+      "extracted_name": "Phoenix West II (The Oasis formerly Phoenix West II)",
+      "menu_items": 0,
+      "folder": "phoenix-west-ii"
+    },
+    {
+      "entity_id": "c610bda6-49dc-4028-9f4c-8fdd61ac43d3",
+      "entity_name": "Ginny Lane Bar and Grill",
+      "extracted_name": "Pho Mo Poke Bowl - Asian Kitchen and Grill",
+      "menu_items": 0,
+      "folder": "phomoasiankitchenandgrill-com"
+    },
+    {
+      "entity_id": "bb435595-0121-4ce0-8b40-826de9a63d1e",
+      "entity_name": "Hurricane Grill & Wings-Orange Beach",
+      "extracted_name": "Picnic Beach Bar & Grill",
+      "menu_items": 37,
+      "folder": "picnic-beach-bar-grill"
+    },
+    {
+      "entity_id": "0746ad4c-eef7-4727-a7d7-401ff6ac64ac",
+      "entity_name": "Island Time Daiquiris & Pizza at The Wharf",
+      "extracted_name": "Pizza At The Pass",
+      "menu_items": 0,
+      "folder": "pizza-at-the-pass"
+    },
+    {
+      "entity_id": "812803f5-88e6-4d57-ae52-d038606fd3bf",
+      "entity_name": "Gold Star Vacation Rentals",
+      "extracted_name": "Brett/Robinson Vacation Rentals - Plantation Dunes",
+      "menu_items": 0,
+      "folder": "plantation-dunes"
+    },
+    {
+      "entity_id": "86a5a704-a985-4717-8c38-204506741cbf",
+      "entity_name": "Gulf Shores Sports Complex",
+      "extracted_name": "Pub 6 Gulf Shores",
+      "menu_items": 4,
+      "folder": "pub-6"
+    },
+    {
+      "entity_id": "bb435595-0121-4ce0-8b40-826de9a63d1e",
+      "entity_name": "Hurricane Grill & Wings-Orange Beach",
+      "extracted_name": "Purple Parrot Beach Bar & Grill",
+      "menu_items": 0,
+      "folder": "purple-parrot-beach-bar-grill"
+    },
+    {
+      "entity_id": "c610bda6-49dc-4028-9f4c-8fdd61ac43d3",
+      "entity_name": "Ginny Lane Bar and Grill",
+      "extracted_name": "Salty Pearl Raw Bar and Steamer",
+      "menu_items": 0,
+      "folder": "salty-pearl-raw-bar-and-steamer"
+    },
+    {
+      "entity_id": "0746ad4c-eef7-4727-a7d7-401ff6ac64ac",
+      "entity_name": "Island Time Daiquiris & Pizza at The Wharf",
+      "extracted_name": "San Bar at the wharf",
+      "menu_items": 0,
+      "folder": "san-bar-at-the-wharf"
+    },
+    {
+      "entity_id": "842a1fcf-f8a8-4b39-9b30-141580be3b33",
+      "entity_name": "Sandshaker at the wharf",
+      "extracted_name": "The Sandshaker",
+      "menu_items": 0,
+      "folder": "sandshaker-com"
+    },
+    {
+      "entity_id": "57d2b2aa-5331-450e-a7ad-e30c352eb2c0",
+      "entity_name": "Family friendly top floor unit with beautiful gulf and beach views Orange Beach",
+      "extracted_name": "Seaside Beach and Racquet",
+      "menu_items": 0,
+      "folder": "seaside-beach-and-racquet"
+    },
+    {
+      "entity_id": "c610bda6-49dc-4028-9f4c-8fdd61ac43d3",
+      "entity_name": "Ginny Lane Bar and Grill",
+      "extracted_name": "Shrimpy's Grill and Golf",
+      "menu_items": 40,
+      "folder": "shrimpy-s-grill-and-golf"
+    },
+    {
+      "entity_id": "1dddfdd8-47e0-4529-91ec-623af5a45849",
+      "entity_name": "Brick & Spoon - Orange Beach",
+      "extracted_name": "Summerchase Orange Beach",
+      "menu_items": 0,
+      "folder": "summerchase-orange-beach"
+    },
+    {
+      "entity_id": "86a5a704-a985-4717-8c38-204506741cbf",
+      "entity_name": "Gulf Shores Sports Complex",
+      "extracted_name": "Sunliner Diner - Gulf Shores",
+      "menu_items": 0,
+      "folder": "sunliner-diner-gulf-shores"
+    },
+    {
+      "entity_id": "3e16d46a-b05c-43ee-aeb0-744198a97766",
+      "entity_name": "SWEET CONE ALABAMA ICE CREAM",
+      "extracted_name": "Surfside Pizza & Ice Cream",
+      "menu_items": 0,
+      "folder": "surfside-pizza-ice-cream"
+    },
+    {
+      "entity_id": "f885a727-f24e-4481-bc6f-50d9eec09261",
+      "entity_name": "Tacky Jacks Gulf Shores",
+      "extracted_name": "Tacky Jacks Seafood Restaurant and Tavern",
+      "menu_items": 9,
+      "folder": "tacky-jacks-gulf-shores"
+    },
+    {
+      "entity_id": "f885a727-f24e-4481-bc6f-50d9eec09261",
+      "entity_name": "Tacky Jacks Gulf Shores",
+      "extracted_name": "Tacky Jacks Seafood Restaurant and Tavern",
+      "menu_items": 10,
+      "folder": "tacky-jacks-seafood-restaurant-and-tavern"
+    },
+    {
+      "entity_id": "0746ad4c-eef7-4727-a7d7-401ff6ac64ac",
+      "entity_name": "Island Time Daiquiris & Pizza at The Wharf",
+      "extracted_name": "Tee Off at The Wharf Powered by Topgolf Swing Suite",
+      "menu_items": 0,
+      "folder": "teeoffatthewharf-com"
+    },
+    {
+      "entity_id": "84eec3c6-3b99-4a8c-b065-2b6b960e1b2b",
+      "entity_name": "Beach House Bed & Breakfast",
+      "extracted_name": "The Beach House Kitchen & Cocktails",
+      "menu_items": 0,
+      "folder": "the-beach-house-kitchen-and-cocktails"
+    },
+    {
+      "entity_id": "af6fe582-d39c-4ff0-a2fa-7053d6e985b0",
+      "entity_name": "The Yard Milkshake Bar",
+      "extracted_name": "The Clubhouse Bar & Grill",
+      "menu_items": 15,
+      "folder": "the-clubhouse-bar-grill"
+    },
+    {
+      "entity_id": "af6fe582-d39c-4ff0-a2fa-7053d6e985b0",
+      "entity_name": "The Yard Milkshake Bar",
+      "extracted_name": "The Cove Bar and Grill",
+      "menu_items": 13,
+      "folder": "the-cove-bar-and-grill"
+    },
+    {
+      "entity_id": "c610bda6-49dc-4028-9f4c-8fdd61ac43d3",
+      "entity_name": "Ginny Lane Bar and Grill",
+      "extracted_name": "The Keg Lounge and Grill",
+      "menu_items": 7,
+      "folder": "the-keg-lounge-and-grill"
+    },
+    {
+      "entity_id": "62e40976-cb7a-4742-806f-bb978a7a6019",
+      "entity_name": "Acme Oyster House",
+      "extracted_name": "The Original Oyster House",
+      "menu_items": 35,
+      "folder": "the-original-oyster-house"
+    },
+    {
+      "entity_id": "7c7bae08-fe85-4809-8092-779e4a63b0a3",
+      "entity_name": "Cobalt the Restaurant",
+      "extracted_name": "The Point Restaurant",
+      "menu_items": 0,
+      "folder": "the-point-restaurant"
+    },
+    {
+      "entity_id": "af6fe582-d39c-4ff0-a2fa-7053d6e985b0",
+      "entity_name": "The Yard Milkshake Bar",
+      "extracted_name": "The Cove Bar and Grill",
+      "menu_items": 19,
+      "folder": "thecovebarandgrill-com"
+    },
+    {
+      "entity_id": "2666ad1f-8276-4bd3-895f-1544dfd8bd3d",
+      "entity_name": "The Bad Alibi",
+      "extracted_name": "The Galley on the River",
+      "menu_items": 64,
+      "folder": "thegalleyontheriver-com"
+    },
+    {
+      "entity_id": "7c7bae08-fe85-4809-8092-779e4a63b0a3",
+      "entity_name": "Cobalt the Restaurant",
+      "extracted_name": "The Point Restaurant",
+      "menu_items": 0,
+      "folder": "thepointperdido-com"
+    },
+    {
+      "entity_id": "263753e0-ecd6-4056-886f-859d28759426",
+      "entity_name": "The Jellyfish - Seafood Restaurant and Bar",
+      "extracted_name": "The Sloop Galley and Spirits",
+      "menu_items": 9,
+      "folder": "thesloop-biz"
+    },
+    {
+      "entity_id": "1dddfdd8-47e0-4529-91ec-623af5a45849",
+      "entity_name": "Brick & Spoon - Orange Beach",
+      "extracted_name": "Tiki Bar Orange Beach",
+      "menu_items": 0,
+      "folder": "tiki-bar-orange-beach"
+    },
+    {
+      "entity_id": "1dddfdd8-47e0-4529-91ec-623af5a45849",
+      "entity_name": "Brick & Spoon - Orange Beach",
+      "extracted_name": "Tiki & Raw Bar Orange Beach",
+      "menu_items": 0,
+      "folder": "tikibarorangebeach-com"
+    },
+    {
+      "entity_id": "55811c01-7fba-4ca5-9be9-e4983ed6587a",
+      "entity_name": "Doc's Seafood Shack & Oyster Bar",
+      "extracted_name": "The Tin Top Restaurant & Oyster Bar",
+      "menu_items": 8,
+      "folder": "tintoprestaurant-com"
+    },
+    {
+      "entity_id": "812803f5-88e6-4d57-ae52-d038606fd3bf",
+      "entity_name": "Gold Star Vacation Rentals",
+      "extracted_name": "Brett/Robinson Vacation Rentals (Vacation Homes Alabama)",
+      "menu_items": 0,
+      "folder": "vacation-homes-alabama"
+    },
+    {
+      "entity_id": "86a5a704-a985-4717-8c38-204506741cbf",
+      "entity_name": "Gulf Shores Sports Complex",
+      "extracted_name": "Wacked Out Weiner Gulf Shores",
+      "menu_items": 13,
+      "folder": "wacked-out-weiner-gulf-shores"
+    },
+    {
+      "entity_id": "3e16d46a-b05c-43ee-aeb0-744198a97766",
+      "entity_name": "SWEET CONE ALABAMA ICE CREAM",
+      "extracted_name": "Yumm Twister & Ice Cream",
+      "menu_items": 7,
+      "folder": "yumm-twister-ice-cream"
+    }
+  ]
+}

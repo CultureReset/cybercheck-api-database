@@ -1,0 +1,52 @@
+{
+  "name": "Brett/Robinson Vacation Rentals (Vacation Homes Alabama)",
+  "type": "Vacation Rental",
+  "website": "https://www.vacationhomesalabama.com",
+  "contact": {
+    "phone": "1+ (800) 211-7892",
+    "address": "3259 Gulf Shores Parkway",
+    "city": "Gulf Shores",
+    "email": "Info@Brett-Robinson.com"
+  },
+  "hours": {},
+  "about": {
+    "description": "For over 40 years, Brett/Robinson has set the standard for vacation rentals and beachfront property management along the Alabama Gulf Coast. Full-service property management company offering reservations, guest services, maintenance, marketing, and communications with a competitive commission structure and flexible options for owners.",
+    "elevator_pitch": "Market leader in Gulf Shores and Orange Beach vacation rentals with over 40 years of beachfront property management expertise.",
+    "total_units": 17,
+    "floors": null,
+    "year_built": null,
+    "pet_friendly": null,
+    "minimum_stay": null,
+    "check_in": null,
+    "check_out": null,
+    "age_restriction": null
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://www.vacationhomesalabama.com"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Spring Break Specials",
+      "description": "Exclusive vacation specials and seasonal promotions",
+      "discount": ""
+    },
+    {
+      "name": "Easter Escape",
+      "description": "Exclusive vacation specials and seasonal promotions",
+      "discount": ""
+    },
+    {
+      "name": "Weekend Getaways",
+      "description": "Spontaneous weekend by the beach options",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-03-21T22:21:57.054Z"
+}

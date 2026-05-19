@@ -1,0 +1,18 @@
+[
+  {
+    "venue_name": "Cobalt",
+    "city": "Orange Beach",
+    "google_name": "Cobalt the Restaurant",
+    "place_id": "ChIJs5Kz5JwHmogRyeMoXBx1gX8",
+    "address": "28099 Perdido Beach Blvd, Orange Beach, AL 36561, USA",
+    "phone": "+1 251-923-5300"
+  },
+  {
+    "venue_name": "Lulu's",
+    "city": "Gulf Shores",
+    "google_name": "LuLu's Gulf Shores",
+    "place_id": "ChIJ4Y9S8SYFmogRke98zWRhCqg",
+    "address": "200 E 25th Ave, Gulf Shores, AL 36542, USA",
+    "phone": "+1 251-967-5858"
+  }
+]

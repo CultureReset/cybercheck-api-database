@@ -1,0 +1,93 @@
+{
+  "name": "Flora-Bama Lounge",
+  "type": "Restaurant",
+  "website": "https://www.florabama.com",
+  "contact": {
+    "phone": "",
+    "address": "",
+    "city": "Orange Beach",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null
+  },
+  "about": {
+    "description": "One of the world's top beach bars located uniquely on the Orange Beach, Alabama and Perdido Key, Florida line. This legendary honky tonk has been a landmark since 1964, featuring five stages for live music with country, rock, dance and beach music.",
+    "cuisine_type": "seafood"
+  },
+  "social": {},
+  "menu": [
+    {
+      "category": "Munchies",
+      "name": "French Fries",
+      "description": "Golden fried.",
+      "price": "$4"
+    },
+    {
+      "category": "Munchies",
+      "name": "Queso Fries",
+      "description": "Golden fried fries with queso on top.",
+      "price": "$6"
+    },
+    {
+      "category": "Munchies",
+      "name": "Pretzel Sticks",
+      "description": "Three Bavarian pretzel sticks served with white queso.",
+      "price": "$10.50"
+    },
+    {
+      "category": "Munchies",
+      "name": "Beef or Chicken Nachos",
+      "description": "Tortillia chips with white queso cheese, topped with your choice of beef or chicken, lettuce, jalapeno peppers, pico de gallo and sour cream.",
+      "price": "$12"
+    },
+    {
+      "category": "Munchies",
+      "name": "Smoked Tuna Dip",
+      "description": "Brined Gulf tuna, slow smoked and served up Alabama style with saltine crackers.",
+      "price": "$13"
+    },
+    {
+      "category": "Munchies",
+      "name": "Flora-Bama Birria Bites",
+      "description": "Slow-braised, spice-marinated beef birria and melty pepper jack cheese wrapped in a crispy flour tortilla. Served with warm queso for dipping. Four per order.",
+      "price": "$13.50"
+    },
+    {
+      "category": "Munchies",
+      "name": "Southwest Chicken Potstickers",
+      "description": "Six crispy golden potstickers filled with zesty Southwest-seasoned chicken and veggies, served with a side of warm queso for dipping.",
+      "price": "$12.50"
+    },
+    {
+      "category": "Munchies",
+      "name": "Chicken and Waffles (SUNDAY ONLY 9a-11a)",
+      "description": "Crispy golden fried chicken served over warm maple-infused waffles. Finished with a drizzle of Mike's Hot Honey, with butter and syrup on the side for the perfect sweet-heat balance. Only offered on Sundays from 9a - 11a.",
+      "price": "$12.50"
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Build Your Own Bama Burger",
+      "description": "Cooked to perfection and topped with mushrooms, jalapenos, bacon, cheddar, and swiss. Served on an open faced Challah bun with lettuce, tomato, onion and pickle.",
+      "price": "$17"
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Chicken and Waffles",
+      "description": "Crispy golden fried chicken served over warm maple-infused waffles. Finished with a drizzle of Mike's Hot Honey, with butter and syrup on the side for the perfect sweet-heat balance.",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-03-21T19:45:33.546Z"
+}

@@ -1,0 +1,77 @@
+{
+  "name": "Bar 45",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "251-968-3234",
+    "address": "4500 Gulf Shores Pkwy",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Bar Bites",
+      "name": "Sliders",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Bar Bites",
+      "name": "Flatbreads",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Bar Bites",
+      "name": "Wings",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Beverages",
+      "name": "Cold Drafts",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Beverages",
+      "name": "Creative Cocktails",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Beverages",
+      "name": "Wine",
+      "description": "",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Happy Hour Specials",
+      "description": "Happy hour specials available",
+      "discount": ""
+    },
+    {
+      "name": "Weekly Entertainment",
+      "description": "Weekly entertainment that keeps the energy going, whether it's game day or just a Tuesday",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:50.025Z"
+}

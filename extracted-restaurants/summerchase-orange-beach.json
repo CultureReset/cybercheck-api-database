@@ -1,0 +1,78 @@
+{
+  "name": "Summerchase Orange Beach",
+  "type": "Vacation Rental",
+  "website": "https://www.brett-robinson.com/beach-condo/summerchase/",
+  "contact": {
+    "phone": "+1-800-211-7892",
+    "address": "3259 Gulf Shores Parkway",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {},
+  "about": {
+    "description": "Summerchase Orange Beach is part of Brett/Robinson Vacation Rentals, a premier vacation rental management company offering beachfront condos and family-friendly rentals in Gulf Shores and Orange Beach, Alabama. The company has over 50 years of experience providing exceptional service to Gulf Coast visitors.",
+    "elevator_pitch": "Premier beachfront vacation rental management company offering family-friendly condos and beach houses in Orange Beach, Alabama with 50+ years of experience.",
+    "total_units": null,
+    "floors": null,
+    "year_built": null,
+    "pet_friendly": true,
+    "minimum_stay": "3 nights",
+    "check_in": null,
+    "check_out": null,
+    "age_restriction": null
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/brett_robinson_vacations",
+    "facebook": "https://www.facebook.com/BrettRobinsonVacations",
+    "linkedin": "https://www.linkedin.com/company/brett-robinson-vacation-rentals",
+    "website": "https://www.brett-robinson.com/beach-condo/summerchase/"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Seasonal Discounts",
+      "description": "Seasonal discounts available for various times of year on select properties",
+      "discount": ""
+    },
+    {
+      "name": "Snowbird Specials",
+      "description": "Special rates for longer stays, ideal for snowbird visitors",
+      "discount": ""
+    },
+    {
+      "name": "Last-Minute Deals",
+      "description": "Last-minute savings on select rentals with limited availability",
+      "discount": ""
+    },
+    {
+      "name": "Memorial Day Weekend Promotion",
+      "description": "Special rates for Memorial Day weekend bookings",
+      "discount": ""
+    },
+    {
+      "name": "Mother's Day Special",
+      "description": "Special rates for Mother's Day weekend",
+      "discount": ""
+    },
+    {
+      "name": "Summer 4-Bedroom Promotion",
+      "description": "Special rates on 4-bedroom properties, 3-night minimum",
+      "discount": ""
+    },
+    {
+      "name": "Hidden Gems - Charming Beachfront Stays",
+      "description": "Special rates on unique properties across Gulf Shores and Orange Beach, 3-night minimum",
+      "discount": ""
+    },
+    {
+      "name": "Promo Code Discounts",
+      "description": "Percentage-off promotions with promo codes (example: Bama2025 for 10% off)",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 23,
+  "scraped_at": "2026-03-21T21:53:09.077Z"
+}

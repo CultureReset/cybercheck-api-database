@@ -1,0 +1,207 @@
+{
+  "name": "Siam Sushi House",
+  "type": "Restaurant",
+  "website": "https://www.thaisushiasiancuisine.com/",
+  "contact": {
+    "phone": "(251) 232-6107",
+    "address": "9091 US-90 Building 2, Unit C",
+    "city": "Irvington",
+    "email": ""
+  },
+  "hours": {
+    "monday": "closed",
+    "tuesday": "11am-2:30pm, 4pm-8pm",
+    "wednesday": "11am-2:30pm, 4pm-8pm",
+    "thursday": "11am-2:30pm, 4pm-8pm",
+    "friday": "11am-2:30pm, 4pm-8pm",
+    "saturday": "11am-8pm",
+    "sunday": "11am-8pm"
+  },
+  "about": {
+    "description": "Nestled in the charming town of Irvington, AL, Siam Sushi House invites you to embark on a culinary journey through the vibrant flavors of Thailand and the artistry of sushi. With an inviting atmosphere that blends traditional Thai decor with modern elegance, this restaurant offers a warm and welcoming environment for family dinners, date nights, and special occasions.",
+    "cuisine_type": "Thai, Sushi, Asian Fusion"
+  },
+  "social": {},
+  "menu": [
+    {
+      "category": "Appetizers",
+      "name": "boom boom shrimp",
+      "description": "Crispy shrimp tossed in a creamy sweet chili sauce and topped with scallions and cucumber.",
+      "price": "$8.95"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Chicken Wing",
+      "description": "6 pieces. Marinated with e special seasoning and deep-fried. Served with sweet chill sauce.",
+      "price": "$11.95"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Crab Rangoon",
+      "description": "8 pieces. Stuffed with a mixture of crabmeat, cream cheese, and scallions. Deep-fried and served with sweet chill sauce.",
+      "price": "$7.95"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Egg Rolls",
+      "description": "4 pieces. Ground pork with glass noodles, cabbage, and carrots wrapped in a spring roll sheet. Deep-fried and served with sweet chill sauce.",
+      "price": "$5.95"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Shrimp Roll",
+      "description": "",
+      "price": "$9.95"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Steam Gyoza",
+      "description": "",
+      "price": "$7.95"
+    },
+    {
+      "category": "Beverages",
+      "name": "16 oz soda",
+      "description": "",
+      "price": "$1.75+"
+    },
+    {
+      "category": "Beverages",
+      "name": "Bottle Water",
+      "description": "",
+      "price": "$1.50+"
+    },
+    {
+      "category": "Beverages",
+      "name": "Can Soda",
+      "description": "",
+      "price": "$1.50+"
+    },
+    {
+      "category": "Beverages",
+      "name": "Half and Half tea",
+      "description": "",
+      "price": "$2.75+"
+    },
+    {
+      "category": "Beverages",
+      "name": "LG Thai tea/coffee",
+      "description": "",
+      "price": "$5.50+"
+    },
+    {
+      "category": "Beverages",
+      "name": "Soda",
+      "description": "Your choice of soda.",
+      "price": "$2.75"
+    },
+    {
+      "category": "Beverages",
+      "name": "Sweet Tea",
+      "description": "",
+      "price": "$2.75+"
+    },
+    {
+      "category": "Beverages",
+      "name": "Sweet Tea 20 oz",
+      "description": "",
+      "price": "$2.00"
+    },
+    {
+      "category": "Beverages",
+      "name": "Thai Coffee or Thai Tea Large",
+      "description": "",
+      "price": "$5.50"
+    },
+    {
+      "category": "Beverages",
+      "name": "Thai Green Tea",
+      "description": "",
+      "price": "$3.75"
+    },
+    {
+      "category": "Beverages",
+      "name": "Thai Iced Tea or Coffee",
+      "description": "",
+      "price": "$3.75"
+    },
+    {
+      "category": "Beverages",
+      "name": "Unsweet Tea",
+      "description": "",
+      "price": "$2.75+"
+    },
+    {
+      "category": "Boba tea",
+      "name": "boba tea",
+      "description": "",
+      "price": "$5.50+"
+    },
+    {
+      "category": "Boba tea",
+      "name": "Honeydew",
+      "description": "",
+      "price": "$5.50+"
+    },
+    {
+      "category": "Boba tea",
+      "name": "Pina Colada",
+      "description": "",
+      "price": "$5.50+"
+    },
+    {
+      "category": "Boba tea",
+      "name": "Strawberry",
+      "description": "",
+      "price": "$5.50+"
+    },
+    {
+      "category": "Boba tea",
+      "name": "Taro",
+      "description": "",
+      "price": "$5.50"
+    },
+    {
+      "category": "Boba tea",
+      "name": "Thai Tea",
+      "description": "",
+      "price": "$5.50"
+    },
+    {
+      "category": "Boba tea",
+      "name": "Watermelon",
+      "description": "",
+      "price": "$5.50+"
+    },
+    {
+      "category": "Chef's Special Rolls",
+      "name": "Ahi Crunchy Roll",
+      "description": "",
+      "price": "$13.95+"
+    },
+    {
+      "category": "Chef's Special Rolls",
+      "name": "Alaskan Roll",
+      "description": "California roll topped with smoked salmon and avocado.",
+      "price": "$12.95+"
+    },
+    {
+      "category": "Chef's Special Rolls",
+      "name": "Caterpillar Roll",
+      "description": "Tempura shrimp, and cucumber inside topped with avocado and sweet soy sauce.",
+      "price": "$12.95+"
+    },
+    {
+      "category": "Chef's Special Rolls",
+      "name": "Dancing Eel Roll",
+      "description": "Spicy tuna and cucumber topped with BBQ eel, avocado, spicy mayo, sweet soy sauce, tempura crunch, and fish eggs.",
+      "price": "$13.95"
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-03-21T14:35:58.480Z"
+}

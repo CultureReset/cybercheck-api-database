@@ -1,0 +1,62 @@
+{
+  "name": "Pho Mo Asian Kitchen",
+  "type": "Restaurant",
+  "website": "http://www.phomoasiankitchenandgrill.com",
+  "contact": {
+    "phone": "",
+    "address": "",
+    "city": "Mobile",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": null
+  },
+  "about": {
+    "description": "Pho Mo Poke Bowl-Asian Kitchen began on the Gulf Coast in 2019. In spite of the pandemic, the restaurant would not only thrive but expand. Today there are numerous stores, located across the Gulf Coast: Downtown Mobile, Fairhope, and a soon-to-open Gulf Shores location. They pride themselves on providing healthy choices for customers, with a wide variety of menu options.",
+    "elevator_pitch": "A rapidly expanding Asian kitchen offering healthy and diverse menu options across the Gulf Coast since 2019.",
+    "established": "2019",
+    "owner": null,
+    "chef": null,
+    "vibe": "Healthy, casual, fast-growing Asian dining destination",
+    "best_for": [
+      "families",
+      "groups",
+      "healthy eaters",
+      "takeout"
+    ],
+    "age_restriction": null,
+    "dress_code": null,
+    "parking": null,
+    "accessibility": null,
+    "reservations": null,
+    "insider_tip": "Multiple locations available — check for the soon-to-open Gulf Shores location or order online via DoorDash or mobile ordering.",
+    "awards": [],
+    "press": []
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "twitter": null,
+    "tiktok": null,
+    "youtube": null,
+    "yelp": null,
+    "tripadvisor": null,
+    "opentable": null,
+    "google_maps": null,
+    "website": "http://www.phomoasiankitchenandgrill.com"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 11,
+  "scraped_at": "2026-03-21T13:19:55.603Z"
+}

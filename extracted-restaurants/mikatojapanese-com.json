@@ -1,0 +1,267 @@
+{
+  "name": "Mikato Japanese Steakhouse",
+  "type": "Restaurant",
+  "website": "http://mikatojapanese.com",
+  "contact": {
+    "phone": "(251) 968-2525",
+    "address": "3800 Gulf Shores Pkwy, Ste 200",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {
+    "monday": "closed",
+    "tuesday": "4:00pm-10:00pm",
+    "wednesday": "4:00pm-10:00pm",
+    "thursday": "4:00pm-10:00pm",
+    "friday": "4:00pm-11:00pm",
+    "saturday": "4:00pm-11:00pm",
+    "sunday": "4:00pm-10:00pm"
+  },
+  "about": {
+    "description": "Lively music, a vibrant crowd, inventive cocktails and the best sushi in Gulf Shores. Order up the freshest sushi caught daily from the Gulf and delight in signature rolls or amazing Japanese fusion cuisine served with a big side of Anything Can Happen.",
+    "cuisine_type": "Japanese"
+  },
+  "social": {},
+  "menu": [
+    {
+      "category": "Appetizers",
+      "name": "Edamame",
+      "description": "Lighty salted boiled soybeans",
+      "price": "$6.50"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Seaweed Salad",
+      "description": "Seasoned Seaweed",
+      "price": "$6.50"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Crab Salad",
+      "description": "Shredded crab stick with white sauce",
+      "price": "$8.50"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Tuna Tataki",
+      "description": "Seared filets of tuna and ponzu sauce",
+      "price": "$15.95"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Beef Tataki",
+      "description": "Seared filets of beef with ponzu sauce",
+      "price": "$14.95"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Spicy Tuna Sashimi",
+      "description": "Chopped tuna in a spicy marinade",
+      "price": "$16.95"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Gyoza",
+      "description": "Chicken OR Shrimp OR Vegetables OR Pork Potsticker (Steamed or Fried)",
+      "price": "$8.00"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Shumai",
+      "description": "Shrimp dumpling, steamed or fried",
+      "price": "$8.95"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Spring Roll",
+      "description": "Vegetable wraps fried golden brown",
+      "price": "$8.00"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Crab Rangoon",
+      "description": "Crab meat & cream cheese season dumpling",
+      "price": "$9.00"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Calamari",
+      "description": "Batter dipped & deep fried",
+      "price": "$10.95"
+    },
+    {
+      "category": "Sushi Combinations",
+      "name": "Appetizer Sushi",
+      "description": "5 pieces nigiri (chef's choice)",
+      "price": "$15.95"
+    },
+    {
+      "category": "Sushi Combinations",
+      "name": "Appetizer Sashimi",
+      "description": "7 pieces sashimi",
+      "price": "$16.95"
+    },
+    {
+      "category": "Sushi Combinations",
+      "name": "Sushi & Sashimi",
+      "description": "A rainbow roll, Tuna roll, 6 pcs nigiri, 9 pcs Sashimi",
+      "price": "$65.00"
+    },
+    {
+      "category": "Sushi Combinations",
+      "name": "Mikato Combinations",
+      "description": "Bama roll, Mikato roll, super crunch, volcano roll 6 pcs nigiri, 9 pcs sashimi.",
+      "price": "$110.00"
+    },
+    {
+      "category": "Sushi Combinations",
+      "name": "Sashimi for Two",
+      "description": "32 pieces of sashimi (Chef's choice)",
+      "price": "$85.00"
+    },
+    {
+      "category": "Sushi Rolls",
+      "name": "California Roll",
+      "description": "",
+      "price": "$8.95"
+    },
+    {
+      "category": "Sushi Rolls",
+      "name": "Unagi Roll",
+      "description": "Cooked eel, Cucumber, avocado, and eel sauce on top and crunchy",
+      "price": "$9.50"
+    },
+    {
+      "category": "Sushi Rolls",
+      "name": "Philly Roll",
+      "description": "Smoked Salmon, cream cheese, and avocado",
+      "price": "$9.50"
+    },
+    {
+      "category": "Sushi Rolls",
+      "name": "Shrimp & Asparagus Roll",
+      "description": "Shrimp Ebi (cooked shrimp) and asparagus",
+      "price": "$9.00"
+    },
+    {
+      "category": "Sushi Rolls",
+      "name": "Salmon Skin Roll",
+      "description": "Fried salmon skin, cucumber, and eel sauce on top and crunchy",
+      "price": "$8.50"
+    },
+    {
+      "category": "Sushi Rolls",
+      "name": "Alaskan Roll",
+      "description": "Fresh Salmon, avocado, and cucumber",
+      "price": "$9.50"
+    },
+    {
+      "category": "Sushi Rolls",
+      "name": "Shrimp Tempura Roll",
+      "description": "Fried Shrimp, cucumber and eel sauce and crunchy",
+      "price": "$9.50"
+    },
+    {
+      "category": "Sushi Rolls",
+      "name": "Spicy Tuna Roll",
+      "description": "Spicy tuna and cucumber",
+      "price": "$9.50"
+    },
+    {
+      "category": "Sushi Rolls",
+      "name": "Sakura Roll",
+      "description": "Cooked shrimp, crab meat, and Masago (fish eggs)",
+      "price": "$9.50"
+    },
+    {
+      "category": "Sushi Rolls",
+      "name": "Dynamite Roll",
+      "description": "Cooked scallop, cucumber and spicy mayo",
+      "price": "$9.50"
+    },
+    {
+      "category": "Sushi Rolls",
+      "name": "Crawfish Roll",
+      "description": "Cooked spicy crawfish, cucumber, spicy mayo on top",
+      "price": "$9.50"
+    },
+    {
+      "category": "Sushi Rolls",
+      "name": "Veggie Roll",
+      "description": "Avocado, cucumber asparagus",
+      "price": "$8.50"
+    },
+    {
+      "category": "Big Rolls (8 pcs per order)",
+      "name": "Bama Roll",
+      "description": "Salmon, crab meat, cream cheese, avocado (tempura fried)",
+      "price": "$14.95"
+    },
+    {
+      "category": "Big Rolls (8 pcs per order)",
+      "name": "Yum Yum Roll",
+      "description": "Salmon, yellow tail, cream cheese, asparagus (tempura fried)",
+      "price": "$15.95"
+    },
+    {
+      "category": "Big Rolls (8 pcs per order)",
+      "name": "Spider Roll",
+      "description": "Fried soft-shell crab, cucumber, eel sauce and crunchy",
+      "price": "$15.95"
+    },
+    {
+      "category": "Combinations (6-8 pcs per order)",
+      "name": "Double Shrimp",
+      "description": "Shrimp tempura, cucumber, cream cheese with steamed shrimp on top and eel sauce and spicy mayo. Crunchy",
+      "price": "$15.95"
+    },
+    {
+      "category": "Combinations (6-8 pcs per order)",
+      "name": "Super Crunch Roll",
+      "description": "Shrimp tempura, cucumber topped with crab mix crunch, eel sauce and crunchy",
+      "price": "$16.95"
+    },
+    {
+      "category": "Combinations (6-8 pcs per order)",
+      "name": "Angel Roll",
+      "description": "Shrimp tempura, cucumber, crabmeat, layered with white tuna",
+      "price": "$16.95"
+    },
+    {
+      "category": "Combinations (6-8 pcs per order)",
+      "name": "Samurai Roll",
+      "description": "Fresh salmon, yellow tail, with tuna and avocado on top, eel sauce and spicy mayo",
+      "price": "$16.95"
+    },
+    {
+      "category": "Combinations (6-8 pcs per order)",
+      "name": "Wasabi Roll",
+      "description": "Fresh tuna, yellowtail, topped with wasabi caviar (fish eggs)",
+      "price": "$16.95"
+    },
+    {
+      "category": "Combinations (6-8 pcs per order)",
+      "name": "Tiger Roll",
+      "description": "Crab crunch mix inside topped with shrimp Ebi and avocado, eel sauce spicy mayo and crunchy",
+      "price": "$16.95"
+    },
+    {
+      "category": "Combinations (6-8 pcs per order)",
+      "name": "Hurricane Roll",
+      "description": "Crab crunch mix inside, topped with tuna, avocado and black caviar (fish eggs) eel sauce and spicy mayo on top and crunchy",
+      "price": "$17.95"
+    },
+    {
+      "category": "Combinations (6-8 pcs per order)",
+      "name": "Ninja Roll",
+      "description": "Fried soft-shell crab, cream cheese",
+      "price": "$18.95"
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-03-21T20:22:41.473Z"
+}

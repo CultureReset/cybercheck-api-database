@@ -1,0 +1,62 @@
+{
+  "name": "Avenue Pub Gulf Shores",
+  "type": "Bar",
+  "website": "https://avenuepubgulfshores.com",
+  "contact": {
+    "phone": "",
+    "address": "",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": null
+  },
+  "about": {
+    "description": "Avenue Pub is a pub-style bar located in Gulf Shores, Alabama. No additional details were available from the scraped website content.",
+    "elevator_pitch": "A laid-back Gulf Shores pub where locals and beachgoers gather for cold drinks and good times just steps from the Alabama coast.",
+    "established": null,
+    "owner": null,
+    "chef": null,
+    "vibe": "Casual beachside pub with a relaxed local atmosphere",
+    "best_for": [
+      "groups",
+      "casual drinks",
+      "locals",
+      "beachgoers"
+    ],
+    "age_restriction": null,
+    "dress_code": null,
+    "parking": null,
+    "accessibility": null,
+    "reservations": null,
+    "insider_tip": null,
+    "awards": [],
+    "press": []
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "twitter": null,
+    "tiktok": null,
+    "youtube": null,
+    "yelp": null,
+    "tripadvisor": null,
+    "opentable": null,
+    "google_maps": null,
+    "website": "https://avenuepubgulfshores.com"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-03-22T02:33:42.429Z"
+}

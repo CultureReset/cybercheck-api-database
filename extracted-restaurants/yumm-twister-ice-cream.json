@@ -1,0 +1,97 @@
+{
+  "name": "Yumm Twister & Ice Cream",
+  "type": "Ice Cream Shop",
+  "website": "http://www.yummtcf.com/",
+  "contact": {
+    "phone": "251-281-8288",
+    "address": "229 E 20th Ave, Suite 8",
+    "city": "Gulf Shores",
+    "email": "yummtcf@gmail.com"
+  },
+  "hours": {
+    "monday": "Closed",
+    "tuesday": "12:00 PM - 8:30 PM",
+    "wednesday": "12:00 PM - 8:30 PM",
+    "thursday": "12:00 PM - 8:30 PM",
+    "friday": "12:00 PM - 8:30 PM",
+    "saturday": "12:00 PM - 8:30 PM",
+    "sunday": "Closed",
+    "notes": null
+  },
+  "about": {
+    "description": "Family owned ice cream shop in Gulf Shores offering unique homemade cones and delicious authentic Italian ice cream (Gelato). The shop features one-of-a-kind handcrafted Twister cones freshly baked daily, filled with premium Italian ice cream and quality toppings. Inside and outside seating available in a quiet area in the heart of Gulf Shores.",
+    "elevator_pitch": "Yumm Twister & Ice Cream reinvents the ice cream experience with authentic Italian gelato served in freshly baked handcrafted Twister cones.",
+    "vibe": "Unique, upscale ice cream experience with quality-focused approach; quiet, family-friendly atmosphere with a one-of-a-kind sweet experience",
+    "best_for": [
+      "families",
+      "tourists",
+      "dessert lovers",
+      "unique experiences",
+      "beach visitors"
+    ],
+    "established": null,
+    "reservations": null,
+    "insider_tip": "The Twister cones are freshly baked daily right before your eyes. Try the Tiramisu cone or S'More for signature favorites."
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/yummtcf",
+    "facebook": "https://www.facebook.com/yummtcf",
+    "website": "https://www.yummtcf.com"
+  },
+  "menu": [
+    {
+      "category": "Specialty Gelato Cones",
+      "name": "S'More Cone",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Specialty Gelato Cones",
+      "name": "Tiramisu Cone",
+      "description": "Homemade tiramisu at the bottom of the cone with rich gelato",
+      "price": ""
+    },
+    {
+      "category": "Specialty Gelato Cones",
+      "name": "Mint Chocolate Chip Gelato",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Hand-Scooped Gelato",
+      "name": "Italian Ice Cream (Gelato)",
+      "description": "Authentic Italian ice cream with highest-quality products",
+      "price": ""
+    },
+    {
+      "category": "Dairy-Free Options",
+      "name": "Strawberry Sorbet",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Dairy-Free Options",
+      "name": "Mango Sorbet",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Dairy-Free Options",
+      "name": "Blood Orange Sorbet",
+      "description": "",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Follow for Latest Specials",
+      "description": "Like us on Facebook to keep in touch with our latest specials",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 16,
+  "scraped_at": "2026-03-21T15:04:00.084Z"
+}

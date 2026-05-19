@@ -1,0 +1,237 @@
+{
+  "name": "Pink Pony Pub",
+  "type": "Restaurant",
+  "website": "https://pinkponypub.net",
+  "contact": {
+    "phone": "(251) 948-6371",
+    "address": "137 E Gulf Place",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {
+    "monday": "11am-10pm",
+    "tuesday": "11am-10pm",
+    "wednesday": "11am-10pm",
+    "thursday": "11am-10pm",
+    "friday": "11am-10pm",
+    "saturday": "11am-10pm",
+    "sunday": "11am-10pm"
+  },
+  "about": {
+    "description": "A legendary beachfront restaurant and bar in Gulf Shores established in 1956, known for its distinctive pink exterior and serving fresh Gulf seafood and burgers. The Pink Pony Pub has survived hurricanes and changes over decades while maintaining its historic charm and neighborhood atmosphere.",
+    "cuisine_type": "seafood"
+  },
+  "social": {},
+  "menu": [
+    {
+      "category": "Appetizers",
+      "name": "Garlic Cheese Curds",
+      "description": "Fried to golden perfection, served with marinara",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Mozzarella Cheese Sticks",
+      "description": "Golden, crispy mozzarella sticks perfectly fried and filled with gooey, melted mozzarella. Paired with tangy marinara sauce",
+      "price": "$8"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Loaded Potato Skins",
+      "description": "Baked potato skins loaded with crispy smoked bacon and a blend of Monterrey jack and cheddar cheeses",
+      "price": "$9"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Smoked Tuna Dip",
+      "description": "Locally sourced Gulf tuna, expertly smoked and blended into a creamy dip. Served with warm tortilla chips",
+      "price": "$10"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Fried Green Tomatoes",
+      "description": "Fresh green tomatoes hand-battered and fried until crispy, served with homemade remoulade sauce",
+      "price": "$7"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Fried Pickles",
+      "description": "Hand-breaded pickle chips deep-fried to perfection, served with cool, creamy ranch dressing",
+      "price": "$8"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Coconut Shrimp",
+      "description": "Fresh jumbo shrimp tossed in homemade pineapple batter and shredded coconut, fried to golden brown. Served with sweet and tangy orange marmalade",
+      "price": "$12"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Golden Fried Calamari",
+      "description": "Hand-breaded calamari rings and tentacles fried to golden crisp and sprinkled with parmesan cheese. Served with marinara sauce",
+      "price": "$10"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Buffalo Chicken Cheese Dip",
+      "description": "Zesty blend of steamed chicken, cream cheese, and Buffalo hot sauce. Served with warm tortilla chips",
+      "price": "$12"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Gator Bites",
+      "description": "Half a pound of alligator meat served with tiger sauce, fried or blackened",
+      "price": "$15"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Chicken Tenders",
+      "description": "Fresh chicken cut into tenders, grilled or fried",
+      "price": "$10"
+    },
+    {
+      "category": "Nachos",
+      "name": "Mucho Nacho",
+      "description": "Topped with onions, tomatoes, jalapeños, and Monterrey jack with ½lb of seasoned Angus beef",
+      "price": "$19"
+    },
+    {
+      "category": "Nachos",
+      "name": "Chicken Nacho",
+      "description": "Seasoned grilled white chicken, onions, tomatoes, jalapeños and Monterrey jack",
+      "price": "$19"
+    },
+    {
+      "category": "Nachos",
+      "name": "Cajun Nachos",
+      "description": "Topped with spicy crawfish tails, shrimp, mushrooms and peppers",
+      "price": "$19"
+    },
+    {
+      "category": "Soups",
+      "name": "Soup of the Day",
+      "description": "Chef's special of the day",
+      "price": "$6"
+    },
+    {
+      "category": "Salads",
+      "name": "Classic Cobb",
+      "description": "Fresh romaine, grilled chicken, crispy bacon, avocado, tomatoes, egg, chives and blue cheese crumbles served with ranch",
+      "price": "$15"
+    },
+    {
+      "category": "Salads",
+      "name": "Kale Caesar",
+      "description": "Parmesan and crispy croutons with kale, romaine and cherry tomatoes, served with light lime Caesar dressing",
+      "price": "$8"
+    },
+    {
+      "category": "Salads",
+      "name": "Buffalo Chicken",
+      "description": "Fried or grilled chicken, tossed in homemade Buffalo sauce with chopped romaine, tomatoes, blue cheese crumbles served with homestyle ranch dressing",
+      "price": "$10"
+    },
+    {
+      "category": "Salads",
+      "name": "Greek",
+      "description": "Chopped romaine hearts, cherry tomatoes, red onions, Kalamata olives, pepperoncini and feta cheese",
+      "price": "$8"
+    },
+    {
+      "category": "Salads",
+      "name": "Caesar",
+      "description": "Parmesan, crispy croutons and romaine",
+      "price": ""
+    },
+    {
+      "category": "Sandwiches & Po'boys",
+      "name": "Honey Roasted Turkey & Bacon Club",
+      "description": "Smoked turkey, cheese, lettuce, tomato, mayo and Applewood smoked bacon",
+      "price": "$12"
+    },
+    {
+      "category": "Sandwiches & Po'boys",
+      "name": "Roast Beef Po'Boy",
+      "description": "USDA beef chuck slow roasted in rich gravy served with lettuce, tomato, pickles, cheese and mayo",
+      "price": "$16"
+    },
+    {
+      "category": "Sandwiches & Po'boys",
+      "name": "Chargrilled Ribeye Steak Sandwich",
+      "description": "With Texas campfire dry rub served with lettuce, tomato, sautéed onions, Swiss cheese and mayo",
+      "price": "$16"
+    },
+    {
+      "category": "Sandwiches & Po'boys",
+      "name": "In-House Slow-Roasted Pulled Pork Shoulder",
+      "description": "Served with sweet BBQ sauce",
+      "price": "$10"
+    },
+    {
+      "category": "Sandwiches & Po'boys",
+      "name": "Gulf Shrimp Po'Boy",
+      "description": "Fried, grilled or blackened with lettuce, tomato, pickles and remoulade sauce",
+      "price": "$15"
+    },
+    {
+      "category": "Sandwiches & Po'boys",
+      "name": "Fresh Gulf Fish Po'Boy",
+      "description": "Blackened, grilled or fried with lettuce, tomato, pickles and remoulade sauce",
+      "price": "Market"
+    },
+    {
+      "category": "Sandwiches & Po'boys",
+      "name": "Fried Soft Shell Crab Po'Boy",
+      "description": "Served with lettuce, tomato, pickles and remoulade sauce",
+      "price": "$15"
+    },
+    {
+      "category": "Seafood",
+      "name": "Fried Blue Crab Claws",
+      "description": "Available in both ½ lb and 1 lb portions. Lightly breaded and perfectly fried. Succulent claws offer a sweet, tender bite encased in a golden, crispy shell",
+      "price": ""
+    },
+    {
+      "category": "Seafood",
+      "name": "Peel N Eat Shrimp",
+      "description": "Fresh shrimp served chilled with homemade cocktail sauce. Plump and juicy Gulf shrimp full of natural flavor",
+      "price": ""
+    },
+    {
+      "category": "Seafood",
+      "name": "Oven Baked Lump Crab Cakes",
+      "description": "Baked to perfection, packed with rich, flaky crab meat and served with house-made remoulade sauce",
+      "price": ""
+    },
+    {
+      "category": "Seafood",
+      "name": "Fresh Gulf Shrimp",
+      "description": "Served in ½ lb portions. Can be prepared fried for crispy exterior, grilled for smoky flavor, blackened with bold spices, or steamed for light and natural taste",
+      "price": ""
+    },
+    {
+      "category": "Seafood",
+      "name": "Baked Oysters",
+      "description": "One dozen oysters topped with garlic herb butter and broiled till bubbly",
+      "price": ""
+    },
+    {
+      "category": "Seafood",
+      "name": "Fresh Gulf Raw Oysters (On the Half Shell)",
+      "description": "Available in ½ dozen or full dozen servings. Fresh Gulf oysters served raw on the half shell, delivering pure, salty taste of the sea",
+      "price": ""
+    },
+    {
+      "category": "Seafood",
+      "name": "Pink Pony Seafood Feast",
+      "description": "A Gulf Coast celebration on one plate! Fried oysters, Gulf shrimp, Southern-fried fish, hushpuppies, French fries, onion rings, and coleslaw. Served with tartar, remoulade, and fresh lemon wedges",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-03-21T20:06:26.191Z"
+}

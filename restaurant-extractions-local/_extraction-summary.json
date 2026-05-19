@@ -1,0 +1,8 @@
+{
+  "total_local_restaurants": 127,
+  "succeeded": 117,
+  "failed": 10,
+  "skipped": 0,
+  "extraction_timestamp": "2026-05-15T06:40:09.205Z",
+  "output_directory": "/Users/owner/cybercheck-api-database/restaurant-extractions-local"
+}

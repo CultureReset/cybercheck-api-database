@@ -1,0 +1,141 @@
+{
+  "name": "Alabama Gulf Coast Zoo",
+  "type": "Attraction",
+  "website": "https://www.alabamagulfcoastzoo.com",
+  "contact": {
+    "phone": "251-256-7008",
+    "address": "20499 Oak Road East",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {
+    "monday": "9:00 AM - 4:00 PM",
+    "tuesday": "9:00 AM - 4:00 PM",
+    "wednesday": "9:00 AM - 4:00 PM",
+    "thursday": "9:00 AM - 4:00 PM",
+    "friday": "9:00 AM - 4:00 PM",
+    "saturday": "9:00 AM - 4:00 PM",
+    "sunday": "9:00 AM - 4:00 PM",
+    "notes": "Open daily 9am - 4pm"
+  },
+  "about": {
+    "description": "The Alabama Gulf Coast Zoo is a richly diverse and decidedly unique small-town community zoo located in Gulf Shores, Alabama. Every animal at the zoo has a story. The zoo features a wide variety of animals including giraffes, big cats, monkeys, baboons, bobcats, camels, reptiles, birds, and more. Guests can enjoy daily keeper chats, animal feedings, a walk-through aviary, a contact barn, and special add-on experiences like walking in the lemur enclosure and giraffe feeding tickets. The zoo also hosts special events such as the Art on the Wild Side: Wine & Whiskey Stroll.",
+    "elevator_pitch": "A uniquely diverse Gulf Shores zoo where every animal has a story and guests can enjoy daily keeper chats, giraffe feedings, and immersive animal encounters.",
+    "established": null,
+    "owner": null,
+    "vibe": "Family-friendly, educational, intimate community zoo",
+    "best_for": [
+      "families",
+      "groups",
+      "animal lovers",
+      "kids"
+    ],
+    "capacity": null,
+    "duration_options": [
+      "half day",
+      "full day"
+    ],
+    "departure_location": null,
+    "what_provided": [
+      "daily keeper chats included with admission",
+      "walk-through aviary",
+      "contact barn access"
+    ],
+    "what_to_bring": [
+      "sunscreen",
+      "comfortable walking shoes",
+      "water"
+    ],
+    "age_restriction": "Some events are 18+ or 21+ (e.g., Wine & Whiskey Stroll)",
+    "weight_restriction": null,
+    "reservations": "Tickets available online; some add-on experiences (giraffe feeding, lemur enclosure walk) require separate purchase",
+    "insider_tip": "Arrive early for the 9:15 AM Bird Chat at South American Adventure, and budget extra for the giraffe feeding experience — kids love it!",
+    "cancellation_policy": null
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "youtube": "https://www.youtube.com/embed/-xj_LCg9lgk",
+    "tripadvisor": null,
+    "website": "https://www.alabamagulfcoastzoo.com"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Giraffe Feeding",
+      "description": "Purchase add-on tickets to hand-feed the giraffes — a crowd favorite especially for kids.",
+      "discount": ""
+    },
+    {
+      "name": "Lemur Enclosure Walk",
+      "description": "Walk inside the lemur enclosure for an up-close wildlife experience. Available for an additional $25 per person.",
+      "discount": ""
+    },
+    {
+      "name": "Art on the Wild Side: Wine & Whiskey Stroll",
+      "description": "Annual adult event (21+) featuring an online auction of exclusive artwork created by the zoo animals, running March 21–28 with an in-person stroll on March 28.",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [
+    {
+      "name": "Bird Chat at South American Adventure",
+      "day": "Daily",
+      "time": "9:15 AM - 9:45 AM"
+    },
+    {
+      "name": "Goat Agility Training",
+      "day": "Saturday, Sunday",
+      "time": "10:00 AM - 10:15 AM"
+    },
+    {
+      "name": "Bobcat Chat",
+      "day": "Tuesday",
+      "time": "10:00 AM - 10:15 AM"
+    },
+    {
+      "name": "Animal Ambassador Walkabout",
+      "day": "Daily",
+      "time": "10:45 AM - 11:15 AM"
+    },
+    {
+      "name": "Big Cat Chat",
+      "day": "Monday, Wednesday, Friday",
+      "time": "Monday 11:00 AM - 11:15 AM; Wed & Fri 2:00 PM - 2:15 PM"
+    },
+    {
+      "name": "Camel Chat",
+      "day": "Sunday",
+      "time": "11:00 AM - 11:15 AM"
+    },
+    {
+      "name": "Reptile House Keeper Chat",
+      "day": "Tuesday",
+      "time": "11:00 AM - 11:15 AM"
+    },
+    {
+      "name": "Training Tales",
+      "day": "Tuesday, Thursday, Saturday, Sunday",
+      "time": "1:45 PM - 2:15 PM"
+    },
+    {
+      "name": "Aviary Feeding Chat",
+      "day": "Daily",
+      "time": "2:15 PM - 2:45 PM"
+    },
+    {
+      "name": "Contact Barn Chat",
+      "day": "Daily",
+      "time": "2:45 PM - 3:15 PM"
+    },
+    {
+      "name": "Baboons Chat",
+      "day": "Tuesday",
+      "time": "3:00 PM - 3:15 PM"
+    }
+  ],
+  "gallery": 50,
+  "scraped_at": "2026-03-21T19:49:13.762Z"
+}

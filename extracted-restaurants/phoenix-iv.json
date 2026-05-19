@@ -1,0 +1,52 @@
+{
+  "name": "Phoenix IV",
+  "type": "Vacation Rental - Beachfront Condos",
+  "website": "https://www.brett-robinson.com/beach-condo/phoenix-iv/",
+  "contact": {
+    "phone": "1-800-211-7892",
+    "address": "24250 Perdido Beach Blvd",
+    "city": "Orange Beach",
+    "email": ""
+  },
+  "hours": {},
+  "about": {
+    "description": "Phoenix IV offers spacious beachfront condos in Orange Beach with 1-, 2-, and 3-bedroom floor plans designed to accommodate up to ten guests. Each fully furnished condo features floor-to-ceiling windows, private balconies, and Gulf-front views. Guests enjoy resort-style amenities and direct beach access while maintaining the comforts of home, making it suitable for couples, families, and groups.",
+    "elevator_pitch": "Spacious beachfront condos with Gulf views, direct beach access, and comprehensive resort-style amenities in Orange Beach.",
+    "total_units": null,
+    "floors": null,
+    "year_built": null,
+    "pet_friendly": false,
+    "minimum_stay": null,
+    "check_in": "Varies by season",
+    "check_out": "Varies by season",
+    "age_restriction": null
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/brett_robinson_vacations",
+    "facebook": "https://www.facebook.com/BrettRobinsonVacations",
+    "website": "https://www.brett-robinson.com/beach-condo/phoenix-iv/"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Hot Deal",
+      "description": "Special pricing on select units",
+      "discount": ""
+    },
+    {
+      "name": "Seasonal Discounts",
+      "description": "Various seasonal promotions throughout the year",
+      "discount": ""
+    },
+    {
+      "name": "Last-Minute Deals",
+      "description": "Special rates on available inventory",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 23,
+  "scraped_at": "2026-03-21T20:45:42.717Z"
+}

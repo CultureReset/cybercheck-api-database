@@ -1,0 +1,275 @@
+{
+  "name": "The Original Oyster House",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": [
+      {
+        "location": "Mobile Causeway",
+        "phone": "(251) 626-2188"
+      },
+      {
+        "location": "Gulf Shores",
+        "phone": "(251) 948-2445"
+      }
+    ],
+    "address": "",
+    "city": "",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Appetizers",
+      "name": "Causeway Firecracker Oysters",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Thai Shrimp or Chicken",
+      "description": "Tender",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Seared Ahi Tuna",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Causeway Canoes",
+      "description": "Savory",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Crab Claws",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Gator Bites",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Hand-cut Fried Mozzarella",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Cajun Popcorn Shrimp",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Fresh Cut Fried Cheese",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Fried Green Tomatoes",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Fried Pickles",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Fried Shrimp",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Stuffed Crabs",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Fried Oysters",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Fried Flounder",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Grilled Chicken Breast",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Grilled House Catch",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Grilled Shrimp",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Baked Stuffed Shrimp",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Shrimp Scampi",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Mahi Down on Da Bayou",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Cheesy Grits & Blackened Shrimp",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Oysters on the Half Shell",
+      "description": "Hand-shucked raw, charbroiled and baked",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Create-Your-Own Seafood Platter",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Po'boys",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Burgers",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Pasta Dishes",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sides",
+      "name": "Cheesy Grits",
+      "description": "Over-the-top",
+      "price": ""
+    },
+    {
+      "category": "Sides",
+      "name": "Red Beans & Rice",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sides",
+      "name": "Coleslaw",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sides",
+      "name": "Salad Bar",
+      "description": "Fresh salad bar served with lunch and dinner daily",
+      "price": ""
+    },
+    {
+      "category": "Desserts",
+      "name": "Key Lime Pie",
+      "description": "Homemade",
+      "price": ""
+    },
+    {
+      "category": "Desserts",
+      "name": "Chocolate Chip Peanut Butter Pie",
+      "description": "Homemade",
+      "price": ""
+    },
+    {
+      "category": "Desserts",
+      "name": "Bourbon Bread Pudding",
+      "description": "Homemade, generous serving",
+      "price": ""
+    },
+    {
+      "category": "Signature Dishes",
+      "name": "Award-winning Seafood Gumbo",
+      "description": "",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Happy Hour",
+      "description": "Mon. thru Fri. 3-6 PM. Great specials include $4-$5 Bloody Marys, $4-$5 Margaritas, $4-$5 local craft beers, $4-$5 well drinks, $3-$5 house wines and $6-$10 appetizers.",
+      "discount": ""
+    },
+    {
+      "name": "Fresh Salad Bar Daily",
+      "description": "Locals love our fresh salad bar served with lunch and dinner daily. Original Oyster House is one of the only seafood family restaurants in the area to offer a fresh salad bar.",
+      "discount": ""
+    },
+    {
+      "name": "Valentine's Seafood Special",
+      "description": "Sweetheart Special package for $32.99 per person (not including tax and tip). Start with a cup of award winning seafood gumbo, followed by a Create-Your-Own-Seafood Platter with a choice of three items: Fried Shrimp, Stuffed Crabs, Fried Oysters, Fried Flounder, Grilled Chicken Breast, Grilled House Catch, Grilled Shrimp, Baked Stuffed Shrimp or Shrimp Scampi. Includes two famous sides and homemade bourbon bread pudding to share.",
+      "discount": ""
+    },
+    {
+      "name": "Mother's Day",
+      "description": "Celebrate Moms with signature seafood, Southern hospitality and a spectacular sunset. Includes surprise Mother's Day gift certificate.",
+      "discount": ""
+    },
+    {
+      "name": "Grab-N-Go Menu",
+      "description": "Ready-to-go items including seafood gumbo, homemade Peanut Butter and Chocolate Chip pies, Key Lime Pies, red beans & rice, cheesy grits and coleslaw.",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:51.662Z"
+}

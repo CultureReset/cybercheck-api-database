@@ -1,0 +1,62 @@
+{
+  "name": "Phoenix on the Bay",
+  "type": "Vacation Rental Condo Community",
+  "website": "https://www.brett-robinson.com/beach-condo/phoenix-on-the-bay/",
+  "contact": {
+    "phone": "1-800-211-7892",
+    "address": "27580 Canal Road",
+    "city": "Orange Beach",
+    "email": ""
+  },
+  "hours": {},
+  "about": {
+    "description": "Phoenix on the Bay is a waterfront condominium community located along Terry Cove in Orange Beach, Alabama. The property offers a distinctive bayfront setting with views of Terry Cove, Robinson Island, and Perdido Pass, while remaining just a short drive from public beach access. The property features fully furnished 1-, 2-, and 3-bedroom vacation rentals with equipped kitchens and spacious private balconies overlooking the bay and pool areas. With an on-site marina, boat launch, and boat slips, Phoenix on the Bay is well-suited for guests who enjoy boating, fishing, and water-based recreation during their stay. Guests booking through Brett/Robinson receive professionally managed accommodations and local destination expertise.",
+    "elevator_pitch": "Waterfront bayfront condo community in Orange Beach with marina, boat slips, and resort-style amenities perfect for boating and fishing enthusiasts.",
+    "total_units": null,
+    "floors": null,
+    "year_built": null,
+    "pet_friendly": false,
+    "minimum_stay": null,
+    "check_in": "Varies by season",
+    "check_out": "Varies by season",
+    "age_restriction": null
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/brett_robinson_vacations",
+    "facebook": "https://www.facebook.com/BrettRobinsonVacations",
+    "website": "https://www.brett-robinson.com/beach-condo/phoenix-on-the-bay/"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Hot Deal - High Demand Unit",
+      "description": "Phoenix on the Bay 1427 (2 Bed, 2 Bath, Sleeps 6) available as low as $130.67/night",
+      "discount": ""
+    },
+    {
+      "name": "Premium Unit",
+      "description": "Phoenix on the Bay 1428 (3 Bed, 3 Bath, Sleeps 8) available as low as $230.33/night",
+      "discount": ""
+    },
+    {
+      "name": "Seasonal Discounts",
+      "description": "Brett/Robinson offers seasonal discounts and promotions throughout the year",
+      "discount": ""
+    },
+    {
+      "name": "Last-Minute Deals",
+      "description": "Select last-minute deals available on Phoenix on the Bay units",
+      "discount": ""
+    },
+    {
+      "name": "Snowbird Specials",
+      "description": "Special rates available for longer stays",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 23,
+  "scraped_at": "2026-03-21T21:12:38.264Z"
+}

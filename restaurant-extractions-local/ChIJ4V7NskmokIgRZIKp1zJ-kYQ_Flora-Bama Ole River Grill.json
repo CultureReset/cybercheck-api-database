@@ -1,0 +1,205 @@
+{
+  "business_name": "Flora-Bama Ole River Grill",
+  "cuisine_type": "Seafood, American, Sports Bar",
+  "price_range": null,
+  "description": "Flora-Bama's Ole River Grill is the ultimate family fun restaurant in Orange Beach. With a beautiful waterfront view and fantastic seafood, burgers, po-boys and desserts the grill has something for almost everyone. We have large outdoor decks and plenty of big screens for the sports fans. Come enjoy a meal, a cocktail or just pull up in your boat and relax on our beach.",
+  "atmosphere": "Casual dining, waterfront, open-air deck, sports bar with large outdoor decks and big screens",
+  "chef_info": "Award winning Chef",
+  "awards": [
+    "Award winning Chef"
+  ],
+  "contact": {
+    "phone": "(850) 483-6262",
+    "email": "info@florabama.com",
+    "address": "17400 Perdido Key Drive, Perdido Key, FL 32507",
+    "website": "https://www.florabamaolerivergrill.com/",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": "https://www.facebook.com/florabamaolerivergrill/",
+      "instagram": "https://www.instagram.com/fbolerivergrill/",
+      "twitter": "https://twitter.com/flora_bama",
+      "tiktok": null,
+      "youtube": "https://www.youtube.com/channel/UCKigFOby-bi2bgmEz7cTsLg"
+    }
+  },
+  "hours": {
+    "monday": "11:00 am - 9:00 pm",
+    "tuesday": "11:00 am - 9:00 pm",
+    "wednesday": "11:00 am - 9:00 pm",
+    "thursday": "11:00 am - 9:00 pm",
+    "friday": "11:00 am - 10:00 pm",
+    "saturday": "11:00 am - 10:00 pm",
+    "sunday": "11:00 am - 9:00 pm",
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": true,
+    "takeout_available": null,
+    "delivery_available": null,
+    "curbside_available": null,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [
+      {
+        "name": "Appetizers",
+        "description": null,
+        "items": []
+      },
+      {
+        "name": "Entrées",
+        "description": null,
+        "items": []
+      },
+      {
+        "name": "Sandwich & More",
+        "description": null,
+        "items": []
+      },
+      {
+        "name": "Desserts",
+        "description": null,
+        "items": []
+      }
+    ],
+    "wine_list": null,
+    "beer_selection": null,
+    "cocktails": null,
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": null,
+      "vegan": null,
+      "gluten_free": null,
+      "dairy_free": null,
+      "nut_free": null,
+      "kosher": null,
+      "halal": null
+    }
+  },
+  "happy_hour": {
+    "available": null,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [],
+  "entertainment_and_events": [],
+  "private_events": {
+    "available": null,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": null,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": "We do not take reservations or call ahead for seating, as all of our restaurants are casual dining, first-come, first-serve restaurants.",
+    "payment_methods": [],
+    "kids_policy": null,
+    "pets_allowed": true
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": false,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": null,
+    "private_dining": null
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": null,
+    "email_signup": null,
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": null,
+    "farm_to_table": null,
+    "sustainable": null,
+    "organic": null,
+    "details": null
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [
+      "Seafood",
+      "Burgers",
+      "Po-boys",
+      "Desserts",
+      "Shrimp Boil",
+      "Char-Grilled Oysters"
+    ],
+    "common_praise": [
+      "Waterfront location",
+      "Beautiful views",
+      "Family-friendly",
+      "Award-winning chef",
+      "Friendly staff",
+      "Large outdoor decks",
+      "Sports bar with big screens",
+      "Boat accessibility"
+    ],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "food",
+      "url": "https://lirp.cdn-website.com/744dc385/dms3rep/multi/opt/Flora-Bama+Shrimp+Boil_12-1920w.jpg",
+      "description": "Flora-Bama Shrimp Boil"
+    },
+    {
+      "type": "food",
+      "url": "https://lirp.cdn-website.com/744dc385/dms3rep/multi/opt/Char-Grilled+Oysters_1-1920w.jpg",
+      "description": "Char-Grilled Oysters"
+    },
+    {
+      "type": "food",
+      "url": "https://lirp.cdn-website.com/744dc385/dms3rep/multi/opt/loaded+tots-1920w.jpg",
+      "description": "Loaded tots"
+    },
+    {
+      "type": "food",
+      "url": "https://lirp.cdn-website.com/744dc385/dms3rep/multi/opt/Big+Earl-s+Shrimp+-+Grits_4-1920w.jpg",
+      "description": "Big Earl's Shrimp + Grits"
+    },
+    {
+      "type": "restaurant",
+      "url": "https://lirp.cdn-website.com/744dc385/dms3rep/multi/opt/IMG_6574-1920w.jpg",
+      "description": "Orange Beach Restaurant on the water"
+    },
+    {
+      "type": "logo",
+      "url": "https://lirp.cdn-website.com/744dc385/dms3rep/multi/opt/Ole+River+Grill+Logo+-1920w.png",
+      "description": "Ole River Grill Logo"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "OLE RIVER GRILL | ORANGE BEACH RESTAURANT ON THE WATER. Flora-Bama's Ole River Grill is the ultimate family fun restaurant in Orange Beach. With a beautiful waterfront view and fantastic seafood, burgers, po-boys and desserts the grill has something for almost everyone. We have large outdoor decks and plenty of big screens for the sports fans. Home. About. Menu. Gallery. Mo' Fun. Music. Contact. Open-Air & Waterfront Deck. Flora-Bama's Ole River Grill is the ultimate family fun restaurant in Orange Beach. With a beautiful waterfront view, open-air deck and fantastic seafood, burgers, po-boys and desserts the grill has something for almost everyone. Our award winning Chef and the friendly staff make every dining experience fun. We have large outdoor decks and plenty of big screens for the sports fans. Come enjoy a meal, a cocktail or just pull up in your boat and relax on our beach. Read More. Awesome Food, Fantastic Smiles. See Full Menu. Opening Hours. Sun - Thu: 11:00 am - 9:00 pm. Fri - Sat: 11:00 am - 10:00 pm. Flora-Bama Pet Policy. We do not take reservations or call ahead for seating, as all of our restaurants are casual dining, first-come, first-serve restaurants. Contact Us. (850) 483-6262. info@florabama.com. 17400 Perdido Key Drive, Perdido Key, FL 32507. Appetizers. Beginning!. Entrées. Dig In!. Sandwich & More. Handy Foods!. Desserts. Sweet Stuff!. All Rights Reserved | Flora-Bama Mngt. LLC. Join Our Team.",
+  "extraction_confidence": "medium",
+  "extraction_notes": "The homepage provides basic contact information, hours, and general description. Menu details with specific items, prices, and dietary information are not visible on the homepage - they appear to be on a separate /menu page. No wine list, cocktail menu, happy hour details, entertainment schedule, or special promotions are mentioned on this homepage. Delivery and takeout options are not explicitly stated. The site indicates there is a Flora-Bama Pet Policy page and Team Application page linked. Hours are confirmed as Sun-Thu 11am-9pm and Fri-Sat 11am-10pm. Reservations are explicitly not accepted - first-come, first-serve only. The restaurant appears to be part of a larger Flora-Bama management group based on footer text.",
+  "folder": "ChIJ4V7NskmokIgRZIKp1zJ-kYQ_Flora-Bama Ole River Grill",
+  "extracted_at": "2026-05-15T06:04:54.944Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJ4V7NskmokIgRZIKp1zJ-kYQ_Flora-Bama Ole River Grill/01_raw_html.html"
+}

@@ -1,0 +1,94 @@
+{
+  "name": "Papa Rocco's",
+  "type": "Restaurant/Bar",
+  "website": "https://paparocco.com",
+  "contact": {
+    "phone": "251-948-7262",
+    "address": "101 West 6th Avenue",
+    "city": "Gulf Shores",
+    "email": "jamabaker963@gmail.com"
+  },
+  "hours": {
+    "monday": "11am - Midnight",
+    "tuesday": "11am - Midnight",
+    "wednesday": "11am - Midnight",
+    "thursday": "11am - Midnight",
+    "friday": "11am - Midnight",
+    "saturday": "11am - Midnight",
+    "sunday": "11am - Midnight",
+    "notes": "Open 7 days a week"
+  },
+  "about": {
+    "description": "Papa Rocco's is a casual pizza, oyster, and wings restaurant in Gulf Shores, Alabama, featuring daily live music entertainment until midnight. Known for award-winning pizzas and fresh local oysters, the restaurant offers a relaxed atmosphere with great service and affordable happy hour pricing.",
+    "elevator_pitch": "Award-winning pizza and oyster restaurant in Gulf Shores with daily live music, happy hour specials, and a fun, casual atmosphere.",
+    "vibe": "Relaxed, fun, casual bar and grill atmosphere with live entertainment daily",
+    "best_for": [
+      "casual dining",
+      "game day",
+      "happy hour",
+      "live music",
+      "spring breakers",
+      "groups"
+    ],
+    "established": null,
+    "reservations": null,
+    "insider_tip": "Best Happy Hour prices in town from 11am-7pm Monday-Friday with $3 domestic beers and $3.50 house liquor"
+  },
+  "social": {
+    "instagram": "https://instagram.com/paparoccospizza/",
+    "facebook": "https://www.facebook.com/people/Papa-Roccos/100084720384636/",
+    "yelp": "https://yelp.com/biz/papa-roccos-gulf-shores",
+    "website": "https://paparoccos.com"
+  },
+  "menu": [
+    {
+      "category": "Burgers",
+      "name": "The Who's Your Daddy Burger",
+      "description": "Double decker burger with swiss, pepperjack, American cheese, mushrooms, and bacon",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Lunch Specials",
+      "description": "Daily lunch specials Labor Day through February from 11am-2pm",
+      "discount": ""
+    },
+    {
+      "name": "Dinner Specials",
+      "description": "Evening specials November through February from 5pm-7pm",
+      "discount": ""
+    },
+    {
+      "name": "Happy Hour",
+      "description": "Discounted drinks Monday through Friday",
+      "discount": ""
+    },
+    {
+      "name": "Gameday Specials",
+      "description": "Special pricing on wings and appetizers during football season",
+      "discount": ""
+    },
+    {
+      "name": "All You Can Eat Spaghetti",
+      "description": "All day spaghetti special with drink purchase",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [
+    {
+      "name": "Live Music",
+      "day": "",
+      "time": "Until Midnight"
+    },
+    {
+      "name": "St. Paddy's Day Pub Crawl",
+      "day": "",
+      "time": ""
+    }
+  ],
+  "gallery": 11,
+  "scraped_at": "2026-03-21T19:38:30.830Z"
+}

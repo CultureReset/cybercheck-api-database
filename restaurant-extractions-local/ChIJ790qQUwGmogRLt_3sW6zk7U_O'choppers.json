@@ -1,0 +1,141 @@
+{
+  "business_name": "O'Choppers Irish Pub",
+  "cuisine_type": "Irish",
+  "price_range": null,
+  "description": "May Your Pockets Be Heavy and Your Heart Be Light, May Good Luck Pursue You Each Morning and Night.",
+  "atmosphere": null,
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": "Orange Beach, AL",
+    "website": null,
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": "https://www.facebook.com/people/OChoppers-Irish-Pub/100071641320949/",
+      "instagram": null,
+      "twitter": null,
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": null,
+    "takeout_available": null,
+    "delivery_available": null,
+    "curbside_available": null,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [],
+    "wine_list": null,
+    "beer_selection": null,
+    "cocktails": null,
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": null,
+      "vegan": null,
+      "gluten_free": null,
+      "dairy_free": null,
+      "nut_free": null,
+      "kosher": null,
+      "halal": null
+    }
+  },
+  "happy_hour": {
+    "available": null,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [],
+  "entertainment_and_events": [],
+  "private_events": {
+    "available": null,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": null,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": null,
+    "pets_allowed": null
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": null,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": null,
+    "private_dining": null
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": null,
+    "email_signup": null,
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": null,
+    "farm_to_table": null,
+    "sustainable": null,
+    "organic": null,
+    "details": null
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [],
+    "common_praise": [],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "restaurant",
+      "url": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-1/298915594_188245173573526_3679618440853961792_n.jpg",
+      "description": "O'Choppers Irish Pub profile image"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "O'Choppers Irish Pub, Orange Beach. 3,061 likes · 2 talking about this · 5,118 were here. May Your Pockets Be Heavy and Your Heart Be Light, May Good Luck Pursue You Each Morning and Night.",
+  "extraction_confidence": "low",
+  "extraction_notes": "This HTML is a Facebook page for O'Choppers Irish Pub. The page appears to be a profile/landing page with minimal restaurant information visible. Most of the HTML contains Facebook's styling, scripts, and metadata rather than actual restaurant content. Only basic information was extracted: business name, location (Orange Beach, AL), Facebook profile URL, social media links, business tagline/motto, and a profile photo. Critical data missing includes: menu, pricing, hours of operation, phone number, full address, website, delivery/takeout information, reservations details, and any restaurant-specific policies or features. To get complete restaurant information, the main restaurant website or a dedicated restaurant page (not Facebook) would need to be analyzed.",
+  "folder": "ChIJ790qQUwGmogRLt_3sW6zk7U_O'choppers",
+  "extracted_at": "2026-05-15T06:07:22.398Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJ790qQUwGmogRLt_3sW6zk7U_O'choppers/page.html"
+}

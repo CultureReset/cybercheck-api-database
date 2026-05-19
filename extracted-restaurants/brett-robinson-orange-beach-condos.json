@@ -1,0 +1,146 @@
+{
+  "name": "Brett/Robinson Vacation Rentals",
+  "type": "Vacation Rental | Condo | Resort",
+  "website": "https://www.brett-robinson.com/orange-beach-condos/",
+  "contact": {
+    "phone": "+1-800-211-7892",
+    "address": "3259 Gulf Shores Parkway",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {},
+  "about": {
+    "description": "Family-owned and veteran-owned vacation rental specialist with over 40 years of experience in Gulf Shores, Orange Beach, and Perdido Key, Alabama. Offers luxury beachfront condos, beach-view rentals, and resort-style accommodations with direct beach access, onsite support, and local expertise for family vacations, couples' escapes, and group trips.",
+    "elevator_pitch": "Luxury beachfront condo rentals with 40+ years of experience, resort-style amenities, and local expertise across Gulf Shores and Orange Beach, Alabama.",
+    "total_units": null,
+    "floors": null,
+    "year_built": null,
+    "pet_friendly": false,
+    "minimum_stay": null,
+    "check_in": "4:00 PM",
+    "check_out": "10:00 AM",
+    "age_restriction": "Primary renter must be at least 25 years old and remain on-site for entire stay"
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/brettrobinsonvacations/",
+    "facebook": "https://www.facebook.com/BrettRobinsonVacations",
+    "linkedin": "https://www.linkedin.com/company/brett-robinson-vacation-rentals",
+    "pinterest": "https://www.pinterest.com/brettrobinsonvacations",
+    "twitter": "https://twitter.com/brettrobinson",
+    "website": "https://www.brett-robinson.com/"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Seasonal Discounts",
+      "description": "Seasonal promotions and discounts available on select dates",
+      "discount": ""
+    },
+    {
+      "name": "Snowbird Specials",
+      "description": "Special rates for longer stays during winter months",
+      "discount": ""
+    },
+    {
+      "name": "Last-Minute Deals",
+      "description": "Last-minute savings on select rentals",
+      "discount": ""
+    },
+    {
+      "name": "Promo Codes",
+      "description": "Percentage-off promotions with codes (example: Bama2025 for 10% off 2025 bookings)",
+      "discount": ""
+    },
+    {
+      "name": "Hot Deals",
+      "description": "Featured property specials with reduced rates",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [
+    {
+      "name": "",
+      "day": "",
+      "time": ""
+    },
+    {
+      "name": "",
+      "day": "",
+      "time": ""
+    },
+    {
+      "name": "",
+      "day": "",
+      "time": ""
+    },
+    {
+      "name": "",
+      "day": "",
+      "time": ""
+    },
+    {
+      "name": "",
+      "day": "",
+      "time": ""
+    },
+    {
+      "name": "",
+      "day": "",
+      "time": ""
+    },
+    {
+      "name": "",
+      "day": "",
+      "time": ""
+    },
+    {
+      "name": "",
+      "day": "",
+      "time": ""
+    },
+    {
+      "name": "",
+      "day": "",
+      "time": ""
+    },
+    {
+      "name": "",
+      "day": "",
+      "time": ""
+    },
+    {
+      "name": "",
+      "day": "",
+      "time": ""
+    },
+    {
+      "name": "",
+      "day": "",
+      "time": ""
+    },
+    {
+      "name": "",
+      "day": "",
+      "time": ""
+    },
+    {
+      "name": "",
+      "day": "",
+      "time": ""
+    },
+    {
+      "name": "",
+      "day": "",
+      "time": ""
+    },
+    {
+      "name": "",
+      "day": "",
+      "time": ""
+    }
+  ],
+  "gallery": 23,
+  "scraped_at": "2026-03-21T20:13:06.979Z"
+}

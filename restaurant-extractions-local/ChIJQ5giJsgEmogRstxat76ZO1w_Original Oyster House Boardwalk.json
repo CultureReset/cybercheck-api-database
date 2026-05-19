@@ -1,0 +1,235 @@
+{
+  "business_name": "The Original Oyster House",
+  "cuisine_type": "Seafood, Oyster Bar",
+  "price_range": "$$",
+  "description": "The Original Oyster House is the best oyster bar & seafood restaurant in Gulf Shores & Mobile, AL. Known for hand-shucked raw, charbroiled and baked oysters, the Original Oyster House is legendary for fresh Gulf seafood, Southern hospitality and spectacular waterfront views. With vintage seafood house charm, the Original Oyster House offers award-winning gumbo, alligator, crab claws, fish, shrimp, crawfish, burgers, po'boys and a create-your-own seafood platter. Fantastic salad bar, over-the-top cheesy grits and homemade key lime or chocolate chip peanut butter pies are local favorites. Specialty drinks, spirits, wines and beers pair wonderfully with the large menu selection and happy hour on the Causeway. Great kid's menu plus an outdoor playground. Behind the scenes, this restaurant's sustainable practices have taken oysters out of the kitchen to help save oysters and ensure their future. Becoming the first restaurant in the state to recycle the oyster shell through the AL Coastal Foundation, the Original Oyster House pledged further by being the only local restaurant to 'oyster garden' or grow stocker oysters for reef restoration.",
+  "atmosphere": "Vintage seafood house charm with waterfront views, outdoor playground for kids",
+  "chef_info": null,
+  "awards": [
+    "Award-winning gumbo"
+  ],
+  "contact": {
+    "phone": "1-877-616-9783",
+    "email": null,
+    "address": null,
+    "website": "https://www.originaloysterhouse.com",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": "http://www.facebook.com/originaloysterhouse",
+      "instagram": "http://instagram.com/originaloysterhouse",
+      "twitter": "https://x.com/OriginalOyster",
+      "tiktok": null,
+      "youtube": "https://www.youtube.com/channel/UCzZ8TZwlGZ2ZrvU8b23r41g?view_as=subscriber"
+    }
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": true,
+    "takeout_available": true,
+    "delivery_available": null,
+    "curbside_available": null,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [
+      {
+        "name": "Gulf Shores Dinner Menu",
+        "description": null,
+        "items": []
+      },
+      {
+        "name": "Gulf Shores Lunch Menu",
+        "description": null,
+        "items": []
+      },
+      {
+        "name": "Gulf Shores Drinks & Desserts Menu",
+        "description": null,
+        "items": []
+      },
+      {
+        "name": "Gulf Shores Grab-N-Go",
+        "description": null,
+        "items": []
+      },
+      {
+        "name": "Gulf Shores Kids Menu",
+        "description": null,
+        "items": []
+      },
+      {
+        "name": "Gulf Shores Gluten-Free Menu",
+        "description": null,
+        "items": []
+      },
+      {
+        "name": "Mobile Causeway Lunch & Dinner Menu",
+        "description": null,
+        "items": []
+      },
+      {
+        "name": "Mobile Causeway Happy Hour Menu",
+        "description": null,
+        "items": []
+      },
+      {
+        "name": "Mobile Causeway Drinks & Desserts Menu",
+        "description": null,
+        "items": []
+      },
+      {
+        "name": "Mobile Causeway Kids Menu",
+        "description": null,
+        "items": []
+      },
+      {
+        "name": "Mobile Causeway Grab N Go Menu",
+        "description": null,
+        "items": []
+      },
+      {
+        "name": "Mobile Causeway Banquet Menu",
+        "description": null,
+        "items": []
+      },
+      {
+        "name": "Mobile Causeway Gluten-Free Menu",
+        "description": null,
+        "items": []
+      }
+    ],
+    "wine_list": null,
+    "beer_selection": "Beers available",
+    "cocktails": "Specialty drinks and spirits available",
+    "kids_menu": "Available at both locations",
+    "catering_menu": "Banquet menu available",
+    "dietary_accommodations": {
+      "vegetarian": false,
+      "vegan": false,
+      "gluten_free": true,
+      "dairy_free": false,
+      "nut_free": false,
+      "kosher": false,
+      "halal": false
+    }
+  },
+  "happy_hour": {
+    "available": true,
+    "days": "Mobile Causeway only",
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": "Happy Hour Menu available at Mobile Causeway location only"
+  },
+  "specials_and_promotions": [
+    {
+      "type": "happy_hour",
+      "day_of_week": null,
+      "name": "Happy Hour",
+      "description": "Best happy hour on the Causeway",
+      "discount": null,
+      "valid_until": null
+    }
+  ],
+  "entertainment_and_events": [],
+  "private_events": {
+    "available": true,
+    "event_spaces": "Mobile Causeway: Banquet Room, Chart Room, Delta Room; Gulf Shores: Pelican's Landing, Lighthouse Room",
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": true,
+    "packages": "Group event packages available with dedicated event menus"
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": "Great kid's menu available, outdoor playground",
+    "pets_allowed": null
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": true,
+    "online_booking_platform": null,
+    "phone_reservations": "1-877-616-9783",
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": true,
+    "private_dining": true
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": true,
+    "email_signup": null,
+    "rewards_details": "E-Gift cards available for Causeway and Gulf Shores locations"
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": true,
+    "farm_to_table": false,
+    "sustainable": true,
+    "organic": false,
+    "details": "First restaurant in the state to recycle oyster shells through AL Coastal Foundation. Only local restaurant to 'oyster garden' or grow stocker oysters for reef restoration. Sustainable practices focused on oyster conservation and reef restoration."
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [
+      "Hand-shucked raw oysters",
+      "Charbroiled oysters",
+      "Baked oysters",
+      "Award-winning gumbo",
+      "Alligator",
+      "Crab claws",
+      "Shrimp",
+      "Crawfish",
+      "Po'boys",
+      "Burgers",
+      "Create-your-own seafood platter",
+      "Salad bar",
+      "Cheesy grits",
+      "Key lime pie",
+      "Chocolate chip peanut butter pie"
+    ],
+    "common_praise": [
+      "Fresh Gulf seafood",
+      "Southern hospitality",
+      "Waterfront views",
+      "Vintage seafood house charm",
+      "Award-winning gumbo",
+      "Local favorites"
+    ],
+    "common_complaints": []
+  },
+  "photos_and_media": [],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "The Original Oyster House is the best oyster bar & seafood restaurant in Gulf Shores & Mobile, AL. Known for hand-shucked raw, charbroiled and baked oysters, the Original Oyster House is legendary for fresh Gulf seafood, Southern hospitality and spectacular waterfront views. With vintage seafood house charm, the Original Oyster House offers award-winning gumbo, alligator, crab claws, fish, shrimp, crawfish, burgers, po'boys and a create-your-own seafood platter. Fantastic salad bar, over-the-top cheesy grits and homemade key lime or chocolate chip peanut butter pies are local favorites. Specialty drinks, spirits, wines and beers pair wonderfully with the large menu selection and check out the best happy hour on the Causeway. Great kid's menu plus an outdoor playground. Behind the scenes, this restaurant's sustainable practices have taken oysters out of the kitchen to help save oysters and ensure their future. Becoming the first restaurant in the state to recycle the oyster shell through the AL Coastal Foundation, the Original Oyster House pledged further by being the only local restaurant to oyster garden or grow stocker oysters for reef restoration. Locations: Gulf Shores and Mobile Causeway. Phone: 1-877-616-9783. Social Media: Facebook, Instagram, Twitter, YouTube. Menus available: Dinner, Lunch, Drinks & Desserts, Grab N Go, Kids Menu, Gluten-Free Menu, Banquet Menu, Happy Hour Menu (Causeway only). Group events available at both locations with dedicated event spaces. Shop available online.",
+  "extraction_confidence": "medium",
+  "extraction_notes": "HTML was truncated mid-content. Full menu items, detailed hours, specific addresses, pricing, and complete event information could not be extracted from the provided HTML fragment. The page structure indicates multiple menu pages exist but their content is not accessible in the provided excerpt. Social media links were extracted from schema markup. Navigation structure shows comprehensive information architecture for menus, events, and locations but detailed content requires accessing individual pages. Some data fields remain null due to HTML truncation.",
+  "folder": "ChIJQ5giJsgEmogRstxat76ZO1w_Original Oyster House Boardwalk",
+  "extracted_at": "2026-05-15T06:19:28.889Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJQ5giJsgEmogRstxat76ZO1w_Original Oyster House Boardwalk/01_raw_html.html"
+}

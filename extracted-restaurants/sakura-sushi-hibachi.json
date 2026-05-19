@@ -1,0 +1,42 @@
+{
+  "name": "Sakura Sushi & Hibachi",
+  "type": "Restaurant",
+  "website": "http://www.sakuramm.com/",
+  "contact": {
+    "phone": "251-649-1689",
+    "address": "4276 McCrary Road",
+    "city": "Semmes",
+    "email": ""
+  },
+  "hours": {
+    "monday": "11:00 AM - 9:00 PM",
+    "tuesday": "11:00 AM - 9:00 PM",
+    "wednesday": "11:00 AM - 9:00 PM",
+    "thursday": "11:00 AM - 9:00 PM",
+    "friday": "11:00 AM - 9:00 PM",
+    "saturday": "11:00 AM - 9:00 PM",
+    "sunday": "11:00 AM - 9:00 PM",
+    "notes": null
+  },
+  "about": {
+    "description": "Welcome to our restaurant! Come and try our dishes!",
+    "elevator_pitch": "Order your favorite sushi and hibachi food online at your convenience.",
+    "vibe": null,
+    "best_for": [],
+    "established": null,
+    "reservations": null,
+    "insider_tip": null
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "website": "http://www.sakuramm.com"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 11,
+  "scraped_at": "2026-03-22T18:33:52.893Z"
+}

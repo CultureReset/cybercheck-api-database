@@ -1,0 +1,135 @@
+{
+  "business_name": "Barometer",
+  "cuisine_type": null,
+  "price_range": null,
+  "description": null,
+  "atmosphere": null,
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": null,
+    "website": "https://www.barometerorangebeach.com",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": null,
+      "instagram": null,
+      "twitter": null,
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": null,
+    "takeout_available": null,
+    "delivery_available": null,
+    "curbside_available": null,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [],
+    "wine_list": null,
+    "beer_selection": null,
+    "cocktails": null,
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": null,
+      "vegan": null,
+      "gluten_free": null,
+      "dairy_free": null,
+      "nut_free": null,
+      "kosher": null,
+      "halal": null
+    }
+  },
+  "happy_hour": {
+    "available": null,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [],
+  "entertainment_and_events": [],
+  "private_events": {
+    "available": null,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": null,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": null,
+    "pets_allowed": null
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": null,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": null,
+    "private_dining": null
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": null,
+    "email_signup": null,
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": null,
+    "farm_to_table": null,
+    "sustainable": null,
+    "organic": null,
+    "details": null
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [],
+    "common_praise": [],
+    "common_complaints": []
+  },
+  "photos_and_media": [],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "The HTML provided contains only the Wix website framework and JavaScript configuration. The actual restaurant content page appears to be dynamically loaded and is not visible in the source HTML provided. The page includes Google Analytics tracking (AW-17055715825) and Wix platform initialization code but no visible restaurant information, menu items, hours, contact details, or other restaurant-specific content.",
+  "extraction_confidence": "low",
+  "extraction_notes": "This HTML is a Wix website template/framework page with no visible restaurant content. The actual restaurant page content (menu, hours, contact info, description, etc.) appears to be dynamically rendered using Wix's system and is not present in the static HTML source provided. To extract restaurant data, the fully rendered page would need to be accessed after JavaScript execution, or the website would need to provide a direct link to a publicly accessible menu or information page. The website URL is https://www.barometerorangebeach.com and appears to be for a restaurant called 'Barometer' in Orange Beach, but no operational details could be extracted from this HTML snapshot.",
+  "folder": "ChIJE50dMvAHmogRKm7VtVRmxM0_Barometer Waterfront Grille",
+  "extracted_at": "2026-05-15T06:10:12.585Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJE50dMvAHmogRKm7VtVRmxM0_Barometer Waterfront Grille/01_raw_html.html"
+}

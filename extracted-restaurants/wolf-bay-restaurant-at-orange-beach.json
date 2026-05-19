@@ -1,0 +1,263 @@
+{
+  "name": "Wolf Bay Restaurant",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": [
+      {
+        "location": "Foley",
+        "phone": "(251) 987-5129"
+      },
+      {
+        "location": "Orange Beach",
+        "phone": "(251) 965-5129"
+      }
+    ],
+    "address": [
+      {
+        "location": "Foley",
+        "street": "20801 Miflin Road",
+        "city": "Foley",
+        "state": "AL",
+        "zip": "36535"
+      },
+      {
+        "location": "Orange Beach",
+        "street": "24131 Perdido Beach Blvd",
+        "city": "Orange Beach",
+        "state": "AL",
+        "zip": "36561"
+      }
+    ],
+    "city": "",
+    "email": "melody@wolfbaylodge.com"
+  },
+  "hours": {
+    "lunch": "11am-3pm Monday-Friday",
+    "dinner": "Hours vary by special menu"
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Winter Dinner Menu - Orange Beach",
+      "name": "Steak & Martinis",
+      "description": "6oz steak served with truffle mash, green beans & garlic knot",
+      "price": 19.95
+    },
+    {
+      "category": "Winter Dinner Menu - Orange Beach",
+      "name": "Lemon Caper Chicken Pasta",
+      "description": "Crispy panko chicken breast over angel hair pasta in a creamy lemon-caper Alfredo",
+      "price": 19.95
+    },
+    {
+      "category": "Winter Dinner Menu - Orange Beach",
+      "name": "Prime Rib & Margaritas",
+      "description": "Prime Rib served with a baked potato and a garlic knot",
+      "price": 24.95
+    },
+    {
+      "category": "Winter Dinner Menu - Orange Beach",
+      "name": "Beer Batter Fish-N-Chips",
+      "description": "Fish-N-Chips served with crispy french fries and malt vinegar",
+      "price": 19.95
+    },
+    {
+      "category": "Winter Dinner Menu - Orange Beach",
+      "name": "Grouper Pontchartrain",
+      "description": "Grouper Pontchartrain served over rice pilaf",
+      "price": 26.95
+    },
+    {
+      "category": "Winter Dinner Menu - Orange Beach",
+      "name": "Surf & Turf",
+      "description": "NY Strip (8oz) & 3 fried gulf shrimp with choice of a baked potato & a garlic knot",
+      "price": 24.95
+    },
+    {
+      "category": "Winter Dinner Menu - Orange Beach",
+      "name": "Prime Rib Pasta",
+      "description": "Penne pasta alfredo tossed with peppers & onions & signature Hog Rub seasoning",
+      "price": 24.95
+    },
+    {
+      "category": "Winter Dinner Menu - Foley",
+      "name": "Steak & Martinis",
+      "description": "6oz steak served with truffle mash, green beans & garlic knot",
+      "price": 19.95
+    },
+    {
+      "category": "Winter Dinner Menu - Foley",
+      "name": "Fried Mullet & Old Fashioneds",
+      "description": "Cornmeal Fried Mullet Filets - served with fries & 2 hushpuppies",
+      "price": 19.95
+    },
+    {
+      "category": "Winter Dinner Menu - Foley",
+      "name": "Prime Rib Pasta & Margaritas",
+      "description": "Penne pasta alfredo tossed with peppers & onions & signature Hog Rub seasoning",
+      "price": 19.95
+    },
+    {
+      "category": "Winter Dinner Menu - Foley",
+      "name": "Southern Plate & Dark & Stormies",
+      "description": "Two pieces of fried chicken, collard greens, mac & cheese, and cornbread",
+      "price": 19.95
+    },
+    {
+      "category": "Winter Dinner Menu - Foley",
+      "name": "Salmon & Long Islands",
+      "description": "Bourbon Glazed Salmon - over Greek lemon rice with sautéed veggies",
+      "price": 24.95
+    },
+    {
+      "category": "Winter Dinner Menu - Foley",
+      "name": "Surf & Turf",
+      "description": "NY Strip (8oz) & 3 fried gulf shrimp with choice of a baked potato or sweet potato & a garlic knot",
+      "price": 24.95
+    },
+    {
+      "category": "Winter Dinner Menu - Foley",
+      "name": "Prime Rib",
+      "description": "Served with your choice of baked potato or baked sweet potato & garlic knot",
+      "price": 24.95
+    },
+    {
+      "category": "Home Cookin Lunch Plates (Monday-Friday, 11am-3pm)",
+      "name": "French Dip Sandwich",
+      "description": "Sliced prime rib topped with Swiss Cheese & served with Au Jus",
+      "price": ""
+    },
+    {
+      "category": "Home Cookin Lunch Plates (Monday-Friday, 11am-3pm)",
+      "name": "Smothered Chicken Breast",
+      "description": "Grilled chicken breast topped with mushrooms, onions & Swiss cheese",
+      "price": ""
+    },
+    {
+      "category": "Home Cookin Lunch Plates (Monday-Friday, 11am-3pm)",
+      "name": "Country Fried Steak",
+      "description": "With white pepper gravy",
+      "price": ""
+    },
+    {
+      "category": "Home Cookin Lunch Plates (Monday-Friday, 11am-3pm)",
+      "name": "Grouper Fingers",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Home Cookin Lunch Plates (Monday-Friday, 11am-3pm)",
+      "name": "Meatloaf",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Home Cookin Lunch Plates (Monday-Friday, 11am-3pm)",
+      "name": "Fried Cajun Catfish Fingers",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Home Cookin Lunch Plates (Monday-Friday, 11am-3pm)",
+      "name": "Beef Medallions",
+      "description": "With mushroom gravy",
+      "price": ""
+    },
+    {
+      "category": "Home Cookin Lunch Plates (Monday-Friday, 11am-3pm)",
+      "name": "Fried Whitefish & Popcorn Shrimp",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Home Cookin Lunch Plates (Monday-Friday, 11am-3pm)",
+      "name": "Hamburger Steak",
+      "description": "With onions & mushroom gravy",
+      "price": ""
+    },
+    {
+      "category": "Home Cookin Lunch Plates (Monday-Friday, 11am-3pm)",
+      "name": "Fried Shrimp",
+      "description": "6 piece",
+      "price": ""
+    },
+    {
+      "category": "Sides",
+      "name": "Fried Potatoes & Onions",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sides",
+      "name": "Mashed Potatoes",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sides",
+      "name": "Collard Greens",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sides",
+      "name": "Fried Okra",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sides",
+      "name": "Fried Corn Fritters",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sides",
+      "name": "Mac & Cheese",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sides",
+      "name": "Green Beans",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sides",
+      "name": "Field Peas & Snaps",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Special Offerings",
+      "name": "You Hook 'Em We Cook 'Em",
+      "description": "Prepare your fresh catch any way you'd like it. Price includes endless hushpuppies, french fries, and coleslaw.",
+      "price": 18.99
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Wolf Bay Happy Hour",
+      "description": "Barstool Happy Hour at Foley location",
+      "discount": ""
+    },
+    {
+      "name": "Winter Dinner Menu",
+      "description": "Special nightly dinner menus with themed meals and drink specials",
+      "discount": ""
+    },
+    {
+      "name": "Live Entertainment",
+      "description": "Live music every night from 6-9pm in covered bar",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:51.809Z"
+}

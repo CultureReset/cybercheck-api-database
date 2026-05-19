@@ -1,0 +1,51 @@
+{
+  "business_name": "Junavelli Winery",
+  "address": "Brewton, Alabama",
+  "phone": "(251) 809-3396",
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": "4 pm to 7 pm",
+    "saturday": "11 am to 6 pm",
+    "sunday": null
+  },
+  "happy_hour": {
+    "days": null,
+    "times": null,
+    "deals": []
+  },
+  "specials": [
+    "FREE tasting with Harvest Host stay"
+  ],
+  "menu": [
+    {
+      "section": "Wines",
+      "items": [
+        {
+          "name": "Southern Sweet Blueberry",
+          "price": null,
+          "description": "Sweet blueberry wine",
+          "dietary": []
+        },
+        {
+          "name": "Muscadine",
+          "price": null,
+          "description": "Muscadine wine with delightful notes",
+          "dietary": []
+        }
+      ]
+    }
+  ],
+  "notes": "Wine list PDF referenced but not fully loaded. Business is family-owned winery. Open by appointment during closed hours. Harvest Host member offering RV camping. Tastings available for walk-ins and by reservation.",
+  "_meta": {
+    "scraped_at": "2026-05-18T07:43:41.437Z",
+    "pages_visited": 3,
+    "menu_sections": 1,
+    "menu_items": 2,
+    "priced_items": 0,
+    "has_hours": true,
+    "source_url": "https://junavelliwinery.com/"
+  }
+}

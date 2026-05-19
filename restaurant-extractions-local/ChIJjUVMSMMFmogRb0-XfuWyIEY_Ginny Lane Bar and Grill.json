@@ -1,0 +1,242 @@
+{
+  "business_name": "Ginny Lane Bar & Grill",
+  "cuisine_type": "American",
+  "price_range": "$$",
+  "description": "Come enjoy amazing food, a great atmosphere, & beautiful, waterfront seating at Ginny Lane Bar & Grill in Orange Beach. The best food with the best view at The Wharf! Your appetite might lead you here. But our sensational food, waterfront view, and exciting atmosphere will keep you coming back!",
+  "atmosphere": "Waterfront dining with exciting atmosphere at The Wharf in Orange Beach",
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": "251-224-6500 (ext. 1)",
+    "email": "ginnylanebarandgrill@live.com",
+    "address": "4851 Wharf Parkway Suite 106, Orange Beach, AL 36561",
+    "website": "https://ginnylanebargrill.com",
+    "hours_phone": "251-224-6500 (ext. 1)",
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": "https://www.facebook.com/pages/Ginny-Lane-Bar-Grill/159850265732",
+      "instagram": "https://www.instagram.com/ginnylanebarandgrill/",
+      "twitter": "https://twitter.com/ginnylaneob",
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": "11am-9pm",
+    "tuesday": "11am-9pm",
+    "wednesday": "11am-9pm",
+    "thursday": "11am-10pm",
+    "friday": "11am-10pm",
+    "saturday": "11am-10pm",
+    "sunday": "10am-9pm",
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": true,
+    "takeout_available": true,
+    "delivery_available": true,
+    "curbside_available": false,
+    "delivery_partners": [
+      "Eat the Beach (Time to Eat the Beach)"
+    ],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [
+      {
+        "name": "Takeout Family Meals",
+        "description": "Family Meals Feed 4. All Meals Served with House or Caesar Salad and Cornbread with Butter.",
+        "items": [
+          {
+            "name": "Shrimp & Grits",
+            "description": "Andouille sausage, cheddar grits, creole cream sauce with roasted tomatoes",
+            "price": "$38",
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Meat & Two",
+            "description": "Choose 1 Meat and 2 Sides. Meat options: House Meatloaf with Mushroom Gravy, Salisbury Steak with Mushroom Gravy, Fried Pork Chop, Baked Chicken (Lemon Pepper, Rosemary, or Honey Garlic), Pecan Encrusted Chicken, Hand Breaded Chicken Tenders. Side options: Green Beans, White Cheddar Mac & Cheese, Broccoli, Sweet Potato Casserole, Mashed Potatoes, Potato Casserole",
+            "price": "$42",
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Add a Bottle of Wine",
+            "description": "Select Wines Only",
+            "price": "$15",
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": null
+          }
+        ]
+      }
+    ],
+    "wine_list": null,
+    "beer_selection": null,
+    "cocktails": null,
+    "kids_menu": "Available - see /kids-menu",
+    "catering_menu": "Available at wharfcateringgroup.com",
+    "dietary_accommodations": {
+      "vegetarian": false,
+      "vegan": false,
+      "gluten_free": false,
+      "dairy_free": false,
+      "nut_free": false,
+      "kosher": false,
+      "halal": false
+    }
+  },
+  "happy_hour": {
+    "available": true,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": "Daily happy hour specials available",
+    "food_specials": null,
+    "full_details": "See /specials page for Food & Drink Specials details"
+  },
+  "specials_and_promotions": [
+    {
+      "type": "daily_special",
+      "day_of_week": null,
+      "name": "Food & Drink Specials",
+      "description": "Daily happy hour specials and food & drink promotions",
+      "discount": null,
+      "valid_until": null
+    }
+  ],
+  "entertainment_and_events": [
+    {
+      "type": "special_event",
+      "name": "Entertainment",
+      "days": null,
+      "start_time": null,
+      "end_time": null,
+      "description": "See /entertainment page for details",
+      "cover_charge": null,
+      "featured_artist": null
+    }
+  ],
+  "private_events": {
+    "available": true,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": true,
+    "packages": "Contact Wharf Catering Group at wharfcateringgroup.com"
+  },
+  "parking": "The Wharf parking (specific details not provided)",
+  "accessibility": {
+    "wheelchair_accessible": false,
+    "accessible_restroom": false,
+    "parking_accessible": false,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": "Kids menu available",
+    "pets_allowed": false
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": true,
+    "online_booking_platform": "Yelp Reservations",
+    "phone_reservations": "251-224-6500 (ext. 1)",
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": false,
+    "private_dining": true
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": false,
+    "email_signup": "Mailing list signup available",
+    "rewards_details": "Join mailing list for updates and promotions"
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": false,
+    "farm_to_table": false,
+    "sustainable": false,
+    "organic": false,
+    "details": null
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [
+      "Shrimp & Grits",
+      "Meat & Two"
+    ],
+    "common_praise": [
+      "Sensational food",
+      "Waterfront view",
+      "Exciting atmosphere"
+    ],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "restaurant",
+      "url": "/assets/entrance-db3d897734f9b9cb7d82d431d91d654374eb32caefba14765b5aeec762edff90.jpg",
+      "description": "Ginny Lane Entrance"
+    },
+    {
+      "type": "restaurant",
+      "url": "/assets/slide-happyWinter-e78eb60ac6160f599781fe2b3e3468045fe7c9af771c18992d88214cccb20476.jpg",
+      "description": "View Ginny Lane's daily happy hour specials"
+    },
+    {
+      "type": "restaurant",
+      "url": "/assets/slide-family-99d592c50a0c4b24093cc59a063e8b8bccf00610b870107fe7a0b407e509e162.jpg",
+      "description": "Ginny Lane Grille Family Meals, Takeout in Orange Beach, Al"
+    },
+    {
+      "type": "restaurant",
+      "url": "/assets/glSample4-4da85c7f9ec7bfb26505b9cab29cd8df139945dc2e3af419da612af79e241261.jpg",
+      "description": "Ginny Lane"
+    },
+    {
+      "type": "restaurant",
+      "url": "/assets/glSample6-ba89118f4cd92aea580f0a94b5ed080537f53d6e1dc5a9e705db2a5943afd56e.jpg",
+      "description": "Ginny Lane"
+    },
+    {
+      "type": "restaurant",
+      "url": "/assets/glSample9-ba14fa25f434336b26ab019c1cf301f78eebfe5f3456949ebbc3316c83161c8b.jpg",
+      "description": "Ginny Lane"
+    },
+    {
+      "type": "restaurant",
+      "url": "/assets/glSample10-59a383fc6a7a76769150b24866930fdabbe75cc0b66e6e3e9544a43562179ffe.jpg",
+      "description": "Ginny Lane"
+    },
+    {
+      "type": "restaurant",
+      "url": "/assets/entranceMob-e474e7f408717a576535b527ca6b085924b4aa6baedfa971466b9123c74928f2.jpg",
+      "description": "Ginny Lane Entrance"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": "Email signup for mailing list at https://ginnylanebargrill.us10.list-manage.com/subscribe/post?u=fe0c421eb8ae1acbc885e39d3&id=303b0e0335",
+  "raw_text_content": "Ginny Lane Bar & Grill | Waterfront Restaurant in Orange Beach, AL. Come enjoy amazing food, a great atmosphere, & beautiful, waterfront seating at Ginny Lane Bar & Grill in Orange Beach. The best food with the best view at The Wharf! Phone: 251-224-6500 (ext. 1). Email: ginnylanebarandgrill@live.com. Address: 4851 Wharf Parkway Suite 106, Orange Beach, AL 36561. Hours: Monday-Wednesday: 11am-9pm, Thursday-Saturday: 11am-10pm, Sunday: 10am-9pm. Your appetite might lead you here. But our sensational food, waterfront view, and exciting atmosphere will keep you coming back! View Our Menus. Order for Takeout & Delivery. 251-224-6500 (ext. 1). Takeout Family Meals - Family Meals Feed 4. All Meals Served with House or Caesar Salad and Cornbread with Butter. Shrimp & Grits... $38 - Andouille sausage, cheddar grits, creole cream sauce with roasted tomatoes. Meat & Two... $42 - Choose 1 Meat: House Meatloaf with Mushroom Gravy, Salisbury Steak with Mushroom Gravy, Fried Pork Chop, Baked Chicken (Lemon Pepper, Rosemary, or Honey Garlic), Pecan Encrusted Chicken, Hand Breaded Chicken Tenders. Choose 2 Sides: Green Beans, White Cheddar Mac & Cheese, Broccoli, Sweet Potato Casserole, Mashed Potatoes, Potato Casserole. Add a Bottle of Wine for $15 (Select Wines Only). Join Our Mailing List. Menus: Daily Menus, Brunch, Food & Drink Specials, Takeout Family Meals, Kids Menu. Delivery: Eat the Beach. Reservations: Yelp Reservations. Catering: Wharf Catering Group. Entertainment page available. About and Contact pages available. Events at The Wharf calendar. Other Restaurants: Villaggio Grille, Yoho Rum and Tacos, Mile Marker 158 Dockside.",
+  "extraction_confidence": "high",
+  "extraction_notes": "Successfully extracted core restaurant information from homepage. Full menu details, wine list, cocktail menu, and detailed specials are located on separate pages (/daily-menu, /specials, /kids-menu, /brunch-menu) not included in this HTML. Private events and catering details are managed through wharfcateringgroup.com. Entertainment details are on /entertainment page. Accessibility information not provided on homepage. No specific dietary accommodations mentioned on homepage. Reservation system uses Yelp. Delivery available through Eat the Beach platform.",
+  "folder": "ChIJjUVMSMMFmogRb0-XfuWyIEY_Ginny Lane Bar and Grill",
+  "extracted_at": "2026-05-15T06:31:40.693Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJjUVMSMMFmogRb0-XfuWyIEY_Ginny Lane Bar and Grill/01_raw_html.html"
+}

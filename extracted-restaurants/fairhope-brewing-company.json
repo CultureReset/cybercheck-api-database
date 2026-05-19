@@ -1,0 +1,64 @@
+{
+  "name": "Fairhope Brewing Company",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "",
+    "address": "914 Nichols Ave",
+    "city": "Fairhope",
+    "email": "info@fairhopebrewing.com"
+  },
+  "hours": {},
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Year-Round Beers",
+      "name": "Cheap Sunglasses",
+      "description": "Kolsh-Style Golden Ale. Fermented with Kolsch yeast to give it a smooth finish, light on hops to make it both drinkable and refreshing.",
+      "price": ""
+    },
+    {
+      "category": "Year-Round Beers",
+      "name": "Take the Causeway",
+      "description": "American India Pale Ale. Copious amounts of Citra and Simcoe hops used throughout the brewing process, leading to an explosively hoppy finish.",
+      "price": ""
+    },
+    {
+      "category": "Year-Round Beers",
+      "name": "Fairhope 51",
+      "description": "American Pale Ale. Brewed with a combination of American-made Falconer's Flight hops and German hops, packed with hop flavor.",
+      "price": ""
+    },
+    {
+      "category": "Year-Round Beers",
+      "name": "I Drink Therefore I Amber",
+      "description": "Amber Ale. Well-balanced and easy-drinking with deep caramel color. Pairs well with a number of foods.",
+      "price": ""
+    },
+    {
+      "category": "Year-Round Beers",
+      "name": "Blue Steel",
+      "description": "Blueberry & Lemon Sour. Light bodied sour ale blended with lemon and blueberries, light purple color with blueberry aroma.",
+      "price": ""
+    },
+    {
+      "category": "Year-Round Beers",
+      "name": "Pink Delicious",
+      "description": "Pink Lemonade Hard Seltzer. Light, smooth pink lemonade hard seltzer perfect for staying refreshed.",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Keg Sales",
+      "description": "1/6 Barrel Kegs (20 liters/5 gallons) available with minimum 48 hours notice",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:50.273Z"
+}

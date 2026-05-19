@@ -1,0 +1,357 @@
+{
+  "name": "Indian Kitchen",
+  "type": "Restaurant",
+  "website": "https://indiankitchenal.com/",
+  "contact": {
+    "phone": "(256)715-0134",
+    "address": "4800 Whitesburg Dr. Suite #21",
+    "city": "Huntsville",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null
+  },
+  "about": {
+    "description": "Indian Kitchen was the first restaurant to open in Alabama, the restaurant was designed with the history in mind we have created a posh dining room, combined with an open kitchen.",
+    "cuisine_type": "Indian"
+  },
+  "social": {},
+  "menu": [
+    {
+      "category": "Appetizers",
+      "name": "Vegetable Samosa (2pcs)",
+      "description": "Triangle Shaped Pastry Filled w/ Mashed Potato & green Peas",
+      "price": "$7.99"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Samosa Chaat",
+      "description": "2 Samosa w/ Cheakpeas, Mint, Tamarind & Yougurt Soauce",
+      "price": "$11.99"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Mixed Vegetable Pakora",
+      "description": "Seasoned Vegetable Friters",
+      "price": "$7.99"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Onion Pakora",
+      "description": "Sliced Onions battered in gram flour and deep fried",
+      "price": "$6.99"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Gobi Manchurion",
+      "description": "Crispy fried cauliflower cooked in Indo-Chinese style",
+      "price": "$11.99"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Mushroom Manchurian",
+      "description": "Crispy fried Mushroom cooked in Indo-Chinese style",
+      "price": "$11.99"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Chilli Paneer",
+      "description": "Cheese cubes, cubes of onions, bell peppers cooked in Indo-chinese style",
+      "price": "$12.99"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Chilli chicken",
+      "description": "Boneless chicken, cubes of onion, bell pappers cooked in indo chinese style",
+      "price": "$12.99"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Chicken Manchurian",
+      "description": "Boneless chicken cook in Manchurian Sauce",
+      "price": "$12.99"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Chicken 65",
+      "description": "Boneless chicken cubes cooked in Hydrabadi style",
+      "price": "$12.99"
+    },
+    {
+      "category": "Soups",
+      "name": "Mulligatwany Soup with vegetables",
+      "description": "Cream of Lintil flavoured herb and mild spices",
+      "price": "$7.99"
+    },
+    {
+      "category": "Soups",
+      "name": "Mashroom coconut Soup",
+      "description": "",
+      "price": "$7.99"
+    },
+    {
+      "category": "Soups",
+      "name": "Creamy Broccoli Soup",
+      "description": "",
+      "price": "$7.99"
+    },
+    {
+      "category": "Chicken Specialties",
+      "name": "Chicken Tikka Masala",
+      "description": "Boneless pieces of chicken breast Cooked in Tomato and Creamy Sauces.",
+      "price": "$17.99"
+    },
+    {
+      "category": "Chicken Specialties",
+      "name": "Butter Chicken",
+      "description": "Clay oven cooked Chicken in Tomato & Onion Sauce",
+      "price": "$17.99"
+    },
+    {
+      "category": "Chicken Specialties",
+      "name": "Chicken Korma",
+      "description": "Chicken Cooked in Cashew and almond sauce",
+      "price": "$17.99"
+    },
+    {
+      "category": "Chicken Specialties",
+      "name": "Chicken Madras",
+      "description": "Chicken cooked in madras style",
+      "price": "$17.99"
+    },
+    {
+      "category": "Chicken Specialties",
+      "name": "Chicken Curry",
+      "description": "Boneless pieces of Chicken cooked in Special Curry sauce.",
+      "price": "$17.99"
+    },
+    {
+      "category": "Chicken Specialties",
+      "name": "Chicken Saag",
+      "description": "Chicken Cooked in Puree of Spinach",
+      "price": "$17.99"
+    },
+    {
+      "category": "Chicken Specialties",
+      "name": "Chicken Mango",
+      "description": "Juicy Pieces of Chicken Cooked with Mango",
+      "price": "$17.99"
+    },
+    {
+      "category": "Chicken Specialties",
+      "name": "Chicken Vindaloo",
+      "description": "Goan Style Chicken Cooked with Potatoes in spicy sauce",
+      "price": "$17.99"
+    },
+    {
+      "category": "Chicken Specialties",
+      "name": "Chicken Chattinad",
+      "description": "Chicken cooked in Chattinad style",
+      "price": "$17.99"
+    },
+    {
+      "category": "Chicken Specialties",
+      "name": "Achari chicken",
+      "description": "Chicken cooked in pickeling sauce",
+      "price": "$17.99"
+    },
+    {
+      "category": "Chicken Specialties",
+      "name": "Corriender Chicken",
+      "description": "Chicken curry cooked in corriender sauce",
+      "price": "$17.99"
+    },
+    {
+      "category": "Chicken Specialties",
+      "name": "Kadhi Chicken",
+      "description": "Chicken curry sated with cubes of onions, tomato and bell peppers",
+      "price": "$17.99"
+    },
+    {
+      "category": "Tandoor Specialties",
+      "name": "Tandoori Chicken",
+      "description": "Chicken with bone marinated in yogurt, mild spices & roasted in clay oven.",
+      "price": "$16.99"
+    },
+    {
+      "category": "Tandoor Specialties",
+      "name": "Chicken Tikka",
+      "description": "Boneless pieces of Chicken Breast marinated overnight with special spices and cooked in clayoven.",
+      "price": "$17.99"
+    },
+    {
+      "category": "Tandoor Specialties",
+      "name": "Fish Tikka",
+      "description": "Salmon fillet marinated herbs, spices & roasted in clay oven.",
+      "price": "$18.99"
+    },
+    {
+      "category": "Tandoor Specialties",
+      "name": "Tandoori Prawn",
+      "description": "Shrimp marinated with special Indian Spices and cooked in clay oven.",
+      "price": "$19.99"
+    },
+    {
+      "category": "Rice Specialties",
+      "name": "Vegetable Biryani",
+      "description": "Long Grain Basmati Rice Cooked with Mix-Vegetable in blend of herbs and Saffron.",
+      "price": "$14.99"
+    },
+    {
+      "category": "Rice Specialties",
+      "name": "Chicken Biryani",
+      "description": "Tender pieces of Chicken Cooked w/ special Biryani spices",
+      "price": "$16.99"
+    },
+    {
+      "category": "Rice Specialties",
+      "name": "Lamb Biryani",
+      "description": "Tender Lamb cubed cooked with Special biryani Spices",
+      "price": "$19.99"
+    },
+    {
+      "category": "Rice Specialties",
+      "name": "Special Hydrabadi Chicken Biryani",
+      "description": "",
+      "price": "$19.99"
+    },
+    {
+      "category": "Rice Specialties",
+      "name": "Chef Special Biryani",
+      "description": "Flavored Riced Cooked with Chicken, Lamb and Shrimp",
+      "price": "$19.99"
+    },
+    {
+      "category": "Rice Specialties",
+      "name": "Goat Biryani (with bone)",
+      "description": "Tender goat pieces cooked with special biryani spices",
+      "price": "$19.99"
+    },
+    {
+      "category": "Rice Specialties",
+      "name": "Shrimp Biryani",
+      "description": "Shrimp Cooked with flavored Rice",
+      "price": "$19.99"
+    },
+    {
+      "category": "Rice Specialties",
+      "name": "Vegetable Fried Rice Indo-chinese",
+      "description": "",
+      "price": "$14.99"
+    },
+    {
+      "category": "Rice Specialties",
+      "name": "Chicken Fried Rice Indo-chinese",
+      "description": "",
+      "price": "$16.99"
+    },
+    {
+      "category": "Rice Specialties",
+      "name": "Shrimp Fried Rice Indo-chinese",
+      "description": "",
+      "price": "$19.99"
+    },
+    {
+      "category": "Rice Specialties",
+      "name": "Egg Fried Rice Indo-chinese",
+      "description": "",
+      "price": "$15.99"
+    },
+    {
+      "category": "Desserts",
+      "name": "Rasmalai",
+      "description": "Homemade Cottage Cheese Patty in flavored Milk Syrup",
+      "price": "$6.99"
+    },
+    {
+      "category": "Desserts",
+      "name": "Gulab Jamun",
+      "description": "Golden Cheese balls dipped in honey Syrup",
+      "price": "$4.99"
+    },
+    {
+      "category": "Desserts",
+      "name": "Kheer",
+      "description": "Ricepudding Sprinkled with dry fruits.",
+      "price": "$4.99"
+    },
+    {
+      "category": "Accompaniments",
+      "name": "Mango Chutney",
+      "description": "Sweet and Sour Mango Relish",
+      "price": "$3.99"
+    },
+    {
+      "category": "Accompaniments",
+      "name": "Onion, Lemon & Chilli",
+      "description": "",
+      "price": "$2.49"
+    },
+    {
+      "category": "Accompaniments",
+      "name": "Spicy Mix-veg Pickle/Tamarind Sauce/Mint Sauce",
+      "description": "",
+      "price": "$1.99"
+    },
+    {
+      "category": "Accompaniments",
+      "name": "Raita",
+      "description": "Sauce Made with yogurt, Cucumber and Mild Spices",
+      "price": "$2.99"
+    },
+    {
+      "category": "Accompaniments",
+      "name": "Extra Rice",
+      "description": "",
+      "price": "$4.99"
+    },
+    {
+      "category": "Accompaniments",
+      "name": "Papadam",
+      "description": "Fried erisp wafer Served with mint and Tamarind chutney",
+      "price": "$1.99"
+    },
+    {
+      "category": "Drinks",
+      "name": "Bottle Water",
+      "description": "",
+      "price": "$1.49"
+    },
+    {
+      "category": "Drinks",
+      "name": "Bottle Soda",
+      "description": "",
+      "price": "$2.79"
+    },
+    {
+      "category": "Drinks",
+      "name": "Lassi (Mango, Sweet, Salt)",
+      "description": "",
+      "price": "$4.99"
+    },
+    {
+      "category": "Drinks",
+      "name": "Masala Tea",
+      "description": "",
+      "price": "$3.99"
+    },
+    {
+      "category": "Drinks",
+      "name": "Madras Coffee",
+      "description": "",
+      "price": "$3.99"
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-03-21T14:35:40.238Z"
+}

@@ -1,0 +1,29 @@
+{
+  "name": "Pizza At The Pass",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "251.240.0500",
+    "address": "27267 Perdido Beach Blvd C2",
+    "city": "Orange Beach",
+    "email": "info@PizzaAtThePass.com"
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": "12:00 pm – 08:00 pm"
+  },
+  "about": {},
+  "social": {},
+  "menu": [],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:51.290Z"
+}

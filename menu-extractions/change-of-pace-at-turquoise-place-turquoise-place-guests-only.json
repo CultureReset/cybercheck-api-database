@@ -1,0 +1,79 @@
+{
+  "business_name": "Change of Pace",
+  "address": "26302 Perdido Beach Blvd, Orange Beach, AL 36561",
+  "phone": "(855) 203-0522",
+  "hours": {
+    "monday": "9 a.m. - 6 p.m. daily (Beginning May 17: 9 a.m. - 9 p.m.)",
+    "tuesday": "9 a.m. - 6 p.m. daily (Beginning May 17: 9 a.m. - 9 p.m.)",
+    "wednesday": "9 a.m. - 6 p.m. daily (Beginning May 17: 9 a.m. - 9 p.m.)",
+    "thursday": "9 a.m. - 6 p.m. daily (Beginning May 17: 9 a.m. - 9 p.m.)",
+    "friday": "9 a.m. - 6 p.m. daily (Beginning May 17: 9 a.m. - 9 p.m.)",
+    "saturday": "9 a.m. - 6 p.m. daily (Beginning May 17: 9 a.m. - 9 p.m.)",
+    "sunday": "9 a.m. - 6 p.m. daily (Beginning May 17: 9 a.m. - 9 p.m.)"
+  },
+  "breakfast_hours": "9 a.m. - 11 a.m.",
+  "happy_hour": {
+    "days": null,
+    "times": null,
+    "deals": []
+  },
+  "specials": [
+    "10% off when using Spectrum Resorts wristband"
+  ],
+  "menu": [
+    {
+      "section": "Breakfast",
+      "items": []
+    },
+    {
+      "section": "Lunch / Dinner",
+      "items": [
+        {
+          "name": "Burgers",
+          "price": null,
+          "description": "Sizzling burgers",
+          "dietary": []
+        },
+        {
+          "name": "Pizzas",
+          "price": null,
+          "description": "Tasty pizzas",
+          "dietary": []
+        },
+        {
+          "name": "Salads",
+          "price": null,
+          "description": "Vibrant salads",
+          "dietary": []
+        },
+        {
+          "name": "Gulf Seafood",
+          "price": null,
+          "description": "Fresh Gulf seafood",
+          "dietary": []
+        }
+      ]
+    },
+    {
+      "section": "Drinks",
+      "items": [
+        {
+          "name": "Tropical Cocktails",
+          "price": null,
+          "description": "Tropical drinks designed to transport you to paradise",
+          "dietary": []
+        }
+      ]
+    }
+  ],
+  "notes": "Poolside casual dining establishment. Detailed menu PDFs for Breakfast, Lunch/Dinner, and Bar are available but not readable in the screenshots provided. Rain and severe weather could affect hours. Breakfast served 9 a.m. - 11 a.m. daily.",
+  "_meta": {
+    "scraped_at": "2026-05-18T07:46:25.781Z",
+    "pages_visited": 15,
+    "menu_sections": 3,
+    "menu_items": 5,
+    "priced_items": 0,
+    "has_hours": true,
+    "source_url": "https://turquoiseplace.spectrumresorts.com/dining/change-of-pace/?utm_source=google_places&utm_medium=referral"
+  }
+}

@@ -1,0 +1,660 @@
+{
+  "name": "Bahama Bob's",
+  "type": "Restaurant",
+  "website": "https://www.bahamabobs.com",
+  "contact": {
+    "phone": "(251) 948-2100",
+    "address": "601 W Beach Blvd",
+    "city": "Gulf Shores",
+    "email": "whitspellbb@outlook.com"
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": "Hours not listed on website"
+  },
+  "about": {
+    "description": "Bahama Bob's is a laid-back beachside seafood restaurant located on West Beach in Gulf Shores, Alabama. Born from the adventurous spirit of founder Bob, who survived a hurricane near Rum Cay in the Bahamas and was inspired to bring a slice of island living to the Gulf Coast, Bahama Bob's serves up fresh Gulf seafood, burgers, po'boys, and island-inspired dishes in a friendly, casual atmosphere. The restaurant prides itself on being the place where you find the very best of everything you come to the beach for, all in one place.",
+    "elevator_pitch": "Bahama Bob's is the ultimate beachside escape on the Alabama Gulf Coast, serving fresh Gulf seafood and island-inspired eats with the kind of warm, unforgettable hospitality that keeps guests coming back trip after trip.",
+    "established": null,
+    "owner": null,
+    "chef": null,
+    "vibe": "Laid-back, island-inspired beachside gem with warm hospitality",
+    "best_for": [
+      "families",
+      "groups",
+      "beach vacationers",
+      "seafood lovers",
+      "casual dining"
+    ],
+    "age_restriction": null,
+    "dress_code": "Casual",
+    "parking": null,
+    "accessibility": null,
+    "reservations": null,
+    "insider_tip": "Don't miss the Alligator Bites or Smoked Tuna Dip as starters, and regulars rave about having the best fries on the beach — crispy and cooked just right.",
+    "awards": [],
+    "press": [
+      "Featured positive reviews praising the Bahama Bob Burger, Seafood Plate, house gumbo, shrimp & scallop skewers, and exceptional service from staff including Kevin and Skyler"
+    ]
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "twitter": null,
+    "tiktok": null,
+    "youtube": null,
+    "yelp": null,
+    "tripadvisor": null,
+    "opentable": null,
+    "google_maps": null,
+    "website": "https://www.bahamabobs.com"
+  },
+  "menu": [
+    {
+      "category": "Appetizers",
+      "name": "16 Wings",
+      "description": "",
+      "price": 27.99
+    },
+    {
+      "category": "Appetizers",
+      "name": "8 Wings",
+      "description": "",
+      "price": 15.99
+    },
+    {
+      "category": "Appetizers",
+      "name": "Alligator Bites",
+      "description": "An island specialty! Gator tail lightly breaded and deep fried. Served with Gator Sauce.",
+      "price": 17.99
+    },
+    {
+      "category": "Appetizers",
+      "name": "Bimini Steamed Shrimp",
+      "description": "Steamed in our island spices. 1/2 lb U peel-em",
+      "price": 14.99
+    },
+    {
+      "category": "Appetizers",
+      "name": "Boneless Wings",
+      "description": "",
+      "price": 12.99
+    },
+    {
+      "category": "Appetizers",
+      "name": "Cheese Stix",
+      "description": "Served with a tasty marinara sauce.",
+      "price": 10.99
+    },
+    {
+      "category": "Appetizers",
+      "name": "Fried Cheese & Jalapenos Stuffed Shrimp",
+      "description": "Jumbo shrimp stuffed with cheese & jalapenos lightly breaded and fried to perfection!",
+      "price": 13.99
+    },
+    {
+      "category": "Appetizers",
+      "name": "Crab Cay Crab Claws SMALL",
+      "description": "A local favorite, served with cocktail sauce. Fried or scampi style* (Tossed in garlic butter and topped with herbs and Parmesan cheese)",
+      "price": 40.99
+    },
+    {
+      "category": "Appetizers",
+      "name": "Crab Cay Crab Claws LARGE",
+      "description": "A local favorite, served with cocktail sauce. Fried or scampi style* (Tossed in garlic butter and topped with herbs and Parmesan cheese)",
+      "price": 25.99
+    },
+    {
+      "category": "Appetizers",
+      "name": "Coconut Fried Shrimp Appetizer",
+      "description": "Jumbo shrimp fried in a coconut batter.",
+      "price": 15.99
+    },
+    {
+      "category": "Appetizers",
+      "name": "Spicy Cajun Fried Crawfish Tails",
+      "description": "Cajun popcorn! Served with a zesty dipping sauce.",
+      "price": 17.99
+    },
+    {
+      "category": "Appetizers",
+      "name": "Fried Pickles",
+      "description": "Generous portion of dill pickle slices.",
+      "price": 9.99
+    },
+    {
+      "category": "Appetizers",
+      "name": "Gumbo Bowl",
+      "description": "Loaded with seafood & fresh veggies.",
+      "price": 10.99
+    },
+    {
+      "category": "Appetizers",
+      "name": "Gumbo Cup",
+      "description": "Loaded with seafood & fresh veggies.",
+      "price": 7.99
+    },
+    {
+      "category": "Appetizers",
+      "name": "Hush Puppies",
+      "description": "",
+      "price": 6.99
+    },
+    {
+      "category": "Appetizers",
+      "name": "Popcorn Shrimp App",
+      "description": "Fried to perfection! Grilled, Blackened or Buffalo style.",
+      "price": 15.99
+    },
+    {
+      "category": "Appetizers",
+      "name": "Fried Mushrooms",
+      "description": "Lightly breaded and deep fried. Served with Ranch dressing.",
+      "price": 10.99
+    },
+    {
+      "category": "Appetizers",
+      "name": "Smoked Tuna Dip",
+      "description": "Smoked Yellowfin Tuna blended with just a hint of spice.",
+      "price": 9.99
+    },
+    {
+      "category": "Sandwiches",
+      "name": "1/2 Shrimp 1/2 Oyster PoBoy",
+      "description": "",
+      "price": 17.99
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Alligator PoBoy",
+      "description": "",
+      "price": 24.99
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Cold Shrimp Salad PoBoy",
+      "description": "",
+      "price": 17.99
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Crawfish PoBoy",
+      "description": "",
+      "price": 17.99
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Fish PoBoy",
+      "description": "",
+      "price": 15.99
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Oyster PoBoy",
+      "description": "",
+      "price": 17.99
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Shrimp PoBoy",
+      "description": "",
+      "price": 16.99
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Trigger PoBoy",
+      "description": "",
+      "price": 21.99
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Crabby Patty",
+      "description": "Crab and shrimp lightly dusted in Panko breading and fried. Served with Remoulade sauce.",
+      "price": 16.99
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Flounder Sandwich",
+      "description": "",
+      "price": 15.99
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Trigger Sandwich",
+      "description": "",
+      "price": 21.99
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Tuna Sandwich Grilled",
+      "description": "",
+      "price": 17.99
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Chicken Sandwich",
+      "description": "",
+      "price": 15.99
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Bob Burger",
+      "description": "",
+      "price": 18.99
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Hamburger",
+      "description": "",
+      "price": 13.99
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Cheeseburger",
+      "description": "",
+      "price": 15.49
+    },
+    {
+      "category": "Entrees",
+      "name": "Grilled Shrimp & Scallop Combo",
+      "description": "Skewer of grilled shrimp and scallops.",
+      "price": 22.99
+    },
+    {
+      "category": "Entrees",
+      "name": "Grand Bahama Chicken",
+      "description": "Chicken breast topped with grilled pineapple.",
+      "price": 18.99
+    },
+    {
+      "category": "Entrees",
+      "name": "Baked White Fish",
+      "description": "White fish filet glazed with our special seasoning and char-grilled.",
+      "price": 22.99
+    },
+    {
+      "category": "Entrees",
+      "name": "Big Kahuna",
+      "description": "A large choice, hand-cut USDA steak char-grilled to order. Doesn't get any better!",
+      "price": 42.99
+    },
+    {
+      "category": "Entrees",
+      "name": "Fried Captain's Platter",
+      "description": "Shrimp, oysters, and flounder plus stuffed shrimp, coconut shrimp and scallops. (no Substitutions)",
+      "price": 35.99
+    },
+    {
+      "category": "Entrees",
+      "name": "Coconut Shrimp Dinner",
+      "description": "Captain Steve's deep fried coconut battered shrimp, served with a zesty dipping sauce.",
+      "price": 23.99
+    },
+    {
+      "category": "Entrees",
+      "name": "Crab Legs 1LB",
+      "description": "Some of the largest sized crab legs steamed in our special spices. Served with garlic butter.",
+      "price": 39.99
+    },
+    {
+      "category": "Entrees",
+      "name": "Crab Legs 2LB",
+      "description": "Some of the largest sized crab legs steamed in our special spices. Served with garlic butter.",
+      "price": 69.99
+    },
+    {
+      "category": "Entrees",
+      "name": "Crab Legs 3LB",
+      "description": "Some of the largest sized crab legs steamed in our special spices. Served with garlic butter.",
+      "price": 99.99
+    },
+    {
+      "category": "Entrees",
+      "name": "Fried Crawfish Dinner",
+      "description": "Tender, sweet crawfish, lightly breaded and deep fried.",
+      "price": 26.99
+    },
+    {
+      "category": "Entrees",
+      "name": "Flounder Dinner",
+      "description": "Fresh catch flounder filet cooked to your liking.",
+      "price": 19.99
+    },
+    {
+      "category": "Entrees",
+      "name": "Oyster Dinner",
+      "description": "Plump oysters deep fried to perfection.",
+      "price": 22.99
+    },
+    {
+      "category": "Entrees",
+      "name": "Pecan White Fish",
+      "description": "Pecan crusted filet fried to a golden brown served over a bed of French Fries. Comes with Fries and Cole Slaw.",
+      "price": 22.99
+    },
+    {
+      "category": "Entrees",
+      "name": "Popcorn Shrimp Dinner",
+      "description": "One half pound of fried popcorn shrimp.",
+      "price": 22.99
+    },
+    {
+      "category": "Entrees",
+      "name": "Scallops Dinner",
+      "description": "Cooked to your liking.",
+      "price": 23.99
+    },
+    {
+      "category": "Entrees",
+      "name": "Seafood Platter",
+      "description": "A combination of large shrimp, oysters, and flounder. (no Substitutions)",
+      "price": 26.99
+    },
+    {
+      "category": "Entrees",
+      "name": "Shrimp Dinner",
+      "description": "Gulf shrimp cooked to your liking.",
+      "price": 20.99
+    },
+    {
+      "category": "Entrees",
+      "name": "Steamed Island Combo",
+      "description": "One pound of Steamed Deep-Water Reds combined with Crab Legs. Served with garlic butter.",
+      "price": 41.99
+    },
+    {
+      "category": "Entrees",
+      "name": "Steamed Deep-Water Reds",
+      "description": "Pound of tender deep-water shrimp in the rough, spiced and steamed just right. Served with garlic butter.",
+      "price": 29.99
+    },
+    {
+      "category": "Entrees",
+      "name": "Trigger Dinner",
+      "description": "Fresh Trigger Filet cooked to your liking.",
+      "price": 23.99
+    },
+    {
+      "category": "Entrees",
+      "name": "Tuna Dinner Grilled",
+      "description": "Yellowfin Tuna seasoned and grilled to order.",
+      "price": 22.99
+    },
+    {
+      "category": "Salads",
+      "name": "Chicken Salad",
+      "description": "Fresh garden greens garnished with cheese, tomatoes, cucumbers, carrots, onions and topped with dressing of your choice. Topped with chicken cooked to your liking.",
+      "price": 16.99
+    },
+    {
+      "category": "Salads",
+      "name": "Cold Shrimp Salad",
+      "description": "",
+      "price": 19.99
+    },
+    {
+      "category": "Salads",
+      "name": "Crawfish Salad",
+      "description": "Fresh garden greens garnished with cheese, tomatoes, cucumbers, carrots, onions and topped with dressing of your choice. Topped with fried crawfish.",
+      "price": 19.99
+    },
+    {
+      "category": "Salads",
+      "name": "Fish Salad",
+      "description": "Fresh garden greens garnished with cheese, tomatoes, cucumbers, carrots, onions and topped with dressing of your choice. Topped with white fish filet cooked to your liking.",
+      "price": 17.99
+    },
+    {
+      "category": "Salads",
+      "name": "Fried Oyster Salad",
+      "description": "Fresh garden greens garnished with cheese, tomatoes, cucumbers, carrots, onions and topped with dressing of your choice. Topped with fried oysters.",
+      "price": 19.99
+    },
+    {
+      "category": "Salads",
+      "name": "House Salad",
+      "description": "Fresh garden greens garnished with cheese, tomatoes, cucumbers, carrots, onions and topped with dressing of your choice.",
+      "price": 6.99
+    },
+    {
+      "category": "Salads",
+      "name": "Plain Large Salad",
+      "description": "Fresh garden greens garnished with cheese, tomatoes, cucumbers, carrots, onions and topped with dressing of your choice.",
+      "price": 10.99
+    },
+    {
+      "category": "Salads",
+      "name": "Popcorn Shrimp Salad",
+      "description": "Fresh garden greens garnished with cheese, tomatoes, cucumbers, carrots, onions and topped with dressing of your choice. Topped with popcorn shrimp cooked to your liking.",
+      "price": 18.99
+    },
+    {
+      "category": "Salads",
+      "name": "Scallop Salad",
+      "description": "Fresh garden greens garnished with cheese, tomatoes, cucumbers, carrots, onions and topped with dressing of your choice. Topped with scallops cooked to your liking.",
+      "price": 19.99
+    },
+    {
+      "category": "Salads",
+      "name": "Shrimp Salad",
+      "description": "Fresh garden greens garnished with cheese, tomatoes, cucumbers, carrots, onions and topped with dressing of your choice. Topped with Gulf Shrimp cooked to your liking.",
+      "price": 18.99
+    },
+    {
+      "category": "Salads",
+      "name": "Trigger Salad",
+      "description": "Fresh garden greens garnished with cheese, tomatoes, cucumbers, carrots, onions and topped with dressing of your choice. Topped with trigger filet cooked to your liking.",
+      "price": 21.99
+    },
+    {
+      "category": "Salads",
+      "name": "Tuna Salad Grilled",
+      "description": "Fresh garden greens garnished with cheese, tomatoes, cucumbers, carrots, onions and topped with dressing of your choice. Topped with grilled tuna filet.",
+      "price": 19.99
+    },
+    {
+      "category": "Sides",
+      "name": "Broccoli",
+      "description": "",
+      "price": 5.99
+    },
+    {
+      "category": "Sides",
+      "name": "Dinner Roll",
+      "description": "",
+      "price": 1.25
+    },
+    {
+      "category": "Sides",
+      "name": "Fries",
+      "description": "",
+      "price": 5.99
+    },
+    {
+      "category": "Sides",
+      "name": "Green Beans",
+      "description": "",
+      "price": 3.99
+    },
+    {
+      "category": "Sides",
+      "name": "House Salad Side",
+      "description": "",
+      "price": 6.99
+    },
+    {
+      "category": "Sides",
+      "name": "New Potatoes",
+      "description": "",
+      "price": 2.99
+    },
+    {
+      "category": "Sides",
+      "name": "Onion Rings",
+      "description": "",
+      "price": 5.99
+    },
+    {
+      "category": "Sides",
+      "name": "Rice",
+      "description": "",
+      "price": 2.99
+    },
+    {
+      "category": "Sides",
+      "name": "Slaw",
+      "description": "",
+      "price": 2.99
+    },
+    {
+      "category": "Sides",
+      "name": "Vegetable of the Day",
+      "description": "",
+      "price": 3.99
+    },
+    {
+      "category": "Kids",
+      "name": "Kid Burger",
+      "description": "Served with a side.",
+      "price": 10
+    },
+    {
+      "category": "Kids",
+      "name": "Kid Cheeseburger",
+      "description": "Served with a side.",
+      "price": 10
+    },
+    {
+      "category": "Kids",
+      "name": "Kid Chicken",
+      "description": "Served with a side.",
+      "price": 10
+    },
+    {
+      "category": "Kids",
+      "name": "Kid Dog",
+      "description": "Served with a side.",
+      "price": 10
+    },
+    {
+      "category": "Kids",
+      "name": "Kid Fish",
+      "description": "Served with a side.",
+      "price": 10
+    },
+    {
+      "category": "Kids",
+      "name": "Kid Grilled Cheese",
+      "description": "Served with a side.",
+      "price": 10
+    },
+    {
+      "category": "Kids",
+      "name": "Kid Shrimp",
+      "description": "",
+      "price": 10
+    },
+    {
+      "category": "Desserts",
+      "name": "Ice Cream - Bowl",
+      "description": "",
+      "price": 5.99
+    },
+    {
+      "category": "Desserts",
+      "name": "Ice Cream - Cup",
+      "description": "",
+      "price": 2.99
+    },
+    {
+      "category": "Desserts",
+      "name": "Key Lime Pie",
+      "description": "",
+      "price": 5.99
+    },
+    {
+      "category": "Desserts",
+      "name": "Peanut Butter Pie",
+      "description": "",
+      "price": 8.99
+    },
+    {
+      "category": "Desserts",
+      "name": "Salted Caramel Cheesecake",
+      "description": "",
+      "price": 6.99
+    },
+    {
+      "category": "Desserts",
+      "name": "Toppings",
+      "description": "",
+      "price": 0.99
+    },
+    {
+      "category": "Beverages",
+      "name": "Tea or Soft Drink",
+      "description": "",
+      "price": 2.99
+    },
+    {
+      "category": "Beverages",
+      "name": "Coffee",
+      "description": "",
+      "price": 3.49
+    },
+    {
+      "category": "Beverages",
+      "name": "Milk",
+      "description": "",
+      "price": 3.49
+    },
+    {
+      "category": "Beverages",
+      "name": "Chocolate Milk",
+      "description": "",
+      "price": 3.49
+    },
+    {
+      "category": "Beverages",
+      "name": "OJ",
+      "description": "",
+      "price": 3.49
+    },
+    {
+      "category": "Beverages",
+      "name": "Cranberry Juice",
+      "description": "",
+      "price": 3.49
+    },
+    {
+      "category": "Beverages",
+      "name": "Grapefruit Juice",
+      "description": "",
+      "price": 3.49
+    },
+    {
+      "category": "Beverages",
+      "name": "Shirley Temple",
+      "description": "",
+      "price": 3.99
+    },
+    {
+      "category": "Beverages",
+      "name": "Virgin Mary",
+      "description": "",
+      "price": 3.49
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 12,
+  "scraped_at": "2026-03-21T19:23:05.725Z"
+}

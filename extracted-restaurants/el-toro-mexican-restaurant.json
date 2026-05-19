@@ -1,0 +1,48 @@
+{
+  "name": "El Toro Mexican Restaurant",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "(251) 317-2361",
+    "address": "3645 Gulf Shores Pkwy",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {
+    "monday": "11:00 am - 10:00 pm",
+    "tuesday": "11:00 am - 10:00 pm",
+    "wednesday": "11:00 am - 10:00 pm",
+    "thursday": "11:00 am - 10:00 pm",
+    "friday": "11:00 am - 11:00 pm",
+    "saturday": "11:00 am - 10:00 pm",
+    "sunday": "11:00 am - 9:00 pm"
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Popular Items",
+      "name": "39. Steak or Chicken Fajitas",
+      "description": "Strips of sizzling steak or chicken breast with onions, bell peppers and tomatoes. Served with guacamole salad, refried beans and rice",
+      "price": 15.74
+    },
+    {
+      "category": "Popular Items",
+      "name": "20. Chicken Quesadillas",
+      "description": "Two quesadillas stuffed with chicken and cheese. Served with a guacamole salad",
+      "price": 13.53
+    },
+    {
+      "category": "Popular Items",
+      "name": "73. Beef Taco Platter",
+      "description": "Two beef tacos topped with lettuce, tomatoes and cheese. Served with rice and beans",
+      "price": 11.01
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:50.263Z"
+}

@@ -1,0 +1,9 @@
+{
+  "generated_at": "2026-05-18T23:22:41.704Z",
+  "total_restaurants": 166,
+  "successful": 60,
+  "failed": 106,
+  "skipped": 0,
+  "total_menu_items_extracted": 1017,
+  "estimated_cost": "$6.64"
+}

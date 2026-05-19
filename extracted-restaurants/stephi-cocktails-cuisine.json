@@ -1,0 +1,32 @@
+{
+  "name": "stephi-cocktails-cuisine",
+  "type": "Restaurant",
+  "website": "http://stephicuisine.com/",
+  "contact": {
+    "phone": "",
+    "address": "",
+    "city": "",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null
+  },
+  "about": {
+    "description": null,
+    "cuisine_type": null
+  },
+  "social": {},
+  "menu": [],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-03-22T18:35:09.119Z"
+}

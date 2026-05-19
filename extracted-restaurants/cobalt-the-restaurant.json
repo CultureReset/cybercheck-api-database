@@ -1,0 +1,95 @@
+{
+  "name": "Cobalt, The Restaurant",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "251-923-5300",
+    "address": "28099 Perdido Beach Blvd",
+    "city": "Orange Beach",
+    "email": ""
+  },
+  "hours": {
+    "monday": "11am-9:30pm",
+    "tuesday": "11am-9:30pm",
+    "wednesday": "11am-9:30pm",
+    "thursday": "11am-9:30pm",
+    "friday": "11am-10pm",
+    "saturday": "11am-10pm",
+    "sunday": "11am-9:30pm"
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Appetizers",
+      "name": "BBQ Gulf Shrimp",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Crab and Shrimp Dip",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Cobalt Caviar",
+      "description": "A refreshing blend of black beans, edamame, corn, red onion, Roma tomatoes, and cilantro tossed in a light vinaigrette and served with corn tortilla chips",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Firecracker Shrimp",
+      "description": "Lightly dusted, fried, and tossed in spicy remoulade sauce",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Gulf Shrimp and Grits",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Pecan Catfish",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Bronze Gulf Grouper",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Shrimp Fra Diavolo",
+      "description": "Sautéed with roasted mushrooms, chargrilled lemon, fresh spinach and arugula",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Tuna and Avocado Stack",
+      "description": "Served in a sweet Asian sauce",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Happy Hour",
+      "description": "Features specials on draft beer, house wines and awesome appetizers including Cobalt Caviar and Firecracker Shrimp",
+      "discount": ""
+    },
+    {
+      "name": "Sunday Brunch",
+      "description": "Includes live music starting March 2026",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:50.161Z"
+}

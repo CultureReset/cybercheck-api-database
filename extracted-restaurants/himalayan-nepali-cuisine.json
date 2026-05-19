@@ -1,0 +1,42 @@
+{
+  "name": "HIMALAYAN NEPALI CUISINE",
+  "type": "Restaurant",
+  "website": "https://www.namastenepalirestaurant.net/",
+  "contact": {
+    "phone": "",
+    "address": "",
+    "city": "",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": null
+  },
+  "about": {
+    "description": "No restaurant data found on provided website",
+    "elevator_pitch": "Website contains no restaurant information",
+    "vibe": null,
+    "best_for": [],
+    "established": null,
+    "reservations": null,
+    "insider_tip": null
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://www.namastenepalirestaurant.net"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 24,
+  "scraped_at": "2026-03-22T01:47:09.441Z"
+}

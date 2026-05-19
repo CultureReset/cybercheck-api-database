@@ -1,0 +1,73 @@
+{
+  "name": "Getaway Charters",
+  "type": "Fishing Charter",
+  "website": "https://getawaygulffishing.com",
+  "contact": {
+    "phone": "251-600-5850",
+    "address": "26619 Perdido Beach Blvd",
+    "city": "Orange Beach",
+    "email": "getawaychartersoba@gmail.com"
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": "Contact for specific hours"
+  },
+  "about": {
+    "description": "Getaway Charters has been in business since 1995 with some of the best fishing charter boats in Orange Beach, Alabama. Located at Zekes Marina, we are only 10 minutes from Gulf Shores AL and Perdido Key FL. Two exceptional vessels (Getaway & Another Getaway) designed for unforgettable fishing experiences with one of the most popular charter companies on the Gulf of Mexico.",
+    "elevator_pitch": "Premier deep sea and family fishing charter company in Orange Beach offering full and half-day adventures since 1995.",
+    "vibe": "Professional, family-friendly, experienced captains and deckhands, well-maintained vessels with modern electronics and comfortable amenities",
+    "best_for": [
+      "families",
+      "beginners",
+      "kids",
+      "experienced anglers",
+      "groups",
+      "adventure seekers"
+    ],
+    "capacity": "Up to 6 passengers per boat",
+    "duration_options": [
+      "4 hours",
+      "5 hours",
+      "6 hours",
+      "6-8 hours",
+      "full day",
+      "overnight excursions"
+    ],
+    "departure_location": "Zekes Marina, Orange Beach, AL",
+    "what_provided": [
+      "fishing rods",
+      "tackle",
+      "fishing license",
+      "climate controlled cabin",
+      "comfortable seating",
+      "restroom",
+      "sleeping accommodations (overnight trips)",
+      "Sirius Satellite Stereo"
+    ],
+    "what_to_bring": null,
+    "age_restriction": null,
+    "weight_restriction": null,
+    "reservations": "Book Now available on website",
+    "cancellation_policy": null,
+    "insider_tip": "Located only 10 minutes from Gulf Shores AL and Perdido Key FL. Vessels equipped with Furuno radar, Simrad bottom machine, and Simrad chart plotter for optimal fishing conditions."
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "tripadvisor": null,
+    "website": "https://getawaygulffishing.com"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 10,
+  "scraped_at": "2026-03-21T19:48:03.445Z"
+}

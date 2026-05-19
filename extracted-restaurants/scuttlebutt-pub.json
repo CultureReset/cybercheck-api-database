@@ -1,0 +1,285 @@
+{
+  "name": "Scuttlebutt Pub",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "(251) 971-6403",
+    "address": "319A N McKenzie St",
+    "city": "Foley",
+    "email": ""
+  },
+  "hours": {
+    "monday": "11am-2am",
+    "tuesday": "11am-2am",
+    "wednesday": "11am-2am",
+    "thursday": "11am-2am",
+    "friday": "11am-2am",
+    "saturday": "11am-2am",
+    "sunday": "11am-2am"
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Light Beers",
+      "name": "Bud Light",
+      "description": "",
+      "price": 4
+    },
+    {
+      "category": "Light Beers",
+      "name": "Bud Light Lime",
+      "description": "",
+      "price": 3
+    },
+    {
+      "category": "Light Beers",
+      "name": "Busch Light",
+      "description": "",
+      "price": 4
+    },
+    {
+      "category": "Light Beers",
+      "name": "Coors Light",
+      "description": "",
+      "price": 4
+    },
+    {
+      "category": "Light Beers",
+      "name": "Miller Lite",
+      "description": "",
+      "price": 4
+    },
+    {
+      "category": "Light Beers",
+      "name": "Michelob Ultra",
+      "description": "",
+      "price": 4
+    },
+    {
+      "category": "Light Beers",
+      "name": "Michelob Lite",
+      "description": "",
+      "price": 4
+    },
+    {
+      "category": "Light Beers",
+      "name": "Michelob Gold",
+      "description": "",
+      "price": 4
+    },
+    {
+      "category": "Lagers",
+      "name": "Budweiser",
+      "description": "",
+      "price": 4
+    },
+    {
+      "category": "Lagers",
+      "name": "Busch",
+      "description": "",
+      "price": 3
+    },
+    {
+      "category": "Lagers",
+      "name": "Miller High Life",
+      "description": "",
+      "price": 4
+    },
+    {
+      "category": "Lagers",
+      "name": "PBR",
+      "description": "",
+      "price": 4
+    },
+    {
+      "category": "Lagers",
+      "name": "Yuengling",
+      "description": "",
+      "price": 3
+    },
+    {
+      "category": "Island-Style",
+      "name": "Corona",
+      "description": "",
+      "price": 5
+    },
+    {
+      "category": "Island-Style",
+      "name": "Dos Equis",
+      "description": "",
+      "price": 5
+    },
+    {
+      "category": "Import",
+      "name": "Red Stripe",
+      "description": "",
+      "price": 3
+    },
+    {
+      "category": "Import",
+      "name": "Guinness",
+      "description": "",
+      "price": 7
+    },
+    {
+      "category": "Cider",
+      "name": "Angry Orchard",
+      "description": "",
+      "price": 5
+    },
+    {
+      "category": "Cider",
+      "name": "Ace Guava",
+      "description": "",
+      "price": 7
+    },
+    {
+      "category": "Wines - White",
+      "name": "Sonoroso Sweet White",
+      "description": "",
+      "price": 7
+    },
+    {
+      "category": "Wines - White",
+      "name": "Franciscan Chardonnay",
+      "description": "",
+      "price": 9
+    },
+    {
+      "category": "Wines - White",
+      "name": "Frontera Chardonnay",
+      "description": "",
+      "price": 6
+    },
+    {
+      "category": "Wines - Red",
+      "name": "Frontera Cabernet Sauvignon",
+      "description": "",
+      "price": 6
+    },
+    {
+      "category": "Wines - Red",
+      "name": "Sonoroso Sweet Red",
+      "description": "",
+      "price": 7
+    },
+    {
+      "category": "Shooters",
+      "name": "Double D's",
+      "description": "Blue Chair Key Lime, Blue Chair Pineapple, and bitters",
+      "price": 6
+    },
+    {
+      "category": "Shooters",
+      "name": "Painkiller",
+      "description": "Pineapple and orange juice, Coco Lopez, and dark rum",
+      "price": 5
+    },
+    {
+      "category": "Shooters",
+      "name": "Lemon Drop",
+      "description": "Lemon vodka, lemon juice, and sugar",
+      "price": 5
+    },
+    {
+      "category": "Shooters",
+      "name": "Green Tea",
+      "description": "Irish Whiskey, peach schnapps, and sour",
+      "price": 7
+    },
+    {
+      "category": "Shooters",
+      "name": "Butt Punch",
+      "description": "Fresh juice, dark rum, bitters, and nutmeg",
+      "price": 5
+    },
+    {
+      "category": "Shooters",
+      "name": "Ginger",
+      "description": "Gin, Domaine de Canton, lemon juice",
+      "price": 8
+    },
+    {
+      "category": "One & One",
+      "name": "Bartender's Handshake",
+      "description": "Budweiser Lager & Jameson Irish Whiskey",
+      "price": 12
+    },
+    {
+      "category": "One & One",
+      "name": "Angry Balls",
+      "description": "Angry Orchard Hard Cider & Fireball",
+      "price": 8
+    },
+    {
+      "category": "One & One",
+      "name": "Salt & Lime",
+      "description": "Good People Muchacho & Corazon tequila",
+      "price": 11
+    },
+    {
+      "category": "One & One",
+      "name": "The Usual",
+      "description": "Crown Royal Canadian Whiskey & Budweiser Lager",
+      "price": 9
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Happy Hour",
+      "description": "$1 Off Bottled Beer, Jägermeister, Fireball, Crown Royal, Skrewball; $5 Double D's, Baby Bombs, Old Fashioneds, José Gold; $6 Martinis, Margaritas, Green Teas, Vegas Bomb, Tito's",
+      "discount": ""
+    },
+    {
+      "name": "All Day Sunday Happy Hour",
+      "description": "$1 Off Bottled Beer, Jägermeister, Fireball, Crown Royal, Skrewball; $5 Double D's, Baby Bombs, Old Fashioneds, José Gold; $6 Martinis, Margaritas, Green Teas, Vegas Bomb, Tito's",
+      "discount": ""
+    },
+    {
+      "name": "Martini Mondays",
+      "description": "Martinis $6, Mojitos $7",
+      "discount": ""
+    },
+    {
+      "name": "Tequila Tuesdays",
+      "description": "Margaritas $6",
+      "discount": ""
+    },
+    {
+      "name": "Whiskey Wednesdays",
+      "description": "Old Fashioneds $5",
+      "discount": ""
+    },
+    {
+      "name": "Free Pool Play",
+      "description": "",
+      "discount": ""
+    },
+    {
+      "name": "Service Industry Night",
+      "description": "",
+      "discount": ""
+    },
+    {
+      "name": "Karaoke Night",
+      "description": "",
+      "discount": ""
+    },
+    {
+      "name": "Third Thursday Downtown Foley",
+      "description": "",
+      "discount": ""
+    },
+    {
+      "name": "Live Music",
+      "description": "",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:51.341Z"
+}

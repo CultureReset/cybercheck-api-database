@@ -1,0 +1,57 @@
+{
+  "name": "Brett/Robinson Vacation Rentals - Phoenix V",
+  "type": "Vacation Rental - Beachfront Condo",
+  "website": "https://www.brett-robinson.com/beach-condo/phoenix-v/",
+  "contact": {
+    "phone": "+1-800-211-7892",
+    "address": "24400 Perdido Beach Blvd",
+    "city": "Orange Beach",
+    "email": ""
+  },
+  "hours": {},
+  "about": {
+    "description": "Phoenix V is a family-friendly beachfront condo complex in Orange Beach offering 1-, 2-, and 3-bedroom vacation rentals with direct beach access and Gulf-front views. Located close to dining, shopping, and attractions in both Orange Beach and Gulf Shores, Phoenix V is designed for families and groups looking for space, convenience, and resort-style amenities. All units feature Gulf views from expansive private balconies, floor-to-ceiling windows, and open living areas.",
+    "elevator_pitch": "Beachfront family-friendly condo resort in Orange Beach with 1-3 bedroom units, direct beach access, multiple pools, splash pad, and resort amenities.",
+    "total_units": null,
+    "floors": null,
+    "year_built": null,
+    "pet_friendly": false,
+    "minimum_stay": null,
+    "check_in": "Varies by season",
+    "check_out": "Varies by season",
+    "age_restriction": null
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/brett_robinson_vacations",
+    "facebook": "https://www.facebook.com/BrettRobinsonVacations",
+    "website": "https://www.brett-robinson.com/beach-condo/phoenix-v/"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Hot Deals",
+      "description": "Current promotional rates on select units",
+      "discount": ""
+    },
+    {
+      "name": "Seasonal Discounts",
+      "description": "Promotions available during specific seasons",
+      "discount": ""
+    },
+    {
+      "name": "Last-Minute Deals",
+      "description": "Discounted rates on last-minute bookings",
+      "discount": ""
+    },
+    {
+      "name": "Early Booking Discounts",
+      "description": "Best rates available for early bookings",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 23,
+  "scraped_at": "2026-03-21T20:49:53.422Z"
+}

@@ -1,0 +1,135 @@
+{
+  "business_name": null,
+  "cuisine_type": null,
+  "price_range": null,
+  "description": null,
+  "atmosphere": null,
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": null,
+    "website": "osobearpoint.com",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": null,
+      "instagram": null,
+      "twitter": null,
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": null,
+    "takeout_available": null,
+    "delivery_available": null,
+    "curbside_available": null,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [],
+    "wine_list": null,
+    "beer_selection": null,
+    "cocktails": null,
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": null,
+      "vegan": null,
+      "gluten_free": null,
+      "dairy_free": null,
+      "nut_free": null,
+      "kosher": null,
+      "halal": null
+    }
+  },
+  "happy_hour": {
+    "available": null,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [],
+  "entertainment_and_events": [],
+  "private_events": {
+    "available": null,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": null,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": null,
+    "pets_allowed": null
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": null,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": null,
+    "private_dining": null
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": null,
+    "email_signup": null,
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": null,
+    "farm_to_table": null,
+    "sustainable": null,
+    "organic": null,
+    "details": null
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [],
+    "common_praise": [],
+    "common_complaints": []
+  },
+  "photos_and_media": [],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "Just a moment... Performing security verification This website uses a security service to protect against malicious bots. This page is displayed while the website verifies you are not a bot. Verification successful. Waiting for osobearpoint.com to respond Enable JavaScript and cookies to continue Ray ID: 9fb87d7bfc591350 Performance and Security by Cloudflare Privacy",
+  "extraction_confidence": "low",
+  "extraction_notes": "This HTML is a Cloudflare security challenge page (CAPTCHA verification page), not the actual restaurant website. The domain osobearpoint.com is being protected by Cloudflare's challenge platform. No restaurant data is accessible from this page. The page only contains generic security verification content and no menu, hours, contact information, or other restaurant details. To extract restaurant data, the actual website content would need to be accessed after passing the Cloudflare challenge.",
+  "folder": "ChIJi-22Ig6okIgR28UIl3DUZLg_OSO at Bear Point Harbor - Orange Beach",
+  "extracted_at": "2026-05-15T06:30:23.861Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJi-22Ig6okIgR28UIl3DUZLg_OSO at Bear Point Harbor - Orange Beach/01_raw_html.html"
+}

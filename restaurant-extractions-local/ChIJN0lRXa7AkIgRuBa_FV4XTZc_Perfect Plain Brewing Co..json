@@ -1,0 +1,141 @@
+{
+  "business_name": "Perennial Hospitality Group",
+  "cuisine_type": "Multi-concept hospitality group (Brewery, Tacos, Grain, Bar)",
+  "price_range": null,
+  "description": "Light-filled, industrial-style brewery and event space offering local craft beers & a spacious, dog-friendly patio. Perennial Hospitality Group is a multi-concept restaurant and bar group with multiple locations including Perfect Plain Brewing Co., Garden & Grain, El Camino Tacos, and The Well.",
+  "atmosphere": "Light-filled, industrial-style",
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": null,
+    "website": "https://www.perfectplain.com",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": "https://www.facebook.com/PerfectPlainBrewingCo/",
+      "instagram": "https://www.instagram.com/perfectplain/",
+      "twitter": null,
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": true,
+    "takeout_available": null,
+    "delivery_available": null,
+    "curbside_available": null,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [],
+    "wine_list": null,
+    "beer_selection": "Local craft beers available",
+    "cocktails": null,
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": null,
+      "vegan": null,
+      "gluten_free": null,
+      "dairy_free": null,
+      "nut_free": null,
+      "kosher": null,
+      "halal": null
+    }
+  },
+  "happy_hour": {
+    "available": null,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [],
+  "entertainment_and_events": [],
+  "private_events": {
+    "available": true,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": true,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": null,
+    "pets_allowed": true
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": null,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": null,
+    "private_dining": true
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": null,
+    "email_signup": null,
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": true,
+    "farm_to_table": null,
+    "sustainable": null,
+    "organic": null,
+    "details": "Local craft beers offered"
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [],
+    "common_praise": [],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "logo",
+      "url": "//images.squarespace-cdn.com/content/v1/66e1b463797f085228d411c2/a4ea225d-e0a0-42e9-832e-bc7a9f9e5c66/PHG-Logo-Circle.png",
+      "description": "Perennial Hospitality Group Logo"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "Perennial Hospitality Group. Light-filled, industrial-style brewery and event space offering local craft beers & a spacious, dog-friendly patio. Navigation includes: Merch, Upcoming Events, Perfect Plain Brewing Co., Garden & Grain, El Camino Tacos, The Well, About, Events & Catering, Offsite Bar Services. Website: www.perfectplain.com. Social: Facebook (PerfectPlainBrewingCo), Instagram (perfectplain).",
+  "extraction_confidence": "medium",
+  "extraction_notes": "This is primarily a landing/homepage for a hospitality group management website rather than a single restaurant. The HTML contains limited specific menu, hours, pricing, and contact information. The page appears to be a Squarespace site that serves as a hub for multiple restaurant concepts (Perfect Plain Brewing Co., Garden & Grain, El Camino Tacos, The Well). Detailed information about individual locations would likely be found on their respective pages. Dog-friendly patio confirmed from meta description. Events and catering services mentioned in navigation. Specific operational details like phone number, address, hours of operation, and detailed menu items are not visible on this homepage extract.",
+  "folder": "ChIJN0lRXa7AkIgRuBa_FV4XTZc_Perfect Plain Brewing Co.",
+  "extracted_at": "2026-05-15T06:17:46.830Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJN0lRXa7AkIgRuBa_FV4XTZc_Perfect Plain Brewing Co./01_raw_html.html"
+}

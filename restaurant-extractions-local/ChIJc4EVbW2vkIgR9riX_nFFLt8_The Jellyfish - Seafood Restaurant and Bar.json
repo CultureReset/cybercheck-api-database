@@ -1,0 +1,218 @@
+{
+  "business_name": "The Jellyfish - Seafood Restaurant and Bar",
+  "cuisine_type": "Seafood, Sushi, Steakhouse",
+  "price_range": null,
+  "description": "The Jellyfish is one of the best seafood restaurants in Perdido Key, serving nearby areas including Orange Beach and Gulf Shores. The restaurant is famous for sushi, oysters, fish, and steaks. Established shortly after Hurricane Ivan in 2004, it started as a small sushi and martini bar and has grown into one of Pensacola's premier restaurants. Locally owned and operated with a commitment to excellence: 'Anything worth doing is worth doing well.' The menu caters to diverse tastes with the best sushi, steaks, oyster bar, and seafood offerings.",
+  "atmosphere": null,
+  "chef_info": null,
+  "awards": [
+    "Best in Pensacola 2022"
+  ],
+  "contact": {
+    "phone": "1-850-332-6532",
+    "email": "info@thejellyfishbar.com",
+    "address": "13700 Perdido Key Dr, Pensacola, FL 32507",
+    "website": "https://thejellyfishbar.com",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": "https://www.facebook.com/thejellyfishrestaurant/",
+      "instagram": "https://www.instagram.com/explore/tags/thejellyfishbar/?hl=en",
+      "twitter": "https://twitter.com/thejellyfishbar",
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": "11 AM - 10 PM",
+    "tuesday": "11 AM - 10 PM",
+    "wednesday": "11 AM - 10 PM",
+    "thursday": "11 AM - 10 PM",
+    "friday": "11 AM - 10 PM",
+    "saturday": "11 AM - 10 PM",
+    "sunday": "11 AM - 10 PM",
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": true,
+    "takeout_available": true,
+    "delivery_available": false,
+    "curbside_available": false,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [
+      {
+        "name": "Sushi Menu",
+        "description": null,
+        "items": []
+      },
+      {
+        "name": "Seafood",
+        "description": null,
+        "items": []
+      },
+      {
+        "name": "Steaks",
+        "description": null,
+        "items": []
+      },
+      {
+        "name": "Oyster Bar",
+        "description": null,
+        "items": []
+      }
+    ],
+    "wine_list": null,
+    "beer_selection": "Draft beers available (mentioned: Riptide Brew)",
+    "cocktails": "Martinis available",
+    "kids_menu": "Available (PDF menu link provided)",
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": null,
+      "vegan": null,
+      "gluten_free": null,
+      "dairy_free": null,
+      "nut_free": null,
+      "kosher": null,
+      "halal": null
+    }
+  },
+  "happy_hour": {
+    "available": true,
+    "days": "Monday through Friday",
+    "start_time": "1:00 PM",
+    "end_time": "5:00 PM",
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": "Happy Hour from Monday through Friday from 1pm-5pm"
+  },
+  "specials_and_promotions": [
+    {
+      "type": "military_discount",
+      "day_of_week": "Thursday",
+      "name": "Military and First Responders Discount",
+      "description": "All Military and First Responders receive 25% discount all day every Thursday",
+      "discount": "25% off",
+      "valid_until": null
+    },
+    {
+      "type": "military_discount",
+      "day_of_week": "Daily",
+      "name": "Military and First Responders Discount",
+      "description": "15% off every other day",
+      "discount": "15% off",
+      "valid_until": null
+    }
+  ],
+  "entertainment_and_events": [],
+  "private_events": {
+    "available": null,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": null,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": "Kids menu available",
+    "pets_allowed": null
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": null,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": null,
+    "private_dining": null
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": null,
+    "email_signup": null,
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": true,
+    "farm_to_table": null,
+    "sustainable": null,
+    "organic": null,
+    "details": "Locally owned and operated restaurant"
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [
+      "Sushi",
+      "Calamari",
+      "Green Fried Tomatoes",
+      "Ribeye",
+      "Swordfish",
+      "Key Lime Pie",
+      "Oysters"
+    ],
+    "common_praise": [
+      "Great food and drinks",
+      "Top notch sushi",
+      "Excellent service",
+      "Friendly staff",
+      "Fresh beer",
+      "Perfectly cooked steaks",
+      "Attentive servers",
+      "Nice management"
+    ],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "restaurant",
+      "url": "https://thejellyfishbar.com/wp-content/uploads/2018/11/fish.jpg",
+      "description": "Restaurant background image"
+    },
+    {
+      "type": "award",
+      "url": "https://thejellyfishbar.com/wp-content/uploads/2022/08/Best_in_Pensacola_2022_logo.jpg",
+      "description": "Best in Pensacola 2022 award"
+    },
+    {
+      "type": "restaurant",
+      "url": "https://thejellyfishbar.com/wp-content/uploads/2022/10/seafood_restaurant_perdido_key_480.jpg",
+      "description": "Best Seafood Restaurant Perdido Key"
+    },
+    {
+      "type": "logo",
+      "url": "https://thejellyfishbar.com/wp-content/uploads/2018/11/jellyfishlogo-1.png",
+      "description": "The Jellyfish Restaurant & Bar Logo"
+    },
+    {
+      "type": "logo",
+      "url": "https://thejellyfishbar.com/wp-content/uploads/2018/11/jellyfishlogo-footer.png",
+      "description": "The Jellyfish Bar Footer Logo"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "The Jellyfish - Seafood Perdido Key. If you're looking for the best restaurants in Perdido Key, The Jellyfish won't disappoint. Our menu can cater to your heart's desires, with our daily and weekly specials that are guaranteed to satisfy your cravings! Our happy customers who have been to other seafood restaurants in Orange Beach visit us regularly - not just for our great food and drinks - but also for the warm welcome and excellent service our staff provides to everyone entering our humble space. Visit us now! The Jellyfish was established shortly after Hurricane Ivan decimated parts of Pensacola and Perdido Key in 2004. Locally owned and operated and from humble beginnings as a small sushi and martini bar, the Jellyfish has grown into one of Pensacola's premier restaurants. 'Anything worth doing is worth doing well' says co-owner Bryan Minchew. We wanted a restaurant that has broader appeal than most. We didn't want to specialize in one or two areas; we wanted the best sushi, the best steaks, the best oyster bar, and the best seafood, period. We wanted a restaurant that would reflect our professional ambitions. We weren't satisfied with a few signature items on our menus, we wanted a signature restaurant. Hours: Sunday 11 AM - 10 PM, Monday 11 AM - 10 PM, Tuesday 11 AM - 10 PM, Wednesday 11 AM - 10 PM, Thursday 11 AM - 10 PM, Friday 11 AM - 10 PM, Saturday 11 AM - 10 PM. Contact: Phone 1-850-332-6532, Email info@thejellyfishbar.com, Address 13700 Perdido Key Dr, Pensacola, FL 32507. Happy Hour: Monday through Friday 1pm-5pm. Military Discount: 25% off all day Thursday, 15% off other days. Customer testimonials: 'My wife and I have been here multiple times over a 5 year period and it's our go to spot. Great food and drinks. The sushi is top notch.' - Jesse Webb. 'We are locals and stop in quite a bit on our way home from a Harley ride. Food and drink are always on point. It's one of our favorites. Today we had a light lunch of Calamari and Green Fried Tomatoes, excellent. The draft riptide brew was cold and fresh.' - Jason Klein. 'Best Ribeye we've had in quite sometime! It was perfectly cooked and very juicy and tender. My first time having Swordfish and it was delicious. We will definitely be back to try the sushi and key lime pie.' - Carla Yvonne Martin. 'We have only lived in the area for a month but we have been here to eat twice already. We've sat at the bar both times and Moses has been awesome at taking care of us! The rest of the staff is very friendly also and the food is delicious and the beer is cold!' - Cathy Forgue. 'Wonderful food!!! Angel, our server, was great and attentive. The manager, Neil, checked on us several times, and was nice. Highly recommend. We will be back!!!' - Cathryne J Slaughter. Menus available: Cash Discounted Price Menu, Full Retail Price Menu, Sushi Full Retail Price Menu, Sushi Cash Discounted Price Menu, Kids Menu. Online ordering available at order.spoton.com.",
+  "extraction_confidence": "high",
+  "extraction_notes": "Website successfully extracted. Core business information including name, address, phone, email, hours, and social media links found. Multiple menu PDFs linked but content not detailed within HTML. Customer reviews and testimonials extracted. Happy hour details found. Military discount information prominent. Awards and awards images identified. Staff names mentioned in reviews (Moses, Angel, Neil, Bryan Minchew). Blog section exists but no article details visible on homepage. No detailed individual menu items, pricing, wine list, catering info, or reservation system details found in the HTML. Some fields remain null due to lack of visibility on homepage.",
+  "folder": "ChIJc4EVbW2vkIgR9riX_nFFLt8_The Jellyfish - Seafood Restaurant and Bar",
+  "extracted_at": "2026-05-15T06:27:43.790Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJc4EVbW2vkIgR9riX_nFFLt8_The Jellyfish - Seafood Restaurant and Bar/01_raw_html.html"
+}

@@ -1,0 +1,275 @@
+{
+  "name": "GTs on the Bay",
+  "type": "Restaurant",
+  "website": "https://gtsonthebay.com",
+  "contact": {
+    "phone": "251-980-8400",
+    "address": "26189 Canal Rd",
+    "city": "Orange Beach",
+    "email": ""
+  },
+  "hours": {
+    "monday": "11:00 AM - 9:30 PM",
+    "tuesday": "11:00 AM - 9:30 PM",
+    "wednesday": "11:00 AM - 9:30 PM",
+    "thursday": "11:00 AM - 9:30 PM",
+    "friday": "11:00 AM - 10:00 PM",
+    "saturday": "11:00 AM - 10:00 PM",
+    "sunday": "11:00 AM - 9:30 PM",
+    "notes": "Sunday Brunch 11:00 AM - 2:00 PM"
+  },
+  "about": {
+    "description": "GTs On The Bay sits overlooking Wolf Bay on Canal Road in the heart of Orange Beach. With stunning views and bay front dining, GTs features a diverse and one-of-kind menu. Guests can savor unique culinary choices and a blend of local favorites, in addition to special creations with a family friendly atmosphere. Enjoy a stone hearth pizza oven and fresh made salad bar as well as craft beers and daily happy hour.",
+    "elevator_pitch": "Bayfront dining in Orange Beach featuring diverse cuisine, fresh salad bar, stone hearth pizza oven, and craft beers with family-friendly atmosphere.",
+    "vibe": "Casual, family-friendly bayfront dining with live music, outdoor deck seating, and a large fish pond in the center dining room.",
+    "best_for": [
+      "families",
+      "date night",
+      "casual dining",
+      "lunch break",
+      "happy hour",
+      "special occasions"
+    ],
+    "established": null,
+    "reservations": "Suggested for special events",
+    "insider_tip": "Try the Good Time Lunch Special (11 AM - 4 PM) for a waterfront dining experience at affordable prices. Live music available March to October, plus Saturday lunch and Sunday brunch."
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://gtsonthebay.com"
+  },
+  "menu": [
+    {
+      "category": "Lunch Specials",
+      "name": "Fried Fish with French Fries and Slaw",
+      "description": "",
+      "price": 11
+    },
+    {
+      "category": "Lunch Specials",
+      "name": "Shrimp Creole over Jasmine Rice",
+      "description": "",
+      "price": 11
+    },
+    {
+      "category": "Lunch Specials",
+      "name": "Fried Chicken Breast with Meunière Sauce",
+      "description": "",
+      "price": 11
+    },
+    {
+      "category": "Appetizers",
+      "name": "Cajun Empanadas",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Firecracker Shrimp",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Gingered Calamari",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "GTs Dip",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Salad Bar",
+      "name": "Fresh Salad Bar",
+      "description": "Made fresh daily featuring crisp romaine lettuce, spring mix, and iceberg lettuce, with house-made chicken and pasta salad options. Endless toppings and dressings available.",
+      "price": ""
+    },
+    {
+      "category": "Salad Bar",
+      "name": "Soup and Salad Combo",
+      "description": "",
+      "price": 11
+    },
+    {
+      "category": "Dinner Specialties",
+      "name": "Shrimp-n-Grits",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Dinner Specialties",
+      "name": "Pepper-Seared Tuna",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Dinner Specialties",
+      "name": "GTs Grouper",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Dinner Specialties",
+      "name": "Chicken Carbonara",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Dinner Specialties",
+      "name": "Fish Tacos",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Desserts",
+      "name": "House Desserts",
+      "description": "Delightful desserts to satisfy your sweet tooth",
+      "price": ""
+    },
+    {
+      "category": "Easter Brunch Menu",
+      "name": "Bacon and Asparagus Benedict",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Easter Brunch Menu",
+      "name": "Scrambled Eggs",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Easter Brunch Menu",
+      "name": "Grilled Chicken with Creole Cream",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Easter Brunch Menu",
+      "name": "Roasted Pork Loin",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Easter Brunch Menu",
+      "name": "Hash Brown Casserole",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Easter Brunch Menu",
+      "name": "Bourbon-Glazed Salmon",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Easter Brunch Menu",
+      "name": "Shrimp and Grits",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Easter Brunch Menu",
+      "name": "Breakfast Sausage",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Easter Brunch Menu",
+      "name": "Brussels Sprout Casserole",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Easter Brunch Menu",
+      "name": "Biscuits and Sausage Gravy",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Easter Brunch Menu",
+      "name": "Cinnamon Roll Casserole",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Easter Brunch Menu",
+      "name": "Blackberry Cobbler",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Easter Brunch Menu",
+      "name": "Mixed Berry Bread Pudding",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Easter Brunch Menu",
+      "name": "Fresh Fruit",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Easter Brunch Menu",
+      "name": "Assorted Macaroons and Petit Fours",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Drinks",
+      "name": "Orange Beach Ale",
+      "description": "House-brewed craft beer",
+      "price": ""
+    },
+    {
+      "category": "Drinks",
+      "name": "Draft Beer",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Drinks",
+      "name": "House Wines",
+      "description": "",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Good Time Lunch Special",
+      "description": "Choose from Fried Fish with French Fries and Slaw, Shrimp Creole over Jasmine Rice, or Fried Chicken Breast with Meunière Sauce. Includes soup and salad combo option.",
+      "discount": ""
+    },
+    {
+      "name": "Happy Hour",
+      "description": "Specials on draft beer (including house-brewed Orange Beach Ale), house wines, and awesome appetizers like Firecracker Shrimp, Gingered Calamari, or GTs Dip.",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [
+    {
+      "name": "Live Music",
+      "day": "seasonal March to October",
+      "time": "Evenings and 11:00 AM - 2:00 PM weekend brunch"
+    },
+    {
+      "name": "Easter Brunch",
+      "day": "Easter",
+      "time": "11:00 AM - 2:00 PM"
+    },
+    {
+      "name": "Sunday Brunch",
+      "day": "Sunday",
+      "time": "11:00 AM - 2:00 PM"
+    }
+  ],
+  "gallery": 47,
+  "scraped_at": "2026-03-21T19:35:04.224Z"
+}

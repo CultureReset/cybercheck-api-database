@@ -1,0 +1,283 @@
+{
+  "business_name": "Moe's Original BBQ",
+  "cuisine_type": "BBQ, Southern",
+  "price_range": null,
+  "description": "Moe's Original BBQ is an authentic Alabama-style BBQ restaurant chain serving slow-smoked pulled pork, ribs, chicken, and house-made sauces across 40+ locations in the Southeast and beyond. Moe's Original BBQ Foley is a highly rated barbecue restaurant in Foley, Alabama, serving authentic Alabama-style BBQ, slow-smoked meats, and classic Southern sides with genuine hospitality. The restaurant serves pulled pork, smoked chicken, St. Louis-style ribs, and smoked wings paired with homemade Southern sides like baked beans, mac and cheese, potato salad, and banana pudding—all made fresh daily. Beyond great food, Moe's Foley is also a local hotspot for entertainment, featuring live music, weekly trivia nights, and bingo.",
+  "atmosphere": "Local hotspot for entertainment with live music, welcoming atmosphere with something for everyone",
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": "(251) 923-0079",
+    "email": null,
+    "address": "20733 Miflin Rd, Foley, AL 36535",
+    "website": "https://www.moesoriginalbbq.com",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": null,
+      "instagram": null,
+      "twitter": null,
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": "11 a.m. - 8 p.m.",
+    "tuesday": "11 a.m. - 8 p.m.",
+    "wednesday": "11 a.m. - 8 p.m.",
+    "thursday": "11 a.m. - 8 p.m.",
+    "friday": "11 a.m. - 9 p.m.",
+    "saturday": "11 a.m. - 9 p.m.",
+    "sunday": "11 a.m. - 8 p.m.",
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": true,
+    "takeout_available": true,
+    "delivery_available": true,
+    "curbside_available": false,
+    "delivery_partners": [
+      "DoorDash"
+    ],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [
+      {
+        "name": "Smoked Meats",
+        "description": null,
+        "items": [
+          {
+            "name": "Pulled Pork",
+            "description": null,
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": true,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "St. Louis-style Ribs",
+            "description": null,
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": true,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Smoked Chicken",
+            "description": null,
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": true,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Smoked Wings",
+            "description": null,
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": true,
+            "is_seasonal": false,
+            "availability": null
+          }
+        ]
+      },
+      {
+        "name": "Sides",
+        "description": null,
+        "items": [
+          {
+            "name": "Baked Beans",
+            "description": null,
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Mac and Cheese",
+            "description": null,
+            "price": null,
+            "dietary_flags": [],
+            "allergens": [
+              "dairy"
+            ],
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Potato Salad",
+            "description": null,
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Banana Pudding",
+            "description": null,
+            "price": null,
+            "dietary_flags": [],
+            "allergens": [
+              "dairy"
+            ],
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": null
+          }
+        ]
+      }
+    ],
+    "wine_list": null,
+    "beer_selection": null,
+    "cocktails": null,
+    "kids_menu": null,
+    "catering_menu": "Catering options include pickup barbecue platters, delivery with setup, and full-service catering with staffed service. Each catering package includes slow-smoked meats, Southern sides, buns or cornbread, sauces, and everything needed to serve guests.",
+    "dietary_accommodations": {
+      "vegetarian": false,
+      "vegan": false,
+      "gluten_free": false,
+      "dairy_free": false,
+      "nut_free": false,
+      "kosher": false,
+      "halal": false
+    }
+  },
+  "happy_hour": {
+    "available": false,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [],
+  "entertainment_and_events": [
+    {
+      "type": "live_music",
+      "name": "Live Music",
+      "days": null,
+      "start_time": null,
+      "end_time": null,
+      "description": null,
+      "cover_charge": null,
+      "featured_artist": null
+    },
+    {
+      "type": "trivia",
+      "name": "Weekly Trivia Nights",
+      "days": null,
+      "start_time": null,
+      "end_time": null,
+      "description": null,
+      "cover_charge": null,
+      "featured_artist": null
+    },
+    {
+      "type": "bingo",
+      "name": "Bingo",
+      "days": null,
+      "start_time": null,
+      "end_time": null,
+      "description": null,
+      "cover_charge": null,
+      "featured_artist": null
+    }
+  ],
+  "private_events": {
+    "available": true,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": true,
+    "packages": "BBQ catering options for weddings, corporate events, beach parties, tailgates, and private gatherings. Flexible catering options include pickup barbecue platters, delivery with setup, and full-service catering with staffed service."
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": false,
+    "accessible_restroom": false,
+    "parking_accessible": false,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": null,
+    "pets_allowed": false
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": false,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": false,
+    "private_dining": true
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": "Rewards program available",
+    "gift_cards_available": true,
+    "email_signup": null,
+    "rewards_details": "Join our rewards program - link available to sign up"
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": false,
+    "farm_to_table": false,
+    "sustainable": false,
+    "organic": false,
+    "details": "Made fresh daily"
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [
+      "Pulled Pork",
+      "Ribs",
+      "Smoked Chicken",
+      "Wings",
+      "Banana Pudding"
+    ],
+    "common_praise": [
+      "Authentic Alabama-style BBQ",
+      "Highly rated",
+      "Slow-smoked meats",
+      "Fresh daily sides",
+      "Live entertainment"
+    ],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "restaurant",
+      "url": "https://images.squarespace-cdn.com/content/v1/591cbfe61e5b6c806118e689/1512416483276-8LX26IFP8HKGXNXEQDVF/Reggie+1.jpg",
+      "description": "Reggie 1.jpg"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "Moe's Original BBQ - Foley Location. Address: 20733 Miflin Rd, Foley, AL 36535. Phone: (251) 923-0079. Hours: Sunday-Thursday 11 a.m. - 8 p.m., Friday & Saturday 11 a.m. - 9 p.m. Authentic Alabama-style BBQ restaurant serving slow-smoked pulled pork, ribs, chicken, and house-made sauces. Signature items include St. Louis-style ribs and smoked wings. Sides include baked beans, mac and cheese, potato salad, and banana pudding made fresh daily. Entertainment features live music, weekly trivia nights, and bingo. BBQ catering available for weddings, corporate events, beach parties, tailgates, and private gatherings with options for pickup, delivery with setup, or full-service catering. Rewards program available. Order for pickup through Toast Tab. DoorDash delivery available. Join our team - employment opportunities available. Menu available as PDF download.",
+  "extraction_confidence": "high",
+  "extraction_notes": "This is a location-specific page for the Foley, AL Moe's Original BBQ restaurant. Full menu details with prices were not visible in the HTML provided (PDF link referenced but content not included). Social media links not present on this page. Specific pricing, detailed menu items, full hours for each day could not be extracted from visible content. No reviews/ratings data found on page. The page focuses on location information, entertainment offerings, and catering services.",
+  "folder": "ChIJr9L6Qk0OmogRNkSip_WLvB8_Moe's Original BBQ",
+  "extracted_at": "2026-05-15T06:35:42.576Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJr9L6Qk0OmogRNkSip_WLvB8_Moe's Original BBQ/01_raw_html.html"
+}

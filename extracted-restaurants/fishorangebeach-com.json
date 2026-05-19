@@ -1,0 +1,73 @@
+{
+  "name": "Intimidator Deep Sea Fishing Charters",
+  "type": "Fishing Charter",
+  "website": "https://www.fishorangebeach.com",
+  "contact": {
+    "phone": "(251) 747-2872",
+    "address": "27075 Marina Road, Orange Beach Marina, Boat Slip E13",
+    "city": "Orange Beach",
+    "email": "fishorangebeach@gmail.com"
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": "Hours vary by trip type. Book online or call for availability."
+  },
+  "about": {
+    "description": "Intimidator Deep Sea Fishing Charters is a professional offshore fishing charter service operating out of Orange Beach Marina. They offer half-day, full-day, and overnight deep sea fishing trips targeting both reef species and big game fish. The operation is led by Captain Johnny Greene and features a 65x19 ft Sportfisherman vessel built specifically for extended offshore fishing charters. They serve Orange Beach, Gulf Shores, Fort Morgan, and Perdido Key.",
+    "elevator_pitch": "Professional offshore deep sea fishing charters with a safety-first crew, modern equipment, and a clear game plan for reef fish and big game pelagics.",
+    "vibe": "Professional, safety-focused, experienced crew with a focus on real fishing rather than casual tourist experiences.",
+    "best_for": [
+      "serious anglers",
+      "fishing enthusiasts",
+      "group fishing trips",
+      "families interested in offshore fishing",
+      "big game hunters"
+    ],
+    "established": "1996",
+    "reservations": "Required. Book online through new booking system or call/text (251) 747-2872. No walk-ons accepted.",
+    "insider_tip": "Text your date, group size, trip type (Day/Full/Overnight), and target fish to (251) 747-2872 for crew recommendations on best booking option."
+  },
+  "social": {
+    "instagram": null,
+    "facebook": "facebook.com/intimidatorfishing",
+    "twitter": "twitter.com/intimidator",
+    "youtube": "youtube.com",
+    "tripadvisor": "tripadvisor.com",
+    "website": "https://www.fishorangebeach.com"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "NEW BOOKING SYSTEM",
+      "description": "New online booking system implemented for easier trip reservations",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [
+    {
+      "name": "Half Day Trips",
+      "day": "",
+      "time": ""
+    },
+    {
+      "name": "Full Day Trips",
+      "day": "",
+      "time": ""
+    },
+    {
+      "name": "Overnight / Multi-Day Trips",
+      "day": "",
+      "time": ""
+    }
+  ],
+  "gallery": 36,
+  "scraped_at": "2026-03-21T19:53:10.774Z"
+}

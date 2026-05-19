@@ -1,0 +1,63 @@
+{
+  "name": "Brett/Robinson Vacation Rentals",
+  "type": "Vacation Rental | Condo Resort",
+  "website": "https://www.brett-robinson.com/beach-condo/phoenix-iii/",
+  "contact": {
+    "phone": "+1-800-211-7892",
+    "address": "3259 Gulf Shores Parkway",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {},
+  "about": {
+    "description": "Phoenix III is a beachfront condo in Orange Beach offering direct beach access and Gulf-front views from private balconies. The property features fully furnished 1-, 2-, and 3-bedroom vacation rentals that accommodate up to 10 guests, with floor-to-ceiling windows designed to highlight the Alabama Gulf Coast's natural light and shoreline scenery. Phoenix III is a beachfront condo operated by Brett/Robinson Vacation Rentals, a family-owned company with over 40 years of experience in Gulf Shores and Orange Beach, Alabama.",
+    "elevator_pitch": "Beachfront Orange Beach condo with 1-3 bedroom units, direct beach access, Gulf views, and resort-style amenities including pools, hot tub, sauna, and fitness center.",
+    "total_units": null,
+    "floors": null,
+    "year_built": null,
+    "pet_friendly": false,
+    "minimum_stay": null,
+    "check_in": "Varies by season",
+    "check_out": "Varies by season",
+    "age_restriction": null
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/brett_robinson_vacations",
+    "facebook": "https://www.facebook.com/BrettRobinsonVacations",
+    "website": "https://www.brett-robinson.com/beach-condo/phoenix-iii/",
+    "linkedin": "https://www.linkedin.com/company/brett-robinson-vacation-rentals"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Hot Deals",
+      "description": "Select properties featured with discounted rates",
+      "discount": ""
+    },
+    {
+      "name": "Seasonal Discounts",
+      "description": "Promotional pricing during select seasons",
+      "discount": ""
+    },
+    {
+      "name": "Snowbird Specials",
+      "description": "Special rates for longer stays",
+      "discount": ""
+    },
+    {
+      "name": "Last-Minute Deals",
+      "description": "Discounted rates on available inventory",
+      "discount": ""
+    },
+    {
+      "name": "Promo Codes",
+      "description": "Percentage-off promotions (e.g., past examples included Bama2025 for 10% savings)",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 23,
+  "scraped_at": "2026-03-21T20:40:30.067Z"
+}

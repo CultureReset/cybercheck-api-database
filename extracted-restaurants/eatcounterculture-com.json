@@ -1,0 +1,147 @@
+{
+  "name": "Counter Culture",
+  "type": "Restaurant",
+  "website": "https://eatcounterculture.com",
+  "contact": {
+    "phone": "",
+    "address": "",
+    "city": "",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null
+  },
+  "about": {
+    "description": "Fresh Eats. Fresh Treats. Counter Culture is home to The Humphrey and offers fresh sandwiches, salads, and yogurt treats.",
+    "cuisine_type": "sandwiches"
+  },
+  "social": {},
+  "menu": [
+    {
+      "category": "Cold Sandwiches",
+      "name": "Avocado Delight",
+      "description": "Lightly seasoned, fresh sliced avocado served on wheat bread and dressed with mayonnaise, sprouts, tomato, lettuce, cheddar cheese and seasoning.",
+      "price": ""
+    },
+    {
+      "category": "Cold Sandwiches",
+      "name": "Chopped Chicken",
+      "description": "Fresh cooked boneless chicken breast diced and lightly seasoned served on wheat bread with tomato, lettuce, sprouts and mayonnaise.",
+      "price": ""
+    },
+    {
+      "category": "Cold Sandwiches",
+      "name": "Smoked Turkey",
+      "description": "Heaping portions of thin sliced, smoked turkey on wheat bread with tomato, lettuce, sprouts, seasoning and mayonnaise.",
+      "price": ""
+    },
+    {
+      "category": "Cold Sandwiches",
+      "name": "Chicken Salad",
+      "description": "Jan's famous homemade recipe made country fresh each day with toasted almonds and a touch of pineapple. Garnished with seasoning, tomato, lettuce and sprouts on wheat bread.",
+      "price": ""
+    },
+    {
+      "category": "Cold Sandwiches",
+      "name": "Tuna Salad",
+      "description": "Delicious homemade tuna salad garnished with seasoning, tomato, lettuce and sprouts on wheat bread.",
+      "price": ""
+    },
+    {
+      "category": "Cold Sandwiches",
+      "name": "Pimento Cheese",
+      "description": "Our own pimento cheese garnished with seasoning, tomato, lettuce and sprouts on wheat bread.",
+      "price": ""
+    },
+    {
+      "category": "Cold Sandwiches",
+      "name": "Egg Salad",
+      "description": "Specially prepared combination on wheat bread garnished with seasoning, tomato, lettuce and sprouts.",
+      "price": ""
+    },
+    {
+      "category": "Cold Sandwiches",
+      "name": "Peanut Butter & Jelly Sandwich",
+      "description": "Three-layers of wheat bread with grape jelly and creamy peanut butter.",
+      "price": ""
+    },
+    {
+      "category": "Hot Sandwiches",
+      "name": "Steak & Cheese",
+      "description": "Hot and hefty portion of thinly sliced choice beef on a poboy style bun with cheddar cheese, seasoning, mustard and special dressing.",
+      "price": ""
+    },
+    {
+      "category": "Hot Sandwiches",
+      "name": "Ham & Cheese",
+      "description": "Piping hot hickory smoked ham on a poboy style bun with cheddar cheese, seasoning, mustard and special dressing.",
+      "price": ""
+    },
+    {
+      "category": "Hot Sandwiches",
+      "name": "Muffuletta",
+      "description": "Salami, ham, olive mix and provolone cheese on Gambino bread.",
+      "price": ""
+    },
+    {
+      "category": "Hot Sandwiches",
+      "name": "Pizzaletta Slice",
+      "description": "A Muffuletta sandwiched between two pizza crusts.",
+      "price": ""
+    },
+    {
+      "category": "Hot Sandwiches",
+      "name": "Hot Tuna Melt",
+      "description": "Our homemade tuna salad dressed with seasoning, lettuce, tomato, avocado, chipotle mayo and your choice of cheese on a specialty sourdough bread.",
+      "price": ""
+    },
+    {
+      "category": "Hot Sandwiches",
+      "name": "Hot Meat Melt",
+      "description": "Your choice of turkey, ham, chicken or steak dressed with seasoning, lettuce, tomato, avocado, chipotle mayo and your choice of cheese on a specialty sourdough bread.",
+      "price": ""
+    },
+    {
+      "category": "Hot Sandwiches",
+      "name": "Grilled Cheese Sandwich",
+      "description": "Three-layers of wheat bread with cheddar cheese.",
+      "price": ""
+    },
+    {
+      "category": "Soups, Salads & Sides",
+      "name": "Side Salad",
+      "description": "Lettuce, cheddar cheese and diced tomatoes.",
+      "price": ""
+    },
+    {
+      "category": "Soups, Salads & Sides",
+      "name": "The Combination Salad",
+      "description": "Delicious blend of garden-fresh, in-season vegetables topped with egg salad and sprouts. The dressing of your choice on the side.",
+      "price": ""
+    },
+    {
+      "category": "Soups, Salads & Sides",
+      "name": "Chef Salad",
+      "description": "One of our appetizing combination salads garnished with your choice of tasty meats and cheddar.",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "The Humphrey Yogurt",
+      "description": "Tangy plain frozen yogurt topped with fresh fruit, honey, and granola.",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-03-21T20:37:26.803Z"
+}

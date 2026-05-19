@@ -1,0 +1,186 @@
+{
+  "business_name": "Tacky Jacks Seafood Restaurant and Tavern",
+  "cuisine_type": "Seafood, Casual Dining",
+  "price_range": null,
+  "description": "Tacky Jacks Seafood Restaurant and Tavern in Orange Beach, Gulf Shores, and Fort Morgan AL. The best waterfront seafood restaurants in Orange Beach and Gulf Shores AL. Great Food, Casual Dining, Waterfront Views",
+  "atmosphere": "Waterfront, Casual Dining",
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": "Multiple locations: Orange Beach, Gulf Shores, and Fort Morgan, Alabama",
+    "website": "https://www.tackyjacks.com",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": null,
+      "instagram": null,
+      "twitter": null,
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": true,
+    "takeout_available": null,
+    "delivery_available": null,
+    "curbside_available": null,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [],
+    "wine_list": null,
+    "beer_selection": null,
+    "cocktails": null,
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": null,
+      "vegan": null,
+      "gluten_free": null,
+      "dairy_free": null,
+      "nut_free": null,
+      "kosher": null,
+      "halal": null
+    }
+  },
+  "happy_hour": {
+    "available": null,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [
+    {
+      "type": "seasonal",
+      "day_of_week": null,
+      "name": "Buy $100 in Gift Cards Get $20 Free",
+      "description": "Gift card promotion offering $20 free when purchasing $100 in gift cards",
+      "discount": "$20 Free",
+      "valid_until": "December 31, 2025"
+    }
+  ],
+  "entertainment_and_events": [],
+  "private_events": {
+    "available": null,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": null,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [
+      "USD",
+      "CHF",
+      "HKD",
+      "MXN",
+      "EUR",
+      "DKK",
+      "CAD",
+      "MYR",
+      "NOK",
+      "THB",
+      "AUD",
+      "SGD",
+      "ILS",
+      "PLN",
+      "GBP",
+      "CZK",
+      "SEK",
+      "NZD",
+      "PHP",
+      "RUB"
+    ],
+    "kids_policy": null,
+    "pets_allowed": null
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": null,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": null,
+    "private_dining": null
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": true,
+    "email_signup": null,
+    "rewards_details": "Gift cards available for purchase at https://tacky-jacks.myshopify.com/products/holiday-gift-card-special"
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": null,
+    "farm_to_table": null,
+    "sustainable": null,
+    "organic": null,
+    "details": null
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [],
+    "common_praise": [],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "restaurant",
+      "url": "https://images.squarespace-cdn.com/content/v1/59e72205f09ca4e836d8a3a9/1509393280915-G74DKZC74ER3F3UE0EI1/OB.jpg",
+      "description": "Orange Beach location"
+    },
+    {
+      "type": "food",
+      "url": "https://images.squarespace-cdn.com/content/v1/59e72205f09ca4e836d8a3a9/1508862261524-HNFNULPCV4ASFPSRI2KM/best2.JPG",
+      "description": "Food item"
+    },
+    {
+      "type": "restaurant",
+      "url": "https://images.squarespace-cdn.com/content/v1/59e72205f09ca4e836d8a3a9/1715717063794-WNYKBQE4Q93O1RFH45KU/DJI_0206.JPG",
+      "description": "Aerial restaurant view"
+    },
+    {
+      "type": "event",
+      "url": "https://images.squarespace-cdn.com/content/v1/59e72205f09ca4e836d8a3a9/1508862806375-AZ1E3WFH8QPUD36G8TPP/music.jpg",
+      "description": "Live music/entertainment"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "Tacky Jacks Seafood Restaurant and Tavern. The best waterfront seafood restaurants in Orange Beach and Gulf Shores AL. Great Food, Casual Dining, Waterfront Views. Locations: Orange Beach, Gulf Shores, Fort Morgan. Navigation: Home, Locations (Orange Beach, Gulf Shores, Fort Morgan), Menu (View Menu), About (About Us), Shop, Join Our Team, Contact. Buy $100 in Gift Cards Get $20 Free until December 31, 2025!",
+  "extraction_confidence": "medium",
+  "extraction_notes": "This is the homepage of a Squarespace-based restaurant website for Tacky Jacks with three locations. The HTML provided is incomplete (cuts off mid-content), so detailed menu information, hours of operation, contact phone numbers, and specific policies could not be extracted. The page contains navigation links to location-specific pages and a menu download section, but the actual menu content is not visible in this HTML. The website has a gift card promotion visible. The site appears to be a template-heavy Squarespace site with primarily structural elements visible rather than full content. Restaurant details like specific hours, phone numbers, full menu items, pricing, entertainment schedule, and reservation information would require access to the location-specific pages or a complete HTML capture.",
+  "folder": "ChIJZQQ0OicFmogRY_Wk7X98pQ0_Tacky Jacks Gulf Shores",
+  "extracted_at": "2026-05-15T06:24:53.539Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJZQQ0OicFmogRY_Wk7X98pQ0_Tacky Jacks Gulf Shores/01_raw_html.html"
+}

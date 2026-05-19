@@ -1,0 +1,247 @@
+{
+  "business_name": "Papa Johns Pizza Commercial Avenue",
+  "cuisine_type": "Pizza",
+  "price_range": "$",
+  "description": "At Papa Johns Pizza in Orange Beach, AL, it's our goal to always bring you Better Ingredients. Better Pizza. Whether it's our signature sauce, toppings, or fresh, original dough, we invest in our ingredients to ensure you have the best Orange Beach pizza for any occasion. Call us for pizza delivery in Orange Beach or stop by 24515  COMMERCIAL AVENUE for carryout to order the best pizza in Orange Beach, along with breadsticks, wings, and more!",
+  "atmosphere": null,
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": "(251) 981-7200",
+    "email": null,
+    "address": "24515 Commercial Avenue, Orange Beach, AL 36561",
+    "website": "https://www.papajohns.com",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": "https://www.facebook.com/papajohnsus",
+      "instagram": "https://www.instagram.com/papajohns/",
+      "twitter": "https://twitter.com/papajohns",
+      "tiktok": null,
+      "youtube": "https://www.youtube.com/user/papajohns"
+    }
+  },
+  "hours": {
+    "monday": "10:30 AM - 10:00 PM",
+    "tuesday": "10:30 AM - 10:00 PM",
+    "wednesday": "10:30 AM - 10:00 PM",
+    "thursday": "10:30 AM - 10:00 PM",
+    "friday": "10:30 AM - 11:00 PM",
+    "saturday": "10:30 AM - 11:00 PM",
+    "sunday": "10:30 AM - 10:00 PM",
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": false,
+    "takeout_available": true,
+    "delivery_available": true,
+    "curbside_available": false,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": "Limited delivery area"
+  },
+  "menu": {
+    "sections": [
+      {
+        "name": "Oven-Toasted Sandwiches",
+        "description": "Philly Cheesesteak, Chicken Bacon Ranch, and Steak & Mushroom oven-toasted sandwiches on ciabatta bread brushed with Special Garlic Sauce.",
+        "items": [
+          {
+            "name": "Philly Cheesesteak",
+            "description": null,
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Chicken Bacon Ranch",
+            "description": null,
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Steak & Mushroom",
+            "description": null,
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": null
+          }
+        ]
+      },
+      {
+        "name": "Papa Pairings",
+        "description": "Pair two or more medium 1-topping New York Style or Original Crust pizzas, our NEW Oven-Toasted Sandwiches, Boneless or Traditional Wings, Breadsticks, Cheesesticks, Garlic Knots and Desserts.",
+        "items": [
+          {
+            "name": "Pizza Combinations",
+            "description": "Medium 1-topping New York Style or Original Crust pizzas",
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Wings",
+            "description": "Boneless or Traditional Wings",
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Sides",
+            "description": "Breadsticks, Cheesesticks, Garlic Knots and Desserts",
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": null
+          }
+        ]
+      }
+    ],
+    "wine_list": null,
+    "beer_selection": null,
+    "cocktails": null,
+    "kids_menu": null,
+    "catering_menu": "Available - Group Suggestions and Create Your Own options with signature pizzas, savory sides, delicious desserts, and Pepsi 2-liter drinks",
+    "dietary_accommodations": {
+      "vegetarian": null,
+      "vegan": null,
+      "gluten_free": null,
+      "dairy_free": null,
+      "nut_free": null,
+      "kosher": null,
+      "halal": null
+    }
+  },
+  "happy_hour": {
+    "available": false,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [
+    {
+      "type": "limited_time",
+      "day_of_week": null,
+      "name": "Oven-Toasted Sandwiches",
+      "description": "Philly Cheesesteak, Chicken Bacon Ranch, and Steak & Mushroom oven-toasted sandwiches on ciabatta bread brushed with Special Garlic Sauce.",
+      "discount": null,
+      "valid_until": null
+    },
+    {
+      "type": "limited_time",
+      "day_of_week": null,
+      "name": "Papa Pairings",
+      "description": "Pair two or more medium 1-topping New York Style or Original Crust pizzas with sides and desserts",
+      "discount": null,
+      "valid_until": null
+    }
+  ],
+  "entertainment_and_events": [],
+  "private_events": {
+    "available": true,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": true,
+    "packages": "Group Suggestions and Create Your Own options for corporate lunches, parties, and family reunions"
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": null,
+    "pets_allowed": null
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": false,
+    "online_booking_platform": null,
+    "phone_reservations": "(251) 981-7200",
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": false,
+    "private_dining": false
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": "Papa Rewards - Earn Papa Dough to use towards any menu item",
+    "gift_cards_available": true,
+    "email_signup": "Subscribe to receive emails and text messages for weekly discounts. Text START to 47272",
+    "rewards_details": "Earn Papa Dough for every dollar spent. Redeem points for free food and other surprises. Available to US and Canada customers only"
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": false,
+    "farm_to_table": false,
+    "sustainable": false,
+    "organic": false,
+    "details": "Better Ingredients. Better Pizza. Signature sauce, quality toppings, and fresh original dough"
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [
+      "Pizza",
+      "Wings",
+      "Breadsticks",
+      "Cheesesticks",
+      "Oven-Toasted Sandwiches"
+    ],
+    "common_praise": [],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "restaurant_logo",
+      "url": "http://a.mktgcdn.com/p/WW_gZH-B2Xg1U9-mPBt5aokxPHTcBB1-eMVk-tzsOmU/2048x2048.jpg",
+      "description": "Papa Johns Pizza logo"
+    },
+    {
+      "type": "food",
+      "url": "http://a.mktgcdn.com/p/-v-sXJu_5eNV9Rtjn1r8GNrXXXmd-fMCQUT_iFDLJrc/1125x1125.webp",
+      "description": "Oven-Toasted Sandwiches"
+    },
+    {
+      "type": "food",
+      "url": "http://a.mktgcdn.com/p/JPH2NNPYopr6Fi1VPKiuWm8dsHaXI2lNzzAOSvJCQgE/1125x1125.webp",
+      "description": "Papa Pairings"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": "Email and Text signup available. Text START to 47272 to begin receiving weekly discounts on menu items",
+  "raw_text_content": "Papa Johns Pizza Commercial Avenue, 24515 Commercial Avenue, Orange Beach, AL 36561. Phone: (251) 981-7200. Hours: Monday-Thursday 10:30 AM - 10:00 PM, Friday-Saturday 10:30 AM - 11:00 PM, Sunday 10:30 AM - 10:00 PM. Order delivery and carryout online. Menu includes pizza, wings, breadsticks, cheesesticks, oven-toasted sandwiches, garlic knots, and desserts. Papa Pairings available - combine pizzas with wings, sides and desserts. Catering available for groups. Papa Rewards loyalty program - earn Papa Dough with every purchase. Gift cards available. Subscribe to email and text offers. Better Ingredients. Better Pizza.",
+  "extraction_confidence": "high",
+  "extraction_notes": "Comprehensive location data extracted from Papa Johns restaurant location page. Full hours of operation confirmed. Contact phone number, address, and delivery/takeout options verified. Menu items limited to promotional offerings visible on page. Social media links, loyalty program details, and catering information extracted. Pricing information not available on this location page. Reviews and ratings not present on page. Dine-in service not offered at this location. Limited detailed menu information available from this location page - full menu would require navigating to order page.",
+  "folder": "ChIJsUmN4rcEmogRAzoLxzgXS1I_Papa John's Pizza",
+  "extracted_at": "2026-05-15T06:37:03.862Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJsUmN4rcEmogRAzoLxzgXS1I_Papa John's Pizza/01_raw_html.html"
+}

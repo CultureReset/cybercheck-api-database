@@ -1,0 +1,205 @@
+{
+  "business_name": "The Steamer & Baked Oyster Bar",
+  "cuisine_type": "Seafood",
+  "price_range": null,
+  "description": "Welcome to the Steamer and Baked Oyster Bar, located in Gulf Shores, Alabama behind Souvenir City. We serve raw, steamed and baked oysters along with a full menu of steamed and grilled seafood. Try our steamed seafood trays for 2 or more served with a combination of Royal Reds, Crab Legs, Oysters, Mussels & Large Tail-on Shrimp!",
+  "atmosphere": null,
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": "(251) 948-4042",
+    "email": null,
+    "address": "124 W 1st Ave, Gulf Shores, AL 36542",
+    "website": "https://gulfcoaststeamer.com/",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": null,
+      "instagram": null,
+      "twitter": null,
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": "11:00 AM - 9:00 PM",
+    "tuesday": "11:00 AM - 9:00 PM",
+    "wednesday": "11:00 AM - 9:00 PM",
+    "thursday": "11:00 AM - 9:00 PM",
+    "friday": "11:00 AM - 9:00 PM",
+    "saturday": "11:00 AM - 9:00 PM",
+    "sunday": "11:00 AM - 9:00 PM",
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": true,
+    "takeout_available": true,
+    "delivery_available": true,
+    "curbside_available": false,
+    "delivery_partners": [
+      "Time to Eat the Beach"
+    ],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [],
+    "wine_list": null,
+    "beer_selection": null,
+    "cocktails": null,
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": false,
+      "vegan": false,
+      "gluten_free": false,
+      "dairy_free": false,
+      "nut_free": false,
+      "kosher": false,
+      "halal": false
+    }
+  },
+  "happy_hour": {
+    "available": false,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [],
+  "entertainment_and_events": [],
+  "private_events": {
+    "available": false,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": false,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": false,
+    "accessible_restroom": false,
+    "parking_accessible": false,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": null,
+    "pets_allowed": false
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": false,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": false,
+    "private_dining": false
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": true,
+    "email_signup": null,
+    "rewards_details": "Gift cards available at store.mikeesseafood.com"
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": false,
+    "farm_to_table": false,
+    "sustainable": false,
+    "organic": false,
+    "details": null
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [
+      "Steamed Royal Red Shrimp",
+      "Snow Crab Legs",
+      "Mussels",
+      "Baked Oysters",
+      "Raw Oysters",
+      "Steamed Oysters",
+      "Crab Cakes",
+      "Blackened Shrimp",
+      "Tuna Steak",
+      "Tuna Steak Sandwich",
+      "Steamed Seafood Trays"
+    ],
+    "common_praise": [],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "food",
+      "url": "https://gulfcoaststeamer.com/wp-content/uploads/2017/05/shrimp-platter.jpg",
+      "description": "Shrimp Platter"
+    },
+    {
+      "type": "food",
+      "url": "https://gulfcoaststeamer.com/wp-content/uploads/2017/05/steamed-oysters.jpg",
+      "description": "Steamed Oysters"
+    },
+    {
+      "type": "food",
+      "url": "https://gulfcoaststeamer.com/wp-content/uploads/2017/05/steamed-crab.jpg",
+      "description": "Steamed Crab"
+    },
+    {
+      "type": "food",
+      "url": "https://gulfcoaststeamer.com/wp-content/uploads/2017/05/DSC_0819-2.jpg",
+      "description": "Blackened Shrimp Gulf Shores, Alabama"
+    },
+    {
+      "type": "food",
+      "url": "https://gulfcoaststeamer.com/wp-content/uploads/2017/05/DSC_0789-2.jpg",
+      "description": "Tuna Steak Sandwich Gulf Shores, Alabama"
+    },
+    {
+      "type": "food",
+      "url": "https://gulfcoaststeamer.com/wp-content/uploads/2017/05/DSC_0757-2.jpg",
+      "description": "Crab Cakes Cajun Crawfish Sauce"
+    },
+    {
+      "type": "food",
+      "url": "https://gulfcoaststeamer.com/wp-content/uploads/2017/05/DSC_0708-2.jpg",
+      "description": "Steamer Tray - Oysters, Snow Crab, Corn, Shrimp Potatoes"
+    },
+    {
+      "type": "food",
+      "url": "https://gulfcoaststeamer.com/wp-content/uploads/2017/05/DSC_0678-2.jpg",
+      "description": "Tuna Steak with corn and green beans"
+    },
+    {
+      "type": "food",
+      "url": "https://gulfcoaststeamer.com/wp-content/uploads/2017/05/DSC_0656-2.jpg",
+      "description": "Oysters Baked Gulf Shores Alabama"
+    },
+    {
+      "type": "food",
+      "url": "https://gulfcoaststeamer.com/wp-content/uploads/2017/05/DSC_0562-2.jpg",
+      "description": null
+    },
+    {
+      "type": "logo",
+      "url": "https://gulfcoaststeamer.com/wp-content/uploads/2017/06/the-steamer-logo.png",
+      "description": "The Steamer Logo"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "THE STEAMER & BAKED OYSTER BAR - Seafood Restaurant Gulf Shores, Alabama – Behind Souvenir City. Welcome to the Steamer and Baked Oyster Bar, located in Gulf Shores, Alabama behind Souvenir City. We serve raw, steamed and baked oysters along with a full menu of steamed and grilled seafood. Try our steamed seafood trays for 2 or more served with a combination of Royal Reds, Crab Legs, Oysters, Mussels & Large Tail-on Shrimp! Hungry yet? Stop by today! Menu available. Gift cards available for purchase. Takeout orders available online. Delivery orders available online. Location: The Steamer Baked Oyster Bar, 124 W 1st Ave, Gulf Shores, AL. Phone: (251) 948-4042. Hours: Open daily from 11 am – 9 pm. Get Directions. Main Menu: Menu, Shop, Location, Contact Us.",
+  "extraction_confidence": "medium",
+  "extraction_notes": "This appears to be a homepage of a seafood restaurant website. The HTML contains mostly header/navigation, image carousel, and contact/location information. A full detailed menu was not visible in the extracted HTML - there is a 'Menu' link but the actual menu items/prices are not included in this homepage HTML. Social media links are not present on the homepage. No information about reservations, happy hour, events, wine list, or dietary accommodations was found. The website appears to be built with WordPress Avada theme. Gift cards are available through an external store link. Takeout and delivery are available through third-party services (SkyTab and Time to Eat the Beach). Hours appear to be consistent daily 11 AM - 9 PM.",
+  "folder": "ChIJldilw7YEmogRn4r2cQ38KF8_The Steamer Baked Oyster Bar",
+  "extracted_at": "2026-05-15T06:33:00.975Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJldilw7YEmogRn4r2cQ38KF8_The Steamer Baked Oyster Bar/01_raw_html.html"
+}

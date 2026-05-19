@@ -1,0 +1,74 @@
+═══════════════════════════════════════════════════════════════════════════════
+                    EXTRACTED RESTAURANT DATA - QUICK START
+═══════════════════════════════════════════════════════════════════════════════
+
+📊 DATA STATUS
+
+  ✅ 532 restaurants extracted (from 534 total)
+  ✅ 3,275 menu items (140 restaurants have menus)
+  ✅ 375 specials (135 restaurants)
+  ✅ 203 phone numbers on file
+
+═══════════════════════════════════════════════════════════════════════════════
+
+🔍 SEARCH & VIEW
+
+View any restaurant's complete data:
+
+  node view-restaurant-data.js "Bahama Bob"
+  node view-restaurant-data.js "Sea-N-Suds"
+  node view-restaurant-data.js "High Tide"
+
+═══════════════════════════════════════════════════════════════════════════════
+
+📈 REPORTS
+
+See which restaurants have the most data:
+
+  node restaurant-data-report.js
+
+Shows restaurants categorized by data completeness:
+  - FULL MENU (50+ items) - 12 restaurants
+  - GOOD MENU (20-49 items) - 55 restaurants
+  - BASIC MENU (5-19 items) - 56 restaurants
+  - MINIMAL MENU (1-4 items) - 17 restaurants
+  - SPECIALS ONLY - 70 restaurants
+  - NO DATA - 322 restaurants
+
+═══════════════════════════════════════════════════════════════════════════════
+
+📁 DATA FILES
+
+Individual JSON files for each restaurant:
+  extracted-restaurants/{folder-name}.json
+
+Complete spreadsheet with all restaurants:
+  ALL-RESTAURANTS-DATA-SUMMARY.xlsx
+
+═══════════════════════════════════════════════════════════════════════════════
+
+🏆 TOP RESTAURANTS
+
+1. Bahama Bob's (99 items)          Phone: (251) 948-2100
+2. Sea-N-Suds (79 items)            Phone: (251) 948-7894
+3. High Tide #3 (76 items)          Phone: 251-324-6205
+4. The Galley on the River (64)     Phone: (251) 200-5595
+5. OHANA POKE & TERIYAKI (61)       Phone: (251) 210-4715
+6. Papa Johns Pizza (60)             Phone: (877) 547-7272
+7. The Hammered Crab (53 + 6 spec)  Phone: (251)-200-0545
+8. Amelia's Deli (56)                Phone: (251) 968-8333
+9. Biryani Pot (55)                  Phone: (251) 888-0999
+10. Indian Kitchen (54)              Phone: (256)715-0134
+
+═══════════════════════════════════════════════════════════════════════════════
+
+📖 DOCUMENTATION
+
+Full guide:
+  cat EXTRACTED-DATA-GUIDE.md
+
+═══════════════════════════════════════════════════════════════════════════════
+
+Generated: 2026-05-19
+Ready for database import!
+

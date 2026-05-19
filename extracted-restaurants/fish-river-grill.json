@@ -1,0 +1,61 @@
+{
+  "name": "Fish River Grill",
+  "type": "Restaurant",
+  "website": "https://fishrivergrillgs.com",
+  "contact": {
+    "phone": "",
+    "address": "",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": null
+  },
+  "about": {
+    "description": "Fish River Grill is a seafood and American cuisine restaurant located in Gulf Shores, Alabama. Based on the URL domain, it appears to be a casual dining establishment serving Gulf Coast-inspired fare.",
+    "elevator_pitch": "A Gulf Shores staple serving fresh seafood and American comfort food with a relaxed coastal vibe.",
+    "established": null,
+    "owner": null,
+    "chef": null,
+    "vibe": "Casual coastal seafood dining on the Gulf",
+    "best_for": [
+      "families",
+      "groups",
+      "casual dining"
+    ],
+    "age_restriction": null,
+    "dress_code": null,
+    "parking": null,
+    "accessibility": null,
+    "reservations": null,
+    "insider_tip": null,
+    "awards": [],
+    "press": []
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "twitter": null,
+    "tiktok": null,
+    "youtube": null,
+    "yelp": null,
+    "tripadvisor": null,
+    "opentable": null,
+    "google_maps": null,
+    "website": "https://fishrivergrillgs.com"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-03-21T12:59:59.202Z"
+}

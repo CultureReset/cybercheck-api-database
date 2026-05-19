@@ -1,0 +1,168 @@
+{
+  "name": "Lake Wedowee Winery and Brewery",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "256-610-3409",
+    "address": "29 Main Street South",
+    "city": "Wedowee",
+    "email": "lakewedoweewinery@gmail.com"
+  },
+  "hours": {
+    "monday": "Closed",
+    "tuesday": "12:00pm-6:00pm",
+    "wednesday": "12:00pm-6:00pm",
+    "thursday": "12:00pm-8:00pm",
+    "friday": "10:00am-8:00pm",
+    "saturday": "10:00am-8:00pm",
+    "sunday": "Closed"
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "White Wines",
+      "name": "Sittin On The Dock",
+      "description": "Chardonnay - Soft and buttery with hints of pear and almond.",
+      "price": ""
+    },
+    {
+      "category": "White Wines",
+      "name": "Sandbar Soiree",
+      "description": "Sauvignon Blanc - Light body slightly dry with notes of lemon and citrus.",
+      "price": ""
+    },
+    {
+      "category": "White Wines",
+      "name": "Fog On The Water",
+      "description": "Pinot Grigio - Light pear and citrus notes with a crisp off sweet finish.",
+      "price": ""
+    },
+    {
+      "category": "White Wines",
+      "name": "Tallapoosa Sunset",
+      "description": "Moscato - Sweet notes of honeysuckle, peach, and nectarines.",
+      "price": ""
+    },
+    {
+      "category": "Red Wines",
+      "name": "Drunk Monkey Red",
+      "description": "Muscadine - Full body robust and bold. A true southern original!",
+      "price": ""
+    },
+    {
+      "category": "Red Wines",
+      "name": "Wedowee Creek Whisper",
+      "description": "Cabernet - Dry medium body with notes of currants, blackberry, and cherry.",
+      "price": ""
+    },
+    {
+      "category": "Red Wines",
+      "name": "Red Sky Nights",
+      "description": "Red Blend - Full body rich with peppery notes and a tobacco finish.",
+      "price": ""
+    },
+    {
+      "category": "Red Wines",
+      "name": "Lake It Easy",
+      "description": "Zinfandel - Dry medium body with plum and dark berry notes with a sweet finish.",
+      "price": ""
+    },
+    {
+      "category": "Red Wines",
+      "name": "Lakeside Nights",
+      "description": "Merlot - Medium body with sweet plum and vanilla notes.",
+      "price": ""
+    },
+    {
+      "category": "Specialty Wines",
+      "name": "Frog Level Kiss",
+      "description": "Crisp green apple, sweet and tart. Tastes like a Jolly Rancher.",
+      "price": ""
+    },
+    {
+      "category": "Specialty Wines",
+      "name": "La-KIWI-Dowee",
+      "description": "Sweet blend of kiwi, strawberry, and watermelon.",
+      "price": ""
+    },
+    {
+      "category": "Specialty Wines",
+      "name": "Fox Creek Fire",
+      "description": "Spicy habanero heat blended into a sweet mango finish.",
+      "price": ""
+    },
+    {
+      "category": "Specialty Wines",
+      "name": "Old Water Myst",
+      "description": "Elderberry. Semi-sweet and oh so healthy.",
+      "price": ""
+    },
+    {
+      "category": "Fruit Wines",
+      "name": "Blue Moon",
+      "description": "Sweet blueberry wine.",
+      "price": ""
+    },
+    {
+      "category": "Fruit Wines",
+      "name": "Under The Bridge",
+      "description": "Blackberry wine.",
+      "price": ""
+    },
+    {
+      "category": "Fruit Wines",
+      "name": "Pineywoods Paradise",
+      "description": "Our famous pineapple breakfast wine.",
+      "price": ""
+    },
+    {
+      "category": "Fruit Wines",
+      "name": "Ray Of Sunshine",
+      "description": "Lemon wine, crisp and delicious!",
+      "price": ""
+    },
+    {
+      "category": "Fruit Wines",
+      "name": "Party On The Pontoon",
+      "description": "Our delicious strawberry wine.",
+      "price": ""
+    },
+    {
+      "category": "Fruit Wines",
+      "name": "Bikini Dropper",
+      "description": "Sweet cherry wine. A summer favorite!",
+      "price": ""
+    },
+    {
+      "category": "Fruit Wines",
+      "name": "Fuzzy Flat Rock",
+      "description": "Sweet peach wine. A crowd favorite!",
+      "price": ""
+    },
+    {
+      "category": "Fruit Wines",
+      "name": "Chillaxing",
+      "description": "Sweet pomegranate and concord grape wine! Fresh and refreshing!!",
+      "price": ""
+    },
+    {
+      "category": "Beer",
+      "name": "Lake Wedowee Brewery Beer Growlers",
+      "description": "Available varieties vary weekly. To go only.",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Beer and Bingo",
+      "description": "Beer and Bingo every Friday night",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:50.548Z"
+}

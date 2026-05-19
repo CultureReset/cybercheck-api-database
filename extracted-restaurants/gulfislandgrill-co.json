@@ -1,0 +1,123 @@
+{
+  "name": "Gulf Island Grill",
+  "type": "Restaurant",
+  "website": "https://gulfislandgrill.co",
+  "contact": {
+    "phone": "251-968-4440",
+    "address": "244 E Beach Blvd",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {
+    "monday": "11am-till",
+    "tuesday": "11am-till",
+    "wednesday": "11am-till",
+    "thursday": "11am-till",
+    "friday": "11am-till",
+    "saturday": "11am-till",
+    "sunday": "11am-till"
+  },
+  "about": {
+    "description": "Grillin' on the beach since 2003! Established in 2003 by Freddie and Pat Peninger, Gulf Island Grill is known for its unique tropical flavors and world famous smoked ribs. Fresh seafood and savory burgers served everyday.",
+    "cuisine_type": "seafood"
+  },
+  "social": {},
+  "menu": [
+    {
+      "category": "Soups",
+      "name": "Crab and Corn Bisque",
+      "description": "Creamy crab meat treasure. Served with crackers. Ask for a cup or bowl.",
+      "price": "$8/$12"
+    },
+    {
+      "category": "Soups",
+      "name": "Seafood Gumbo",
+      "description": "Made from scratch shrimp & sausage gumbo. Served with crackers. Ask for a cup or bowl.",
+      "price": "$8/$12"
+    },
+    {
+      "category": "Salads",
+      "name": "The Grill Salad",
+      "description": "Fresh tossed greens with grilled chicken, craisins, pineapple, shredded parmesan cheese, and toasted almonds.",
+      "price": "$17"
+    },
+    {
+      "category": "Salads",
+      "name": "Mango Shrimp Salad",
+      "description": "Fresh tossed greens with sliced red onions, cherry tomatoes, a boiled egg, and parmesan cheese. Topped with mango BBQ shrimp.",
+      "price": "$17"
+    },
+    {
+      "category": "Salads",
+      "name": "Tender Salad",
+      "description": "Fresh tossed greens with sliced red onions, cherry tomatoes, a boiled egg, and parmesan cheese. Topped with crispy fried chicken.",
+      "price": "$16"
+    },
+    {
+      "category": "Salads",
+      "name": "Side Salad",
+      "description": "Fresh tossed greens with cucumber, cherry tomatoes, shredded cheese, and sliced onions.",
+      "price": "$5"
+    },
+    {
+      "category": "From the Grill",
+      "name": "Islamorada Chicken",
+      "description": "Grilled chicken breast marinated with island flavors. Served with Caribbean rice, steamed veggies, and a grilled pineapple.",
+      "price": "$20"
+    },
+    {
+      "category": "From the Grill",
+      "name": "Ribeye",
+      "description": "Hand cut and grilled to your liking, served with mashed potatoes and steamed veggies. Enhance your meal with 4 fried shrimp, a grilled shrimp skewer, or 2 stuffed crab for an upcharge!",
+      "price": "$30"
+    },
+    {
+      "category": "From the Grill",
+      "name": "Caribbean Shrimp Kabobs",
+      "description": "Get 2 grilled shrimp skewers with Caribbean rice, steamed veggies, and a grilled pineapple.",
+      "price": "$24"
+    },
+    {
+      "category": "From the Grill",
+      "name": "Surf and Turf",
+      "description": "Our 12oz. ribeye with your choice of: grilled shrimp skewer, 4 fried Gulf shrimp, OR 2 stuffed crab. Served with Gulf Island potatoes and steamed veggies.",
+      "price": "$36"
+    },
+    {
+      "category": "From the Grill",
+      "name": "Mahi Tacos",
+      "description": "Fresh mahi mahi wrapped in a flour tortilla shell with homemade pico de gallo, fresh lettuce, and shredded cheese. Served with chips and salsa and red beans & rice.",
+      "price": "$22"
+    },
+    {
+      "category": "From the Grill",
+      "name": "Baja Catch",
+      "description": "Fresh fish prepared grilled or blackened. Served with Caribbean rice and steamed veggies.",
+      "price": "$22"
+    },
+    {
+      "category": "From the Grill",
+      "name": "Shrimp Scampi",
+      "description": "Fresh gulf shrimp sautéed in a garlic wine butter, served with Caribbean rice and steamed veggies.",
+      "price": "$22"
+    },
+    {
+      "category": "House Specialties",
+      "name": "Grouper Roulade",
+      "description": "Fresh grouper stuffed with crabmeat and broiled in a garlic-wine butter cream sauce. Served with mashed potatoes and steamed veggies.",
+      "price": "$24"
+    },
+    {
+      "category": "House Specialties",
+      "name": "Baby Back Ribs",
+      "description": "A full 2 lb. rack of ribs rubbed with island spices and slow cooked. Toss them with your choice of honey, jerk, or mango BBQ sauce. Served with fries.",
+      "price": "$28"
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-03-22T01:46:46.426Z"
+}

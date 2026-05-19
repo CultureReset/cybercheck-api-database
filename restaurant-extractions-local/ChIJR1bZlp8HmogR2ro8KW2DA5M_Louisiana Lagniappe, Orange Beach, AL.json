@@ -1,0 +1,161 @@
+{
+  "business_name": "The Louisiana Lagniappe",
+  "cuisine_type": "Gulf Seafood with Creole flair",
+  "price_range": null,
+  "description": "For over thirty years we have been known for our Gulf seafood with a Creole flair. The attire is casual, yet an upscale waterfront dining experience is provided for the entire family. In 1984, Louisiana Lagniappe in Destin was opened and established inside Sandpiper Cove condominiums. A loyal following was quickly established, in no small part, to the quality of the food and the attention to detail of the service. Since then, Louisiana Lagniappe has consistently served only the freshest seafood and steaks. The Gulf seafood is prepared with a Creole flair, the attire is casual, yet an upscale waterfront dining experience is provided for the entire family. Open year round, Louisiana Lagniappe is the spot for a memorable dining experience on all levels. With there being hundreds of restaurants in Destin, Lagniappe is consistently ranked in the Top 10 restaurants on TripAdvisor and wins the Award of Excellence every year.",
+  "atmosphere": "Casual upscale waterfront dining experience, family-friendly",
+  "chef_info": null,
+  "awards": [
+    "Consistently ranked in Top 10 restaurants on TripAdvisor",
+    "Award of Excellence every year"
+  ],
+  "contact": {
+    "phone": "850-837-0881",
+    "email": null,
+    "address": "775 Gulf Shore Drive, Destin, FL 32541",
+    "website": "https://www.thelouisianalagniappe.com",
+    "hours_phone": "850-837-0881",
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": "https://www.facebook.com/lagniappedestin",
+      "instagram": null,
+      "twitter": null,
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": "Open at 4:00 PM",
+    "tuesday": "Open at 4:00 PM",
+    "wednesday": "Open at 4:00 PM",
+    "thursday": "Open at 4:00 PM",
+    "friday": "Open at 4:00 PM",
+    "saturday": "Open at 4:00 PM",
+    "sunday": "Open at 4:00 PM",
+    "seasonal_hours": "Open year round",
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": true,
+    "takeout_available": null,
+    "delivery_available": null,
+    "curbside_available": null,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [],
+    "wine_list": null,
+    "beer_selection": null,
+    "cocktails": null,
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": null,
+      "vegan": null,
+      "gluten_free": null,
+      "dairy_free": null,
+      "nut_free": null,
+      "kosher": null,
+      "halal": null
+    }
+  },
+  "happy_hour": {
+    "available": null,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [],
+  "entertainment_and_events": [],
+  "private_events": {
+    "available": null,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": null,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": "Casual",
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": "Family-friendly, entire family welcome",
+    "pets_allowed": null
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": null,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": null,
+    "private_dining": null
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": null,
+    "email_signup": null,
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": false,
+    "farm_to_table": false,
+    "sustainable": false,
+    "organic": false,
+    "details": "Freshest seafood and steaks, Gulf seafood prepared with Creole flair"
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [
+      "Grouper Louisianne"
+    ],
+    "common_praise": [
+      "Quality of food",
+      "Attention to detail in service",
+      "Top 10 ranked on TripAdvisor",
+      "Freshest seafood"
+    ],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "food",
+      "url": "https://images.squarespace-cdn.com/content/v1/55e709c2e4b08a6148533c9b/1441294191016-FCIRI3TM8RQJOLICW5Y7/GrouperLouisianne.jpg",
+      "description": "Grouper Louisianne"
+    },
+    {
+      "type": "restaurant",
+      "url": "https://images.squarespace-cdn.com/content/v1/55e709c2e4b08a6148533c9b/1441724858630-33KX1U3ESNGSDHX0GIA4/image-asset.jpeg",
+      "description": "Restaurant interior/waterfront"
+    },
+    {
+      "type": "restaurant",
+      "url": "https://images.squarespace-cdn.com/content/v1/55e709c2e4b08a6148533c9b/1441725372168-BV9JH3106JR3NZ38GQPN/LLorangebeach",
+      "description": "Orange Beach location"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "The Louisiana Lagniappe - Welcome. Gulf Seafood at its best! For over thirty years we have been known for our Gulf seafood with a Creole flair. The attire is casual, yet an upscale waterfront dining experience is provided for the entire family. Louisiana Lagniappe in Destin, FL. In 1984, Louisiana Lagniappe in Destin was opened and established inside Sandpiper Cove condominiums. A loyal following was quickly established, in no small part, to the quality of the food and the attention to detail of the service. Since then, Louisiana Lagniappe has consistently served only the freshest seafood and steaks. The Gulf seafood is prepared with a Creole flair, the attire is casual, yet an upscale waterfront dining experience is provided for the entire family. Open year round, Louisiana Lagniappe is the spot for a memorable dining experience on all levels. With there being hundreds of restaurants in Destin, Lagniappe is consistently ranked in the Top 10 restaurants on TripAdvisor and wins the Award of Excellence every year. Louisiana Lagniappe in Destin opens for dinner every evening at 4:00pm. 850-837-0881. Louisiana Lagniappe in Orange Beach, AL. In 1999, a second Louisiana Lagniappe was opened in the SanRoc Cay Shopping and Marina Complex in Orange Beach, Alabama. Offering the same fine Louisiana seafood with a Creole flair, the attire is casual, yet an upscale waterfront dining experience is provided for the entire family. Open year round, Louisiana Lagniappe is the spot for a memorable dining experience on all levels. Like our sister restaurant in Destin, FL, Louisiana Lagniappe in Orange Beach is consistently ranked in the Top 10 restaurants on TripAdvisor and wins the Award of Excellence every year. Louisiana Lagniappe in Orange Beach opens for dinner every evening at 5:00pm. 251-981-2258. Footer: DESTIN, FL. OPEN DAILY AT 4:00PM. 775 Gulf Shore Drive, Destin, FL 32541. 850.837.0881. (Inside of Sandpiper Cove). ORANGE BEACH, AL. OPEN DAILY AT 5:00PM. 27267 Perdido Beach Blvd, Orange Beach, AL 32413. 251.981.2258. (Behind SanRoc Cay). Related restaurants: The Back Porch, Pompano Joe's. Copyright 2015 Southern Restaurant Group.",
+  "extraction_confidence": "high",
+  "extraction_notes": "This website is a Squarespace-based restaurant site with limited menu details. Two locations are mentioned: Destin, FL (opening since 1984) and Orange Beach, AL (opening since 1999). Phone numbers and addresses are extracted for both locations. The primary content focuses on company history, cuisine type, and dining atmosphere. Detailed menu items, pricing, dietary accommodations, happy hour specials, entertainment events, and reservation policies are not visible on this homepage. Facebook links are provided for both locations. The site indicates pages for Menu, Locations, Photos, Videos, About, Contact, and Employment but the content of those pages is not included in this extraction. Navigation shows these sections exist but they are not extracted from the provided HTML.",
+  "folder": "ChIJR1bZlp8HmogR2ro8KW2DA5M_Louisiana Lagniappe, Orange Beach, AL",
+  "extracted_at": "2026-05-15T06:20:38.402Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJR1bZlp8HmogR2ro8KW2DA5M_Louisiana Lagniappe, Orange Beach, AL/01_raw_html.html"
+}

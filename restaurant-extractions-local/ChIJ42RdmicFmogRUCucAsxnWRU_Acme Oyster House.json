@@ -1,0 +1,155 @@
+{
+  "business_name": "Acme Oyster House",
+  "cuisine_type": "Cajun, Seafood, Oysters",
+  "price_range": null,
+  "description": "Acme Oyster House now ships our Cajun classics nationwide on Goldbelly—straight from the Big Easy to your door. Guaranteed to arrive fresh.",
+  "atmosphere": null,
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": null,
+    "website": "https://acmeoyster.com",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": "https://www.facebook.com/AcmeOysterHouse/",
+      "instagram": null,
+      "twitter": "https://twitter.com/AcmeOyster",
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": "09:00-17:00",
+    "tuesday": "09:00-17:00",
+    "wednesday": "09:00-17:00",
+    "thursday": "09:00-17:00",
+    "friday": "09:00-17:00",
+    "saturday": "09:00-17:00",
+    "sunday": "09:00-17:00",
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": true,
+    "takeout_available": true,
+    "delivery_available": true,
+    "curbside_available": null,
+    "delivery_partners": [
+      "Goldbelly"
+    ],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": "Nationwide"
+  },
+  "menu": {
+    "sections": [],
+    "wine_list": null,
+    "beer_selection": null,
+    "cocktails": null,
+    "kids_menu": null,
+    "catering_menu": "Available",
+    "dietary_accommodations": {
+      "vegetarian": null,
+      "vegan": null,
+      "gluten_free": null,
+      "dairy_free": null,
+      "nut_free": null,
+      "kosher": null,
+      "halal": null
+    }
+  },
+  "happy_hour": {
+    "available": null,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [],
+  "entertainment_and_events": [],
+  "private_events": {
+    "available": true,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": true,
+    "packages": "Private Parties, Off-Site Events, Catering To-Go, Revelry Catering available"
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": null,
+    "pets_allowed": null
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": null,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": null,
+    "private_dining": true
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": "Lagniappe Loyalty Program, 15 Dozen Club",
+    "gift_cards_available": true,
+    "email_signup": null,
+    "rewards_details": "Loyalty program and 15 Dozen Club available at multiple locations"
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": null,
+    "farm_to_table": null,
+    "sustainable": null,
+    "organic": null,
+    "details": null
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [
+      "Oysters"
+    ],
+    "common_praise": [],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "restaurant",
+      "url": "https://acmeoyster.com/wp-content/uploads/2022/04/ACME-Oyster-House-Social-Media.jpg",
+      "description": "Acme Oyster House social media image"
+    },
+    {
+      "type": "logo",
+      "url": "https://acmeoyster.com/wp-content/uploads/2022/03/acme-logo-white.svg",
+      "description": "Acme Oyster House logo"
+    },
+    {
+      "type": "promotional",
+      "url": "https://acmeoyster.com/wp-content/uploads/2024/02/acme-gb_lockup-300x273.png",
+      "description": "Acme Oyster House Goldbelly partnership image"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "Acme Oyster House. Nationwide Shipping On Goldbelly. Acme Oyster House now ships our Cajun classics nationwide on Goldbelly—straight from the Big Easy to your door. Guaranteed to arrive fresh. Shop now! Menu locations include: French Quarter, Metairie, Baton Rouge, Gulf Shores, Destin at Seascape. Navigation includes: Menu, Catering (Private Parties, Off-Site Events, Catering To-Go, Revelry Catering), Gift Cards, Careers (New Orleans, Metairie, Baton Rouge, Gulf Shores, Destin at Seascape), Lagniappe (Loyalty Program, Donations, 15 Dozen Club across all locations, Our Heritage, Videos), and Goldbelly shipping option. Order Online available. Opening hours: Monday-Sunday 09:00-17:00.",
+  "extraction_confidence": "medium",
+  "extraction_notes": "This appears to be a homepage/landing page with limited menu details visible. The HTML shows header navigation and a prominent Goldbelly promotion but minimal detailed content about specific menu items, pricing, or restaurant-specific policies. Multiple locations are mentioned (French Quarter, Metairie, Baton Rouge, Gulf Shores, Destin at Seascape) but individual location details would require visiting location-specific pages. No detailed menu items, pricing, drink specials, or entertainment details were found on this particular page. The hours shown (09:00-17:00) appear to be business office hours rather than restaurant dining hours. No contact phone number, email, or specific address was found on this page. The website appears to focus primarily on Goldbelly nationwide shipping rather than detailed dine-in restaurant information.",
+  "folder": "ChIJ42RdmicFmogRUCucAsxnWRU_Acme Oyster House",
+  "extracted_at": "2026-05-15T06:03:37.584Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJ42RdmicFmogRUCucAsxnWRU_Acme Oyster House/01_raw_html.html"
+}

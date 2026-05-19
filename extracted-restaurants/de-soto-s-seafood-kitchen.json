@@ -1,0 +1,35 @@
+{
+  "name": "De Soto's Seafood Kitchen",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "(251) 948-7294",
+    "address": "138 West 1st Ave.",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {
+    "monday": "11am-3pm (lunch), 3pm-9pm (dinner)",
+    "tuesday": "11am-3pm (lunch), 3pm-9pm (dinner)",
+    "wednesday": "11am-3pm (lunch), 3pm-9pm (dinner)",
+    "thursday": "11am-3pm (lunch), 3pm-9pm (dinner)",
+    "friday": "11am-3pm (lunch), 3pm-9pm (dinner)",
+    "saturday": "11am-3pm (lunch), 3pm-9pm (dinner)",
+    "sunday": "11am-3pm (lunch), 3pm-9pm (dinner)"
+  },
+  "about": {},
+  "social": {},
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Daily Lunch & Dinner Specials",
+      "description": "Fresh Seafood, Steak, Chicken, Pasta, Home Style Vegetables, Salads, Sandwiches, and Appetizers",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:50.209Z"
+}

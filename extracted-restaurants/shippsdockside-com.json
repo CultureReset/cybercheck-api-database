@@ -1,0 +1,53 @@
+{
+  "name": "Shipp's Dockside Grill",
+  "type": "Restaurant",
+  "website": "https://shippsdockside.com",
+  "contact": {
+    "phone": "(251) 412-7447",
+    "address": "27075 Marina Road",
+    "city": "Orange Beach",
+    "email": "info@shippsdockside.com"
+  },
+  "hours": {
+    "monday": "Closed",
+    "tuesday": "Lower Deck: 11 am - 9 pm, Upper Deck: 4 pm - 9 pm",
+    "wednesday": "Lower Deck: 11 am - 9 pm, Upper Deck: 4 pm - 9 pm",
+    "thursday": "Lower Deck: 11 am - 9 pm, Upper Deck: 4 pm - 9 pm",
+    "friday": "Lower Deck: 11 am - 10 pm, Upper Deck: 4 pm - 10 pm",
+    "saturday": "Lower Deck: 11 am - 10 pm, Upper Deck: 4 pm - 10 pm",
+    "sunday": "Lower Deck: 11 am - 9 pm, Upper Deck: 11 am - 3 pm & 4 pm - 9 pm",
+    "notes": "Winter Hours - Closed Monday"
+  },
+  "about": {
+    "description": "The Shipp family returns to Orange Beach with two distinct culinary experiences: dockside seafood and sushi on the lower deck and Chef Matt's signature dishes with craft cocktails on the upscale yet relaxed upper deck.",
+    "elevator_pitch": "A waterfront seafood restaurant at Orange Beach Marina offering casual dockside dining on the lower deck and upscale full-service dining on the upper deck.",
+    "vibe": "Casual counter service on lower deck, family-friendly full-service upscale yet relaxed atmosphere on upper deck",
+    "best_for": [
+      "families",
+      "date night",
+      "waterfront dining",
+      "seafood lovers"
+    ],
+    "established": null,
+    "reservations": "Available for dinner",
+    "insider_tip": "Two distinct dining experiences in one location - choose between casual dockside seafood or upscale dining with craft cocktails"
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://www.shippsdockside.com"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Daily Specials",
+      "description": "",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 8,
+  "scraped_at": "2026-03-21T20:13:00.074Z"
+}

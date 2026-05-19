@@ -1,0 +1,57 @@
+{
+  "name": "Perdido Dunes Tower",
+  "type": "Vacation Rental - Condo",
+  "website": "https://www.brett-robinson.com/beach-condo/perdido-dunes-tower/",
+  "contact": {
+    "phone": "+1-251-968-7363 or +1-800-211-7892",
+    "address": "27070 Perdido Beach Blvd",
+    "city": "Orange Beach",
+    "email": ""
+  },
+  "hours": {},
+  "about": {
+    "description": "Perdido Dunes Tower is a Gulf Shores and Orange Beach vacation destination offering comfortable coastal living and panoramic views of Perdido Bay. A smoke-free vacation tower providing guests with direct access to beach pathways, resort-style amenities, and close proximity to local dining, shopping, and adventure. Each unit blends open-concept living spaces with coastal décor and natural light. Located between Gulf Shores and Orange Beach with easy access to sugar-white Gulf beaches, Perdido Key recreational areas, water sports, fishing charters, community golf, parks, and bike paths.",
+    "elevator_pitch": "Smoke-free Gulf front tower with direct beach access, resort-style amenities, and panoramic Perdido Bay views ideal for families, couples, and groups.",
+    "total_units": null,
+    "floors": null,
+    "year_built": null,
+    "pet_friendly": null,
+    "minimum_stay": "3 nights",
+    "check_in": null,
+    "check_out": null,
+    "age_restriction": null
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/brett_robinson_vacations",
+    "facebook": "https://www.facebook.com/BrettRobinsonVacations",
+    "website": "https://www.brett-robinson.com/beach-condo/perdido-dunes-tower/"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Hot Deal - Perdido Dunes Tower 6E",
+      "description": "4 Bed, 3 Bath, Sleeps 10 - Reduced rates available",
+      "discount": ""
+    },
+    {
+      "name": "Hot Deal - Perdido Dunes Tower 9E",
+      "description": "4 Bed, 3 Bath, Sleeps 10 - Reduced rates available",
+      "discount": ""
+    },
+    {
+      "name": "Charming Beachfront Stays for a Tranquil Getaway",
+      "description": "Select properties discounted for family and group vacations",
+      "discount": ""
+    },
+    {
+      "name": "Summer Promotions",
+      "description": "Seasonal discounts available on Gulf Shores and Orange Beach properties",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 23,
+  "scraped_at": "2026-03-21T21:49:19.237Z"
+}

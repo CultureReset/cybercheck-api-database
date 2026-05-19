@@ -1,0 +1,141 @@
+{
+  "business_name": "S & S Seafood Market",
+  "cuisine_type": "Seafood",
+  "price_range": null,
+  "description": "S&S Seafood Market & Kitchen in Gulf Shores—Gulf seafood, shrimp, fish, oysters, crab and more—plus award-winning tuna dip, crab cakes and homemade specialties. Seafood by the Seashore.",
+  "atmosphere": null,
+  "chef_info": null,
+  "awards": [
+    "Award-winning tuna dip",
+    "Award-winning crab cakes"
+  ],
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": "Gulf Shores",
+    "website": "http://www.seafoodbytheseashore.com/",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": "https://www.facebook.com/SSSeafood/",
+      "instagram": null,
+      "twitter": null,
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": null,
+    "takeout_available": null,
+    "delivery_available": null,
+    "curbside_available": null,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [],
+    "wine_list": null,
+    "beer_selection": null,
+    "cocktails": null,
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": false,
+      "vegan": false,
+      "gluten_free": false,
+      "dairy_free": false,
+      "nut_free": false,
+      "kosher": false,
+      "halal": false
+    }
+  },
+  "happy_hour": {
+    "available": false,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [],
+  "entertainment_and_events": [],
+  "private_events": {
+    "available": false,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": false,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": false,
+    "accessible_restroom": false,
+    "parking_accessible": false,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": null,
+    "pets_allowed": false
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": false,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": false,
+    "private_dining": false
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": false,
+    "email_signup": null,
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": false,
+    "farm_to_table": false,
+    "sustainable": false,
+    "organic": false,
+    "details": null
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [
+      "Tuna dip",
+      "Crab cakes"
+    ],
+    "common_praise": [],
+    "common_complaints": []
+  },
+  "photos_and_media": [],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "S & S Seafood Market. Seafood by the Seashore. S&S Seafood Market & Kitchen in Gulf Shores—Gulf seafood, shrimp, fish, oysters, crab and more—plus award-winning tuna dip, crab cakes and homemade specialties.",
+  "extraction_confidence": "low",
+  "extraction_notes": "This HTML appears to be a homepage with extensive CSS and styling but minimal actual content visible in the provided HTML snippet. The main content area is cut off mid-way. Key information extracted: Business name (S & S Seafood Market), location (Gulf Shores), cuisine type (Seafood), and award-winning items (tuna dip, crab cakes) from the meta description and schema markup. Contact information, hours, menu details, pricing, and most operational details are not visible in the provided HTML. The page uses Kadence theme and appears to be a WordPress site. A complete extraction would require the full HTML document including the body content sections.",
+  "folder": "ChIJU9FrvUIbmogRPmIFMPDnpvo_S&S Seafood Market + Kitchen",
+  "extracted_at": "2026-05-15T06:22:39.412Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJU9FrvUIbmogRPmIFMPDnpvo_S&S Seafood Market + Kitchen/01_raw_html.html"
+}

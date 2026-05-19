@@ -1,0 +1,169 @@
+{
+  "business_name": "Zeke's Landing & Marina",
+  "cuisine_type": "Restaurant (Seafood/Casual Dining)",
+  "price_range": null,
+  "description": "Zeke's Landing and Marina sits just across the street from some of the most beautiful beaches in the country. A mere 10-minute boat ride from the Gulf of Mexico. Zeke's boasts a long history of excellence in the charter fishing industry and proudly hosts the largest charter fleet on the Gulf. For your next saltwater fishing adventure, consider Zeke's Marina. We offer the largest charter fleet on Alabama's Gulf Coast, providing the perfect trip for every angler, regardless of experience level. Additionally, we offer a variety of dry dock options. Our commitment extends to providing premier customer service and adopting an environmentally friendly approach to operating a marina.",
+  "atmosphere": null,
+  "chef_info": null,
+  "awards": [
+    "Best of Baldwin 2026"
+  ],
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": "Orange Beach, AL",
+    "website": "https://www.zekeslanding.com/",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": null,
+      "instagram": null,
+      "twitter": null,
+      "tiktok": null,
+      "youtube": "https://www.youtube.com/embed/7kFcchh6WzU"
+    }
+  },
+  "hours": {
+    "monday": "Open",
+    "tuesday": "Open",
+    "wednesday": "Open",
+    "thursday": "Open",
+    "friday": "Open",
+    "saturday": "Open",
+    "sunday": "Open",
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": true,
+    "takeout_available": null,
+    "delivery_available": null,
+    "curbside_available": null,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [],
+    "wine_list": null,
+    "beer_selection": null,
+    "cocktails": null,
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": null,
+      "vegan": null,
+      "gluten_free": null,
+      "dairy_free": null,
+      "nut_free": null,
+      "kosher": null,
+      "halal": null
+    }
+  },
+  "happy_hour": {
+    "available": null,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [],
+  "entertainment_and_events": [
+    {
+      "type": "charter_boat_billfish_tournament",
+      "name": "Charter Boat Billfish Tournament",
+      "days": null,
+      "start_time": null,
+      "end_time": null,
+      "description": null,
+      "cover_charge": null,
+      "featured_artist": null
+    }
+  ],
+  "private_events": {
+    "available": true,
+    "event_spaces": "The Port at Zeke's",
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": null,
+    "packages": null
+  },
+  "parking": "On-site (Marina parking)",
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": null,
+    "pets_allowed": null
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": true,
+    "online_booking_platform": "OpenTable, FareHarbor",
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": null,
+    "private_dining": true
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": null,
+    "email_signup": "Constant Contact form available",
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": null,
+    "farm_to_table": null,
+    "sustainable": true,
+    "organic": null,
+    "details": "Environmentally friendly approach to operating a marina"
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [],
+    "common_praise": [],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "hero_image",
+      "url": "https://www.zekeslanding.com/wp-content/uploads/sites/7671/2025/02/DJI_0028.jpg",
+      "description": "Marina aerial view"
+    },
+    {
+      "type": "activity_image",
+      "url": "https://www.zekeslanding.com/wp-content/uploads/sites/7671/2025/02/413f26165dfc222cf8929447c2708497.jpg",
+      "description": "Offshore Fishing Charter"
+    },
+    {
+      "type": "activity_image",
+      "url": "https://www.zekeslanding.com/wp-content/uploads/sites/7671/2025/02/177fe75f85da5809b96a5738100abe77-e1738699498160.jpg",
+      "description": "Inshore Fishing Charter"
+    },
+    {
+      "type": "activity_image",
+      "url": "https://www.zekeslanding.com/wp-content/uploads/sites/7671/2025/01/Private-Sunset-Cruise-image-1.jpg",
+      "description": "Sunset Cruise"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": "Email signup available via Constant Contact form",
+  "raw_text_content": "Zeke's Landing & Marina | Fishing Charters in Orange Beach, AL. Zeke's is home to the Gulf's largest fishing charter fleet in Orange Beach as well as Zeke's Restaurant, the Port at Zeke's & dry storage. Book Your Charter at Zeke's Landing Today! Zeke's Landing and Marina. Fishing Charters & Cruises in Orange Beach, AL. We're Open 7 Days a Week and Fish Year Round! Orange Beach Fishing Charters. Offshore Fishing Private Charters - We offer the largest charter fishing fleet on the island and with over 50 boats in our fleet, you're sure to find the perfect fishing trip for you and your family! Target larger fish than what's available inshore on our offshore private charters. Inshore Fishing Private Charters - Inshore fishing takes place in the serene back bay areas and close to the picturesque shoreline. Inshore fishing is especially ideal for families with small children or those prone to sea sickness, providing a smooth and enjoyable experience. About Zeke's Landing & Marina: Zeke's Landing and Marina sits just across the street from some of the most beautiful beaches in the country. A mere 10-minute boat ride from the Gulf of Mexico. Zeke's boasts a long history of excellence in the charter fishing industry and proudly hosts the largest charter fleet on the Gulf. For your next saltwater fishing adventure, consider Zeke's Marina. We offer the largest charter fleet on Alabama's Gulf Coast, providing the perfect trip for every angler, regardless of experience level. Additionally, we offer a variety of dry dock options. Our commitment extends to providing premier customer service and adopting an environmentally friendly approach to operating a marina. Popular Charters & Cruises: Sunset Cruise - From $600, 2.5 Hours, All Ages. Zeke's Tiki Queen. Dolphin Cruise. Cruisin' Tikis. Bachelor/Bachelorette Party. Charter Boat Billfish Tournament. Navigation: Charters - Inshore Fishing Charters, Offshore Fishing Charters, Shared Expense Deep Sea Fishing, Zeke's Lady Party Boat Fishing Charters, View All Charters. Activities - Zeke's Tiki Queen, Sunset Cruise, Jetski Rental, Dolphin Cruise, Cruisin' Tikis, Bachelor/Bachelorette Party, Charter Boat Billfish Tournament. The Port. Boat Sales. About - About Us, FAQs, Charter Office, Contact Us. Restaurant - Menu, Make a Reservation. More - Best of Baldwin 2026, Dock Store, Dry Storage, Zeke's Marina Virtual Tour, Web Cam, Jobs.",
+  "extraction_confidence": "medium",
+  "extraction_notes": "This HTML is primarily for a fishing charter and marina business (Zeke's Landing), NOT a restaurant. While 'Zeke's Restaurant' is mentioned in the meta description and navigation, no restaurant-specific menu, pricing, hours, or contact details are visible in the provided HTML. The page is the main homepage with hotel/activity booking integration. To extract comprehensive restaurant data, the restaurant-specific page at https://www.zekeslanding.com/restaurant/ would need to be provided. The business operates 7 days a week year-round. OpenTable and FareHarbor are used for reservations. Limited contact information visible in this HTML. No traditional restaurant menu found. The primary focus is on fishing charters and water activities with pricing shown for activities (Sunset Cruise from $600). Photos are available but mostly show charter/marina activities rather than dining. Social media links not directly visible but YouTube video embedded. No gift cards, loyalty program, or dining specials mentioned.",
+  "folder": "ChIJ6xKDDAgHmogRAE8nfvLDjqM_Zeke's Landing and Marina",
+  "extracted_at": "2026-05-15T06:06:59.934Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJ6xKDDAgHmogRAE8nfvLDjqM_Zeke's Landing and Marina/01_raw_html.html"
+}

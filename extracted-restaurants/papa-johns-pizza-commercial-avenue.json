@@ -1,0 +1,406 @@
+{
+  "name": "Papa Johns Pizza Commercial Avenue",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "(877) 547-7272",
+    "address": "",
+    "city": "",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Pizza",
+      "name": "Create Your Own Pizza",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Pizza",
+      "name": "Pepperoni Pizza",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Pizza",
+      "name": "Sausage Pizza",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Pizza",
+      "name": "Cheese Pizza",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Pizza",
+      "name": "Epic Stuffed Crust Pizza",
+      "description": "Our original dough stuffed with melty cheese and baked to a crispy, golden goodness.",
+      "price": 13.99
+    },
+    {
+      "category": "Pizza",
+      "name": "The Works Pizza",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Pizza",
+      "name": "The Meats Pizza",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Pizza",
+      "name": "Super Hawaiian Pizza",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Pizza",
+      "name": "Ultimate Pepperoni Pizza",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Pizza",
+      "name": "BBQ Chicken Bacon Pizza",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Pizza",
+      "name": "Fiery Buffalo Chicken Pizza",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Pizza",
+      "name": "Philly Cheesesteak Pizza",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Pizza",
+      "name": "Fresh Spinach & Tomato Alfredo Pizza",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Pizza",
+      "name": "Garden Fresh Pizza",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Pizza",
+      "name": "Tuscan Six Cheese Pizza",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Chicken Bacon Ranch Oven-Toasted Sandwich",
+      "description": "",
+      "price": 7.99
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Philly Cheesesteak Oven-Toasted Sandwich",
+      "description": "",
+      "price": 7.99
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Steak & Mushroom Oven-Toasted Sandwich",
+      "description": "",
+      "price": 7.99
+    },
+    {
+      "category": "Wings",
+      "name": "Unsauced Roasted Wings",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Wings",
+      "name": "Garlic Parmesan Wings",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Wings",
+      "name": "Buffalo Wings",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Wings",
+      "name": "BBQ Wings",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Wings",
+      "name": "Honey Chipotle Wings",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Wings",
+      "name": "Unsauced Boneless Wings",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Wings",
+      "name": "Garlic Parmesan Boneless Wings",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Wings",
+      "name": "Buffalo Boneless Wings",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Wings",
+      "name": "BBQ Boneless Wings",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Wings",
+      "name": "Honey Chipotle Boneless Wings",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sides",
+      "name": "Cheesy Garlic Bread",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sides",
+      "name": "Garlic Knots",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sides",
+      "name": "Original Breadsticks",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sides",
+      "name": "Garlic Parmesan Breadsticks",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sides",
+      "name": "Cheesesticks",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sides",
+      "name": "Bacon Cheesesticks",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sides",
+      "name": "Tuscan 6-Cheese Cheesesticks",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Papa Bowls",
+      "name": "Create Your Own Papa Bowl",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Desserts",
+      "name": "Cinnamon Pull Aparts",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Desserts",
+      "name": "Chocolate Chip Cookie",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Desserts",
+      "name": "Double Chocolate Chip Brownie",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Drinks",
+      "name": "Pepsi",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Drinks",
+      "name": "Mountain Dew",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Drinks",
+      "name": "Diet Pepsi",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Drinks",
+      "name": "Aquafina",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Drinks",
+      "name": "Pepsi Zero Sugar",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Drinks",
+      "name": "Starry",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Drinks",
+      "name": "Crush Orange",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Drinks",
+      "name": "Dr. Pepper",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Dipping Sauces",
+      "name": "Special Garlic Sauce",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Dipping Sauces",
+      "name": "Spicy Garlic Sauce",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Dipping Sauces",
+      "name": "Original Pizza Sauce",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Dipping Sauces",
+      "name": "Ranch Sauce",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Dipping Sauces",
+      "name": "Blue Cheese Sauce",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Dipping Sauces",
+      "name": "Honey Mustard Sauce",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Dipping Sauces",
+      "name": "Buffalo Spicy Sauce",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Dipping Sauces",
+      "name": "Barbeque Sauce",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Dipping Sauces",
+      "name": "Cheese Sauce",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Dipping Sauces",
+      "name": "Cream Cheese Icing",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Extras",
+      "name": "Crushed Red Pepper",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Extras",
+      "name": "Parmesan Cheese",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Extras",
+      "name": "Pepperoncinis",
+      "description": "",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Papa Pairings",
+      "description": "Choose 2 or More",
+      "discount": ""
+    },
+    {
+      "name": "Epic Stuffed Crust Pizza",
+      "description": "Large 1-Topping",
+      "discount": ""
+    },
+    {
+      "name": "Oven-Toasted Sandwiches",
+      "description": "Choose From 3 Options",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:51.114Z"
+}

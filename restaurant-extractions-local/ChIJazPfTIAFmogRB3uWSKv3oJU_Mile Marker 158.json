@@ -1,0 +1,293 @@
+{
+  "business_name": "Mile Marker 158 Dockside",
+  "cuisine_type": "Casual American, Seafood",
+  "price_range": "$42-$56 for family meals, various price points for regular menu",
+  "description": "Mile Marker 158 is the newest member to the Wharf Restaurant Group family. Located dockside of the Springhill Suites Hotel, Mile Marker has the best patio dining view around — overlooking the Wharf's Marina. Dining inside offers a pleasant experience with an upscale appearance, while serving casual culinary cuisine and handcrafted cocktails. This hidden gem is the perfect place to visit, whether you're docking from a sunset or dolphin cruise, enjoying date night with your significant other, or even hosting a bridal shower, wedding reception, or business luncheon. Mile Marker 158 creates a relaxing dining experience and can accommodate large gatherings and caterings with a friendly and professional catering department.",
+  "atmosphere": "Upscale casual with waterfront/dockside patio views overlooking the Wharf's Marina. Pleasant indoor dining experience. Family-friendly with outdoor seating available.",
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": "251-224-6500 ext. 4",
+    "email": "dockside158@gmail.com",
+    "address": "The Wharf, Orange Beach, Alabama",
+    "website": null,
+    "hours_phone": "251-224-6500 ext. 4",
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": "https://www.facebook.com/Marker158dockside",
+      "instagram": "https://www.instagram.com/milemarker158",
+      "twitter": "https://twitter.com/MileMarker158",
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": true,
+    "takeout_available": true,
+    "delivery_available": true,
+    "curbside_available": false,
+    "delivery_partners": [
+      "Time to Eat the Beach",
+      "Uber Eats"
+    ],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [
+      {
+        "name": "Family Meals To Go",
+        "description": "Serves 4. Includes a house or caesar salad, bread & strawberry butter. TOGO ORDERS SUBJECT TO CHANGE, DEPENDING ON WAIT TIMES AND VOLUME OF RESTAURANT.",
+        "items": [
+          {
+            "name": "Chicken or Shrimp Alfredo",
+            "description": "Sauteed Gulf shrimp or grilled chicken, roasted tomatoes, spinach, cavatappi pasta, alfredo sauce",
+            "price": "$42",
+            "dietary_flags": [
+              "contains shellfish/chicken"
+            ],
+            "allergens": "shellfish, dairy, wheat",
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": "To-go only"
+          },
+          {
+            "name": "Seafood Pasta",
+            "description": "Sauteed Gulf Shrimp, Crab, Roasted Tomatoes, Spinach, Cavatappi Pasta, Gouda Cream Sauce",
+            "price": "$50",
+            "dietary_flags": [
+              "contains seafood"
+            ],
+            "allergens": "shellfish, crab, dairy, wheat",
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": "To-go only"
+          },
+          {
+            "name": "Teriyaki Glazed Salmon",
+            "description": "Pan Seared Salmon, Teriyaki Glaze, Spinach & Caramelized Onion Risotto, Honey Roasted Carrots",
+            "price": "$56",
+            "dietary_flags": [
+              "contains fish"
+            ],
+            "allergens": "fish, soy, dairy",
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": "To-go only"
+          },
+          {
+            "name": "Fish of the Day",
+            "description": "Pan Seared, Mushroom Risotto, Honey Roasted Carrots, Lemon Beurre Blanc",
+            "price": "$50",
+            "dietary_flags": [
+              "contains fish"
+            ],
+            "allergens": "fish, dairy, butter",
+            "is_signature": false,
+            "is_seasonal": true,
+            "availability": "To-go only, subject to daily availability"
+          }
+        ]
+      }
+    ],
+    "wine_list": null,
+    "beer_selection": null,
+    "cocktails": "Handcrafted cocktails available (specific list not provided)",
+    "kids_menu": "Kids menu available at /kids-menu",
+    "catering_menu": "Catering available through professional catering department at https://wharfcateringgroup.com/",
+    "dietary_accommodations": {
+      "vegetarian": null,
+      "vegan": null,
+      "gluten_free": null,
+      "dairy_free": null,
+      "nut_free": null,
+      "kosher": null,
+      "halal": null
+    }
+  },
+  "happy_hour": {
+    "available": null,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": "Happy hour specials available at /happy-hour"
+  },
+  "specials_and_promotions": [
+    {
+      "type": "special_event",
+      "day_of_week": null,
+      "name": "May Wine Dinner",
+      "description": "Wine dinner event",
+      "discount": null,
+      "valid_until": "May 7"
+    },
+    {
+      "type": "daily_special",
+      "day_of_week": "Sunday",
+      "name": "Sunday Bingo",
+      "description": "Sunday Bingo event at the restaurant",
+      "discount": null,
+      "valid_until": null
+    },
+    {
+      "type": "special_event",
+      "day_of_week": null,
+      "name": "Lasagna Night",
+      "description": "Special lasagna night event",
+      "discount": null,
+      "valid_until": null
+    }
+  ],
+  "entertainment_and_events": [
+    {
+      "type": "special_event",
+      "name": "May Wine Dinner",
+      "days": "May 7",
+      "start_time": "6pm",
+      "end_time": null,
+      "description": "Wine dinner event",
+      "cover_charge": "$55 per guest",
+      "featured_artist": null
+    },
+    {
+      "type": "trivia",
+      "name": "Sunday Bingo",
+      "days": "Sunday",
+      "start_time": null,
+      "end_time": null,
+      "description": "Sunday Bingo event",
+      "cover_charge": null,
+      "featured_artist": null
+    },
+    {
+      "type": "special_event",
+      "name": "Lasagna Night",
+      "days": null,
+      "start_time": null,
+      "end_time": null,
+      "description": "Lasagna night special event",
+      "cover_charge": null,
+      "featured_artist": null
+    }
+  ],
+  "private_events": {
+    "available": true,
+    "event_spaces": "Multiple event spaces available dockside",
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": true,
+    "packages": "Professional catering department available. Perfect place for bridal showers, wedding receptions, and business luncheons. Full catering services through Wharf Catering Group at https://wharfcateringgroup.com/"
+  },
+  "parking": "Parking available at The Wharf (specific details not provided)",
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": "Kids menu available; family-friendly establishment",
+    "pets_allowed": null
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": true,
+    "online_booking_platform": "Yelp",
+    "phone_reservations": "251-224-6500 ext. 4",
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": false,
+    "private_dining": true
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": null,
+    "email_signup": "Join Our Mailing List signup form available at top and bottom of website through MailChimp (ginnylanebargrill.us10.list-manage.com)",
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": false,
+    "farm_to_table": false,
+    "sustainable": false,
+    "organic": false,
+    "details": null
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [
+      "Chicken or Shrimp Alfredo",
+      "Seafood Pasta",
+      "Teriyaki Glazed Salmon",
+      "Fish of the Day"
+    ],
+    "common_praise": [
+      "Best patio dining view",
+      "Marina views",
+      "Waterfront location",
+      "Casual atmosphere",
+      "Upscale appearance",
+      "Friendly service",
+      "Professional catering"
+    ],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "restaurant",
+      "url": "/static/media/mmIntroBingo.a1265c5b.jpg",
+      "description": "Waterfront dining at The Wharf, in Orange Beach - Mile Marker 158 Dockside"
+    },
+    {
+      "type": "restaurant",
+      "url": "/static/media/mmCombo3.48a10c43.jpg",
+      "description": "Mile Marker 158 Dockside indoor dining area"
+    },
+    {
+      "type": "restaurant",
+      "url": "/static/media/mmDessert1.98ba0d2d.jpg",
+      "description": "Mile Marker 158 Dockside booth with waterfront view"
+    },
+    {
+      "type": "restaurant",
+      "url": "/static/media/mmFront1.fcfbd3b.jpg",
+      "description": "Mile Marker 158 Dockside entrance"
+    },
+    {
+      "type": "logo",
+      "url": "/static/media/logoMM-white.2500af72.png",
+      "description": "Mile Marker 158 Dockside Logo"
+    },
+    {
+      "type": "logo",
+      "url": "/static/media/symbol.4768d7a4.png",
+      "description": "Mile Marker 158 Dockside compass rose from logo"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": "Join Our Mailing List available via MailChimp signup form. Email address collection for subscriber list at ginnylanebargrill.us10.list-manage.com",
+  "raw_text_content": "Mile Marker 158 Dockside - Waterfront Restaurant in Orange Beach, Al. Open for indoor & outdoor dining. Now serving family meals to go! Call to order: 251-224-6500 ext. 4. Serves 4. Includes a house or caesar salad, bread & strawberry butter. Chicken or Shrimp Alfredo $42 - Sauteed Gulf shrimp or grilled chicken, roasted tomatoes, spinach, cavatappi pasta, alfredo sauce. Seafood Pasta $50 - Sauteed Gulf Shrimp, Crab, Roasted Tomatoes, Spinach, Cavatappi Pasta, Gouda Cream Sauce. Teriyaki Glazed Salmon $56 - Pan Seared Salmon, Teriyaki Glaze, Spinach & Caramelized Onion Risotto, Honey Roasted Carrots. Fish of the Day $50 - Pan Seared, Mushroom Risotto, Honey Roasted Carrots, Lemon Beurre Blanc. Or Get it delivered to your door. Time to Eat the Beach. Uber Eats. Mile Marker 158 is the newest member to the Wharf Restaurant Group family. Located dockside of the Springhill Suites Hotel, Mile Marker has the best patio dining view around — overlooking the Wharf's Marina. Dining inside offers a pleasant experience with an upscale appearance, while serving casual culinary cuisine and handcrafted cocktails. This hidden gem is the perfect place to visit, whether you're docking from a sunset or dolphin cruise, enjoying date night with your significant other, or even hosting a bridal shower, wedding reception, or business luncheon. Not only does MM 158 create a relaxing dining experience, they can also accommodate large gatherings and caterings. With a friendly and professional catering department, Mile Marker can guarantee a memorable event. May Wine Dinner - May 7 • 6pm • $55 per guest. Events: Wine Dinner, Sunday Bingo, Lasagna Night. Menus: Daily Menu, Brunch Menu, Kids Menu, Specials, Lasagna Night, Wine Dinner. Reservations available through Yelp. Catering available at wharfcateringgroup.com. Contact: 251-224-6500 ext. 4, dockside158@gmail.com. Social Media: Facebook - Marker158dockside, Instagram - milemarker158, Twitter - MileMarker158. Order Online: Time to Eat the Beach, Uber Eats. TOGO ORDERS SUBJECT TO CHANGE, DEPENDING ON WAIT TIMES AND VOLUME OF RESTAURANT. © 2026 Mile Marker 158 Dockside. All rights reserved. Design by High Seas Design House. Check out our other amazing restaurants: Ginny Lane Bar Grill, Yoho Rum and Tacos, Villaggio Grille.",
+  "extraction_confidence": "medium",
+  "extraction_notes": "The HTML contains a React-based website with mostly visible information on the homepage. Restaurant operating hours (Monday-Sunday) are NOT listed on the homepage. Wine list, beer selection details, specific cocktail list, and complete dietary accommodations are not provided on the visible page. Specific catering menu items and pricing are on a separate catering website. The page focuses heavily on family meal to-go options and highlights delivery partnerships. Some menu sections mention links to other pages (Daily Menu, Brunch Menu, Kids Menu) but full details are not extracted as they are on separate pages. Parking, accessibility details, payment methods, loyalty programs, and detailed policies are not mentioned. Only the family meal to-go section has complete menu item details. The restaurant appears to be open daily at 11am based on meta description but specific hours are not visible on the page. Awards/recognition information not found. Chef information not available.",
+  "folder": "ChIJazPfTIAFmogRB3uWSKv3oJU_Mile Marker 158",
+  "extracted_at": "2026-05-15T06:26:48.379Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJazPfTIAFmogRB3uWSKv3oJU_Mile Marker 158/01_raw_html.html"
+}

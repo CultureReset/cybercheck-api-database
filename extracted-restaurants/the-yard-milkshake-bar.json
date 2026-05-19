@@ -1,0 +1,228 @@
+{
+  "name": "The Yard Milkshake Bar",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "",
+    "address": "",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Edible Cookie Dough",
+      "name": "Oatmeal Dream Pie Dough",
+      "description": "Cinnamon sugar dough base, marshmallow drizzle, layers of Oatmeal Cream Pie pieces",
+      "price": 18
+    },
+    {
+      "category": "Edible Cookie Dough",
+      "name": "Salty Caramel Chip Cookie Dough",
+      "description": "Chocolate chip cookie dough base with rich caramel swirls and layers of chocolate chips",
+      "price": 18
+    },
+    {
+      "category": "Edible Cookie Dough",
+      "name": "Cookies N Cream Dough",
+      "description": "Sugar cookie base packed with crushed OREO® cookies and layers of OREO® cookie chunks",
+      "price": 18
+    },
+    {
+      "category": "Edible Cookie Dough",
+      "name": "Birthday Dunk A Dough",
+      "description": "Sugar cookie dough base with colorful sprinkles, vanilla icing, and layers of Teddy Grahams",
+      "price": 18
+    },
+    {
+      "category": "Edible Cookie Dough",
+      "name": "Chocolate Chip Edible Cookie Dough",
+      "description": "Smooth and buttery base loaded with layers of chocolate chips",
+      "price": 18
+    },
+    {
+      "category": "Edible Cookie Dough",
+      "name": "Chocolate Cookie Craze",
+      "description": "Brownie base loaded with OREO® cookie chunks and layered with more OREO® cookies",
+      "price": 18
+    },
+    {
+      "category": "Edible Cookie Dough",
+      "name": "M&M Cookie Dough",
+      "description": "Sugar cookie dough base packed with M&M's for a delightful crunch",
+      "price": 18
+    },
+    {
+      "category": "Edible Cookie Dough",
+      "name": "Peanut Butter Monster",
+      "description": "Creamy peanut butter base with M&M's and Reese's Pieces mixed throughout",
+      "price": 18
+    },
+    {
+      "category": "Coffee",
+      "name": "Peanut Butter Coffee Crunch Blend",
+      "description": "Bold blend with rich chocolate notes, roasted nuttiness, and smooth coffee finish. Inspired by Peanut Butter Brownie Bliss",
+      "price": 25
+    },
+    {
+      "category": "Coffee",
+      "name": "The Cereal Killer Blend",
+      "description": "Nostalgic, smooth, and playful blend capturing the magic of childhood cereals with vanilla-forward taste",
+      "price": 25
+    },
+    {
+      "category": "Merchandise - T-Shirts",
+      "name": "Milkshake Bar Long Sleeve T-Shirt",
+      "description": "",
+      "price": 30
+    },
+    {
+      "category": "Merchandise - T-Shirts",
+      "name": "Classic Yard Logo T-Shirt",
+      "description": "",
+      "price": 25
+    },
+    {
+      "category": "Merchandise - T-Shirts",
+      "name": "When Life Gives You T-Shirt",
+      "description": "",
+      "price": 27
+    },
+    {
+      "category": "Merchandise - T-Shirts",
+      "name": "Eat Dessert First Era",
+      "description": "100% cotton men's classic tee",
+      "price": 28
+    },
+    {
+      "category": "Merchandise - T-Shirts",
+      "name": "The Yard Milkshake Bar Eras T-Shirt",
+      "description": "100% ring-spun cotton, soft and comfy",
+      "price": 28
+    },
+    {
+      "category": "Merchandise - T-Shirts",
+      "name": "Comfort Colors Watercolor Cow T-Shirt",
+      "description": "Thick, structured, garment-dyed heavyweight t-shirt",
+      "price": 30
+    },
+    {
+      "category": "Merchandise - T-Shirts",
+      "name": "Comfort Colors UniCows are Real",
+      "description": "Garment-dyed heavyweight t-shirt",
+      "price": 30
+    },
+    {
+      "category": "Merchandise - T-Shirts",
+      "name": "Comfort Color - Retro rainbow offerings",
+      "description": "Garment-dyed heavyweight t-shirt",
+      "price": 30
+    },
+    {
+      "category": "Merchandise - T-Shirts",
+      "name": "Comfort Colors Wave T-Shirt",
+      "description": "Garment-dyed heavyweight t-shirt with relaxed fit",
+      "price": 30
+    },
+    {
+      "category": "Merchandise - T-Shirts",
+      "name": "Four Shakes Shirt",
+      "description": "100% cotton t-shirt",
+      "price": 27
+    },
+    {
+      "category": "Merchandise - T-Shirts",
+      "name": "Youth Short Sleeve Logo T-Shirt",
+      "description": "Light and soft tee for youngsters",
+      "price": 20
+    },
+    {
+      "category": "Merchandise - T-Shirts",
+      "name": "Baby short sleeve one piece",
+      "description": "100% cotton with three snap leg closure and envelope neckline",
+      "price": 18
+    },
+    {
+      "category": "Merchandise - T-Shirts",
+      "name": "Rainbow Unisex performance crew neck t-shirt",
+      "description": "Premium moisture-wicking fabric with odor resistance and UV protection",
+      "price": 30
+    },
+    {
+      "category": "Merchandise - Sweatshirts & Hoodies",
+      "name": "Unisex Logo Hoodie",
+      "description": "Softest hoodie with convenient pouch pocket and warm hood",
+      "price": 40
+    },
+    {
+      "category": "Merchandise - Sweatshirts & Hoodies",
+      "name": "The Yard Milkshake Bar Wave Sweatshirt",
+      "description": "Pre-shrunk, classic fit sweatshirt with air-jet spun yarn",
+      "price": 45
+    },
+    {
+      "category": "Merchandise - Sweatshirts & Hoodies",
+      "name": "Rainbow Collegiate Sweatshirt",
+      "description": "Sturdy and warm pre-shrunk sweatshirt",
+      "price": 45
+    },
+    {
+      "category": "Merchandise - Sweatshirts & Hoodies",
+      "name": "'Tis The Season",
+      "description": "Exclusive holiday shake sweatshirt with organic cotton and brushed fleece lining",
+      "price": 45
+    },
+    {
+      "category": "Merchandise - Accessories",
+      "name": "The Yard Cow Logo Golf Rope Cap",
+      "description": "Structured fit with rope detail and adjustable snapback",
+      "price": 25
+    },
+    {
+      "category": "Merchandise - Accessories",
+      "name": "The Yard Milkshake Bar Coffee Mug",
+      "description": "15 oz ceramic mug with bold black logo",
+      "price": 17
+    },
+    {
+      "category": "Merchandise - Accessories",
+      "name": "The Yard Mug & Coffee Bundle – Save When You Bundle!",
+      "description": "15 oz mug with choice of coffee blend",
+      "price": 37
+    },
+    {
+      "category": "Merchandise - Accessories",
+      "name": "Sprinkles The UniCow Sticker",
+      "description": "High opacity adhesive vinyl sticker",
+      "price": 4
+    },
+    {
+      "category": "Merchandise - Accessories",
+      "name": "My Milkshake is Better Than Yours Sticker",
+      "description": "High opacity adhesive vinyl sticker",
+      "price": 4
+    },
+    {
+      "category": "Merchandise - Other",
+      "name": "Sprinkles the UniCow Stuffed Toy",
+      "description": "Adorable plush UniCow with rainbow-colored mane and golden horn",
+      "price": 18
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:51.677Z"
+}

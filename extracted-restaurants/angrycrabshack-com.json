@@ -1,0 +1,50 @@
+{
+  "name": "Angry Crab Shack",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "",
+    "address": "",
+    "city": "",
+    "email": ""
+  },
+  "hours": {},
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Soups",
+      "name": "Clam Chowder",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Soups",
+      "name": "Gumbo",
+      "description": "",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Mardi Gras Special Event",
+      "description": "Fat Tuesday celebration with Crawfish Boil on Patio, Featured Live Music Artists, Steps Away from Parade Route",
+      "discount": ""
+    },
+    {
+      "name": "Live Music",
+      "description": "Live music available on patio stage on select days",
+      "discount": ""
+    },
+    {
+      "name": "Lunch Bingo",
+      "description": "Every 2nd and 4th Monday of the month with 5 rounds of prizes, $6 Food Menu, portion of proceeds donated to Top Teens of America",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:49.670Z"
+}

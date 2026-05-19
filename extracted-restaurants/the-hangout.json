@@ -1,0 +1,119 @@
+{
+  "name": "The Hangout",
+  "type": "Restaurant & Bar",
+  "website": "https://www.thehangoutal.com/",
+  "contact": {
+    "phone": "",
+    "address": "",
+    "city": "",
+    "email": ""
+  },
+  "hours": {
+    "monday": "Open Daily",
+    "tuesday": "Open Daily",
+    "wednesday": "Open Daily",
+    "thursday": "Open Daily",
+    "friday": "Open Daily",
+    "saturday": "Open Daily",
+    "sunday": "Open Daily",
+    "notes": "Specific hours not listed on website"
+  },
+  "about": {
+    "description": "The Hangout is a family-friendly restaurant and bar serving fresh seafood and cold drinks with free live music nightly in a courtyard setting. They offer an entertainment-focused dining experience with activities for all ages including foam parties, yard games, and themed celebrations.",
+    "elevator_pitch": "A beachfront seafood restaurant and entertainment destination featuring fresh food, live music, foam parties, and family-friendly activities.",
+    "vibe": "Fun, lively, family-friendly beach atmosphere with continuous entertainment, casual dining, and nostalgic decor collections",
+    "best_for": [
+      "families",
+      "large parties",
+      "date night",
+      "birthday celebrations",
+      "team events",
+      "casual dining",
+      "live music",
+      "vacation"
+    ],
+    "established": null,
+    "reservations": "Available via OpenTable",
+    "insider_tip": "The restaurant features world-famous collection walls including matchbox cars, PEZ dispensers, vintage lunch boxes, and rubber duckies, plus a One Stop Fun Shop for souvenirs"
+  },
+  "social": {
+    "instagram": "thehangoutgs, thehangoutmb",
+    "facebook": null,
+    "website": "https://thehangout.com/"
+  },
+  "menu": [
+    {
+      "category": "Seafood",
+      "name": "Fresh Seafood",
+      "description": "Various fresh seafood options",
+      "price": ""
+    },
+    {
+      "category": "Breakfast",
+      "name": "Family Style Easter Breakfast",
+      "description": "Classic breakfast favorites",
+      "price": ""
+    },
+    {
+      "category": "Burgers & Casual",
+      "name": "Burgers",
+      "description": "Chef-crafted burgers",
+      "price": ""
+    },
+    {
+      "category": "Chef Specials",
+      "name": "Chef Specials",
+      "description": "Rotating chef-crafted dishes and specialties",
+      "price": ""
+    },
+    {
+      "category": "Drinks",
+      "name": "Craft Cocktails",
+      "description": "Perfectly crafted cocktails",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Easter Breakfast",
+      "description": "Family-style Easter breakfast with classic favorites, kids 5 and under eat free",
+      "discount": ""
+    },
+    {
+      "name": "Easter Sunrise Service",
+      "description": "Peaceful Easter sunrise service open to all faiths held in courtyard",
+      "discount": ""
+    },
+    {
+      "name": "Easter Egg Hunt",
+      "description": "Fun Easter egg hunts and photos with Easter Bunny",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [
+    {
+      "name": "Free Live Music",
+      "day": "Daily",
+      "time": "Nightly"
+    },
+    {
+      "name": "Foam Parties",
+      "day": "Daily",
+      "time": "Every Hour"
+    },
+    {
+      "name": "Birthday Celebrations",
+      "day": "Daily",
+      "time": "Every Hour"
+    },
+    {
+      "name": "St. Patrick's Day Celebration",
+      "day": "March 17",
+      "time": "10:00 AM onwards"
+    }
+  ],
+  "gallery": 6,
+  "scraped_at": "2026-03-21T15:14:54.416Z"
+}

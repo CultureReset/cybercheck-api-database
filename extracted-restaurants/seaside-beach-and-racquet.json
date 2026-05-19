@@ -1,0 +1,52 @@
+{
+  "name": "Seaside Beach and Racquet",
+  "type": "Condo",
+  "website": "https://www.brett-robinson.com/beach-condo/seaside-beach-and-racquet/",
+  "contact": {
+    "phone": "+1-251-968-7363",
+    "address": "3259 Gulf Shores Parkway",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {},
+  "about": {
+    "description": "Seaside Beach and Racquet is a beachfront vacation rental property managed by Brett/Robinson Vacation Rentals, a premier vacation rental management company offering family-friendly beachfront condos in Gulf Shores and Orange Beach, Alabama.",
+    "elevator_pitch": "Beachfront family-friendly condo complex in Gulf Shores with direct beach access and resort amenities.",
+    "total_units": null,
+    "floors": null,
+    "year_built": null,
+    "pet_friendly": null,
+    "minimum_stay": "3 nights",
+    "check_in": null,
+    "check_out": null,
+    "age_restriction": null
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/brett_robinson_vacations",
+    "facebook": "https://www.facebook.com/BrettRobinsonVacations",
+    "website": "https://www.brett-robinson.com/beach-condo/seaside-beach-and-racquet/"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Charming Beachfront Stays for a Tranquil Getaway",
+      "description": "Hot deal promotion on select charming properties including Seaside Beach & Racquet. Units available with discounts from standard rates.",
+      "discount": ""
+    },
+    {
+      "name": "Memorial Day Weekend",
+      "description": "Special rates for Memorial Day weekend getaways (May 21-24, 2026)",
+      "discount": ""
+    },
+    {
+      "name": "Mother's Day",
+      "description": "Special rates available for Mother's Day weekend",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 23,
+  "scraped_at": "2026-03-21T22:04:39.020Z"
+}

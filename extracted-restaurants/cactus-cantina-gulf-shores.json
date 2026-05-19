@@ -1,0 +1,46 @@
+{
+  "name": "Cactus Cantina Mexican Grill",
+  "type": "Restaurant",
+  "website": "http://mycactuscantina.com/",
+  "contact": {
+    "phone": "",
+    "address": "",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": null
+  },
+  "about": {
+    "description": "Started by cousins Michael and Bobby in 2011 in McDonough, Georgia. The Gulf Shores location opened in March 2013. Now operates six locations across Alabama, Georgia, and Florida. Known for laid-back Mexican cuisine by the beach.",
+    "elevator_pitch": "Voted Best Mexican Food on the Gulf Coast, offering casual Mexican dining with multiple locations across the Southeast.",
+    "vibe": "Laid back beach casual",
+    "best_for": [
+      "casual dining",
+      "families",
+      "beach-goers"
+    ],
+    "established": "2013",
+    "reservations": null,
+    "insider_tip": null
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "website": "http://mycactuscantina.com"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 3,
+  "scraped_at": "2026-03-22T01:36:35.574Z"
+}

@@ -1,0 +1,102 @@
+{
+  "name": "MSC Fishing Charters",
+  "type": "Fishing Charter",
+  "website": "https://www.mscfishing.com",
+  "contact": {
+    "phone": "251-508-1674",
+    "address": "1577 AL-180",
+    "city": "Gulf Shores",
+    "email": "Info@mscfishing.com"
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": "Hours not specified on website; contact for availability"
+  },
+  "about": {
+    "description": "MSC Fishing Charters is a top-rated offshore fishing charter service in Gulf Shores, Alabama, specializing in swordfish, tuna, snapper, and other Gulf species. Founded on a passion for saltwater fishing, the company offers professional, family-friendly offshore fishing experiences with experienced captains and modern equipment. Federally permitted for reef fish and pelagic species.",
+    "elevator_pitch": "Award-winning offshore fishing charters specializing in swordfish, tuna, and snapper in the Gulf of Mexico near Gulf Shores, Alabama.",
+    "vibe": "Professional, passionate, knowledgeable, family-friendly, genuine love for fishing, high-energy but welcoming",
+    "best_for": [
+      "families",
+      "groups",
+      "beginner anglers",
+      "experienced fishermen",
+      "corporate outings",
+      "special occasions"
+    ],
+    "capacity": "Up to approximately 6 passengers based on boat size",
+    "duration_options": [
+      "daytime offshore fishing",
+      "overnight offshore fishing",
+      "12-hour trips",
+      "custom durations"
+    ],
+    "departure_location": "Fort Morgan Marina area, Gulf Shores, AL",
+    "what_provided": [
+      "high-quality rods and reels",
+      "tackle",
+      "live bait",
+      "frozen bait",
+      "artificial lures",
+      "all fishing equipment",
+      "onboard restroom",
+      "custom JL Audio sound system",
+      "FLIR infrared camera",
+      "spacious seating",
+      "fish vacuum sealing service"
+    ],
+    "what_to_bring": [
+      "sunscreen",
+      "seasickness medication if prone",
+      "personal medications",
+      "towels",
+      "camera"
+    ],
+    "age_restriction": "No specific age restriction mentioned; family-friendly for all ages",
+    "weight_restriction": null,
+    "reservations": "Required; book online or call 251-508-1674",
+    "cancellation_policy": "Not specified on website",
+    "insider_tip": "Captain Vlad runs charters out of passion, not necessity, having other successful businesses. The Freeman 37vh is one of the best boats in its class, providing comfort even in rough water. The boat's quad Yamaha 300 engines provide nearly double the fishing time compared to other charters due to fast speeds (45 mph cruising, 65+ mph top speed)."
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "tripadvisor": null,
+    "website": "https://www.mscfishing.com"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Free Fishing Charter Giveaway",
+      "description": "One lucky subscriber out of every 100 email signups will win a free fishing charter",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [
+    {
+      "name": "Alabama Deep Sea Fishing Rodeo",
+      "day": "",
+      "time": ""
+    },
+    {
+      "name": "Fort Morgan Marina Tournaments",
+      "day": "",
+      "time": ""
+    },
+    {
+      "name": "Charter Fishing Association Snapper Tournament",
+      "day": "",
+      "time": ""
+    }
+  ],
+  "gallery": 50,
+  "scraped_at": "2026-03-21T19:52:22.669Z"
+}

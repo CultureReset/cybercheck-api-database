@@ -1,0 +1,28 @@
+{
+  "name": "Brett/Robinson Vacation Rentals",
+  "type": "Vacation Rental | Condo Resort",
+  "website": "https://www.brett-robinson.com/beach-condo/phoenix-i/",
+  "contact": {
+    "phone": "+1-251-968-7363",
+    "address": "3259 Gulf Shores Parkway",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {},
+  "about": {},
+  "social": {
+    "instagram": "https://www.instagram.com/brett_robinson_vacations",
+    "facebook": "https://www.facebook.com/BrettRobinsonVacations",
+    "pinterest": null,
+    "twitter": null,
+    "linkedin": "https://www.linkedin.com/company/brett-robinson-vacation-rentals",
+    "website": "https://www.brett-robinson.com/beach-condo/phoenix-i/"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 23,
+  "scraped_at": "2026-03-21T20:34:33.258Z"
+}

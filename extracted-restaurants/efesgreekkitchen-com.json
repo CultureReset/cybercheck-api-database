@@ -1,0 +1,132 @@
+{
+  "name": "Efes Greek Kitchen",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "256-342-1000",
+    "address": "1550 AL-59",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {
+    "monday": "10:30am-10:00pm",
+    "tuesday": "10:30am-10:00pm",
+    "wednesday": "10:30am-10:00pm",
+    "thursday": "10:30am-10:00pm",
+    "friday": "10:30am-10:00pm",
+    "saturday": "10:30am-10:00pm",
+    "sunday": "10:30am-10:00pm"
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Sandwiches & Combos",
+      "name": "Chicken Pita Combo",
+      "description": "Grilled chicken on a pita bread with lettuce, tomato, onion and tzatziki sauce. Comes with Fries.",
+      "price": 12.39
+    },
+    {
+      "category": "Sandwiches & Combos",
+      "name": "Gyro Combo",
+      "description": "Mix of lamb and beef meat on a pita bread with lettuce, tomato, onion and tzatziki sauce. Comes with fries.",
+      "price": 12.39
+    },
+    {
+      "category": "Sandwiches & Combos",
+      "name": "Falafel Wrap Combo",
+      "description": "Fried chicpeas on a pita bread with lettuce, tomato, onion and hummus. Comes with fries.",
+      "price": 11.89
+    },
+    {
+      "category": "Sandwiches & Combos",
+      "name": "Philly Cheesesteak Combo",
+      "description": "Comes with onions and green peppers. Comes with fries.",
+      "price": 12.39
+    },
+    {
+      "category": "Sandwiches & Combos",
+      "name": "Cheeseburger Combo",
+      "description": "Comes with fries",
+      "price": 10.89
+    },
+    {
+      "category": "Sandwiches & Combos",
+      "name": "Hot Dog Combo",
+      "description": "Comes with fries",
+      "price": 8.2
+    },
+    {
+      "category": "Appetizers & Sides",
+      "name": "Grilled Pita with Hummus",
+      "description": "",
+      "price": 7.49
+    },
+    {
+      "category": "Appetizers & Sides",
+      "name": "Greek Fries",
+      "description": "Our famous handcut fries, gyro meat, onions, tomatoes, feta and tzatziki sauce",
+      "price": 10
+    },
+    {
+      "category": "Appetizers & Sides",
+      "name": "Fresh Cut Cheese Fries",
+      "description": "Our famous handcut fries with cheese",
+      "price": 7
+    },
+    {
+      "category": "Appetizers & Sides",
+      "name": "Chicken Tenders Basket",
+      "description": "3 tenders with fries",
+      "price": 11.89
+    },
+    {
+      "category": "Salads",
+      "name": "Greek Salad",
+      "description": "Romain lettuce, onions, tomatoes, cucumbers, olives, banana peppers, feta cheese and greek dressing. Add chicken or lamb meat 2.00",
+      "price": 7
+    },
+    {
+      "category": "Extras",
+      "name": "Feta Cheese",
+      "description": "",
+      "price": 0.75
+    },
+    {
+      "category": "Extras",
+      "name": "Tzatziki sauce",
+      "description": "",
+      "price": 0.75
+    },
+    {
+      "category": "Desserts & Beverages",
+      "name": "Milkshake",
+      "description": "Chocolate, vanilla, strawberry. Made with real ice cream",
+      "price": 8
+    },
+    {
+      "category": "Desserts & Beverages",
+      "name": "Ice Cream",
+      "description": "Chocolate, vanilla, strawberry. 2 scoops in a cup",
+      "price": 7
+    },
+    {
+      "category": "Desserts & Beverages",
+      "name": "Cold Drinks",
+      "description": "",
+      "price": 3
+    },
+    {
+      "category": "Desserts & Beverages",
+      "name": "Lemonade or Sweet Tea",
+      "description": "",
+      "price": 3
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:50.260Z"
+}

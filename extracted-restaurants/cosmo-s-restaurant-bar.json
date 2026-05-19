@@ -1,0 +1,138 @@
+{
+  "name": "Cosmo's Restaurant & Bar",
+  "type": "Restaurant & Bar",
+  "website": "http://www.cosmosrestaurantandbar.com/",
+  "contact": {
+    "phone": "251-948-9663",
+    "address": "25753 Canal Rd",
+    "city": "Orange Beach",
+    "email": ""
+  },
+  "hours": {
+    "monday": "11:00 AM - 9:30 PM",
+    "tuesday": "11:00 AM - 9:30 PM",
+    "wednesday": "11:00 AM - 9:30 PM",
+    "thursday": "11:00 AM - 9:30 PM",
+    "friday": "11:00 AM - 10:00 PM",
+    "saturday": "11:00 AM - 10:00 PM",
+    "sunday": "11:00 AM - 9:30 PM",
+    "notes": null
+  },
+  "about": {
+    "description": "Off the beaten path on Canal Road in Orange Beach, Cosmo's Restaurant & Bar is far from ordinary. Serving fresh and eclectic food since day one, Cosmo's features a wide range of dining with chef-inspired ingredients including hand-cut steaks, local seafood, and pasta. A neighborhood favorite on the Gulf Coast that has taken cuisine to the cutting edge with variations of local staples.",
+    "elevator_pitch": "Far from ordinary neighborhood restaurant on Alabama's Gulf Coast serving fresh, eclectic cuisine with chef-inspired ingredients.",
+    "vibe": "Upscale casual dining with distinctive, innovative cuisine; off-the-beaten-path destination on the Gulf Coast",
+    "best_for": [
+      "fine dining",
+      "special occasions",
+      "seafood lovers",
+      "date night"
+    ],
+    "established": null,
+    "reservations": null,
+    "insider_tip": "The Banana Leaf Wrapped Fish was named one of 'the top 100 dishes to eat before you die' by The Year of Alabama Food"
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://cosmosrestaurantandbar.com"
+  },
+  "menu": [
+    {
+      "category": "Appetizers",
+      "name": "Crab Cakes",
+      "description": "Traditional crab cakes done with a twist",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Tuna Poke Nachos",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Firecracker Shrimp",
+      "description": "Local favorite, made them famous",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Banana Leaf Wrapped Fish",
+      "description": "Named one of 'the top 100 dishes to eat before you die' by The Year of Alabama Food",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Chicken Roulade",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Sesame Seared Tuna Salad",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Seafood Pasta",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Asian Glazed Tuna",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Pork Chop",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Hand-Cut Steaks",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Desserts",
+      "name": "Key Lime Pie",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Desserts",
+      "name": "Banana Fritters",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sushi",
+      "name": "Sushi Rolls",
+      "description": "$2 off during happy hour",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Happy Hour",
+      "description": "Specials on draft beer, house wines, delicious appetizers, and $2 off all sushi rolls. Firecracker Shrimp is a local favorite",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [
+    {
+      "name": "Live Music & Events",
+      "day": "",
+      "time": ""
+    }
+  ],
+  "gallery": 15,
+  "scraped_at": "2026-03-21T14:55:32.544Z"
+}

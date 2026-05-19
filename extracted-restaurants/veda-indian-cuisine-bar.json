@@ -1,0 +1,141 @@
+{
+  "name": "VEDA INDIAN CUISINE & BAR",
+  "type": "Restaurant",
+  "website": "https://thevedausa.com/",
+  "contact": {
+    "phone": "",
+    "address": "4874 University Dr",
+    "city": "Huntsville",
+    "email": ""
+  },
+  "hours": {
+    "monday": "11am-9pm",
+    "tuesday": "11am-9pm",
+    "wednesday": "11am-9pm",
+    "thursday": "11am-9pm",
+    "friday": "11am-9pm",
+    "saturday": "11am-9pm",
+    "sunday": "11am-9pm"
+  },
+  "about": {
+    "description": "VEDA Indian Cuisine & Bar offers authentic Indian dishes including tandoori specialties, curries, breads, and traditional appetizers.",
+    "cuisine_type": "Indian"
+  },
+  "social": {},
+  "menu": [
+    {
+      "category": "SIDES",
+      "name": "RAITA",
+      "description": "Chilled yogurt mixed with fresh vegetables, seasoned with cumin and coriander. A cool, tangy side dish that complements spicier meals.",
+      "price": "$1.99"
+    },
+    {
+      "category": "SIDES",
+      "name": "ACHAR",
+      "description": "Tangy and spicy Indian pickle made with mixed vegetables or fruits, preserved in mustard oil and traditional spices. A flavorful side that adds a zesty kick to any meal.",
+      "price": "$1.99"
+    },
+    {
+      "category": "SIDES",
+      "name": "ONION CHILI LIME",
+      "description": "",
+      "price": "$0.49"
+    },
+    {
+      "category": "VEG APPETIZER",
+      "name": "VEG SAMOSA (2 PCS)",
+      "description": "Crispy, golden pastries stuffed with a flavorful mix of spiced potatoes, peas, and herbs. These classic Indian snacks are served in pairs and are perfect with a side of mint chutney.",
+      "price": "$6.99"
+    },
+    {
+      "category": "VEG APPETIZER",
+      "name": "HARA BHARA KABAB (6 PCS)",
+      "description": "A vibrant blend of spinach, peas, and aromatic spices, these golden, pan-fried kebabs are crispy on the outside and soft on the inside. A healthy yet indulgent appetizer, served with a tangy mint chutney to complement the fresh, herbaceous flavors.",
+      "price": "$8.99"
+    },
+    {
+      "category": "VEG APPETIZER",
+      "name": "PANEER PAKODA",
+      "description": "Crispy, golden fritters made from cubes of paneer, dipped in a seasoned gram flour batter, and deep-fried to perfection. These bite-sized treats are crunchy on the outside, soft on the inside, and served with a tangy chutney.",
+      "price": "$8.99"
+    },
+    {
+      "category": "VEG APPETIZER",
+      "name": "VEG PAKODA",
+      "description": "Golden, crispy fritters made from a mix of fresh vegetables, gram flour, and spices, deep-fried to perfection. Served with tangy chutney, these crispy treats are perfect as a snack or appetizer.",
+      "price": "$7.49"
+    },
+    {
+      "category": "VEG APPETIZER",
+      "name": "ASSORTED VEG",
+      "description": "A delightful vegetarian platter featuring a variety of favorites: crisp samosas filled with spiced potatoes, golden paneer pakoras, masala-seasoned fries, and mixed vegetable pakoras. Perfect for sharing or enjoying as an appetizer.",
+      "price": "$10.99"
+    },
+    {
+      "category": "VEG APPETIZER",
+      "name": "GOBI 65",
+      "description": "Crispy, golden-fried cauliflower florets tossed in a fiery South Indian spice blend, curry leaves, and garlic. This bold and flavorful appetizer is crunchy on the outside, tender inside, and perfect with a squeeze of lemon.",
+      "price": "$11.99"
+    },
+    {
+      "category": "VEG TANDOOR",
+      "name": "PANEER HARIYALI",
+      "description": "Paneer cubes marinated in a fragrant green paste of spinach, coriander, and mint, grilled until smoky and charred. The green marinade gives this dish a fresh, herbaceous flavor that pairs wonderfully with its smoky grilled texture.",
+      "price": "$14.99"
+    },
+    {
+      "category": "CHICKEN",
+      "name": "BUTTER CHICKEN",
+      "description": "",
+      "price": "$16.99"
+    },
+    {
+      "category": "CHICKEN",
+      "name": "VEDA SPECIAL CHICKEN CURRY",
+      "description": "",
+      "price": "$16.49"
+    },
+    {
+      "category": "CHICKEN",
+      "name": "CHICKEN LOLIPOP DRY",
+      "description": "",
+      "price": "$11.99"
+    },
+    {
+      "category": "CHICKEN",
+      "name": "CHILI CHICKEN",
+      "description": "",
+      "price": "$12.99"
+    },
+    {
+      "category": "CHICKEN",
+      "name": "TANDOORI CHICKEN",
+      "description": "",
+      "price": "$16.49"
+    },
+    {
+      "category": "DAL",
+      "name": "VEDA SPECIAL DAL",
+      "description": "",
+      "price": "$14.99"
+    },
+    {
+      "category": "BREAD AND ROTI",
+      "name": "GARLIC NAAN",
+      "description": "",
+      "price": "$5.99"
+    },
+    {
+      "category": "BEVERAGES",
+      "name": "MANGO LASSI",
+      "description": "",
+      "price": "$5.99"
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-03-21T14:47:14.645Z"
+}

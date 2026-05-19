@@ -1,0 +1,243 @@
+{
+  "name": "Tandoor Indian Cuisine",
+  "type": "Restaurant",
+  "website": "https://www.tandoorindiancuisineal.com/",
+  "contact": {
+    "phone": "(251) 341-6171",
+    "address": "3674 Airport Boulevard",
+    "city": "Mobile",
+    "email": ""
+  },
+  "hours": {
+    "monday": "closed",
+    "tuesday": "closed",
+    "wednesday": "closed",
+    "thursday": "closed",
+    "friday": "closed",
+    "saturday": "closed",
+    "sunday": "closed"
+  },
+  "about": {
+    "description": "Tandoor Indian Cuisine offers authentic Indian dining with traditional tandoor preparations and contemporary Indo-Chinese dishes.",
+    "cuisine_type": "Indian"
+  },
+  "social": {},
+  "menu": [
+    {
+      "category": "APPETIZERS",
+      "name": "ONIONS BHAJIYA",
+      "description": "Sliced onions mix with delicious spices and gram flour deep fried.",
+      "price": "$12.99"
+    },
+    {
+      "category": "APPETIZERS",
+      "name": "VEGETABLES PAKORAS",
+      "description": "Assorted vegetables \"garden free\" dipped into delicately spiced gram flour batter and deep fried.",
+      "price": "$12.99"
+    },
+    {
+      "category": "APPETIZERS",
+      "name": "VEG SAMOSA",
+      "description": "Potatoes and peas stuffed into crispy conical shaped dough and Indian spicy.",
+      "price": "$5.99"
+    },
+    {
+      "category": "APPETIZERS",
+      "name": "CHICKEN SAMOSA",
+      "description": "Minced chicken stuffed into crispy conical shaped dough and Indian spicy.",
+      "price": "$8.99"
+    },
+    {
+      "category": "APPETIZERS",
+      "name": "LAMB SAMOSA",
+      "description": "Minced lamb stuffed into crispy conical shaped dough and Indian spicy.",
+      "price": "$9.99"
+    },
+    {
+      "category": "APPETIZERS",
+      "name": "SHRIMP PAKORA",
+      "description": "Shrimp marinated in yogurt and spice dipped in gram flour batter deep fried",
+      "price": "$17.99"
+    },
+    {
+      "category": "APPETIZERS",
+      "name": "PANEER PAKORA",
+      "description": "Marinated vin Indian spicy dipped in gram flour batter deep fried.",
+      "price": "$14.99"
+    },
+    {
+      "category": "APPETIZERS",
+      "name": "GOAN CALAMARI",
+      "description": "Crisp calamari Indian sauce",
+      "price": "$16.99"
+    },
+    {
+      "category": "APPETIZERS",
+      "name": "HOT WINGS 6 pieces",
+      "description": "Crispy wings deep fried.",
+      "price": "$14.99"
+    },
+    {
+      "category": "APPETIZERS",
+      "name": "HARA BHARA KABAB 6 pieces",
+      "description": "Pan fried patties of spinach potatoes, homemade cheese and roasted Chana lentils",
+      "price": "$14.99"
+    },
+    {
+      "category": "APPETIZERS",
+      "name": "CHICKEN LOLLIPOPS 5 pieces",
+      "description": "Chicken wings are spicy marinated with ginger garlic paste and Indian spicy deep fried.",
+      "price": "$17.99"
+    },
+    {
+      "category": "APPETIZERS",
+      "name": "IMLI BAINGAN",
+      "description": "Savory eggplant fritters,gram flour Batter with tamarind sauce",
+      "price": "$13.99"
+    },
+    {
+      "category": "APPETIZERS",
+      "name": "CHILI CHICKEN",
+      "description": "Extra spicy indo Chinese style,spicy chicken in onion ginger, garlic or soya sauce.",
+      "price": "$17.99"
+    },
+    {
+      "category": "APPETIZERS",
+      "name": "CRISPY SPRING ROLLS",
+      "description": "Shredded cabbage, carrots, corn, peas, bell paper, sweet chili dipping sauce.",
+      "price": "$12.99"
+    },
+    {
+      "category": "APPETIZERS",
+      "name": "CAULIFLOWER MANCHURIAN",
+      "description": "Crispy cauliflower indo Chinese style spicy in chops onion, ginger, garlic or soya sauce, deep fried.",
+      "price": "$15.99"
+    },
+    {
+      "category": "APPETIZERS",
+      "name": "SHRIMP DYNAMITE",
+      "description": "Battered shrimp deep fried with sriracha mayo sauce.",
+      "price": "$17.99"
+    },
+    {
+      "category": "APPETIZERS",
+      "name": "AMBI JHEENG",
+      "description": "Sweet and spicy shrimp in a mango sauce, onion tomato masala.",
+      "price": "$17.99"
+    },
+    {
+      "category": "APPETIZERS",
+      "name": "CHICKEN CHILI",
+      "description": "Extra spicy indo Chinese style spicy chicken in onion ginger garlic or soya sauce.",
+      "price": "$15.99"
+    },
+    {
+      "category": "APPETIZERS",
+      "name": "PANEER CHILI",
+      "description": "Homemade cottage cheese deep fried with pepper onion garlic ginger with soya sauce.",
+      "price": "$14.99"
+    },
+    {
+      "category": "SOUPS",
+      "name": "MULLIGATAWNY SOUP",
+      "description": "Vegetable yellow lentil puree seasoned with spices.",
+      "price": "$7.99"
+    },
+    {
+      "category": "SOUPS",
+      "name": "CHICKEN SOUP",
+      "description": "Traditional Indian soup with chicken stock and Indian spices.",
+      "price": "$9.99"
+    },
+    {
+      "category": "SOUPS",
+      "name": "TOMATO SOUP",
+      "description": "Fresh tomato cooked with ginger garlic fresh cream and Indian spicy.",
+      "price": "$7.99"
+    },
+    {
+      "category": "SOUPS",
+      "name": "HOT AND SOUR VEG SOUP",
+      "description": "Soup is made with red and green chillies ginger carrots beans soy sauce white vinegar it is viewed in Indian as being a Chinese soup.",
+      "price": "$7.99"
+    },
+    {
+      "category": "SOUPS",
+      "name": "HOT AND SOUR CHICKEN SOUP",
+      "description": "Soup is made with red and green chillies ginger carrots beans soy sauce white vinegar it is viewed in Indian as being a Chinese soup.",
+      "price": "$9.99"
+    },
+    {
+      "category": "SOUPS",
+      "name": "MANCHOW SOUP",
+      "description": "Delightful indo Chinese thick soup which gets onion ginger garlic green beans cabbage coriander fresh green onion served with fried noodles.",
+      "price": "$7.99"
+    },
+    {
+      "category": "BIRYANI",
+      "name": "Vegetable Biryani",
+      "description": "Vegetables cooked with mild spices and basmati rice. Garnished with cilantro, nuts, and raisins.",
+      "price": "$17.99"
+    },
+    {
+      "category": "BIRYANI",
+      "name": "Chicken Biryani",
+      "description": "Chicken, basmati rice cooked with saffron, and spices. Garnished with cilantro, nuts, and raisins.",
+      "price": "$18.99"
+    },
+    {
+      "category": "BIRYANI",
+      "name": "Lamb Biryani",
+      "description": "Lamb, basmati rice cooked with saffron, and spices. Garnished with cilantro, nuts, and raisins.",
+      "price": "$20.99"
+    },
+    {
+      "category": "BIRYANI",
+      "name": "Shrimp Biryani",
+      "description": "Shrimp cooked in a special curry sauce with basmati rice. Garnished with cilantro, nuts, and raisins.",
+      "price": "$21.99"
+    },
+    {
+      "category": "BIRYANI",
+      "name": "Goat Biryani",
+      "description": "Goat cooked in a special curry sauce with basmati rice. Garnished with cilantro, nuts, and raisins.",
+      "price": "$20.99"
+    },
+    {
+      "category": "Side Orders",
+      "name": "Mango Chutney",
+      "description": "",
+      "price": "$2.99"
+    },
+    {
+      "category": "Side Orders",
+      "name": "Raita",
+      "description": "",
+      "price": "$2.99"
+    },
+    {
+      "category": "Side Orders",
+      "name": "Plain Yogurt",
+      "description": "",
+      "price": "$2.99"
+    },
+    {
+      "category": "Side Orders",
+      "name": "Green Salad",
+      "description": "",
+      "price": "$6.99"
+    },
+    {
+      "category": "Side Orders",
+      "name": "Papadam",
+      "description": "",
+      "price": "$2.99"
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-03-21T14:20:38.059Z"
+}

@@ -1,0 +1,227 @@
+{
+  "name": "Bier Shack Taproom Restaurant",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "(251) 943-8311",
+    "address": "8191 Hwy 59",
+    "city": "Foley",
+    "email": "Biershacktaproom@gmail.com"
+  },
+  "hours": {
+    "monday": "11am-9pm",
+    "tuesday": "Closed",
+    "wednesday": "11am-9pm",
+    "thursday": "11am-9pm",
+    "friday": "11am-9pm",
+    "saturday": "11am-9pm",
+    "sunday": "11am-9pm"
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Appetizers",
+      "name": "The Best Bavarian Pretzel",
+      "description": "With Bier Cheese",
+      "price": 10
+    },
+    {
+      "category": "Appetizers",
+      "name": "Bier Shack Bacon Cheese Fries",
+      "description": "Seasoned Fries loaded with Bacon and Melted Queso",
+      "price": 8.95
+    },
+    {
+      "category": "Appetizers",
+      "name": "Basket of Seasoned Fries",
+      "description": "",
+      "price": 6.25
+    },
+    {
+      "category": "Appetizers",
+      "name": "Basket of Seasoned Grilled Potatoes",
+      "description": "Served with Grilled Onions unless specified",
+      "price": 6.25
+    },
+    {
+      "category": "Salads",
+      "name": "Chef Salad",
+      "description": "Huge salad topped with Pastrami, Tomatoes, Onion, Cheddar Cheese and a Hard Boiled Egg. With your choice of Ranch or Blue Cheese",
+      "price": 10.99
+    },
+    {
+      "category": "Lunch Specials",
+      "name": "$9.99 Lunch Specials",
+      "description": "All Your Favorites! Any of the above M-F 11:00 AM to 3:00 PM. No Substitutes",
+      "price": 9.99
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Reuben",
+      "description": "This thing is BIG! Fresh Cut Smoked Pastrami on Toasted Marble Rye with House-made Sauerkraut, Swiss Cheese & Axe Sauce. Served with your choice of Seasoned Fries or Seasoned Grilled Potatoes",
+      "price": 14.99
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Pork Schnitzel",
+      "description": "Breaded Pork Loin Grilled To Perfection topped with Swiss Cheese, Lettuce, Tomatoes & Ranch on a Toasted Hoagie Roll. Served with your choice of Seasoned Fries or Seasoned Grilled Potatoes",
+      "price": 12.99
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Cheeseburger",
+      "description": "Our Hand-Patted Burger Topped with Lettuce, Tomatoes, Pickle & House-Made Axe Sauce on a Sesame Bun. Served with your choice of Seasoned Fries or Seasoned Grilled Potatoes",
+      "price": 12.99
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Axe Burger",
+      "description": "Our Hand-Patted Burger Topped with Smoked Pastrami, Swiss Cheese, Cooked to Order Egg, Lettuce, Tomato, Grilled Onion, Axe Sauce on a Sesame Bun. Served with your choice of Seasoned Fries or Seasoned Grilled Potatoes",
+      "price": 13.99
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Mushroom Swiss Burger",
+      "description": "Our Hand-Patted Burgers Topped with Grilled Mushrooms and Melty Swiss Cheese on a Sesame Bun. Served with your choice of Seasoned Fries or Seasoned Grilled Potatoes",
+      "price": 12.99
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Bacon Bier Cheese Burger",
+      "description": "Our Hand-Patted Burger topped with Bacon, Grilled Onions, Axe Sauce and Our Famous House-Made Bier Cheese Served on Sesame Bun. Served with your choice of Seasoned Fries or Seasoned Grilled Potatoes",
+      "price": 13.99
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Patty Melt",
+      "description": "Our Hand Patted Burger topped with Grilled Onions, Axe Sauce and your choice of cheese. Served on Texas Toast. Served with your choice of Seasoned Fries or Seasoned Grilled Potatoes",
+      "price": 13.99
+    },
+    {
+      "category": "Sandwiches",
+      "name": "The DAVE Breakfast Sandwich",
+      "description": "Crispy bacon, gooey cheddar cheese & a fried egg on Texas Toast",
+      "price": 11.99
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Weekly Burger Special",
+      "description": "Our Special changes every week. Please call or follow us on to get weekly updates!",
+      "price": 14.99
+    },
+    {
+      "category": "Brats on a Bun",
+      "name": "German Brat on a Toasted Bun",
+      "description": "Served with Your choice of Seasoned Fries or Seasoned Grilled Potatoes",
+      "price": 9.99
+    },
+    {
+      "category": "German Entrees",
+      "name": "Jager Schnitzel Dinner",
+      "description": "True German Cooking! Grilled Breaded Pork Loin Covered with Mushroom Gravy! Served with a side of House-made Sauerkraut and Grilled Seasoned Potatoes",
+      "price": 15.99
+    },
+    {
+      "category": "German Entrees",
+      "name": "2 Brats on Sauerkraut Dinner",
+      "description": "2 of our famous Brats served on a bed of House-made Sauerkraut and Seasoned Grilled Potatoes",
+      "price": 13.99
+    },
+    {
+      "category": "German Entrees",
+      "name": "Chicken Schnitzel Dinner",
+      "description": "Hand-Breaded Grilled Chicken Breast with House-Made Mustard Cream Sauce, Slow Simmered Sauerkraut and Grilled Potatoes with Onions",
+      "price": 15.99
+    },
+    {
+      "category": "Kids Menu",
+      "name": "Kids Brat",
+      "description": "One of our Famous Brat served in kid size bites or on a bun. Served with fries",
+      "price": 6.99
+    },
+    {
+      "category": "Kids Menu",
+      "name": "Grilled Cheese",
+      "description": "Texas Toast with Cheddar Cheese Topped with a Pickle. Served with fries",
+      "price": 6.99
+    },
+    {
+      "category": "Kids Menu",
+      "name": "Cheeseburger",
+      "description": "Plain Cheese Burger on a bun. Served with fries",
+      "price": 6.99
+    },
+    {
+      "category": "Beverages",
+      "name": "Coca-Cola",
+      "description": "",
+      "price": 2.99
+    },
+    {
+      "category": "Beverages",
+      "name": "Coca-Cola Zero",
+      "description": "",
+      "price": 2.99
+    },
+    {
+      "category": "Beverages",
+      "name": "Diet Coca-Cola",
+      "description": "",
+      "price": 2.99
+    },
+    {
+      "category": "Beverages",
+      "name": "Dr. Pepper",
+      "description": "",
+      "price": 2.99
+    },
+    {
+      "category": "Beverages",
+      "name": "Minute Maid Lemonade",
+      "description": "",
+      "price": 2.99
+    },
+    {
+      "category": "Beverages",
+      "name": "Unsweet Tea",
+      "description": "",
+      "price": 2.99
+    },
+    {
+      "category": "Beverages",
+      "name": "Sprite",
+      "description": "",
+      "price": 2.99
+    },
+    {
+      "category": "Beverages",
+      "name": "Sweet Tea",
+      "description": "",
+      "price": 2.99
+    },
+    {
+      "category": "Beverages",
+      "name": "Red Bull",
+      "description": "",
+      "price": 4
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Lunch Specials",
+      "description": "All Your Favorites at $9.99",
+      "discount": ""
+    },
+    {
+      "name": "Weekly Burger Special",
+      "description": "Our Special changes every week. Please call or follow for weekly updates",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:50.056Z"
+}

@@ -1,0 +1,97 @@
+{
+  "name": "Gulf Rebel Charters",
+  "type": "Fishing Charter",
+  "website": "https://www.gulfrebelcharters.com",
+  "contact": {
+    "phone": "(251) 981-3119",
+    "address": "4680 Burkart Lane",
+    "city": "Orange Beach",
+    "email": "gulfrebel@yahoo.com"
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": "Red Snapper trips available 7 days a week during season. Departure times vary and custom trips available."
+  },
+  "about": {
+    "description": "Family-owned and operated charter business in Orange Beach, Alabama with over 60 years of fishing experience. Offers family-friendly half-day, full-day, and overnight charter trips with custom options available. Built and maintained private reefs for over 50 years.",
+    "elevator_pitch": "Gulf Rebel Charters is a family-owned offshore fishing charter company in Orange Beach, Alabama offering Red Snapper, Tuna, Wahoo, and specialty fishing trips with over 60 years of experience.",
+    "vibe": "Professional, family-friendly, experienced, accommodating to all skill levels",
+    "best_for": [
+      "families",
+      "groups",
+      "sports teams",
+      "corporate retreats",
+      "family reunions",
+      "kids",
+      "large parties"
+    ],
+    "capacity": "6+ persons per boat depending on vessel",
+    "duration_options": [
+      "6 hours",
+      "8 hours",
+      "10 hours",
+      "12 hours",
+      "24 hours",
+      "36 hours",
+      "half day",
+      "full day",
+      "overnight"
+    ],
+    "departure_location": "4680 Burkart Lane, Orange Beach, AL 36561",
+    "what_provided": [
+      "fishing rods",
+      "bait",
+      "private reef access",
+      "live bait",
+      "Big Green Egg grill",
+      "air conditioning"
+    ],
+    "what_to_bring": [
+      "sunscreen",
+      "cooler",
+      "appropriate clothing"
+    ],
+    "age_restriction": null,
+    "weight_restriction": null,
+    "reservations": "Recommended - trips book up fast, especially Red Snapper season",
+    "cancellation_policy": null,
+    "insider_tip": "Red Snapper trips book up very quickly. Red Snapper season typically runs June 1st through late September. Private reefs maintained for 50+ years make finding fish reliable."
+  },
+  "social": {
+    "instagram": "Gulf Rebel Charters",
+    "facebook": null,
+    "tripadvisor": null,
+    "website": "https://www.gulfrebelcharters.com",
+    "tiktok": "Gulf Rebel Charters"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "2026 Season Open",
+      "description": "Triggerfish, Vermilion Snapper, Grouper, Reef Fish & Pelagics are wide open. Red Snapper season expected to open late May, traditionally June 1st through late September.",
+      "discount": ""
+    },
+    {
+      "name": "Red Snapper Season",
+      "description": "7 days a week fishing available during Federal Red Snapper season",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [
+    {
+      "name": "AGC Bonanza Fishing Tournament",
+      "day": "",
+      "time": ""
+    }
+  ],
+  "gallery": 6,
+  "scraped_at": "2026-03-21T19:50:43.430Z"
+}

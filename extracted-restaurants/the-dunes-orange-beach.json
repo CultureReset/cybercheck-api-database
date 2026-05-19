@@ -1,0 +1,72 @@
+{
+  "name": "The Dunes",
+  "type": "Vacation Rental - Condo Complex",
+  "website": "https://www.brett-robinson.com/beach-condo/the-dunes/",
+  "contact": {
+    "phone": "+1-800-211-7892",
+    "address": "1380 Highway 180",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {},
+  "about": {
+    "description": "Premier beachfront condo complex in Gulf Shores, Alabama, operated by Brett/Robinson Vacation Rentals, a family-owned company with over 40 years of experience. The Dunes offers beachfront condos with modern amenities, dedicated onsite customer service staff, and easy access to local attractions, dining, and activities.",
+    "elevator_pitch": "Beachfront condos in Gulf Shores with quality standards, local expertise, and 40+ years of hospitality experience.",
+    "total_units": null,
+    "floors": null,
+    "year_built": null,
+    "pet_friendly": null,
+    "minimum_stay": "3 nights",
+    "check_in": null,
+    "check_out": null,
+    "age_restriction": null
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/brett_robinson_vacations",
+    "facebook": "https://www.facebook.com/BrettRobinsonVacations",
+    "website": "https://www.brett-robinson.com/beach-condo/the-dunes/"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Seasonal Discounts",
+      "description": "Various seasonal promotions available throughout the year on Gulf Shores and Orange Beach rentals",
+      "discount": ""
+    },
+    {
+      "name": "Snowbird Specials",
+      "description": "Extended stay discounts for longer-term winter rentals",
+      "discount": ""
+    },
+    {
+      "name": "Last-Minute Deals",
+      "description": "Special pricing on select properties for last-minute bookings",
+      "discount": ""
+    },
+    {
+      "name": "Promo Codes",
+      "description": "Percentage-off promotions such as 10% savings with codes (e.g., Bama2025 for 2025 bookings)",
+      "discount": ""
+    },
+    {
+      "name": "Hot Deals",
+      "description": "Featured properties with special pricing on select condos and inventory",
+      "discount": ""
+    },
+    {
+      "name": "Amenity-Based Specials",
+      "description": "Special promotions on properties featuring specific amenities such as electric vehicle chargers",
+      "discount": ""
+    },
+    {
+      "name": "Off-Peak Discounts",
+      "description": "Lower rates available for weekday stays and gaps between peak weekends",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 23,
+  "scraped_at": "2026-03-21T22:08:31.077Z"
+}

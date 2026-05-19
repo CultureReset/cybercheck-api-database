@@ -1,0 +1,279 @@
+{
+  "name": "Woodside at GSP",
+  "type": "Restaurant",
+  "website": "https://woodsideatgsp.com",
+  "contact": {
+    "phone": "",
+    "address": "",
+    "city": "",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null
+  },
+  "about": {
+    "description": null,
+    "cuisine_type": "BBQ"
+  },
+  "social": {},
+  "menu": [
+    {
+      "category": "Salads",
+      "name": "House Caesar",
+      "description": "Romaine, Parmesan, Garlic and Herb Croutons, Caesar Dressing",
+      "price": "$12"
+    },
+    {
+      "category": "Salads",
+      "name": "Heirloom Tomato and Smoked Mozzarella",
+      "description": "Arugula, Toasted Pumpkin Seeds, Garden Basil, Dried Cherries, Agave Lime Vinaigrette",
+      "price": "$13"
+    },
+    {
+      "category": "Salads",
+      "name": "Rattlesnake Ridge",
+      "description": "Arugula, Cotija, Corn, Quinoa, Avocado, Spiced Tortilla Crisp, Cilantro, Chili Lime Vinaigrette",
+      "price": ""
+    },
+    {
+      "category": "Handhelds",
+      "name": "Chicken Sandwich",
+      "description": "Fried or Grilled, House-made Pickles, Roasted Tomato, Trail Sauce, Brioche Bun",
+      "price": "$16"
+    },
+    {
+      "category": "Handhelds",
+      "name": "Veggie Topper",
+      "description": "Add Half Avocado or Crispy Brussels Sprouts",
+      "price": "$3"
+    },
+    {
+      "category": "Handhelds",
+      "name": "Middle Lake Double Burger",
+      "description": "Two Smashed Patties, Cheddar Cheese, Bacon, Smoked Ketchup, Lettuce, Onion, House-made Pickles, Brioche Bun",
+      "price": "$19"
+    },
+    {
+      "category": "Handhelds",
+      "name": "Smoke House Club",
+      "description": "Smoked Turkey Breast, Bacon, Cheddar Cheese, Lettuce, Roasted Tomato, Local Honey Mustard, Wheatberry Bread",
+      "price": "$16"
+    },
+    {
+      "category": "Handhelds",
+      "name": "Pulled Pork Sandwich",
+      "description": "House-made Pickles, Memphis BBQ, Crispy Alabama Hot Slaw, Brioche Bun",
+      "price": "$14"
+    },
+    {
+      "category": "Handhelds",
+      "name": "Seasoned Redfish Po'Boy",
+      "description": "Lettuce, Tomato, Tarragon Citrus Aioli, New Orleans French Bread",
+      "price": "$17"
+    },
+    {
+      "category": "Handhelds",
+      "name": "Brisket Grilled Cheese",
+      "description": "Brisket, Smoked Gouda, Horseradish Cream Sauce, Sourdough Bread",
+      "price": "$16"
+    },
+    {
+      "category": "Handhelds",
+      "name": "Alabama White BBQ Burger",
+      "description": "Two Smashed Patties, Alabama White BBQ Sauce, Provolone Cheese, Lettuce, Tomato, Onion, Fried Banana Peppers, Brioche Bun",
+      "price": "$18"
+    },
+    {
+      "category": "Handhelds",
+      "name": "Tacos",
+      "description": "Choice of Smoked Meat, Shrimp or Seasoned Redfish, Hot Slaw, Corn, Fried Banana Peppers, Cilantro Lime Crema, Corn Tortilla",
+      "price": "$18"
+    },
+    {
+      "category": "Smoke Shack",
+      "name": "Seasoned Redfish",
+      "description": "Cajun Tasso Cream, Cavatappi Pasta",
+      "price": "$23"
+    },
+    {
+      "category": "Smoke Shack",
+      "name": "Scraps and Cheese",
+      "description": "Scraps of BBQ Smoked Meats, Cavatappi Pasta, Triple Cheese Sauce",
+      "price": "$14"
+    },
+    {
+      "category": "Smoke Shack",
+      "name": "Smoked Half Chicken",
+      "description": "Collard Greens, Crumbled Cornbread, Garden Herb Jus",
+      "price": "$22"
+    },
+    {
+      "category": "Smoke Shack",
+      "name": "Sausage Board",
+      "description": "House-made and Smoked Sausages, Pimento Cheese, Trail-hand Candy, Carolina and Memphis BBQ Sauces, Creole Mustard, Texas Toast Points",
+      "price": "$16"
+    },
+    {
+      "category": "Smoke Shack",
+      "name": "Baby Back Ribs - Half Rack Platter",
+      "description": "Tossed in Choice of Carolina BBQ Sauce, Memphis BBQ Sauce, or Buffalo Sauce. Comes with Texas Toast and Choice of Side",
+      "price": "$22"
+    },
+    {
+      "category": "Smoke Shack",
+      "name": "Baby Back Ribs - Full Rack Platter",
+      "description": "Tossed in Choice of Carolina BBQ Sauce, Memphis BBQ Sauce, or Buffalo Sauce. Comes with Texas Toast and Choice of Side",
+      "price": "$30"
+    },
+    {
+      "category": "Smoke Shack",
+      "name": "Baby Back Ribs - Full Rack Boxed To Go",
+      "description": "Tossed in Choice of Carolina BBQ Sauce, Memphis BBQ Sauce, or Buffalo Sauce",
+      "price": "$30"
+    },
+    {
+      "category": "Smoke Shack",
+      "name": "Smoked Chicken Wings - Platter",
+      "description": "Tossed in Choice of Carolina BBQ Sauce, Memphis BBQ Sauce, or Buffalo Sauce",
+      "price": "$16"
+    },
+    {
+      "category": "Smoke Shack",
+      "name": "Smoked Chicken Wings - Boxed Dozen",
+      "description": "Tossed in Choice of Carolina BBQ Sauce, Memphis BBQ Sauce, or Buffalo Sauce",
+      "price": "$20"
+    },
+    {
+      "category": "Smoke Shack",
+      "name": "Sliced Brisket - Platter",
+      "description": "",
+      "price": "$26"
+    },
+    {
+      "category": "Smoke Shack",
+      "name": "Sliced Brisket - Pound",
+      "description": "",
+      "price": "$23"
+    },
+    {
+      "category": "Smoke Shack",
+      "name": "Pulled Pork - Platter",
+      "description": "",
+      "price": "$20"
+    },
+    {
+      "category": "Smoke Shack",
+      "name": "Pulled Pork - Pound",
+      "description": "",
+      "price": "$14"
+    },
+    {
+      "category": "Smoke Shack",
+      "name": "Smoked Pulled Chicken - Platter",
+      "description": "",
+      "price": "$20"
+    },
+    {
+      "category": "Smoke Shack",
+      "name": "Smoked Pulled Chicken - Pound",
+      "description": "",
+      "price": "$14"
+    },
+    {
+      "category": "Sides",
+      "name": "Woodside Potato Salad",
+      "description": "",
+      "price": "$6"
+    },
+    {
+      "category": "Sides",
+      "name": "Collard Greens",
+      "description": "",
+      "price": "$6"
+    },
+    {
+      "category": "Sides",
+      "name": "Brussels Sprouts",
+      "description": "",
+      "price": "$8"
+    },
+    {
+      "category": "Sides",
+      "name": "Southern Green Beans",
+      "description": "",
+      "price": "$6"
+    },
+    {
+      "category": "Sides",
+      "name": "Alabama Hot Slaw",
+      "description": "",
+      "price": "$4"
+    },
+    {
+      "category": "Sides",
+      "name": "House Kettle Chips",
+      "description": "",
+      "price": "$3"
+    },
+    {
+      "category": "Sides",
+      "name": "BBQ Baked Beans",
+      "description": "",
+      "price": "$6"
+    },
+    {
+      "category": "Sides",
+      "name": "Smoked Pimento Cheese",
+      "description": "",
+      "price": "$6"
+    },
+    {
+      "category": "Sides",
+      "name": "Cheddar Cheese",
+      "description": "",
+      "price": "$4"
+    },
+    {
+      "category": "Sides",
+      "name": "Cornbread",
+      "description": "",
+      "price": "$8"
+    },
+    {
+      "category": "Kids Menu",
+      "name": "Cheese Burger",
+      "description": "Served with Chips & Drink",
+      "price": "$8"
+    },
+    {
+      "category": "Kids Menu",
+      "name": "Chicken Fingers",
+      "description": "Served with Chips & Drink",
+      "price": "$8"
+    },
+    {
+      "category": "Kids Menu",
+      "name": "Mac & Cheese",
+      "description": "Served with Chips & Drink",
+      "price": "$8"
+    },
+    {
+      "category": "Kids Menu",
+      "name": "Grilled Cheese",
+      "description": "Served with Chips & Drink",
+      "price": "$8"
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-03-21T20:20:57.420Z"
+}

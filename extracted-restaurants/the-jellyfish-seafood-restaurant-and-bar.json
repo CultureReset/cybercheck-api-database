@@ -1,0 +1,100 @@
+{
+  "name": "The Jellyfish - Seafood Restaurant and Bar",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "+1-850-332-6532",
+    "address": "13700 Perdido Key Dr",
+    "city": "Pensacola",
+    "email": "info@thejellyfishbar.com"
+  },
+  "hours": {
+    "monday": "11am-10pm",
+    "tuesday": "11am-10pm",
+    "wednesday": "11am-10pm",
+    "thursday": "11am-10pm",
+    "friday": "11am-10pm",
+    "saturday": "11am-10pm",
+    "sunday": "11am-10pm"
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Appetizers",
+      "name": "Raw Oysters",
+      "description": "Freshly shucked gulf mollusks served with unique cocktail sauce, gluten-free",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Fried Calamari",
+      "description": "Lightly breaded with signature recipe, served with fresh Marinara",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Krab Wontons",
+      "description": "Six krab and cream cheese stuffed wontons, fried, served with sweet soy sauce for dipping",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Shrimp Tacos",
+      "description": "Served on two-flour tortillas with shredded cabbage, Monterey jack cheese, Pico and Spicy Mayo. Available blackened, fried with French fries or coleslaw, or grilled",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Fish & Chips",
+      "description": "Gulf white fish, crispy tempura fried with French fries, white remoulade and jellyfish slaw",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Bourbon Salmon",
+      "description": "Fresh Atlantic salmon seared with Bourbon Glaze, served with red skin potatoes and wilted spinach",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Caribbean Mahi",
+      "description": "Fresh grilled Mahi with pineapple salsa and coconut butter sauce, served with Cilantro-lime rice and mixed veggies",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Jellyfish Salad",
+      "description": "Mixed greens, carrots, blueberries, candied pecans, tomatoes and cucumbers",
+      "price": ""
+    },
+    {
+      "category": "Sushi",
+      "name": "Sushi (Various Rolls)",
+      "description": "Full menu available with sushi rolls and nigiri",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Happy Hour",
+      "description": "Special pricing on drinks and appetizers",
+      "discount": ""
+    },
+    {
+      "name": "Military and First Responders Discount",
+      "description": "25% discount all day every Thursday, 15% off every other day",
+      "discount": ""
+    },
+    {
+      "name": "Daily Specials",
+      "description": "View daily specials menu",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:51.655Z"
+}

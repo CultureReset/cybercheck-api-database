@@ -1,0 +1,233 @@
+{
+  "name": "Pedros Tacos & Tequila Bar",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "(850) 492-1701",
+    "address": "13584 Perdido Key Dr",
+    "city": "Pensacola",
+    "email": "polo1970maldonado@gmail.com"
+  },
+  "hours": {
+    "monday": "11:00 AM - 9:30 PM",
+    "tuesday": "11:00 AM - 9:30 PM",
+    "wednesday": "11:00 AM - 9:30 PM",
+    "thursday": "11:00 AM - 9:30 PM",
+    "friday": "11:00 AM - 10:30 PM",
+    "saturday": "11:00 AM - 10:30 PM",
+    "sunday": "9:00 AM - 9:00 PM"
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Appetizers",
+      "name": "Chips and Salsa",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Homemade Guacamole",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Queso",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Nachos",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Tacos",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Enchiladas",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Burritos",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Quesadillas",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Fajitas",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Carne Asada Chilaquiles Rojos",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Tamales",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Taco Salad",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Pollo Asado",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Seafood",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Soups & Salads",
+      "name": "Tortilla Soup",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Soups & Salads",
+      "name": "Salads",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sides",
+      "name": "Burgers",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sides",
+      "name": "Steak",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sides",
+      "name": "Chicken",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Desserts",
+      "name": "Fried Ice Cream",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Desserts",
+      "name": "Tres Leche Cake",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Beverages",
+      "name": "Margaritas",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Beverages",
+      "name": "Mexican Martinis",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Beverages",
+      "name": "Tequila Cocktails",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Beverages",
+      "name": "Micheladas",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Beverages",
+      "name": "Beer",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Beverages",
+      "name": "Wine",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Beverages",
+      "name": "Cocktails",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Beverages",
+      "name": "Coffee",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Beverages",
+      "name": "Liquor",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Special Diets",
+      "name": "Vegan Mexican Dishes",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Special Diets",
+      "name": "Vegetarian Dishes",
+      "description": "",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Lunch Specials",
+      "description": "Lunch specials available at $9.99",
+      "discount": ""
+    },
+    {
+      "name": "Happy Hour",
+      "description": "Frozen margaritas at a deal",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:51.155Z"
+}

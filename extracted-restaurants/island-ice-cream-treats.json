@@ -1,0 +1,138 @@
+{
+  "name": "Island Ice Cream & Treats",
+  "type": "Ice Cream Shop",
+  "website": "http://www.islandicecreamandtreats.com/",
+  "contact": {
+    "phone": "(251) 540-2423",
+    "address": "1154 West Beach Blvd. Suite C",
+    "city": "Gulf Shores",
+    "email": "islandicecreamandtreats@gmail.com"
+  },
+  "hours": {
+    "monday": "1:00 PM - 10:00 PM",
+    "tuesday": "1:00 PM - 10:00 PM",
+    "wednesday": "1:00 PM - 10:00 PM",
+    "thursday": "1:00 PM - 10:00 PM",
+    "friday": "1:00 PM - 10:00 PM",
+    "saturday": "1:00 PM - 10:00 PM",
+    "sunday": "1:00 PM - 10:00 PM",
+    "notes": "Also listed as 11:00 AM - 11:00 PM in structured data"
+  },
+  "about": {
+    "description": "Gulf Shores ice cream shop serving premium Blue Bell ice cream with over 40 flavor options including Italian Ice, yogurt, sherbet, and reduced fat options. Offers milkshakes, smoothies, sundaes, chocolates, and doughnut sandwiches.",
+    "elevator_pitch": "The most flavor options on the beach with over 40 premium ice cream flavors and creative treats.",
+    "vibe": "Family-friendly, casual, beachy, fun atmosphere perfect for vacationers and locals",
+    "best_for": [
+      "families",
+      "beach vacations",
+      "sweet treats",
+      "photo shoots"
+    ],
+    "established": "Summer 2011",
+    "reservations": null,
+    "insider_tip": "Specialties include unique flavors like banana pudding, cotton candy, birthday batter, and Superman ice cream. Sundaes come in souvenir jars to keep!"
+  },
+  "social": {
+    "instagram": "https://instagram.com/islandicecream",
+    "facebook": "https://facebook.com/1012050090",
+    "website": "http://www.islandicecreamandtreats.com"
+  },
+  "menu": [
+    {
+      "category": "Ice Cream Flavors",
+      "name": "Cotton Candy",
+      "description": "Tastes exactly like the real thing",
+      "price": ""
+    },
+    {
+      "category": "Ice Cream Flavors",
+      "name": "Banana Pudding",
+      "description": "Tastes just like banana pudding with vanilla cookie chunks",
+      "price": ""
+    },
+    {
+      "category": "Ice Cream Flavors",
+      "name": "Superman",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Ice Cream Flavors",
+      "name": "Birthday Batter",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Ice Cream Flavors",
+      "name": "Cherry",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Ice Cream Flavors",
+      "name": "Key Lime Pie",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Ice Cream Flavors",
+      "name": "Honey Roasted Peanut Butter",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Ice Cream Flavors",
+      "name": "Coffee House Cookies & Cream",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Specialty Items",
+      "name": "Doughnut Sandwich",
+      "description": "Ice cream sandwich using doughnuts",
+      "price": ""
+    },
+    {
+      "category": "Specialty Items",
+      "name": "Milkshakes",
+      "description": "Made with any of 40+ flavors",
+      "price": ""
+    },
+    {
+      "category": "Specialty Items",
+      "name": "Smoothies",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Specialty Items",
+      "name": "Specialty Sundaes",
+      "description": "Served in souvenir jars to keep",
+      "price": ""
+    },
+    {
+      "category": "Specialty Items",
+      "name": "Chocolate Dipped Waffle Cones",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Products",
+      "name": "Gift Cards",
+      "description": "Available for purchase",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "National Doughnut Day Special",
+      "description": "Doughnut sandwich or sundae promotion",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 29,
+  "scraped_at": "2026-03-21T15:07:27.150Z"
+}

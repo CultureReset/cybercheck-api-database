@@ -1,0 +1,274 @@
+{
+  "business_name": "The Hangout Restaurant",
+  "cuisine_type": "Seafood, American, Coastal",
+  "price_range": null,
+  "description": "Welcome to The Hangout, where 59 ends and the fun begins. We are the ultimate beachfront destination for family-friendly fun, live entertainment, and unforgettable beachside dining. Whether you're here for the food, the music, or the memories, The Hangout is where everyone feels at home — from kids to grandparents, locals to visitors, and even your four-legged friends. We're proudly pet-friendly and designed for guests of all ages to relax, laugh, and play by the beach. There's never a dull moment at The Hangout. Guests can enjoy free live music, foam parties every hour, and a party crew that keeps the energy high throughout the day. Families love the direct beach access that allows kids to play in the sand while parents unwind with a cold drink and an ocean view. Our space is ideal for large groups, sports teams, and family gatherings, offering ample seating and convenient parking for team buses. Whether you're celebrating, traveling, or simply looking for a great meal with a view, The Hangout delivers fun, flavor, and coastal charm in every visit. The Hangout serves up more than food—it delivers memories. The flavors of the Gulf Coast inspire our menu, featuring something for everyone. Guests can dig into our famous seafood boils packed with Gulf shrimp, snow crab legs, mussels, sausage, corn, and potatoes, or enjoy signature favorites like the Lifeguard Burger, a juicy, classic topped with crispy bacon and melted cheese. Our crispy calamari, golden and lightly fried, is a guest favorite starter, and every plate is made fresh with a focus on local ingredients and Southern hospitality. From beachside seafood to classic comfort dishes and handcrafted cocktails, every bite celebrates the laid-back spirit of Gulf Shores. With its prime location on the beach, open-air dining spaces, and relaxed coastal atmosphere, The Hangout is the perfect spot for large parties, private events, and team celebrations. Whether you're dancing, singing along to live music, or enjoying a family meal by the water, every visit feels like a vacation. The Hangout Gulf Shores is where food, family, and fun come together. Join us and experience why The Hangout is more than just a restaurant—it's a Gulf Shores tradition.",
+  "atmosphere": "Beachfront, family-friendly, casual, relaxed, high-energy party atmosphere with live entertainment",
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": "Gulf Shores, AL",
+    "website": "https://thehangout.com/",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": "https://www.facebook.com/thehangoutgs",
+      "instagram": "https://www.instagram.com/thehangoutgs/",
+      "twitter": null,
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": "Open Daily",
+    "tuesday": "Open Daily",
+    "wednesday": "Open Daily",
+    "thursday": "Open Daily",
+    "friday": "Open Daily",
+    "saturday": "Open Daily",
+    "sunday": "Open Daily",
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": true,
+    "takeout_available": null,
+    "delivery_available": null,
+    "curbside_available": null,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [
+      {
+        "name": "Signature Dishes",
+        "description": null,
+        "items": [
+          {
+            "name": "Seafood Boils",
+            "description": "Packed with Gulf shrimp, snow crab legs, mussels, sausage, corn, and potatoes",
+            "price": null,
+            "dietary_flags": [],
+            "allergens": "Shellfish, Seafood",
+            "is_signature": true,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Lifeguard Burger",
+            "description": "Juicy, classic burger topped with crispy bacon and melted cheese",
+            "price": null,
+            "dietary_flags": [],
+            "allergens": "Dairy, Gluten",
+            "is_signature": true,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Crispy Calamari",
+            "description": "Golden and lightly fried calamari",
+            "price": null,
+            "dietary_flags": [],
+            "allergens": "Shellfish, Gluten",
+            "is_signature": true,
+            "is_seasonal": false,
+            "availability": null
+          }
+        ]
+      }
+    ],
+    "wine_list": null,
+    "beer_selection": null,
+    "cocktails": "Handcrafted cocktails available",
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": false,
+      "vegan": false,
+      "gluten_free": false,
+      "dairy_free": false,
+      "nut_free": false,
+      "kosher": false,
+      "halal": false
+    }
+  },
+  "happy_hour": {
+    "available": false,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [],
+  "entertainment_and_events": [
+    {
+      "type": "live_music",
+      "name": "Free Live Music",
+      "days": "Every Night",
+      "start_time": null,
+      "end_time": null,
+      "description": "Free live music entertainment every evening",
+      "cover_charge": "Free",
+      "featured_artist": null
+    },
+    {
+      "type": "foam_party",
+      "name": "Family Friendly Foam Party",
+      "days": "Every Day",
+      "start_time": null,
+      "end_time": null,
+      "description": "Family friendly foam parties every hour on the hour",
+      "cover_charge": "Free",
+      "featured_artist": null
+    },
+    {
+      "type": "special_event",
+      "name": "Pirates & Princesses",
+      "days": null,
+      "start_time": null,
+      "end_time": null,
+      "description": "Special themed event for guests",
+      "cover_charge": null,
+      "featured_artist": null
+    },
+    {
+      "type": "special_event",
+      "name": "Birthday Celebrations",
+      "days": null,
+      "start_time": null,
+      "end_time": null,
+      "description": "Birthday celebration packages available",
+      "cover_charge": null,
+      "featured_artist": null
+    }
+  ],
+  "private_events": {
+    "available": true,
+    "event_spaces": "Open-air dining spaces, prime beachfront location",
+    "max_capacity": "Large groups accommodated, team buses parking available",
+    "min_spend": null,
+    "catering_available": true,
+    "packages": "Event packages available for large parties, sports teams, family gatherings, and private celebrations"
+  },
+  "parking": "Parking available with convenient parking for team buses",
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": "Family-friendly for all ages",
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": "Highly family-friendly with kids activities and beach access",
+    "pets_allowed": true
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": null,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": true,
+    "private_dining": true
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": null,
+    "email_signup": null,
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": true,
+    "farm_to_table": false,
+    "sustainable": false,
+    "organic": false,
+    "details": "Focus on local ingredients, Gulf Coast inspired menu, Southern hospitality"
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [
+      "Seafood Boils",
+      "Lifeguard Burger",
+      "Crispy Calamari"
+    ],
+    "common_praise": [
+      "Family-friendly atmosphere",
+      "Live entertainment and foam parties",
+      "Beachfront location with direct beach access",
+      "Fresh food with local ingredients",
+      "Fun and energetic environment"
+    ],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "restaurant",
+      "url": "https://thehangout.com/wp-content/smush-webp/2023/09/Untitled-55.jpg.webp",
+      "description": "Restaurant interior/exterior"
+    },
+    {
+      "type": "restaurant",
+      "url": "https://thehangout.com/wp-content/smush-webp/2025/10/39-1.jpg.webp",
+      "description": "Restaurant venue"
+    },
+    {
+      "type": "event",
+      "url": "https://thehangout.com/wp-content/smush-webp/2025/10/Hangout-Bar-and-Fun-Olympics-2019-132-1-scaled.jpg.webp",
+      "description": "Fun Olympics and bar events"
+    },
+    {
+      "type": "restaurant",
+      "url": "https://thehangout.com/wp-content/smush-webp/2025/10/girls-sitting-on-the-chair-1.jpg.webp",
+      "description": "Dining ambiance"
+    },
+    {
+      "type": "food",
+      "url": "https://thehangout.com/wp-content/smush-webp/2023/09/LobsterResized.jpg.webp",
+      "description": "Seafood dish - Lobster/Seafood"
+    },
+    {
+      "type": "food",
+      "url": "https://thehangout.com/wp-content/smush-webp/2025/10/image_2025-03-31_12-41-45-1-1.jpg.webp",
+      "description": "Food presentation"
+    },
+    {
+      "type": "event",
+      "url": "https://thehangout.com/wp-content/smush-webp/2025/05/2024-Pirate-Princess.jpg.webp",
+      "description": "Pirates & Princesses event"
+    },
+    {
+      "type": "event",
+      "url": "https://thehangout.com/wp-content/smush-webp/2024/01/1682637596467801.jpg.webp",
+      "description": "Family Friendly Foam Party"
+    },
+    {
+      "type": "event",
+      "url": "https://thehangout.com/wp-content/smush-webp/2024/01/1389681085552112.jpg.webp",
+      "description": "Birthday Celebrations"
+    },
+    {
+      "type": "event",
+      "url": "https://thehangout.com/wp-content/smush-webp/2025/05/free-live-music-ever-night.png.webp",
+      "description": "Free Live Music Every Night"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "The Hangout Restaurant - Hangout Gulf Shores. More Than Just a Restaurant. Welcome to The Hangout, where 59 ends and the fun begins. We are the ultimate beachfront destination for family-friendly fun, live entertainment, and unforgettable beachside dining. Whether you're here for the food, the music, or the memories, The Hangout is where everyone feels at home — from kids to grandparents, locals to visitors, and even your four-legged friends. We're proudly pet-friendly and designed for guests of all ages to relax, laugh, and play by the beach. There's never a dull moment at The Hangout. Guests can enjoy free live music, foam parties every hour, and a party crew that keeps the energy high throughout the day. Families love the direct beach access that allows kids to play in the sand while parents unwind with a cold drink and an ocean view. Our space is ideal for large groups, sports teams, and family gatherings, offering ample seating and convenient parking for team buses. Whether you're celebrating, traveling, or simply looking for a great meal with a view, The Hangout delivers fun, flavor, and coastal charm in every visit. The Hangout serves up more than food—it delivers memories. The flavors of the Gulf Coast inspire our menu, featuring something for everyone. Guests can dig into our famous seafood boils packed with Gulf shrimp, snow crab legs, mussels, sausage, corn, and potatoes, or enjoy signature favorites like the Lifeguard Burger, a juicy, classic topped with crispy bacon and melted cheese. Our crispy calamari, golden and lightly fried, is a guest favorite starter, and every plate is made fresh with a focus on local ingredients and Southern hospitality. From beachside seafood to classic comfort dishes and handcrafted cocktails, every bite celebrates the laid-back spirit of Gulf Shores. With its prime location on the beach, open-air dining spaces, and relaxed coastal atmosphere, The Hangout is the perfect spot for large parties, private events, and team celebrations. Whether you're dancing, singing along to live music, or enjoying a family meal by the water, every visit feels like a vacation. The Hangout Gulf Shores is where food, family, and fun come together. Join us and experience why The Hangout is more than just a restaurant—it's a Gulf Shores tradition. Make Memories This Vacay! #hangouthappy. Pirates & Princesses. Family Friendly Foam Party - Every Hour on The Hour. Birthday Celebrations. Free Live Music. View All Events. GULF SHORES, AL. OPEN DAILY. MYRTLE BEACH, SC. OPEN DAILY. We're hiring! Join our crew! Apply Now. Menu. Events. Hourly Entertainment. About. Learn More. Jobs. Contact Us. Book Your Event Today! Venue. Musicians.",
+  "extraction_confidence": "high",
+  "extraction_notes": "Data extracted from Gulf Shores location page. Limited detailed menu items available on this page - only signature dishes mentioned. Phone numbers, email, and specific hours not listed on this page (location info appears to be in embedded widget). Myrtle Beach location also mentioned as secondary location. No pricing information found. No wine list, beer selection details, or dietary accommodation specifics provided. Reservations, cancellation policy, and payment methods not explicitly stated on this page. No blog or newsletter signup found. Social media accounts for Gulf Shores location identified. Good information on entertainment, events, atmosphere, and general restaurant philosophy.",
+  "folder": "ChIJSU2qLbcEmogRsJwBQpAN04U_The Hangout",
+  "extracted_at": "2026-05-15T06:21:46.984Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJSU2qLbcEmogRsJwBQpAN04U_The Hangout/01_raw_html.html"
+}

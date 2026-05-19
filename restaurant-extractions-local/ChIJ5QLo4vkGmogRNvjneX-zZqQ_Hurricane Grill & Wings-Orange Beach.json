@@ -1,0 +1,183 @@
+{
+  "business_name": "Hurricane Grill & Wings-Orange Beach",
+  "cuisine_type": "Casual Dining - Wings, Burgers, Sandwiches, Bar",
+  "price_range": null,
+  "description": "Hurricane Grill & Wings-Orange Beach located at 25755 Perdido Beach Blvd, Orange Beach, AL is a Casual Dining Restaurant offering award-winning jumbo wings, 35+ sauces & a bar atmosphere overflowing with beers and cocktails. Think of Hurricane Grill & Wings as that easy-going, beach lifestyle in restaurant form.",
+  "atmosphere": "Bar atmosphere, casual dining, beach lifestyle",
+  "chef_info": null,
+  "awards": [
+    "Award-winning jumbo wings"
+  ],
+  "contact": {
+    "phone": "(251) 981-3041",
+    "email": null,
+    "address": "25755 Perdido Beach Blvd, Orange Beach, AL 36561",
+    "website": "https://www.hurricanewings.com",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": "https://www.facebook.com/HurricaneWings/",
+      "instagram": "https://www.instagram.com/hurricanewings/",
+      "twitter": "https://twitter.com/HurricaneFlavor",
+      "tiktok": "https://www.tiktok.com/@hurricanewings",
+      "youtube": "https://www.youtube.com/@HurricaneGrillandWings/"
+    }
+  },
+  "hours": {
+    "monday": "11:00 am - 9:00 pm",
+    "tuesday": "11:00 am - 9:00 pm",
+    "wednesday": "11:00 am - 9:00 pm",
+    "thursday": "11:00 am - 9:00 pm",
+    "friday": "11:00 am - 10:00 pm",
+    "saturday": "11:00 am - 10:00 pm",
+    "sunday": "11:00 am - 9:00 pm",
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": true,
+    "takeout_available": true,
+    "delivery_available": true,
+    "curbside_available": false,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [
+      {
+        "name": "Wings",
+        "description": "Award-winning jumbo wings in 35+ sauces",
+        "items": []
+      },
+      {
+        "name": "Burgers",
+        "description": null,
+        "items": []
+      },
+      {
+        "name": "Sandwiches",
+        "description": null,
+        "items": []
+      },
+      {
+        "name": "Tacos",
+        "description": null,
+        "items": []
+      }
+    ],
+    "wine_list": null,
+    "beer_selection": "Beers available at bar",
+    "cocktails": "Cocktails available at bar",
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": null,
+      "vegan": null,
+      "gluten_free": true,
+      "dairy_free": null,
+      "nut_free": null,
+      "kosher": null,
+      "halal": null
+    }
+  },
+  "happy_hour": {
+    "available": null,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [],
+  "entertainment_and_events": [],
+  "private_events": {
+    "available": null,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": null,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": null,
+    "pets_allowed": null
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": null,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": null,
+    "private_dining": null
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": "Join The Club / Join our E-Club",
+    "gift_cards_available": null,
+    "email_signup": "E-Club membership available",
+    "rewards_details": "E-Club membership program available for signing up"
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": null,
+    "farm_to_table": null,
+    "sustainable": null,
+    "organic": null,
+    "details": null
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [
+      "Wings",
+      "Burgers",
+      "Tacos"
+    ],
+    "common_praise": [
+      "Award-winning wings",
+      "35+ sauce options",
+      "Bar atmosphere",
+      "Beach lifestyle"
+    ],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "food",
+      "url": "https://606fbbb56f79703900ff97fe.lp.prod.momentfeed.com/assets/media/Momentfeed-Promo-380x380-p1 (1).jpg",
+      "description": "Shrimp"
+    },
+    {
+      "type": "food",
+      "url": "https://606fbbb56f79703900ff97fe.lp.prod.momentfeed.com/assets/media/Momentfeed-Promo-380x380-p2 (1).jpg",
+      "description": "Wings"
+    },
+    {
+      "type": "restaurant",
+      "url": "https://606fbbb56f79703900ff97fe.lp.prod.momentfeed.com/assets/media/Momentfeed-Hero-2500x1668-hurricane.jpg",
+      "description": "Hero image"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": "Join our E-Club for email updates and promotions",
+  "raw_text_content": "Hurricane Grill & Wings-Orange Beach. 25755 Perdido Beach Blvd, Orange Beach, AL 36561. Phone: (251) 981-3041. Award-winning jumbo wings, 35+ sauces & bar atmosphere. Casual Dining Restaurant. Hours: Monday-Thursday 11:00 am - 9:00 pm, Friday-Saturday 11:00 am - 10:00 pm, Sunday 11:00 am - 9:00 pm. Order Online available. Delivery and takeout available. Menu includes wings, burgers, sandwiches, and tacos. Bar offers beers and cocktails. Gluten Sensitive Menu available. Nutrition & Allergy information available. Join The Club / E-Club membership program. Follow on social media: Facebook, Instagram, Twitter, YouTube, TikTok. Accessibility information available. Terms & Conditions. Privacy Policy.",
+  "extraction_confidence": "high",
+  "extraction_notes": "Comprehensive location landing page for Hurricane Grill & Wings Orange Beach location. Hours, address, phone, and contact information clearly displayed. Social media links extracted. Menu categories identified (wings, burgers, sandwiches, tacos) but individual menu items not listed on this page - appears to be location-specific landing page rather than full menu page. Dietary accommodations noted (gluten-sensitive menu available). Loyalty program (E-Club/Join The Club) mentioned. Online ordering available through third-party link. No detailed information on happy hour, private events, reservations, parking, or accessibility features found on this page.",
+  "folder": "ChIJ5QLo4vkGmogRNvjneX-zZqQ_Hurricane Grill & Wings-Orange Beach",
+  "extracted_at": "2026-05-15T06:05:51.468Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJ5QLo4vkGmogRNvjneX-zZqQ_Hurricane Grill & Wings-Orange Beach/01_raw_html.html"
+}

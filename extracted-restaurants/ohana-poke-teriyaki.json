@@ -1,0 +1,399 @@
+{
+  "name": "OHANA POKE & TERIYAKI",
+  "type": "Restaurant",
+  "website": "https://ohanapoketeriyaki.fronteats.com/",
+  "contact": {
+    "phone": "+1 (251) 210-4715",
+    "address": "10179 Eastern Shore Dr #104",
+    "city": "Spanish Fort",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null
+  },
+  "about": {
+    "description": "Ohana Poke & Teriyaki offers fresh poke bowls, teriyaki dishes, sushi, and Asian fusion cuisine.",
+    "cuisine_type": "poke/sushi/teriyaki"
+  },
+  "social": {},
+  "menu": [
+    {
+      "category": "Soup & Starters",
+      "name": "Miso Soup",
+      "description": "Soy broth soup seaweed tofu scallion",
+      "price": "$3.50"
+    },
+    {
+      "category": "Soup & Starters",
+      "name": "Gyoza (6)",
+      "description": "Pork & vegetable dumpling with homemade dipping sauce",
+      "price": "$5.50"
+    },
+    {
+      "category": "Soup & Starters",
+      "name": "Krab Wonton (6)",
+      "description": "Cream cheese and imitation crab",
+      "price": "$5.50"
+    },
+    {
+      "category": "Soup & Starters",
+      "name": "Ginger Salad",
+      "description": "Fresh greens tomato cucumber with ginger dressing",
+      "price": "$5.50"
+    },
+    {
+      "category": "Soup & Starters",
+      "name": "Egg Roll (3)",
+      "description": "Vietnamese style pork and shrimp egg roll",
+      "price": "$5.50"
+    },
+    {
+      "category": "Soup & Starters",
+      "name": "Cajun Wings",
+      "description": "Fried wings dropped in cajun butter sauce",
+      "price": "$8.89"
+    },
+    {
+      "category": "Ohana Kitchen",
+      "name": "Teriyaki Chicken Bowl",
+      "description": "Grilled white meat chicken and steam vegetables toss into teriyaki glazed sauce served on choice of base",
+      "price": "$13.89"
+    },
+    {
+      "category": "Ohana Kitchen",
+      "name": "Teriyaki Tofu Bowl",
+      "description": "",
+      "price": "$13.89"
+    },
+    {
+      "category": "Ohana Kitchen",
+      "name": "Teriyaki Shrimp Bowl",
+      "description": "Grilled jumbo shrimp and steam vegetables toss into teriyaki glazed sauce served on choice of base",
+      "price": "$15.89"
+    },
+    {
+      "category": "Ohana Kitchen",
+      "name": "Korean Beef Bowl",
+      "description": "Strip loin steak sliced Korean bbq marinade and steam vegetables served on choice of base",
+      "price": "$15.89"
+    },
+    {
+      "category": "Ohana Kitchen",
+      "name": "Side Fried Rice",
+      "description": "",
+      "price": "$5.00"
+    },
+    {
+      "category": "Ohana Kitchen",
+      "name": "Side White Rice",
+      "description": "",
+      "price": "$3.50"
+    },
+    {
+      "category": "Ohana Kitchen",
+      "name": "Chicken Yaki Soba",
+      "description": "no rice soba noodles with shredded cabbage, carrots, and green onion",
+      "price": "$14.89"
+    },
+    {
+      "category": "Ohana Kitchen",
+      "name": "Shrimp Yaki Soba",
+      "description": "no rice soba noodles with shredded cabbage, carrots, and green onion",
+      "price": "$16.89"
+    },
+    {
+      "category": "Ohana Kitchen",
+      "name": "Singapore Mei Fun",
+      "description": "",
+      "price": "$17.89"
+    },
+    {
+      "category": "Ohana Kitchen",
+      "name": "Orange Chicken",
+      "description": "breaded white meat chicken with chef's special sauce",
+      "price": "$14.89"
+    },
+    {
+      "category": "Ohana Kitchen",
+      "name": "House Fried Rice",
+      "description": "",
+      "price": "$16.89"
+    },
+    {
+      "category": "Ohana Kitchen",
+      "name": "Chicken Fried Rice",
+      "description": "",
+      "price": "$12.89"
+    },
+    {
+      "category": "Ohana Kitchen",
+      "name": "Shrimp Fried Rice (Small Shrimp)",
+      "description": "",
+      "price": "$12.89"
+    },
+    {
+      "category": "Ohana Kitchen",
+      "name": "Shrimp Fried Rice (Jumbo Shrimp)",
+      "description": "",
+      "price": "$15.89"
+    },
+    {
+      "category": "Ohana Kitchen",
+      "name": "Beef Fried Rice",
+      "description": "",
+      "price": "$15.89"
+    },
+    {
+      "category": "Ohana Kitchen",
+      "name": "Beef Yaki Soba",
+      "description": "",
+      "price": "$16.89"
+    },
+    {
+      "category": "Create Your Own Bowl",
+      "name": "Regular Bowl (2 Scoops)",
+      "description": "",
+      "price": "$13.89"
+    },
+    {
+      "category": "Create Your Own Bowl",
+      "name": "Large Bowl",
+      "description": "",
+      "price": "$15.89"
+    },
+    {
+      "category": "Signature Poke Bowls",
+      "name": "Salmon Lover Bowl",
+      "description": "Spicy salmon, salmon edamame corn cucumber poke sauce crabmeat masago mango crispy onion",
+      "price": "$14.89"
+    },
+    {
+      "category": "Signature Poke Bowls",
+      "name": "Ohana Bowl",
+      "description": "Spicy tuna, spicy salmon, tuna edamame scallion jalapeno cilantro poke sauce siracha seaweed salad masago avocado tempura crunch",
+      "price": "$15.89"
+    },
+    {
+      "category": "Signature Poke Bowls",
+      "name": "Shaka Bowl",
+      "description": "Shrimp, chicken edamame scallion pineapple eel sauce spicy mayo avocado pickle carrot & radish crispy onion",
+      "price": "$14.89"
+    },
+    {
+      "category": "Signature Poke Bowls",
+      "name": "Tuna Lover Bowl",
+      "description": "Spicy tuna, tuna edamame corn cucumber poke sauce crabmeat masago mango crispy onion",
+      "price": "$14.89"
+    },
+    {
+      "category": "Signature Poke Bowls",
+      "name": "Hawaiian Bowl",
+      "description": "Salmon salmon salmon pineapple cucumber tomato red onion poke sauce seaweed salad mango crispy onion",
+      "price": "$15.89"
+    },
+    {
+      "category": "Signature Poke Bowls",
+      "name": "Rainbow Bowl",
+      "description": "Salmon, tuna edamame cucumber pineapple poke sauce crabmeat masago avocado crispy onion",
+      "price": "$15.89"
+    },
+    {
+      "category": "Extra Condiments",
+      "name": "Yum Yum Sauce",
+      "description": "",
+      "price": "$0.50"
+    },
+    {
+      "category": "Extra Condiments",
+      "name": "Teriyaki Sauce",
+      "description": "",
+      "price": "$0.50"
+    },
+    {
+      "category": "Extra Condiments",
+      "name": "Spicy Mayo",
+      "description": "",
+      "price": "$0.50"
+    },
+    {
+      "category": "Extra Condiments",
+      "name": "Poke Sauce",
+      "description": "",
+      "price": "$0.50"
+    },
+    {
+      "category": "Extra Condiments",
+      "name": "Ginger Dressing",
+      "description": "",
+      "price": "$0.50"
+    },
+    {
+      "category": "Drinks",
+      "name": "Can Coke",
+      "description": "",
+      "price": "$1.25"
+    },
+    {
+      "category": "Drinks",
+      "name": "Bottle Drink",
+      "description": "",
+      "price": "$2.00"
+    },
+    {
+      "category": "Drinks",
+      "name": "Can Diet Coke",
+      "description": "",
+      "price": "$1.25"
+    },
+    {
+      "category": "Drinks",
+      "name": "Can Mountain Dew",
+      "description": "",
+      "price": "$1.25"
+    },
+    {
+      "category": "Drinks",
+      "name": "Can Dr Pepper",
+      "description": "",
+      "price": "$1.25"
+    },
+    {
+      "category": "Drinks",
+      "name": "Energy Drink",
+      "description": "",
+      "price": "$2.50"
+    },
+    {
+      "category": "Drinks",
+      "name": "Bottle Water",
+      "description": "",
+      "price": "$1.00"
+    },
+    {
+      "category": "Drinks",
+      "name": "Iced Tea",
+      "description": "",
+      "price": "$2.00"
+    },
+    {
+      "category": "Drinks",
+      "name": "Marble Drink",
+      "description": "",
+      "price": "$3.50"
+    },
+    {
+      "category": "Drinks",
+      "name": "Bai",
+      "description": "",
+      "price": "$2.50"
+    },
+    {
+      "category": "Drinks",
+      "name": "Celsius",
+      "description": "",
+      "price": "$2.50"
+    },
+    {
+      "category": "Drinks",
+      "name": "Gatorade",
+      "description": "",
+      "price": "$2.00"
+    },
+    {
+      "category": "Drinks",
+      "name": "Coconut Water",
+      "description": "",
+      "price": "$2.50"
+    },
+    {
+      "category": "Drinks",
+      "name": "Mochi Box",
+      "description": "",
+      "price": "$9.00"
+    },
+    {
+      "category": "Drinks",
+      "name": "Pineapple Cake",
+      "description": "",
+      "price": "$2.00"
+    },
+    {
+      "category": "Nigiri",
+      "name": "Tuna (2pc)",
+      "description": "1 Piece Over Rice",
+      "price": "$6.50"
+    },
+    {
+      "category": "Nigiri",
+      "name": "Salmon (2pc)",
+      "description": "1 Piece Over Rice",
+      "price": "$6.50"
+    },
+    {
+      "category": "Nigiri",
+      "name": "Yellowtail (2pc)",
+      "description": "1 Piece Over Rice",
+      "price": "$8.00"
+    },
+    {
+      "category": "Nigiri",
+      "name": "Crab Stick (2pc)",
+      "description": "1 Piece Over Rice",
+      "price": "$5.00"
+    },
+    {
+      "category": "Nigiri",
+      "name": "Escolar (White Tuna) (2pc)",
+      "description": "1 Piece Over Rice",
+      "price": "$6.50"
+    },
+    {
+      "category": "Nigiri",
+      "name": "Eel (2pc)",
+      "description": "1 Piece Over Rice",
+      "price": "$6.50"
+    },
+    {
+      "category": "Nigiri",
+      "name": "Shrimp (2pc)",
+      "description": "1 Piece Over Rice",
+      "price": "$6.00"
+    },
+    {
+      "category": "Sashimi",
+      "name": "Tuna (3pc)",
+      "description": "3 Pieces - No Rice",
+      "price": "$10.00"
+    },
+    {
+      "category": "Sashimi",
+      "name": "Salmon (3pc)",
+      "description": "3 Pieces - No Rice",
+      "price": "$10.00"
+    },
+    {
+      "category": "Sashimi",
+      "name": "Yellowtail (3pc)",
+      "description": "3 Pieces - No Rice",
+      "price": "$11.00"
+    },
+    {
+      "category": "Sashimi",
+      "name": "Escolar (White Tuna) (3pc)",
+      "description": "3 Pieces - No Rice",
+      "price": "$10.00"
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-03-21T14:36:39.615Z"
+}

@@ -1,0 +1,258 @@
+{
+  "name": "Flora-Bama Ole River Grill",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "(850) 483-6262",
+    "address": "17400 Perdido Key Drive",
+    "city": "Perdido Key",
+    "email": "info@florabama.com"
+  },
+  "hours": {
+    "monday": "11:00 am - 9:00 pm",
+    "tuesday": "11:00 am - 9:00 pm",
+    "wednesday": "11:00 am - 9:00 pm",
+    "thursday": "11:00 am - 9:00 pm",
+    "friday": "11:00 am - 10:00 pm",
+    "saturday": "11:00 am - 10:00 pm",
+    "sunday": "11:00 am - 9:00 pm"
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Appetizers",
+      "name": "All-American Nachos",
+      "description": "Crunchy tortilla chips smothered in melted cheese with your choice of chicken or beef, topped with shredded lettuce and diced tomatoes. Served with jalapeños and sour cream on the side.",
+      "price": 17
+    },
+    {
+      "category": "Appetizers",
+      "name": "Gulf Coast Crab Claws",
+      "description": "1/2 pound of Gulf crab claws. Get 'em fried or sautéed in our house creole cream.",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Mozzarella Sticks",
+      "description": "Traditional fried mozzarella sticks packed full of melted mozzarella and fried crispy. Served with marinara sauce for dipping.",
+      "price": 11
+    },
+    {
+      "category": "Appetizers",
+      "name": "Hickory Smoked Tuna Dip",
+      "description": "Brined Gulf tuna, slow smoked and served up Alabama style with saltine crackers.",
+      "price": 13
+    },
+    {
+      "category": "Appetizers",
+      "name": "Crispy Dill Pickles",
+      "description": "Cornmeal dusted thick cut pickles, served with buttermilk ranch.",
+      "price": 10
+    },
+    {
+      "category": "Appetizers",
+      "name": "Key Lime Shrimp",
+      "description": "Lightly breaded tender, American shrimp tossed in our sweet & spicy Blue Chair Bay Key Lime sauce.",
+      "price": 13
+    },
+    {
+      "category": "Appetizers",
+      "name": "Shrimp & Mexican Street Corn Dip",
+      "description": "Savory blend of roasted corn, jalapenos, cream cheese, and American shrimp, served with tortilla chips.",
+      "price": 14
+    },
+    {
+      "category": "Appetizers",
+      "name": "Jumbo Chicken Wings",
+      "description": "Traditional jumbo wings fried crispy outside and juicy inside, tossed in your choice of buffalo, BBQ, or garlic parmesan sauce.",
+      "price": 15
+    },
+    {
+      "category": "Appetizers",
+      "name": "Boudin Egg Rolls",
+      "description": "Authentic pork boudin and pepper jack cheese rolled into a crispy egg roll wrapper. Served with spicy remoulade for dipping.",
+      "price": 15
+    },
+    {
+      "category": "Salads",
+      "name": "Summer Salad",
+      "description": "House salad blend topped with grilled chicken, sliced fresh strawberries, mandarin oranges, goat cheese, and sliced onion. Served with tangy blood orange vinaigrette.",
+      "price": 14
+    },
+    {
+      "category": "Salads",
+      "name": "House Salad",
+      "description": "House salad blend with cucumber, red onion, cherry tomatoes, garlic croutons, and your choice of dressing.",
+      "price": 10
+    },
+    {
+      "category": "Salads",
+      "name": "Chef Salad",
+      "description": "Crisp house salad blend topped with sliced ham, turkey, shredded cheese, cucumber, red onion, egg, cherry tomatoes, garlic croutons, and your choice of dressing.",
+      "price": 16
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Build Your Own Bama Burger",
+      "description": "Swiss, cheddar, pepper jack, blue cheese, grilled onions, mushrooms, bacon, jalapeño, lettuce, tomato, red onion and pickles.",
+      "price": 17
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Grouper Po Boy",
+      "description": "Blackened, grilled or fried Grouper dressed with lettuce, tomato, onion and pickle.",
+      "price": 19
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Fried Shrimp Po Boy",
+      "description": "Fried American shrimp dressed with lettuce, tomato, onion and pickle.",
+      "price": 17
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Ole River Club",
+      "description": "Sliced ham, turkey, and bacon stacked high on toasted bread with lettuce, tomato, and dill mayo in our version of this cold cut classic.",
+      "price": 16
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Grilled Chicken Club",
+      "description": "Marinated and grilled chicken tenders topped with smoked bacon, Swiss cheese and honey mustard. Served with lettuce, tomato, onion, and pickle.",
+      "price": 14
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Blackened Grouper Tacos",
+      "description": "Blackened Grouper, shredded cabbage, shredded cheese, and pico de gallo. Topped with comeback sauce.",
+      "price": 17
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Blackened Shrimp Tacos",
+      "description": "Blackened American Shrimp, shredded cabbage, shredded cheese, and pico de gallo. Topped with comeback sauce.",
+      "price": 17
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Cheesesteak Sandwich",
+      "description": "Shaved Certified Angus Beef steak served on a soft Leidenheimer roll topped with white queso. Add sautéed onions, peppers or mushrooms - $0.50/each",
+      "price": ""
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Beachside Cheeseburger",
+      "description": "Your choice of Swiss, cheddar, or pepper jack cheese served with lettuce, tomato, onion, and pickle.",
+      "price": ""
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Garlic Parmesan Mushroom Burger",
+      "description": "Topped with sautéed mushrooms, parmesan garlic sauce, Swiss cheese, lettuce, tomato, onion, and pickle.",
+      "price": 17
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Triple Bacon Burger",
+      "description": "Topped with crisp applewood bacon, cheddar cheese, bacon and onion jam, bacon aioli, lettuce, tomato, onion and pickle.",
+      "price": 18
+    },
+    {
+      "category": "Sandwiches",
+      "name": "South of the Border Burger",
+      "description": "Topped with pepper jack cheese, pico de gallo, sautéed green peppers, jalapeños, onions and white queso cheese.",
+      "price": 17
+    },
+    {
+      "category": "Baskets",
+      "name": "Shrimp Basket",
+      "description": "Half pound blackened or fried American shrimp served with cocktail or tartar and lemon wedge.",
+      "price": 21
+    },
+    {
+      "category": "Baskets",
+      "name": "Fried Chicken Strips",
+      "description": "Hand breaded, juicy chicken tenders fried to a golden brown.",
+      "price": 17
+    },
+    {
+      "category": "Baskets",
+      "name": "Grouper Basket",
+      "description": "Grilled, blackened or fried Grouper.",
+      "price": 23
+    },
+    {
+      "category": "Baskets",
+      "name": "Combo Basket",
+      "description": "Pick any two of the basket items.",
+      "price": 25
+    },
+    {
+      "category": "Oysters",
+      "name": "Char-Grilled Oysters",
+      "description": "Gulf oysters topped with garlic butter and grated Parmesan. Served with grilled bread for dippin'.",
+      "price": 16
+    },
+    {
+      "category": "Oysters",
+      "name": "Oysters McClellan",
+      "description": "The Flora-Bama's original grilled oysters! Gulf oysters topped with green onion, bacon and melted smoked Gouda.",
+      "price": 18
+    },
+    {
+      "category": "Oysters",
+      "name": "Raw Oysters",
+      "description": "Served ice cold on the half shell with all the fixins'.",
+      "price": 13
+    },
+    {
+      "category": "House Specialties",
+      "name": "Flora-Bama Shrimp Boil",
+      "description": "Seasoned American peel & eat shrimp boiled and served with potatoes, corn and sausage, tossed in garlic butter.",
+      "price": 20
+    },
+    {
+      "category": "House Specialties",
+      "name": "Big Earl's Shrimp & Grits",
+      "description": "Stone ground smoked Gouda grits and lightly blackened American shrimp smothered in creole cream sauce.",
+      "price": 20
+    },
+    {
+      "category": "House Specialties",
+      "name": "Four Cheese Mac",
+      "description": "Cavatappi pasta tossed in a creamy sauce with Parmesan, Monterey Jack, cheddar, and smoked Gouda.",
+      "price": 13
+    },
+    {
+      "category": "Desserts",
+      "name": "Key Lime Pie",
+      "description": "Topped with whipped cream.",
+      "price": 11
+    },
+    {
+      "category": "Desserts",
+      "name": "Double Layer Chocolate Cake",
+      "description": "2 layers of chocolate cake filled with dark chocolate mousse, topped with chocolate cake chunks, chocolate curls and drizzled with chocolate ganache.",
+      "price": 12
+    },
+    {
+      "category": "Desserts",
+      "name": "White Chocolate Raspberry Cheesecake",
+      "description": "Creamy cheesecake swirled with white chocolate, raspberry puree and a dark chocolate crumb crust. Topped with whip cream and white chocolate shavings.",
+      "price": 11
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Daily Specials",
+      "description": "Daily specials made with fresh seasonal ingredients. Be sure to ask your server about our daily specials.",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:50.332Z"
+}

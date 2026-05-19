@@ -1,0 +1,146 @@
+{
+  "business_name": "POUR Smart Bar",
+  "cuisine_type": "Bar",
+  "price_range": null,
+  "description": null,
+  "atmosphere": null,
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": null,
+    "email": "email@example.com",
+    "address": null,
+    "website": "https://www.poursmartbar.com",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": "https://www.facebook.com/profile.php?id=100048616575012",
+      "instagram": "https://www.instagram.com/pouratthewharf_/",
+      "twitter": null,
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": null,
+    "takeout_available": null,
+    "delivery_available": null,
+    "curbside_available": null,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [],
+    "wine_list": null,
+    "beer_selection": null,
+    "cocktails": null,
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": null,
+      "vegan": null,
+      "gluten_free": null,
+      "dairy_free": null,
+      "nut_free": null,
+      "kosher": null,
+      "halal": null
+    }
+  },
+  "happy_hour": {
+    "available": null,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [],
+  "entertainment_and_events": [],
+  "private_events": {
+    "available": null,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": null,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": null,
+    "pets_allowed": null
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": null,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": null,
+    "private_dining": null
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": null,
+    "email_signup": null,
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": null,
+    "farm_to_table": null,
+    "sustainable": null,
+    "organic": null,
+    "details": null
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [],
+    "common_praise": [],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "logo",
+      "url": "//images.squarespace-cdn.com/content/v1/638a3605cc320f460a0e7c53/478dc7eb-5412-4b3c-942b-b46be19a4dee/Black+Horizontal.png",
+      "description": "POUR Smart Bar logo"
+    },
+    {
+      "type": "logo",
+      "url": "//images.squarespace-cdn.com/content/v1/638a3605cc320f460a0e7c53/accc0ae9-b5d2-4b9a-bcae-e9bab6775f61/Black+Horizontal.png",
+      "description": "POUR Smart Bar mobile logo"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "POUR Smart Bar. Navigation: On Tap, Cocktails, Upcoming Events, About, Contact, FAQ. Contact Us button available. Header with skip to content link. Mobile navigation menu available. Location: Alabama, US.",
+  "extraction_confidence": "low",
+  "extraction_notes": "This is a landing page template from Squarespace with minimal actual restaurant content visible. The HTML provided appears to be a header and initial page structure only. No detailed business information such as hours, address, phone number, menu items, pricing, or comprehensive content was found in the extracted HTML. The page sections appear to be incomplete/cut off in the provided HTML. Navigation structure shows: On Tap, Cocktails, Upcoming Events, About, Contact, and FAQ pages exist but their content was not included in this HTML excerpt. Social media profiles found: Instagram (@pouratthewharf_) and Facebook. Email contact shows placeholder (email@example.com). Location appears to be Alabama, US based on website settings. Would require visiting full pages (About, Cocktails, On Tap, Contact, etc.) to extract comprehensive restaurant data.",
+  "folder": "ChIJWfsVlSsFmogRfzdvMSsmQxI_Pour Smart Bar",
+  "extracted_at": "2026-05-15T06:23:12.320Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJWfsVlSsFmogRfzdvMSsmQxI_Pour Smart Bar/01_raw_html.html"
+}

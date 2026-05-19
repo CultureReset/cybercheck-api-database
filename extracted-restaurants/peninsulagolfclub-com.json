@@ -1,0 +1,80 @@
+{
+  "name": "Peninsula Golf & Racquet Club",
+  "type": "Golf Club",
+  "website": "https://www.peninsulagolfclub.com",
+  "contact": {
+    "phone": "(251) 968-8009",
+    "address": "Fort Morgan Peninsula",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": "Not provided on website"
+  },
+  "about": {
+    "description": "Peninsula Golf & Racquet Club, located on the Fort Morgan Peninsula of Gulf Shores, AL, provides a perfect blend of southern hospitality and championship golf. The 27-hole course delivers a playable and enjoyable layout for golfers of all skill levels, with brand-new Tiff Eagle greens that are fast, consistent and enjoyable.",
+    "elevator_pitch": "A championship golf course with brand-new Tiff Eagle greens and southern hospitality in Gulf Shores, Alabama.",
+    "vibe": "Upscale luxury golf club offering championship golf experience with recreational and fitness amenities",
+    "best_for": [
+      "golfers",
+      "tournaments",
+      "group outings",
+      "fitness enthusiasts",
+      "tennis players"
+    ],
+    "established": null,
+    "reservations": "Book Tee Times available",
+    "insider_tip": "Recently upgraded with brand-new Tiff Eagle greens"
+  },
+  "social": {
+    "instagram": null,
+    "facebook": "https://www.facebook.com/PeninsulaGolf/",
+    "website": "https://www.peninsulagolfclub.com"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Six-Pack Cards",
+      "description": "",
+      "discount": ""
+    },
+    {
+      "name": "Special Offers",
+      "description": "",
+      "discount": ""
+    },
+    {
+      "name": "Play Every Day",
+      "description": "",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [
+    {
+      "name": "Tournaments",
+      "day": "",
+      "time": ""
+    },
+    {
+      "name": "Special Events",
+      "day": "",
+      "time": ""
+    },
+    {
+      "name": "Event Calendar",
+      "day": "",
+      "time": ""
+    }
+  ],
+  "gallery": 2,
+  "scraped_at": "2026-03-21T19:47:30.522Z"
+}

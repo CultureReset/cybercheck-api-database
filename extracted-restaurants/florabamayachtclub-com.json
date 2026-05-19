@@ -1,0 +1,147 @@
+{
+  "name": "Flora-Bama Yacht Club",
+  "type": "Restaurant",
+  "website": "https://www.florabamayachtclub.com",
+  "contact": {
+    "phone": "(850) 483-6272",
+    "address": "17350 Perdido Key Drive",
+    "city": "Perdido Key",
+    "email": ""
+  },
+  "hours": {
+    "monday": "11am-9pm",
+    "tuesday": "11am-9pm",
+    "wednesday": "11am-9pm",
+    "thursday": "11am-9pm",
+    "friday": "11am-9pm",
+    "saturday": "11am-9pm",
+    "sunday": "11am-9pm"
+  },
+  "about": {
+    "description": "The Flora-Bama Yacht Club has become almost as legendary as the bar across the street. A legendary waterfront restaurant in Orange Beach known for original menu items, local seafood, award-winning chefs, live music, and outdoor deck with beach area.",
+    "cuisine_type": "seafood"
+  },
+  "social": {},
+  "menu": [
+    {
+      "category": "Shareables",
+      "name": "Seared Yellowfin Tuna Sashimi",
+      "description": "Yellowfin tuna with Creole wasabi, Sriracha mayo and hoisin.",
+      "price": "$17"
+    },
+    {
+      "category": "Shareables",
+      "name": "Gulf Coast Blue Crab Claws",
+      "description": "Half pound of blue crab claws either fried or sautéed in our lemon cream sauce.",
+      "price": "MKT"
+    },
+    {
+      "category": "Shareables",
+      "name": "Smoked Tuna Dip",
+      "description": "Fresh local tuna, hardwood smoked, served with specialty crackers.",
+      "price": "$14"
+    },
+    {
+      "category": "Shareables",
+      "name": "Firecracker Calamari",
+      "description": "Panko-fried calamari drizzled in our house firecracker aioli and sweet chili sauce.",
+      "price": "$15"
+    },
+    {
+      "category": "Shareables",
+      "name": "Greek Shrimp Nachos",
+      "description": "Fried wonton chips smothered in a spinach and feta cream sauce topped with grilled American shrimp, tomatoes, crumbled feta, Kalamata olives, peppadews, banana peppers, green onion and red onion.",
+      "price": "$17"
+    },
+    {
+      "category": "Shareables",
+      "name": "Crab & Parmesan Hash Puppies",
+      "description": "Deep-fried hashbrowns, local blue crab and mashed potatoes folded with Parmesan and Créole seasoning served with chipotle bacon ranch.",
+      "price": "$15"
+    },
+    {
+      "category": "Shareables",
+      "name": "Greek Chicken Flatbread",
+      "description": "Greek marinated chicken, spinach and feta cream sauce, feta cheese, and Greek marinated vegetables on a crispy flatbread.",
+      "price": "$15"
+    },
+    {
+      "category": "Shareables",
+      "name": "Firecracker Coconut Shrimp",
+      "description": "Coconut-crust American shrimp topped with our in-house firecracker aioli and sweet chili sauce.",
+      "price": "$15"
+    },
+    {
+      "category": "Shareables",
+      "name": "Roasted Red Pepper Hummus",
+      "description": "The savory flavors of roasted red peppers and ground chickpeas. Served with grilled pita bread.",
+      "price": "$11"
+    },
+    {
+      "category": "Shareables",
+      "name": "Asian Ahi Tuna Nachos",
+      "description": "Crispy wontons topped with ahi tuna, sweet soy glaze, wasabi cucumber aioli, shredded Asian slaw and spicy mayo.",
+      "price": "$17"
+    },
+    {
+      "category": "Shareables",
+      "name": "Yacht Club Char-Grilled Oysters",
+      "description": "Char-grilled oysters topped with our world famous Orleans cream, Parmesan cheese and garlic butter.",
+      "price": "$27 dz. / $17 half"
+    },
+    {
+      "category": "Shareables",
+      "name": "Bienville Oysters",
+      "description": "Char-grilled Oysters topped with a creole shrimp sauce, diced bacon, green onions and parmesan cheese.",
+      "price": "$28 Dozen/ $18 Half"
+    },
+    {
+      "category": "Shareables",
+      "name": "Oyster Sampler",
+      "description": "3 oyster each of Oysters McClellan, Chargrilled , Rockefeller and Bienville.",
+      "price": "$30"
+    },
+    {
+      "category": "Shareables",
+      "name": "Raw Gulf Oysters",
+      "description": "Fresh oysters served on the half shell.",
+      "price": "$18 dz./$12 half"
+    },
+    {
+      "category": "Shareables",
+      "name": "Oysters Rockefeller",
+      "description": "Char-grilled oysters topped with creamy Rockefeller sauce.",
+      "price": "$27 dz./$17half"
+    },
+    {
+      "category": "Shareables",
+      "name": "Oysters McClellan",
+      "description": "The Flora-Bama's original grilled oyster! Gulf oysters topped with green onion, bacon, and melted smoked gouda.",
+      "price": "$28 dz./$18 half"
+    },
+    {
+      "category": "Soup",
+      "name": "Our World Famous Gumbo",
+      "description": "Traditional roux based gumbo with house made shrimp stock. Loaded with Conecuh sausage and American shrimp.",
+      "price": "$7"
+    },
+    {
+      "category": "Salads",
+      "name": "Greek Salad",
+      "description": "",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Daily Specials",
+      "description": "Daily specials made with fresh seasonal ingredients. Ask your server about our daily specials.",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-03-21T19:46:12.233Z"
+}

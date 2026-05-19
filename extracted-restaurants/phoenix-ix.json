@@ -1,0 +1,67 @@
+{
+  "name": "Brett/Robinson Vacation Rentals - Phoenix IX",
+  "type": "Vacation Rental - Beachfront Condo",
+  "website": "https://www.brett-robinson.com/beach-condo/phoenix-ix/",
+  "contact": {
+    "phone": "+1-800-211-7892",
+    "address": "29488 Perdido Beach Blvd",
+    "city": "Orange Beach",
+    "email": ""
+  },
+  "hours": {},
+  "about": {
+    "description": "Phoenix IX is a beachfront condo resort located on the eastern end of Orange Beach near the Alabama-Florida border, offering a quieter stretch of sugar-white sand and convenient access to Orange Beach, Perdido Key, and nearby Gulf Shores. The property features spacious 1-, 2-, and 3-bedroom vacation rentals, all designed to face the water and include private balconies. Guests enjoy open layouts and scenic vantage points that showcase either Gulf-front or bay views, making Phoenix IX a distinctive option for travelers who value space, scenery, and a more peaceful beachfront location on the Alabama Gulf Coast.",
+    "elevator_pitch": "Phoenix IX offers spacious, water-facing 1-3 bedroom beachfront condos with resort amenities on Orange Beach's quieter eastern end.",
+    "total_units": null,
+    "floors": 14,
+    "year_built": null,
+    "pet_friendly": false,
+    "minimum_stay": null,
+    "check_in": "Check-in times vary by season",
+    "check_out": "Check-out times vary by season",
+    "age_restriction": null
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/brett_robinson_vacations",
+    "facebook": "https://www.facebook.com/BrettRobinsonVacations",
+    "website": "https://www.brett-robinson.com/beach-condo/phoenix-ix/"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Seasonal Discounts",
+      "description": "Various seasonal promotions throughout the year",
+      "discount": ""
+    },
+    {
+      "name": "Snowbird Specials",
+      "description": "Specials for longer stays",
+      "discount": ""
+    },
+    {
+      "name": "Last-Minute Deals",
+      "description": "Discounts on select rentals for short-notice bookings",
+      "discount": ""
+    },
+    {
+      "name": "Promo Codes",
+      "description": "Percentage-off promotions like 10% savings with codes (past examples: Bama2025 for 2025 bookings)",
+      "discount": ""
+    },
+    {
+      "name": "Hot Deals",
+      "description": "Featured deals on select properties and dates, available on booking search results",
+      "discount": ""
+    },
+    {
+      "name": "Property-Specific Specials",
+      "description": "Promotions based on amenities-based specials, such as electric vehicle charger availability",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 23,
+  "scraped_at": "2026-03-21T21:04:52.295Z"
+}

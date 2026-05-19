@@ -1,0 +1,284 @@
+{
+  "business_name": "Brick and Spoon",
+  "cuisine_type": "Brunch Restaurant",
+  "price_range": "$$",
+  "description": "Brick and Spoon is an upscale take on breakfast, brunch, and lunch with locations across the country! We're Allergic To Boring Breakfast",
+  "atmosphere": "Upscale casual",
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": "Multiple locations across the US",
+    "website": "https://www.brickandspoon.com",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": null,
+      "instagram": "https://www.instagram.com/brickandspoon_hq/",
+      "twitter": null,
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": true,
+    "takeout_available": true,
+    "delivery_available": true,
+    "curbside_available": null,
+    "delivery_partners": [
+      "ChowNow"
+    ],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [],
+    "wine_list": null,
+    "beer_selection": null,
+    "cocktails": null,
+    "kids_menu": null,
+    "catering_menu": "Available",
+    "dietary_accommodations": {
+      "vegetarian": null,
+      "vegan": null,
+      "gluten_free": null,
+      "dairy_free": null,
+      "nut_free": null,
+      "kosher": null,
+      "halal": null
+    }
+  },
+  "happy_hour": {
+    "available": null,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [
+    {
+      "type": "seasonal",
+      "day_of_week": null,
+      "name": "Latest Food Specials",
+      "description": "Follow us on Instagram, @Brick&Spoon_HQ, for the latest food specials and restaurant updates!",
+      "discount": null,
+      "valid_until": null
+    }
+  ],
+  "entertainment_and_events": [],
+  "private_events": {
+    "available": true,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": true,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": null,
+    "pets_allowed": null
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": true,
+    "online_booking_platform": "Resy",
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": null,
+    "private_dining": true
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": null,
+    "email_signup": "Available - First Name, Last Name, Email",
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": null,
+    "farm_to_table": null,
+    "sustainable": null,
+    "organic": null,
+    "details": null
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [
+      "Bloody Mary",
+      "Pancakes",
+      "Eggs"
+    ],
+    "common_praise": [],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "restaurant",
+      "url": "https://images.getbento.com/accounts/4130b16950d3f89d43664b1daf4cf67b/media/images/592610T4A3242.JPG",
+      "description": "Gallery Slide 1"
+    },
+    {
+      "type": "food",
+      "url": "https://images.getbento.com/accounts/4130b16950d3f89d43664b1daf4cf67b/media/images/224730T4A3142.JPG",
+      "description": "Gallery Slide 2"
+    },
+    {
+      "type": "food",
+      "url": "https://images.getbento.com/accounts/4130b16950d3f89d43664b1daf4cf67b/media/images/919130T4A3345.JPG",
+      "description": "Gallery Slide 3"
+    },
+    {
+      "type": "food",
+      "url": "https://images.getbento.com/accounts/4130b16950d3f89d43664b1daf4cf67b/media/images/26434BrickSpoon_March22__114.jpg",
+      "description": "Someone pouring syrup on pancakes"
+    },
+    {
+      "type": "restaurant",
+      "url": "https://images.getbento.com/accounts/4130b16950d3f89d43664b1daf4cf67b/media/images/44815BrickSpoon_March22__181.jpg",
+      "description": "Catering"
+    },
+    {
+      "type": "restaurant",
+      "url": "https://images.getbento.com/accounts/4130b16950d3f89d43664b1daf4cf67b/media/images/99836BrickSpoon_March22__123.jpg",
+      "description": "A birds eye view of food on a table"
+    },
+    {
+      "type": "restaurant",
+      "url": "https://images.getbento.com/accounts/4130b16950d3f89d43664b1daf4cf67b/media/images/21154BrickSpoon_March22__71.jpg",
+      "description": "Franchising"
+    },
+    {
+      "type": "logo",
+      "url": "https://images.getbento.com/accounts/4130b16950d3f89d43664b1daf4cf67b/media/images/60451Logo2.png",
+      "description": "Brick and Spoon Logo"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": "Email signup available on homepage - collects First Name, Last Name, and Email",
+  "locations": [
+    {
+      "name": "Texas City, TX",
+      "address": "10000 Emmett F Lowry Expy Suite 1134",
+      "city": "Texas City",
+      "state": "TX",
+      "postal_code": "77591",
+      "phone": "(409) 440-8535",
+      "url": "https://www.brickandspoon.com/location/texas-city-tx/"
+    },
+    {
+      "name": "Mobile, AL",
+      "address": "3662 Airport Blvd.",
+      "city": "Mobile",
+      "state": "AL",
+      "postal_code": "36608",
+      "phone": "1-251-378-8378",
+      "url": "https://www.brickandspoon.com/location/mobile-al/"
+    },
+    {
+      "name": "Biloxi, MS",
+      "address": "140 Eisenhower Drive",
+      "city": "Biloxi",
+      "state": "MS",
+      "postal_code": "39531",
+      "phone": "1-228-388-5162",
+      "url": "https://www.brickandspoon.com/location/biloxi-ms/"
+    },
+    {
+      "name": "Gulfport, MS",
+      "address": "15264 Crossroads Pkwy",
+      "city": "Gulfport",
+      "state": "MS",
+      "postal_code": "39503",
+      "phone": null,
+      "url": "https://www.brickandspoon.com/location/gulfport-ms/"
+    },
+    {
+      "name": "Tupelo, MS",
+      "address": "1201 North Gloster St.",
+      "city": "Tupelo",
+      "state": "MS",
+      "postal_code": "38804",
+      "phone": "1-662-346-4922",
+      "url": "https://www.brickandspoon.com/location/tupelo-ms-38804/"
+    },
+    {
+      "name": "Tuscaloosa, AL",
+      "address": "2318 4th Street",
+      "city": "Tuscaloosa",
+      "state": "AL",
+      "postal_code": "35401",
+      "phone": "(205) 345-5551",
+      "url": "https://www.brickandspoon.com/location/tuscaloosa-al/"
+    },
+    {
+      "name": "Orlando, FL",
+      "address": "933 S Orlando Avenue",
+      "city": "Maitland",
+      "state": "FL",
+      "postal_code": "32751",
+      "phone": "1-407-790-4345",
+      "url": "https://www.brickandspoon.com/location/orlando-fl/"
+    },
+    {
+      "name": "Opelika, AL",
+      "address": "2836 Pepperell Parkway",
+      "city": "Opelika",
+      "state": "AL",
+      "postal_code": "36801",
+      "phone": "(334) 737-6498",
+      "url": "https://www.brickandspoon.com/location/opelika-al/",
+      "ordering": "ChowNow"
+    },
+    {
+      "name": "Pigeon Forge, TN",
+      "address": "136 Community Center Dr. Pigeon",
+      "city": "Forge",
+      "state": "TN",
+      "postal_code": "37863",
+      "phone": "1-865-365-1942",
+      "url": "https://www.brickandspoon.com/location/pigeon-forge-tn/"
+    },
+    {
+      "name": "Orange Beach, AL",
+      "address": "24705 Canal Road",
+      "city": "Orange Beach",
+      "state": "AL",
+      "postal_code": "36561",
+      "phone": "(251) 981-7772",
+      "url": "https://www.brickandspoon.com/location/orange-beach-al/"
+    }
+  ],
+  "raw_text_content": "Brick and Spoon | Brunch Restaurant in the US Welcome to Brick and Spoon An Upscale Take on Breakfast, Brunch, and Lunch Find A Brick & Spoon Near You! View Map Our Food We're Allergic To Boring Breakfast View Menus Catering Let us cater your next event. Inquire Now Press See What Everyone Has To Say! Hot Off The Press Franchising Help Us Grow! Learn More Follow us on Instagram, @Brick&Spoon_HQ, for the latest food specials and restaurant updates! Home Menus Franchise Overview Contact Us Shop Find A Location Near You Press About Us Catering Careers",
+  "extraction_confidence": "high",
+  "extraction_notes": "This is the homepage of a multi-location brunch restaurant franchise. Limited menu details available on homepage - full menus would be found on individual location pages. Hours of operation not listed on homepage. No specific dietary accommodations, awards, or detailed policies found on this page. Contact information provided for 10 locations with phone numbers. Social media limited to Instagram. Email newsletter signup form available. Catering and franchising information referenced but detailed pages would be at dedicated URLs. Ordering capabilities through ChowNow for at least Opelika location and online ordering widget visible.",
+  "folder": "ChIJT1B1BGkGmogRQCkjQHXktLU_Brick & Spoon - Orange Beach",
+  "extracted_at": "2026-05-15T06:22:10.538Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJT1B1BGkGmogRQCkjQHXktLU_Brick & Spoon - Orange Beach/01_raw_html.html"
+}

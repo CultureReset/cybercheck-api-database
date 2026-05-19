@@ -1,0 +1,151 @@
+{
+  "name": "Icehouse Tap Room",
+  "type": "Bar/Restaurant",
+  "website": "http://www.icehousegs.com",
+  "contact": {
+    "phone": "(251) 200-0157",
+    "address": "112 Windmill Ridge Road",
+    "city": "Gulf Shores",
+    "email": "gm@icehousegs.com"
+  },
+  "hours": {
+    "monday": "11am - 2am",
+    "tuesday": "11am - 2am",
+    "wednesday": "11am - 2am",
+    "thursday": "11am - 2am",
+    "friday": "11am - 2am",
+    "saturday": "11am - 2am",
+    "sunday": "11am - 2am",
+    "notes": "Kitchen open late, under 21 till 9pm"
+  },
+  "about": {
+    "description": "Icehouse Tap Room is a local neighborhood beach bar and restaurant located on Little Lagoon in Gulf Shores, offering uninterrupted sunset views 365 days a year. Founded in 2000 in Baton Rouge, LA, it has expanded to Gulf Shores. The restaurant features a funky indoor space and beachy outdoor space with over 30 years of family-owned bar and restaurant experience. Not corporate driven, offering full menu with made-to-order items and 24 beers on tap.",
+    "elevator_pitch": "A family-owned beach bar and restaurant with uninterrupted sunset views, 24 craft beers on tap, and late-night dining in Gulf Shores.",
+    "vibe": "Casual, local, laid-back beach atmosphere with funky indoor and beachy outdoor spaces. A gathering place for friends, wanderers, and adventurers.",
+    "best_for": [
+      "friends gathering",
+      "watching sporting events",
+      "live music",
+      "late-night dining",
+      "sunset viewing",
+      "local experience"
+    ],
+    "established": "2000",
+    "reservations": null,
+    "insider_tip": "Open later than most businesses in the area with food service after midnight. Located directly behind the Original Oyster House on Hwy 59, two lights north of The Hangout. Try the house-made BBQ sauce and smoked boudin gumbo."
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "website": "http://www.icehousegs.com"
+  },
+  "menu": [
+    {
+      "category": "Main Items",
+      "name": "Burgers",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Main Items",
+      "name": "Wings",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Main Items",
+      "name": "Louisiana Boudin",
+      "description": "Authentic Louisiana Boudin",
+      "price": ""
+    },
+    {
+      "category": "Main Items",
+      "name": "Salads",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Main Items",
+      "name": "Street Tacos",
+      "description": "Authentic Hispanic street tacos",
+      "price": ""
+    },
+    {
+      "category": "Main Items",
+      "name": "Chimichangas",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Main Items",
+      "name": "Hand-Crafted Sandwiches",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Chips & Salsa",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Specials",
+      "name": "Smoked Boudin Gumbo",
+      "description": "Crazy good smoked boudin gumbo, great on cold days",
+      "price": ""
+    },
+    {
+      "category": "Sides",
+      "name": "French Fries",
+      "description": "Crinkle cut french fries",
+      "price": ""
+    },
+    {
+      "category": "Sauces",
+      "name": "House-Made BBQ Sauce",
+      "description": "Love inspired, house-made sweet, spicy, garlic pepper BBQ sauce. Available to take home.",
+      "price": ""
+    },
+    {
+      "category": "Drinks",
+      "name": "Beer on Tap",
+      "description": "24 local and national beers on tap, the most on the island in Gulf Shores",
+      "price": ""
+    },
+    {
+      "category": "Drinks",
+      "name": "Cocktails",
+      "description": "Variety of cocktails",
+      "price": ""
+    },
+    {
+      "category": "Drinks",
+      "name": "Wine",
+      "description": "Variety of wines",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Daytime Happy Hour",
+      "description": "Food and drink specials",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [
+    {
+      "name": "Live Music",
+      "day": "Daily",
+      "time": ""
+    },
+    {
+      "name": "Sporting Event Watch Parties",
+      "day": "",
+      "time": ""
+    }
+  ],
+  "gallery": 47,
+  "scraped_at": "2026-03-22T01:47:44.318Z"
+}

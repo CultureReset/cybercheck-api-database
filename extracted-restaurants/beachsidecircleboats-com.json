@@ -1,0 +1,90 @@
+{
+  "name": "Beachside Circle Boat Rentals and Sales",
+  "type": "Boat Rental",
+  "website": "https://www.beachsidecircleboats.com",
+  "contact": {
+    "phone": "(601) 325-1205",
+    "address": "25856 Canal Road",
+    "city": "Orange Beach",
+    "email": "beachsideboats@myyahoo.com"
+  },
+  "hours": {
+    "monday": "09:00–18:00",
+    "tuesday": "09:00–18:00",
+    "wednesday": "09:00–18:00",
+    "thursday": "09:00–18:00",
+    "friday": "09:00–18:00",
+    "saturday": "09:00–18:00",
+    "sunday": "09:00–18:00",
+    "notes": "Weather permitting. Call for availability."
+  },
+  "about": {
+    "description": "Beachside Circle Boat Rentals and Sales is a local family-owned business offering portable, eco-friendly electric circle boat rentals on the waters of Orange Beach, Alabama. Their quiet, zero-emission inflatable circle boats are incredibly stable, virtually untippable, and require no boating license or prior experience. Guests can cruise no-wake zones, fish through canals, pull up to islands, or visit local waterfront restaurants. Boats launch from Romar Marina in Orange Beach (Cotton Bayou) and The Galley on The River in Gulf Shores (Bon Secour River). Single and double seater options are available, along with add-ons like towable floating docks, coolers, sunshade canopies, fishing poles, floating chairs, and pet-friendly doggie docks. Group rates available for 5+ single seaters.",
+    "elevator_pitch": "Rent a portable, eco-friendly electric circle boat in Orange Beach — no license, no experience, just show up and cruise the Gulf Coast waterways in style.",
+    "established": null,
+    "owner": null,
+    "vibe": "Laid-back, eco-friendly, family fun on the water",
+    "best_for": [
+      "families",
+      "couples",
+      "groups",
+      "pet owners",
+      "birthday parties",
+      "bachelor parties",
+      "date nights",
+      "fishing trips",
+      "team outings"
+    ],
+    "capacity": "Groups of 4+ boats can tie together; double seater fits 2 adults up to 450 lbs combined",
+    "duration_options": [
+      "half day (9:00–1:00)",
+      "half day (2:00–6:00)",
+      "full day (9:00–6:00)"
+    ],
+    "departure_location": "Romar Marina, 26350 Cotton Bayou Dr, Orange Beach, AL 36561 | The Galley on The River, 18546 Baldwin County Rd 10, Foley, AL 36535",
+    "what_provided": [
+      "life jacket",
+      "safety briefing",
+      "full battery charge",
+      "5-speed motor",
+      "paddle",
+      "whistle",
+      "phone holder",
+      "waterproof map"
+    ],
+    "what_to_bring": [
+      "sunscreen",
+      "beach towels",
+      "cooler",
+      "drinks",
+      "snacks",
+      "chairs (optional)",
+      "bait (if fishing)"
+    ],
+    "age_restriction": "Must be 21 to rent; drivers must be at least 14 years old",
+    "weight_restriction": "Single seater: up to 300 lbs; Double seater: up to 450 lbs combined",
+    "reservations": "Book online via website; group rates (5+ single seaters) must call to book",
+    "insider_tip": "The seat on your Circle Boat pops off and works as a beach chair when you stop at the island.",
+    "cancellation_policy": null
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "youtube": null,
+    "tripadvisor": null,
+    "website": "https://www.beachsidecircleboats.com"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Group Rate — Single Seaters",
+      "description": "Rent 5 or more single seaters and pay only $125 each for an all-day rental. Call to book. No group rate on doubles.",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 31,
+  "scraped_at": "2026-03-21T19:24:58.865Z"
+}

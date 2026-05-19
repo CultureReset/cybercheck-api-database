@@ -1,0 +1,839 @@
+[
+  {
+    "name": "Bahama Bob's Beach Side Cafe",
+    "type": "restaurant",
+    "city": "Gulf Shores",
+    "state": "AL",
+    "category": "Seafood restaurant",
+    "address": "601 W Beach Blvd, Gulf Shores, AL 36542",
+    "phone": "(251) 948-2100",
+    "website": "http://www.bahamabobs.com/",
+    "rating": "4.8",
+    "reviews": "4365",
+    "price_level": "Price range histogram",
+    "hours": [
+      "Wednesday11AM10PM"
+    ],
+    "services": [
+      "Offers takeout",
+      "No delivery"
+    ],
+    "gmaps_url": "https://www.google.com/maps/place/Bahama+Bob's+Beach+Side+Cafe/@30.2687715,-87.7623828,13z/data=!4m10!1m2!2m1!1srestaurants+in+Gulf+Shores+Alabama!3m6!1s0x889a1b4cc285dba7:0x4e898746d948e6ee!8m2!3d30.2463987!4d-87.6986501!15sCiJyZXN0YXVyYW50cyBpbiBHdWxmIFNob3JlcyBBbGFiYW1hWiQiInJlc3RhdXJhbnRzIGluIGd1bGYgc2hvcmVzIGFsYWJhbWGSARJzZWFmb29kX3Jlc3RhdXJhbnSaASNDaFpEU1VoTk1HOW5TMFZKUTBGblNVTXRlazlpU0UxQkVBReABAPoBBAhlEEU!16s%2Fg%2F11gbl4bjkt?entry=ttu&g_ep=EgoyMDI2MDUxMS4wIKXMDSoASAFQAw%3D%3D",
+    "scraped_at": "2026-05-13T21:33:37.755394"
+  },
+  {
+    "name": "Crico's Pizza & Subs",
+    "type": "restaurant",
+    "city": "Gulf Shores",
+    "state": "AL",
+    "category": "Pizza restaurant",
+    "address": "309 Gulf Shores Pkwy, Gulf Shores, AL 36542",
+    "phone": "(251) 948-3100",
+    "website": "https://www.cricospizza.com/",
+    "rating": "4.8",
+    "reviews": "2167",
+    "price_level": "Price range histogram",
+    "hours": [
+      "Wednesday11AM8PM"
+    ],
+    "services": [
+      "Offers takeout",
+      "Offers delivery",
+      "Photo of reviewer who wrote \"No frills, clean area, good service, best pizza sauce & crust!\""
+    ],
+    "gmaps_url": "https://www.google.com/maps/place/Crico's+Pizza+%26+Subs/@30.2507962,-87.8332408,12z/data=!4m10!1m2!2m1!1spizza+cafe+diner+Gulf+Shores+Alabama!3m6!1s0x889a04b7050a2429:0xbdf992073d9ad3f5!8m2!3d30.2505993!4d-87.6897378!15sCiRwaXp6YSBjYWZlIGRpbmVyIEd1bGYgU2hvcmVzIEFsYWJhbWFaJiIkcGl6emEgY2FmZSBkaW5lciBndWxmIHNob3JlcyBhbGFiYW1hkgEQcGl6emFfcmVzdGF1cmFudJoBI0NoWkRTVWhOTUc5blMwVkpRMEZuVFVSQmEyVnFRVXgzRUFF4AEA-gEECAAQMQ!16s%2Fg%2F1tdfzhsv?entry=ttu&g_ep=EgoyMDI2MDUxMS4wIKXMDSoASAFQAw%3D%3D",
+    "scraped_at": "2026-05-13T21:40:45.437215"
+  },
+  {
+    "name": "De Soto's Seafood Kitchen",
+    "type": "restaurant",
+    "city": "Gulf Shores",
+    "state": "AL",
+    "category": "Seafood restaurant",
+    "address": "138 W 1st Ave, Gulf Shores, AL 36542",
+    "phone": "(251) 948-7294",
+    "website": "https://www.desotosseafoodkitchen.com/",
+    "rating": "4.8",
+    "reviews": null,
+    "price_level": null,
+    "hours": [
+      "Wednesday11AM9PM"
+    ],
+    "services": [],
+    "gmaps_url": "https://www.google.com/maps/place/De+Soto's+Seafood+Kitchen/@30.248036,-87.7659315,13z/data=!3m1!5s0x889a04c82398b5d1:0xe2aadf670134413!4m10!1m2!2m1!1sseafood+bars+Gulf+Shores+Alabama!3m6!1s0x889a04b6c7be296b:0x2f15d3d2991a4fd1!8m2!3d30.2495477!4d-87.6914411!15sCiBzZWFmb29kIGJhcnMgR3VsZiBTaG9yZXMgQWxhYmFtYVoiIiBzZWFmb29kIGJhcnMgZ3VsZiBzaG9yZXMgYWxhYmFtYZIBEnNlYWZvb2RfcmVzdGF1cmFudJoBI0NoWkRTVWhOTUc5blMwVkpRMEZuVFVSUmF6VXpVVlJCRUFF4AEA-gEFCL0CEEs!16s%2Fg%2F1td9r97x?entry=ttu&g_ep=EgoyMDI2MDUxMS4wIKXMDSoASAFQAw%3D%3D",
+    "scraped_at": "2026-05-13T21:36:41.061128"
+  },
+  {
+    "name": "Gulf Shores Diner",
+    "type": "restaurant",
+    "city": "Gulf Shores",
+    "state": "AL",
+    "category": "Breakfast restaurant",
+    "address": "3639 Gulf Shores Pkwy #4, Gulf Shores, AL 36542",
+    "phone": "(251) 948-0088",
+    "website": null,
+    "rating": "4.8",
+    "reviews": "1775",
+    "price_level": "Price range histogram",
+    "hours": [],
+    "services": [
+      "Offers takeout",
+      "Has no-contact delivery"
+    ],
+    "gmaps_url": "https://www.google.com/maps/place/Gulf+Shores+Diner/@30.2507962,-87.8332408,12z/data=!4m10!1m2!2m1!1spizza+cafe+diner+Gulf+Shores+Alabama!3m6!1s0x889a05394226e39d:0xd8b9f080f0aae168!8m2!3d30.2955989!4d-87.6837997!15sCiRwaXp6YSBjYWZlIGRpbmVyIEd1bGYgU2hvcmVzIEFsYWJhbWFaJiIkcGl6emEgY2FmZSBkaW5lciBndWxmIHNob3JlcyBhbGFiYW1hkgEUYnJlYWtmYXN0X3Jlc3RhdXJhbnSaAURDaTlEUVVsUlFVTnZaRU5vZEhsalJqbHZUMjE0UW1WSGFFcFphMmhhWkRCU2JXRkhaRlJsVkZKeVRUTkdRbG96WXhBQuABAPoBBAhKEEs!16s%2Fg%2F11b7dxrc_n?entry=ttu&g_ep=EgoyMDI2MDUxMS4wIKXMDSoASAFQAw%3D%3D",
+    "scraped_at": "2026-05-13T21:40:26.601075"
+  },
+  {
+    "name": "Lauria's by the Beach",
+    "type": "restaurant",
+    "city": "Gulf Shores",
+    "state": "AL",
+    "category": "Italian restaurant",
+    "address": "412 W Beach Blvd, Gulf Shores, AL 36542",
+    "phone": "(251) 223-4963",
+    "website": "https://m.facebook.com/Laurias-108209917985679/?ref=bookmarks#_=_",
+    "rating": "4.8",
+    "reviews": "653",
+    "price_level": "Price range histogram",
+    "hours": [],
+    "services": [
+      "Offers takeout",
+      "No delivery"
+    ],
+    "gmaps_url": "https://www.google.com/maps/place/Lauria's+by+the+Beach/@30.2507962,-87.8332408,12z/data=!4m10!1m2!2m1!1spizza+cafe+diner+Gulf+Shores+Alabama!3m6!1s0x889a057c50cd8e81:0xf05cd85dba1f05ab!8m2!3d30.2476207!4d-87.6959168!15sCiRwaXp6YSBjYWZlIGRpbmVyIEd1bGYgU2hvcmVzIEFsYWJhbWFaJiIkcGl6emEgY2FmZSBkaW5lciBndWxmIHNob3JlcyBhbGFiYW1hkgESaXRhbGlhbl9yZXN0YXVyYW50mgEkQ2hkRFNVaE5NRzluUzBWSlEwRm5TVU5TYVU1MmNuWlJSUkFC4AEA-gEECAAQMQ!16s%2Fg%2F11n83z3c21?entry=ttu&g_ep=EgoyMDI2MDUxMS4wIKXMDSoASAFQAw%3D%3D",
+    "scraped_at": "2026-05-13T21:40:40.054909"
+  },
+  {
+    "name": "LuLu's Gulf Shores",
+    "type": "restaurant",
+    "city": "Gulf Shores",
+    "state": "AL",
+    "category": "Seafood restaurant",
+    "address": "200 E 25th Ave, Gulf Shores, AL 36542",
+    "phone": "(251) 967-5858",
+    "website": "http://lulusfunfoodmusic.com/",
+    "rating": "4.8",
+    "reviews": "12296",
+    "price_level": "Price range histogram",
+    "hours": [
+      "Wednesday11AM9PM",
+      "Thursday11AM9PM",
+      "Friday11AM9PM",
+      "Saturday11AM9PM",
+      "Sunday11AM9PM",
+      "Monday11AM9PM",
+      "Tuesday11AM9PM"
+    ],
+    "services": [
+      "Offers takeout",
+      "Offers delivery"
+    ],
+    "gmaps_url": "https://www.google.com/maps/place/LuLu's+Gulf+Shores/@30.255474,-87.7610675,13z/data=!4m10!1m2!2m1!1srestaurants+in+Gulf+Shores+Alabama!3m6!1s0x889a0526f1528fe1:0xa80a6164cd7cef91!8m2!3d30.280065!4d-87.6851621!15sCiJyZXN0YXVyYW50cyBpbiBHdWxmIFNob3JlcyBBbGFiYW1hWiQiInJlc3RhdXJhbnRzIGluIGd1bGYgc2hvcmVzIGFsYWJhbWGSARJzZWFmb29kX3Jlc3RhdXJhbnSaAURDaTlEUVVsUlFVTnZaRU5vZEhsalJqbHZUMnhTU2xsWVNucGlSMUl5V2pBNE1GUXdPSHBaTUdkMFRUTldSbFJ0WXhBQuABAPoBBAgqEEY!16s%2Fg%2F1z44b94y4?entry=ttu&g_ep=EgoyMDI2MDUxMS4wIKXMDSoASAFQAw%3D%3D",
+    "scraped_at": "2026-05-13T21:33:15.505998"
+  },
+  {
+    "name": "Nonna's Pizza",
+    "type": "restaurant",
+    "city": "Gulf Shores",
+    "state": "AL",
+    "category": "Pizza restaurant",
+    "address": "1209 Gulf Shores Pkwy, Gulf Shores, AL 36542",
+    "phone": "(251) 223-4270",
+    "website": "http://nonnaspizzagulfshores.com/",
+    "rating": "4.8",
+    "reviews": "755",
+    "price_level": "Price range histogram",
+    "hours": [
+      "Wednesday28PM"
+    ],
+    "services": [
+      "Offers takeout",
+      "Has no-contact delivery"
+    ],
+    "gmaps_url": "https://www.google.com/maps/place/Nonna's+Pizza/@30.2507962,-87.8332408,12z/data=!4m10!1m2!2m1!1spizza+cafe+diner+Gulf+Shores+Alabama!3m6!1s0x889a051dd934cbf5:0xfaef00f17f02efcc!8m2!3d30.2619122!4d-87.6887932!15sCiRwaXp6YSBjYWZlIGRpbmVyIEd1bGYgU2hvcmVzIEFsYWJhbWFaJiIkcGl6emEgY2FmZSBkaW5lciBndWxmIHNob3JlcyBhbGFiYW1hkgEQcGl6emFfcmVzdGF1cmFudJoBJENoZERTVWhOTUc5blMwVkpRMEZuU1VSSU5qbE1TbkYzUlJBQuABAPoBBQjYARBJ!16s%2Fg%2F11vwqz156g?entry=ttu&g_ep=EgoyMDI2MDUxMS4wIKXMDSoASAFQAw%3D%3D",
+    "scraped_at": "2026-05-13T21:40:31.849844"
+  },
+  {
+    "name": "Original Oyster House Boardwalk",
+    "type": "restaurant",
+    "city": "Gulf Shores",
+    "state": "AL",
+    "category": "Seafood restaurant",
+    "address": "701 Gulf Shores Pkwy, Gulf Shores, AL 36542",
+    "phone": "(251) 948-2445",
+    "website": "https://www.originaloysterhouse.com/",
+    "rating": "4.8",
+    "reviews": "7640",
+    "price_level": "Moderately priced",
+    "hours": [
+      "Wednesday11AM9PM"
+    ],
+    "services": [
+      "Offers takeout",
+      "No delivery"
+    ],
+    "gmaps_url": "https://www.google.com/maps/place/Original+Oyster+House+Boardwalk/@30.248036,-87.7659315,13z/data=!3m1!5s0x889a04c82398b5d1:0xe2aadf670134413!4m10!1m2!2m1!1sseafood+bars+Gulf+Shores+Alabama!3m6!1s0x889a04c826229843:0x5c3b99beb75adcb2!8m2!3d30.2545635!4d-87.6891386!15sCiBzZWFmb29kIGJhcnMgR3VsZiBTaG9yZXMgQWxhYmFtYVoiIiBzZWFmb29kIGJhcnMgZ3VsZiBzaG9yZXMgYWxhYmFtYZIBEnNlYWZvb2RfcmVzdGF1cmFudJoBJENoZERTVWhOTUc5blMwVkpRMEZuU1VOb2NFOUxTbTUzUlJBQuABAPoBBAgAECw!16s%2Fg%2F1tf5lf66?entry=ttu&g_ep=EgoyMDI2MDUxMS4wIKXMDSoASAFQAw%3D%3D",
+    "scraped_at": "2026-05-13T21:36:34.338784"
+  },
+  {
+    "name": "Pink Pony Pub",
+    "type": "restaurant",
+    "city": "Gulf Shores",
+    "state": "AL",
+    "category": "Seafood restaurant",
+    "address": "137 E Gulf Pl, Gulf Shores, AL 36542",
+    "phone": "(251) 948-6371",
+    "website": "http://www.pinkponypub.net/?utm_source=gbp&utm_medium=organic",
+    "rating": "4.8",
+    "reviews": "4305",
+    "price_level": "Price range histogram",
+    "hours": [
+      "Wednesday10:30AM11PM"
+    ],
+    "services": [
+      "Offers takeout",
+      "No delivery"
+    ],
+    "gmaps_url": "https://www.google.com/maps/place/Pink+Pony+Pub/@30.248036,-87.7659315,13z/data=!4m10!1m2!2m1!1sseafood+bars+Gulf+Shores+Alabama!3m6!1s0x889a04b0a94a0a19:0x69cd698af9660c3!8m2!3d30.2477973!4d-87.6875522!15sCiBzZWFmb29kIGJhcnMgR3VsZiBTaG9yZXMgQWxhYmFtYVoiIiBzZWFmb29kIGJhcnMgZ3VsZiBzaG9yZXMgYWxhYmFtYZIBEnNlYWZvb2RfcmVzdGF1cmFudJoBI0NoWkRTVWhOTUc5blMwVkpRMEZuU1VOMmJYRlRPV0ZuRUFF4AEA-gEECAAQMQ!16s%2Fg%2F1v9lckjz?entry=ttu&g_ep=EgoyMDI2MDUxMS4wIKXMDSoASAFQAw%3D%3D",
+    "scraped_at": "2026-05-13T21:36:13.760015"
+  },
+  {
+    "name": "Sea N Suds",
+    "type": "restaurant",
+    "city": "Gulf Shores",
+    "state": "AL",
+    "category": "Seafood restaurant",
+    "address": "405 E Beach Blvd, Gulf Shores, AL 36542",
+    "phone": "(251) 948-7894",
+    "website": "http://www.sea-n-suds.com/",
+    "rating": "4.8",
+    "reviews": "3848",
+    "price_level": "Price range histogram",
+    "hours": [
+      "Wednesday11AM9PM"
+    ],
+    "services": [
+      "Offers takeout",
+      "No delivery"
+    ],
+    "gmaps_url": "https://www.google.com/maps/place/Sea+N+Suds/@30.248036,-87.7659315,13z/data=!4m10!1m2!2m1!1sseafood+bars+Gulf+Shores+Alabama!3m6!1s0x889a04be925553e9:0xf3d53a20e7ee3369!8m2!3d30.2481432!4d-87.6808852!15sCiBzZWFmb29kIGJhcnMgR3VsZiBTaG9yZXMgQWxhYmFtYVoiIiBzZWFmb29kIGJhcnMgZ3VsZiBzaG9yZXMgYWxhYmFtYZIBEnNlYWZvb2RfcmVzdGF1cmFudJoBRENpOURRVWxSUVVOdlpFTm9kSGxqUmpsdlQyMWtlbU5ZUm5sV2EyOHdWRVk1VTFwck5ERmxSRUp3VG0xTmVWcEhZeEFC4AEA-gEECAAQNg!16s%2Fg%2F1tj_5__5?entry=ttu&g_ep=EgoyMDI2MDUxMS4wIKXMDSoASAFQAw%3D%3D",
+    "scraped_at": "2026-05-13T21:36:20.386225"
+  },
+  {
+    "name": "The Catch",
+    "type": "restaurant",
+    "city": "Gulf Shores",
+    "state": "AL",
+    "category": "Seafood restaurant",
+    "address": "300 W Beach Blvd, Gulf Shores, AL 36542",
+    "phone": "(251) 280-8975",
+    "website": "https://thecatchgs.com/",
+    "rating": "4.8",
+    "reviews": "7984",
+    "price_level": "Price range histogram",
+    "hours": [
+      "Wednesday11AM9PM",
+      "Thursday11AM9PM",
+      "Friday11AM10PM",
+      "Saturday11AM10PM",
+      "Sunday11AM9PM",
+      "Monday11AM9PM",
+      "Tuesday11AM9PM"
+    ],
+    "services": [
+      "Offers takeout",
+      "No delivery"
+    ],
+    "gmaps_url": "https://www.google.com/maps/place/The+Catch/@30.255474,-87.7610675,13z/data=!4m10!1m2!2m1!1srestaurants+in+Gulf+Shores+Alabama!3m6!1s0x889a0507b856ebf5:0xa51659b12d5bfbfa!8m2!3d30.248036!4d-87.6938337!15sCiJyZXN0YXVyYW50cyBpbiBHdWxmIFNob3JlcyBBbGFiYW1hWiQiInJlc3RhdXJhbnRzIGluIGd1bGYgc2hvcmVzIGFsYWJhbWGSARJzZWFmb29kX3Jlc3RhdXJhbnSaASNDaFpEU1VoTk1HOW5TMFZKUTBGblRVTlpPVkJsUlVKQkVBReABAPoBBAgAEDw!16s%2Fg%2F11m5h6__fm?entry=ttu&g_ep=EgoyMDI2MDUxMS4wIKXMDSoASAFQAw%3D%3D",
+    "scraped_at": "2026-05-13T21:33:09.322294"
+  },
+  {
+    "name": "The Cove Bar and Grill",
+    "type": "restaurant",
+    "city": "Gulf Shores",
+    "state": "AL",
+    "category": "Bar & grill",
+    "address": "131 Cove Ave, Gulf Shores, AL 36542",
+    "phone": "(251) 968-5353",
+    "website": "http://covebargrill.com/",
+    "rating": "4.8",
+    "reviews": null,
+    "price_level": null,
+    "hours": [
+      "Wednesday11AM1AM"
+    ],
+    "services": [],
+    "gmaps_url": "https://www.google.com/maps/place/The+Cove+Bar+and+Grill/@30.2753617,-87.6412281,13z/data=!4m10!1m2!2m1!1srestaurants+in+Gulf+Shores+Alabama!3m6!1s0x889a04d102716869:0x8d0122091e99c5ac!8m2!3d30.2687715!4d-87.690285!15sCiJyZXN0YXVyYW50cyBpbiBHdWxmIFNob3JlcyBBbGFiYW1hWiQiInJlc3RhdXJhbnRzIGluIGd1bGYgc2hvcmVzIGFsYWJhbWGSAQ1iYXJfYW5kX2dyaWxsmgFEQ2k5RFFVbFJRVU52WkVOb2RIbGpSamx2VDIxR2VFMHlkREJXTVVwbVpGaEtWV0ZYT0hsTmJUaDNXVmRGZW1SdVl4QULgAQD6AQQIdxAw!16s%2Fg%2F1tg7ssyt?entry=ttu&g_ep=EgoyMDI2MDUxMS4wIKXMDSoASAFQAw%3D%3D",
+    "scraped_at": "2026-05-13T21:33:30.291734"
+  },
+  {
+    "name": "The Hangout",
+    "type": "restaurant",
+    "city": "Gulf Shores",
+    "state": "AL",
+    "category": "Seafood restaurant",
+    "address": "101 E Beach Blvd, Gulf Shores, AL 36542",
+    "phone": "(251) 948-3030",
+    "website": "https://www.thehangout.com/hangout-gulf-shores/",
+    "rating": "4.8",
+    "reviews": "31162",
+    "price_level": "Price range histogram",
+    "hours": [
+      "Wednesday10:30AM10PM"
+    ],
+    "services": [
+      "Offers takeout",
+      "No delivery"
+    ],
+    "gmaps_url": "https://www.google.com/maps/place/The+Hangout/@30.255474,-87.7610675,13z/data=!4m10!1m2!2m1!1srestaurants+in+Gulf+Shores+Alabama!3m6!1s0x889a04b72daa4d49:0x85d30d9042019cb0!8m2!3d30.2481175!4d-87.6892152!15sCiJyZXN0YXVyYW50cyBpbiBHdWxmIFNob3JlcyBBbGFiYW1hWiQiInJlc3RhdXJhbnRzIGluIGd1bGYgc2hvcmVzIGFsYWJhbWGSARJzZWFmb29kX3Jlc3RhdXJhbnSaAURDaTlEUVVsUlFVTnZaRU5vZEhsalJqbHZUMjFTYzFsWGVEVlNSRnA1VGpOd00yUlVVazVPVkdoc1ZVVktOVlJZWXhBQuABAPoBBAghEEk!16s%2Fm%2F0k3tp4t?entry=ttu&g_ep=EgoyMDI2MDUxMS4wIKXMDSoASAFQAw%3D%3D",
+    "scraped_at": "2026-05-13T21:33:02.197257"
+  },
+  {
+    "name": "The Tap & Still Gulf Shores",
+    "type": "restaurant",
+    "city": "Gulf Shores",
+    "state": "AL",
+    "category": "Hamburger restaurant",
+    "address": "807 Gulf Shores Pkwy, Gulf Shores, AL 36542",
+    "phone": "(251) 215-8292",
+    "website": "https://www.tapstill.com/",
+    "rating": "4.8",
+    "reviews": "88",
+    "price_level": "Price range histogram",
+    "hours": [
+      "Wednesday11AM12AM"
+    ],
+    "services": [
+      "Offers takeout"
+    ],
+    "gmaps_url": "https://www.google.com/maps/place/The+Tap+%26+Still+Gulf+Shores/@30.2692564,-87.6335177,13z/data=!4m10!1m2!2m1!1srestaurants+in+Gulf+Shores+Alabama!3m6!1s0x889a055a3e27b057:0x878faafde07ad2d5!8m2!3d30.255474!4d-87.6889697!15sCiJyZXN0YXVyYW50cyBpbiBHdWxmIFNob3JlcyBBbGFiYW1hWiQiInJlc3RhdXJhbnRzIGluIGd1bGYgc2hvcmVzIGFsYWJhbWGSARRoYW1idXJnZXJfcmVzdGF1cmFudJoBRENpOURRVWxSUVVOdlpFTm9kSGxqUmpsdlQyMWFiRlV5TVhSbFYzQjFVbXRqTkZsWFNUUlNNazVGWldwc2FGTnNSUkFC4AEA-gEECDkQNg!16s%2Fg%2F11z0_gy644?entry=ttu&g_ep=EgoyMDI2MDUxMS4wIKXMDSoASAFQAw%3D%3D",
+    "scraped_at": "2026-05-13T21:32:54.915617"
+  },
+  {
+    "name": "Barometer Waterfront Grille",
+    "type": "restaurant",
+    "city": "Orange Beach",
+    "state": "AL",
+    "category": "Restaurant",
+    "address": "27842 Canal Rd, Orange Beach, AL 36561",
+    "phone": "(251) 451-5232",
+    "website": "https://www.barometerorangebeach.com/",
+    "rating": "4.9",
+    "reviews": "253",
+    "price_level": "Price range histogram",
+    "hours": [
+      "Wednesday11AM10PM"
+    ],
+    "services": [
+      "Offers takeout",
+      "No delivery"
+    ],
+    "gmaps_url": "https://www.google.com/maps/place/Barometer+Waterfront+Grille/@30.2688119,-87.6306663,14z/data=!4m10!1m2!2m1!1srestaurants+in+Orange+Beach+Alabama!3m6!1s0x889a07f0321d9d13:0xcdc46654b5d56e2a!8m2!3d30.2935972!4d-87.5506918!15sCiNyZXN0YXVyYW50cyBpbiBPcmFuZ2UgQmVhY2ggQWxhYmFtYVolIiNyZXN0YXVyYW50cyBpbiBvcmFuZ2UgYmVhY2ggYWxhYmFtYZIBCnJlc3RhdXJhbnSaASNDaFpEU1VoTk1HOW5TMFZPV0daMWNraFJhVFptYlZGQkVBReABAPoBBAgAEDY!16s%2Fg%2F11wx_90j80?entry=ttu&g_ep=EgoyMDI2MDUxMS4wIKXMDSoASAFQAw%3D%3D",
+    "scraped_at": "2026-05-13T21:31:40.572271"
+  },
+  {
+    "name": "Coastal Orange Beach",
+    "type": "restaurant",
+    "city": "Orange Beach",
+    "state": "AL",
+    "category": "Restaurant",
+    "address": "25722 Perdido Beach Blvd, Orange Beach, AL 36561",
+    "phone": "(251) 240-6001",
+    "website": "https://www.coastalorangebeach.com/",
+    "rating": "4.9",
+    "reviews": "6683",
+    "price_level": "Price range histogram",
+    "hours": [],
+    "services": [
+      "Offers takeout",
+      "No delivery"
+    ],
+    "gmaps_url": "https://www.google.com/maps/place/Coastal+Orange+Beach/@30.2935972,-87.5867407,14z/data=!4m10!1m2!2m1!1srestaurants+in+Orange+Beach+Alabama!3m6!1s0x889a079dc35a9cbf:0x8d0bbe2cb933a4f4!8m2!3d30.2688315!4d-87.586747!15sCiNyZXN0YXVyYW50cyBpbiBPcmFuZ2UgQmVhY2ggQWxhYmFtYVolIiNyZXN0YXVyYW50cyBpbiBvcmFuZ2UgYmVhY2ggYWxhYmFtYZIBCnJlc3RhdXJhbnSaASNDaFpEU1VoTk1HOW5TMFZKUTBGblNVUjJNRTlEVFdGUkVBReABAPoBBAgeEEU!16s%2Fg%2F11s855knby?entry=ttu&g_ep=EgoyMDI2MDUxMS4wIKXMDSoASAFQAw%3D%3D",
+    "scraped_at": "2026-05-13T21:31:54.804310"
+  },
+  {
+    "name": "Cobalt the Restaurant",
+    "type": "restaurant",
+    "city": "Orange Beach",
+    "state": "AL",
+    "category": "Seafood restaurant",
+    "address": "28099 Perdido Beach Blvd, Orange Beach, AL 36561",
+    "phone": "(251) 923-5300",
+    "website": "http://www.cobaltrestaurant.net/",
+    "rating": "4.9",
+    "reviews": "6722",
+    "price_level": "Price range histogram",
+    "hours": [],
+    "services": [
+      "Offers takeout",
+      "Offers delivery"
+    ],
+    "gmaps_url": "https://www.google.com/maps/place/Cobalt+the+Restaurant/@30.2811185,-87.5970238,14z/data=!4m10!1m2!2m1!1srestaurants+in+Orange+Beach+Alabama!3m6!1s0x889a079ce4b392b3:0x7f81751c5c28e3c9!8m2!3d30.2779257!4d-87.5495517!15sCiNyZXN0YXVyYW50cyBpbiBPcmFuZ2UgQmVhY2ggQWxhYmFtYVolIiNyZXN0YXVyYW50cyBpbiBvcmFuZ2UgYmVhY2ggYWxhYmFtYZIBEnNlYWZvb2RfcmVzdGF1cmFudJoBRENpOURRVWxSUVVOdlpFTm9kSGxqUmpsdlQyeEdNR016WnpWaE1rVjBXakp2TWxGNlVsQmtNMUpoV1ZWMFJGVnJSUkFC4AEA-gEECBQQNg!16s%2Fg%2F1tdcs9m8?entry=ttu&g_ep=EgoyMDI2MDUxMS4wIKXMDSoASAFQAw%3D%3D",
+    "scraped_at": "2026-05-13T21:32:08.842974"
+  },
+  {
+    "name": "Doc's Seafood Shack & Oyster Bar",
+    "type": "restaurant",
+    "city": "Orange Beach",
+    "state": "AL",
+    "category": "Seafood restaurant",
+    "address": "26029 Canal Rd, Orange Beach, AL 36561",
+    "phone": "(251) 981-6999",
+    "website": "https://www.docsseafoodshack.com/",
+    "rating": "4.7",
+    "reviews": "5489",
+    "price_level": "Price range histogram",
+    "hours": [
+      "Wednesday11AM8PM"
+    ],
+    "services": [
+      "Offers takeout",
+      "Offers delivery"
+    ],
+    "gmaps_url": "https://www.google.com/maps/place/Doc's+Seafood+Shack+%26+Oyster+Bar/@30.2770829,-87.5864237,14z/data=!3m1!5s0x889a07a30c51c9ed:0xdbc4ee83a9793bb7!4m10!1m2!2m1!1sseafood+bars+Orange+Beach+Alabama!3m6!1s0x889a064c9cc12edb:0x45a643d756c535ba!8m2!3d30.2924614!4d-87.5808946!15sCiFzZWFmb29kIGJhcnMgT3JhbmdlIEJlYWNoIEFsYWJhbWFaIyIhc2VhZm9vZCBiYXJzIG9yYW5nZSBiZWFjaCBhbGFiYW1hkgESc2VhZm9vZF9yZXN0YXVyYW50mgFEQ2k5RFFVbFJRVU52WkVOb2RIbGpSamx2VDI1S2VGbHVSVE5UVlZvd1dWZE9UMkV5VGs5aWJWcFBUbXhhVldKSVl4QULgAQD6AQQIABA-!16s%2Fg%2F1v_s6npb?entry=ttu&g_ep=EgoyMDI2MDUxMS4wIKXMDSoASAFQAw%3D%3D",
+    "scraped_at": "2026-05-13T21:34:39.427320"
+  },
+  {
+    "name": "Domino's Pizza",
+    "type": "restaurant",
+    "city": "Orange Beach",
+    "state": "AL",
+    "category": "Pizza delivery",
+    "address": "25814 Canal Rd Ste 6, Orange Beach, AL 36561",
+    "phone": "(251) 981-8880",
+    "website": "https://www.dominos.com/en/?utm_source=google&utm_medium=loclist&utm_campaign=localmaps",
+    "rating": "4.9",
+    "reviews": "250",
+    "price_level": "Price range histogram",
+    "hours": [],
+    "services": [
+      "Offers takeout",
+      "Has no-contact delivery"
+    ],
+    "gmaps_url": "https://www.google.com/maps/place/Domino's+Pizza/@30.291073,-87.7503294,12z/data=!4m10!1m2!2m1!1spizza+cafe+diner+Orange+Beach+Alabama!3m6!1s0x889a064e97f28135:0xb3fa504c5079d44c!8m2!3d30.2904823!4d-87.584483!15sCiVwaXp6YSBjYWZlIGRpbmVyIE9yYW5nZSBCZWFjaCBBbGFiYW1hWiciJXBpenphIGNhZmUgZGluZXIgb3JhbmdlIGJlYWNoIGFsYWJhbWGSARZwaXp6YV9kZWxpdmVyeV9zZXJ2aWNlmgEjQ2haRFNVaE5NRzluUzBWSlEwRm5TVVF0ZG5GWVlWSjNFQUXgAQD6AQQIABA7!16s%2Fg%2F1ty750xf?entry=ttu&g_ep=EgoyMDI2MDUxMS4wIKXMDSoASAFQAw%3D%3D",
+    "scraped_at": "2026-05-13T21:39:12.261887"
+  },
+  {
+    "name": "Latitude 30",
+    "type": "restaurant",
+    "city": "Orange Beach",
+    "state": "AL",
+    "category": "Restaurant",
+    "address": "27200 Perdido Beach Blvd, Orange Beach, AL 36561",
+    "phone": "(251) 981-9811",
+    "website": "http://www.perdidobeachresort.com/dining/latitude-30",
+    "rating": "4.9",
+    "reviews": "125",
+    "price_level": "Price range histogram",
+    "hours": [
+      "Wednesday7AM10PM"
+    ],
+    "services": [],
+    "gmaps_url": "https://www.google.com/maps/place/Latitude+30/@30.2701889,-87.7362364,12z/data=!3m1!5s0x889a05c34460ebc7:0x5492e00250f94223!4m10!1m2!2m1!1spizza+cafe+diner+Orange+Beach+Alabama!3m6!1s0x889a070a93e2842b:0x9245e06fb7256cc4!8m2!3d30.2732153!4d-87.5615907!15sCiVwaXp6YSBjYWZlIGRpbmVyIE9yYW5nZSBCZWFjaCBBbGFiYW1hWiciJXBpenphIGNhZmUgZGluZXIgb3JhbmdlIGJlYWNoIGFsYWJhbWGSAQpyZXN0YXVyYW50mgEkQ2hkRFNVaE5NRzluUzBWSlEwRm5TVU4xZEZwRVgzbG5SUkFC4AEA-gEECAAQOg!16s%2Fg%2F11b7glc48m?entry=ttu&g_ep=EgoyMDI2MDUxMS4wIKXMDSoASAFQAw%3D%3D",
+    "scraped_at": "2026-05-13T21:38:39.484600"
+  },
+  {
+    "name": "Mama Lottie's Pub & Grill",
+    "type": "restaurant",
+    "city": "Orange Beach",
+    "state": "AL",
+    "category": "Italian restaurant",
+    "address": "25405 Perdido Beach Blvd #25, Orange Beach, AL 36561",
+    "phone": "(251) 403-0820",
+    "website": null,
+    "rating": "4.9",
+    "reviews": "69",
+    "price_level": "Price range histogram",
+    "hours": [
+      "Wednesday9AM5PM"
+    ],
+    "services": [
+      "Offers takeout",
+      "Has no-contact delivery"
+    ],
+    "gmaps_url": "https://www.google.com/maps/place/Mama+Lottie's+Pub+%26+Grill/@30.2701889,-87.7362364,12z/data=!3m1!5s0x889a07a7825b03a9:0x6f8b523da0bc97b8!4m10!1m2!2m1!1spizza+cafe+diner+Orange+Beach+Alabama!3m6!1s0x889a07007ac084fb:0x633eeb0a8f65f796!8m2!3d30.2691591!4d-87.5913612!15sCiVwaXp6YSBjYWZlIGRpbmVyIE9yYW5nZSBCZWFjaCBBbGFiYW1hWiciJXBpenphIGNhZmUgZGluZXIgb3JhbmdlIGJlYWNoIGFsYWJhbWGSARJpdGFsaWFuX3Jlc3RhdXJhbnSaAURDaTlEUVVsUlFVTnZaRU5vZEhsalJqbHZUMnBzVmxGdWNGRlpiR015VjFkS1NVNHdTbFpqTUVwTVZWZGFUbFpJWXhBQuABAPoBBAhiEEg!16s%2Fg%2F11ygzk086y?entry=ttu&g_ep=EgoyMDI2MDUxMS4wIKXMDSoASAFQAw%3D%3D",
+    "scraped_at": "2026-05-13T21:38:47.542233"
+  },
+  {
+    "name": "Old Salt Tavern",
+    "type": "restaurant",
+    "city": "Orange Beach",
+    "state": "AL",
+    "category": "Restaurant",
+    "address": "25241 Perdido Beach Blvd Unit 101, Orange Beach, AL 36561",
+    "phone": "(251) 228-5439",
+    "website": "https://oldsalttavern.com/",
+    "rating": "4.9",
+    "reviews": "186",
+    "price_level": "Price range histogram",
+    "hours": [
+      "Wednesday11:30AM10PM",
+      "Thursday11:30AM10PM",
+      "Friday11:30AM11PM",
+      "Saturday11AM11PM",
+      "Sunday11AM9PM",
+      "Monday410PM",
+      "Tuesday410PM"
+    ],
+    "services": [
+      "Offers takeout"
+    ],
+    "gmaps_url": "https://www.google.com/maps/place/Old+Salt+Tavern/@30.2753617,-87.6051792,14z/data=!4m10!1m2!2m1!1srestaurants+in+Orange+Beach+Alabama!3m6!1s0x889a07fb58daff85:0x1f6dbf0be808acb8!8m2!3d30.2688119!4d-87.5946174!15sCiNyZXN0YXVyYW50cyBpbiBPcmFuZ2UgQmVhY2ggQWxhYmFtYVolIiNyZXN0YXVyYW50cyBpbiBvcmFuZ2UgYmVhY2ggYWxhYmFtYZIBCnJlc3RhdXJhbnSaAURDaTlEUVVsUlFVTnZaRU5vZEhsalJqbHZUMjVzVWxsdGNFdGlSM0JDVVdwU1NWVkdTbWxsVmsweVUyMXdRazFGUlJBQuABAPoBBAgnED0!16s%2Fg%2F11mswrhjnr?entry=ttu&g_ep=EgoyMDI2MDUxMS4wIKXMDSoASAFQAw%3D%3D",
+    "scraped_at": "2026-05-13T21:31:33.823729"
+  },
+  {
+    "name": "Papa John's Pizza",
+    "type": "restaurant",
+    "city": "Orange Beach",
+    "state": "AL",
+    "category": "Pizza restaurant",
+    "address": "24515 Commercial Ave, Orange Beach, AL 36561",
+    "phone": "(251) 981-7200",
+    "website": "https://locations.papajohns.com/united-states/al/36561/orange-beach/24515-commercial-avenue",
+    "rating": "4.9",
+    "reviews": "388",
+    "price_level": "Price range histogram",
+    "hours": [],
+    "services": [
+      "Offers takeout",
+      "Has no-contact delivery"
+    ],
+    "gmaps_url": "https://www.google.com/maps/place/Papa+John's+Pizza/@30.2524618,-87.8336697,12z/data=!4m10!1m2!2m1!1spizza+cafe+diner+Orange+Beach+Alabama!3m6!1s0x889a04b7e28d49b1:0x524b1738c70b3a03!8m2!3d30.291073!4d-87.6061338!15sCiVwaXp6YSBjYWZlIGRpbmVyIE9yYW5nZSBCZWFjaCBBbGFiYW1hWiciJXBpenphIGNhZmUgZGluZXIgb3JhbmdlIGJlYWNoIGFsYWJhbWGSARBwaXp6YV9yZXN0YXVyYW50mgEjQ2haRFNVaE5NRzluUzBWSlEwRm5TVU5LYUZCVFZFOUJFQUXgAQD6AQQIABBF!16s%2Fg%2F1hhgk6zsc?entry=ttu&g_ep=EgoyMDI2MDUxMS4wIKXMDSoASAFQAw%3D%3D",
+    "scraped_at": "2026-05-13T21:39:03.016727"
+  },
+  {
+    "name": "Papa Rocco's",
+    "type": "restaurant",
+    "city": "Orange Beach",
+    "state": "AL",
+    "category": "Pizza restaurant",
+    "address": "101 W 6th Ave, Gulf Shores, AL 36542",
+    "phone": "(251) 948-7262",
+    "website": "https://paparoccos.com/",
+    "rating": "4.9",
+    "reviews": "3085",
+    "price_level": "Price range histogram",
+    "hours": [],
+    "services": [
+      "Offers curbside pickup",
+      "No delivery"
+    ],
+    "gmaps_url": "https://www.google.com/maps/place/Papa+Rocco's/@30.2701889,-87.7362364,12z/data=!4m10!1m2!2m1!1spizza+cafe+diner+Orange+Beach+Alabama!3m6!1s0x889a04b7c7480c5d:0x6c5cc2d70cf8090c!8m2!3d30.2524618!4d-87.6894741!15sCiVwaXp6YSBjYWZlIGRpbmVyIE9yYW5nZSBCZWFjaCBBbGFiYW1hWiciJXBpenphIGNhZmUgZGluZXIgb3JhbmdlIGJlYWNoIGFsYWJhbWGSARBwaXp6YV9yZXN0YXVyYW50mgEkQ2hkRFNVaE5NRzluUzBWSlEwRm5TVU5LT1hWMlN6UlJSUkFC4AEA-gEECAAQQw!16s%2Fg%2F1tmxxc9_?entry=ttu&g_ep=EgoyMDI2MDUxMS4wIKXMDSoASAFQAw%3D%3D",
+    "scraped_at": "2026-05-13T21:38:54.848582"
+  },
+  {
+    "name": "Pizza At The Pass",
+    "type": "restaurant",
+    "city": "Orange Beach",
+    "state": "AL",
+    "category": "Pizza restaurant",
+    "address": "27267 Perdido Beach Blvd C2, Orange Beach, AL 36561",
+    "phone": "(251) 240-0500",
+    "website": "https://www.pizzaatthepass.com/",
+    "rating": "4.9",
+    "reviews": "301",
+    "price_level": "Price range histogram",
+    "hours": [
+      "Wednesday38PM"
+    ],
+    "services": [
+      "Offers takeout",
+      "Offers delivery"
+    ],
+    "gmaps_url": "https://www.google.com/maps/place/Pizza+At+The+Pass/@30.2714222,-87.7242962,12z/data=!3m1!5s0x889a07a0400fee61:0x9e0636ee847e979d!4m10!1m2!2m1!1spizza+cafe+diner+Orange+Beach+Alabama!3m6!1s0x889a07431bf75de7:0x2f8ca51025049571!8m2!3d30.2761359!4d-87.5606944!15sCiVwaXp6YSBjYWZlIGRpbmVyIE9yYW5nZSBCZWFjaCBBbGFiYW1hWiciJXBpenphIGNhZmUgZGluZXIgb3JhbmdlIGJlYWNoIGFsYWJhbWGSARBwaXp6YV9yZXN0YXVyYW50mgFEQ2k5RFFVbFJRVU52WkVOb2RIbGpSamx2VDJ0YWNtUkdVbnBTVlZwUldYcEdObEY2U2xwVWVsWmhaVmROZUZOWFl4QULgAQD6AQQIABA1!16s%2Fg%2F11szpbn_11?entry=ttu&g_ep=EgoyMDI2MDUxMS4wIKXMDSoASAFQAw%3D%3D",
+    "scraped_at": "2026-05-13T21:37:51.254803"
+  },
+  {
+    "name": "Results",
+    "type": "restaurant",
+    "city": "Orange Beach",
+    "state": "AL",
+    "category": null,
+    "address": null,
+    "phone": null,
+    "website": null,
+    "rating": "4.9",
+    "reviews": null,
+    "price_level": null,
+    "hours": [],
+    "services": [],
+    "gmaps_url": "https://www.google.com/maps/search/restaurants+in+Orange+Beach+Alabama/@30.2783957,-87.5816073,14z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MDUxMS4wIKXMDSoASAFQAw%3D%3D",
+    "scraped_at": "2026-05-13T21:31:24.959876"
+  },
+  {
+    "name": "Ristorante Carmelo",
+    "type": "restaurant",
+    "city": "Orange Beach",
+    "state": "AL",
+    "category": "Italian restaurant",
+    "address": "25747 Perdido Beach Blvd #1, Orange Beach, AL 36561",
+    "phone": "(251) 200-4375",
+    "website": "https://www.carmeloitalian.com/",
+    "rating": "4.9",
+    "reviews": "612",
+    "price_level": "Price range histogram",
+    "hours": [
+      "Wednesday39PM",
+      "Thursday39PM",
+      "Friday310PM",
+      "Saturday310PM",
+      "Sunday39PM",
+      "Monday39PM",
+      "Tuesday39PM"
+    ],
+    "services": [
+      "Offers takeout",
+      "No delivery"
+    ],
+    "gmaps_url": "https://www.google.com/maps/place/Ristorante+Carmelo/@30.291073,-87.7503294,12z/data=!4m10!1m2!2m1!1spizza+cafe+diner+Orange+Beach+Alabama!3m6!1s0x889a07396e5ca3cd:0xbd7f6e292d88b9cc!8m2!3d30.2714087!4d-87.5899715!15sCiVwaXp6YSBjYWZlIGRpbmVyIE9yYW5nZSBCZWFjaCBBbGFiYW1hWiciJXBpenphIGNhZmUgZGluZXIgb3JhbmdlIGJlYWNoIGFsYWJhbWGSARJpdGFsaWFuX3Jlc3RhdXJhbnSaASRDaGREU1VoTk1HOW5TMFZKUTBGblNVTkdibVZZTW5KQlJSQULgAQD6AQQIKhBF!16s%2Fg%2F11stdvh6pn?entry=ttu&g_ep=EgoyMDI2MDUxMS4wIKXMDSoASAFQAw%3D%3D",
+    "scraped_at": "2026-05-13T21:39:23.638169"
+  },
+  {
+    "name": "Rotolo's Pizzeria",
+    "type": "restaurant",
+    "city": "Orange Beach",
+    "state": "AL",
+    "category": "Pizza restaurant",
+    "address": "25755 Perdido Beach Blvd ste f1, Orange Beach, AL 36561",
+    "phone": "(251) 981-8895",
+    "website": "http://www.rotolos.com/",
+    "rating": "4.9",
+    "reviews": "1983",
+    "price_level": "Price range histogram",
+    "hours": [],
+    "services": [
+      "Offers takeout",
+      "Offers delivery"
+    ],
+    "gmaps_url": "https://www.google.com/maps/place/Rotolo's+Pizzeria/@30.2701889,-87.7362364,12z/data=!4m10!1m2!2m1!1spizza+cafe+diner+Orange+Beach+Alabama!3m6!1s0x889a06f95e0f4cf3:0x9515aac498f371a1!8m2!3d30.2704095!4d-87.5888163!15sCiVwaXp6YSBjYWZlIGRpbmVyIE9yYW5nZSBCZWFjaCBBbGFiYW1hWiciJXBpenphIGNhZmUgZGluZXIgb3JhbmdlIGJlYWNoIGFsYWJhbWGSARBwaXp6YV9yZXN0YXVyYW50mgFEQ2k5RFFVbFJRVU52WkVOb2RIbGpSamx2VDJ0V1QyTjZSbWhqVkd4YVlsYzVUMk5YTVhsamFteFRaR3hvTUZadVl4QULgAQD6AQQIABA6!16s%2Fg%2F1wnf1twn?entry=ttu&g_ep=EgoyMDI2MDUxMS4wIKXMDSoASAFQAw%3D%3D",
+    "scraped_at": "2026-05-13T21:38:22.761631"
+  },
+  {
+    "name": "Shipp’s Dockside Grill",
+    "type": "restaurant",
+    "city": "Orange Beach",
+    "state": "AL",
+    "category": "Seafood restaurant",
+    "address": "27075 Marina Rd, Orange Beach, AL 36561",
+    "phone": "(251) 412-7447",
+    "website": "https://www.shippsdockside.com/",
+    "rating": "4.7",
+    "reviews": "512",
+    "price_level": "Price range histogram",
+    "hours": [
+      "Wednesday11AM9PM",
+      "Thursday11AM9PM",
+      "Friday11AM10PM",
+      "Saturday11AM10PM",
+      "Sunday11AM9PM",
+      "MondayClosed",
+      "Tuesday11AM9PM"
+    ],
+    "services": [
+      "Offers takeout"
+    ],
+    "gmaps_url": "https://www.google.com/maps/place/Shipp%E2%80%99s+Dockside+Grill/@30.2770829,-87.5864237,14z/data=!3m1!5s0x889a07a30c51c9ed:0xdbc4ee83a9793bb7!4m10!1m2!2m1!1sseafood+bars+Orange+Beach+Alabama!3m6!1s0x889a07002a48899b:0x45ae12ba9a120afc!8m2!3d30.2838559!4d-87.563197!15sCiFzZWFmb29kIGJhcnMgT3JhbmdlIEJlYWNoIEFsYWJhbWFaIyIhc2VhZm9vZCBiYXJzIG9yYW5nZSBiZWFjaCBhbGFiYW1hkgESc2VhZm9vZF9yZXN0YXVyYW50mgFEQ2k5RFFVbFJRVU52WkVOb2RIbGpSamx2VDJ4Sk1VNUlUazlVVjJSSFUyMUdjVmRXU25aT1ZGSnFXVEZzV21KWFl4QULgAQD6AQQITBA8!16s%2Fg%2F11x5hvzyx9?entry=ttu&g_ep=EgoyMDI2MDUxMS4wIKXMDSoASAFQAw%3D%3D",
+    "scraped_at": "2026-05-13T21:34:33.579956"
+  },
+  {
+    "name": "Sunliner Diner",
+    "type": "restaurant",
+    "city": "Orange Beach",
+    "state": "AL",
+    "category": "Diner",
+    "address": "26035 Perdido Beach Blvd, Orange Beach, AL 36561",
+    "phone": "(251) 280-8446",
+    "website": "https://sunlinerdiner.com/",
+    "rating": "4.9",
+    "reviews": null,
+    "price_level": null,
+    "hours": [
+      "Wednesday7:30AM9PM"
+    ],
+    "services": [],
+    "gmaps_url": "https://www.google.com/maps/place/Sunliner+Diner/@30.273305,-87.5674919,12z/data=!4m10!1m2!2m1!1spizza+cafe+diner+Orange+Beach+Alabama!3m6!1s0x889a070019791bb3:0x98c67736d9152c92!8m2!3d30.2714222!4d-87.5801006!15sCiVwaXp6YSBjYWZlIGRpbmVyIE9yYW5nZSBCZWFjaCBBbGFiYW1hWiciJXBpenphIGNhZmUgZGluZXIgb3JhbmdlIGJlYWNoIGFsYWJhbWGSAQVkaW5lcpoBRENpOURRVWxSUVVOdlpFTm9kSGxqUmpsdlQyMVdUVmxVYUV0T2JHeFNZMVpHUTFkck1YUk5Wemw2VlZWb1ZFNXVZeEFC4AEA-gEFCMgBEEY!16s%2Fg%2F11ml2hf8tn?entry=ttu&g_ep=EgoyMDI2MDUxMS4wIKXMDSoASAFQAw%3D%3D",
+    "scraped_at": "2026-05-13T21:37:42.138411"
+  },
+  {
+    "name": "Sunliner Diner - Gulf Shores",
+    "type": "restaurant",
+    "city": "Orange Beach",
+    "state": "AL",
+    "category": "Diner",
+    "address": "100 E 2nd Ave, Gulf Shores, AL 36542",
+    "phone": "(251) 937-6590",
+    "website": "https://www.sunlinerdiner.com/",
+    "rating": "4.9",
+    "reviews": "29543",
+    "price_level": "Price range histogram",
+    "hours": [
+      "Wednesday7:30AM9PM"
+    ],
+    "services": [],
+    "gmaps_url": "https://www.google.com/maps/place/Sunliner+Diner+-+Gulf+Shores/@30.2714222,-87.7242962,12z/data=!3m1!5s0x889a07a0400fee61:0x9e0636ee847e979d!4m10!1m2!2m1!1spizza+cafe+diner+Orange+Beach+Alabama!3m6!1s0x889a04b70c64537b:0xbfa4ec31f4fb1bd2!8m2!3d30.2507962!4d-87.6890452!15sCiVwaXp6YSBjYWZlIGRpbmVyIE9yYW5nZSBCZWFjaCBBbGFiYW1hWiciJXBpenphIGNhZmUgZGluZXIgb3JhbmdlIGJlYWNoIGFsYWJhbWGSAQVkaW5lcpoBI0NoWkRTVWhOTUc5blMwVkpRMEZuU1VSMlh6WlRSVXBCRUFF4AEA-gEECBIQNA!16s%2Fg%2F11gh46yhjw?entry=ttu&g_ep=EgoyMDI2MDUxMS4wIKXMDSoASAFQAw%3D%3D",
+    "scraped_at": "2026-05-13T21:37:59.604117"
+  },
+  {
+    "name": "Surfside Pizza Orange Beach",
+    "type": "restaurant",
+    "city": "Orange Beach",
+    "state": "AL",
+    "category": "Restaurant",
+    "address": "25405 Perdido Beach Blvd Suite 10, Orange Beach, AL 36561",
+    "phone": "(251) 981-2911",
+    "website": "https://www.surfsidepizza.com/",
+    "rating": "4.9",
+    "reviews": "415",
+    "price_level": "Price range histogram",
+    "hours": [],
+    "services": [
+      "Offers curbside pickup",
+      "Has no-contact delivery"
+    ],
+    "gmaps_url": "https://www.google.com/maps/place/Surfside+Pizza+Orange+Beach/@30.2507962,-87.8332408,12z/data=!4m10!1m2!2m1!1spizza+cafe+diner+Orange+Beach+Alabama!3m6!1s0x889a071907db137d:0xf1a7e7ab4d78303d!8m2!3d30.2701889!4d-87.5920408!15sCiVwaXp6YSBjYWZlIGRpbmVyIE9yYW5nZSBCZWFjaCBBbGFiYW1hWiciJXBpenphIGNhZmUgZGluZXIgb3JhbmdlIGJlYWNoIGFsYWJhbWGSAQpyZXN0YXVyYW50mgFEQ2k5RFFVbFJRVU52WkVOb2RIbGpSamx2VDIxamVscEhSbEJZTUdReFV6RlNkRmxYYTNwaVZGcFhZakJHVldRell4QULgAQD6AQQIABA6!16s%2Fg%2F11q9d95j4r?entry=ttu&g_ep=EgoyMDI2MDUxMS4wIKXMDSoASAFQAw%3D%3D",
+    "scraped_at": "2026-05-13T21:38:06.043885"
+  },
+  {
+    "name": "Tacky Jacks Orange Beach",
+    "type": "restaurant",
+    "city": "Orange Beach",
+    "state": "AL",
+    "category": "Seafood restaurant",
+    "address": "27206 Safe Harbor Dr, Orange Beach, AL 36561",
+    "phone": "(251) 981-4144",
+    "website": "http://tackyjacks.com/",
+    "rating": "4.9",
+    "reviews": "7974",
+    "price_level": "Price range histogram",
+    "hours": [],
+    "services": [
+      "Offers takeout",
+      "Has no-contact delivery"
+    ],
+    "gmaps_url": "https://www.google.com/maps/place/Tacky+Jacks+Orange+Beach/@30.2688315,-87.6227959,14z/data=!4m10!1m2!2m1!1srestaurants+in+Orange+Beach+Alabama!3m6!1s0x889a07a224e837b5:0xdd6de0e866ca2a6!8m2!3d30.2811185!4d-87.5609749!15sCiNyZXN0YXVyYW50cyBpbiBPcmFuZ2UgQmVhY2ggQWxhYmFtYVolIiNyZXN0YXVyYW50cyBpbiBvcmFuZ2UgYmVhY2ggYWxhYmFtYZIBEnNlYWZvb2RfcmVzdGF1cmFudJoBRENpOURRVWxSUVVOdlpFTm9kSGxqUmpsdlQyNUdkbU14YUVoT00xWllZVmhzYmxOSWJHcGhha1p3WXpKT2RWcHRZeEFC4AEA-gEECAAQPA!16s%2Fg%2F12hmp1_w1?entry=ttu&g_ep=EgoyMDI2MDUxMS4wIKXMDSoASAFQAw%3D%3D",
+    "scraped_at": "2026-05-13T21:32:01.566750"
+  },
+  {
+    "name": "The Gulf",
+    "type": "restaurant",
+    "city": "Orange Beach",
+    "state": "AL",
+    "category": "Seafood restaurant",
+    "address": "27500 Perdido Beach Blvd, Orange Beach, AL 36561",
+    "phone": "(251) 424-1800",
+    "website": "http://www.thegulf.com/locations/orange-beach",
+    "rating": "4.9",
+    "reviews": "14499",
+    "price_level": "Price range histogram",
+    "hours": [
+      "Wednesday11AM9PM"
+    ],
+    "services": [
+      "Offers takeout",
+      "No delivery"
+    ],
+    "gmaps_url": "https://www.google.com/maps/place/The+Gulf/@30.2935972,-87.5867407,14z/data=!4m10!1m2!2m1!1srestaurants+in+Orange+Beach+Alabama!3m6!1s0x889a079e50227769:0x4a2d8940fc1b7383!8m2!3d30.276912!4d-87.55635!15sCiNyZXN0YXVyYW50cyBpbiBPcmFuZ2UgQmVhY2ggQWxhYmFtYVolIiNyZXN0YXVyYW50cyBpbiBvcmFuZ2UgYmVhY2ggYWxhYmFtYZIBEnNlYWZvb2RfcmVzdGF1cmFudJoBJENoZERTVWhOTUc5blMwVkpRMEZuU1VSS2FFcFhjWHBuUlJBQuABAPoBBAh3EEw!16s%2Fg%2F12hsxl3bz?entry=ttu&g_ep=EgoyMDI2MDUxMS4wIKXMDSoASAFQAw%3D%3D",
+    "scraped_at": "2026-05-13T21:31:47.252015"
+  },
+  {
+    "name": "The Undertow",
+    "type": "restaurant",
+    "city": "Orange Beach",
+    "state": "AL",
+    "category": "Bar & grill",
+    "address": "25025 Canal Rd, Orange Beach, AL 36561",
+    "phone": "(251) 981-3331",
+    "website": "https://theundertow.shop/",
+    "rating": "4.7",
+    "reviews": "806",
+    "price_level": "Price range histogram",
+    "hours": [
+      "Wednesday10AM3AM",
+      "Thursday10AM3AM",
+      "Friday10AM3AM",
+      "Saturday10AM3AM",
+      "Sunday10AM3AM",
+      "Monday10AM3AM",
+      "Tuesday10AM3AM"
+    ],
+    "services": [
+      "Offers takeout",
+      "No delivery"
+    ],
+    "gmaps_url": "https://www.google.com/maps/place/The+Undertow/@30.2688315,-87.6227959,14z/data=!4m10!1m2!2m1!1sseafood+bars+Orange+Beach+Alabama!3m6!1s0x889a0642682c85cf:0x31ae8dc06a2447e7!8m2!3d30.2908323!4d-87.5976219!15sCiFzZWFmb29kIGJhcnMgT3JhbmdlIEJlYWNoIEFsYWJhbWFaIyIhc2VhZm9vZCBiYXJzIG9yYW5nZSBiZWFjaCBhbGFiYW1hkgENYmFyX2FuZF9ncmlsbJoBI0NoWkRTVWhOTUc5blMwVkpRMEZuU1VSbGJWazNTMWRuRUFF4AEA-gEFCLIBEDo!16s%2Fg%2F119wr2b9f?entry=ttu&g_ep=EgoyMDI2MDUxMS4wIKXMDSoASAFQAw%3D%3D",
+    "scraped_at": "2026-05-13T21:35:08.626879"
+  },
+  {
+    "name": "Villaggio Grille",
+    "type": "restaurant",
+    "city": "Orange Beach",
+    "state": "AL",
+    "category": "Italian restaurant",
+    "address": "4790 Main St f108, Orange Beach, AL 36561",
+    "phone": "(251) 224-6510",
+    "website": "http://villaggiogrille.com/",
+    "rating": "4.9",
+    "reviews": null,
+    "price_level": null,
+    "hours": [],
+    "services": [],
+    "gmaps_url": "https://www.google.com/maps/place/Villaggio+Grille/@30.2701889,-87.7362364,12z/data=!4m10!1m2!2m1!1spizza+cafe+diner+Orange+Beach+Alabama!3m6!1s0x889a05c35327a36d:0xa426832f698e45cf!8m2!3d30.2943259!4d-87.6291943!15sCiVwaXp6YSBjYWZlIGRpbmVyIE9yYW5nZSBCZWFjaCBBbGFiYW1hWiciJXBpenphIGNhZmUgZGluZXIgb3JhbmdlIGJlYWNoIGFsYWJhbWGSARJpdGFsaWFuX3Jlc3RhdXJhbnSaASRDaGREU1VoTk1HOW5TMFZKUTBGblNVUkNhM1YxTVRKQlJSQULgAQD6AQQIDRBK!16s%2Fg%2F1tffdzr3?entry=ttu&g_ep=EgoyMDI2MDUxMS4wIKXMDSoASAFQAw%3D%3D",
+    "scraped_at": "2026-05-13T21:38:30.114432"
+  },
+  {
+    "name": "Vinny's Pizzeria",
+    "type": "restaurant",
+    "city": "Orange Beach",
+    "state": "AL",
+    "category": "Pizza restaurant",
+    "address": "4651 Main St K-1, Orange Beach, AL 36561",
+    "phone": "(866) 743-7669",
+    "website": "http://vinnys.pizza/",
+    "rating": "4.9",
+    "reviews": "330",
+    "price_level": "Price range histogram",
+    "hours": [
+      "Wednesday11AM9PM",
+      "Thursday11AM9PM",
+      "Friday11AM9PM",
+      "Saturday11AM9PM",
+      "Sunday11AM9PM",
+      "Monday11AM9PM",
+      "Tuesday11AM9PM"
+    ],
+    "services": [
+      "Offers takeout",
+      "Has no-contact delivery"
+    ],
+    "gmaps_url": "https://www.google.com/maps/place/Vinny's+Pizzeria/@30.2701889,-87.7362364,12z/data=!4m10!1m2!2m1!1spizza+cafe+diner+Orange+Beach+Alabama!3m6!1s0x889a05fa8cd46975:0x114f11fd316cab83!8m2!3d30.2924604!4d-87.628134!15sCiVwaXp6YSBjYWZlIGRpbmVyIE9yYW5nZSBCZWFjaCBBbGFiYW1hWiciJXBpenphIGNhZmUgZGluZXIgb3JhbmdlIGJlYWNoIGFsYWJhbWGSARBwaXp6YV9yZXN0YXVyYW50mgFEQ2k5RFFVbFJRVU52WkVOb2RIbGpSamx2VDJwc2RWSkVXa05WYldoUFpHcEdXbHBGYkU1V1IxSllZa1UwTWxreVl4QULgAQD6AQQIABBA!16s%2Fg%2F11rtnjxybr?entry=ttu&g_ep=EgoyMDI2MDUxMS4wIKXMDSoASAFQAw%3D%3D",
+    "scraped_at": "2026-05-13T21:38:14.618189"
+  },
+  {
+    "name": "Zeke's Restaurant",
+    "type": "restaurant",
+    "city": "Orange Beach",
+    "state": "AL",
+    "category": "Restaurant",
+    "address": "26619 Perdido Beach Blvd, Orange Beach, AL 36561",
+    "phone": "(251) 280-8008",
+    "website": "https://www.zekeslanding.com/",
+    "rating": "4.9",
+    "reviews": "16367",
+    "price_level": "Price range histogram",
+    "hours": [
+      "Wednesday11AM10PM",
+      "Thursday11AM10PM",
+      "Friday11AM10PM",
+      "Saturday11AM10PM",
+      "Sunday11AM10PM",
+      "Monday11AM10PM",
+      "Tuesday11AM10PM"
+    ],
+    "services": [
+      "Offers takeout",
+      "No delivery"
+    ],
+    "gmaps_url": "https://www.google.com/maps/place/Zeke's+Restaurant/@30.2753617,-87.6051792,14z/data=!4m10!1m2!2m1!1srestaurants+in+Orange+Beach+Alabama!3m6!1s0x889a07e63463742f:0x65678b08ee72abaf!8m2!3d30.2753617!4d-87.5691303!15sCiNyZXN0YXVyYW50cyBpbiBPcmFuZ2UgQmVhY2ggQWxhYmFtYVolIiNyZXN0YXVyYW50cyBpbiBvcmFuZ2UgYmVhY2ggYWxhYmFtYZIBCnJlc3RhdXJhbnSaAURDaTlEUVVsUlFVTnZaRU5vZEhsalJqbHZUMnRHVkU1R1JUTlNNSFIxV1d0R01FNUhlRWxUVXpGSlkxUmFUbFZIWXhBQuABAPoBBAhaEDo!16s%2Fg%2F11s95t7d5n?entry=ttu&g_ep=EgoyMDI2MDUxMS4wIKXMDSoASAFQAw%3D%3D",
+    "scraped_at": "2026-05-13T21:31:27.247632"
+  }
+]

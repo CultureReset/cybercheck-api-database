@@ -1,0 +1,95 @@
+{
+  "name": "Reel Surprise Charters",
+  "type": "Fishing Charter | Marina | Dock Store",
+  "website": "https://reelsurprisecharters.com",
+  "contact": {
+    "phone": "251-981-7173",
+    "address": "27267 Perdido Beach Blvd, Suite 100B",
+    "city": "Orange Beach",
+    "email": ""
+  },
+  "hours": {
+    "monday": "Charter Office: 9 a.m. to 4 p.m. | Marina + Dock Store: 7 a.m. to 4 p.m.",
+    "tuesday": "Charter Office: 9 a.m. to 4 p.m. | Marina + Dock Store: 7 a.m. to 4 p.m.",
+    "wednesday": "Charter Office: 9 a.m. to 4 p.m. | Marina + Dock Store: 7 a.m. to 4 p.m.",
+    "thursday": "Charter Office: 9 a.m. to 4 p.m. | Marina + Dock Store: 7 a.m. to 4 p.m.",
+    "friday": "Charter Office: 9 a.m. to 4 p.m. | Marina + Dock Store: 7 a.m. to 5 p.m.",
+    "saturday": "Charter Office: 9 a.m. to 4 p.m. | Marina + Dock Store: 7 a.m. to 5 p.m.",
+    "sunday": "Charter Office: Closed | Marina + Dock Store: 7 a.m. to 4 p.m.",
+    "notes": "Phones answered daily 7 a.m. to 9 p.m. | Marina + Dock Store: 251-981-6167"
+  },
+  "about": {
+    "description": "Reel Surprise Charters is a family-owned brand of Orange Beach fishing charters and boutique marina services, located at SanRoc Cay. Founded in 1999 by Randy Boggs and Susan, they operate a 65' Bonner head boat and offer inshore and offshore fishing charters. The marina features 54 premium boat slips, a fully-stocked dock store with fuel, shopping, restaurants, clean restroom facilities, and more. They provide bilingual crew services and have over 20 years of experience on the Gulf Coast.",
+    "elevator_pitch": "Family-owned fishing charters and boutique marina in Orange Beach with spacious vessels, expert local crew, and premium marina services since 1999.",
+    "vibe": "Family-friendly, locally-loved, welcoming to all experience levels, with experienced captains and deckhands who treat guests like family.",
+    "best_for": [
+      "families",
+      "first-timers",
+      "experienced anglers",
+      "small groups",
+      "corporate teams",
+      "multi-day trips"
+    ],
+    "capacity": "Head boat up to 35 passengers | Inshore charters up to 4 passengers | Six-passenger charters up to 6 passengers",
+    "duration_options": [
+      "3-10 hours (Reel Surprise head boat)",
+      "4-6 hours (Inshore)",
+      "4-10 hours (Six-passenger charters)"
+    ],
+    "departure_location": "SanRoc Cay Marina, Orange Beach, AL",
+    "what_provided": [
+      "Fishing rods",
+      "Bait",
+      "Fishing tackle",
+      "Fishing license",
+      "Air-conditioned cabin (head boat)",
+      "Restrooms",
+      "Fish-cleaning stations"
+    ],
+    "what_to_bring": [
+      "Sunscreen",
+      "Hat",
+      "Cooler",
+      "Personal items"
+    ],
+    "age_restriction": "All ages welcome",
+    "weight_restriction": null,
+    "reservations": "Book in advance recommended",
+    "cancellation_policy": null,
+    "insider_tip": "Reel Surprise Marina is the closest to the Gulf, meaning less travel time and more fishing time. They offer a Frequent Fishing Program with discounted rates for repeat customers."
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/reelsurprisecharters/",
+    "facebook": "https://www.facebook.com/ReelSurpriseCharters",
+    "tripadvisor": null,
+    "website": "https://reelsurprisecharters.com"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Frequent Fishing Program",
+      "description": "First 8 trips: $100 per trip | 9th trip: $50 | 10th trip: FREE. Includes fishing license, fishing tackle, and bait. Targeted species: Vermillion Snapper and Lane Snapper.",
+      "discount": ""
+    },
+    {
+      "name": "Short Term Slip Rentals",
+      "description": "30 day minimum at $750 per month. Accommodates up to 42' boats. Includes water. Power metered separately. No liveaboards.",
+      "discount": ""
+    },
+    {
+      "name": "68' x 20' Boat Slip",
+      "description": "Premium slip with water and storage shed included. Power metered separately. No liveaboards.",
+      "discount": ""
+    },
+    {
+      "name": "Gift Cards",
+      "description": "Gift cards now available in customizable amounts. Can be sent via email.",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 18,
+  "scraped_at": "2026-03-21T19:50:12.308Z"
+}

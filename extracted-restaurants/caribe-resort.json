@@ -1,0 +1,52 @@
+{
+  "name": "Caribe Resort",
+  "type": "Vacation Rental | Condo Resort",
+  "website": "https://www.brett-robinson.com/beach-condo/caribe-resort/",
+  "contact": {
+    "phone": "1-800-211-7892",
+    "address": "3259 Gulf Shores Parkway",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {},
+  "about": {
+    "description": "Caribe Resort is a beachfront vacation rental property managed by Brett/Robinson Vacation Rentals, offering family-friendly condos and beach houses with direct Gulf access and modern amenities.",
+    "elevator_pitch": "Beachfront vacation rental resort in Gulf Shores, Alabama offering spacious condos with Gulf views and resort amenities.",
+    "total_units": null,
+    "floors": null,
+    "year_built": null,
+    "pet_friendly": true,
+    "minimum_stay": "3 nights",
+    "check_in": null,
+    "check_out": null,
+    "age_restriction": null
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/brett_robinson_vacations",
+    "facebook": "https://www.facebook.com/BrettRobinsonVacations",
+    "website": "https://www.brett-robinson.com/beach-condo/caribe-resort/"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Hot Deal - Caribe The Resort D401",
+      "description": "2 Bed • 2 Bath • Sleeps 10 - Corner unit with special pricing",
+      "discount": ""
+    },
+    {
+      "name": "Charming Beachfront Stays",
+      "description": "Tranquil getaway specials on select Caribe Resort units",
+      "discount": ""
+    },
+    {
+      "name": "Memorial Day Weekend",
+      "description": "Special rates for Memorial Day weekend bookings",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 23,
+  "scraped_at": "2026-03-21T21:27:19.848Z"
+}

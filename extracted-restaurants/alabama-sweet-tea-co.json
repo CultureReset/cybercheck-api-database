@@ -1,0 +1,129 @@
+{
+  "name": "Alabama Sweet Tea Co.",
+  "type": "Food & Beverage Brand / Retail",
+  "website": "https://alabamasweettea.com",
+  "contact": {
+    "phone": "800-832-1989",
+    "address": "44 Market Plaza, Suite 801",
+    "city": "Montgomery",
+    "email": "sales@alabamasweettea.com"
+  },
+  "hours": {
+    "monday": "9am - 5pm ET (customer service)",
+    "tuesday": "9am - 5pm ET (customer service)",
+    "wednesday": "9am - 5pm ET (customer service)",
+    "thursday": "9am - 5pm ET (customer service)",
+    "friday": "9am - 5pm ET (customer service)",
+    "saturday": null,
+    "sunday": null,
+    "notes": "Customer service hours Monday–Friday, 9am–5pm ET. The Silos location (Waco, TX): Mon–Sat 11am–6pm (winter hours Nov–Feb: 11am–4pm). The Wharf location (Orange Beach, AL): Mon–Sat 10am–6pm, Sun 12pm–6pm."
+  },
+  "about": {
+    "description": "Alabama Sweet Tea Co. is a Southern sweet tea brand founded in 2015 by Wes Willis (musician) and Golson Foshee (real estate developer) in Montgomery, Alabama. Born out of family tradition and a love for the Deep South, the company crafts sweet tea using a custom blend of high-quality loose-leaf tea leaves, pure cane sugar, and hand-squeezed fruit juice — no artificial ingredients or preservatives. Originally a food truck popping up at events across Alabama, they parked at the Magnolia Food Truck Park (The Silos) in Waco, Texas in 2022, and also operate a storefront at The Wharf in Orange Beach, Alabama. They sell tea, apparel, drinkware, gifts, and accessories online and in-store.",
+    "elevator_pitch": "Alabama Sweet Tea Co. bottles the soul of the South in every sip, crafting preservative-free sweet tea from premium loose-leaf leaves and pure cane sugar — a taste rooted in family tradition and available online, in Waco TX, and Orange Beach AL.",
+    "established": "2015",
+    "owner": "Wes Willis and Golson Foshee",
+    "chef": null,
+    "vibe": "Southern charm, nostalgic, family-rooted, classic Americana",
+    "best_for": [
+      "families",
+      "Southern food lovers",
+      "gift shoppers",
+      "tea enthusiasts"
+    ],
+    "age_restriction": null,
+    "dress_code": null,
+    "parking": null,
+    "accessibility": null,
+    "reservations": null,
+    "insider_tip": "Sign up for the email newsletter to receive 10% off your first order and early access to new styles.",
+    "awards": [],
+    "press": []
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/alabamasweettea",
+    "facebook": "https://www.facebook.com/alabamasweettea",
+    "twitter": null,
+    "tiktok": null,
+    "youtube": null,
+    "yelp": null,
+    "tripadvisor": null,
+    "opentable": null,
+    "google_maps": null,
+    "website": "https://alabamasweettea.com"
+  },
+  "menu": [
+    {
+      "category": "Drinkware",
+      "name": "Embossed Glass Jar",
+      "description": "",
+      "price": 8
+    },
+    {
+      "category": "Drinkware",
+      "name": "Replacement Jar Lid and Straw",
+      "description": "",
+      "price": 1
+    },
+    {
+      "category": "Drinkware",
+      "name": "Set of 6 Stadium Cups",
+      "description": "",
+      "price": 12
+    },
+    {
+      "category": "Drinkware",
+      "name": "Coffee Mug",
+      "description": "Available in 2 colors",
+      "price": 15
+    },
+    {
+      "category": "Drinkware",
+      "name": "20oz SideKick Tumbler",
+      "description": "Available in 3 colors",
+      "price": 25
+    },
+    {
+      "category": "Shop Collections",
+      "name": "Tea",
+      "description": "Loose tea and canned tea available",
+      "price": ""
+    },
+    {
+      "category": "Shop Collections",
+      "name": "Apparel",
+      "description": "T-shirts, hats and more",
+      "price": ""
+    },
+    {
+      "category": "Shop Collections",
+      "name": "Drinkware",
+      "description": "Alabama Sweet Tea Co. drinkware perfect for sipping all of your favorite beverages",
+      "price": ""
+    },
+    {
+      "category": "Shop Collections",
+      "name": "Gifts",
+      "description": "Cozy t-shirts, charming caps, canned tea, or comforting tea bags",
+      "price": ""
+    },
+    {
+      "category": "Shop Collections",
+      "name": "Accessories",
+      "description": "",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "10% Off First Order",
+      "description": "Sign up for the email newsletter to receive 10% off your order, plus exclusive discounts and early access to new styles. Valid on select full-priced items.",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 26,
+  "scraped_at": "2026-05-15T20:34:31.638Z"
+}

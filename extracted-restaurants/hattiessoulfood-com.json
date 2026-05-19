@@ -1,0 +1,174 @@
+{
+  "name": "Hattie's Soul Food Restaurant",
+  "type": "Restaurant",
+  "website": "https://hattiessoulfood.com",
+  "contact": {
+    "phone": "(251) 202-4929",
+    "address": "15397A AL-59",
+    "city": "Foley",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": "09:00 - 14:00",
+    "wednesday": "09:00 - 14:00",
+    "thursday": "09:00 - 14:00",
+    "friday": "09:00 - 19:00",
+    "saturday": "09:00 - 19:00",
+    "sunday": "09:00 - 16:00",
+    "notes": "Closed Mondays"
+  },
+  "about": {
+    "description": "Hattie's Soul Food Restaurant specializes in authentic soul food, Southern cuisine, and seafood in Foley, Alabama.",
+    "elevator_pitch": "A family-friendly soul food restaurant serving classic Southern comfort food including fried chicken, catfish, and traditional sides.",
+    "vibe": "Casual, welcoming, family-friendly soul food establishment",
+    "best_for": [
+      "families",
+      "casual dining",
+      "comfort food lovers",
+      "seafood enthusiasts"
+    ],
+    "established": null,
+    "reservations": null,
+    "insider_tip": null
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://hattiessoulfood.com"
+  },
+  "menu": [
+    {
+      "category": "Ice",
+      "name": "25lb Ice",
+      "description": "",
+      "price": 3
+    },
+    {
+      "category": "Beverages",
+      "name": "Soda",
+      "description": "",
+      "price": 2.99
+    },
+    {
+      "category": "Beverages",
+      "name": "Sweet Tea",
+      "description": "",
+      "price": 1.99
+    },
+    {
+      "category": "Beverages",
+      "name": "Unsweet Tea",
+      "description": "",
+      "price": 1.99
+    },
+    {
+      "category": "Beverages",
+      "name": "Hand Crafted Lemonade No Free Refills",
+      "description": "",
+      "price": 3.99
+    },
+    {
+      "category": "Beverages",
+      "name": "Coffee",
+      "description": "",
+      "price": 1.99
+    },
+    {
+      "category": "Beverages",
+      "name": "Water",
+      "description": "",
+      "price": 0.5
+    },
+    {
+      "category": "Beverages",
+      "name": "Arnold Palmer",
+      "description": "",
+      "price": 2
+    },
+    {
+      "category": "Beverages",
+      "name": "1/2 And 1/2 Tea",
+      "description": "",
+      "price": 1.99
+    },
+    {
+      "category": "Beverages",
+      "name": "Club Soda",
+      "description": "",
+      "price": 1.99
+    },
+    {
+      "category": "Beverages",
+      "name": "1 Gallon Unsweet Tea",
+      "description": "",
+      "price": 15.99
+    },
+    {
+      "category": "Appetizers",
+      "name": "Appetizer Basket Of Bread (6)",
+      "description": "",
+      "price": 4.99
+    },
+    {
+      "category": "Appetizers",
+      "name": "Appetizer Chicken Wings (12)",
+      "description": "",
+      "price": 13.99
+    },
+    {
+      "category": "Appetizers",
+      "name": "Appetizer Chicken Wings (8)",
+      "description": "",
+      "price": 9.99
+    },
+    {
+      "category": "Appetizers",
+      "name": "Appetizer 20 Wings",
+      "description": "",
+      "price": 22.99
+    },
+    {
+      "category": "Appetizers",
+      "name": "Appetizer Loaded French Fries",
+      "description": "",
+      "price": 11.99
+    },
+    {
+      "category": "Entrees",
+      "name": "3pc Leg Meal",
+      "description": "",
+      "price": 15.99
+    },
+    {
+      "category": "Entrees",
+      "name": "Fried Porkchop Entree",
+      "description": "",
+      "price": 15.99
+    },
+    {
+      "category": "Entrees",
+      "name": "Smothered Pork Chops Entree",
+      "description": "",
+      "price": 14.99
+    },
+    {
+      "category": "Entrees",
+      "name": "Southern Ribeye",
+      "description": "",
+      "price": 25.95
+    },
+    {
+      "category": "Entrees",
+      "name": "Kathy's Beef Gravy Entree",
+      "description": "",
+      "price": 16.99
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 5,
+  "scraped_at": "2026-03-21T20:36:52.818Z"
+}

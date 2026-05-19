@@ -1,0 +1,51 @@
+{
+  "name": "Siam Thai Cuisine",
+  "type": "Restaurant",
+  "website": "https://siamthaicuisine-mobile-al.com/",
+  "contact": {
+    "phone": "(251) 380-9111",
+    "address": "915 Hillcrest Rd Ste C",
+    "city": "Mobile",
+    "email": "noi_421@hotmail.com"
+  },
+  "hours": {
+    "monday": "11:00am - 9:00pm",
+    "tuesday": "11:00am - 9:00pm",
+    "wednesday": "11:00am - 9:00pm",
+    "thursday": "11:00am - 9:00pm",
+    "friday": "11:00am - 10:00pm",
+    "saturday": "12:00pm - 10:00pm",
+    "sunday": "11:00am - 9:00pm",
+    "notes": null
+  },
+  "about": {
+    "description": "Welcome to Siam Thai Cuisine - Mobile, AL. We serve only the freshest and finest ingredients. You will experience the liveliness and excitement of our exhibition kitchen with extraordinary fast and friendly wait staff.",
+    "elevator_pitch": "A Thai restaurant in Mobile, AL serving fresh, authentic Thai cuisine with an exhibition kitchen experience.",
+    "vibe": "Lively and exciting with exhibition kitchen, welcoming atmosphere",
+    "best_for": [
+      "families",
+      "groups"
+    ],
+    "established": null,
+    "reservations": "Recommended for large groups. Email or call ahead.",
+    "insider_tip": "View menu and order online ahead for no hassle dining experience"
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://siamthaicuisine-mobile-al.com"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [
+    {
+      "name": "Special Events",
+      "day": "",
+      "time": ""
+    }
+  ],
+  "gallery": 16,
+  "scraped_at": "2026-03-22T18:34:51.251Z"
+}

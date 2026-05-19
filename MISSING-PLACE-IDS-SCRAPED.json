@@ -1,0 +1,38 @@
+[
+  {
+    "search": "Rotolos",
+    "location": "Alabama",
+    "place_id": null,
+    "url": "https://www.google.com/maps/search/Rotolos+Alabama/@30.3969311,-87.7368345,11z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MDUxMy4wIKXMDSoASAFQAw%3D%3D"
+  },
+  {
+    "search": "Sea-N-Suds",
+    "location": "Gulf Shores, AL",
+    "place_id": "ChIJ889a04be925553e9",
+    "url": "https://www.google.com/maps/place/Sea+N+Suds/@30.2481432,-87.6808852,17z/data=!3m1!4b1!4m6!3m5!1s0x889a04be925553e9:0xf3d53a20e7ee3369!8m2!3d30.2481432!4d-87.6808852!16s%2Fg%2F1tj_5__5?entry=ttu&g_ep=EgoyMDI2MDUxMy4wIKXMDSoASAFQAw%3D%3D"
+  },
+  {
+    "search": "Mudbugs Pub",
+    "location": "Gulf Shores, AL",
+    "place_id": "ChIJ889a04c818f6d649",
+    "url": "https://www.google.com/maps/place/Mudbugs+Dive+Bar/@30.2537667,-87.688525,17z/data=!3m1!4b1!4m6!3m5!1s0x889a04c818f6d649:0x43f65d2cf7480003!8m2!3d30.2537667!4d-87.688525!16s%2Fg%2F1tdwqwpy?entry=ttu&g_ep=EgoyMDI2MDUxMy4wIKXMDSoASAFQAw%3D%3D"
+  },
+  {
+    "search": "OHANA Poke Teriyaki",
+    "location": "Spanish Fort, AL",
+    "place_id": "ChIJ889a696e8574a8d5",
+    "url": "https://www.google.com/maps/place/Ohana+Poke+%26+Teriyaki/@30.6738818,-87.8474202,17z/data=!3m1!4b1!4m6!3m5!1s0x889a696e8574a8d5:0x3ab31ebac970542b!8m2!3d30.6738818!4d-87.8474202!16s%2Fg%2F11fs034pbn?entry=ttu&g_ep=EgoyMDI2MDUxMy4wIKXMDSoASAFQAw%3D%3D"
+  },
+  {
+    "search": "Vinny's Pizzeria",
+    "location": "Orange Beach, AL",
+    "place_id": "ChIJ889a05fa8cd46975",
+    "url": "https://www.google.com/maps/place/Vinny's+Pizzeria/@30.2924604,-87.628134,17z/data=!3m1!4b1!4m6!3m5!1s0x889a05fa8cd46975:0x114f11fd316cab83!8m2!3d30.2924604!4d-87.628134!16s%2Fg%2F11rtnjxybr?entry=ttu&g_ep=EgoyMDI2MDUxMy4wIKXMDSoASAFQAw%3D%3D"
+  },
+  {
+    "search": "Flora-Bama Lounge",
+    "location": "Orange Beach, AL",
+    "place_id": "ChIJ8890a84997a3ca01",
+    "url": "https://www.google.com/maps/place/Flora-Bama/@30.2813122,-87.518213,17z/data=!3m1!4b1!4m6!3m5!1s0x8890a84997a3ca01:0xb5c7b6fa2bbf6d9e!8m2!3d30.2813122!4d-87.518213!16zL20vMGJqY2p3?entry=ttu&g_ep=EgoyMDI2MDUxMy4wIKXMDSoASAFQAw%3D%3D"
+  }
+]

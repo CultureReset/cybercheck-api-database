@@ -1,0 +1,60 @@
+{
+  "name": "Fish River Grill",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "",
+    "address": "",
+    "city": "",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Signature Items",
+      "name": "Hurricane Burger",
+      "description": "Award Winning and Local Favorite",
+      "price": ""
+    },
+    {
+      "category": "Signature Items",
+      "name": "Mississippi Catfish",
+      "description": "Your Choice of Filets or Strips",
+      "price": ""
+    },
+    {
+      "category": "Signature Items",
+      "name": "\"OMG\" Shrimp Feast PoBoy",
+      "description": "PoBoy Slathered with Crawfish Sauce",
+      "price": ""
+    },
+    {
+      "category": "Signature Items",
+      "name": "Gulf Shrimp Platter",
+      "description": "Delicious Gulf Shrimp",
+      "price": ""
+    },
+    {
+      "category": "Signature Items",
+      "name": "Swamp Soup",
+      "description": "World famous",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:50.317Z"
+}

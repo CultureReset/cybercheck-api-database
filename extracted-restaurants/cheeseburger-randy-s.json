@@ -1,0 +1,29 @@
+{
+  "name": "Cheeseburger Randy's",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "",
+    "address": "209 S Alston St",
+    "city": "Foley",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null
+  },
+  "about": {},
+  "social": {},
+  "menu": [],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:50.101Z"
+}

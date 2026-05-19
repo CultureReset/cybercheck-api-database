@@ -1,0 +1,32 @@
+{
+  "name": "the-wharf-orange-beach",
+  "type": "Restaurant",
+  "website": "https://www.thewharfal.com",
+  "contact": {
+    "phone": "",
+    "address": "",
+    "city": "",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null
+  },
+  "about": {
+    "description": null,
+    "cuisine_type": null
+  },
+  "social": {},
+  "menu": [],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-03-21T19:52:19.631Z"
+}

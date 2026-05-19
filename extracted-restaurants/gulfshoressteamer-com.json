@@ -1,0 +1,267 @@
+{
+  "name": "Gulf Shores Steamer",
+  "type": "Restaurant",
+  "website": "https://gulfshoressteamer.com",
+  "contact": {
+    "phone": "(251) 948-6344",
+    "address": "27267 Perdido Beach Boulevard, Suite 115",
+    "city": "Orange Beach",
+    "email": ""
+  },
+  "hours": {
+    "monday": "open",
+    "tuesday": "open",
+    "wednesday": "open",
+    "thursday": "open",
+    "friday": "open",
+    "saturday": "open",
+    "sunday": "open"
+  },
+  "about": {
+    "description": "Gulf Shores Steamer has been a local family owned restaurant since 1989 in Orange Beach, Alabama. The restaurant specializes in steamed and grilled seafood with the motto \"NO FRIED\", offering Red Shrimp, Snow Crab Legs, Mussels, Oysters, grilled fish, hand-cut steaks, and the Island's Best Cheeseburger in a casual, laid-back coastal atmosphere.",
+    "cuisine_type": "seafood"
+  },
+  "social": {},
+  "menu": [
+    {
+      "category": "Appetizers",
+      "name": "Steamed or Raw Oysters",
+      "description": "Only the Finest Section of Premium Oysters, Subject to Availability. Your Choice of a Half Dozen or a Dozen",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Blue Crab Claws",
+      "description": "Half lb. - Spicy, Marinated and Ready to Eat",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Fresh Steamed Mussels",
+      "description": "A \"Heapin' Helpin\" of 16 to 20",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Crabmeat Stuffed Shrimp",
+      "description": "The Dynamic Duo of Taste!",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Smoked Tuna or Shrimp Dip",
+      "description": "A Delightful Taste Bud Sensation, served on a bed of lettuce",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Crab Cakes",
+      "description": "Our Own Recipe, Made Fresh Daily",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Shrimp Skewers",
+      "description": "Two Perfectly Grilled",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Seafood Gumbo",
+      "description": "Our Famous Seafood Gumbo",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Crawfish Corn Chowder",
+      "description": "Crawfish Corn Chowder",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Spicy Cajun Jambalaya",
+      "description": "Spicy Cajun Jambalaya",
+      "price": ""
+    },
+    {
+      "category": "Salads",
+      "name": "Chef House Salad",
+      "description": "Add chicken - Add Tuna or Steak",
+      "price": ""
+    },
+    {
+      "category": "Salads",
+      "name": "Cobb Salad",
+      "description": "A combo of fresh spring mix - Add chicken | Add shrimp",
+      "price": ""
+    },
+    {
+      "category": "Salads",
+      "name": "Shrimp Salad",
+      "description": "Mom's Special Recipe Served on a bed of lettuce",
+      "price": ""
+    },
+    {
+      "category": "Salads",
+      "name": "Garden Steamer",
+      "description": "A combo of broccoli, cauliflower, carrots, zucchini & yellow squash | Add cheese",
+      "price": ""
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Hot & Juicy Hamburger",
+      "description": "Best on the Island! 8 oz. hand pattied",
+      "price": ""
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Grilled Po'Boy",
+      "description": "Shrimp, Red Fish, or White Fish filet, served on a french loaf | Add cheese | Add bacon",
+      "price": ""
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Blackened Po'Boy",
+      "description": "Shrimp, Red Fish, or White Fish filet, served on a french loaf",
+      "price": ""
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Tuna Sandwich",
+      "description": "Grilled Yellowfin Tuna Steak",
+      "price": ""
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Chicken Sandwich",
+      "description": "Boneless, grilled chicken breast",
+      "price": ""
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Steak Sandwich",
+      "description": "8 oz. Hand-cut Ribeye on a Hoagie roll",
+      "price": ""
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Crab Delight",
+      "description": "Our Original Crab Cake Sandwich",
+      "price": ""
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Hot Dog",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Grilled Cheese",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Gettin Steamed Platters",
+      "name": "Bay Steamer",
+      "description": "Large Platter of Shrimp, Crab Legs, Oysters and Mussels - Enough For Four. Served with corn, potato & cole slaw",
+      "price": ""
+    },
+    {
+      "category": "Gettin Steamed Platters",
+      "name": "Ocean Steamer",
+      "description": "Even Larger Platter of Shrimp, Crab Legs, Oysters & Mussels - Enough For Six. Served with corn, potato & cole slaw",
+      "price": ""
+    },
+    {
+      "category": "Gettin Steamed Platters",
+      "name": "Small Steamer",
+      "description": "A Taste of everything on a Small Platter - Perfect for Two. Served with corn, potato & cole slaw",
+      "price": ""
+    },
+    {
+      "category": "Crawling Combos",
+      "name": "Red Shrimp",
+      "description": "Steamed to Perfection - Half or One lb",
+      "price": ""
+    },
+    {
+      "category": "Crawling Combos",
+      "name": "Alaskan Snow Crab",
+      "description": "Two Succulent Clusters, Dig In! OR Three Clusters of the \"Best Legs in Town\"",
+      "price": ""
+    },
+    {
+      "category": "Crawling Combos",
+      "name": "Shrimp & Crab Combo",
+      "description": "Half lb. of Steamed Reds & a Snow Crab Cluster OR Half lb. of Reds & two Snow Crab Clusters",
+      "price": ""
+    },
+    {
+      "category": "Crawling Combos",
+      "name": "Crabmeat Stuffed Shrimp",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Crawling Combos",
+      "name": "The Crab Bowl",
+      "description": "Two Clusters & a Bowl of Gumbo or Chowder",
+      "price": ""
+    },
+    {
+      "category": "Crawling Combos",
+      "name": "Bucket O' Reds",
+      "description": "A Bucket of Reds - One and a Half lbs. | Two lbs.",
+      "price": ""
+    },
+    {
+      "category": "Fresh Fish Selection",
+      "name": "Red Fish",
+      "description": "A thick portioned fillet, lightly grilled & Prepared Just for You! Served with corn, potato & cole slaw. Add Blackened Seasoning",
+      "price": ""
+    },
+    {
+      "category": "Fresh Fish Selection",
+      "name": "Mahi-Mahi",
+      "description": "A thick portioned fillet, lightly grilled & Prepared Just for You! Served with corn, potato & cole slaw. Add Blackened Seasoning",
+      "price": ""
+    },
+    {
+      "category": "Fresh Fish Selection",
+      "name": "Tilapia",
+      "description": "A thick portioned fillet, lightly grilled & Prepared Just for You! Served with corn, potato & cole slaw. Add Blackened Seasoning",
+      "price": ""
+    },
+    {
+      "category": "Fresh Fish Selection",
+      "name": "Whitefish",
+      "description": "A thick portioned fillet, lightly grilled & Prepared Just for You! Served with corn, potato & cole slaw. Add Blackened Seasoning",
+      "price": ""
+    },
+    {
+      "category": "Fresh Fish Selection",
+      "name": "Fresh Catch",
+      "description": "A thick portioned fillet, lightly grilled & Prepared Just for You! Served with corn, potato & cole slaw. Add Blackened Seasoning",
+      "price": ""
+    },
+    {
+      "category": "Fresh Fish Selection",
+      "name": "Yellowfin Tuna",
+      "description": "A premium Tuna Steak cooked to order. Served with corn, potato & cole slaw",
+      "price": ""
+    },
+    {
+      "category": "Fresh Fish Selection",
+      "name": "Crab Cakes",
+      "description": "Two delicious Homemade Cakes - Add Crawfish Tails. Served with corn, potato & cole slaw",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-03-21T19:35:51.514Z"
+}

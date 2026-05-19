@@ -1,0 +1,181 @@
+{
+  "business_name": "Papa Rocco's",
+  "cuisine_type": "Pizza, Oysters, Wings",
+  "price_range": null,
+  "description": "Papa Rocco's - Pizza, Oysters and Wings Restaurant in Gulf Shores, AL with Daily Live Music",
+  "atmosphere": null,
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": "251-948-7262",
+    "email": "jamabaker963@gmail.com",
+    "address": "101 West 6th Avenue, Gulf Shores, AL, 36542, United States",
+    "website": "https://paparoccos.com",
+    "hours_phone": "251-948-7262",
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": "https://www.facebook.com/people/Papa-Roccos/100084720384636/",
+      "instagram": "https://instagram.com/paparoccospizza/",
+      "twitter": null,
+      "tiktok": null,
+      "youtube": null,
+      "yelp": "https://yelp.com/biz/papa-roccos-gulf-shores"
+    }
+  },
+  "hours": {
+    "monday": "10am - 11pm",
+    "tuesday": "10am - 11pm",
+    "wednesday": "10am - 11pm",
+    "thursday": "10am - 11pm",
+    "friday": "10am - 11pm",
+    "saturday": "10am - 11pm",
+    "sunday": "10am - 11pm",
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": true,
+    "takeout_available": null,
+    "delivery_available": null,
+    "curbside_available": null,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [],
+    "wine_list": null,
+    "beer_selection": null,
+    "cocktails": null,
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": null,
+      "vegan": null,
+      "gluten_free": null,
+      "dairy_free": null,
+      "nut_free": null,
+      "kosher": null,
+      "halal": null
+    }
+  },
+  "happy_hour": {
+    "available": true,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [],
+  "entertainment_and_events": [
+    {
+      "type": "live_music",
+      "name": "Daily Live Music",
+      "days": "Daily",
+      "start_time": null,
+      "end_time": null,
+      "description": null,
+      "cover_charge": null,
+      "featured_artist": null
+    }
+  ],
+  "private_events": {
+    "available": null,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": null,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [
+      "USD",
+      "CAD",
+      "GBP",
+      "AUD",
+      "EUR",
+      "CHF",
+      "NOK",
+      "SEK",
+      "DKK",
+      "NZD",
+      "SGD",
+      "MXN",
+      "HKD",
+      "CZK",
+      "ILS",
+      "MYR",
+      "RUB",
+      "PHP",
+      "PLN",
+      "THB",
+      "BRL",
+      "ARS",
+      "COP",
+      "IDR",
+      "INR",
+      "JPY",
+      "ZAR"
+    ],
+    "kids_policy": null,
+    "pets_allowed": null
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": null,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": null,
+    "private_dining": null
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": null,
+    "email_signup": null,
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": null,
+    "farm_to_table": null,
+    "sustainable": null,
+    "organic": null,
+    "details": null
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [],
+    "common_praise": [],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "logo",
+      "url": "https://images.squarespace-cdn.com/content/v1/691c528b8ca3db5ddb3cb437/e6a1347d-e964-46c7-b76e-df9599ff813a/papa-roccos-logo.png",
+      "description": "Papa Rocco's Logo"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "Papa Rocco's - Pizza, Oysters and Wings Restaurant in Gulf Shores, AL with Daily Live Music. Location: 101 West 6th Avenue, Gulf Shores, AL 36542. Phone: 251-948-7262. Email: jamabaker963@gmail.com. Hours: Monday-Sunday 10am-11pm. Navigation: Food (Menu, Food Specials, Happy Hour, Pizza, Oysters, Wings), Store, Live Music, About, Contact. Features: Daily Live Music, Pizza, Oysters, Wings, Happy Hour available.",
+  "extraction_confidence": "medium",
+  "extraction_notes": "HTML appears to be incomplete/truncated - the body content section is cut off. Successfully extracted: business name, cuisine type, contact information (phone, email, address), hours of operation (10am-11pm daily), social media profiles (Facebook, Instagram, Yelp), main navigation menu structure, and information about live music entertainment. Missing: detailed menu items with prices, pricing range, delivery/takeout details, dietary accommodations, specific happy hour times and specials, event information beyond live music, parking details, accessibility information, policies, reservation system details, loyalty programs, and any reviews. The page structure suggests more detailed information exists on sub-pages like /menu, /happy-hour, /pizza, /oysters, /wings, and /live-music which are not fully captured in this truncated HTML.",
+  "folder": "ChIJXQxIx7cEmogRDAn4DNfCXGw_Papa Rocco's",
+  "extracted_at": "2026-05-15T06:23:51.708Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJXQxIx7cEmogRDAn4DNfCXGw_Papa Rocco's/01_raw_html.html"
+}

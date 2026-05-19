@@ -1,0 +1,62 @@
+{
+  "name": "Gulf Shores Surf & Racquet",
+  "type": "Vacation Rental Condo Resort",
+  "website": "https://www.brett-robinson.com/beach-condo/gulf-shores-surf-and-racquet/",
+  "contact": {
+    "phone": "1-800-211-7892",
+    "address": "1832 West Beach Blvd",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {},
+  "about": {
+    "description": "A tropical oasis offering the best of both Gulf and bay living. Perched on the edge of Little Lagoon with direct beach access across the street to the Gulf. Features waterfront amenities including tennis, pickleball, shuffleboard, boat launch, two piers, pool, hot tub, and picnic areas. All units feature either bayfront views of Little Lagoon or Gulf views.",
+    "elevator_pitch": "Indulge in the best of both worlds with direct access to Little Lagoon and the Gulf beach across the street.",
+    "total_units": null,
+    "floors": null,
+    "year_built": null,
+    "pet_friendly": null,
+    "minimum_stay": null,
+    "check_in": "Varies by season - refer to booking confirmation",
+    "check_out": "Varies by season - refer to booking confirmation",
+    "age_restriction": null
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/brett_robinson_vacations",
+    "facebook": "https://www.facebook.com/BrettRobinsonVacations",
+    "website": "https://www.brett-robinson.com/beach-condo/gulf-shores-surf-and-racquet/"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Hot Deals",
+      "description": "Select units featured with discounted nightly rates",
+      "discount": ""
+    },
+    {
+      "name": "Seasonal Discounts",
+      "description": "Promotions available during different seasons",
+      "discount": ""
+    },
+    {
+      "name": "Snowbird Specials",
+      "description": "Discounts for longer stays",
+      "discount": ""
+    },
+    {
+      "name": "Last-Minute Deals",
+      "description": "Select last-minute savings on available dates",
+      "discount": ""
+    },
+    {
+      "name": "Promo Codes",
+      "description": "Example: 10% off with codes like Bama2025 for 2025 bookings",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 23,
+  "scraped_at": "2026-03-21T22:00:55.121Z"
+}

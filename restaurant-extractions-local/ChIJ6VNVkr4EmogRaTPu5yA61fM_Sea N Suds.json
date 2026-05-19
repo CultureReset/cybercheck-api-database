@@ -1,0 +1,163 @@
+{
+  "business_name": "Sea N Suds",
+  "cuisine_type": "Seafood, Oyster Bar",
+  "price_range": null,
+  "description": "Restaurant and Oyster Bar - Beachfront dining with fresh Gulf seafood",
+  "atmosphere": "Beachfront dining with ocean views",
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": null,
+    "website": "https://sea-n-suds.com/",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": "https://www.facebook.com/Sea-N-Suds-Restaurant-Oyster-Bar-143939835665787/",
+      "instagram": "https://www.instagram.com/sea_n_suds_shop/",
+      "twitter": null,
+      "tiktok": "https://www.tiktok.com/@sea_n_suds?is_from_webapp=1&sender_device=pc",
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": true,
+    "takeout_available": null,
+    "delivery_available": null,
+    "curbside_available": null,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [],
+    "wine_list": null,
+    "beer_selection": null,
+    "cocktails": null,
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": false,
+      "vegan": false,
+      "gluten_free": false,
+      "dairy_free": false,
+      "nut_free": false,
+      "kosher": false,
+      "halal": false
+    }
+  },
+  "happy_hour": {
+    "available": false,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [],
+  "entertainment_and_events": [],
+  "private_events": {
+    "available": false,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": false,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": false,
+    "accessible_restroom": false,
+    "parking_accessible": false,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": null,
+    "pets_allowed": false
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": false,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": false,
+    "private_dining": false
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": true,
+    "email_signup": null,
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": false,
+    "farm_to_table": false,
+    "sustainable": false,
+    "organic": false,
+    "details": "Fresh Gulf seafood"
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [
+      "Raw oysters",
+      "Gumbo"
+    ],
+    "common_praise": [
+      "Beachfront location",
+      "Fresh seafood",
+      "Vacation destination"
+    ],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "food",
+      "url": "https://sea-n-suds.com/wp-content/uploads/2019/11/fresh-oysters-PUGNJYU-1.png",
+      "description": "Fresh oysters"
+    },
+    {
+      "type": "restaurant",
+      "url": "https://sea-n-suds.com/wp-content/uploads/revslider/influencer-hero-1/lines-diagonal.png",
+      "description": "Restaurant decor"
+    },
+    {
+      "type": "food",
+      "url": null,
+      "description": "Gumbo"
+    },
+    {
+      "type": "restaurant",
+      "url": null,
+      "description": "Beach sunset views"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "Sea N Suds - Restaurant and Oyster Bar. Beachfront Dining. Fresh Gulf Seafood. Your Sea-N-Suds Stories. Menu, Gift Shop, About Us - Our Story, Our Gumbo, Oyster Shell Recycling, Photos, Virtual Tour, Webcam, Plan Your Stay, Contact Us. Gift Shop available. Instagram feed showing customer photos including gumbo dishes, beach sunset views, date night experiences, and casual dining moments.",
+  "extraction_confidence": "medium",
+  "extraction_notes": "Limited data extracted from homepage. The HTML provided is primarily the homepage with header navigation and Instagram feed integration. Key missing information: complete contact details (phone, address), detailed business hours, full menu with pricing, drink selections, dietary accommodations, special events, parking details, accessibility information, and pricing range. The page appears to be a WordPress Avada theme site with a focus on visual content (slider, Instagram feed) rather than detailed restaurant information. Menu, detailed hours, and other critical restaurant information are likely on linked pages (Menu page, Contact page, etc.) that were not provided in the HTML.",
+  "folder": "ChIJ6VNVkr4EmogRaTPu5yA61fM_Sea N Suds",
+  "extracted_at": "2026-05-15T06:06:34.068Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJ6VNVkr4EmogRaTPu5yA61fM_Sea N Suds/01_raw_html.html"
+}

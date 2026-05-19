@@ -1,0 +1,21 @@
+{
+  "name": "Mikee's Seafood",
+  "type": "Restaurant",
+  "website": "https://mikeesseafood.com",
+  "contact": {
+    "phone": "",
+    "address": "",
+    "city": "",
+    "email": ""
+  },
+  "hours": {},
+  "about": {},
+  "social": {},
+  "menu": [],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 27,
+  "scraped_at": "2026-03-21T13:19:15.822Z"
+}

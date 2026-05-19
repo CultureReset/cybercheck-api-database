@@ -1,0 +1,84 @@
+{
+  "name": "Cozumel Bar & Grill",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "",
+    "address": "",
+    "city": "",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Fresh From the Grill",
+      "name": "Seafood Fajita",
+      "description": "Grilled shrimp, scallops, and tilapia fillet cooked with tomatoes, bell peppers and onions. Served with rice, beans, guacamole, pico de gallo, lettuce and sour cream.",
+      "price": ""
+    },
+    {
+      "category": "Fresh From the Grill",
+      "name": "Molcajete for Two",
+      "description": "Steak, Chicken, Shrimp, Chorizo cooked with onions, & bell peppers. Topped with Tomatoes, guacamole, sour cream, pico de gallo and lettuce, jalapeño, cilantro & lime. Served with charro beans and white rice.",
+      "price": ""
+    },
+    {
+      "category": "Fresh From the Grill",
+      "name": "Rib-Eye y Camaron a la Plancha",
+      "description": "Rib-Eye & Shrimp with grilled mixed veggies on a bed of grilled onions.",
+      "price": ""
+    },
+    {
+      "category": "Fresh From the Grill",
+      "name": "Seafood Soup",
+      "description": "Fish, Shrimp, Mussels, Crab Legs and vegetables cooked in a chile de arbol broth.",
+      "price": ""
+    },
+    {
+      "category": "Fresh From the Grill",
+      "name": "Carne Asada",
+      "description": "Thin Steak cooked with onions, & bell peppers. Topped with Tomatoes, jalapeño, & lime. Served with rice, beans, guacamole, sour cream, pico de gallo and lettuce.",
+      "price": ""
+    },
+    {
+      "category": "Fresh From the Grill",
+      "name": "Seafood Molcajete (for 2)",
+      "description": "Whole head on shrimp, scallops, mussels, whole fried tilapia in a special sauce. Garnished with pineapple, lime/lemon, and cucumber. Served with white rice, charro beans, tortillas, and guacamole salad.",
+      "price": ""
+    },
+    {
+      "category": "Fresh From the Grill",
+      "name": "Pollo Blanco",
+      "description": "Grilled Chicken breast on a bed of grilled onions, bell peppers, tomatoes, and mushrooms topped with poblano sauce. Served with a side of white rice.",
+      "price": ""
+    },
+    {
+      "category": "Fresh From the Grill",
+      "name": "Carnitas",
+      "description": "Shredded pork pieces marinated in a special sauce cooked with grilled onions. Served with pico de gallo, rice, beans, and tortillas.",
+      "price": ""
+    },
+    {
+      "category": "Fresh From the Grill",
+      "name": "Alambres Cozumel",
+      "description": "Grilled chicken, steak, bacon, mushrooms, bell peppers, onions and tomatoes. Topped with mozzarella cheese. Served with rice, beans, lettuce, pico de gallo, guacamole, sour cream and tortillas.",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:50.190Z"
+}

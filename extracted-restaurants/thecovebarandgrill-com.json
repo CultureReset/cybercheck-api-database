@@ -1,0 +1,180 @@
+{
+  "name": "The Cove Bar and Grill",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "(951) 696-2211",
+    "address": "40675 Murrieta Hot Springs Road",
+    "city": "Murrieta",
+    "email": "info@thecovebarandgrill.com"
+  },
+  "hours": {
+    "monday": "11am-1:30am",
+    "tuesday": "11am-1:30am",
+    "wednesday": "11am-1:30am",
+    "thursday": "11am-1:30am",
+    "friday": "11am-1:30am",
+    "saturday": "9am-1:30am",
+    "sunday": "9am-1:30am"
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Burgers & Sandwiches",
+      "name": "Old School Burger & Fries",
+      "description": "Classic burger with fries",
+      "price": 12
+    },
+    {
+      "category": "Burgers & Sandwiches",
+      "name": "French Dip",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Burgers & Sandwiches",
+      "name": "Philly Cheese Steak",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Salads",
+      "name": "Caesar Salad",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Salads",
+      "name": "Blackened Shrimp Salad",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Salads",
+      "name": "Salmon Salad",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Tenderloin Steak",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Blackened Shrimp",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Lasagna",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Pasta",
+      "name": "Spicy Senorita Pasta",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Pasta",
+      "name": "Godfather Pasta",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Tacos",
+      "name": "Shrimp Mango Tacos",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Tacos",
+      "name": "Taco Flight Special",
+      "description": "Mix-n-Match 4 Street Tacos - Carne Asada, Chicken or Shrimp + Chips & Guac (Dine In Only)",
+      "price": 15
+    },
+    {
+      "category": "Happy Hour Menu",
+      "name": "Chicken Wings",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Happy Hour Menu",
+      "name": "Nachos",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Happy Hour Menu",
+      "name": "Pretzel Sticks",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Happy Hour Menu",
+      "name": "Sliders",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Happy Hour Menu",
+      "name": "Lamb Lollipops",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Happy Hour Menu",
+      "name": "Chorizo Fries",
+      "description": "",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Happy Hour",
+      "description": "Murrieta's best happy hour. Enjoy friendly and fun atmosphere with ice-cold draft beer, fine wine, craft cocktails, or extensive selection of fine whiskeys. Includes delicious happy hour menu.",
+      "discount": ""
+    },
+    {
+      "name": "Old School Burger & Fries",
+      "description": "Dine In Only",
+      "discount": ""
+    },
+    {
+      "name": "Whiskey & Wings Wednesday",
+      "description": "",
+      "discount": ""
+    },
+    {
+      "name": "Taco Flight Special",
+      "description": "Mix-n-Match 4 Street Tacos - Carne Asada, Chicken or Shrimp + Chips & Guac (Dine In Only)",
+      "discount": ""
+    },
+    {
+      "name": "Trivia Night",
+      "description": "That Bingo Guy brings fast questions and loud fun. Prizes. Drinks. Bragging rights. Grab your crew. Claim a table early. Think quick.",
+      "discount": ""
+    },
+    {
+      "name": "Bingo Night",
+      "description": "The Bingo Guy takes over. Free to play. Prizes ready. Drinks flowing. Bring your crew. Call BINGO loud.",
+      "discount": ""
+    },
+    {
+      "name": "Karaoke with Julian",
+      "description": "",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:51.736Z"
+}

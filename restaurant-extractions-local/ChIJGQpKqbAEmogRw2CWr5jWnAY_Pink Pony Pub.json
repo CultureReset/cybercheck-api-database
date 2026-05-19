@@ -1,0 +1,214 @@
+{
+  "business_name": "Pink Pony Pub",
+  "cuisine_type": "Seafood",
+  "price_range": "$",
+  "description": "Pink Pony Pub has been a beachfront staple of Gulf Shores for 50+ years. A world-famous beach bar located directly on Gulf Shores beach. The establishment has been surviving hurricanes since 1956.",
+  "atmosphere": "Beachfront bar and grill with casual beach atmosphere",
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": "(251) 948-6371",
+    "email": null,
+    "address": "137 E Gulf Shores Pl, Gulf Shores, AL 36542",
+    "website": "https://pinkponypub.net/",
+    "hours_phone": "(251) 948-6371",
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": "https://www.facebook.com/pages/Pink-Pony-Pub-World-Famous-Beach-Bar/163530627029",
+      "instagram": "https://www.instagram.com/pinkponypub/",
+      "twitter": "https://twitter.com/pinkponypub?lang=en",
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": "10:30 AM - 10:00 PM",
+    "tuesday": "10:30 AM - 10:00 PM",
+    "wednesday": "10:30 AM - 10:00 PM",
+    "thursday": "10:30 AM - 10:00 PM",
+    "friday": "10:30 AM - 10:00 PM",
+    "saturday": "10:30 AM - 10:00 PM",
+    "sunday": "10:30 AM - 10:00 PM",
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null,
+    "note": "Children welcome until 9:00 PM"
+  },
+  "delivery_and_takeout": {
+    "dine_in": true,
+    "takeout_available": true,
+    "delivery_available": false,
+    "curbside_available": false,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [
+      {
+        "name": "Featured Drinks",
+        "description": null,
+        "items": [
+          {
+            "name": "Bob Marley",
+            "description": "Strawberry, Pina Colada, banana, melon, orange, coconut rum & dark rum. Served in a Pink Pony Pub souvenir glass.",
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": true,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Malibu Bushwhacker",
+            "description": "Malibu Rum, Dark Creme de Cocoa, Irish Creme & Vanilla Creme.",
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": true,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Pina Colada",
+            "description": "A Pink Pony signature frozen drink that includes premium rum, coconut cream & fresh pineapple juice.",
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": true,
+            "is_seasonal": false,
+            "availability": null
+          }
+        ]
+      }
+    ],
+    "wine_list": null,
+    "beer_selection": null,
+    "cocktails": "Featured drinks include Bob Marley, Malibu Bushwhacker, and Pina Colada. Full cocktail menu available on website.",
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": false,
+      "vegan": false,
+      "gluten_free": false,
+      "dairy_free": false,
+      "nut_free": false,
+      "kosher": false,
+      "halal": false
+    }
+  },
+  "happy_hour": {
+    "available": false,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [],
+  "entertainment_and_events": [],
+  "private_events": {
+    "available": false,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": false,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": false,
+    "accessible_restroom": false,
+    "parking_accessible": false,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": "Children welcome until 9:00 PM",
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": "Children welcome until 9:00 PM",
+    "pets_allowed": false
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": false,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": false,
+    "private_dining": false
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": false,
+    "email_signup": null,
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": false,
+    "farm_to_table": false,
+    "sustainable": false,
+    "organic": false,
+    "details": null
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [],
+    "common_praise": [],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "restaurant",
+      "url": "/www/pages/8/7/1/8/4/9/5/4/4/A/images/8fbdd2c687c855e.jpg",
+      "description": "Main carousel image"
+    },
+    {
+      "type": "restaurant",
+      "url": "/tyfoon/site/photos/34C8AAFE28/images/3dd6f5ec30794ac.jpg",
+      "description": "Gallery image"
+    },
+    {
+      "type": "restaurant",
+      "url": "/tyfoon/site/photos/34C8AAFE28/images/7cae530ddfe302f.jpg",
+      "description": "Gallery image"
+    },
+    {
+      "type": "restaurant",
+      "url": "/tyfoon/site/photos/34C8AAFE28/images/f8410b719f29c4d.jpg",
+      "description": "Gallery image"
+    },
+    {
+      "type": "restaurant",
+      "url": "/tyfoon/site/photos/34C8AAFE28/images/546e677b203c217.jpg",
+      "description": "Gallery image"
+    },
+    {
+      "type": "restaurant",
+      "url": "/tyfoon/site/photos/34C8AAFE28/images/3f66d657f01b5ae.jpg",
+      "description": "Gallery image"
+    },
+    {
+      "type": "restaurant",
+      "url": "/tyfoon/site/photos/34C8AAFE28/images/a43f900546f588e.jpg",
+      "description": "Gallery image"
+    },
+    {
+      "type": "logo",
+      "url": "https://pinkponypub.net/_images/logo.png",
+      "description": "Pink Pony Pub logo"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "Pink Pony Pub & Club | Gulf Shores Restaurant & Bar in AL. Pink Pony Pub has been a beachfront staple of Gulf Shores for 50+ years. Located directly on Gulf Shores beach. Open everyday 10:30am to 10pm. Children welcome until 9pm. The sun rises in the Gulf. Feeling hungry? Menu. We've been surviving hurricanes since 1956. Featured Drinks: Bob Marley - Strawberry, Pina Colada, banana, melon, orange, coconut rum & dark rum. Served in a Pink Pony Pub souvenir glass. Malibu Bushwhacker - Malibu Rum, Dark Creme de Cocoa, Irish Creme & Vanilla Creme. Pina Colada - A Pink Pony signature frozen drink that includes premium rum, coconut cream & fresh pineapple juice. Location: 137 E Gulf Pl, Gulf Shores, AL. Phone: (251) 948-6371. Open everyday 11am - 10pm. Children welcome until 9pm. Follow us on Facebook, Twitter, Instagram. View the Beach Cam. Footer: Home, About, Menu, Shop, Photos, Contact. Certifications: Alabama Seafood Association, Certified Angus Beef.",
+  "extraction_confidence": "high",
+  "extraction_notes": "Successfully extracted core business information from structured schema data and visible HTML content. Full menu details are referenced but not visible on this homepage - users are directed to /menu/ page. No happy hour, specials, entertainment, events, or detailed dietary information found on this page. Reservations are not accepted according to schema. Delivery information shows acceptance of to-go orders. Accessibility information not provided. The website banner indicates open from 10:30 AM to 10 PM with to-go and limited dine-in service mentioned. Footer shows Alabama Seafood Association and Certified Angus Beef affiliations.",
+  "folder": "ChIJGQpKqbAEmogRw2CWr5jWnAY_Pink Pony Pub",
+  "extracted_at": "2026-05-15T06:15:12.747Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJGQpKqbAEmogRw2CWr5jWnAY_Pink Pony Pub/01_raw_html.html"
+}

@@ -1,0 +1,189 @@
+{
+  "name": "Tokyo Asian Cuisine",
+  "type": "Restaurant",
+  "website": "http://fairhopetokyo.toast.site/",
+  "contact": {
+    "phone": "(251) 990-2218",
+    "address": "94 Plantation Pointe",
+    "city": "Fairhope",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null
+  },
+  "about": {
+    "description": null,
+    "cuisine_type": "Asian"
+  },
+  "social": {},
+  "menu": [
+    {
+      "category": "NA Beverages",
+      "name": "Coca-Cola",
+      "description": "Coca-Cola Original Taste — the crisp, refreshing taste you know and love",
+      "price": "$3.00"
+    },
+    {
+      "category": "NA Beverages",
+      "name": "Coke Zero",
+      "description": "Take a Diet Coke break with this refreshing, no-calorie soft drink",
+      "price": "$3.00"
+    },
+    {
+      "category": "NA Beverages",
+      "name": "Pink Lemonade",
+      "description": "",
+      "price": "$3.00"
+    },
+    {
+      "category": "NA Beverages",
+      "name": "Sprite",
+      "description": "Classic, cool, crisp lemon-lime flavored taste that's caffeine free",
+      "price": "$3.00"
+    },
+    {
+      "category": "NA Beverages",
+      "name": "Dr. Pepper",
+      "description": "",
+      "price": "$3.00"
+    },
+    {
+      "category": "NA Beverages",
+      "name": "Sweet Tea",
+      "description": "",
+      "price": "$3.00"
+    },
+    {
+      "category": "NA Beverages",
+      "name": "Unsweet Tea",
+      "description": "",
+      "price": "$3.00"
+    },
+    {
+      "category": "NA Beverages",
+      "name": "Hot Green Tea",
+      "description": "",
+      "price": "$3.00"
+    },
+    {
+      "category": "NA Beverages",
+      "name": "Ramune",
+      "description": "",
+      "price": "$4.00"
+    },
+    {
+      "category": "NA Beverages",
+      "name": "Club Soda",
+      "description": "",
+      "price": "$3.00"
+    },
+    {
+      "category": "NA Beverages",
+      "name": "Shirley Temple",
+      "description": "",
+      "price": "$4.00"
+    },
+    {
+      "category": "NA Beverages",
+      "name": "Ginger Ale",
+      "description": "",
+      "price": "$3.00"
+    },
+    {
+      "category": "Lunch (Tues - Fri)",
+      "name": "Two Roll",
+      "description": "From the Sushi Bar",
+      "price": "$13.95"
+    },
+    {
+      "category": "Lunch (Tues - Fri)",
+      "name": "Three Rolls",
+      "description": "From the Sushi Bar",
+      "price": "$16.95"
+    },
+    {
+      "category": "Lunch (Tues - Fri)",
+      "name": "Nigiri Lunch",
+      "description": "5 piece sushi and one California roll",
+      "price": "$16.95"
+    },
+    {
+      "category": "Lunch (Tues - Fri)",
+      "name": "Nigiri and Sashimi Lunch",
+      "description": "3 piece sushi, 4 piece sashimi, and one California roll",
+      "price": "$18.95"
+    },
+    {
+      "category": "Lunch (Tues - Fri)",
+      "name": "Sashimi Lunch",
+      "description": "6 piece sashimi and one California roll",
+      "price": "$17.95"
+    },
+    {
+      "category": "Lunch (Tues - Fri)",
+      "name": "L Hibachi Chicken",
+      "description": "",
+      "price": "$13.95"
+    },
+    {
+      "category": "Lunch (Tues - Fri)",
+      "name": "L Hibachi NY Steak",
+      "description": "",
+      "price": "$14.95"
+    },
+    {
+      "category": "Lunch (Tues - Fri)",
+      "name": "L Hibachi Filet Mignon",
+      "description": "",
+      "price": "$17.95"
+    },
+    {
+      "category": "Lunch (Tues - Fri)",
+      "name": "L Hibachi Shrimp",
+      "description": "",
+      "price": "$14.95"
+    },
+    {
+      "category": "Lunch (Tues - Fri)",
+      "name": "L Hibachi Salmon",
+      "description": "",
+      "price": "$14.95"
+    },
+    {
+      "category": "Lunch (Tues - Fri)",
+      "name": "L Hibachi Vegetable",
+      "description": "",
+      "price": "$12.95"
+    },
+    {
+      "category": "Lunch (Tues - Fri)",
+      "name": "L Hibachi Chicken & Shrimp",
+      "description": "",
+      "price": "$16.95"
+    },
+    {
+      "category": "Lunch (Tues - Fri)",
+      "name": "L Hibachi NY Steak & Chicken",
+      "description": "",
+      "price": "$16.95"
+    },
+    {
+      "category": "Lunch (Tues - Fri)",
+      "name": "L Hibachi NY Steak & Shrimp",
+      "description": "",
+      "price": "$17.95"
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-03-21T14:13:52.396Z"
+}

@@ -1,0 +1,273 @@
+{
+  "name": "Another Broken Egg Cafe",
+  "type": "Restaurant",
+  "website": "https://www.anotherbrokenegg.com/locations/orange-beach-al/",
+  "contact": {
+    "phone": "",
+    "address": "",
+    "city": "Orange Beach",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null
+  },
+  "about": {
+    "description": "Southern-inspired breakfast, brunch and lunch cafe offering handcrafted dishes with creative flair. Features traditional classics alongside innovative twists you can't find anywhere else.",
+    "cuisine_type": "American/Southern Brunch"
+  },
+  "social": {},
+  "menu": [
+    {
+      "category": "Lunch Duos",
+      "name": "1/2 Bacon Lover's BLT&A",
+      "description": "Thick-cut baked bacon strips, lettuce, avocado, tomatoes and Cheddar Jack cheese with garlic aioli on nine-grain bread.",
+      "price": "$12.99"
+    },
+    {
+      "category": "Lunch Duos",
+      "name": "1/2 Chicken & Waffles",
+      "description": "Crispy fried chicken tenders on a Belgian waffle, drizzled with house-made chipotle honey.",
+      "price": "$12.99"
+    },
+    {
+      "category": "Lunch Duos",
+      "name": "1/2 Chicken Salad Sandwich",
+      "description": "All-white meat chicken salad, lettuce, tomato, nine-grain bread. Served with country potatoes & pickle spear.",
+      "price": "$12.99"
+    },
+    {
+      "category": "Lunch Duos",
+      "name": "1/2 Crab Cake Benedict",
+      "description": "Jumbo lump crab cakes on an English muffin, topped with poached eggs, andouille-infused hollandaise, red peppers and green onions.",
+      "price": "$14.98"
+    },
+    {
+      "category": "Lunch Duos",
+      "name": "1/2 Fried Chicken Cobb Salad",
+      "description": "Mixed greens, chopped fried chicken tenders, sliced hard boiled egg, tomato, chopped bacon, pickled red onions, honey mustard dressing (715 cal)",
+      "price": "$12.99"
+    },
+    {
+      "category": "Lunch Duos",
+      "name": "1/2 The Southern Stack Club",
+      "description": "Ham, turkey, baked bacon, guacamole, Cheddar Jack cheese, tomato and pickled red onions on your choice of white or nine-grain bread.",
+      "price": "$14.98"
+    },
+    {
+      "category": "Lunch Duos",
+      "name": "1/2 Traditional Benedict",
+      "description": "Grilled breakfast ham on an English muffin, topped with poached eggs, hollandaise and green onions.",
+      "price": "$12.99"
+    },
+    {
+      "category": "Brunch Specialties",
+      "name": "Bacon & Grilled Tomato Benedict",
+      "description": "Grilled tomato, poached eggs, hollandaise, chopped bacon, green onions, English muffin. (810 cal) With grits or country potatoes (+180/320 cal) Sub fresh seasonal fruit or Loaded Bacon Gouda Grits (+50/460Cal)",
+      "price": "$16.29"
+    },
+    {
+      "category": "Brunch Specialties",
+      "name": "Cajun Shrimp & Crawfish Omelette",
+      "description": "Shrimp, crawfish & andouille, red peppers, tomato hollandaise, tomatoes, green onions. (770 cal) With English muffin (+140 cal) & grits or country potatoes (+180/320 cal) Sub fresh seasonal fruit or Loaded Bacon Gouda Grits (+50/460Cal)",
+      "price": "$17.99"
+    },
+    {
+      "category": "Brunch Specialties",
+      "name": "Chicken & Waffles",
+      "description": "Crispy fried chicken tenders on a Belgian waffle, drizzled with house-made chipotle honey.",
+      "price": "$16.29"
+    },
+    {
+      "category": "Brunch Specialties",
+      "name": "Cinnamon Roll French Toast",
+      "description": "Thick-sliced French-toast style cinnamon rolls, cream cheese icing, rum butter sauce, seasonal berries, whipped cream. (1360 cal) With two eggs any style (+120-220 cal) & bacon or house sausage patties (+180/250 cal)",
+      "price": "$13.89"
+    },
+    {
+      "category": "Brunch Specialties",
+      "name": "Crab Cake Benedict",
+      "description": "Crab cake, poached eggs, andouille-infused hollandaise, red peppers, green onions, English muffin. (800 cal) With grits or country potatoes (+180/320 cal) Sub fresh seasonal fruit or Loaded Bacon Gouda Grits (+50/460Cal)",
+      "price": "$18.49"
+    },
+    {
+      "category": "Brunch Specialties",
+      "name": "Hash Brown Benedict",
+      "description": "Ham & cheese crispy hash brown croquettes, poached eggs, mushroom herbed hollandaise & red peppers. (870 cal) With grits or country potatoes (+180/320 cal) Sub fresh seasonal fruit or Loaded Bacon Gouda Grits (+50/460Cal)",
+      "price": "$16.29"
+    },
+    {
+      "category": "Brunch Specialties",
+      "name": "Shrimp 'N Grits",
+      "description": "Gulf shrimp and andouille sausage sauteed with red peppers and onions in a spicy low country reduction, over creamy cheese grits. Served with garlic",
+      "price": "$18.49"
+    },
+    {
+      "category": "Mocktails - Alcohol-Free",
+      "name": "Strawberry Lemonade Spritzer",
+      "description": "Muddled strawberries, fresh sour mix, strawberry purèe, sparkling water, garnished with strawberry and an orange slice.",
+      "price": ""
+    },
+    {
+      "category": "Mocktails - Alcohol-Free",
+      "name": "Pineapple Berry Agua Fresca",
+      "description": "Pineapple juice, strawberry purèe, sparkling water, lime, garnished with fresh mint.",
+      "price": ""
+    },
+    {
+      "category": "Mocktails - Alcohol-Free",
+      "name": "Blackberry Smash",
+      "description": "Muddled blackberries & fresh mint, blackberry purée, lemon & ginger ale.",
+      "price": ""
+    },
+    {
+      "category": "Mocktails - Alcohol-Free",
+      "name": "Cranberry Pomegranate Fizz",
+      "description": "Iced tea, cranberry & pomegranate syrups, lime & ginger beer. With rosemary & orange peel.",
+      "price": ""
+    },
+    {
+      "category": "Mocktails - Alcohol-Free",
+      "name": "Winter Berry Sage Spritz",
+      "description": "Iced tea, wildberry syrup, cranberry juice, lime juice, ginger ale, fresh sage, blackberries & sugar rim.",
+      "price": ""
+    },
+    {
+      "category": "Mocktails - Alcohol-Free",
+      "name": "Yuzu Matcha Lemonade",
+      "description": "Yuzu lemonade, matcha & fresh mint.",
+      "price": ""
+    },
+    {
+      "category": "Mocktails - Alcohol-Free",
+      "name": "Chocolate Pistachio Matcha",
+      "description": "Pistachio matcha with milk, chocolate cream topping, chocolate streusel rim.",
+      "price": ""
+    },
+    {
+      "category": "Hand-Crafted Cocktails",
+      "name": "Brunch Blueberry Margarita",
+      "description": "Milagro® Tequila, Grand Marnier®, fresh sour mix, fresh blueberries and a blueberry rim. Available by glass and by the pitcher.",
+      "price": ""
+    },
+    {
+      "category": "Hand-Crafted Cocktails",
+      "name": "Hendrick's® Blackberry Mule",
+      "description": "Hendrick's® Gin, fresh sour mix, fresh fruit flavor of blackberries and ginger beer. Available by glass and by the pitcher.",
+      "price": ""
+    },
+    {
+      "category": "Hand-Crafted Cocktails",
+      "name": "ABE Cyclone",
+      "description": "Captain Morgan® Original Spiced Rum, Tito's® Handmade Vodka, NOLA-style house-made punch and Frangelico®.",
+      "price": ""
+    },
+    {
+      "category": "Hand-Crafted Cocktails",
+      "name": "Greyhound",
+      "description": "Tito's® Handmade Vodka and grapefruit juice.",
+      "price": ""
+    },
+    {
+      "category": "Hand-Crafted Cocktails",
+      "name": "Traditional Day Starter",
+      "description": "Tito's® Handmade Vodka and orange juice.",
+      "price": ""
+    },
+    {
+      "category": "Hand-Crafted Cocktails",
+      "name": "Hendrick's® Hurricane",
+      "description": "Hendrick's® Gin and NOLA-style house-made punch.",
+      "price": ""
+    },
+    {
+      "category": "Hand-Crafted Cocktails",
+      "name": "Milagro® Tequila Sunrise",
+      "description": "Milagro® Tequila, orange juice and grenadine.",
+      "price": ""
+    },
+    {
+      "category": "Hand-Crafted Cocktails",
+      "name": "Milagro Mango Margarita",
+      "description": "Milagro® Tequila, Grand Marnier®, fresh sour mix and mango purée. Available by the glass and by the pitcher.",
+      "price": ""
+    },
+    {
+      "category": "Hand-Crafted Cocktails",
+      "name": "Yuzu Pineapple Matcha Margarita",
+      "description": "Milagro Tequila, pineapple juice, yuzu, house-made sour mix, matcha & Tajín® rim.",
+      "price": ""
+    },
+    {
+      "category": "Seasonal Selections - Winter 2026",
+      "name": "Banana Nutella Crepes",
+      "description": "Nutella® filled crepes over caramelized bananas, topped with rum butter sauce, strawberries, streusel crunch & whipped cream. With two eggs any style & bacon or sausage patties.",
+      "price": ""
+    },
+    {
+      "category": "Seasonal Selections - Winter 2026",
+      "name": "ABE's Hot Chicken & Biscuits",
+      "description": "Southern fried chicken tenders tossed in our signature hot sauce, stacked on an open-faced biscuit, hardwood smoked bacon, ranch, sunny side up eggs & green onions. grits or country potatoes.",
+      "price": ""
+    },
+    {
+      "category": "Seasonal Selections - Winter 2026",
+      "name": "Apple Crunch French Toast",
+      "description": "Cornflake crusted french toast topped with warm cinnamon spiced apples, dulce de leche sauce, streusel crunch, whipped cream & powdered sugar. With two eggs any style & bacon or sausage patties.",
+      "price": ""
+    },
+    {
+      "category": "Omelettes + Scramblers",
+      "name": "Spinach Scrambler",
+      "description": "Scrambled eggs, spinach, bacon, onions, Jack cheese (600 cal)",
+      "price": ""
+    },
+    {
+      "category": "Omelettes + Scramblers",
+      "name": "Chorizo & Avocado Omelette",
+      "description": "Chorizo, onions, green chilies filled, topped with Cheddar Jack & avocado. With salsa & sour cream (760 cal)",
+      "price": ""
+    },
+    {
+      "category": "Omelettes + Scramblers",
+      "name": "Bacon & Chorizo Omelette",
+      "description": "Bacon & cream cheese filled, topped with garlic butter sautéed chorizo, Jack cheese & green onions (1000 cal)",
+      "price": ""
+    },
+    {
+      "category": "Omelettes + Scramblers",
+      "name": "Supreme Omelette",
+      "description": "Sausage, bacon, onions, mushrooms filled, topped with Cheddar Jack (780 cal)",
+      "price": ""
+    },
+    {
+      "category": "Omelettes + Scramblers",
+      "name": "Veggie Delight Omelette",
+      "description": "Goat cheese, spinach, tomatoes, sautéed mushrooms (360 cal)",
+      "price": ""
+    },
+    {
+      "category": "Omelettes + Scramblers",
+      "name": "Southwest Scrambler",
+      "description": "Scrambled eggs, chorizo, onions, tomatoes, green chilies, Cheddar Jack. With guacamole & salsa. Flour tortilla replaces English muffin (870 cal)",
+      "price": ""
+    },
+    {
+      "category": "Omelettes + Scramblers",
+      "name": "Lobster & Brie Omelette",
+      "description": "Cream cheese filled, topped with Brie, champagne butter sauce sautéed lobster, tomatoes &",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-03-21T14:51:17.572Z"
+}

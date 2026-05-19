@@ -1,0 +1,29 @@
+{
+  "name": "Crico's Pizza & Subs",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "(251) 948-3100",
+    "address": "309 Gulf Shores Parkway",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null
+  },
+  "about": {},
+  "social": {},
+  "menu": [],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:50.199Z"
+}

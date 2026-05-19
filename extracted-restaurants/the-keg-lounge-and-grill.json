@@ -1,0 +1,83 @@
+{
+  "name": "The Keg Lounge and Grill",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "(251) 981-9462",
+    "address": "26796 Canal Rd",
+    "city": "Orange Beach",
+    "email": "thekegloungeandgrill@gmail.com"
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "BBQ",
+      "name": "Full Rack",
+      "description": "",
+      "price": 30
+    },
+    {
+      "category": "BBQ",
+      "name": "Half Rack",
+      "description": "",
+      "price": 15
+    },
+    {
+      "category": "BBQ",
+      "name": "Rib Plate",
+      "description": "",
+      "price": 16.5
+    },
+    {
+      "category": "BBQ",
+      "name": "Pulled Pork Plate",
+      "description": "",
+      "price": 12.5
+    },
+    {
+      "category": "Sides",
+      "name": "BBQ Beans",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sides",
+      "name": "Potato Salad",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sides",
+      "name": "Rolls",
+      "description": "",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Fat Tuesday BBQ",
+      "description": "BBQ served on Fat Tuesday",
+      "discount": ""
+    },
+    {
+      "name": "St. Patrick's Day Gold Coin Scavenger Hunt",
+      "description": "Teams of 4 or fewer, $20 registration per team",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:51.656Z"
+}

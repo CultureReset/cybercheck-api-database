@@ -1,0 +1,57 @@
+{
+  "name": "Lagoon Tower",
+  "type": "Vacation Rental - Condo",
+  "website": "https://www.brett-robinson.com/beach-condo/lagoon-tower/",
+  "contact": {
+    "phone": "+1-800-211-7892",
+    "address": "1940 West Beach Blvd",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {},
+  "about": {
+    "description": "Lagoon Tower is a luxury, lagoon-front condo in the peaceful West Beach area of Gulf Shores. With only two units per floor, this Gulf Shores condo is spacious, family friendly and crowd-free. Units boast floor-to-ceiling windows with stunning views of Little Lagoon or the Gulf. The tower has a private beach access, just across the street. Nestled around beach houses, the beach is wide open for guests' enjoyment and relaxation. Off the beach, Lagoon Tower offers an outdoor pool, heated indoor pool, a fitness center, a hot tub, outdoor grills and a private pier on the lagoon. Sunsets over Little Lagoon are a sight to behold.",
+    "elevator_pitch": "Luxury lagoon-front condo with private beach access, two units per floor for spacious family-friendly stays, and stunning Gulf and Little Lagoon views.",
+    "total_units": null,
+    "floors": null,
+    "year_built": null,
+    "pet_friendly": null,
+    "minimum_stay": "3 nights",
+    "check_in": null,
+    "check_out": null,
+    "age_restriction": null
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/brett_robinson_vacations",
+    "facebook": "https://www.facebook.com/BrettRobinsonVacations",
+    "website": "https://www.brett-robinson.com/beach-condo/lagoon-tower/"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Seasonal Discounts",
+      "description": "Seasonal discounts available on select dates",
+      "discount": ""
+    },
+    {
+      "name": "Snowbird Specials",
+      "description": "Special rates for longer stays",
+      "discount": ""
+    },
+    {
+      "name": "Last-Minute Deals",
+      "description": "Limited-time offers on available inventory",
+      "discount": ""
+    },
+    {
+      "name": "Early Booking Discounts",
+      "description": "Best rates available when booking early",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 23,
+  "scraped_at": "2026-03-21T21:41:58.033Z"
+}

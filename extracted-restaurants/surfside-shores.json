@@ -1,0 +1,72 @@
+{
+  "name": "Surfside Shores",
+  "type": "Vacation Rental | Condo",
+  "website": "https://www.brett-robinson.com/beach-condo/surfside-shores/",
+  "contact": {
+    "phone": "+1-800-211-7892",
+    "address": "965 W Beach Blvd",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {},
+  "about": {
+    "description": "Surfside Shores is a beachfront vacation rental property managed by Brett/Robinson Vacation Rentals, a family-owned company with over 40 years of experience offering condos and vacation rentals in Gulf Shores and Orange Beach, Alabama. The property features direct beach access and modern amenities for family-friendly coastal getaways.",
+    "elevator_pitch": "Beachfront vacation rental condo in Gulf Shores with direct Gulf access and full modern amenities.",
+    "total_units": null,
+    "floors": null,
+    "year_built": null,
+    "pet_friendly": null,
+    "minimum_stay": "3 nights",
+    "check_in": null,
+    "check_out": null,
+    "age_restriction": null
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/brett_robinson_vacations",
+    "facebook": "https://www.facebook.com/BrettRobinsonVacations",
+    "website": "https://www.brett-robinson.com/beach-condo/surfside-shores/"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Seasonal Discounts",
+      "description": "Seasonal promotions on select Gulf Shores and Orange Beach rentals throughout the year",
+      "discount": ""
+    },
+    {
+      "name": "Snowbird Specials",
+      "description": "Extended stay discounts for longer-term rentals",
+      "discount": ""
+    },
+    {
+      "name": "Last-Minute Deals",
+      "description": "Hot deals on select rentals with limited time offers",
+      "discount": ""
+    },
+    {
+      "name": "Promo Codes",
+      "description": "Percentage-off promotions such as 10% savings with codes like Bama2025 for 2025 bookings",
+      "discount": ""
+    },
+    {
+      "name": "Memorial Day Specials",
+      "description": "Special rates for Memorial Day weekend (May 21-24, 2026)",
+      "discount": ""
+    },
+    {
+      "name": "4+ Bedroom Group Specials",
+      "description": "Deals on large group accommodations with 4-8 bedrooms for up to 22 guests",
+      "discount": ""
+    },
+    {
+      "name": "Hidden Gems Charming Beachfront Stays",
+      "description": "Unique properties with 1-8 bedrooms at discounted rates for tranquil getaways",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 23,
+  "scraped_at": "2026-03-21T22:22:56.405Z"
+}

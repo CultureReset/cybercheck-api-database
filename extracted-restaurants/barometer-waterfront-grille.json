@@ -1,0 +1,35 @@
+{
+  "name": "Barometer Waterfront Grille",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "(251) 451-5232",
+    "address": "27842 Canal Rd",
+    "city": "Orange Beach",
+    "email": "raquel@barometergrill.com"
+  },
+  "hours": {
+    "monday": "11am-10pm",
+    "tuesday": "11am-10pm",
+    "wednesday": "11am-10pm",
+    "thursday": "11am-10pm",
+    "friday": "11am-10pm",
+    "saturday": "9am-10pm",
+    "sunday": "9am-10pm"
+  },
+  "about": {},
+  "social": {},
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Live Music",
+      "description": "Live music every Thursday & Friday",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:50.039Z"
+}

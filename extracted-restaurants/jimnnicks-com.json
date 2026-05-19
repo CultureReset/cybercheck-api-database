@@ -1,0 +1,89 @@
+{
+  "name": "Jim 'N Nick's BBQ Restaurant",
+  "type": "Restaurant",
+  "website": "https://www.jimnnicks.com",
+  "contact": {
+    "phone": "",
+    "address": "",
+    "city": "",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": null
+  },
+  "about": {
+    "description": "Jim 'N Nick's celebrates the artistry of slow cooked Bar-B-Q with recipes handed down for generations.",
+    "elevator_pitch": "World-class barbecue featuring slow-cooked meats with time-honored family recipes.",
+    "vibe": "Casual BBQ restaurant with a focus on traditional, authentic barbecue",
+    "best_for": [
+      "families",
+      "casual dining",
+      "barbecue lovers"
+    ],
+    "established": null,
+    "reservations": null,
+    "insider_tip": "Known for their cheesy biscuits"
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://www.jimnnicks.com"
+  },
+  "menu": [
+    {
+      "category": "BBQ Meats",
+      "name": "Pork",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "BBQ Meats",
+      "name": "Ribs",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "BBQ Meats",
+      "name": "Hot Links",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "BBQ Meats",
+      "name": "Chicken",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "BBQ Meats",
+      "name": "Turkey",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sides & Appetizers",
+      "name": "Cheesy Biscuits",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Burgers",
+      "name": "Burgers",
+      "description": "",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 10,
+  "scraped_at": "2026-03-21T20:44:02.971Z"
+}

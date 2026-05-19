@@ -1,0 +1,107 @@
+{
+  "name": "The Tin Top Restaurant & Oyster Bar",
+  "type": "Restaurant",
+  "website": "https://tintoprestaurant.com",
+  "contact": {
+    "phone": "+1-251-949-5086",
+    "address": "17451 County Rd. 49 S.",
+    "city": "Bon Secour",
+    "email": "info@tintoprestaurant.com"
+  },
+  "hours": {
+    "monday": "11:00 AM - 10:00 PM",
+    "tuesday": "11:00 AM - 10:00 PM",
+    "wednesday": "11:00 AM - 10:00 PM",
+    "thursday": "11:00 AM - 10:00 PM",
+    "friday": "11:00 AM - 10:00 PM",
+    "saturday": "11:00 AM - 10:00 PM",
+    "sunday": "10:00 AM - 9:00 PM",
+    "notes": null
+  },
+  "about": {
+    "description": "Located in Bon Secour, Tin Top Restaurant & Oyster Bar serves fresh Gulf seafood and premium aged steaks in a casual, river-front setting.",
+    "elevator_pitch": "A casual riverfront restaurant in Bon Secour specializing in fresh Gulf seafood, premium steaks, and classic Southern cuisine.",
+    "vibe": "Casual, relaxed river-front dining atmosphere",
+    "best_for": [
+      "families",
+      "casual dining",
+      "seafood lovers",
+      "steakhouse enthusiasts"
+    ],
+    "established": null,
+    "reservations": "False",
+    "insider_tip": null
+  },
+  "social": {
+    "instagram": null,
+    "facebook": "https://www.facebook.com/TinTopBonSecour",
+    "website": "https://tintoprestaurant.com"
+  },
+  "menu": [
+    {
+      "category": "Lunch Menu",
+      "name": "Soups",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Lunch Menu",
+      "name": "Salads",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Lunch Menu",
+      "name": "Po' Boys",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Lunch Menu",
+      "name": "Sandwiches",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Brunch Menu",
+      "name": "Fresh Seafood",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Brunch Menu",
+      "name": "Classic Brunch Plates",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Brunch Menu",
+      "name": "Local Favorites",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Children's Menu",
+      "name": "Kid-Friendly Meals",
+      "description": "",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Happy Hour Specials",
+      "description": "Drink specials and select menu items",
+      "discount": ""
+    },
+    {
+      "name": "Weekly Specials",
+      "description": "Rotating seafood plates, chef favorites, and featured nights",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 41,
+  "scraped_at": "2026-03-21T20:18:45.123Z"
+}

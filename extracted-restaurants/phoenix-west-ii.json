@@ -1,0 +1,62 @@
+{
+  "name": "Phoenix West II (The Oasis formerly Phoenix West II)",
+  "type": "Vacation Rental Condo Resort",
+  "website": "https://www.brett-robinson.com/beach-condo/phoenix-west-ii/",
+  "contact": {
+    "phone": "1-800-211-7892",
+    "address": "23450 Perdido Beach Blvd",
+    "city": "Orange Beach",
+    "email": ""
+  },
+  "hours": {},
+  "about": {
+    "description": "The Oasis formerly Phoenix West II is a luxury Orange Beach property offering beachfront condos with all the benefits of a beachfront resort combined with the comforts of home. Features well-appointed 3 and 4-bedroom units that can sleep up to 14 guests. Units range from approximately 1,950 to 2,550 square feet. Property underwent renovations in summer 2024 including new outdoor bar & grill, adult pool, enhanced splash pad, pickleball court, half-court basketball, and new pavilion center.",
+    "elevator_pitch": "Luxury Orange Beach beachfront resort with spacious 3-4 bedroom condos, panoramic Gulf views, and resort-style amenities including pools, lazy river, and direct beach access.",
+    "total_units": null,
+    "floors": null,
+    "year_built": null,
+    "pet_friendly": false,
+    "minimum_stay": null,
+    "check_in": "Check-in/check-out times vary by season",
+    "check_out": "Check-in/check-out times vary by season",
+    "age_restriction": null
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/brett_robinson_vacations",
+    "facebook": "https://www.facebook.com/BrettRobinsonVacations",
+    "website": "https://www.brett-robinson.com/beach-condo/phoenix-west-ii"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Seasonal Discounts",
+      "description": "Promotional pricing for seasonal travel periods",
+      "discount": ""
+    },
+    {
+      "name": "Snowbird Specials",
+      "description": "Special rates for longer stays during winter months",
+      "discount": ""
+    },
+    {
+      "name": "Last-Minute Deals",
+      "description": "Discounted rates on select inventory for last-minute bookings",
+      "discount": ""
+    },
+    {
+      "name": "Promo Codes",
+      "description": "Percentage-off promotions (e.g., past examples like Bama2025 for 10% savings)",
+      "discount": ""
+    },
+    {
+      "name": "Hot Deals",
+      "description": "Featured deals on select properties and dates",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 23,
+  "scraped_at": "2026-03-21T21:19:54.863Z"
+}

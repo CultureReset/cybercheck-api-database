@@ -1,0 +1,29 @@
+[
+  {
+    "venue_name": "OSO at Bear Point Harbor",
+    "city": "Orange Beach, AL",
+    "matched_business": "Bear Point Harbor",
+    "place_id": "ChIJ051_Fw6okIgRsd5dsEiXV78",
+    "similarity": "70.8%",
+    "address": "5749 Bay La Launch Ave, Orange Beach, AL 36561, USA",
+    "phone": "+1 251-981-2327"
+  },
+  {
+    "venue_name": "Shipp's Dockside Grill",
+    "city": "Orange Beach, AL",
+    "matched_business": "Shipp’s Dockside Grill",
+    "place_id": "ChIJm4lIKgAHmogR_AoSmroSrkU",
+    "similarity": "95.5%",
+    "address": "27075 Marina Rd, Orange Beach, AL 36561, USA",
+    "phone": "+1 251-412-7447"
+  },
+  {
+    "venue_name": "Doc's Seafood and Steaks",
+    "city": "Orange Beach, AL",
+    "matched_business": "Doc’s Seafood and Steaks",
+    "place_id": "ChIJxyhiUZ4HmogRNbz519uo8u4",
+    "similarity": "95.8%",
+    "address": "24221 Perdido Beach Blvd, Orange Beach, AL 36561, USA",
+    "phone": "+1 251-281-0888"
+  }
+]

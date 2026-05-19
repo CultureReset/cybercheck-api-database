@@ -1,0 +1,175 @@
+{
+  "business_name": "The Red Haven Live",
+  "cuisine_type": "Live Music Venue / Restaurant",
+  "price_range": "$28-32 (merchandise)",
+  "description": "The Red Haven Live is a live music and food venue located in Orange Beach, Alabama. The venue features live entertainment from various bands and artists, with a menu that has been expanded significantly. The venue celebrated its one-month anniversary with positive reviews and is actively booking artists and bands for upcoming events.",
+  "atmosphere": "Live music venue with food service, country group entertainment focus",
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": null,
+    "email": "booking@theredhavenlive.com",
+    "address": "Orange Beach, Alabama",
+    "website": "https://theredhavenlive.com/",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": null,
+      "instagram": null,
+      "twitter": null,
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": "11am - Midnight",
+    "friday": "11am - Midnight",
+    "saturday": "11am - Midnight",
+    "sunday": "11am - Till...",
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": true,
+    "takeout_available": null,
+    "delivery_available": null,
+    "curbside_available": null,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [],
+    "wine_list": null,
+    "beer_selection": null,
+    "cocktails": null,
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": null,
+      "vegan": null,
+      "gluten_free": null,
+      "dairy_free": null,
+      "nut_free": null,
+      "kosher": null,
+      "halal": null
+    }
+  },
+  "happy_hour": {
+    "available": null,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [],
+  "entertainment_and_events": [
+    {
+      "type": "live_music",
+      "name": "Live Music Entertainment",
+      "days": "Thursday, Friday, Saturday, Sunday",
+      "start_time": "11am",
+      "end_time": null,
+      "description": "Various bands and artists perform throughout the week",
+      "cover_charge": null,
+      "featured_artist": null
+    }
+  ],
+  "private_events": {
+    "available": null,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": null,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [
+      "Credit cards",
+      "Debit cards"
+    ],
+    "kids_policy": null,
+    "pets_allowed": null
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": null,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": null,
+    "private_dining": null
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": null,
+    "email_signup": "Join our mailing list for the latest news",
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": null,
+    "farm_to_table": null,
+    "sustainable": null,
+    "organic": null,
+    "details": null
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [],
+    "common_praise": [
+      "Great reviews on menu expansion",
+      "Amazing local community support",
+      "Quality band performances"
+    ],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "restaurant",
+      "url": "https://images.zoogletools.com/s:bzglfiles/u/1085237/8357c687ac256755114dec9266bbe5f53267f462/original/rhmain.png/",
+      "description": "Restaurant main image"
+    },
+    {
+      "type": "food",
+      "url": "https://theredhavenlive.com/galleries/1350026/food",
+      "description": "Food gallery with multiple photos"
+    },
+    {
+      "type": "merchandise",
+      "url": "https://files.cdn.printful.com/files/8f2/8f276ad5fc9833f2b6b080c6e504fe9d_preview.png",
+      "description": "The Red Haven Live Short-Sleeve Unisex T-Shirt product images"
+    }
+  ],
+  "blog_and_articles": [
+    {
+      "title": "AL.com Article: Orange Beach's Newest Live Music and Food Venue",
+      "url": "https://www.al.com/life/2026/03/take-a-look-inside-orange-beachs-newest-live-music-and-food-venue.html",
+      "excerpt": "Take a look inside Orange Beach's newest live music and food venue"
+    }
+  ],
+  "newsletters_and_updates": "Mailing list signup available - 'Join our mailing list for the latest news'",
+  "raw_text_content": "The Red Haven Live - Orange Beach, Alabama venue featuring live music and food service. Hours: Thursday 11am-Midnight, Friday 11am-Midnight, Saturday 11am-Midnight, Sunday 11am-Till. One-month anniversary celebration with expanded menu and positive reviews. Live entertainment from various bands and artists. Merchandise available including branded t-shirts. Contact: booking@theredhavenlive.com. Featured in AL.com article about new Orange Beach venues.",
+  "extraction_confidence": "medium",
+  "extraction_notes": "This appears to be primarily a music venue/entertainment website with integrated restaurant functionality rather than a traditional restaurant. Limited menu information available on homepage. Most operational details found in hours section and entertainment information. Store section contains merchandise (t-shirts) rather than food items. Email contact provided for booking artists. Social media links not visible on provided HTML. Full restaurant menu details not present in extracted content. Additional pages (Menu, Store, Live, Photos, Saturday Songwriter's Series) referenced in navigation but not included in extraction.",
+  "folder": "ChIJgYBXKgAHmogRms6024lOWlI_The Red Haven Live",
+  "extracted_at": "2026-05-15T06:29:11.408Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJgYBXKgAHmogRms6024lOWlI_The Red Haven Live/01_raw_html.html"
+}

@@ -1,0 +1,195 @@
+{
+  "business_name": "Flora-Bama Yacht Club",
+  "cuisine_type": "Seafood",
+  "price_range": null,
+  "description": "The Flora-Bama Yacht Club is a legendary restaurant in Orange Beach. You can come by boat, car, paddleboard, float... as long as you get here. We are known for our original menu items and local seafood. There is something for almost everyone. Our award winning Chefs and the friendly staff make every dining experience fun. We have large outdoor deck and beach area. Relax on our sand and listen to the fantastic music from local and visiting musicians. Nothing like a dinner and Bushwacker at the FBYC.",
+  "atmosphere": "Open air and waterfront views with outdoor deck and beach area",
+  "chef_info": "Award winning Chefs",
+  "awards": [
+    "Award winning restaurant"
+  ],
+  "contact": {
+    "phone": "(850) 483-6272",
+    "email": null,
+    "address": null,
+    "website": "https://www.florabamayachtclub.com/",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": "https://facebook.com/florabamayachtclub",
+      "instagram": "https://www.instagram.com/fbyachtclub_",
+      "twitter": null,
+      "tiktok": null,
+      "youtube": null,
+      "tripadvisor": "https://tripadvisor.com/Restaurant_Review-g34551-d4151865-Reviews-Flora_Bama_Yacht_Club-Perdido_Key_Florida.html",
+      "yelp": "https://www.yelp.com/biz/flora-bama-yacht-club-perdido-key"
+    }
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": true,
+    "takeout_available": null,
+    "delivery_available": null,
+    "curbside_available": null,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [
+      {
+        "name": "Appetizers",
+        "description": null,
+        "items": []
+      },
+      {
+        "name": "Entrées",
+        "description": null,
+        "items": []
+      },
+      {
+        "name": "Sandwiches",
+        "description": null,
+        "items": []
+      },
+      {
+        "name": "Desserts",
+        "description": null,
+        "items": []
+      }
+    ],
+    "wine_list": null,
+    "beer_selection": null,
+    "cocktails": "Bushwacker mentioned as signature drink",
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": null,
+      "vegan": null,
+      "gluten_free": null,
+      "dairy_free": null,
+      "nut_free": null,
+      "kosher": null,
+      "halal": null
+    }
+  },
+  "happy_hour": {
+    "available": null,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [],
+  "entertainment_and_events": [
+    {
+      "type": "live_music",
+      "name": "Live Music",
+      "days": "Regular",
+      "start_time": null,
+      "end_time": null,
+      "description": "Fantastic music from local and visiting musicians",
+      "cover_charge": null,
+      "featured_artist": null
+    }
+  ],
+  "private_events": {
+    "available": null,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": null,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": "Family friendly - kids welcome",
+    "pets_allowed": null
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": null,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": null,
+    "private_dining": null
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": null,
+    "email_signup": null,
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": true,
+    "farm_to_table": null,
+    "sustainable": null,
+    "organic": null,
+    "details": "Known for original menu items and local seafood"
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [
+      "Bushwacker"
+    ],
+    "common_praise": [
+      "Award winning chefs",
+      "Friendly staff",
+      "Waterfront views",
+      "Beach area",
+      "Live music"
+    ],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "logo",
+      "url": "https://lirp.cdn-website.com/f877a2a8/dms3rep/multi/opt/Yacht+Club+Logo+White+text+Header-1920w.png",
+      "description": "Orange Beach Restaurant Logo"
+    },
+    {
+      "type": "restaurant",
+      "url": "https://lirp.cdn-website.com/f877a2a8/dms3rep/multi/opt/download-1920w.jpg",
+      "description": "Waterfront Restaurant Orange Beach"
+    },
+    {
+      "type": "video",
+      "url": "https://vid.cdn-website.com/f877a2a8/videos/KdowhpsT7qPl02uI7fhC_Flora+Bama+Yacht+Club+Header+24+B-v.mp4",
+      "description": "Flora Bama Yacht Club Header Video"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "Flora-Bama Yacht Club. Orange Beach Restaurant on the Water. Home. About. Menu. Appetizers. Entrées. Sandwiches. Desserts. Mo' Fun. Gallery. Music and More. Contact. Call Now (850) 483-6272. Open Air & Waterfront Views. The Flora-Bama Yacht Club is a legendary restaurant in Orange Beach. You can come by boat, car, paddleboard, float... as long as you get here. We are known for our original menu items and local seafood. There is something for almost everyone. Our award winning Chefs and the friendly staff make every dining experience fun. We have large outdoor deck and beach area. Relax on our sand and listen to the fantastic music from local and visiting musicians. Nothing like a dinner and Bushwacker at the FBYC. Read More. The Seafood, Smiles & Music. See Full Menu. APPETIZERS. SANDWICHES.",
+  "extraction_confidence": "medium",
+  "extraction_notes": "Homepage only provided. Menu items, pricing, hours, detailed policies, and staff information not visible in this HTML. The page contains navigation structure showing menu sections (Appetizers, Entrées, Sandwiches, Desserts) but actual menu content is not included. Social media links and phone number were extracted. Location appears to be in Perdido Key/Orange Beach area based on meta information and Tripadvisor link. Website uses modern responsive design with animations. Limited information available from homepage alone.",
+  "folder": "ChIJ15Gk-EiokIgR6LQkQQcod-I_The Flora-Bama Yacht Club",
+  "extracted_at": "2026-05-15T06:01:33.514Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJ15Gk-EiokIgR6LQkQQcod-I_The Flora-Bama Yacht Club/01_raw_html.html"
+}

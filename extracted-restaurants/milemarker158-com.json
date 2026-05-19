@@ -1,0 +1,304 @@
+{
+  "name": "Mile Marker 158 Dockside",
+  "type": "Restaurant",
+  "website": "https://milemarker158.com",
+  "contact": {
+    "phone": "251-224-6500 ext. 4",
+    "address": "4673 Wharf Parkway W, Suite B",
+    "city": "Orange Beach",
+    "email": ""
+  },
+  "hours": {
+    "monday": "11am-9pm",
+    "tuesday": "11am-9pm",
+    "wednesday": "11am-9pm",
+    "thursday": "11am-10pm",
+    "friday": "11am-10pm",
+    "saturday": "11am-10pm",
+    "sunday": "11am-9pm"
+  },
+  "about": {
+    "description": "Mile Marker 158 Dockside is located dockside of the Springhill Suites Hotel overlooking the Wharf's Marina, offering upscale casual dining with handcrafted cocktails and a relaxing experience. They provide family meals to-go, catering services, and accommodate large gatherings.",
+    "cuisine_type": "Seafood"
+  },
+  "social": {},
+  "menu": [
+    {
+      "category": "Family Meals To-Go",
+      "name": "Chicken or Shrimp Alfredo",
+      "description": "Sauteed Gulf shrimp or grilled chicken, roasted tomatoes, spinach, cavatappi pasta, alfredo sauce. Serves 4. Includes house or caesar salad, bread & strawberry butter",
+      "price": "$42"
+    },
+    {
+      "category": "Family Meals To-Go",
+      "name": "Seafood Pasta",
+      "description": "Sauteed Gulf Shrimp, Crab, Roasted Tomatoes, Spinach, Cavatappi Pasta, Gouda Cream Sauce. Serves 4. Includes house or caesar salad, bread & strawberry butter",
+      "price": "$50"
+    },
+    {
+      "category": "Family Meals To-Go",
+      "name": "Teriyaki Glazed Salmon",
+      "description": "Pan Seared Salmon, Teriyaki Glaze, Spinach & Caramelized Onion Risotto, Honey Roasted Carrots. Serves 4. Includes house or caesar salad, bread & strawberry butter",
+      "price": "$56"
+    },
+    {
+      "category": "Family Meals To-Go",
+      "name": "Fish of the Day",
+      "description": "Pan Seared, Mushroom Risotto, Honey Roasted Carrots, Lemon Beurre Blanc. Serves 4. Includes house or caesar salad, bread & strawberry butter",
+      "price": "$50"
+    },
+    {
+      "category": "Kids Menu",
+      "name": "Chicken Tenders",
+      "description": "Served with house made chips or fries",
+      "price": "$7"
+    },
+    {
+      "category": "Kids Menu",
+      "name": "Grilled Cheese Sandwich",
+      "description": "Served with house made chips or fries",
+      "price": "$7"
+    },
+    {
+      "category": "Kids Menu",
+      "name": "Popcorn Shrimp",
+      "description": "Served with house made chips or fries",
+      "price": "$7"
+    },
+    {
+      "category": "Kids Menu",
+      "name": "Little Fruit Plate",
+      "description": "Served with house made chips or fries",
+      "price": "$7"
+    },
+    {
+      "category": "Early Bird Specials",
+      "name": "Hamburger Steak",
+      "description": "Gouda Smashed Potatoes, Green Beans, Mushroom Gravy",
+      "price": "$12"
+    },
+    {
+      "category": "Early Bird Specials",
+      "name": "Shrimp Scampi",
+      "description": "Sauteed Spinach, Roasted Tomatoes, Angel Hair Pasta, White Wine Sauce, Parmesan",
+      "price": "$12"
+    },
+    {
+      "category": "Early Bird Specials",
+      "name": "Chicken Alfredo",
+      "description": "Grilled Chicken, Roasted Tomatoes, Spinach, Cavatappi Pasta, Alfredo",
+      "price": "$12"
+    },
+    {
+      "category": "Early Bird Specials",
+      "name": "Fried Shrimp",
+      "description": "Fries, Slaw and Hushpuppies",
+      "price": "$12"
+    },
+    {
+      "category": "Weekly Specials",
+      "name": "Beef Tips Shepherds Pie",
+      "description": "Beef Tips, Brown Gravy, Peas, Carrots and Corn topped with Smashed Potatoes and Cheddar Cheese",
+      "price": "$16"
+    },
+    {
+      "category": "Weekly Specials",
+      "name": "Taco Tuesday - Grilled Mahi Tacos",
+      "description": "3 Grilled Mahi Tacos topped with Caribbean Slaw, Pineapple Salsa and Sriracha Aioli",
+      "price": "$14"
+    },
+    {
+      "category": "Weekly Specials",
+      "name": "Lasagna Wednesday",
+      "description": "Lasagna, Toasted Garlic Bread and Complimentary Salad and House Wine",
+      "price": "$15"
+    },
+    {
+      "category": "Weekly Specials",
+      "name": "Surf and Turf",
+      "description": "5oz Fillet and 4 Grilled Shrimp with Gouda Mashed Potatoes and Green Beans",
+      "price": "$22"
+    },
+    {
+      "category": "Weekly Specials",
+      "name": "All You Can Eat Grouper",
+      "description": "All You Can Eat Grouper with Fries, Hushpuppies and Caribbean Slaw",
+      "price": "$19"
+    },
+    {
+      "category": "Happy Hour Snacks",
+      "name": "Oysters",
+      "description": "Raw Oysters",
+      "price": "$1"
+    },
+    {
+      "category": "Happy Hour Snacks",
+      "name": "Beef and Blue Wontons",
+      "description": "Beef Tenderloin, Blue Cheese, Cream Cheese, Green Onions in a Crispy Wonton Shell. Served with Sweet Chili Sauce",
+      "price": "$10"
+    },
+    {
+      "category": "Happy Hour Snacks",
+      "name": "Fried Chicken Wings",
+      "description": "6 Fried Chicken Wings with choice of Sauce: BBQ, Buffalo, Sweet Chili, Teriyaki",
+      "price": "$10"
+    },
+    {
+      "category": "Happy Hour Snacks",
+      "name": "Crispy Shrimp Quesadilla",
+      "description": "Fried Gulf Shrimp, Cheddar Cheese, Spicy Tartar Sauce",
+      "price": "$8"
+    },
+    {
+      "category": "Happy Hour Drinks",
+      "name": "Domestic Beer",
+      "description": "Bud, Bud Light, Coors Light, Miller Lite, Yuengling, Ultra",
+      "price": "$4"
+    },
+    {
+      "category": "Happy Hour Drinks",
+      "name": "House Margarita",
+      "description": "On the rocks",
+      "price": "$5"
+    },
+    {
+      "category": "Happy Hour Drinks",
+      "name": "House Wine",
+      "description": "Chardonnay, Pinot Grigio, Cabernet Sauvignon, Pinot Noir, Sauvignon Blanc",
+      "price": "$4"
+    },
+    {
+      "category": "Happy Hour Drinks",
+      "name": "Well Liquor",
+      "description": "Vodka, Gin, Whiskey, Scotch, Tequila, Rum with 1 mixer",
+      "price": "$5"
+    },
+    {
+      "category": "Brunch - Appetizers",
+      "name": "Cheese and Fruit Board",
+      "description": "Chef's Three Cheese Selection, Seasonal Fruits",
+      "price": "$16"
+    },
+    {
+      "category": "Brunch - Appetizers",
+      "name": "Shrimp-Escargot",
+      "description": "Baked Shrimp, Boursin and Mozzarella Cheeses, Parmesan Bread",
+      "price": "$16"
+    },
+    {
+      "category": "Brunch - Appetizers",
+      "name": "Fried Calamari",
+      "description": "Rings and Tentacles of Squid Lightly Dusted in Seasoned Flour and Flash Fried. Served with Marinara and Parmesan",
+      "price": "$14"
+    },
+    {
+      "category": "Brunch - Appetizers",
+      "name": "Firecracker Shrimp",
+      "description": "Fried and Tossed in Mango Habanero Sauce",
+      "price": "$14"
+    },
+    {
+      "category": "Brunch - Appetizers",
+      "name": "Loaded Tater Tots",
+      "description": "Crumbled Bleu Cheese, Bacon Bits, Shredded Lettuce, Diced Tomatoes, Green Onions",
+      "price": "$10"
+    },
+    {
+      "category": "Brunch - Entrees",
+      "name": "Dockside Omelette",
+      "description": "Gulf Shrimp, Spinach, Smoked Gouda. With Sweet Potato Hash and a Biscuit",
+      "price": ""
+    },
+    {
+      "category": "Brunch - Entrees",
+      "name": "Short Ribs and Grits",
+      "description": "Asiago Grits, Poached Eggs, Short Rib Jus",
+      "price": ""
+    },
+    {
+      "category": "Brunch - Entrees",
+      "name": "Pecan Pancakes",
+      "description": "Spiced Apples and Maple Syrup",
+      "price": ""
+    },
+    {
+      "category": "Brunch - Entrees",
+      "name": "Breakfast Bowl",
+      "description": "Two Eggs, Sweet Potato Hash, Sausage, Bacon, Country Gravy",
+      "price": ""
+    },
+    {
+      "category": "Brunch - Entrees",
+      "name": "Shrimp and Grits",
+      "description": "Shrimp, Roasted Tomatoes, Bacon, Chardonnay Cream Sauce, Asiago Grits",
+      "price": ""
+    },
+    {
+      "category": "Brunch - Entrees",
+      "name": "Egg Benedict Oscar",
+      "description": "Poached Eggs, Crab Cakes, English Muffins, Brie Cheese, Asparagus, Hollandaise Sauce",
+      "price": ""
+    },
+    {
+      "category": "Wine Dinner - March 5th",
+      "name": "Smoked Pork Eggrolls",
+      "description": "Cabbage, Carrots, Onions, & Ponzu Dipping Sauce. Paired with Barnard Griffin Riesling WA '24",
+      "price": ""
+    },
+    {
+      "category": "Wine Dinner - March 5th",
+      "name": "Garlic Shrimp Pomodoro",
+      "description": "Smoked Gouda Polenta Cake, Roasted Red Pepper, & Beurre Blanc. Paired with Barnard Griffin Pinot Gris WA '22",
+      "price": ""
+    },
+    {
+      "category": "Wine Dinner - March 5th",
+      "name": "Pan Seared Wahoo",
+      "description": "Shiitake Mushrooms & Brown Butter Sauce, with Smashed Baby Lima Beans & Spinach. Paired with Van Duzer Pinot Noir Willamette OR '23",
+      "price": ""
+    },
+    {
+      "category": "Wine Dinner - March 5th",
+      "name": "Chocolate & Strawberry Cannoli",
+      "description": "Strawberry Rum Sauce. Paired with Mirabello Prosecco DOC Veneto Italy NV",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Beef Tips Shepherds Pie",
+      "description": "Beef Tips, Brown Gravy, Peas, Carrots and Corn topped with Smashed Potatoes and Cheddar Cheese - $16",
+      "discount": ""
+    },
+    {
+      "name": "Taco Tuesday",
+      "description": "3 Grilled Mahi Tacos topped with Caribbean Slaw, Pineapple Salsa and Sriracha Aioli - $14",
+      "discount": ""
+    },
+    {
+      "name": "Lasagna Wednesday",
+      "description": "Lasagna, Toasted Garlic Bread and Complimentary Salad and House Wine - $15",
+      "discount": ""
+    },
+    {
+      "name": "Surf and Turf",
+      "description": "5oz Fillet and 4 Grilled Shrimp with Gouda Mashed Potatoes and Green Beans - $22",
+      "discount": ""
+    },
+    {
+      "name": "All You Can Eat Grouper",
+      "description": "All You Can Eat Grouper with Fries, Hushpuppies and Caribbean Slaw - $19",
+      "discount": ""
+    },
+    {
+      "name": "Sunday Bingo",
+      "description": "Games, Fun, Prizes with Food & Drink Specials 4:00 PM - 6:00 PM",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-03-21T20:04:01.198Z"
+}

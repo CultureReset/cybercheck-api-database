@@ -1,0 +1,345 @@
+{
+  "name": "Taste of India",
+  "type": "Restaurant",
+  "website": "http://www.destintasteofindia.com/",
+  "contact": {
+    "phone": "+1 850-353-2890",
+    "address": "385 Harbor Blvd",
+    "city": "Destin",
+    "email": ""
+  },
+  "hours": {
+    "monday": "11am-2:30pm, 5pm-9pm",
+    "tuesday": "11am-2:30pm, 5pm-9pm",
+    "wednesday": "11am-2:30pm, 5pm-9pm",
+    "thursday": "11am-2:30pm, 5pm-9pm",
+    "friday": "11am-2:30pm, 5pm-9:30pm",
+    "saturday": "11am-2:30pm, 5pm-9:30pm",
+    "sunday": "11am-2:30pm, 5pm-8:30pm"
+  },
+  "about": {
+    "description": "Taste of India brings the rich and diverse flavors of authentic Indian cuisine to the USA. The restaurant features carefully crafted dishes made with finest ingredients and house-toasted spices, prepared fresh on premises with attention to detail.",
+    "cuisine_type": "Indian"
+  },
+  "social": {},
+  "menu": [
+    {
+      "category": "Starters & Such",
+      "name": "Kachumber Salad",
+      "description": "Cucumber / Lemon / Carrots / Bell Pepper",
+      "price": "$13.99"
+    },
+    {
+      "category": "Starters & Such",
+      "name": "Shorba Chicken",
+      "description": "Baby Corn",
+      "price": "$11.99"
+    },
+    {
+      "category": "Starters & Such",
+      "name": "Shorba Mutton",
+      "description": "Baby Corn",
+      "price": "$12.99"
+    },
+    {
+      "category": "Starters & Such",
+      "name": "Gobi Manchurian",
+      "description": "Baby corn / Crispy Cauliflower in a tangy sauce",
+      "price": "$15.99"
+    },
+    {
+      "category": "Starters & Such",
+      "name": "Mix Vegetable Pakora",
+      "description": "Mixed vegetable fritters",
+      "price": "$11.99"
+    },
+    {
+      "category": "Starters & Such",
+      "name": "Chicken 555",
+      "description": "Cashews / Cilantro",
+      "price": "$14.99"
+    },
+    {
+      "category": "Starters & Such",
+      "name": "Papad Roasted / Fried (3 pcs)",
+      "description": "Served with duo of house chutneys",
+      "price": "$5.99"
+    },
+    {
+      "category": "Starters & Such",
+      "name": "Chicken 65",
+      "description": "Indian Style Popcorn Chicken",
+      "price": "$15.99"
+    },
+    {
+      "category": "Starters & Such",
+      "name": "Paneer 65",
+      "description": "Indian Style Popcorn Paneer",
+      "price": "$15.99"
+    },
+    {
+      "category": "Starters & Such",
+      "name": "Samosa (2 pcs)",
+      "description": "Potato / Pea turnover",
+      "price": "$8.00"
+    },
+    {
+      "category": "Starters & Such",
+      "name": "Chennai Goat Fry (CCFG)",
+      "description": "",
+      "price": "$18.99"
+    },
+    {
+      "category": "Starters & Such",
+      "name": "Samosa Chaat",
+      "description": "Samosa With Yogurt / Garbanzo Beans / Chutneys",
+      "price": "$12.99"
+    },
+    {
+      "category": "Starters & Such",
+      "name": "Goat Pepper Fry (CGoat)",
+      "description": "Cilantro / Fresh ground black pepper",
+      "price": "$18.95"
+    },
+    {
+      "category": "Starters & Such",
+      "name": "TOI Shrimp",
+      "description": "Green Chilli Paste / Ginger",
+      "price": "$17.99"
+    },
+    {
+      "category": "Starters & Such",
+      "name": "Chilli Paneer",
+      "description": "Bell peppers / Onions / Tomatoes",
+      "price": "$17.99"
+    },
+    {
+      "category": "Starters & Such",
+      "name": "Hakka Fish (C)",
+      "description": "Dark Soy / Ginger / Celery",
+      "price": "$17.99"
+    },
+    {
+      "category": "Starters & Such",
+      "name": "Mulligatawny Soup",
+      "description": "Lentils / Coconut milk / Black Pepper",
+      "price": "$9.99"
+    },
+    {
+      "category": "From the Clay Oven",
+      "name": "Tangdi (Kebab) (C)",
+      "description": "Drumsticks / Yogurt",
+      "price": "$22.99"
+    },
+    {
+      "category": "From the Clay Oven",
+      "name": "Tawa Paneer Tikka",
+      "description": "Cottage Cheese / Yogurt",
+      "price": "$22.99"
+    },
+    {
+      "category": "From the Clay Oven",
+      "name": "Tandoori Chicken",
+      "description": "The original / 3 leg qts",
+      "price": "$23.99"
+    },
+    {
+      "category": "From the Clay Oven",
+      "name": "Chicken Tikka",
+      "description": "The original boneless",
+      "price": "$22.99"
+    },
+    {
+      "category": "From the Clay Oven",
+      "name": "Tandoori Fish",
+      "description": "Whole fish / 24 hr House-marinade",
+      "price": "$32.99"
+    },
+    {
+      "category": "From the Clay Oven",
+      "name": "Lamb Chops (C)",
+      "description": "Grilled in tandoor / Finished in a skillet",
+      "price": "$39.99"
+    },
+    {
+      "category": "Stuff We Do Well",
+      "name": "Chilli Chicken",
+      "description": "Soy / Chili sauce / Onions / Bell peppers",
+      "price": "$23.99"
+    },
+    {
+      "category": "Stuff We Do Well",
+      "name": "Fish Moilee",
+      "description": "Coconut Milk / Saffron / Curry Leaves",
+      "price": "$24.99"
+    },
+    {
+      "category": "Stuff We Do Well",
+      "name": "Shrimp Moilee",
+      "description": "Coconut Milk / Saffron / Curry Leaves",
+      "price": "$26.99"
+    },
+    {
+      "category": "Stuff We Do Well",
+      "name": "Butter Chicken",
+      "description": "Onions / Tomatoes cream / Butter",
+      "price": "$23.99"
+    },
+    {
+      "category": "Stuff We Do Well",
+      "name": "Egg Burji",
+      "description": "Scrambled Eggs Indian Style",
+      "price": "$20.99"
+    },
+    {
+      "category": "Stuff We Do Well",
+      "name": "KAM",
+      "description": "Ground Lamb / Potatoes / Peas",
+      "price": "$25.99"
+    },
+    {
+      "category": "Stuff We Do Well",
+      "name": "Chicken Kolhapuri",
+      "description": "Sesame seed / Dry coconut",
+      "price": "$24.95"
+    },
+    {
+      "category": "Stuff We Do Well",
+      "name": "Rogan Josh",
+      "description": "Lamb chunks in a saffron onion curry",
+      "price": "$24.99"
+    },
+    {
+      "category": "Stuff We Do Well",
+      "name": "Madras Chicken Curry",
+      "description": "Onion / Cilantro / Star Anise",
+      "price": "$24.99"
+    },
+    {
+      "category": "Stuff We Do Well",
+      "name": "Mutton Rara",
+      "description": "Double Trouble Lamb / Goat",
+      "price": "$25.99"
+    },
+    {
+      "category": "Stuff We Do Well",
+      "name": "Granny's Chicken Curry",
+      "description": "On the bone",
+      "price": "$22.99"
+    },
+    {
+      "category": "Stuff We Do Well",
+      "name": "Dal Gosht",
+      "description": "Lentil / Fried onion / Ghee",
+      "price": "$25.99"
+    },
+    {
+      "category": "Stuff We Do Well",
+      "name": "House Special Goat Curry",
+      "description": "Fennell / Tomato / Star Anise",
+      "price": "$24.99"
+    },
+    {
+      "category": "Stuff We Do Well",
+      "name": "Malabar Fish Curry (C)",
+      "description": "Tamarind / Coconut",
+      "price": "$24.99"
+    },
+    {
+      "category": "Stuff We Do Well",
+      "name": "Malabar Shrimp Curry (C)",
+      "description": "Tamarind / Coconut",
+      "price": "$24.99"
+    },
+    {
+      "category": "Stuff We Do Well",
+      "name": "Chicken Chettinadu",
+      "description": "20 Different spices",
+      "price": "$22.99"
+    },
+    {
+      "category": "Stuff We Do Well",
+      "name": "Shahi Raan (Whole Leg of Lamb)",
+      "description": "24 hr. marinade - Served over rice pilaf and potatoes",
+      "price": ""
+    },
+    {
+      "category": "The Original Protein & Sauce",
+      "name": "Goat Curry",
+      "description": "",
+      "price": "$25.95"
+    },
+    {
+      "category": "The Original Protein & Sauce",
+      "name": "Chicken Curry",
+      "description": "",
+      "price": "$23.95"
+    },
+    {
+      "category": "The Original Protein & Sauce",
+      "name": "Lamb Curry",
+      "description": "",
+      "price": "$25.95"
+    },
+    {
+      "category": "The Original Protein & Sauce",
+      "name": "Shrimp Curry",
+      "description": "",
+      "price": "$25.95"
+    },
+    {
+      "category": "The Original Protein & Sauce",
+      "name": "Vegetable Curry",
+      "description": "",
+      "price": "$20.95"
+    },
+    {
+      "category": "Curry Sauce Options",
+      "name": "Coconut Curry",
+      "description": "Curry prepared with coconut milk / spices",
+      "price": ""
+    },
+    {
+      "category": "Curry Sauce Options",
+      "name": "Korma Curry",
+      "description": "A luxuriously mild creamy curry",
+      "price": ""
+    },
+    {
+      "category": "Curry Sauce Options",
+      "name": "Tikka Masala",
+      "description": "A velvety curry with a tangy twist",
+      "price": ""
+    },
+    {
+      "category": "Curry Sauce Options",
+      "name": "Vindaloo",
+      "description": "Cooked with goan spices / vinegar / potatoes",
+      "price": ""
+    },
+    {
+      "category": "Curry Sauce Options",
+      "name": "Kadhai",
+      "description": "Home-style curry",
+      "price": ""
+    },
+    {
+      "category": "Curry Sauce Options",
+      "name": "Saag",
+      "description": "Finely chopped spinach simmered in cream / spices",
+      "price": ""
+    },
+    {
+      "category": "Curry Sauce Options",
+      "name": "Nellore Curry",
+      "description": "From the Nellur region of India. Taste the spicy!",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-03-21T13:44:45.358Z"
+}

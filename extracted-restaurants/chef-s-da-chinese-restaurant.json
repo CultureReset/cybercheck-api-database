@@ -1,0 +1,308 @@
+{
+  "name": "Chef's Da",
+  "type": "Restaurant",
+  "website": "https://www.chefsda.com/",
+  "contact": {
+    "phone": "(970) 867-4000",
+    "address": "209 Main St",
+    "city": "Fort Morgan",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null
+  },
+  "about": {
+    "description": "Chef's Da is a Chinese restaurant offering a variety of authentic Asian cuisine including appetizers, noodles, rice dishes, and family dinners.",
+    "cuisine_type": "Chinese"
+  },
+  "social": {},
+  "menu": [
+    {
+      "category": "Appetizers",
+      "name": "Chinese Donut(6)",
+      "description": "Crispy fried dough pastry coated in sweet sugar, typically served as a side or dessert.",
+      "price": "$5.00"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Spring Egg Roll",
+      "description": "",
+      "price": "$4.50"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Crab Cheese Wontons",
+      "description": "",
+      "price": "$4.95"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Pan Fried Pot Sticker(6)",
+      "description": "",
+      "price": "$9.75"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Fried Shrimp",
+      "description": "Crispy fried shrimp served.",
+      "price": "$5.25"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Deep-Fried Squid",
+      "description": "",
+      "price": "$10.75"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Teriyaki Chicken Skewer(4)",
+      "description": "",
+      "price": "$10.25"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Beef Skewer(4)",
+      "description": "",
+      "price": "$10.25"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Fried Chicken Wings(6)",
+      "description": "Crispy fried chicken wings, served hot and ready to enjoy.",
+      "price": "$10.75"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Pu Pu Platter (for 2)",
+      "description": "Egg roll, crab cheese wonton, potsticker, fried shrimp, beef skewer & chicken wings.",
+      "price": "$18.95"
+    },
+    {
+      "category": "Mu Shu",
+      "name": "Mu Shu Tofu",
+      "description": "served with 4 pancakes",
+      "price": "$14.95"
+    },
+    {
+      "category": "Mu Shu",
+      "name": "Mu Shu Vegetables",
+      "description": "served with 4 pancakes",
+      "price": "$14.95"
+    },
+    {
+      "category": "Mu Shu",
+      "name": "Mu Shu Chicken",
+      "description": "served with 4 pancakes",
+      "price": "$14.95"
+    },
+    {
+      "category": "Mu Shu",
+      "name": "Mu Shu Pork",
+      "description": "served with 4 pancakes",
+      "price": "$14.95"
+    },
+    {
+      "category": "Mu Shu",
+      "name": "Mu Shu Beef",
+      "description": "served with 4 pancakes",
+      "price": "$14.95"
+    },
+    {
+      "category": "Mu Shu",
+      "name": "Mu Shu Shrimp",
+      "description": "served with 4 pancakes",
+      "price": "$15.95"
+    },
+    {
+      "category": "Mu Shu",
+      "name": "Mu Shu Triple",
+      "description": "Shrimp, Chicken and Beef, served with 4 pancakes",
+      "price": "$16.75"
+    },
+    {
+      "category": "Soup / Side",
+      "name": "Hot & Sour Soup",
+      "description": "Classic comfort soup with a balance of spicy and tangy flavors in a rich broth.",
+      "price": "$4.00"
+    },
+    {
+      "category": "Soup / Side",
+      "name": "Egg Flower Soup",
+      "description": "Delicate egg drops and flower-shaped wontons in a light, comforting broth.",
+      "price": "$4.00"
+    },
+    {
+      "category": "Soup / Side",
+      "name": "Wonton Soup",
+      "description": "Tender wontons, served in a light broth.",
+      "price": "$5.50"
+    },
+    {
+      "category": "Soup / Side",
+      "name": "Combo Noodle Soup",
+      "description": "Shrimp, Beef, and chicken with vegetables.",
+      "price": "$14.95"
+    },
+    {
+      "category": "Soup / Side",
+      "name": "Udon Noodle Soup",
+      "description": "Shrimp, Beef, and chicken with vegetables.",
+      "price": "$14.95"
+    },
+    {
+      "category": "Soup / Side",
+      "name": "Steamed Rice",
+      "description": "Classic comfort food, our Steamed Rice is a simple and satisfying side dish, perfectly cooked to a fluffy texture.",
+      "price": "$3.00"
+    },
+    {
+      "category": "Soup / Side",
+      "name": "Fried Rice",
+      "description": "Crispy fried rice mixed.",
+      "price": "$3.00"
+    },
+    {
+      "category": "Soup / Side",
+      "name": "Plain Lo Mein",
+      "description": "Stir-fried noodles served with a light sauce and mixed vegetables.",
+      "price": "$4.50"
+    },
+    {
+      "category": "Soup / Side",
+      "name": "Chili Sauce",
+      "description": "",
+      "price": "$1.00"
+    },
+    {
+      "category": "Soup / Side",
+      "name": "Other Sauce",
+      "description": "",
+      "price": "$3.00"
+    },
+    {
+      "category": "Fried Rice",
+      "name": "Vegetable Fried Rice",
+      "description": "Stir-fried rice with a variety of vegetables, served hot and perfect as a side or meal.",
+      "price": "$14.75"
+    },
+    {
+      "category": "Fried Rice",
+      "name": "Chicken Fried Rice",
+      "description": "Crispy chicken and vegetables in stir-fried rice.",
+      "price": "$14.75"
+    },
+    {
+      "category": "Fried Rice",
+      "name": "Pork Fried Rice",
+      "description": "Crispy fried rice mixed with tender pork.",
+      "price": "$14.75"
+    },
+    {
+      "category": "Fried Rice",
+      "name": "Beef Fried Rice",
+      "description": "Tender beef and vegetables stir-fried with rice.",
+      "price": "$15.75"
+    },
+    {
+      "category": "Fried Rice",
+      "name": "Shrimp Fried Rice",
+      "description": "Stir-fried shrimp, vegetables, and rice",
+      "price": "$15.75"
+    },
+    {
+      "category": "Fried Rice",
+      "name": "Combo Fried Rice",
+      "description": "",
+      "price": "$15.75"
+    },
+    {
+      "category": "Fried Rice",
+      "name": "Pineapple Fried Rice",
+      "description": "Stir-fried rice, pineapple, and vegetables, served with a hint of sweetness.",
+      "price": "$15.75"
+    },
+    {
+      "category": "Family Dinner",
+      "name": "Family Dinner A",
+      "description": "Appetizer: (1) Egg Roll, (2) Cheese Wonton. Soup: Egg Drop Soup or Hot & Sour Soup. Entrees: Select(1) per person. Shrimp or Combination add $1.00. Served with Steamed Rice or Fried Rice. Noodles are served without rice.",
+      "price": "$18.95"
+    },
+    {
+      "category": "Family Dinner",
+      "name": "Family Dinner B",
+      "description": "Appetizers: (1) Egg Roll, (2) Cheese Wonton, (1) Chicken Wing & (1) Beef Skewer. Soup: Egg Drop Soup, Hot & Sour Soup. Entrees: Select(1) per person. Shrimp or Combination add $1.00. Served with Steamed Rice or Fried Rice. Noodles are served without rice.",
+      "price": "$21.95"
+    },
+    {
+      "category": "Drinks",
+      "name": "Sprite",
+      "description": "",
+      "price": "$2.75"
+    },
+    {
+      "category": "Drinks",
+      "name": "Mtn Dew",
+      "description": "",
+      "price": "$2.75"
+    },
+    {
+      "category": "Drinks",
+      "name": "Pepsi",
+      "description": "",
+      "price": "$2.75"
+    },
+    {
+      "category": "Drinks",
+      "name": "Lemonade",
+      "description": "",
+      "price": "$2.75"
+    },
+    {
+      "category": "Drinks",
+      "name": "Dr Pepper",
+      "description": "",
+      "price": "$2.75"
+    },
+    {
+      "category": "Drinks",
+      "name": "Ice Tea",
+      "description": "",
+      "price": "$2.75"
+    },
+    {
+      "category": "Drinks",
+      "name": "Hot Tea",
+      "description": "",
+      "price": "$2.75"
+    },
+    {
+      "category": "Drinks",
+      "name": "Thai Ice Tea",
+      "description": "",
+      "price": "$4.00"
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Free Egg Roll",
+      "description": "With purchase of $50 or more.",
+      "discount": ""
+    },
+    {
+      "name": "Free Chinese Donut(5)",
+      "description": "With purchase of $60 or more.",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-03-21T14:27:14.591Z"
+}

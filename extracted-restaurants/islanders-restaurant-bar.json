@@ -1,0 +1,29 @@
+{
+  "name": "Islanders Restaurant & Bar",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "+1 251-861-2225",
+    "address": "1504 Bienville Blvd",
+    "city": "Dauphin Island",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null
+  },
+  "about": {},
+  "social": {},
+  "menu": [],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:50.522Z"
+}

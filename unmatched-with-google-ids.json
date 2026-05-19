@@ -1,0 +1,452 @@
+[
+  {
+    "name": "Bahama Bob's",
+    "website": "http://www.bahamabobs.com/",
+    "phone": "(251) 948-2100",
+    "address": "601 W Beach Blvd, Gulf Shores, AL 36542",
+    "google_id": "ChIJp9uFwkwbmogR7uZI2UaHiU4",
+    "google_name": "Bahama Bob's Beach Side Cafe",
+    "found": true
+  },
+  {
+    "name": "Beach Girl Coffee",
+    "website": "https://www.beachgirlcoffee.com/",
+    "phone": "251-948-0474",
+    "address": "",
+    "google_id": "ChIJAcGzx-cFmogR4csOwdHiuV0",
+    "google_name": "Beach Girl Coffee",
+    "found": true
+  },
+  {
+    "name": "Foley Bier Shack Taproom",
+    "website": "https://biershacktaproom.com/",
+    "phone": "",
+    "address": "",
+    "google_id": "ChIJ0Sc4aSQPmogRM5DqH_xtSWQ",
+    "google_name": "Bier Shack Taproom Restaurant",
+    "found": true
+  },
+  {
+    "name": "Blalock Seafood & Specialty Market",
+    "website": "https://www.blalockseafoodgulfshores.com/",
+    "phone": "(251) 968-5811",
+    "address": "1911 Gulf Shores Pkwy, Gulf Shores, AL 36542",
+    "google_id": "ChIJO7Ij3tkEmogRhFweTz9pdhs",
+    "google_name": "Blalock Seafood & Specialty Gulf Shores",
+    "found": true
+  },
+  {
+    "name": "Blalock Seafood & Specialty Market",
+    "website": "http://blalockseafoodgulfshores.com/",
+    "phone": "(251) 968-5811",
+    "address": "1911 Gulf Shores Pkwy, Gulf Shores, AL 36542",
+    "google_id": "ChIJO7Ij3tkEmogRhFweTz9pdhs",
+    "google_name": "Blalock Seafood & Specialty Gulf Shores",
+    "found": true
+  },
+  {
+    "name": "C'est Le Vin Wine Bar & Shop",
+    "website": "http://clvwines.com/",
+    "phone": "251.314.0258",
+    "address": "104 C South Owa Blvd, Foley, AL 36535",
+    "google_id": "ChIJqVelckIPmogRbmsHdjkIsqA",
+    "google_name": "C'est Le Vin",
+    "found": true
+  },
+  {
+    "name": "3 Amigos Cantina Mexican Grill",
+    "website": "http://mycactuscantina.com/",
+    "phone": "",
+    "address": "",
+    "google_id": "ChIJp0rKPUwGmogRMAA9nSaGQ7k",
+    "google_name": "Cactus Cantina Canal Road",
+    "found": true
+  },
+  {
+    "name": "STRUM",
+    "website": "https://turquoiseplace.spectrumresorts.com/dining/change-of-pace/?utm_source=google_places&utm_medium=referral",
+    "phone": "",
+    "address": "",
+    "google_id": "ChIJC-zOA1sHmogRMg0c94OWtKc",
+    "google_name": "Change of Pace at Turquoise Place (Turquoise Place Guests Only)",
+    "found": true
+  },
+  {
+    "name": "coast-restaurant-at-the-beach-club",
+    "website": "https://dineatcoast.com/",
+    "phone": "",
+    "address": "",
+    "google_id": "ChIJsfnxPIshmogR3WYYrUVnYy8",
+    "google_name": "Coast Restaurant at The Beach Club",
+    "found": true
+  },
+  {
+    "name": "Corbin Farms Winery",
+    "website": "http://www.corbinfarmswinery.com/",
+    "phone": "205.685.0655",
+    "address": "173 Co Rd 301, Calera, Alabama, 35040",
+    "google_id": "ChIJqePfQqwviYgRRf0JiuZ9xZc",
+    "google_name": "Corbin Farms Winery",
+    "found": true
+  },
+  {
+    "name": "Cosmo's Restaurant & Bar",
+    "website": "http://www.cosmosrestaurantandbar.com/",
+    "phone": "",
+    "address": "",
+    "google_id": "ChIJ55i9UUQGmogRkCe6uzJgenE",
+    "google_name": "Cosmo's Restaurant & Bar",
+    "found": true
+  },
+  {
+    "name": "The Crab Trap",
+    "website": "https://www.crabtrapflorida.com/",
+    "phone": "",
+    "address": "",
+    "google_id": "ChIJBVMOJfiokIgRX9XIu-SwCTQ",
+    "google_name": "Crab Trap Perdido Key",
+    "found": true
+  },
+  {
+    "name": "Da Soto's Seafood Kitchen",
+    "website": "https://www.desotosseafoodkitchen.com/",
+    "phone": "251-948-7294",
+    "address": "Gulf Shores, AL",
+    "google_id": "ChIJaym-x7YEmogR0U8amdLTFS8",
+    "google_name": "De Soto's Seafood Kitchen",
+    "found": true
+  },
+  {
+    "name": "Doc's Seafood & Steaks",
+    "website": "http://docsseafoodandsteak.com/",
+    "phone": "251-281-0888",
+    "address": "",
+    "google_id": "ChIJxyhiUZ4HmogRNbz519uo8u4",
+    "google_name": "Doc’s Seafood and Steaks",
+    "found": true
+  },
+  {
+    "name": "Doc's Seafood Shack & Oyster Bar",
+    "website": "https://www.docsseafoodshack.com/",
+    "phone": "(251) 981-6999",
+    "address": "26029 Canal Rd, Orange Beach, AL 36561",
+    "google_id": "ChIJ2y7BnEwGmogRujXFVtdDpkU",
+    "google_name": "Doc's Seafood Shack & Oyster Bar",
+    "found": true
+  },
+  {
+    "name": "Fisherman's Corner on Perdido Key",
+    "website": "https://www.fishermanscornerrestaurant.net/",
+    "phone": "(850) 791-6914",
+    "address": "Perdido Key, Florida",
+    "google_id": "ChIJm_UOO3yvkIgRheTqlhL19Rc",
+    "google_name": "Fisherman's Corner",
+    "found": true
+  },
+  {
+    "name": "Gulf Babe",
+    "website": "http://gulfbabe.com/",
+    "phone": "251.495.0573",
+    "address": "4593 Main St. Suite C-101, Orange Beach, AL 36561",
+    "google_id": "ChIJRwMb9JsFmogR_sX34OUO6D0",
+    "google_name": "Gulf Babe Wine Boutique",
+    "found": true
+  },
+  {
+    "name": "Hub's at The Point Breakfast",
+    "website": "https://www.hubstaceyspensacolaperdido.com/menu",
+    "phone": "",
+    "address": "",
+    "google_id": "ChIJJxlDQV6vkIgRskWUk74U9L8",
+    "google_name": "Hub Stacey's at The Point",
+    "found": true
+  },
+  {
+    "name": "Lartigue's Original Fresh Seafood Market",
+    "website": "http://www.lartigueseafood.com/",
+    "phone": "(251) 948-2644",
+    "address": "23043 Perdido Beach Blvd, Orange Beach, AL 36561",
+    "google_id": "ChIJ6V6UdzwEmogRgUwOBr9mk_o",
+    "google_name": "Lartigue's Original Fresh Seafood Market",
+    "found": true
+  },
+  {
+    "name": "Louisiana Lagniappe",
+    "website": "http://www.thelouisianalagniappe.com/",
+    "phone": "",
+    "address": "",
+    "google_id": "ChIJR1bZlp8HmogR2ro8KW2DA5M",
+    "google_name": "Louisiana Lagniappe, Orange Beach, AL",
+    "found": true
+  },
+  {
+    "name": "Lucy Buffett's LuLu's",
+    "website": "http://lulusfunfoodmusic.com/",
+    "phone": "",
+    "address": "",
+    "google_id": "ChIJ4Y9S8SYFmogRke98zWRhCqg",
+    "google_name": "LuLu's Gulf Shores",
+    "found": true
+  },
+  {
+    "name": "Mikato Japanese Steakhouse",
+    "website": "http://mikatojapanese.com/",
+    "phone": "(251) 968-2525",
+    "address": "3800 Gulf Shores Pkwy, Ste 200 Gulf Shores, AL 36542",
+    "google_id": "ChIJt5WsAUQFmogR-4RcQYxem7o",
+    "google_name": "Mikato Japanese Restaurant",
+    "found": true
+  },
+  {
+    "name": "Mikee's Seafood",
+    "website": "http://mikeesseafood.com/",
+    "phone": "(251) 948-6452",
+    "address": "205 East 2nd Ave, Gulf Shores, Alabama 36547",
+    "google_id": "ChIJ4S9h2LkEmogRmQOSd-ihPzM",
+    "google_name": "Mikee's Seafood",
+    "found": true
+  },
+  {
+    "name": "original-romar-house-b-b-inn",
+    "website": "http://www.theoriginalromarhouse.com/",
+    "phone": "",
+    "address": "",
+    "google_id": "ChIJJ4W9oSYEmogR-1cAWYUkpvM",
+    "google_name": "Original Romar House B & B Inn",
+    "found": true
+  },
+  {
+    "name": "OSO at Bear Point Harbor - Orange Beach",
+    "website": "https://osobearpoint.com/?utm_source=google",
+    "phone": "",
+    "address": "5749 Bay La Launch Avenue, Orange Beach, AL",
+    "google_id": "ChIJi-22Ig6okIgR28UIl3DUZLg",
+    "google_name": "OSO at Bear Point Harbor - Orange Beach",
+    "found": true
+  },
+  {
+    "name": "The Perdido Key Oyster Bar",
+    "website": "http://oysterbar31.com/",
+    "phone": "850-492-5600",
+    "address": "13700 River Road, Pensacola/Perdido Key, FL 32507",
+    "google_id": "ChIJa3lqwXuvkIgRkuXy1ss7NJk",
+    "google_name": "Oyster Bar Restaurant and Marina",
+    "found": true
+  },
+  {
+    "name": "Pelican Grill",
+    "website": "http://pelicangrillob.com/",
+    "phone": "12514833665",
+    "address": "27267 Perdido Beach Blvd., Orange Beach, AL 36561",
+    "google_id": "ChIJ2TpR3lsHmogR3DIe5-05C7Y",
+    "google_name": "Pelican Grill - Orange Beach",
+    "found": true
+  },
+  {
+    "name": "Peninsula Golf & Racquet Club",
+    "website": "https://peninsulagolfclub.com/?utm_source=google&utm_medium=organic&utm_campaign=gbp",
+    "phone": "(251) 968-8009",
+    "address": "20 Peninsula Blvd, Gulf Shores, AL 36542",
+    "google_id": "ChIJU_aEG-EbmogRBeYjYV67EDI",
+    "google_name": "Peninsula Golf & Racquet Club",
+    "found": true
+  },
+  {
+    "name": "Perdido Key Sports Bar & Restaurant",
+    "website": "http://perdidokeysportsbar.com/",
+    "phone": "(850) 916-1234",
+    "address": "1725 Perdido Key Drive, Perdido Key, Florida 32507",
+    "google_id": "ChIJY8DmnW2vkIgRmak-3jk3sjY",
+    "google_name": "Perdido Key Sports Bar & Restaurant",
+    "found": true
+  },
+  {
+    "name": "Perfect Plain Hospitality Group",
+    "website": "http://perfectplain.com/home",
+    "phone": "",
+    "address": "",
+    "google_id": "ChIJN0lRXa7AkIgRuBa_FV4XTZc",
+    "google_name": "Perfect Plain Brewing Co.",
+    "found": true
+  },
+  {
+    "name": "picnic-beach-bar-grill",
+    "website": "https://www.picnicbeach.com/",
+    "phone": "",
+    "address": "",
+    "google_id": "ChIJp0NeVgAFmogRLcRSLSBz8x8",
+    "google_name": "Picnic Beach Bar & Grill",
+    "found": true
+  },
+  {
+    "name": "Shrimp Basket",
+    "website": "https://shrimpbasket.com/",
+    "phone": "",
+    "address": "",
+    "google_id": "ChIJQWoeCggHmogRLCmdem3l-AY",
+    "google_name": "Shrimp Basket",
+    "found": true
+  },
+  {
+    "name": "Shrimpy's Grill & Golf",
+    "website": "https://www.shrimpysminigolf.com/",
+    "phone": "(251) 948-6464",
+    "address": "204 East 2nd Avenue, Gulf Shores, AL 36542",
+    "google_id": "ChIJ-czdfbcEmogRrXSPDhnJt7M",
+    "google_name": "Shrimpy's Grill and Golf",
+    "found": true
+  },
+  {
+    "name": "Sneaky Tiki",
+    "website": "http://islandculturetikibar.com/",
+    "phone": "",
+    "address": "",
+    "google_id": "ChIJAXYMZf3FkIgRRr_UYlJM4I0",
+    "google_name": "Sneaky Tiki Bar",
+    "found": true
+  },
+  {
+    "name": "Southern Grove Vineyard",
+    "website": "http://southerngrovevineyard.com/",
+    "phone": "",
+    "address": "",
+    "google_id": "ChIJO6xRRQAVmogRiE_BMKO3hMw",
+    "google_name": "Southern Grove Vineyard",
+    "found": true
+  },
+  {
+    "name": "Sunset Grille at Holiday Harbor Marina",
+    "website": "https://myholidayharbor.com/",
+    "phone": "",
+    "address": "",
+    "google_id": "ChIJadKR4GavkIgR_AllxSM8qu0",
+    "google_name": "Sunset Grille",
+    "found": true
+  },
+  {
+    "name": "Tacky Jacks",
+    "website": "http://tackyjacks.com/",
+    "phone": "",
+    "address": "",
+    "google_id": "ChIJZQQ0OicFmogRY_Wk7X98pQ0",
+    "google_name": "Tacky Jacks Gulf Shores",
+    "found": true
+  },
+  {
+    "name": "Tacky Jacks",
+    "website": "http://tackyjacks.com/",
+    "phone": "",
+    "address": "",
+    "google_id": "ChIJZQQ0OicFmogRY_Wk7X98pQ0",
+    "google_name": "Tacky Jacks Gulf Shores",
+    "found": true
+  },
+  {
+    "name": "Tee Off at The Wharf",
+    "website": "https://www.teeoffatthewharf.com/",
+    "phone": "",
+    "address": "",
+    "google_id": "ChIJ0QLUN9sFmogRU8uGGe3LeAM",
+    "google_name": "Tee Off at The Wharf",
+    "found": true
+  },
+  {
+    "name": "The Beach House Kitchen & Cocktails",
+    "website": "http://beachhousegs.com/",
+    "phone": "(251) 948-2431",
+    "address": "1154 West Beach Blvd, Gulf Shores, AL 36542",
+    "google_id": "ChIJN7cHvkIbmogRfHa_kQJOqPc",
+    "google_name": "The Beach House Kitchen and Cocktails",
+    "found": true
+  },
+  {
+    "name": "The Cove Bar and Grill",
+    "website": "http://covebargrill.com/",
+    "phone": "251-968-5353",
+    "address": "131 Cove Ave, Gulf Shores, AL 36542",
+    "google_id": "ChIJaWhxAtEEmogRrMWZHgkiAY0",
+    "google_name": "The Cove Bar and Grill",
+    "found": true
+  },
+  {
+    "name": "the-dragonfly-bar-grill",
+    "website": "https://lodgeatgulfstatepark.com/dragonfly/",
+    "phone": "",
+    "address": "",
+    "google_id": "ChIJRXPWhYoFmogRbFe7lYouPH0",
+    "google_name": "The Dragonfly Bar & Grill",
+    "found": true
+  },
+  {
+    "name": "Flora-Bama Yacht Club",
+    "website": "https://www.florabamayachtclub.com/",
+    "phone": "(850) 483-6272",
+    "address": "17350 Perdido Key Dr. Perdido Key, FL. 32507",
+    "google_id": "ChIJ15Gk-EiokIgR6LQkQQcod-I",
+    "google_name": "The Flora-Bama Yacht Club",
+    "found": true
+  },
+  {
+    "name": "The Grid Arcade Bar",
+    "website": "http://www.thegridarcadepensacola.com/",
+    "phone": "(850) 563-7800",
+    "address": "2414 N Pace Blvd, Pensacola, FL 32505",
+    "google_id": "ChIJ5wPbeXW_kIgRU5jLG3QPw7Y",
+    "google_name": "The Grid Arcade Bar",
+    "found": true
+  },
+  {
+    "name": "THE JELLYFISH",
+    "website": "https://thejellyfishbar.com/?utm_source=google&utm_medium=gmb&utm_campaign=websiteclick",
+    "phone": "",
+    "address": "",
+    "google_id": "ChIJc4EVbW2vkIgR9riX_nFFLt8",
+    "google_name": "The Jellyfish - Seafood Restaurant and Bar",
+    "found": true
+  },
+  {
+    "name": "The Red Haven Live",
+    "website": "http://theredhavenlive.com/",
+    "phone": "",
+    "address": "",
+    "google_id": "ChIJgYBXKgAHmogRms6024lOWlI",
+    "google_name": "The Red Haven Live",
+    "found": true
+  },
+  {
+    "name": "The Sloop Galley & Spirits",
+    "website": "https://www.thesloop.biz/",
+    "phone": "(251) 500-1007",
+    "address": "103 W Canal Dr Gulf Shores Al 36542",
+    "google_id": "ChIJocYu8wYFmogRWwAiSn2fhRg",
+    "google_name": "The Sloop",
+    "found": true
+  },
+  {
+    "name": "Sound Wave",
+    "website": "https://soundwavegs.com/",
+    "phone": "",
+    "address": "",
+    "google_id": "ChIJz2-PRqUFmogReAUad78JLIo",
+    "google_name": "The Sound Wave",
+    "found": true
+  },
+  {
+    "name": "The Steamer Baked Oyster Bar",
+    "website": "https://gulfcoaststeamer.com/",
+    "phone": "251-948-4042",
+    "address": "124 W 1st Ave, Gulf Shores, AL 36547",
+    "google_id": "ChIJldilw7YEmogRn4r2cQ38KF8",
+    "google_name": "The Steamer Baked Oyster Bar",
+    "found": true
+  },
+  {
+    "name": "The Tap & Still",
+    "website": "https://www.tapstill.com/",
+    "phone": "721.544.2942",
+    "address": "",
+    "google_id": "ChIJV7AnPloFmogR1dJ64P2qj4c",
+    "google_name": "The Tap & Still Gulf Shores",
+    "found": true
+  }
+]

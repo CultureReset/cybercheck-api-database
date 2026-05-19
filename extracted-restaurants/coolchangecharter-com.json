@@ -1,0 +1,72 @@
+{
+  "name": "Cool Change Charters",
+  "type": "Fishing Charter",
+  "website": "https://coolchangecharter.com",
+  "contact": {
+    "phone": "(251) 979-1812",
+    "address": "26619 Perdido Beach Blvd, Zeke's Marina",
+    "city": "Orange Beach",
+    "email": "info@coolchangecharter.com"
+  },
+  "hours": {
+    "monday": "6:00 AM - 6:00 PM",
+    "tuesday": "6:00 AM - 6:00 PM",
+    "wednesday": "6:00 AM - 6:00 PM",
+    "thursday": "6:00 AM - 6:00 PM",
+    "friday": "6:00 AM - 6:00 PM",
+    "saturday": "6:00 AM - 6:00 PM",
+    "sunday": "6:00 AM - 6:00 PM",
+    "notes": "By appointment only"
+  },
+  "about": {
+    "description": "Orange Beach and Gulf Shores fishing charters offering private, family, reef and offshore trips with experienced local crew. Captain Joe Nash has over 35 years of professional fishing guide experience and has completed over 5,000 paid fishing charters. The business offers deep sea fishing, inshore fishing, reef and bottom fishing, and customized private charters.",
+    "elevator_pitch": "Expert-led fishing charters in Orange Beach and Gulf Shores with over 35 years of experience and 5,000+ completed trips.",
+    "vibe": "Professional, family-friendly, fun, and patient with first-time anglers. Captain Joe Nash is known for creating memorable experiences and great customer service.",
+    "best_for": [
+      "families",
+      "groups",
+      "first-time anglers",
+      "experienced fishermen",
+      "private parties",
+      "corporate groups"
+    ],
+    "capacity": "Up to 20 people on Cool Change 2 (44 ft, USCG approved)",
+    "duration_options": [
+      "1/2 Day Morning",
+      "1/2 Day Evening",
+      "Full Day"
+    ],
+    "departure_location": "Zeke's Marina, 26619 Perdido Beach Blvd, Orange Beach, AL 36561",
+    "what_provided": [
+      "Quality tackle",
+      "Professional fishing guide",
+      "USCG licensed captain",
+      "Boat and equipment"
+    ],
+    "what_to_bring": null,
+    "age_restriction": null,
+    "weight_restriction": null,
+    "reservations": "Required - Book online at https://coolchangecharter.com/book/ or call (251) 979-1812",
+    "cancellation_policy": null,
+    "insider_tip": "Captain Joe says first-timers are his favorite to watch. Snapper season opens June 1st - book early as it fills up quickly. Red snapper season is highly popular."
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/coolchangecharters",
+    "facebook": "https://www.facebook.com/coolchangecharters",
+    "tripadvisor": null,
+    "website": "https://coolchangecharter.com"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Snapper Season Special",
+      "description": "Red snapper season opens June 1st. Book before it fills up!",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 14,
+  "scraped_at": "2026-03-21T19:50:05.654Z"
+}

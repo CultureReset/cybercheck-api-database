@@ -1,0 +1,62 @@
+{
+  "name": "Bangkok Thai Cuisine",
+  "type": "Restaurant",
+  "website": "http://www.bangkokthaicuisinemobile.com/",
+  "contact": {
+    "phone": "(251) 344-9995",
+    "address": "3821 Airport Blvd",
+    "city": "Mobile",
+    "email": ""
+  },
+  "hours": {
+    "monday": "Lunch: 11:00 am - 3:30 pm | Dinner: 4:30 pm - 9:00 pm",
+    "tuesday": "Lunch: 11:00 am - 3:30 pm | Dinner: 4:30 pm - 9:00 pm",
+    "wednesday": "Lunch: 11:00 am - 3:30 pm | Dinner: 4:30 pm - 9:00 pm",
+    "thursday": "Lunch: 11:00 am - 3:30 pm | Dinner: 4:30 pm - 9:00 pm",
+    "friday": "Lunch: 11:00 am - 3:30 pm | Dinner: 4:30 pm - 9:00 pm",
+    "saturday": "Lunch: 11:00 am - 3:30 pm | Dinner: 4:30 pm - 10:00 pm",
+    "sunday": "Lunch: 11:00 am - 3:30 pm | Dinner: 4:30 pm - 9:00 pm",
+    "notes": "Menu and prices subject to change. Call restaurant for current prices and selections."
+  },
+  "about": {
+    "description": "Casual outpost offering familiar Thai noodles and curries, plus a lunch buffet, amid Asian decor.",
+    "elevator_pitch": "Bangkok Thai Cuisine brings authentic Thai flavors to Mobile, Alabama, with a welcoming lunch buffet and a full dinner menu of classic noodles and curries in a warm, Asian-inspired setting.",
+    "established": null,
+    "owner": null,
+    "chef": null,
+    "vibe": "Casual, cozy Asian-inspired dining with authentic flair",
+    "best_for": [
+      "families",
+      "lunch crowds",
+      "date night",
+      "groups"
+    ],
+    "age_restriction": null,
+    "dress_code": null,
+    "parking": null,
+    "accessibility": null,
+    "reservations": "Call restaurant directly during business hours",
+    "insider_tip": "Take advantage of the lunch buffet on weekdays for the best value and variety.",
+    "awards": [],
+    "press": []
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "twitter": null,
+    "tiktok": null,
+    "youtube": null,
+    "yelp": null,
+    "tripadvisor": null,
+    "opentable": null,
+    "google_maps": null,
+    "website": "http://www.bangkokthaicuisinemobile.com/"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 12,
+  "scraped_at": "2026-03-22T02:34:17.148Z"
+}

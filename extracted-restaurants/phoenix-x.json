@@ -1,0 +1,58 @@
+{
+  "name": "Brett/Robinson Vacation Rentals",
+  "type": "Vacation Rental | Condo Resort",
+  "website": "https://www.brett-robinson.com/beach-condo/phoenix-x/",
+  "contact": {
+    "phone": "+1-800-211-7892",
+    "address": "3259 Gulf Shores Parkway",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {},
+  "about": {
+    "description": "Premier vacation rental management company offering beachfront condos and family-friendly rentals in Gulf Shores and Orange Beach, Alabama. Over 40 years of experience managing and maintaining high-quality vacation properties.",
+    "elevator_pitch": "Family-owned vacation rental company with 40+ years experience offering beachfront condos and family-friendly rentals across Gulf Shores and Orange Beach, Alabama.",
+    "total_units": null,
+    "floors": null,
+    "year_built": null,
+    "pet_friendly": false,
+    "minimum_stay": null,
+    "check_in": "Varies by season",
+    "check_out": "Varies by season",
+    "age_restriction": null
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/brett_robinson_vacations",
+    "facebook": "https://www.facebook.com/BrettRobinsonVacations",
+    "linkedin": "https://www.linkedin.com/company/brett-robinson-vacation-rentals",
+    "website": "https://www.brett-robinson.com/beach-condo/phoenix-x/"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Seasonal Discounts",
+      "description": "Discounted rates during off-peak seasons",
+      "discount": ""
+    },
+    {
+      "name": "Snowbird Specials",
+      "description": "Special rates for longer stays",
+      "discount": ""
+    },
+    {
+      "name": "Last-Minute Deals",
+      "description": "Hot deals on select rentals with limited time offers",
+      "discount": ""
+    },
+    {
+      "name": "Promo Codes",
+      "description": "Percentage-off promotions such as 10% savings with codes like Bama2025",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 23,
+  "scraped_at": "2026-03-21T21:08:51.201Z"
+}

@@ -1,0 +1,64 @@
+{
+  "name": "Perdido Key Sports Bar",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "(850) 332-6403",
+    "address": "13583 Perdido Key Drive",
+    "city": "Pensacola",
+    "email": ""
+  },
+  "hours": {
+    "monday": "11am onwards",
+    "tuesday": "11am onwards",
+    "wednesday": "11am onwards",
+    "thursday": "11am onwards",
+    "friday": "11am onwards",
+    "saturday": "11am onwards",
+    "sunday": "11am onwards"
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Specialties",
+      "name": "Chicken Wings",
+      "description": "Voted best chicken wings on the key",
+      "price": ""
+    },
+    {
+      "category": "Specialties",
+      "name": "Burgers & Fries",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Specialties",
+      "name": "Shrimp & Fish",
+      "description": "",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Happy Hour",
+      "description": "Daily happy hour with drink specials",
+      "discount": ""
+    },
+    {
+      "name": "Kitchen Open Late Night",
+      "description": "Late night food service available",
+      "discount": ""
+    },
+    {
+      "name": "Daily Specials",
+      "description": "Menu featuring drink specials, crowd-pleasers and daily specials",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:51.200Z"
+}

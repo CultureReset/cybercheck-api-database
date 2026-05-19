@@ -1,0 +1,145 @@
+{
+  "name": "Lartigue's Original Fresh Seafood Market",
+  "type": "Seafood Market",
+  "website": "http://www.lartigueseafood.com/",
+  "contact": {
+    "phone": "(251) 948-2644",
+    "address": "23043 Perdido Beach Boulevard",
+    "city": "Orange Beach",
+    "email": ""
+  },
+  "hours": {
+    "monday": "9 am – 7 pm",
+    "tuesday": "9 am – 7 pm",
+    "wednesday": "9 am – 7 pm",
+    "thursday": "9 am – 7 pm",
+    "friday": "9 am – 7 pm",
+    "saturday": "9 am – 7 pm",
+    "sunday": "9 am – 7 pm",
+    "notes": null
+  },
+  "about": {
+    "description": "Lartigue Fresh Seafood is a family-owned business that started in 1979 when Bubba and Uncle Larry opened their first seafood market on Old Shell Road in Mobile, Alabama. They expanded to Gulf Shores in 1988 and settled in Orange Beach in 1999. For over 40 years, they've been crafting original spice blends and signature sauces with time-tested family recipes, serving the Gulf Coast community with fresh seafood and quality products.",
+    "elevator_pitch": "A family-owned Gulf Coast seafood market offering fresh seafood, original spice blends, and signature sauces since 1979.",
+    "vibe": "Casual, family-friendly seafood market with a strong Gulf Coast tradition and passion for quality ingredients",
+    "best_for": [
+      "families",
+      "seafood lovers",
+      "tourists",
+      "catering events"
+    ],
+    "established": "1979",
+    "reservations": null,
+    "insider_tip": "They offer catering services for weddings, birthdays, holidays, and corporate gatherings with pickup from their Orange Beach location."
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/lartigueseafood",
+    "facebook": "https://www.facebook.com/lartigueseafood",
+    "tiktok": "https://www.tiktok.com/@lartigueseafood",
+    "website": "https://www.lartigueseafood.com"
+  },
+  "menu": [
+    {
+      "category": "Seasonings & Spices",
+      "name": "All Purpose Seasoning 5 oz",
+      "description": "Go-to seasoning for meats, seafood, rice, eggs, veggies, soups, and gumbos",
+      "price": 8.99
+    },
+    {
+      "category": "Seasonings & Spices",
+      "name": "All Purpose Seasoning 24 oz",
+      "description": "Larger size of the balanced blend for kitchen or grill use",
+      "price": 19.99
+    },
+    {
+      "category": "Seasonings & Spices",
+      "name": "Cajun Seasoning 5 oz",
+      "description": "Bold Cajun blend with spicy pop and savory flavor, perfect for steamed seafood and roasted veggies",
+      "price": 8.99
+    },
+    {
+      "category": "Seasonings & Spices",
+      "name": "Cajun Seasoning 24oz",
+      "description": "Larger size of the spicy, savory blend perfect for seafood, gumbo, and jambalaya",
+      "price": 19.99
+    },
+    {
+      "category": "Seasonings & Spices",
+      "name": "Blackened Seasoning 5 oz",
+      "description": "Gulf Coast version of blackened blend - zesty, smoky with bold flavor for fish, chicken, and veggies",
+      "price": 8.99
+    },
+    {
+      "category": "Seasonings & Spices",
+      "name": "Blackened Seasoning 22 oz",
+      "description": "Larger size of signature blackened seasoning, bold and smoky for steak, chicken, fish, shrimp, and vegetables",
+      "price": 19.99
+    },
+    {
+      "category": "Seasonings & Spices",
+      "name": "Bold & Classic Seasoning 5oz",
+      "description": "Big flavor with classic Southern kick for meats, veggies, and grilled items",
+      "price": 8.99
+    },
+    {
+      "category": "Seasonings & Spices",
+      "name": "Smoky Butter Seasoning 4oz",
+      "description": "Rich, buttery flavor with smoke - perfect for steaks, seafood, veggies, and even popcorn",
+      "price": 8.99
+    },
+    {
+      "category": "Sauces",
+      "name": "Cajun Garlic Sauce & Butt Fire Hot Sauce",
+      "description": "Two bottles - Cajun Garlic Sauce with bold savory spice and garlicky punch; Butt Fire Hot Sauce with serious heat and rich flavor",
+      "price": 19.99
+    },
+    {
+      "category": "Mix & Match Packs",
+      "name": "2 Pack Mix & Match",
+      "description": "Choose any two signature sauces or seasonings - perfect for gifting or taste-testing",
+      "price": 17.98
+    },
+    {
+      "category": "Mix & Match Packs",
+      "name": "3 Pack Mix & Match",
+      "description": "Select any three sauces and seasonings - full of Gulf Coast flavor",
+      "price": 26.97
+    },
+    {
+      "category": "Mix & Match Packs",
+      "name": "4 Pack Mix & Match",
+      "description": "Customize with any four sauces and seasonings for complete flavor variety",
+      "price": 35.96
+    },
+    {
+      "category": "Mix & Match Packs",
+      "name": "5 Pack Mix & Match",
+      "description": "Build your own lineup with any five sauces or seasonings - perfect for flavor fanatics",
+      "price": 39.99
+    },
+    {
+      "category": "Gift Items & Merchandise",
+      "name": "Lartigue Brand Gift Box",
+      "description": "Includes best selling spices & seasonings: 3oz All Purpose, 3oz Blackened, 3oz Cajun, 5oz Bold & Classic, 4oz Smoky Butter, and Lartigue's Favorites Cookbook",
+      "price": 49.99
+    },
+    {
+      "category": "Gift Items & Merchandise",
+      "name": "Lartigue's Souvenir Cup",
+      "description": "Perfect for beach days, boat rides, and everything in between",
+      "price": 29.99
+    },
+    {
+      "category": "Gift Items & Merchandise",
+      "name": "Lartigue's Favorites Cookbook",
+      "description": "Family's famous recipes for seafood cooking since 1945",
+      "price": 14.99
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 50,
+  "scraped_at": "2026-03-21T14:41:25.859Z"
+}

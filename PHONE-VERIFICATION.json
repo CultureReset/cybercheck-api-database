@@ -1,0 +1,17 @@
+{
+  "summary": {
+    "exact_matches": {
+      "with_phone": 0,
+      "phone_match": 0,
+      "phone_mismatch": 0
+    },
+    "partial_matches": {
+      "with_phone": 0,
+      "phone_match": 0,
+      "phone_mismatch": 0,
+      "no_phone": 92
+    }
+  },
+  "exact_phone_issues": [],
+  "partial_phone_issues": []
+}

@@ -1,0 +1,106 @@
+{
+  "timestamp": "2026-05-19T06:08:04.427Z",
+  "summary": {
+    "total_restaurants": 19,
+    "entities_created": 1,
+    "menus_imported": 19,
+    "total_menu_items": 543
+  },
+  "results": [
+    {
+      "status": "success",
+      "name": "Wolf Bay",
+      "entityId": "abb15baa-5150-45c6-aab4-cf21e9b2060c"
+    },
+    {
+      "status": "success",
+      "name": "Rotolo's",
+      "entityId": "510a6543-ad91-464d-ab3e-ca4aa5a6bb5d"
+    },
+    {
+      "status": "success",
+      "name": "The Crab Trap",
+      "entityId": "2666ad1f-8276-4bd3-895f-1544dfd8bd3d"
+    },
+    {
+      "status": "success",
+      "name": "Sea-N-Suds",
+      "entityId": "9f020eae-8fb7-4ef8-9e82-e2e7c281e408"
+    },
+    {
+      "status": "success",
+      "name": "Mikato",
+      "entityId": "494bfec4-d321-483c-b02e-aa6dbda74aa6"
+    },
+    {
+      "status": "success",
+      "name": "Pink Pony Pub",
+      "entityId": "612aaa28-333a-477b-bbae-046d569b8a05"
+    },
+    {
+      "status": "success",
+      "name": "The Sloop",
+      "entityId": "2666ad1f-8276-4bd3-895f-1544dfd8bd3d"
+    },
+    {
+      "status": "success",
+      "name": "Icehouse Tap Room",
+      "entityId": "6dbea9c1-6f80-4a1f-86df-23dd6e98cb44"
+    },
+    {
+      "status": "success",
+      "name": "Mudbugs Pub",
+      "entityId": "d8f8edaf-435a-4e7b-952c-d1ceddd38fcd"
+    },
+    {
+      "status": "success",
+      "name": "OHANA",
+      "entityId": "f688f196-9ff7-46a9-9bdc-d3f4ce8d47a1"
+    },
+    {
+      "status": "success",
+      "name": "Vinny's",
+      "entityId": "ab694a80-d3bf-4d68-97da-36c47b2f938d"
+    },
+    {
+      "status": "success",
+      "name": "Mile Marker 158",
+      "entityId": "49ba968a-f66e-431b-bc74-8c961dc2ed79"
+    },
+    {
+      "status": "success",
+      "name": "COASTAL",
+      "entityId": "d48c2258-0212-4de1-8262-3706decb3685"
+    },
+    {
+      "status": "success",
+      "name": "Pelican Grill",
+      "entityId": "3ff38271-9703-41c8-96b2-065a953d519b"
+    },
+    {
+      "status": "success",
+      "name": "POUR Smart Bar",
+      "entityId": "993fe31d-2eec-4ed7-a504-e472ca86bc79"
+    },
+    {
+      "status": "success",
+      "name": "Villaggio Grille",
+      "entityId": "61f2e393-9efe-438e-8963-4997008f944f"
+    },
+    {
+      "status": "success",
+      "name": "Louisiana Lagniappe",
+      "entityId": "6488a180-1426-4332-b25c-ef8eaad7750e"
+    },
+    {
+      "status": "success",
+      "name": "Flora-Bama Lounge",
+      "entityId": "f068439e-1795-4a6d-a3d6-f5cca12201bf"
+    },
+    {
+      "status": "success",
+      "name": "Sail Wild Hearts",
+      "entityId": "4d83930b-b380-48e4-8282-ff19cc30019b"
+    }
+  ]
+}

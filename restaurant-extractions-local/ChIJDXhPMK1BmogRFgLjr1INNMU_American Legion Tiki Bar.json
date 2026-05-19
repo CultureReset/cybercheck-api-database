@@ -1,0 +1,135 @@
+{
+  "business_name": "American Legion Post 199, Fairhope AL",
+  "cuisine_type": null,
+  "price_range": null,
+  "description": "Post 199 is a military Veteran organization that is Open to the Public. Please drop by and visit us.",
+  "atmosphere": null,
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": "Fairhope, AL",
+    "website": "https://www.facebook.com/EasternShorePost199",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": "https://www.facebook.com/EasternShorePost199",
+      "instagram": null,
+      "twitter": null,
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": null,
+    "takeout_available": null,
+    "delivery_available": null,
+    "curbside_available": null,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [],
+    "wine_list": null,
+    "beer_selection": null,
+    "cocktails": null,
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": false,
+      "vegan": false,
+      "gluten_free": false,
+      "dairy_free": false,
+      "nut_free": false,
+      "kosher": false,
+      "halal": false
+    }
+  },
+  "happy_hour": {
+    "available": false,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [],
+  "entertainment_and_events": [],
+  "private_events": {
+    "available": false,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": false,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": false,
+    "accessible_restroom": false,
+    "parking_accessible": false,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": null,
+    "pets_allowed": false
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": false,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": false,
+    "private_dining": false
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": false,
+    "email_signup": null,
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": false,
+    "farm_to_table": false,
+    "sustainable": false,
+    "organic": false,
+    "details": null
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [],
+    "common_praise": [],
+    "common_complaints": []
+  },
+  "photos_and_media": [],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "American Legion Post 199, Fairhope AL | Fairhope AL | Facebook. Post 199 is a military Veteran organization that is Open to the Public. Please drop by, visit us. 10,259 likes · 1,251 talking about this · 13,804 were here.",
+  "extraction_confidence": "low",
+  "extraction_notes": "This is a Facebook page for American Legion Post 199, a military veteran organization, not a restaurant. The HTML provided is primarily Facebook's page structure and metadata with minimal actual content about the business. No menu items, pricing, hours, food service information, or restaurant details were found. The page description only states it's a veteran organization open to the public. The extraction attempted to follow the restaurant schema but found no restaurant-specific data. Most fields are null or empty as this appears to be a social organization rather than a food service establishment.",
+  "folder": "ChIJDXhPMK1BmogRFgLjr1INNMU_American Legion Tiki Bar",
+  "extracted_at": "2026-05-15T06:10:01.197Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJDXhPMK1BmogRFgLjr1INNMU_American Legion Tiki Bar/01_raw_html.html"
+}

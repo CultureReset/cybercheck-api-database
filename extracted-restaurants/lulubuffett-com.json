@@ -1,0 +1,27 @@
+{
+  "name": "LuLu's Fun Food & Music",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "",
+    "address": "",
+    "city": "",
+    "email": ""
+  },
+  "hours": {},
+  "about": {},
+  "social": {},
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Live Music",
+      "description": "Live music Monday - Friday 5:00pm - 9:00pm",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:50.930Z"
+}

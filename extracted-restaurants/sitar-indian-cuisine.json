@@ -1,0 +1,53 @@
+{
+  "name": "Sitar Indian Cuisine",
+  "type": "Restaurant",
+  "website": "http://www.sitarindianrestaurantal.com/",
+  "contact": {
+    "phone": "(256) 536-3360",
+    "address": "420 Jordan Ln NW",
+    "city": "Huntsville",
+    "email": "gomes.mervyn@gmail.com"
+  },
+  "hours": {
+    "monday": "11:00am - 02:30pm, 04:30pm - 09:00pm",
+    "tuesday": "11:00am - 02:30pm, 04:30pm - 09:00pm",
+    "wednesday": "11:00am - 02:30pm, 04:30pm - 09:00pm",
+    "thursday": "11:00am - 02:30pm, 04:30pm - 09:00pm",
+    "friday": "11:00am - 02:30pm, 04:30pm - 09:00pm",
+    "saturday": "11:00am - 02:30pm, 04:30pm - 09:00pm",
+    "sunday": "11:00am - 02:30pm, 04:30pm - 09:00pm",
+    "notes": "Open 7 days a week"
+  },
+  "about": {
+    "description": "Sitar Indian Cuisine is one of the finest Indian restaurant located at Huntsville, AL. Our restaurant is best known for its outstanding Indian Cuisine, excellent staff service with livery ambience. Sitar Indian Cuisine prepares everything fresh using the best quality ingredients and the freshest vegetables. Each dish represents flavor, pleasure, affection and essence.",
+    "elevator_pitch": "Premier Indian cuisine restaurant in Huntsville offering authentic dishes made with fresh, high-quality ingredients and exceptional service.",
+    "vibe": "Lively ambience with excellent staff service and fresh, quality dining experience",
+    "best_for": [
+      "families",
+      "casual dining",
+      "takeout",
+      "lunch buffet"
+    ],
+    "established": null,
+    "reservations": "Yes, call (256) 536-3360 to make a reservation",
+    "insider_tip": null
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "website": "http://www.sitarindianrestaurantal.com/"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [
+    {
+      "name": "Lunch Buffet",
+      "day": "Monday-Sunday",
+      "time": "11:00am - 02:30pm"
+    }
+  ],
+  "gallery": 9,
+  "scraped_at": "2026-03-21T14:38:07.985Z"
+}

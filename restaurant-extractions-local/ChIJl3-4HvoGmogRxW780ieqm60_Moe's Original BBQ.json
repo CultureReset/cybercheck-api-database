@@ -1,0 +1,243 @@
+{
+  "business_name": "Moe's Original BBQ Orange Beach, AL",
+  "cuisine_type": "Barbecue, Southern",
+  "price_range": "$$",
+  "description": "Moe's Original BBQ is an authentic Alabama-style BBQ restaurant chain serving slow-smoked pulled pork, ribs, chicken, and house-made sauces across 40+ locations in the Southeast and beyond. Moe's Original BBQ Orange Beach is a top-rated barbecue restaurant in Orange Beach, Alabama, serving authentic Alabama-style BBQ, slow-smoked meats, and classic Southern sides with true Gulf Coast hospitality. Conveniently located near the heart of Orange Beach, this location is a favorite for locals and visitors looking for award-winning barbecue along Alabama's scenic Gulf Coast. Features a backyard dining oasis with full-service bar and stage, live music, and offers BBQ catering services for events.",
+  "atmosphere": "Lively Gulf Coast BBQ destination with backyard dining oasis, full-service bar, stage area, live music performances, spacious outdoor seating. Casual dining with entertainment focus.",
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": "(251) 981-7427",
+    "email": null,
+    "address": "25603 Perdido Beach Blvd, Orange Beach, AL 36561",
+    "website": "https://www.moesoriginalbbq.com/lo/orange-beach",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": null,
+      "instagram": null,
+      "twitter": null,
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": "11:00 AM - 8:00 PM",
+    "tuesday": "11:00 AM - 8:00 PM",
+    "wednesday": "11:00 AM - 8:00 PM",
+    "thursday": "11:00 AM - 8:00 PM",
+    "friday": "11:00 AM - 8:00 PM",
+    "saturday": "11:00 AM - 8:00 PM",
+    "sunday": "11:00 AM - 8:00 PM",
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": true,
+    "takeout_available": true,
+    "delivery_available": true,
+    "curbside_available": null,
+    "delivery_partners": [
+      "Toast Tab",
+      "Time to Eat the Beach"
+    ],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [
+      {
+        "name": "Finger Foods and Salad",
+        "description": null,
+        "items": [
+          {
+            "name": "Moe Nachos",
+            "description": "Baked beans & house-fried chips topped w/ our pulled smoked pork or chicken, nacho cheese, red onions, pickled jalapenos, BBQ & white sauce",
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Smoked Chicken Wings",
+            "description": "Marinated, smoked and fried wings with a side of white sauce. Flavors: Buffalo, Spicy Garlic, Asian Persuasion, BBQ, Dry Rub",
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Chicken Tender Snack",
+            "description": "6 hand-battered & golden fried tenders served with honey mustard",
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": null
+          }
+        ]
+      },
+      {
+        "name": "Loaded Baked Tater",
+        "description": null,
+        "items": []
+      },
+      {
+        "name": "Sandwich Meal",
+        "description": null,
+        "items": []
+      },
+      {
+        "name": "Platters",
+        "description": null,
+        "items": []
+      },
+      {
+        "name": "Kids",
+        "description": null,
+        "items": []
+      },
+      {
+        "name": "Sides",
+        "description": null,
+        "items": []
+      },
+      {
+        "name": "Haul It Home",
+        "description": null,
+        "items": []
+      }
+    ],
+    "wine_list": null,
+    "beer_selection": null,
+    "cocktails": null,
+    "kids_menu": "Available - Kids menu section exists",
+    "catering_menu": "Available - Full catering options offered",
+    "dietary_accommodations": {
+      "vegetarian": false,
+      "vegan": false,
+      "gluten_free": null,
+      "dairy_free": null,
+      "nut_free": null,
+      "kosher": null,
+      "halal": null
+    }
+  },
+  "happy_hour": {
+    "available": null,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [],
+  "entertainment_and_events": [
+    {
+      "type": "live_music",
+      "name": "Live Music",
+      "days": "Multiple days",
+      "start_time": null,
+      "end_time": null,
+      "description": "Live music performances at backyard dining oasis with stage",
+      "cover_charge": null,
+      "featured_artist": null
+    }
+  ],
+  "private_events": {
+    "available": true,
+    "event_spaces": "Backyard dining oasis with full-service bar and stage",
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": true,
+    "packages": "Private events available including birthdays, corporate gatherings, and family celebrations. Backyard dining oasis features spacious outdoor seating, live music capabilities, and access to full catering menu."
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": "Kids menu available",
+    "pets_allowed": null
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": null,
+    "online_booking_platform": null,
+    "phone_reservations": "(251) 981-7427",
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": null,
+    "private_dining": true
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": "Rewards program available",
+    "gift_cards_available": true,
+    "email_signup": null,
+    "rewards_details": "Join rewards program through Toast Tab platform"
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": null,
+    "farm_to_table": null,
+    "sustainable": null,
+    "organic": null,
+    "details": "Authentic Alabama-style BBQ with slow-smoked meats and homemade Southern sides made fresh daily"
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [
+      "Pulled pork",
+      "Ribs",
+      "Smoked chicken",
+      "Smoked wings",
+      "Baked beans",
+      "Mac and cheese",
+      "Potato salad",
+      "Banana pudding"
+    ],
+    "common_praise": [
+      "Award-winning barbecue",
+      "Authentic Alabama-style BBQ",
+      "Live music and entertainment",
+      "Fresh daily sides",
+      "Gulf Coast hospitality",
+      "Lively atmosphere"
+    ],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "restaurant",
+      "url": "https://images.squarespace-cdn.com/content/v1/591cbfe61e5b6c806118e689/1512423373465-W68LHT96VLTASRX7QELG/Reggie+1.jpg",
+      "description": "Restaurant image - Reggie"
+    },
+    {
+      "type": "logo",
+      "url": "//images.squarespace-cdn.com/content/v1/591cbfe61e5b6c806118e689/1582760291894-EOT4TWF7FGRIC3P0MWXQ/MOB.PrimaryLogoPNG.2C.png",
+      "description": "Moe's Original BBQ logo"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "Moe's Original BBQ Orange Beach Location Information: 25603 Perdido Beach Blvd, Orange Beach, AL 36561. Phone: (251) 981-7427. Hours: Open Daily 11 a.m. - 8 p.m. Menu includes: Finger Foods and Salad (Moe Nachos, Smoked Chicken Wings, Chicken Tender Snack), Loaded Baked Tater, Sandwich Meals, Platters, Kids Menu, Sides, Haul It Home. Full menu available for download. Moe's Original BBQ is an authentic Alabama-style BBQ restaurant chain serving slow-smoked pulled pork, ribs, chicken, and house-made sauces. Features include: authentic Alabama-style BBQ, slow-smoked meats, classic Southern sides, full-service bar, backyard dining oasis with stage, live music entertainment, private events capability, BBQ catering services. Catering options: pickup platters, delivery with setup, full-service catering with staffed service. All catering includes slow-smoked meats, Southern sides, buns, sauces. Menu items feature: pulled pork, smoked chicken, St. Louis-style ribs, smoked wings, baked beans, mac and cheese, potato salad, banana pudding. Online ordering available through Toast Tab for pickup. Delivery available through Toast Tab and Time to Eat the Beach platforms. Rewards program available. Gift cards available through Card Foundry. Employment opportunities available. Dine-in, takeout, and delivery services available.",
+  "extraction_confidence": "high",
+  "extraction_notes": "This is a location page for Moe's Original BBQ Orange Beach location. Full menu details are partially visible (only first category items shown in detail). Complete menu available as PDF download. Social media links not explicitly visible on this page fragment but main website navigation shows gift cards and catering links. Hours clearly stated as Open Daily 11 a.m. - 8 p.m. Contact information and address confirmed via Google Maps link in the page. Pricing information not visible on this page. Some menu sections (Loaded Baked Tater, Sandwich Meal, Platters, Kids, Sides, Haul It Home) exist but items not fully extracted from HTML provided. Private events and catering information well-documented on page.",
+  "folder": "ChIJl3-4HvoGmogRxW780ieqm60_Moe's Original BBQ",
+  "extracted_at": "2026-05-15T06:32:16.944Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJl3-4HvoGmogRxW780ieqm60_Moe's Original BBQ/01_raw_html.html"
+}

@@ -1,0 +1,54 @@
+{
+  "name": "The Point Restaurant",
+  "type": "Restaurant | Bar",
+  "website": "https://thepointperdido.com",
+  "contact": {
+    "phone": "(850) 492-3577",
+    "address": "14340 Innerarity Point Rd",
+    "city": "Pensacola",
+    "email": ""
+  },
+  "hours": {
+    "monday": "Closed",
+    "tuesday": "11:00am - 9:00pm",
+    "wednesday": "11:00am - 9:00pm",
+    "thursday": "11:00am - 9:00pm",
+    "friday": "11:00am - 9:00pm",
+    "saturday": "11:00am - 9:00pm",
+    "sunday": "12:00pm - 9:00pm",
+    "notes": "Hours vary depending upon the season"
+  },
+  "about": {
+    "description": "The Point Restaurant dates back to the 1950s with fresh caught Mullet. In 60 years of serving the best seafood, they've perfected the southern seafood dining experience. Menu features local Royal Reds, Oysters, Crab Claws, Alligator Bites, Burgers, Bar Foods, Fresh Catch items, Chef Specials, and desserts. The Courtyard features live bands and a full bar nestled under ancient oak trees with personal fireplaces, gathering style seating, picnic tables, and a stage.",
+    "elevator_pitch": "A legendary 60-year-old seafood restaurant in Pensacola with fresh catches, live music, and a full-service courtyard bar.",
+    "vibe": "Southern seafood dining with live entertainment under ancient oak trees, casual and festive atmosphere",
+    "best_for": [
+      "seafood lovers",
+      "live music enthusiasts",
+      "families",
+      "group gatherings",
+      "events"
+    ],
+    "established": "1950s",
+    "reservations": null,
+    "insider_tip": "Bubba And Them, the ONLY bluegrass band in town, has been performing at The Point for over 20 years"
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://thepointperdido.com"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [
+    {
+      "name": "Live Music",
+      "day": "Nightly",
+      "time": ""
+    }
+  ],
+  "gallery": 20,
+  "scraped_at": "2026-03-22T18:49:36.085Z"
+}

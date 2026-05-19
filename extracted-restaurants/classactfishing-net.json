@@ -1,0 +1,50 @@
+{
+  "name": "Class Act Fishing",
+  "type": "Fishing Charter",
+  "website": "https://classactfishing.net",
+  "contact": {
+    "phone": "",
+    "address": "",
+    "city": "",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": null
+  },
+  "about": {
+    "description": null,
+    "elevator_pitch": null,
+    "vibe": null,
+    "best_for": [],
+    "capacity": null,
+    "duration_options": [],
+    "departure_location": null,
+    "what_provided": [],
+    "what_to_bring": [],
+    "age_restriction": null,
+    "weight_restriction": null,
+    "reservations": null,
+    "cancellation_policy": null,
+    "insider_tip": null
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "tripadvisor": null,
+    "website": "https://classactfishing.net"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-03-21T19:49:32.890Z"
+}

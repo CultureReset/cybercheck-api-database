@@ -1,0 +1,138 @@
+{
+  "name": "Villaggio Grille",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "251.224.6510",
+    "address": "4790 Main Street Suite F 108-B",
+    "city": "Orange Beach",
+    "email": "villaggiogrilleob@gmail.com"
+  },
+  "hours": {
+    "monday": "11am-9pm",
+    "tuesday": "11am-9pm",
+    "wednesday": "11am-9pm",
+    "thursday": "11am-10pm",
+    "friday": "11am-10pm",
+    "saturday": "11am-10pm",
+    "sunday": "11am-9pm"
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Family Meals To Go",
+      "name": "10 Layer Lasagna",
+      "description": "Beef and Pork Lasagna, Layered with Ricotta Béchamel, House Made Marinara and Mozzarella. Feeds 4 People. Served with House or Caesar Salad and House Made Focaccia Bread",
+      "price": 42
+    },
+    {
+      "category": "Family Meals To Go",
+      "name": "Shrimp or Chicken Alfredo",
+      "description": "Grilled Chicken or Shrimp, House Made Alfredo, Spinach, Fettuccine Noodle. Feeds 4 People. Served with House or Caesar Salad and House Made Focaccia Bread",
+      "price": 42
+    },
+    {
+      "category": "Family Meals To Go",
+      "name": "Grilled Salmon",
+      "description": "Served with Tomato Risotto, Green Beans, and Balsamic Glaze. Feeds 4 People. Served with House or Caesar Salad and House Made Focaccia Bread",
+      "price": 56
+    },
+    {
+      "category": "Family Meals To Go",
+      "name": "Spicy Rigatoni",
+      "description": "Italian Sausage, Calabrian Chili, Arrabbiata Sauce and Garlic Pangrattato. Feeds 4 People. Served with House or Caesar Salad and House Made Focaccia Bread",
+      "price": 50
+    },
+    {
+      "category": "Kids Menu",
+      "name": "Pizza",
+      "description": "Pepperoni, Sausage, or Cheese",
+      "price": 7
+    },
+    {
+      "category": "Kids Menu",
+      "name": "Burger & Chips",
+      "description": "Plain or with Cheese",
+      "price": 7
+    },
+    {
+      "category": "Kids Menu",
+      "name": "Chicken Tenders & Chips",
+      "description": "",
+      "price": 7
+    },
+    {
+      "category": "Kids Menu",
+      "name": "Kids Pasta",
+      "description": "In Your Choice of Butter, Alfredo Sauce, or Marinara Sauce",
+      "price": 7
+    },
+    {
+      "category": "Kids Menu",
+      "name": "Chicken Alfredo",
+      "description": "",
+      "price": 7
+    },
+    {
+      "category": "Kids Menu",
+      "name": "Fruit Plate",
+      "description": "",
+      "price": 7
+    },
+    {
+      "category": "Dessert Menu",
+      "name": "Classic Tiramisu",
+      "description": "",
+      "price": 8
+    },
+    {
+      "category": "Dessert Menu",
+      "name": "Chef's Choice Chocolate Cake",
+      "description": "",
+      "price": 8
+    },
+    {
+      "category": "Dessert Menu",
+      "name": "Carrot Cake",
+      "description": "",
+      "price": 8
+    },
+    {
+      "category": "Dessert Menu",
+      "name": "Chef's Choice Cheesecake",
+      "description": "",
+      "price": 8
+    },
+    {
+      "category": "Dessert Menu",
+      "name": "Crème Brulee",
+      "description": "",
+      "price": 8
+    },
+    {
+      "category": "Dessert Menu",
+      "name": "Coconut Cake",
+      "description": "",
+      "price": 8
+    },
+    {
+      "category": "Wine Pairings",
+      "name": "March Wine Pairing",
+      "description": "Course One: Mushroom Marsala Baked Brie - Mini Baked Brie Wheel topped with Mushrooms, Marsala Sauce, & Pine Nuts, Served with Mini Naan, Paired with A Telleira Godello Ribeiro '24. Course Two: Mediterranean Snapper - Grilled Red Snapper Tossed in Lemon Juice & Olive Oil, Topped with Sautéed Onion & Swiss Chard, Cherry Tomatoes, Black Olives, Feta Cheese, & Parsley, Served Over Lemon Orzo, Paired with Montaña Blanco '20. Course Three: Lamb Meatballs - Smoked Bacon, Roasted Tomato, & Gouda Polenta, Tzatziki Sauce, Paired with Montaña Rioja Crianza '21. Course Four: Lemon Blueberry Cheesecake - Lemon & Blueberries infused in a New York Style Cheesecake, Blueberry Compote, Graham Cracker Crust, & Whipped Cream, Paired with Mont Marcal Cava Brut Reserva '23",
+      "price": 60
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Happy Hour",
+      "description": "Enjoy Amazing Specials",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:51.799Z"
+}

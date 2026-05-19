@@ -1,0 +1,64 @@
+{
+  "name": "Mudbugs Pub",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "(251) 948-8081",
+    "address": "624 Gulf Shores Pkwy",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Food",
+      "name": "Burgers",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Food",
+      "name": "Wings",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Food",
+      "name": "Po'boys",
+      "description": "",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Happy Hour",
+      "description": "Happy Hour",
+      "discount": ""
+    },
+    {
+      "name": "Kostume Karaoke",
+      "description": "Nightly Kostume Karaoke",
+      "discount": ""
+    },
+    {
+      "name": "Sunday Funday",
+      "description": "Crawfish Boil & Live DJ with Bottomless Mimosas",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:51.043Z"
+}

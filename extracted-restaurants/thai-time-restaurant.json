@@ -1,0 +1,29 @@
+{
+  "name": "Thai Time Restaurant",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "251-344-9995",
+    "address": "3821 Airport Blvd",
+    "city": "Mobile",
+    "email": "thaitimemob@gmail.com"
+  },
+  "hours": {
+    "monday": "11:00am-2:30pm, 4:00pm-9:00pm",
+    "tuesday": "11:00am-2:30pm, 4:00pm-9:00pm",
+    "wednesday": "Closed",
+    "thursday": "11:00am-2:30pm, 4:00pm-9:00pm",
+    "friday": "11:00am-2:30pm, 4:00pm-9:00pm",
+    "saturday": "11:00am-2:30pm, 4:00pm-9:00pm",
+    "sunday": "11:00am-2:30pm, 4:00pm-9:00pm"
+  },
+  "about": {},
+  "social": {},
+  "menu": [],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:51.497Z"
+}

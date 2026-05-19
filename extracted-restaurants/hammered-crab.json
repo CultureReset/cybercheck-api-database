@@ -1,0 +1,382 @@
+{
+  "name": "The Hammered Crab",
+  "type": "Restaurant",
+  "website": "http://thehammeredcrab.com/",
+  "contact": {
+    "phone": "(251)-200-0545",
+    "address": "",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null
+  },
+  "about": {
+    "description": "The Hammered Crab is a beachfront seafood restaurant in Gulf Shores specializing in fresh crab legs, shrimp, and coastal cuisine. They offer all-you-can-eat crab legs and cater to groups and private events.",
+    "cuisine_type": "seafood"
+  },
+  "social": {},
+  "menu": [
+    {
+      "category": "Starters",
+      "name": "Peel & Eat Shrimp",
+      "description": "Tossed with coastal seasonings. Served hot or cold with cocktail sauce and lemon.",
+      "price": "$16.58 (Regular) | $20.73 (Gulf Shrimp)"
+    },
+    {
+      "category": "Starters",
+      "name": "Fried Grouper Bites",
+      "description": "Marinated in our \"Coastal Seasoning\", hand-breaded, and served with our jalapeño remoulade. Perfect for sharing with the table, or just for yourself.",
+      "price": "$15.54"
+    },
+    {
+      "category": "Starters",
+      "name": "Shrimp, Crab & Andouille Gumbo",
+      "description": "Succulent shrimp, cocktail crab claws, and smoky Andouille sausage in a rich and flavorful roux-based broth. Served with white rice.",
+      "price": "$10.36"
+    },
+    {
+      "category": "Starters",
+      "name": "Crab Dip",
+      "description": "A piping hot blend of lump crab meat, cheeses, spinach, artichokes, and seasonings. Served with house-made garlic crostini.",
+      "price": "$16.58"
+    },
+    {
+      "category": "Starters",
+      "name": "Mozzarella Sticks",
+      "description": "Six breaded and fried cheese sticks. Served with marinara sauce.",
+      "price": "$9.33"
+    },
+    {
+      "category": "Starters",
+      "name": "Garlic Crab Claws",
+      "description": "Griddled with house butter. Served with house-made garlic crostini and lemon.",
+      "price": "$24.87"
+    },
+    {
+      "category": "Salads",
+      "name": "Dinner Salad",
+      "description": "Onions, croutons, and our signature house vinaigrette dressing with your choice of protein.",
+      "price": "$12.44 (Chicken or Shrimp) | $15.54 (Shaved Prime Rib)"
+    },
+    {
+      "category": "Salads",
+      "name": "House Salad",
+      "description": "A smaller portion of our dinner salad.",
+      "price": "$6.22"
+    },
+    {
+      "category": "Handheld",
+      "name": "French Dip Sandwich",
+      "description": "Shaved roast prime rib, herb jus, Swiss cheese, and grilled onions.",
+      "price": "$15.54"
+    },
+    {
+      "category": "Handheld",
+      "name": "Cajun Prime Rib Sandwich",
+      "description": "Cajun-spiced shaved roast prime rib, Swiss cheese, grilled bell peppers & onions, mushrooms, and creole mustard.",
+      "price": "$16.58"
+    },
+    {
+      "category": "Handheld",
+      "name": "Crispy Fish Sandwich",
+      "description": "Hand-breaded fried fish, American cheese, lettuce, red onion, tomato, pickle, and remoulade.",
+      "price": "$14.51 (Flounder) | $18.65 (Grouper)"
+    },
+    {
+      "category": "Handheld",
+      "name": "Grilled Chicken Sandwich",
+      "description": "Lemon pepper-spiced grilled chicken breast, lettuce, tomato, onion, pickle, and lemon garlic aioli.",
+      "price": "$14.51"
+    },
+    {
+      "category": "Handheld",
+      "name": "Cheeseburger",
+      "description": "1/3 pound burger with cheddar cheese, lettuce, tomato, and onion.",
+      "price": "$14.51"
+    },
+    {
+      "category": "Handheld",
+      "name": "The Kraken",
+      "description": "This \"Monster\" of a burger starts with lettuce, tomato, onion, and burger patty cooked to order. Then it is topped with cheese, a crab cake, shaved prime rib, garlic aioli, and a fried shrimp topper. It is not for the faint of heart.",
+      "price": "$25.91"
+    },
+    {
+      "category": "Mains",
+      "name": "Herb-Crusted Prime Rib",
+      "description": "Tender, juicy, and full of flavor, this perfectly cooked prime rib is coated in a savory blend of herbs, creating a delicious crust that adds depth and richness to every bite. Served with house-made horseradish and herb jus. Limited availability.",
+      "price": "$35.23 (14 oz)"
+    },
+    {
+      "category": "Mains",
+      "name": "Baby Back Ribs",
+      "description": "Dry-rubbed",
+      "price": "$20.73 (Half Rack) | $29.02 (Full Rack)"
+    },
+    {
+      "category": "Beer - Draft",
+      "name": "Miller Lite",
+      "description": "",
+      "price": "$5.18"
+    },
+    {
+      "category": "Beer - Draft",
+      "name": "Yuengling",
+      "description": "",
+      "price": "$6.22"
+    },
+    {
+      "category": "Beer - Bottles & Cans",
+      "name": "Bud Light",
+      "description": "",
+      "price": "$5.18"
+    },
+    {
+      "category": "Beer - Bottles & Cans",
+      "name": "Coors Light",
+      "description": "",
+      "price": "$5.18"
+    },
+    {
+      "category": "Beer - Bottles & Cans",
+      "name": "Mich Ultra",
+      "description": "",
+      "price": "$5.18"
+    },
+    {
+      "category": "Beer - Bottles & Cans",
+      "name": "Corona",
+      "description": "",
+      "price": "$6.22"
+    },
+    {
+      "category": "Beer - Bottles & Cans",
+      "name": "Corona Light",
+      "description": "",
+      "price": "$6.22"
+    },
+    {
+      "category": "Beer - Bottles & Cans",
+      "name": "Lagunitas IPA",
+      "description": "",
+      "price": "$6.22"
+    },
+    {
+      "category": "Beer - Bottles & Cans",
+      "name": "White Claw Black Cherry",
+      "description": "",
+      "price": "$6.22"
+    },
+    {
+      "category": "Beer - Bottles & Cans",
+      "name": "White Claw Mango",
+      "description": "",
+      "price": "$6.22"
+    },
+    {
+      "category": "Beer - Bottles & Cans",
+      "name": "Goat Island Blood Orange",
+      "description": "",
+      "price": "$7.25"
+    },
+    {
+      "category": "Beer - Bottles & Cans",
+      "name": "Sierra Nevada Wild Little Thing Sour",
+      "description": "",
+      "price": "$7.25"
+    },
+    {
+      "category": "Beer - Bottles & Cans",
+      "name": "Sweetwater G13 IPA",
+      "description": "",
+      "price": "$7.25"
+    },
+    {
+      "category": "Beer - Bottles & Cans",
+      "name": "UFO White",
+      "description": "",
+      "price": "$7.25"
+    },
+    {
+      "category": "Wine - Red",
+      "name": "Pinot Noir",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Wine - Red",
+      "name": "Cabernet",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Wine - White",
+      "name": "Pinot Grigio",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Wine - White",
+      "name": "Chardonnay",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Wine - White",
+      "name": "Moscato",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Champagne",
+      "name": "Champagne",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Signature Drinks",
+      "name": "Tidal Wave",
+      "description": "Bring on the summer vibes with a mixture of Bacardi rum, simple syrup, Blue Curacao, lime juice, club soda, and muddled mint for a cool, refreshing flavor – who knows, a sea creature might be found floating around!",
+      "price": "$12.44"
+    },
+    {
+      "category": "Signature Drinks",
+      "name": "Palm Breeze",
+      "description": "A top-tier margarita with a combination of Don Julio, margarita mix, a splash of orange juice, and Gran-Gala floater.",
+      "price": "$15.54"
+    },
+    {
+      "category": "Signature Drinks",
+      "name": "Seaweed",
+      "description": "Enjoy the tropics with a combination of Malibu, Captain Morgan, melon liqueur, Blue Curacao, pineapple, and a splash of lime juice.",
+      "price": "$13.47"
+    },
+    {
+      "category": "Signature Drinks",
+      "name": "Shady Palm",
+      "description": "Beat the heat with Tito's, simple syrup, sour mix, and a splash of lemon flavor.",
+      "price": "$10.36"
+    },
+    {
+      "category": "Signature Drinks",
+      "name": "Beach, Please!",
+      "description": "Go to your happy place with Smirnoff, Peachtree liqueur, orange juice, pineapple juice, and a splash of cranberry.",
+      "price": "$11.40"
+    },
+    {
+      "category": "Signature Drinks",
+      "name": "Happy Place",
+      "description": "Find your paradise with vodka, Peachtree liqueur, orange juice, Blue Curacao, peach puree, and a splash of lemon-lime.",
+      "price": "$10.36"
+    },
+    {
+      "category": "Signature Drinks",
+      "name": "Hammered Sunset",
+      "description": "Bombay Sapphire gin, bitters, orange liqueur, simple syrup, and a freshly squeezed orange wedge, with a dash of orange juice and sweet vermouth topper.",
+      "price": "$12.44"
+    },
+    {
+      "category": "Beverages",
+      "name": "Pepsi",
+      "description": "",
+      "price": "$3.75"
+    },
+    {
+      "category": "Beverages",
+      "name": "Diet Pepsi",
+      "description": "",
+      "price": "$3.75"
+    },
+    {
+      "category": "Beverages",
+      "name": "Dr Pepper",
+      "description": "",
+      "price": "$3.75"
+    },
+    {
+      "category": "Beverages",
+      "name": "Diet Dr Pepper",
+      "description": "",
+      "price": "$3.75"
+    },
+    {
+      "category": "Beverages",
+      "name": "Mountain Dew",
+      "description": "",
+      "price": "$3.75"
+    },
+    {
+      "category": "Beverages",
+      "name": "Lemonade",
+      "description": "",
+      "price": "$3.75"
+    },
+    {
+      "category": "Beverages",
+      "name": "Starry",
+      "description": "",
+      "price": "$3.75"
+    },
+    {
+      "category": "Beverages",
+      "name": "Sunkist Orange",
+      "description": "",
+      "price": "$3.75"
+    },
+    {
+      "category": "Beverages",
+      "name": "Sweet Tea",
+      "description": "",
+      "price": "$3.75"
+    },
+    {
+      "category": "Beverages",
+      "name": "Unsweet Tea",
+      "description": "",
+      "price": "$3.75"
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Easter",
+      "description": "Come celebrate Easter with us!",
+      "discount": ""
+    },
+    {
+      "name": "Cinco De Mayo",
+      "description": "Grab your best fiesta hat and join us for Cinco de Mayo!",
+      "discount": ""
+    },
+    {
+      "name": "Mother's Day",
+      "description": "Join us on Mother's Day and treat your mom to a delicious meal!",
+      "discount": ""
+    },
+    {
+      "name": "Memorial Day",
+      "description": "Come celebrate the long weekend with us!",
+      "discount": ""
+    },
+    {
+      "name": "National Bourbon Day",
+      "description": "Join us on National Bourbon Day! Sit back, relax and sip on your favorite bourbon!",
+      "discount": ""
+    },
+    {
+      "name": "Father's Day",
+      "description": "Treat your dad and join us for Father's Day!",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-03-21T14:52:41.792Z"
+}

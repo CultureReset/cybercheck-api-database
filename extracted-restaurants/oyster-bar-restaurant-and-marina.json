@@ -1,0 +1,282 @@
+{
+  "name": "The Perdido Key Oyster Bar Restaurant & Marina",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "850-492-5600",
+    "address": "13700 River Road",
+    "city": "Perdido Key",
+    "email": ""
+  },
+  "hours": {
+    "monday": "Closed",
+    "tuesday": "3pm-9pm",
+    "wednesday": "3pm-9pm",
+    "thursday": "3pm-9pm",
+    "friday": "3pm-9pm",
+    "saturday": "3pm-9pm",
+    "sunday": "3pm-9pm"
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Starters",
+      "name": "Seafood Gumbo",
+      "description": "Cup or Bowl",
+      "price": ""
+    },
+    {
+      "category": "Starters",
+      "name": "Seafood Bisque",
+      "description": "Cup or Bowl",
+      "price": ""
+    },
+    {
+      "category": "Starters",
+      "name": "New Orleans BBQ Shrimp",
+      "description": "Cooked in our hot & spicy Cajun butter sauce served with French bread for dipping",
+      "price": ""
+    },
+    {
+      "category": "Starters",
+      "name": "Southern Fried Chicken Tenders",
+      "description": "Hand breaded and served with ranch dressing for dipping",
+      "price": ""
+    },
+    {
+      "category": "Starters",
+      "name": "Fried or Sautéed Crab Claws",
+      "description": "Hand battered and fried or sautéed in our Oyster Bar cream sauce",
+      "price": ""
+    },
+    {
+      "category": "Starters",
+      "name": "Onion Rings",
+      "description": "Cut fresh daily, lightly battered and fried",
+      "price": ""
+    },
+    {
+      "category": "Starters",
+      "name": "Crab & Shrimp Cakes",
+      "description": "Two homemade cakes topped with a roasted red pepper Remoulade sauce",
+      "price": ""
+    },
+    {
+      "category": "Starters",
+      "name": "Smoked Tuna Dip",
+      "description": "Local tuna dip served with crackers",
+      "price": ""
+    },
+    {
+      "category": "Starters",
+      "name": "Fried Calamari",
+      "description": "Lightly seasoned & served with marinara sauce",
+      "price": ""
+    },
+    {
+      "category": "Starters",
+      "name": "Bleu Cheese Kettle Chips",
+      "description": "Homemade chips topped with bleu cheese queso, bacon, scallions, and tomatoes",
+      "price": ""
+    },
+    {
+      "category": "Starters",
+      "name": "Royal Reds",
+      "description": "Steamed to order",
+      "price": ""
+    },
+    {
+      "category": "Starters",
+      "name": "Mozzarella Cheese Sticks",
+      "description": "Served with marinara sauce",
+      "price": ""
+    },
+    {
+      "category": "Gulf Oysters",
+      "name": "Oysters on the Half Shell",
+      "description": "Fresh gulf oysters shucked to order - half dozen or dozen",
+      "price": ""
+    },
+    {
+      "category": "Gulf Oysters",
+      "name": "Steamed Oysters",
+      "description": "Shucked to order & topped with parmesan cheese - half dozen",
+      "price": ""
+    },
+    {
+      "category": "Gulf Oysters",
+      "name": "Oysters Rockefeller",
+      "description": "An Oyster Bar favorite baked with our rich creamy spinach topping",
+      "price": ""
+    },
+    {
+      "category": "Gulf Oysters",
+      "name": "Blackened Oysters",
+      "description": "Gulf oysters blackened in a Cajun seasoned butter served with French bread",
+      "price": ""
+    },
+    {
+      "category": "Oyster Bar Classics",
+      "name": "Fried or Broiled Seafood Platter",
+      "description": "A combination of shrimp, Mahi-Mahi, and our homemade seafood cake. Served with choice of two sides: salad, vegetable, coleslaw, rice, baked potato, or fries",
+      "price": ""
+    },
+    {
+      "category": "Oyster Bar Classics",
+      "name": "Fried Gulf Shrimp",
+      "description": "Wild caught Gulf shrimp - hand breaded and fried. Served with choice of two sides: salad, vegetable, coleslaw, rice, baked potato, or fries",
+      "price": ""
+    },
+    {
+      "category": "Oyster Bar Classics",
+      "name": "Shrimp & Grits",
+      "description": "Eight sautéed shrimp, gouda cheese grits, signature sauté sauce - served with a salad",
+      "price": ""
+    },
+    {
+      "category": "Oyster Bar Classics",
+      "name": "Broiled Shrimp",
+      "description": "Wild caught shrimp - broiled and served in our signature butter sauce. Served with choice of two sides: salad, vegetable, coleslaw, rice, baked potato, or fries",
+      "price": ""
+    },
+    {
+      "category": "Oyster Bar Classics",
+      "name": "Pan Fried Snapper",
+      "description": "Red snapper filet lightly seasoned and topped with butter sauce and sliced almonds. Served with choice of two sides: salad, vegetable, coleslaw, rice, baked potato, or fries",
+      "price": ""
+    },
+    {
+      "category": "Oyster Bar Classics",
+      "name": "Fried Oysters",
+      "description": "Fresh oysters hand breaded and deep fried - served with cocktail or tartar sauce. Served with choice of two sides: salad, vegetable, coleslaw, rice, baked potato, or fries",
+      "price": ""
+    },
+    {
+      "category": "Oyster Bar Classics",
+      "name": "Coconut Shrimp",
+      "description": "Eight coconut encrusted jumbo shrimp - served with our tropical mango chutney sauce. Served with choice of two sides: salad, vegetable, coleslaw, rice, baked potato, or fries",
+      "price": ""
+    },
+    {
+      "category": "Oyster Bar Classics",
+      "name": "Shrimp & Oysters",
+      "description": "A combination of each hand breaded and fried. Served with choice of two sides: salad, vegetable, coleslaw, rice, baked potato, or fries",
+      "price": ""
+    },
+    {
+      "category": "Oyster Bar Classics",
+      "name": "Gordon's Whole Flounder",
+      "description": "An Oyster Bar tradition! We offer the whole fish fried, broiled, or stuffed with our seafood dressing. Served with choice of two sides: salad, vegetable, coleslaw, rice, baked potato, or fries",
+      "price": ""
+    },
+    {
+      "category": "Steaks & Pasta",
+      "name": "Ribeye - Black Angus Beef",
+      "description": "14oz aged black angus ribeye grilled and served with your choice of two side items",
+      "price": ""
+    },
+    {
+      "category": "Steaks & Pasta",
+      "name": "Filet Mignon - Center Cut",
+      "description": "8oz aged black angus beef filet mignon grilled and served with your choice of two side items",
+      "price": ""
+    },
+    {
+      "category": "Steaks & Pasta",
+      "name": "Perdido Key Surf & Turf",
+      "description": "8oz aged black angus beef filet mignon and 6 fried shrimp - served with two side items",
+      "price": ""
+    },
+    {
+      "category": "Steaks & Pasta",
+      "name": "12oz Hamburger Steak",
+      "description": "Grilled hamburger steak topped with onion, mushrooms, & gravy - served with two side items",
+      "price": ""
+    },
+    {
+      "category": "Steaks & Pasta",
+      "name": "Scampi",
+      "description": "Gulf shrimp sautéed in a garlic, butter, white wine, and lemon sauce tossed with pasta - served with a house salad",
+      "price": ""
+    },
+    {
+      "category": "Steaks & Pasta",
+      "name": "Alfredo",
+      "description": "Pasta tossed with creamy alfredo sauce with your choice of sautéed shrimp, blackened chicken, or grilled chicken - served with a house salad",
+      "price": ""
+    },
+    {
+      "category": "Market Fish",
+      "name": "Mahi-Mahi",
+      "description": "Grilled or blackened & served with your choice of two side items",
+      "price": ""
+    },
+    {
+      "category": "Market Fish",
+      "name": "Ahi Tuna",
+      "description": "Grilled or blackened & served with your choice of two side items",
+      "price": ""
+    },
+    {
+      "category": "Market Fish",
+      "name": "Salmon",
+      "description": "Grilled or blackened & served with your choice of two side items",
+      "price": ""
+    },
+    {
+      "category": "Market Fish",
+      "name": "Red Snapper",
+      "description": "Grilled or blackened & served with your choice of two side items",
+      "price": ""
+    },
+    {
+      "category": "Market Fish Toppings",
+      "name": "Shrimp Perdido",
+      "description": "Bay shrimp sautéed in our famous Oyster Bar cream sauce",
+      "price": ""
+    },
+    {
+      "category": "Market Fish Toppings",
+      "name": "Crawfish Orleans",
+      "description": "A combination of crawfish, mushrooms, peppers, cream sauce and Cajun seasoning",
+      "price": ""
+    },
+    {
+      "category": "Salads",
+      "name": "Classic Caesar",
+      "description": "Romaine lettuce tossed with our signature Caesar dressing finished with shaved parmesan - topped with your choice of chicken or shrimp",
+      "price": ""
+    },
+    {
+      "category": "Salads",
+      "name": "Chicken Salad",
+      "description": "Grilled, blackened, or fried chicken over a bed of mixed greens with garden vegetables and your choice of dressing",
+      "price": ""
+    },
+    {
+      "category": "Salads",
+      "name": "Shrimp Salad",
+      "description": "Steamed shrimp served chilled on a bed of mixed greens with tomatoes, egg, and onion - served with our house Remoulade dressing",
+      "price": ""
+    },
+    {
+      "category": "Salads",
+      "name": "Island Mahi Salad",
+      "description": "Grilled or blackened Mahi-Mahi over a bed of mixed greens and served with our Caribbean Mango Vinaigrette dressing",
+      "price": ""
+    },
+    {
+      "category": "Salads",
+      "name": "8oz Ahi Tuna Salad",
+      "description": "Seared rare sashimi tuna served on a bed of mixed greens with almonds & mandarin oranges - topped with fried noodles & Asian sesame ginger dressing",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:51.105Z"
+}

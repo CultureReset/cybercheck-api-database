@@ -1,0 +1,48 @@
+{
+  "name": "Bikini Blini Bakery",
+  "type": "Bakery",
+  "website": "http://bikiniblini.com/",
+  "contact": {
+    "phone": "",
+    "address": "",
+    "city": "",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": null
+  },
+  "about": {
+    "description": "A bakery featuring gourmet beach dogs and bubble blends.",
+    "elevator_pitch": "Bikini Blini Bakery serves gourmet beach dogs and bubble blends.",
+    "vibe": null,
+    "best_for": [],
+    "established": null,
+    "reservations": null,
+    "insider_tip": null
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "website": "http://bikiniblini.com"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [
+    {
+      "name": "New Items Coming Soon",
+      "day": "",
+      "time": ""
+    }
+  ],
+  "gallery": 0,
+  "scraped_at": "2026-03-22T02:35:05.711Z"
+}

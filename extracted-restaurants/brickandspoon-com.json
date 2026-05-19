@@ -1,0 +1,297 @@
+{
+  "name": "Brick & Spoon",
+  "type": "Restaurant",
+  "website": "https://brickandspoon.com",
+  "contact": {
+    "phone": "(504) 571-5957",
+    "address": "650 Poydras Street",
+    "city": "New Orleans",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null
+  },
+  "about": {
+    "description": "An upscale take on breakfast, brunch, and lunch featuring hearty breakfast fare paired with deliciously unique cocktails and built-to-order bloody marys. Brick & Spoon offers a sophisticated yet casual Southern-inspired dining experience for quality breakfast, brunch, and lunch.",
+    "cuisine_type": "American breakfast/brunch"
+  },
+  "social": {},
+  "menu": [
+    {
+      "category": "Build Your Own Bloody Mary",
+      "name": "Build Your Own Bloody Mary",
+      "description": "You Pick It. We Mix It.",
+      "price": "$12.50"
+    },
+    {
+      "category": "Vodkas",
+      "name": "Skyy",
+      "description": "",
+      "price": "$2.50"
+    },
+    {
+      "category": "Vodkas",
+      "name": "Absolut Citron",
+      "description": "",
+      "price": "$2.50"
+    },
+    {
+      "category": "Vodkas",
+      "name": "Tito's",
+      "description": "",
+      "price": "$2.50"
+    },
+    {
+      "category": "Vodkas",
+      "name": "Stoli",
+      "description": "",
+      "price": "$2.50"
+    },
+    {
+      "category": "Vodkas",
+      "name": "Absolut",
+      "description": "",
+      "price": "$2.50"
+    },
+    {
+      "category": "Vodkas",
+      "name": "Absolut Peppar",
+      "description": "",
+      "price": "$2.50"
+    },
+    {
+      "category": "Vodkas",
+      "name": "Absolut Mandarin",
+      "description": "",
+      "price": "$2.50"
+    },
+    {
+      "category": "Vodkas",
+      "name": "Seasonal Vodka",
+      "description": "",
+      "price": "$2.50"
+    },
+    {
+      "category": "Vodkas",
+      "name": "Chopin",
+      "description": "Premium",
+      "price": "$4.00"
+    },
+    {
+      "category": "Vodkas",
+      "name": "Grey Goose",
+      "description": "Premium",
+      "price": "$4.00"
+    },
+    {
+      "category": "Vodkas",
+      "name": "Ketel One",
+      "description": "Premium",
+      "price": "$4.00"
+    },
+    {
+      "category": "Veggies",
+      "name": "Pickled Green Bean",
+      "description": "",
+      "price": "$0.25"
+    },
+    {
+      "category": "Veggies",
+      "name": "Pickled Carrot",
+      "description": "",
+      "price": "$0.25"
+    },
+    {
+      "category": "Veggies",
+      "name": "Pickled Okra",
+      "description": "",
+      "price": "$0.25"
+    },
+    {
+      "category": "Veggies",
+      "name": "Dill Pickled Spear",
+      "description": "",
+      "price": "$0.25"
+    },
+    {
+      "category": "Veggies",
+      "name": "Jalapeño Pepper",
+      "description": "",
+      "price": "$0.25"
+    },
+    {
+      "category": "Veggies",
+      "name": "Cocktail Onion",
+      "description": "",
+      "price": "$0.25"
+    },
+    {
+      "category": "Veggies",
+      "name": "Green Olive",
+      "description": "",
+      "price": "$0.25"
+    },
+    {
+      "category": "Veggies",
+      "name": "Blue Cheese Stuffed Olive",
+      "description": "",
+      "price": "$0.25"
+    },
+    {
+      "category": "Veggies",
+      "name": "Cucumber",
+      "description": "",
+      "price": "$0.25"
+    },
+    {
+      "category": "Veggies",
+      "name": "Green Onion",
+      "description": "",
+      "price": "$0.25"
+    },
+    {
+      "category": "Veggies",
+      "name": "Celery",
+      "description": "",
+      "price": "$0.25"
+    },
+    {
+      "category": "Veggies",
+      "name": "Asparagus",
+      "description": "",
+      "price": "$0.25"
+    },
+    {
+      "category": "Veggies",
+      "name": "Lemon Wedge",
+      "description": "",
+      "price": "$0.25"
+    },
+    {
+      "category": "Veggies",
+      "name": "Lime Wedge",
+      "description": "",
+      "price": "$0.25"
+    },
+    {
+      "category": "Herbs & Seasonings",
+      "name": "Tabasco",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Herbs & Seasonings",
+      "name": "Rosemary",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Herbs & Seasonings",
+      "name": "Caribbean Jerk",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Herbs & Seasonings",
+      "name": "Cayenne Pepper",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Herbs & Seasonings",
+      "name": "Celery Salt",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Herbs & Seasonings",
+      "name": "Horseradish",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Herbs & Seasonings",
+      "name": "Basil",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Herbs & Seasonings",
+      "name": "Sriracha",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Meats & Cheese",
+      "name": "Pepper Jack Cheese",
+      "description": "",
+      "price": "$1.00"
+    },
+    {
+      "category": "Meats & Cheese",
+      "name": "Cheddar Cheese Cube",
+      "description": "",
+      "price": "$1.00"
+    },
+    {
+      "category": "Meats & Cheese",
+      "name": "Blue Cheese",
+      "description": "",
+      "price": "$1.00"
+    },
+    {
+      "category": "Meats & Cheese",
+      "name": "Feta Cheese",
+      "description": "",
+      "price": "$1.00"
+    },
+    {
+      "category": "Meats & Cheese",
+      "name": "Smoked Sausage",
+      "description": "",
+      "price": "$1.00"
+    },
+    {
+      "category": "Meats & Cheese",
+      "name": "Bacon Strip",
+      "description": "",
+      "price": "$1.00"
+    },
+    {
+      "category": "Meats & Cheese",
+      "name": "Canadian Bacon",
+      "description": "",
+      "price": "$1.00"
+    },
+    {
+      "category": "Meats & Cheese",
+      "name": "Smoked Tasso Strip",
+      "description": "",
+      "price": "$1.00"
+    },
+    {
+      "category": "Meats & Cheese",
+      "name": "Cocktail Shrimp",
+      "description": "",
+      "price": "$1.00"
+    },
+    {
+      "category": "Meats & Cheese",
+      "name": "Tasso Deviled Eggs",
+      "description": "",
+      "price": "$1.00"
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-03-22T02:38:16.690Z"
+}

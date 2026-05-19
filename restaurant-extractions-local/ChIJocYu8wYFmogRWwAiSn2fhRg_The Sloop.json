@@ -1,0 +1,215 @@
+{
+  "business_name": "The Sloop",
+  "cuisine_type": "Dive Bar, Grill and Bar",
+  "price_range": null,
+  "description": "The Sloop is a hole in the wall, dive bar in Gulf Shores, AL with grill and bar style food including wings, nachos, burgers and our famous cheesesteaks. We have live music and get all of the sports packages.",
+  "atmosphere": "Dive bar",
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": "251-500-1007",
+    "email": "biz@thesloop.biz",
+    "address": "103 West Canal Drive, Gulf Shores, AL 36542, United States",
+    "website": "https://www.thesloop.biz",
+    "hours_phone": "251-500-1007",
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": "https://www.facebook.com/thesloopGS/",
+      "instagram": null,
+      "twitter": null,
+      "tiktok": null,
+      "youtube": null,
+      "yelp": "https://www.yelp.com/biz/the-sloop-gulf-shores?osq=the+sloop"
+    }
+  },
+  "hours": {
+    "monday": "11:00 - 23:59",
+    "tuesday": "11:00 - 23:59",
+    "wednesday": "11:00 - 23:59",
+    "thursday": "11:00 - 23:59",
+    "friday": "11:00 - 23:59",
+    "saturday": "11:00 - 23:59",
+    "sunday": "11:00 - 23:59",
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": true,
+    "takeout_available": null,
+    "delivery_available": null,
+    "curbside_available": null,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [
+      {
+        "name": "Featured Items",
+        "description": null,
+        "items": [
+          {
+            "name": "Wings",
+            "description": null,
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Nachos",
+            "description": null,
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Burgers",
+            "description": null,
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Cheesesteaks",
+            "description": "Famous cheesesteaks",
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": true,
+            "is_seasonal": false,
+            "availability": null
+          }
+        ]
+      }
+    ],
+    "wine_list": null,
+    "beer_selection": null,
+    "cocktails": null,
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": null,
+      "vegan": null,
+      "gluten_free": null,
+      "dairy_free": null,
+      "nut_free": null,
+      "kosher": null,
+      "halal": null
+    }
+  },
+  "happy_hour": {
+    "available": null,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [],
+  "entertainment_and_events": [
+    {
+      "type": "live_music",
+      "name": "Live Music",
+      "days": null,
+      "start_time": null,
+      "end_time": null,
+      "description": null,
+      "cover_charge": null,
+      "featured_artist": null
+    },
+    {
+      "type": "sports",
+      "name": "Sports",
+      "days": null,
+      "start_time": null,
+      "end_time": null,
+      "description": "All sports packages available",
+      "cover_charge": null,
+      "featured_artist": null
+    }
+  ],
+  "private_events": {
+    "available": null,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": null,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": null,
+    "pets_allowed": null
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": null,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": null,
+    "private_dining": null
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": null,
+    "email_signup": null,
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": null,
+    "farm_to_table": null,
+    "sustainable": null,
+    "organic": null,
+    "details": null
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [
+      "Cheesesteaks",
+      "Wings",
+      "Nachos",
+      "Burgers"
+    ],
+    "common_praise": [],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "restaurant",
+      "url": "https://images.squarespace-cdn.com/content/v1/6148edbcdbbc4f6cf151c5c7/e4e82704-1a14-4e38-b9fc-b2a25a436798/SloopFront1080.jpg",
+      "description": "Sloop Front"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "The Sloop - Dive Bar in Gulf Shores, AL with Live Music, Sports and Cheesesteaks. The Sloop is a hole in the wall, dive bar in Gulf Shores, AL with grill and bar style food including wings, nachos, burgers and our famous cheesesteaks. We have live music and get all of the sports packages. Menu. Live Music. Sports. Store. About. Contact. Address: 103 West Canal Drive, Gulf Shores, AL 36542. Phone: 251-500-1007. Email: biz@thesloop.biz. Hours: Monday-Sunday 11:00 AM - 11:59 PM",
+  "extraction_confidence": "high",
+  "extraction_notes": "Comprehensive data extracted from Squarespace website. Basic menu items mentioned in meta description but no detailed pricing or full menu available in HTML provided. Social media links limited to Facebook and Yelp. No information found for: delivery services, takeout details, happy hour, special events calendar, private dining, wine/beer lists, dietary accommodations details, loyalty programs, or detailed reviews. The HTML is truncated but contains structured data with business hours, contact info, and basic restaurant info.",
+  "folder": "ChIJocYu8wYFmogRWwAiSn2fhRg_The Sloop",
+  "extracted_at": "2026-05-15T06:33:47.615Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJocYu8wYFmogRWwAiSn2fhRg_The Sloop/01_raw_html.html"
+}

@@ -1,0 +1,146 @@
+{
+  "business_name": "Gulf Babe Wine Boutique",
+  "cuisine_type": "Wine Bar/Boutique",
+  "price_range": null,
+  "description": "Your favorite pink bar on the gulf coast",
+  "atmosphere": "Pink-themed wine boutique with a coastal aesthetic",
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": null,
+    "website": "https://gulfbabe.com/",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": "https://www.facebook.com/GulfBabeWine/",
+      "instagram": "https://www.instagram.com/gulfbabe_wineboutique?igsh=dXF6ZDZqY24zYjk5&utm_source=qr",
+      "twitter": null,
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": null,
+    "takeout_available": null,
+    "delivery_available": null,
+    "curbside_available": null,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [],
+    "wine_list": null,
+    "beer_selection": null,
+    "cocktails": null,
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": null,
+      "vegan": null,
+      "gluten_free": null,
+      "dairy_free": null,
+      "nut_free": null,
+      "kosher": null,
+      "halal": null
+    }
+  },
+  "happy_hour": {
+    "available": null,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [],
+  "entertainment_and_events": [],
+  "private_events": {
+    "available": null,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": null,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": null,
+    "pets_allowed": null
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": null,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": null,
+    "private_dining": null
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": null,
+    "email_signup": null,
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": null,
+    "farm_to_table": null,
+    "sustainable": null,
+    "organic": null,
+    "details": null
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [],
+    "common_praise": [],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "logo",
+      "url": "https://i0.wp.com/gulfbabe.com/wp-content/uploads/2026/04/cropped-Gulf-Babe-Transparent-1024-x-1024-px-1.png?fit=512%2C512&ssl=1",
+      "description": "Gulf Babe Wine Boutique logo"
+    },
+    {
+      "type": "banner",
+      "url": "https://i0.wp.com/gulfbabe.com/wp-content/uploads/2026/04/Your-favorite-pink-bar-on-the-gulf-coast-1.png?fit=1200%2C630&amp;ssl=1",
+      "description": "Your favorite pink bar on the gulf coast promotional banner"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "Gulf Babe Wine Boutique - Your favorite pink bar on the gulf coast. Website provides branding, social media links to Facebook and Instagram, and general navigation structure. No operational details, menu, hours, pricing, or contact information visible on homepage.",
+  "extraction_confidence": "low",
+  "extraction_notes": "This is a minimal website landing page with very limited content. Only the business name, tagline, logo, and social media links were extracted from the HTML. The page appears to be a WordPress site under construction or with minimal content. No menu, hours, pricing, location address, phone number, or detailed business information was found on the visible HTML. No operational details about dining, services, or facilities were discovered. The site uses WordPress with various plugins but displays minimal actual restaurant/wine bar information.",
+  "folder": "ChIJRwMb9JsFmogR_sX34OUO6D0_Gulf Babe Wine Boutique",
+  "extracted_at": "2026-05-15T06:21:16.059Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJRwMb9JsFmogR_sX34OUO6D0_Gulf Babe Wine Boutique/01_raw_html.html"
+}

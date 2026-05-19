@@ -1,0 +1,58 @@
+{
+  "name": "Lambert's Cafe",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": [
+      "573-471-4261",
+      "417-581-7655",
+      "251-943-7655"
+    ],
+    "address": [
+      "2305 East Malone Ave",
+      "1800 W. State Highway J",
+      "2981 S. McKenzie"
+    ],
+    "city": [
+      "Sikeston",
+      "Ozark",
+      "Foley"
+    ],
+    "email": [
+      "Lamberts1@Throwedrolls.com",
+      "Lamberts2@Throwedrolls.com",
+      "Lamberts3@Throwedrolls.com"
+    ]
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Popular dishes",
+      "name": "Country Fried Round Steak",
+      "description": "Breaded and deep-fried beef round steak, served with mashed potatoes and covered in milk gravy. Add your choice of 2 sides and ol' Norm's pass arounds.",
+      "price": ""
+    },
+    {
+      "category": "Popular dishes",
+      "name": "BBQ Pork Steak",
+      "description": "Fresh cut pork steak. You get your choice of 3 sides and all of Lambert's pass arounds.",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:50.550Z"
+}

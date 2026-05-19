@@ -1,0 +1,87 @@
+{
+  "name": "Siam Thai Cuisine",
+  "type": "Restaurant",
+  "website": "http://www.siamdiner.com/",
+  "contact": {
+    "phone": "850-479-2882",
+    "address": "7164 N.9th Ave",
+    "city": "Pensacola",
+    "email": ""
+  },
+  "hours": {
+    "monday": "closed",
+    "tuesday": "11am-9pm",
+    "wednesday": "11am-9pm",
+    "thursday": "11am-9pm",
+    "friday": "11am-9pm",
+    "saturday": "11am-9pm",
+    "sunday": "11am-9pm"
+  },
+  "about": {
+    "description": "Siam Thai offers traditional Thai recipes that have been used for four generations, originally opened in Chiang Rai City, Northern Thailand in 1955, and has been serving Pensacola since 2001. Voted one of the best 100 Thai restaurants in the U.S. and winner of Best of the Bay from Pensacola News Journal.",
+    "cuisine_type": "Thai"
+  },
+  "social": {},
+  "menu": [
+    {
+      "category": "Chef Recommended",
+      "name": "A9. Siam Shumai (7)",
+      "description": "Traditional Siamese steamed open-topped dumplings, filled with crab meat, shrimp, seasoned ground pork, shitake mushroom, salted duck egg yolk, topped with fried crispy garlic served with fresh vegetable and sweet chili soy sauce vinaigrette",
+      "price": "$14.95"
+    },
+    {
+      "category": "Chef Recommended",
+      "name": "N6. Curry Egg Noodles with Chicken (Khao Soi Gai)",
+      "description": "Egg noodles in traditional northern style curry with chicken leg and thigh, coconut milk, garlic and spices, topped with crispy fried egg noodles, scallion, cilantro, served with fresh vegetable, lime and pickled vegetable",
+      "price": "$19.95"
+    },
+    {
+      "category": "Chef Recommended",
+      "name": "K7. Coconut Paradise",
+      "description": "Prepared especially for coconut & curry lover – homemade green curry sauce with coconut milk, kaffir lime leaves, eggplants, bamboo shoots, green & red bell pepper, sweet basil and fresh coconut meat, served in the coconut shell",
+      "price": "$26.95"
+    },
+    {
+      "category": "Chef Recommended",
+      "name": "R3. Pineapple Fried Rice",
+      "description": "The house special stir-fried rice with bean soy sauce, egg, yellow onion, pineapple, raisins, cashew nuts, scallion and cilantro, garnished with tomato, cucumber, fresh vegetable and lime",
+      "price": "$17.95"
+    },
+    {
+      "category": "Chef Recommended",
+      "name": "M7. Rama Chicken",
+      "description": "Wok seared mix vegetables consisting of broccoli, carrot, cabbage, cauliflower, sautéed with light coconut milk, Thai curry peanut sauce, topped with chicken satay and red bell pepper",
+      "price": "$18.95"
+    },
+    {
+      "category": "House Specialties",
+      "name": "H1. Fried Garlic Chicken",
+      "description": "Bite sized chicken breast marinated with house blended garlic & white pepper sauce, lightly battered and deep-fried, garnished with crispy fried shallot, scallion, cilantro, cucumber, and tomato, served with spicy-sweet chili sauce and white jasmine rice",
+      "price": "$18.95"
+    },
+    {
+      "category": "House Specialties",
+      "name": "H2. Pineapple Paradise",
+      "description": "Delicious sweet & sour glaze grilled chicken thigh fillets, stir-fried with tropical sweet and sour chili sauce, pineapple, red bell pepper, green bell pepper, yellow onion, carrot, scallion, and cilantro, served with white jasmine rice",
+      "price": "$18.95"
+    },
+    {
+      "category": "House Specialties",
+      "name": "H5. Beef Hot Pot",
+      "description": "Classic Thai style slow-cooked tender juicy beef with Thai herbs & spices, yellow onion, red onion, garlic, white pepper, black pepper, roasted ground rice, sweet basil, lime juice, sprinkled with scallions and cilantro, served in a sizzling hot pot and white jasmine rice",
+      "price": "$24.95"
+    },
+    {
+      "category": "House Specialties",
+      "name": "H8. Fried Fish with Sweet and Sour Sauce",
+      "description": "Delicious, sweet & sour deep-fried fish fillets, topped with tropical sweet and sour chili sauce, pineapple, red bell pepper, green bell pepper, yellow onion, carrot, scallion, and cilantro, served with white jasmine rice",
+      "price": "$32.95"
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-03-21T13:44:15.627Z"
+}

@@ -1,0 +1,192 @@
+{
+  "name": "DeSoto's Seafood Kitchen",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "(251) 948-7294",
+    "address": "138 West 1st Ave.",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {
+    "monday": "11am-3pm lunch, 3pm-9pm dinner",
+    "tuesday": "11am-3pm lunch, 3pm-9pm dinner",
+    "wednesday": "11am-3pm lunch, 3pm-9pm dinner",
+    "thursday": "11am-3pm lunch, 3pm-9pm dinner",
+    "friday": "11am-3pm lunch, 3pm-9pm dinner",
+    "saturday": "11am-3pm lunch, 3pm-9pm dinner",
+    "sunday": "11am-3pm lunch, 3pm-9pm dinner"
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Daily Lunch Specials",
+      "name": "Fried Chicken",
+      "description": "Served with two sides, bread & tea",
+      "price": 12.5
+    },
+    {
+      "category": "Daily Lunch Specials",
+      "name": "Bar-B-Q Meat Loaf",
+      "description": "Served with two sides, bread & tea",
+      "price": 12.5
+    },
+    {
+      "category": "Daily Lunch Specials",
+      "name": "Chicken-N-Dumplings",
+      "description": "Served with two sides, bread & tea",
+      "price": 12.5
+    },
+    {
+      "category": "Daily Lunch Specials",
+      "name": "Beef Tips over Rice",
+      "description": "Served with two sides, bread & tea",
+      "price": 12.5
+    },
+    {
+      "category": "Daily Lunch Specials",
+      "name": "Fried Parmesan Encrusted Flounder",
+      "description": "Served with two sides, bread & tea",
+      "price": 12.5
+    },
+    {
+      "category": "Seniors Menu",
+      "name": "Coconut Shrimp",
+      "description": "with spicy orange marmalade, served with two side dishes & Iced Tea",
+      "price": 17.99
+    },
+    {
+      "category": "Seniors Menu",
+      "name": "Stuffed Shrimp",
+      "description": "bacon wrapped, stuffed with crabmeat dressing & monterey jack cheese, served with two side dishes & Iced Tea",
+      "price": 17.99
+    },
+    {
+      "category": "Seniors Menu",
+      "name": "Fried Shrimp",
+      "description": "tail-less, served with two side dishes & Iced Tea",
+      "price": 13.99
+    },
+    {
+      "category": "Seniors Menu",
+      "name": "Grilled Shrimp",
+      "description": "over yellow rice, served with two side dishes & Iced Tea",
+      "price": 15.99
+    },
+    {
+      "category": "Seniors Menu",
+      "name": "Fried Oysters",
+      "description": "with cocktail sauce, served with two side dishes & Iced Tea",
+      "price": ""
+    },
+    {
+      "category": "Seniors Menu",
+      "name": "Fried Seafood Platter",
+      "description": "shrimp, oysters, flounder, crab claws, served with two side dishes & Iced Tea",
+      "price": 20.99
+    },
+    {
+      "category": "Seniors Menu",
+      "name": "Broiled Seafood Platter",
+      "description": "shrimp, scallops, flounder almondine, served with two side dishes & Iced Tea",
+      "price": 19.99
+    },
+    {
+      "category": "Seniors Menu",
+      "name": "Fried Chicken Tenders",
+      "description": "with honey mustard, served with two side dishes & Iced Tea",
+      "price": 13.99
+    },
+    {
+      "category": "Seniors Menu",
+      "name": "Grilled Chicken Breast",
+      "description": "with a light touch of lemon-herb oil, served with two side dishes & Iced Tea",
+      "price": 13.99
+    },
+    {
+      "category": "Seniors Menu",
+      "name": "Yellow-Fin Tuna",
+      "description": "grilled or blackened, served with two side dishes & Iced Tea",
+      "price": 16.99
+    },
+    {
+      "category": "Seniors Menu",
+      "name": "Trigger",
+      "description": "grilled, blackened or broiled almandine, served with two side dishes & Iced Tea",
+      "price": 16.99
+    },
+    {
+      "category": "Seniors Menu",
+      "name": "Flounder",
+      "description": "fried or broiled almandine, served with two side dishes & Iced Tea",
+      "price": 13.99
+    },
+    {
+      "category": "Seniors Menu",
+      "name": "Grouper",
+      "description": "grilled, blackened, broiled almandine or fried, served with two side dishes & Iced Tea",
+      "price": 16.99
+    },
+    {
+      "category": "Kids Menu",
+      "name": "Fish Sticks",
+      "description": "Served with French Fries or Applesauce",
+      "price": 8.99
+    },
+    {
+      "category": "Kids Menu",
+      "name": "Corn Dog",
+      "description": "Served with French Fries or Applesauce",
+      "price": 8.99
+    },
+    {
+      "category": "Kids Menu",
+      "name": "Fried Shrimp",
+      "description": "Served with French Fries or Applesauce",
+      "price": 8.99
+    },
+    {
+      "category": "Kids Menu",
+      "name": "Hamburger",
+      "description": "Served with French Fries or Applesauce",
+      "price": 7.99
+    },
+    {
+      "category": "Kids Menu",
+      "name": "Chicken Fingers",
+      "description": "Served with French Fries or Applesauce",
+      "price": 8.99
+    },
+    {
+      "category": "Kids Menu",
+      "name": "Grilled Cheese",
+      "description": "Served with French Fries or Applesauce",
+      "price": 8.99
+    },
+    {
+      "category": "Kids Menu",
+      "name": "Cheeseburger",
+      "description": "Served with French Fries or Applesauce",
+      "price": 5.99
+    },
+    {
+      "category": "Kids Menu",
+      "name": "Fettuccine Alfredo",
+      "description": "no side",
+      "price": 9.99
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "$1 Off Any Dinner Entree",
+      "description": "Valid only during Dinner Hours. Excludes Senior Menu. Not valid with any other offer.",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:50.215Z"
+}

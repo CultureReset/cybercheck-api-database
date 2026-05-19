@@ -1,0 +1,315 @@
+{
+  "name": "Island Wing Company",
+  "type": "Restaurant",
+  "website": "https://islandwing.com",
+  "contact": {
+    "phone": "",
+    "address": "",
+    "city": "",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null
+  },
+  "about": {
+    "description": "Island Wing Company specializes in baked, not fried food. Everything is baked, steamed, or grilled using fresh, clean ingredients with vegetarian and vegan options available.",
+    "cuisine_type": "seafood"
+  },
+  "social": {},
+  "menu": [
+    {
+      "category": "Appetizers",
+      "name": "Cheesy Buffalo Chicken Dip",
+      "description": "Chicken, mild buffalo sauce, ranch, and a three-cheese blend. Served with tortilla chips.",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Crispy Coconut Shrimp",
+      "description": "Shrimp in coconut breading, baked golden, with tropical Asian sauce.",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Crispy Pickle Chips",
+      "description": "Panko-breaded pickle chips with ranch.",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Baked and Battered Green Beans",
+      "description": "Crispy-battered green beans with ranch or wasabi ranch.",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Basket of Island Fries",
+      "description": "Baked fries with two dipping sauces.",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Ahi Poke Nachos",
+      "description": "Wonton chips, ahi tuna, pineapple, spicy garlic teriyaki, Korean aioli, topped with sesame seeds and green onion.",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Beer Battered Mozzarella Sticks",
+      "description": "Mozzarella sticks with crispy batter and marinara.",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Chips & Fire Roasted Salsa",
+      "description": "Tortilla chips with salsa.",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Mini Crab Cakes",
+      "description": "Wild-caught claw meat, Chesapeake style, served with remoulade and green onions.",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Tuna Tataki",
+      "description": "Seared and thinly sliced tuna, tropical Asian sauce, cucumber wasabi aioli, served with spring mix, wontons, and carrots.",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "House-Made Smoked Yellowfin Tuna Dip",
+      "description": "Smoked tuna with peppadews, pickled jalapeño, celery sticks, green onion, chipotle powder and crackers.",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Jumbo Pretzel",
+      "description": "Served with brew pub mustard.",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Cheese Quesadilla",
+      "description": "Grilled tortilla with Colby-Jack cheese. Served with a side of diced tomatoes, lettuce, sour cream, and jalapeños.",
+      "price": ""
+    },
+    {
+      "category": "Flatbreads",
+      "name": "BBQ Chicken & Bacon",
+      "description": "BBQ sauce, Colby-Jack cheese, chicken, bacon, and caramelized onions.",
+      "price": ""
+    },
+    {
+      "category": "Flatbreads",
+      "name": "Chicken Bacon Ranch",
+      "description": "Ranch, mozzarella, Parmesan, chicken, bacon and tomatoes.",
+      "price": ""
+    },
+    {
+      "category": "Flatbreads",
+      "name": "Margherita",
+      "description": "White sauce, basil, tomatoes, mozzarella, greens, and balsamic fig glaze.",
+      "price": ""
+    },
+    {
+      "category": "Flatbreads",
+      "name": "Pepperoni & Cheese",
+      "description": "Pepperoni, mozzarella cheese, and marinara sauce.",
+      "price": ""
+    },
+    {
+      "category": "Greens",
+      "name": "Summer Berry Salad",
+      "description": "Greens with grilled chicken, blueberries, strawberries, pecans, feta, and raspberry balsamic vinaigrette.",
+      "price": ""
+    },
+    {
+      "category": "Greens",
+      "name": "Buffalo Chicken Salad",
+      "description": "Greens with baked buffalo breaded chicken, tomatoes, cucumbers, cheese, and ranch.",
+      "price": ""
+    },
+    {
+      "category": "Greens",
+      "name": "Greek Salad",
+      "description": "Greens with grilled chicken, tomatoes, feta, cucumbers, olives, onions, pepperoncinis, and Greek dressing.",
+      "price": ""
+    },
+    {
+      "category": "Greens",
+      "name": "Sesame Seared Ahi Tuna Watermelon & Feta Salad",
+      "description": "Arcadian mix, cucumber, arugula, watermelon, feta, sliced tuna, lemon vinaigrette.",
+      "price": ""
+    },
+    {
+      "category": "Greens",
+      "name": "Southwest Chicken Salad",
+      "description": "Greens with baked breaded chicken, corn, black beans, tortilla strips, tomatoes, Cheddar Jack cheese, and chipotle ranch.",
+      "price": ""
+    },
+    {
+      "category": "Entrées",
+      "name": "Island Chicken Grill",
+      "description": "Grilled chicken over reggae rice, with roasted veggies and Polynesian sauce.",
+      "price": ""
+    },
+    {
+      "category": "Entrées",
+      "name": "Blackened Mahi Mahi",
+      "description": "Blackened mahi topped with two grilled shrimp and a touch of rosemary, served over mashed potatoes and vegetables.",
+      "price": ""
+    },
+    {
+      "category": "Entrées",
+      "name": "Caribbean Shrimp",
+      "description": "Grilled jerk shrimp with rich, Caribbean jerk sauce, red and green bell peppers, roasted onions, sautéed pineapple, served with house-made reggae rice.",
+      "price": ""
+    },
+    {
+      "category": "Entrées",
+      "name": "Habanero Bacon Jam Pork Ribeye",
+      "description": "Two pork ribeyes glazed with habanero bacon jam served over mashed potatoes with roasted veggies.",
+      "price": ""
+    },
+    {
+      "category": "Entrées",
+      "name": "Bacon Wrapped Stuffed Shrimp",
+      "description": "4 large shrimp stuffed with wild-caught claw meat, wrapped in bacon served over mashed potatoes with roasted veggies and remoulade sauce.",
+      "price": ""
+    },
+    {
+      "category": "Frozen Drinks",
+      "name": "Pina Colada",
+      "description": "Pineapple and coconut blended together with light rum for that smooth and creamy Island flavor. This drink is perfect with our crispy coconut shrimp!",
+      "price": "$8.95"
+    },
+    {
+      "category": "Frozen Drinks",
+      "name": "Rum Runner",
+      "description": "A blend of tropical fruits, fresh juices, and light rum that'll have you running back for another! Order one and relax, we'll do all the running for you!",
+      "price": "$8.95"
+    },
+    {
+      "category": "Frozen Drinks",
+      "name": "Hurricane",
+      "description": "Passion fruit puree and light and dark rums all blended at a Category 5 level. If you happen to blow through yours, don't worry, we'll get you another!",
+      "price": "$8.95"
+    },
+    {
+      "category": "Frozen Drinks",
+      "name": "Strawberry Daiquiri",
+      "description": "A classic on every island, so of course it's on our Island too! A mix of strawberry puree and light rum blended just right for that familiar flavor everyone loves.",
+      "price": "$8.95"
+    },
+    {
+      "category": "Frozen Drinks",
+      "name": "Mango Colada",
+      "description": "All the flavor of your favorite creamy concoction with a ribbon of fresh mango puree blended in to take it to a delicious new level.",
+      "price": "$8.95"
+    },
+    {
+      "category": "Frozen Drinks",
+      "name": "Margarita",
+      "description": "A refreshing blend of tangy margarita mix and gold tequila blended and chilled.",
+      "price": "$8.95"
+    },
+    {
+      "category": "Frozen Drinks",
+      "name": "Mango Margarita",
+      "description": "Everything you'd expect from a classic margarita with fresh mango puree added for a tasty island twist.",
+      "price": "$8.95"
+    },
+    {
+      "category": "Frozen Drinks",
+      "name": "Island Time",
+      "description": "Kick your feet up with this blend of dark rum, light rum, coconut cream, raspberry puree, and tangy key lime juice. Welcome to Island Time!",
+      "price": "$8.95"
+    },
+    {
+      "category": "Frozen Drinks",
+      "name": "Orange Dreamsicle",
+      "description": "It's everything you remember! Made with Grand Marnier Liqueur, Vanilla Vodka, Triple Sec, orange juice, coconut cream, and whipped cream.",
+      "price": "$8.95"
+    },
+    {
+      "category": "Frozen Drinks",
+      "name": "Bushwacker",
+      "description": "A boozy version of a milkshake for all of us big kids! A blend of light rum, 151 rum, coffee liqueur, chocolate liqueur, coconut cream, and half and half.",
+      "price": "$8.95"
+    },
+    {
+      "category": "Mojitos",
+      "name": "Traditional",
+      "description": "Light Rum, fresh mint, freshly squeezed limes, simple syrup, and Sprite.",
+      "price": "$8.95"
+    },
+    {
+      "category": "Mojitos",
+      "name": "Jalapeno Citrus",
+      "description": "Light Rum, fresh mint, fresh jalapeno slices, freshly squeezed limes, orange juice, and pineapple juice. Topped with a splash of Sprite.",
+      "price": "$8.95"
+    },
+    {
+      "category": "Mojitos",
+      "name": "Raspberry",
+      "description": "Light Rum, fresh mint, freshly squeezed limes, and raspberry puree. Topped with Sprite.",
+      "price": "$8.95"
+    },
+    {
+      "category": "Mojitos",
+      "name": "Mango",
+      "description": "Mango Rum, fresh mint, freshly squeezed limes, and mango puree. Topped with Sprite.",
+      "price": "$8.95"
+    },
+    {
+      "category": "Martinis",
+      "name": "Coconut Key Lime",
+      "description": "A delicious blend of Vanilla Vodka, Coconut Rum, coconut cream, and key lime juice.",
+      "price": "$8.95"
+    },
+    {
+      "category": "Martinis",
+      "name": "Montego Bay",
+      "description": "A fresh mixture of Vodka, Coconut Rum, mango puree, orange juice, pineapple juice, and grenadine.",
+      "price": "$8.95"
+    },
+    {
+      "category": "Martinis",
+      "name": "Island Cosmo",
+      "description": "A refreshing combination of Coconut Rum, Citrus Vodka, fresh lime juice, pomegranate juice, and grenadine.",
+      "price": "$8.95"
+    },
+    {
+      "category": "Other Cocktails",
+      "name": "Mai Tai",
+      "description": "A tasty classic with an Island twist! Made with Dark Rum, Amaretto Liqueur, pineapple juice, and lemon juices.",
+      "price": ""
+    },
+    {
+      "category": "Other Cocktails",
+      "name": "Baked on the Beach",
+      "description": "A refreshing blend of Vodka, Light Rum, Gin, Peach Schnapps, Triple Sec, pomegranate juice, and lemon juice. Topped with a splash of sprite.",
+      "price": ""
+    },
+    {
+      "category": "Other Cocktails",
+      "name": "Sunset Celebration",
+      "description": "As the sun goes down, one of these drinks should go down too! A blend of Vodka, refreshing grapefruit juice.",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-03-22T03:05:43.984Z"
+}

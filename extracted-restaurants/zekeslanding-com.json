@@ -1,0 +1,74 @@
+{
+  "name": "Zeke's Landing Marina",
+  "type": "Marina & Restaurant",
+  "website": "https://www.zekeslanding.com",
+  "contact": {
+    "phone": "(251) 981-4044",
+    "address": "26619 Perdido Beach Boulevard",
+    "city": "Orange Beach",
+    "email": "info@zekeslanding.com"
+  },
+  "hours": {
+    "monday": "Dock Store: 6:00 AM - 9:00 PM, Charter Office: 6:00 AM - 7:00 PM, Restaurant: 11:00 AM - 9:00 PM",
+    "tuesday": "Dock Store: 6:00 AM - 9:00 PM, Charter Office: 6:00 AM - 7:00 PM, Restaurant: 11:00 AM - 9:00 PM",
+    "wednesday": "Dock Store: 6:00 AM - 9:00 PM, Charter Office: 6:00 AM - 7:00 PM, Restaurant: 11:00 AM - 9:00 PM",
+    "thursday": "Dock Store: 6:00 AM - 9:00 PM, Charter Office: 6:00 AM - 7:00 PM, Restaurant: 11:00 AM - 9:00 PM",
+    "friday": "Dock Store: 6:00 AM - 9:00 PM, Charter Office: 6:00 AM - 7:00 PM, Restaurant: 11:00 AM - 9:00 PM",
+    "saturday": "Dock Store: 6:00 AM - 9:00 PM, Charter Office: 6:00 AM - 7:00 PM, Restaurant: 11:00 AM - 9:00 PM",
+    "sunday": "Dock Store: 6:00 AM - 9:00 PM, Charter Office: 6:00 AM - 7:00 PM, Restaurant: 11:00 AM - 9:00 PM",
+    "notes": "Open 7 days a week, closed only on Thanksgiving, Christmas, and New Year's Day"
+  },
+  "about": {
+    "description": "Zeke's Landing and Marina sits just across the street from some of the most beautiful beaches in the country. A mere 10-minute boat ride from the Gulf of Mexico. Zeke's boasts a long history of excellence in the charter fishing industry and proudly hosts the largest charter fleet on the Gulf. The facility offers a variety of dry dock options, premier customer service, and an environmentally friendly approach to operating a marina.",
+    "elevator_pitch": "Orange Beach's premier fishing charter marina with the largest fleet on Alabama's Gulf Coast, offering inshore and offshore fishing, cruises, dining, and dry storage.",
+    "vibe": "Family-friendly, adventurous, nautical, welcoming to all experience levels",
+    "best_for": [
+      "fishing enthusiasts",
+      "families with children",
+      "dolphin watching",
+      "sunset cruises",
+      "bachelor/bachelorette parties",
+      "group events",
+      "water adventures"
+    ],
+    "established": null,
+    "reservations": "Available for restaurant and private charters",
+    "insider_tip": "Zeke's restaurant offers 'hook and cook' service - catch your fish and have the restaurant prepare it. Best place to watch sunsets on the Alabama Gulf Coast."
+  },
+  "social": {
+    "instagram": "@zekesmarina",
+    "facebook": "Zeke's Landing",
+    "tripadvisor": "Zeke's Landing Marina",
+    "youtube": "Zeke's Landing",
+    "website": "https://www.zekeslanding.com"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Shared Expense Deep Sea Fishing",
+      "description": "Join a remarkable fishing trip shared with others to enjoy your trip without footing the entire bill",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [
+    {
+      "name": "Charter Boat Billfish Tournament",
+      "day": "",
+      "time": ""
+    },
+    {
+      "name": "Bachelor/Bachelorette Party",
+      "day": "",
+      "time": ""
+    },
+    {
+      "name": "The Port Event Venue",
+      "day": "",
+      "time": ""
+    }
+  ],
+  "gallery": 39,
+  "scraped_at": "2026-03-21T19:27:21.765Z"
+}

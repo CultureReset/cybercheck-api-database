@@ -1,0 +1,71 @@
+{
+  "name": "Doc's Seafood Shack",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "(251) 334-2888",
+    "address": "20520 Miflin Rd.",
+    "city": "Foley",
+    "email": ""
+  },
+  "hours": {
+    "monday": "11:00am-9:00pm",
+    "tuesday": "11:00am-9:00pm",
+    "wednesday": "11:00am-9:00pm",
+    "thursday": "11:00am-10:00pm",
+    "friday": "11:00am-10:00pm",
+    "saturday": "11:00am-10:00pm",
+    "sunday": "10:00am-9:00pm"
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Signature Plates",
+      "name": "Doc's Super Seafood Platter",
+      "description": "Crispy fried shrimp, house stuffed crab, golden fried fish fillets, classic Southern sides",
+      "price": 37.99
+    },
+    {
+      "category": "Signature Plates",
+      "name": "14oz Ribeye",
+      "description": "Hand-cut ribeye, char-grilled to order, juicy, tender, full flavor, choice of two sides",
+      "price": 43.99
+    },
+    {
+      "category": "Blue Plate Specials",
+      "name": "Gumbo & Salad Bar",
+      "description": "Bowl of Gumbo, 1 Trip Salad Bar",
+      "price": 14.99
+    },
+    {
+      "category": "Early Bird Specials",
+      "name": "Best Fried Shrimp in the Entire Civilized World",
+      "description": "4 Fried Shrimp, 1 Stuffed Crab, 2 Fish Filets",
+      "price": 13.99
+    },
+    {
+      "category": "Appetizers",
+      "name": "Dynamite Shrimp",
+      "description": "Doc's signature Dynamite Shrimp, lightly fried, saucy, savory, bold",
+      "price": 16.99
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Early Bird Specials",
+      "description": "Great value meals featuring Doc's favorites",
+      "discount": ""
+    },
+    {
+      "name": "Blue Plate Specials",
+      "description": "Daily rotating Southern favorites served hot with classic sides and big portions",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:50.239Z"
+}

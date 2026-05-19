@@ -1,0 +1,409 @@
+{
+  "generated_at": "2026-05-18T22:16:31.901Z",
+  "total_google_restaurants": 569,
+  "already_scraped": 75,
+  "not_scraped": 494,
+  "with_websites": 437,
+  "recommended_to_scrape": [
+    {
+      "name": "Archer's Gulf Serenity Spa",
+      "website": "https://archers-gulf-serenity.com/",
+      "place_id": "ChIJVVUlGtcEmogRhQyvkNiFCuE",
+      "rating": 5,
+      "reviews": 5,
+      "city": "Gulf Shores"
+    },
+    {
+      "name": "Aubrey’s Aesthetics",
+      "website": "https://aubreysaesthetics.skincaretherapy.net/",
+      "place_id": "ChIJXd5eKIAHmogR6W1dLl5i3rE",
+      "rating": 5,
+      "reviews": 72,
+      "city": "Orange Beach"
+    },
+    {
+      "name": "Breakout Games",
+      "website": "https://www.breakoutgames.com/orange-beach?utm_source=google&utm_medium=organic&utm_campaign=gmb-orange-beach",
+      "place_id": "ChIJ04UGstwFmogRhGeIg7p_9bo",
+      "rating": 5,
+      "reviews": 11955,
+      "city": "Orange Beach"
+    },
+    {
+      "name": "Coastal Massage Therapies, LLC",
+      "website": "http://www.coastalmassagetherapies.com/",
+      "place_id": "ChIJe6j23hEOmogR0cwvE95gdYM",
+      "rating": 5,
+      "reviews": 44,
+      "city": "Orange Beach"
+    },
+    {
+      "name": "Dolphin Cove Marina Gulf Shores, AL",
+      "website": "https://www.dolphin-cove-marina.com/",
+      "place_id": "ChIJBQd9BgAbmogRVQVHcM0Codg",
+      "rating": 5,
+      "reviews": 59,
+      "city": "Gulf Shores"
+    },
+    {
+      "name": "Flo & Glo IV Wellness Lounge (Gulf Shores)",
+      "website": "http://flongloivgulfshores.com/",
+      "place_id": "ChIJiRdYxPcFmogRg4ylAKlkmBA",
+      "rating": 5,
+      "reviews": 221,
+      "city": "Gulf Shores"
+    },
+    {
+      "name": "Mind 2 Body Massage and Day Spa",
+      "website": "http://www.mind2bodymassage.com/",
+      "place_id": "ChIJ_8MW-ZxBmogRhigRpTM5-gY",
+      "rating": 5,
+      "reviews": 85,
+      "city": "Orange Beach"
+    },
+    {
+      "name": "Model Train Museum",
+      "website": "http://www.visitfoley.com/",
+      "place_id": "ChIJ77S5xvkPmogRCg0QdPrMjCU",
+      "rating": 5,
+      "reviews": 9,
+      "city": "Gulf Shores"
+    },
+    {
+      "name": "Original Romar House B & B Inn",
+      "website": "http://www.theoriginalromarhouse.com/",
+      "place_id": "ChIJJ4W9oSYEmogR-1cAWYUkpvM",
+      "rating": 5,
+      "reviews": 105,
+      "city": "Orange Beach"
+    },
+    {
+      "name": "Premier Studios",
+      "website": "https://www.premierstudios.info/",
+      "place_id": "ChIJiZrNbs0PmogRcBuu5cf0H2s",
+      "rating": 5,
+      "reviews": 108,
+      "city": "Orange Beach"
+    },
+    {
+      "name": "Salty Dog inshore charter Fishing -Captain Mitch",
+      "website": "http://saltydoginshore.com/",
+      "place_id": "ChIJJzEl4TQHmogR8XYd-AB4NkM",
+      "rating": 5,
+      "reviews": 56,
+      "city": "Orange Beach"
+    },
+    {
+      "name": "Summit Wellness- Orange Beach",
+      "website": "https://www.summitwellnessorangebeach.com/",
+      "place_id": "ChIJCdm0PIIHmogRpbIE3ESoGz8",
+      "rating": 5,
+      "reviews": 98,
+      "city": "Orange Beach"
+    },
+    {
+      "name": "The Massage Office",
+      "website": "http://themassageoffice.com/",
+      "place_id": "ChIJX8dMxLcEmogRNuYzJH1ZiA4",
+      "rating": 5,
+      "reviews": 25,
+      "city": "Orange Beach"
+    },
+    {
+      "name": "flyBAMA",
+      "website": "https://flybama.net/?utm_source=gmb&utm_medium=organic&utm_campaign=maps",
+      "place_id": "ChIJeUhO2OYPmogRGShWov0OO4Y",
+      "rating": 5,
+      "reviews": 159,
+      "city": "Gulf Shores"
+    },
+    {
+      "name": "Topsail Steamer Seafood Boils (Take-home)",
+      "website": "https://topsailsteamer.com/",
+      "place_id": "ChIJ57taN9wFmogRLCj6cWgD1Mw",
+      "rating": 5,
+      "reviews": 61,
+      "city": "Gulf Shores"
+    },
+    {
+      "name": "Bay Side Boat Rental LLC",
+      "website": "https://www.baysideorangebeach.com/",
+      "place_id": "ChIJuXiVRt4HmogRwxO2qVnBdoE",
+      "rating": 5,
+      "reviews": 328,
+      "city": "Orange Beach"
+    },
+    {
+      "name": "Beach Dream Weddings",
+      "website": "https://alabamabeachwedding.com/",
+      "place_id": "ChIJj8Q2FuupkIgRCGns8uuuXmI",
+      "rating": 5,
+      "reviews": 14,
+      "city": "Orange Beach"
+    },
+    {
+      "name": "Beach Life Photography Gulf Shores",
+      "website": "https://www.beachlifephoto.com/",
+      "place_id": "ChIJddR16DIbmogRqxULpcB8jsI",
+      "rating": 5,
+      "reviews": 257,
+      "city": "Orange Beach"
+    },
+    {
+      "name": "Beach Shutters Photography",
+      "website": "https://www.beachshuttersphotography.com/",
+      "place_id": "ChIJW1JqqGyokIgRKGWlbcS1eQY",
+      "rating": 5,
+      "reviews": 283,
+      "city": "Orange Beach"
+    },
+    {
+      "name": "Big Water Bay",
+      "website": "https://visitowa.com/attractions/big-water-bay/",
+      "place_id": "ChIJu8gZFwAPmogR3zfXhoMdmt0",
+      "rating": 5,
+      "reviews": 2,
+      "city": "Orange Beach"
+    },
+    {
+      "name": "Bubba's Seaside Mini Golf",
+      "website": "https://bubbasminigolf.com/",
+      "place_id": "ChIJxzpqU6QHmogR-VkEwrZH-zo",
+      "rating": 5,
+      "reviews": 7,
+      "city": "Orange Beach"
+    },
+    {
+      "name": "C-Shelz Photography",
+      "website": "http://www.cshelzphoto.com/",
+      "place_id": "ChIJ4Ttx0q4amogRznq_qQJ8a2Y",
+      "rating": 5,
+      "reviews": 38,
+      "city": "Orange Beach"
+    },
+    {
+      "name": "Distraction Charters",
+      "website": "https://distractioncharters.com/",
+      "place_id": "ChIJG-i2e6MHmogRWLct5xYVEhU",
+      "rating": 5,
+      "reviews": 939,
+      "city": "Orange Beach"
+    },
+    {
+      "name": "Extreme Chaos Fishing Charters",
+      "website": "https://www.extremechaos.fish/",
+      "place_id": "ChIJH63G_acHmogRqQ-cF_hmxWY",
+      "rating": 5,
+      "reviews": 156,
+      "city": "Orange Beach"
+    },
+    {
+      "name": "Fishing made EZY",
+      "website": "https://www.fishingmadeezy.com/",
+      "place_id": "ChIJhRhgIHEHmogR2375FGBOVVI",
+      "rating": 5,
+      "reviews": 12,
+      "city": "Orange Beach"
+    },
+    {
+      "name": "Foil Gulf Coast",
+      "website": "http://www.foilgulfcoast.com/",
+      "place_id": "ChIJ82_XWFHzREgRB-gyOAyy5PE",
+      "rating": 5,
+      "reviews": 42,
+      "city": "Orange Beach"
+    },
+    {
+      "name": "Foley Walking Tours",
+      "website": "http://foleywalkingtours.com/",
+      "place_id": "ChIJgXIihguXx6URdfbJ8KUDtf4",
+      "rating": 5,
+      "reviews": 20,
+      "city": "Orange Beach"
+    },
+    {
+      "name": "Get It Going Tiki Ride",
+      "website": "https://getitgoingtikiride.com/",
+      "place_id": "ChIJx0C0MgMHmogRuSZmNqDrW4E",
+      "rating": 5,
+      "reviews": 121,
+      "city": "Orange Beach"
+    },
+    {
+      "name": "Getaway Charters",
+      "website": "https://getawaygulffishing.com/",
+      "place_id": "ChIJ0UbfCQgHmogRc4OMEjNCcZ4",
+      "rating": 5,
+      "reviews": 228,
+      "city": "Orange Beach"
+    },
+    {
+      "name": "Gulf Coast Boat Rentals",
+      "website": "https://www.gulfcoastboatrentals.com/",
+      "place_id": "ChIJBTKb4uJjG4MRpvU0MMGiu34",
+      "rating": 5,
+      "reviews": 21,
+      "city": "Gulf Shores"
+    },
+    {
+      "name": "Gulf Coast Explorers",
+      "website": "https://www.gulfcoastexplorers.com/?utm_source=google&utm_medium=wix_google_business_profile&utm_campaign=7735307979556016116",
+      "place_id": "ChIJO2HXxnMbmogRr9grbL2k1O0",
+      "rating": 5,
+      "reviews": 16,
+      "city": "Gulf Shores"
+    },
+    {
+      "name": "Gulf Rebel Charters",
+      "website": "http://www.gulfrebelcharters.com/",
+      "place_id": "ChIJRQL4SooHmogRvvlIAD5TxEE",
+      "rating": 5,
+      "reviews": 102,
+      "city": "Orange Beach"
+    },
+    {
+      "name": "Gulf Shores Bike Rentals",
+      "website": "http://gulfshoresbikerentals.com/",
+      "place_id": "ChIJX16GmhgFmogRYCixohZZO3U",
+      "rating": 5,
+      "reviews": 1709,
+      "city": "Gulf Shores"
+    },
+    {
+      "name": "Image Five Photography",
+      "website": "http://imagefivephotography.com/",
+      "place_id": "ChIJPQtNrOIbmogRFjTSVP5xstE",
+      "rating": 5,
+      "reviews": 5,
+      "city": "Gulf Shores"
+    },
+    {
+      "name": "Island Cruizer Boat Rentals",
+      "website": "https://islandcruizerboatrentals.com/",
+      "place_id": "ChIJlewBK6UHmogRI7GXks-SFLI",
+      "rating": 5,
+      "reviews": 94,
+      "city": "Orange Beach"
+    },
+    {
+      "name": "Island Time Charters",
+      "website": "https://myislandtimecharters.com/",
+      "place_id": "ChIJnXObmrYHmogRdJK0RXxWtIA",
+      "rating": 5,
+      "reviews": 62,
+      "city": "Gulf Shores"
+    },
+    {
+      "name": "Kneading Relief Massage Therapy",
+      "website": "http://www.kneadingrelief.com/",
+      "place_id": "ChIJo_TeG9cEmogRXzvRb-ERA_0",
+      "rating": 5,
+      "reviews": 51,
+      "city": "Gulf Shores"
+    },
+    {
+      "name": "Lacey Marie Photography Gulf Shores Photographer",
+      "website": "http://www.laceymariephotographysite.com/",
+      "place_id": "ChIJ170ZOP0RmogRJoE6pupFUCo",
+      "rating": 5,
+      "reviews": 6,
+      "city": "Gulf Shores"
+    },
+    {
+      "name": "Massage at the Square",
+      "website": "https://www.thesquaremassage.com/",
+      "place_id": "ChIJu14gp-8FmogRws3ApHKTtA0",
+      "rating": 5,
+      "reviews": 23,
+      "city": "Gulf Shores"
+    },
+    {
+      "name": "Msc Fishing Charters",
+      "website": "http://www.mscfishing.com/",
+      "place_id": "ChIJd5rTOKknmogRUhDnDjrNDrc",
+      "rating": 5,
+      "reviews": 45,
+      "city": "Gulf Shores"
+    },
+    {
+      "name": "On The Gulf Rentals",
+      "website": "http://on-the-gulf-rentals.square.site/",
+      "place_id": "ChIJN-vi6BwHmogRtSsVUoIwEq8",
+      "rating": 5,
+      "reviews": 43,
+      "city": "Orange Beach"
+    },
+    {
+      "name": "Orange Beach Boating Magazine",
+      "website": "http://www.orangebeachboating.com/",
+      "place_id": "ChIJvWiOTkwbmogR675NDwIXVb0",
+      "rating": 5,
+      "reviews": 1,
+      "city": "Gulf Shores"
+    },
+    {
+      "name": "Orange Beach Performing Arts Center",
+      "website": "https://www.orangebeachal.gov/events/performing-arts",
+      "place_id": "ChIJd-yOvqgHmogRSaubXe-UKWI",
+      "rating": 5,
+      "reviews": 32,
+      "city": "Orange Beach"
+    },
+    {
+      "name": "Pelican Boat Rentals",
+      "website": "https://www.rentpelicanboats.com/",
+      "place_id": "ChIJTWuMYGwHmogRwviaUd9BJDc",
+      "rating": 5,
+      "reviews": 411,
+      "city": "Orange Beach"
+    },
+    {
+      "name": "Red Sky Fish Co.",
+      "website": "http://www.redskyfishing.com/",
+      "place_id": "ChIJ34NCLLcEmogRTi50DRhFAh0",
+      "rating": 5,
+      "reviews": 105,
+      "city": "Gulf Shores"
+    },
+    {
+      "name": "Redline Inshore Fishing Charters",
+      "website": "https://redlineinshorefishing.com/",
+      "place_id": "ChIJ906q5ewHmogRfE9DA5_LWXc",
+      "rating": 5,
+      "reviews": 206,
+      "city": "Orange Beach"
+    },
+    {
+      "name": "Reel Fishin' Charters",
+      "website": "http://www.reelfishincharters.com/",
+      "place_id": "ChIJL0AfdQAbmogR8a7m_5TSaa0",
+      "rating": 5,
+      "reviews": 2,
+      "city": "Gulf Shores"
+    },
+    {
+      "name": "Scales N Tails Charters",
+      "website": "https://scalesntailscharters.com/",
+      "place_id": "ChIJnej4u9b2wogRECsKVL1YpIY",
+      "rating": 5,
+      "reviews": 23,
+      "city": "Gulf Shores"
+    },
+    {
+      "name": "Southern Shores Photography",
+      "website": "http://www.southernshoresphoto.com/",
+      "place_id": "ChIJLyicKTnVawkRgsB3X_fJSNo",
+      "rating": 5,
+      "reviews": 241,
+      "city": "Orange Beach"
+    },
+    {
+      "name": "Southern Sun Inshore Charters",
+      "website": "http://southernsuninshorecharters.com/",
+      "place_id": "ChIJFyBv37IHmogRrFc5N19AYr0",
+      "rating": 5,
+      "reviews": 9,
+      "city": "Orange Beach"
+    }
+  ]
+}

@@ -1,0 +1,6454 @@
+[
+  {
+    "event_name": "Funky Lampshades | OSO at Bear Point Harbor | Orange Beach",
+    "venue_name": "OSO at Bear Point Harbor",
+    "artist": "Funky Lampshades"
+  },
+  {
+    "event_name": "Thicc and Thinn | Lulu's | Gulf Shores"
+  },
+  {
+    "event_name": "Andy Lyle Hall | Barometer Waterfront Grille | Orange Beach",
+    "venue_name": "Barometer Waterfront Grille",
+    "artist": "Andy Lyle Hall"
+  },
+  {
+    "event_name": "STORMFOLK | Emerald Waterfront | Navarre"
+  },
+  {
+    "event_name": "Strickly Rivers | Cosmo's Restaurant & Bar | Orange Beach"
+  },
+  {
+    "event_name": "The Collective | Cobalt | Orange Beach",
+    "venue_name": "Cobalt",
+    "artist": "The Collective"
+  },
+  {
+    "event_name": "Smokey & Veronica Jean | Fraternal Order Of Eagles | Foley",
+    "venue_name": "Fraternal Order Of Eagles",
+    "artist": "Smokey & Veronica Jean"
+  },
+  {
+    "event_name": "Jesse Ritter | Crabs on the Beach | Pensacola Beach",
+    "venue_name": "Crabs on the Beach",
+    "artist": "Jesse Ritter"
+  },
+  {
+    "event_name": "Lauren Murphy | CoastAL | Orange Beach",
+    "venue_name": "CoastAL",
+    "artist": "Lauren Murphy"
+  },
+  {
+    "event_name": "Rose Bud Ramblers | The Red Haven Live | Orange Beach",
+    "venue_name": "The Red Haven Live",
+    "artist": "Rose Bud Ramblers"
+  },
+  {
+    "event_name": "Steve & Joe Project w/ Lee Day | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Steve & Joe Project w/ Lee Day"
+  },
+  {
+    "event_name": "John Hart Project | Paradise Bar & Grill | Pensacola Beach"
+  },
+  {
+    "event_name": "Les Linton | Tacky Jacks | Fort Morgan",
+    "venue_name": "Tacky Jacks",
+    "artist": "Les Linton"
+  },
+  {
+    "event_name": "Sister Rey | Purple Parrot Beach Bar & Grill | Perdido Key",
+    "venue_name": "Purple Parrot Beach Bar & Grill",
+    "artist": "Sister Rey"
+  },
+  {
+    "event_name": "Charlie and the Hammerheads | The Sandbar Sunset Bar & Grill | Pensacola Beach",
+    "venue_name": "The Sandbar Sunset Bar & Grill",
+    "artist": "Charlie and the Hammerheads"
+  },
+  {
+    "event_name": "Smith & Kern | Moe's Original BBQ | Foley",
+    "venue_name": "Moe's Original BBQ",
+    "artist": "Smith & Kern"
+  },
+  {
+    "event_name": "Tribe Zion | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Tribe Zion"
+  },
+  {
+    "event_name": "Oliver's Twist | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Oliver's Twist"
+  },
+  {
+    "event_name": "Koontz | Bushwacker’s Landing | Perdido Key",
+    "venue_name": "Bushwacker’s Landing",
+    "artist": "Koontz"
+  },
+  {
+    "event_name": "Hip Trip | The Salty Rose Beach Bar & Grill | Pensacola Beach",
+    "venue_name": "The Salty Rose Beach Bar & Grill",
+    "artist": "Hip Trip"
+  },
+  {
+    "event_name": "Tim Roberts Trio | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Tim Roberts Trio"
+  },
+  {
+    "event_name": "Colton Wadkins/Kolby Spicer/Tim Nowell | Tee Off at the Wharf @ Portside on Main | Orange Beach",
+    "venue_name": "Tee Off at the Wharf @ Portside on Main",
+    "artist": "Colton Wadkins/Kolby Spicer/Tim Nowell"
+  },
+  {
+    "event_name": "Zoe Burdette | Tacky Jacks | Gulf Shores",
+    "venue_name": "Tacky Jacks",
+    "artist": "Zoe Burdette"
+  },
+  {
+    "event_name": "Riley Lynn | Ginny Lane Bar and Grill | Orange Beach",
+    "venue_name": "Ginny Lane Bar and Grill",
+    "artist": "Riley Lynn"
+  },
+  {
+    "event_name": "The Undertow Band | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "The Undertow Band"
+  },
+  {
+    "event_name": "Salt & Soul | Bounce Beach | Pensacola Beach",
+    "venue_name": "Bounce Beach",
+    "artist": "Salt & Soul"
+  },
+  {
+    "event_name": "Armani Smith | The Hangout | Gulf Shores",
+    "venue_name": "The Hangout",
+    "artist": "Armani Smith"
+  },
+  {
+    "event_name": "Chitlin Switch | Perdido Key Sports Bar | Perdido Key",
+    "venue_name": "Perdido Key Sports Bar",
+    "artist": "Chitlin Switch"
+  },
+  {
+    "event_name": "Myles Lawson | Papa Rocco’s | Gulf Shores",
+    "venue_name": "Papa Rocco’s",
+    "artist": "Myles Lawson"
+  },
+  {
+    "event_name": "The Haven Band | The Red Haven Live | Orange Beach",
+    "venue_name": "The Red Haven Live",
+    "artist": "The Haven Band"
+  },
+  {
+    "event_name": "Brent Varner Trio | The Cove Bar and Grill | Gulf Shores",
+    "venue_name": "The Cove Bar and Grill",
+    "artist": "Brent Varner Trio"
+  },
+  {
+    "event_name": "Frank Fletcher Band | Juana’s Pagodas | Navarre",
+    "venue_name": "Juana’s Pagodas",
+    "artist": "Frank Fletcher Band"
+  },
+  {
+    "event_name": "Garrett Howell Duo | Wild Greg's Saloon | Pensacola",
+    "venue_name": "Wild Greg's Saloon",
+    "artist": "Garrett Howell Duo"
+  },
+  {
+    "event_name": "Chris Beverly | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "Chris Beverly"
+  },
+  {
+    "event_name": "Six Piece Suits | Flounders Chowder House | Pensacola Beach",
+    "venue_name": "Flounders Chowder House",
+    "artist": "Six Piece Suits"
+  },
+  {
+    "event_name": "Count The Years | Sandshaker Lounge | Pensacola Beach",
+    "venue_name": "Sandshaker Lounge",
+    "artist": "Count The Years"
+  },
+  {
+    "event_name": "Funky Lampshades | The Undertow | Orange Beach",
+    "venue_name": "The Undertow",
+    "artist": "Funky Lampshades"
+  },
+  {
+    "event_name": "Midlife Crisis | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Midlife Crisis"
+  },
+  {
+    "event_name": "JT McCaffrey Duo | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "JT McCaffrey Duo"
+  },
+  {
+    "event_name": "Chase Mitchell Band | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Chase Mitchell Band"
+  },
+  {
+    "event_name": "Jimmy Lee Hannaford | Tacky Jacks | Orange Beach",
+    "venue_name": "Tacky Jacks",
+    "artist": "Jimmy Lee Hannaford"
+  },
+  {
+    "event_name": "Kyle Brady | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Kyle Brady"
+  },
+  {
+    "event_name": "Hippy Jim | Wild Greg’s Saloon | Pensacola",
+    "venue_name": "Wild Greg’s Saloon",
+    "artist": "Hippy Jim"
+  },
+  {
+    "event_name": "J Hawkins Duo | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "J Hawkins Duo"
+  },
+  {
+    "event_name": "Donna Slater | Bushwacker’s Landing | Perdido Key",
+    "venue_name": "Bushwacker’s Landing",
+    "artist": "Donna Slater"
+  },
+  {
+    "event_name": "Chris Beverly | OSO at Bear Point Harbor | Orange Beach",
+    "venue_name": "OSO at Bear Point Harbor",
+    "artist": "Chris Beverly"
+  },
+  {
+    "event_name": "Doug Drake & Tennessee Tim | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Doug Drake & Tennessee Tim"
+  },
+  {
+    "event_name": "Tyler Ward | Shipp’s Dockside Grill | Orange Beach",
+    "venue_name": "Shipp’s Dockside Grill",
+    "artist": "Tyler Ward"
+  },
+  {
+    "event_name": "Rickie Joe Wilson | Crabs on the Beach | Pensacola Beach",
+    "venue_name": "Crabs on the Beach",
+    "artist": "Rickie Joe Wilson"
+  },
+  {
+    "event_name": "Colton Wadkins | Tee Off at the Wharf @ Portside on Main | Orange Beach",
+    "venue_name": "Tee Off at the Wharf @ Portside on Main",
+    "artist": "Colton Wadkins"
+  },
+  {
+    "event_name": "Patrick Cross | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Patrick Cross"
+  },
+  {
+    "event_name": "Isaac Moore | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Isaac Moore"
+  },
+  {
+    "event_name": "The Defrosters | The Galley on the River | Foley",
+    "venue_name": "The Galley on the River",
+    "artist": "The Defrosters"
+  },
+  {
+    "event_name": "Paul Killough | Sandshaker Lounge | Pensacola Beach",
+    "venue_name": "Sandshaker Lounge",
+    "artist": "Paul Killough"
+  },
+  {
+    "event_name": "Myles Lawson Duo | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Myles Lawson Duo"
+  },
+  {
+    "event_name": "Brooks Johnson | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Brooks Johnson"
+  },
+  {
+    "event_name": "Aaron Smithey | OSO at Bear Point Harbor | Orange Beach",
+    "venue_name": "OSO at Bear Point Harbor",
+    "artist": "Aaron Smithey"
+  },
+  {
+    "event_name": "Jason Sutton | Bushwacker’s Landing | Perdido Key",
+    "venue_name": "Bushwacker’s Landing",
+    "artist": "Jason Sutton"
+  },
+  {
+    "event_name": "James Adkins | Juana’s Pagodas | Navarre",
+    "venue_name": "Juana’s Pagodas",
+    "artist": "James Adkins"
+  },
+  {
+    "event_name": "Emily White | Flora-Bama | Orange Beach",
+    "venue_name": "Flora-Bama",
+    "artist": "Emily White"
+  },
+  {
+    "event_name": "Travis Jackson Smith | Shipp’s Dockside Grill | Orange Beach",
+    "venue_name": "Shipp’s Dockside Grill",
+    "artist": "Travis Jackson Smith"
+  },
+  {
+    "event_name": "Ryan Dakota | Wild Greg's Saloon | Pensacola",
+    "venue_name": "Wild Greg's Saloon",
+    "artist": "Ryan Dakota"
+  },
+  {
+    "event_name": "Cade Pierce | Barometer Waterfront Grille | Orange Beach",
+    "venue_name": "Barometer Waterfront Grille",
+    "artist": "Cade Pierce"
+  },
+  {
+    "event_name": "Tyler Ward | CoastAL | Orange Beach",
+    "venue_name": "CoastAL",
+    "artist": "Tyler Ward"
+  },
+  {
+    "event_name": "Justin Colvard Duo | Doc’s Seafood and Steaks | Orange Beach",
+    "venue_name": "Doc’s Seafood and Steaks",
+    "artist": "Justin Colvard Duo"
+  },
+  {
+    "event_name": "Andy Lyle Hall | Zeke’s Restaurant | Orange Beach",
+    "venue_name": "Zeke’s Restaurant",
+    "artist": "Andy Lyle Hall"
+  },
+  {
+    "event_name": "Patrick Barnett Duo | Lulu's | Gulf Shores",
+    "venue_name": "Lulu's",
+    "artist": "Patrick Barnett Duo"
+  },
+  {
+    "event_name": "Riley Lynn | Tacky Jacks | Orange Beach",
+    "venue_name": "Tacky Jacks",
+    "artist": "Riley Lynn"
+  },
+  {
+    "event_name": "Mike Diamond Trio | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Mike Diamond Trio"
+  },
+  {
+    "event_name": "Spicy Danger | Cobalt | Orange Beach",
+    "venue_name": "Cobalt",
+    "artist": "Spicy Danger"
+  },
+  {
+    "event_name": "The Black Magnolia Band | The Red Haven Live | Orange Beach",
+    "venue_name": "The Red Haven Live",
+    "artist": "The Black Magnolia Band"
+  },
+  {
+    "event_name": "John Hart Project | Paradise Bar & Grill | Pensacola Beach",
+    "venue_name": "Paradise Bar & Grill",
+    "artist": "John Hart Project"
+  },
+  {
+    "event_name": "Tim Robinson | Purple Parrot Beach Bar & Grill | Perdido Key",
+    "venue_name": "Purple Parrot Beach Bar & Grill",
+    "artist": "Tim Robinson"
+  },
+  {
+    "event_name": "The Heat | Gelato Joe's | Foley",
+    "venue_name": "Gelato Joe's",
+    "artist": "The Heat"
+  },
+  {
+    "event_name": "Matt Erdman | Tacky Jacks | Gulf Shores",
+    "venue_name": "Tacky Jacks",
+    "artist": "Matt Erdman"
+  },
+  {
+    "event_name": "Southern Breeze | The Sandbar Sunset Bar & Grill | Pensacola Beach",
+    "venue_name": "The Sandbar Sunset Bar & Grill",
+    "artist": "Southern Breeze"
+  },
+  {
+    "event_name": "Ronnie Presley | 50/50 Lounge | Foley",
+    "venue_name": "50/50 Lounge",
+    "artist": "Ronnie Presley"
+  },
+  {
+    "event_name": "Thin Red Line | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Thin Red Line"
+  },
+  {
+    "event_name": "The Aces | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "The Aces"
+  },
+  {
+    "event_name": "Doug Drake & Tennessee Tim | Moe's Original BBQ | Foley",
+    "venue_name": "Moe's Original BBQ",
+    "artist": "Doug Drake & Tennessee Tim"
+  },
+  {
+    "event_name": "Brandon Giles | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Brandon Giles"
+  },
+  {
+    "event_name": "Johnny Hayes Band | OSO at Bear Point Harbor | Orange Beach",
+    "venue_name": "OSO at Bear Point Harbor",
+    "artist": "Johnny Hayes Band"
+  },
+  {
+    "event_name": "Salt & Soul | Bounce Beach | Pensacola Beach",
+    "venue_name": "Bounce Beach",
+    "artist": "Salt & Soul"
+  },
+  {
+    "event_name": "Robert Abernathy | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Robert Abernathy"
+  },
+  {
+    "event_name": "Dead Flowers | Bushwacker’s Landing | Perdido Key",
+    "venue_name": "Bushwacker’s Landing",
+    "artist": "Dead Flowers"
+  },
+  {
+    "event_name": "Morgan Shades Stevens | Papa Rocco’s | Gulf Shores",
+    "venue_name": "Papa Rocco’s",
+    "artist": "Morgan Shades Stevens"
+  },
+  {
+    "event_name": "Funky Lampshades | Sound Wave | Gulf Shores",
+    "venue_name": "Sound Wave",
+    "artist": "Funky Lampshades"
+  },
+  {
+    "event_name": "The Surfers Club Band | Tee Off at the Wharf @ Portside on Main | Orange Beach",
+    "venue_name": "Tee Off at the Wharf @ Portside on Main",
+    "artist": "The Surfers Club Band"
+  },
+  {
+    "event_name": "I-10 Bound Band | The Hangout | Gulf Shores",
+    "venue_name": "The Hangout",
+    "artist": "I-10 Bound Band"
+  },
+  {
+    "event_name": "The Collective | Perdido Key Sports Bar | Perdido Key",
+    "venue_name": "Perdido Key Sports Bar",
+    "artist": "The Collective"
+  },
+  {
+    "event_name": "DadBod | Juana’s Pagodas | Navarre",
+    "venue_name": "Juana’s Pagodas",
+    "artist": "DadBod"
+  },
+  {
+    "event_name": "Just Roger | Pour Smart Bar | Orange Beach",
+    "venue_name": "Pour Smart Bar",
+    "artist": "Just Roger"
+  },
+  {
+    "event_name": "The Undertow Band | Island Time Daiquiris | Orange Beach",
+    "venue_name": "Island Time Daiquiris",
+    "artist": "The Undertow Band"
+  },
+  {
+    "event_name": "Gringo Fife | The Cove Bar and Grill | Gulf Shores",
+    "venue_name": "The Cove Bar and Grill",
+    "artist": "Gringo Fife"
+  },
+  {
+    "event_name": "Travis Jackson Smith | Wild Greg’s Saloon | Pensacola",
+    "venue_name": "Wild Greg’s Saloon",
+    "artist": "Travis Jackson Smith"
+  },
+  {
+    "event_name": "Andy Lyle Hall & Clay Watson | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "Andy Lyle Hall & Clay Watson"
+  },
+  {
+    "event_name": "Tyler Mac | Islander | Pensacola Beach",
+    "venue_name": "Islander",
+    "artist": "Tyler Mac"
+  },
+  {
+    "event_name": "Six Piece Suits | Flounders Chowder House | Pensacola Beach",
+    "venue_name": "Flounders Chowder House",
+    "artist": "Six Piece Suits"
+  },
+  {
+    "event_name": "Count The Years | Sandshaker Lounge | Pensacola Beach",
+    "venue_name": "Sandshaker Lounge",
+    "artist": "Count The Years"
+  },
+  {
+    "event_name": "JT McCaffrey Band | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "JT McCaffrey Band"
+  },
+  {
+    "event_name": "Brandon Blackburn Duo w/ Logan Lassitter | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Brandon Blackburn Duo w/ Logan Lassitter"
+  },
+  {
+    "event_name": "Chase Mitchell Band | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Chase Mitchell Band"
+  },
+  {
+    "event_name": "Justin Colvard | Barometer Waterfront Grille | Orange Beach",
+    "venue_name": "Barometer Waterfront Grille",
+    "artist": "Justin Colvard"
+  },
+  {
+    "event_name": "Justin Fobes | Cobalt | Orange Beach",
+    "venue_name": "Cobalt",
+    "artist": "Justin Fobes"
+  },
+  {
+    "event_name": "Gambino Duo | Tacky Jacks | Orange Beach",
+    "venue_name": "Tacky Jacks",
+    "artist": "Gambino Duo"
+  },
+  {
+    "event_name": "Stevie Hall | Bounce Beach | Pensacola Beach",
+    "venue_name": "Bounce Beach",
+    "artist": "Stevie Hall"
+  },
+  {
+    "event_name": "Rickie Joe Wilson | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Rickie Joe Wilson"
+  },
+  {
+    "event_name": "Three Bean Soup | McGuire's Irish Pub | Pensacola",
+    "venue_name": "McGuire's Irish Pub",
+    "artist": "Three Bean Soup"
+  },
+  {
+    "event_name": "Ronnie Presley | CoastAL | Orange Beach",
+    "venue_name": "CoastAL",
+    "artist": "Ronnie Presley"
+  },
+  {
+    "event_name": "Brent Varner | Bushwacker’s Landing | Perdido Key",
+    "venue_name": "Bushwacker’s Landing",
+    "artist": "Brent Varner"
+  },
+  {
+    "event_name": "The Heat | Ginny Lane Bar and Grill | Orange Beach",
+    "venue_name": "Ginny Lane Bar and Grill",
+    "artist": "The Heat"
+  },
+  {
+    "event_name": "Greg Mihaly | The Salty Rose Beach Bar & Grill | Pensacola Beach",
+    "venue_name": "The Salty Rose Beach Bar & Grill",
+    "artist": "Greg Mihaly"
+  },
+  {
+    "event_name": "Veronica Jean | Avenue Pub | Orange Beach",
+    "venue_name": "Avenue Pub",
+    "artist": "Veronica Jean"
+  },
+  {
+    "event_name": "Magnolia Mayfield | Windjammers on the Pier | Navarre",
+    "venue_name": "Windjammers on the Pier",
+    "artist": "Magnolia Mayfield"
+  },
+  {
+    "event_name": "Tim Roberts Band | OSO at Bear Point Harbor | Orange Beach",
+    "venue_name": "OSO at Bear Point Harbor",
+    "artist": "Tim Roberts Band"
+  },
+  {
+    "event_name": "Patrick Cross | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Patrick Cross"
+  },
+  {
+    "event_name": "Lisa Zanghi | The Galway Irish Public House | Gulf Shores",
+    "venue_name": "The Galway Irish Public House",
+    "artist": "Lisa Zanghi"
+  },
+  {
+    "event_name": "Jesse Ritter | Flounders Chowder House | Pensacola Beach",
+    "venue_name": "Flounders Chowder House",
+    "artist": "Jesse Ritter"
+  },
+  {
+    "event_name": "Shawn Williams | Gary’s Brewery & Biergarten | Pensacola",
+    "venue_name": "Gary’s Brewery & Biergarten",
+    "artist": "Shawn Williams"
+  },
+  {
+    "event_name": "Dixon Darling | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Dixon Darling"
+  },
+  {
+    "event_name": "The Defrosters | American Legion Post 44 | Gulf Shores",
+    "venue_name": "American Legion Post 44",
+    "artist": "The Defrosters"
+  },
+  {
+    "event_name": "Jason Crysell | Barometer Waterfront Grille | Orange Beach",
+    "venue_name": "Barometer Waterfront Grille",
+    "artist": "Jason Crysell"
+  },
+  {
+    "event_name": "Chad Wilson | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Chad Wilson"
+  },
+  {
+    "event_name": "Smith & Kern | The Galley on the River | Foley",
+    "venue_name": "The Galley on the River",
+    "artist": "Smith & Kern"
+  },
+  {
+    "event_name": "Travis Jackson Smith | Bushwacker’s Landing | Perdido Key",
+    "venue_name": "Bushwacker’s Landing",
+    "artist": "Travis Jackson Smith"
+  },
+  {
+    "event_name": "Alastair Greene | Paradise Bar & Grill | Pensacola Beach",
+    "venue_name": "Paradise Bar & Grill",
+    "artist": "Alastair Greene"
+  },
+  {
+    "event_name": "Six Piece Suits | Juana’s Pagodas | Navarre",
+    "venue_name": "Juana’s Pagodas",
+    "artist": "Six Piece Suits"
+  },
+  {
+    "event_name": "Justin Colvard w/ Adam Tyler Brown | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Justin Colvard w/ Adam Tyler Brown"
+  },
+  {
+    "event_name": "Chris Beverly | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "Chris Beverly"
+  },
+  {
+    "event_name": "Brandon Giles | The Red Haven Live | Orange Beach",
+    "venue_name": "The Red Haven Live",
+    "artist": "Brandon Giles"
+  },
+  {
+    "event_name": "Chris Johnson | CoastAL | Orange Beach",
+    "venue_name": "CoastAL",
+    "artist": "Chris Johnson"
+  },
+  {
+    "event_name": "Tennessee Tim | Gelato Joe's | Foley",
+    "venue_name": "Gelato Joe's",
+    "artist": "Tennessee Tim"
+  },
+  {
+    "event_name": "Mira Mira and The Walls | Sandshaker Lounge | Pensacola Beach",
+    "venue_name": "Sandshaker Lounge",
+    "artist": "Mira Mira and The Walls"
+  },
+  {
+    "event_name": "Paul Killough & Mike Wheeler | The Sandbar Sunset Bar & Grill | Pensacola Beach",
+    "venue_name": "The Sandbar Sunset Bar & Grill",
+    "artist": "Paul Killough & Mike Wheeler"
+  },
+  {
+    "event_name": "Morgan Shades Stevens | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Morgan Shades Stevens"
+  },
+  {
+    "event_name": "Nigel Dickie | Cobalt | Orange Beach",
+    "venue_name": "Cobalt",
+    "artist": "Nigel Dickie"
+  },
+  {
+    "event_name": "JesseTaylor Perry | Tacky Jacks | Gulf Shores",
+    "venue_name": "Tacky Jacks",
+    "artist": "JesseTaylor Perry"
+  },
+  {
+    "event_name": "Steven John | Peg Leg Pete’s | Pensacola Beach",
+    "venue_name": "Peg Leg Pete’s",
+    "artist": "Steven John"
+  },
+  {
+    "event_name": "Lefty Collins | Lulu's | Gulf Shores",
+    "venue_name": "Lulu's",
+    "artist": "Lefty Collins"
+  },
+  {
+    "event_name": "Greg Brown | Tacky Jacks | Orange Beach",
+    "venue_name": "Tacky Jacks",
+    "artist": "Greg Brown"
+  },
+  {
+    "event_name": "Willie Traywick | Barometer Waterfront Grille | Orange Beach",
+    "venue_name": "Barometer Waterfront Grille",
+    "artist": "Willie Traywick"
+  },
+  {
+    "event_name": "Austin Thompson | Doc’s Seafood and Steaks | Orange Beach",
+    "venue_name": "Doc’s Seafood and Steaks",
+    "artist": "Austin Thompson"
+  },
+  {
+    "event_name": "The Undertow Band | OSO at Bear Point Harbor | Orange Beach",
+    "venue_name": "OSO at Bear Point Harbor",
+    "artist": "The Undertow Band"
+  },
+  {
+    "event_name": "Tim Roberts Trio | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Tim Roberts Trio"
+  },
+  {
+    "event_name": "Strickly Rivers | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Strickly Rivers"
+  },
+  {
+    "event_name": "Ben Stack | Bushwacker’s Landing | Perdido Key",
+    "venue_name": "Bushwacker’s Landing",
+    "artist": "Ben Stack"
+  },
+  {
+    "event_name": "Roger & Elaine | American Legion Post 44 | Gulf Shores",
+    "venue_name": "American Legion Post 44",
+    "artist": "Roger & Elaine"
+  },
+  {
+    "event_name": "Brent Varner Band | The Hangout | Gulf Shores",
+    "venue_name": "The Hangout",
+    "artist": "Brent Varner Band"
+  },
+  {
+    "event_name": "Jay Moody | Purple Parrot Beach Bar & Grill | Perdido Key",
+    "venue_name": "Purple Parrot Beach Bar & Grill",
+    "artist": "Jay Moody"
+  },
+  {
+    "event_name": "Boukou Groove | Sound Wave | Gulf Shores",
+    "venue_name": "Sound Wave",
+    "artist": "Boukou Groove"
+  },
+  {
+    "event_name": "Cadillac Attack | Tacky Jacks | Fort Morgan",
+    "venue_name": "Tacky Jacks",
+    "artist": "Cadillac Attack"
+  },
+  {
+    "event_name": "Mike Diamond Duo | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Mike Diamond Duo"
+  },
+  {
+    "event_name": "Gringo Fife | Papa Rocco’s | Gulf Shores",
+    "venue_name": "Papa Rocco’s",
+    "artist": "Gringo Fife"
+  },
+  {
+    "event_name": "Chase Mitchell | Flounders Chowder House | Pensacola Beach",
+    "venue_name": "Flounders Chowder House",
+    "artist": "Chase Mitchell"
+  },
+  {
+    "event_name": "JT McCaffrey Band | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "JT McCaffrey Band"
+  },
+  {
+    "event_name": "Ryan Dyer | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Ryan Dyer"
+  },
+  {
+    "event_name": "Jesse Duncan | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Jesse Duncan"
+  },
+  {
+    "event_name": "Mike Diamond | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Mike Diamond"
+  },
+  {
+    "event_name": "Logan Lassitter | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "Logan Lassitter"
+  },
+  {
+    "event_name": "Brooks Johnson | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Brooks Johnson"
+  },
+  {
+    "event_name": "Hippy Jim | Windjammers on the Pier | Navarre",
+    "venue_name": "Windjammers on the Pier",
+    "artist": "Hippy Jim"
+  },
+  {
+    "event_name": "Doug Drake & Tennessee Tim | Lulu's | Gulf Shores",
+    "venue_name": "Lulu's",
+    "artist": "Doug Drake & Tennessee Tim"
+  },
+  {
+    "event_name": "Brent Burns | Tuscany Pizza and Grill | Gulf Shores",
+    "venue_name": "Tuscany Pizza and Grill",
+    "artist": "Brent Burns"
+  },
+  {
+    "event_name": "Dalton Bush | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Dalton Bush"
+  },
+  {
+    "event_name": "Elaine Petty & Tyler Ward | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Elaine Petty & Tyler Ward"
+  },
+  {
+    "event_name": "JC Pringle | Purple Parrot Beach Bar & Grill | Perdido Key",
+    "venue_name": "Purple Parrot Beach Bar & Grill",
+    "artist": "JC Pringle"
+  },
+  {
+    "event_name": "The Southerlies | The Hangout | Gulf Shores",
+    "venue_name": "The Hangout",
+    "artist": "The Southerlies"
+  },
+  {
+    "event_name": "Jason Crysell | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Jason Crysell"
+  },
+  {
+    "event_name": "Brandon Blackburn | OSO at Bear Point Harbor | Orange Beach",
+    "venue_name": "OSO at Bear Point Harbor",
+    "artist": "Brandon Blackburn"
+  },
+  {
+    "event_name": "Brent Varner | The Cove Bar and Grill | Gulf Shores",
+    "venue_name": "The Cove Bar and Grill",
+    "artist": "Brent Varner"
+  },
+  {
+    "event_name": "Myles Lawson & Morgan Shades Stevens | Sound Wave | Gulf Shores",
+    "venue_name": "Sound Wave",
+    "artist": "Myles Lawson & Morgan Shades Stevens"
+  },
+  {
+    "event_name": "Cedric Brooks | 8 Reale OBAL | Orange Beach",
+    "venue_name": "8 Reale OBAL",
+    "artist": "Cedric Brooks"
+  },
+  {
+    "event_name": "Smokey & Veronica Jean | Papa Rocco’s | Gulf Shores",
+    "venue_name": "Papa Rocco’s",
+    "artist": "Smokey & Veronica Jean"
+  },
+  {
+    "event_name": "Saucy FuzZ w/ Chris Beverly | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Saucy FuzZ w/ Chris Beverly"
+  },
+  {
+    "event_name": "Dixon Darling | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Dixon Darling"
+  },
+  {
+    "event_name": "T-Bone Montgomery | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "T-Bone Montgomery"
+  },
+  {
+    "event_name": "Tim Roberts Trio | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "Tim Roberts Trio"
+  },
+  {
+    "event_name": "Danny Grady | American Legion Post 44 | Gulf Shores",
+    "venue_name": "American Legion Post 44",
+    "artist": "Danny Grady"
+  },
+  {
+    "event_name": "Willie Traywick | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Willie Traywick"
+  },
+  {
+    "event_name": "Salt & Soul | Emerald Waterfront | Navarre",
+    "venue_name": "Emerald Waterfront",
+    "artist": "Salt & Soul"
+  },
+  {
+    "event_name": "Dixon Darling | CoastAL | Orange Beach",
+    "venue_name": "CoastAL",
+    "artist": "Dixon Darling"
+  },
+  {
+    "event_name": "Justin Colvard Duo | Doc’s Seafood and Steaks | Orange Beach",
+    "venue_name": "Doc’s Seafood and Steaks",
+    "artist": "Justin Colvard Duo"
+  },
+  {
+    "event_name": "Strickly Rivers | Cobalt | Orange Beach",
+    "venue_name": "Cobalt",
+    "artist": "Strickly Rivers"
+  },
+  {
+    "event_name": "Lee Alan | Lulu's | Gulf Shores",
+    "venue_name": "Lulu's",
+    "artist": "Lee Alan"
+  },
+  {
+    "event_name": "Ryan Dyer | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Ryan Dyer"
+  },
+  {
+    "event_name": "Spicy Danger | OSO at Bear Point Harbor | Orange Beach",
+    "venue_name": "OSO at Bear Point Harbor",
+    "artist": "Spicy Danger"
+  },
+  {
+    "event_name": "Tim Robinson | Purple Parrot Beach Bar & Grill | Perdido Key",
+    "venue_name": "Purple Parrot Beach Bar & Grill",
+    "artist": "Tim Robinson"
+  },
+  {
+    "event_name": "The Heat | American Legion Post 44 | Gulf Shores",
+    "venue_name": "American Legion Post 44",
+    "artist": "The Heat"
+  },
+  {
+    "event_name": "Brent Varner Band | The Hangout | Gulf Shores",
+    "venue_name": "The Hangout",
+    "artist": "Brent Varner Band"
+  },
+  {
+    "event_name": "Tim Nowell & Colton Wadkins | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Tim Nowell & Colton Wadkins"
+  },
+  {
+    "event_name": "Zachary Thomas Diedrich | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Zachary Thomas Diedrich"
+  },
+  {
+    "event_name": "Lisa Christian | The Galway Irish Public House | Gulf Shores",
+    "venue_name": "The Galway Irish Public House",
+    "artist": "Lisa Christian"
+  },
+  {
+    "event_name": "Matt Erdman | Gelato Joe’s | Foley",
+    "venue_name": "Gelato Joe’s",
+    "artist": "Matt Erdman"
+  },
+  {
+    "event_name": "Kitty Steadman | Juana’s Pagodas | Navarre",
+    "venue_name": "Juana’s Pagodas",
+    "artist": "Kitty Steadman"
+  },
+  {
+    "event_name": "Cristi Dee & BAD JUJU | Bands on the Beach - Gulfside Pavilion | Pensacola Beach",
+    "venue_name": "Bands on the Beach - Gulfside Pavilion",
+    "artist": "Cristi Dee & BAD JUJU"
+  },
+  {
+    "event_name": "Riley Lynn | The Cove Bar and Grill | Gulf Shores",
+    "venue_name": "The Cove Bar and Grill",
+    "artist": "Riley Lynn"
+  },
+  {
+    "event_name": "Smokey Otis Duo | Papa Rocco’s | Gulf Shores",
+    "venue_name": "Papa Rocco’s",
+    "artist": "Smokey Otis Duo"
+  },
+  {
+    "event_name": "Just Roger | Mudbugs | Gulf Shores",
+    "venue_name": "Mudbugs",
+    "artist": "Just Roger"
+  },
+  {
+    "event_name": "Schofield | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Schofield"
+  },
+  {
+    "event_name": "Dalton Bush | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Dalton Bush"
+  },
+  {
+    "event_name": "Zoe Burdette | Turquoise Place | Orange Beach",
+    "venue_name": "Turquoise Place",
+    "artist": "Zoe Burdette"
+  },
+  {
+    "event_name": "Tim Roberts | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Tim Roberts"
+  },
+  {
+    "event_name": "Neil Dover | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Neil Dover"
+  },
+  {
+    "event_name": "Jesse Branham | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "Jesse Branham"
+  },
+  {
+    "event_name": "Zack Chavers | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Zack Chavers"
+  },
+  {
+    "event_name": "Danny Grady | Gulf Coast Elks Lodge 2782 | Foley",
+    "venue_name": "Gulf Coast Elks Lodge 2782",
+    "artist": "Danny Grady"
+  },
+  {
+    "event_name": "Strickly Rivers | Shipp’s Dockside Grill | Orange Beach",
+    "venue_name": "Shipp’s Dockside Grill",
+    "artist": "Strickly Rivers"
+  },
+  {
+    "event_name": "Myles Lawson & Morgan Shades Stevens | Wolf Bay | Orange Beach",
+    "venue_name": "Wolf Bay",
+    "artist": "Myles Lawson & Morgan Shades Stevens"
+  },
+  {
+    "event_name": "Jesse Duncan | CoastAL | Orange Beach",
+    "venue_name": "CoastAL",
+    "artist": "Jesse Duncan"
+  },
+  {
+    "event_name": "Austin Forman w/ Bryanna Julie | Emerald Waterfront | Navarre",
+    "venue_name": "Emerald Waterfront",
+    "artist": "Austin Forman w/ Bryanna Julie"
+  },
+  {
+    "event_name": "Lex Burroughs | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Lex Burroughs"
+  },
+  {
+    "event_name": "Tim Roberts Band | Perdido Key Sports Bar | Perdido Key",
+    "venue_name": "Perdido Key Sports Bar",
+    "artist": "Tim Roberts Band"
+  },
+  {
+    "event_name": "Rickie Joe Wilson | Peg Leg Pete’s | Pensacola Beach",
+    "venue_name": "Peg Leg Pete’s",
+    "artist": "Rickie Joe Wilson"
+  },
+  {
+    "event_name": "John Keuler | Lulu's | Gulf Shores",
+    "venue_name": "Lulu's",
+    "artist": "John Keuler"
+  },
+  {
+    "event_name": "Dalton Bush | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Dalton Bush"
+  },
+  {
+    "event_name": "Matt Erdman | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Matt Erdman"
+  },
+  {
+    "event_name": "Sister Rey | Purple Parrot Beach Bar & Grill | Perdido Key",
+    "venue_name": "Purple Parrot Beach Bar & Grill",
+    "artist": "Sister Rey"
+  },
+  {
+    "event_name": "Rhonda Hart & Smokey Otis | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Rhonda Hart & Smokey Otis"
+  },
+  {
+    "event_name": "3HG | The Hangout | Gulf Shores",
+    "venue_name": "The Hangout",
+    "artist": "3HG"
+  },
+  {
+    "event_name": "Justin Colvard Duo | OSO at Bear Point Harbor | Orange Beach",
+    "venue_name": "OSO at Bear Point Harbor",
+    "artist": "Justin Colvard Duo"
+  },
+  {
+    "event_name": "Gambino Duo | Tacky Jacks | Orange Beach",
+    "venue_name": "Tacky Jacks",
+    "artist": "Gambino Duo"
+  },
+  {
+    "event_name": "Brent Varner | Tacky Jacks | Fort Morgan",
+    "venue_name": "Tacky Jacks",
+    "artist": "Brent Varner"
+  },
+  {
+    "event_name": "Tim Nowell | The Tavern of Bon Secour | Gulf Shores",
+    "venue_name": "The Tavern of Bon Secour",
+    "artist": "Tim Nowell"
+  },
+  {
+    "event_name": "Kitty Steadman | Juana’s Pagodas | Navarre",
+    "venue_name": "Juana’s Pagodas",
+    "artist": "Kitty Steadman"
+  },
+  {
+    "event_name": "Doug Drake & Tennessee Tim | Papa Rocco’s | Gulf Shores",
+    "venue_name": "Papa Rocco’s",
+    "artist": "Doug Drake & Tennessee Tim"
+  },
+  {
+    "event_name": "Zachary Thomas Diedrich Duo | The Tavern of Bon Secour | Gulf Shores",
+    "venue_name": "The Tavern of Bon Secour",
+    "artist": "Zachary Thomas Diedrich Duo"
+  },
+  {
+    "event_name": "Goodbye August | Bamboo Willie’s Beachside Bar | Pensacola Beach",
+    "venue_name": "Bamboo Willie’s Beachside Bar",
+    "artist": "Goodbye August"
+  },
+  {
+    "event_name": "Cody & Tyler Livingston | Sandshaker Lounge | Pensacola Beach",
+    "venue_name": "Sandshaker Lounge",
+    "artist": "Cody & Tyler Livingston"
+  },
+  {
+    "event_name": "Saucy FuzZ | The Undertow | Orange Beach",
+    "venue_name": "The Undertow",
+    "artist": "Saucy FuzZ"
+  },
+  {
+    "event_name": "Ryan Dyer Band | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Ryan Dyer Band"
+  },
+  {
+    "event_name": "Mel Knapp | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Mel Knapp"
+  },
+  {
+    "event_name": "Dixon Darling | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Dixon Darling"
+  },
+  {
+    "event_name": "J Hawkins Duo | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "J Hawkins Duo"
+  },
+  {
+    "event_name": "Troy Martin | Emerald Waterfront | Navarre",
+    "venue_name": "Emerald Waterfront",
+    "artist": "Troy Martin"
+  },
+  {
+    "event_name": "Tim Roberts | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Tim Roberts"
+  },
+  {
+    "event_name": "JB Dyess | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "JB Dyess"
+  },
+  {
+    "event_name": "Mark Sherrill & Friends | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Mark Sherrill & Friends"
+  },
+  {
+    "event_name": "Destiny Brown | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Destiny Brown"
+  },
+  {
+    "event_name": "Brent Varner | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Brent Varner"
+  },
+  {
+    "event_name": "Magnolia Mayfield | Emerald Waterfront | Navarre",
+    "venue_name": "Emerald Waterfront",
+    "artist": "Magnolia Mayfield"
+  },
+  {
+    "event_name": "The Surfers Club Band | Tee Off at the Wharf @ Portside on Main | Orange Beach",
+    "venue_name": "Tee Off at the Wharf @ Portside on Main",
+    "artist": "The Surfers Club Band"
+  },
+  {
+    "event_name": "Goodbye August | Andy D’s | Navarre",
+    "venue_name": "Andy D’s",
+    "artist": "Goodbye August"
+  },
+  {
+    "event_name": "Zack Chavers | El Paso Mexican Grill | Foley",
+    "venue_name": "El Paso Mexican Grill",
+    "artist": "Zack Chavers"
+  },
+  {
+    "event_name": "Mike Diamond | CoastAL | Orange Beach",
+    "venue_name": "CoastAL",
+    "artist": "Mike Diamond"
+  },
+  {
+    "event_name": "Rickie Joe Wilson | Pedro's Tacos & Tequila Bar | Gulf Breeze",
+    "venue_name": "Pedro's Tacos & Tequila Bar",
+    "artist": "Rickie Joe Wilson"
+  },
+  {
+    "event_name": "GypsyPearl | Lulu's | Gulf Shores",
+    "venue_name": "Lulu's",
+    "artist": "GypsyPearl"
+  },
+  {
+    "event_name": "The Steve & Joe Piano Show | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "The Steve & Joe Piano Show"
+  },
+  {
+    "event_name": "Funky Lampshades | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Funky Lampshades"
+  },
+  {
+    "event_name": "Dalton Bush Band | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Dalton Bush Band"
+  },
+  {
+    "event_name": "Elise Kilcoyne | Gelato Joe's | Foley",
+    "venue_name": "Gelato Joe's",
+    "artist": "Elise Kilcoyne"
+  },
+  {
+    "event_name": "Platinum Premier Band | Rio Bravo | Gulf Breeze",
+    "venue_name": "Rio Bravo",
+    "artist": "Platinum Premier Band"
+  },
+  {
+    "event_name": "Tim Roberts | The Tin Top Restaurant & Oyster Bar | Bon Secour",
+    "venue_name": "The Tin Top Restaurant & Oyster Bar",
+    "artist": "Tim Roberts"
+  },
+  {
+    "event_name": "Shawn Williams | Bushwacker’s Landing | Perdido Key",
+    "venue_name": "Bushwacker’s Landing",
+    "artist": "Shawn Williams"
+  },
+  {
+    "event_name": "Mason Henderson/Chris Beverly | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "Mason Henderson/Chris Beverly"
+  },
+  {
+    "event_name": "Standout | The Hangout | Gulf Shores",
+    "venue_name": "The Hangout",
+    "artist": "Standout"
+  },
+  {
+    "event_name": "Lee Alan | Tacky Jacks | Orange Beach",
+    "venue_name": "Tacky Jacks",
+    "artist": "Lee Alan"
+  },
+  {
+    "event_name": "Brent Varner | Shipp’s Dockside Grill | Orange Beach",
+    "venue_name": "Shipp’s Dockside Grill",
+    "artist": "Brent Varner"
+  },
+  {
+    "event_name": "Justin Colvard Band | OSO at Bear Point Harbor | Orange Beach",
+    "venue_name": "OSO at Bear Point Harbor",
+    "artist": "Justin Colvard Band"
+  },
+  {
+    "event_name": "Kitty Steadman | Juana’s Pagodas | Navarre",
+    "venue_name": "Juana’s Pagodas",
+    "artist": "Kitty Steadman"
+  },
+  {
+    "event_name": "Kyle Dorriety | The Cove Bar and Grill | Gulf Shores",
+    "venue_name": "The Cove Bar and Grill",
+    "artist": "Kyle Dorriety"
+  },
+  {
+    "event_name": "Vibe Irie | Bamboo Willie’s Beachside Bar | Pensacola Beach",
+    "venue_name": "Bamboo Willie’s Beachside Bar",
+    "artist": "Vibe Irie"
+  },
+  {
+    "event_name": "Emily White & Christina Crystal | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Emily White & Christina Crystal"
+  },
+  {
+    "event_name": "Tim Robinson | Papa Rocco’s | Gulf Shores",
+    "venue_name": "Papa Rocco’s",
+    "artist": "Tim Robinson"
+  },
+  {
+    "event_name": "Colton Wadkins | Island Time Daiquiris | Orange Beach",
+    "venue_name": "Island Time Daiquiris",
+    "artist": "Colton Wadkins"
+  },
+  {
+    "event_name": "Horseshoe Kitty | Flounders Chowder House | Pensacola Beach",
+    "venue_name": "Flounders Chowder House",
+    "artist": "Horseshoe Kitty"
+  },
+  {
+    "event_name": "Logan Lassitter | Wild Greg's Saloon | Pensacola",
+    "venue_name": "Wild Greg's Saloon",
+    "artist": "Logan Lassitter"
+  },
+  {
+    "event_name": "Thin Ice Acoustic Duo | Sandshaker Lounge | Pensacola Beach",
+    "venue_name": "Sandshaker Lounge",
+    "artist": "Thin Ice Acoustic Duo"
+  },
+  {
+    "event_name": "Jay Moody | Paddy O’Leary’s Irish Pub | Pensacola Beach",
+    "venue_name": "Paddy O’Leary’s Irish Pub",
+    "artist": "Jay Moody"
+  },
+  {
+    "event_name": "Ryan Dyer Duo | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Ryan Dyer Duo"
+  },
+  {
+    "event_name": "Tim Roberts Band | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Tim Roberts Band"
+  },
+  {
+    "event_name": "Ronnie Presley | Turquoise Place | Orange Beach",
+    "venue_name": "Turquoise Place",
+    "artist": "Ronnie Presley"
+  },
+  {
+    "event_name": "Tim Roberts | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Tim Roberts"
+  },
+  {
+    "event_name": "Lea Anne Creswell Duo | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Lea Anne Creswell Duo"
+  },
+  {
+    "event_name": "Troy Martin | Emerald Waterfront | Navarre",
+    "venue_name": "Emerald Waterfront",
+    "artist": "Troy Martin"
+  },
+  {
+    "event_name": "Brent Varner | The Dragonfly Bar & Grill @ The Lodge at Gulf State Park | Gulf Shores",
+    "venue_name": "The Dragonfly Bar & Grill @ The Lodge at Gulf State Park",
+    "artist": "Brent Varner"
+  },
+  {
+    "event_name": "Emily White | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "Emily White"
+  },
+  {
+    "event_name": "Jesse Branham | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Jesse Branham"
+  },
+  {
+    "event_name": "Tyler Ward | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Tyler Ward"
+  },
+  {
+    "event_name": "BT Turner | Juana’s Pagodas | Navarre",
+    "venue_name": "Juana’s Pagodas",
+    "artist": "BT Turner"
+  },
+  {
+    "event_name": "The Heat | Shipp’s Dockside Grill | Orange Beach",
+    "venue_name": "Shipp’s Dockside Grill",
+    "artist": "The Heat"
+  },
+  {
+    "event_name": "Austin Forman w/ Bryanna Julie | Emerald Waterfront | Navarre",
+    "venue_name": "Emerald Waterfront",
+    "artist": "Austin Forman w/ Bryanna Julie"
+  },
+  {
+    "event_name": "Alvarado Road Show | Lulu's | Gulf Shores",
+    "venue_name": "Lulu's",
+    "artist": "Alvarado Road Show"
+  },
+  {
+    "event_name": "Rickie Joe Wilson | El Paso Tacos & Tequila | Navarre",
+    "venue_name": "El Paso Tacos & Tequila",
+    "artist": "Rickie Joe Wilson"
+  },
+  {
+    "event_name": "Jesse Ritter | Crabs on the Beach | Pensacola Beach",
+    "venue_name": "Crabs on the Beach",
+    "artist": "Jesse Ritter"
+  },
+  {
+    "event_name": "Shawn Williams | Beach Buzz | Perdido Key",
+    "venue_name": "Beach Buzz",
+    "artist": "Shawn Williams"
+  },
+  {
+    "event_name": "Smith & Kern | Ginny Lane Bar and Grill | Orange Beach",
+    "venue_name": "Ginny Lane Bar and Grill",
+    "artist": "Smith & Kern"
+  },
+  {
+    "event_name": "The Steve & Joe Big Show | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "The Steve & Joe Big Show"
+  },
+  {
+    "event_name": "Lisa Christian | The Gulf Bowl | Foley",
+    "venue_name": "The Gulf Bowl",
+    "artist": "Lisa Christian"
+  },
+  {
+    "event_name": "Smokey Otis Band | American Legion Post 44 | Gulf Shores",
+    "venue_name": "American Legion Post 44",
+    "artist": "Smokey Otis Band"
+  },
+  {
+    "event_name": "NIGHT STAR | Gulf Coast Elks Lodge 2782 | Foley",
+    "venue_name": "Gulf Coast Elks Lodge 2782",
+    "artist": "NIGHT STAR"
+  },
+  {
+    "event_name": "The Undertow Band | The Hangout | Gulf Shores",
+    "venue_name": "The Hangout",
+    "artist": "The Undertow Band"
+  },
+  {
+    "event_name": "Pineapple Express | The Salty Rose Beach Bar & Grill | Pensacola Beach",
+    "venue_name": "The Salty Rose Beach Bar & Grill",
+    "artist": "Pineapple Express"
+  },
+  {
+    "event_name": "Les Linton | Tacky Jacks | Gulf Shores",
+    "venue_name": "Tacky Jacks",
+    "artist": "Les Linton"
+  },
+  {
+    "event_name": "Jason Abel | Gelato Joe's | Foley",
+    "venue_name": "Gelato Joe's",
+    "artist": "Jason Abel"
+  },
+  {
+    "event_name": "Doug Drake & Tennessee Tim | Moe's Original BBQ | Foley",
+    "venue_name": "Moe's Original BBQ",
+    "artist": "Doug Drake & Tennessee Tim"
+  },
+  {
+    "event_name": "Chitlin Switch | Heritage Park | Foley",
+    "venue_name": "Heritage Park",
+    "artist": "Chitlin Switch"
+  },
+  {
+    "event_name": "Greg Brown | Tacky Jacks | Orange Beach",
+    "venue_name": "Tacky Jacks",
+    "artist": "Greg Brown"
+  },
+  {
+    "event_name": "Tim Roberts Trio | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Tim Roberts Trio"
+  },
+  {
+    "event_name": "Phil J Trio | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Phil J Trio"
+  },
+  {
+    "event_name": "The Destinations | OSO at Bear Point Harbor | Orange Beach",
+    "venue_name": "OSO at Bear Point Harbor",
+    "artist": "The Destinations"
+  },
+  {
+    "event_name": "Brandon Giles | Purple Parrot Beach Bar & Grill | Perdido Key",
+    "venue_name": "Purple Parrot Beach Bar & Grill",
+    "artist": "Brandon Giles"
+  },
+  {
+    "event_name": "Salt & Soul | Bounce Beach | Pensacola Beach",
+    "venue_name": "Bounce Beach",
+    "artist": "Salt & Soul"
+  },
+  {
+    "event_name": "Funky Lampshades | Sound Wave | Gulf Shores",
+    "venue_name": "Sound Wave",
+    "artist": "Funky Lampshades"
+  },
+  {
+    "event_name": "Brandon Giles | Warrior Beer Company | Perdido Key",
+    "venue_name": "Warrior Beer Company",
+    "artist": "Brandon Giles"
+  },
+  {
+    "event_name": "Brennan Lowery | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Brennan Lowery"
+  },
+  {
+    "event_name": "Mainstream Band | Juana’s Pagodas | Navarre",
+    "venue_name": "Juana’s Pagodas",
+    "artist": "Mainstream Band"
+  },
+  {
+    "event_name": "Chris Hergenroder | The Cove Bar and Grill | Gulf Shores",
+    "venue_name": "The Cove Bar and Grill",
+    "artist": "Chris Hergenroder"
+  },
+  {
+    "event_name": "Mira Mira and The Walls | Paddy O’Leary’s Irish Pub | Pensacola Beach",
+    "venue_name": "Paddy O’Leary’s Irish Pub",
+    "artist": "Mira Mira and The Walls"
+  },
+  {
+    "event_name": "Horseshoe Kitty | Flounders Chowder House | Pensacola Beach",
+    "venue_name": "Flounders Chowder House",
+    "artist": "Horseshoe Kitty"
+  },
+  {
+    "event_name": "Vinyl Revival | Sandshaker Lounge | Pensacola Beach",
+    "venue_name": "Sandshaker Lounge",
+    "artist": "Vinyl Revival"
+  },
+  {
+    "event_name": "Mac Walter | Tacky Jacks | Orange Beach",
+    "venue_name": "Tacky Jacks",
+    "artist": "Mac Walter"
+  },
+  {
+    "event_name": "J Hawkins Duo | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "J Hawkins Duo"
+  },
+  {
+    "event_name": "Smith & Kern | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Smith & Kern"
+  },
+  {
+    "event_name": "Travis Jackson Smith | Wild Greg’s Saloon | Pensacola",
+    "venue_name": "Wild Greg’s Saloon",
+    "artist": "Travis Jackson Smith"
+  },
+  {
+    "event_name": "Colton Wadkins | Tee Off at the Wharf @ Portside on Main | Orange Beach",
+    "venue_name": "Tee Off at the Wharf @ Portside on Main",
+    "artist": "Colton Wadkins"
+  },
+  {
+    "event_name": "Tim Roberts | CoastAL | Orange Beach",
+    "venue_name": "CoastAL",
+    "artist": "Tim Roberts"
+  },
+  {
+    "event_name": "JB Dyess | The Galley on the River | Foley",
+    "venue_name": "The Galley on the River",
+    "artist": "JB Dyess"
+  },
+  {
+    "event_name": "Trent Brownlee | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "Trent Brownlee"
+  },
+  {
+    "event_name": "Paul Killough | Sandshaker Lounge | Pensacola Beach",
+    "venue_name": "Sandshaker Lounge",
+    "artist": "Paul Killough"
+  },
+  {
+    "event_name": "Colby Girard | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Colby Girard"
+  },
+  {
+    "event_name": "Tim Roberts Band | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "Tim Roberts Band"
+  },
+  {
+    "event_name": "Billy Bones | Bartram Park | Pensacola",
+    "venue_name": "Bartram Park",
+    "artist": "Billy Bones"
+  },
+  {
+    "event_name": "Grayson Culpepper | OSO at Bear Point Harbor | Orange Beach",
+    "venue_name": "OSO at Bear Point Harbor",
+    "artist": "Grayson Culpepper"
+  },
+  {
+    "event_name": "Jimmy Lee Hannaford | Pirates Cove | Elberta",
+    "venue_name": "Pirates Cove",
+    "artist": "Jimmy Lee Hannaford"
+  },
+  {
+    "event_name": "Almost Famous | Juana’s Pagodas | Navarre",
+    "venue_name": "Juana’s Pagodas",
+    "artist": "Almost Famous"
+  },
+  {
+    "event_name": "Dixon Darling | CoastAL | Orange Beach",
+    "venue_name": "CoastAL",
+    "artist": "Dixon Darling"
+  },
+  {
+    "event_name": "Thin Red Line | Cobalt | Orange Beach",
+    "venue_name": "Cobalt",
+    "artist": "Thin Red Line"
+  },
+  {
+    "event_name": "Ronnie Presley | Zeke’s Restaurant | Orange Beach",
+    "venue_name": "Zeke’s Restaurant",
+    "artist": "Ronnie Presley"
+  },
+  {
+    "event_name": "Zachary Thomas Diedrich | Warrior Beer Company | Perdido Key",
+    "venue_name": "Warrior Beer Company",
+    "artist": "Zachary Thomas Diedrich"
+  },
+  {
+    "event_name": "Alvarado Road Show | Lulu's | Gulf Shores",
+    "venue_name": "Lulu's",
+    "artist": "Alvarado Road Show"
+  },
+  {
+    "event_name": "Christina Crystal | Pour Smart Bar | Orange Beach",
+    "venue_name": "Pour Smart Bar",
+    "artist": "Christina Crystal"
+  },
+  {
+    "event_name": "Lost Localz | Peg Leg Pete’s | Pensacola Beach",
+    "venue_name": "Peg Leg Pete’s",
+    "artist": "Lost Localz"
+  },
+  {
+    "event_name": "Brandon Giles | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Brandon Giles"
+  },
+  {
+    "event_name": "The Victrolas | The Red Haven Live | Orange Beach",
+    "venue_name": "The Red Haven Live",
+    "artist": "The Victrolas"
+  },
+  {
+    "event_name": "Island Ripples | Paradise Bar & Grill | Pensacola Beach",
+    "venue_name": "Paradise Bar & Grill",
+    "artist": "Island Ripples"
+  },
+  {
+    "event_name": "The Heat | Gelato Joe's | Foley",
+    "venue_name": "Gelato Joe's",
+    "artist": "The Heat"
+  },
+  {
+    "event_name": "Wayward Sister | The Salty Rose Beach Bar & Grill | Pensacola Beach",
+    "venue_name": "The Salty Rose Beach Bar & Grill",
+    "artist": "Wayward Sister"
+  },
+  {
+    "event_name": "Daniel Houze | Tacky Jacks | Gulf Shores",
+    "venue_name": "Tacky Jacks",
+    "artist": "Daniel Houze"
+  },
+  {
+    "event_name": "Tribe Zion | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Tribe Zion"
+  },
+  {
+    "event_name": "Gringo Fife | Tacky Jacks | Orange Beach",
+    "venue_name": "Tacky Jacks",
+    "artist": "Gringo Fife"
+  },
+  {
+    "event_name": "Justin Jeansonne | Warrior Beer Company | Perdido Key",
+    "venue_name": "Warrior Beer Company",
+    "artist": "Justin Jeansonne"
+  },
+  {
+    "event_name": "Justin Colvard Band | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Justin Colvard Band"
+  },
+  {
+    "event_name": "The Southerlies | The Hangout | Gulf Shores",
+    "venue_name": "The Hangout",
+    "artist": "The Southerlies"
+  },
+  {
+    "event_name": "Brennan Lowery | Lillian's Pizza | Perdido Key",
+    "venue_name": "Lillian's Pizza",
+    "artist": "Brennan Lowery"
+  },
+  {
+    "event_name": "Russell Emmons & Thomas Jenkins | Bushwacker’s Landing | Perdido Key",
+    "venue_name": "Bushwacker’s Landing",
+    "artist": "Russell Emmons & Thomas Jenkins"
+  },
+  {
+    "event_name": "Cadillac Attack | The Oar House | Pensacola",
+    "venue_name": "The Oar House",
+    "artist": "Cadillac Attack"
+  },
+  {
+    "event_name": "Webb Dalton | Perdido Key Sports Bar | Perdido Key",
+    "venue_name": "Perdido Key Sports Bar",
+    "artist": "Webb Dalton"
+  },
+  {
+    "event_name": "Salt & Soul | Bounce Beach | Pensacola Beach",
+    "venue_name": "Bounce Beach",
+    "artist": "Salt & Soul"
+  },
+  {
+    "event_name": "Dangerous Curves | OSO at Bear Point Harbor | Orange Beach",
+    "venue_name": "OSO at Bear Point Harbor",
+    "artist": "Dangerous Curves"
+  },
+  {
+    "event_name": "Dustin Brown | Papa Rocco’s | Gulf Shores",
+    "venue_name": "Papa Rocco’s",
+    "artist": "Dustin Brown"
+  },
+  {
+    "event_name": "Mainstream Band | Juana’s Pagodas | Navarre",
+    "venue_name": "Juana’s Pagodas",
+    "artist": "Mainstream Band"
+  },
+  {
+    "event_name": "Horseshoe Kitty | Flounders Chowder House | Pensacola Beach",
+    "venue_name": "Flounders Chowder House",
+    "artist": "Horseshoe Kitty"
+  },
+  {
+    "event_name": "Vinyl Revival | Sandshaker Lounge | Pensacola Beach",
+    "venue_name": "Sandshaker Lounge",
+    "artist": "Vinyl Revival"
+  },
+  {
+    "event_name": "Tim Roberts Band | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Tim Roberts Band"
+  },
+  {
+    "event_name": "Saucy FuzZ | The Undertow | Orange Beach",
+    "venue_name": "The Undertow",
+    "artist": "Saucy FuzZ"
+  },
+  {
+    "event_name": "Justin Fobes | Cobalt | Orange Beach",
+    "venue_name": "Cobalt",
+    "artist": "Justin Fobes"
+  },
+  {
+    "event_name": "Kyle Brady | CoastAL | Orange Beach",
+    "venue_name": "CoastAL",
+    "artist": "Kyle Brady"
+  },
+  {
+    "event_name": "Stevie Hall | Bounce Beach | Pensacola Beach",
+    "venue_name": "Bounce Beach",
+    "artist": "Stevie Hall"
+  },
+  {
+    "event_name": "Travis Jackson Smith | The Tin Top Restaurant & Oyster Bar | Bon Secour",
+    "venue_name": "The Tin Top Restaurant & Oyster Bar",
+    "artist": "Travis Jackson Smith"
+  },
+  {
+    "event_name": "Doug Drake & Tennessee Tim | Tacky Jacks | Orange Beach",
+    "venue_name": "Tacky Jacks",
+    "artist": "Doug Drake & Tennessee Tim"
+  },
+  {
+    "event_name": "Brooks Johnson | Bushwacker’s Landing | Perdido Key",
+    "venue_name": "Bushwacker’s Landing",
+    "artist": "Brooks Johnson"
+  },
+  {
+    "event_name": "Three Bean Soup | McGuire's Irish Pub | Pensacola",
+    "venue_name": "McGuire's Irish Pub",
+    "artist": "Three Bean Soup"
+  },
+  {
+    "event_name": "Tim Spencer | Flounders Chowder House | Pensacola Beach",
+    "venue_name": "Flounders Chowder House",
+    "artist": "Tim Spencer"
+  },
+  {
+    "event_name": "Chase Mitchell | Hideaway Beach Bar | Pensacola Beach",
+    "venue_name": "Hideaway Beach Bar",
+    "artist": "Chase Mitchell"
+  },
+  {
+    "event_name": "Zack Chavers | The Salty Rose Beach Bar & Grill | Pensacola Beach",
+    "venue_name": "The Salty Rose Beach Bar & Grill",
+    "artist": "Zack Chavers"
+  },
+  {
+    "event_name": "Lisa Zanghi | The Galway Irish Public House | Gulf Shores",
+    "venue_name": "The Galway Irish Public House",
+    "artist": "Lisa Zanghi"
+  },
+  {
+    "event_name": "Johnny Hayes | OSO at Bear Point Harbor | Orange Beach",
+    "venue_name": "OSO at Bear Point Harbor",
+    "artist": "Johnny Hayes"
+  },
+  {
+    "event_name": "Destiny Brown | The Dragonfly Bar & Grill @ The Lodge at Gulf State Park | Gulf Shores",
+    "venue_name": "The Dragonfly Bar & Grill @ The Lodge at Gulf State Park",
+    "artist": "Destiny Brown"
+  },
+  {
+    "event_name": "Dixon Darling | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Dixon Darling"
+  },
+  {
+    "event_name": "The Defrosters | American Legion Post 44 | Gulf Shores",
+    "venue_name": "American Legion Post 44",
+    "artist": "The Defrosters"
+  },
+  {
+    "event_name": "Blackwater Country | Paddy O'Leary's Irish Pub | Pensacola Beach",
+    "venue_name": "Paddy O'Leary's Irish Pub",
+    "artist": "Blackwater Country"
+  },
+  {
+    "event_name": "Chase Brown | The Galley on the River | Foley",
+    "venue_name": "The Galley on the River",
+    "artist": "Chase Brown"
+  },
+  {
+    "event_name": "Justin Colvard w/ Adam Tyler Brown | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Justin Colvard w/ Adam Tyler Brown"
+  },
+  {
+    "event_name": "Chris Beverly | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "Chris Beverly"
+  },
+  {
+    "event_name": "Elaine Petty | Gelato Joe's | Foley",
+    "venue_name": "Gelato Joe's",
+    "artist": "Elaine Petty"
+  },
+  {
+    "event_name": "Chad Wilson | CoastAL | Orange Beach",
+    "venue_name": "CoastAL",
+    "artist": "Chad Wilson"
+  },
+  {
+    "event_name": "Nigel Dickie | Cobalt | Orange Beach",
+    "venue_name": "Cobalt",
+    "artist": "Nigel Dickie"
+  },
+  {
+    "event_name": "The Undertow Band | OSO at Bear Point Harbor | Orange Beach",
+    "venue_name": "OSO at Bear Point Harbor",
+    "artist": "The Undertow Band"
+  },
+  {
+    "event_name": "Smith & Kern | Peg Leg Pete's | Pensacola Beach",
+    "venue_name": "Peg Leg Pete's",
+    "artist": "Smith & Kern"
+  },
+  {
+    "event_name": "Chris Hergenroder | Zeke’s Restaurant | Orange Beach",
+    "venue_name": "Zeke’s Restaurant",
+    "artist": "Chris Hergenroder"
+  },
+  {
+    "event_name": "Zachary Thomas Diedrich Duo | The Sandbar Sunset Bar & Grill | Pensacola Beach",
+    "venue_name": "The Sandbar Sunset Bar & Grill",
+    "artist": "Zachary Thomas Diedrich Duo"
+  },
+  {
+    "event_name": "Grayson Culpepper | Shipp’s Dockside Grill | Orange Beach",
+    "venue_name": "Shipp’s Dockside Grill",
+    "artist": "Grayson Culpepper"
+  },
+  {
+    "event_name": "Mike Estep | Tacky Jacks | Gulf Shores",
+    "venue_name": "Tacky Jacks",
+    "artist": "Mike Estep"
+  },
+  {
+    "event_name": "John Keuler | Lulu's | Gulf Shores",
+    "venue_name": "Lulu's",
+    "artist": "John Keuler"
+  },
+  {
+    "event_name": "Smokey Otis Band | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Smokey Otis Band"
+  },
+  {
+    "event_name": "Tim Robinson | Purple Parrot Beach Bar & Grill | Perdido Key",
+    "venue_name": "Purple Parrot Beach Bar & Grill",
+    "artist": "Tim Robinson"
+  },
+  {
+    "event_name": "Strickly Rivers | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Strickly Rivers"
+  },
+  {
+    "event_name": "David Wiley | Lillian's Pizza | Perdido Key",
+    "venue_name": "Lillian's Pizza",
+    "artist": "David Wiley"
+  },
+  {
+    "event_name": "Roger & Elaine | American Legion Post 44 | Gulf Shores",
+    "venue_name": "American Legion Post 44",
+    "artist": "Roger & Elaine"
+  },
+  {
+    "event_name": "Stephens Bros | The Hangout | Gulf Shores",
+    "venue_name": "The Hangout",
+    "artist": "Stephens Bros"
+  },
+  {
+    "event_name": "Alan Renfroe | Tacky Jacks | Orange Beach",
+    "venue_name": "Tacky Jacks",
+    "artist": "Alan Renfroe"
+  },
+  {
+    "event_name": "Horseshoe Kitty | Flounders Chowder House | Pensacola Beach",
+    "venue_name": "Flounders Chowder House",
+    "artist": "Horseshoe Kitty"
+  },
+  {
+    "event_name": "Matt Erdman | Papa Rocco’s | Gulf Shores",
+    "venue_name": "Papa Rocco’s",
+    "artist": "Matt Erdman"
+  },
+  {
+    "event_name": "Aaron Smithey | Doc’s Seafood and Steaks | Orange Beach",
+    "venue_name": "Doc’s Seafood and Steaks",
+    "artist": "Aaron Smithey"
+  },
+  {
+    "event_name": "Trevor Finlay | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Trevor Finlay"
+  },
+  {
+    "event_name": "Brent Varner Band | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Brent Varner Band"
+  },
+  {
+    "event_name": "Brent Varner | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Brent Varner"
+  },
+  {
+    "event_name": "Mike Diamond | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Mike Diamond"
+  },
+  {
+    "event_name": "Doug Drake & Tennessee Tim | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Doug Drake & Tennessee Tim"
+  },
+  {
+    "event_name": "Mike Magazzeni | Windjammers on the Pier | Navarre",
+    "venue_name": "Windjammers on the Pier",
+    "artist": "Mike Magazzeni"
+  },
+  {
+    "event_name": "Brent Varner | Cobalt | Orange Beach",
+    "venue_name": "Cobalt",
+    "artist": "Brent Varner"
+  },
+  {
+    "event_name": "Justin Fobes | CoastAL | Orange Beach",
+    "venue_name": "CoastAL",
+    "artist": "Justin Fobes"
+  },
+  {
+    "event_name": "Logan Lassitter | Lulu's | Gulf Shores",
+    "venue_name": "Lulu's",
+    "artist": "Logan Lassitter"
+  },
+  {
+    "event_name": "Tim Nowell | Doc’s Seafood and Steaks | Orange Beach",
+    "venue_name": "Doc’s Seafood and Steaks",
+    "artist": "Tim Nowell"
+  },
+  {
+    "event_name": "Brent Burns | Tuscany Pizza and Grill | Gulf Shores",
+    "venue_name": "Tuscany Pizza and Grill",
+    "artist": "Brent Burns"
+  },
+  {
+    "event_name": "Trevor Finlay | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Trevor Finlay"
+  },
+  {
+    "event_name": "Elaine Petty & Tyler Ward | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Elaine Petty & Tyler Ward"
+  },
+  {
+    "event_name": "JC Pringle | Purple Parrot Beach Bar & Grill | Perdido Key",
+    "venue_name": "Purple Parrot Beach Bar & Grill",
+    "artist": "JC Pringle"
+  },
+  {
+    "event_name": "Zoe Burdette | Tacky Jacks | Orange Beach",
+    "venue_name": "Tacky Jacks",
+    "artist": "Zoe Burdette"
+  },
+  {
+    "event_name": "Pineapple Express | The Hangout | Gulf Shores",
+    "venue_name": "The Hangout",
+    "artist": "Pineapple Express"
+  },
+  {
+    "event_name": "Jason Crysell | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Jason Crysell"
+  },
+  {
+    "event_name": "Lee Alan | OSO at Bear Point Harbor | Orange Beach",
+    "venue_name": "OSO at Bear Point Harbor",
+    "artist": "Lee Alan"
+  },
+  {
+    "event_name": "Hippy Jim | Khon’s on Palafox | Pensacola",
+    "venue_name": "Khon’s on Palafox",
+    "artist": "Hippy Jim"
+  },
+  {
+    "event_name": "Cedric Brooks | 8 Reale OBAL | Orange Beach",
+    "venue_name": "8 Reale OBAL",
+    "artist": "Cedric Brooks"
+  },
+  {
+    "event_name": "Smokey & Veronica Jean | Papa Rocco’s | Gulf Shores",
+    "venue_name": "Papa Rocco’s",
+    "artist": "Smokey & Veronica Jean"
+  },
+  {
+    "event_name": "Thomas Jenkins | Island Time Daiquiris | Orange Beach",
+    "venue_name": "Island Time Daiquiris",
+    "artist": "Thomas Jenkins"
+  },
+  {
+    "event_name": "Ryan Dyer | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Ryan Dyer"
+  },
+  {
+    "event_name": "Tyler Ward | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Tyler Ward"
+  },
+  {
+    "event_name": "T-Bone Montgomery | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "T-Bone Montgomery"
+  },
+  {
+    "event_name": "Tim Roberts Trio | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "Tim Roberts Trio"
+  },
+  {
+    "event_name": "Danny Grady | American Legion Post 44 | Gulf Shores",
+    "venue_name": "American Legion Post 44",
+    "artist": "Danny Grady"
+  },
+  {
+    "event_name": "Tim Nowell | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Tim Nowell"
+  },
+  {
+    "event_name": "Salt & Soul | Emerald Waterfront | Navarre",
+    "venue_name": "Emerald Waterfront",
+    "artist": "Salt & Soul"
+  },
+  {
+    "event_name": "Justin Colvard Duo | Doc’s Seafood and Steaks | Orange Beach",
+    "venue_name": "Doc’s Seafood and Steaks",
+    "artist": "Justin Colvard Duo"
+  },
+  {
+    "event_name": "Smith & Kern | Lulu's | Gulf Shores",
+    "venue_name": "Lulu's",
+    "artist": "Smith & Kern"
+  },
+  {
+    "event_name": "Strickly Rivers | Cobalt | Orange Beach",
+    "venue_name": "Cobalt",
+    "artist": "Strickly Rivers"
+  },
+  {
+    "event_name": "Brent Varner | CoastAL | Orange Beach",
+    "venue_name": "CoastAL",
+    "artist": "Brent Varner"
+  },
+  {
+    "event_name": "Matt Wojo | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Matt Wojo"
+  },
+  {
+    "event_name": "Sister Rey | Purple Parrot Beach Bar & Grill | Perdido Key",
+    "venue_name": "Purple Parrot Beach Bar & Grill",
+    "artist": "Sister Rey"
+  },
+  {
+    "event_name": "Doug Drake | American Legion Post 44 | Gulf Shores",
+    "venue_name": "American Legion Post 44",
+    "artist": "Doug Drake"
+  },
+  {
+    "event_name": "Lisa Christian | The Galway Irish Public House | Gulf Shores",
+    "venue_name": "The Galway Irish Public House",
+    "artist": "Lisa Christian"
+  },
+  {
+    "event_name": "Rockstarfish | The Hangout | Gulf Shores",
+    "venue_name": "The Hangout",
+    "artist": "Rockstarfish"
+  },
+  {
+    "event_name": "Josh Chavers (Chitlin Switch Solo Acoustic) | Tacky Jacks | Orange Beach",
+    "venue_name": "Tacky Jacks",
+    "artist": "Josh Chavers (Chitlin Switch Solo Acoustic)"
+  },
+  {
+    "event_name": "The Heat | OSO at Bear Point Harbor | Orange Beach",
+    "venue_name": "OSO at Bear Point Harbor",
+    "artist": "The Heat"
+  },
+  {
+    "event_name": "Zack Chavers | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Zack Chavers"
+  },
+  {
+    "event_name": "Clay Watson | Tacky Jacks | Fort Morgan",
+    "venue_name": "Tacky Jacks",
+    "artist": "Clay Watson"
+  },
+  {
+    "event_name": "Matt Erdman | Gelato Joe’s | Foley",
+    "venue_name": "Gelato Joe’s",
+    "artist": "Matt Erdman"
+  },
+  {
+    "event_name": "Vibe Irie | Bands on the Beach - Gulfside Pavilion | Pensacola Beach",
+    "venue_name": "Bands on the Beach - Gulfside Pavilion",
+    "artist": "Vibe Irie"
+  },
+  {
+    "event_name": "Chris Johnson Duo | The Cove Bar and Grill | Gulf Shores",
+    "venue_name": "The Cove Bar and Grill",
+    "artist": "Chris Johnson Duo"
+  },
+  {
+    "event_name": "Austin Forman | Juana’s Pagodas | Navarre",
+    "venue_name": "Juana’s Pagodas",
+    "artist": "Austin Forman"
+  },
+  {
+    "event_name": "Smokey Otis Duo | Papa Rocco’s | Gulf Shores",
+    "venue_name": "Papa Rocco’s",
+    "artist": "Smokey Otis Duo"
+  },
+  {
+    "event_name": "Just Roger | Mudbugs | Gulf Shores",
+    "venue_name": "Mudbugs",
+    "artist": "Just Roger"
+  },
+  {
+    "event_name": "Trevor Finlay | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Trevor Finlay"
+  },
+  {
+    "event_name": "Saucy FuzZ w/ Chris Beverly | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Saucy FuzZ w/ Chris Beverly"
+  },
+  {
+    "event_name": "Zoe Burdette | Turquoise Place | Orange Beach",
+    "venue_name": "Turquoise Place",
+    "artist": "Zoe Burdette"
+  },
+  {
+    "event_name": "Tim Roberts | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Tim Roberts"
+  },
+  {
+    "event_name": "Neil Dover | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Neil Dover"
+  },
+  {
+    "event_name": "Jesse Branham | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "Jesse Branham"
+  },
+  {
+    "event_name": "Brooks Johnson | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Brooks Johnson"
+  },
+  {
+    "event_name": "Danny Grady | Gulf Coast Elks Lodge 2782 | Foley",
+    "venue_name": "Gulf Coast Elks Lodge 2782",
+    "artist": "Danny Grady"
+  },
+  {
+    "event_name": "Trevor Finlay | CoastAL | Orange Beach",
+    "venue_name": "CoastAL",
+    "artist": "Trevor Finlay"
+  },
+  {
+    "event_name": "Austin Forman w/ Bryanna Julie | Emerald Waterfront | Navarre",
+    "venue_name": "Emerald Waterfront",
+    "artist": "Austin Forman w/ Bryanna Julie"
+  },
+  {
+    "event_name": "Three Bean Soup | Peg Leg Pete’s | Pensacola Beach",
+    "venue_name": "Peg Leg Pete’s",
+    "artist": "Three Bean Soup"
+  },
+  {
+    "event_name": "Tim Roberts Band | Perdido Key Sports Bar | Perdido Key",
+    "venue_name": "Perdido Key Sports Bar",
+    "artist": "Tim Roberts Band"
+  },
+  {
+    "event_name": "Wes Loper | Lulu's | Gulf Shores",
+    "venue_name": "Lulu's",
+    "artist": "Wes Loper"
+  },
+  {
+    "event_name": "Mel Knapp | Cobalt | Orange Beach",
+    "venue_name": "Cobalt",
+    "artist": "Mel Knapp"
+  },
+  {
+    "event_name": "Smith & Kern | Luna’s Eat & Drink | Orange Beach",
+    "venue_name": "Luna’s Eat & Drink",
+    "artist": "Smith & Kern"
+  },
+  {
+    "event_name": "Jesse Duncan | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Jesse Duncan"
+  },
+  {
+    "event_name": "Matt Erdman | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Matt Erdman"
+  },
+  {
+    "event_name": "Tim Robinson | Purple Parrot Beach Bar & Grill | Perdido Key",
+    "venue_name": "Purple Parrot Beach Bar & Grill",
+    "artist": "Tim Robinson"
+  },
+  {
+    "event_name": "STORMFOLK | OSO at Bear Point Harbor | Orange Beach",
+    "venue_name": "OSO at Bear Point Harbor",
+    "artist": "STORMFOLK"
+  },
+  {
+    "event_name": "Rhonda Hart & Smokey Otis | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Rhonda Hart & Smokey Otis"
+  },
+  {
+    "event_name": "Brent Varner | Bushwacker’s Landing | Perdido Key",
+    "venue_name": "Bushwacker’s Landing",
+    "artist": "Brent Varner"
+  },
+  {
+    "event_name": "Thin Ice | The Hangout | Gulf Shores",
+    "venue_name": "The Hangout",
+    "artist": "Thin Ice"
+  },
+  {
+    "event_name": "Lee Alan | Tacky Jacks | Orange Beach",
+    "venue_name": "Tacky Jacks",
+    "artist": "Lee Alan"
+  },
+  {
+    "event_name": "Logan Lassitter | Island Time Daiquiris | Orange Beach",
+    "venue_name": "Island Time Daiquiris",
+    "artist": "Logan Lassitter"
+  },
+  {
+    "event_name": "Grape Drink | Juana’s Pagodas | Navarre",
+    "venue_name": "Juana’s Pagodas",
+    "artist": "Grape Drink"
+  },
+  {
+    "event_name": "Cody & Tyler Livingston | Sandshaker Lounge | Pensacola Beach",
+    "venue_name": "Sandshaker Lounge",
+    "artist": "Cody & Tyler Livingston"
+  },
+  {
+    "event_name": "Saucy FuzZ | The Undertow | Orange Beach",
+    "venue_name": "The Undertow",
+    "artist": "Saucy FuzZ"
+  },
+  {
+    "event_name": "Tim Roberts | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Tim Roberts"
+  },
+  {
+    "event_name": "J Hawkins Duo | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "J Hawkins Duo"
+  },
+  {
+    "event_name": "Troy Martin | Emerald Waterfront | Navarre",
+    "venue_name": "Emerald Waterfront",
+    "artist": "Troy Martin"
+  },
+  {
+    "event_name": "Basch Jernigan | The Dragonfly Bar & Grill @ The Lodge at Gulf State Park | Gulf Shores",
+    "venue_name": "The Dragonfly Bar & Grill @ The Lodge at Gulf State Park",
+    "artist": "Basch Jernigan"
+  },
+  {
+    "event_name": "Tim Roberts | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Tim Roberts"
+  },
+  {
+    "event_name": "JB Dyess | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "JB Dyess"
+  },
+  {
+    "event_name": "Mark Sherrill & Friends | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Mark Sherrill & Friends"
+  },
+  {
+    "event_name": "Jesse Branham | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Jesse Branham"
+  },
+  {
+    "event_name": "Jesse Duncan | Avenue Pub | Orange Beach",
+    "venue_name": "Avenue Pub",
+    "artist": "Jesse Duncan"
+  },
+  {
+    "event_name": "Magnolia Mayfield | Emerald Waterfront | Navarre",
+    "venue_name": "Emerald Waterfront",
+    "artist": "Magnolia Mayfield"
+  },
+  {
+    "event_name": "Destiny Brown | Barometer Waterfront Grille | Orange Beach",
+    "venue_name": "Barometer Waterfront Grille",
+    "artist": "Destiny Brown"
+  },
+  {
+    "event_name": "Mel Knapp | CoastAL | Orange Beach",
+    "venue_name": "CoastAL",
+    "artist": "Mel Knapp"
+  },
+  {
+    "event_name": "Zack Chavers | El Paso Mexican Grill | Foley",
+    "venue_name": "El Paso Mexican Grill",
+    "artist": "Zack Chavers"
+  },
+  {
+    "event_name": "Emily White | Cobalt | Orange Beach",
+    "venue_name": "Cobalt",
+    "artist": "Emily White"
+  },
+  {
+    "event_name": "Rickie Joe Wilson | Pedro's Tacos & Tequila Bar | Gulf Breeze",
+    "venue_name": "Pedro's Tacos & Tequila Bar",
+    "artist": "Rickie Joe Wilson"
+  },
+  {
+    "event_name": "Tim Nowell | Tee Off at the Wharf @ Portside on Main | Orange Beach",
+    "venue_name": "Tee Off at the Wharf @ Portside on Main",
+    "artist": "Tim Nowell"
+  },
+  {
+    "event_name": "GypsyPearl | Lulu's | Gulf Shores",
+    "venue_name": "Lulu's",
+    "artist": "GypsyPearl"
+  },
+  {
+    "event_name": "Smith & Kern | Ginny Lane Bar and Grill | Orange Beach",
+    "venue_name": "Ginny Lane Bar and Grill",
+    "artist": "Smith & Kern"
+  },
+  {
+    "event_name": "The Steve & Joe Piano Show | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "The Steve & Joe Piano Show"
+  },
+  {
+    "event_name": "Riley Lynn | The Village Lawn at The Beach Club | Gulf Shores",
+    "venue_name": "The Village Lawn at The Beach Club",
+    "artist": "Riley Lynn"
+  },
+  {
+    "event_name": "Six Piece Suits | The Hangout | Gulf Shores",
+    "venue_name": "The Hangout",
+    "artist": "Six Piece Suits"
+  },
+  {
+    "event_name": "Logan Lassitter | Sound Wave | Gulf Shores",
+    "venue_name": "Sound Wave",
+    "artist": "Logan Lassitter"
+  },
+  {
+    "event_name": "Blackwater Cavalry | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Blackwater Cavalry"
+  },
+  {
+    "event_name": "David Wiley | Doc’s Seafood and Steaks | Orange Beach",
+    "venue_name": "Doc’s Seafood and Steaks",
+    "artist": "David Wiley"
+  },
+  {
+    "event_name": "Pineapple Express | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Pineapple Express"
+  },
+  {
+    "event_name": "Jimmy Lee Hannaford | Tacky Jacks | Orange Beach",
+    "venue_name": "Tacky Jacks",
+    "artist": "Jimmy Lee Hannaford"
+  },
+  {
+    "event_name": "Travis Jackson Smith | Shipp’s Dockside Grill | Orange Beach",
+    "venue_name": "Shipp’s Dockside Grill",
+    "artist": "Travis Jackson Smith"
+  },
+  {
+    "event_name": "Davo | Gelato Joe's | Foley",
+    "venue_name": "Gelato Joe's",
+    "artist": "Davo"
+  },
+  {
+    "event_name": "Tim Roberts | The Tin Top Restaurant & Oyster Bar | Bon Secour",
+    "venue_name": "The Tin Top Restaurant & Oyster Bar",
+    "artist": "Tim Roberts"
+  },
+  {
+    "event_name": "Brandon Giles | OSO at Bear Point Harbor | Orange Beach",
+    "venue_name": "OSO at Bear Point Harbor",
+    "artist": "Brandon Giles"
+  },
+  {
+    "event_name": "Chris Hergenroder | The Cove Bar and Grill | Gulf Shores",
+    "venue_name": "The Cove Bar and Grill",
+    "artist": "Chris Hergenroder"
+  },
+  {
+    "event_name": "Jack Robertson/Big Earl | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Jack Robertson/Big Earl"
+  },
+  {
+    "event_name": "Horseshoe Kitty | Hideaway Beach Bar | Pensacola Beach",
+    "venue_name": "Hideaway Beach Bar",
+    "artist": "Horseshoe Kitty"
+  },
+  {
+    "event_name": "BT Turner | Juana’s Pagodas | Navarre",
+    "venue_name": "Juana’s Pagodas",
+    "artist": "BT Turner"
+  },
+  {
+    "event_name": "Tim Robinson | Papa Rocco’s | Gulf Shores",
+    "venue_name": "Papa Rocco’s",
+    "artist": "Tim Robinson"
+  },
+  {
+    "event_name": "Mason Henderson/Chris Beverly | Island Time Daiquiris | Orange Beach",
+    "venue_name": "Island Time Daiquiris",
+    "artist": "Mason Henderson/Chris Beverly"
+  },
+  {
+    "event_name": "Saints Social | Flounders Chowder House | Pensacola Beach",
+    "venue_name": "Flounders Chowder House",
+    "artist": "Saints Social"
+  },
+  {
+    "event_name": "Jay Moody | Paddy O’Leary’s Irish Pub | Pensacola Beach",
+    "venue_name": "Paddy O’Leary’s Irish Pub",
+    "artist": "Jay Moody"
+  },
+  {
+    "event_name": "Chris Johnson Duo | Mudbugs | Gulf Shores",
+    "venue_name": "Mudbugs",
+    "artist": "Chris Johnson Duo"
+  },
+  {
+    "event_name": "Brent Varner Band | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Brent Varner Band"
+  },
+  {
+    "event_name": "Ryan Dyer | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Ryan Dyer"
+  },
+  {
+    "event_name": "Ronnie Presley | Turquoise Place | Orange Beach",
+    "venue_name": "Turquoise Place",
+    "artist": "Ronnie Presley"
+  },
+  {
+    "event_name": "Brent Varner | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Brent Varner"
+  },
+  {
+    "event_name": "Lea Anne Creswell Duo | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Lea Anne Creswell Duo"
+  },
+  {
+    "event_name": "Troy Martin | Emerald Waterfront | Navarre",
+    "venue_name": "Emerald Waterfront",
+    "artist": "Troy Martin"
+  },
+  {
+    "event_name": "Johnny Hayes | OSO at Bear Point Harbor | Orange Beach",
+    "venue_name": "OSO at Bear Point Harbor",
+    "artist": "Johnny Hayes"
+  },
+  {
+    "event_name": "Christina Crystal | The Dragonfly Bar & Grill @ The Lodge at Gulf State Park | Gulf Shores",
+    "venue_name": "The Dragonfly Bar & Grill @ The Lodge at Gulf State Park",
+    "artist": "Christina Crystal"
+  },
+  {
+    "event_name": "Tim Roberts | CoastAL | Orange Beach",
+    "venue_name": "CoastAL",
+    "artist": "Tim Roberts"
+  },
+  {
+    "event_name": "Emily White | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "Emily White"
+  },
+  {
+    "event_name": "Dalton Bush Band | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Dalton Bush Band"
+  },
+  {
+    "event_name": "Stevie Hall | Juana's Pagodas | Navarre",
+    "venue_name": "Juana's Pagodas",
+    "artist": "Stevie Hall"
+  },
+  {
+    "event_name": "Rowdies Rock | Emerald Waterfront | Navarre",
+    "venue_name": "Emerald Waterfront",
+    "artist": "Rowdies Rock"
+  },
+  {
+    "event_name": "Tyler Ward | CoastAL | Orange Beach",
+    "venue_name": "CoastAL",
+    "artist": "Tyler Ward"
+  },
+  {
+    "event_name": "Smokie & The Freeway 98 Band | Peg Leg Pete’s | Pensacola Beach",
+    "venue_name": "Peg Leg Pete’s",
+    "artist": "Smokie & The Freeway 98 Band"
+  },
+  {
+    "event_name": "Midlife Crisis | OSO at Bear Point Harbor | Orange Beach",
+    "venue_name": "OSO at Bear Point Harbor",
+    "artist": "Midlife Crisis"
+  },
+  {
+    "event_name": "Jesse Ritter | Crabs on the Beach | Pensacola Beach",
+    "venue_name": "Crabs on the Beach",
+    "artist": "Jesse Ritter"
+  },
+  {
+    "event_name": "The Steve & Joe Big Show w/ Trevor Finlay | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "The Steve & Joe Big Show w/ Trevor Finlay"
+  },
+  {
+    "event_name": "Joshua Tyrone | Purple Parrot Beach Bar & Grill | Perdido Key",
+    "venue_name": "Purple Parrot Beach Bar & Grill",
+    "artist": "Joshua Tyrone"
+  },
+  {
+    "event_name": "Horseshoe Kitty | The Salty Rose Beach Bar & Grill | Pensacola Beach",
+    "venue_name": "The Salty Rose Beach Bar & Grill",
+    "artist": "Horseshoe Kitty"
+  },
+  {
+    "event_name": "Colton Wadkins | Tee Off at the Wharf @ Portside on Main | Orange Beach",
+    "venue_name": "Tee Off at the Wharf @ Portside on Main",
+    "artist": "Colton Wadkins"
+  },
+  {
+    "event_name": "Angela Easley | Lulu's | Gulf Shores",
+    "venue_name": "Lulu's",
+    "artist": "Angela Easley"
+  },
+  {
+    "event_name": "Vinyl Revival | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Vinyl Revival"
+  },
+  {
+    "event_name": "Chris Hergenroder | Ginny Lane Bar and Grill | Orange Beach",
+    "venue_name": "Ginny Lane Bar and Grill",
+    "artist": "Chris Hergenroder"
+  },
+  {
+    "event_name": "Strickly Rivers | Heritage Park | Foley",
+    "venue_name": "Heritage Park",
+    "artist": "Strickly Rivers"
+  },
+  {
+    "event_name": "W.B. Sims | Tacky Jacks | Gulf Shores",
+    "venue_name": "Tacky Jacks",
+    "artist": "W.B. Sims"
+  },
+  {
+    "event_name": "The Heat | The Gulf Bowl | Foley",
+    "venue_name": "The Gulf Bowl",
+    "artist": "The Heat"
+  },
+  {
+    "event_name": "Alex Vecsey | Gelato Joe's | Foley",
+    "venue_name": "Gelato Joe's",
+    "artist": "Alex Vecsey"
+  },
+  {
+    "event_name": "Zoe Burdette | Tacky Jacks | Orange Beach",
+    "venue_name": "Tacky Jacks",
+    "artist": "Zoe Burdette"
+  },
+  {
+    "event_name": "Tim Roberts Trio | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Tim Roberts Trio"
+  },
+  {
+    "event_name": "Saucy FuzZ |Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Orange Beach",
+    "artist": "Saucy FuzZ |Tiki & Raw Bar by Barometer"
+  },
+  {
+    "event_name": "Salt & Soul | Bounce Beach | Pensacola Beach",
+    "venue_name": "Bounce Beach",
+    "artist": "Salt & Soul"
+  },
+  {
+    "event_name": "Chase Mitchell | Hideaway Beach Bar | Pensacola Beach",
+    "venue_name": "Hideaway Beach Bar",
+    "artist": "Chase Mitchell"
+  },
+  {
+    "event_name": "Fusion Cover Band | The Hangout | Gulf Shores",
+    "venue_name": "The Hangout",
+    "artist": "Fusion Cover Band"
+  },
+  {
+    "event_name": "Austin Gray | Papa Rocco’s | Gulf Shores",
+    "venue_name": "Papa Rocco’s",
+    "artist": "Austin Gray"
+  },
+  {
+    "event_name": "Pearls of Trinity | Good Time Charley's | Foley",
+    "venue_name": "Good Time Charley's",
+    "artist": "Pearls of Trinity"
+  },
+  {
+    "event_name": "Six Piece Suits | Juana’s Pagodas | Navarre",
+    "venue_name": "Juana’s Pagodas",
+    "artist": "Six Piece Suits"
+  },
+  {
+    "event_name": "Tim Nowell | Island Time Daiquiris | Orange Beach",
+    "venue_name": "Island Time Daiquiris",
+    "artist": "Tim Nowell"
+  },
+  {
+    "event_name": "Saints Social | Flounders Chowder House | Pensacola Beach",
+    "venue_name": "Flounders Chowder House",
+    "artist": "Saints Social"
+  },
+  {
+    "event_name": "Veronica Jean Trio | The Cove Bar and Grill | Gulf Shores",
+    "venue_name": "The Cove Bar and Grill",
+    "artist": "Veronica Jean Trio"
+  },
+  {
+    "event_name": "Rockstarfish | Sandshaker Lounge | Pensacola Beach",
+    "venue_name": "Sandshaker Lounge",
+    "artist": "Rockstarfish"
+  },
+  {
+    "event_name": "Get Sideways | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Get Sideways"
+  },
+  {
+    "event_name": "Ryan Dyer Band | Flora-Bama | Orange Beach",
+    "venue_name": "Flora-Bama",
+    "artist": "Ryan Dyer Band"
+  },
+  {
+    "event_name": "Trevor Finlay | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Trevor Finlay"
+  },
+  {
+    "event_name": "Damien Lamb | Tacky Jacks | Orange Beach",
+    "venue_name": "Tacky Jacks",
+    "artist": "Damien Lamb"
+  },
+  {
+    "event_name": "Danny Holland Duo | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Danny Holland Duo"
+  },
+  {
+    "event_name": "J Hawkins Duo | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "J Hawkins Duo"
+  },
+  {
+    "event_name": "Johnny Hayes | OSO at Bear Point Harbor | Orange Beach",
+    "venue_name": "OSO at Bear Point Harbor",
+    "artist": "Johnny Hayes"
+  },
+  {
+    "event_name": "Light Travelers Deluxe | Lulu's | Gulf Shores",
+    "venue_name": "Lulu's",
+    "artist": "Light Travelers Deluxe"
+  },
+  {
+    "event_name": "Tyler Ward | Shipp’s Dockside Grill | Orange Beach",
+    "venue_name": "Shipp’s Dockside Grill",
+    "artist": "Tyler Ward"
+  },
+  {
+    "event_name": "Brent Varner | Tee Off at the Wharf @ Portside on Main | Orange Beach",
+    "venue_name": "Tee Off at the Wharf @ Portside on Main",
+    "artist": "Brent Varner"
+  },
+  {
+    "event_name": "Doug Drake | The Galley on the River | Foley",
+    "venue_name": "The Galley on the River",
+    "artist": "Doug Drake"
+  },
+  {
+    "event_name": "Smokey Otis Band | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Smokey Otis Band"
+  },
+  {
+    "event_name": "Trent Brownlee | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "Trent Brownlee"
+  },
+  {
+    "event_name": "Colton Wadkins | Island Time Daiquiris | Orange Beach",
+    "venue_name": "Island Time Daiquiris",
+    "artist": "Colton Wadkins"
+  },
+  {
+    "event_name": "Paul Killough | Sandshaker Lounge | Pensacola Beach",
+    "venue_name": "Sandshaker Lounge",
+    "artist": "Paul Killough"
+  },
+  {
+    "event_name": "Myles Lawson Band | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Myles Lawson Band"
+  },
+  {
+    "event_name": "About to Sweat | Juana’s Pagodas | Navarre",
+    "venue_name": "Juana’s Pagodas",
+    "artist": "About to Sweat"
+  },
+  {
+    "event_name": "Clay Connor | OSO at Bear Point Harbor | Orange Beach",
+    "venue_name": "OSO at Bear Point Harbor",
+    "artist": "Clay Connor"
+  },
+  {
+    "event_name": "Chris Beverly | CoastAL | Orange Beach",
+    "venue_name": "CoastAL",
+    "artist": "Chris Beverly"
+  },
+  {
+    "event_name": "The Undertow Band | Cobalt | Orange Beach",
+    "venue_name": "Cobalt",
+    "artist": "The Undertow Band"
+  },
+  {
+    "event_name": "Owen Finley Electric String Band Club | Paradise Bar & Grill | Pensacola Beach",
+    "venue_name": "Paradise Bar & Grill",
+    "artist": "Owen Finley Electric String Band Club"
+  },
+  {
+    "event_name": "Mary Sanford | Purple Parrot Beach Bar & Grill | Perdido Key",
+    "venue_name": "Purple Parrot Beach Bar & Grill",
+    "artist": "Mary Sanford"
+  },
+  {
+    "event_name": "Brandon Giles | ByWater Beachside Beach Bar & Grill | Gulf Shores",
+    "venue_name": "ByWater Beachside Beach Bar & Grill",
+    "artist": "Brandon Giles"
+  },
+  {
+    "event_name": "Midlife Crisis | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Midlife Crisis"
+  },
+  {
+    "event_name": "Jason Abel | Gelato Joe's | Foley",
+    "venue_name": "Gelato Joe's",
+    "artist": "Jason Abel"
+  },
+  {
+    "event_name": "Les Linton | Tacky Jacks | Orange Beach",
+    "venue_name": "Tacky Jacks",
+    "artist": "Les Linton"
+  },
+  {
+    "event_name": "Tribe Zion | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Tribe Zion"
+  },
+  {
+    "event_name": "4 Barrel Funk | Lulu's | Gulf Shores",
+    "venue_name": "Lulu's",
+    "artist": "4 Barrel Funk"
+  },
+  {
+    "event_name": "Koontz | Bushwacker’s Landing | Perdido Key",
+    "venue_name": "Bushwacker’s Landing",
+    "artist": "Koontz"
+  },
+  {
+    "event_name": "Never Ending | The Salty Rose Beach Bar & Grill | Pensacola Beach",
+    "venue_name": "The Salty Rose Beach Bar & Grill",
+    "artist": "Never Ending"
+  },
+  {
+    "event_name": "Jenna McClelland | Tacky Jacks | Gulf Shores",
+    "venue_name": "Tacky Jacks",
+    "artist": "Jenna McClelland"
+  },
+  {
+    "event_name": "Zoe Burdette | The Village Lawn at The Beach Club | Gulf Shores",
+    "venue_name": "The Village Lawn at The Beach Club",
+    "artist": "Zoe Burdette"
+  },
+  {
+    "event_name": "The Surfers Club Band | OSO at Bear Point Harbor | Orange Beach",
+    "venue_name": "OSO at Bear Point Harbor",
+    "artist": "The Surfers Club Band"
+  },
+  {
+    "event_name": "Salt & Soul | Bounce Beach | Pensacola Beach",
+    "venue_name": "Bounce Beach",
+    "artist": "Salt & Soul"
+  },
+  {
+    "event_name": "Saucy FuzZ | Sound Wave | Gulf Shores",
+    "venue_name": "Sound Wave",
+    "artist": "Saucy FuzZ"
+  },
+  {
+    "event_name": "Petty Betty | The Hangout | Gulf Shores",
+    "venue_name": "The Hangout",
+    "artist": "Petty Betty"
+  },
+  {
+    "event_name": "Platinum Premier Band | The Grand Marlin | Pensacola Beach",
+    "venue_name": "The Grand Marlin",
+    "artist": "Platinum Premier Band"
+  },
+  {
+    "event_name": "Jason Crysell Duo | Tee Off at the Wharf @ Portside on Main | Orange Beach",
+    "venue_name": "Tee Off at the Wharf @ Portside on Main",
+    "artist": "Jason Crysell Duo"
+  },
+  {
+    "event_name": "High Cotton | The Red Haven Live | Orange Beach",
+    "venue_name": "The Red Haven Live",
+    "artist": "High Cotton"
+  },
+  {
+    "event_name": "Horseshoe Kitty | Juana’s Pagodas | Navarre",
+    "venue_name": "Juana’s Pagodas",
+    "artist": "Horseshoe Kitty"
+  },
+  {
+    "event_name": "Just Roger | Pour Smart Bar | Orange Beach",
+    "venue_name": "Pour Smart Bar",
+    "artist": "Just Roger"
+  },
+  {
+    "event_name": "Rockstarfish | Sandshaker Lounge | Pensacola Beach",
+    "venue_name": "Sandshaker Lounge",
+    "artist": "Rockstarfish"
+  },
+  {
+    "event_name": "Saints Social | Flounders Chowder House | Pensacola Beach",
+    "venue_name": "Flounders Chowder House",
+    "artist": "Saints Social"
+  },
+  {
+    "event_name": "Get Sideways | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Get Sideways"
+  },
+  {
+    "event_name": "Tim Roberts Duo | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Tim Roberts Duo"
+  },
+  {
+    "event_name": "Hippy Jim | Tacky Jacks | Orange Beach",
+    "venue_name": "Tacky Jacks",
+    "artist": "Hippy Jim"
+  },
+  {
+    "event_name": "Justin Fobes | Cobalt | Orange Beach",
+    "venue_name": "Cobalt",
+    "artist": "Justin Fobes"
+  },
+  {
+    "event_name": "Stevie Hall | Bounce Beach | Pensacola Beach",
+    "venue_name": "Bounce Beach",
+    "artist": "Stevie Hall"
+  },
+  {
+    "event_name": "Ronnie Presley | Turquoise Place | Orange Beach",
+    "venue_name": "Turquoise Place",
+    "artist": "Ronnie Presley"
+  },
+  {
+    "event_name": "Brooks Johnson | Bushwacker’s Landing | Perdido Key",
+    "venue_name": "Bushwacker’s Landing",
+    "artist": "Brooks Johnson"
+  },
+  {
+    "event_name": "Goodbye August | Andy D’s | Navarre",
+    "venue_name": "Andy D’s",
+    "artist": "Goodbye August"
+  },
+  {
+    "event_name": "Three Bean Soup | McGuire's Irish Pub | Pensacola",
+    "venue_name": "McGuire's Irish Pub",
+    "artist": "Three Bean Soup"
+  },
+  {
+    "event_name": "Jeff Badarak | Windjammers on the Pier | Navarre",
+    "venue_name": "Windjammers on the Pier",
+    "artist": "Jeff Badarak"
+  },
+  {
+    "event_name": "Chase Brown | The Salty Rose Beach Bar & Grill | Pensacola Beach",
+    "venue_name": "The Salty Rose Beach Bar & Grill",
+    "artist": "Chase Brown"
+  },
+  {
+    "event_name": "Tim Roberts Band | OSO at Bear Point Harbor | Orange Beach",
+    "venue_name": "OSO at Bear Point Harbor",
+    "artist": "Tim Roberts Band"
+  },
+  {
+    "event_name": "Lisa Zanghi | The Galway Irish Public House | Gulf Shores",
+    "venue_name": "The Galway Irish Public House",
+    "artist": "Lisa Zanghi"
+  },
+  {
+    "event_name": "Count The Years | Hideaway Beach Bar | Pensacola Beach",
+    "venue_name": "Hideaway Beach Bar",
+    "artist": "Count The Years"
+  },
+  {
+    "event_name": "Jesse Ritter | Flounders Chowder House | Pensacola Beach",
+    "venue_name": "Flounders Chowder House",
+    "artist": "Jesse Ritter"
+  },
+  {
+    "event_name": "The Defrosters | American Legion Post 44 | Gulf Shores",
+    "venue_name": "American Legion Post 44",
+    "artist": "The Defrosters"
+  },
+  {
+    "event_name": "David Wiley | The Dragonfly Bar & Grill @ The Lodge at Gulf State Park | Gulf Shores",
+    "venue_name": "The Dragonfly Bar & Grill @ The Lodge at Gulf State Park",
+    "artist": "David Wiley"
+  },
+  {
+    "event_name": "Trevor Finlay | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Trevor Finlay"
+  },
+  {
+    "event_name": "Trent Brownlee | Avenue Pub | Orange Beach",
+    "venue_name": "Avenue Pub",
+    "artist": "Trent Brownlee"
+  },
+  {
+    "event_name": "Johnny Hayes | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Johnny Hayes"
+  },
+  {
+    "event_name": "Smokey Otis Duo | The Galley on the River | Foley",
+    "venue_name": "The Galley on the River",
+    "artist": "Smokey Otis Duo"
+  },
+  {
+    "event_name": "Brent Varner | OSO at Bear Point Harbor | Orange Beach",
+    "venue_name": "OSO at Bear Point Harbor",
+    "artist": "Brent Varner"
+  },
+  {
+    "event_name": "Chris Hergenroder | Island Time Daiquiris | Orange Beach",
+    "venue_name": "Island Time Daiquiris",
+    "artist": "Chris Hergenroder"
+  },
+  {
+    "event_name": "Chris Beverly | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "Chris Beverly"
+  },
+  {
+    "event_name": "Timmi G | Gelato Joe's | Foley",
+    "venue_name": "Gelato Joe's",
+    "artist": "Timmi G"
+  },
+  {
+    "event_name": "Lips Manly & The Manly Men | Juana’s Pagodas | Navarre",
+    "venue_name": "Juana’s Pagodas",
+    "artist": "Lips Manly & The Manly Men"
+  },
+  {
+    "event_name": "Christina Crystal | CoastAL | Orange Beach",
+    "venue_name": "CoastAL",
+    "artist": "Christina Crystal"
+  },
+  {
+    "event_name": "Nigel Dickie | Cobalt | Orange Beach",
+    "venue_name": "Cobalt",
+    "artist": "Nigel Dickie"
+  },
+  {
+    "event_name": "Horseshoe Kitty | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Horseshoe Kitty"
+  },
+  {
+    "event_name": "The Heat | Pour Smart Bar | Orange Beach",
+    "venue_name": "Pour Smart Bar",
+    "artist": "The Heat"
+  },
+  {
+    "event_name": "Kyle Brady | Lulu's | Gulf Shores",
+    "venue_name": "Lulu's",
+    "artist": "Kyle Brady"
+  },
+  {
+    "event_name": "Tim Roberts Band | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Tim Roberts Band"
+  },
+  {
+    "event_name": "Strickly Rivers | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Strickly Rivers"
+  },
+  {
+    "event_name": "Smith & Kern | Tacky Jacks | Orange Beach",
+    "venue_name": "Tacky Jacks",
+    "artist": "Smith & Kern"
+  },
+  {
+    "event_name": "Kyle Dorriety | Tacky Jacks | Fort Morgan",
+    "venue_name": "Tacky Jacks",
+    "artist": "Kyle Dorriety"
+  },
+  {
+    "event_name": "Roger & Elaine | American Legion Post 44 | Gulf Shores",
+    "venue_name": "American Legion Post 44",
+    "artist": "Roger & Elaine"
+  },
+  {
+    "event_name": "Frank Fletcher | The Hangout | Gulf Shores",
+    "venue_name": "The Hangout",
+    "artist": "Frank Fletcher"
+  },
+  {
+    "event_name": "Jay Moody | Purple Parrot Beach Bar & Grill | Perdido Key",
+    "venue_name": "Purple Parrot Beach Bar & Grill",
+    "artist": "Jay Moody"
+  },
+  {
+    "event_name": "Doug Drake & Tennessee Tim | Ginny Lane Bar and Grill | Orange Beach",
+    "venue_name": "Ginny Lane Bar and Grill",
+    "artist": "Doug Drake & Tennessee Tim"
+  },
+  {
+    "event_name": "Southern Country | OSO at Bear Point Harbor | Orange Beach",
+    "venue_name": "OSO at Bear Point Harbor",
+    "artist": "Southern Country"
+  },
+  {
+    "event_name": "Dan Poer | Tacky Jacks | Gulf Shores",
+    "venue_name": "Tacky Jacks",
+    "artist": "Dan Poer"
+  },
+  {
+    "event_name": "Vinyl Revival | Juana’s Pagodas | Navarre",
+    "venue_name": "Juana’s Pagodas",
+    "artist": "Vinyl Revival"
+  },
+  {
+    "event_name": "The Undertow Band | Island Time Daiquiris | Orange Beach",
+    "venue_name": "Island Time Daiquiris",
+    "artist": "The Undertow Band"
+  },
+  {
+    "event_name": "Saints Social | Flounders Chowder House | Pensacola Beach",
+    "venue_name": "Flounders Chowder House",
+    "artist": "Saints Social"
+  },
+  {
+    "event_name": "Dan Poer | Tacky Jacks | Orange Beach",
+    "venue_name": "Tacky Jacks",
+    "artist": "Dan Poer"
+  },
+  {
+    "event_name": "Trevor Finlay | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Trevor Finlay"
+  },
+  {
+    "event_name": "Zack Chavers | OSO at Bear Point Harbor | Orange Beach",
+    "venue_name": "OSO at Bear Point Harbor",
+    "artist": "Zack Chavers"
+  },
+  {
+    "event_name": "Ronnie Presley | CoastAL | Orange Beach",
+    "venue_name": "CoastAL",
+    "artist": "Ronnie Presley"
+  },
+  {
+    "event_name": "Smokey Otis Band | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Smokey Otis Band"
+  },
+  {
+    "event_name": "Mike Diamond | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Mike Diamond"
+  },
+  {
+    "event_name": "Cody Bolden & The Road Hands | Juana’s Pagodas | Navarre",
+    "venue_name": "Juana’s Pagodas",
+    "artist": "Cody Bolden & The Road Hands"
+  },
+  {
+    "event_name": "Brooks Johnson | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Brooks Johnson"
+  },
+  {
+    "event_name": "Blackwater Cavalry | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Blackwater Cavalry"
+  },
+  {
+    "event_name": "Hippy Jim | The Oar House | Pensacola",
+    "venue_name": "The Oar House",
+    "artist": "Hippy Jim"
+  },
+  {
+    "event_name": "Tim Nowell | Doc’s Seafood and Steaks | Orange Beach",
+    "venue_name": "Doc’s Seafood and Steaks",
+    "artist": "Tim Nowell"
+  },
+  {
+    "event_name": "Matt Wojo | CoastAL | Orange Beach",
+    "venue_name": "CoastAL",
+    "artist": "Matt Wojo"
+  },
+  {
+    "event_name": "Lee Alan | Lulu's | Gulf Shores",
+    "venue_name": "Lulu's",
+    "artist": "Lee Alan"
+  },
+  {
+    "event_name": "Brent Burns | Tuscany Pizza and Grill | Gulf Shores",
+    "venue_name": "Tuscany Pizza and Grill",
+    "artist": "Brent Burns"
+  },
+  {
+    "event_name": "Rockstarfish | OSO at Bear Point Harbor | Orange Beach",
+    "venue_name": "OSO at Bear Point Harbor",
+    "artist": "Rockstarfish"
+  },
+  {
+    "event_name": "Elaine Petty & Tyler Ward | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Elaine Petty & Tyler Ward"
+  },
+  {
+    "event_name": "JC Pringle | Purple Parrot Beach Bar & Grill | Perdido Key",
+    "venue_name": "Purple Parrot Beach Bar & Grill",
+    "artist": "JC Pringle"
+  },
+  {
+    "event_name": "Stephens Bros | The Hangout | Gulf Shores",
+    "venue_name": "The Hangout",
+    "artist": "Stephens Bros"
+  },
+  {
+    "event_name": "Pineapple Express | Windjammers on the Pier | Navarre",
+    "venue_name": "Windjammers on the Pier",
+    "artist": "Pineapple Express"
+  },
+  {
+    "event_name": "Trent Brownlee | Tacky Jacks | Orange Beach",
+    "venue_name": "Tacky Jacks",
+    "artist": "Trent Brownlee"
+  },
+  {
+    "event_name": "Jason Crysell | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Jason Crysell"
+  },
+  {
+    "event_name": "Cedric Brooks | 8 Reale OBAL | Orange Beach",
+    "venue_name": "8 Reale OBAL",
+    "artist": "Cedric Brooks"
+  },
+  {
+    "event_name": "Cody Copeland | Flounders Chowder House | Pensacola Beach",
+    "venue_name": "Flounders Chowder House",
+    "artist": "Cody Copeland"
+  },
+  {
+    "event_name": "Smokey & Veronica Jean | Papa Rocco’s | Gulf Shores",
+    "venue_name": "Papa Rocco’s",
+    "artist": "Smokey & Veronica Jean"
+  },
+  {
+    "event_name": "The Undertow Band | Island Time Daiquiris | Orange Beach",
+    "venue_name": "Island Time Daiquiris",
+    "artist": "The Undertow Band"
+  },
+  {
+    "event_name": "Ryan Dyer Band | Flora-Bama | Orange Beach",
+    "venue_name": "Flora-Bama",
+    "artist": "Ryan Dyer Band"
+  },
+  {
+    "event_name": "T-Bone Montgomery | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "T-Bone Montgomery"
+  },
+  {
+    "event_name": "Tim Roberts Trio | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "Tim Roberts Trio"
+  },
+  {
+    "event_name": "Danny Grady | American Legion Post 44 | Gulf Shores",
+    "venue_name": "American Legion Post 44",
+    "artist": "Danny Grady"
+  },
+  {
+    "event_name": "Salt & Soul | Emerald Waterfront | Navarre",
+    "venue_name": "Emerald Waterfront",
+    "artist": "Salt & Soul"
+  },
+  {
+    "event_name": "JERI Duo | Lulu's | Gulf Shores",
+    "venue_name": "Lulu's",
+    "artist": "JERI Duo"
+  },
+  {
+    "event_name": "Strickly Rivers | Cobalt | Orange Beach",
+    "venue_name": "Cobalt",
+    "artist": "Strickly Rivers"
+  },
+  {
+    "event_name": "Mike Diamond | CoastAL | Orange Beach",
+    "venue_name": "CoastAL",
+    "artist": "Mike Diamond"
+  },
+  {
+    "event_name": "Riley Lynn | Tacky Jacks | Orange Beach",
+    "venue_name": "Tacky Jacks",
+    "artist": "Riley Lynn"
+  },
+  {
+    "event_name": "Tim Robinson | Purple Parrot Beach Bar & Grill | Perdido Key",
+    "venue_name": "Purple Parrot Beach Bar & Grill",
+    "artist": "Tim Robinson"
+  },
+  {
+    "event_name": "Zoe Burdette | De Soto’s Seafood Kitchen | Gulf Shores",
+    "venue_name": "De Soto’s Seafood Kitchen",
+    "artist": "Zoe Burdette"
+  },
+  {
+    "event_name": "Smith & Kern | OSO at Bear Point Harbor | Orange Beach",
+    "venue_name": "OSO at Bear Point Harbor",
+    "artist": "Smith & Kern"
+  },
+  {
+    "event_name": "Zack Chavers | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Zack Chavers"
+  },
+  {
+    "event_name": "Lisa Christian | The Galway Irish Public House | Gulf Shores",
+    "venue_name": "The Galway Irish Public House",
+    "artist": "Lisa Christian"
+  },
+  {
+    "event_name": "W.B. Sims Band | The Hangout | Gulf Shores",
+    "venue_name": "The Hangout",
+    "artist": "W.B. Sims Band"
+  },
+  {
+    "event_name": "GypsyPearl | Gelato Joe's | Foley",
+    "venue_name": "Gelato Joe's",
+    "artist": "GypsyPearl"
+  },
+  {
+    "event_name": "Rachel Lane | Tacky Jacks | Fort Morgan",
+    "venue_name": "Tacky Jacks",
+    "artist": "Rachel Lane"
+  },
+  {
+    "event_name": "Modern Eldorados | Bands on the Beach - Gulfside Pavilion | Pensacola Beach",
+    "venue_name": "Bands on the Beach - Gulfside Pavilion",
+    "artist": "Modern Eldorados"
+  },
+  {
+    "event_name": "Goodbye August | Juana’s Pagodas | Navarre",
+    "venue_name": "Juana’s Pagodas",
+    "artist": "Goodbye August"
+  },
+  {
+    "event_name": "Justin Colvard | The Cove Bar and Grill | Gulf Shores",
+    "venue_name": "The Cove Bar and Grill",
+    "artist": "Justin Colvard"
+  },
+  {
+    "event_name": "Jonathan Puzan | Flounders Chowder House | Pensacola Beach",
+    "venue_name": "Flounders Chowder House",
+    "artist": "Jonathan Puzan"
+  },
+  {
+    "event_name": "Smokey Otis Duo | Papa Rocco’s | Gulf Shores",
+    "venue_name": "Papa Rocco’s",
+    "artist": "Smokey Otis Duo"
+  },
+  {
+    "event_name": "Just Roger | Mudbugs | Gulf Shores",
+    "venue_name": "Mudbugs",
+    "artist": "Just Roger"
+  },
+  {
+    "event_name": "Matt Wojo | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Matt Wojo"
+  },
+  {
+    "event_name": "Zoe Burdette | Turquoise Place | Orange Beach",
+    "venue_name": "Turquoise Place",
+    "artist": "Zoe Burdette"
+  },
+  {
+    "event_name": "Tim Roberts | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Tim Roberts"
+  },
+  {
+    "event_name": "Neil Dover | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Neil Dover"
+  },
+  {
+    "event_name": "Jesse Branham | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "Jesse Branham"
+  },
+  {
+    "event_name": "Dalton Bush Duo | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Dalton Bush Duo"
+  },
+  {
+    "event_name": "Strickly Rivers | Shipp’s Dockside Grill | Orange Beach",
+    "venue_name": "Shipp’s Dockside Grill",
+    "artist": "Strickly Rivers"
+  },
+  {
+    "event_name": "Danny Grady | Gulf Coast Elks Lodge 2782 | Foley",
+    "venue_name": "Gulf Coast Elks Lodge 2782",
+    "artist": "Danny Grady"
+  },
+  {
+    "event_name": "Justin Fobes | CoastAL | Orange Beach",
+    "venue_name": "CoastAL",
+    "artist": "Justin Fobes"
+  },
+  {
+    "event_name": "Austin Forman w/ Bryanna Julie | Emerald Waterfront | Navarre",
+    "venue_name": "Emerald Waterfront",
+    "artist": "Austin Forman w/ Bryanna Julie"
+  },
+  {
+    "event_name": "Lex Burroughs | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Lex Burroughs"
+  },
+  {
+    "event_name": "Tim Roberts Band | Perdido Key Sports Bar | Perdido Key",
+    "venue_name": "Perdido Key Sports Bar",
+    "artist": "Tim Roberts Band"
+  },
+  {
+    "event_name": "Matt Erdman | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Matt Erdman"
+  },
+  {
+    "event_name": "Zoe Burdette | De Soto’s Seafood Kitchen | Gulf Shores",
+    "venue_name": "De Soto’s Seafood Kitchen",
+    "artist": "Zoe Burdette"
+  },
+  {
+    "event_name": "Rhonda Hart & Smokey Otis | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Rhonda Hart & Smokey Otis"
+  },
+  {
+    "event_name": "Stephens Bros | The Hangout | Gulf Shores",
+    "venue_name": "The Hangout",
+    "artist": "Stephens Bros"
+  },
+  {
+    "event_name": "Doug Drake & Tennessee Tim | Tacky Jacks | Fort Morgan",
+    "venue_name": "Tacky Jacks",
+    "artist": "Doug Drake & Tennessee Tim"
+  },
+  {
+    "event_name": "Lefty Collins | Lulu's | Gulf Shores",
+    "venue_name": "Lulu's",
+    "artist": "Lefty Collins"
+  },
+  {
+    "event_name": "Justin Colvard Duo | OSO at Bear Point Harbor | Orange Beach",
+    "venue_name": "OSO at Bear Point Harbor",
+    "artist": "Justin Colvard Duo"
+  },
+  {
+    "event_name": "Sister Rey | Purple Parrot Beach Bar & Grill | Perdido Key",
+    "venue_name": "Purple Parrot Beach Bar & Grill",
+    "artist": "Sister Rey"
+  },
+  {
+    "event_name": "Mac Walter | Tacky Jacks | Orange Beach",
+    "venue_name": "Tacky Jacks",
+    "artist": "Mac Walter"
+  },
+  {
+    "event_name": "Kitty Steadman | Juana’s Pagodas | Navarre",
+    "venue_name": "Juana’s Pagodas",
+    "artist": "Kitty Steadman"
+  },
+  {
+    "event_name": "Jarred McConnell and The High Aces | Flounders Chowder House | Pensacola Beach",
+    "venue_name": "Flounders Chowder House",
+    "artist": "Jarred McConnell and The High Aces"
+  },
+  {
+    "event_name": "Brent Varner | The Cove Bar and Grill | Gulf Shores",
+    "venue_name": "The Cove Bar and Grill",
+    "artist": "Brent Varner"
+  },
+  {
+    "event_name": "Goodbye August | Bamboo Willie’s Beachside Bar | Pensacola Beach",
+    "venue_name": "Bamboo Willie’s Beachside Bar",
+    "artist": "Goodbye August"
+  },
+  {
+    "event_name": "Alan Renfroe | Papa Rocco’s | Gulf Shores",
+    "venue_name": "Papa Rocco’s",
+    "artist": "Alan Renfroe"
+  },
+  {
+    "event_name": "Cody & Tyler Livingston | Sandshaker Lounge | Pensacola Beach",
+    "venue_name": "Sandshaker Lounge",
+    "artist": "Cody & Tyler Livingston"
+  },
+  {
+    "event_name": "Saucy FuzZ | The Undertow | Orange Beach",
+    "venue_name": "The Undertow",
+    "artist": "Saucy FuzZ"
+  },
+  {
+    "event_name": "J Hawkins Duo | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "J Hawkins Duo"
+  },
+  {
+    "event_name": "Troy Martin | Emerald Waterfront | Navarre",
+    "venue_name": "Emerald Waterfront",
+    "artist": "Troy Martin"
+  },
+  {
+    "event_name": "Ronnie Presley | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Ronnie Presley"
+  },
+  {
+    "event_name": "Johnny Hayes | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Johnny Hayes"
+  },
+  {
+    "event_name": "Tim Roberts | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Tim Roberts"
+  },
+  {
+    "event_name": "JB Dyess | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "JB Dyess"
+  },
+  {
+    "event_name": "Mark Sherrill & Friends | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Mark Sherrill & Friends"
+  },
+  {
+    "event_name": "Amanda Pruitt Duo | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Amanda Pruitt Duo"
+  },
+  {
+    "event_name": "The Heat | The Red Haven Live | Orange Beach",
+    "venue_name": "The Red Haven Live",
+    "artist": "The Heat"
+  },
+  {
+    "event_name": "Magnolia Mayfield | Emerald Waterfront | Navarre",
+    "venue_name": "Emerald Waterfront",
+    "artist": "Magnolia Mayfield"
+  },
+  {
+    "event_name": "Scott Bottrell | Tee Off at the Wharf @ Portside on Main | Orange Beach",
+    "venue_name": "Tee Off at the Wharf @ Portside on Main",
+    "artist": "Scott Bottrell"
+  },
+  {
+    "event_name": "Zack Chavers | El Paso Mexican Grill | Foley",
+    "venue_name": "El Paso Mexican Grill",
+    "artist": "Zack Chavers"
+  },
+  {
+    "event_name": "Rickie Joe Wilson | Pedro's Tacos & Tequila Bar | Gulf Breeze",
+    "venue_name": "Pedro's Tacos & Tequila Bar",
+    "artist": "Rickie Joe Wilson"
+  },
+  {
+    "event_name": "The Steve & Joe Piano Show | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "The Steve & Joe Piano Show"
+  },
+  {
+    "event_name": "Funky Lampshades | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Funky Lampshades"
+  },
+  {
+    "event_name": "Zoe Burdette | De Soto’s Seafood Kitchen | Gulf Shores",
+    "venue_name": "De Soto’s Seafood Kitchen",
+    "artist": "Zoe Burdette"
+  },
+  {
+    "event_name": "Justin Colvard Band | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Justin Colvard Band"
+  },
+  {
+    "event_name": "Doug Drake & Tennessee Tim | Ginny Lane Bar and Grill | Orange Beach",
+    "venue_name": "Ginny Lane Bar and Grill",
+    "artist": "Doug Drake & Tennessee Tim"
+  },
+  {
+    "event_name": "Mike Estep & John Keuler | Lulu's | Gulf Shores",
+    "venue_name": "Lulu's",
+    "artist": "Mike Estep & John Keuler"
+  },
+  {
+    "event_name": "Glenn Parker Band | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Glenn Parker Band"
+  },
+  {
+    "event_name": "Tim Roberts | The Tin Top Restaurant & Oyster Bar | Bon Secour",
+    "venue_name": "The Tin Top Restaurant & Oyster Bar",
+    "artist": "Tim Roberts"
+  },
+  {
+    "event_name": "Chase Mitchell | The Hangout | Gulf Shores",
+    "venue_name": "The Hangout",
+    "artist": "Chase Mitchell"
+  },
+  {
+    "event_name": "Elaine Petty | Gelato Joe's | Foley",
+    "venue_name": "Gelato Joe's",
+    "artist": "Elaine Petty"
+  },
+  {
+    "event_name": "Trent Brownlee | Tacky Jacks | Orange Beach",
+    "venue_name": "Tacky Jacks",
+    "artist": "Trent Brownlee"
+  },
+  {
+    "event_name": "Platinum Premier Band | Rio Bravo | Gulf Breeze",
+    "venue_name": "Rio Bravo",
+    "artist": "Platinum Premier Band"
+  },
+  {
+    "event_name": "The Collective | OSO at Bear Point Harbor | Orange Beach",
+    "venue_name": "OSO at Bear Point Harbor",
+    "artist": "The Collective"
+  },
+  {
+    "event_name": "Hippy Jim Duo w/ Steve Boyer | Juana's Pagodas | Navarre",
+    "venue_name": "Juana's Pagodas",
+    "artist": "Hippy Jim Duo w/ Steve Boyer"
+  },
+  {
+    "event_name": "Jack Robertson/Big Earl | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Jack Robertson/Big Earl"
+  },
+  {
+    "event_name": "Tim Robinson | Papa Rocco’s | Gulf Shores",
+    "venue_name": "Papa Rocco’s",
+    "artist": "Tim Robinson"
+  },
+  {
+    "event_name": "Logan Lassitter | Wild Greg's Saloon | Pensacola",
+    "venue_name": "Wild Greg's Saloon",
+    "artist": "Logan Lassitter"
+  },
+  {
+    "event_name": "Mason Henderson/Chris Beverly | Island Time Daiquiris | Orange Beach",
+    "venue_name": "Island Time Daiquiris",
+    "artist": "Mason Henderson/Chris Beverly"
+  },
+  {
+    "event_name": "Just Roger | Pour Smart Bar | Orange Beach",
+    "venue_name": "Pour Smart Bar",
+    "artist": "Just Roger"
+  },
+  {
+    "event_name": "Dugger Band | Flounders Chowder House | Pensacola Beach",
+    "venue_name": "Flounders Chowder House",
+    "artist": "Dugger Band"
+  },
+  {
+    "event_name": "Thin Ice Acoustic Duo | Sandshaker Lounge | Pensacola Beach",
+    "venue_name": "Sandshaker Lounge",
+    "artist": "Thin Ice Acoustic Duo"
+  },
+  {
+    "event_name": "Chris Johnson Duo | Mudbugs | Gulf Shores",
+    "venue_name": "Mudbugs",
+    "artist": "Chris Johnson Duo"
+  },
+  {
+    "event_name": "Jay Moody | Paddy O’Leary’s Irish Pub | Pensacola Beach",
+    "venue_name": "Paddy O’Leary’s Irish Pub",
+    "artist": "Jay Moody"
+  },
+  {
+    "event_name": "Ronnie Presley | Turquoise Place | Orange Beach",
+    "venue_name": "Turquoise Place",
+    "artist": "Ronnie Presley"
+  },
+  {
+    "event_name": "Tim Roberts | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Tim Roberts"
+  },
+  {
+    "event_name": "Lea Anne Creswell Duo | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Lea Anne Creswell Duo"
+  },
+  {
+    "event_name": "Troy Martin | Emerald Waterfront | Navarre",
+    "venue_name": "Emerald Waterfront",
+    "artist": "Troy Martin"
+  },
+  {
+    "event_name": "Johnny Hayes | OSO at Bear Point Harbor | Orange Beach",
+    "venue_name": "OSO at Bear Point Harbor",
+    "artist": "Johnny Hayes"
+  },
+  {
+    "event_name": "JesseTaylor Perry | The Dragonfly Bar & Grill @ The Lodge at Gulf State Park | Gulf Shores",
+    "venue_name": "The Dragonfly Bar & Grill @ The Lodge at Gulf State Park",
+    "artist": "JesseTaylor Perry"
+  },
+  {
+    "event_name": "Emily White | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "Emily White"
+  },
+  {
+    "event_name": "Bobby Trent Toy Duo | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Bobby Trent Toy Duo"
+  },
+  {
+    "event_name": "Brandon Giles | The Red Haven Live | Orange Beach",
+    "venue_name": "The Red Haven Live",
+    "artist": "Brandon Giles"
+  },
+  {
+    "event_name": "BT Turner | Juana’s Pagodas | Navarre",
+    "venue_name": "Juana’s Pagodas",
+    "artist": "BT Turner"
+  },
+  {
+    "event_name": "The Heat | Shipp’s Dockside Grill | Orange Beach",
+    "venue_name": "Shipp’s Dockside Grill",
+    "artist": "The Heat"
+  },
+  {
+    "event_name": "Mike Diamond | CoastAL | Orange Beach",
+    "venue_name": "CoastAL",
+    "artist": "Mike Diamond"
+  },
+  {
+    "event_name": "Thin Red Line | Cobalt | Orange Beach",
+    "venue_name": "Cobalt",
+    "artist": "Thin Red Line"
+  },
+  {
+    "event_name": "Rickie Joe Wilson | El Paso Tacos & Tequila | Navarre",
+    "venue_name": "El Paso Tacos & Tequila",
+    "artist": "Rickie Joe Wilson"
+  },
+  {
+    "event_name": "Jesse Ritter | Crabs on the Beach | Pensacola Beach",
+    "venue_name": "Crabs on the Beach",
+    "artist": "Jesse Ritter"
+  },
+  {
+    "event_name": "The Steve & Joe Big Show | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "The Steve & Joe Big Show"
+  },
+  {
+    "event_name": "Brennan Lowery | Lillian's Pizza | Perdido Key",
+    "venue_name": "Lillian's Pizza",
+    "artist": "Brennan Lowery"
+  },
+  {
+    "event_name": "Mary Sanford | Purple Parrot Beach Bar & Grill | Perdido Key",
+    "venue_name": "Purple Parrot Beach Bar & Grill",
+    "artist": "Mary Sanford"
+  },
+  {
+    "event_name": "Zoe Burdette | De Soto’s Seafood Kitchen | Gulf Shores",
+    "venue_name": "De Soto’s Seafood Kitchen",
+    "artist": "Zoe Burdette"
+  },
+  {
+    "event_name": "Brent Varner Trio | Bushwacker’s Landing | Perdido Key",
+    "venue_name": "Bushwacker’s Landing",
+    "artist": "Brent Varner Trio"
+  },
+  {
+    "event_name": "Smokey Otis Band | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Smokey Otis Band"
+  },
+  {
+    "event_name": "Logan Lassitter | Lulu's | Gulf Shores",
+    "venue_name": "Lulu's",
+    "artist": "Logan Lassitter"
+  },
+  {
+    "event_name": "SheAndTheIts Band | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "SheAndTheIts Band"
+  },
+  {
+    "event_name": "Smith & Kern | Tee Off at the Wharf @ Portside on Main | Orange Beach",
+    "venue_name": "Tee Off at the Wharf @ Portside on Main",
+    "artist": "Smith & Kern"
+  },
+  {
+    "event_name": "The Aces | The Salty Rose Beach Bar & Grill | Pensacola Beach",
+    "venue_name": "The Salty Rose Beach Bar & Grill",
+    "artist": "The Aces"
+  },
+  {
+    "event_name": "Just Roger | Tacky Jacks | Gulf Shores",
+    "venue_name": "Tacky Jacks",
+    "artist": "Just Roger"
+  },
+  {
+    "event_name": "Saucy FuzZ | OSO at Bear Point Harbor | Orange Beach",
+    "venue_name": "OSO at Bear Point Harbor",
+    "artist": "Saucy FuzZ"
+  },
+  {
+    "event_name": "Steve Johnson | Gelato Joe’s | Foley",
+    "venue_name": "Gelato Joe’s",
+    "artist": "Steve Johnson"
+  },
+  {
+    "event_name": "Doug Drake & Tennessee Tim | Tacky Jacks | Orange Beach",
+    "venue_name": "Tacky Jacks",
+    "artist": "Doug Drake & Tennessee Tim"
+  },
+  {
+    "event_name": "Tim Roberts Trio | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Tim Roberts Trio"
+  },
+  {
+    "event_name": "Pineapple Express | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Pineapple Express"
+  },
+  {
+    "event_name": "Salt & Soul | Bounce Beach | Pensacola Beach",
+    "venue_name": "Bounce Beach",
+    "artist": "Salt & Soul"
+  },
+  {
+    "event_name": "Dustin Brown | Papa Rocco’s | Gulf Shores",
+    "venue_name": "Papa Rocco’s",
+    "artist": "Dustin Brown"
+  },
+  {
+    "event_name": "Amanda Pruitt | Perdido Key Sports Bar | Perdido Key",
+    "venue_name": "Perdido Key Sports Bar",
+    "artist": "Amanda Pruitt"
+  },
+  {
+    "event_name": "Swampland Revival | The Hangout | Gulf Shores",
+    "venue_name": "The Hangout",
+    "artist": "Swampland Revival"
+  },
+  {
+    "event_name": "Koontz | The Red Haven Live | Orange Beach",
+    "venue_name": "The Red Haven Live",
+    "artist": "Koontz"
+  },
+  {
+    "event_name": "Colton Wadkins | Island Time Daiquiris | Orange Beach",
+    "venue_name": "Island Time Daiquiris",
+    "artist": "Colton Wadkins"
+  },
+  {
+    "event_name": "Rowdies Rock | Juana’s Pagodas | Navarre",
+    "venue_name": "Juana’s Pagodas",
+    "artist": "Rowdies Rock"
+  },
+  {
+    "event_name": "Mystic Radio | The Office Lounge | Foley",
+    "venue_name": "The Office Lounge",
+    "artist": "Mystic Radio"
+  },
+  {
+    "event_name": "Dugger Band | Flounders Chowder House | Pensacola Beach",
+    "venue_name": "Flounders Chowder House",
+    "artist": "Dugger Band"
+  },
+  {
+    "event_name": "Hollard | Sandshaker Lounge | Pensacola Beach",
+    "venue_name": "Sandshaker Lounge",
+    "artist": "Hollard"
+  },
+  {
+    "event_name": "Christina Crystal | Perdido Key Breakfast Club | Perdido Key",
+    "venue_name": "Perdido Key Breakfast Club",
+    "artist": "Christina Crystal"
+  },
+  {
+    "event_name": "Ariel Casey Acoustic | Tacky Jacks | Orange Beach",
+    "venue_name": "Tacky Jacks",
+    "artist": "Ariel Casey Acoustic"
+  },
+  {
+    "event_name": "Rickie Joe Wilson | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Rickie Joe Wilson"
+  },
+  {
+    "event_name": "J Hawkins Duo | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "J Hawkins Duo"
+  },
+  {
+    "event_name": "Ben Lake | OSO at Bear Point Harbor | Orange Beach",
+    "venue_name": "OSO at Bear Point Harbor",
+    "artist": "Ben Lake"
+  },
+  {
+    "event_name": "Tyler Ward | Shipp’s Dockside Grill | Orange Beach",
+    "venue_name": "Shipp’s Dockside Grill",
+    "artist": "Tyler Ward"
+  },
+  {
+    "event_name": "Jesse Duncan | Avenue Pub | Orange Beach",
+    "venue_name": "Avenue Pub",
+    "artist": "Jesse Duncan"
+  },
+  {
+    "event_name": "Kyle Brady | CoastAL | Orange Beach",
+    "venue_name": "CoastAL",
+    "artist": "Kyle Brady"
+  },
+  {
+    "event_name": "Timmi G | The Galley on the River | Foley",
+    "venue_name": "The Galley on the River",
+    "artist": "Timmi G"
+  },
+  {
+    "event_name": "Paul Killough | Sandshaker Lounge | Pensacola Beach",
+    "venue_name": "Sandshaker Lounge",
+    "artist": "Paul Killough"
+  },
+  {
+    "event_name": "Basch Jernigan | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Basch Jernigan"
+  },
+  {
+    "event_name": "Grayson Culpepper | OSO at Bear Point Harbor | Orange Beach",
+    "venue_name": "OSO at Bear Point Harbor",
+    "artist": "Grayson Culpepper"
+  },
+  {
+    "event_name": "Brent Varner | Wild Greg's Saloon | Pensacola",
+    "venue_name": "Wild Greg's Saloon",
+    "artist": "Brent Varner"
+  },
+  {
+    "event_name": "About to Sweat | Juana’s Pagodas | Navarre (Copy)",
+    "venue_name": "Juana’s Pagodas",
+    "artist": "About to Sweat"
+  },
+  {
+    "event_name": "Smokie & The Freeway 98 Band | Peg Leg Pete’s | Pensacola Beach",
+    "venue_name": "Peg Leg Pete’s",
+    "artist": "Smokie & The Freeway 98 Band"
+  },
+  {
+    "event_name": "Tribe Zion | Emerald Waterfront | Navarre",
+    "venue_name": "Emerald Waterfront",
+    "artist": "Tribe Zion"
+  },
+  {
+    "event_name": "True Blue | Paradise Bar & Grill | Pensacola Beach",
+    "venue_name": "Paradise Bar & Grill",
+    "artist": "True Blue"
+  },
+  {
+    "event_name": "Riley Lynn | Ginny Lane Bar and Grill | Orange Beach",
+    "venue_name": "Ginny Lane Bar and Grill",
+    "artist": "Riley Lynn"
+  },
+  {
+    "event_name": "The Heat | Gelato Joe's | Foley",
+    "venue_name": "Gelato Joe's",
+    "artist": "The Heat"
+  },
+  {
+    "event_name": "The Undertow Band | Tacky Jacks | Gulf Shores",
+    "venue_name": "Tacky Jacks",
+    "artist": "The Undertow Band"
+  },
+  {
+    "event_name": "Karl Langley & Amanda Donald | Lulu's | Gulf Shores",
+    "venue_name": "Lulu's",
+    "artist": "Karl Langley & Amanda Donald"
+  },
+  {
+    "event_name": "Brooks Johnson | Lillian's Pizza | Perdido Key",
+    "venue_name": "Lillian's Pizza",
+    "artist": "Brooks Johnson"
+  },
+  {
+    "event_name": "Shawn Williams | The Village Lawn at The Beach Club | Gulf Shores",
+    "venue_name": "The Village Lawn at The Beach Club",
+    "artist": "Shawn Williams"
+  },
+  {
+    "event_name": "Sister Rey | Purple Parrot Beach Bar & Grill | Perdido Key",
+    "venue_name": "Purple Parrot Beach Bar & Grill",
+    "artist": "Sister Rey"
+  },
+  {
+    "event_name": "Goodbye August | The Salty Rose Beach Bar & Grill | Pensacola Beach",
+    "venue_name": "The Salty Rose Beach Bar & Grill",
+    "artist": "Goodbye August"
+  },
+  {
+    "event_name": "Justin Colvard Band | Warrior Beer Company | Perdido Key",
+    "venue_name": "Warrior Beer Company",
+    "artist": "Justin Colvard Band"
+  },
+  {
+    "event_name": "Gringo Fife | Tacky Jacks | Orange Beach",
+    "venue_name": "Tacky Jacks",
+    "artist": "Gringo Fife"
+  },
+  {
+    "event_name": "Jellyfish Cowboys | OSO at Bear Point Harbor | Orange Beach",
+    "venue_name": "OSO at Bear Point Harbor",
+    "artist": "Jellyfish Cowboys"
+  },
+  {
+    "event_name": "Salt & Soul | Bounce Beach | Pensacola Beach",
+    "venue_name": "Bounce Beach",
+    "artist": "Salt & Soul"
+  },
+  {
+    "event_name": "Zachary Thomas Diedrich Duo | Grand Lagoon Yacht Club | Perdido Key",
+    "venue_name": "Grand Lagoon Yacht Club",
+    "artist": "Zachary Thomas Diedrich Duo"
+  },
+  {
+    "event_name": "Doug Drake & Tennessee Tim | Papa Rocco’s | Gulf Shores",
+    "venue_name": "Papa Rocco’s",
+    "artist": "Doug Drake & Tennessee Tim"
+  },
+  {
+    "event_name": "Cristi Dee & BAD JUJU | Perdido Key Sports Bar | Perdido Key",
+    "venue_name": "Perdido Key Sports Bar",
+    "artist": "Cristi Dee & BAD JUJU"
+  },
+  {
+    "event_name": "Tim Nowell & Kolby Spicer | Tee Off at the Wharf @ Portside on Main | Orange Beach",
+    "venue_name": "Tee Off at the Wharf @ Portside on Main",
+    "artist": "Tim Nowell & Kolby Spicer"
+  },
+  {
+    "event_name": "Disco Kiss | The Hangout | Gulf Shores",
+    "venue_name": "The Hangout",
+    "artist": "Disco Kiss"
+  },
+  {
+    "event_name": "High Cotton | The Red Haven Live | Orange Beach",
+    "venue_name": "The Red Haven Live",
+    "artist": "High Cotton"
+  },
+  {
+    "event_name": "Brennan Lowery & Ryan Dakota | Wild Greg’s Saloon | Pensacola",
+    "venue_name": "Wild Greg’s Saloon",
+    "artist": "Brennan Lowery & Ryan Dakota"
+  },
+  {
+    "event_name": "Platinum Premier Band | The Cove Bar and Grill | Gulf Shores",
+    "venue_name": "The Cove Bar and Grill",
+    "artist": "Platinum Premier Band"
+  },
+  {
+    "event_name": "Dugger Band | Flounders Chowder House | Pensacola Beach",
+    "venue_name": "Flounders Chowder House",
+    "artist": "Dugger Band"
+  },
+  {
+    "event_name": "Disco Kiss | Juana’s Pagodas | Navarre",
+    "venue_name": "Juana’s Pagodas",
+    "artist": "Disco Kiss"
+  },
+  {
+    "event_name": "Brandon Giles | Paddy O'Leary's Irish Pub | Pensacola Beach",
+    "venue_name": "Paddy O'Leary's Irish Pub",
+    "artist": "Brandon Giles"
+  },
+  {
+    "event_name": "Logan Lassitter Duo | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "Logan Lassitter Duo"
+  },
+  {
+    "event_name": "Hollard | Sandshaker Lounge | Pensacola Beach",
+    "venue_name": "Sandshaker Lounge",
+    "artist": "Hollard"
+  },
+  {
+    "event_name": "Justin Fobes | Cobalt | Orange Beach",
+    "venue_name": "Cobalt",
+    "artist": "Justin Fobes"
+  },
+  {
+    "event_name": "Stevie Hall | Bounce Beach | Pensacola Beach",
+    "venue_name": "Bounce Beach",
+    "artist": "Stevie Hall"
+  },
+  {
+    "event_name": "Three Bean Soup | McGuire's Irish Pub | Pensacola",
+    "venue_name": "McGuire's Irish Pub",
+    "artist": "Three Bean Soup"
+  },
+  {
+    "event_name": "Brent Varner | CoastAL | Orange Beach",
+    "venue_name": "CoastAL",
+    "artist": "Brent Varner"
+  },
+  {
+    "event_name": "Gambino Duo | Tacky Jacks | Orange Beach",
+    "venue_name": "Tacky Jacks",
+    "artist": "Gambino Duo"
+  },
+  {
+    "event_name": "JesseTaylor Perry | Ginny Lane Bar and Grill | Orange Beach",
+    "venue_name": "Ginny Lane Bar and Grill",
+    "artist": "JesseTaylor Perry"
+  },
+  {
+    "event_name": "Tim Spencer | Flounders Chowder House | Pensacola Beach",
+    "venue_name": "Flounders Chowder House",
+    "artist": "Tim Spencer"
+  },
+  {
+    "event_name": "STORMFOLK | The Salty Rose Beach Bar & Grill | Pensacola Beach",
+    "venue_name": "The Salty Rose Beach Bar & Grill",
+    "artist": "STORMFOLK"
+  },
+  {
+    "event_name": "Lisa Zanghi | The Galway Irish Public House | Gulf Shores",
+    "venue_name": "The Galway Irish Public House",
+    "artist": "Lisa Zanghi"
+  },
+  {
+    "event_name": "Zack Chavers | OSO at Bear Point Harbor | Orange Beach",
+    "venue_name": "OSO at Bear Point Harbor",
+    "artist": "Zack Chavers"
+  },
+  {
+    "event_name": "The Defrosters | American Legion Post 44 | Gulf Shores",
+    "venue_name": "American Legion Post 44",
+    "artist": "The Defrosters"
+  },
+  {
+    "event_name": "Colton Wadkins | Tee Off at the Wharf @ Portside on Main | Orange Beach",
+    "venue_name": "Tee Off at the Wharf @ Portside on Main",
+    "artist": "Colton Wadkins"
+  },
+  {
+    "event_name": "Trent Brownlee | Avenue Pub | Orange Beach",
+    "venue_name": "Avenue Pub",
+    "artist": "Trent Brownlee"
+  },
+  {
+    "event_name": "JB Dyess | The Galley on the River | Foley",
+    "venue_name": "The Galley on the River",
+    "artist": "JB Dyess"
+  },
+  {
+    "event_name": "Six Piece Suits | Juana’s Pagodas | Navarre",
+    "venue_name": "Juana’s Pagodas",
+    "artist": "Six Piece Suits"
+  },
+  {
+    "event_name": "Justin Colvard w/ Adam Tyler Brown | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Justin Colvard w/ Adam Tyler Brown"
+  },
+  {
+    "event_name": "Chris Beverly | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "Chris Beverly"
+  },
+  {
+    "event_name": "Justin Fobes | CoastAL | Orange Beach",
+    "venue_name": "CoastAL",
+    "artist": "Justin Fobes"
+  },
+  {
+    "event_name": "Elise Kilcoyne | Gelato Joe's | Foley",
+    "venue_name": "Gelato Joe's",
+    "artist": "Elise Kilcoyne"
+  },
+  {
+    "event_name": "Brandon Giles | Sandshaker Lounge | Pensacola Beach",
+    "venue_name": "Sandshaker Lounge",
+    "artist": "Brandon Giles"
+  },
+  {
+    "event_name": "Grayson Culpepper | OSO at Bear Point Harbor | Orange Beach",
+    "venue_name": "OSO at Bear Point Harbor",
+    "artist": "Grayson Culpepper"
+  },
+  {
+    "event_name": "Nigel Dickie | Cobalt | Orange Beach",
+    "venue_name": "Cobalt",
+    "artist": "Nigel Dickie"
+  },
+  {
+    "event_name": "Ariel Casey Acoustic | Zeke’s Restaurant | Orange Beach",
+    "venue_name": "Zeke’s Restaurant",
+    "artist": "Ariel Casey Acoustic"
+  },
+  {
+    "event_name": "Brent Varner | Lulu's | Gulf Shores",
+    "venue_name": "Lulu's",
+    "artist": "Brent Varner"
+  },
+  {
+    "event_name": "Goodbye August | Andy D’s | Navarre",
+    "venue_name": "Andy D’s",
+    "artist": "Goodbye August"
+  },
+  {
+    "event_name": "Hippy Jim | Tacky Jacks | Fort Morgan",
+    "venue_name": "Tacky Jacks",
+    "artist": "Hippy Jim"
+  },
+  {
+    "event_name": "Rickie Joe Wilson | Peg Leg Pete’s | Pensacola Beach",
+    "venue_name": "Peg Leg Pete’s",
+    "artist": "Rickie Joe Wilson"
+  },
+  {
+    "event_name": "Just Roger | Tacky Jacks | Gulf Shores",
+    "venue_name": "Tacky Jacks",
+    "artist": "Just Roger"
+  },
+  {
+    "event_name": "Strickly Rivers | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Strickly Rivers"
+  },
+  {
+    "event_name": "Zoe Burdette | The Village Lawn at The Beach Club | Gulf Shores",
+    "venue_name": "The Village Lawn at The Beach Club",
+    "artist": "Zoe Burdette"
+  },
+  {
+    "event_name": "I-10 Bound Band | The Hangout | Gulf Shores",
+    "venue_name": "The Hangout",
+    "artist": "I-10 Bound Band"
+  },
+  {
+    "event_name": "Roger & Elaine | American Legion Post 44 | Gulf Shores",
+    "venue_name": "American Legion Post 44",
+    "artist": "Roger & Elaine"
+  },
+  {
+    "event_name": "David Wiley | Lillian's Pizza | Perdido Key",
+    "venue_name": "Lillian's Pizza",
+    "artist": "David Wiley"
+  },
+  {
+    "event_name": "Tim Robinson | Purple Parrot Beach Bar & Grill | Perdido Key",
+    "venue_name": "Purple Parrot Beach Bar & Grill",
+    "artist": "Tim Robinson"
+  },
+  {
+    "event_name": "Alan Renfroe | Tacky Jacks | Orange Beach",
+    "venue_name": "Tacky Jacks",
+    "artist": "Alan Renfroe"
+  },
+  {
+    "event_name": "Logan Lassitter | Island Time Daiquiris | Orange Beach",
+    "venue_name": "Island Time Daiquiris",
+    "artist": "Logan Lassitter"
+  },
+  {
+    "event_name": "Dugger Band | Flounders Chowder House | Pensacola Beach",
+    "venue_name": "Flounders Chowder House",
+    "artist": "Dugger Band"
+  },
+  {
+    "event_name": "Mike Diamond | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Mike Diamond"
+  },
+  {
+    "event_name": "Logan Lassitter | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "Logan Lassitter"
+  },
+  {
+    "event_name": "Hippy Jim | The Oar House | Pensacola",
+    "venue_name": "The Oar House",
+    "artist": "Hippy Jim"
+  },
+  {
+    "event_name": "Tim Nowell | Doc’s Seafood and Steaks | Orange Beach",
+    "venue_name": "Doc’s Seafood and Steaks",
+    "artist": "Tim Nowell"
+  },
+  {
+    "event_name": "Smith & Kern | Luna’s Eat & Drink | Orange Beach",
+    "venue_name": "Luna’s Eat & Drink",
+    "artist": "Smith & Kern"
+  },
+  {
+    "event_name": "Elaine Petty & Tyler Ward | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Elaine Petty & Tyler Ward"
+  },
+  {
+    "event_name": "JC Pringle | Purple Parrot Beach Bar & Grill | Perdido Key",
+    "venue_name": "Purple Parrot Beach Bar & Grill",
+    "artist": "JC Pringle"
+  },
+  {
+    "event_name": "Jason Crysell | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Jason Crysell"
+  },
+  {
+    "event_name": "Smokey & Veronica Jean | Papa Rocco’s | Gulf Shores",
+    "venue_name": "Papa Rocco’s",
+    "artist": "Smokey & Veronica Jean"
+  },
+  {
+    "event_name": "Tim Roberts Trio | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "Tim Roberts Trio"
+  },
+  {
+    "event_name": "Salt & Soul | Emerald Waterfront | Navarre",
+    "venue_name": "Emerald Waterfront",
+    "artist": "Salt & Soul"
+  },
+  {
+    "event_name": "the boxcats | OSO at Bear Point Harbor | Orange Beach",
+    "venue_name": "OSO at Bear Point Harbor",
+    "artist": "the boxcats"
+  },
+  {
+    "event_name": "Lee Alan | Lulu's | Gulf Shores",
+    "venue_name": "Lulu's",
+    "artist": "Lee Alan"
+  },
+  {
+    "event_name": "Lisa Christian | The Galway Irish Public House | Gulf Shores",
+    "venue_name": "The Galway Irish Public House",
+    "artist": "Lisa Christian"
+  },
+  {
+    "event_name": "Smokey Otis Duo | Papa Rocco’s | Gulf Shores",
+    "venue_name": "Papa Rocco’s",
+    "artist": "Smokey Otis Duo"
+  },
+  {
+    "event_name": "Just Roger | Mudbugs | Gulf Shores",
+    "venue_name": "Mudbugs",
+    "artist": "Just Roger"
+  },
+  {
+    "event_name": "Tim Roberts | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Tim Roberts"
+  },
+  {
+    "event_name": "Neil Dover | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Neil Dover"
+  },
+  {
+    "event_name": "Jesse Branham | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "Jesse Branham"
+  },
+  {
+    "event_name": "Danny Grady | Gulf Coast Elks Lodge 2782 | Foley",
+    "venue_name": "Gulf Coast Elks Lodge 2782",
+    "artist": "Danny Grady"
+  },
+  {
+    "event_name": "Lex Burroughs | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Lex Burroughs"
+  },
+  {
+    "event_name": "Three Bean Soup | Peg Leg Pete’s | Pensacola Beach",
+    "venue_name": "Peg Leg Pete’s",
+    "artist": "Three Bean Soup"
+  },
+  {
+    "event_name": "David Gautreau & The Delta Current | The Hangout | Gulf Shores",
+    "venue_name": "The Hangout",
+    "artist": "David Gautreau & The Delta Current"
+  },
+  {
+    "event_name": "Matt Erdman | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Matt Erdman"
+  },
+  {
+    "event_name": "Rhonda Hart & Smokey Otis | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Rhonda Hart & Smokey Otis"
+  },
+  {
+    "event_name": "Almost Famous | Juana’s Pagodas | Navarre",
+    "venue_name": "Juana’s Pagodas",
+    "artist": "Almost Famous"
+  },
+  {
+    "event_name": "Cody & Tyler Livingston | Sandshaker Lounge | Pensacola Beach",
+    "venue_name": "Sandshaker Lounge",
+    "artist": "Cody & Tyler Livingston"
+  },
+  {
+    "event_name": "Saucy FuzZ | The Undertow | Orange Beach",
+    "venue_name": "The Undertow",
+    "artist": "Saucy FuzZ"
+  },
+  {
+    "event_name": "J Hawkins Duo | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "J Hawkins Duo"
+  },
+  {
+    "event_name": "Troy Martin | Emerald Waterfront | Navarre",
+    "venue_name": "Emerald Waterfront",
+    "artist": "Troy Martin"
+  },
+  {
+    "event_name": "Christina Crystal | The Dragonfly Bar & Grill @ The Lodge at Gulf State Park | Gulf Shores",
+    "venue_name": "The Dragonfly Bar & Grill @ The Lodge at Gulf State Park",
+    "artist": "Christina Crystal"
+  },
+  {
+    "event_name": "Tim Roberts | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Tim Roberts"
+  },
+  {
+    "event_name": "JB Dyess | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "JB Dyess"
+  },
+  {
+    "event_name": "Mark Sherrill & Friends | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Mark Sherrill & Friends"
+  },
+  {
+    "event_name": "Magnolia Mayfield | Emerald Waterfront | Navarre",
+    "venue_name": "Emerald Waterfront",
+    "artist": "Magnolia Mayfield"
+  },
+  {
+    "event_name": "Zack Chavers | El Paso Mexican Grill | Foley",
+    "venue_name": "El Paso Mexican Grill",
+    "artist": "Zack Chavers"
+  },
+  {
+    "event_name": "The Steve & Joe Piano Show | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "The Steve & Joe Piano Show"
+  },
+  {
+    "event_name": "Funky Lampshades | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Funky Lampshades"
+  },
+  {
+    "event_name": "Logan Lassitter | Lulu's | Gulf Shores",
+    "venue_name": "Lulu's",
+    "artist": "Logan Lassitter"
+  },
+  {
+    "event_name": "Jack Robertson/Big Earl | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Jack Robertson/Big Earl"
+  },
+  {
+    "event_name": "BT Turner | Juana’s Pagodas | Navarre",
+    "venue_name": "Juana’s Pagodas",
+    "artist": "BT Turner"
+  },
+  {
+    "event_name": "Tim Robinson | Papa Rocco’s | Gulf Shores",
+    "venue_name": "Papa Rocco’s",
+    "artist": "Tim Robinson"
+  },
+  {
+    "event_name": "Jay Moody | Paddy O’Leary’s Irish Pub | Pensacola Beach",
+    "venue_name": "Paddy O’Leary’s Irish Pub",
+    "artist": "Jay Moody"
+  },
+  {
+    "event_name": "Tim Roberts | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Tim Roberts"
+  },
+  {
+    "event_name": "Lea Anne Creswell Duo | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Lea Anne Creswell Duo"
+  },
+  {
+    "event_name": "Troy Martin | Emerald Waterfront | Navarre",
+    "venue_name": "Emerald Waterfront",
+    "artist": "Troy Martin"
+  },
+  {
+    "event_name": "Emily White | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "Emily White"
+  },
+  {
+    "event_name": "Stevie Hall | Juana's Pagodas | Navarre",
+    "venue_name": "Juana's Pagodas",
+    "artist": "Stevie Hall"
+  },
+  {
+    "event_name": "Thicc and Thinn | Lulu's | Gulf Shores",
+    "venue_name": "Lulu's",
+    "artist": "Thicc and Thinn"
+  },
+  {
+    "event_name": "Jesse Ritter | Crabs on the Beach | Pensacola Beach",
+    "venue_name": "Crabs on the Beach",
+    "artist": "Jesse Ritter"
+  },
+  {
+    "event_name": "The Steve & Joe Big Show | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "The Steve & Joe Big Show"
+  },
+  {
+    "event_name": "Tribe Zion | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Tribe Zion"
+  },
+  {
+    "event_name": "Tim Roberts Trio | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Tim Roberts Trio"
+  },
+  {
+    "event_name": "Salt & Soul | Bounce Beach | Pensacola Beach",
+    "venue_name": "Bounce Beach",
+    "artist": "Salt & Soul"
+  },
+  {
+    "event_name": "Gringo Fife | The Cove Bar and Grill | Gulf Shores",
+    "venue_name": "The Cove Bar and Grill",
+    "artist": "Gringo Fife"
+  },
+  {
+    "event_name": "Frank Fletcher Band | Juana’s Pagodas | Navarre",
+    "venue_name": "Juana’s Pagodas",
+    "artist": "Frank Fletcher Band"
+  },
+  {
+    "event_name": "J Hawkins Duo | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "J Hawkins Duo"
+  },
+  {
+    "event_name": "Tyler Ward | Shipp’s Dockside Grill | Orange Beach",
+    "venue_name": "Shipp’s Dockside Grill",
+    "artist": "Tyler Ward"
+  },
+  {
+    "event_name": "Paul Killough | Sandshaker Lounge | Pensacola Beach",
+    "venue_name": "Sandshaker Lounge",
+    "artist": "Paul Killough"
+  },
+  {
+    "event_name": "DadBod | Juana’s Pagodas | Navarre",
+    "venue_name": "Juana’s Pagodas",
+    "artist": "DadBod"
+  },
+  {
+    "event_name": "The Heat | Gelato Joe's | Foley",
+    "venue_name": "Gelato Joe's",
+    "artist": "The Heat"
+  },
+  {
+    "event_name": "Salt & Soul | Bounce Beach | Pensacola Beach",
+    "venue_name": "Bounce Beach",
+    "artist": "Salt & Soul"
+  },
+  {
+    "event_name": "Shenanigans | Juana’s Pagodas | Navarre",
+    "venue_name": "Juana’s Pagodas",
+    "artist": "Shenanigans"
+  },
+  {
+    "event_name": "Justin Fobes | Cobalt | Orange Beach",
+    "venue_name": "Cobalt",
+    "artist": "Justin Fobes"
+  },
+  {
+    "event_name": "Stevie Hall | Bounce Beach | Pensacola Beach",
+    "venue_name": "Bounce Beach",
+    "artist": "Stevie Hall"
+  },
+  {
+    "event_name": "Three Bean Soup | McGuire's Irish Pub | Pensacola",
+    "venue_name": "McGuire's Irish Pub",
+    "artist": "Three Bean Soup"
+  },
+  {
+    "event_name": "Lisa Zanghi | The Galway Irish Public House | Gulf Shores",
+    "venue_name": "The Galway Irish Public House",
+    "artist": "Lisa Zanghi"
+  },
+  {
+    "event_name": "Justin Colvard w/ Adam Tyler Brown | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Justin Colvard w/ Adam Tyler Brown"
+  },
+  {
+    "event_name": "Chris Beverly | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "Chris Beverly"
+  },
+  {
+    "event_name": "Nigel Dickie | Cobalt | Orange Beach",
+    "venue_name": "Cobalt",
+    "artist": "Nigel Dickie"
+  },
+  {
+    "event_name": "Strickly Rivers | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Strickly Rivers"
+  },
+  {
+    "event_name": "Mike Diamond | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Mike Diamond"
+  },
+  {
+    "event_name": "Logan Lassitter | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "Logan Lassitter"
+  },
+  {
+    "event_name": "Hippy Jim | The Oar House | Pensacola",
+    "venue_name": "The Oar House",
+    "artist": "Hippy Jim"
+  },
+  {
+    "event_name": "Tim Nowell | Doc’s Seafood and Steaks | Orange Beach",
+    "venue_name": "Doc’s Seafood and Steaks",
+    "artist": "Tim Nowell"
+  },
+  {
+    "event_name": "Elaine Petty & Tyler Ward | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Elaine Petty & Tyler Ward"
+  },
+  {
+    "event_name": "JC Pringle | Purple Parrot Beach Bar & Grill | Perdido Key",
+    "venue_name": "Purple Parrot Beach Bar & Grill",
+    "artist": "JC Pringle"
+  },
+  {
+    "event_name": "Jason Crysell | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Jason Crysell"
+  },
+  {
+    "event_name": "Smokey & Veronica Jean | Papa Rocco’s | Gulf Shores",
+    "venue_name": "Papa Rocco’s",
+    "artist": "Smokey & Veronica Jean"
+  },
+  {
+    "event_name": "Tim Roberts Trio | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "Tim Roberts Trio"
+  },
+  {
+    "event_name": "Salt & Soul | Emerald Waterfront | Navarre",
+    "venue_name": "Emerald Waterfront",
+    "artist": "Salt & Soul"
+  },
+  {
+    "event_name": "Lisa Christian | The Galway Irish Public House | Gulf Shores",
+    "venue_name": "The Galway Irish Public House",
+    "artist": "Lisa Christian"
+  },
+  {
+    "event_name": "Smokey Otis Duo | Papa Rocco’s | Gulf Shores",
+    "venue_name": "Papa Rocco’s",
+    "artist": "Smokey Otis Duo"
+  },
+  {
+    "event_name": "Just Roger | Mudbugs | Gulf Shores",
+    "venue_name": "Mudbugs",
+    "artist": "Just Roger"
+  },
+  {
+    "event_name": "Tim Roberts | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Tim Roberts"
+  },
+  {
+    "event_name": "Neil Dover | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Neil Dover"
+  },
+  {
+    "event_name": "Jesse Branham | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "Jesse Branham"
+  },
+  {
+    "event_name": "Danny Grady | Gulf Coast Elks Lodge 2782 | Foley",
+    "venue_name": "Gulf Coast Elks Lodge 2782",
+    "artist": "Danny Grady"
+  },
+  {
+    "event_name": "Lex Burroughs | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Lex Burroughs"
+  },
+  {
+    "event_name": "Mel Knapp | Cobalt | Orange Beach",
+    "venue_name": "Cobalt",
+    "artist": "Mel Knapp"
+  },
+  {
+    "event_name": "Matt Erdman | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Matt Erdman"
+  },
+  {
+    "event_name": "Rhonda Hart & Smokey Otis | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Rhonda Hart & Smokey Otis"
+  },
+  {
+    "event_name": "Cody & Tyler Livingston | Sandshaker Lounge | Pensacola Beach",
+    "venue_name": "Sandshaker Lounge",
+    "artist": "Cody & Tyler Livingston"
+  },
+  {
+    "event_name": "Saucy FuzZ | The Undertow | Orange Beach",
+    "venue_name": "The Undertow",
+    "artist": "Saucy FuzZ"
+  },
+  {
+    "event_name": "J Hawkins Duo | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "J Hawkins Duo"
+  },
+  {
+    "event_name": "Troy Martin | Emerald Waterfront | Navarre",
+    "venue_name": "Emerald Waterfront",
+    "artist": "Troy Martin"
+  },
+  {
+    "event_name": "Tim Roberts | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Tim Roberts"
+  },
+  {
+    "event_name": "JB Dyess | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "JB Dyess"
+  },
+  {
+    "event_name": "Mark Sherrill & Friends | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Mark Sherrill & Friends"
+  },
+  {
+    "event_name": "Magnolia Mayfield | Emerald Waterfront | Navarre",
+    "venue_name": "Emerald Waterfront",
+    "artist": "Magnolia Mayfield"
+  },
+  {
+    "event_name": "Alvarado Road Show | Lulu's | Gulf Shores",
+    "venue_name": "Lulu's",
+    "artist": "Alvarado Road Show"
+  },
+  {
+    "event_name": "Zack Chavers | El Paso Mexican Grill | Foley",
+    "venue_name": "El Paso Mexican Grill",
+    "artist": "Zack Chavers"
+  },
+  {
+    "event_name": "The Steve & Joe Piano Show | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "The Steve & Joe Piano Show"
+  },
+  {
+    "event_name": "Funky Lampshades | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Funky Lampshades"
+  },
+  {
+    "event_name": "Christina Crystal | Tee Off at the Wharf @ Portside on Main | Orange Beach",
+    "venue_name": "Tee Off at the Wharf @ Portside on Main",
+    "artist": "Christina Crystal"
+  },
+  {
+    "event_name": "Jack Robertson/Big Earl | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Jack Robertson/Big Earl"
+  },
+  {
+    "event_name": "Tim Robinson | Papa Rocco’s | Gulf Shores",
+    "venue_name": "Papa Rocco’s",
+    "artist": "Tim Robinson"
+  },
+  {
+    "event_name": "Jay Moody | Paddy O’Leary’s Irish Pub | Pensacola Beach",
+    "venue_name": "Paddy O’Leary’s Irish Pub",
+    "artist": "Jay Moody"
+  },
+  {
+    "event_name": "Tim Roberts | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Tim Roberts"
+  },
+  {
+    "event_name": "Lea Anne Creswell Duo | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Lea Anne Creswell Duo"
+  },
+  {
+    "event_name": "Troy Martin | Emerald Waterfront | Navarre",
+    "venue_name": "Emerald Waterfront",
+    "artist": "Troy Martin"
+  },
+  {
+    "event_name": "Emily White | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "Emily White"
+  },
+  {
+    "event_name": "Alvarado Road Show | Lulu's | Gulf Shores",
+    "venue_name": "Lulu's",
+    "artist": "Alvarado Road Show"
+  },
+  {
+    "event_name": "Jesse Ritter | Crabs on the Beach | Pensacola Beach",
+    "venue_name": "Crabs on the Beach",
+    "artist": "Jesse Ritter"
+  },
+  {
+    "event_name": "The Steve & Joe Big Show | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "The Steve & Joe Big Show"
+  },
+  {
+    "event_name": "SheAndTheIts Band | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "SheAndTheIts Band"
+  },
+  {
+    "event_name": "Tim Roberts Trio | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Tim Roberts Trio"
+  },
+  {
+    "event_name": "Salt & Soul | Bounce Beach | Pensacola Beach",
+    "venue_name": "Bounce Beach",
+    "artist": "Salt & Soul"
+  },
+  {
+    "event_name": "Horseshoe Kitty | Bamboo Willie’s Beachside Bar | Pensacola Beach",
+    "venue_name": "Bamboo Willie’s Beachside Bar",
+    "artist": "Horseshoe Kitty"
+  },
+  {
+    "event_name": "Buzzcut | Sandshaker Lounge | Pensacola Beach",
+    "venue_name": "Sandshaker Lounge",
+    "artist": "Buzzcut"
+  },
+  {
+    "event_name": "J Hawkins Duo | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "J Hawkins Duo"
+  },
+  {
+    "event_name": "Tyler Ward | Shipp’s Dockside Grill | Orange Beach",
+    "venue_name": "Shipp’s Dockside Grill",
+    "artist": "Tyler Ward"
+  },
+  {
+    "event_name": "Paul Killough | Sandshaker Lounge | Pensacola Beach",
+    "venue_name": "Sandshaker Lounge",
+    "artist": "Paul Killough"
+  },
+  {
+    "event_name": "Grayson Culpepper | OSO at Bear Point Harbor | Orange Beach",
+    "venue_name": "OSO at Bear Point Harbor",
+    "artist": "Grayson Culpepper"
+  },
+  {
+    "event_name": "The Heat | Gelato Joe's | Foley",
+    "venue_name": "Gelato Joe's",
+    "artist": "The Heat"
+  },
+  {
+    "event_name": "Gringo Fife | Tacky Jacks | Orange Beach",
+    "venue_name": "Tacky Jacks",
+    "artist": "Gringo Fife"
+  },
+  {
+    "event_name": "Salt & Soul | Bounce Beach | Pensacola Beach",
+    "venue_name": "Bounce Beach",
+    "artist": "Salt & Soul"
+  },
+  {
+    "event_name": "Horseshoe Kitty | Juana’s Pagodas | Navarre",
+    "venue_name": "Juana’s Pagodas",
+    "artist": "Horseshoe Kitty"
+  },
+  {
+    "event_name": "Buzzcut | Sandshaker Lounge | Pensacola Beach",
+    "venue_name": "Sandshaker Lounge",
+    "artist": "Buzzcut"
+  },
+  {
+    "event_name": "Justin Fobes | Cobalt | Orange Beach",
+    "venue_name": "Cobalt",
+    "artist": "Justin Fobes"
+  },
+  {
+    "event_name": "Stevie Hall | Bounce Beach | Pensacola Beach",
+    "venue_name": "Bounce Beach",
+    "artist": "Stevie Hall"
+  },
+  {
+    "event_name": "Three Bean Soup | McGuire's Irish Pub | Pensacola",
+    "venue_name": "McGuire's Irish Pub",
+    "artist": "Three Bean Soup"
+  },
+  {
+    "event_name": "Grayson Culpepper | OSO at Bear Point Harbor | Orange Beach",
+    "venue_name": "OSO at Bear Point Harbor",
+    "artist": "Grayson Culpepper"
+  },
+  {
+    "event_name": "Lisa Zanghi | The Galway Irish Public House | Gulf Shores",
+    "venue_name": "The Galway Irish Public House",
+    "artist": "Lisa Zanghi"
+  },
+  {
+    "event_name": "Justin Colvard w/ Adam Tyler Brown | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Justin Colvard w/ Adam Tyler Brown"
+  },
+  {
+    "event_name": "Chris Beverly | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "Chris Beverly"
+  },
+  {
+    "event_name": "By The Way | OSO at Bear Point Harbor | Orange Beach",
+    "venue_name": "OSO at Bear Point Harbor",
+    "artist": "By The Way"
+  },
+  {
+    "event_name": "Nigel Dickie | Cobalt | Orange Beach",
+    "venue_name": "Cobalt",
+    "artist": "Nigel Dickie"
+  },
+  {
+    "event_name": "Strickly Rivers | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Strickly Rivers"
+  },
+  {
+    "event_name": "Mike Diamond | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Mike Diamond"
+  },
+  {
+    "event_name": "Logan Lassitter | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "Logan Lassitter"
+  },
+  {
+    "event_name": "Hippy Jim | The Oar House | Pensacola",
+    "venue_name": "The Oar House",
+    "artist": "Hippy Jim"
+  },
+  {
+    "event_name": "Tim Nowell | Doc’s Seafood and Steaks | Orange Beach",
+    "venue_name": "Doc’s Seafood and Steaks",
+    "artist": "Tim Nowell"
+  },
+  {
+    "event_name": "Elaine Petty & Tyler Ward | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Elaine Petty & Tyler Ward"
+  },
+  {
+    "event_name": "JC Pringle | Purple Parrot Beach Bar & Grill | Perdido Key",
+    "venue_name": "Purple Parrot Beach Bar & Grill",
+    "artist": "JC Pringle"
+  },
+  {
+    "event_name": "Jason Crysell | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Jason Crysell"
+  },
+  {
+    "event_name": "Smokey & Veronica Jean | Papa Rocco’s | Gulf Shores",
+    "venue_name": "Papa Rocco’s",
+    "artist": "Smokey & Veronica Jean"
+  },
+  {
+    "event_name": "Tim Roberts Trio | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "Tim Roberts Trio"
+  },
+  {
+    "event_name": "Salt & Soul | Emerald Waterfront | Navarre",
+    "venue_name": "Emerald Waterfront",
+    "artist": "Salt & Soul"
+  },
+  {
+    "event_name": "Lisa Christian | The Galway Irish Public House | Gulf Shores",
+    "venue_name": "The Galway Irish Public House",
+    "artist": "Lisa Christian"
+  },
+  {
+    "event_name": "Smokey Otis Duo | Papa Rocco’s | Gulf Shores",
+    "venue_name": "Papa Rocco’s",
+    "artist": "Smokey Otis Duo"
+  },
+  {
+    "event_name": "Just Roger | Mudbugs | Gulf Shores",
+    "venue_name": "Mudbugs",
+    "artist": "Just Roger"
+  },
+  {
+    "event_name": "Tim Roberts | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Tim Roberts"
+  },
+  {
+    "event_name": "Neil Dover | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Neil Dover"
+  },
+  {
+    "event_name": "Jesse Branham | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "Jesse Branham"
+  },
+  {
+    "event_name": "Danny Grady | Gulf Coast Elks Lodge 2782 | Foley",
+    "venue_name": "Gulf Coast Elks Lodge 2782",
+    "artist": "Danny Grady"
+  },
+  {
+    "event_name": "Matt Erdman | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Matt Erdman"
+  },
+  {
+    "event_name": "Rhonda Hart & Smokey Otis | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Rhonda Hart & Smokey Otis"
+  },
+  {
+    "event_name": "Cody & Tyler Livingston | Sandshaker Lounge | Pensacola Beach",
+    "venue_name": "Sandshaker Lounge",
+    "artist": "Cody & Tyler Livingston"
+  },
+  {
+    "event_name": "Saucy FuzZ | The Undertow | Orange Beach",
+    "venue_name": "The Undertow",
+    "artist": "Saucy FuzZ"
+  },
+  {
+    "event_name": "J Hawkins Duo | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "J Hawkins Duo"
+  },
+  {
+    "event_name": "Troy Martin | Emerald Waterfront | Navarre",
+    "venue_name": "Emerald Waterfront",
+    "artist": "Troy Martin"
+  },
+  {
+    "event_name": "Tim Roberts | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Tim Roberts"
+  },
+  {
+    "event_name": "JB Dyess | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "JB Dyess"
+  },
+  {
+    "event_name": "Mark Sherrill & Friends | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Mark Sherrill & Friends"
+  },
+  {
+    "event_name": "Magnolia Mayfield | Emerald Waterfront | Navarre",
+    "venue_name": "Emerald Waterfront",
+    "artist": "Magnolia Mayfield"
+  },
+  {
+    "event_name": "Zack Chavers | El Paso Mexican Grill | Foley",
+    "venue_name": "El Paso Mexican Grill",
+    "artist": "Zack Chavers"
+  },
+  {
+    "event_name": "The Steve & Joe Piano Show | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "The Steve & Joe Piano Show"
+  },
+  {
+    "event_name": "Funky Lampshades | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Funky Lampshades"
+  },
+  {
+    "event_name": "Jack Robertson/Big Earl | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Jack Robertson/Big Earl"
+  },
+  {
+    "event_name": "Tim Robinson | Papa Rocco’s | Gulf Shores",
+    "venue_name": "Papa Rocco’s",
+    "artist": "Tim Robinson"
+  },
+  {
+    "event_name": "Jay Moody | Paddy O’Leary’s Irish Pub | Pensacola Beach",
+    "venue_name": "Paddy O’Leary’s Irish Pub",
+    "artist": "Jay Moody"
+  },
+  {
+    "event_name": "Tim Roberts | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Tim Roberts"
+  },
+  {
+    "event_name": "Lea Anne Creswell Duo | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Lea Anne Creswell Duo"
+  },
+  {
+    "event_name": "Troy Martin | Emerald Waterfront | Navarre",
+    "venue_name": "Emerald Waterfront",
+    "artist": "Troy Martin"
+  },
+  {
+    "event_name": "Christina Crystal | The Dragonfly Bar & Grill @ The Lodge at Gulf State Park | Gulf Shores",
+    "venue_name": "The Dragonfly Bar & Grill @ The Lodge at Gulf State Park",
+    "artist": "Christina Crystal"
+  },
+  {
+    "event_name": "Emily White | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "Emily White"
+  },
+  {
+    "event_name": "Jesse Ritter | Crabs on the Beach | Pensacola Beach",
+    "venue_name": "Crabs on the Beach",
+    "artist": "Jesse Ritter"
+  },
+  {
+    "event_name": "The Steve & Joe Big Show | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "The Steve & Joe Big Show"
+  },
+  {
+    "event_name": "Jenna McClelland | Tacky Jacks | Gulf Shores",
+    "venue_name": "Tacky Jacks",
+    "artist": "Jenna McClelland"
+  },
+  {
+    "event_name": "Tim Roberts Trio | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Tim Roberts Trio"
+  },
+  {
+    "event_name": "Salt & Soul | Bounce Beach | Pensacola Beach",
+    "venue_name": "Bounce Beach",
+    "artist": "Salt & Soul"
+  },
+  {
+    "event_name": "Get Sideways | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Get Sideways"
+  },
+  {
+    "event_name": "Pop Fiction | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Pop Fiction"
+  },
+  {
+    "event_name": "J Hawkins Duo | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "J Hawkins Duo"
+  },
+  {
+    "event_name": "Tyler Ward | Shipp’s Dockside Grill | Orange Beach",
+    "venue_name": "Shipp’s Dockside Grill",
+    "artist": "Tyler Ward"
+  },
+  {
+    "event_name": "Paul Killough | Sandshaker Lounge | Pensacola Beach",
+    "venue_name": "Sandshaker Lounge",
+    "artist": "Paul Killough"
+  },
+  {
+    "event_name": "Horseshoe Kitty | Emerald Waterfront | Navarre",
+    "venue_name": "Emerald Waterfront",
+    "artist": "Horseshoe Kitty"
+  },
+  {
+    "event_name": "The Heat | Gelato Joe's | Foley",
+    "venue_name": "Gelato Joe's",
+    "artist": "The Heat"
+  },
+  {
+    "event_name": "Tribe Zion | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Tribe Zion"
+  },
+  {
+    "event_name": "Montgomery Highway | Moe's Original BBQ | Foley",
+    "venue_name": "Moe's Original BBQ",
+    "artist": "Montgomery Highway"
+  },
+  {
+    "event_name": "Salt & Soul | Bounce Beach | Pensacola Beach",
+    "venue_name": "Bounce Beach",
+    "artist": "Salt & Soul"
+  },
+  {
+    "event_name": "Get Sideways | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Get Sideways"
+  },
+  {
+    "event_name": "Pop Fiction | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Pop Fiction"
+  },
+  {
+    "event_name": "Justin Fobes | Cobalt | Orange Beach",
+    "venue_name": "Cobalt",
+    "artist": "Justin Fobes"
+  },
+  {
+    "event_name": "Stevie Hall | Bounce Beach | Pensacola Beach",
+    "venue_name": "Bounce Beach",
+    "artist": "Stevie Hall"
+  },
+  {
+    "event_name": "Three Bean Soup | McGuire's Irish Pub | Pensacola",
+    "venue_name": "McGuire's Irish Pub",
+    "artist": "Three Bean Soup"
+  },
+  {
+    "event_name": "Lisa Zanghi | The Galway Irish Public House | Gulf Shores",
+    "venue_name": "The Galway Irish Public House",
+    "artist": "Lisa Zanghi"
+  },
+  {
+    "event_name": "Chris Beverly | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "Chris Beverly"
+  },
+  {
+    "event_name": "Horseshoe Kitty | Bamboo Willie’s Beachside Bar | Pensacola Beach",
+    "venue_name": "Bamboo Willie’s Beachside Bar",
+    "artist": "Horseshoe Kitty"
+  },
+  {
+    "event_name": "Justin Colvard w/ Adam Tyler Brown | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Justin Colvard w/ Adam Tyler Brown"
+  },
+  {
+    "event_name": "Nigel Dickie | Cobalt | Orange Beach",
+    "venue_name": "Cobalt",
+    "artist": "Nigel Dickie"
+  },
+  {
+    "event_name": "Strickly Rivers | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Strickly Rivers"
+  },
+  {
+    "event_name": "Gringo Fife | Tacky Jacks | Orange Beach",
+    "venue_name": "Tacky Jacks",
+    "artist": "Gringo Fife"
+  },
+  {
+    "event_name": "Mike Diamond | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Mike Diamond"
+  },
+  {
+    "event_name": "Logan Lassitter | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "Logan Lassitter"
+  },
+  {
+    "event_name": "Hippy Jim | The Oar House | Pensacola",
+    "venue_name": "The Oar House",
+    "artist": "Hippy Jim"
+  },
+  {
+    "event_name": "Tim Nowell | Doc’s Seafood and Steaks | Orange Beach",
+    "venue_name": "Doc’s Seafood and Steaks",
+    "artist": "Tim Nowell"
+  },
+  {
+    "event_name": "Elaine Petty & Tyler Ward | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Elaine Petty & Tyler Ward"
+  },
+  {
+    "event_name": "JC Pringle | Purple Parrot Beach Bar & Grill | Perdido Key",
+    "venue_name": "Purple Parrot Beach Bar & Grill",
+    "artist": "JC Pringle"
+  },
+  {
+    "event_name": "Jason Crysell | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Jason Crysell"
+  },
+  {
+    "event_name": "Smokey & Veronica Jean | Papa Rocco’s | Gulf Shores",
+    "venue_name": "Papa Rocco’s",
+    "artist": "Smokey & Veronica Jean"
+  },
+  {
+    "event_name": "Tim Roberts Trio | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "Tim Roberts Trio"
+  },
+  {
+    "event_name": "Salt & Soul | Emerald Waterfront | Navarre",
+    "venue_name": "Emerald Waterfront",
+    "artist": "Salt & Soul"
+  },
+  {
+    "event_name": "Lisa Christian | The Galway Irish Public House | Gulf Shores",
+    "venue_name": "The Galway Irish Public House",
+    "artist": "Lisa Christian"
+  },
+  {
+    "event_name": "Disco Kiss | Gulfside Pavilion | Pensacola Beach",
+    "venue_name": "Gulfside Pavilion",
+    "artist": "Disco Kiss"
+  },
+  {
+    "event_name": "Smokey Otis Duo | Papa Rocco’s | Gulf Shores",
+    "venue_name": "Papa Rocco’s",
+    "artist": "Smokey Otis Duo"
+  },
+  {
+    "event_name": "Just Roger | Mudbugs | Gulf Shores",
+    "venue_name": "Mudbugs",
+    "artist": "Just Roger"
+  },
+  {
+    "event_name": "Tim Roberts | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Tim Roberts"
+  },
+  {
+    "event_name": "Neil Dover | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Neil Dover"
+  },
+  {
+    "event_name": "Jesse Branham | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "Jesse Branham"
+  },
+  {
+    "event_name": "Danny Grady | Gulf Coast Elks Lodge 2782 | Foley",
+    "venue_name": "Gulf Coast Elks Lodge 2782",
+    "artist": "Danny Grady"
+  },
+  {
+    "event_name": "Lex Burroughs | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Lex Burroughs"
+  },
+  {
+    "event_name": "Mel Knapp | Cobalt | Orange Beach",
+    "venue_name": "Cobalt",
+    "artist": "Mel Knapp"
+  },
+  {
+    "event_name": "Matt Erdman | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Matt Erdman"
+  },
+  {
+    "event_name": "Rhonda Hart & Smokey Otis | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Rhonda Hart & Smokey Otis"
+  },
+  {
+    "event_name": "Cody & Tyler Livingston | Sandshaker Lounge | Pensacola Beach",
+    "venue_name": "Sandshaker Lounge",
+    "artist": "Cody & Tyler Livingston"
+  },
+  {
+    "event_name": "Saucy FuzZ | The Undertow | Orange Beach",
+    "venue_name": "The Undertow",
+    "artist": "Saucy FuzZ"
+  },
+  {
+    "event_name": "J Hawkins Duo | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "J Hawkins Duo"
+  },
+  {
+    "event_name": "Troy Martin | Emerald Waterfront | Navarre",
+    "venue_name": "Emerald Waterfront",
+    "artist": "Troy Martin"
+  },
+  {
+    "event_name": "Tim Roberts | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Tim Roberts"
+  },
+  {
+    "event_name": "JB Dyess | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "JB Dyess"
+  },
+  {
+    "event_name": "Mark Sherrill & Friends | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Mark Sherrill & Friends"
+  },
+  {
+    "event_name": "Magnolia Mayfield | Emerald Waterfront | Navarre",
+    "venue_name": "Emerald Waterfront",
+    "artist": "Magnolia Mayfield"
+  },
+  {
+    "event_name": "Zack Chavers | El Paso Mexican Grill | Foley",
+    "venue_name": "El Paso Mexican Grill",
+    "artist": "Zack Chavers"
+  },
+  {
+    "event_name": "The Steve & Joe Piano Show | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "The Steve & Joe Piano Show"
+  },
+  {
+    "event_name": "Funky Lampshades | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Funky Lampshades"
+  },
+  {
+    "event_name": "Dark Waters Project | Bamboo Willie’s Beachside Bar | Pensacola Beach",
+    "venue_name": "Bamboo Willie’s Beachside Bar",
+    "artist": "Dark Waters Project"
+  },
+  {
+    "event_name": "Jack Robertson/Big Earl | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Jack Robertson/Big Earl"
+  },
+  {
+    "event_name": "Tim Robinson | Papa Rocco’s | Gulf Shores",
+    "venue_name": "Papa Rocco’s",
+    "artist": "Tim Robinson"
+  },
+  {
+    "event_name": "Jay Moody | Paddy O’Leary’s Irish Pub | Pensacola Beach",
+    "venue_name": "Paddy O’Leary’s Irish Pub",
+    "artist": "Jay Moody"
+  },
+  {
+    "event_name": "Tim Roberts | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Tim Roberts"
+  },
+  {
+    "event_name": "Lea Anne Creswell Duo | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Lea Anne Creswell Duo"
+  },
+  {
+    "event_name": "Troy Martin | Emerald Waterfront | Navarre",
+    "venue_name": "Emerald Waterfront",
+    "artist": "Troy Martin"
+  },
+  {
+    "event_name": "Emily White | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "Emily White"
+  },
+  {
+    "event_name": "Lost Localz | Peg Leg Pete’s | Pensacola Beach",
+    "venue_name": "Peg Leg Pete’s",
+    "artist": "Lost Localz"
+  },
+  {
+    "event_name": "Jesse Ritter | Crabs on the Beach | Pensacola Beach",
+    "venue_name": "Crabs on the Beach",
+    "artist": "Jesse Ritter"
+  },
+  {
+    "event_name": "The Steve & Joe Big Show | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "The Steve & Joe Big Show"
+  },
+  {
+    "event_name": "Vinyl Revival | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Vinyl Revival"
+  },
+  {
+    "event_name": "Tim Roberts Trio | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Tim Roberts Trio"
+  },
+  {
+    "event_name": "Salt & Soul | Bounce Beach | Pensacola Beach",
+    "venue_name": "Bounce Beach",
+    "artist": "Salt & Soul"
+  },
+  {
+    "event_name": "J Hawkins Duo | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "J Hawkins Duo"
+  },
+  {
+    "event_name": "Tyler Ward | Shipp’s Dockside Grill | Orange Beach",
+    "venue_name": "Shipp’s Dockside Grill",
+    "artist": "Tyler Ward"
+  },
+  {
+    "event_name": "Paul Killough | Sandshaker Lounge | Pensacola Beach",
+    "venue_name": "Sandshaker Lounge",
+    "artist": "Paul Killough"
+  },
+  {
+    "event_name": "The Heat | Gelato Joe's | Foley",
+    "venue_name": "Gelato Joe's",
+    "artist": "The Heat"
+  },
+  {
+    "event_name": "Blackwater Cavalry Duo | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Blackwater Cavalry Duo"
+  },
+  {
+    "event_name": "Dark Waters Project | Crabs on the Beach | Pensacola Beach",
+    "venue_name": "Crabs on the Beach",
+    "artist": "Dark Waters Project"
+  },
+  {
+    "event_name": "Gringo Fife | Tacky Jacks | Orange Beach",
+    "venue_name": "Tacky Jacks",
+    "artist": "Gringo Fife"
+  },
+  {
+    "event_name": "Salt & Soul | Bounce Beach | Pensacola Beach",
+    "venue_name": "Bounce Beach",
+    "artist": "Salt & Soul"
+  },
+  {
+    "event_name": "Justin Fobes | Cobalt | Orange Beach",
+    "venue_name": "Cobalt",
+    "artist": "Justin Fobes"
+  },
+  {
+    "event_name": "Stevie Hall | Bounce Beach | Pensacola Beach",
+    "venue_name": "Bounce Beach",
+    "artist": "Stevie Hall"
+  },
+  {
+    "event_name": "Three Bean Soup | McGuire's Irish Pub | Pensacola",
+    "venue_name": "McGuire's Irish Pub",
+    "artist": "Three Bean Soup"
+  },
+  {
+    "event_name": "Lisa Zanghi | The Galway Irish Public House | Gulf Shores",
+    "venue_name": "The Galway Irish Public House",
+    "artist": "Lisa Zanghi"
+  },
+  {
+    "event_name": "Chris Beverly | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "Chris Beverly"
+  },
+  {
+    "event_name": "Justin Colvard w/ Adam Tyler Brown | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Justin Colvard w/ Adam Tyler Brown"
+  },
+  {
+    "event_name": "Nigel Dickie | Cobalt | Orange Beach",
+    "venue_name": "Cobalt",
+    "artist": "Nigel Dickie"
+  },
+  {
+    "event_name": "Strickly Rivers | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Strickly Rivers"
+  },
+  {
+    "event_name": "Mike Diamond | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Mike Diamond"
+  },
+  {
+    "event_name": "Logan Lassitter | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "Logan Lassitter"
+  },
+  {
+    "event_name": "Hippy Jim | The Oar House | Pensacola",
+    "venue_name": "The Oar House",
+    "artist": "Hippy Jim"
+  },
+  {
+    "event_name": "Tim Nowell | Doc’s Seafood and Steaks | Orange Beach",
+    "venue_name": "Doc’s Seafood and Steaks",
+    "artist": "Tim Nowell"
+  },
+  {
+    "event_name": "Elaine Petty & Tyler Ward | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "Elaine Petty & Tyler Ward"
+  },
+  {
+    "event_name": "JC Pringle | Purple Parrot Beach Bar & Grill | Perdido Key",
+    "venue_name": "Purple Parrot Beach Bar & Grill",
+    "artist": "JC Pringle"
+  },
+  {
+    "event_name": "Jason Crysell | Tiki & Raw Bar by Barometer | Orange Beach",
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "artist": "Jason Crysell"
+  },
+  {
+    "event_name": "Smokey & Veronica Jean | Papa Rocco’s | Gulf Shores",
+    "venue_name": "Papa Rocco’s",
+    "artist": "Smokey & Veronica Jean"
+  },
+  {
+    "event_name": "Tim Roberts Trio | Icehouse Tap Room | Gulf Shores",
+    "venue_name": "Icehouse Tap Room",
+    "artist": "Tim Roberts Trio"
+  },
+  {
+    "event_name": "Salt & Soul | Emerald Waterfront | Navarre",
+    "venue_name": "Emerald Waterfront",
+    "artist": "Salt & Soul"
+  },
+  {
+    "event_name": "Lisa Christian | The Galway Irish Public House | Gulf Shores",
+    "venue_name": "The Galway Irish Public House",
+    "artist": "Lisa Christian"
+  },
+  {
+    "event_name": "Smokey Otis Duo | Papa Rocco’s | Gulf Shores",
+    "venue_name": "Papa Rocco’s",
+    "artist": "Smokey Otis Duo"
+  },
+  {
+    "event_name": "Just Roger | Mudbugs | Gulf Shores",
+    "venue_name": "Mudbugs",
+    "artist": "Just Roger"
+  },
+  {
+    "event_name": "Lex Burroughs | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Lex Burroughs"
+  },
+  {
+    "event_name": "David Gautreau & The Delta Current | The Hangout | Gulf Shores",
+    "venue_name": "The Hangout",
+    "artist": "David Gautreau & The Delta Current"
+  },
+  {
+    "event_name": "Blackwater Cavalry | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Blackwater Cavalry"
+  },
+  {
+    "event_name": "Jay Moody | Paddy O’Leary’s Irish Pub | Pensacola Beach",
+    "venue_name": "Paddy O’Leary’s Irish Pub",
+    "artist": "Jay Moody"
+  },
+  {
+    "event_name": "Christina Crystal | The Dragonfly Bar & Grill @ The Lodge at Gulf State Park | Gulf Shores",
+    "venue_name": "The Dragonfly Bar & Grill @ The Lodge at Gulf State Park",
+    "artist": "Christina Crystal"
+  },
+  {
+    "event_name": "Lost Localz | Peg Leg Pete’s | Pensacola Beach",
+    "venue_name": "Peg Leg Pete’s",
+    "artist": "Lost Localz"
+  },
+  {
+    "event_name": "The Steve & Joe Big Show | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "The Steve & Joe Big Show"
+  },
+  {
+    "event_name": "Tribe Zion | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Tribe Zion"
+  },
+  {
+    "event_name": "Gringo Fife | Tacky Jacks | Orange Beach",
+    "venue_name": "Tacky Jacks",
+    "artist": "Gringo Fife"
+  },
+  {
+    "event_name": "Montgomery Highway | Moe's Original BBQ | Foley",
+    "venue_name": "Moe's Original BBQ",
+    "artist": "Montgomery Highway"
+  },
+  {
+    "event_name": "Blackwater Cavalry | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Blackwater Cavalry"
+  },
+  {
+    "event_name": "Christina Crystal | Perdido Key Breakfast Club | Perdido Key",
+    "venue_name": "Perdido Key Breakfast Club",
+    "artist": "Christina Crystal"
+  },
+  {
+    "event_name": "Horseshoe Kitty | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Horseshoe Kitty"
+  },
+  {
+    "event_name": "Lex Burroughs | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Lex Burroughs"
+  },
+  {
+    "event_name": "Mel Knapp | Cobalt | Orange Beach",
+    "venue_name": "Cobalt",
+    "artist": "Mel Knapp"
+  },
+  {
+    "event_name": "Jay Moody | Paddy O’Leary’s Irish Pub | Pensacola Beach",
+    "venue_name": "Paddy O’Leary’s Irish Pub",
+    "artist": "Jay Moody"
+  },
+  {
+    "event_name": "Jesse Ritter | Crabs on the Beach | Pensacola Beach",
+    "venue_name": "Crabs on the Beach",
+    "artist": "Jesse Ritter"
+  },
+  {
+    "event_name": "The Steve & Joe Big Show | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "The Steve & Joe Big Show"
+  },
+  {
+    "event_name": "Tribe Zion | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Tribe Zion"
+  },
+  {
+    "event_name": "Swampland Revival | The Hangout | Gulf Shores",
+    "venue_name": "The Hangout",
+    "artist": "Swampland Revival"
+  },
+  {
+    "event_name": "Pop Fiction | Juana’s Pagodas | Navarre",
+    "venue_name": "Juana’s Pagodas",
+    "artist": "Pop Fiction"
+  },
+  {
+    "event_name": "Christina Crystal | The Dragonfly Bar & Grill @ The Lodge at Gulf State Park | Gulf Shores",
+    "venue_name": "The Dragonfly Bar & Grill @ The Lodge at Gulf State Park",
+    "artist": "Christina Crystal"
+  },
+  {
+    "event_name": "Horseshoe Kitty | Emerald Waterfront | Navarre",
+    "venue_name": "Emerald Waterfront",
+    "artist": "Horseshoe Kitty"
+  },
+  {
+    "event_name": "Vinyl Revival | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Vinyl Revival"
+  },
+  {
+    "event_name": "Pop Fiction | Juana’s Pagodas | Navarre",
+    "venue_name": "Juana’s Pagodas",
+    "artist": "Pop Fiction"
+  },
+  {
+    "event_name": "Horseshoe Kitty | Juana’s Pagodas | Navarre",
+    "venue_name": "Juana’s Pagodas",
+    "artist": "Horseshoe Kitty"
+  },
+  {
+    "event_name": "Blackwater Cavalry | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Blackwater Cavalry"
+  },
+  {
+    "event_name": "Jay Moody | Paddy O’Leary’s Irish Pub | Pensacola Beach",
+    "venue_name": "Paddy O’Leary’s Irish Pub",
+    "artist": "Jay Moody"
+  },
+  {
+    "event_name": "Jesse Ritter | Crabs on the Beach | Pensacola Beach",
+    "venue_name": "Crabs on the Beach",
+    "artist": "Jesse Ritter"
+  },
+  {
+    "event_name": "The Steve & Joe Big Show | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "The Steve & Joe Big Show"
+  },
+  {
+    "event_name": "Tribe Zion | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Tribe Zion"
+  },
+  {
+    "event_name": "Horseshoe Kitty | Juana’s Pagodas | Navarre",
+    "venue_name": "Juana’s Pagodas",
+    "artist": "Horseshoe Kitty"
+  },
+  {
+    "event_name": "Gringo Fife | Tacky Jacks | Orange Beach",
+    "venue_name": "Tacky Jacks",
+    "artist": "Gringo Fife"
+  },
+  {
+    "event_name": "Lex Burroughs | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Lex Burroughs"
+  },
+  {
+    "event_name": "Mel Knapp | Cobalt | Orange Beach",
+    "venue_name": "Cobalt",
+    "artist": "Mel Knapp"
+  },
+  {
+    "event_name": "Horseshoe Kitty | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Horseshoe Kitty"
+  },
+  {
+    "event_name": "Christina Crystal | Tee Off at the Wharf @ Portside on Main | Orange Beach",
+    "venue_name": "Tee Off at the Wharf @ Portside on Main",
+    "artist": "Christina Crystal"
+  },
+  {
+    "event_name": "Jay Moody | Paddy O’Leary’s Irish Pub | Pensacola Beach",
+    "venue_name": "Paddy O’Leary’s Irish Pub",
+    "artist": "Jay Moody"
+  },
+  {
+    "event_name": "Alvarado Road Show | Lulu's | Gulf Shores",
+    "venue_name": "Lulu's",
+    "artist": "Alvarado Road Show"
+  },
+  {
+    "event_name": "Jesse Ritter | Crabs on the Beach | Pensacola Beach",
+    "venue_name": "Crabs on the Beach",
+    "artist": "Jesse Ritter"
+  },
+  {
+    "event_name": "The Steve & Joe Big Show | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "The Steve & Joe Big Show"
+  },
+  {
+    "event_name": "Blackwater Cavalry | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Blackwater Cavalry"
+  },
+  {
+    "event_name": "Christina Crystal | Moe's Original BBQ | Foley",
+    "venue_name": "Moe's Original BBQ",
+    "artist": "Christina Crystal"
+  },
+  {
+    "event_name": "the boxcats | Barometer Waterfront Grille | Orange Beach",
+    "venue_name": "Barometer Waterfront Grille",
+    "artist": "the boxcats"
+  },
+  {
+    "event_name": "Alvarado Road Show | Lulu's | Gulf Shores",
+    "venue_name": "Lulu's",
+    "artist": "Alvarado Road Show"
+  },
+  {
+    "event_name": "Tribe Zion | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Tribe Zion"
+  },
+  {
+    "event_name": "Gringo Fife | Tacky Jacks | Orange Beach",
+    "venue_name": "Tacky Jacks",
+    "artist": "Gringo Fife"
+  },
+  {
+    "event_name": "Horseshoe Kitty | Bamboo Willie’s Beachside Bar | Pensacola Beach",
+    "venue_name": "Bamboo Willie’s Beachside Bar",
+    "artist": "Horseshoe Kitty"
+  },
+  {
+    "event_name": "Christina Crystal | Perdido Key Breakfast Club | Perdido Key",
+    "venue_name": "Perdido Key Breakfast Club",
+    "artist": "Christina Crystal"
+  },
+  {
+    "event_name": "By The Way | OSO at Bear Point Harbor | Orange Beach",
+    "venue_name": "OSO at Bear Point Harbor",
+    "artist": "By The Way"
+  },
+  {
+    "event_name": "Lex Burroughs | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Lex Burroughs"
+  },
+  {
+    "event_name": "David Gautreau & The Delta Current | The Hangout | Gulf Shores",
+    "venue_name": "The Hangout",
+    "artist": "David Gautreau & The Delta Current"
+  },
+  {
+    "event_name": "Jay Moody | Paddy O’Leary’s Irish Pub | Pensacola Beach",
+    "venue_name": "Paddy O’Leary’s Irish Pub",
+    "artist": "Jay Moody"
+  },
+  {
+    "event_name": "Jesse Ritter | Crabs on the Beach | Pensacola Beach",
+    "venue_name": "Crabs on the Beach",
+    "artist": "Jesse Ritter"
+  },
+  {
+    "event_name": "The Steve & Joe Big Show | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "The Steve & Joe Big Show"
+  },
+  {
+    "event_name": "Montgomery Highway | Tacky Jacks | Gulf Shores",
+    "venue_name": "Tacky Jacks",
+    "artist": "Montgomery Highway"
+  },
+  {
+    "event_name": "Buzzcut | Sandshaker Lounge | Pensacola Beach",
+    "venue_name": "Sandshaker Lounge",
+    "artist": "Buzzcut"
+  },
+  {
+    "event_name": "High Cotton | Bushwacker’s Landing | Perdido Key",
+    "venue_name": "Bushwacker’s Landing",
+    "artist": "High Cotton"
+  },
+  {
+    "event_name": "Montgomery Highway | Moe's Original BBQ | Foley",
+    "venue_name": "Moe's Original BBQ",
+    "artist": "Montgomery Highway"
+  },
+  {
+    "event_name": "Buzzcut | Sandshaker Lounge | Pensacola Beach",
+    "venue_name": "Sandshaker Lounge",
+    "artist": "Buzzcut"
+  },
+  {
+    "event_name": "Lex Burroughs | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Lex Burroughs"
+  },
+  {
+    "event_name": "Mel Knapp | Cobalt | Orange Beach",
+    "venue_name": "Cobalt",
+    "artist": "Mel Knapp"
+  },
+  {
+    "event_name": "Horseshoe Kitty | Flounders Chowder House | Pensacola Beach",
+    "venue_name": "Flounders Chowder House",
+    "artist": "Horseshoe Kitty"
+  },
+  {
+    "event_name": "Jay Moody | Paddy O’Leary’s Irish Pub | Pensacola Beach",
+    "venue_name": "Paddy O’Leary’s Irish Pub",
+    "artist": "Jay Moody"
+  },
+  {
+    "event_name": "Lost Localz | Peg Leg Pete’s | Pensacola Beach",
+    "venue_name": "Peg Leg Pete’s",
+    "artist": "Lost Localz"
+  },
+  {
+    "event_name": "The Steve & Joe Big Show | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "The Steve & Joe Big Show"
+  },
+  {
+    "event_name": "Horseshoe Kitty | Flounders Chowder House | Pensacola Beach",
+    "venue_name": "Flounders Chowder House",
+    "artist": "Horseshoe Kitty"
+  },
+  {
+    "event_name": "Dallas Moore | Flora-Bama | Orange Beach",
+    "venue_name": "Flora-Bama",
+    "artist": "Dallas Moore"
+  },
+  {
+    "event_name": "Koontz | Pirates Cove | Elberta",
+    "venue_name": "Pirates Cove",
+    "artist": "Koontz"
+  },
+  {
+    "event_name": "Angela Easley | Lulu's | Gulf Shores",
+    "venue_name": "Lulu's",
+    "artist": "Angela Easley"
+  },
+  {
+    "event_name": "Blackwater Cavalry | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Blackwater Cavalry"
+  },
+  {
+    "event_name": "Horseshoe Kitty | Flounders Chowder House | Pensacola Beach",
+    "venue_name": "Flounders Chowder House",
+    "artist": "Horseshoe Kitty"
+  },
+  {
+    "event_name": "Dallas Moore | Flora-Bama | Orange Beach",
+    "venue_name": "Flora-Bama",
+    "artist": "Dallas Moore"
+  },
+  {
+    "event_name": "Horseshoe Kitty | Flounders Chowder House | Pensacola Beach",
+    "venue_name": "Flounders Chowder House",
+    "artist": "Horseshoe Kitty"
+  },
+  {
+    "event_name": "Dallas Moore | Flora-Bama | Orange Beach",
+    "venue_name": "Flora-Bama",
+    "artist": "Dallas Moore"
+  },
+  {
+    "event_name": "Lex Burroughs | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Lex Burroughs"
+  },
+  {
+    "event_name": "Jay Moody | Paddy O’Leary’s Irish Pub | Pensacola Beach",
+    "venue_name": "Paddy O’Leary’s Irish Pub",
+    "artist": "Jay Moody"
+  },
+  {
+    "event_name": "The Steve & Joe Big Show | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "The Steve & Joe Big Show"
+  },
+  {
+    "event_name": "Tribe Zion | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Tribe Zion"
+  },
+  {
+    "event_name": "Vinyl Revival | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Vinyl Revival"
+  },
+  {
+    "event_name": "the boxcats | Barometer Waterfront Grille | Orange Beach",
+    "venue_name": "Barometer Waterfront Grille",
+    "artist": "the boxcats"
+  },
+  {
+    "event_name": "Horseshoe Kitty | Bamboo Willie’s Beachside Bar | Pensacola Beach",
+    "venue_name": "Bamboo Willie’s Beachside Bar",
+    "artist": "Horseshoe Kitty"
+  },
+  {
+    "event_name": "Alvarado Road Show | Lulu's | Gulf Shores",
+    "venue_name": "Lulu's",
+    "artist": "Alvarado Road Show"
+  },
+  {
+    "event_name": "Alvarado Road Show | Lulu's | Gulf Shores",
+    "venue_name": "Lulu's",
+    "artist": "Alvarado Road Show"
+  },
+  {
+    "event_name": "Mel Knapp | Cobalt | Orange Beach",
+    "venue_name": "Cobalt",
+    "artist": "Mel Knapp"
+  },
+  {
+    "event_name": "Jay Moody | Paddy O’Leary’s Irish Pub | Pensacola Beach",
+    "venue_name": "Paddy O’Leary’s Irish Pub",
+    "artist": "Jay Moody"
+  },
+  {
+    "event_name": "The Steve & Joe Big Show | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "The Steve & Joe Big Show"
+  },
+  {
+    "event_name": "Horseshoe Kitty | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Horseshoe Kitty"
+  },
+  {
+    "event_name": "Lex Burroughs | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Lex Burroughs"
+  },
+  {
+    "event_name": "Blackwater Cavalry | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Blackwater Cavalry"
+  },
+  {
+    "event_name": "Jay Moody | Paddy O’Leary’s Irish Pub | Pensacola Beach",
+    "venue_name": "Paddy O’Leary’s Irish Pub",
+    "artist": "Jay Moody"
+  },
+  {
+    "event_name": "The Steve & Joe Big Show | Flora-Bama | Perdido Key",
+    "venue_name": "Flora-Bama",
+    "artist": "The Steve & Joe Big Show"
+  },
+  {
+    "event_name": "SheAndTheIts Band | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "SheAndTheIts Band"
+  },
+  {
+    "event_name": "Horseshoe Kitty | Juana’s Pagodas | Navarre",
+    "venue_name": "Juana’s Pagodas",
+    "artist": "Horseshoe Kitty"
+  },
+  {
+    "event_name": "Tribe Zion | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Tribe Zion"
+  },
+  {
+    "event_name": "Montgomery Highway | Tacky Jacks | Gulf Shores",
+    "venue_name": "Tacky Jacks",
+    "artist": "Montgomery Highway"
+  },
+  {
+    "event_name": "Horseshoe Kitty | Juana’s Pagodas | Navarre",
+    "venue_name": "Juana’s Pagodas",
+    "artist": "Horseshoe Kitty"
+  },
+  {
+    "event_name": "Horseshoe Kitty | Bamboo Willie’s Beachside Bar | Pensacola Beach",
+    "venue_name": "Bamboo Willie’s Beachside Bar",
+    "artist": "Horseshoe Kitty"
+  },
+  {
+    "event_name": "By The Way | OSO at Bear Point Harbor | Orange Beach",
+    "venue_name": "OSO at Bear Point Harbor",
+    "artist": "By The Way"
+  },
+  {
+    "event_name": "Tribe Zion | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Tribe Zion"
+  },
+  {
+    "event_name": "Montgomery Highway | Tacky Jacks | Gulf Shores",
+    "venue_name": "Tacky Jacks",
+    "artist": "Montgomery Highway"
+  },
+  {
+    "event_name": "Blackwater Cavalry | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Blackwater Cavalry"
+  },
+  {
+    "event_name": "Mel Knapp | Cobalt | Orange Beach",
+    "venue_name": "Cobalt",
+    "artist": "Mel Knapp"
+  },
+  {
+    "event_name": "Vinyl Revival | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Vinyl Revival"
+  },
+  {
+    "event_name": "Horseshoe Kitty | Bamboo Willie’s Beachside Bar | Pensacola Beach",
+    "venue_name": "Bamboo Willie’s Beachside Bar",
+    "artist": "Horseshoe Kitty"
+  },
+  {
+    "event_name": "Horseshoe Kitty | Juana’s Pagodas | Navarre",
+    "venue_name": "Juana’s Pagodas",
+    "artist": "Horseshoe Kitty"
+  },
+  {
+    "event_name": "Horseshoe Kitty | Juana’s Pagodas | Navarre",
+    "venue_name": "Juana’s Pagodas",
+    "artist": "Horseshoe Kitty"
+  },
+  {
+    "event_name": "Alvarado Road Show | Lulu's | Gulf Shores",
+    "venue_name": "Lulu's",
+    "artist": "Alvarado Road Show"
+  },
+  {
+    "event_name": "Blackwater Cavalry | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Blackwater Cavalry"
+  },
+  {
+    "event_name": "Buzzcut | Sandshaker Lounge | Pensacola Beach",
+    "venue_name": "Sandshaker Lounge",
+    "artist": "Buzzcut"
+  },
+  {
+    "event_name": "Alvarado Road Show | Lulu's | Gulf Shores",
+    "venue_name": "Lulu's",
+    "artist": "Alvarado Road Show"
+  },
+  {
+    "event_name": "Buzzcut | Sandshaker Lounge | Pensacola Beach",
+    "venue_name": "Sandshaker Lounge",
+    "artist": "Buzzcut"
+  },
+  {
+    "event_name": "Horseshoe Kitty | Bamboo Willie’s Beachside Bar | Pensacola Beach",
+    "venue_name": "Bamboo Willie’s Beachside Bar",
+    "artist": "Horseshoe Kitty"
+  },
+  {
+    "event_name": "Mel Knapp | Cobalt | Orange Beach",
+    "venue_name": "Cobalt",
+    "artist": "Mel Knapp"
+  },
+  {
+    "event_name": "Tribe Zion | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Tribe Zion"
+  },
+  {
+    "event_name": "Montgomery Highway | Tacky Jacks | Gulf Shores",
+    "venue_name": "Tacky Jacks",
+    "artist": "Montgomery Highway"
+  },
+  {
+    "event_name": "By The Way | OSO at Bear Point Harbor | Orange Beach",
+    "venue_name": "OSO at Bear Point Harbor",
+    "artist": "By The Way"
+  },
+  {
+    "event_name": "Webb Dalton | The Hangout | Gulf Shores",
+    "venue_name": "The Hangout",
+    "artist": "Webb Dalton"
+  },
+  {
+    "event_name": "Horseshoe Kitty | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Horseshoe Kitty"
+  },
+  {
+    "event_name": "Horseshoe Kitty | Emerald Waterfront | Navarre",
+    "venue_name": "Emerald Waterfront",
+    "artist": "Horseshoe Kitty"
+  },
+  {
+    "event_name": "Tribe Zion | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Tribe Zion"
+  },
+  {
+    "event_name": "Montgomery Highway | Tacky Jacks | Gulf Shores",
+    "venue_name": "Tacky Jacks",
+    "artist": "Montgomery Highway"
+  },
+  {
+    "event_name": "Mel Knapp | Cobalt | Orange Beach",
+    "venue_name": "Cobalt",
+    "artist": "Mel Knapp"
+  },
+  {
+    "event_name": "Blackwater Cavalry | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Blackwater Cavalry"
+  },
+  {
+    "event_name": "Vinyl Revival | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Vinyl Revival"
+  },
+  {
+    "event_name": "By The Way | OSO at Bear Point Harbor | Orange Beach",
+    "venue_name": "OSO at Bear Point Harbor",
+    "artist": "By The Way"
+  },
+  {
+    "event_name": "Tribe Zion | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Tribe Zion"
+  },
+  {
+    "event_name": "Buzzcut | Sandshaker Lounge | Pensacola Beach",
+    "venue_name": "Sandshaker Lounge",
+    "artist": "Buzzcut"
+  },
+  {
+    "event_name": "Blackwater Cavalry | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Blackwater Cavalry"
+  },
+  {
+    "event_name": "Buzzcut | Sandshaker Lounge | Pensacola Beach",
+    "venue_name": "Sandshaker Lounge",
+    "artist": "Buzzcut"
+  },
+  {
+    "event_name": "Mel Knapp | Cobalt | Orange Beach",
+    "venue_name": "Cobalt",
+    "artist": "Mel Knapp"
+  },
+  {
+    "event_name": "Montgomery Highway | Tacky Jacks | Gulf Shores",
+    "venue_name": "Tacky Jacks",
+    "artist": "Montgomery Highway"
+  },
+  {
+    "event_name": "Horseshoe Kitty | Gulfside Pavilion | Pensacola Beach",
+    "venue_name": "Gulfside Pavilion",
+    "artist": "Horseshoe Kitty"
+  },
+  {
+    "event_name": "Horseshoe Kitty | Juana’s Pagodas | Navarre",
+    "venue_name": "Juana’s Pagodas",
+    "artist": "Horseshoe Kitty"
+  },
+  {
+    "event_name": "Tribe Zion | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Tribe Zion"
+  },
+  {
+    "event_name": "Horseshoe Kitty | Juana’s Pagodas | Navarre",
+    "venue_name": "Juana’s Pagodas",
+    "artist": "Horseshoe Kitty"
+  },
+  {
+    "event_name": "Tribe Zion | Andy D's | Navarre",
+    "venue_name": "Andy D's",
+    "artist": "Tribe Zion"
+  },
+  {
+    "event_name": "Horseshoe Kitty | Juana’s Pagodas | Navarre",
+    "venue_name": "Juana’s Pagodas",
+    "artist": "Horseshoe Kitty"
+  },
+  {
+    "event_name": "Horseshoe Kitty | Juana’s Pagodas | Navarre",
+    "venue_name": "Juana’s Pagodas",
+    "artist": "Horseshoe Kitty"
+  },
+  {
+    "event_name": "Buzzcut | Sandshaker Lounge | Pensacola Beach",
+    "venue_name": "Sandshaker Lounge",
+    "artist": "Buzzcut"
+  },
+  {
+    "event_name": "Buzzcut | Sandshaker Lounge | Pensacola Beach",
+    "venue_name": "Sandshaker Lounge",
+    "artist": "Buzzcut"
+  },
+  {
+    "event_name": "Horseshoe Kitty | Juana’s Pagodas | Navarre",
+    "venue_name": "Juana’s Pagodas",
+    "artist": "Horseshoe Kitty"
+  },
+  {
+    "event_name": "Horseshoe Kitty | Juana’s Pagodas | Navarre",
+    "venue_name": "Juana’s Pagodas",
+    "artist": "Horseshoe Kitty"
+  },
+  {
+    "event_name": "Kevin Koontz | Pirates Cove | Elberta",
+    "venue_name": "Pirates Cove",
+    "artist": "Kevin Koontz"
+  }
+]

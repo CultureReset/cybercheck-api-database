@@ -1,0 +1,281 @@
+{
+  "business_name": "Cobalt, The Restaurant",
+  "cuisine_type": "Contemporary Coastal Cuisine",
+  "price_range": null,
+  "description": "Come experience contemporary coastal cuisine at its best. Cobalt the Restaurant, located in Orange Beach, features authentic dishes crafted by renowned chefs in three distinct kitchens. Nestled under the Perdido Pass Bridge, next to Caribe Resort, patrons can enjoy a spectacular view of the bay from every table. For those who wish to approach by water, there are numerous boat slips available for small boats as well as medium-sized yachts. However you choose to arrive, Cobalt offers a casual and relaxing atmosphere with waterfront dining, live music, and superior service. Open daily for lunch and dinner.",
+  "atmosphere": "Casual and relaxing waterfront dining with live music",
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": "251-923-5300",
+    "email": null,
+    "address": "28099 Perdido Beach Blvd, Orange Beach, AL 36561",
+    "website": "https://cobaltrestaurant.net/",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": "https://www.facebook.com/cobalttherestaurant/",
+      "instagram": "https://www.instagram.com/cobalttherestaurant/",
+      "twitter": "https://twitter.com/Cobaltoba",
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": "11 a.m. to 9:30 p.m.",
+    "tuesday": "11 a.m. to 9:30 p.m.",
+    "wednesday": "11 a.m. to 9:30 p.m.",
+    "thursday": "11 a.m. to 9:30 p.m.",
+    "friday": "11 a.m. to 10:00 p.m.",
+    "saturday": "11 a.m. to 10:00 p.m.",
+    "sunday": "11 a.m. to 9:30 p.m.",
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": true,
+    "takeout_available": null,
+    "delivery_available": null,
+    "curbside_available": null,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [
+      {
+        "name": "Appetizers",
+        "description": null,
+        "items": [
+          {
+            "name": "BBQ Gulf Shrimp",
+            "description": null,
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": true,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Crab and Shrimp Dip",
+            "description": null,
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": true,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Cobalt Caviar",
+            "description": "A refreshing blend of black beans, edamame, corn, red onion, Roma tomatoes, and cilantro tossed in a light vinaigrette and served with corn tortilla chips",
+            "price": null,
+            "dietary_flags": [
+              "vegetarian",
+              "vegan"
+            ],
+            "allergens": null,
+            "is_signature": true,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Firecracker Shrimp",
+            "description": "Lightly dusted, fried, and tossed in spicy remoulade sauce",
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": true,
+            "is_seasonal": false,
+            "availability": null
+          }
+        ]
+      },
+      {
+        "name": "Entrees",
+        "description": null,
+        "items": [
+          {
+            "name": "Gulf Shrimp and Grits",
+            "description": null,
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": true,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Pecan Catfish",
+            "description": null,
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": true,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Bronze Gulf Grouper",
+            "description": null,
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": true,
+            "is_seasonal": false,
+            "availability": null
+          }
+        ]
+      },
+      {
+        "name": "Desserts",
+        "description": "Several mouthwatering desserts",
+        "items": []
+      }
+    ],
+    "wine_list": null,
+    "beer_selection": "Draft beer available",
+    "cocktails": null,
+    "kids_menu": null,
+    "catering_menu": "Available - see catering page",
+    "dietary_accommodations": {
+      "vegetarian": true,
+      "vegan": true,
+      "gluten_free": null,
+      "dairy_free": null,
+      "nut_free": null,
+      "kosher": null,
+      "halal": null
+    }
+  },
+  "happy_hour": {
+    "available": true,
+    "days": "Daily",
+    "start_time": "3 p.m.",
+    "end_time": "5 p.m.",
+    "drink_specials": "Specials on draft beer and house wines",
+    "food_specials": "Cobalt Caviar, Firecracker Shrimp",
+    "full_details": "We have the best on the Island! Our Happy Hour is served daily from 3 p.m. to 5 p.m. and features specials on draft beer, house wines and awesome appetizers. Savor our Cobalt Caviar, a refreshing blend of black beans, edamame, corn, red onion, Roma tomatoes, and cilantro tossed in a light vinaigrette and served with corn tortilla chips or our Firecracker Shrimp, lightly dusted, fried, and tossed in spicy remoulade sauce."
+  },
+  "specials_and_promotions": [],
+  "entertainment_and_events": [
+    {
+      "type": "live_music",
+      "name": "Live Music",
+      "days": "Regular schedule available",
+      "start_time": null,
+      "end_time": null,
+      "description": "Live music entertainment available",
+      "cover_charge": null,
+      "featured_artist": null
+    }
+  ],
+  "private_events": {
+    "available": true,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": true,
+    "packages": "Available - see catering page for details"
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": null,
+    "pets_allowed": null
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": null,
+    "online_booking_platform": null,
+    "phone_reservations": "251-923-5300",
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": null,
+    "private_dining": true
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": null,
+    "email_signup": null,
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": null,
+    "farm_to_table": null,
+    "sustainable": null,
+    "organic": null,
+    "details": null
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [
+      "Gulf Shrimp and Grits",
+      "Pecan Catfish",
+      "Bronze Gulf Grouper",
+      "Cobalt Caviar",
+      "Firecracker Shrimp"
+    ],
+    "common_praise": [
+      "Contemporary coastal cuisine",
+      "Waterfront dining",
+      "Spectacular bay views",
+      "Live music",
+      "Superior service",
+      "Casual and relaxing atmosphere"
+    ],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "restaurant",
+      "url": "https://cobaltrestaurant.net/wp-content/uploads/2019/01/cobalt.jpg",
+      "description": "Aerial view of restaurant"
+    },
+    {
+      "type": "food",
+      "url": "https://cobaltrestaurant.net/wp-content/uploads/2020/03/shrimp-grits-2.jpg",
+      "description": "Grilled shrimp over grits"
+    },
+    {
+      "type": "food",
+      "url": "https://cobaltrestaurant.net/wp-content/uploads/2020/03/IMG_5222.jpg",
+      "description": "Select appetizers and house wine"
+    },
+    {
+      "type": "catering",
+      "url": "https://cobaltrestaurant.net/wp-content/uploads/2020/03/catering5.jpg",
+      "description": "Catering event"
+    },
+    {
+      "type": "logo",
+      "url": "https://cobaltrestaurant.net/wp-content/uploads/2019/01/cobalt_small.png",
+      "description": "Cobalt, The Restaurant Logo"
+    },
+    {
+      "type": "logo",
+      "url": "https://cobaltrestaurant.net/wp-content/uploads/2019/01/cobalt_logo-300x140.png",
+      "description": "Cobalt logo"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "Cobalt, The Restaurant - Welcome to Cobalt the Restaurant. Come experience contemporary coastal cuisine at its best. Cobalt the Restaurant, located in Orange Beach, features authentic dishes crafted by renowned chefs in three distinct kitchens. Nestled under the Perdido Pass Bridge, next to Caribe Resort, patrons can enjoy a spectacular view of the bay from every table. For those who wish to approach by water, there are numerous boat slips available for small boats as well as medium-sized yachts. However you choose to arrive, Cobalt offers a casual and relaxing atmosphere with waterfront dining, live music, and superior service. Open daily for lunch and dinner. Contemporary Coastal Cuisine. Dine with Us! Our extensive menus, combined with our waterfront dining experience, offer a variety of options and have something for everyone. Why not start with our BBQ Gulf Shrimp or Crab and Shrimp Dip? Next, try one of our specialties like Gulf Shrimp and Grits, Pecan Catfish or Bronze Gulf Grouper. Don't forget desserts – we have several mouthwatering ones to choose from! Happy Hour. We have the best on the Island! Our Happy Hour is served daily from 3 p.m. to 5 p.m. and features specials on draft beer, house wines and awesome appetizers. Savor our Cobalt Caviar, a refreshing blend of black beans, edamame, corn, red onion, Roma tomatoes, and cilantro tossed in a light vinaigrette and served with corn tortilla chips or our Firecracker Shrimp, lightly dusted, fried, and tossed in spicy remoulade sauce. We'll see you on the patio! Contact Information. Address: 28099 Perdido Beach Blvd, Orange Beach, AL 36561. Phone: 251-923-5300. Mailing Address: P.O. Box 1215, Orange Beach AL 36561. Hours: Sunday – Thursday 11 a.m. to 9:30 p.m. Friday – Saturday 11 a.m. to 10:00 p.m. Sunday Brunch 11 a.m. to 2:00 p.m.",
+  "extraction_confidence": "high",
+  "extraction_notes": "Successfully extracted comprehensive restaurant data including contact information, hours, menu highlights, happy hour details, and social media links. Full detailed menu with pricing not available on homepage - appears to be on separate menu pages. No information found regarding: catering menu details, private events capacity/pricing, delivery services, accessibility details, dress code, gift cards, loyalty programs, full wine list, or detailed reviews. The website appears to have separate pages for menus, catering, and events which would contain additional details.",
+  "folder": "ChIJs5Kz5JwHmogRyeMoXBx1gX8_Cobalt the Restaurant",
+  "extracted_at": "2026-05-15T06:36:38.673Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJs5Kz5JwHmogRyeMoXBx1gX8_Cobalt the Restaurant/01_raw_html.html"
+}

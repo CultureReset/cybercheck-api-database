@@ -1,0 +1,93 @@
+{
+  "name": "Tacky Jacks Seafood Restaurant and Tavern",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "",
+    "address": "",
+    "city": "",
+    "email": ""
+  },
+  "hours": {},
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Breakfast",
+      "name": "Farmer's Omelet",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Mexican Garbage - The Ultimate Beef & Cheese Nachos",
+      "description": "The Best in Alabama",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Shrimp and Grits",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Steamed North American Snow Crab Platter",
+      "description": "1 pound of steamed crab legs, corn, red potatoes, and warm butter",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Tacky Jacks Seafood Trio",
+      "description": "Shrimp, Oysters, and Flaky Fish",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "The TJ Burger",
+      "description": "2 Quarter Pound Burger-balls, hand-smashed and griddled to juicy perfection",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Fried Oyster Poboy",
+      "description": "Fried oyster Poboy with french-fries and chips",
+      "price": ""
+    },
+    {
+      "category": "Beverages",
+      "name": "World-famous Bushwacker",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Beverages",
+      "name": "Bloody Mary - loaded",
+      "description": "A Bloody Mary topped with awesomeness",
+      "price": ""
+    },
+    {
+      "category": "Beverages",
+      "name": "Party in a Cup",
+      "description": "",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Happy Hour",
+      "description": "$1 off Domestic Beer, House Wine by the Glass, and Well Drinks",
+      "discount": ""
+    },
+    {
+      "name": "Karaoke",
+      "description": "Karaoke nights at various locations",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:51.483Z"
+}

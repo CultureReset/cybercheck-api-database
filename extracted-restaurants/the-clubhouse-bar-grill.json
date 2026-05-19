@@ -1,0 +1,131 @@
+{
+  "name": "The Clubhouse Bar & Grill",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "(251) 968-3002",
+    "address": "3840 Cotton Creek Circle",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {
+    "monday": "7:30am-5:30pm",
+    "tuesday": "7:30am-5:30pm",
+    "wednesday": "7:30am-5:30pm",
+    "thursday": "7:30am-5:30pm",
+    "friday": "7:30am-5:30pm",
+    "saturday": "7:30am-5:30pm",
+    "sunday": "7:30am-5:30pm"
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Breakfast",
+      "name": "Breakfast Biscuit",
+      "description": "Egg, cheese and choice of bacon or sausage",
+      "price": ""
+    },
+    {
+      "category": "Lunch",
+      "name": "Craft Farms Burger",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Lunch",
+      "name": "Crab Cakes",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Lunch",
+      "name": "Fried Green Tomatoes",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Lunch",
+      "name": "Signature Boar's Head Club Sandwich",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Lunch",
+      "name": "Watermelon & Peach Salad",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Lunch",
+      "name": "World-Famous Onion Rings",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Grab & Go",
+      "name": "Turkey Wrap",
+      "description": "Freshly made",
+      "price": ""
+    },
+    {
+      "category": "Grab & Go",
+      "name": "Ham Wrap",
+      "description": "Freshly made",
+      "price": ""
+    },
+    {
+      "category": "Grab & Go",
+      "name": "Hot Dog",
+      "description": "Hot off the grill with full topping bar",
+      "price": ""
+    },
+    {
+      "category": "Beverages",
+      "name": "Beer Selection",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Beverages",
+      "name": "Cocktails",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Beverages",
+      "name": "Water",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Beverages",
+      "name": "Soda",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Beverages",
+      "name": "Gatorade",
+      "description": "",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Breakfast Service",
+      "description": "Breakfast service daily",
+      "discount": ""
+    },
+    {
+      "name": "Lunch Service",
+      "description": "Lunch service daily",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:51.628Z"
+}

@@ -1,0 +1,55 @@
+{
+  "name": "Lillian's Pizza",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "(850) 492-0131",
+    "address": "14514 PERDIDO KEY DR.",
+    "city": "PENSACOLA",
+    "email": ""
+  },
+  "hours": {
+    "monday": "11am-9pm",
+    "tuesday": "11am-9pm",
+    "wednesday": "11am-9pm",
+    "thursday": "11am-9pm",
+    "friday": "11am-9pm",
+    "saturday": "11am-10pm",
+    "sunday": "11am-10pm"
+  },
+  "about": {},
+  "social": {},
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Buffet",
+      "description": "Pizza and Salad Buffet",
+      "discount": ""
+    },
+    {
+      "name": "Draft Beer Special",
+      "description": "$5 Draft",
+      "discount": ""
+    },
+    {
+      "name": "Weekend Draft Beer Special",
+      "description": "$5 Draft all day",
+      "discount": ""
+    },
+    {
+      "name": "Bottle Beer Special",
+      "description": "$4 Domestic Bottle, $6 Import Bottle",
+      "discount": ""
+    },
+    {
+      "name": "Daiquiri Special",
+      "description": "50% Off Daiquiris",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:50.558Z"
+}

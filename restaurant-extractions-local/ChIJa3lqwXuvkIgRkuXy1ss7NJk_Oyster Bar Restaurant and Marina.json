@@ -1,0 +1,135 @@
+{
+  "business_name": "Oyster Bar 31",
+  "cuisine_type": null,
+  "price_range": null,
+  "description": null,
+  "atmosphere": null,
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": null,
+    "website": "https://www.oysterbar31.com",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": null,
+      "instagram": null,
+      "twitter": null,
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": null,
+    "takeout_available": null,
+    "delivery_available": null,
+    "curbside_available": null,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [],
+    "wine_list": null,
+    "beer_selection": null,
+    "cocktails": null,
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": null,
+      "vegan": null,
+      "gluten_free": null,
+      "dairy_free": null,
+      "nut_free": null,
+      "kosher": null,
+      "halal": null
+    }
+  },
+  "happy_hour": {
+    "available": null,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [],
+  "entertainment_and_events": [],
+  "private_events": {
+    "available": null,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": null,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": null,
+    "pets_allowed": null
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": null,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": null,
+    "private_dining": null
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": null,
+    "email_signup": null,
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": null,
+    "farm_to_table": null,
+    "sustainable": null,
+    "organic": null,
+    "details": null
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [],
+    "common_praise": [],
+    "common_complaints": []
+  },
+  "photos_and_media": [],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "The provided HTML contains only website framework code (CSS, JavaScript, and meta tags). No visible restaurant content, menu items, business information, hours, contact details, or any other restaurant-specific data appears in the body of the page. The page appears to be a Wix-built website template that has not been populated with actual restaurant content.",
+  "extraction_confidence": "low",
+  "extraction_notes": "This HTML file contains only the structural and framework code for a Wix website builder platform (CSS stylesheets, JavaScript bundles, meta tags, and configuration scripts). No actual restaurant content is visible in the HTML body. The website at oysterbar31.com appears to be either: 1) Not fully loaded in this HTML snippet, 2) Dynamically rendered after initial page load, or 3) The page content is served through JavaScript that is not executed in this static HTML analysis. To extract actual restaurant data, a fully rendered version of the website would be needed, or the page would need to be accessed via a browser that can execute JavaScript and load dynamic content.",
+  "folder": "ChIJa3lqwXuvkIgRkuXy1ss7NJk_Oyster Bar Restaurant and Marina",
+  "extracted_at": "2026-05-15T06:25:14.447Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJa3lqwXuvkIgRkuXy1ss7NJk_Oyster Bar Restaurant and Marina/01_raw_html.html"
+}

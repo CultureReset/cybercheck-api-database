@@ -1,0 +1,188 @@
+{
+  "name": "OSO at Bear Point Harbor",
+  "type": "Restaurant",
+  "website": "https://www.osobearpoint.com",
+  "contact": {
+    "phone": "(251) 345-6738",
+    "address": "5749 Bay La Launch Avenue",
+    "city": "Orange Beach",
+    "email": "osorestaurants@gmail.com"
+  },
+  "hours": {
+    "monday": "11:00 AM - 9:00 PM",
+    "tuesday": "11:00 AM - 9:00 PM",
+    "wednesday": "11:00 AM - 9:00 PM",
+    "thursday": "11:00 AM - 9:00 PM",
+    "friday": "11:00 AM - 10:00 PM",
+    "saturday": "11:00 AM - 10:00 PM",
+    "sunday": "11:00 AM - 9:00 PM",
+    "notes": null
+  },
+  "about": {
+    "description": "OSO at Bear Point Harbor is a coastal cuisine restaurant inspired by vibrant coastlines from Florida to Mexico, offering fresh, locally sourced seafood and inventive dishes with bold seasonings. The restaurant features lively harbor views and a warm, inviting atmosphere designed for unforgettable dining experiences.",
+    "elevator_pitch": "A coastal cuisine restaurant blending fresh, locally-inspired ingredients with bold seasonings from Florida to Mexico in a vibrant harbor setting.",
+    "vibe": "Relaxed and celebratory with lively harbor views, vibrant atmosphere, and a focus on fresh, bold coastal flavors",
+    "best_for": [
+      "seafood lovers",
+      "casual dining",
+      "date night",
+      "families",
+      "sunset dining",
+      "special gatherings"
+    ],
+    "established": null,
+    "reservations": null,
+    "insider_tip": "Sit outside on warm days for spectacular sunset dining; the oysters and grouper bites are highly recommended"
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://www.osobearpoint.com"
+  },
+  "menu": [
+    {
+      "category": "Breakfast",
+      "name": "Coffee",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Breakfast",
+      "name": "Burritos",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Lunch",
+      "name": "Fish Tacos",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Lunch",
+      "name": "Tuna Bowl",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Lunch",
+      "name": "French Dip",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Lunch",
+      "name": "Burgers",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Lunch",
+      "name": "Flatbread",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Lunch",
+      "name": "Quesadillas",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Lunch",
+      "name": "Nachos",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Dinner",
+      "name": "Oysters",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Dinner",
+      "name": "Fried Shrimp",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Dinner",
+      "name": "Grouper Bites",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Dinner",
+      "name": "Fish",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Dinner",
+      "name": "Fried Fish",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Dinner",
+      "name": "Crab",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Dinner",
+      "name": "Shrimp",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Dinner",
+      "name": "Gumbo",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Bar Food",
+      "name": "Wings",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Bar Food",
+      "name": "Fried Pickles",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Bar Food",
+      "name": "French Fries",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Bar Food",
+      "name": "Fries",
+      "description": "",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Happy Hours",
+      "description": "Featured on website",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [
+    {
+      "name": "Live Music",
+      "day": "",
+      "time": ""
+    }
+  ],
+  "gallery": 2,
+  "scraped_at": "2026-03-21T20:27:32.042Z"
+}

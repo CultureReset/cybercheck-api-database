@@ -1,0 +1,97 @@
+{
+  "name": "Happy Pappys Coffeehouse",
+  "type": "Cafe",
+  "website": "https://www.happypappyscoffee.com/",
+  "contact": {
+    "phone": "(251) 967-2779",
+    "address": "1550 West 2nd Street, Unit A5",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {
+    "monday": "7:00 AM - 4:30 PM",
+    "tuesday": "7:00 AM - 4:30 PM",
+    "wednesday": "7:00 AM - 4:30 PM",
+    "thursday": "7:00 AM - 4:30 PM",
+    "friday": "7:00 AM - 4:30 PM",
+    "saturday": "7:00 AM - 1:00 PM",
+    "sunday": "Closed",
+    "notes": "Pappy Hour on Thursdays 4:30 PM - 7:00 PM with live music and specials on beer and wine"
+  },
+  "about": {
+    "description": "Happy Pappys is a local, family-owned coffee shop founded by the Papadelias family. The business was inspired by a coffee shop the family discovered in Texas and opened in August 2019. They provide a premium third place where patrons can unwind, socialize, and recharge while enjoying high-quality coffee and delicious food. The shop survived Hurricane Sally and the COVID-19 pandemic in its first year of operation.",
+    "elevator_pitch": "A welcoming, family-owned local coffeehouse dedicated to spreading love and happiness through premium coffee and community connection.",
+    "vibe": "Warm, inviting community gathering space that feels like home; a third place beyond work and residence where people can belong",
+    "best_for": [
+      "coffee enthusiasts",
+      "community gathering",
+      "remote work",
+      "social events",
+      "families",
+      "live music nights"
+    ],
+    "established": "2019",
+    "reservations": null,
+    "insider_tip": "Ask about their hard bean coffee raised at 1200 meters, which customers rave is better than Blue Mountain or Kona. Join Pappy Hour on Thursdays for live music and drink specials."
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://www.happypappyscoffee.com/"
+  },
+  "menu": [
+    {
+      "category": "Merchandise - T-Shirts",
+      "name": "Coffee Makes Me Happy Tee",
+      "description": "Hand-drawn design featuring Happy Pappys and Gulf Shores, AL on the back with playful coffee elements. Front pocket lettering. Heather blend - 90% cotton, 10% polyester. Unisex, true-to-size.",
+      "price": 23.2
+    },
+    {
+      "category": "Merchandise - T-Shirts",
+      "name": "Lock. Load. Caffeinate. Tee",
+      "description": "Features Happy Pappys Coffee on front pocket with hand-drawn illustration of in-house espresso machine. Back displays motto Lock. Load. Caffeinate. Heather blend - 90% cotton, 10% polyester. Unisex, true-to-size.",
+      "price": 24
+    },
+    {
+      "category": "Merchandise - T-Shirts",
+      "name": "Caffeine and Kindness Tee",
+      "description": "Happy Pappy's name on front pocket with hand-drawn mug on back with steam spelling out Caffeine and Kindness. Heather blend - 90% cotton, 10% polyester. Unisex, true-to-size.",
+      "price": 24
+    },
+    {
+      "category": "Merchandise - T-Shirts",
+      "name": "No Retreat. No Surrender. Just Refills. Tee",
+      "description": "Military-inspired tee with front pocket print Happy Pappys Coffee House. Back graphic featuring crossed portafilters with espresso dripping and battle cry. Heather blend - 90% cotton, 10% polyester. Unisex, true-to-size.",
+      "price": 24
+    },
+    {
+      "category": "Merchandise - T-Shirts",
+      "name": "Be Happy Tee",
+      "description": "Original Happy Pappys logo and t-shirt design. Premium fitted short sleeve, classic choice. 100% combed, ring-spun cotton or heather blend 90% cotton, 10% polyester. Unisex crew tee, true-to-size.",
+      "price": 24
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Pappy Hour",
+      "description": "Special evening of after-work fun with amazing live music accompanied by specials on beer and wine selection. Fun for all ages.",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [
+    {
+      "name": "Pappy Hour",
+      "day": "Thursday",
+      "time": "4:30 PM - 7:00 PM"
+    },
+    {
+      "name": "Happy Pappys On Wheels",
+      "day": "",
+      "time": ""
+    }
+  ],
+  "gallery": 50,
+  "scraped_at": "2026-03-21T15:06:13.943Z"
+}

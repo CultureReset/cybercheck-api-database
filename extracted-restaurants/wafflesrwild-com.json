@@ -1,0 +1,110 @@
+{
+  "name": "Waffles R Wild",
+  "type": "Restaurant | Bar",
+  "website": "https://wafflesrwild.com",
+  "contact": {
+    "phone": "(251) 943-2271",
+    "address": "100 South OWA Blvd",
+    "city": "Foley",
+    "email": "wafflesrwild@gmail.com"
+  },
+  "hours": {
+    "monday": "8:00am – 8:00pm",
+    "tuesday": "8:00am – 8:00pm",
+    "wednesday": "8:00am – 8:00pm",
+    "thursday": "8:00am – 8:00pm",
+    "friday": "8:00am – 9:00pm",
+    "saturday": "8:00am – 9:00pm",
+    "sunday": "8:00am – 8:00pm",
+    "notes": "Open every day"
+  },
+  "about": {
+    "description": "Waffles R Wild was created by Owner Danielle and her parents Michael and Roxanne. Started as a dream and idea that became reality in January 2018, built piece by piece from the ground up. Michael's construction knowledge and Danielle's culinary background and restaurant management experience made it possible for the food truck to be running in less than six months. The business now operates a brick and mortar location at OWA in Foley, AL, and features The Speakeasy - a 1930s prohibition-themed Bar & Grill with great food, craft cocktails, and weekly entertainment.",
+    "elevator_pitch": "A creative waffle restaurant and bar serving innovative waffle sandwiches, fried chicken waffles, waffle pizzas, desserts, and craft cocktails in a 1930s-themed speakeasy setting.",
+    "vibe": "Casual to upscale dining with 1930s speakeasy theme, great entertainment, family-friendly atmosphere with bar options for adults",
+    "best_for": [
+      "families",
+      "breakfast",
+      "brunch",
+      "date night",
+      "special events",
+      "catering"
+    ],
+    "established": "2018",
+    "reservations": "Yes - Call (251) 943-2271",
+    "insider_tip": "Saturday and Sunday breakfast is a specialty; weekly entertainment events available"
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://wafflesrwild.com"
+  },
+  "menu": [
+    {
+      "category": "Waffles",
+      "name": "Waffle Sandwiches",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Waffles",
+      "name": "Buttermilk Hand-Breaded Fried Chicken Waffles",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Waffles",
+      "name": "Waffle Pizzas",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Desserts",
+      "name": "Dessert Waffles",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Drinks",
+      "name": "Beer",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Drinks",
+      "name": "Wine",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Drinks",
+      "name": "Cider",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Drinks",
+      "name": "Craft Cocktails",
+      "description": "",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Saturday & Sunday Breakfast",
+      "description": "Special breakfast menu available on weekends",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [
+    {
+      "name": "Weekly Events",
+      "day": "Multiple days per week",
+      "time": ""
+    }
+  ],
+  "gallery": 16,
+  "scraped_at": "2026-03-21T20:30:39.815Z"
+}

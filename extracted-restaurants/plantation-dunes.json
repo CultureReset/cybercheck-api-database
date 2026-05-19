@@ -1,0 +1,78 @@
+{
+  "name": "Brett/Robinson Vacation Rentals - Plantation Dunes",
+  "type": "Vacation Rental Management Company",
+  "website": "https://www.brett-robinson.com/beach-condo/plantation-dunes/",
+  "contact": {
+    "phone": "+1-251-968-7363",
+    "address": "3259 Gulf Shores Parkway",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {},
+  "about": {
+    "description": "Brett/Robinson is a family/veteran-owned vacation rental management company with 50+ years of experience serving the Alabama Gulf Coast. They offer beachfront condos, beach houses, and family-friendly rentals in Gulf Shores and Orange Beach with 24/7 support and local on-the-ground assistance.",
+    "elevator_pitch": "50+ year family-owned vacation rental company offering beachfront condos and houses in Gulf Shores and Orange Beach with local hospitality and 24/7 support.",
+    "total_units": null,
+    "floors": null,
+    "year_built": null,
+    "pet_friendly": true,
+    "minimum_stay": "3 nights for promotional offers",
+    "check_in": null,
+    "check_out": null,
+    "age_restriction": null
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/brett_robinson_vacations",
+    "facebook": "https://www.facebook.com/BrettRobinsonVacations",
+    "linkedin": "https://www.linkedin.com/company/brett-robinson-vacation-rentals",
+    "website": "https://www.brett-robinson.com/beach-condo/plantation-dunes/"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Memorial Day Weekend",
+      "description": "Beachfront properties with 3-night minimum for Memorial Day weekend getaway",
+      "discount": ""
+    },
+    {
+      "name": "Mother's Day Getaway",
+      "description": "Special rates on beachfront condos for Mother's Day weekend",
+      "discount": ""
+    },
+    {
+      "name": "Summer 4+ Bedroom Group Getaway",
+      "description": "Large group accommodations with 4-8 bedrooms for up to 22 guests",
+      "discount": ""
+    },
+    {
+      "name": "Charming Beachfront Hidden Gems",
+      "description": "Unique properties with 1-8 bedrooms offering tranquil getaway experiences",
+      "discount": ""
+    },
+    {
+      "name": "Seasonal Discounts",
+      "description": "Year-round seasonal pricing adjustments based on demand",
+      "discount": ""
+    },
+    {
+      "name": "Snowbird Specials",
+      "description": "Special rates for longer-stay winter visitors",
+      "discount": ""
+    },
+    {
+      "name": "Last-Minute Deals",
+      "description": "Hot deals on select rentals for last-minute bookings",
+      "discount": ""
+    },
+    {
+      "name": "Promo Codes",
+      "description": "Percentage-off promotions like 10% savings with codes (e.g., Bama2025 for 2025 bookings)",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 23,
+  "scraped_at": "2026-03-21T22:19:36.630Z"
+}

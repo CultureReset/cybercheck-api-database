@@ -1,0 +1,152 @@
+{
+  "business_name": "The Keg Lounge and Grill",
+  "cuisine_type": "Bar and Grill",
+  "price_range": null,
+  "description": "Est. 1980 The oldest bar on the island and the best burgers on the beach!",
+  "atmosphere": null,
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": "Orange Beach, Alabama",
+    "website": "https://www.facebook.com/thekegloungeandgrill",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": "https://www.facebook.com/thekegloungeandgrill",
+      "instagram": null,
+      "twitter": null,
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": true,
+    "takeout_available": null,
+    "delivery_available": null,
+    "curbside_available": null,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [
+      {
+        "name": "Burgers",
+        "description": "Best burgers on the beach",
+        "items": []
+      }
+    ],
+    "wine_list": null,
+    "beer_selection": null,
+    "cocktails": null,
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": false,
+      "vegan": false,
+      "gluten_free": false,
+      "dairy_free": false,
+      "nut_free": false,
+      "kosher": false,
+      "halal": false
+    }
+  },
+  "happy_hour": {
+    "available": null,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [],
+  "entertainment_and_events": [],
+  "private_events": {
+    "available": null,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": null,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": null,
+    "pets_allowed": null
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": null,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": null,
+    "private_dining": null
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": null,
+    "email_signup": null,
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": false,
+    "farm_to_table": false,
+    "sustainable": false,
+    "organic": false,
+    "details": null
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [
+      "Burgers"
+    ],
+    "common_praise": [
+      "Best burgers on the beach",
+      "Oldest bar on the island"
+    ],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "restaurant",
+      "url": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-1/335799683_225228990081370_5380905908540685353_n.jpg",
+      "description": "The Keg Lounge and Grill Facebook profile image"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "The Keg Lounge and Grill, Orange Beach. 2,801 likes · 25 talking about this · 316 were here. Est. 1980 The oldest bar on the island and the best burgers on the beach!",
+  "extraction_confidence": "low",
+  "extraction_notes": "This HTML contains only Facebook metadata and page framework code with no actual restaurant details visible. The provided HTML is primarily Facebook's header, styling, and script infrastructure. Only basic information from Facebook's og: meta tags could be extracted: business name, location (Orange Beach, AL), establishment date (1980), and a brief description emphasizing burgers and bar heritage. No detailed menu, hours, pricing, contact information (phone/email), delivery info, events, reviews, or other operational details are present in the provided HTML. To get comprehensive restaurant data, the actual Facebook page content would need to be loaded and parsed, or a direct restaurant website would be needed.",
+  "folder": "ChIJdTSAkrkHmogROJd5xSEn-QY_The Keg Lounge and Grill",
+  "extracted_at": "2026-05-15T06:28:20.196Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJdTSAkrkHmogROJd5xSEn-QY_The Keg Lounge and Grill/01_raw_html.html"
+}

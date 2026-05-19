@@ -1,0 +1,276 @@
+{
+  "name": "Shrimpy's Grill and Golf",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "(251) 948-6464",
+    "address": "204 East 2nd Avenue",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {
+    "monday": "11am-until",
+    "tuesday": "11am-until",
+    "wednesday": "11am-until",
+    "thursday": "11am-until",
+    "friday": "11am-until",
+    "saturday": "11am-until",
+    "sunday": "11am-until"
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Snacks",
+      "name": "Bang Bang Shrimp",
+      "description": "",
+      "price": 9.99
+    },
+    {
+      "category": "Snacks",
+      "name": "Buffalo Shrimp",
+      "description": "",
+      "price": 9.99
+    },
+    {
+      "category": "Snacks",
+      "name": "Boneless Wings",
+      "description": "Choice of honey sriracha, buffalo, parmesan, garlic, gochujang, or plain",
+      "price": 10.99
+    },
+    {
+      "category": "Snacks",
+      "name": "Traditional Wings 8pc",
+      "description": "",
+      "price": 10.99
+    },
+    {
+      "category": "Snacks",
+      "name": "Traditional Wings 12pc",
+      "description": "",
+      "price": 13.99
+    },
+    {
+      "category": "Snacks",
+      "name": "Foot-Long Corn Dog",
+      "description": "",
+      "price": 5.99
+    },
+    {
+      "category": "Snacks",
+      "name": "Pretzel Bites",
+      "description": "served with a side of beer cheese",
+      "price": 7.99
+    },
+    {
+      "category": "Snacks",
+      "name": "Pickle Chips",
+      "description": "",
+      "price": 9.99
+    },
+    {
+      "category": "Snacks",
+      "name": "Cheese Sticks",
+      "description": "",
+      "price": 10.99
+    },
+    {
+      "category": "Snacks",
+      "name": "Chips w/ Queso",
+      "description": "add salsa for $1.99",
+      "price": 8.99
+    },
+    {
+      "category": "Snacks",
+      "name": "Icee Pops",
+      "description": "",
+      "price": 1.99
+    },
+    {
+      "category": "Baskets",
+      "name": "Chicken Basket",
+      "description": "served w/fries and hush puppies. Add loaded fries for $3",
+      "price": 11.99
+    },
+    {
+      "category": "Baskets",
+      "name": "Shrimp Basket",
+      "description": "served w/fries and hush puppies. Add loaded fries for $3",
+      "price": 11.99
+    },
+    {
+      "category": "Baskets",
+      "name": "Fish Basket",
+      "description": "served w/fries and hush puppies. Add loaded fries for $3",
+      "price": 11.99
+    },
+    {
+      "category": "Baskets",
+      "name": "Combo Basket",
+      "description": "Shrimp & Fish served w/fries and hush puppies. Add loaded fries for $3",
+      "price": 12.99
+    },
+    {
+      "category": "Grilled Smash Burgers",
+      "name": "Smash Butter Burger",
+      "description": "Topped with cheese and stewed onions. Add a second patty for $2 more",
+      "price": 6.99
+    },
+    {
+      "category": "Grilled Smash Burgers",
+      "name": "Bacon Cheeseburger",
+      "description": "topped with mayo, lettuce, tomato and pickle",
+      "price": 7.99
+    },
+    {
+      "category": "Flatbread",
+      "name": "Buffalo Chicken",
+      "description": "",
+      "price": 11.99
+    },
+    {
+      "category": "Flatbread",
+      "name": "BBQ Chicken",
+      "description": "",
+      "price": 11.99
+    },
+    {
+      "category": "Flatbread",
+      "name": "Meat Lovers",
+      "description": "",
+      "price": 11.99
+    },
+    {
+      "category": "Flatbread",
+      "name": "Pepperoni",
+      "description": "",
+      "price": 11.99
+    },
+    {
+      "category": "Flatbread",
+      "name": "Cheese",
+      "description": "",
+      "price": 9.99
+    },
+    {
+      "category": "Flatbread",
+      "name": "Build Your Own Flatbread",
+      "description": "plus .99 each topping (pepperoni, sausage, mushroom, onion, chicken, bacon, ranch, buffalo sauce)",
+      "price": 9.99
+    },
+    {
+      "category": "Po'Boy",
+      "name": "Fish Po'Boy",
+      "description": "Fried, Blackened or Grilled. Add cheese for .99",
+      "price": 10.99
+    },
+    {
+      "category": "Po'Boy",
+      "name": "Shrimp Po'Boy",
+      "description": "Fried, Blackened or Grilled. Add cheese for .99",
+      "price": 10.99
+    },
+    {
+      "category": "Po'Boy",
+      "name": "Fried Chicken Po'Boy",
+      "description": "Add cheese for .99",
+      "price": 11.99
+    },
+    {
+      "category": "Po'Boy",
+      "name": "Buffalo Chicken Po'Boy",
+      "description": "Add cheese for .99",
+      "price": 10.99
+    },
+    {
+      "category": "Po'Boy",
+      "name": "Chicken Melt Po'Boy",
+      "description": "Add cheese for .99",
+      "price": 11.99
+    },
+    {
+      "category": "Fry Bar",
+      "name": "Plain Fries",
+      "description": "",
+      "price": 4.99
+    },
+    {
+      "category": "Fry Bar",
+      "name": "Parmesan Fries",
+      "description": "",
+      "price": 9.99
+    },
+    {
+      "category": "Fry Bar",
+      "name": "Buffalo Chicken Fries",
+      "description": "",
+      "price": 9.99
+    },
+    {
+      "category": "Fry Bar",
+      "name": "Loaded Potato Fries",
+      "description": "",
+      "price": 9.99
+    },
+    {
+      "category": "Fry Bar",
+      "name": "Chicken Bacon Ranch Fries",
+      "description": "",
+      "price": 9.99
+    },
+    {
+      "category": "Fry Bar",
+      "name": "Chicken Melt Fries",
+      "description": "",
+      "price": 9.99
+    },
+    {
+      "category": "Fry Bar",
+      "name": "Build Your Own Fries 3-Toppings",
+      "description": "chicken, bacon, chives, jalapenos, shredded cheddar, ranch, parmesan, buffalo sauce, sour cream, queso cheese, beer cheese. Extra toppings .99",
+      "price": 9.99
+    },
+    {
+      "category": "Fry Bar",
+      "name": "Build Your Own Fries 5-Toppings",
+      "description": "chicken, bacon, chives, jalapenos, shredded cheddar, ranch, parmesan, buffalo sauce, sour cream, queso cheese, beer cheese. Extra toppings .99",
+      "price": 11.99
+    },
+    {
+      "category": "Sides",
+      "name": "Side Salad",
+      "description": "Add fish, shrimp, or fried chicken for $4.99 extra",
+      "price": 5.99
+    },
+    {
+      "category": "Sides",
+      "name": "Onion Rings",
+      "description": "",
+      "price": 4.99
+    },
+    {
+      "category": "Sides",
+      "name": "Hush Puppies",
+      "description": "",
+      "price": 3.99
+    },
+    {
+      "category": "Sides",
+      "name": "Fries",
+      "description": "",
+      "price": 4.99
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Birthday Party Package",
+      "description": "Includes 1 Round Mini Golf, 13x9 Ice Cream Cake, 10 Smash Burger & French Fries or 1x Topping Flatbread Pizza, 10 Sodas. For up to 10 people. Additional guests $23 per person. +10% tax +15% Gratuity",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:51.359Z"
+}

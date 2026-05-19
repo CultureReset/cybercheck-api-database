@@ -1,0 +1,89 @@
+{
+  "name": "Del's Ice Cream",
+  "type": "Ice Cream Shop",
+  "website": "https://www.delsicecream.com/",
+  "contact": {
+    "phone": "",
+    "address": "",
+    "city": "",
+    "email": ""
+  },
+  "hours": {
+    "monday": "11 AM - 10:30 PM",
+    "tuesday": "11 AM - 10:30 PM",
+    "wednesday": "11 AM - 10:30 PM",
+    "thursday": "11 AM - 10:30 PM",
+    "friday": "11 AM - 10:30 PM",
+    "saturday": "11 AM - 10:30 PM",
+    "sunday": "11 AM - 10:30 PM",
+    "notes": "Hours vary by location: Orange Beach 11 AM-10:30 PM, Gulf Shores Pkwy 11 AM-10:30 PM, W Beach Blvd 11 AM-10 PM"
+  },
+  "about": {
+    "description": "Del's Homemade Ice Cream serves Cammies Old Dutch, award winning ice cream. They offer 36 delicious, unique, homemade ice cream flavors in store and rotate through 80 different flavors daily. Del's offers Sundaes, Banana splits, milkshakes, and floats, as well as signature options. They also offer dairy free and sugar free options.",
+    "elevator_pitch": "Award-winning homemade ice cream shop with 80 rotating flavors, sundaes, shakes, and dairy-free options.",
+    "vibe": "Family-friendly ice cream destination on the beach",
+    "best_for": [
+      "families",
+      "tourists",
+      "ice cream lovers"
+    ],
+    "established": null,
+    "reservations": null,
+    "insider_tip": "Must see and must eat in Orange Beach and Gulf Shores, Alabama"
+  },
+  "social": {
+    "instagram": "#DELSICECREAMOB",
+    "facebook": null,
+    "website": "https://www.delsicecream.com"
+  },
+  "menu": [
+    {
+      "category": "Ice Cream",
+      "name": "Homemade Ice Cream Flavors",
+      "description": "36 unique flavors in store, 80 rotating flavors daily",
+      "price": ""
+    },
+    {
+      "category": "Ice Cream",
+      "name": "Sundaes",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Ice Cream",
+      "name": "Banana Splits",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Ice Cream",
+      "name": "Milkshakes",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Ice Cream",
+      "name": "Floats",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Dietary Options",
+      "name": "Dairy Free Ice Cream",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Dietary Options",
+      "name": "Sugar Free Ice Cream",
+      "description": "",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 9,
+  "scraped_at": "2026-03-22T02:45:37.834Z"
+}

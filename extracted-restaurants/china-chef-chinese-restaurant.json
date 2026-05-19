@@ -1,0 +1,171 @@
+{
+  "name": "China Chef",
+  "type": "Restaurant",
+  "website": "http://chinachefal.com/",
+  "contact": {
+    "phone": "251-476-2828",
+    "address": "2667 Spring Hill Ave",
+    "city": "Mobile",
+    "email": ""
+  },
+  "hours": {
+    "monday": "10:30am-10:00pm",
+    "tuesday": "10:30am-10:00pm",
+    "wednesday": "10:30am-10:00pm",
+    "thursday": "10:30am-10:00pm",
+    "friday": "10:30am-10:00pm",
+    "saturday": "10:30am-10:00pm",
+    "sunday": "10:30am-10:00pm"
+  },
+  "about": {
+    "description": "China Chef is a Chinese restaurant serving traditional Chinese cuisine including lo mein, egg foo young, and szechuan dishes.",
+    "cuisine_type": "chinese"
+  },
+  "social": {},
+  "menu": [
+    {
+      "category": "Popular Dishes",
+      "name": "Chicken Wing",
+      "description": "4 Pcs; Whole Wing",
+      "price": "$7.00"
+    },
+    {
+      "category": "Popular Dishes",
+      "name": "Egg Roll",
+      "description": "Cabbage and Minced Pork Wrapped in Egg Roll Wrap and Then Deep Fried",
+      "price": "$1.50"
+    },
+    {
+      "category": "Popular Dishes",
+      "name": "Sesame Chicken",
+      "description": "Batter Fried Dark Meat Chicken Chunks Sautéed with Sesame Seeds in Sweet Chef Special Sauce with a few Broccoli Florets",
+      "price": "$6.25"
+    },
+    {
+      "category": "Popular Dishes",
+      "name": "Crab Rangoon",
+      "description": "Deep Fried Wonton Skin Stuffed with Imitation Crab Meat, Onion, Scallion and Cream Cheese",
+      "price": "$2.75"
+    },
+    {
+      "category": "Popular Dishes",
+      "name": "General Tso Chicken",
+      "description": "Batter Fried Dark Meat Chicken Chunks Sauteed in Sweet and Spicy Chef Special Sauce with Few Broccoli",
+      "price": "$6.25"
+    },
+    {
+      "category": "Lunch",
+      "name": "Vegetable Lo Mein",
+      "description": "Soft Egg Noodle with Chinese Veg, Broccoli, Celery, Carrot, Mushroom, Snow Peas, Bamboo Shoot",
+      "price": "$6.25"
+    },
+    {
+      "category": "Lunch",
+      "name": "Vegetable Egg Foo Young",
+      "description": "Fried Egg Patty with Broccoli, Mushroom, Snow Peas, Onion, Cabbage and Egg. Similar to Omelet (Large 3, Lunch 2, Combo 2, Sauce is on The Top)",
+      "price": "$7.25"
+    },
+    {
+      "category": "Lunch",
+      "name": "Vegetable Delight",
+      "description": "Sauteed with Chinese Veg, Broccoli, Carrot, Mushroom, Water Chestnut, Baby Corn, Snow Peas in White Sauce",
+      "price": "$5.25"
+    },
+    {
+      "category": "Lunch",
+      "name": "Vegetable Chow Mein",
+      "description": "Chow Mein is a vegetable dish with Chinese vegetables, broccoli, celery, carrots, snow peas, onions, and bamboo shoots in a white sauce.",
+      "price": "$6.00"
+    },
+    {
+      "category": "Lunch",
+      "name": "Vegetable Chop Suey",
+      "description": "Very Similar to Chow Mein, But Has a Lot More Other Kinds of Vegetables Like Chinese Veg, Broccoli, Carrot, Mushroom, Water Chestnut, Baby Corn, Snow Peas (White Sauce) (Does Not Come with Fried Noodles)",
+      "price": "$6.00"
+    },
+    {
+      "category": "Lunch",
+      "name": "Triple Delight",
+      "description": "Chicken, Beef, (4) Jumbo Shrimp Sauteed with Chinese Veg, Broccoli, Carrot, Mushroom, Water Chestnut, Baby Corn, Snow Peas in Brown Sauce",
+      "price": "$8.25"
+    },
+    {
+      "category": "Lunch",
+      "name": "Szechuan Shrimp",
+      "description": "Sauteed Jumbo Shrimp with Broccoli, Green Pepper, Carrot, Onion in Szechuan Sauce",
+      "price": "$6.95"
+    },
+    {
+      "category": "Lunch",
+      "name": "Szechuan Pork",
+      "description": "Sauteed with Broccoli, Green Pepper, Carrot, Onion in Szechuan Sauce",
+      "price": "$6.25"
+    },
+    {
+      "category": "Lunch",
+      "name": "Szechuan Chicken",
+      "description": "Slice Chicken Sauteed with Broccoli, Green Pepper, Carrot, Onion in Szechuan Sauce",
+      "price": "$6.25"
+    },
+    {
+      "category": "Lunch",
+      "name": "Szechuan Beef",
+      "description": "Sauteed with Broccoli, Green Pepper, Carrot, Onion in Szechuan Sauce",
+      "price": "$6.50"
+    },
+    {
+      "category": "Lunch",
+      "name": "Sweet and Sour Pork",
+      "description": "Batter Fried Pork (Comes with Sweet and Sour Sauce on the Side)",
+      "price": "$6.25"
+    },
+    {
+      "category": "Lunch",
+      "name": "Sweet and Sour Chicken",
+      "description": "Batter Fried Chicken Breast (Comes with Sweet and Sour Sauce on the Side)",
+      "price": "$6.25"
+    },
+    {
+      "category": "Lunch",
+      "name": "Sliced Pork with Brown Sauce",
+      "description": "Sliced Roasted Pork in Brown Sauce",
+      "price": "$6.25"
+    },
+    {
+      "category": "Lunch",
+      "name": "Sliced Chicken with Brown Sauce",
+      "description": "Sliced White Meat Chicken in Brown Sauce",
+      "price": "$6.25"
+    },
+    {
+      "category": "Lunch",
+      "name": "Sliced Beef with Brown Sauce",
+      "description": "Sliced Beef in Brown Sauce",
+      "price": "$6.50"
+    },
+    {
+      "category": "Lunch",
+      "name": "Shrimp with Snow Peas",
+      "description": "Sauteed Jumbo Shrimp with Carrot, Mushroom, Water Chestnut, Snow Peas in White Sauce",
+      "price": "$6.95"
+    },
+    {
+      "category": "Lunch",
+      "name": "Shrimp with Mushroom",
+      "description": "Sauteed jumbo shrimp with Chinese vegetables, carrots, mushrooms, and snow peas in brown sauce.",
+      "price": "$6.95"
+    },
+    {
+      "category": "Lunch",
+      "name": "Shrimp with Mixed Vegetable",
+      "description": "Sauteed Jumbo Shrimp with Chinese Veg, Broccoli, Carrot, Mushroom, Water Chestnut, Baby Corn, Snow Peas",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-03-21T14:34:05.943Z"
+}

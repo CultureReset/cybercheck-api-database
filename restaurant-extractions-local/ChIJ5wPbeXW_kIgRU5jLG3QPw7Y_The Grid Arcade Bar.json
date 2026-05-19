@@ -1,0 +1,165 @@
+{
+  "business_name": "The Grid Arcade",
+  "cuisine_type": "Bar & Arcade",
+  "price_range": "$",
+  "description": "Discover The Grid Arcade in Pensacola, FL—your premier destination for a mix of classic and modern arcade games along with a family-friendly bar. Dive into a nostalgic journey with our extensive selection of pinball machines, video games, and multiplayer experiences, all perfect for family outings, parties, or casual fun. Enjoy a diverse menu featuring over 100 different craft beers and unique wine-based agave cocktails, ensuring there's something for everyone to sip on while playing. Whether you're looking to relive the golden age of arcades or create new memorable moments with friends and family, The Grid Arcade offers a unique blend of entertainment and relaxation.",
+  "atmosphere": "Retro arcade with modern games, family-friendly bar environment, nostalgic gaming experience",
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": "850-777-6196",
+    "email": "thegridarcade@outlook.com",
+    "address": "2414 North Pace Boulevard, Pensacola, FL 32505",
+    "website": "https://www.thegridarcadepensacola.com",
+    "hours_phone": "850-777-6196",
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": "https://www.facebook.com/TheGridArcadePensacola/",
+      "instagram": "https://www.instagram.com/thegridarcadepensacola/",
+      "twitter": null,
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": "Closed",
+    "tuesday": "16:00-23:59",
+    "wednesday": "16:00-23:59",
+    "thursday": "16:00-23:59",
+    "friday": "16:00-23:59",
+    "saturday": "16:00-23:59",
+    "sunday": "12:00-20:00",
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": true,
+    "takeout_available": null,
+    "delivery_available": null,
+    "curbside_available": null,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [],
+    "wine_list": null,
+    "beer_selection": "Over 100 different craft beers",
+    "cocktails": "Unique wine-based agave cocktails",
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": false,
+      "vegan": false,
+      "gluten_free": false,
+      "dairy_free": false,
+      "nut_free": false,
+      "kosher": false,
+      "halal": false
+    }
+  },
+  "happy_hour": {
+    "available": null,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [],
+  "entertainment_and_events": [
+    {
+      "type": "arcade_games",
+      "name": "Classic and Modern Arcade Games",
+      "days": "Daily",
+      "start_time": null,
+      "end_time": null,
+      "description": "Extensive selection of pinball machines, video games, and multiplayer experiences",
+      "cover_charge": null,
+      "featured_artist": null
+    },
+    {
+      "type": "pinball_league",
+      "name": "Pinball League",
+      "days": null,
+      "start_time": null,
+      "end_time": null,
+      "description": null,
+      "cover_charge": null,
+      "featured_artist": null
+    }
+  ],
+  "private_events": {
+    "available": null,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": null,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": "Family-friendly bar",
+    "cancellation_policy": null,
+    "payment_methods": [
+      "USD"
+    ],
+    "kids_policy": "Family-friendly environment",
+    "pets_allowed": null
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": null,
+    "online_booking_platform": null,
+    "phone_reservations": "850-777-6196",
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": null,
+    "private_dining": null
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": null,
+    "email_signup": null,
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": false,
+    "farm_to_table": false,
+    "sustainable": false,
+    "organic": false,
+    "details": null
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [],
+    "common_praise": [
+      "Retro arcade games",
+      "Craft beers",
+      "Cocktails",
+      "Entertainment",
+      "Family-friendly",
+      "Fun atmosphere"
+    ],
+    "common_complaints": []
+  },
+  "photos_and_media": [],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "The Grid Arcade - Pensacola, FL. Premier destination for classic and modern arcade games with family-friendly bar. Over 100 craft beers and wine-based agave cocktails. Pinball machines, video games, multiplayer experiences. Hours: Tuesday-Saturday 4:00 PM - 11:59 PM, Sunday 12:00 PM - 8:00 PM. Closed Mondays. Address: 2414 North Pace Boulevard, Pensacola, FL 32505. Phone: 850-777-6196. Email: thegridarcade@outlook.com. Instagram: @thegridarcadepensacola. Facebook: TheGridArcadePensacola.",
+  "extraction_confidence": "high",
+  "extraction_notes": "Website appears to be a Squarespace-based arcade bar venue in Pensacola. Core information about hours, contact details, and basic business description was extracted from header, schema markup, and meta tags. Menu details, delivery services, loyalty programs, and detailed event information were not available on the homepage HTML provided. The site has navigation links to Menu, Games, Pinball League, Rentals, and other pages that would likely contain additional details, but those pages were not included in the provided HTML. No reviews, ratings, or detailed food/drink pricing was visible in the provided content.",
+  "folder": "ChIJ5wPbeXW_kIgRU5jLG3QPw7Y_The Grid Arcade Bar",
+  "extracted_at": "2026-05-15T06:06:07.019Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJ5wPbeXW_kIgRU5jLG3QPw7Y_The Grid Arcade Bar/01_raw_html.html"
+}

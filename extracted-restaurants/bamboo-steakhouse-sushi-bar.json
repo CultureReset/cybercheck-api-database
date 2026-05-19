@@ -1,0 +1,486 @@
+{
+  "name": "High Tide #3",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "251-324-6205",
+    "address": "408 West Beach Blvd",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {
+    "monday": "8:00am-10:00pm",
+    "tuesday": "8:00am-10:00pm",
+    "wednesday": "8:00am-10:00pm",
+    "thursday": "8:00am-10:00pm",
+    "friday": "8:00am-10:00pm",
+    "saturday": "8:00am-10:00pm",
+    "sunday": "8:00am-10:00pm"
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Daiquiris",
+      "name": "12oz Daiquiri",
+      "description": "",
+      "price": 10
+    },
+    {
+      "category": "Daiquiris",
+      "name": "16oz Daiquiri",
+      "description": "",
+      "price": 12
+    },
+    {
+      "category": "Daiquiris",
+      "name": "20oz Daiquiri",
+      "description": "",
+      "price": 14
+    },
+    {
+      "category": "Daiquiris",
+      "name": "32oz Bucket",
+      "description": "",
+      "price": 25
+    },
+    {
+      "category": "Daiquiris",
+      "name": "Daiquiri Flight",
+      "description": "Try 4 flavors of your choice (Dine-in only)",
+      "price": 16
+    },
+    {
+      "category": "Daiquiris",
+      "name": "12oz No Alcohol",
+      "description": "",
+      "price": 6
+    },
+    {
+      "category": "Daiquiris",
+      "name": "16oz No Alcohol",
+      "description": "",
+      "price": 8
+    },
+    {
+      "category": "Daiquiris",
+      "name": "20oz No Alcohol",
+      "description": "",
+      "price": 10
+    },
+    {
+      "category": "Daiquiris",
+      "name": "32oz No Alcohol",
+      "description": "",
+      "price": 17
+    },
+    {
+      "category": "Daiquiris",
+      "name": "Extra Shot",
+      "description": "",
+      "price": 4
+    },
+    {
+      "category": "Coffee",
+      "name": "Latte",
+      "description": "Hot / Iced",
+      "price": 5
+    },
+    {
+      "category": "Coffee",
+      "name": "Macchiato",
+      "description": "Hot / Iced",
+      "price": 5
+    },
+    {
+      "category": "Coffee",
+      "name": "Cappuccino",
+      "description": "",
+      "price": 5
+    },
+    {
+      "category": "Coffee",
+      "name": "Americano",
+      "description": "Hot / Iced",
+      "price": 4
+    },
+    {
+      "category": "Coffee",
+      "name": "Cuban",
+      "description": "Hot / Iced",
+      "price": 5
+    },
+    {
+      "category": "Coffee",
+      "name": "Regular / Decaf",
+      "description": "",
+      "price": 3.5
+    },
+    {
+      "category": "Signature Lattes",
+      "name": "Pink Sands",
+      "description": "Cupcake & vanilla with pink cold foam",
+      "price": 6
+    },
+    {
+      "category": "Signature Lattes",
+      "name": "Sea Turtle",
+      "description": "Sea salt caramel blue cold foam",
+      "price": 6
+    },
+    {
+      "category": "Mimosas",
+      "name": "Classic",
+      "description": "",
+      "price": 12
+    },
+    {
+      "category": "Mimosas",
+      "name": "Pink Flamingo",
+      "description": "Pink lemonade",
+      "price": 13
+    },
+    {
+      "category": "Mimosas",
+      "name": "Beachside",
+      "description": "Pineapple, grenadine, prosecco",
+      "price": 13
+    },
+    {
+      "category": "Mimosas",
+      "name": "Blue Lagoon",
+      "description": "Lemonade, blue raspberry, & prosecco",
+      "price": 13
+    },
+    {
+      "category": "Mimosas",
+      "name": "Mimosa Flight",
+      "description": "Classic, Pink Flamingo, Blue Lagoon, Beachside (Dine-in only)",
+      "price": 16
+    },
+    {
+      "category": "Mimosas",
+      "name": "Mimosa To-Go",
+      "description": "",
+      "price": 16
+    },
+    {
+      "category": "Cocktails",
+      "name": "Bloody Mary",
+      "description": "",
+      "price": 12
+    },
+    {
+      "category": "Cocktails",
+      "name": "Sunset",
+      "description": "Banana & coconut rum, pineapple juice, splash of grenadine",
+      "price": 12
+    },
+    {
+      "category": "Cocktails",
+      "name": "Peach at the Beach",
+      "description": "Peach liqueur & lemonade",
+      "price": 12
+    },
+    {
+      "category": "Cocktails",
+      "name": "High Tide",
+      "description": "Banana rum, sprite & pineapple juice",
+      "price": 12
+    },
+    {
+      "category": "Beer / Wine",
+      "name": "Michelob Ultra",
+      "description": "",
+      "price": 2.5
+    },
+    {
+      "category": "Beer / Wine",
+      "name": "Corona Extra",
+      "description": "",
+      "price": 2.5
+    },
+    {
+      "category": "Beer / Wine",
+      "name": "Miller Lite",
+      "description": "",
+      "price": 2.5
+    },
+    {
+      "category": "Beer / Wine",
+      "name": "Bud Light",
+      "description": "",
+      "price": 2.5
+    },
+    {
+      "category": "Beer / Wine",
+      "name": "Prosecco",
+      "description": "",
+      "price": 8
+    },
+    {
+      "category": "Beer / Wine",
+      "name": "House White",
+      "description": "",
+      "price": 2.5
+    },
+    {
+      "category": "Beer / Wine",
+      "name": "House Red",
+      "description": "",
+      "price": 2.5
+    },
+    {
+      "category": "Beverages",
+      "name": "Coke, Diet Dr Pepper, Sprite",
+      "description": "",
+      "price": 3.25
+    },
+    {
+      "category": "Beverages",
+      "name": "Green Tea",
+      "description": "Hot / Iced",
+      "price": 2.75
+    },
+    {
+      "category": "Beverages",
+      "name": "Chai Tea",
+      "description": "Hot / Iced / Latte",
+      "price": 4.5
+    },
+    {
+      "category": "Beverages",
+      "name": "Orange or Pineapple Juice",
+      "description": "",
+      "price": 3
+    },
+    {
+      "category": "Beverages",
+      "name": "Sweet / Unsweet Tea",
+      "description": "",
+      "price": 3
+    },
+    {
+      "category": "Beverages",
+      "name": "Bottled Water",
+      "description": "",
+      "price": 2.5
+    },
+    {
+      "category": "Beverages",
+      "name": "Energy Drinks",
+      "description": "",
+      "price": 3.25
+    },
+    {
+      "category": "Black Angus Dogs",
+      "name": "Plain",
+      "description": "",
+      "price": 7.5
+    },
+    {
+      "category": "Black Angus Dogs",
+      "name": "Chili Cheese Dog",
+      "description": "With onions",
+      "price": 13
+    },
+    {
+      "category": "Black Angus Dogs",
+      "name": "Chili Cheese Slaw Dog",
+      "description": "",
+      "price": 13
+    },
+    {
+      "category": "Black Angus Dogs",
+      "name": "Cowboy Dog",
+      "description": "Cheese, bacon, jalapeños, BBQ sauce",
+      "price": 13
+    },
+    {
+      "category": "Black Angus Dogs",
+      "name": "Cajun Dog",
+      "description": "Crab pimento cheese & bacon",
+      "price": 13
+    },
+    {
+      "category": "Black Angus Dogs",
+      "name": "Chicago Dog",
+      "description": "Tomato, onion, pickle, mustard, peppers, poppy seeds",
+      "price": 13
+    },
+    {
+      "category": "Sides",
+      "name": "Potato Salad",
+      "description": "",
+      "price": 2.5
+    },
+    {
+      "category": "Sides",
+      "name": "Cole Slaw",
+      "description": "",
+      "price": 2.5
+    },
+    {
+      "category": "Sides",
+      "name": "Chips",
+      "description": "",
+      "price": 0.69
+    },
+    {
+      "category": "Paninis",
+      "name": "Pizza Grilled Cheese",
+      "description": "Pepperoni, mozzarella, marinara on toasted garlic bread. Includes chips",
+      "price": 14
+    },
+    {
+      "category": "Paninis",
+      "name": "Three Cheese Panini",
+      "description": "Mozzarella, cheddar, & cream cheese on toasted garlic bread. Includes chips",
+      "price": 14
+    },
+    {
+      "category": "Paninis",
+      "name": "Turkey Dijon",
+      "description": "Sliced deli turkey, dijon mustard, & cheddar cheese on toasted garlic bread. Includes chips",
+      "price": 14
+    },
+    {
+      "category": "Paninis",
+      "name": "Grilled Mozzarella",
+      "description": "Mozzarella, pesto, & tomatoes on toasted garlic bread. Includes chips",
+      "price": 14
+    },
+    {
+      "category": "Paninis",
+      "name": "Buffalo Chicken Ranch",
+      "description": "Sliced deli chicken, cheddar, bacon, ranch & buffalo sauce on toasted garlic bread. Includes chips",
+      "price": 14
+    },
+    {
+      "category": "Breakfast",
+      "name": "Bagel",
+      "description": "Butter or cream cheese, Plain / Everything / Blueberry",
+      "price": 4
+    },
+    {
+      "category": "Breakfast",
+      "name": "Bagel & Cheese",
+      "description": "Choice of sausage, bacon, ham, turkey",
+      "price": 7.5
+    },
+    {
+      "category": "Breakfast",
+      "name": "Avocado Bagel",
+      "description": "",
+      "price": 4.5
+    },
+    {
+      "category": "Breakfast",
+      "name": "Cinnamon Roll Toast",
+      "description": "",
+      "price": 7
+    },
+    {
+      "category": "Breakfast",
+      "name": "Nutella & Berries",
+      "description": "",
+      "price": 7
+    },
+    {
+      "category": "Breakfast",
+      "name": "Peanut Butter & Bananas",
+      "description": "",
+      "price": 6
+    },
+    {
+      "category": "Breakfast",
+      "name": "Egg Bites",
+      "description": "",
+      "price": 4
+    },
+    {
+      "category": "Breakfast",
+      "name": "Croissant",
+      "description": "Butter or cream cheese",
+      "price": 7.5
+    },
+    {
+      "category": "Breakfast",
+      "name": "Croissant & Cheese",
+      "description": "Choice of sausage, bacon, ham, turkey",
+      "price": 8.5
+    },
+    {
+      "category": "Waffles on a Stick",
+      "name": "Cookies & Cream",
+      "description": "White chocolate, oreo crumbles, & whipped cream",
+      "price": 8.5
+    },
+    {
+      "category": "Waffles on a Stick",
+      "name": "Party on a Stick",
+      "description": "Sprinkles, chocolate drizzle, & whipped cream",
+      "price": 8.5
+    },
+    {
+      "category": "Waffles on a Stick",
+      "name": "The Chocolate Lover",
+      "description": "M&M's, chocolate drizzle, & whipped cream",
+      "price": 8.5
+    },
+    {
+      "category": "Waffles on a Stick",
+      "name": "Waffles on a Stick (2)",
+      "description": "",
+      "price": 8.5
+    },
+    {
+      "category": "Waffles on a Stick",
+      "name": "Cookie Butter",
+      "description": "Biscoff drizzle & biscoff cookie crumbled",
+      "price": 8.5
+    },
+    {
+      "category": "Waffles on a Stick",
+      "name": "Strawberry Shortcake",
+      "description": "Strawberries, strawberry drizzle, & whipped cream",
+      "price": 8.5
+    },
+    {
+      "category": "Waffles on a Stick",
+      "name": "Maple Butter",
+      "description": "Maple syrup + butter",
+      "price": 8.5
+    },
+    {
+      "category": "Waffles on a Stick",
+      "name": "Maple Bacon",
+      "description": "Maple syrup + bacon",
+      "price": 8.5
+    },
+    {
+      "category": "Waffles on a Stick",
+      "name": "Banana + Nutella",
+      "description": "Sliced banana & nutella",
+      "price": 8.5
+    },
+    {
+      "category": "Waffles on a Stick",
+      "name": "Strawberry + Nutella",
+      "description": "Sliced strawberries & nutella",
+      "price": 8.5
+    },
+    {
+      "category": "Waffles on a Stick",
+      "name": "Maple Chicken",
+      "description": "Maple syrup + chicken bites",
+      "price": 8.5
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:50.022Z"
+}

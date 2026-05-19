@@ -1,0 +1,35 @@
+{
+  "name": "Purple Parrot Beach Bar & Grill",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "(850) 492-9999",
+    "address": "13700 Perdido Key Drive Ste 122b",
+    "city": "Perdido Key",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null
+  },
+  "about": {},
+  "social": {},
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Tiki Bar Closure",
+      "description": "Tiki Bar will be closed for the winter through January 2026",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:51.298Z"
+}

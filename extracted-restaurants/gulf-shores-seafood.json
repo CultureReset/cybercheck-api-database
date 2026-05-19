@@ -1,0 +1,294 @@
+{
+  "name": "Gulf Shores Seafood",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "(251) 948-8456",
+    "address": "921 Gulf Shores Pkwy",
+    "city": "Gulf Shores",
+    "email": "sales@gulfshoresseafood.com"
+  },
+  "hours": {
+    "monday": "10am-6pm",
+    "tuesday": "10am-6pm",
+    "wednesday": "10am-6pm",
+    "thursday": "10am-6pm",
+    "friday": "10am-6pm",
+    "saturday": "10am-6pm",
+    "sunday": "10am-6pm"
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Meals To Go",
+      "name": "Low Country Boil for 1 Person",
+      "description": "0.5lb Large Shrimp, 1 piece Sausage, 1 Ear local Corn-on-Cob and 3 new potatoes, seasoned in your choice of Mild, Medium or Cajun",
+      "price": 12.5
+    },
+    {
+      "category": "Meals To Go",
+      "name": "Low Country Boil for 2",
+      "description": "1lb Large Shrimp, 2 pieces Sausage, 2 Ears local Corn-on-Cob and 6 new potatoes, seasoned in your choice of Mild, Medium or Cajun",
+      "price": 25
+    },
+    {
+      "category": "Meals To Go",
+      "name": "Royal Red Tails",
+      "description": "0.5 lb Royal's seasoned, Corn-on-Cob, 3 Red Potatoes, seasoned in your choice of Mild, Medium or Cajun",
+      "price": 14
+    },
+    {
+      "category": "Meals To Go",
+      "name": "Corn, Potatoes & Sausage",
+      "description": "Corn-on-Cob, 3 New Potatoes & Sausage link, seasoned in your choice of Mild, Medium or Cajun",
+      "price": 4.99
+    },
+    {
+      "category": "Meals To Go",
+      "name": "Corn & Potatoes Only",
+      "description": "Corn-on-Cob & 3 New potatoes, seasoned in your choice of Mild, Medium or Cajun",
+      "price": 3.99
+    },
+    {
+      "category": "Fresh Seafood",
+      "name": "Big Daddy Shrimp",
+      "description": "Fresh Gulf Coast Shrimp",
+      "price": 18.99
+    },
+    {
+      "category": "Fresh Seafood",
+      "name": "Jumbo Shrimp",
+      "description": "Fresh Gulf Coast Shrimp",
+      "price": 16.99
+    },
+    {
+      "category": "Fresh Seafood",
+      "name": "Large Shrimp",
+      "description": "Fresh Gulf Coast Shrimp",
+      "price": 14.99
+    },
+    {
+      "category": "Fresh Seafood",
+      "name": "Royal Reds (Tails)",
+      "description": "Fresh Gulf Coast Shrimp",
+      "price": 16.5
+    },
+    {
+      "category": "Fresh Seafood",
+      "name": "Grouper",
+      "description": "Fresh Fish",
+      "price": 24.99
+    },
+    {
+      "category": "Fresh Seafood",
+      "name": "Mahi-Mahi",
+      "description": "Fresh Fish",
+      "price": 14.99
+    },
+    {
+      "category": "Fresh Seafood",
+      "name": "Yellowfin Tuna",
+      "description": "Fresh Fish",
+      "price": 16.99
+    },
+    {
+      "category": "Fresh Seafood",
+      "name": "Flounder",
+      "description": "Fresh Fish",
+      "price": 9.99
+    },
+    {
+      "category": "Fresh Seafood",
+      "name": "Snapper",
+      "description": "Fresh Fish",
+      "price": 18.99
+    },
+    {
+      "category": "Fresh Seafood",
+      "name": "Snow Crab Clusters",
+      "description": "Fresh Crab Legs",
+      "price": 25.99
+    },
+    {
+      "category": "Fresh Seafood",
+      "name": "Dungeness Crab Legs",
+      "description": "Fresh Crab Legs",
+      "price": 23.99
+    },
+    {
+      "category": "Fresh Seafood",
+      "name": "Stone Crab Claws",
+      "description": "Fresh Crab",
+      "price": 18.99
+    },
+    {
+      "category": "Fresh Seafood",
+      "name": "Large Scallops",
+      "description": "Fresh Scallops",
+      "price": 18.99
+    },
+    {
+      "category": "Fresh Seafood",
+      "name": "Jumbo Scallops",
+      "description": "Fresh Scallops",
+      "price": 23.99
+    },
+    {
+      "category": "Fresh Seafood",
+      "name": "Shucked Oysters (Pint)",
+      "description": "Fresh Oysters",
+      "price": 30
+    },
+    {
+      "category": "Fresh Seafood",
+      "name": "Shucked Oysters (Quart)",
+      "description": "Fresh Oysters",
+      "price": 60
+    },
+    {
+      "category": "Fresh Seafood",
+      "name": "Oysters in Shell (22 lb box)",
+      "description": "Fresh Oysters",
+      "price": 54.99
+    },
+    {
+      "category": "Fresh Seafood",
+      "name": "Oysters in Shell (By The Dozen)",
+      "description": "Fresh Oysters",
+      "price": 16
+    },
+    {
+      "category": "Dips & Salads",
+      "name": "Shrimp and Crab Parmesan Dip",
+      "description": "",
+      "price": 10.99
+    },
+    {
+      "category": "Dips & Salads",
+      "name": "Smoked Tuna Dip",
+      "description": "",
+      "price": 10.99
+    },
+    {
+      "category": "Dips & Salads",
+      "name": "Beer Cheese Dip",
+      "description": "",
+      "price": 7.99
+    },
+    {
+      "category": "Dips & Salads",
+      "name": "Lump Crab Dip",
+      "description": "",
+      "price": 10.99
+    },
+    {
+      "category": "Dips & Salads",
+      "name": "Jalapeño Crab Artichoke Dip",
+      "description": "",
+      "price": 10.99
+    },
+    {
+      "category": "Dips & Salads",
+      "name": "Cajun Crab Dip",
+      "description": "",
+      "price": 10.99
+    },
+    {
+      "category": "Dips & Salads",
+      "name": "Coleslaw",
+      "description": "",
+      "price": 4.99
+    },
+    {
+      "category": "Dips & Salads",
+      "name": "Baked Potato Salad",
+      "description": "",
+      "price": 4.99
+    },
+    {
+      "category": "Dips & Salads",
+      "name": "Cucumber/Tomato Salad",
+      "description": "",
+      "price": 4.99
+    },
+    {
+      "category": "Sauces & Add-ons",
+      "name": "Homemade Cocktail Sauce (4oz)",
+      "description": "",
+      "price": 1.99
+    },
+    {
+      "category": "Sauces & Add-ons",
+      "name": "Homemade Cocktail Sauce (8oz)",
+      "description": "",
+      "price": 2.99
+    },
+    {
+      "category": "Sauces & Add-ons",
+      "name": "Homemade Cocktail Sauce (16oz)",
+      "description": "",
+      "price": 5.99
+    },
+    {
+      "category": "Sauces & Add-ons",
+      "name": "Garlic Butter (4oz)",
+      "description": "",
+      "price": 1.99
+    },
+    {
+      "category": "Sauces & Add-ons",
+      "name": "Garlic Butter (8oz)",
+      "description": "",
+      "price": 2.99
+    },
+    {
+      "category": "Soups",
+      "name": "Homemade Seafood Gumbo (Small/Pint)",
+      "description": "",
+      "price": 8.99
+    },
+    {
+      "category": "Soups",
+      "name": "Homemade Seafood Gumbo (Large/Quart)",
+      "description": "",
+      "price": 16.99
+    },
+    {
+      "category": "Desserts",
+      "name": "Key Lime Pie",
+      "description": "",
+      "price": 19.99
+    },
+    {
+      "category": "Desserts",
+      "name": "Mini Key Lime Pie",
+      "description": "",
+      "price": 2.99
+    },
+    {
+      "category": "Desserts",
+      "name": "Peanut Butter Pie",
+      "description": "",
+      "price": 19.99
+    },
+    {
+      "category": "Desserts",
+      "name": "Cookies-N-Cream Pie",
+      "description": "",
+      "price": 19.99
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Any Purchase of Crab and/or Shrimp Boiled Free",
+      "description": "Free boiling service for crab and shrimp purchases with choice of Mild, Medium, or Cajun seasoning",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:50.392Z"
+}

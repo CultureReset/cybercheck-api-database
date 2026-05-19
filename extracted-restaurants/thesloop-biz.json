@@ -1,0 +1,93 @@
+{
+  "name": "The Sloop Galley and Spirits",
+  "type": "Restaurant",
+  "website": "https://www.thesloop.biz",
+  "contact": {
+    "phone": "(251) 500-1007",
+    "address": "103 W Canal Dr",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null
+  },
+  "about": {
+    "description": "The Sloop Galley and Spirits is a locals eatery and watering hole in Gulf Shores featuring fresh quality foods made in house and exceptional service. Known for original Philly cheesesteaks and homemade items with a pirate dive bar atmosphere.",
+    "cuisine_type": "American/Seafood"
+  },
+  "social": {},
+  "menu": [
+    {
+      "category": "Snacks",
+      "name": "Sloop Du Jour",
+      "description": "please inquire about the rotating daily soup, thoughtfully prepared by the captain. don't forget the toast points for an additional $2",
+      "price": "$6-$10"
+    },
+    {
+      "category": "Snacks",
+      "name": "Cheesesteak Egg Rolls",
+      "description": "choice of chicken or steak with cherry peppers, cheese whiz, and sloop slaw, hand rolled to order, fried golden brown, served with hot honey mustard",
+      "price": "$15"
+    },
+    {
+      "category": "Snacks",
+      "name": "Wings",
+      "description": "one pound of house brined wings, fried and tossed in buffalo, bbq, or have them naked, served with carrot sticks, celery, and choice of ranch or bleu cheese",
+      "price": "$13"
+    },
+    {
+      "category": "Snacks",
+      "name": "Sizzlin Shrimp",
+      "description": "one dozen gulf shrimp sautéed in garlic butter, lemon, capers, grape tomatoes, red onions, and sriracha, served with toast points",
+      "price": "$15"
+    },
+    {
+      "category": "Snacks",
+      "name": "Baked Stuffed Shrooms",
+      "description": "philly cream cheese with sausage, stuffed in button mushrooms, baked with chablis, roasted garlic, parmesan cheese, and green onions, served with toast points",
+      "price": "$9/$15"
+    },
+    {
+      "category": "Snacks",
+      "name": "Nachos",
+      "description": "choice of steak, chicken or shrimp (+$2) double layered on tortillas with cheddar jack cheese, diced red onions, tomatoes, roasted poblano peppers, and queso, served with homemade guacamole, salsa and sour cream",
+      "price": "$16"
+    },
+    {
+      "category": "Snacks",
+      "name": "Chips and Salsa",
+      "description": "fried to order tortilla chips, and house made so fresh salsa",
+      "price": "$7"
+    },
+    {
+      "category": "Snacks",
+      "name": "Boat O' Fries",
+      "description": "house cut to order kennebec potatoes fried golden and crispy",
+      "price": "$5"
+    },
+    {
+      "category": "Snacks",
+      "name": "Basket O' Chips",
+      "description": "large order of house sliced kennebec",
+      "price": "$4"
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Daily Specials",
+      "description": "View our daily specials on Facebook",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-03-21T20:23:59.987Z"
+}

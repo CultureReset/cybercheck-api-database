@@ -1,0 +1,57 @@
+{
+  "name": "Crystal Tower",
+  "type": "Condo",
+  "website": "https://www.brett-robinson.com/beach-condo/crystal-tower/",
+  "contact": {
+    "phone": "+1-800-211-7892",
+    "address": "1010 W Beach Blvd",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {},
+  "about": {
+    "description": "Crystal Tower is a beachfront condo managed by Brett/Robinson Vacation Rentals, a family-owned and operated company with over 40 years of experience in Gulf Shores and Orange Beach, Alabama. The property offers quality accommodations with dedicated onsite customer service staff.",
+    "elevator_pitch": "Beachfront Crystal Tower condo with direct Gulf access, modern amenities, and professional property management by Brett/Robinson Vacation Rentals.",
+    "total_units": null,
+    "floors": null,
+    "year_built": null,
+    "pet_friendly": null,
+    "minimum_stay": null,
+    "check_in": null,
+    "check_out": null,
+    "age_restriction": null
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/brett_robinson_vacations",
+    "facebook": "https://www.facebook.com/BrettRobinsonVacations",
+    "website": "https://www.brett-robinson.com/beach-condo/crystal-tower"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Hot Deal",
+      "description": "Crystal Tower 2004 - 2 Bed, 2 Bath, Sleeps 6 as low as $126.33/night (marked down from $145.28)",
+      "discount": ""
+    },
+    {
+      "name": "Seasonal Discounts",
+      "description": "Seasonal promotions available throughout the year",
+      "discount": ""
+    },
+    {
+      "name": "Snowbird Specials",
+      "description": "Special rates for longer stays during winter months",
+      "discount": ""
+    },
+    {
+      "name": "Last-Minute Deals",
+      "description": "Last-minute discounts on select rentals with availability",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 23,
+  "scraped_at": "2026-03-21T21:38:05.583Z"
+}

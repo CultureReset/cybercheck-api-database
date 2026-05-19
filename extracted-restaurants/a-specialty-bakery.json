@@ -1,0 +1,190 @@
+{
+  "name": "A Specialty Bakery and Party Shoppe",
+  "type": "Bakery",
+  "website": "http://aspecialtybakery.net/",
+  "contact": {
+    "phone": "251-968-2253",
+    "address": "2200 East 2nd Street",
+    "city": "Gulf Shores",
+    "email": "aspecialtybakery@gulftel.com"
+  },
+  "hours": {
+    "monday": "Closed",
+    "tuesday": "9:00 AM - 4:00 PM",
+    "wednesday": "9:00 AM - 4:00 PM",
+    "thursday": "9:00 AM - 4:00 PM",
+    "friday": "9:00 AM - 4:00 PM",
+    "saturday": "9:00 AM - 12:00 PM",
+    "sunday": "Closed",
+    "notes": "Custom cake orders recommended at least 2 weeks in advance"
+  },
+  "about": {
+    "description": "A Specialty Bakery and Party Shoppe is the go-to destination in Gulf Shores, AL for custom cakes, cookies, cupcakes, truffles, and more. They specialize in creating beautiful, delicious custom sweets for weddings, birthdays, and all special occasions, with a wide range of cake flavors and icing options.",
+    "elevator_pitch": "Gulf Shores' beloved custom bakery crafting stunning, faith-inspired celebration cakes and sweets that are as beautiful to look at as they are to eat.",
+    "established": null,
+    "owner": null,
+    "chef": null,
+    "vibe": "Warm, faith-inspired, creative, community-focused sweet shop",
+    "best_for": [
+      "families",
+      "celebrations",
+      "weddings",
+      "birthdays",
+      "special occasions"
+    ],
+    "age_restriction": null,
+    "dress_code": null,
+    "parking": null,
+    "accessibility": null,
+    "reservations": "Custom cake orders recommended at least 2 weeks in advance; orders can be placed by phone, in-store, or Facebook message",
+    "insider_tip": "Place your custom cake order at least 2 weeks in advance, and message them on Facebook for quick communication.",
+    "awards": [],
+    "press": []
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "twitter": null,
+    "tiktok": null,
+    "youtube": null,
+    "yelp": null,
+    "tripadvisor": null,
+    "opentable": null,
+    "google_maps": null,
+    "website": "http://aspecialtybakery.net/"
+  },
+  "menu": [
+    {
+      "category": "Custom Cakes",
+      "name": "White Cake",
+      "description": "Custom cake with white flavor",
+      "price": ""
+    },
+    {
+      "category": "Custom Cakes",
+      "name": "Butter Cake",
+      "description": "Custom cake with butter flavor",
+      "price": ""
+    },
+    {
+      "category": "Custom Cakes",
+      "name": "Yellow Cake",
+      "description": "Custom cake with yellow flavor",
+      "price": ""
+    },
+    {
+      "category": "Custom Cakes",
+      "name": "Chocolate Cake",
+      "description": "Custom cake with chocolate flavor",
+      "price": ""
+    },
+    {
+      "category": "Custom Cakes",
+      "name": "German Chocolate Cake",
+      "description": "Custom cake with German chocolate flavor",
+      "price": ""
+    },
+    {
+      "category": "Custom Cakes",
+      "name": "Strawberry Cake",
+      "description": "Custom cake with strawberry flavor",
+      "price": ""
+    },
+    {
+      "category": "Custom Cakes",
+      "name": "Red Velvet Cake",
+      "description": "Custom cake with red velvet flavor",
+      "price": ""
+    },
+    {
+      "category": "Custom Cakes",
+      "name": "Carrot Cake",
+      "description": "Custom cake with carrot flavor",
+      "price": ""
+    },
+    {
+      "category": "Custom Cakes",
+      "name": "Marble Cake",
+      "description": "Custom cake with marble flavor",
+      "price": ""
+    },
+    {
+      "category": "Custom Cakes",
+      "name": "Almond Cake",
+      "description": "Custom cake with almond flavor",
+      "price": ""
+    },
+    {
+      "category": "Custom Cakes",
+      "name": "Lemon Cake",
+      "description": "Custom cake with lemon flavor",
+      "price": ""
+    },
+    {
+      "category": "Custom Cakes",
+      "name": "Wedding Cake",
+      "description": "A special cake for the most special day",
+      "price": ""
+    },
+    {
+      "category": "Custom Cakes",
+      "name": "Buttercream Icing",
+      "description": "Classic buttercream icing option",
+      "price": ""
+    },
+    {
+      "category": "Custom Cakes",
+      "name": "Cream Cheese Icing",
+      "description": "Cream cheese icing option",
+      "price": ""
+    },
+    {
+      "category": "Custom Cakes",
+      "name": "Chocolate Buttercream Icing",
+      "description": "Chocolate buttercream icing option",
+      "price": ""
+    },
+    {
+      "category": "Custom Cakes",
+      "name": "Peanut Butter Buttercream Icing",
+      "description": "Peanut butter buttercream icing option",
+      "price": ""
+    },
+    {
+      "category": "Custom Cakes",
+      "name": "Caramel Icing",
+      "description": "Caramel icing option",
+      "price": ""
+    },
+    {
+      "category": "Custom Cakes",
+      "name": "Coconut Pecan Icing",
+      "description": "Coconut pecan icing option",
+      "price": ""
+    },
+    {
+      "category": "Specialty Items",
+      "name": "Cookies",
+      "description": "Specialty baked cookies",
+      "price": ""
+    },
+    {
+      "category": "Specialty Items",
+      "name": "Cupcakes",
+      "description": "Specialty baked cupcakes",
+      "price": ""
+    },
+    {
+      "category": "Specialty Items",
+      "name": "Truffles",
+      "description": "Specialty handmade truffles",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 4,
+  "scraped_at": "2026-03-21T15:05:04.628Z"
+}

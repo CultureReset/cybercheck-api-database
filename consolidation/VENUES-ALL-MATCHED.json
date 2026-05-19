@@ -1,0 +1,133 @@
+[
+  {
+    "venue_name": "Barometer Waterfront Grille",
+    "city": "Orange Beach, AL",
+    "place_id": "ChIJE50dMvAHmogRKm7VtVRmxM0",
+    "google_name": "Barometer Waterfront Grille",
+    "address": "27842 Canal Rd, Orange Beach, AL 36561, USA",
+    "phone": "+1 251-451-5232"
+  },
+  {
+    "venue_name": "Luna's Eat & Drink",
+    "city": "Orange Beach, AL",
+    "place_id": "ChIJpwRPw04GmogR79NffdxztCw",
+    "google_name": "Luna's Eat & Drink",
+    "address": "25689 Canal Rd Suite B, Orange Beach, AL 36561, USA",
+    "phone": "+1 251-980-5862"
+  },
+  {
+    "venue_name": "The Red Haven Live",
+    "city": "Orange Beach, AL",
+    "place_id": "ChIJgYBXKgAHmogRms6024lOWlI",
+    "google_name": "The Red Haven Live",
+    "address": "25637 Canal Rd Unit 11 & 12, Orange Beach, AL 36561, USA",
+    "phone": ""
+  },
+  {
+    "venue_name": "Angry Crab Shack",
+    "city": "Orange Beach, AL",
+    "place_id": "ChIJEfMjbrQHmogRsI0euy-E4MA",
+    "google_name": "Angry Crab Shack",
+    "address": "25751 Perdido Beach Blvd #1-A, Orange Beach, AL 36561, USA",
+    "phone": "+1 251-981-1136"
+  },
+  {
+    "venue_name": "Perdido Beach Resort",
+    "city": "Orange Beach, AL",
+    "place_id": "ChIJuaoU9AoHmogRMFODjW4S2UQ",
+    "google_name": "Perdido Beach Resort",
+    "address": "27200 Perdido Beach Blvd, Orange Beach, AL 36561, USA",
+    "phone": "+1 251-981-9811"
+  },
+  {
+    "venue_name": "Ginny Lane Bar and Grill",
+    "city": "Orange Beach, AL",
+    "place_id": "ChIJjUVMSMMFmogRb0-XfuWyIEY",
+    "google_name": "Ginny Lane Bar and Grill",
+    "address": "4851 Wharf Pkwy E suite D100-D106, Orange Beach, AL 36561, USA",
+    "phone": "+1 251-224-6500"
+  },
+  {
+    "venue_name": "GTs On The Bay",
+    "city": "Orange Beach, AL",
+    "place_id": "ChIJL5w8u7QHmogRiY0gzcejWpM",
+    "google_name": "GTs On The Bay",
+    "address": "26189 Canal Rd, Orange Beach, AL 36561, USA",
+    "phone": "+1 251-980-8400"
+  },
+  {
+    "venue_name": "Cosmo's Restaurant & Bar",
+    "city": "Orange Beach, AL",
+    "place_id": "ChIJ55i9UUQGmogRkCe6uzJgenE",
+    "google_name": "Cosmo's Restaurant & Bar",
+    "address": "25753 Canal Rd, Orange Beach, AL 36561, USA",
+    "phone": "+1 251-948-9663"
+  },
+  {
+    "venue_name": "Zeke's Restaurant",
+    "city": "Orange Beach, AL",
+    "place_id": "ChIJL3RjNOYHmogRr6ty7giLZ2U",
+    "google_name": "Zeke's Restaurant",
+    "address": "26619 Perdido Beach Blvd, Orange Beach, AL 36561, USA",
+    "phone": "+1 251-280-8008"
+  },
+  {
+    "venue_name": "The Undertow",
+    "city": "Orange Beach, AL",
+    "place_id": "ChIJz4UsaEIGmogR50ckasCNrjE",
+    "google_name": "The Undertow",
+    "address": "25025 Canal Rd, Orange Beach, AL 36561, USA",
+    "phone": "+1 251-981-3331"
+  },
+  {
+    "venue_name": "Flora-Bama",
+    "city": "Perdido Key, FL",
+    "place_id": "ChIJAcqjl0mokIgRnm2_K_q2x7U",
+    "google_name": "Flora-Bama",
+    "address": "17401 Perdido Key Dr, Pensacola, FL 32507, USA",
+    "phone": "+1 850-492-0611"
+  },
+  {
+    "venue_name": "Lauria's by the Beach",
+    "city": "Gulf Shores, AL",
+    "place_id": "ChIJgY7NUHwFmogRqwUful3YXPA",
+    "google_name": "Lauria's by the Beach",
+    "address": "412 W Beach Blvd, Gulf Shores, AL 36542, USA",
+    "phone": "+1 251-223-4963"
+  },
+  {
+    "venue_name": "Pink Pony Pub",
+    "city": "Gulf Shores, AL",
+    "place_id": "ChIJGQpKqbAEmogRw2CWr5jWnAY",
+    "google_name": "Pink Pony Pub",
+    "address": "137 E Gulf Pl, Gulf Shores, AL 36542, USA",
+    "phone": "+1 251-948-6371"
+  },
+  {
+    "venue_name": "OSO at Bear Point Harbor",
+    "city": "Orange Beach, AL",
+    "matched_business": "Bear Point Harbor",
+    "place_id": "ChIJ051_Fw6okIgRsd5dsEiXV78",
+    "similarity": "70.8%",
+    "address": "5749 Bay La Launch Ave, Orange Beach, AL 36561, USA",
+    "phone": "+1 251-981-2327"
+  },
+  {
+    "venue_name": "Shipp's Dockside Grill",
+    "city": "Orange Beach, AL",
+    "matched_business": "Shipp’s Dockside Grill",
+    "place_id": "ChIJm4lIKgAHmogR_AoSmroSrkU",
+    "similarity": "95.5%",
+    "address": "27075 Marina Rd, Orange Beach, AL 36561, USA",
+    "phone": "+1 251-412-7447"
+  },
+  {
+    "venue_name": "Doc's Seafood and Steaks",
+    "city": "Orange Beach, AL",
+    "matched_business": "Doc’s Seafood and Steaks",
+    "place_id": "ChIJxyhiUZ4HmogRNbz519uo8u4",
+    "similarity": "95.8%",
+    "address": "24221 Perdido Beach Blvd, Orange Beach, AL 36561, USA",
+    "phone": "+1 251-281-0888"
+  }
+]

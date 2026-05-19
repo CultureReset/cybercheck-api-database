@@ -1,0 +1,192 @@
+{
+  "business_name": "Shrimp Basket",
+  "cuisine_type": "Gulf Coast Seafood, Coastal American",
+  "price_range": "$$",
+  "description": "Shrimp Basket is a Gulf Coast seafood restaurant serving fresh, hand-breaded shrimp, coastal classics, and Southern hospitality since 1993. With locations across the Southeast, Shrimp Basket offers dine-in, takeout, online ordering, and catering for seafood lovers seeking laid-back coastal flavor. Gulf seafood, coastal cocktails, and a warm welcome — every single time.",
+  "atmosphere": "Casual coastal dining with Southern hospitality",
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": null,
+    "email": "marketing@shrimpbasket.com",
+    "address": "Multiple locations across Florida, Alabama, and Mississippi",
+    "website": "https://shrimpbasket.com",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": "https://www.facebook.com/TheShrimpBasket",
+      "instagram": "https://www.instagram.com/theshrimpbasket/",
+      "twitter": null,
+      "tiktok": "https://www.tiktok.com/@shrimpbasket",
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": "9:00 AM - 5:00 PM",
+    "tuesday": "9:00 AM - 5:00 PM",
+    "wednesday": "9:00 AM - 5:00 PM",
+    "thursday": "9:00 AM - 5:00 PM",
+    "friday": "9:00 AM - 5:00 PM",
+    "saturday": "9:00 AM - 5:00 PM",
+    "sunday": "9:00 AM - 5:00 PM",
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": true,
+    "takeout_available": true,
+    "delivery_available": true,
+    "curbside_available": null,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": "Florida & Alabama Gulf Coast"
+  },
+  "menu": {
+    "sections": [
+      {
+        "name": "Lunch & Dinner",
+        "description": null,
+        "items": []
+      },
+      {
+        "name": "Cocktails & Beverages",
+        "description": null,
+        "items": []
+      },
+      {
+        "name": "Dessert",
+        "description": null,
+        "items": []
+      }
+    ],
+    "wine_list": null,
+    "beer_selection": null,
+    "cocktails": "Coastal cocktails available",
+    "kids_menu": null,
+    "catering_menu": "Catering available",
+    "dietary_accommodations": {
+      "vegetarian": null,
+      "vegan": null,
+      "gluten_free": null,
+      "dairy_free": null,
+      "nut_free": null,
+      "kosher": null,
+      "halal": null
+    }
+  },
+  "happy_hour": {
+    "available": null,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [
+    {
+      "type": "weekly_special",
+      "day_of_week": "Tuesday",
+      "name": "Oyster Tuesday",
+      "description": "Join us every Tuesday for 79 cent raw Gulf oysters",
+      "discount": "$0.79 oysters",
+      "valid_until": null
+    }
+  ],
+  "entertainment_and_events": [],
+  "private_events": {
+    "available": true,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": true,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [
+      "USD",
+      "Credit Cards"
+    ],
+    "kids_policy": null,
+    "pets_allowed": null
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": null,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": null,
+    "private_dining": true
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": "Rewards program available",
+    "gift_cards_available": true,
+    "email_signup": null,
+    "rewards_details": "Visit /rewards/ page for program details"
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": null,
+    "farm_to_table": null,
+    "sustainable": null,
+    "organic": null,
+    "details": "Hand-breaded shrimp and fresh Gulf Coast seafood"
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [
+      "Hand-breaded shrimp",
+      "Po'boys",
+      "Raw Gulf oysters"
+    ],
+    "common_praise": [
+      "Gulf Coast flavor",
+      "Southern hospitality",
+      "Coastal classics"
+    ],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "logo",
+      "url": "https://shrimpbasket.com/wp-content/uploads/2022/10/shrimp.svg",
+      "description": "Shrimp Basket logo"
+    },
+    {
+      "type": "logo",
+      "url": "https://shrimpbasket.com/wp-content/uploads/2026/02/shrimpbasketlogo-scaled.png",
+      "description": "Shrimp Basket brand logo"
+    },
+    {
+      "type": "video",
+      "url": "https://shrimpbasket.com/wp-content/uploads/2023/06/Shrimp-Basket-Banner.mp4",
+      "description": "Shrimp Basket promotional banner video"
+    },
+    {
+      "type": "favicon",
+      "url": "https://shrimpbasket.com/wp-content/uploads/2022/10/favicon.png",
+      "description": "Shrimp Basket favicon"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "Shrimp Basket | Serving Gulf Coast Seafood with Southern Hospitality. Join us every tuesday for 79 cent raw gulf oysters! WHERE EVERY BITE TASTES LIKE THE COAST. Gulf seafood, coastal cocktails, and a warm welcome — every single time. ORDER NOW! Locations: Destin, Panama City Beach, Pensacola (multiple locations), Pensacola Beach, Perdido Key, Navarre, Auburn, Bay Minette, Cullman, Foley, Gardendale, Gulf Shores, Orange Beach, Evergreen, Tuscaloosa, Gulfport. Menus: Lunch & Dinner, Cocktails & Beverages, Dessert. Navigation: Locations, Menus, Rewards, Gift Cards. Main content emphasizes hand-breaded shrimp, po'boys, and coastal classics with dine-in, takeout, online ordering, and catering services.",
+  "extraction_confidence": "high",
+  "extraction_notes": "Successfully extracted basic business information, location data, contact email, social media profiles, hours of operation, special promotions (Oyster Tuesday), menu categories, loyalty programs, and gift cards from header and schema markup. Limited detail on specific menu items, prices, and additional policies due to HTML structure showing primarily navigation and header elements. Full menu items appear to be on separate pages. No specific phone numbers found on homepage. Delivery information inferred from schema markup indicating Florida & Alabama Gulf Coast service area. Hours appear to be standard across all days (9 AM - 5 PM) based on schema data.",
+  "folder": "ChIJQWoeCggHmogRLCmdem3l-AY_Shrimp Basket",
+  "extracted_at": "2026-05-15T06:20:03.561Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJQWoeCggHmogRLCmdem3l-AY_Shrimp Basket/01_raw_html.html"
+}

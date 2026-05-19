@@ -1,0 +1,48 @@
+{
+  "name": "Pink Pony Pub",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "(251) 948-6371",
+    "address": "137 E Gulf Shores Pl",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {
+    "monday": "10:30am-10pm",
+    "tuesday": "10:30am-10pm",
+    "wednesday": "10:30am-10pm",
+    "thursday": "10:30am-10pm",
+    "friday": "10:30am-10pm",
+    "saturday": "10:30am-10pm",
+    "sunday": "10:30am-10pm"
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Featured Drinks",
+      "name": "Bob Marley",
+      "description": "Strawberry, Pina Colada, banana, melon, orange, coconut rum & dark rum. Served in a Pink Pony Pub souvenir glass.",
+      "price": ""
+    },
+    {
+      "category": "Featured Drinks",
+      "name": "Malibu Bushwhacker",
+      "description": "Malibu Rum, Dark Creme de Cocoa, Irish Creme & Vanilla Creme.",
+      "price": ""
+    },
+    {
+      "category": "Featured Drinks",
+      "name": "Pina Colada",
+      "description": "A Pink Pony signature frozen drink that includes premium rum, coconut cream & fresh pineapple juice.",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:51.282Z"
+}

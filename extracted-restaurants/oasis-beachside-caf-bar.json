@@ -1,0 +1,29 @@
+{
+  "name": "Oasis Beachside Café & Bar",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "",
+    "address": "23450 Perdido Beach Blvd",
+    "city": "Orange Beach",
+    "email": ""
+  },
+  "hours": {
+    "monday": "12pm-8pm",
+    "tuesday": "12pm-8pm",
+    "wednesday": "12pm-8pm",
+    "thursday": "12pm-8pm",
+    "friday": "12pm-8pm",
+    "saturday": "12pm-8pm",
+    "sunday": "12pm-8pm"
+  },
+  "about": {},
+  "social": {},
+  "menu": [],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:51.058Z"
+}

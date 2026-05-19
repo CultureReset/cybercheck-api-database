@@ -1,0 +1,49 @@
+{
+  "name": "Shrimp Basket",
+  "type": "Restaurant",
+  "website": "https://shrimpbasket.com/",
+  "contact": {
+    "phone": "",
+    "address": "",
+    "city": "",
+    "email": "marketing@shrimpbasket.com"
+  },
+  "hours": {
+    "monday": "09:00 - 17:00",
+    "tuesday": "09:00 - 17:00",
+    "wednesday": "09:00 - 17:00",
+    "thursday": "09:00 - 17:00",
+    "friday": "09:00 - 17:00",
+    "saturday": "09:00 - 17:00",
+    "sunday": "09:00 - 17:00",
+    "notes": null
+  },
+  "about": {
+    "description": "Shrimp Basket is a Gulf Coast seafood restaurant serving fresh, hand-breaded shrimp, coastal classics, and Southern hospitality since 1993. With locations across the Southeast, Shrimp Basket offers dine-in, takeout, online ordering, and catering for seafood lovers seeking laid-back coastal flavor.",
+    "elevator_pitch": "A Gulf Coast seafood restaurant serving hand-breaded shrimp and coastal classics with Southern hospitality since 1993.",
+    "vibe": "Casual, family-focused, laid-back coastal atmosphere with a beach escape feel.",
+    "best_for": [
+      "families",
+      "casual dining",
+      "seafood lovers",
+      "beach getaways"
+    ],
+    "established": "1993",
+    "reservations": null,
+    "insider_tip": "Located in Gulf Shores, Alabama where it all began; now with 18 locations across Alabama, Florida, and Mississippi."
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/theshrimpbasket/",
+    "facebook": "https://www.facebook.com/TheShrimpBasket",
+    "tiktok": "https://www.tiktok.com/@shrimpbasket",
+    "linkedin": "https://www.linkedin.com/company/shrimpbasket/",
+    "website": "https://shrimpbasket.com/"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 9,
+  "scraped_at": "2026-03-21T14:33:54.427Z"
+}

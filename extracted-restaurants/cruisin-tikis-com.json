@@ -1,0 +1,63 @@
+{
+  "name": "Cruisin' Tikis",
+  "type": "Boat Tour / Tiki Bar Experience",
+  "website": "https://www.cruisin-tikis.com",
+  "contact": {
+    "phone": "",
+    "address": "",
+    "city": "",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": null
+  },
+  "about": {
+    "description": "Cruisin' Tikis appears to be a floating tiki bar boat tour company, offering guests a unique on-the-water experience with a tropical tiki theme. Guests cruise aboard decorated tiki boats while enjoying drinks and scenic waterway views.",
+    "elevator_pitch": "Set sail on a one-of-a-kind floating tiki bar experience where tropical vibes, refreshing drinks, and stunning waterway views combine for an unforgettable adventure.",
+    "established": null,
+    "owner": null,
+    "chef": null,
+    "vibe": "Tropical, festive, relaxed floating tiki party",
+    "best_for": [
+      "groups",
+      "date night",
+      "bachelorette parties",
+      "birthday celebrations",
+      "tourists"
+    ],
+    "age_restriction": null,
+    "dress_code": null,
+    "parking": null,
+    "accessibility": null,
+    "reservations": "Reservations likely required",
+    "insider_tip": "Book in advance as tiki boat tours tend to fill up quickly, especially on weekends.",
+    "awards": [],
+    "press": []
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "twitter": null,
+    "tiktok": null,
+    "youtube": null,
+    "yelp": null,
+    "tripadvisor": null,
+    "opentable": null,
+    "google_maps": null,
+    "website": "https://www.cruisin-tikis.com"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-03-21T19:28:22.289Z"
+}

@@ -1,0 +1,131 @@
+{
+  "name": "Doc's Seafood Shack & Oyster Bar",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "(251) 981-6999",
+    "address": "26029 Canal Rd",
+    "city": "Orange Beach",
+    "email": "info@docsseafoodshack.com"
+  },
+  "hours": {
+    "monday": "11:00AM-9:00PM",
+    "tuesday": "11:00AM-9:00PM",
+    "wednesday": "11:00AM-9:00PM",
+    "thursday": "11:00AM-9:00PM",
+    "friday": "11:00AM-9:00PM",
+    "saturday": "11:00AM-9:00PM",
+    "sunday": "11:00AM-9:00PM"
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Famous Fried Shrimp",
+      "name": "Big 'Un Fried Shrimp",
+      "description": "The best fried shrimp in the entire civilized world. Served with fries or baked potato, coleslaw & hush puppies",
+      "price": 22.99
+    },
+    {
+      "category": "Oysters",
+      "name": "Oysters on the Half Shell",
+      "description": "1/2 dozen and 1 dozen oysters on the half shell",
+      "price": ""
+    },
+    {
+      "category": "Seafood Platters",
+      "name": "Doc's Seafood Platter",
+      "description": "Create your own seafood platter. Grilled, fried, or baked options available",
+      "price": ""
+    },
+    {
+      "category": "Seafood Platters",
+      "name": "Baked Seafood Platter",
+      "description": "Skewer of grilled shrimp, fried clam strips, baked stuffed crab, fish fillet, boiled potatoes & salad, creamy coleslaw, hush puppies, free cup of gumbo",
+      "price": ""
+    },
+    {
+      "category": "Other Specialties",
+      "name": "Seafood Gumbo",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Other Specialties",
+      "name": "Fried Fish",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Other Specialties",
+      "name": "Soft Shell Crabs",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Other Specialties",
+      "name": "Steamed Deep Water Royal Red Shrimp",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Other Specialties",
+      "name": "Fried Crab Claws",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Other Specialties",
+      "name": "Grilled Shrimp",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Other Specialties",
+      "name": "Handmade Crab Cakes",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Other Specialties",
+      "name": "Chicken Fingers",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Other Specialties",
+      "name": "Onion Rings",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Other Specialties",
+      "name": "Hamburger",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Other Specialties",
+      "name": "Fried Chicken",
+      "description": "",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Blue Plate Specials",
+      "description": "",
+      "discount": ""
+    },
+    {
+      "name": "Lunch Specials",
+      "description": "",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:50.234Z"
+}

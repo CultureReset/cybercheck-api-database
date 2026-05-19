@@ -1,0 +1,218 @@
+{
+  "business_name": "Scuttlebutt Pub",
+  "cuisine_type": "Pub, Cocktails",
+  "price_range": "$$",
+  "description": "Scuttlebutt Pub is Foley's hometown pub where you enter as a stranger and leave as a friend. The ultimate Foley bar experience featuring live jazz, karaoke, pool, and giant Jenga games on their outdoor patio with a diverse drink menu including craft cocktails, classic cocktails, prohibition-style cocktails, old fashioneds, whiskey drinks, bourbon cocktails, signature shooters, shot specials, and fun bar drinks.",
+  "atmosphere": "Vibrant, friendly neighborhood pub with outdoor patio featuring games like pool and giant Jenga. Live entertainment venue.",
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": "(251) 971-6403",
+    "email": null,
+    "address": "319 A N McKenzie St, Foley, AL 36535",
+    "website": "https://scuttlebuttpubfoley.com/",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": "https://www.facebook.com/scuttlebuttpub",
+      "instagram": "https://www.instagram.com/scuttlebuttfoleycocktails/",
+      "twitter": null,
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": "11am - 2am",
+    "tuesday": "11am - 2am",
+    "wednesday": "11am - 2am",
+    "thursday": "11am - 2am",
+    "friday": "11am - 2am",
+    "saturday": "11am - 2am",
+    "sunday": "11am - 2am",
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": true,
+    "takeout_available": null,
+    "delivery_available": null,
+    "curbside_available": null,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [
+      {
+        "name": "Craft Cocktails",
+        "description": null,
+        "items": []
+      },
+      {
+        "name": "Classic Cocktails",
+        "description": null,
+        "items": []
+      },
+      {
+        "name": "Prohibition Style Cocktails",
+        "description": null,
+        "items": []
+      },
+      {
+        "name": "Whiskey Drinks",
+        "description": null,
+        "items": []
+      },
+      {
+        "name": "Bourbon Cocktails",
+        "description": null,
+        "items": []
+      },
+      {
+        "name": "Signature Shooters",
+        "description": null,
+        "items": []
+      },
+      {
+        "name": "Shot Specials",
+        "description": null,
+        "items": []
+      },
+      {
+        "name": "Fun Bar Drinks",
+        "description": null,
+        "items": []
+      }
+    ],
+    "wine_list": null,
+    "beer_selection": null,
+    "cocktails": "Craft Cocktails, Classic Cocktails, Prohibition Style Cocktails, Old Fashioned, Whiskey Drinks, Bourbon Cocktails, Signature Shooters, Shot Specials, Fun Bar Drinks",
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": false,
+      "vegan": false,
+      "gluten_free": false,
+      "dairy_free": false,
+      "nut_free": false,
+      "kosher": false,
+      "halal": false
+    }
+  },
+  "happy_hour": {
+    "available": false,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [],
+  "entertainment_and_events": [
+    {
+      "type": "live_music",
+      "name": "Live Jazz",
+      "days": "See Events Calendar",
+      "start_time": null,
+      "end_time": null,
+      "description": "Live jazz performances at Scuttlebutt Pub",
+      "cover_charge": null,
+      "featured_artist": null
+    },
+    {
+      "type": "karaoke",
+      "name": "Karaoke",
+      "days": "See Events Calendar",
+      "start_time": null,
+      "end_time": null,
+      "description": "Karaoke nights at Scuttlebutt Pub",
+      "cover_charge": null,
+      "featured_artist": null
+    },
+    {
+      "type": "games",
+      "name": "Pool and Giant Jenga",
+      "days": "Daily",
+      "start_time": null,
+      "end_time": null,
+      "description": "Pool and giant Jenga games available on outdoor patio",
+      "cover_charge": null,
+      "featured_artist": null
+    }
+  ],
+  "private_events": {
+    "available": true,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": false,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": false,
+    "accessible_restroom": false,
+    "parking_accessible": false,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": null,
+    "pets_allowed": false
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": true,
+    "online_booking_platform": null,
+    "phone_reservations": "(251) 971-6403",
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": false,
+    "private_dining": true
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": false,
+    "email_signup": "https://scuttlebuttpubfoley.com/mailing-list/",
+    "rewards_details": "Mailing List signup available"
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": false,
+    "farm_to_table": false,
+    "sustainable": false,
+    "organic": false,
+    "details": null
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [],
+    "common_praise": [],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "restaurant",
+      "url": "/images/bg/slide1.webp",
+      "description": "Shot being poured"
+    },
+    {
+      "type": "logo",
+      "url": "/images/design/logo.webp",
+      "description": "Scuttlebutt Pub logo"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": "Mailing list signup available at https://scuttlebuttpubfoley.com/mailing-list/",
+  "raw_text_content": "Scuttlebutt Pub - Foley, AL. Enter as a Stranger, Leave as a Friend. Welcome to Scuttlebutt Pub, your ultimate destination for jazz, karaoke, and more in Foley, Alabama. Located at 319 A N McKenzie St, Foley, AL 36535. Phone: (251) 971-6403. Open Daily: 11am - 2am. When you're here, you're having fun, you're family. And although you may come as a stranger, you'll leave as a friend. Check out our assortment of craft cocktails & drinks from the bar. Join us for a night out with live jazz, karaoke, pool, and giant Jenga games on our outdoor patio. Services include: Craft Cocktails, Classic Cocktails, Prohibition Style Cocktails, Old Fashioned, Whiskey Drinks, Bourbon Cocktails, Signature Shooters, Shot Specials, Fun Bar Drinks. Navigation: Home, Drink Menu, Events, Private Events, Events Calendar, About Us, Jobs, News, Contact Us, Leave A Review, Join Our Mailing List. Areas Served: Foley, Daphne, Spanish Fort, Fairhope, Robertsdale, Lillian, Elberta, Magnolia Springs, Gulf Shores, Orange Beach, Fairhope North, South Foley, West Foley, East Foley, Southeast Foley, North Foley, Central Foley, Foley Downtown, Foley North Park, Foley South Park.",
+  "extraction_confidence": "medium",
+  "extraction_notes": "This is primarily a homepage with limited detailed menu information visible. The HTML contains a JSON-LD schema with basic business information and service offerings but does not include specific menu items, pricing, detailed hours by day, or most operational details. The full drink menu is referenced but not included in the homepage HTML - it links to a separate /menu/ page. No information found for: specific menu items with prices, wine/beer lists, dietary accommodations details, happy hour, current promotions, parking info, accessibility features, dress code, cancellation policy, payment methods accepted, loyalty programs, or detailed private event packages. Social media links include Facebook, Instagram, Yelp, and Google Maps but no Twitter, TikTok, or YouTube. The site appears to use a Spillover platform for management.",
+  "folder": "ChIJ1Z_jyg4OmogR2hT9UPAtyq0_Scuttlebutt Pub",
+  "extracted_at": "2026-05-15T06:01:53.373Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJ1Z_jyg4OmogR2hT9UPAtyq0_Scuttlebutt Pub/01_raw_html.html"
+}

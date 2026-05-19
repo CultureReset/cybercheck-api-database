@@ -1,0 +1,45 @@
+{
+  "name": "Original Oyster House Boardwalk",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "(251) 948-2445",
+    "address": "701 Gulf Shores Pkwy",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null
+  },
+  "about": {},
+  "social": {},
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Valentine's Seafood Special",
+      "description": "Sweetheart Special package for $32.99 per person. Includes cup of award winning seafood gumbo, Create-Your-Own-Seafood Platter with choice of three items (Fried Shrimp, Stuffed Crabs, Fried Oysters, Fried Flounder, Grilled Chicken Breast, Grilled House Catch, Grilled Shrimp, Baked Stuffed Shrimp or Shrimp Scampi), two famous sides, and homemade bourbon bread pudding to share.",
+      "discount": ""
+    },
+    {
+      "name": "Mother's Day Special",
+      "description": "Celebrate Moms with signature seafood, Southern hospitality and a spectacular sunset. Includes surprise Mother's Day gift certificate.",
+      "discount": ""
+    },
+    {
+      "name": "Fresh Salad Bar Daily",
+      "description": "Fresh salad bar served with lunch and dinner daily.",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:51.095Z"
+}

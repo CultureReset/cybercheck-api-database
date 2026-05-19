@@ -1,0 +1,298 @@
+{
+  "business_name": "Blalock Seafood & Specialty Market",
+  "cuisine_type": "Seafood Market",
+  "price_range": "$",
+  "description": "Blalock Seafood & Specialty Market is the premier source for fresh seafood on the Alabama Gulf Coast. Located in Gulf Shores, AL, our fish, seafood, and shrimp market has provided high-quality seafood and gourmet items to the region for more than 10 years. With some of the best locally caught seafood around, we're dedicated to your satisfaction. We serve our customers with pride, providing one of the widest selections of seafood in the area.",
+  "atmosphere": "Locally owned and operated seafood market with knowledgeable staff, clean facilities, and large assortment of fresh seafood",
+  "chef_info": null,
+  "awards": [
+    "People's Choice Award for Best Seafood Market"
+  ],
+  "contact": {
+    "phone": "(251) 968-5811",
+    "email": "info@blalockseafoodgulfshores.com",
+    "address": "1901 Gulf Shores Pkwy, Gulf Shores, AL 36542",
+    "website": "https://www.blalockseafoodgulfshores.com",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": "https://facebook.com/BlalocksSeafood",
+      "instagram": null,
+      "twitter": null,
+      "tiktok": null,
+      "youtube": null,
+      "yelp": "https://yelp.com/biz/blalock-seafood-and-specialty-market-gulf-shores",
+      "google_maps": "https://goo.gl/maps/5AFb4CZEpRvwzVSU7"
+    }
+  },
+  "hours": {
+    "monday": "09:00 - 18:00",
+    "tuesday": "09:00 - 18:00",
+    "wednesday": "09:00 - 18:00",
+    "thursday": "09:00 - 18:00",
+    "friday": "09:00 - 18:00",
+    "saturday": "09:00 - 18:00",
+    "sunday": "09:00 - 16:00",
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": false,
+    "takeout_available": true,
+    "delivery_available": false,
+    "curbside_available": false,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [
+      {
+        "name": "Fresh Seafood",
+        "description": "Fresh locally caught seafood including fish, shrimp, and crab legs",
+        "items": [
+          {
+            "name": "Fresh Fish",
+            "description": "Variety of fresh fish options",
+            "price": null,
+            "dietary_flags": [],
+            "allergens": "Fish",
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Famous Shrimp",
+            "description": "Fresh Gulf shrimp from fertile waters of the Gulf of Mexico",
+            "price": null,
+            "dietary_flags": [],
+            "allergens": "Shellfish",
+            "is_signature": true,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Crab Legs",
+            "description": "Large and meaty crab legs",
+            "price": null,
+            "dietary_flags": [],
+            "allergens": "Shellfish",
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": null
+          }
+        ]
+      },
+      {
+        "name": "Specialty Items",
+        "description": "Gourmet seasonings, dry rubs, fine wines, dips, and marinades",
+        "items": [
+          {
+            "name": "Gourmet Seasonings",
+            "description": "Selection of gourmet spices and seasonings",
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Gourmet Dry Rubs",
+            "description": "Selection of gourmet dry rubs for seafood",
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Fine Cheese",
+            "description": "Selection of fine cheeses",
+            "price": null,
+            "dietary_flags": [
+              "vegetarian"
+            ],
+            "allergens": "Dairy",
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Smoked Tuna Dip",
+            "description": "House specialty dip",
+            "price": null,
+            "dietary_flags": [],
+            "allergens": "Fish, Dairy",
+            "is_signature": true,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Shrimp Bisque",
+            "description": "Famous shrimp bisque",
+            "price": null,
+            "dietary_flags": [],
+            "allergens": "Shellfish, Dairy",
+            "is_signature": true,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Frozen Hush Puppies",
+            "description": "Frozen hush puppies",
+            "price": null,
+            "dietary_flags": [
+              "vegetarian"
+            ],
+            "allergens": "Gluten, Dairy, Eggs",
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": null
+          }
+        ]
+      },
+      {
+        "name": "Steamed Meal Solutions",
+        "description": "Pre-steamed seafood meal options",
+        "items": [
+          {
+            "name": "Steamed Seafood",
+            "description": "Steamed meal solutions with favorite seafood products",
+            "price": null,
+            "dietary_flags": [],
+            "allergens": "Shellfish, Fish",
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": null
+          }
+        ]
+      }
+    ],
+    "wine_list": "Provider of fine wines",
+    "beer_selection": null,
+    "cocktails": null,
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": true,
+      "vegan": false,
+      "gluten_free": false,
+      "dairy_free": false,
+      "nut_free": null,
+      "kosher": false,
+      "halal": false
+    }
+  },
+  "happy_hour": {
+    "available": false,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [],
+  "entertainment_and_events": [],
+  "private_events": {
+    "available": false,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": false,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": null,
+    "pets_allowed": null
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": false,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": false,
+    "private_dining": false
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": false,
+    "email_signup": null,
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": true,
+    "farm_to_table": false,
+    "sustainable": false,
+    "organic": false,
+    "details": "Locally owned and operated market carrying the freshest seafood in the region. Known for shrimp from the fertile waters of the Gulf of Mexico. More than 10 years in business serving Gulf Shores, Orange Beach, and Foley areas."
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [
+      "Shrimp",
+      "Crab legs",
+      "Tuna Dip",
+      "Frozen hush puppies",
+      "Shrimp bisque"
+    ],
+    "common_praise": [
+      "Super friendly staff",
+      "Clean facility",
+      "Large assortment of seafood",
+      "Awesome large and meaty crab legs",
+      "Decent prices",
+      "Amazing food",
+      "Wide selection of seafood",
+      "People's Choice Award winner"
+    ],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "restaurant_exterior",
+      "url": "https://lirp.cdn-website.com/39149654/dms3rep/multi/opt/Blalock-Seafood-Specialty-Market1-1920w.jpg",
+      "description": null
+    },
+    {
+      "type": "food",
+      "url": "https://irp.cdn-website.com/39149654/dms3rep/multi/Blalock-Seafood-Specialty-Market14.jpg",
+      "description": "Cooked headless shrimp"
+    },
+    {
+      "type": "food",
+      "url": "https://irp.cdn-website.com/39149654/dms3rep/multi/Blalock-Seafood-Specialty-Market15.jpg",
+      "description": "Cooked shrimp"
+    },
+    {
+      "type": "award",
+      "url": "https://lirp.cdn-website.com/39149654/dms3rep/multi/opt/People-Choice-Badge-1920w.png",
+      "description": "People's Choice Award - Best Seafood Market"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "Blalock Seafood & Specialty Market. Seafood Market in Gulf Shores, AL. Blalock Seafood & Specialty Market in Gulf Shores, AL, is the premier seafood market and provider of fine wines. Call us at (251) 968-5811 for fresh seafood. Premier source for fresh seafood on the Alabama Gulf Coast. High-quality seafood and gourmet items for more than 10 years. Widest selections of seafood in the area. Free Pack to Travel - Our team of seafood experts can professionally wrap and seal your purchases to ensure they're packed safely for travel home. Steamed Meal Solutions - Blalock Seafood & Specialty Market provides steamed meal solutions with all your favorite seafood products. Why Choose Us? Locally owned and operated market carries the freshest seafood in the region. Known for shrimp from fertile waters of the Gulf of Mexico. Over 10 years in business, flexible hours, convenient access to quality products, knowledgeable staff. Voted People's Choice Award for Best Seafood Market. Fresh Seafood & Beyond. Delivering fresh seafood to local areas including Gulf Shores, Orange Beach, and Foley. Gourmet Seasonings, Gourmet Dry Rubs, Fine Cheese. Try Our Famous Shrimp! Give us a call today to ask about our large selection of fresh seafood or to discuss the gourmet spices and fine cheeses we offer. Recommend stopping by to try our famous shrimp bisque and smoked tuna dip. Testimonials. Super friendly staff, clean, with a large assortment of seafood. Try the Tuna Dip and frozen hush puppies. Lots of dips and marinades. Awesome, large and meaty crab legs! Decent prices and amazing food. Made for a great date night. Home Services What We Have Fresh Fish Steam Room Shrimp Contact.",
+  "extraction_confidence": "high",
+  "extraction_notes": "Successfully extracted comprehensive data from restaurant website. Business is a seafood market, not a traditional dine-in restaurant. Hours, phone, address, email, and social media fully extracted. Menu items identified from website content. Key distinguishing features: Free Pack to Travel service, Steamed Meal Solutions, famous shrimp bisque and smoked tuna dip. No reservations system, online ordering, delivery services, or private events found. Awards data extracted from website. Testimonials with ratings extracted. Some sections not applicable to seafood market format (happy hour, entertainment, private events marked as unavailable). Website includes schema markup with detailed business information.",
+  "folder": "ChIJO7Ij3tkEmogRhFweTz9pdhs_Blalock Seafood & Specialty Gulf Shores",
+  "extracted_at": "2026-05-15T06:18:39.390Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJO7Ij3tkEmogRhFweTz9pdhs_Blalock Seafood & Specialty Gulf Shores/01_raw_html.html"
+}

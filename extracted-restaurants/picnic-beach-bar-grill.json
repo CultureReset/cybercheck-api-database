@@ -1,0 +1,252 @@
+{
+  "name": "Picnic Beach Bar & Grill",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "251-540-0117",
+    "address": "128 East 1st Ave",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Sharables",
+      "name": "Peel and Eat Shrimp",
+      "description": "Gulf shrimp seasoned and served chilled with cocktail sauce and lemon. Available in 1/2 lb.",
+      "price": ""
+    },
+    {
+      "category": "Sharables",
+      "name": "Cayman Coconut Shrimp",
+      "description": "Perfect blend of crispy and crunchy fried shrimp coated in a mouthwatering, delicate, tropical coconut flavor. Served with pineapple sweet chili dipping sauce.",
+      "price": ""
+    },
+    {
+      "category": "Sharables",
+      "name": "Calamari",
+      "description": "Breaded and fried fresh calamari served with our signature sweet chili sauce.",
+      "price": ""
+    },
+    {
+      "category": "Sharables",
+      "name": "Parmesan Bacon Truffle Fries",
+      "description": "Golden fries tossed in white truffle oil and topped with white BBQ sauce, parmesan cheese, bacon crumbles, and scallions.",
+      "price": ""
+    },
+    {
+      "category": "Salads",
+      "name": "Goat Cheese Salad",
+      "description": "Mixed greens, cherry tomatoes, shaved radish, and cucumber tossed in house-made Greek vinaigrette and topped with goat cheese. Add Chicken, Grouper, *Salmon, Shrimp, Tofu, Mahi Mahi for an additional charge.",
+      "price": ""
+    },
+    {
+      "category": "Salads",
+      "name": "Mildly Spicy Dunked Wedge Salad",
+      "description": "Iceberg lettuce wedge covered in house-made spicy ranch topped with bacon, cherry tomatoes, blue cheese crumbles, and crispy onions. Add Chicken, Grouper, *Salmon, Shrimp, Tofu, Mahi Mahi for an additional charge.",
+      "price": ""
+    },
+    {
+      "category": "Salads",
+      "name": "Classic Caesar Salad",
+      "description": "Crisp romaine lettuce tossed in Caesar dressing topped with parmesan cheese and garlic croutons. Add Chicken, Grouper, *Salmon, Shrimp, Tofu, Mahi Mahi for an additional charge.",
+      "price": ""
+    },
+    {
+      "category": "Bowls",
+      "name": "The Caribbean",
+      "description": "Blackened chicken, jasmine rice, avocado, grape tomatoes, sweet & sour cauliflower, roasted corn salsa, and pineapple topped with house-made smoked tomato aioli and cilantro.",
+      "price": ""
+    },
+    {
+      "category": "Bowls",
+      "name": "The Mediterranean",
+      "description": "Grilled mahi-mahi, quinoa, marinated golden beets, snap peas, tomatoes, cucumber, and shaved radish tossed in house-made Greek vinaigrette topped with goat cheese.",
+      "price": ""
+    },
+    {
+      "category": "Bowls",
+      "name": "*The Beach",
+      "description": "Grilled salmon, jasmine rice, yellow squash, zucchini, and cauliflower topped with an Asian glaze.",
+      "price": ""
+    },
+    {
+      "category": "Bowls",
+      "name": "*Tuna Poke",
+      "description": "Lime soy marinated raw tuna, jasmine rice, cherry tomatoes, cucumber, pineapple, and seaweed salad topped with smoked tomato aioli, shaved radish, crispy onions, and fresh Asian herbs.",
+      "price": ""
+    },
+    {
+      "category": "Bowls",
+      "name": "The Vegan",
+      "description": "Marinated tofu, jasmine rice, Franks hot sauce marinated cauliflower, seaweed salad, avocado, cherry tomatoes, cucumbers, shaved radish, and pineapple.",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Picnic Shrimp Boil",
+      "description": "½ lb of fresh gulf shrimp, Conecuh sausage, red potatoes, and sweet corn seasoned and served with old bay butter, house-made remoulade, cocktail sauce, and lemon.",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Grouper Basket",
+      "description": "Fresh caught grouper served fried, grilled, or blackened on a mound of fries with herby tartar, cocktail sauce and lemon.",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Buffalo Chicken Basket",
+      "description": "Marinated chicken tenders golden fried and served tossed in buffalo sauce on a mound of fries with a side of house made ranch. Also available- naked with house made white BBQ sauce on the side.",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Gulf Shrimp Basket",
+      "description": "Fresh Gulf shrimp served fried, grilled, or blackened on a mound of fries with herby tartar, cocktail sauce and lemon.",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Snow Crab Entree",
+      "description": "1 lb of juicy snow crab clusters poached in a low boil, served with sweet corn, red potatoes, and melted butter.",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Cayman Coconut Shrimp Basket",
+      "description": "Crispy and crunchy fried shrimp coated in a coconut flavor. served with pineapple sweet chili dipping sauce.",
+      "price": ""
+    },
+    {
+      "category": "Handhelds",
+      "name": "*Beach Burger",
+      "description": "Bacon, avocado, cheddar cheese, red onion, tomato, lettuce, and pickles topped with homemade remoulade. Add extra patty for an additional charge",
+      "price": ""
+    },
+    {
+      "category": "Handhelds",
+      "name": "*The All-American Burger",
+      "description": "American cheese, red onion, tomato, lettuce, and pickles topped with house-made remoulade. Add extra patty for an additional charge",
+      "price": ""
+    },
+    {
+      "category": "Handhelds",
+      "name": "*The Sunburn Burger",
+      "description": "Pepperjack cheese, grilled onions & jalapeños, lettuce, tomatoes, and pickles topped with house-made spicy ranch. Add extra patty for an additional charge",
+      "price": ""
+    },
+    {
+      "category": "Handhelds",
+      "name": "Grouper Sandwich",
+      "description": "Fresh gulf grouper hand-breaded and golden fried with red onion, tomato, and lettuce topped with house-made herby tartar. Also available- grilled or blackened.",
+      "price": ""
+    },
+    {
+      "category": "Handhelds",
+      "name": "Buffalo Chicken Sandwich",
+      "description": "Hand-breaded and golden fried marinated chicken tenders tossed in buffalo sauce topped with red onion, tomato, lettuce, pickles and side of house made ranch. Also available- naked topped with house made white BBQ sauce, red onion, tomato, lettuce, and pickles.",
+      "price": ""
+    },
+    {
+      "category": "Handhelds",
+      "name": "Mahi-Mahi Sandwich",
+      "description": "Blackened fresh mahi-mahi, red onion, tomato, and lettuce topped with house-made herby tartar sauce.",
+      "price": ""
+    },
+    {
+      "category": "Lil Kids 12 & Under",
+      "name": "Kids Fried Shrimp Basket",
+      "description": "Lightly breaded and gently fried gulf shrimp served with fries.",
+      "price": ""
+    },
+    {
+      "category": "Lil Kids 12 & Under",
+      "name": "Kids Chicken Tenders",
+      "description": "Marinated chicken tenders lightly breaded and gently fried, served with fries.",
+      "price": ""
+    },
+    {
+      "category": "Lil Kids 12 & Under",
+      "name": "Kids Mac & Cheese",
+      "description": "Creamy house made mac & cheese served with fries.",
+      "price": ""
+    },
+    {
+      "category": "Lil Kids 12 & Under",
+      "name": "*Kids Cheese Burger",
+      "description": "Natural beef patty topped with American cheese on toasted Brioche bun.",
+      "price": ""
+    },
+    {
+      "category": "Wraps",
+      "name": "Caribbean Shrimp Wrap",
+      "description": "Blackened shrimp, pineapple, red cabbage, carrots, cucumbers, Asian glaze dipping sauce wrapped in a flour tortilla",
+      "price": ""
+    },
+    {
+      "category": "Wraps",
+      "name": "Vegetarian Wrap",
+      "description": "Marinated roasted golden beets, cucumbers, tomato, red cabbage, radish, goat cheese, and Greek vinaigrette dressing wrapped in a spinach tortilla.",
+      "price": ""
+    },
+    {
+      "category": "Wraps",
+      "name": "Buffalo Fried Chicken BLT Wrap",
+      "description": "Buffalo fried chicken, tomatoes, cheddar cheese, iceberg, bacon, and ranch dipping sauce wrapped in a flour tortilla",
+      "price": ""
+    },
+    {
+      "category": "Wraps",
+      "name": "Chicken Caesar Wrap",
+      "description": "Grilled chicken, romaine lettuce, parmesan cheese, Caesar dressing wrapped in a spinach tortilla",
+      "price": ""
+    },
+    {
+      "category": "Tacos",
+      "name": "Chicken Tacos (3)",
+      "description": "blackened chicken tacos on flour tortillas with red cabbage, corn salsa topped with smoked tomato aioli and cilantro garnish with a side of purple tortilla chips, sour cream and salsa.",
+      "price": ""
+    },
+    {
+      "category": "Tacos",
+      "name": "Shrimp Tacos (3)",
+      "description": "blackened shrimp tacos on flour tortillas with red cabbage and corn salsa topped with bang sauce and cilantro garnish with a side of purple tortilla chips, sour cream and salsa.",
+      "price": ""
+    },
+    {
+      "category": "Tacos",
+      "name": "Mahi Tacos (3)",
+      "description": "blackened mahi tacos on flour tortillas with red cabbage and corn salsa topped with lime aioli and cilantro garnish with a side of purple tortilla chips, sour cream and salsa.",
+      "price": ""
+    },
+    {
+      "category": "Tacos",
+      "name": "Taco Sampler",
+      "description": "One of each taco with purple chips, sour cream, and salsa.",
+      "price": ""
+    },
+    {
+      "category": "Tacos",
+      "name": "Taco Bowl",
+      "description": "Your choice of ground beef or blackened chicken in a fried tortilla bowl with cheesy rice, shredded lettuce, tomatoes, shredded cheese, sour cream, salsa, and jalapenos.",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:51.273Z"
+}

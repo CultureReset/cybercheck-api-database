@@ -1,0 +1,157 @@
+{
+  "business_name": "Woodside Restaurant",
+  "cuisine_type": "Southern",
+  "price_range": null,
+  "description": "Woodside is a Southern restaurant in Gulf Shores, tucked inside Gulf State Park. Wood-fired classics, Gulf seafood, craft cocktails & live music, steps from the lodge.",
+  "atmosphere": null,
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": "Gulf State Park, Gulf Shores, Alabama",
+    "website": "https://woodsideatgsp.com",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": "https://www.facebook.com/woodsidegsp",
+      "instagram": "https://www.instagram.com/woodsideatgsp/",
+      "twitter": null,
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": true,
+    "takeout_available": null,
+    "delivery_available": null,
+    "curbside_available": null,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [],
+    "wine_list": null,
+    "beer_selection": null,
+    "cocktails": "Craft cocktails available",
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": null,
+      "vegan": null,
+      "gluten_free": null,
+      "dairy_free": null,
+      "nut_free": null,
+      "kosher": null,
+      "halal": null
+    }
+  },
+  "happy_hour": {
+    "available": null,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [],
+  "entertainment_and_events": [
+    {
+      "type": "live_music",
+      "name": "Live Music",
+      "days": null,
+      "start_time": null,
+      "end_time": null,
+      "description": null,
+      "cover_charge": null,
+      "featured_artist": null
+    }
+  ],
+  "private_events": {
+    "available": null,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": null,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": null,
+    "pets_allowed": null
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": null,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": null,
+    "private_dining": null
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": null,
+    "email_signup": null,
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": null,
+    "farm_to_table": null,
+    "sustainable": null,
+    "organic": null,
+    "details": null
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [],
+    "common_praise": [],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "restaurant",
+      "url": "https://woodsideatgsp.com/wp-content/uploads/2022/02/woodside_restaurant_interior_slide.jpg",
+      "description": "Interior of Woodside Restaurant"
+    },
+    {
+      "type": "logo",
+      "url": "https://woodsideatgsp.com/wp-content/uploads/2026/02/Woodside-Restaurant_433324-Logo.png",
+      "description": "Woodside Restaurant Logo"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "Woodside Restaurant - Home. Navigation: About, Menu, Live Music, Fun and Games. Social Media: Facebook (woodsidegsp), Instagram (woodsideatgsp). Order Online available. Location: Gulf State Park, Gulf Shores, Alabama. Southern restaurant featuring wood-fired classics, Gulf seafood, and craft cocktails with live music entertainment.",
+  "extraction_confidence": "medium",
+  "extraction_notes": "Homepage HTML provided with limited content. Key missing information: phone number, email, complete hours of operation, full menu details, pricing, specific entertainment schedule, policies, reservation system, reviews/ratings, and detailed amenities. The page appears to be a header/navigation template with minimal restaurant-specific content visible. Links to Menu, About, Live Music, and Fun and Games pages suggest additional information exists on other pages not included in this extraction. Order Online link directs to external platform (order.online). Social media accounts confirmed as accessible.",
+  "folder": "ChIJ7XYsPq4FmogRAQe7ss69R_I_Woodside Restaurant",
+  "extracted_at": "2026-05-15T06:07:35.709Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJ7XYsPq4FmogRAQe7ss69R_I_Woodside Restaurant/01_raw_html.html"
+}

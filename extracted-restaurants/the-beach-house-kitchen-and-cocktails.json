@@ -1,0 +1,35 @@
+{
+  "name": "The Beach House Kitchen & Cocktails",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "(251) 948-2431",
+    "address": "1154 West Beach Blvd",
+    "city": "Gulf Shores",
+    "email": "info@beachhousegs.com"
+  },
+  "hours": {
+    "monday": "11am-10pm",
+    "tuesday": "11am-10pm",
+    "wednesday": "11am-10pm",
+    "thursday": "11am-10pm",
+    "friday": "11am-10pm",
+    "saturday": "11am-10pm",
+    "sunday": "11am-10pm"
+  },
+  "about": {},
+  "social": {},
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Happy Hour",
+      "description": "Join us every day for $6 appetizers from 2pm-5pm and drink specials from 2pm-6pm. $1 Off All Craft Cocktails, $4 Wells, $3.50 House Wine, $1 Off All Craft Drafts, $3 Miller Light & Yuengling drafts. Drinks are always on happy hour at the bar.",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:51.624Z"
+}

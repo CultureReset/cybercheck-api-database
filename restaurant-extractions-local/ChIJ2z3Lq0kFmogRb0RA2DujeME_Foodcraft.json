@@ -1,0 +1,146 @@
+{
+  "business_name": "FoodCraft",
+  "cuisine_type": "American",
+  "price_range": null,
+  "description": "FoodCraft Restaurant is home to coastal favorites and stunning views. Enjoy extraordinary American cuisine with a regional craft beer, a nice glass of wine or one of the best handmade cocktails in Gulf Shores. Top it off with relaxing views Alabama's Gulf Coast or a perfect sunset and you simply can't beat the dining experience.",
+  "atmosphere": "Coastal with stunning views of Alabama's Gulf Coast",
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": "(251) 923-2950",
+    "email": null,
+    "address": "21196 East Beach Blvd., Gulf Shores, AL 36542",
+    "website": "https://foodcraftgsp.com",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": "http://facebook.com/foodcraftatgsp",
+      "instagram": "https://www.instagram.com/foodcraftatgsp/",
+      "twitter": null,
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": true,
+    "takeout_available": null,
+    "delivery_available": null,
+    "curbside_available": null,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [],
+    "wine_list": null,
+    "beer_selection": "Regional craft beer available",
+    "cocktails": "Handmade cocktails available",
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": null,
+      "vegan": null,
+      "gluten_free": null,
+      "dairy_free": null,
+      "nut_free": null,
+      "kosher": null,
+      "halal": null
+    }
+  },
+  "happy_hour": {
+    "available": null,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [],
+  "entertainment_and_events": [],
+  "private_events": {
+    "available": null,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": null,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": null,
+    "pets_allowed": null
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": true,
+    "online_booking_platform": "OpenTable",
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": null,
+    "private_dining": null
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": null,
+    "email_signup": null,
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": null,
+    "farm_to_table": null,
+    "sustainable": null,
+    "organic": null,
+    "details": null
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [],
+    "common_praise": [],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "food",
+      "url": "https://foodcraftgsp.com/wp-content/uploads/2024/05/foodcraft-dish1-1.jpg",
+      "description": "FoodCraft dish"
+    },
+    {
+      "type": "logo",
+      "url": "https://foodcraftgsp.com/wp-content/uploads/2024/05/foodcraft.png",
+      "description": "FoodCraft restaurant logo"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "FoodCraft Restaurant home page. Navigation menu includes About Us, Menus, Contact Us. Make a Reservation button links to OpenTable. Phone: (251) 923-2950. Address: 21196 East Beach Blvd., Gulf Shores, AL 36542. Social media links: Facebook, Instagram. FoodCraft serves extraordinary American cuisine with regional craft beer, wine, and handmade cocktails. Restaurant offers coastal views and Gulf Coast atmosphere.",
+  "extraction_confidence": "medium",
+  "extraction_notes": "The HTML appears to be primarily a header/navigation structure of the website. Detailed menu items, hours of operation, pricing, dietary information, and most service details are not present in the provided HTML. The page likely has this information on dedicated pages (About Us, Menus, Contact Us) that are linked but not included in this extract. Reservation capability through OpenTable is confirmed. Social media and contact information are clearly visible. No reviews, ratings, or detailed menu items found in this extract.",
+  "folder": "ChIJ2z3Lq0kFmogRb0RA2DujeME_Foodcraft",
+  "extracted_at": "2026-05-15T06:03:13.041Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJ2z3Lq0kFmogRb0RA2DujeME_Foodcraft/01_raw_html.html"
+}

@@ -1,0 +1,177 @@
+{
+  "business_name": "Gary's Brewery",
+  "address": "208 Newman Ave, Pensacola, FL 32507",
+  "phone": "(850) 266-0858",
+  "hours": {
+    "monday": "CLOSED",
+    "tuesday": "CLOSED",
+    "wednesday": "3:00 pm - 10:00 pm",
+    "thursday": "3:00 pm - 10:00 pm",
+    "friday": "12:00 pm - 10:00 pm",
+    "saturday": "12:00 pm - 10:00 pm",
+    "sunday": "12:00 pm - 8:00 pm"
+  },
+  "happy_hour": {
+    "days": null,
+    "times": null,
+    "deals": []
+  },
+  "specials": [],
+  "menu": [
+    {
+      "section": "Non-Premium Beer",
+      "items": [
+        {
+          "name": "Pint",
+          "price": "$8.00",
+          "description": "16 oz",
+          "dietary": []
+        },
+        {
+          "name": "1/2 Pint",
+          "price": "$5.00",
+          "description": "8 oz",
+          "dietary": []
+        },
+        {
+          "name": "Taster",
+          "price": "$3.00",
+          "description": "5 oz",
+          "dietary": []
+        },
+        {
+          "name": "Pitcher",
+          "price": "$27.00",
+          "description": "60 oz",
+          "dietary": []
+        },
+        {
+          "name": "Grunt Fill",
+          "price": "$14.00",
+          "description": "Must be consumed off premises",
+          "dietary": []
+        },
+        {
+          "name": "Growler Fill",
+          "price": "$25.00",
+          "description": "Must be consumed off premises",
+          "dietary": []
+        }
+      ]
+    },
+    {
+      "section": "Premium Beer & Cider",
+      "items": [
+        {
+          "name": "Snifter",
+          "price": "$8.00",
+          "description": "13 oz",
+          "dietary": []
+        },
+        {
+          "name": "Taster",
+          "price": "$5.00",
+          "description": "5 oz",
+          "dietary": []
+        },
+        {
+          "name": "Pitcher",
+          "price": "$33.00",
+          "description": "60 oz",
+          "dietary": []
+        },
+        {
+          "name": "Grunt Fill",
+          "price": "$17.00",
+          "description": "32 oz, must be consumed off premises",
+          "dietary": []
+        },
+        {
+          "name": "Growler Fill",
+          "price": "$28.00",
+          "description": "64 oz, must be consumed off premises",
+          "dietary": []
+        }
+      ]
+    },
+    {
+      "section": "Beverages",
+      "items": [
+        {
+          "name": "Wine by the Glass",
+          "price": "$8.00",
+          "description": null,
+          "dietary": []
+        },
+        {
+          "name": "Can of Soda",
+          "price": "$2.00",
+          "description": null,
+          "dietary": []
+        },
+        {
+          "name": "Bottled Water",
+          "price": "$2.00",
+          "description": null,
+          "dietary": []
+        }
+      ]
+    },
+    {
+      "section": "Growler Bottles",
+      "items": [
+        {
+          "name": "Grunt Bottle",
+          "price": "$6.00",
+          "description": "32 oz",
+          "dietary": []
+        },
+        {
+          "name": "Standard Bottle",
+          "price": "$8.00",
+          "description": "64 oz",
+          "dietary": []
+        }
+      ]
+    },
+    {
+      "section": "Gary's Apparel",
+      "items": [
+        {
+          "name": "Pint Glass",
+          "price": "$5.00",
+          "description": null,
+          "dietary": []
+        },
+        {
+          "name": "Snifter Glass",
+          "price": "$7.00",
+          "description": null,
+          "dietary": []
+        },
+        {
+          "name": "T-Shirt",
+          "price": "$27.00",
+          "description": null,
+          "dietary": []
+        },
+        {
+          "name": "Hats",
+          "price": "$30.00",
+          "description": null,
+          "dietary": []
+        }
+      ]
+    }
+  ],
+  "notes": "This is a microbrewery and taproom, not a restaurant with traditional food service. They offer 18 rotating taps of beer, cider, seltzer, and more. The brewery features a 1.3-acre beer garden and offers cornhole, board games, and other outdoor games. Dog-friendly establishment. There is also a homebrew supply store location at 3403 Gulf Beach Hwy, Pensacola, FL 32507, phone (850) 972-8886. Store hours: Monday-Tuesday CLOSED, Wednesday-Saturday 12:00 pm - 5:00 pm, Sunday CLOSED. They offer winemaking products and grain selection for homebrewing with over 75 malted grains available and a Grain Recipe Form for ordering.",
+  "_meta": {
+    "scraped_at": "2026-05-18T17:15:33.808Z",
+    "pages_visited": 15,
+    "menu_sections": 5,
+    "menu_items": 20,
+    "priced_items": 20,
+    "has_hours": true,
+    "source_url": "https://www.garysbrewery.com/brewery"
+  }
+}

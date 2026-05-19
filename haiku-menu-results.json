@@ -1,0 +1,69 @@
+{
+  "results": [
+    {
+      "slug": "gary-s-brewery-biergarten",
+      "name": "Gary's Brewery & Biergarten",
+      "menuItems": 20,
+      "pricedItems": 20,
+      "pages": 15
+    },
+    {
+      "slug": "lake-point-vineyard-and-winery",
+      "name": "Lake Point Vineyard and Winery",
+      "menuItems": 18,
+      "pricedItems": 0,
+      "pages": 1
+    },
+    {
+      "slug": "picnic-beach-bar-grill",
+      "name": "Picnic Beach Bar & Grill",
+      "menuItems": 0,
+      "pricedItems": 0,
+      "pages": 2
+    }
+  ],
+  "failures": [
+    {
+      "slug": "lake-wedowee-winery-and-brewery",
+      "name": "Lake Wedowee Winery and Brewery",
+      "url": "http://www.lakewedoweewinery.com/",
+      "city": "Orange Beach",
+      "rating": 4.9,
+      "error": "Connection error."
+    },
+    {
+      "slug": "zeke-s-restaurant",
+      "name": "Zeke's Restaurant",
+      "url": "https://www.zekeslanding.com/",
+      "city": "Orange Beach",
+      "rating": 4.9,
+      "error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"messages.0.content.10.image.source.base64.data: At least one of the image dimensions exceed max allowed size: 8000 pixels\"},\"request_id\":\"req_011CbAR6vi1u8MKaWaPFSmiT\"}"
+    },
+    {
+      "slug": "big-beach-brewing",
+      "name": "Big Beach Brewing",
+      "url": "http://bigbeachbrewing.com/",
+      "city": "Orange Beach",
+      "rating": 4.8,
+      "error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"messages.0.content.10.image.source.base64.data: At least one of the image dimensions exceed max allowed size: 8000 pixels\"},\"request_id\":\"req_011CbARDLHX9MoTUQkXR8g8n\"}"
+    },
+    {
+      "slug": "tee-off-at-the-wharf",
+      "name": "Tee Off at The Wharf",
+      "url": "https://www.teeoffatthewharf.com/",
+      "city": "Orange Beach",
+      "rating": 4.8,
+      "error": "400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"messages.0.content.4.image.source.base64.data: At least one of the image dimensions exceed max allowed size: 8000 pixels\"},\"request_id\":\"req_011CbARMDs33wrkmQvYuiLC6\"}"
+    },
+    {
+      "slug": "the-red-haven-live",
+      "name": "The Red Haven Live",
+      "url": "http://theredhavenlive.com/",
+      "city": "Orange Beach",
+      "rating": 4.8,
+      "error": "Connection error."
+    }
+  ],
+  "lastIndex": 11,
+  "total": 123
+}

@@ -1,0 +1,154 @@
+{
+  "business_name": "SpringHill Suites by Marriott Orange Beach Gulf Shores",
+  "cuisine_type": "American",
+  "price_range": null,
+  "description": "SpringHill Suites by Marriott Orange Beach Gulf Shores is a hotel with dining options available to guests. Complimentary breakfast is available to hotel guests during their stay.",
+  "atmosphere": null,
+  "chef_info": null,
+  "awards": [
+    "New (January 8, 2026 - July 7, 2026)"
+  ],
+  "contact": {
+    "phone": "+1 251-215-8725",
+    "email": null,
+    "address": "24224 Ruby Lane, Orange Beach, Alabama, USA, 36561",
+    "website": "https://www.marriott.com/en-us/hotels/pnsoh-springhill-suites-orange-beach-gulf-shores/dining/",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": null,
+      "instagram": null,
+      "twitter": "@MarriottIntl",
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": "6:30 - 9:30 AM (Breakfast)",
+    "tuesday": "6:30 - 9:30 AM (Breakfast)",
+    "wednesday": "6:30 - 9:30 AM (Breakfast)",
+    "thursday": "6:30 - 9:30 AM (Breakfast)",
+    "friday": "6:30 - 9:30 AM (Breakfast)",
+    "saturday": "6:30 - 9:30 AM (Breakfast)",
+    "sunday": "6:30 - 9:30 AM (Breakfast)",
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": true,
+    "takeout_available": null,
+    "delivery_available": null,
+    "curbside_available": null,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [
+      {
+        "name": "Free Buffet Breakfast",
+        "description": "Complimentary breakfast available to hotel guests",
+        "items": []
+      }
+    ],
+    "wine_list": null,
+    "beer_selection": null,
+    "cocktails": null,
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": null,
+      "vegan": null,
+      "gluten_free": null,
+      "dairy_free": null,
+      "nut_free": null,
+      "kosher": null,
+      "halal": null
+    }
+  },
+  "happy_hour": {
+    "available": null,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [],
+  "entertainment_and_events": [],
+  "private_events": {
+    "available": null,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": null,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": null,
+    "pets_allowed": null
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": false,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": null,
+    "private_dining": null
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": "Marriott Bonvoy",
+    "gift_cards_available": null,
+    "email_signup": null,
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": null,
+    "farm_to_table": null,
+    "sustainable": null,
+    "organic": null,
+    "details": null
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [],
+    "common_praise": [],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "breakfast",
+      "url": "https://cache.marriott.com/is/image/marriotts7prod/sh-shs-breakfast-family-v3-15113",
+      "description": "Breakfast imagery"
+    },
+    {
+      "type": "restaurant",
+      "url": "https://cache.marriott.com/is/image/marriotts7prod/sh-pnsoh-outdoor-pool-30261",
+      "description": "Hotel outdoor pool area"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "SpringHill Suites by Marriott Orange Beach Gulf Shores Dining. The on-property restaurants at SpringHill Suites by Marriott Orange Beach Gulf Shores are: Salt & Sips. Salt & Sips is your poolside hangout for coastal bites, easy cocktails and laid back afternoons. Come for the sips, stay for the good tides. Does SpringHill Suites by Marriott Orange Beach Gulf Shores offer room service? No, room service is not offered at SpringHill Suites by Marriott Orange Beach Gulf Shores. You can view other dining options on our dining page. What cuisine is offered at SpringHill Suites by Marriott Orange Beach Gulf Shores? The cuisines offered at SpringHill Suites by Marriott Orange Beach Gulf Shores are: American at Salt & Sips. Does SpringHill Suites by Marriott Orange Beach Gulf Shores offer complimentary breakfast? Yes, complimentary breakfast is available at SpringHill Suites by Marriott Orange Beach Gulf Shores to hotel guests during their stay. Free Buffet Breakfast is available at SpringHill Suites by Marriott Orange Beach Gulf Shores during the following hours: Monday-Sunday 6:30 - 9:30 AM. Free Hot Breakfast is available at SpringHill Suites by Marriott Orange Beach Gulf Shores during the following hours: Monday-Sunday 6:30 - 9:30 AM. Contact: +1 251-215-8725. Address: 24224 Ruby Lane, Orange Beach, Alabama, USA, 36561.",
+  "extraction_confidence": "medium",
+  "extraction_notes": "This is a Marriott hotel property website focused on dining information. The page primarily contains hotel booking information and limited dining details. Only one on-property restaurant was identified: Salt & Sips (poolside American cuisine, no reservations). Complimentary breakfast is offered daily 6:30-9:30 AM. No detailed menu items, pricing, room service, or other comprehensive dining information is provided on this page. Most restaurant-specific details (wine lists, cocktails, full menu items, happy hour, events) are not available in the extracted HTML. The page is primarily a hotel reservation and overview page with limited dining-specific content.",
+  "folder": "ChIJIe8_bTgHmogRcexsfArCH74_Salt & Sips",
+  "extracted_at": "2026-05-15T06:15:49.666Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJIe8_bTgHmogRcexsfArCH74_Salt & Sips/01_raw_html.html"
+}

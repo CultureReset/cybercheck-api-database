@@ -1,0 +1,207 @@
+{
+  "business_name": "The Undertow",
+  "cuisine_type": "Bar & Grill",
+  "price_range": "Affordable",
+  "description": "The Undertow is a lively bar & grill located in Orange Beach, Alabama, where great food, affordable drinks, and passionate service await. The restaurant features in-house breaded chicken tenders, tasty burgers, and an All You Can Eat crawfish special. They offer live music and friendly atmosphere for their patrons.",
+  "atmosphere": "Lively, friendly bar & grill atmosphere",
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": "Orange Beach, AL",
+    "website": "https://the-undertow.grubbio.com/",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": "https://www.facebook.com/grubbio/",
+      "instagram": null,
+      "twitter": "https://x.com/grubbio01",
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": true,
+    "takeout_available": null,
+    "delivery_available": null,
+    "curbside_available": null,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [
+      {
+        "name": "Signature Items",
+        "description": null,
+        "items": [
+          {
+            "name": "In-house Breaded Chicken Tenders",
+            "description": null,
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": true,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Burgers",
+            "description": "Tasty burgers",
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": true,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "All You Can Eat Crawfish",
+            "description": "All You Can Eat crawfish special",
+            "price": null,
+            "dietary_flags": [],
+            "allergens": "shellfish",
+            "is_signature": true,
+            "is_seasonal": false,
+            "availability": null
+          }
+        ]
+      }
+    ],
+    "wine_list": null,
+    "beer_selection": null,
+    "cocktails": null,
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": false,
+      "vegan": false,
+      "gluten_free": false,
+      "dairy_free": false,
+      "nut_free": false,
+      "kosher": false,
+      "halal": false
+    }
+  },
+  "happy_hour": {
+    "available": false,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [
+    {
+      "type": "signature_special",
+      "day_of_week": null,
+      "name": "All You Can Eat Crawfish",
+      "description": "All You Can Eat crawfish special available",
+      "discount": null,
+      "valid_until": null
+    }
+  ],
+  "entertainment_and_events": [
+    {
+      "type": "live_music",
+      "name": "Live Music",
+      "days": null,
+      "start_time": null,
+      "end_time": null,
+      "description": "Live music entertainment available",
+      "cover_charge": null,
+      "featured_artist": null
+    }
+  ],
+  "private_events": {
+    "available": false,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": false,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": false,
+    "accessible_restroom": false,
+    "parking_accessible": false,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": null,
+    "pets_allowed": false
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": false,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": false,
+    "private_dining": false
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": false,
+    "email_signup": null,
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": false,
+    "farm_to_table": false,
+    "sustainable": false,
+    "organic": false,
+    "details": null
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [
+      "Breaded Chicken Tenders",
+      "Burgers",
+      "Crawfish"
+    ],
+    "common_praise": [
+      "Great food",
+      "Affordable drinks",
+      "Passionate service",
+      "Friendly atmosphere"
+    ],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "restaurant",
+      "url": "https://static3.grubbio.com/39219g-albums-1.jpg",
+      "description": "The Undertow restaurant image"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "The Undertow: Your Local Bar & Grill Destination in Orange Beach, AL. Discover The Undertow, a lively bar & grill in Orange Beach, where great food, affordable drinks, and passionate service await. Enjoy in-house breaded chicken tenders, tasty burgers, and an All You Can Eat crawfish special. Join us for live music.",
+  "extraction_confidence": "medium",
+  "extraction_notes": "This website appears to be a restaurant listing page on Grubbio (a restaurant directory platform). Limited detailed information is available on the provided HTML. The page includes basic description and signature menu items, but is missing critical details such as: complete phone number and email contact information, full operating hours, complete menu with prices, detailed reservation policies, parking information, accessibility details, and dietary accommodation specifics. The social media links shown are for Grubbio (the parent platform) rather than the restaurant itself. Additional detailed information would require accessing the full restaurant page or contacting the business directly.",
+  "folder": "ChIJz4UsaEIGmogR50ckasCNrjE_The Undertow",
+  "extracted_at": "2026-05-15T06:39:53.229Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJz4UsaEIGmogR50ckasCNrjE_The Undertow/01_raw_html.html"
+}

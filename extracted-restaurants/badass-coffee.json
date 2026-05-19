@@ -1,0 +1,21 @@
+{
+  "name": "Badass Coffee",
+  "type": "Restaurant",
+  "website": "https://badasscoffee.orderexperience.net/66f71b41f66b1f8f790a96c3/menu",
+  "contact": {
+    "phone": "",
+    "address": "",
+    "city": "",
+    "email": ""
+  },
+  "hours": {},
+  "about": {},
+  "social": {},
+  "menu": [],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 50,
+  "scraped_at": "2026-03-21T13:19:46.141Z"
+}

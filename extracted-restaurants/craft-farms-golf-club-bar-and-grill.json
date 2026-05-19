@@ -1,0 +1,101 @@
+{
+  "name": "Craft Farms Golf Club - Bar and Grill",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "(251) 968-3002",
+    "address": "3840 Cotton Creek Circle",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {
+    "monday": "7:30am-5:30pm",
+    "tuesday": "7:30am-5:30pm",
+    "wednesday": "7:30am-5:30pm",
+    "thursday": "7:30am-5:30pm",
+    "friday": "7:30am-5:30pm",
+    "saturday": "7:30am-5:30pm",
+    "sunday": "7:30am-5:30pm"
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Featured Items",
+      "name": "Craft Farms Burger",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Featured Items",
+      "name": "Crab Cakes",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Featured Items",
+      "name": "Fried Green Tomatoes",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Featured Items",
+      "name": "Signature Boar's Head Club Sandwich",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Featured Items",
+      "name": "Watermelon & Peach Salad",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Featured Items",
+      "name": "World-Famous Onion Rings",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Grab & Go",
+      "name": "Breakfast Biscuit",
+      "description": "with egg, cheese and your choice of bacon or sausage",
+      "price": ""
+    },
+    {
+      "category": "Grab & Go",
+      "name": "Turkey Wrap",
+      "description": "freshly made",
+      "price": ""
+    },
+    {
+      "category": "Grab & Go",
+      "name": "Ham Wrap",
+      "description": "freshly made",
+      "price": ""
+    },
+    {
+      "category": "Grab & Go",
+      "name": "Hotdog",
+      "description": "served with full topping bar",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Breakfast",
+      "description": "",
+      "discount": ""
+    },
+    {
+      "name": "Lunch",
+      "description": "",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:50.198Z"
+}

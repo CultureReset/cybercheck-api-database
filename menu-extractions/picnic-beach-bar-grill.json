@@ -1,0 +1,31 @@
+{
+  "business_name": "Picnic Beach Bar & Grill",
+  "address": "Gulf Shores, AL",
+  "phone": null,
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null
+  },
+  "happy_hour": {
+    "days": null,
+    "times": null,
+    "deals": []
+  },
+  "specials": [],
+  "menu": [],
+  "notes": "The food menu page (https://www.picnicbeach.com/food-menu) returned a 404 error and no menu items could be extracted. The homepage shows images of a burger with fries and a salad, but no detailed menu information, prices, or descriptions are visible. Contact information beyond the location and website is not provided on the visible pages.",
+  "_meta": {
+    "scraped_at": "2026-05-18T17:24:48.772Z",
+    "pages_visited": 2,
+    "menu_sections": 0,
+    "menu_items": 0,
+    "priced_items": 0,
+    "has_hours": false,
+    "source_url": "https://www.picnicbeach.com/"
+  }
+}

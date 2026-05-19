@@ -1,0 +1,53 @@
+{
+  "name": "Ginny Lane Bar & Grill",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "251-224-6500 ext. 1",
+    "address": "4851 Wharf Parkway Suite 106",
+    "city": "Orange Beach",
+    "email": "ginnylanebarandgrill@live.com"
+  },
+  "hours": {
+    "monday": "11am-9pm",
+    "tuesday": "11am-9pm",
+    "wednesday": "11am-9pm",
+    "thursday": "11am-10pm",
+    "friday": "11am-10pm",
+    "saturday": "11am-10pm",
+    "sunday": "10am-9pm"
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Takeout Family Meals",
+      "name": "Shrimp & Grits",
+      "description": "Andouille sausage, cheddar grits, creole cream sauce with roasted tomatoes. Feeds 4. Served with House or Caesar Salad and Cornbread with Butter.",
+      "price": 38
+    },
+    {
+      "category": "Takeout Family Meals",
+      "name": "Meat & Two",
+      "description": "Feeds 4. Choose 1 Meat and 2 Sides. Served with House or Caesar Salad and Cornbread with Butter. Add a Bottle of Wine for $15 (Select Wines Only)",
+      "price": 42
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Early Bird Menu",
+      "description": "Available daily until 6pm",
+      "discount": ""
+    },
+    {
+      "name": "Brunch",
+      "description": "Join Us For Brunch on the Water",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:50.356Z"
+}

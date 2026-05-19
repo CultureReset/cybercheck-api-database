@@ -1,0 +1,29 @@
+{
+  "name": "Niki's Seafood & Thai",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "(251) 981-1833",
+    "address": "22641 Canal Rd.",
+    "city": "Orange Beach",
+    "email": "nikis.seafoodthai@gmail.com"
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null
+  },
+  "about": {},
+  "social": {},
+  "menu": [],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:51.050Z"
+}

@@ -1,0 +1,38 @@
+{
+  "name": "First Watch",
+  "type": "Restaurant",
+  "website": "http://www.firstwatch.com",
+  "contact": {
+    "phone": "",
+    "address": "",
+    "city": "",
+    "email": ""
+  },
+  "hours": {
+    "monday": "7am-2:30pm",
+    "tuesday": "7am-2:30pm",
+    "wednesday": "7am-2:30pm",
+    "thursday": "7am-2:30pm",
+    "friday": "7am-2:30pm",
+    "saturday": "7am-2:30pm",
+    "sunday": "7am-2:30pm"
+  },
+  "about": {
+    "description": "Fresh breakfast, brunch and lunch made to order. We start bright and early each morning preparing exceptional ingredients to deliver an experience that feels good and tastes even better.",
+    "cuisine_type": "breakfast/brunch"
+  },
+  "social": {},
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "The B.E.C.",
+      "description": "Bacon. Egg. Cheddar. Our twist on a traditional breakfast sandwich is back for a good time, but not a long time.",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-03-21T20:39:16.317Z"
+}

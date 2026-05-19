@@ -1,0 +1,36 @@
+{
+  "restaurants": [
+    {
+      "name": "Tackle Box",
+      "website": "https://www.tacklebox.restaurant"
+    },
+    {
+      "name": "The Packing Plant",
+      "website": "https://packingplantgulfshores.com"
+    },
+    {
+      "name": "Fisher's Upstairs",
+      "website": "https://www.fishersupstairs.com"
+    },
+    {
+      "name": "Shoney's Orange Beach",
+      "website": "https://www.shoneys.com"
+    },
+    {
+      "name": "Margaritaville Orange Beach",
+      "website": "https://www.margaritavilleorangebeach.com"
+    },
+    {
+      "name": "The Original Oyster House",
+      "website": "https://www.originaloysterhouse.com"
+    },
+    {
+      "name": "The Jolly Roger Pier Restaurant",
+      "website": "https://www.theollyrogerpier.com"
+    },
+    {
+      "name": "Lulu's Gulf Shores",
+      "website": "https://www.lulugulfshores.com"
+    }
+  ]
+}

@@ -1,0 +1,222 @@
+{
+  "business_name": "Waffle House #1851",
+  "cuisine_type": "American Breakfast/Southern",
+  "price_range": null,
+  "description": "Stop into your local Waffle House location in Foley, Alabama. Visit us for waffles, t-bone steaks, hashbrowns, cheese 'n eggs, country ham, pork chops and grits.",
+  "atmosphere": null,
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": "+1 251-943-5411",
+    "email": null,
+    "address": "12615 Foley Beach, Foley, AL 36535",
+    "website": "https://locations.wafflehouse.com/foley-al-1851/",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": null,
+      "instagram": null,
+      "twitter": null,
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": true,
+    "takeout_available": null,
+    "delivery_available": null,
+    "curbside_available": null,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [
+      {
+        "name": "Featured Items",
+        "description": null,
+        "items": [
+          {
+            "name": "Waffles",
+            "description": null,
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": true,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "T-Bone Steaks",
+            "description": null,
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Hashbrowns",
+            "description": null,
+            "price": null,
+            "dietary_flags": [
+              "vegetarian"
+            ],
+            "allergens": null,
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Cheese 'n Eggs",
+            "description": null,
+            "price": null,
+            "dietary_flags": [
+              "vegetarian"
+            ],
+            "allergens": null,
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Country Ham",
+            "description": null,
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Pork Chops",
+            "description": null,
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Grits",
+            "description": null,
+            "price": null,
+            "dietary_flags": [
+              "vegetarian"
+            ],
+            "allergens": null,
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": null
+          }
+        ]
+      }
+    ],
+    "wine_list": null,
+    "beer_selection": null,
+    "cocktails": null,
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": true,
+      "vegan": false,
+      "gluten_free": false,
+      "dairy_free": false,
+      "nut_free": false,
+      "kosher": false,
+      "halal": false
+    }
+  },
+  "happy_hour": {
+    "available": false,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [],
+  "entertainment_and_events": [],
+  "private_events": {
+    "available": false,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": false,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": null,
+    "pets_allowed": null
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": false,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": false,
+    "private_dining": false
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": true,
+    "email_signup": null,
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": false,
+    "farm_to_table": false,
+    "sustainable": false,
+    "organic": false,
+    "details": null
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [
+      "Waffles",
+      "Hashbrowns",
+      "T-Bone Steaks"
+    ],
+    "common_praise": [],
+    "common_complaints": []
+  },
+  "photos_and_media": [],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "Waffle House #1851 - Southern breakfast food in Foley, 36535. Stop into your local Waffle House location in Foley, Alabama. Visit us for waffles, t-bone steaks, hashbrowns, cheese 'n eggs, country ham, pork chops and grits. Address: 12615 Foley Beach, Foley, AL 36535. Phone: +1 251-943-5411. Latitude: 30.408, Longitude: -87.64819. Careers available at whcareers.com. Merchandise available for purchase. Stock investment opportunities available for Waffle House associates.",
+  "extraction_confidence": "medium",
+  "extraction_notes": "This is a location page for Waffle House. The HTML provided is primarily a template with styling and navigation code. Limited actual restaurant data was present. No hours of operation, detailed menu with prices, reviews, or social media links were found in the provided HTML. The page structure suggests it's a franchise location landing page from a larger system. Basic contact information and some menu item references from the meta description were extracted. The page appears to be focused on navigation and general structure rather than providing detailed restaurant information. Menu items were inferred from the meta description only, not a full menu. No pricing, detailed descriptions, or current photos were found.",
+  "folder": "ChIJ82sXi8oXmogRjBEMetjkK70_Waffle House",
+  "extracted_at": "2026-05-15T06:07:50.865Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJ82sXi8oXmogRjBEMetjkK70_Waffle House/01_raw_html.html"
+}

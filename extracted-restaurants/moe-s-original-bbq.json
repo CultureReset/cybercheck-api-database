@@ -1,0 +1,249 @@
+{
+  "name": "Moe's Original BBQ",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "1-877-405-RIBS (7427)",
+    "address": "PO Box 4266",
+    "city": "Eagle",
+    "email": "info@moesoriginalbbq.com"
+  },
+  "hours": {
+    "monday": "11am-8pm",
+    "tuesday": "11am-8pm",
+    "wednesday": "11am-8pm",
+    "thursday": "11am-8pm",
+    "friday": "11am-8pm",
+    "saturday": "11am-8pm",
+    "sunday": "12pm-8pm"
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Sandwiches",
+      "name": "Pulled Pork",
+      "description": "Slow smoked pork shoulder, dressed in a tangy sop sauce, served on a toasted bun, house made sweet and tangy BBQ sauce and pickles",
+      "price": ""
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Smoked Chicken",
+      "description": "Hot, smoked chicken, pulled from the bone, combination of white and dark meat on a toasted bun with house made sweet and tangy BBQ sauce, marinated slaw, Alabama style white BBQ sauce and pickles",
+      "price": ""
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Smoked Turkey",
+      "description": "Hot, smoked, all white meat turkey breast, sliced on a toasted bun, with house made sweet and tangy BBQ sauce, marinated slaw, Alabama style white BBQ sauce and pickles",
+      "price": ""
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Southern Fried Shrimp Moe Boy",
+      "description": "Golden brown fried shrimp served on a toasted bun, with creamy tartar sauce, marinated slaw and pickles",
+      "price": ""
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Southern Fried Catfish",
+      "description": "Golden brown fried catfish served on a toasted bun, with creamy tartar sauce, marinated slaw and pickles",
+      "price": ""
+    },
+    {
+      "category": "Platters",
+      "name": "Pulled Pork",
+      "description": "Slow smoked pork shoulder, dressed in a tangy sop sauce, complemented by house made sweet and tangy BBQ sauce and pickles",
+      "price": ""
+    },
+    {
+      "category": "Platters",
+      "name": "Smoked Half Chicken",
+      "description": "Hot, smoked, half chicken, complemented by house made sweet and tangy BBQ sauce, Alabama style white BBQ sauce and pickles",
+      "price": ""
+    },
+    {
+      "category": "Platters",
+      "name": "Smoked Turkey",
+      "description": "Hot, smoked, all white meat, complemented by house made sweet and tangy BBQ sauce, Alabama style white BBQ sauce, marinated slaw and pickles",
+      "price": ""
+    },
+    {
+      "category": "Platters",
+      "name": "Smoked Chicken Wings",
+      "description": "Jumbo smoked wings, fried and lightly coated in house made wing sauce served with celery and Alabama style white BBQ sauce for dipping",
+      "price": ""
+    },
+    {
+      "category": "Platters",
+      "name": "Southern Fried Catfish",
+      "description": "Golden brown fried catfish served with hush puppies, tartar sauce, and lemon wedges",
+      "price": ""
+    },
+    {
+      "category": "Platters",
+      "name": "Southern Fried Shrimp",
+      "description": "Golden brown fried shrimp served with hush puppies, tartar sauce, and lemon wedges",
+      "price": ""
+    },
+    {
+      "category": "Platters",
+      "name": "Ribs Small",
+      "description": "Four St. Louis style spare ribs, complemented by house made sweet and tangy BBQ sauce and pickles",
+      "price": ""
+    },
+    {
+      "category": "Platters",
+      "name": "Ribs Large",
+      "description": "Six St. Louis style spare ribs, complemented by house made sweet and tangy BBQ sauce and pickles",
+      "price": ""
+    },
+    {
+      "category": "Kids",
+      "name": "Pulled Pork",
+      "description": "Served with one side and a drink",
+      "price": ""
+    },
+    {
+      "category": "Kids",
+      "name": "Smoked Chicken",
+      "description": "Served with one side and a drink",
+      "price": ""
+    },
+    {
+      "category": "Kids",
+      "name": "Smoked Turkey",
+      "description": "Served with one side and a drink",
+      "price": ""
+    },
+    {
+      "category": "Kids",
+      "name": "Ribs",
+      "description": "Served with one side and a drink",
+      "price": ""
+    },
+    {
+      "category": "Kids",
+      "name": "Chicken Fingers",
+      "description": "Served with one side and a drink",
+      "price": ""
+    },
+    {
+      "category": "Kids",
+      "name": "Grilled Cheese",
+      "description": "Served with one side and a drink",
+      "price": ""
+    },
+    {
+      "category": "Sides",
+      "name": "Collard Greens",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sides",
+      "name": "Baked Beans",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sides",
+      "name": "Marinated Slaw",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sides",
+      "name": "Mac n' Cheese",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sides",
+      "name": "Banana Pudding",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sides",
+      "name": "Cornbread",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sides",
+      "name": "Potato Salad",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Haul It Home",
+      "name": "Double Wide Family Pack",
+      "description": "1lb of your choice of meat (Pork, Turkey or Chicken), served with two side pints, choice of bread, sauce and pickles. Serves 3-4 people",
+      "price": ""
+    },
+    {
+      "category": "Haul It Home",
+      "name": "Triple Wide Family Pack",
+      "description": "1.5 lbs of your choice of meat (Pork, Turkey or Chicken), served with three side pints, choice of bread, sauce and pickles. Serves 5-6 people",
+      "price": ""
+    },
+    {
+      "category": "Haul It Home",
+      "name": "1lb O' Pork",
+      "description": "1 lb of smoked and pulled pork",
+      "price": ""
+    },
+    {
+      "category": "Haul It Home",
+      "name": "Whole Bird",
+      "description": "Hot, smoked, whole bird",
+      "price": ""
+    },
+    {
+      "category": "Haul It Home",
+      "name": "1lb O' Turkey",
+      "description": "Hot, smoked, all white meat turkey breast",
+      "price": ""
+    },
+    {
+      "category": "Haul It Home",
+      "name": "Rack O' Ribs",
+      "description": "St. Louis style spare ribs served with house made red BBQ sauce",
+      "price": ""
+    },
+    {
+      "category": "Haul It Home",
+      "name": "Smoked Chicken Wings",
+      "description": "Jumbo smoked wings, fried and lightly coated in house made wing sauce served with celery and Alabama style white BBQ sauce for dipping",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Daily Food Specials",
+      "description": "Chef's Choice and Beef Brisket specials vary by day",
+      "discount": ""
+    },
+    {
+      "name": "Happy Hour",
+      "description": "Drink specials",
+      "discount": ""
+    },
+    {
+      "name": "Kids Eat Free",
+      "description": "Kids 12 and under enjoy a free kids meal with an adult meal purchase",
+      "discount": ""
+    },
+    {
+      "name": "Tailgate Package",
+      "description": "Ultimate tailgate feast for UVA Home Football Games",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:51.038Z"
+}

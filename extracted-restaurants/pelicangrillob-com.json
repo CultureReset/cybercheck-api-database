@@ -1,0 +1,243 @@
+{
+  "name": "Pelican Grill",
+  "type": "Restaurant",
+  "website": "https://www.pelicangrillob.com",
+  "contact": {
+    "phone": "(251) 483-3665",
+    "address": "27267 Perdido Beach Blvd.",
+    "city": "Orange Beach",
+    "email": ""
+  },
+  "hours": {
+    "monday": "11am-9pm",
+    "tuesday": "11am-9pm",
+    "wednesday": "11am-9pm",
+    "thursday": "11am-9pm",
+    "friday": "11am-9pm",
+    "saturday": "11am-9pm",
+    "sunday": "11am-9pm"
+  },
+  "about": {
+    "description": "Pelican Grill offers exquisite Gulf Coast seafood cuisine in Orange Beach, Alabama, featuring fresh local favorites in a family-friendly atmosphere with a vibrant oyster and daiquiri patio bar.",
+    "cuisine_type": "seafood"
+  },
+  "social": {},
+  "menu": [
+    {
+      "category": "Lunch",
+      "name": "Gumbo",
+      "description": "Housemade seafood gumbo with shrimp & crawfish served with rice.",
+      "price": "$6 cup / $10 bowl"
+    },
+    {
+      "category": "Lunch",
+      "name": "Crab Melt",
+      "description": "Crab cake with white American cheese, grilled tomato & remoulade sauce on grilled sourdough + 1 Side.",
+      "price": "$18"
+    },
+    {
+      "category": "Lunch",
+      "name": "Tacos - Mahi or Shrimp",
+      "description": "Topped with slaw & mango salsa + 1 Side.",
+      "price": "$18"
+    },
+    {
+      "category": "Lunch",
+      "name": "Po'Boys - Shrimp/Grouper/Chicken/Oyster",
+      "description": "Fried, grilled or blackened, lettuce, tomato, remoulade sauce + 1 Side.",
+      "price": "$18"
+    },
+    {
+      "category": "Lunch",
+      "name": "Blackened Shrimp Bowl",
+      "description": "Shrimp, avocado, rice, mango salsa, remoulade sauce. Sub Tuna + $2",
+      "price": "$18"
+    },
+    {
+      "category": "Lunch",
+      "name": "Chicken Tenders & Fries",
+      "description": "",
+      "price": "$14"
+    },
+    {
+      "category": "Lunch",
+      "name": "Tuna Nachos",
+      "description": "Housemade chips, raw tuna & fresh mango salsa, topped with toasted Sesame dressing & Srirachi Aioli. Sub Chicken + $2",
+      "price": "$20"
+    },
+    {
+      "category": "Lunch",
+      "name": "Shrimp Roll",
+      "description": "Shrimp, mayo, celery, seafood seasoning + 1 Side.",
+      "price": "$17"
+    },
+    {
+      "category": "Lunch",
+      "name": "Pelican's Nest",
+      "description": "A nest of fries topped with melted cheese & grilled chicken drizzled with white BBQ sauce. Sub Shrimp + $2",
+      "price": "$14"
+    },
+    {
+      "category": "Lunch",
+      "name": "Shrimp & Avocado Wrap",
+      "description": "Shrimp, avocado, lettuce, tomato & remoulade sauce + 1 Side.",
+      "price": "$15"
+    },
+    {
+      "category": "Lunch",
+      "name": "Fried Green Tomato BLT Wrap",
+      "description": "FGT, bacon, lettuce, tomato, cheese & ranch + 1 Side.",
+      "price": "$14"
+    },
+    {
+      "category": "Lunch",
+      "name": "Lobster Mac-N-Cheese Burger",
+      "description": "Beef patty topped with housemade lobster mac-n-cheese, lettuce, tomato + 1 Side.",
+      "price": "$18"
+    },
+    {
+      "category": "Lunch",
+      "name": "San Roc Burger",
+      "description": "Beef patty with lettuce, tomato, cheese + pickle + 1 Side.",
+      "price": "$15"
+    },
+    {
+      "category": "Lunch",
+      "name": "Cajun Patty Melt",
+      "description": "Beef patty with grilled onions, cheese, Cajun sauce on sourdough bread + 1 Side.",
+      "price": "$15"
+    },
+    {
+      "category": "Lunch Sides",
+      "name": "Cucumber Tomato Salad + Feta",
+      "description": "",
+      "price": "$5"
+    },
+    {
+      "category": "Lunch Sides",
+      "name": "Slaw",
+      "description": "",
+      "price": "$5"
+    },
+    {
+      "category": "Lunch Sides",
+      "name": "French Fries",
+      "description": "",
+      "price": "$5"
+    },
+    {
+      "category": "Lunch Sides",
+      "name": "Street Corn Salad + Feta",
+      "description": "",
+      "price": "$5"
+    },
+    {
+      "category": "Lunch Sides",
+      "name": "Side Salad",
+      "description": "",
+      "price": "$7"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Breadsticks",
+      "description": "Served with our \"Famous\" Raspberry Butter. Always a Crowd Favorite!",
+      "price": "$8"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Shrimp & Avocado",
+      "description": "Peeled cold shrimp, avocado and remoulade sauce.",
+      "price": "$15"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Shrimp & Crab Dip",
+      "description": "Served warm with breadsticks.",
+      "price": "$18"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Cheese Curds",
+      "description": "Breaded and deep fried golden.",
+      "price": "$14"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Grouper Fingers",
+      "description": "Hand-breaded Gulf grouper fingers served with chef's homemade tartar sauce.",
+      "price": "$16"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Kickin' Shrimp",
+      "description": "Lightly breaded Gulf shrimp drizzled with spicy honey sauce, ranch for dipping.",
+      "price": "$14"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Fried Green Tomatoes",
+      "description": "Topped with crawfish tails and remoulade sauce.",
+      "price": "$16"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Fried Dill Pickles",
+      "description": "Served with house ranch.",
+      "price": "$12"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Crab Claws",
+      "description": "Fried or Sautéed - A Gulf Coast Delicacy!",
+      "price": "MP"
+    },
+    {
+      "category": "Oysters",
+      "name": "Raw Oysters",
+      "description": "",
+      "price": "$20 (1/2 Dozen) / $29 (1 Dozen)"
+    },
+    {
+      "category": "Oysters",
+      "name": "Rockefeller Oysters",
+      "description": "Spinach, Bacon, Garlic, Onions, Romano & Parmesan Cheese.",
+      "price": "$20 (8) / $29 (12)"
+    },
+    {
+      "category": "Oysters",
+      "name": "House Oysters",
+      "description": "Andouille Sausage, Peppers, Onions & Smoked Gouda Cheese.",
+      "price": "$20 (8) / $29 (12)"
+    },
+    {
+      "category": "Oysters",
+      "name": "Garlic Parmesan Oysters",
+      "description": "Fresh Garlic, Parmesan & Romano Cheese in Butter Sauce.",
+      "price": "$20 (8) / $29 (12)"
+    },
+    {
+      "category": "Oysters",
+      "name": "Fresno Tequila Oysters",
+      "description": "Raw Oyster, Pickled Fresno Chili, Red Onion in Lime Tequila Brine.",
+      "price": "$20 (8) / $29 (12)"
+    },
+    {
+      "category": "Salads",
+      "name": "Strawberry Pecan Salad",
+      "description": "Mixed greens with mandarin oranges, fresh strawberries, onions, tomatoes, pecans, feta cheese, served with raspberry",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "All You Can Eat Grouper Fingers",
+      "description": "",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-03-21T19:39:07.682Z"
+}

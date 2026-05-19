@@ -1,0 +1,29 @@
+{
+  "name": "Gary's Brewery",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "850-266-0858",
+    "address": "208 Newman Ave",
+    "city": "Pensacola",
+    "email": "cheers@garysbrewery.com"
+  },
+  "hours": {
+    "monday": "CLOSED",
+    "tuesday": "CLOSED",
+    "wednesday": "3:00 pm - 10:00 pm",
+    "thursday": "3:00 pm - 10:00 pm",
+    "friday": "12:00 pm - 10:00 pm",
+    "saturday": "12:00 pm - 10:00 pm",
+    "sunday": "12:00 pm - 8:00 pm"
+  },
+  "about": {},
+  "social": {},
+  "menu": [],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:50.348Z"
+}

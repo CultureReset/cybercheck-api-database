@@ -1,0 +1,152 @@
+{
+  "name": "The Southern Grind Coffee House at the WHARF",
+  "type": "Cafe",
+  "website": "http://www.thesoutherngrind.com/",
+  "contact": {
+    "phone": "(251) 923-3265",
+    "address": "4751 Main Street Suite 116",
+    "city": "Orange Beach",
+    "email": ""
+  },
+  "hours": {
+    "monday": "Breakfast until 11 AM",
+    "tuesday": "Breakfast until 11 AM",
+    "wednesday": "Breakfast until 11 AM",
+    "thursday": "Breakfast until 11 AM",
+    "friday": "Breakfast until 11 AM",
+    "saturday": "Breakfast until Noon",
+    "sunday": "Breakfast until Noon",
+    "notes": "Breakfast served daily. Lunch & Dinner available."
+  },
+  "about": {
+    "description": "The Southern Grind is a specialty coffee house with two locations on the Alabama Gulf Coast. Since 2012, they have offered more than coffee, including comfort food, fresh food with vegetarian, vegan and gluten-free options. Known for homemade desserts, pastries, muffins, cookies, brownies, and Gelato (Italian Ice Cream). Features free Wi-Fi, cool coastal vibe, retail items including home decor, jewelry and local art, and a pet-friendly outdoor patio.",
+    "elevator_pitch": "Specialty coffee house on the Alabama Gulf Coast serving fresh food, homemade desserts, and authentic Italian gelato in a cool, coastal atmosphere.",
+    "vibe": "Casual, coastal, relaxed, pet-friendly with local art and retail shopping",
+    "best_for": [
+      "coffee lovers",
+      "breakfast",
+      "casual dining",
+      "families",
+      "remote work",
+      "shopping",
+      "pet owners"
+    ],
+    "established": "2012",
+    "reservations": null,
+    "insider_tip": "Try the Nitro Draft Cold Brew Coffee. Check for daily breakfast and lunch specials."
+  },
+  "social": {
+    "instagram": "instagram",
+    "facebook": "facebook",
+    "website": "http://www.thesoutherngrind.com"
+  },
+  "menu": [
+    {
+      "category": "Coffee",
+      "name": "French Roast",
+      "description": "",
+      "price": 16.99
+    },
+    {
+      "category": "Coffee",
+      "name": "Highlander Grogg",
+      "description": "",
+      "price": 16.99
+    },
+    {
+      "category": "Coffee",
+      "name": "Southern Pecan",
+      "description": "",
+      "price": 16.99
+    },
+    {
+      "category": "Coffee",
+      "name": "Créme Brulée",
+      "description": "",
+      "price": 16.99
+    },
+    {
+      "category": "Coffee",
+      "name": "Nitro Draft Cold Brew Coffee",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Gelato",
+      "name": "Gelato Italian Ice Cream",
+      "description": "18 Flavors to Choose From",
+      "price": ""
+    },
+    {
+      "category": "Breakfast",
+      "name": "Breakfast Menu Items",
+      "description": "Various breakfast items available Mon-Fri until 11 AM, Sat-Sun until Noon",
+      "price": ""
+    },
+    {
+      "category": "Lunch & Dinner",
+      "name": "Sandwiches",
+      "description": "Served with chips and choice of pasta salad or cucumber salad",
+      "price": ""
+    },
+    {
+      "category": "Dietary Options",
+      "name": "Vegetarian Options",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Dietary Options",
+      "name": "Vegan Options",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Dietary Options",
+      "name": "Gluten-Free Options",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Homemade Desserts",
+      "name": "Pastries",
+      "description": "Homemade",
+      "price": ""
+    },
+    {
+      "category": "Homemade Desserts",
+      "name": "Muffins",
+      "description": "Homemade",
+      "price": ""
+    },
+    {
+      "category": "Homemade Desserts",
+      "name": "Cookies",
+      "description": "Homemade",
+      "price": ""
+    },
+    {
+      "category": "Homemade Desserts",
+      "name": "Brownies",
+      "description": "Homemade",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Daily Breakfast Specials",
+      "description": "Check for daily breakfast specials",
+      "discount": ""
+    },
+    {
+      "name": "Daily Lunch Specials",
+      "description": "Check for daily lunch specials",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 6,
+  "scraped_at": "2026-03-21T15:06:34.775Z"
+}

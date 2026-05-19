@@ -1,0 +1,132 @@
+{
+  "name": "Wacked Out Weiner Gulf Shores",
+  "type": "Restaurant",
+  "website": "https://wackedoutweiner.com/gulf-shores-alabama",
+  "contact": {
+    "phone": "(251) 948-0988",
+    "address": "3800 Gulf Shores Parkway, Suite 340",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": "Open today 11:00 am – 07:00 pm. Hours vary by location."
+  },
+  "about": {
+    "description": "Wacked Out Weiner Gulf Shores opened on March 1, 2018. Owned and operated by Jimmy Williams, originally from East Alabama who made Gulf Shores his home in 2017. The restaurant provides an affordable, fun, and casual dining experience focused on customizable hot dogs and sausages. The business has won several awards including 'Best Hot Dog Joint in Alabama' and prides itself on relationships with customers, community, and local school system.",
+    "elevator_pitch": "An affordable, fun, and casual hot dog joint on the Gulf Coast with unlimited toppings and a strong community focus.",
+    "vibe": "Casual, fun, family-friendly local favorite with a strong emphasis on community relationships",
+    "best_for": [
+      "families",
+      "casual dining",
+      "lunch",
+      "local crowd"
+    ],
+    "established": "2018",
+    "reservations": null,
+    "insider_tip": "Try the Wackinator Weiner Hot Dog Challenge if you're feeling adventurous"
+  },
+  "social": {
+    "instagram": null,
+    "facebook": "https://www.facebook.com/wackedoutweiner",
+    "website": "https://wackedoutweiner.com/gulf-shores-alabama"
+  },
+  "menu": [
+    {
+      "category": "Combos",
+      "name": "Single Dog Combo",
+      "description": "One Single Nathan's All Beef Hotdog, Steamed Bun, Unlimited Toppings, Your Choice of Chips and Drink. Additional Hot Dog $3. Upgrade to Side Instead of Chips $2.",
+      "price": ""
+    },
+    {
+      "category": "Combos",
+      "name": "Single Sausage Dog Combo",
+      "description": "One Smoked Sausage, Steamed Bun, Unlimited Toppings, Your Choice of Chip and Drink. Additional Sausage $4. Upgrade to Side Instead of Chips $2.",
+      "price": ""
+    },
+    {
+      "category": "Side Items",
+      "name": "Loaded Nachos",
+      "description": "Unlimited Toppings",
+      "price": ""
+    },
+    {
+      "category": "Side Items",
+      "name": "Frito Pie",
+      "description": "One bag of Frito Corn Chips, Homemade Chili, Shredded Cheese, Chopped Onions, and Sour Cream. Served in a Frito Bag.",
+      "price": ""
+    },
+    {
+      "category": "Side Items",
+      "name": "Small Side",
+      "description": "Baked beans, Housemade Chili, Mac N Cheese, Baked Potato Salad, and Jambalaya. Limited Availability.",
+      "price": ""
+    },
+    {
+      "category": "Side Items",
+      "name": "Large Side",
+      "description": "Baked beans, Housemade Chili, Mac N Cheese, Baked Potato Salad, and Jambalaya. Limited Availability.",
+      "price": ""
+    },
+    {
+      "category": "A La Carte",
+      "name": "Single Hot Dog",
+      "description": "Single Hot Dog with Unlimited Toppings",
+      "price": ""
+    },
+    {
+      "category": "A La Carte",
+      "name": "Single Sausage Dog",
+      "description": "One Smoked Sausage with Unlimited Toppings",
+      "price": ""
+    },
+    {
+      "category": "Toppings",
+      "name": "Topping Choices",
+      "description": "Homemade Chili, Shredded Cheese, Chopped Onions, Mild Chow Chow, Hot Chow Chow, Coleslaw, Jalapeño, Banana Peppers, Diced Tomatoes, Bacon, Sweet Relish, Dill Relish, Jalapeño Relish, Dill Pickles, Sauerkraut, Melted Cheese, Mac-N-Cheese, Bacon, BBQ Baked Beans, Yellow Mustard, Spicy Mustard, Ketchup, Mayo, Thousand Island, Tabasco, BBQ Sauce, Hot Sauce, Sports Peppers, Celery Salt, Weiner Dust, Fried Onions, Sour Cream, and Several Other Hot Sauce Flavors",
+      "price": ""
+    },
+    {
+      "category": "Drinks",
+      "name": "Drinks",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Beer",
+      "name": "Beer",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Merchandise",
+      "name": "T-Shirts Red, Black, and Blue",
+      "description": "All sizes from Small to 3XL",
+      "price": ""
+    },
+    {
+      "category": "Merchandise",
+      "name": "Tie-Dye Shirts",
+      "description": "All sizes from Small to 3XL",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Wackinator Weiner Hot Dog Challenge",
+      "description": "A hot dog challenge for those who dare to take it on",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 9,
+  "scraped_at": "2026-03-21T14:03:25.344Z"
+}

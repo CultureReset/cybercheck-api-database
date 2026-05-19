@@ -1,0 +1,73 @@
+{
+  "name": "8 Reale",
+  "type": "Speakeasy Bar",
+  "website": "https://www.8realeobal.com",
+  "contact": {
+    "phone": "251-484-0712",
+    "address": "4851 Wharf Pkway W, Suite D-112",
+    "city": "Orange Beach",
+    "email": "8realespeakeasy@gmail.com"
+  },
+  "hours": {
+    "monday": "5pm - Until",
+    "tuesday": "5pm - Until",
+    "wednesday": "5pm - Until",
+    "thursday": "5pm - Until",
+    "friday": "5pm - Until",
+    "saturday": "5pm - Until",
+    "sunday": "5pm - Until",
+    "notes": "Non-Members 5pm - Until; Members may have different access"
+  },
+  "about": {
+    "description": "8 Reale is a hidden speakeasy cocktail bar in Orange Beach, AL, transporting guests back to the days of Prohibition with a modern twist. Skilled mixologists craft everything from classic cocktails like the Old Fashioned and Sidecar to contemporary creations featuring fresh, local ingredients. The bar offers a unique experience defined by mystery, ambiance, and craftsmanship — all behind a hidden vaulted door.",
+    "elevator_pitch": "A secretive coastal speakeasy tucked behind a hidden vaulted door, where expert mixologists craft Prohibition-era classics and modern cocktails in an atmosphere dripping with intrigue and sophistication.",
+    "established": null,
+    "owner": null,
+    "chef": null,
+    "vibe": "Mysterious, sophisticated, Prohibition-era speakeasy with coastal flair",
+    "best_for": [
+      "date night",
+      "groups",
+      "cocktail enthusiasts",
+      "nightlife",
+      "special occasions"
+    ],
+    "age_restriction": "21+",
+    "dress_code": null,
+    "parking": null,
+    "accessibility": null,
+    "reservations": null,
+    "insider_tip": "Look for 'Today's Secret Code' on the website — this speakeasy keeps its hidden-door concept alive with a daily password system.",
+    "awards": [],
+    "press": [
+      "Gulf Coast Media - Morgan Freeman Spotted",
+      "Scenic 98 Coastal Feature",
+      "The Iowa Gallivant Review"
+    ]
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "twitter": null,
+    "tiktok": null,
+    "youtube": null,
+    "yelp": null,
+    "tripadvisor": null,
+    "opentable": null,
+    "google_maps": null,
+    "website": "https://www.8realeobal.com"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [
+    {
+      "name": "Cocktail Classes",
+      "day": "",
+      "time": ""
+    }
+  ],
+  "gallery": 2,
+  "scraped_at": "2026-05-15T21:07:13.189Z"
+}

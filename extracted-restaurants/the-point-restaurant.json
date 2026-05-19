@@ -1,0 +1,29 @@
+{
+  "name": "The Point Restaurant",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "(850) 492-3577",
+    "address": "14340 Innerarity Point Rd",
+    "city": "Pensacola",
+    "email": ""
+  },
+  "hours": {
+    "monday": "Closed",
+    "tuesday": "11:00am-9:00pm",
+    "wednesday": "11:00am-9:00pm",
+    "thursday": "11:00am-9:00pm",
+    "friday": "11:00am-9:00pm",
+    "saturday": "11:00am-9:00pm",
+    "sunday": "12:00pm-9:00pm"
+  },
+  "about": {},
+  "social": {},
+  "menu": [],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:51.663Z"
+}

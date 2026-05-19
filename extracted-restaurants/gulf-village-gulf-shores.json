@@ -1,0 +1,57 @@
+{
+  "name": "Gulf Village",
+  "type": "Vacation Rental - Condo",
+  "website": "https://www.brett-robinson.com/beach-condo/gulf-village/",
+  "contact": {
+    "phone": "1-800-211-7892",
+    "address": "1027 West Beach Blvd",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {},
+  "about": {
+    "description": "Gulf Village is a beachfront vacation rental property in Gulf Shores, Alabama, managed by Brett/Robinson Vacation Rentals, a family-owned and operated company with over 40 years of experience. The property offers quality accommodations with direct beach access and various unit configurations for families and groups.",
+    "elevator_pitch": "Beachfront Gulf Shores condo offering quality vacation rentals with direct beach access and family-friendly amenities managed by a 40+ year legacy company.",
+    "total_units": null,
+    "floors": null,
+    "year_built": null,
+    "pet_friendly": null,
+    "minimum_stay": "3 nights",
+    "check_in": null,
+    "check_out": null,
+    "age_restriction": null
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/brett_robinson_vacations",
+    "facebook": "https://www.facebook.com/BrettRobinsonVacations",
+    "website": "https://www.brett-robinson.com/beach-condo/gulf-village/"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Hot Deal",
+      "description": "Gulf Village 204 (2 Bed, 1 Bath, Sleeps 4) - Starting at $110.67/night (reduced from $127.27/night)",
+      "discount": ""
+    },
+    {
+      "name": "Seasonal Discounts",
+      "description": "Seasonal promotions and last-minute deals available throughout the year",
+      "discount": ""
+    },
+    {
+      "name": "Snowbird Specials",
+      "description": "Special rates for longer stays during winter months",
+      "discount": ""
+    },
+    {
+      "name": "3-Night Minimum",
+      "description": "New reservations only with 3-night minimum stay requirement",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 23,
+  "scraped_at": "2026-03-21T22:15:51.170Z"
+}

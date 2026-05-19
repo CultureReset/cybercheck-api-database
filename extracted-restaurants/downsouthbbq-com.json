@@ -1,0 +1,125 @@
+{
+  "name": "Down South BBQ",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "251-955-6622",
+    "address": "19891 County Rd. 10",
+    "city": "Foley",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": "7:00am-3:00pm",
+    "friday": "7:00am-3:00pm",
+    "saturday": "7:00am-3:00pm",
+    "sunday": null
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Plates (With Bread & 2 Sides)",
+      "name": "Rib Plate",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Plates (With Bread & 2 Sides)",
+      "name": "Wing Plate",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Plates (With Bread & 2 Sides)",
+      "name": "Beef",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Plates (With Bread & 2 Sides)",
+      "name": "Pork",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Plates (With Bread & 2 Sides)",
+      "name": "Sausage",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Plates (With Bread & 2 Sides)",
+      "name": "Pork Chops",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Plates (With Bread & 2 Sides)",
+      "name": "1/2 Chicken",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Rib",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Sausage",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Corn Bread",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Pork Chop",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Beef, Turkey, Chicken, Pork",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Steak",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sandwiches",
+      "name": "All The Way",
+      "description": "",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Catering",
+      "description": "We Cater! Call Ahead on all BIG Orders so we have time to properly prepare the very best Southern Barbeque for your group!",
+      "discount": ""
+    },
+    {
+      "name": "Breakfast Service",
+      "description": "Now serving breakfast!",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:50.250Z"
+}

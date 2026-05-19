@@ -1,0 +1,299 @@
+{
+  "business_name": "Mikee's Seafood",
+  "cuisine_type": "Seafood, Southern",
+  "price_range": "$$",
+  "description": "For over 35 years, Mikee's Seafood has been a Gulf Shores staple, serving up fresh, Southern-style seafood with a warm, family-friendly atmosphere. Proudly family-owned and operated since 1987, Mikee's is more than just a restaurant—it's a local tradition. Whether you're craving all-you-can-eat snow crab, a golden-fried seafood platter, or a refreshing Bushwacker from the bar, Mikee's is the spot where locals and visitors come together to eat, laugh, and make memories.",
+  "atmosphere": "Family-friendly, warm, local tradition, casual dining",
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": "+1-251-948-6452",
+    "email": null,
+    "address": "205 East 2nd Ave, Gulf Shores, AL 36542",
+    "website": "https://mikeesseafood.com/",
+    "hours_phone": "+1-251-948-6452",
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": "https://www.facebook.com/MikeesSeafood",
+      "instagram": "https://www.instagram.com/mikees_seafood/",
+      "twitter": null,
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": "11:00 AM - 10:00 PM",
+    "tuesday": "11:00 AM - 10:00 PM",
+    "wednesday": "11:00 AM - 10:00 PM",
+    "thursday": "11:00 AM - 10:00 PM",
+    "friday": "11:00 AM - 10:00 PM",
+    "saturday": "11:00 AM - 10:00 PM",
+    "sunday": "11:00 AM - 10:00 PM",
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": true,
+    "takeout_available": true,
+    "delivery_available": true,
+    "curbside_available": null,
+    "delivery_partners": [
+      "SkyTab",
+      "Time To Eat The Beach"
+    ],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [
+      {
+        "name": "All-You-Can-Eat Specials",
+        "description": "Including snow crab and shrimp",
+        "items": [
+          {
+            "name": "Snow Crab",
+            "description": null,
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": true,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Shrimp",
+            "description": null,
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": true,
+            "is_seasonal": false,
+            "availability": null
+          }
+        ]
+      },
+      {
+        "name": "Mikee's Favorites",
+        "description": "Signature dishes",
+        "items": [
+          {
+            "name": "Blackened Redfish",
+            "description": "Topped with creamy shrimp and crab sauce",
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": true,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Seafood Platter",
+            "description": "Golden-fried seafood",
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": true,
+            "is_seasonal": false,
+            "availability": null
+          }
+        ]
+      },
+      {
+        "name": "Classic Southern Sides",
+        "description": "Traditional accompaniments",
+        "items": [
+          {
+            "name": "Cheese Grits",
+            "description": null,
+            "price": null,
+            "dietary_flags": [
+              "vegetarian"
+            ],
+            "allergens": null,
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Red Beans & Rice",
+            "description": null,
+            "price": null,
+            "dietary_flags": [
+              "vegetarian"
+            ],
+            "allergens": null,
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Hush Puppies",
+            "description": null,
+            "price": null,
+            "dietary_flags": [
+              "vegetarian"
+            ],
+            "allergens": null,
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": null
+          }
+        ]
+      },
+      {
+        "name": "Beverages",
+        "description": "Bar drinks and refreshments",
+        "items": [
+          {
+            "name": "Bushwacker",
+            "description": "Refreshing bar drink",
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": true,
+            "is_seasonal": false,
+            "availability": null
+          }
+        ]
+      }
+    ],
+    "wine_list": null,
+    "beer_selection": null,
+    "cocktails": "Bushwacker and other bar drinks available",
+    "kids_menu": "Available - mentioned as family-friendly with options for picky eaters",
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": true,
+      "vegan": null,
+      "gluten_free": null,
+      "dairy_free": null,
+      "nut_free": null,
+      "kosher": null,
+      "halal": null
+    }
+  },
+  "happy_hour": {
+    "available": null,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [
+    {
+      "type": "all_you_can_eat",
+      "day_of_week": null,
+      "name": "All-You-Can-Eat Snow Crab",
+      "description": "All-you-can-eat snow crab special",
+      "discount": null,
+      "valid_until": null
+    },
+    {
+      "type": "all_you_can_eat",
+      "day_of_week": null,
+      "name": "All-You-Can-Eat Shrimp",
+      "description": "All-you-can-eat shrimp special",
+      "discount": null,
+      "valid_until": null
+    }
+  ],
+  "entertainment_and_events": [],
+  "private_events": {
+    "available": null,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": null,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": "Family-friendly with kids menu available",
+    "pets_allowed": null
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": null,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": null,
+    "private_dining": null
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": null,
+    "email_signup": null,
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": null,
+    "farm_to_table": null,
+    "sustainable": null,
+    "organic": null,
+    "details": "Fresh seafood sourcing with focus on Gulf Shores flavors and family recipes passed down through generations"
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [
+      "All-You-Can-Eat Snow Crab",
+      "Seafood Platter",
+      "Blackened Redfish",
+      "Shrimp",
+      "Hush Puppies"
+    ],
+    "common_praise": [
+      "Fresh seafood",
+      "Family-friendly atmosphere",
+      "Local tradition",
+      "Southern hospitality",
+      "Generations of service"
+    ],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "restaurant",
+      "url": "https://mikeesseafood.com/wp-content/uploads/2017/05/Mikees-seafood-platter-2.jpg",
+      "description": "Seafood platter"
+    },
+    {
+      "type": "restaurant",
+      "url": "https://mikeesseafood.com/wp-content/uploads/2016/04/mikees-seafood-location.jpg",
+      "description": "Mikee's Seafood Gulf Shores location"
+    },
+    {
+      "type": "food",
+      "url": "https://mikeesseafood.com/wp-content/uploads/2015/02/DSC_0206-2.jpg",
+      "description": "Po Boys"
+    },
+    {
+      "type": "logo",
+      "url": "https://mikeesseafood.com/wp-content/uploads/2025/04/mikees-seafood-logo-1.png",
+      "description": "Mikee's Seafood Logo"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "Mikee's Seafood Restaurant Gulf Shores, Alabama. Family Owned Seafood Restaurant in Gulf Shores Since 1987. Open daily 11 AM to 10 PM. For over 35 years, Mikee's Seafood has been a Gulf Shores staple, serving up fresh, Southern-style seafood with a warm, family-friendly atmosphere. Proudly family-owned and operated since 1987, Mikee's is more than just a restaurant—it's a local tradition. Whether you're craving all-you-can-eat snow crab, a golden-fried seafood platter, or a refreshing Bushwacker from the bar, Mikee's is the spot where locals and visitors come together to eat, laugh, and make memories. See our full seafood menu featuring Gulf Shores favorites. Our menu is packed with crowd favorites, from perfectly fried shrimp to grilled catch-of-the-day, all seasoned with that unmistakable Gulf Coast flavor. Stop by and see why generations of locals and visitors call Mikee's their go-to seafood spot. Why Locals Love Mikee's: At Mikee's, we're more than just another seafood restaurant in Gulf Shores—we're part of the tradition. From family recipes passed down through generations to daily specials that highlight the freshest catches, every plate is made with care. Guests love us for: All-You-Can-Eat Specials – including snow crab and shrimp. Mikee's Favorites – like Blackened Redfish topped with creamy shrimp and crab sauce. Family-Friendly Dining – kids' menu, plenty of options for picky eaters, and options for the whole crew. Classic Southern Sides – cheese grits, red beans & rice, hush puppies, and more. Located right in the heart of Gulf Shores, Mikee's is a must-visit for anyone searching for good seafood in Gulf Shores. Come see why families return year after year and why locals have made us part of their weekly routine. Fresh seafood. Southern hospitality. Since 1987. Mikee's Seafood, 205 East 2nd Ave, Gulf Shores, Alabama. Phone: (251) 948-6452. Get Directions. © 2025 | All Rights Reserved | Website by 5A Multimedia.",
+  "extraction_confidence": "high",
+  "extraction_notes": "Comprehensive extraction from homepage. Full menu details not available on homepage (menu page exists separately). Specific prices not listed on homepage. No information found regarding happy hour, entertainment/events, private events, reservations, loyalty programs, parking, accessibility features, or detailed policies. Social media accounts confirmed as Facebook and Instagram. Delivery available through SkyTab and Time To Eat The Beach. Restaurant has been operating since 1987 with family recipes. Related businesses mentioned: Shrimpy's Mini Golf and The Steamer Baked Oyster Bar.",
+  "folder": "ChIJ4S9h2LkEmogRmQOSd-ihPzM_Mikee's Seafood",
+  "extracted_at": "2026-05-15T06:04:33.048Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJ4S9h2LkEmogRmQOSd-ihPzM_Mikee's Seafood/01_raw_html.html"
+}

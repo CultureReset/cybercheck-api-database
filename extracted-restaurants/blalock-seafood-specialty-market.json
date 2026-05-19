@@ -1,0 +1,150 @@
+{
+  "name": "Blalock Seafood & Specialty Market",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "(251) 968-5811",
+    "address": "1911 Gulf Shores Pkwy",
+    "city": "Gulf Shores",
+    "email": "info@blalockseafoodgulfshores.com"
+  },
+  "hours": {
+    "monday": "9am-6pm",
+    "tuesday": "9am-6pm",
+    "wednesday": "9am-6pm",
+    "thursday": "9am-6pm",
+    "friday": "9am-6pm",
+    "saturday": "9am-6pm",
+    "sunday": "9am-4pm"
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Fresh Fish",
+      "name": "Salmon",
+      "description": "",
+      "price": 16.9
+    },
+    {
+      "category": "Fresh Fish",
+      "name": "Tuna",
+      "description": "",
+      "price": 18.9
+    },
+    {
+      "category": "Fresh Fish",
+      "name": "Grouper",
+      "description": "",
+      "price": 23.9
+    },
+    {
+      "category": "Fresh Fish",
+      "name": "Trigger",
+      "description": "",
+      "price": 17.9
+    },
+    {
+      "category": "Fresh Fish",
+      "name": "Mahi",
+      "description": "",
+      "price": 16.9
+    },
+    {
+      "category": "Fresh Fish",
+      "name": "Flounder",
+      "description": "",
+      "price": 13.9
+    },
+    {
+      "category": "Fresh Fish",
+      "name": "Triple Tail",
+      "description": "",
+      "price": 17.9
+    },
+    {
+      "category": "Fresh Fish",
+      "name": "Cobia",
+      "description": "",
+      "price": 15.9
+    },
+    {
+      "category": "Seafood",
+      "name": "Blue Crab Meat - Four Different Types",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Seafood",
+      "name": "Oysters - By the Dozen or Freshly Shucked",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Seafood",
+      "name": "Shrimp - Medium, Large, and Jumbo",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Seafood",
+      "name": "Royal Red Shrimp",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Seafood",
+      "name": "Scallops",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Seafood",
+      "name": "Trout",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Specialty Items",
+      "name": "Gourmet Seasonings",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Specialty Items",
+      "name": "Gourmet Dry Rubs",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Specialty Items",
+      "name": "Fine Cheese",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Specialty Items",
+      "name": "Shrimp Bisque",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Specialty Items",
+      "name": "Smoked Tuna Dip",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Specialty Items",
+      "name": "Dips and Marinades",
+      "description": "",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:50.067Z"
+}

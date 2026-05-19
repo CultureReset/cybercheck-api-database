@@ -1,0 +1,135 @@
+{
+  "business_name": "Ruby Slipper & Ruby Sunshine",
+  "cuisine_type": "Brunch",
+  "price_range": null,
+  "description": "Brunch Born in New Orleans",
+  "atmosphere": null,
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": null,
+    "website": "https://rubybrunch.com",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": null,
+      "instagram": null,
+      "twitter": null,
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": null,
+    "takeout_available": null,
+    "delivery_available": null,
+    "curbside_available": null,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [],
+    "wine_list": null,
+    "beer_selection": null,
+    "cocktails": null,
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": false,
+      "vegan": false,
+      "gluten_free": false,
+      "dairy_free": false,
+      "nut_free": false,
+      "kosher": false,
+      "halal": false
+    }
+  },
+  "happy_hour": {
+    "available": false,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [],
+  "entertainment_and_events": [],
+  "private_events": {
+    "available": false,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": false,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": false,
+    "accessible_restroom": false,
+    "parking_accessible": false,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": null,
+    "pets_allowed": false
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": false,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": false,
+    "private_dining": false
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": false,
+    "email_signup": null,
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": false,
+    "farm_to_table": false,
+    "sustainable": false,
+    "organic": false,
+    "details": null
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [],
+    "common_praise": [],
+    "common_complaints": []
+  },
+  "photos_and_media": [],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "Ruby Slipper & Ruby Sunshine – Brunch Born in New Orleans. Website: https://rubybrunch.com. The page contains primarily HTML/CSS structure and JavaScript tracking code. Main visible text elements include menu tabs and section headers referencing 'Raleway' font styling. The page appears to be built with Elementor page builder and contains various tracking pixels from Google Analytics, Google Tag Manager, and Facebook. Header styling includes navigation menu items and form elements. Custom CSS indicates a restaurant website with color scheme featuring red (#CC112C), yellow (#FFD040), and white (#FFFFFF) as primary brand colors.",
+  "extraction_confidence": "low",
+  "extraction_notes": "The provided HTML is primarily composed of CSS, JavaScript tracking code, and page structure without visible menu content, pricing, hours, contact information, or other key restaurant details in the extracted portion. The page appears to be a homepage or landing page for Ruby Slipper & Ruby Sunshine brunch restaurant. Only basic branding information ('Brunch Born in New Orleans') and website URL were extractable. No actual menu items, pricing, hours of operation, phone number, address, or other operational details are visible in this HTML snippet. The page uses Elementor page builder with custom styling but actual content appears to be loaded dynamically or on other pages.",
+  "folder": "ChIJB8tsOpsGmogRg1lcanY1cz8_Ruby Slipper",
+  "extracted_at": "2026-05-15T06:08:54.774Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJB8tsOpsGmogRg1lcanY1cz8_Ruby Slipper/01_raw_html.html"
+}

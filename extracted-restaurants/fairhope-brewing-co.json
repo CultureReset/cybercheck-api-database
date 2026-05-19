@@ -1,0 +1,66 @@
+{
+  "name": "Fairhope Brewing Co",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "",
+    "address": "",
+    "city": "",
+    "email": "info@fairhopebrewing.com"
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Beers - On Tap in Fairhope",
+      "name": "Cheap Sunglasses",
+      "description": "Kolsh-Style Golden Ale. Despite its name, we spared no expense in making Cheap Sunglasses. Fermented with a Kolsch yeast to give it a smooth finish, this beer is light on hops to make it both drinkable and refreshing.",
+      "price": ""
+    },
+    {
+      "category": "Beers - On Tap in Fairhope",
+      "name": "Take the Causeway",
+      "description": "American India Pale Ale. Copious amounts of Citra and Simcoe hops are used throughout the brewing process in this American India Pale Ale. From first-wort to bittering, flavor, aroma and dry hops, an artful combination of two extraordinary hops leads to an explosively hoppy finish on the palate.",
+      "price": ""
+    },
+    {
+      "category": "Beers - On Tap in Fairhope",
+      "name": "Fairhope 51",
+      "description": "American Pale Ale. Fairhope 51 is a classic American pale ale, brewed with a combination of American-made Falconer's Flight hops and German hops. Named for being the 51st recipe entry in our recipe book, this pale ale is packed with hop flavor.",
+      "price": ""
+    },
+    {
+      "category": "Beers - On Tap in Fairhope",
+      "name": "I Drink Therefore I Amber",
+      "description": "Amber Ale. With a deep caramel color, this amber ale is well-balanced and easy-drinking. Not overly complex, this beer pairs well with a number of foods and is appreciated by beer aficionados and novices alike.",
+      "price": ""
+    },
+    {
+      "category": "Beers - On Tap in Fairhope",
+      "name": "Blue Steel",
+      "description": "Blueberry & Lemon Sour. Blue Steel is a sour ale blended with lemon and blueberries. It is light in body with a beautiful light purple color. The sourness merges with the tartness of lemons, balanced by the light sweetness of blueberries and a big blueberry aroma.",
+      "price": ""
+    },
+    {
+      "category": "Beers - On Tap in Fairhope",
+      "name": "Pink Delicious",
+      "description": "Pink Lemonade Hard Seltzer. This light, smooth pink lemonade hard seltzer is truly delicious, and perfect for keeping you refreshed.",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:50.271Z"
+}

@@ -1,0 +1,110 @@
+{
+  "name": "Tacky Jacks Seafood Restaurant and Tavern",
+  "type": "Seafood Restaurant & Tavern",
+  "website": "http://tackyjacks.com/",
+  "contact": {
+    "phone": "",
+    "address": "",
+    "city": "",
+    "email": ""
+  },
+  "hours": {
+    "monday": "7:00 AM (varies by location)",
+    "tuesday": "7:00 AM (varies by location)",
+    "wednesday": "7:00 AM (varies by location)",
+    "thursday": "7:00 AM (varies by location)",
+    "friday": "7:00 AM (varies by location)",
+    "saturday": "7:00 AM (varies by location)",
+    "sunday": "7:00 AM (varies by location)",
+    "notes": "Open everyday. Hours vary by location: Orange Beach 7:00 AM, Gulf Shores 7:30 AM, Fort Morgan 8:00 AM. Serving Breakfast, Lunch, and Dinner Daily"
+  },
+  "about": {
+    "description": "Tacky Jacks Seafood Restaurant and Tavern operates three waterfront locations in Orange Beach, Gulf Shores, and Fort Morgan, Alabama. The restaurant serves breakfast, lunch, and dinner daily with a casual tavern atmosphere.",
+    "elevator_pitch": "Waterfront seafood restaurant and tavern across three Alabama Gulf Coast locations, serving fresh seafood and comfort food in a fun, casual setting.",
+    "vibe": "Casual, fun, local favorite hangout with waterfront views, live entertainment, and a relaxed tavern atmosphere",
+    "best_for": [
+      "families",
+      "casual dining",
+      "seafood lovers",
+      "waterfront dining",
+      "events",
+      "breakfast"
+    ],
+    "established": null,
+    "reservations": null,
+    "insider_tip": null
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://www.tackyjacks.com"
+  },
+  "menu": [
+    {
+      "category": "Seafood",
+      "name": "Steamed North American Snow Crab Platter",
+      "description": "1 pound of steamed crab legs, corn, red potatoes, and warm butter",
+      "price": ""
+    },
+    {
+      "category": "Seafood",
+      "name": "Tacky Jacks Seafood Trio",
+      "description": "Shrimp, Oysters, and Flaky Fish",
+      "price": ""
+    },
+    {
+      "category": "Seafood",
+      "name": "Fried Oyster Poboy",
+      "description": "Fried oyster Poboy with french-fries and chips",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Shrimp and Grits",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Mexican Garbage - The Ultimate Beef & Cheese Nachos",
+      "description": "The Best in Alabama",
+      "price": ""
+    },
+    {
+      "category": "Burgers",
+      "name": "The TJ Burger",
+      "description": "2 Quarter Pound Burger-balls, hand-smashed and griddled to juicy perfection",
+      "price": ""
+    },
+    {
+      "category": "Drinks",
+      "name": "World-famous Bushwacker",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Drinks",
+      "name": "Bloody Mary - loaded",
+      "description": "A Bloody Mary topped with awesomeness",
+      "price": ""
+    },
+    {
+      "category": "Drinks",
+      "name": "Party in a Cup",
+      "description": "",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [
+    {
+      "name": "Brunch with Bunny",
+      "day": "",
+      "time": ""
+    }
+  ],
+  "gallery": 15,
+  "scraped_at": "2026-03-21T14:37:41.887Z"
+}

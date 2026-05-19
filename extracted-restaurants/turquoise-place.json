@@ -1,0 +1,57 @@
+{
+  "name": "Turquoise Place",
+  "type": "Condo Resort",
+  "website": "https://www.brett-robinson.com/beach-condo/turquoise-place/",
+  "contact": {
+    "phone": "1-800-211-7892",
+    "address": "26350 Perdido Beach Blvd",
+    "city": "Orange Beach",
+    "email": ""
+  },
+  "hours": {},
+  "about": {
+    "description": "Turquoise Place is a beachfront condo resort in Orange Beach, Alabama, managed by Brett/Robinson Vacation Rentals, a family-owned company with over 40 years of experience. The property offers beachfront condos with modern amenities, resort-style pools, and direct Gulf access.",
+    "elevator_pitch": "Beachfront luxury condo resort in Orange Beach with premier amenities and family-friendly accommodations on the Gulf of Mexico.",
+    "total_units": null,
+    "floors": null,
+    "year_built": null,
+    "pet_friendly": false,
+    "minimum_stay": "3 nights",
+    "check_in": null,
+    "check_out": null,
+    "age_restriction": "Must be 25 years of age to book"
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/brett_robinson_vacations",
+    "facebook": "https://www.facebook.com/BrettRobinsonVacations",
+    "website": "https://www.brett-robinson.com/beach-condo/turquoise-place/"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Seasonal Discounts",
+      "description": "Seasonal promotions and discounts on select dates throughout the year",
+      "discount": ""
+    },
+    {
+      "name": "Snowbird Specials",
+      "description": "Special rates for longer stays during winter months",
+      "discount": ""
+    },
+    {
+      "name": "Last-Minute Deals",
+      "description": "Last-minute discounts on available inventory",
+      "discount": ""
+    },
+    {
+      "name": "Promo Codes",
+      "description": "Percentage-off promotions with codes (past examples include Bama2025 for 10% savings)",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 23,
+  "scraped_at": "2026-03-21T21:23:35.917Z"
+}

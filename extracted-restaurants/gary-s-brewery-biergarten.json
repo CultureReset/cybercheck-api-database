@@ -1,0 +1,138 @@
+{
+  "name": "Gary's Brewery & Biergarten",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "(850) 266-0858",
+    "address": "208 Newman Ave",
+    "city": "Pensacola",
+    "email": "cheers@garysbrewery.com"
+  },
+  "hours": {
+    "monday": "CLOSED",
+    "tuesday": "CLOSED",
+    "wednesday": "3:00 pm - 10:00 pm",
+    "thursday": "3:00 pm - 10:00 pm",
+    "friday": "12:00 pm - 10:00 pm",
+    "saturday": "12:00 pm - 10:00 pm",
+    "sunday": "12:00 pm - 8:00 pm"
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Non-Premium Beer",
+      "name": "Pint (16 oz)",
+      "description": "",
+      "price": 8
+    },
+    {
+      "category": "Non-Premium Beer",
+      "name": "1/2 Pint (8 oz)",
+      "description": "",
+      "price": 5
+    },
+    {
+      "category": "Non-Premium Beer",
+      "name": "Taster (5 oz)",
+      "description": "",
+      "price": 3
+    },
+    {
+      "category": "Non-Premium Beer",
+      "name": "Pitcher (60 oz)",
+      "description": "",
+      "price": 27
+    },
+    {
+      "category": "Non-Premium Beer",
+      "name": "Grunt Fill (32 oz)",
+      "description": "Must be consumed off premises",
+      "price": 14
+    },
+    {
+      "category": "Non-Premium Beer",
+      "name": "Growler Fill (64 oz)",
+      "description": "Must be consumed off premises",
+      "price": 25
+    },
+    {
+      "category": "Premium Beer & Cider",
+      "name": "Snifter (13 oz)",
+      "description": "",
+      "price": 8
+    },
+    {
+      "category": "Premium Beer & Cider",
+      "name": "Taster (5 oz)",
+      "description": "",
+      "price": 5
+    },
+    {
+      "category": "Premium Beer & Cider",
+      "name": "Pitcher (60 oz)",
+      "description": "",
+      "price": 33
+    },
+    {
+      "category": "Premium Beer & Cider",
+      "name": "Grunt Fill (32 oz)",
+      "description": "Must be consumed off premises",
+      "price": 17
+    },
+    {
+      "category": "Premium Beer & Cider",
+      "name": "Growler Fill (64 oz)",
+      "description": "Must be consumed off premises",
+      "price": 28
+    },
+    {
+      "category": "Beverages",
+      "name": "Wine by the Glass",
+      "description": "",
+      "price": 8
+    },
+    {
+      "category": "Beverages",
+      "name": "Can of Soda",
+      "description": "",
+      "price": 2
+    },
+    {
+      "category": "Beverages",
+      "name": "Bottled Water",
+      "description": "",
+      "price": 2
+    },
+    {
+      "category": "Merchandise",
+      "name": "Pint Glass",
+      "description": "",
+      "price": 5
+    },
+    {
+      "category": "Merchandise",
+      "name": "Snifter Glass",
+      "description": "",
+      "price": 7
+    },
+    {
+      "category": "Merchandise",
+      "name": "T-shirt",
+      "description": "",
+      "price": 27
+    },
+    {
+      "category": "Merchandise",
+      "name": "Hats",
+      "description": "",
+      "price": 30
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:50.351Z"
+}

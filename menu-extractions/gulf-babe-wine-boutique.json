@@ -1,0 +1,98 @@
+{
+  "business_name": "Gulf Babe Wine Boutique",
+  "address": "4593 Main St. Suite C-101, Orange Beach, AL 36561",
+  "phone": "251.495.0573",
+  "hours": {
+    "monday": "11am-9pm",
+    "tuesday": "11am-9pm",
+    "wednesday": "11am-9pm",
+    "thursday": "11am-9pm",
+    "friday": "11am-12am",
+    "saturday": "11am-12am",
+    "sunday": "11am-8pm"
+  },
+  "happy_hour": {
+    "days": "Tuesday & Thursday",
+    "times": "2:00 PM - 6:00 PM",
+    "deals": [
+      "Drink specials",
+      "Good vibes",
+      "Perfect excuse to unwind with your girls"
+    ]
+  },
+  "specials": [
+    "Mahjong Monday - Every Monday 5PM-9PM - Open Play, BOGO 50% Select Bottles",
+    "Yappy Hour - Tuesday & Thursday 2-6 PM - Drink specials, good vibes",
+    "Cinco de Mayo - $13 Spicy Pineapple Margaritas All Day",
+    "Survivor Watch Party - 7 PM",
+    "Mother's Day Candle Making - 2 PM",
+    "Memorial Day Kickoff Party - $10 Frose All Day, DJ 8pm-12am",
+    "Summer Kickoff Party: Coastal Cowgirl - Drink Specials, DJ 8pm-12am",
+    "Concert Pre-Party - 4 PM til close - Drink Specials",
+    "Pilates & Prosecco - 10 AM",
+    "Summer Mini-Menu Drop"
+  ],
+  "menu": [
+    {
+      "section": "Wine Club",
+      "items": [
+        {
+          "name": "The Signature Babe",
+          "price": "$80",
+          "description": "Two carefully curated bottles/month, 10% off wine products and merch, 10% off wine tasting events, Two complimentary tasting flights per year, Gulf Babe Wine Club shirt and insulated wine bag upon joining",
+          "dietary": []
+        },
+        {
+          "name": "The Luxe Babe",
+          "price": "$150",
+          "description": "Four expertly curated bottles/month, 10% off wine products, 10% off wine tasting events, Four complimentary flights per year, Gulf Babe Wine Club shirt and insulated wine bag upon joining",
+          "dietary": []
+        },
+        {
+          "name": "Grand Reserve Babe",
+          "price": "$460",
+          "description": "Three handpicked, exclusive reserve bottles/month, 15% off wine products and merch, 15% off wine tasting events, Four complimentary tasting flights per year, Gulf Babe Wine Club shirt and insulated wine bag upon joining",
+          "dietary": []
+        },
+        {
+          "name": "Snowbird Babe",
+          "price": "$280",
+          "description": "Three handpicked, exclusive reserve bottles/month (3 months), 15% off wine products and merch, 15% off wine tasting events, Four complimentary tasting flights per year, Gulf Babe Wine Club shirt and insulated wine bag upon joining",
+          "dietary": []
+        }
+      ]
+    },
+    {
+      "section": "Private Events - Half Bar",
+      "items": [
+        {
+          "name": "Half Bar 12-30 people (2 hr minimum)",
+          "price": "$450-$850",
+          "description": "Minimum spend before 5 PM: $450/2 hrs, Minimum spend after 5 PM: $850/2 hrs",
+          "dietary": []
+        }
+      ]
+    },
+    {
+      "section": "Private Events - Full Bar",
+      "items": [
+        {
+          "name": "Full Bar 30-75 people",
+          "price": "$550-$1,350",
+          "description": "Minimum spend before 5 PM: $550/hr, Minimum spend after 5 PM: $1,350/hr",
+          "dietary": []
+        }
+      ]
+    }
+  ],
+  "notes": "No full food menu items were visible on the provided pages. Website includes wine club memberships, private event pricing, and special events calendar. Full menu available on dedicated menu page but specific items/prices not shown in screenshots provided. VIP Reservations available through online booking system.",
+  "_meta": {
+    "scraped_at": "2026-05-18T07:43:09.979Z",
+    "pages_visited": 11,
+    "menu_sections": 3,
+    "menu_items": 6,
+    "priced_items": 6,
+    "has_hours": true,
+    "source_url": "http://gulfbabe.com/"
+  }
+}

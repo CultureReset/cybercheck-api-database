@@ -1,0 +1,46 @@
+{
+  "name": "Royal Eats LLC",
+  "type": "Restaurant",
+  "website": "http://www.royal-eats.com",
+  "contact": {
+    "phone": "0000000000",
+    "address": "1004 Mckenzie Street",
+    "city": "Foley",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": "Open now • Closes at 8PM (specific daily hours not provided)"
+  },
+  "about": {
+    "description": "A unique fusion of Southern comfort and carnival flair offering signature dishes that combine traditional Southern recipes with playful carnival twists.",
+    "elevator_pitch": "Experience Southern comfort food with a vibrant, festive carnival twist.",
+    "vibe": "Vibrant, festive, playful carnival atmosphere with Southern comfort dining",
+    "best_for": [
+      "families",
+      "casual dining",
+      "carnival experience"
+    ],
+    "established": null,
+    "reservations": null,
+    "insider_tip": null
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "website": "http://www.royal-eats.com"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 4,
+  "scraped_at": "2026-03-22T18:32:28.350Z"
+}

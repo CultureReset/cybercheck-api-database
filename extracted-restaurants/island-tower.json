@@ -1,0 +1,57 @@
+{
+  "name": "Island Tower",
+  "type": "Condo Resort",
+  "website": "https://www.brett-robinson.com/beach-condo/island-tower/",
+  "contact": {
+    "phone": "1-800-211-7892",
+    "address": "521 West Beach Blvd",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {},
+  "about": {
+    "description": "Island Tower Gulf Shores offers stunning views of the beachfront and Gulf of Mexico from room balconies. Located just a few blocks west of Hwy 59, the Island Tower resort condominiums are both conveniently located and comfortably secluded just off the beaten path. The property features two pools, hot tub, and sauna for relaxation. A family-friendly beach vacation destination with all the basics and more covered.",
+    "elevator_pitch": "Beachfront Gulf Shores condo resort with stunning Gulf views, two pools, hot tub, sauna, and convenient access to dining and attractions.",
+    "total_units": null,
+    "floors": null,
+    "year_built": null,
+    "pet_friendly": null,
+    "minimum_stay": null,
+    "check_in": null,
+    "check_out": null,
+    "age_restriction": null
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/brett_robinson_vacations",
+    "facebook": "https://www.facebook.com/BrettRobinsonVacations",
+    "website": "https://www.brett-robinson.com/beach-condo/island-tower/"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Seasonal Discounts",
+      "description": "Seasonal discounts available on select dates",
+      "discount": ""
+    },
+    {
+      "name": "Snowbird Specials",
+      "description": "Discounts for longer stays during off-season",
+      "discount": ""
+    },
+    {
+      "name": "Last-Minute Deals",
+      "description": "Last-minute deals on select Gulf Shores rentals",
+      "discount": ""
+    },
+    {
+      "name": "Group Rates",
+      "description": "Special rates available for large groups (4+ bedrooms sleep up to 22 guests)",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 23,
+  "scraped_at": "2026-03-21T21:30:55.796Z"
+}

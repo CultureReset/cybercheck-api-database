@@ -1,0 +1,51 @@
+{
+  "name": "Tanger Outlets Foley",
+  "type": "Shopping Center",
+  "website": "https://www.tangeroutlets.com/foley",
+  "contact": {
+    "phone": "",
+    "address": "",
+    "city": "Foley",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": "Hours & information available on website"
+  },
+  "about": {
+    "description": "Tanger Outlets Foley is an outlet shopping center in Foley, Alabama, featuring multiple retail brand outlets and shopping destinations.",
+    "elevator_pitch": "An outlet shopping center in Foley featuring a variety of brand outlets.",
+    "vibe": "Shopping destination with multiple stores and outlets",
+    "best_for": [
+      "shopping",
+      "outlet deals"
+    ],
+    "established": null,
+    "reservations": null,
+    "insider_tip": "Sign up for TangerClub and text UNLOCK to 826437 for exclusive Deal Days Offers"
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://www.tangeroutlets.com/foley"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Deal Days Offers",
+      "description": "Exclusive deals available for TangerClub members",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 24,
+  "scraped_at": "2026-03-21T19:52:48.863Z"
+}

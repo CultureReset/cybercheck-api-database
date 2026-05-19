@@ -1,0 +1,64 @@
+{
+  "name": "Chute 'Em Up Parasail",
+  "type": "Parasailing | Water Sports | Adventure Tour",
+  "website": "https://www.parasailorangebeach.com",
+  "contact": {
+    "phone": "(251) 981-7673",
+    "address": "",
+    "city": "Orange Beach, Gulf Shores, Perdido Key, Fort Morgan",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": "Operating since 2004"
+  },
+  "about": {
+    "description": "Chute 'Em Up Parasail has been offering amazing parasailing adventures in the Orange Beach area since 2004. Experience incredible views of the Alabama Gulf Coast while soaring up to 800ft above the beautiful Gulf of Mexico. Parasailing over the beautiful beaches lets you catch sights of dolphins, sea turtles, sting rays, tour boats, and tourists below. The company offers parasailing from the beach at multiple Gulf Shores, Fort Morgan, and Perdido Key locations.",
+    "elevator_pitch": "Premier parasailing adventures up to 800ft over the Alabama Gulf Coast with 15 U.S. Coast Guard approved vessels.",
+    "vibe": "Fun, professional, family-friendly water sports experience with entertaining crew members",
+    "best_for": [
+      "families",
+      "groups",
+      "first-time parasailers",
+      "adventure seekers",
+      "all ages"
+    ],
+    "capacity": "15 passengers per boat",
+    "duration_options": [
+      "Single parasail flight"
+    ],
+    "departure_location": "8 locations: Happy Harbor Marina (Orange Beach), Blue Sky Parasail (Gulf Shores), Beach Club Parasail (Gulf Shores), Perdido Key Parasail (Pensacola, FL), Pink Pony Pub (Gulf Shores), Bahama Bob's (Gulf Shores), and 2 additional locations",
+    "what_provided": [
+      "parasail equipment",
+      "life jackets",
+      "banana boat ride pickup",
+      "photo packages available (40-60 high quality images)"
+    ],
+    "what_to_bring": null,
+    "age_restriction": "Ages 3 and up",
+    "weight_restriction": null,
+    "reservations": "Recommended; can accommodate last-minute bookings",
+    "cancellation_policy": null,
+    "insider_tip": "Photo packages highly recommended by reviewers; water dipping experience available"
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/chuteemupparasail/",
+    "facebook": "https://www.facebook.com/chuteemupparasail/",
+    "tripadvisor": "https://www.tripadvisor.com/Attraction_Review-g34625-d4268889-Reviews-Chute_Em_Up_Parasail-Orange_Beach_Alabama.html",
+    "website": "https://www.parasailorangebeach.com",
+    "x_twitter": "https://twitter.com/"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 3,
+  "scraped_at": "2026-03-21T19:46:49.934Z"
+}

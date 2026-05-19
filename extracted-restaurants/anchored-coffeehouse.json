@@ -1,0 +1,62 @@
+{
+  "name": "Anchored Coffeehouse",
+  "type": "Cafe",
+  "website": "https://anchoredcoffeehouse.com/",
+  "contact": {
+    "phone": "",
+    "address": "",
+    "city": "",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": null
+  },
+  "about": {
+    "description": "Anchored Coffeehouse is a local coffeehouse offering a welcoming space for coffee lovers and community members alike.",
+    "elevator_pitch": "Anchored Coffeehouse is your go-to community coffee haven where every cup is crafted to keep you grounded and connected.",
+    "established": null,
+    "owner": null,
+    "chef": null,
+    "vibe": "Cozy, welcoming neighborhood coffeehouse with community feel",
+    "best_for": [
+      "remote workers",
+      "casual meetups",
+      "solo visits",
+      "coffee enthusiasts"
+    ],
+    "age_restriction": null,
+    "dress_code": null,
+    "parking": null,
+    "accessibility": null,
+    "reservations": null,
+    "insider_tip": null,
+    "awards": [],
+    "press": []
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "twitter": null,
+    "tiktok": null,
+    "youtube": null,
+    "yelp": null,
+    "tripadvisor": null,
+    "opentable": null,
+    "google_maps": null,
+    "website": "https://anchoredcoffeehouse.com/"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-03-22T02:33:37.151Z"
+}

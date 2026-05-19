@@ -1,0 +1,54 @@
+{
+  "name": "Tee Off at The Wharf Powered by Topgolf Swing Suite",
+  "type": "Entertainment Venue / Bar & Grill",
+  "website": "https://teeoffatthewharf.com",
+  "contact": {
+    "phone": "251.228.4899",
+    "address": "4619 Main Street SUITE A102",
+    "city": "Orange Beach",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": "Hours not provided on website"
+  },
+  "about": {
+    "description": "Tee Off at The Wharf is an entertainment venue featuring Topgolf Swing Suites for golf simulation and various other sports simulators, combined with a full-service bar and grill.",
+    "elevator_pitch": "A premier entertainment destination offering indoor golf simulators, multi-sport gaming, and dining at The Wharf in Orange Beach.",
+    "vibe": "Fun, social, modern entertainment complex with gaming, food, and drinks",
+    "best_for": [
+      "corporate events",
+      "party groups",
+      "date night",
+      "family outings",
+      "golf enthusiasts"
+    ],
+    "established": null,
+    "reservations": "Swing Suites require reservations - Call for Reservation",
+    "insider_tip": "Now open with Swing Suite reservations available for golf and party packages"
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://www.teeoffatthewharf.com"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [
+    {
+      "name": "Golf League",
+      "day": "",
+      "time": ""
+    }
+  ],
+  "gallery": 8,
+  "scraped_at": "2026-03-21T20:14:10.348Z"
+}

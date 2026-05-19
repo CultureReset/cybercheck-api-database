@@ -1,0 +1,549 @@
+{
+  "name": "Sea-N-Suds",
+  "type": "Restaurant",
+  "website": "https://sea-n-suds.com",
+  "contact": {
+    "phone": "(251) 948-7894",
+    "address": "409 East Beach Blvd",
+    "city": "Gulf Shores",
+    "email": "giftshop@sea-n-suds.com"
+  },
+  "hours": {
+    "monday": "Closed",
+    "tuesday": "11:00 AM - 9:00 PM",
+    "wednesday": "11:00 AM - 9:00 PM",
+    "thursday": "11:00 AM - 9:00 PM",
+    "friday": "11:00 AM - 9:00 PM",
+    "saturday": "11:00 AM - 9:00 PM",
+    "sunday": "11:00 AM - 9:00 PM",
+    "notes": "Gift Shop hours: Open 11am to 9pm, Closed on Mondays. Gift Shop located at 409A East Beach Blvd, phone: 251-948-7899"
+  },
+  "about": {
+    "description": "Established in 1975 by Gerald King and David Bodenhamer in an old bait shop on a pier in Gulf Shores, Alabama, Sea-N-Suds is one of the original family-friendly beachfront restaurants in town. The restaurant stretches over the sugar-white sand and sits just a couple of feet away from the Gulf of Mexico, offering true beachfront dining. The original building was destroyed by Hurricane Frederic in 1979 and rebuilt. The restaurant still serves the same seafood using the same recipes passed down for generations, including their famous gumbo recipe from David Bodenhamer's grandmother, Nona Sellers, which has been in the family for over 200 years.",
+    "elevator_pitch": "A beloved Gulf Shores institution since 1975, Sea-N-Suds serves fresh Gulf seafood and legendary family-recipe gumbo right on the beach with stunning sunset views.",
+    "established": "1975",
+    "owner": "David Bodenhamer and Gerald King",
+    "chef": null,
+    "vibe": "Casual beachfront family dining with stunning Gulf views",
+    "best_for": [
+      "families",
+      "groups",
+      "date night",
+      "casual dining",
+      "beach lovers"
+    ],
+    "age_restriction": null,
+    "dress_code": null,
+    "parking": "Self-park in the Northside parking lot; valet parking currently unavailable",
+    "accessibility": null,
+    "reservations": null,
+    "insider_tip": "Tuesday nights are THE night for seafood locals — come for the All You Can Eat fresh fried mullet special on Tuesdays and Fridays. Pick up a Locals Loyalty Card for $15 to get 10% off every visit.",
+    "awards": [],
+    "press": []
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "twitter": null,
+    "tiktok": null,
+    "youtube": null,
+    "yelp": null,
+    "tripadvisor": null,
+    "opentable": null,
+    "google_maps": null,
+    "website": "https://sea-n-suds.com"
+  },
+  "menu": [
+    {
+      "category": "Appetizers",
+      "name": "Oysters on the Half Shell - Dozen",
+      "description": "Fresh Gulf oysters on the half shell served with horseradish and lemon wedges",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Oysters on the Half Shell - 1/2 Dozen",
+      "description": "Fresh Gulf oysters on the half shell served with horseradish and lemon wedges",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Steamed Peel & Eat Shrimp - 1/2 lb",
+      "description": "Fresh Gulf shrimp steamed in their shell, seasoned and served with clarified butter",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Steamed Peel & Eat Shrimp - XL Order (1 lb)",
+      "description": "Fresh Gulf shrimp steamed in their shell, seasoned and served with clarified butter",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Royal Reds - 1/2 Pound",
+      "description": "Fresh locally-caught Royal Reds steamed in their shells, seasoned and served with clarified butter",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Royal Reds - 1 Pound",
+      "description": "Fresh locally-caught Royal Reds steamed in their shells, seasoned and served with clarified butter",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Gumbo - Bowl",
+      "description": "Famous family recipe gumbo served for over 45 years",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Gumbo - Cup",
+      "description": "Famous family recipe gumbo served for over 45 years",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Gumbo - Quart to Go",
+      "description": "Famous family recipe gumbo served for over 45 years",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Fried Crab Claws - 1/2 Pound",
+      "description": "Only the best domestic Gulf crab claws",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Fried Crab Claws - 1 Pound",
+      "description": "Only the best domestic Gulf crab claws",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Fried Cheese - Mozzarella",
+      "description": "Served with marinara",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Fried Cheese - Hotzarella",
+      "description": "Served with marinara",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Sampler Platter",
+      "description": "Fresh tenders (4), mozzarella, crab bites, fried mushrooms and fried zucchini",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Chicken Wings - 1/2 Dozen",
+      "description": "Fresh chicken wings fried then tossed in your choice of sauce (Buffalo, Spicy Honey Garlic, Plain)",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Chicken Wings - Dozen",
+      "description": "Fresh chicken wings fried then tossed in your choice of sauce (Buffalo, Spicy Honey Garlic, Plain)",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Hand Breaded Fresh Chicken Tenders",
+      "description": "Fresh marinated chicken tenders fried and served plain or tossed in your choice of sauce (Buffalo, Spicy Honey Garlic, or Plain). Served with your choice of dipping sauce. 16 oz.",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Crab & Cheese Bites - 1/2 Dozen",
+      "description": "Crab meat, cheese and jalapeno",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Sweet Heat Shrimp",
+      "description": "Fried popcorn shrimp tossed in Thai sweet chili sauce",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Fried Okra",
+      "description": "Fried okra",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Fried Mushrooms - Basket",
+      "description": "Breaded and fried, served with ranch",
+      "price": ""
+    },
+    {
+      "category": "Salad Bar",
+      "name": "Salad Bar - All You Can Eat",
+      "description": "All you can eat salad bar",
+      "price": ""
+    },
+    {
+      "category": "Salad Bar",
+      "name": "Salad Bar - One Trip",
+      "description": "One trip salad bar",
+      "price": ""
+    },
+    {
+      "category": "Sandwiches & Burgers",
+      "name": "Burger",
+      "description": "1/4 lb fresh, all-beef patties, grilled and served with lettuce, tomato, pickle, mustard and mayonnaise. Served with fries.",
+      "price": ""
+    },
+    {
+      "category": "Sandwiches & Burgers",
+      "name": "Burger - Add Bacon",
+      "description": "Add bacon to your burger",
+      "price": ""
+    },
+    {
+      "category": "Sandwiches & Burgers",
+      "name": "Burger - Double",
+      "description": "Double patty burger",
+      "price": ""
+    },
+    {
+      "category": "Sandwiches & Burgers",
+      "name": "Nathan's Famous Hot Dog",
+      "description": "Served with mayonnaise and relish on the side",
+      "price": ""
+    },
+    {
+      "category": "Sandwiches & Burgers",
+      "name": "Fried Cod Sandwich",
+      "description": "Fried cod on a sesame seed bun with tartar sauce",
+      "price": ""
+    },
+    {
+      "category": "Sandwiches & Burgers",
+      "name": "Fried Shrimp Sandwich",
+      "description": "Fresh Gulf shrimp fried and served on a steamed bun with homemade tartar sauce",
+      "price": ""
+    },
+    {
+      "category": "Sandwiches & Burgers",
+      "name": "Fresh Fish of the Day Sandwich",
+      "description": "Fresh fish of the day sandwich",
+      "price": ""
+    },
+    {
+      "category": "Sandwiches & Burgers",
+      "name": "Buffalo Fried Shrimp Sandwich",
+      "description": "Fresh Gulf shrimp with creamy buffalo sauce",
+      "price": ""
+    },
+    {
+      "category": "Sandwiches & Burgers",
+      "name": "Chicken Tender Sandwich",
+      "description": "Grilled or fried hand battered chicken tenders served on a sesame seed bun with lettuce, tomato, and mayo",
+      "price": ""
+    },
+    {
+      "category": "Sandwiches & Burgers",
+      "name": "Fried Oyster Sandwich",
+      "description": "Fresh Gulf oysters fried to a golden brown and served on a steamed bun with homemade tartar sauce",
+      "price": ""
+    },
+    {
+      "category": "Sandwiches & Burgers",
+      "name": "Add Fries",
+      "description": "Add fries to your sandwich",
+      "price": ""
+    },
+    {
+      "category": "Sandwiches & Burgers",
+      "name": "Upcharge for Onion Rings",
+      "description": "Substitute or add onion rings",
+      "price": ""
+    },
+    {
+      "category": "Dinners",
+      "name": "Fried Oyster Dinner - 1/2 Dozen",
+      "description": "Fresh Gulf Coast oysters battered and deep-fried, served with French fries, hush puppy and coleslaw",
+      "price": ""
+    },
+    {
+      "category": "Dinners",
+      "name": "Fried Oyster Dinner - Dozen",
+      "description": "Fresh Gulf Coast oysters battered and deep-fried, served with French fries, hush puppy and coleslaw",
+      "price": ""
+    },
+    {
+      "category": "Dinners",
+      "name": "Fried Shrimp Dinner - 1/2 Dozen",
+      "description": "Fresh Gulf Coast shrimp battered and fried golden brown, served with French fries, hush puppy and coleslaw",
+      "price": ""
+    },
+    {
+      "category": "Dinners",
+      "name": "Fried Shrimp Dinner - Dozen",
+      "description": "Fresh Gulf Coast shrimp battered and fried golden brown, served with French fries, hush puppy and coleslaw",
+      "price": ""
+    },
+    {
+      "category": "Dinners",
+      "name": "Pick Two Dinner Combo",
+      "description": "Pick any 2 of the following for the perfect combination dinner: Fried Oysters, Fried Shrimp, Fish, Fried Crab Claws, or Steamed Shrimp. Served with French fries, hush puppy and coleslaw.",
+      "price": ""
+    },
+    {
+      "category": "Dinners",
+      "name": "Fish of the Day",
+      "description": "Fresh caught Gulf fish battered and fried, served with French fries, hush puppy and coleslaw",
+      "price": ""
+    },
+    {
+      "category": "Dinners",
+      "name": "Stuffed Crab Dinner (2)",
+      "description": "Dressing filled crab shells, battered and fried, served with French fries, hush puppy and coleslaw",
+      "price": ""
+    },
+    {
+      "category": "Dinners",
+      "name": "Crab Claw Dinner",
+      "description": "1/2 lb fried crab claws, served with French fries, hush puppy and coleslaw",
+      "price": ""
+    },
+    {
+      "category": "Dinners",
+      "name": "Seafood Platter",
+      "description": "The crowd pleaser — fried oysters, fried shrimp, 1 piece of fish, 1 stuffed crab and a cup of gumbo, served with French fries, hush puppy and coleslaw",
+      "price": ""
+    },
+    {
+      "category": "Dinners",
+      "name": "Chicken Finger Dinner",
+      "description": "Hand breaded chicken tenders fried to perfection and served with your choice of dipping sauce, French fries, hush puppy and coleslaw",
+      "price": ""
+    },
+    {
+      "category": "Dinners",
+      "name": "Popcorn Shrimp Dinner",
+      "description": "Popcorn shrimp dinner served with French fries, hush puppy and coleslaw",
+      "price": ""
+    },
+    {
+      "category": "Side Items",
+      "name": "Fries",
+      "description": "French fries",
+      "price": ""
+    },
+    {
+      "category": "Side Items",
+      "name": "Hushpuppies",
+      "description": "Hushpuppies",
+      "price": ""
+    },
+    {
+      "category": "Side Items",
+      "name": "Onion Rings",
+      "description": "Onion rings",
+      "price": ""
+    },
+    {
+      "category": "Side Items",
+      "name": "Slaw",
+      "description": "Coleslaw",
+      "price": ""
+    },
+    {
+      "category": "Side Items",
+      "name": "Sweet Potato Fries",
+      "description": "Sweet potato fries",
+      "price": ""
+    },
+    {
+      "category": "Kids Menu",
+      "name": "Kids Burger",
+      "description": "Kids burger served with French fries and drink",
+      "price": ""
+    },
+    {
+      "category": "Kids Menu",
+      "name": "Kids Popcorn Chicken",
+      "description": "Kids popcorn chicken served with French fries and drink",
+      "price": ""
+    },
+    {
+      "category": "Kids Menu",
+      "name": "Kids Shrimp",
+      "description": "Kids shrimp served with French fries and drink",
+      "price": ""
+    },
+    {
+      "category": "Kids Menu",
+      "name": "Kids Fish",
+      "description": "Kids fish served with French fries and drink",
+      "price": ""
+    },
+    {
+      "category": "Kids Menu",
+      "name": "Kids Corn Dog Nuggets",
+      "description": "Kids corn dog nuggets served with French fries and drink",
+      "price": ""
+    },
+    {
+      "category": "Beverages",
+      "name": "Draft Beer",
+      "description": "Draft beer",
+      "price": ""
+    },
+    {
+      "category": "Beverages",
+      "name": "Large Draft Beer",
+      "description": "Large draft beer",
+      "price": ""
+    },
+    {
+      "category": "Beverages",
+      "name": "Beer Pitchers",
+      "description": "Pitcher of draft beer",
+      "price": ""
+    },
+    {
+      "category": "Beverages",
+      "name": "Canned Beer",
+      "description": "Bud, Bud Light, Miller Lite, Coors Light",
+      "price": ""
+    },
+    {
+      "category": "Beverages",
+      "name": "Michelob Ultra",
+      "description": "Bottled Michelob Ultra",
+      "price": ""
+    },
+    {
+      "category": "Beverages",
+      "name": "Corona",
+      "description": "Bottled Corona",
+      "price": ""
+    },
+    {
+      "category": "Beverages",
+      "name": "Heineken 0.0",
+      "description": "Non-alcoholic Heineken",
+      "price": ""
+    },
+    {
+      "category": "Beverages",
+      "name": "Land Shark",
+      "description": "Bottled Land Shark",
+      "price": ""
+    },
+    {
+      "category": "Beverages",
+      "name": "Craft Beer - 30A",
+      "description": "Craft beer: 30A brand",
+      "price": ""
+    },
+    {
+      "category": "Beverages",
+      "name": "Craft Beer - Cheap Sunglasses",
+      "description": "Craft beer: Cheap Sunglasses",
+      "price": ""
+    },
+    {
+      "category": "Beverages",
+      "name": "Craft Beer - Take the Causeway",
+      "description": "Craft beer: Take the Causeway",
+      "price": ""
+    },
+    {
+      "category": "Beverages",
+      "name": "Wine - Glass",
+      "description": "Pinot Grigio, Zinfandel, Chardonnay, Merlot, Pinot Noir, Sauvignon Blanc by the glass",
+      "price": ""
+    },
+    {
+      "category": "Beverages",
+      "name": "Wine - 1/2 Carafe",
+      "description": "Half carafe of wine",
+      "price": ""
+    },
+    {
+      "category": "Beverages",
+      "name": "Frozen Drink - Small",
+      "description": "Frozen cocktail drink, small",
+      "price": ""
+    },
+    {
+      "category": "Beverages",
+      "name": "Frozen Drink - Large",
+      "description": "Frozen cocktail drink, large",
+      "price": ""
+    },
+    {
+      "category": "Beverages",
+      "name": "Virgin Frozen Drink",
+      "description": "Non-alcoholic frozen drink",
+      "price": ""
+    },
+    {
+      "category": "Beverages",
+      "name": "Soft Drinks",
+      "description": "Coca-Cola, Coke Zero, Dr. Pepper, Sprite, Lemonade, Barq's Root Beer",
+      "price": 3
+    },
+    {
+      "category": "Beverages",
+      "name": "Red Diamond Tea",
+      "description": "Sweet or Unsweet iced tea",
+      "price": ""
+    },
+    {
+      "category": "Beverages",
+      "name": "Red Diamond Coffee",
+      "description": "Regular or Decaf coffee",
+      "price": ""
+    },
+    {
+      "category": "Beverages",
+      "name": "To-Go Drinks",
+      "description": "Drinks to go",
+      "price": ""
+    },
+    {
+      "category": "Beverages",
+      "name": "To-Go Coffee",
+      "description": "Coffee to go",
+      "price": 2.5
+    },
+    {
+      "category": "Specials",
+      "name": "All You Can Eat Mullet",
+      "description": "All you can eat fresh fried mullet available on Tuesdays and Fridays",
+      "price": ""
+    },
+    {
+      "category": "Specials",
+      "name": "Locals Loyalty Card",
+      "description": "Purchase a card for $15 and receive a 10% discount on your total ticket price. Expiration dates apply. Discount only applies to card holder's meal ticket.",
+      "price": 15
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "All You Can Eat Mullet",
+      "description": "All you can eat fresh fried mullet — a beloved local favorite. Join us on Tuesdays and Fridays for this much-loved special.",
+      "discount": ""
+    },
+    {
+      "name": "Locals Loyalty Card",
+      "description": "Purchase a Locals Loyalty Card for $15 and receive a 10% discount on your total ticket price. Expiration dates apply. Loyalty discount only applies to card holder's meal ticket.",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 31,
+  "scraped_at": "2026-03-21T12:51:39.580Z"
+}

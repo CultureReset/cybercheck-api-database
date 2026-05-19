@@ -1,0 +1,102 @@
+{
+  "name": "Dolphin Cove Marina",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "251.223.4055",
+    "address": "4159 CR-6",
+    "city": "Gulf Shores",
+    "email": "info@dolphin-cove-marina.com"
+  },
+  "hours": {
+    "monday": "8am-7pm",
+    "tuesday": "8am-7pm",
+    "wednesday": "8am-7pm",
+    "thursday": "8am-7pm",
+    "friday": "8am-7pm",
+    "saturday": "8am-7pm",
+    "sunday": "By Appointment Only"
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Kayak Rentals - Single Kayak",
+      "name": "2-hour Rental",
+      "description": "",
+      "price": 45
+    },
+    {
+      "category": "Kayak Rentals - Single Kayak",
+      "name": "4-hour Rental",
+      "description": "",
+      "price": 65
+    },
+    {
+      "category": "Kayak Rentals - Single Kayak",
+      "name": "Full Day Rental",
+      "description": "",
+      "price": 85
+    },
+    {
+      "category": "Kayak Rentals - Tandem Kayak",
+      "name": "2-hour Rental",
+      "description": "",
+      "price": 75
+    },
+    {
+      "category": "Kayak Rentals - Tandem Kayak",
+      "name": "4-hour Rental",
+      "description": "",
+      "price": 95
+    },
+    {
+      "category": "Kayak Rentals - Tandem Kayak",
+      "name": "Full Day Rental",
+      "description": "",
+      "price": 120
+    },
+    {
+      "category": "Kayak Rentals - Outfitted Fishing Kayaks",
+      "name": "2-hour Rental",
+      "description": "Sit-on-top fishing kayaks with fishing rod, basic tackle setup, and frozen shrimp bait",
+      "price": 75
+    },
+    {
+      "category": "Kayak Rentals - Outfitted Fishing Kayaks",
+      "name": "4-hour Rental",
+      "description": "Sit-on-top fishing kayaks with fishing rod, basic tackle setup, and frozen shrimp bait",
+      "price": 95
+    },
+    {
+      "category": "Kayak Rentals - Outfitted Fishing Kayaks",
+      "name": "Full Day Rental",
+      "description": "Sit-on-top fishing kayaks with fishing rod, basic tackle setup, and frozen shrimp bait",
+      "price": 120
+    },
+    {
+      "category": "Guided Kayak Tours",
+      "name": "Morning Tour (9am-12pm)",
+      "description": "Paddle through calm back bay waters of Gulf Shores with firsthand encounters with local wildlife in a small group setting",
+      "price": 70
+    },
+    {
+      "category": "Guided Kayak Tours",
+      "name": "Afternoon Tour (1pm-4pm)",
+      "description": "Short kayak tour lasting about two hours through picturesque coastal landscapes and hidden lagoons while observing local wildlife",
+      "price": 70
+    },
+    {
+      "category": "Guided Kayak Tours",
+      "name": "Sunset Tour (4pm-7pm)",
+      "description": "3-hour adventure exploring back bay waters, estuaries and wetlands where dolphin, sea turtles, and various bird species await",
+      "price": 70
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:50.243Z"
+}

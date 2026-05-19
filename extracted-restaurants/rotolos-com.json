@@ -1,0 +1,153 @@
+{
+  "name": "Rotolo's",
+  "type": "Restaurant",
+  "website": "https://rotolos.com",
+  "contact": {
+    "phone": "",
+    "address": "",
+    "city": "",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": null
+  },
+  "about": {
+    "description": "Rotolo's Pizzeria and Rotolo's Craft & Crust creates pizzas with only fresh, high quality ingredients. They serve hot and fresh pizza, calzones, pasta, salads and more using the highest quality, freshest ingredients.",
+    "elevator_pitch": "Rotolo's creates handcrafted pizzas with only fresh, high-quality ingredients.",
+    "vibe": "Detroit-style pizza restaurant with both casual Pizzeria and upscale Craft & Crust concepts",
+    "best_for": [
+      "pizza lovers",
+      "families",
+      "casual dining",
+      "catering"
+    ],
+    "established": null,
+    "reservations": null,
+    "insider_tip": null
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/rotolos/",
+    "facebook": "https://www.facebook.com/rotolospizzeria/",
+    "twitter": "https://x.com/rotolos",
+    "linkedin": "https://www.linkedin.com/company/rotolos-llc/",
+    "youtube": "https://www.youtube.com/channel/UCNiYS4bPvc5G99xADOYO_UQ",
+    "website": "https://rotolos.com"
+  },
+  "menu": [
+    {
+      "category": "Pizzeria Menu",
+      "name": "Pizza",
+      "description": "Detroit-style handcrafted pizza with fresh, high-quality ingredients",
+      "price": ""
+    },
+    {
+      "category": "Pizzeria Menu",
+      "name": "Calzones",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Pizzeria Menu",
+      "name": "Pasta",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Pizzeria Menu",
+      "name": "Salads",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Craft & Crust Menu",
+      "name": "Specialty Craft Pizza",
+      "description": "Craft versions of customer favorite pizzas",
+      "price": ""
+    },
+    {
+      "category": "Craft & Crust Menu",
+      "name": "Calzones",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Craft & Crust Menu",
+      "name": "Pasta",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Craft & Crust Menu",
+      "name": "Salads",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Craft & Crust Menu",
+      "name": "Local Beers",
+      "description": "Selection of local beers",
+      "price": ""
+    },
+    {
+      "category": "Pizzeria Catering",
+      "name": "Pizza",
+      "description": "Hot and fresh pizza for catering",
+      "price": ""
+    },
+    {
+      "category": "Pizzeria Catering",
+      "name": "Calzones",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Pizzeria Catering",
+      "name": "Pasta",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Pizzeria Catering",
+      "name": "Salads",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Craft & Crust Catering",
+      "name": "Specialty Craft Pizza",
+      "description": "Craft pizza for catering events",
+      "price": ""
+    },
+    {
+      "category": "Craft & Crust Catering",
+      "name": "Calzones",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Craft & Crust Catering",
+      "name": "Pasta",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Craft & Crust Catering",
+      "name": "Salads",
+      "description": "",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 50,
+  "scraped_at": "2026-03-21T20:11:20.586Z"
+}

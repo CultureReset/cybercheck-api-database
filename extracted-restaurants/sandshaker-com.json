@@ -1,0 +1,52 @@
+{
+  "name": "The Sandshaker",
+  "type": "Bar",
+  "website": "https://sandshaker.com",
+  "contact": {
+    "phone": "850-932-2211",
+    "address": "731 Pensacola Beach Blvd",
+    "city": "Pensacola Beach",
+    "email": ""
+  },
+  "hours": {
+    "monday": "10:00 am to 3:00 am",
+    "tuesday": "10:00 am to 3:00 am",
+    "wednesday": "10:00 am to 3:00 am",
+    "thursday": "10:00 am to 3:00 am",
+    "friday": "10:00 am to 3:00 am",
+    "saturday": "10:00 am to 3:00 am",
+    "sunday": "10:00 am to 3:00 am",
+    "notes": "Open 7 days a week"
+  },
+  "about": {
+    "description": "The Sandshaker is a beach bar known as the home of the original Bushwacker with two locations in Pensacola Beach, FL and Orange Beach, AL.",
+    "elevator_pitch": "Iconic beach bar featuring the original Bushwacker with live music every weekend and no cover charge.",
+    "vibe": "Casual beach bar atmosphere",
+    "best_for": [
+      "groups",
+      "live music",
+      "drinks"
+    ],
+    "established": null,
+    "reservations": null,
+    "insider_tip": "Live music every weekend with no cover charge"
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://sandshaker.com"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [
+    {
+      "name": "Live Music",
+      "day": "Saturday, Sunday",
+      "time": ""
+    }
+  ],
+  "gallery": 7,
+  "scraped_at": "2026-03-22T18:34:29.614Z"
+}

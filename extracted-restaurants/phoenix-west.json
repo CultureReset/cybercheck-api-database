@@ -1,0 +1,57 @@
+{
+  "name": "Phoenix West",
+  "type": "Condo Resort",
+  "website": "https://www.brett-robinson.com/beach-condo/phoenix-west/",
+  "contact": {
+    "phone": "1-800-211-7892",
+    "address": "23972 Perdido Beach Blvd",
+    "city": "Orange Beach",
+    "email": ""
+  },
+  "hours": {},
+  "about": {
+    "description": "Phoenix West is a beachfront condo resort in Orange Beach offering spacious vacation rentals with direct access to the sugar-white sand of Alabama's Gulf Coast. Designed for families and larger groups, Phoenix West features 1-, 2-, 3-, and 4-bedroom condos that accommodate up to 14 guests, each with expansive Gulf-front balconies and open living spaces. Guests enjoy private boardwalk access to the beach, allowing easy transitions between the shoreline and the resort. With panoramic Gulf views, large-scale amenities, and a prime Orange Beach location, Phoenix West combines residential comfort with a full-service beachfront resort experience.",
+    "elevator_pitch": "Beachfront Orange Beach condo resort with 1-4 bedroom units, private boardwalk beach access, and comprehensive resort amenities for families and groups.",
+    "total_units": null,
+    "floors": null,
+    "year_built": null,
+    "pet_friendly": false,
+    "minimum_stay": null,
+    "check_in": null,
+    "check_out": null,
+    "age_restriction": null
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/brett_robinson_vacations",
+    "facebook": "https://www.facebook.com/BrettRobinsonVacations",
+    "website": "https://www.brett-robinson.com/beach-condo/phoenix-west/"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Seasonal Discounts",
+      "description": "Seasonal promotions on select Gulf Shores and Orange Beach properties",
+      "discount": ""
+    },
+    {
+      "name": "Snowbird Specials",
+      "description": "Special rates for longer stays during winter months",
+      "discount": ""
+    },
+    {
+      "name": "Last-Minute Deals",
+      "description": "Hot deals on select rentals for last-minute bookings",
+      "discount": ""
+    },
+    {
+      "name": "Promo Codes",
+      "description": "10% off with codes (past examples include Bama2025 for 2025 bookings)",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 23,
+  "scraped_at": "2026-03-21T21:16:11.571Z"
+}

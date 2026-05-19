@@ -1,0 +1,135 @@
+{
+  "business_name": "AVENUE PUB",
+  "cuisine_type": "Pub/Casual Dining",
+  "price_range": null,
+  "description": "Hand-crafted food, local beer and fresh cocktails. Locations in Orange Beach and Tuscaloosa",
+  "atmosphere": null,
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": null,
+    "website": "https://www.avepub.com",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": "https://www.facebook.com/avepub",
+      "instagram": "https://www.instagram.com/avepub",
+      "twitter": null,
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": true,
+    "takeout_available": null,
+    "delivery_available": null,
+    "curbside_available": null,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [],
+    "wine_list": null,
+    "beer_selection": "local beer",
+    "cocktails": "fresh cocktails",
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": null,
+      "vegan": null,
+      "gluten_free": null,
+      "dairy_free": null,
+      "nut_free": null,
+      "kosher": null,
+      "halal": null
+    }
+  },
+  "happy_hour": {
+    "available": null,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [],
+  "entertainment_and_events": [],
+  "private_events": {
+    "available": null,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": null,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": null,
+    "pets_allowed": null
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": true,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": null,
+    "private_dining": null
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": null,
+    "email_signup": null,
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": true,
+    "farm_to_table": null,
+    "sustainable": null,
+    "organic": null,
+    "details": "Hand-crafted food, local beer"
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [],
+    "common_praise": [],
+    "common_complaints": []
+  },
+  "photos_and_media": [],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "AVENUE PUB - Hand-crafted food, local beer and fresh cocktails. Locations in Orange Beach and Tuscaloosa. Navigation: Menus (Tuscaloosa, Orange Beach), Locations, Join Our Team. Book a Table option available.",
+  "extraction_confidence": "low",
+  "extraction_notes": "This is a Squarespace website homepage with very limited restaurant information visible. The HTML shows primarily header/navigation structure and metadata. Critical missing data: phone numbers, addresses, business hours, detailed menu items with prices, location-specific information, dining options, parking, accessibility details, policies, and other operational details. The page appears to be a landing page with references to separate pages for menus (/tuscaloosamenu, /orangebeachmenu) and locations that are not included in this HTML extract. Only basic tagline information is available: 'Hand-crafted food, local beer and fresh cocktails. Locations in Orange Beach and Tuscaloosa'. Reservations functionality indicated by 'Book a Table' button but no reservation system details provided. Social media accounts identified: Facebook and Instagram.",
+  "folder": "ChIJDV39l9sHmogR1dEooOId4VQ_Avenue Pub - Orange Beach",
+  "extracted_at": "2026-05-15T06:09:50.046Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJDV39l9sHmogR1dEooOId4VQ_Avenue Pub - Orange Beach/01_raw_html.html"
+}

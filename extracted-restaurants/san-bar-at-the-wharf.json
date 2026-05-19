@@ -1,0 +1,40 @@
+{
+  "name": "San Bar at the wharf",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "251-224-1000",
+    "address": "23101 Canal Road",
+    "city": "Orange Beach",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null
+  },
+  "about": {},
+  "social": {},
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "$3 Bloodys + Longnecks / $5 Tito's",
+      "description": "Sunday special at Sandshaker",
+      "discount": ""
+    },
+    {
+      "name": "Tequila Tuesday Karaoke/DJ Party",
+      "description": "Karaoke and DJ party at Sandshaker",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:51.335Z"
+}

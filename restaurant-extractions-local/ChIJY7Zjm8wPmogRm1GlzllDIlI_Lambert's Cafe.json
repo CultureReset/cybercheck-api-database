@@ -1,0 +1,193 @@
+{
+  "business_name": "Lambert's Cafe - Home of Throwed Rolls",
+  "cuisine_type": "Southern, American comfort food",
+  "price_range": null,
+  "description": "Established in 1942, Lambert's Cafe is a renowned family-friendly restaurant in Sikeston, Missouri, serving delicious southern fare. Experience our unique tradition of throwing rolls to diners. We offer a full hook-up RV Park at our Sikeston and Ozark locations. Huge selection of cups, apparel, hats and recently added jams, jellies, preserves, beef sticks, and ciders.",
+  "atmosphere": "Family-friendly, casual dining with unique tradition of throwing rolls to diners",
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": "573-471-4261",
+    "email": "Lamberts1@Throwedrolls.com",
+    "address": "2305 East Malone Ave, Sikeston, MO 63801",
+    "website": "https://throwedrolls.com",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": "https://www.facebook.com/LCSIKESTONMO/",
+      "instagram": "https://www.instagram.com/lcsikeston/?hl=en",
+      "twitter": "https://twitter.com/throwedrolls?lang=en",
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": true,
+    "takeout_available": true,
+    "delivery_available": null,
+    "curbside_available": null,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [
+      {
+        "name": "Popular Dishes",
+        "description": null,
+        "items": [
+          {
+            "name": "Country Fried Round Steak",
+            "description": "Really - the old fashioned beef round steak. Breaded and deep-fried, served with mashed potatoes and covered in milk gravy. Add your choice of 2 sides and ol' Norm's pass arounds.",
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": true,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "BBQ Pork Steak",
+            "description": "A fresh cut pork steak (from a real nice ol' hog). You get your choice of 3 sides and all of Lambert's pass arounds. You'll see why this is one of our top sellers.",
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": true,
+            "is_seasonal": false,
+            "availability": null
+          }
+        ]
+      }
+    ],
+    "wine_list": null,
+    "beer_selection": null,
+    "cocktails": null,
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": null,
+      "vegan": null,
+      "gluten_free": null,
+      "dairy_free": null,
+      "nut_free": null,
+      "kosher": null,
+      "halal": null
+    }
+  },
+  "happy_hour": {
+    "available": null,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [],
+  "entertainment_and_events": [],
+  "private_events": {
+    "available": null,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": null,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": null,
+    "pets_allowed": null
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": null,
+    "online_booking_platform": null,
+    "phone_reservations": "573-471-4261",
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": null,
+    "private_dining": null
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": null,
+    "email_signup": null,
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": null,
+    "farm_to_table": null,
+    "sustainable": null,
+    "organic": null,
+    "details": null
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [
+      "Country Fried Round Steak",
+      "BBQ Pork Steak",
+      "Meatloaf",
+      "Grilled Shrimp"
+    ],
+    "common_praise": [
+      "Family-friendly",
+      "Unique tradition of throwing rolls",
+      "Home cookin'",
+      "Southern fare"
+    ],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "logo",
+      "url": "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1440,h=756,fit=crop,f=jpeg/mjE2j8v8zgh3wPRr/logo-A1aK928xq5iLGXZ8.png",
+      "description": "Lambert's Cafe logo"
+    },
+    {
+      "type": "food",
+      "url": "pork-steak-side-mv0ja1BJrJu1xBZr.jpg",
+      "description": "BBQ Pork Steak dish"
+    },
+    {
+      "type": "food",
+      "url": "rnd-steak-side-d95pOr7xDNiNbeGR.jpg",
+      "description": "Country Fried Round Steak"
+    },
+    {
+      "type": "restaurant",
+      "url": "img_5779-AGBGNJE6bDsqRMPG.jpg",
+      "description": "Restaurant interior/exterior"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "Lambert's Cafe - Home of Throwed Rolls. Established in 1942, Lambert's Cafe is a renowned family-friendly restaurant in Sikeston, Missouri, serving delicious southern fare. Experience our unique tradition of throwing rolls to diners. Popular dishes: Country Fried Round Steak - Really - the old fashioned beef round steak. Breaded and deep-fried, served with mashed potatoes and covered in milk gravy. Add your choice of 2 sides and ol' Norm's pass arounds. BBQ Pork Steak - A fresh cut pork steak (from a real nice ol' hog). You get your choice of 3 sides and all of Lambert's pass arounds. You'll see why this is one of our top sellers. Locations: Sikeston, MO - 2305 East Malone Ave, Sikeston, MO 63801, 573-471-4261, Lamberts1@Throwedrolls.com. Ozark, MO - 1800 W. State Highway J, Ozark, MO 65721, 417-581-7655, Lamberts2@Throwedrolls.com. Foley, AL - 2981 S. McKenzie Foley, AL 36535. RV Park - We offer a full hook-up RV Park at our Sikeston and Ozark locations, for when you need some food and a rest. TO-GO Orders - Call ahead and place your order. We will have it fresh and ready for ya. Merchandise - Huge selection of cups, apparel, hats and recently added jams, jellies, preserves, beef sticks, and ciders. Come sit a spell and enjoy some home cookin'. From meatloaf to grilled shrimp we are sure to have something to satisfy.",
+  "extraction_confidence": "medium",
+  "extraction_notes": "HTML is a complex single-page application with extensive embedded JSON data. Successfully extracted business name, location contact information, social media links, menu descriptions, and general information. Missing data includes: detailed hours of operation, pricing, full menu with all items, delivery partners, reservations details, accessibility information, dietary accommodations, reviews/ratings, and various policies. The website appears to be a multi-page site with separate pages for each location (Sikeston, Ozark, Foley) and an RV park, but only home page content was fully parsed. A full menu page is referenced but detailed menu items and prices were not fully extracted from the HTML provided.",
+  "folder": "ChIJY7Zjm8wPmogRm1GlzllDIlI_Lambert's Cafe",
+  "extracted_at": "2026-05-15T06:24:24.139Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJY7Zjm8wPmogRm1GlzllDIlI_Lambert's Cafe/01_raw_html.html"
+}

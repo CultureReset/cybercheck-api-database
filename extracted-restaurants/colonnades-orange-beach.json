@@ -1,0 +1,52 @@
+{
+  "name": "Colonnades",
+  "type": "Condo",
+  "website": "https://www.brett-robinson.com/beach-condo/colonnades/",
+  "contact": {
+    "phone": "1-800-211-7892",
+    "address": "527 E Beach Blvd",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {},
+  "about": {
+    "description": "Colonnades is a beachfront condo complex in Gulf Shores operated by Brett/Robinson Vacation Rentals, a family-owned company with over 40 years of experience in Gulf Shores and Orange Beach. The property offers beautiful white sand beach access with modern amenities and accommodations for families and groups.",
+    "elevator_pitch": "Beachfront condo complex in Gulf Shores featuring direct beach access and family-friendly vacation rentals managed by experienced local operator Brett/Robinson.",
+    "total_units": null,
+    "floors": null,
+    "year_built": null,
+    "pet_friendly": null,
+    "minimum_stay": "3 nights",
+    "check_in": null,
+    "check_out": null,
+    "age_restriction": null
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/brett_robinson_vacations",
+    "facebook": "https://www.facebook.com/BrettRobinsonVacations",
+    "website": "https://www.brett-robinson.com/beach-condo/colonnades/"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Hot Deal - Colonnades 803",
+      "description": "4 bedroom, 4 bathroom corner unit sleeps 8. Was $268.72/night, now as low as $233.67/night",
+      "discount": ""
+    },
+    {
+      "name": "Seasonal Discounts",
+      "description": "Brett/Robinson offers seasonal discounts, snowbird specials for longer stays, and last-minute deals on select rentals",
+      "discount": ""
+    },
+    {
+      "name": "Promo Codes",
+      "description": "Occasional percentage-off promotions including codes like Bama2025 for 10% savings on 2025 bookings",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 23,
+  "scraped_at": "2026-03-21T21:56:59.064Z"
+}

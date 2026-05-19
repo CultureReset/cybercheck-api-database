@@ -1,0 +1,330 @@
+{
+  "business_name": "Blalock Seafood & Specialty Market",
+  "cuisine_type": "Seafood Market",
+  "price_range": "$",
+  "description": "Blalock Seafood & Specialty Market is the premier source for fresh seafood on the Alabama Gulf Coast. Located in Gulf Shores, AL, our fish, seafood, and shrimp market has provided high-quality seafood and gourmet items to the region for more than 10 years. With some of the best locally caught seafood around, we're dedicated to your satisfaction. We serve our customers with pride, providing one of the widest selections of seafood in the area.",
+  "atmosphere": null,
+  "chef_info": null,
+  "awards": [
+    "People's Choice Award for Best Seafood Market"
+  ],
+  "contact": {
+    "phone": "(251) 968-5811",
+    "email": "info@blalockseafoodgulfshores.com",
+    "address": "1901 Gulf Shores Pkwy, Gulf Shores, AL 36542",
+    "website": "https://www.blalockseafoodgulfshores.com",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": "https://facebook.com/BlalocksSeafood",
+      "instagram": null,
+      "twitter": null,
+      "tiktok": null,
+      "youtube": null,
+      "yelp": "https://yelp.com/biz/blalock-seafood-and-specialty-market-gulf-shores",
+      "google_maps": "https://goo.gl/maps/5AFb4CZEpRvwzVSU7"
+    }
+  },
+  "hours": {
+    "monday": "9:00 AM - 6:00 PM",
+    "tuesday": "9:00 AM - 6:00 PM",
+    "wednesday": "9:00 AM - 6:00 PM",
+    "thursday": "9:00 AM - 6:00 PM",
+    "friday": "9:00 AM - 6:00 PM",
+    "saturday": "9:00 AM - 6:00 PM",
+    "sunday": "9:00 AM - 4:00 PM",
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": false,
+    "takeout_available": true,
+    "delivery_available": false,
+    "curbside_available": false,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": "Gulf Shores, Orange Beach, Foley"
+  },
+  "menu": {
+    "sections": [
+      {
+        "name": "Fresh Fish",
+        "description": null,
+        "items": []
+      },
+      {
+        "name": "Steamed Food",
+        "description": null,
+        "items": []
+      },
+      {
+        "name": "Shrimp",
+        "description": null,
+        "items": [
+          {
+            "name": "Fresh Shrimp",
+            "description": "Locally caught shrimp from the Gulf of Mexico",
+            "price": null,
+            "dietary_flags": [],
+            "allergens": "Shellfish",
+            "is_signature": true,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Cooked Shrimp",
+            "description": null,
+            "price": null,
+            "dietary_flags": [],
+            "allergens": "Shellfish",
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": null
+          }
+        ]
+      },
+      {
+        "name": "Specialty Items",
+        "description": null,
+        "items": [
+          {
+            "name": "Crab Legs",
+            "description": "Large and meaty crab legs",
+            "price": null,
+            "dietary_flags": [],
+            "allergens": "Shellfish",
+            "is_signature": true,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Shrimp Bisque",
+            "description": "Famous shrimp bisque",
+            "price": null,
+            "dietary_flags": [],
+            "allergens": "Shellfish, Dairy",
+            "is_signature": true,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Smoked Tuna Dip",
+            "description": "Famous smoked tuna dip",
+            "price": null,
+            "dietary_flags": [],
+            "allergens": "Fish",
+            "is_signature": true,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Tuna Dip",
+            "description": null,
+            "price": null,
+            "dietary_flags": [],
+            "allergens": "Fish",
+            "is_signature": true,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Frozen Hush Puppies",
+            "description": null,
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Gourmet Seasonings",
+            "description": null,
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Gourmet Dry Rubs",
+            "description": null,
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Fine Cheese",
+            "description": null,
+            "price": null,
+            "dietary_flags": [
+              "vegetarian"
+            ],
+            "allergens": "Dairy",
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Dips and Marinades",
+            "description": null,
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": null
+          }
+        ]
+      }
+    ],
+    "wine_list": "Fine wines available",
+    "beer_selection": null,
+    "cocktails": null,
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": true,
+      "vegan": false,
+      "gluten_free": false,
+      "dairy_free": false,
+      "nut_free": false,
+      "kosher": false,
+      "halal": false
+    }
+  },
+  "happy_hour": {
+    "available": false,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [],
+  "entertainment_and_events": [],
+  "private_events": {
+    "available": false,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": false,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": null,
+    "pets_allowed": null
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": false,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": false,
+    "private_dining": false
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": false,
+    "email_signup": null,
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": true,
+    "farm_to_table": false,
+    "sustainable": false,
+    "organic": false,
+    "details": "Locally owned and operated market carries the freshest seafood in the region. Known for shrimp from the fertile waters of the Gulf of Mexico with locally caught seafood."
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [
+      "Crab Legs",
+      "Shrimp",
+      "Tuna Dip",
+      "Frozen Hush Puppies",
+      "Shrimp Bisque",
+      "Smoked Tuna Dip"
+    ],
+    "common_praise": [
+      "Super friendly staff",
+      "Clean",
+      "Large assortment of seafood",
+      "Awesome large and meaty crab legs",
+      "Decent prices",
+      "Amazing food",
+      "Knowledgeable staff"
+    ],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "restaurant",
+      "url": "https://lirp.cdn-website.com/39149654/dms3rep/multi/opt/Blalock-Seafood-Specialty-Market1-1920w.jpg",
+      "description": null
+    },
+    {
+      "type": "food",
+      "url": "https://irp.cdn-website.com/39149654/dms3rep/multi/Blalock-Seafood-Specialty-Market14.jpg",
+      "description": "Cooked headless shrimp"
+    },
+    {
+      "type": "food",
+      "url": "https://irp.cdn-website.com/39149654/dms3rep/multi/Blalock-Seafood-Specialty-Market15.jpg",
+      "description": "Cooked shrimp"
+    },
+    {
+      "type": "award",
+      "url": "https://lirp.cdn-website.com/39149654/dms3rep/multi/opt/People-Choice-Badge-1920w.png",
+      "description": "People's Choice Award - Best Seafood Market"
+    },
+    {
+      "type": "restaurant",
+      "url": "https://irp.cdn-website.com/39149654/dms3rep/multi/Blalock-Seafood-Specialty-Market17.jpg",
+      "description": null
+    },
+    {
+      "type": "restaurant",
+      "url": "https://irp.cdn-website.com/39149654/dms3rep/multi/Blalock-Seafood-Specialty-Market-742c6026.jpg",
+      "description": null
+    },
+    {
+      "type": "restaurant",
+      "url": "https://irp.cdn-website.com/39149654/dms3rep/multi/Blalock-Seafood-Specialty-Market18.jpg",
+      "description": null
+    },
+    {
+      "type": "restaurant",
+      "url": "https://irp.cdn-website.com/39149654/dms3rep/multi/Blalock-Seafood-Specialty-Market16.JPG",
+      "description": null
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "Blalock Seafood & Specialty Market - Seafood Market in Gulf Shores, AL. Premier source for fresh seafood on the Alabama Gulf Coast. High-quality seafood and gourmet items for more than 10 years. Best locally caught seafood. Contact: (251) 968-5811. Address: 1901 Gulf Shores Pkwy, Gulf Shores, AL 36542. Hours: Monday-Saturday 9:00 AM - 6:00 PM, Sunday 9:00 AM - 4:00 PM. Services: Free Pack to Travel - professional wrapping and sealing of purchases for safe travel. Steamed Meal Solutions - steamed meal options with favorite seafood products. Products: Fresh Fish, Steamed Food, Shrimp, Crab Legs, Gourmet Seasonings, Gourmet Dry Rubs, Fine Cheese, Dips, Marinades. Famous items: Shrimp Bisque, Smoked Tuna Dip, Frozen Hush Puppies. Serve customers in Gulf Shores, Orange Beach, Foley. Awards: People's Choice Award for Best Seafood Market. 10+ years in business. Flexible hours, convenient access, knowledgeable staff. Testimonials praise friendly staff, cleanliness, large assortment, awesome crab legs, decent prices. Social media: Facebook - BlalocksSeafood, Yelp, Google Maps, Email.",
+  "extraction_confidence": "high",
+  "extraction_notes": "This is a seafood market (retail), not a restaurant. Dine-in service not available. Limited menu details visible on homepage - primary focus on retail seafood products and gourmet items. No pricing information provided on website. Business has been operating for 10+ years. Strong emphasis on locally caught Gulf of Mexico seafood, particularly shrimp. Key services include professional packing for travel and steamed meal solutions. Award-winning establishment. Testimonials available showing customer satisfaction. No reservation system, delivery service, or private events facility mentioned. Website provides good overview of business type, location, hours, contact info, and basic product categories.",
+  "folder": "ChIJl6m-HGkGmogRVgXD0YIfFiU_Blalock Seafood Orange Beach",
+  "extracted_at": "2026-05-15T06:32:41.707Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJl6m-HGkGmogRVgXD0YIfFiU_Blalock Seafood Orange Beach/01_raw_html.html"
+}

@@ -1,0 +1,144 @@
+{
+  "business_name": "Dragonfly Bar + Grill",
+  "cuisine_type": "Coastal/American Grill",
+  "price_range": null,
+  "description": "Poolside Food & Drinks with Gulf Views. Savor coastal bliss at Dragonfly Bar + Grill, where mouthwatering bites meet the breathtaking views of the Gulf of Mexico. Located at The Lodge at Gulf State Park, this unique dining option is open to the public and ready to serve you. Whether you're seeking a picturesque escape or a memorable meal, Dragonfly Bar + Grill is your destination for an unforgettable dining experience.",
+  "atmosphere": "Poolside dining with Gulf of Mexico views",
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": "The Lodge at Gulf State Park, Gulf Shores, Alabama",
+    "website": "https://lodgeatgulfstatepark.com/dragonfly/",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": null,
+      "instagram": null,
+      "twitter": null,
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": true,
+    "takeout_available": null,
+    "delivery_available": null,
+    "curbside_available": null,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [],
+    "wine_list": null,
+    "beer_selection": null,
+    "cocktails": null,
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": false,
+      "vegan": false,
+      "gluten_free": false,
+      "dairy_free": false,
+      "nut_free": false,
+      "kosher": false,
+      "halal": false
+    }
+  },
+  "happy_hour": {
+    "available": false,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [],
+  "entertainment_and_events": [],
+  "private_events": {
+    "available": false,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": false,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": false,
+    "accessible_restroom": false,
+    "parking_accessible": false,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [
+      "WooCommerce",
+      "Credit Cards"
+    ],
+    "kids_policy": null,
+    "pets_allowed": false
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": false,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": false,
+    "private_dining": false
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": false,
+    "email_signup": null,
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": false,
+    "farm_to_table": false,
+    "sustainable": false,
+    "organic": false,
+    "details": null
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [],
+    "common_praise": [],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "logo",
+      "url": "https://lodgeatgulfstatepark.com/wp-content/uploads/2023/09/The_Dragonfly_Logo_FC_RGB.png",
+      "description": "Dragonfly Logo"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "Dragonfly - The Lodge at Gulf State Park. Poolside Food & Drinks with Gulf Views. Savor coastal bliss at Dragonfly Bar + Grill, where mouthwatering bites meet the breathtaking views of the Gulf of Mexico. Located at The Lodge at Gulf State Park, this unique dining option is open to the public and ready to serve you. Whether you're seeking a picturesque escape or a memorable meal, Dragonfly Bar + Grill is your destination for an unforgettable dining experience. The Lodge at Gulf State Park - A Hilton Hotel in Gulf Shores, Alabama.",
+  "extraction_confidence": "low",
+  "extraction_notes": "This HTML page is primarily a header/structure page for Dragonfly Bar + Grill at The Lodge at Gulf State Park. Limited actual restaurant information is visible in the provided HTML. No menu items, pricing, hours of operation, contact phone numbers, or detailed descriptions are present in the extracted content. The page appears to be a landing/overview page rather than a comprehensive restaurant information page. Most specific details (menu, hours, pricing, reviews, social media) are missing or not present in the HTML provided. The restaurant appears to be a poolside dining establishment associated with the hotel property.",
+  "folder": "ChIJRXPWhYoFmogRbFe7lYouPH0_The Dragonfly Bar & Grill",
+  "extracted_at": "2026-05-15T06:21:03.157Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJRXPWhYoFmogRbFe7lYouPH0_The Dragonfly Bar & Grill/01_raw_html.html"
+}

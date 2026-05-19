@@ -1,0 +1,264 @@
+{
+  "name": "Local and Company Food+Drink",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "",
+    "address": "",
+    "city": "Foley",
+    "email": ""
+  },
+  "hours": {
+    "monday": "11am-4pm",
+    "tuesday": "11am-4pm",
+    "wednesday": "11am-4pm",
+    "thursday": "11am-4pm",
+    "friday": "11am-4pm",
+    "saturday": null,
+    "sunday": null
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Shareables",
+      "name": "Fried Buffalo Cauliflower",
+      "description": "Crisp Cauliflower, Buffalo Sauce, Crushed Peanuts & Ranch dressing",
+      "price": 15
+    },
+    {
+      "category": "Shareables",
+      "name": "Whipped Guacamole",
+      "description": "Tomato, Red Onion, Cilantro, Pickled Jalapenos & Naan Chips",
+      "price": 16
+    },
+    {
+      "category": "Shareables",
+      "name": "Cheese & Charcuterie Board",
+      "description": "Artisanal Cheeses and Sliced Charcuterie with Fresh Fruit, Nuts, Olives, Jam, Pickled Vegetables and Mustard",
+      "price": 19
+    },
+    {
+      "category": "Shareables",
+      "name": "Pane",
+      "description": "Handcrafted Bread Served with Virgin Olive Oil, Three Herbs & Himalayan Salt",
+      "price": 12
+    },
+    {
+      "category": "Salads",
+      "name": "Chicken Salad",
+      "description": "Chicken Salad Served with Strawberries, Sliced Melon, Seedless Grapes, Apple, Toasted Pecans and Brie Cheese",
+      "price": 18
+    },
+    {
+      "category": "Salads",
+      "name": "Fried Shrimp & Okra",
+      "description": "Crisp Fried Shrimp & Okra with a Napa & Arugula Salad Mix, Dressed with a Bacon Honey Vinaigrette",
+      "price": 17
+    },
+    {
+      "category": "Salads",
+      "name": "Beet Salad",
+      "description": "Golden and Red Beets, Pickled Red Onion, Hazelnut Crusted Goat Cheese Truffle, Poached Pears, Beet Greens, Pear and Vanilla Vinaigrette, Crispy Onion",
+      "price": 17
+    },
+    {
+      "category": "Salads",
+      "name": "House Salad",
+      "description": "Mixed Greens, Tomatoes, Cucumbers, Pickled Red Onions, Lemon Thyme Vinaigrette",
+      "price": 8
+    },
+    {
+      "category": "Salads",
+      "name": "Chopped Caesar Salad",
+      "description": "Romaine Leaves, Caesar Dressing, Grana Padano Parmesan, Brioche Crouton",
+      "price": 9
+    },
+    {
+      "category": "Salads",
+      "name": "Red Quinoa",
+      "description": "Quinoa, Chopped Broccoli, Cucumber, Carrot, Crushed Peanuts, Cilantro, Radish, Edamame, Avocado with a Lime Soy Vinaigrette (Add Gulf Shrimp or Grilled Chicken $9)",
+      "price": 19
+    },
+    {
+      "category": "Salads",
+      "name": "Organic Farro",
+      "description": "Farro, Spinach, Tomato, Roasted Sweet Potato, Chopped Cauliflower, Dried Cranberries, Pepitas, Black Eyed Peas, Fennel-Honey Vinaigrette (Add Gulf Shrimp or Grilled Chicken $9)",
+      "price": 19
+    },
+    {
+      "category": "Hand Crafted Pizza",
+      "name": "Truffle Steak",
+      "description": "Diced Angus Tenderloin, Fontina Cheese, Black Truffle Shavings, White Truffle Oil, Toasted Pine Nuts, Italian Parsley Caramelized Onions and Truffle Salt",
+      "price": 20
+    },
+    {
+      "category": "Hand Crafted Pizza",
+      "name": "Meatball & Ricotta",
+      "description": "Meatball, Ricotta, Fried Mozzarella Pomodoro and Fresh Basil",
+      "price": 19
+    },
+    {
+      "category": "Hand Crafted Pizza",
+      "name": "Mediterranean Pizza",
+      "description": "Arugula and Almond Pesto, Greek Olives, Tomato Confit, Long Stem Artichoke, Manchego Cheese, Arugula Salad Dressed with Lemon and Oil",
+      "price": 17
+    },
+    {
+      "category": "Hand Crafted Pizza",
+      "name": "Old World Pepperoni",
+      "description": "Red Sauce, Old World Pepperoni & Fresh Mozzarella",
+      "price": 17
+    },
+    {
+      "category": "Hand Crafted Pizza",
+      "name": "The Local",
+      "description": "Red Sauce, Roasted Mushrooms, Red Onion, \"Local\" Sausage & Provolone",
+      "price": 17
+    },
+    {
+      "category": "Hand Crafted Pizza",
+      "name": "Classic",
+      "description": "Red Sauce, Fresh Tomato, Fresh Mozzarella & Fresh Basil",
+      "price": 15
+    },
+    {
+      "category": "Sandwiches & Tacos",
+      "name": "Local BLT",
+      "description": "Thick-Cut Applewood Smoked Bacon on a Seeded Bun with Maple Brown Sugar Mayo, Green Leaf Lettuce and Sliced Tomatoes with Pickle & Hand Cut Fries",
+      "price": 14
+    },
+    {
+      "category": "Sandwiches & Tacos",
+      "name": "Veggie Tacos",
+      "description": "Grilled Portobello Mushrooms with Roasted Corn, Roasted Sweet Potato, Fajita Peppers, Queso Panela, Chipotle Aioli, Naan Chips and Guacamole",
+      "price": 14
+    },
+    {
+      "category": "Sandwiches & Tacos",
+      "name": "Sautéed Shrimp Taco",
+      "description": "Gulf Shrimp, Napa Slaw, Shredded Cheddar-Jack, Ancho Crema, Naan Chips & Guacamole",
+      "price": 18
+    },
+    {
+      "category": "Sandwiches & Tacos",
+      "name": "Fried Fish Tacos",
+      "description": "Crisp White Fish, Napa Slaw, Queso Panela, Chipotle Aioli, Naan Chips & Guacamole",
+      "price": 17
+    },
+    {
+      "category": "Sandwiches & Tacos",
+      "name": "Fried Grouper Sandwich",
+      "description": "Crisp Grouper, Seeded Bun, Lettuce, Tomato & Lemon-Dill Sauce with Pickle & Hand Cut Fries",
+      "price": 19
+    },
+    {
+      "category": "Sandwiches & Tacos",
+      "name": "Angus Chuck Burger",
+      "description": "Wood Grilled Angus Burger, Seeded Bun, Lettuce, Tomato with Pickle & Hand Cut Fries",
+      "price": 17
+    },
+    {
+      "category": "Entrées",
+      "name": "Crispy Black Grouper With Shrimp & Grits",
+      "description": "Panko Crusted Black Grouper with Shrimp & Smoked Gouda Grits, Melted Tomato and Herb Beurre Blanc, Micro Salad, Bacon Dressing",
+      "price": 39
+    },
+    {
+      "category": "Entrées",
+      "name": "Filet Mignon",
+      "description": "Grilled Filet, Sour Cream and Scallion Mashed, Grilled Asparagus and Red Wine Demi",
+      "price": 46
+    },
+    {
+      "category": "Entrées",
+      "name": "Seafood Alfredo",
+      "description": "Shrimp, Scallop and Clams in a Garlic Cream Sauce with Parmesan, Fettuccini and Herbs",
+      "price": 35
+    },
+    {
+      "category": "Entrées",
+      "name": "Atlantic Salmon",
+      "description": "Korean BBQ Udon Noodle Stir-fry with Asian Vegetable, Miso Lacquered Salmon Garnished with Crispy Fried Lotus Root",
+      "price": 32
+    },
+    {
+      "category": "Accompaniments",
+      "name": "Scallion & Sour Cream Loaded Baked Potato",
+      "description": "",
+      "price": 10
+    },
+    {
+      "category": "Accompaniments",
+      "name": "Braised Collard Greens",
+      "description": "",
+      "price": 10
+    },
+    {
+      "category": "Accompaniments",
+      "name": "Fried Okra Spears",
+      "description": "",
+      "price": 10
+    },
+    {
+      "category": "Accompaniments",
+      "name": "Hand Cut French Fries",
+      "description": "",
+      "price": 10
+    },
+    {
+      "category": "Accompaniments",
+      "name": "Sour Cream & Scallion Mashed Potatoes",
+      "description": "",
+      "price": 10
+    },
+    {
+      "category": "Accompaniments",
+      "name": "Roasted Brussels Sprouts With Shallots & Bacon",
+      "description": "",
+      "price": 10
+    },
+    {
+      "category": "Desserts",
+      "name": "Chocolate Hazelnut Torte",
+      "description": "Chocolate Cake with Chocolate Hazelnut Mousse, Hazelnut Praline, Creme Anglaise",
+      "price": 11
+    },
+    {
+      "category": "Desserts",
+      "name": "Caramel Apple Cheesecake",
+      "description": "Graham Cracker Crust, Brûléed Apple, Whipped Cream, Caramel Sauce",
+      "price": 11
+    },
+    {
+      "category": "Desserts",
+      "name": "Red Velvet Layer Cake",
+      "description": "Three Layer Red Velvet Cake with Vanilla Icing, Hot Cocoa Sauce and Chocolate-Peppermint Chip Gelato",
+      "price": 11
+    },
+    {
+      "category": "Desserts",
+      "name": "Our Daily Handcrafted Frozen Dessert",
+      "description": "Two Scoops",
+      "price": 11
+    },
+    {
+      "category": "Desserts",
+      "name": "Sticky Toffee Bread Pudding",
+      "description": "Homemade Sticky Toffee Bread Pudding with Heath Toffee Sauce, Heath Bar Crunch Gelato",
+      "price": 11
+    },
+    {
+      "category": "Desserts",
+      "name": "Espresso Crème Brûlée",
+      "description": "Chilled Espresso Custard with Caramelized Sugar & Chocolate Espresso Beans",
+      "price": 11
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:50.913Z"
+}

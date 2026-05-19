@@ -1,0 +1,417 @@
+{
+  "name": "The Galley on the River",
+  "type": "Restaurant",
+  "website": "https://thegalleyontheriver.com",
+  "contact": {
+    "phone": "(251) 200-5595",
+    "address": "18546 CR 10",
+    "city": "Foley",
+    "email": ""
+  },
+  "hours": {
+    "monday": "10:30am-9pm",
+    "tuesday": "10:30am-9pm",
+    "wednesday": "10:30am-9pm",
+    "thursday": "10:30am-10pm",
+    "friday": "10:30am-10pm",
+    "saturday": "10:30am-10pm",
+    "sunday": "10:30am-9pm"
+  },
+  "about": {
+    "description": "Fresh flavors, river views, and handcrafted drinks at Bon Secour's newest restaurant and bar. Accessible by boat with a 70' pier or by car, offering locally-sourced dishes and craft drinks.",
+    "cuisine_type": "American/Seafood"
+  },
+  "social": {},
+  "menu": [
+    {
+      "category": "Appetizers",
+      "name": "Fried Pickles and/or Jalapeños",
+      "description": "Sliced, battered, and deep fried. Served with our house made Ranch.",
+      "price": "$10"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Smoked Popper Dip",
+      "description": "Cheesy smoked jalapeño and bacon dip. Served with baked crostinis.",
+      "price": "$12"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Stuffed Mushrooms",
+      "description": "Hand stuffed mushrooms with a blend of cheeses and herbs, battered and deep fried. Served with our house made Ranch or Boom Boom sauce.",
+      "price": "$12"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Pub Pretzel",
+      "description": "Warm Bavarian style soft pretzel. Served with beer cheese and whole grain mustard.",
+      "price": "$10"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Chicken Wings",
+      "description": "Smoked and deep fried. Choice of traditional or boneless in Buffalo, BBQ, Bourbon Honey Mustard, Garlic Parmesan, Asian, Sweet Chili, Lemon Pepper Dry Rub or Plain. Served with our house made Ranch or Blue Cheese.",
+      "price": "1/2 lb. $10, 1 lb. $16"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Pig Skins",
+      "description": "Kansas City rubbed pulled pork in seasoned potato skins with melted Cheddar cheese and drizzled with house made tangy BBQ sauce.",
+      "price": "$12"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Tuna Dip",
+      "description": "Locally sourced fresh, smoked yellowfin tuna served with baked crostinis.",
+      "price": "$12"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Fried Ravioli",
+      "description": "Beef or Jalapeno and Pepper Jack stuffed ravioli. Served with Marinara.",
+      "price": "$12"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Ahi Tuna Nachos",
+      "description": "Seared Ahi Tuna with Asian slaw, served on wonton wrappers topped with eel sauce and spicy aioli.",
+      "price": "$20"
+    },
+    {
+      "category": "Appetizers",
+      "name": "Alligator Cheesecake",
+      "description": "Ultimate Savory Cheesecake made of Louisiana Crawfish tail meat, smoked alligator sausage, and a blend of cream cheese. Served with crostinis.",
+      "price": "$18"
+    },
+    {
+      "category": "Salads",
+      "name": "Caesar Salad",
+      "description": "Romaine lettuce tossed in our house made Caesar dressing with shaved Parmesan cheese and croutons. (Add $4 for grilled or blackened chicken) (Add $6 for grilled or blackened shrimp)",
+      "price": "$10"
+    },
+    {
+      "category": "Salads",
+      "name": "House Salad",
+      "description": "Lettuce, tomato, onion, and cucumber served with your choice of shredded cheese and one of our house made dressings.",
+      "price": "$10"
+    },
+    {
+      "category": "Salads",
+      "name": "Jerk Chicken Salad",
+      "description": "Arcadian and Romaine lettuce topped with a variety of bell peppers, cucumbers, tomatoes, feta cheese, and Jamaican Jerk marinated chicken. Served with a side of house made Ranch dressing.",
+      "price": "$14"
+    },
+    {
+      "category": "Salads",
+      "name": "Chef Salad",
+      "description": "Romaine lettuce served with ham, egg, tomatoes, turkey, cucumber, and your choice of shredded cheese. Served with your choice of one of our house made dressings.",
+      "price": "$14"
+    },
+    {
+      "category": "Entrees",
+      "name": "Shrimp Po Boy",
+      "description": "Locally sourced deep fried shrimp dressed with coleslaw, tomato, pickles, onions, and remoulade. Served on Cuban bread.",
+      "price": "$18"
+    },
+    {
+      "category": "Entrees",
+      "name": "Monte Cristo",
+      "description": "Turkey, ham, Swiss, and American cheese on Sourdough bread then deep fried, dusted with powdered sugar, and served with Strawberry preserves.",
+      "price": "$16"
+    },
+    {
+      "category": "Entrees",
+      "name": "King Louie Burger",
+      "description": "1/2 lb. Ground beef burger topped with Cheddar cheese, two slices of peppered candied bacon, onion straws, and our house made tangy BBQ sauce. Served on a brioche bun.",
+      "price": "$18"
+    },
+    {
+      "category": "Wine List - Red Wine",
+      "name": "Gougenheim Malbec",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Wine List - Red Wine",
+      "name": "Backhouse Merlot",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Wine List - Red Wine",
+      "name": "Backhouse Cabernet Sauvignon",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Wine List - Red Wine",
+      "name": "Backhouse Pinot Noir",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Wine List - Red Wine",
+      "name": "Santa Rita Red Blend",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Wine List - White Wine",
+      "name": "Pacific Rim Dry Riesling",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Wine List - White Wine",
+      "name": "Jacob's Creek White Moscato",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Wine List - White Wine",
+      "name": "Santa Rita Chardonnay",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Wine List - White Wine",
+      "name": "Santa Rita Pinot Grigio",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Wine List - White Wine",
+      "name": "Santa Rita Sauvignon Blanc",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Wine List - Champagne",
+      "name": "Freixenet Brut Blanc De Blanc",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Beer - Domestics",
+      "name": "Miller Lite",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Beer - Domestics",
+      "name": "Coors Light",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Beer - Domestics",
+      "name": "Coors Banquet",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Beer - Domestics",
+      "name": "Bud Light",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Beer - Domestics",
+      "name": "Budweiser",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Beer - Domestics",
+      "name": "Natural Light",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Beer - Domestics",
+      "name": "Michelob Ultra",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Beer - Domestics",
+      "name": "Pabst Blue Ribbon",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Beer - Domestics",
+      "name": "Busch Light",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Beer - Domestics",
+      "name": "Busch (Non-Alcoholic)",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Beer - Imported",
+      "name": "Heineken",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Beer - Imported",
+      "name": "Heineken Zero",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Beer - Imported",
+      "name": "Corona",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Beer - Imported",
+      "name": "Corona Light",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Beer - Imported",
+      "name": "Dos Equis",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Beer - Local & Craft",
+      "name": "Fairhope Brewing Blue Steel",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Beer - Local & Craft",
+      "name": "Sierra Nevada Pale Ale",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Beer - Local & Craft",
+      "name": "Shiner Bock",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Beer - Local & Craft",
+      "name": "Ace Pineapple Cider",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Beer - Other (Hard Seltzers & Specialty)",
+      "name": "White Claw (Black Cherry, Mango)",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Beer - Other (Hard Seltzers & Specialty)",
+      "name": "High Noon (Black Cherry, Grapefruit, Pineapple)",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Beer - Other (Hard Seltzers & Specialty)",
+      "name": "Twisted Tea",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Specialty Drinks",
+      "name": "Scallywag Margarita",
+      "description": "Blanco Tequila, Triple Sec, pineapple juice, lime juice, jalapeno simple syrup",
+      "price": ""
+    },
+    {
+      "category": "Specialty Drinks",
+      "name": "Galley Mojito",
+      "description": "Light Rum, simple syrup, lime juice, mint leaves",
+      "price": ""
+    },
+    {
+      "category": "Specialty Drinks",
+      "name": "Old Fashioned",
+      "description": "bourbon, simple syrup, angostura bitters",
+      "price": ""
+    },
+    {
+      "category": "Specialty Drinks",
+      "name": "Hurricane",
+      "description": "Light rum, spiced rum, triple sec, lime juice, orange juice, passion fruit juice",
+      "price": ""
+    },
+    {
+      "category": "Specialty Drinks",
+      "name": "Strawberry Lemon Drop Martini",
+      "description": "Vodka, lemon juice, strawberry simple syrup",
+      "price": ""
+    },
+    {
+      "category": "Specialty Drinks",
+      "name": "Tipsy Alligator",
+      "description": "Raspberry liqueur, white rum, blue curacao, pineapple juice",
+      "price": ""
+    },
+    {
+      "category": "Specialty Drinks",
+      "name": "Swamp Smash",
+      "description": "Gin, lemon juice, simple syrup, basil leaves",
+      "price": ""
+    },
+    {
+      "category": "Specialty Drinks",
+      "name": "Bon Secour Bushwacker",
+      "description": "Dark rum, Kahlua, dark creme de cacao, Creme de coconut, whole milk",
+      "price": ""
+    },
+    {
+      "category": "Specialty Drinks",
+      "name": "County Road 10 Tea",
+      "description": "Blanco tequila, white rum, vodka, gin, peach schnapps, lemon juice",
+      "price": ""
+    },
+    {
+      "category": "Specialty Drinks",
+      "name": "Fire Apple Mule",
+      "description": "Crown apple, fireball, simple syrup, ginger beer",
+      "price": ""
+    },
+    {
+      "category": "Specialty Drinks",
+      "name": "Cucumber Gin Martini",
+      "description": "Gin, honey, simple syrup, cucumber wheels",
+      "price": ""
+    },
+    {
+      "category": "Specialty Drinks",
+      "name": "Southern Amaretto Sour",
+      "description": "Amaretto, orange juice, sour mix",
+      "price": ""
+    },
+    {
+      "category": "Specialty Drinks",
+      "name": "Blood Mary",
+      "description": "Vodka, bloody mary mix",
+      "price": ""
+    },
+    {
+      "category": "Specialty Drinks",
+      "name": "Mimosa",
+      "description": "Brut champagne, orange juice",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-03-21T20:38:08.810Z"
+}

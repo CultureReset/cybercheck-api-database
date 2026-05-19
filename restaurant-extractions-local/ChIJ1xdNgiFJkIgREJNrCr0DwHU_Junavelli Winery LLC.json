@@ -1,0 +1,232 @@
+{
+  "business_name": "Junavelli Winery",
+  "cuisine_type": "Winery - Wine Tasting",
+  "price_range": null,
+  "description": "Junavelli Winery is a family-owned and operated winery located in Brewton, Alabama that specializes in handcrafted sweet and semi-sweet wines. The winery offers wine tastings, live events, and online wine shipping. Experience the rich and diverse selection of wines at Junavelli Winery. From the luscious sweetness of Southern Sweet Blueberry to the delightful notes of Muscadine, our wines are crafted to perfection. Savor the taste of our small-town charm and let your palate be delighted. Immerse yourself in the small-town charm of Junavelli Winery. Our winery is located in the picturesque North Brewton community and offers a serene and welcoming atmosphere. Take a tour, enjoy a tasting, and create lasting memories with friends and family.",
+  "atmosphere": "Small-town charm, serene and welcoming atmosphere, picturesque North Brewton community location",
+  "chef_info": null,
+  "awards": [
+    "Award Winning Wine"
+  ],
+  "contact": {
+    "phone": "(251) 809-3396",
+    "email": "junavelliwinery@gmail.com",
+    "address": "Brewton, Alabama",
+    "website": "https://junavelliwinery.com",
+    "hours_phone": "(251) 809-3396",
+    "reservations_phone": "(251) 809-3396",
+    "social_media": {
+      "facebook": "https://www.facebook.com/JunavelliWinery",
+      "instagram": null,
+      "twitter": null,
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": "Closed",
+    "tuesday": "Closed",
+    "wednesday": "Closed",
+    "thursday": "Closed",
+    "friday": "4:00 PM - 7:00 PM",
+    "saturday": "11:00 AM - 6:00 PM",
+    "sunday": "Closed",
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": true,
+    "takeout_available": false,
+    "delivery_available": true,
+    "curbside_available": false,
+    "delivery_partners": [
+      "VinoShipper"
+    ],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": "Online shipping available"
+  },
+  "menu": {
+    "sections": [
+      {
+        "name": "Wines",
+        "description": "Handcrafted sweet and semi-sweet wines",
+        "items": [
+          {
+            "name": "Southern Sweet Blueberry",
+            "description": "Luscious sweetness",
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": true,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Muscadine",
+            "description": "Richness and delightful notes",
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": true,
+            "is_seasonal": false,
+            "availability": null
+          }
+        ]
+      }
+    ],
+    "wine_list": "Wine list available as PDF: https://junavelliwinery.com/wp-content/uploads/2025/12/2026-Version-Wine-Web.pdf",
+    "beer_selection": null,
+    "cocktails": null,
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": false,
+      "vegan": false,
+      "gluten_free": false,
+      "dairy_free": false,
+      "nut_free": false,
+      "kosher": false,
+      "halal": false
+    }
+  },
+  "happy_hour": {
+    "available": false,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [
+    {
+      "type": "free_tasting",
+      "day_of_week": null,
+      "name": "FREE Tasting",
+      "description": "Junavelli Winery is happy to open for you by appointment during closed hours. Call or text at (251) 809-3396 to enjoy a FREE tasting!",
+      "discount": "Free",
+      "valid_until": null
+    }
+  ],
+  "entertainment_and_events": [
+    {
+      "type": "wine_tasting",
+      "name": "Wine Tasting",
+      "days": "Friday, Saturday",
+      "start_time": "Friday 4:00 PM, Saturday 11:00 AM",
+      "end_time": "Friday 7:00 PM, Saturday 6:00 PM",
+      "description": "Join us at the winery for a wine tasting. Whether you're a local or just passing through, there's always something happening at Junavelli Winery",
+      "cover_charge": null,
+      "featured_artist": null
+    },
+    {
+      "type": "live_events",
+      "name": "Live Events",
+      "days": "Various",
+      "start_time": null,
+      "end_time": null,
+      "description": "There's always something happening at Junavelli Winery",
+      "cover_charge": null,
+      "featured_artist": null
+    }
+  ],
+  "private_events": {
+    "available": true,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": false,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [
+      "Credit cards (implied through online ordering)"
+    ],
+    "kids_policy": null,
+    "pets_allowed": null
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": true,
+    "online_booking_platform": "Email booking available",
+    "phone_reservations": "(251) 809-3396",
+    "group_size_limit": null,
+    "advance_notice_required": "Recommended for groups",
+    "group_rates": false,
+    "private_dining": false
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": false,
+    "email_signup": null,
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": false,
+    "farm_to_table": false,
+    "sustainable": false,
+    "organic": false,
+    "details": null
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [
+      "Southern Sweet Blueberry",
+      "Muscadine"
+    ],
+    "common_praise": [
+      "Small-town charm",
+      "Handcrafted wines",
+      "Welcoming atmosphere",
+      "Limited-edition blends"
+    ],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "logo",
+      "url": "https://junavelliwinery.com/wp-content/uploads/2023/09/cropped-Junavalli-Wine-Logo-White-p-500-5.png",
+      "description": "Junavelli Logo"
+    },
+    {
+      "type": "logo",
+      "url": "https://junavelliwinery.com/wp-content/uploads/2023/09/logo-large.png",
+      "description": "Junavelli Winery Full Logo"
+    },
+    {
+      "type": "winery",
+      "url": "https://junavelliwinery.com/wp-content/uploads/2023/11/IMG_0607-1024x308.jpg",
+      "description": "Winery interior/exterior image"
+    },
+    {
+      "type": "logo",
+      "url": "https://junavelliwinery.com/wp-content/uploads/2023/09/logo-large-300x249.png",
+      "description": "Junavelli Black Logo"
+    },
+    {
+      "type": "video",
+      "url": "https://youtu.be/iuuK28RWZGs?si=UUQT5F8OaxbY3-KX",
+      "description": "YouTube video about Junavelli Winery"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "Junavelli Winery - Handcrafted Southern Wines in Brewton, Alabama. Family-owned winery offering sweet, semi-sweet, and limited-edition wines, tastings, live events, and direct-to-consumer shipping. Junavelli Winery is happy to open for you by appointment during closed hours. Call or text us at (251) 809-3396 to enjoy a FREE tasting! About Us. View Our Wines. Contact Us. Harvest Host. Buy Wine Online. Visit the Winery. Discover the Flavors of Junavelli Wine! Visit our Winery Family. Friday - 4 pm to 7 pm. Saturday - 11 am to 6 pm. Happy to open for you by appointment during closed hours. Give us a call at (251) 809-3396. Visit Us for a Tasting. Join us at the winery for a wine tasting. Whether you're a local or just passing through, there's always something happening at Junavelli Winery. Book a Tasting. Walk-ins welcome during regular hours. Reservations recommended for groups. Why our Wine is the BEST! Experience the rich and diverse selection of wines at Junavelli Winery. From the luscious sweetness of Southern Sweet Blueberry to the delightful notes of Muscadine, our wines are crafted to perfection. Savor the taste of our small-town charm and let your palate be delighted. Family-Owned & Operated. Immerse yourself in the small-town charm of Junavelli Winery. Our winery is located in the picturesque North Brewton community and offers a serene and welcoming atmosphere. Take a tour, enjoy a tasting, and create lasting memories with friends and family. Award Winning Wine. Indulge in our wide range of wine flavors, carefully crafted to satisfy every palate. From Southern Sweet Blueberry's sweetness to Muscadine's richness, our wines are perfect for any occasion. Discover your new favorite wine today! Our Most Loved Wines. From Southern sweet favorites to limited-edition blends, our wines are crafted to be enjoyed with friends, food, and unforgettable moments. View Wine List. Order Bottles Online.",
+  "extraction_confidence": "high",
+  "extraction_notes": "This is a winery website, not a restaurant with food service. All wine-related information has been extracted. Phone number, email, and basic contact info were successfully extracted. Hours of operation are clearly stated (Friday 4-7pm, Saturday 11am-6pm) with information about appointments during closed hours. Online wine ordering available through VinoShipper. Wine names and descriptions extracted from visible content. No detailed pricing information available on the website. Social media only shows Facebook link. No accessibility details, parking information, or specific dietary accommodations mentioned. The website appears to be primarily focused on wine sales, tastings, and events rather than food service.",
+  "folder": "ChIJ1xdNgiFJkIgREJNrCr0DwHU_Junavelli Winery LLC",
+  "extracted_at": "2026-05-15T06:02:20.916Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJ1xdNgiFJkIgREJNrCr0DwHU_Junavelli Winery LLC/01_raw_html.html"
+}

@@ -1,0 +1,209 @@
+{
+  "business_name": "The Tap & Still",
+  "cuisine_type": "Burgers, Booze & Beer / Sports Bar / Brewery",
+  "price_range": null,
+  "description": "The Tap & Still Burgers, Booze & Beer franchise is a vibrant, laid-back sports bar and brewery concept. The Tap & Still is currently spanning four lively Caribbean locations and one in Alabama. Each spot features its own on-site brewery, serving up fresh craft beer alongside a fun, high-energy atmosphere that blends island charm with classic American comfort.",
+  "atmosphere": "Vibrant, laid-back sports bar with high-energy atmosphere blending island charm with classic American comfort",
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": "Multiple locations",
+    "website": "http://www.TapAndStill.com",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": "https://www.facebook.com/tapstillcarib",
+      "instagram": null,
+      "twitter": "@tapstillcarib",
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": true,
+    "takeout_available": true,
+    "delivery_available": true,
+    "curbside_available": false,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [],
+    "wine_list": null,
+    "beer_selection": "On-site brewery serving fresh craft beer",
+    "cocktails": null,
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": false,
+      "vegan": false,
+      "gluten_free": false,
+      "dairy_free": false,
+      "nut_free": false,
+      "kosher": false,
+      "halal": false
+    }
+  },
+  "happy_hour": {
+    "available": false,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [],
+  "entertainment_and_events": [
+    {
+      "type": "sports",
+      "name": "Sports Bar",
+      "days": null,
+      "start_time": null,
+      "end_time": null,
+      "description": "Sports bar atmosphere with high-energy vibe",
+      "cover_charge": null,
+      "featured_artist": null
+    }
+  ],
+  "private_events": {
+    "available": false,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": false,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": false,
+    "accessible_restroom": false,
+    "parking_accessible": false,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": null,
+    "pets_allowed": false
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": false,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": false,
+    "private_dining": false
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": false,
+    "email_signup": null,
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": false,
+    "farm_to_table": false,
+    "sustainable": false,
+    "organic": false,
+    "details": null
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [],
+    "common_praise": [],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "restaurant",
+      "url": "images/headerSlideshow/tap-still-havensight-bar-restaurant-brewery-saint-thomas-usvi.jpg",
+      "description": "Tap & Still Bar Restaurant Brewery, Saint Thomas"
+    },
+    {
+      "type": "restaurant",
+      "url": "images/headerSlideshow/01-the-tap-and-still-coolestcarib-network-caribbean.gif",
+      "description": "Beers & Burgers in Redhook St. Thomas, USVI"
+    },
+    {
+      "type": "restaurant",
+      "url": "images/headerSlideshow/02-the-tap-and-still-coolestcarib-network-caribbean.gif",
+      "description": "Beers and Burgers in Cruz Bay St. John, USVI"
+    },
+    {
+      "type": "restaurant",
+      "url": "images/headerSlideshow/03-the-tap-and-still-coolestcarib-network-caribbean.gif",
+      "description": "Beers, Burgers and music in St. Thomas and St. John USVI"
+    },
+    {
+      "type": "restaurant",
+      "url": "images/headerSlideshow/04-the-tap-and-still-coolestcarib-network-caribbean.gif",
+      "description": "Beers, Burgers and Live Music in St. Thomas and St. John, USVI"
+    },
+    {
+      "type": "logo",
+      "url": "images/logos/logo-the-tap-and-still-restaurant-brewery-bar-virgin-islands.png",
+      "description": "Header Logo Tap & Still Restaurant Caribbean"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "locations": [
+    {
+      "name": "Sint Maarten",
+      "address": null,
+      "phone": "+7215222924",
+      "url": "sxm.php"
+    },
+    {
+      "name": "Havensight, St. Thomas, USVI",
+      "address": null,
+      "phone": "(340) 244-4540",
+      "url": "havensight.php"
+    },
+    {
+      "name": "Red Hook, St. Thomas, USVI",
+      "address": null,
+      "phone": "(340) 642-2337",
+      "url": "redhook.php"
+    },
+    {
+      "name": "Cruz Bay, St. John, USVI",
+      "address": null,
+      "phone": "(340) 474-1902",
+      "url": "cruzbay.php"
+    },
+    {
+      "name": "Gulf Shores, Alabama",
+      "address": null,
+      "phone": null,
+      "url": "gulfshores.php"
+    }
+  ],
+  "raw_text_content": "The Tap & Still Burgers Booze Beer Restaurant Pub & Brewery Caribbean. Welcome to The Tap & Still, Burgers, Booze, Beer Restaurant, Brewery, Caribbean. The Tap & Still Burgers, Booze & Beer franchise is a vibrant, laid-back sports bar and brewery concept. The Tap & Still is currently spanning four lively Caribbean locations and one in Alabama. Each spot features its own on-site brewery, serving up fresh craft beer alongside a fun, high-energy atmosphere that blends island charm with classic American comfort. Place Order Here. Navigation: Home, Havensight, Red Hook, Cruz Bay, Sint Maarten, Gulf Shores, Menu, About, Social, Photos, Reviews, Contact, Employment, Directory. Sint Maarten Location: Phone: +7215222924. Havensight, St. Thomas, USVI Location: Phone: (340) 244-4540. Red Hook, St. Thomas, USVI Location: Phone: (340) 642-2337. Cruz Bay, St. John, USVI Location: Phone: (340) 474-1902.",
+  "extraction_confidence": "medium",
+  "extraction_notes": "This appears to be a homepage/landing page with limited detailed menu and policy information. The HTML primarily contains navigation, location contact information, and social media feed integrations. Menu details, pricing, hours of operation, dietary accommodations, and most policies are not visible on this particular page. Multiple locations are referenced with phone numbers. Online ordering is available through a link. The business operates 5 locations across the Caribbean and Alabama. Social media feeds are embedded but content is not extractable from static HTML. Detailed information about each location would likely be found on their specific pages (havensight.php, redhook.php, cruzbay.php, sxm.php, gulfshores.php).",
+  "folder": "ChIJV7AnPloFmogR1dJ64P2qj4c_The Tap & Still Gulf Shores",
+  "extracted_at": "2026-05-15T06:22:58.074Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJV7AnPloFmogR1dJ64P2qj4c_The Tap & Still Gulf Shores/01_raw_html.html"
+}

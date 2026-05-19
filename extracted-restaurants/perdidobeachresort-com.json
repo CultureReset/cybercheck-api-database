@@ -1,0 +1,71 @@
+{
+  "name": "Perdido Beach Resort",
+  "type": "Resort",
+  "website": "https://perdidobeachresort.com/voyagers",
+  "contact": {
+    "phone": "251-981-9811",
+    "address": "27200 Perdido Beach Blvd",
+    "city": "Orange Beach",
+    "email": ""
+  },
+  "hours": {},
+  "about": {
+    "description": "Perdido Beach Resort is a beachfront resort in Orange Beach, Alabama featuring multiple dining options, accommodations with various view options (Gulf Front, Beach View, Pass View, Angle View), and comprehensive amenities. The resort offers Club Level accommodations, event facilities, and aquatic adventures.",
+    "elevator_pitch": "A beachfront Gulf Coast resort featuring award-winning dining, diverse accommodations, and comprehensive amenities in Orange Beach, Alabama.",
+    "total_units": null,
+    "floors": null,
+    "year_built": null,
+    "pet_friendly": true,
+    "minimum_stay": null,
+    "check_in": null,
+    "check_out": null,
+    "age_restriction": null
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/perdidobeachresort/",
+    "facebook": "https://www.facebook.com/perdidobeachresort",
+    "twitter": "https://twitter.com/PerdidoBeachRes/",
+    "pinterest": "https://www.pinterest.com/perdidobeachresort/",
+    "youtube": "https://www.youtube.com/channel/UChoT0_yAdda6d7wLRn2iBeg/",
+    "linkedin": "https://www.linkedin.com/company/perdido-beach-resort/",
+    "website": "https://www.perdidobeachresort.com/"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Military Appreciation Offer",
+      "description": "Special offer for military personnel",
+      "discount": ""
+    },
+    {
+      "name": "AAA Discount",
+      "description": "AAA member discount available",
+      "discount": ""
+    },
+    {
+      "name": "Golden Age",
+      "description": "Senior discount offer",
+      "discount": ""
+    },
+    {
+      "name": "Heroes Welcome",
+      "description": "Special offer for heroes",
+      "discount": ""
+    },
+    {
+      "name": "Sunday Fun Day",
+      "description": "Sunday special offer",
+      "discount": ""
+    },
+    {
+      "name": "Advance Purchase Offer",
+      "description": "Discount for advance bookings",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 15,
+  "scraped_at": "2026-03-21T20:19:01.827Z"
+}

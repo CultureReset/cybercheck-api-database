@@ -1,0 +1,342 @@
+{
+  "name": "Cotton's Restaurant",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "(251) 981-9268",
+    "address": "26009 Perdido Beach Blvd",
+    "city": "Orange Beach",
+    "email": "contactcottons@gmail.com"
+  },
+  "hours": {
+    "monday": "4pm-10pm",
+    "tuesday": "4pm-10pm",
+    "wednesday": "4pm-10pm",
+    "thursday": "4pm-10pm",
+    "friday": "4pm-10pm",
+    "saturday": "4pm-10pm",
+    "sunday": null
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Starters",
+      "name": "Potato Skins",
+      "description": "Fried Potato Jackets topped with melted Cheddar Cheese, Chives & Bacon Bits. Sour Cream served on the side.",
+      "price": 10.95
+    },
+    {
+      "category": "Starters",
+      "name": "Tuna Nachos",
+      "description": "House made fried Won Tons with seared Ahi Tuna, Seaweed Salad & topped with Spicy Mayo & Eel Sauce.",
+      "price": ""
+    },
+    {
+      "category": "Starters",
+      "name": "Gulf Shrimp Steamed",
+      "description": "8-10 per order. Served hot or cold.",
+      "price": 10.95
+    },
+    {
+      "category": "Starters",
+      "name": "Cotton's Crab Queso",
+      "description": "Melted Pepper Jack Cheese infused with Onions & Crab Meat. Served with toasted Pita Points.",
+      "price": 12.95
+    },
+    {
+      "category": "Starters",
+      "name": "Cotton's Crab Cakes",
+      "description": "Deep fried or blackened, topped with lump Crabmeat & our Remoulade Sauce.",
+      "price": 14.95
+    },
+    {
+      "category": "Starters",
+      "name": "Cove Spicy Shrimp",
+      "description": "Fried Bay Shrimp tossed in a mild Chili Sauce.",
+      "price": 12.95
+    },
+    {
+      "category": "Starters",
+      "name": "Fried Green Tomatoes",
+      "description": "Fresh local grown Tomatoes breaded & fried. Topped with our house made Tomato Relish, Feta Cheese & Remoulade Sauce.",
+      "price": 12.95
+    },
+    {
+      "category": "Starters",
+      "name": "Crab Claws",
+      "description": "Fresh from the Gulf of Mexico. Fried or Sautéed.",
+      "price": ""
+    },
+    {
+      "category": "Starters",
+      "name": "'Shrooms",
+      "description": "Local favorite for over 35 years. Fresh Mushroom Caps filled with our signature Herb Cheese & deep fried to perfection.",
+      "price": 12.95
+    },
+    {
+      "category": "Salads & Such",
+      "name": "Cove Burger",
+      "description": "Hand pattied Angus Ground Beef, seasoned & cooked over flame roasted chargrill, toasted Bun with Lettuce, Tomato, sliced Onion & hamburger Dill Pickles. Cooked to order. One side.",
+      "price": 14.95
+    },
+    {
+      "category": "Salads & Such",
+      "name": "House Salad",
+      "description": "Fresh tossed Greens with seasonal Vegetables, Cheddar Cheese, Bacon Bits & your choice of dressing.",
+      "price": 6.95
+    },
+    {
+      "category": "Salads & Such",
+      "name": "Stuffed Avocado",
+      "description": "Avocado Seasoned and Chargrilled. Stuffed with Blackened Chicken or Shrimp, Black Bean Pico, Mozzarella and Cheddar Cheese. Topped with a Creamy Tequila Lime Avocado Sauce.",
+      "price": 14.95
+    },
+    {
+      "category": "Salads & Such",
+      "name": "Fish Tacos",
+      "description": "Three lightly seasoned grilled Fish Tacos, Corn Tortilla, spicy Mayo and Slaw. One side.",
+      "price": 18.95
+    },
+    {
+      "category": "Salads & Such",
+      "name": "Shrimp or Chicken Salad",
+      "description": "Fresh tossed Greens with seasonal Vegetables, Cheddar Cheese, Bacon bits & your choice of dressing. Fried, grilled or blackened.",
+      "price": ""
+    },
+    {
+      "category": "House Specialties",
+      "name": "Catch of the Day",
+      "description": "Fresh Fish caught straight from the Gulf of Mexico. Stuffed, broiled, fried or blackened.",
+      "price": ""
+    },
+    {
+      "category": "House Specialties",
+      "name": "Seared Tuna",
+      "description": "6oz. Tuna Steak grilled or Blackened topped with Lemon Beurre Blanc Sauce.",
+      "price": ""
+    },
+    {
+      "category": "House Specialties",
+      "name": "Stuffed Chicken Breast",
+      "description": "Local favorite! Chicken filled with delectable Herbs & Cheese, topped with sauteéd Celery & Mushrooms.",
+      "price": 20.95
+    },
+    {
+      "category": "House Specialties",
+      "name": "Ribeye",
+      "description": "Thick and juicy choice hand cut & charbroiled. 14 oz.",
+      "price": 44.95
+    },
+    {
+      "category": "House Specialties",
+      "name": "Filet Mignon",
+      "description": "Tender choice hand cut, charbroiled to perfection.",
+      "price": ""
+    },
+    {
+      "category": "Seafood - Fried, Broiled, Steamed",
+      "name": "Fried Oyster Dinner",
+      "description": "Select fresh shucked Oysters lightly battered & fried.",
+      "price": 26.95
+    },
+    {
+      "category": "Seafood - Fried, Broiled, Steamed",
+      "name": "Stuffed Shrimp",
+      "description": "Crabmeat Stuffing adds the perfect touch to our popular broiled Gulf Shrimp.",
+      "price": 22.95
+    },
+    {
+      "category": "Seafood - Fried, Broiled, Steamed",
+      "name": "Crab Cake Dinner",
+      "description": "Crabmeat dressing deep fried, topped with lump Crabmeat & our Remoulade sauce.",
+      "price": 18.95
+    },
+    {
+      "category": "Seafood - Fried, Broiled, Steamed",
+      "name": "Lobster Dinner",
+      "description": "Broiled, stuffed, steamed or blackened. When available, we offer 2 (4 oz.) 3 (4 oz.) Tails.",
+      "price": ""
+    },
+    {
+      "category": "Seafood - Fried, Broiled, Steamed",
+      "name": "Snow Crab Legs",
+      "description": "With their sweet delicate flavor, these snowy white gems are absolutely luscious.",
+      "price": ""
+    },
+    {
+      "category": "Seafood - Fried, Broiled, Steamed",
+      "name": "Fried Seafood Platter",
+      "description": "Gulf Shrimp, Oysters, Stuffed Crab & Fresh Catch.",
+      "price": 28.95
+    },
+    {
+      "category": "Seafood - Fried, Broiled, Steamed",
+      "name": "Gulf Shrimp",
+      "description": "Lightly battered & deep fried or broiled.",
+      "price": 20.95
+    },
+    {
+      "category": "Seafood - Fried, Broiled, Steamed",
+      "name": "Deluxe Seafood Platter",
+      "description": "1 Lobster tail, Snow Crab Legs, Stuffed Shrimp & Steamed Shrimp.",
+      "price": ""
+    },
+    {
+      "category": "Popular Combinations",
+      "name": "5 OZ Filet Mignon",
+      "description": "Tender choice & hand cut.",
+      "price": 38.95
+    },
+    {
+      "category": "Popular Combinations",
+      "name": "14 OZ Ribeye",
+      "description": "Thick & juicy choice hand cut & charbroiled.",
+      "price": 52.95
+    },
+    {
+      "category": "Popular Combinations",
+      "name": "Stuffed Chicken Breast",
+      "description": "Local favorite! Chicken filled with delectable Herbs & Cheese, topped with sauteéd Celery & Mushrooms.",
+      "price": 28.95
+    },
+    {
+      "category": "Popular Combinations",
+      "name": "10 OZ Filet Mignon",
+      "description": "Tender choice & hand cut.",
+      "price": 52.95
+    },
+    {
+      "category": "Desserts",
+      "name": "Cotton Blues Cheesecake",
+      "description": "It will melt in your mouth. Chocolate, Strawberry, Caramel Topping",
+      "price": ""
+    },
+    {
+      "category": "Desserts",
+      "name": "Key Lime Pie",
+      "description": "Our most popular dessert will complete your meal.",
+      "price": ""
+    },
+    {
+      "category": "Desserts",
+      "name": "Hot Southern Apple Pie",
+      "description": "Topped with walnuts, ice cream & caramel.",
+      "price": ""
+    },
+    {
+      "category": "Desserts",
+      "name": "Brownie Delight",
+      "description": "Warm brownie topped with ice cream, walnuts & chocolate sauce… Simply Delightful!",
+      "price": ""
+    },
+    {
+      "category": "Desserts",
+      "name": "Ice Cream",
+      "description": "Vanilla • Vanilla with chocolate sauce",
+      "price": ""
+    },
+    {
+      "category": "Frozen Drinks",
+      "name": "Pina Colada",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Frozen Drinks",
+      "name": "Strawberry",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Frozen Drinks",
+      "name": "Margarita",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Frozen Drinks",
+      "name": "Peach",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Frozen Drinks",
+      "name": "Banana",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Frozen Drinks",
+      "name": "Amaretto",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Frozen Drinks",
+      "name": "Lime",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Frozen Drinks",
+      "name": "Amaretto Orange Blossom",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Frozen Drinks",
+      "name": "Strawberry Margarita",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Frozen Drinks",
+      "name": "Strawberry Colada",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Frozen Drinks",
+      "name": "Orange",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Frozen Drinks",
+      "name": "Raspberry",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Frozen Drinks",
+      "name": "Mango",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Frozen Drinks",
+      "name": "Hurricane",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Frozen Drinks",
+      "name": "Bushwacker",
+      "description": "We claim to have the first on the island made with ice cream, rums and flavored liqueurs. Make it even better and add a topper of 151 Rum or Peppermint Schnapps, Skrewball (Peanut Butter Whiskey) or Hoodoo (Chickory Liqueur).",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Early Bird Special",
+      "description": "Perfectly prepared, choice hand-cut Filet Mignon with smashed fried potatoes, ONLY $19.95!",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:50.186Z"
+}

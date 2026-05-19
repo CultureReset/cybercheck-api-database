@@ -1,0 +1,184 @@
+{
+  "business_name": "Flora-Bama",
+  "cuisine_type": "Beach Bar, Seafood",
+  "price_range": null,
+  "description": "The most famous beach bar in the country. The Flora-Bama Lounge is located famously in Orange Beach, Alabama and Perdido Key, Florida. It has long been a landmark of the Gulf Shores community and provides live entertainment 365 days a year. Also the home of the Bushwacker, with live music every day.",
+  "atmosphere": "World famous beach bar with live music",
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": "Orange Beach, Alabama and Perdido Key, Florida",
+    "website": "https://www.florabama.com",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": null,
+      "instagram": null,
+      "twitter": null,
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": true,
+    "takeout_available": null,
+    "delivery_available": null,
+    "curbside_available": null,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [
+      {
+        "name": "Oyster Bar",
+        "description": null,
+        "items": []
+      }
+    ],
+    "wine_list": null,
+    "beer_selection": null,
+    "cocktails": "Bushwacker (signature drink)",
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": null,
+      "vegan": null,
+      "gluten_free": null,
+      "dairy_free": null,
+      "nut_free": null,
+      "kosher": null,
+      "halal": null
+    }
+  },
+  "happy_hour": {
+    "available": null,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [],
+  "entertainment_and_events": [
+    {
+      "type": "live_music",
+      "name": "Live Music",
+      "days": "365 days a year",
+      "start_time": null,
+      "end_time": null,
+      "description": "Live entertainment provided every day",
+      "cover_charge": null,
+      "featured_artist": null
+    },
+    {
+      "type": "special_event",
+      "name": "Annual Events",
+      "days": null,
+      "start_time": null,
+      "end_time": null,
+      "description": "Multiple annual events including Polar Bear Dip, Chili Cook Off, Spring Break Duckman Jam, Bikini Contest, Mullet Triathlon, Mullet Swing Golf, Mullet Toss, Beach Run, Fishing Rodeo, Easter Egg Hunt, Freedom Run, 4th of July Party, Sandstock, Bulls on the Beach, Oktoberfest, Halloween, Frank Brown Festival, Thanksgiving Potluck, Santa Drop, Christmas Potluck, Make it to the Line, New Year's Eve, Boozy Bee",
+      "cover_charge": null,
+      "featured_artist": null
+    },
+    {
+      "type": "special_event",
+      "name": "Daily Events",
+      "days": null,
+      "start_time": null,
+      "end_time": null,
+      "description": "Daily events offered",
+      "cover_charge": null,
+      "featured_artist": null
+    },
+    {
+      "type": "special_event",
+      "name": "Flora-Bama Church",
+      "days": null,
+      "start_time": null,
+      "end_time": null,
+      "description": null,
+      "cover_charge": null,
+      "featured_artist": null
+    }
+  ],
+  "private_events": {
+    "available": null,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": null,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": null,
+    "pets_allowed": null
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": null,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": null,
+    "private_dining": null
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": null,
+    "email_signup": null,
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": null,
+    "farm_to_table": null,
+    "sustainable": null,
+    "organic": null,
+    "details": null
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [
+      "Bushwacker"
+    ],
+    "common_praise": [],
+    "common_complaints": []
+  },
+  "photos_and_media": [],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "FLORA-BAMA | WORLD FAMOUS BEACH BAR AND LIVE MUSIC. The most famous beach bar in the country. The Flora-Bama Lounge is located famously in Orange Beach, Alabama and Perdido Key, Florida. It has long been a landmark of the Gulf Shores community and provides live entertainment 365 days a year. Also the home of the Bushwacker, with live music every day. Navigation includes: Home, About (About Us, Articles, Gallery, Videos, Hey Y'all), Events (Annual Events, Daily Events, Flora-Bama Church, Tickets), Live Music, Food (Oyster Bar, Ole River Grill, Yacht Club), Store, Marina, Contact (Contact, Stories). Additional pages referenced: Door Policy, Privacy Policy, ADA Information, News Room, Entertainers, Bacardi Beach Cruiser, Flora-Bama Bushwacker, Spring Break Information, Mullet Toss FAQs, Big Earl Show, Bulls On The Beach FAQs, Register to Win, Bachelorette Party, Bikini Contest Events, Flora-Bama Bushwacker 50th Birthday, Fishing Rodeo Info, Jack Robertson's All Country Birthday Show FAQs, Membership, Application, Chesney Concert Details.",
+  "extraction_confidence": "medium",
+  "extraction_notes": "This HTML contains primarily navigation structure and metadata. Limited menu details, pricing, hours, contact information, and specific food/drink offerings were found in the visible HTML excerpt. The page appears to be the home page with extensive navigation to various event pages and locations. More detailed restaurant information would likely be found on other pages such as the Oyster Bar page, food sections, or contact pages. The website mentions multiple food venues (Oyster Bar, Ole River Grill, Yacht Club) but specific details about each were not visible in this HTML section. No phone number, specific address details, or detailed hours were present in the extracted content.",
+  "folder": "ChIJAcqjl0mokIgRnm2_K_q2x7U_Flora-Bama",
+  "extracted_at": "2026-05-15T06:08:41.702Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJAcqjl0mokIgRnm2_K_q2x7U_Flora-Bama/page.html"
+}

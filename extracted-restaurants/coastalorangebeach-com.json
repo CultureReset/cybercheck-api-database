@@ -1,0 +1,255 @@
+{
+  "name": "COASTAL Restaurant",
+  "type": "Restaurant",
+  "website": "https://www.coastalorangebeach.com",
+  "contact": {
+    "phone": "(251) 240-6001",
+    "address": "25722 Perdido Key Blvd",
+    "city": "Orange Beach",
+    "email": ""
+  },
+  "hours": {
+    "monday": "8am-2pm breakfast/lunch, 4pm-9pm dinner",
+    "tuesday": "8am-2pm breakfast/lunch, 4pm-9pm dinner",
+    "wednesday": "8am-2pm breakfast/lunch, 4pm-9pm dinner",
+    "thursday": "8am-2pm breakfast/lunch, 4pm-9pm dinner",
+    "friday": "8am-2pm breakfast/lunch, 4pm-9pm dinner",
+    "saturday": "8am-2pm breakfast/lunch, 4pm-9pm dinner",
+    "sunday": "8am-2pm breakfast/lunch, 4pm-9pm dinner"
+  },
+  "about": {
+    "description": "COASTAL is a beachfront restaurant where the surf's rhythm meets great food, featuring fresh Gulf seafood, local dishes, and cocktails in a relaxed yet elegant setting with beautiful ocean views.",
+    "cuisine_type": "seafood"
+  },
+  "social": {},
+  "menu": [
+    {
+      "category": "For Starters",
+      "name": "Yellowfin Tuna Dip",
+      "description": "Smoked Yellowfin tuna, house-baked crackers, chives, jalapeno relish",
+      "price": ""
+    },
+    {
+      "category": "For Starters",
+      "name": "Island Grouper Bites",
+      "description": "Coconut breading, piña colada sauce",
+      "price": ""
+    },
+    {
+      "category": "For Starters",
+      "name": "Beachside Burrata",
+      "description": "Marinated tomatoes, olive oil, balsamic glaze, bread (Seasonal Availability)",
+      "price": ""
+    },
+    {
+      "category": "For Starters",
+      "name": "Gulf Coast Blue Crab Dip",
+      "description": "Blue crab, parmesan cream, toasted bread",
+      "price": ""
+    },
+    {
+      "category": "For Starters",
+      "name": "Fried Domestic Blue Crab Claws",
+      "description": "Fried, served with spicy cocktail sauce",
+      "price": ""
+    },
+    {
+      "category": "For Starters",
+      "name": "Sesame Tuna Sashimi",
+      "description": "Sesame seared Yellowfin tuna, teriyaki glaze, pickled vegetables",
+      "price": ""
+    },
+    {
+      "category": "For Starters",
+      "name": "Sauteed Snow Crab Claws",
+      "description": "Snow crab claws, steamed and tossed in lemon butter",
+      "price": ""
+    },
+    {
+      "category": "For Starters",
+      "name": "Pimento Cheese",
+      "description": "House made white cheddar pimento cheese, seasonal jam, praline pecans, house-baked crackers, seasonal fruit",
+      "price": ""
+    },
+    {
+      "category": "For Starters",
+      "name": "Crispy Gumbo Bites",
+      "description": "Cajun rice, American shrimp, Andouille sausage, crawfish, remoulade dipping sauce",
+      "price": ""
+    },
+    {
+      "category": "Soup and Salad",
+      "name": "Shrimp & Crab Bisque",
+      "description": "American shrimp, crab, corn, heavy cream",
+      "price": ""
+    },
+    {
+      "category": "Soup and Salad",
+      "name": "Summer Salad",
+      "description": "Arugula, fresh blackberries, heirloom tomato, roasted pepitas, feta, blackberry balsamic vinaigrette",
+      "price": ""
+    },
+    {
+      "category": "Soup and Salad",
+      "name": "Ancient Grain Salad",
+      "description": "Ancient grains, mixed greens, toasted pumpkin seeds, shoestring carrots, cucumbers, tomatoes, feta cheese, dried cherries, champagne vinaigrette",
+      "price": ""
+    },
+    {
+      "category": "Soup and Salad",
+      "name": "Asian Tuna Salad",
+      "description": "Mixed greens, seared sesame Yellowfin tuna, edamame, Mandarin oranges, cucumber, tomatoes, red peppers, crispy noodles, Asian dressing",
+      "price": ""
+    },
+    {
+      "category": "Oysters",
+      "name": "Oysters on the Half Shell",
+      "description": "Local raw oysters",
+      "price": ""
+    },
+    {
+      "category": "Oysters",
+      "name": "Pimento Cheese Oysters",
+      "description": "Local oysters, house made white cheddar pimento cheese, jalapeno relish, bacon crumbles",
+      "price": ""
+    },
+    {
+      "category": "Oysters",
+      "name": "Traditional Baked",
+      "description": "Local oysters, garlic, butter, parmesan",
+      "price": ""
+    },
+    {
+      "category": "Beach Bar Appetizers",
+      "name": "Tuna Poke Nachos",
+      "description": "Raw Yellowfin tuna, spicy mayo, COASTAL house slaw, avocado, diced mango, toasted sesame seeds, wontons, micro cilantro, sesame glaze",
+      "price": ""
+    },
+    {
+      "category": "Beach Bar Salads",
+      "name": "House Salad",
+      "description": "Mixed greens, shaved red onion, tomatoes, white cheddar cheese, English cucumber, shoestring carrots, garlic croutons",
+      "price": ""
+    },
+    {
+      "category": "Beach Bar Sandwiches",
+      "name": "Signature COASTAL Burger",
+      "description": "Aged white cheddar, cherrywood smoked bacon, caramelized sweet onions, wild mushroom demi glace, tomato, dill pickle chips, green leaf lettuce, bacon aioli, served with house fries, pasta salad or fruit medley",
+      "price": ""
+    },
+    {
+      "category": "Beach Bar Sandwiches",
+      "name": "Smoked Turkey Club",
+      "description": "Fresh sliced smoked turkey, aged white cheddar, cherrywood smoked bacon, tomato, green leaf lettuce, avocado mayo, served with house fries, pasta salad or fruit medley",
+      "price": ""
+    },
+    {
+      "category": "Beach Bar Sandwiches",
+      "name": "Gulf Fish Sandwich",
+      "description": "Fresh Gulf fish, COASTAL house slaw, homemade tartar sauce, served with house fries, pasta salad or fruit medley",
+      "price": ""
+    },
+    {
+      "category": "Beach Bar Sandwiches",
+      "name": "Gulf Coast Chicken Sandwich",
+      "description": "Crispy fried chicken breast, aged white cheddar pimento cheese, tomato, red onion, green leaf lettuce, dill pickle chips, bacon aioli, served with house fries, pasta salad or fruit medley",
+      "price": ""
+    },
+    {
+      "category": "Beach Bar Sandwiches",
+      "name": "Oyster Po'Boy",
+      "description": "Fried Gulf oysters, COASTAL house slaw, spicy remoulade sauce, tomato, served on toasted French bread, served with house fries, pasta salad or fruit medley",
+      "price": ""
+    },
+    {
+      "category": "Beach Bar Baskets",
+      "name": "Jumbo American Shrimp",
+      "description": "COASTAL house slaw, house fries",
+      "price": ""
+    },
+    {
+      "category": "Breakfast on the Beach",
+      "name": "Stuffed Blueberry French Toast",
+      "description": "Thick cut challah bread, cream cheese, fresh blueberries, fresh berry compote",
+      "price": ""
+    },
+    {
+      "category": "Breakfast on the Beach",
+      "name": "Southwest Breakfast Burrito",
+      "description": "Flour tortilla, scrambled eggs, chorizo, corn and black bean salsa, chipotle crema, served with house grits, homestyle potatoes or fresh fruit",
+      "price": ""
+    },
+    {
+      "category": "Breakfast on the Beach",
+      "name": "COASTAL Daily Bake",
+      "description": "Flaky house-baked pastry, scrambled eggs, chef's featured fillings (ask your server for today's selections), served with house grits, homestyle potatoes or fresh fruit",
+      "price": ""
+    },
+    {
+      "category": "Breakfast on the Beach",
+      "name": "Sunrise Chicken Burrito",
+      "description": "Flour tortilla, chicken sausage, scrambled eggs, homestyle potatoes, shredded cheese, chipotle creme, served with house grits, homestyle potatoes or fresh fruit",
+      "price": ""
+    },
+    {
+      "category": "Breakfast on the Beach",
+      "name": "Gulf View Breakfast Sandwich",
+      "description": "Fresh baked buttermilk biscuit, choice of sausage, ham or bacon, fried egg, white cheddar cheese, served with house grits, homestyle potatoes or fresh fruit",
+      "price": ""
+    },
+    {
+      "category": "Breakfast on the Beach",
+      "name": "Southern Style Biscuits & Gravy",
+      "description": "Fresh baked buttermilk biscuits, homemade southern style sausage gravy",
+      "price": ""
+    },
+    {
+      "category": "Breakfast on the Beach",
+      "name": "The Beachbody",
+      "description": "House baked granola, vanilla Greek yogurt, mixed fruit, fresh berries",
+      "price": ""
+    },
+    {
+      "category": "Breakfast on the Beach",
+      "name": "Avocado Toast",
+      "description": "Multigrain toast, smashed avocado, citrus marinated vegetables, cotija cheese, fried eggs, served with house grits, homestyle potatoes or fresh fruit",
+      "price": ""
+    },
+    {
+      "category": "Breakfast on the Beach",
+      "name": "American Breakfast Burrito",
+      "description": "Flour tortilla, bacon meatballs, scrambled eggs, shredded cheese, homestyle potatoes, served with house grits, homestyle potatoes or fresh fruit",
+      "price": ""
+    },
+    {
+      "category": "Breakfast on the Beach",
+      "name": "Giant House Baked Cinnamon Bun",
+      "description": "Topped with homemade caramel icing",
+      "price": ""
+    },
+    {
+      "category": "Breakfast on the Beach",
+      "name": "Crab Cakes Benedict",
+      "description": "English muffin, housemade crab cakes, poached eggs, classic hollandaise",
+      "price": ""
+    },
+    {
+      "category": "Breakfast on the Beach",
+      "name": "Traditional Eggs Benedict",
+      "description": "English muffin, heritage ham, poached eggs, classic hollandaise, served with house grits, homestyle potatoes or fresh fruit",
+      "price": ""
+    },
+    {
+      "category": "Breakfast on the Beach",
+      "name": "Country Benedict",
+      "description": "Fresh baked buttermilk biscuits, sausage gravy, poached eggs, sausage patties, served with house grits, homestyle potatoes or fresh fruit",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-03-21T19:25:29.274Z"
+}

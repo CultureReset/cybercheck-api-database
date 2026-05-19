@@ -1,0 +1,31 @@
+{
+  "results": [
+    {
+      "slug": "the-hangout",
+      "name": "The Hangout",
+      "pages": 0,
+      "chars": 0,
+      "pdfs": 0,
+      "iframes": 0
+    },
+    {
+      "slug": "lambert-s-cafe",
+      "name": "Lambert's Cafe",
+      "pages": 1,
+      "chars": 9376,
+      "pdfs": 0,
+      "iframes": 0
+    },
+    {
+      "slug": "flora-bama",
+      "name": "Flora-Bama",
+      "pages": 1,
+      "chars": 4403,
+      "pdfs": 0,
+      "iframes": 0
+    }
+  ],
+  "failures": [],
+  "lastIndex": 41,
+  "total": 129
+}

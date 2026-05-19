@@ -1,0 +1,75 @@
+{
+  "name": "No. 1 China",
+  "type": "Restaurant",
+  "website": "https://www.beyondmenu.com/56279/mobile/no--1-china-mobile-36618.aspx",
+  "contact": {
+    "phone": "",
+    "address": "5701 Moffet Rd Unit 1",
+    "city": "Mobile",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null
+  },
+  "about": {
+    "description": null,
+    "cuisine_type": "chinese"
+  },
+  "social": {},
+  "menu": [
+    {
+      "category": "All Day Special Plate",
+      "name": "A1. Fried Chicken Wings (4)",
+      "description": "",
+      "price": "$7.75+"
+    },
+    {
+      "category": "All Day Special Plate",
+      "name": "A2. Fried Shrimps (15)",
+      "description": "",
+      "price": "$7.75+"
+    },
+    {
+      "category": "All Day Special Plate",
+      "name": "A3. Fried Fishes (3)",
+      "description": "",
+      "price": "$6.95+"
+    },
+    {
+      "category": "All Day Special Plate",
+      "name": "A4. Fried Scallops (12)",
+      "description": "",
+      "price": "$6.95+"
+    },
+    {
+      "category": "All Day Special Plate",
+      "name": "A5. Spare Rib Tips with BBQ Sauce",
+      "description": "",
+      "price": "$7.95+"
+    },
+    {
+      "category": "All Day Special Plate",
+      "name": "A6. Famous Flavor Wings",
+      "description": "Choice of Honey Wings, Lemon Pepper Wings, Garlic Blazed Wings, Hot Wings, Buffalo Wings, BBQ Wings",
+      "price": "$8.25+"
+    },
+    {
+      "category": "All Day Special Plate",
+      "name": "A7. Chicken Nuggets (15)",
+      "description": "",
+      "price": "$6.15+"
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-03-21T13:43:00.480Z"
+}

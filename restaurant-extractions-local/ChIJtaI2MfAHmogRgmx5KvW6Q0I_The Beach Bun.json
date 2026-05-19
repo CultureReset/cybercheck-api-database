@@ -1,0 +1,141 @@
+{
+  "business_name": "The Beach Bun",
+  "cuisine_type": "Burgers and Hot Dogs",
+  "price_range": null,
+  "description": "The Beach Bun brings burgers, dogs, and more to Orange Beach! Family-owned, fun, and full of flavor—come grab your new go-to meal. Burgers. Dogs. Beach Days Forever.",
+  "atmosphere": null,
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": "Orange Beach, AL",
+    "website": "https://www.thebeachbunoba.com",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": null,
+      "instagram": null,
+      "twitter": null,
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": null,
+    "takeout_available": null,
+    "delivery_available": null,
+    "curbside_available": null,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [],
+    "wine_list": null,
+    "beer_selection": null,
+    "cocktails": null,
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": null,
+      "vegan": null,
+      "gluten_free": null,
+      "dairy_free": null,
+      "nut_free": null,
+      "kosher": null,
+      "halal": null
+    }
+  },
+  "happy_hour": {
+    "available": null,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [],
+  "entertainment_and_events": [],
+  "private_events": {
+    "available": null,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": null,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": null,
+    "pets_allowed": null
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": null,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": null,
+    "private_dining": null
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": null,
+    "email_signup": null,
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": null,
+    "farm_to_table": null,
+    "sustainable": null,
+    "organic": null,
+    "details": null
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [],
+    "common_praise": [],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "logo",
+      "url": "https://images.squarespace-cdn.com/content/v1/68acd15c6edb8d343d937dea/c188edcd-ed5a-4fd8-b215-f43131dbfc8e/beachbun.jpg",
+      "description": "A circular logo with an orange border featuring a palm tree, a hot dog and a burger, all wearing sunglasses and smiling. The text reads 'The Beach Bun' with a subtitle 'Burgers. Dogs. Beach Days Forever.'"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "The Beach Bun | Family-Owned Burgers & Dogs in Orange Beach. The Beach Bun brings burgers, dogs, and more to Orange Beach! Family-owned, fun, and full of flavor—come grab your new go-to meal. Burgers. Dogs. Beach Days Forever. Menu. About. Contact.",
+  "extraction_confidence": "low",
+  "extraction_notes": "This is primarily a landing page with minimal operational information. The page contains only a logo image, basic navigation menu (Menu, About, Contact), and a footer section. No detailed menu items, pricing, hours of operation, contact information, phone numbers, or other operational details are visible on this homepage. The website appears to be under development or the detailed information is on other pages (Menu, About, Contact). Much of the expected restaurant data is missing from this particular page extraction.",
+  "folder": "ChIJtaI2MfAHmogRgmx5KvW6Q0I_The Beach Bun",
+  "extracted_at": "2026-05-15T06:38:27.422Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJtaI2MfAHmogRgmx5KvW6Q0I_The Beach Bun/01_raw_html.html"
+}

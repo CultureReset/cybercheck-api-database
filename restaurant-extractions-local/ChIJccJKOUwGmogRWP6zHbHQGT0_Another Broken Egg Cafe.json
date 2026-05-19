@@ -1,0 +1,217 @@
+{
+  "business_name": "Another Broken Egg Cafe",
+  "cuisine_type": "Breakfast, Brunch, Lunch",
+  "price_range": null,
+  "description": "Another Broken Egg Cafe Orange Beach isn't your typical breakfast, brunch, or lunch restaurant. Our passion is delivering uncompromising, southern-inspired culinary innovation and \"craveably\" delicious dishes. On our menu, you will find chef-inspired, breakfast, brunch, and lunch dishes as well as hand-crafted cocktails, spiked cold brews, mimosas and a full bar. If you're searching for the best brunch in Orange Beach, look no further. Our Orange Beach, AL cafe is located in The Commons at the corner of Canal Road and Orange Beach Boulevard offering dine-in and online ordering for to-go, delivery and a full catering menu.",
+  "atmosphere": "Casual getaway with family, friends and friendly service, patio dining available",
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": "251-981-7780",
+    "email": null,
+    "address": "25910 Canal Road, Suite K, Orange Beach, AL 36561",
+    "website": "https://www.anotherbrokenegg.com/locations/orange-beach-al/",
+    "hours_phone": "251-981-7780",
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": "https://www.facebook.com/AnotherBrokenEgg/",
+      "instagram": "https://www.instagram.com/anotherbrokenegg/",
+      "twitter": "https://twitter.com/BrokenEggCafe",
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": "7:00 AM - 2:00 PM",
+    "tuesday": "7:00 AM - 2:00 PM",
+    "wednesday": "7:00 AM - 2:00 PM",
+    "thursday": "7:00 AM - 2:00 PM",
+    "friday": "7:00 AM - 2:00 PM",
+    "saturday": "7:00 AM - 2:00 PM",
+    "sunday": "7:00 AM - 2:00 PM",
+    "seasonal_hours": null,
+    "holiday_hours": "Closed: Thanksgiving, Christmas",
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": true,
+    "takeout_available": true,
+    "delivery_available": true,
+    "curbside_available": false,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [
+      {
+        "name": "Seasonal Selections",
+        "description": "Tempt your taste buds with one of our new seasonal menu items.",
+        "items": []
+      },
+      {
+        "name": "Traditional Menu",
+        "description": "Indulge in our many culinary-driven breakfast, brunch, or lunch favorites like eggs benedict.",
+        "items": []
+      },
+      {
+        "name": "Lunch Menu",
+        "description": null,
+        "items": []
+      },
+      {
+        "name": "Brunch Cocktails",
+        "description": "Experience our full bar; let our bartender curate your brunch cocktails and mocktails.",
+        "items": []
+      },
+      {
+        "name": "Kids Menu",
+        "description": null,
+        "items": []
+      }
+    ],
+    "wine_list": null,
+    "beer_selection": null,
+    "cocktails": "Hand-crafted cocktails, spiked cold brews, mimosas, brunch cocktails and mocktails available",
+    "kids_menu": null,
+    "catering_menu": "Catering menu available through ezcater.com",
+    "dietary_accommodations": {
+      "vegetarian": true,
+      "vegan": false,
+      "gluten_free": true,
+      "dairy_free": false,
+      "nut_free": false,
+      "kosher": false,
+      "halal": false
+    }
+  },
+  "happy_hour": {
+    "available": false,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [],
+  "entertainment_and_events": [],
+  "private_events": {
+    "available": true,
+    "event_spaces": "Meeting room available",
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": true,
+    "packages": "Craveable eats caterable for private events, group orders, office catering, and gatherings. Order ahead for pickup or delivery."
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": false,
+    "accessible_restroom": false,
+    "parking_accessible": false,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": null,
+    "pets_allowed": false
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": false,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": false,
+    "private_dining": true
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": "E-Club",
+    "gift_cards_available": true,
+    "email_signup": "Join E-Club",
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": false,
+    "farm_to_table": false,
+    "sustainable": false,
+    "organic": false,
+    "details": "Southern-inspired culinary innovation with fresh ingredients and creative recipes"
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [
+      "Eggs Benedict",
+      "Pancakes",
+      "Waffles",
+      "Shrimp and Grits"
+    ],
+    "common_praise": [],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "food",
+      "url": "/media/hmzntaeq/brunch-blueberry-margarita-brunch-cocktail.jpg",
+      "description": "Blueberry Margarita Brunch Cocktail"
+    },
+    {
+      "type": "restaurant",
+      "url": "/media/rrnhqcnj/brunch-at-another-broken-egg-cafe.jpg",
+      "description": "Brunch at Another Broken Egg Cafe"
+    },
+    {
+      "type": "food",
+      "url": "/media/5kchy4wf/shirmp-and-grits-another-broken-egg-cafe.jpg",
+      "description": "Shrimp and Grits"
+    },
+    {
+      "type": "amenity",
+      "url": "/media/r2epcjbv/orderonline_weblocationcat_500x.jpg",
+      "description": "Online Ordering Available"
+    },
+    {
+      "type": "amenity",
+      "url": "/media/ek3iihlg/meeting-rooms-another-broken-egg-cafe.jpg",
+      "description": "Meeting Room Available"
+    },
+    {
+      "type": "amenity",
+      "url": "/media/napnp0xa/catering_weblocationcat_500x.jpg",
+      "description": "Catering Available"
+    },
+    {
+      "type": "amenity",
+      "url": "/media/njubovpb/free-wifi-another-broken-egg-cafe.jpg",
+      "description": "Free WiFi"
+    },
+    {
+      "type": "amenity",
+      "url": "/media/54jlv2uo/fullbar_weblocationcat_500x.jpg",
+      "description": "Full Bar"
+    },
+    {
+      "type": "amenity",
+      "url": "/media/2pwm5c2w/patio_weblocationcat_500x.jpg",
+      "description": "Patio Dining Available"
+    },
+    {
+      "type": "staff",
+      "url": "/media/y1npyyf4/jake-alleman_0_6.png",
+      "description": "Jake Alleman - Owner"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": "Email signup for E-Club available",
+  "raw_text_content": "Another Broken Egg Cafe Orange Beach AL - Best Brunch Restaurant. Location: 25910 Canal Road, Suite K, Orange Beach, AL 36561. Phone: 251-981-7780. Hours: Mon-Sun 7:00 AM - 2:00 PM. Closed: Thanksgiving, Christmas. Menu: Seasonal Selections, Traditional Menu, Lunch Menu, Brunch Cocktails, Kids Menu. Features: Full Bar, Patio Dining, Free WiFi, Meeting Room, Online Ordering, Catering Available. Amenities: Dine-in, Takeout, Delivery, Gift Cards, E-Club Loyalty Program. Owner: Jake Alleman of Cojak Investments Group. Description: Southern-inspired culinary innovation with chef-inspired breakfast, brunch, and lunch dishes. Hand-crafted cocktails, spiked cold brews, mimosas. Vegetarian and gluten-free options available. Located in The Commons at corner of Canal Road and Orange Beach Boulevard. Popular dishes: Eggs Benedict, Pancakes, Waffles, Shrimp and Grits. Social Media: Facebook, Instagram, Twitter, LinkedIn. Catering and private events available through ezcater.com. Nutritional information and gluten-free guide available for download.",
+  "extraction_confidence": "high",
+  "extraction_notes": "Successfully extracted comprehensive restaurant data including address, phone, hours, menu sections, amenities, owner information, social media, and contact details. Menu item details not available on this location page (links to menu pages provided). No specific pricing information found. No Google ratings or customer reviews visible. Happy hour information not available. Specific dietary accommodation flags not explicitly stated but gluten-free guide and vegetarian/vegan options mentioned. Payment methods, parking details, and accessibility information not specified on page. Delivery partners not explicitly listed, but online ordering and delivery confirmed available.",
+  "folder": "ChIJccJKOUwGmogRWP6zHbHQGT0_Another Broken Egg Cafe",
+  "extracted_at": "2026-05-15T06:28:07.046Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJccJKOUwGmogRWP6zHbHQGT0_Another Broken Egg Cafe/01_raw_html.html"
+}

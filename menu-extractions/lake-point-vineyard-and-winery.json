@@ -1,0 +1,155 @@
+{
+  "business_name": "Lake Point Vineyard & Winery",
+  "address": "674 Lake Point Drive, Mathews, AL 36052",
+  "phone": "(334) 517-8334",
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": "6:00 pm - 8:30 pm (by Reservation only)",
+    "saturday": "Noon - 6:00 pm",
+    "sunday": "Noon - 6:00 pm"
+  },
+  "happy_hour": {
+    "days": null,
+    "times": null,
+    "deals": []
+  },
+  "specials": [
+    "Beach Time: Wine and Sand - $75 per person (includes wine tasting, golf cart ride to beach, cheese/fruit/meat charcuterie cup, water, beach chair, umbrella)",
+    "One Hour Wine Tastings (Sat/Sun) - $30 per person (Noon to 6pm, includes 10 wine tastings, cheese, chocolate, crackers, water)",
+    "Friday Date Nights - $150 per couple (limited to 6 couples, intimate evening experience)",
+    "Saturday Morning (9:30am-Noon) or Sat/Sun After Hours (6:30pm onwards) Private Party - for groups of 12-40 persons (includes 10 wine tastings per person, cheese, chocolate, crackers, water, exclusive use of deck and tasting room)"
+  ],
+  "menu": [
+    {
+      "section": "Wines",
+      "items": [
+        {
+          "name": "Bama Sweet",
+          "price": null,
+          "description": null,
+          "dietary": []
+        },
+        {
+          "name": "Limonade",
+          "price": null,
+          "description": null,
+          "dietary": []
+        },
+        {
+          "name": "PBJ",
+          "price": null,
+          "description": null,
+          "dietary": []
+        },
+        {
+          "name": "Mead",
+          "price": null,
+          "description": null,
+          "dietary": []
+        },
+        {
+          "name": "Coffee Wine",
+          "price": null,
+          "description": null,
+          "dietary": []
+        },
+        {
+          "name": "Peach Wine",
+          "price": null,
+          "description": null,
+          "dietary": []
+        },
+        {
+          "name": "Watermelon Wine",
+          "price": null,
+          "description": null,
+          "dietary": []
+        },
+        {
+          "name": "Blueberry Wine",
+          "price": null,
+          "description": null,
+          "dietary": []
+        },
+        {
+          "name": "Blackberry Wine",
+          "price": null,
+          "description": null,
+          "dietary": []
+        },
+        {
+          "name": "Scuppernong Muscadine Wine",
+          "price": null,
+          "description": null,
+          "dietary": []
+        },
+        {
+          "name": "Strawberry Wine",
+          "price": null,
+          "description": null,
+          "dietary": []
+        },
+        {
+          "name": "Cranberry Wine",
+          "price": null,
+          "description": null,
+          "dietary": []
+        },
+        {
+          "name": "Dry Red Wine",
+          "price": null,
+          "description": null,
+          "dietary": []
+        }
+      ]
+    },
+    {
+      "section": "Food & Beverages Available for Purchase",
+      "items": [
+        {
+          "name": "Charcuterie Cups",
+          "price": null,
+          "description": "Available for purchase online",
+          "dietary": []
+        },
+        {
+          "name": "Cheese",
+          "price": null,
+          "description": "Included in tastings",
+          "dietary": []
+        },
+        {
+          "name": "Chocolate",
+          "price": null,
+          "description": "Included in tastings",
+          "dietary": []
+        },
+        {
+          "name": "Crackers",
+          "price": null,
+          "description": "Included in tastings",
+          "dietary": []
+        },
+        {
+          "name": "Water",
+          "price": null,
+          "description": "Included in tastings",
+          "dietary": []
+        }
+      ]
+    }
+  ],
+  "notes": "This is a winery specializing in specialty wines. No outside food is allowed during regular tastings. Private parties can bring their own prepared food. Wine tastings require valid ID and guests must be 21+. Email: LakePointVineyard@gmail.com",
+  "_meta": {
+    "scraped_at": "2026-05-18T17:15:52.398Z",
+    "pages_visited": 1,
+    "menu_sections": 2,
+    "menu_items": 18,
+    "priced_items": 0,
+    "has_hours": true,
+    "source_url": "https://lakepointvineyard.org/"
+  }
+}

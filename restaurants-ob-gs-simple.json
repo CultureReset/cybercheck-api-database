@@ -1,0 +1,173 @@
+[
+  {
+    "place_id": "ChIJv5xaw50HmogR9KQzuSy-C40",
+    "name": "Coastal Orange Beach",
+    "type": "restaurant",
+    "city": "Orange Beach",
+    "state": "AL",
+    "address": "25722 Perdido Beach Blvd, Orange Beach, AL 36561, USA",
+    "phone": "",
+    "rating": 4.7,
+    "reviews_count": 6683,
+    "price_level": 3,
+    "business_status": "OPERATIONAL",
+    "lat": 30.2688315,
+    "lng": -87.586747,
+    "types": [
+      "bar",
+      "clothing_store",
+      "establishment",
+      "food",
+      "point_of_interest",
+      "restaurant",
+      "store"
+    ],
+    "opening_hours": {
+      "open_now": false
+    },
+    "photos": [
+      "/Users/owner/cybercheck-api-database/restaurant-photos/ChIJv5xaw50HmogR9KQzuSy-C40/Coastal Orange Beach_01.jpg"
+    ],
+    "google_maps_url": "https://maps.google.com/?q=30.2688315,-87.586747",
+    "website_menu": [],
+    "website_happy_hour": null,
+    "website_events": [],
+    "website_scraped": false,
+    "scraped_at": "2026-05-13T23:17:33.973864"
+  },
+  {
+    "place_id": "ChIJhf_aWPsHmogRuKwI6Au_bR8",
+    "name": "Old Salt Tavern",
+    "type": "restaurant",
+    "city": "Orange Beach",
+    "state": "AL",
+    "address": "25241 Perdido Beach Blvd Unit 101, Orange Beach, AL 36561, USA",
+    "phone": "",
+    "rating": 4.8,
+    "reviews_count": 186,
+    "price_level": null,
+    "business_status": "OPERATIONAL",
+    "lat": 30.2688119,
+    "lng": -87.59461739999999,
+    "types": [
+      "establishment",
+      "food",
+      "point_of_interest",
+      "restaurant"
+    ],
+    "opening_hours": {
+      "open_now": false
+    },
+    "photos": [
+      "/Users/owner/cybercheck-api-database/restaurant-photos/ChIJhf_aWPsHmogRuKwI6Au_bR8/Old Salt Tavern_01.jpg"
+    ],
+    "google_maps_url": "https://maps.google.com/?q=30.2688119,-87.59461739999999",
+    "website_menu": [],
+    "website_happy_hour": null,
+    "website_events": [],
+    "website_scraped": false,
+    "scraped_at": "2026-05-13T23:17:32.023429"
+  },
+  {
+    "place_id": "ChIJm4lIKgAHmogR_AoSmroSrkU",
+    "name": "Shipp’s Dockside Grill",
+    "type": "restaurant",
+    "city": "Orange Beach",
+    "state": "AL",
+    "address": "27075 Marina Rd, Orange Beach, AL 36561, USA",
+    "phone": "",
+    "rating": 4.5,
+    "reviews_count": 512,
+    "price_level": null,
+    "business_status": "OPERATIONAL",
+    "lat": 30.2838559,
+    "lng": -87.563197,
+    "types": [
+      "bar",
+      "establishment",
+      "food",
+      "point_of_interest",
+      "restaurant",
+      "store"
+    ],
+    "opening_hours": {
+      "open_now": false
+    },
+    "photos": [
+      "/Users/owner/cybercheck-api-database/restaurant-photos/ChIJm4lIKgAHmogR_AoSmroSrkU/Shipp’s Dockside Grill_01.jpg"
+    ],
+    "google_maps_url": "https://maps.google.com/?q=30.2838559,-87.563197",
+    "website_menu": [],
+    "website_happy_hour": null,
+    "website_events": [],
+    "website_scraped": false,
+    "scraped_at": "2026-05-13T23:17:35.010724"
+  },
+  {
+    "place_id": "ChIJaXciUJ4HmogRg3Mb_ECJLUo",
+    "name": "The Gulf",
+    "type": "restaurant",
+    "city": "Orange Beach",
+    "state": "AL",
+    "address": "27500 Perdido Beach Blvd, Orange Beach, AL 36561, USA",
+    "phone": "",
+    "rating": 4.7,
+    "reviews_count": 14500,
+    "price_level": 2,
+    "business_status": "OPERATIONAL",
+    "lat": 30.276912,
+    "lng": -87.55635,
+    "types": [
+      "bar",
+      "establishment",
+      "food",
+      "point_of_interest",
+      "restaurant"
+    ],
+    "opening_hours": {
+      "open_now": false
+    },
+    "photos": [
+      "/Users/owner/cybercheck-api-database/restaurant-photos/ChIJaXciUJ4HmogRg3Mb_ECJLUo/The Gulf_01.jpg"
+    ],
+    "google_maps_url": "https://maps.google.com/?q=30.276912,-87.55635",
+    "website_menu": [],
+    "website_happy_hour": null,
+    "website_events": [],
+    "website_scraped": false,
+    "scraped_at": "2026-05-13T23:17:33.132067"
+  },
+  {
+    "place_id": "ChIJL3RjNOYHmogRr6ty7giLZ2U",
+    "name": "Zeke's Restaurant",
+    "type": "restaurant",
+    "city": "Orange Beach",
+    "state": "AL",
+    "address": "26619 Perdido Beach Blvd, Orange Beach, AL 36561, USA",
+    "phone": "",
+    "rating": 4.9,
+    "reviews_count": 16369,
+    "price_level": 2,
+    "business_status": "OPERATIONAL",
+    "lat": 30.2753617,
+    "lng": -87.5691303,
+    "types": [
+      "establishment",
+      "food",
+      "point_of_interest",
+      "restaurant"
+    ],
+    "opening_hours": {
+      "open_now": false
+    },
+    "photos": [
+      "/Users/owner/cybercheck-api-database/restaurant-photos/ChIJL3RjNOYHmogRr6ty7giLZ2U/Zeke's Restaurant_01.jpg"
+    ],
+    "google_maps_url": "https://maps.google.com/?q=30.2753617,-87.5691303",
+    "website_menu": [],
+    "website_happy_hour": null,
+    "website_events": [],
+    "website_scraped": false,
+    "scraped_at": "2026-05-13T23:17:31.058986"
+  }
+]

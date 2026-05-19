@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Google Maps Venue Lookup</title>
+  <style>
+    body { font-family: Arial; padding: 20px; background: #f5f5f5; }
+    .container { max-width: 900px; margin: 0 auto; }
+    h1 { color: #333; }
+    table { width: 100%; border-collapse: collapse; background: white; }
+    th { background: #4285f4; color: white; padding: 12px; text-align: left; }
+    td { padding: 10px; border-bottom: 1px solid #ddd; }
+    tr:hover { background: #f9f9f9; }
+    a { color: #4285f4; text-decoration: none; font-weight: bold; }
+    a:hover { text-decoration: underline; }
+    .num { color: #666; width: 40px; }
+    .instructions { background: #e3f2fd; padding: 15px; margin-bottom: 20px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Google Maps Venue Lookup (64 venues)</h1>
+    
+    <div class="instructions">
+      <strong>Instructions:</strong><br>
+      1. Click on each venue name to open Google Maps<br>
+      2. Find the business in the results<br>
+      3. Click on it to see details<br>
+      4. Copy the Place ID from the URL (looks like ChIJ...)<br>
+      5. Paste it in the "Place ID" field<br>
+      6. Save the JSON file when done
+    </div>
+    
+    <table>
+      <tr>
+        <th class="num">#</th>
+        <th>Venue Name</th>
+        <th>Google Maps Link</th>
+        <th>Place ID (paste here)</th>
+      </tr>
+      <tr>
+        <td class="num">1</td>
+        <td>OSO at Bear Point Harbor - Orange Beach</td>
+        <td><a href="https://www.google.com/maps/search/OSO%20at%20Bear%20Point%20Harbor%20-%20Orange%20Beach" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_1"></td>
+      </tr>
+      <tr>
+        <td class="num">2</td>
+        <td>Barometer Waterfront Grill</td>
+        <td><a href="https://www.google.com/maps/search/Barometer%20Waterfront%20Grill" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_2"></td>
+      </tr>
+      <tr>
+        <td class="num">3</td>
+        <td>Cobalt, The Restaurant</td>
+        <td><a href="https://www.google.com/maps/search/Cobalt%2C%20The%20Restaurant" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_3"></td>
+      </tr>
+      <tr>
+        <td class="num">4</td>
+        <td>CoastAL Orange Beach</td>
+        <td><a href="https://www.google.com/maps/search/CoastAL%20Orange%20Beach" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_4"></td>
+      </tr>
+      <tr>
+        <td class="num">5</td>
+        <td>Luna's Eat & Drink</td>
+        <td><a href="https://www.google.com/maps/search/Luna's%20Eat%20%26%20Drink" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_5"></td>
+      </tr>
+      <tr>
+        <td class="num">6</td>
+        <td>Red Haven</td>
+        <td><a href="https://www.google.com/maps/search/Red%20Haven" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_6"></td>
+      </tr>
+      <tr>
+        <td class="num">7</td>
+        <td>Angry Crab Shack</td>
+        <td><a href="https://www.google.com/maps/search/Angry%20Crab%20Shack" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_7"></td>
+      </tr>
+      <tr>
+        <td class="num">8</td>
+        <td>Tipsy Pelican Patio Bar</td>
+        <td><a href="https://www.google.com/maps/search/Tipsy%20Pelican%20Patio%20Bar" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_8"></td>
+      </tr>
+      <tr>
+        <td class="num">9</td>
+        <td>Portside on Main</td>
+        <td><a href="https://www.google.com/maps/search/Portside%20on%20Main" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_9"></td>
+      </tr>
+      <tr>
+        <td class="num">10</td>
+        <td>Perdido Beach Resort</td>
+        <td><a href="https://www.google.com/maps/search/Perdido%20Beach%20Resort" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_10"></td>
+      </tr>
+      <tr>
+        <td class="num">11</td>
+        <td>Ginny Lane Bar & Grill</td>
+        <td><a href="https://www.google.com/maps/search/Ginny%20Lane%20Bar%20%26%20Grill" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_11"></td>
+      </tr>
+      <tr>
+        <td class="num">12</td>
+        <td>Tiki & Raw Bar</td>
+        <td><a href="https://www.google.com/maps/search/Tiki%20%26%20Raw%20Bar" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_12"></td>
+      </tr>
+      <tr>
+        <td class="num">13</td>
+        <td>GTs On The Bay</td>
+        <td><a href="https://www.google.com/maps/search/GTs%20On%20The%20Bay" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_13"></td>
+      </tr>
+      <tr>
+        <td class="num">14</td>
+        <td>Shipp's Harbour Grill</td>
+        <td><a href="https://www.google.com/maps/search/Shipp's%20Harbour%20Grill" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_14"></td>
+      </tr>
+      <tr>
+        <td class="num">15</td>
+        <td>Doc's Seafood and Steaks</td>
+        <td><a href="https://www.google.com/maps/search/Doc's%20Seafood%20and%20Steaks" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_15"></td>
+      </tr>
+      <tr>
+        <td class="num">16</td>
+        <td>Cosmo's Restaurant & Bar</td>
+        <td><a href="https://www.google.com/maps/search/Cosmo's%20Restaurant%20%26%20Bar" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_16"></td>
+      </tr>
+      <tr>
+        <td class="num">17</td>
+        <td>Zeke's Restaurant</td>
+        <td><a href="https://www.google.com/maps/search/Zeke's%20Restaurant" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_17"></td>
+      </tr>
+      <tr>
+        <td class="num">18</td>
+        <td>Tacky Jacks Orange Beach</td>
+        <td><a href="https://www.google.com/maps/search/Tacky%20Jacks%20Orange%20Beach" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_18"></td>
+      </tr>
+      <tr>
+        <td class="num">19</td>
+        <td>The Undertow Bar</td>
+        <td><a href="https://www.google.com/maps/search/The%20Undertow%20Bar" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_19"></td>
+      </tr>
+      <tr>
+        <td class="num">20</td>
+        <td>Flora-Bama Lounge & Oyster Bar</td>
+        <td><a href="https://www.google.com/maps/search/Flora-Bama%20Lounge%20%26%20Oyster%20Bar" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_20"></td>
+      </tr>
+      <tr>
+        <td class="num">21</td>
+        <td>LuLu's Gulf Shores</td>
+        <td><a href="https://www.google.com/maps/search/LuLu's%20Gulf%20Shores" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_21"></td>
+      </tr>
+      <tr>
+        <td class="num">22</td>
+        <td>Lauria's by the Beach</td>
+        <td><a href="https://www.google.com/maps/search/Lauria's%20by%20the%20Beach" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_22"></td>
+      </tr>
+      <tr>
+        <td class="num">23</td>
+        <td>Big Beach Brewing Company</td>
+        <td><a href="https://www.google.com/maps/search/Big%20Beach%20Brewing%20Company" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_23"></td>
+      </tr>
+      <tr>
+        <td class="num">24</td>
+        <td>Pink Pony Pub</td>
+        <td><a href="https://www.google.com/maps/search/Pink%20Pony%20Pub" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_24"></td>
+      </tr>
+      <tr>
+        <td class="num">25</td>
+        <td>The Hangout Gulf Shores</td>
+        <td><a href="https://www.google.com/maps/search/The%20Hangout%20Gulf%20Shores" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_25"></td>
+      </tr>
+      <tr>
+        <td class="num">26</td>
+        <td>Papa Rocco's</td>
+        <td><a href="https://www.google.com/maps/search/Papa%20Rocco's" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_26"></td>
+      </tr>
+      <tr>
+        <td class="num">27</td>
+        <td>The Sloop</td>
+        <td><a href="https://www.google.com/maps/search/The%20Sloop" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_27"></td>
+      </tr>
+      <tr>
+        <td class="num">28</td>
+        <td>Cove Bar & Grill</td>
+        <td><a href="https://www.google.com/maps/search/Cove%20Bar%20%26%20Grill" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_28"></td>
+      </tr>
+      <tr>
+        <td class="num">29</td>
+        <td>Icehouse Tap Room Gulf Shores</td>
+        <td><a href="https://www.google.com/maps/search/Icehouse%20Tap%20Room%20Gulf%20Shores" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_29"></td>
+      </tr>
+      <tr>
+        <td class="num">30</td>
+        <td>Woodside Restaurant</td>
+        <td><a href="https://www.google.com/maps/search/Woodside%20Restaurant" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_30"></td>
+      </tr>
+      <tr>
+        <td class="num">31</td>
+        <td>Salty Pearl Raw Bar</td>
+        <td><a href="https://www.google.com/maps/search/Salty%20Pearl%20Raw%20Bar" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_31"></td>
+      </tr>
+      <tr>
+        <td class="num">32</td>
+        <td>Flora-Bama Ole River Grill</td>
+        <td><a href="https://www.google.com/maps/search/Flora-Bama%20Ole%20River%20Grill" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_32"></td>
+      </tr>
+      <tr>
+        <td class="num">33</td>
+        <td>The Point Restaurant</td>
+        <td><a href="https://www.google.com/maps/search/The%20Point%20Restaurant" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_33"></td>
+      </tr>
+      <tr>
+        <td class="num">34</td>
+        <td>Purple Parrot Tiki Bar & Grill</td>
+        <td><a href="https://www.google.com/maps/search/Purple%20Parrot%20Tiki%20Bar%20%26%20Grill" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_34"></td>
+      </tr>
+      <tr>
+        <td class="num">35</td>
+        <td>Bushwacker's Landing</td>
+        <td><a href="https://www.google.com/maps/search/Bushwacker's%20Landing" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_35"></td>
+      </tr>
+      <tr>
+        <td class="num">36</td>
+        <td>Hub Stacey's at the Point</td>
+        <td><a href="https://www.google.com/maps/search/Hub%20Stacey's%20at%20the%20Point" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_36"></td>
+      </tr>
+      <tr>
+        <td class="num">37</td>
+        <td>Perdido Key Sports Bar & Restaurant</td>
+        <td><a href="https://www.google.com/maps/search/Perdido%20Key%20Sports%20Bar%20%26%20Restaurant" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_37"></td>
+      </tr>
+      <tr>
+        <td class="num">38</td>
+        <td>Flora-Bama Yacht Club</td>
+        <td><a href="https://www.google.com/maps/search/Flora-Bama%20Yacht%20Club" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_38"></td>
+      </tr>
+      <tr>
+        <td class="num">39</td>
+        <td>Crabs on Pensacola Beach</td>
+        <td><a href="https://www.google.com/maps/search/Crabs%20on%20Pensacola%20Beach" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_39"></td>
+      </tr>
+      <tr>
+        <td class="num">40</td>
+        <td>Paradise Bar and Grill</td>
+        <td><a href="https://www.google.com/maps/search/Paradise%20Bar%20and%20Grill" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_40"></td>
+      </tr>
+      <tr>
+        <td class="num">41</td>
+        <td>Sandbar Sunset Bar & Grill</td>
+        <td><a href="https://www.google.com/maps/search/Sandbar%20Sunset%20Bar%20%26%20Grill" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_41"></td>
+      </tr>
+      <tr>
+        <td class="num">42</td>
+        <td>Pensacola Beach Elks Lodge 497</td>
+        <td><a href="https://www.google.com/maps/search/Pensacola%20Beach%20Elks%20Lodge%20497" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_42"></td>
+      </tr>
+      <tr>
+        <td class="num">43</td>
+        <td>Salty Rose Beach Bar & Grill</td>
+        <td><a href="https://www.google.com/maps/search/Salty%20Rose%20Beach%20Bar%20%26%20Grill" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_43"></td>
+      </tr>
+      <tr>
+        <td class="num">44</td>
+        <td>Bounce Beach Pensacola Beach</td>
+        <td><a href="https://www.google.com/maps/search/Bounce%20Beach%20Pensacola%20Beach" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_44"></td>
+      </tr>
+      <tr>
+        <td class="num">45</td>
+        <td>Bamboo Willie's Beachside Bar</td>
+        <td><a href="https://www.google.com/maps/search/Bamboo%20Willie's%20Beachside%20Bar" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_45"></td>
+      </tr>
+      <tr>
+        <td class="num">46</td>
+        <td>The Break Beach Bar</td>
+        <td><a href="https://www.google.com/maps/search/The%20Break%20Beach%20Bar" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_46"></td>
+      </tr>
+      <tr>
+        <td class="num">47</td>
+        <td>Flounder's Chowder House</td>
+        <td><a href="https://www.google.com/maps/search/Flounder's%20Chowder%20House" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_47"></td>
+      </tr>
+      <tr>
+        <td class="num">48</td>
+        <td>Sandshaker Lounge & Package</td>
+        <td><a href="https://www.google.com/maps/search/Sandshaker%20Lounge%20%26%20Package" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_48"></td>
+      </tr>
+      <tr>
+        <td class="num">49</td>
+        <td>Calvert's in the Heights</td>
+        <td><a href="https://www.google.com/maps/search/Calvert's%20in%20the%20Heights" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_49"></td>
+      </tr>
+      <tr>
+        <td class="num">50</td>
+        <td>Hub Stacey's Downtown</td>
+        <td><a href="https://www.google.com/maps/search/Hub%20Stacey's%20Downtown" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_50"></td>
+      </tr>
+      <tr>
+        <td class="num">51</td>
+        <td>Moonshine Saloon</td>
+        <td><a href="https://www.google.com/maps/search/Moonshine%20Saloon" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_51"></td>
+      </tr>
+      <tr>
+        <td class="num">52</td>
+        <td>Wild Greg's Saloon Pensacola</td>
+        <td><a href="https://www.google.com/maps/search/Wild%20Greg's%20Saloon%20Pensacola" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_52"></td>
+      </tr>
+      <tr>
+        <td class="num">53</td>
+        <td>Seville Quarter</td>
+        <td><a href="https://www.google.com/maps/search/Seville%20Quarter" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_53"></td>
+      </tr>
+      <tr>
+        <td class="num">54</td>
+        <td>Fraternal Order of Eagles Foley</td>
+        <td><a href="https://www.google.com/maps/search/Fraternal%20Order%20of%20Eagles%20Foley" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_54"></td>
+      </tr>
+      <tr>
+        <td class="num">55</td>
+        <td>Moe's Original BBQ Foley</td>
+        <td><a href="https://www.google.com/maps/search/Moe's%20Original%20BBQ%20Foley" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_55"></td>
+      </tr>
+      <tr>
+        <td class="num">56</td>
+        <td>Groovy Goat</td>
+        <td><a href="https://www.google.com/maps/search/Groovy%20Goat" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_56"></td>
+      </tr>
+      <tr>
+        <td class="num">57</td>
+        <td>American Legion Post 99</td>
+        <td><a href="https://www.google.com/maps/search/American%20Legion%20Post%2099" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_57"></td>
+      </tr>
+      <tr>
+        <td class="num">58</td>
+        <td>The Galley Bar & Grill</td>
+        <td><a href="https://www.google.com/maps/search/The%20Galley%20Bar%20%26%20Grill" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_58"></td>
+      </tr>
+      <tr>
+        <td class="num">59</td>
+        <td>Emerald Waterfront Bar & Grill</td>
+        <td><a href="https://www.google.com/maps/search/Emerald%20Waterfront%20Bar%20%26%20Grill" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_59"></td>
+      </tr>
+      <tr>
+        <td class="num">60</td>
+        <td>Andy D's Beachside Restaurant & Deck Bar</td>
+        <td><a href="https://www.google.com/maps/search/Andy%20D's%20Beachside%20Restaurant%20%26%20Deck%20Bar" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_60"></td>
+      </tr>
+      <tr>
+        <td class="num">61</td>
+        <td>Juana's Pagodas & Sailors' Grill</td>
+        <td><a href="https://www.google.com/maps/search/Juana's%20Pagodas%20%26%20Sailors'%20Grill" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_61"></td>
+      </tr>
+      <tr>
+        <td class="num">62</td>
+        <td>Johnny B's Front Porch</td>
+        <td><a href="https://www.google.com/maps/search/Johnny%20B's%20Front%20Porch" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_62"></td>
+      </tr>
+      <tr>
+        <td class="num">63</td>
+        <td>Lillian Community Club</td>
+        <td><a href="https://www.google.com/maps/search/Lillian%20Community%20Club" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_63"></td>
+      </tr>
+      <tr>
+        <td class="num">64</td>
+        <td>The Country Gym</td>
+        <td><a href="https://www.google.com/maps/search/The%20Country%20Gym" target="_blank">Search</a></td>
+        <td><input type="text" placeholder="ChIJ..." style="width: 200px; padding: 5px;" id="place_64"></td>
+      </tr>
+    </table>
+    
+    <br>
+    <button onclick="saveResults()" style="padding: 10px 20px; background: #4285f4; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">
+      Save Results to JSON
+    </button>
+    
+    <pre id="output" style="background: #fff; padding: 15px; margin-top: 20px; border-radius: 4px; display: none;"></pre>
+  </div>
+  
+  <script>
+    function saveResults() {
+      const results = [];
+      const rows = document.querySelectorAll('table tr');
+      
+      for (let i = 2; i < rows.length; i++) {
+        const cells = rows[i].querySelectorAll('td');
+        const venueName = cells[1].textContent.trim();
+        const placeId = cells[3].querySelector('input').value.trim();
+        
+        if (placeId) {
+          results.push({
+            venue_name: venueName,
+            place_id: placeId
+          });
+        }
+      }
+      
+      const json = JSON.stringify(results, null, 2);
+      document.getElementById('output').textContent = json;
+      document.getElementById('output').style.display = 'block';
+      
+      console.log('Copy and save this to: consolidation/VENUE-PLACE-IDS-MANUAL.json');
+    }
+  </script>
+</body>
+</html>

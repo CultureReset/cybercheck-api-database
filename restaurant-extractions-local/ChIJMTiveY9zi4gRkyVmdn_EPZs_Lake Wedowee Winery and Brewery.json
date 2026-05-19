@@ -1,0 +1,216 @@
+{
+  "business_name": "Lake Wedowee Winery and Brewery",
+  "cuisine_type": "Winery and Brewery",
+  "price_range": null,
+  "description": "Lake Wedowee Winery is Wedowee Alabama's premier winery and tasting room. Located in beautiful downtown Wedowee less than a mile from the Lake Wedowee shoreline. Welcome to Lake Wedowee Winery and Brewery! Wedowee Alabama's Premier Winery, Tasting, and Tap Room Conveniently located near Cheaha State Park, Talladega Superspeedway, Atlanta, GA, Birmingham, AL, and Auburn, AL.",
+  "atmosphere": null,
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": "Downtown Wedowee, Alabama (less than a mile from Lake Wedowee shoreline)",
+    "website": "https://lakewedoweewinery.com",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": null,
+      "instagram": null,
+      "twitter": null,
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": "Closed",
+    "tuesday": "12pm until 6pm",
+    "wednesday": "12pm until 6pm",
+    "thursday": null,
+    "friday": "6pm until 8pm (Beer and Bingo)",
+    "saturday": null,
+    "sunday": null,
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": true,
+    "takeout_available": null,
+    "delivery_available": null,
+    "curbside_available": null,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [],
+    "wine_list": null,
+    "beer_selection": "Available - Beer and Bingo events on Friday nights",
+    "cocktails": null,
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": null,
+      "vegan": null,
+      "gluten_free": null,
+      "dairy_free": null,
+      "nut_free": null,
+      "kosher": null,
+      "halal": null
+    }
+  },
+  "happy_hour": {
+    "available": null,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [
+    {
+      "type": "recurring_event",
+      "day_of_week": "Friday",
+      "name": "Beer and Bingo",
+      "description": "Beer and Bingo every Friday night",
+      "discount": null,
+      "valid_until": null
+    }
+  ],
+  "entertainment_and_events": [
+    {
+      "type": "trivia_and_games",
+      "name": "Beer and Bingo",
+      "days": "Friday",
+      "start_time": "6pm",
+      "end_time": "8pm",
+      "description": "Beer and Bingo every Friday night",
+      "cover_charge": null,
+      "featured_artist": null
+    }
+  ],
+  "private_events": {
+    "available": null,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": null,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": null,
+    "pets_allowed": null
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": null,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": null,
+    "private_dining": null
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": null,
+    "email_signup": null,
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": null,
+    "farm_to_table": null,
+    "sustainable": null,
+    "organic": null,
+    "details": null
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [],
+    "common_praise": [],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "restaurant",
+      "url": "https://lakewedoweewinery.com/wp-content/uploads/2021/03/winery-old.jpg",
+      "description": "Winery exterior"
+    },
+    {
+      "type": "restaurant",
+      "url": "https://lakewedoweewinery.com/wp-content/uploads/2023/06/wup4.jpg",
+      "description": "Winery upstairs view"
+    },
+    {
+      "type": "restaurant",
+      "url": "https://lakewedoweewinery.com/wp-content/uploads/2023/06/wup2.jpg",
+      "description": "Winery upstairs seating"
+    },
+    {
+      "type": "restaurant",
+      "url": "https://lakewedoweewinery.com/wp-content/uploads/2023/06/wup.jpg",
+      "description": "Winery upstairs area"
+    },
+    {
+      "type": "restaurant",
+      "url": "https://lakewedoweewinery.com/wp-content/uploads/2023/06/wup3.jpg",
+      "description": "Winery upstairs"
+    },
+    {
+      "type": "beverage",
+      "url": "https://lakewedoweewinery.com/wp-content/uploads/2022/08/beer.jpg",
+      "description": "Beer selection"
+    },
+    {
+      "type": "beverage",
+      "url": "https://lakewedoweewinery.com/wp-content/uploads/2025/09/beer-with-logo.png",
+      "description": "Beer with logo"
+    },
+    {
+      "type": "beverage",
+      "url": "https://lakewedoweewinery.com/wp-content/uploads/2025/09/flight-beer.png",
+      "description": "Beer flight"
+    },
+    {
+      "type": "beverage",
+      "url": "https://lakewedoweewinery.com/wp-content/uploads/2025/09/beer-glass.jpg",
+      "description": "Beer in glass"
+    },
+    {
+      "type": "beverage",
+      "url": "https://lakewedoweewinery.com/wp-content/uploads/2025/09/beer-pour.jpg",
+      "description": "Beer being poured"
+    },
+    {
+      "type": "restaurant",
+      "url": "https://lakewedoweewinery.com/wp-content/uploads/2025/09/outdoor-winery.jpg",
+      "description": "Outdoor winery area"
+    },
+    {
+      "type": "staff",
+      "url": "https://lakewedoweewinery.com/wp-content/uploads/2025/09/wine-crew-2025.jpg",
+      "description": "Wine crew staff"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "Lake Wedowee Winery Lake Wedowee Winery is Wedowee Alabama's premier winery and tasting room. Located in beautiful downtown Wedowee less than a mile from the Lake Wedowee shoreline. Welcome to Lake Wedowee Winery and Brewery! Wedowee Alabama's Premier Winery, Tasting, and Tap Room. Conveniently located near Cheaha State Park, Talladega Superspeedway, Atlanta, GA, Birmingham, AL, and Auburn, AL. Hours, Events, and Happenings! Beer and Bingo every Friday night 6pm until 8pm! Monday: Closed Tuesday: 12pm until 6pm Wednesday: 12pm until 6pm Thursday: 12pm until 6pm Friday: 6pm until 8pm Saturday: 12pm until 8pm Sunday: 12pm until 6pm",
+  "extraction_confidence": "medium",
+  "extraction_notes": "Limited data extracted from homepage. The HTML contains primarily header/meta information and CSS styling. Basic business information, location description, hours, and a recurring event (Beer and Bingo on Fridays) were found. Missing: detailed menu, pricing, phone number, email, full address, reservation details, parking information, accessibility details, payment methods, social media links, and reviews. The website appears to be WordPress-based with limited visible content in the provided HTML. More detailed information would require accessing additional pages or more complete HTML content.",
+  "folder": "ChIJMTiveY9zi4gRkyVmdn_EPZs_Lake Wedowee Winery and Brewery",
+  "extracted_at": "2026-05-15T06:17:32.830Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJMTiveY9zi4gRkyVmdn_EPZs_Lake Wedowee Winery and Brewery/01_raw_html.html"
+}

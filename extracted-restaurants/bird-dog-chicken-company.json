@@ -1,0 +1,29 @@
+{
+  "name": "Bird Dog Chicken Company",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "251-303-8555",
+    "address": "4575 Orange Beach Blvd, Suite 106",
+    "city": "Orange Beach",
+    "email": ""
+  },
+  "hours": {
+    "monday": "7:00am-9:00pm",
+    "tuesday": "7:00am-9:00pm",
+    "wednesday": "7:00am-9:00pm",
+    "thursday": "7:00am-9:00pm",
+    "friday": "7:00am-9:00pm",
+    "saturday": "7:00am-9:00pm",
+    "sunday": "7:00am-9:00pm"
+  },
+  "about": {},
+  "social": {},
+  "menu": [],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:50.062Z"
+}

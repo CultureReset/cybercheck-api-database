@@ -1,0 +1,268 @@
+{
+  "name": "Pirates Cove",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "251-987-1224",
+    "address": "6664 Co Rd 95",
+    "city": "Elberta",
+    "email": "info@piratescoveriffraff.com"
+  },
+  "hours": {
+    "monday": "9am-7pm",
+    "tuesday": "9am-7pm",
+    "wednesday": "9am-7pm",
+    "thursday": "9am-7pm",
+    "friday": "8am-9pm",
+    "saturday": "8am-9pm",
+    "sunday": "8am-9pm"
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Sandwiches",
+      "name": "Cheeseburger",
+      "description": "1/3 lb burger crafted with custom blend of brisket, short rib, and chuck. Topped with cheddar cheese, grilled onions, crisp lettuce, fresh tomato, and house made mustard gin secret sauce",
+      "price": ""
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Double Cheeseburger",
+      "description": "Two 1/3 lb patties made from custom blend of brisket, short rib, and chuck. Stacked with cheddar cheese, grilled onions, crisp lettuce, and fresh tomato, then finished with signature mustard gin sauce",
+      "price": ""
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Bacon Cheeseburger",
+      "description": "1/3 lb patty with crispy bacon, melted cheddar cheese, grilled onions, lettuce, tomato, and signature mustard gin sauce",
+      "price": ""
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Fried Chicken",
+      "description": "Crispy, juicy white meat chicken strips, lightly breaded and fried golden. Served on a fluffy bun with lettuce, tomato, and mayo",
+      "price": ""
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Grilled Chicken",
+      "description": "5 oz grilled chicken breast, served on a bun with crisp lettuce, fresh tomato, and classic mayo",
+      "price": ""
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Sausage & Kraut",
+      "description": "Locally made juicy sausage grilled and served with sauerkraut, grilled onions, and classic yellow mustard",
+      "price": ""
+    },
+    {
+      "category": "Sandwiches",
+      "name": "Hotdog",
+      "description": "Classic hot dog served with ketchup, mustard, relish, and chopped onions",
+      "price": ""
+    },
+    {
+      "category": "Salads",
+      "name": "House Salad",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Salads",
+      "name": "Grilled Chicken Salad",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Salads",
+      "name": "Fried Chicken Salad",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Salads",
+      "name": "Cheeseburger Salad",
+      "description": "World-famous cheeseburger served salad-style. Fresh lettuce topped with juicy tomatoes, sliced onions, shredded mozzarella, and savory crumble of signature Cove burger patty. Finished with Cove Sauce on the side",
+      "price": ""
+    },
+    {
+      "category": "Breakfast Sandwiches",
+      "name": "Sausage, Egg and Cheese Sandwich",
+      "description": "Grilled sausage link locally made from Farm Fresh Meats, fluffy egg, and melted cheese stacked on a warm, toasted bun. Served 8-10:30am or til we say otherwise",
+      "price": ""
+    },
+    {
+      "category": "Breakfast Sandwiches",
+      "name": "Ham, Egg and Cheese Sandwich",
+      "description": "Griddled ham, fresh cooked egg, and melted cheese served on a warm, toasted bun. Served 8-10:30am or til we say otherwise",
+      "price": ""
+    },
+    {
+      "category": "Breakfast Sandwiches",
+      "name": "Bacon, Egg, and Cheese Sandwich",
+      "description": "Crispy bacon, fresh cooked egg, and melted cheese, all stacked on a warm, toasted bun. Served 8-10:30am or til we say otherwise",
+      "price": ""
+    },
+    {
+      "category": "Breakfast Sandwiches",
+      "name": "Hash Brown",
+      "description": "Golden, crispy, and fried to perfection",
+      "price": ""
+    },
+    {
+      "category": "From the Fryer",
+      "name": "Corndog",
+      "description": "Golden, crispy, and straight from the fryer. Lightly battered and fried to perfection. Also available in Gluten Friendly option",
+      "price": ""
+    },
+    {
+      "category": "From the Fryer",
+      "name": "Chicken Fingers",
+      "description": "4 pieces of lightly breaded, all-white meat chicken strips crispy on the outside, tender on the inside. Also available in Gluten Friendly option",
+      "price": ""
+    },
+    {
+      "category": "From the Fryer",
+      "name": "French Fries",
+      "description": "Freshly cut and fried in rich beef tallow for golden, crispy bite and deep, savory flavor. Also available in Gluten Friendly option",
+      "price": ""
+    },
+    {
+      "category": "From the Fryer",
+      "name": "Onion Rings",
+      "description": "Thick cut, crispy, and golden brown. Crunchy on the outside, sweet and tender inside",
+      "price": ""
+    },
+    {
+      "category": "From the Fryer",
+      "name": "Hot Wings",
+      "description": "Served in 5 or 10-piece orders. Crispy wings drenched in house made hot sauce. Comes with choice of ranch or blue cheese. Also available in Gluten Friendly option",
+      "price": ""
+    },
+    {
+      "category": "From the Fryer",
+      "name": "Platters",
+      "description": "4-5 servings options: Fries (GF optional), Chicken Fingers (GF optional), 1/2 & 1/2 Fries/Onion Rings, Onion Rings",
+      "price": ""
+    },
+    {
+      "category": "Pizza",
+      "name": "Karnivorous Karl",
+      "description": "All meat. Loaded with chicken, sausage, pepperoni, ham, and bacon and then topped with pineapple, tomato, garlic, feta, and melty mozzarella. Built on handmade from scratch crust and fired in wood oven",
+      "price": ""
+    },
+    {
+      "category": "Pizza",
+      "name": "Paul's Perfect Pizza",
+      "description": "Pepperoni, ham, sausage, green peppers, banana peppers, and jalapeños, topped with mozzarella on handmade from scratch crust and crisped in woodfired oven",
+      "price": ""
+    },
+    {
+      "category": "Pizza",
+      "name": "Lucia's Luau",
+      "description": "Pepperoni, pineapple, feta, and mozzarella on handmade wood fired crust",
+      "price": ""
+    },
+    {
+      "category": "Pizza",
+      "name": "JJ's Junk",
+      "description": "Crispy chicken fingers, grilled onions, bacon, and melty mozzarella all baked on handmade wood fired pizza crust then topped with blue cheese and served with house wing sauce",
+      "price": ""
+    },
+    {
+      "category": "Pizza",
+      "name": "Mel's Garbage",
+      "description": "Artichoke hearts, banana peppers, black olives, green olives, mushrooms, onions, jalapeños, pepperoni, feta, and mozzarella on handmade crust",
+      "price": ""
+    },
+    {
+      "category": "Pizza",
+      "name": "MaryAnn's Mess",
+      "description": "Artichoke hearts, garlic, grilled chicken, bacon, spinach, feta, and mozzarella on handmade crust",
+      "price": ""
+    },
+    {
+      "category": "Pizza",
+      "name": "Cove Burger",
+      "description": "Ground beef, cheddar cheese, tomato, onions, and secret mustard gin sauce baked on handmade wood fired crust and topped with crispy fries or onion rings",
+      "price": ""
+    },
+    {
+      "category": "Pizza",
+      "name": "Cheese Pizza",
+      "description": "Available in 10\" or 14\" sizes",
+      "price": ""
+    },
+    {
+      "category": "Pizza",
+      "name": "Gluten-Friendly Pizza",
+      "description": "10\" size available",
+      "price": ""
+    },
+    {
+      "category": "Pizza",
+      "name": "Create Your Own Pizza",
+      "description": "Choose from marinara, ranch, blue cheese, garlic butter, or Cove sauce. Toppings: mozzarella, feta, pepperoni, grilled chicken, ground beef, ham, sausage, artichoke hearts, banana peppers, black olives, green olives, fresh mushrooms, diced tomatoes, green peppers, jalapeños, fresh garlic, spinach, onions, pineapple",
+      "price": ""
+    },
+    {
+      "category": "Drinks",
+      "name": "Bushwhacker",
+      "description": "Cold, creamy, and downright legendary. Frozen favorite packs an unforgettable punch, finished with a topper of 151 rum. Available in Regular & Souvenir Cup",
+      "price": ""
+    },
+    {
+      "category": "Drinks",
+      "name": "Mixed Drinks",
+      "description": "1.5 oz Alcohol - Well & Premium options available",
+      "price": ""
+    },
+    {
+      "category": "Drinks",
+      "name": "Domestic Beer",
+      "description": "Bud, Bud Light, Miller Lite, Coors Light, Busch Light, Mich Ultra, Yuengling",
+      "price": ""
+    },
+    {
+      "category": "Drinks",
+      "name": "Import Beer",
+      "description": "Red Stripe, Tecate, Tecate Light",
+      "price": ""
+    },
+    {
+      "category": "Drinks",
+      "name": "MicroBrew",
+      "description": "Fairhope 51 (pale ale), Fairhope Cheap Sunglasses (golden ale), Fairhope IPA, Fairhope Pink Delicious (seltzer), Fairhope Amber, Goat Island Blood Orange (tart wheat ale)",
+      "price": ""
+    },
+    {
+      "category": "Drinks",
+      "name": "Coca-Cola Products",
+      "description": "",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "20th Annual Pirates Cove Autism FUNraiser",
+      "description": "Twenty years of community. Twenty years of support. Twenty years of making a difference",
+      "discount": ""
+    },
+    {
+      "name": "Pizza Service",
+      "description": "Wood fired pizza oven with dough made from scratch every day",
+      "discount": ""
+    },
+    {
+      "name": "Sandbar Stage Live Music",
+      "description": "Live music on the sand bar. May 2026 schedule: Les Lyden (May 9, 23), Lance Gordon (May 10, 24), Hollis Sellew (May 16, 30), Truman Holland (May 17, 31)",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:51.288Z"
+}

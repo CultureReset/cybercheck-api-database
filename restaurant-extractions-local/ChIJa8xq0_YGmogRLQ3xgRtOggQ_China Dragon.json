@@ -1,0 +1,151 @@
+{
+  "business_name": "China Dragon",
+  "cuisine_type": "Chinese",
+  "price_range": "$$",
+  "description": "China Dragon serves the Orange Beach area with delicious chinese cuisine. Our specialty dishes have been well-crafted to create a delightful culinary experience. Enjoy the convenience of pickup or delivery when ordering through Beyond Menu. Are you looking for the best chinese restaurant in Orange Beach? Look no further than China Dragon. This eatery serves up some of the most delicious chinese cuisine around.",
+  "atmosphere": null,
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": "(850) 786-4777",
+    "email": null,
+    "address": "25405 Perdido Beach Boulevard Ste 19, Orange Beach, AL 36561",
+    "website": "https://www.chinadragonorangebeach.com",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": null,
+      "instagram": null,
+      "twitter": null,
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": "11:00 am - 10:00 pm",
+    "tuesday": "11:00 am - 10:00 pm",
+    "wednesday": "11:00 am - 10:00 pm",
+    "thursday": "11:00 am - 10:00 pm",
+    "friday": "11:00 am - 10:00 pm",
+    "saturday": "11:00 am - 10:00 pm",
+    "sunday": "11:00 am - 10:00 pm",
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": false,
+    "takeout_available": true,
+    "delivery_available": true,
+    "curbside_available": false,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [],
+    "wine_list": null,
+    "beer_selection": null,
+    "cocktails": null,
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": false,
+      "vegan": false,
+      "gluten_free": false,
+      "dairy_free": false,
+      "nut_free": false,
+      "kosher": false,
+      "halal": false
+    }
+  },
+  "happy_hour": {
+    "available": false,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [],
+  "entertainment_and_events": [],
+  "private_events": {
+    "available": false,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": false,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": false,
+    "accessible_restroom": false,
+    "parking_accessible": false,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": null,
+    "pets_allowed": false
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": false,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": false,
+    "private_dining": false
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": false,
+    "email_signup": null,
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": false,
+    "farm_to_table": false,
+    "sustainable": false,
+    "organic": false,
+    "details": null
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [],
+    "common_praise": [],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "hero",
+      "url": "https://ik.imagekit.io/awwybhhmo/satellite_images/chinese/red/hero/11.jpg?tr=",
+      "description": null
+    },
+    {
+      "type": "about_us",
+      "url": "https://ik.imagekit.io/awwybhhmo/satellite_images/chinese/red/about_us/7.jpg?tr=",
+      "description": null
+    },
+    {
+      "type": "logo",
+      "url": "https://ik.imagekit.io/awwybhhmo/satellite_images/custom/www_chinadragonorangebeach_com/logos/favicon_dbc.png",
+      "description": null
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "China Dragon. The spot for authentic cuisine and great customer service. Are you looking for the best chinese restaurant in Orange Beach? Look no further than China Dragon. This eatery serves up some of the most delicious chinese cuisine around. About Us. China Dragon serves the Orange Beach area with delicious chinese cuisine. Our specialty dishes have been well-crafted to create a delightful culinary experience. Enjoy the convenience of pickup or delivery when ordering through Beyond Menu. Location. China Dragon（Orange Beach. CLOSED NOW. Closes at 10:00 pm. 25405 Perdido Beach Boulevard Ste 19, Orange Beach, AL 36561. 8507864777. Pickup. Delivery. Hours of Operation (Takeout). Monday - Sunday. 11:00 am - 10:00 pm. Order Online. View Menu. Review us on Google. Having you as part of our food lovers family means the world to us. We kindly ask you to spread the word about our restaurant by leaving a Google Review. Leave a review. China Dragon. Menu. Terms and Conditions. Privacy Policy. Cookies Policy. Accessibility. Order Online.",
+  "extraction_confidence": "medium",
+  "extraction_notes": "This is a landing/brand page with limited detailed information. The menu section is not visible on this page - only linked to an order-online page. No pricing details, wine list, cocktails, special events, or detailed menu items are present on this page. No social media links found. Reservations information shows 'No' for accepts_reservations based on schema data. The page focuses on basic business information, location, hours, and calls-to-action for ordering. Most detailed menu and ordering information would be found on the order-online page which is not included in this extraction.",
+  "folder": "ChIJa8xq0_YGmogRLQ3xgRtOggQ_China Dragon",
+  "extracted_at": "2026-05-15T06:25:29.959Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJa8xq0_YGmogRLQ3xgRtOggQ_China Dragon/01_raw_html.html"
+}

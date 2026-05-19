@@ -1,0 +1,108 @@
+{
+  "name": "The Cove Bar and Grill",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "251-968-5353",
+    "address": "131 Cove Ave",
+    "city": "Gulf Shores",
+    "email": "contact@covebargrill.com"
+  },
+  "hours": {
+    "monday": "11:00 AM - 1:00 AM",
+    "tuesday": "11:00 AM - 1:00 AM",
+    "wednesday": "11:00 AM - 1:00 AM",
+    "thursday": "11:00 AM - 1:00 AM",
+    "friday": "11:00 AM - 1:00 AM",
+    "saturday": "11:00 AM - 1:00 AM",
+    "sunday": null
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Appetizers",
+      "name": "Tuna Nachos",
+      "description": "Layered with seared tuna, house-made fried wontons, spicy mayo and eel sauce",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Fried Pickles and Jalapenos",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Stuffed Avocado",
+      "description": "Filled with blackened chicken or shrimp and topped with a creamy tequila lime sauce",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "The Cove Burger",
+      "description": "Stacked high with Hereford or Angus ground beef and all the fixings",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Philly Cheesesteak",
+      "description": "Hearty and satisfying",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Philly Cheese Steak Quesadilla",
+      "description": "Phenomenal combination",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Blackened Chicken Quesadilla",
+      "description": "Phenomenal",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Cajun Chicken and Waffles",
+      "description": "Crispy with sweet and spicy heat",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Fish Tacos",
+      "description": "Light, flavorful, and packed with coastal flair",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Cove Spicy Shrimp",
+      "description": "Perfectly seasoned shrimp with just the right amount of heat",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Chicken Wings",
+      "description": "Ideal for sharing during game night",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Chicken Club Wrap",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Fresh Salads",
+      "description": "",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:51.631Z"
+}

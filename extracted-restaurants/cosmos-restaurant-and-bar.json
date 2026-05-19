@@ -1,0 +1,173 @@
+{
+  "name": "Cosmo's Restaurant & Bar",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "(251) 948-9663",
+    "address": "25753 Canal Rd",
+    "city": "Orange Beach",
+    "email": ""
+  },
+  "hours": {
+    "monday": "11:00am-9:30pm",
+    "tuesday": "11:00am-9:30pm",
+    "wednesday": "11:00am-9:30pm",
+    "thursday": "11:00am-9:30pm",
+    "friday": "11:00am-10:00pm",
+    "saturday": "11:00am-10:00pm",
+    "sunday": "11:00am-9:30pm"
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Appetizers",
+      "name": "Firecracker Shrimp",
+      "description": "Lightly dusted bay shrimp fried and tossed in spicy remoulade sauce",
+      "price": 8
+    },
+    {
+      "category": "Appetizers",
+      "name": "Cheese Dip",
+      "description": "A silky blend of Swiss, Parmesan, and Gruyère cheeses. Topped with crumbled feta and roasted tomato relish. Served with house-baked pita chips",
+      "price": 8
+    },
+    {
+      "category": "Appetizers",
+      "name": "Calamari",
+      "description": "Lightly dusted, flash fried and served with housemade marinara",
+      "price": 9
+    },
+    {
+      "category": "Appetizers",
+      "name": "Shrimp Toast",
+      "description": "Chopped Gulf shrimp, garlic, sesame oil and green onions spread over slices of BuzzCatz white bread and deep fried. Served with pickled onion and sweet chili sauce.",
+      "price": 8
+    },
+    {
+      "category": "Drink Specials",
+      "name": "Urban South Paradise Park Light, PBR, and Luna's House Brew Draft",
+      "description": "",
+      "price": 2.5
+    },
+    {
+      "category": "Drink Specials",
+      "name": "House Wine",
+      "description": "Cabernet or chardonnay",
+      "price": 3
+    },
+    {
+      "category": "Drink Specials",
+      "name": "Original Cosmo",
+      "description": "Vodka, triple sec, cranberry juice, and fresh lime squeeze",
+      "price": 5
+    },
+    {
+      "category": "Drink Specials",
+      "name": "Braided River Hoppy by Nature IPA",
+      "description": "",
+      "price": 4
+    },
+    {
+      "category": "Drink Specials",
+      "name": "Well Drinks and One Mix",
+      "description": "Add .50 for juice mixers",
+      "price": 3.5
+    },
+    {
+      "category": "Drink Specials",
+      "name": "Pineapple Sangria",
+      "description": "White wine, cruzan coconut rum, fresh strawberries, and pineapple",
+      "price": 5
+    },
+    {
+      "category": "Sushi Rolls",
+      "name": "Fried Shrimp Roll",
+      "description": "Tempura fried shrimp, cream cheese, cucumber, and scallions. Topped with eel sauce",
+      "price": 10
+    },
+    {
+      "category": "Sushi Rolls",
+      "name": "Philly Roll",
+      "description": "Smoked salmon, cream cheese, and avocado. Topped with sesame seeds",
+      "price": 12
+    },
+    {
+      "category": "Sushi Rolls",
+      "name": "California Roll",
+      "description": "Krab, carrots, cucumber, and avocado. Topped with tobiko",
+      "price": 11
+    },
+    {
+      "category": "Sushi Rolls",
+      "name": "Spicy Tuna",
+      "description": "Spicy tuna, cucumber, and scallions. Topped with spicy mayo",
+      "price": 10
+    },
+    {
+      "category": "Specialty Sushi Rolls",
+      "name": "Duck Roll",
+      "description": "Soy wrapper, tempura and panko fried duck, cream cheese, red and yellow pepper, and asparagus. Topped with broiled duck and jalapeño pepper jelly.",
+      "price": 16
+    },
+    {
+      "category": "Specialty Sushi Rolls",
+      "name": "Lobster Roll",
+      "description": "Tempura fried lobster tail, cream cheese, red and yellow pepper, and grilled green onion. Topped with spicy krab salad, fried garlic, and tempura flakes.",
+      "price": 26
+    },
+    {
+      "category": "Specialty Sushi Rolls",
+      "name": "Fried Green BLT Roll",
+      "description": "Soy wrapper, tempura and panko fried green tomato, bacon, and romaine lettuce. Topped with creole mustard aioli",
+      "price": 10
+    },
+    {
+      "category": "Specialty Sushi Rolls",
+      "name": "Spyder Roll",
+      "description": "Tempura fried soft shell crab, asparagus, and red and yellow pepper. Topped with eel sauce",
+      "price": 16
+    },
+    {
+      "category": "Specialty Sushi Rolls",
+      "name": "Tips and Tails Roll",
+      "description": "Tempura fried shrimp, blackened steak, cream cheese, and scallions. Topped with eel sauce, spicy mayo, fried garlic, and crispy onions.",
+      "price": 14
+    },
+    {
+      "category": "Specialty Sushi Rolls",
+      "name": "Rainbow Roll",
+      "description": "Asparagus, red and yellow pepper, cucumber, and carrots. Topped with tuna, smoked salmon, and hamachi",
+      "price": 18
+    },
+    {
+      "category": "Specialty Sushi Rolls",
+      "name": "Dragon Roll",
+      "description": "Tempura fried shrimp, asparagus, red and yellow pepper, and avocado. Topped with BBQ eel and eel sauce",
+      "price": 15
+    },
+    {
+      "category": "Specialty Sushi Rolls",
+      "name": "The Cosmo Roll",
+      "description": "Tempura fried shrimp, blackened steak, spicy tuna, cream cheese, scallions, and cucumber. Topped with spicy krab salad, fried garlic, crispy onions, eel sauce, spicy mayo, and wakame.",
+      "price": 20
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Happy Hour",
+      "description": "One of the most popular happy hours in Orange Beach. Enjoy $2 off sushi rolls along with great drink and appetizer specials in a lively, laid-back atmosphere.",
+      "discount": ""
+    },
+    {
+      "name": "Catering",
+      "description": "Off-site catering featuring fresh Gulf seafood, sushi platters, and chef-inspired dishes perfect for weddings, corporate gatherings, and celebrations across Orange Beach and Gulf Shores.",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:50.175Z"
+}

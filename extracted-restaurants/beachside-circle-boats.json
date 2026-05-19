@@ -1,0 +1,32 @@
+{
+  "name": "Beachside Circle Boats",
+  "type": "Restaurant",
+  "website": "https://www.beachsidecircleboats.com",
+  "contact": {
+    "phone": "(601) 325-1205",
+    "address": "",
+    "city": "Orange Beach",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null
+  },
+  "about": {
+    "description": "Beachside Circle Boat Rentals and Sales is a local family-owned business offering portable, eco-friendly electric circle boats for exploring the waters of Orange Beach. Perfect for families, couples, and group outings with no boating license required.",
+    "cuisine_type": null
+  },
+  "social": {},
+  "menu": [],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-03-28T07:17:59.600Z"
+}

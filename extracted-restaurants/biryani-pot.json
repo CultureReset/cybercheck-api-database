@@ -1,0 +1,384 @@
+{
+  "name": "Biryani Pot",
+  "type": "Restaurant",
+  "website": "http://www.biryanipotmobile.com/",
+  "contact": {
+    "phone": "(251) 888-0999",
+    "address": "758 Downtowner Boulevard",
+    "city": "Mobile",
+    "email": "biryanipotmobile@gmail.com"
+  },
+  "hours": {
+    "monday": "11:00 AM - 10:00 PM",
+    "tuesday": "11:00 AM - 10:00 PM",
+    "wednesday": "11:00 AM - 10:00 PM",
+    "thursday": "11:00 AM - 10:00 PM",
+    "friday": "11:00 AM - 11:00 PM",
+    "saturday": "11:00 AM - 11:00 PM",
+    "sunday": "11:00 AM - 10:00 PM",
+    "notes": null
+  },
+  "about": {
+    "description": "Biryani Pot brings real Indian cooking to the heart of Mobile. The restaurant was built with one clear goal: share the rich food culture of India with the local community. They follow traditional cooking methods and use trusted spices and herbs to create memorable meals. Biryani is the star of their kitchen, cooked using time-tested methods that bring out deep flavor and texture.",
+    "elevator_pitch": "Authentic Indian restaurant specializing in traditional biryani and classic Indian cuisine in Mobile, AL.",
+    "vibe": "Comfortable, welcoming, and relaxed dine-in atmosphere with friendly and attentive staff.",
+    "best_for": [
+      "families",
+      "lunch breaks",
+      "casual meals with friends",
+      "events and catering"
+    ],
+    "established": null,
+    "reservations": null,
+    "insider_tip": "The buffet offers a nice variety of fresh and tasty dishes. Staff will teach you how to eat the food if you're new to Indian cuisine."
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/biryanipot_nola/",
+    "facebook": "https://www.facebook.com/BiryaniPotofMobile/",
+    "website": "https://biryanipotmobile.com/"
+  },
+  "menu": [
+    {
+      "category": "Biryani",
+      "name": "Chicken Biryani",
+      "description": "Aromatic and delicious with tender chicken and well-cooked rice",
+      "price": ""
+    },
+    {
+      "category": "Biryani",
+      "name": "Lamb Biryani",
+      "description": "Lamb Chops Of Heaven",
+      "price": ""
+    },
+    {
+      "category": "Biryani",
+      "name": "Goat Biryani",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Biryani",
+      "name": "Boneless Chicken Biryani",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Chicken",
+      "name": "Chicken Makhani/Butter Chicken",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Chicken",
+      "name": "Chicken Tikka Masala",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Chicken",
+      "name": "Chicken Korma",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Chicken",
+      "name": "Chicken Tikka",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Chicken",
+      "name": "Tandoori Chicken",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Chicken",
+      "name": "Chicken Noodle",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Chicken",
+      "name": "Roast and Pepper Chicken",
+      "description": "Flavorful and perfectly spiced",
+      "price": ""
+    },
+    {
+      "category": "Lamb",
+      "name": "Lamb Korma",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Lamb",
+      "name": "Lamb Rogan Josh",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Paneer",
+      "name": "Paneer Tikka Masala",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Paneer",
+      "name": "Saag Paneer",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Paneer",
+      "name": "Palak Paneer",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Vegetarian",
+      "name": "Veg Samosa",
+      "description": "2 Pieces",
+      "price": ""
+    },
+    {
+      "category": "Vegetarian",
+      "name": "Aloo Gobi",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Vegetarian",
+      "name": "Chana Masala",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Vegetarian",
+      "name": "Chana",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Vegetarian",
+      "name": "Aloo Tikki",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Vegetarian",
+      "name": "Gobi Manchurian",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Dal & Curries",
+      "name": "Dal",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Dal & Curries",
+      "name": "Dal Makhani",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Dal & Curries",
+      "name": "Dal Fry",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Dal & Curries",
+      "name": "Rogan Josh",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Dal & Curries",
+      "name": "Curry",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Dal & Curries",
+      "name": "Vindaloo",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Rice & Breads",
+      "name": "Basmati Rice",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Rice & Breads",
+      "name": "Fried Rice",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Rice & Breads",
+      "name": "Veg Fried Rice",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Rice & Breads",
+      "name": "Naan",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Rice & Breads",
+      "name": "Butter Naan",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Rice & Breads",
+      "name": "Garlic Naan",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Rice & Breads",
+      "name": "Paratha",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Rice & Breads",
+      "name": "Roti",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Rice & Breads",
+      "name": "Puri",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "South Indian",
+      "name": "Dosa",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "South Indian",
+      "name": "Masala Dosa",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "South Indian",
+      "name": "Idli",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "South Indian",
+      "name": "Idli Vada",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Street Food & Appetizers",
+      "name": "Samosa",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Street Food & Appetizers",
+      "name": "Pakora",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Street Food & Appetizers",
+      "name": "Bhel Puri",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Street Food & Appetizers",
+      "name": "Pani Puri",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Street Food & Appetizers",
+      "name": "Chaat",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Street Food & Appetizers",
+      "name": "Dahi Puri",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sides",
+      "name": "Raita",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sides",
+      "name": "Pav",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sides",
+      "name": "Scrambled Eggs",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Desserts & Beverages",
+      "name": "Gulab Jamun",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Desserts & Beverages",
+      "name": "Kulfi",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Desserts & Beverages",
+      "name": "Lassi",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Desserts & Beverages",
+      "name": "Irani Chai",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Buffet",
+      "name": "All You Can Eat Buffet",
+      "description": "Fresh and tasty variety of Indian dishes",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [
+    {
+      "name": "Catering",
+      "day": "",
+      "time": ""
+    }
+  ],
+  "gallery": 7,
+  "scraped_at": "2026-03-21T13:55:10.089Z"
+}

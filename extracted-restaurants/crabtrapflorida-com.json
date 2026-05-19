@@ -1,0 +1,136 @@
+{
+  "name": "The Crab Trap",
+  "type": "Restaurant",
+  "website": "https://crabtrapflorida.com",
+  "contact": {
+    "phone": "",
+    "address": "",
+    "city": "",
+    "email": ""
+  },
+  "hours": {},
+  "about": {
+    "description": "The Crab Trap is a waterfront seafood restaurant with three locations along the Florida panhandle offering beautiful views of the Gulf of Mexico and fresh local seafood. The restaurant operates its own wild fish processing facility called the Seafood Commissary, which prepares over 250,000 lbs of fresh-caught Gulf seafood annually including shrimp, grouper, snapper, mahi-mahi, cobia, wahoo, and amberjack.",
+    "elevator_pitch": "Three waterfront Gulf seafood restaurants in Northwest Florida featuring fresh local catch and stunning Gulf views since 1991.",
+    "vibe": "Casual waterfront dining with open air windows, sun bleached wood, local art, and hand carved seaside sculptures. Family-friendly atmosphere with beautiful Gulf of Mexico views.",
+    "best_for": [
+      "families",
+      "date night",
+      "casual lunch",
+      "group gatherings",
+      "beach day meals"
+    ],
+    "established": "1991",
+    "reservations": null,
+    "insider_tip": "Try the award-winning gumbo and the must-have wild Alaska crab legs. The original location in Destin is at James Lee Park."
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://crabtrapflorida.com"
+  },
+  "menu": [
+    {
+      "category": "Appetizers",
+      "name": "Hot Crab Dip",
+      "description": "Signature item",
+      "price": ""
+    },
+    {
+      "category": "Seafood",
+      "name": "Wild Alaska Crab Legs",
+      "description": "Must-have item while at the beach",
+      "price": ""
+    },
+    {
+      "category": "Seafood",
+      "name": "Bronzed Grouper",
+      "description": "Fresh local catch",
+      "price": ""
+    },
+    {
+      "category": "Seafood",
+      "name": "Grilled Filet",
+      "description": "Daily special option",
+      "price": ""
+    },
+    {
+      "category": "Seafood",
+      "name": "Blue Crab Claws",
+      "description": "Domestic crab",
+      "price": ""
+    },
+    {
+      "category": "Seafood",
+      "name": "Crab Cakes",
+      "description": "Made with jumbo lump crab meat",
+      "price": ""
+    },
+    {
+      "category": "Seafood",
+      "name": "Local Mahi Mahi",
+      "description": "Fresh Gulf catch",
+      "price": ""
+    },
+    {
+      "category": "Seafood",
+      "name": "Shrimp",
+      "description": "Fresh Gulf shrimp",
+      "price": ""
+    },
+    {
+      "category": "Seafood",
+      "name": "Snapper",
+      "description": "Fresh Gulf catch",
+      "price": ""
+    },
+    {
+      "category": "Seafood",
+      "name": "Cobia",
+      "description": "Fresh Gulf catch",
+      "price": ""
+    },
+    {
+      "category": "Seafood",
+      "name": "Wahoo",
+      "description": "Fresh Gulf catch",
+      "price": ""
+    },
+    {
+      "category": "Seafood",
+      "name": "Amberjack",
+      "description": "Fresh Gulf catch",
+      "price": ""
+    },
+    {
+      "category": "Gumbo",
+      "name": "Award-Winning Gumbo",
+      "description": "Signature award-winning recipe",
+      "price": ""
+    },
+    {
+      "category": "Kids Menu",
+      "name": "Kids Menu Items",
+      "description": "Special menu designed just for kids with a special treat they get to keep",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Daily Specials",
+      "description": "Rotating menu items such as Bronzed Grouper, Grilled Filet, Alaskan Crab Legs, local Mahi Mahi, Blue Crab Claws, and Crab Cakes",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [
+    {
+      "name": "Dish Review Contest",
+      "day": "",
+      "time": ""
+    }
+  ],
+  "gallery": 15,
+  "scraped_at": "2026-03-22T02:45:22.466Z"
+}

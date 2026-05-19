@@ -1,0 +1,336 @@
+{
+  "name": "Vinny's Pizzeria",
+  "type": "Restaurant",
+  "website": "http://vinnys.pizza/",
+  "contact": {
+    "phone": "(866)-743-7669",
+    "address": "4651 Main Street",
+    "city": "Orange Beach",
+    "email": "wharf@vinnys.pizza"
+  },
+  "hours": {
+    "monday": "11:00 AM - 9:00 PM",
+    "tuesday": "11:00 AM - 9:00 PM",
+    "wednesday": "11:00 AM - 9:00 PM",
+    "thursday": "11:00 AM - 9:00 PM",
+    "friday": "11:00 AM - 9:00 PM",
+    "saturday": "11:00 AM - 9:00 PM",
+    "sunday": "11:00 AM - 9:00 PM",
+    "notes": null
+  },
+  "about": {
+    "description": "Fresh, delicious pizza made with quality, fresh ingredients. Pizza dough and sauce made daily. Family-friendly establishment with giant pizza slices and entertainment.",
+    "elevator_pitch": "Fresh, daily-made pizza with quality ingredients in a family-friendly Orange Beach location.",
+    "vibe": "Casual, family-friendly pizzeria with arcade games and views of the ferris wheel",
+    "best_for": [
+      "families",
+      "casual dining",
+      "group gatherings",
+      "special occasions"
+    ],
+    "established": null,
+    "reservations": "Available for private parties and group reservations",
+    "insider_tip": "Free Pac-Man arcade game available; located with a view of the ferris wheel; try their Giant slice and 24-inch pizzas"
+  },
+  "social": {
+    "instagram": "https://instagram.com/vinnys.pizza",
+    "facebook": "https://facebook.com/vinnys.pizza",
+    "website": "http://vinnys.pizza"
+  },
+  "menu": [
+    {
+      "category": "Pizza",
+      "name": "Cheese Pizza",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Pizza",
+      "name": "1 Topping Pizza",
+      "description": "Regular or premium toppings",
+      "price": ""
+    },
+    {
+      "category": "Pizza",
+      "name": "Meat Lovers",
+      "description": "Pepperoni, sausage, ham, sliced meatballs, bacon",
+      "price": ""
+    },
+    {
+      "category": "Pizza",
+      "name": "Veggie",
+      "description": "Spinach, onion, mushroom, green pepper, black olive, tomato",
+      "price": ""
+    },
+    {
+      "category": "Pizza",
+      "name": "Supreme",
+      "description": "Pepperoni, sausage, ham, sliced meatballs, bacon, onion, mushroom, green pepper, black olive, tomato",
+      "price": ""
+    },
+    {
+      "category": "Pizza",
+      "name": "Buffalo Chicken",
+      "description": "Buffalo chicken, bacon, buffalo sauce, ranch drizzle",
+      "price": ""
+    },
+    {
+      "category": "Pizza",
+      "name": "BBQ Chicken",
+      "description": "BBQ chicken, cheddar cheese, bacon, BBQ drizzle",
+      "price": ""
+    },
+    {
+      "category": "À La Carte",
+      "name": "Baked Wings",
+      "description": "Plain, BBQ, or Buffalo. Served with a side of ranch",
+      "price": 12
+    },
+    {
+      "category": "À La Carte",
+      "name": "Pepperoni Log",
+      "description": "Giant thick pepperoni and mozzarella cheese rolled into a log, served with pizza sauce",
+      "price": 14
+    },
+    {
+      "category": "À La Carte",
+      "name": "Cheesy Bread",
+      "description": "Served with pizza sauce for dipping",
+      "price": 10
+    },
+    {
+      "category": "À La Carte",
+      "name": "Garlic Breadsticks",
+      "description": "Served with pizza sauce for dipping",
+      "price": 7
+    },
+    {
+      "category": "À La Carte",
+      "name": "Salad",
+      "description": "House or Caesar",
+      "price": 10
+    },
+    {
+      "category": "Cousin Bui's Calzones",
+      "name": "The Original",
+      "description": "Mozzarella, ricotta, cheddar, pepperoni, green pepper, onion. Served with a side of pizza sauce",
+      "price": 16
+    },
+    {
+      "category": "Cousin Bui's Calzones",
+      "name": "The Garden",
+      "description": "Mozzarella, ricotta, cheddar, tomato, mushroom, spinach. Served with a side of pizza sauce",
+      "price": 16
+    },
+    {
+      "category": "Cousin Bui's Calzones",
+      "name": "Meatball",
+      "description": "Mozzarella, meatballs, pizza sauce. Served with a side of pizza sauce",
+      "price": 16
+    },
+    {
+      "category": "Cousin Bui's Calzones",
+      "name": "Cheese",
+      "description": "Mozzarella, ricotta, cheddar. Served with a side of pizza sauce",
+      "price": 13
+    },
+    {
+      "category": "Uncle Paulie's Sandwiches",
+      "name": "Meatball",
+      "description": "Seasoned meatballs with pizza sauce and mozzarella cheese, topped with grated parmesan cheese. Baked to perfection",
+      "price": ""
+    },
+    {
+      "category": "Uncle Paulie's Sandwiches",
+      "name": "Chicken",
+      "description": "Teriyaki chicken with onions, mushrooms, green peppers, and mozzarella cheese, topped with mayonnaise and lettuce. Baked to perfection",
+      "price": ""
+    },
+    {
+      "category": "Uncle Paulie's Sandwiches",
+      "name": "Steak",
+      "description": "Seasoned steak with onions, mushrooms, green peppers, and mozzarella cheese, topped with mayonnaise and lettuce. Baked to perfection",
+      "price": ""
+    },
+    {
+      "category": "Uncle Paulie's Sandwiches",
+      "name": "Veggie",
+      "description": "Seasoned onions, mushrooms, green pepper, black olives, tomatoes, and mozzarella cheese, topped with mayonnaise and lettuce. Baked to perfection",
+      "price": ""
+    },
+    {
+      "category": "Uncle Paulie's Sandwiches",
+      "name": "Italian",
+      "description": "Deli sliced pepperoni, salami, and ham with mozzarella cheese then topped with banana peppers, lettuce, tomatoes, and house vinaigrette. Baked to perfection",
+      "price": ""
+    },
+    {
+      "category": "Desserts",
+      "name": "Fresh Baked Cookies",
+      "description": "Otis Spunkmeyer",
+      "price": ""
+    },
+    {
+      "category": "Desserts",
+      "name": "Vanilla Soft Serve Ice Cream",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Desserts",
+      "name": "Root Beer Float",
+      "description": "",
+      "price": 8.5
+    },
+    {
+      "category": "Desserts",
+      "name": "Orange Cream Float",
+      "description": "",
+      "price": 8.5
+    },
+    {
+      "category": "Desserts",
+      "name": "Cinnamon Sticks",
+      "description": "Served with icing",
+      "price": 8.5
+    },
+    {
+      "category": "Beverages",
+      "name": "Soda",
+      "description": "",
+      "price": 3.75
+    },
+    {
+      "category": "Beverages",
+      "name": "Tea",
+      "description": "",
+      "price": 3.75
+    },
+    {
+      "category": "Beverages",
+      "name": "Bottled Water",
+      "description": "",
+      "price": 3.75
+    },
+    {
+      "category": "Beverages",
+      "name": "Draft Beer - Miller Lite",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Beverages",
+      "name": "Draft Beer - Yuengling",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Beverages",
+      "name": "Canned Beer - Bud Light",
+      "description": "",
+      "price": 5
+    },
+    {
+      "category": "Beverages",
+      "name": "Canned Beer - Coors Lt",
+      "description": "",
+      "price": 5
+    },
+    {
+      "category": "Beverages",
+      "name": "Canned Beer - Mich Ultra",
+      "description": "",
+      "price": 5
+    },
+    {
+      "category": "Beverages",
+      "name": "Canned Beer - Corona",
+      "description": "",
+      "price": 5
+    },
+    {
+      "category": "Beverages",
+      "name": "Canned Beer - Corona Lt",
+      "description": "",
+      "price": 5
+    },
+    {
+      "category": "Beverages",
+      "name": "Canned Beer - Blue Moon",
+      "description": "",
+      "price": 5
+    },
+    {
+      "category": "Beverages",
+      "name": "Canned Beer - White Claw",
+      "description": "Black Cherry, Mango",
+      "price": 5
+    },
+    {
+      "category": "Beverages",
+      "name": "Canned Beer - Twisted Tea",
+      "description": "",
+      "price": 5
+    },
+    {
+      "category": "Beverages",
+      "name": "Craft Can Beer - Fairhope",
+      "description": "IPA - Take The Causeway | Amber - I Think Therefore I Amber | Sour - Blue Steel",
+      "price": 8
+    },
+    {
+      "category": "Beverages",
+      "name": "Craft Can Beer - Ciderboys",
+      "description": "First Press, Peach county",
+      "price": 6
+    },
+    {
+      "category": "Beverages",
+      "name": "Craft Can Beer - Goat Island",
+      "description": "Blood Orange",
+      "price": 6
+    },
+    {
+      "category": "Beverages",
+      "name": "Craft Can Beer - Ace",
+      "description": "Pineapple",
+      "price": 6
+    },
+    {
+      "category": "Beverages",
+      "name": "Craft Can Beer - Abita",
+      "description": "Purple Haze",
+      "price": 6
+    },
+    {
+      "category": "Beverages",
+      "name": "Wine - Pinot Grigio",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Beverages",
+      "name": "Wine - Pinot Noir",
+      "description": "",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Specials",
+      "description": "Website indicates specials are being updated",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [
+    {
+      "name": "Mother's Day",
+      "day": "Sunday, May 10th",
+      "time": "11:00 AM - 9:00 PM"
+    }
+  ],
+  "gallery": 17,
+  "scraped_at": "2026-03-21T14:04:46.565Z"
+}

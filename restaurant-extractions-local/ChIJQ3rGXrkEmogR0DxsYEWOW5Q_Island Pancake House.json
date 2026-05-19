@@ -1,0 +1,217 @@
+{
+  "business_name": "Best Western on the Beach",
+  "cuisine_type": null,
+  "price_range": null,
+  "description": "Welcome to the only major-chain beachfront hotel in the Gulf Shores, Alabama. Located on the white-sand shores of one of America's most beautiful beaches, the Best Western on the Beach is your tropical vacation destination, offering all the comforts of home with exceptional value for your dollar. Marvel at uninterrupted views of the Gulf of Mexico from your private balcony. Relax on a plush, pillow-top bed. Stay connected with free high-speed wireless Internet. Catch a flick on a 42\" flatscreen TV. At the Best Western on the Beach, our clean, modern Gulf Shores accommodations offer all the comforts of home and all the beauty of the beach at rates that will leave you with plenty to spend on the area's world-class attractions.",
+  "atmosphere": "Beachfront, tropical vacation destination",
+  "chef_info": null,
+  "awards": [
+    "TripAdvisor Certificate of Excellence 2017",
+    "AAA Approved"
+  ],
+  "contact": {
+    "phone": "251-948-2711",
+    "email": "info@bestwesternonthebeach.com",
+    "address": "337 E Beach Boulevard, Gulf Shores, Alabama 36542-6505, United States",
+    "website": "bestwesternonthebeach.com",
+    "hours_phone": null,
+    "reservations_phone": "800-788-4557",
+    "social_media": {
+      "facebook": null,
+      "instagram": null,
+      "twitter": null,
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": true,
+    "takeout_available": null,
+    "delivery_available": null,
+    "curbside_available": null,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [],
+    "wine_list": null,
+    "beer_selection": null,
+    "cocktails": null,
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": false,
+      "vegan": false,
+      "gluten_free": false,
+      "dairy_free": false,
+      "nut_free": false,
+      "kosher": false,
+      "halal": false
+    }
+  },
+  "happy_hour": {
+    "available": false,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [
+    {
+      "type": "package",
+      "day_of_week": null,
+      "name": "Hangout Music Fest Hotel",
+      "description": "One of America's biggest and best music festivals happens just steps from our hotel every May. Book your beachfront accommodations for the Hangout Music Festival today.",
+      "discount": null,
+      "valid_until": null
+    },
+    {
+      "type": "package",
+      "day_of_week": null,
+      "name": "Gulf Shore Vacations",
+      "description": "With one of the most spectacular beaches in America, Gulf Shores is the perfect place to escape your routine. Make the most of your Gulf Shores getaway with beachfront accommodation at Best Western on the Beach.",
+      "discount": null,
+      "valid_until": null
+    }
+  ],
+  "entertainment_and_events": [
+    {
+      "type": "special_event",
+      "name": "Hangout Music Fest",
+      "days": "May",
+      "start_time": null,
+      "end_time": null,
+      "description": "One of America's biggest and best music festivals",
+      "cover_charge": null,
+      "featured_artist": null
+    },
+    {
+      "type": "special_event",
+      "name": "Thunder on the Beach",
+      "days": null,
+      "start_time": null,
+      "end_time": null,
+      "description": null,
+      "cover_charge": null,
+      "featured_artist": null
+    }
+  ],
+  "private_events": {
+    "available": true,
+    "event_spaces": "Spacious beachfront or 50-person meeting facility",
+    "max_capacity": "50",
+    "min_spend": null,
+    "catering_available": true,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": null,
+    "pets_allowed": null
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": true,
+    "online_booking_platform": "Yes - booking engine available on website",
+    "phone_reservations": "800-788-4557",
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": false,
+    "private_dining": true
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": "Best Western Rewards",
+    "gift_cards_available": null,
+    "email_signup": null,
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": false,
+    "farm_to_table": false,
+    "sustainable": false,
+    "organic": false,
+    "details": null
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [],
+    "common_praise": [
+      "Cleanest hotel ever",
+      "Love this place"
+    ],
+    "common_complaints": [
+      "Never returning and wouldn't recommend to others"
+    ]
+  },
+  "photos_and_media": [
+    {
+      "type": "restaurant",
+      "url": "/Content/images/bodycta4.jpg",
+      "description": "The Island Pancake House"
+    },
+    {
+      "type": "amenity",
+      "url": "/Content/images/bodycta1.jpg",
+      "description": "Beachside Outdoor Pool"
+    },
+    {
+      "type": "event",
+      "url": "/Content/images/bodycta2.jpg",
+      "description": "Thunder on the Beach"
+    },
+    {
+      "type": "accommodation",
+      "url": "/Content/images/bodycta3.jpg",
+      "description": "Ocean View Accommodations"
+    },
+    {
+      "type": "package",
+      "url": "/Content/images/Packages-slider2.jpg",
+      "description": "Gulf Shore Vacations"
+    },
+    {
+      "type": "package",
+      "url": "/Content/images/Packages-slider3.jpg",
+      "description": "Hangout Music Fest Hotel"
+    },
+    {
+      "type": "location",
+      "url": "/Content/images/imgmap.jpg",
+      "description": "Hotel location map"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "Best Western on the Beach Gulf Shores Hotels Best Western on The Beach, Alabama Is fun, surf and sun all calling your name? You'll be near beaches, warm rays and exciting attractions when staying at the Best Western in Gulf Shores, AL hotel. Best Western on the Beach Hotel Navigation Home Accommodations Amenities Restaurant Packages Local Area Attractions Local Events Blog Virtual Tour Contact Book a Room Best Western on the Beach Make a Reservation Check In Check Out Adults Kids Select Rate Program Book a Room Special Offers #1 Hangout Music Fest Hotel One of America's biggest and best music festivals happens just steps from our hotel every May. Book your beachfront accommodations for the Hangout Music Festival today. VIEW ALL PACKAGES Gulf Shore Vacations With one of the most spectacular beaches in America, Gulf Shores is the perfect place to escape your routine. Make the most of your Gulf Shores getaway with beachfront accommodation at Best Western on the Beach. VIEW ALL PACKAGES Welcome to Best Western on the Beach GULF SHORES ALABAMA Welcome to the only major-chain beachfront hotel in the Gulf Shores, Alabama. Located on the white-sand shores of one of America's most beautiful beaches, the Best Western on the Beach is your tropical vacation destination, offering all the comforts of home with exceptional value for your dollar. Breathtaking Beachfront Views Marvel at uninterrupted views of the Gulf of Mexico from your private balcony. Relax on a plush, pillow-top bed. Stay connected with free high-speed wireless Internet. Catch a flick on a 42 flatscreen TV. At the Best Western on the Beach, our clean, modern Gulf Shores accommodations offer all the comforts of home and all the beauty of the beach at rates that will leave you with plenty to spend on the area's world-class attractions. View Rooms View Amenities Guest Reviews Love love love this place Never returning and wouldn't recommend to others. Cleanest hotel I've ever stayed at!!! Read reviews Write a review VIEW MORE REVIEWS Onsite Restaurant, Pool, and More Our convenient onsite amenities and services offer a complete vacation experience. Start your day with the best breakfast in Gulf Shores at our onsite Island Pancake House. Soak up the sun in our outdoor pool, cool off in our indoor pool, or relax in our hot tub. Host your wedding or special event on our spacious beachfront or in our 50-person meeting facility. All the while, you can stay connected with free high-speed Wi-Fi throughout the hotel. Your Gateway to Gulf Shores Our hotel's location puts you within walking distance some the most popular things to do in Gulf Shores including top-tier restaurants, fishing charters, and outdoor adventures. Within easy driving distance, you'll find a dozen award-winning golf courses, a world-class zoo, five-star spas and much more. Book Online and Save To make the most of your Gulf Shores vacation, take advantage of our exclusive Gulf Shores hotel packages. When you're ready to make reservations, book online for secure service with our best rates. We look forward to making your Gulf Shores vacation unforgettable! Highlights Beachside Outdoor Pool Thunder on the Beach Ocean View Accommodations The Island Pancake House Find Us Best Western on the Beach 337 E Beach Boulevard Gulf Shores, Alabama 36542-6505 United States Phone: 251-948-2711 Toll Free: 800-788-4557 Fax: 251-948-7339 Email: info@bestwesternonthebeach.com Home Accommodations Amenities Restaurant Packages Local Area Attractions Events Blog Virtual Tour Careers Site Map Privacy Policy Contact Best Western Rewards Each Best Western® branded hotel is independently owned and operated. © 2002–2025 Best Western International, Inc. All rights reserved. Digital Hospitality Internet Marketing",
+  "extraction_confidence": "medium",
+  "extraction_notes": "This is a hotel website, not a restaurant website. The only restaurant-related content found is a reference to 'Island Pancake House' which is an onsite restaurant at the hotel. No detailed menu, pricing, hours, or dining information is available on this page. The page focuses primarily on hotel accommodations, amenities, packages, and local attractions. Restaurant section exists but detailed information would need to be extracted from the dedicated restaurant page (/breakfast). Reviews mention cleanliness and overall satisfaction but specific restaurant reviews are not visible. No specific dietary accommodations, wine lists, cocktail menus, or detailed food service information is present on this homepage.",
+  "folder": "ChIJQ3rGXrkEmogR0DxsYEWOW5Q_Island Pancake House",
+  "extracted_at": "2026-05-15T06:19:06.423Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJQ3rGXrkEmogR0DxsYEWOW5Q_Island Pancake House/01_raw_html.html"
+}

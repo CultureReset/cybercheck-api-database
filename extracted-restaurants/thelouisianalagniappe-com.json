@@ -1,0 +1,123 @@
+{
+  "name": "Louisiana Lagniappe",
+  "type": "Restaurant",
+  "website": "http://www.thelouisianalagniappe.com",
+  "contact": {
+    "phone": "251.981.2258",
+    "address": "27267 Perdido Beach Blvd",
+    "city": "Orange Beach",
+    "email": ""
+  },
+  "hours": {
+    "monday": "5:00pm-close",
+    "tuesday": "5:00pm-close",
+    "wednesday": "5:00pm-close",
+    "thursday": "5:00pm-close",
+    "friday": "5:00pm-close",
+    "saturday": "5:00pm-close",
+    "sunday": "5:00pm-close"
+  },
+  "about": {
+    "description": "For over thirty years Louisiana Lagniappe has been known for Gulf seafood with a Creole flair. The attire is casual, yet an upscale waterfront dining experience is provided for the entire family.",
+    "cuisine_type": "seafood"
+  },
+  "social": {},
+  "menu": [
+    {
+      "category": "APPETIZERS",
+      "name": "Lobster Rangoons",
+      "description": "Wontons stuffed with Maine Lobster and cream cheese, fried to perfection and served with our sweet chili sauce",
+      "price": "$26"
+    },
+    {
+      "category": "APPETIZERS",
+      "name": "Louisiana Crab Cakes",
+      "description": "Jumbo lump crabmeat served with our tangy remoulade sauce",
+      "price": "$26"
+    },
+    {
+      "category": "APPETIZERS",
+      "name": "Barbecue Jumbo Shrimp",
+      "description": "Peeled, spicy New Orleans style barbecue shrimp",
+      "price": "$21"
+    },
+    {
+      "category": "APPETIZERS",
+      "name": "Mardi Gras Shrimp",
+      "description": "Fried shrimp tossed in our spicy remoulade sauce",
+      "price": "$19"
+    },
+    {
+      "category": "APPETIZERS",
+      "name": "Oysters Lagniappe",
+      "description": "Baked with our Lagniappe stuffing and jumbo lump crabmeat",
+      "price": "$25"
+    },
+    {
+      "category": "APPETIZERS",
+      "name": "Stuffed Mushrooms",
+      "description": "Mushroom caps filled with jumbo lump crabmeat and shrimp",
+      "price": "$20"
+    },
+    {
+      "category": "APPETIZERS",
+      "name": "Blackened Scallops",
+      "description": "Blackened bay scallops served with our pineapple-rum butter sauce",
+      "price": "$29"
+    },
+    {
+      "category": "APPETIZERS",
+      "name": "Eggplant Orleans",
+      "description": "Medallions of eggplant, deep fried and topped with jumbo lump crabmeat and hollandaise sauce",
+      "price": "$24"
+    },
+    {
+      "category": "APPETIZERS",
+      "name": "Blue Crab Claws Market Price",
+      "description": "A Gulf Coast favorite. Available fried or sautéed",
+      "price": ""
+    },
+    {
+      "category": "SOUPS & SALADS",
+      "name": "Cajun Seafood Gumbo",
+      "description": "Made with jumbo lump crabmeat, shrimp and oysters",
+      "price": "$9 cup / $14 bowl"
+    },
+    {
+      "category": "SOUPS & SALADS",
+      "name": "Corn & Crab Bisque",
+      "description": "A rich, cream soup with jumbo lump crabmeat and fresh yellow corn. This is a Lagniappe favorite!",
+      "price": "$9 cup / $14 bowl"
+    },
+    {
+      "category": "SOUPS & SALADS",
+      "name": "Jumbo Lump Crabmeat Salad",
+      "description": "Iceberg, Romaine and baby spinach, tossed with a creamy house dressing and topped with fresh jumbo lump crabmeat",
+      "price": "$30"
+    },
+    {
+      "category": "SOUPS & SALADS",
+      "name": "Grilled Shrimp Salad",
+      "description": "Grilled shrimp on a bed of iceberg, Romaine and baby spinach, finished with our Dijon vinaigrette dressing",
+      "price": "$28"
+    },
+    {
+      "category": "CHEF'S SELECTIONS",
+      "name": "Grouper Pontchartrain",
+      "description": "Fresh Gulf Grouper, pan sautéed and topped with fried jumbo soft-shell crab, hollandaise sauce and honey roasted nuts. Served with our homemade hushpuppies, house salad and twice-baked potato",
+      "price": "$51"
+    },
+    {
+      "category": "CHEF'S SELECTIONS",
+      "name": "Tournedos of Beef",
+      "description": "Medallions of Certified Angus Beef Filet Mignon topped with sautéed jumbo lump crab meat and shrimp. Served with our homemade hushpuppies, house salad and twice-baked potato",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-03-21T20:22:15.204Z"
+}

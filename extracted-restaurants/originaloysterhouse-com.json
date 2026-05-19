@@ -1,0 +1,212 @@
+{
+  "name": "Original Oyster House",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "",
+    "address": "",
+    "city": "",
+    "email": ""
+  },
+  "hours": {},
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Oysters",
+      "name": "Fire-Grilled Oysters",
+      "description": "Hand-shucked Gulf oysters fire-grilled",
+      "price": ""
+    },
+    {
+      "category": "Oysters",
+      "name": "Firecracker Oysters",
+      "description": "Baked oysters with jalapeño peppers and Parmesan cheese",
+      "price": ""
+    },
+    {
+      "category": "Oysters",
+      "name": "Easy Baked Oysters",
+      "description": "Baked oysters with cocktail sauce and Swiss cheese",
+      "price": ""
+    },
+    {
+      "category": "Oysters",
+      "name": "Baked Oysters with Tasso Ham Cream Sauce",
+      "description": "Baked oysters topped with tasso ham cream sauce",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Blackened Shrimp and Penne Pasta",
+      "description": "Blackened shrimp served over penne pasta",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Fried Popcorn Shrimp",
+      "description": "Fried shrimp",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Broiled Flounder with Pecan Butter",
+      "description": "Broiled flounder with pecan butter",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Shrimp Scampi",
+      "description": "Shrimp scampi preparation",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Grilled Shrimp",
+      "description": "Grilled shrimp",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Baked Stuffed Shrimp",
+      "description": "Baked stuffed shrimp",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Stuffed Crabs",
+      "description": "Stuffed crab preparation",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Fried Oysters",
+      "description": "Fried oysters",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Fried Flounder",
+      "description": "Fried flounder",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Grilled House Catch",
+      "description": "Grilled house catch of the day",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Grilled Chicken Breast",
+      "description": "Grilled chicken breast",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Fried Chicken Tenders",
+      "description": "Fried chicken tenders",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Rosemary Roasted Pork Loin Jezebel",
+      "description": "Rosemary roasted pork loin with Jezebel sauce",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Blackened Mahi Down on the Bayou",
+      "description": "Blackened mahi-mahi",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Stuffed Shrimp Florentine Topped with Alfredo Sauce",
+      "description": "Stuffed shrimp with spinach filling and Alfredo sauce",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Shrimp & Grits",
+      "description": "Blackened shrimp served over cheese grits",
+      "price": ""
+    },
+    {
+      "category": "Sides",
+      "name": "House Turnip Greens",
+      "description": "Seasoned turnip greens",
+      "price": ""
+    },
+    {
+      "category": "Sides",
+      "name": "Red Beans and Rice",
+      "description": "Red beans and rice",
+      "price": ""
+    },
+    {
+      "category": "Sides",
+      "name": "Cheese Grits",
+      "description": "Creamy cheese grits",
+      "price": ""
+    },
+    {
+      "category": "Soups",
+      "name": "Homemade Seafood Gumbo",
+      "description": "Award-winning seafood gumbo",
+      "price": ""
+    },
+    {
+      "category": "Salads",
+      "name": "Fresh Salad Bar",
+      "description": "Fresh salad bar served daily with lunch and dinner",
+      "price": ""
+    },
+    {
+      "category": "Desserts",
+      "name": "Homemade Peanut Butter Chocolate Chip Pie",
+      "description": "Famous peanut butter chocolate chip pie",
+      "price": ""
+    },
+    {
+      "category": "Desserts",
+      "name": "Homemade Key Lime Pie",
+      "description": "Key lime pie",
+      "price": ""
+    },
+    {
+      "category": "Desserts",
+      "name": "Bread Pudding with Whiskey Sauce",
+      "description": "Homemade bread pudding with whiskey sauce",
+      "price": ""
+    },
+    {
+      "category": "Desserts",
+      "name": "Homemade Bourbon Bread Pudding",
+      "description": "Homemade bourbon bread pudding",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Happy Hour at the Mobile Causeway",
+      "description": "Meet me at the Mobile Causeway Original Oyster House for the best happy hour! Great specials include $5 Bloody Marys, $5 Margaritas, $5 local craft beers, $5 well drinks, $5 house wines and $7 & $10 appetizers.",
+      "discount": ""
+    },
+    {
+      "name": "Valentine's Seafood Special",
+      "description": "Sweetheart Special package for $32.99 per person, not including tax and tip. Start with award-winning seafood gumbo, followed by Create-Your-Own-Seafood Platter with choice of three items, served with two famous sides. Finish with homemade bourbon bread pudding to share.",
+      "discount": ""
+    },
+    {
+      "name": "Gulf Shores Lunch Specials",
+      "description": "Lunch specials available at Gulf Shores location",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:51.100Z"
+}

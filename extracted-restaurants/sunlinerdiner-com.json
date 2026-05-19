@@ -1,0 +1,87 @@
+{
+  "name": "Sunliner Diner",
+  "type": "Restaurant",
+  "website": "https://sunlinerdiner.com",
+  "contact": {
+    "phone": "(251) 937-6590",
+    "address": "100 E 2nd Ave",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null
+  },
+  "about": {
+    "description": "The Sunliner Diner is a classic 1950s themed American diner with three locations featuring retro newspaper menus, collector cars, hand-spun milkshakes, and classic diner cuisine with breakfast served all day. Step back in time and enjoy togetherness, nostalgia, and comfort food in a chrome-trimmed setting.",
+    "cuisine_type": "American diner"
+  },
+  "social": {},
+  "menu": [
+    {
+      "category": "Eggs–Benedict",
+      "name": "Shrimp Benedict",
+      "description": "Two poached eggs, Creole seasoned Gulf shrimp, sliced red tomato covered with Creole hollandaise sauce on top of a Sunliner biscuit. Served with hash browns or grits.",
+      "price": ""
+    },
+    {
+      "category": "Eggs–Benedict",
+      "name": "Classic Benedict",
+      "description": "Two poached eggs with Creole hollandaise sauce, smoked ham on top of an English muffin. Served with hash browns or grits.",
+      "price": ""
+    },
+    {
+      "category": "Eggs–Benedict",
+      "name": "Chicken & Waffle Benedict",
+      "description": "Belgian waffle, hand-battered fried boneless chicken breast, two poached eggs covered with Creole hollandaise sauce. Topped with chopped bell peppers, drizzled with syrup. Served with hash browns or grits.",
+      "price": ""
+    },
+    {
+      "category": "Eggs–Benedict",
+      "name": "Avocado Benedict",
+      "description": "Two poached eggs, fresh avocado, and sliced red tomato covered with Creole hollandaise sauce on top of a Sunliner biscuit. Topped with chopped bell peppers and served with hash browns or grits.",
+      "price": ""
+    },
+    {
+      "category": "The Sunliner Griddle",
+      "name": "Banana Nut French Toast",
+      "description": "Texas toast soaked in a sweet custard topped with fresh bananas, candied pecans, two layers of candied bacon, and drizzled with caramel sauce.",
+      "price": ""
+    },
+    {
+      "category": "The Sunliner Griddle",
+      "name": "Chocolate Chip Pancakes",
+      "description": "Three light and fluffy buttermilk pancakes filled with chocolate chip morsels.",
+      "price": ""
+    },
+    {
+      "category": "The Sunliner Griddle",
+      "name": "Buttermilk Pancakes",
+      "description": "Three light and fluffy buttermilk pancakes.",
+      "price": ""
+    },
+    {
+      "category": "The Sunliner Griddle",
+      "name": "Sunliner French Toast",
+      "description": "Texas toast soaked in homemade sweet custard, topped with caramel sauce and powdered sugar.",
+      "price": ""
+    },
+    {
+      "category": "The Sunliner Griddle",
+      "name": "Seasonal Specialty Pancakes",
+      "description": "Three light and fluffy buttermilk pancakes with your choice of fresh bananas, blueberries, or strawberries on top.",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-03-21T20:13:36.706Z"
+}

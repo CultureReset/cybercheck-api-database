@@ -1,0 +1,50 @@
+[
+  {
+    "venue_name": "Cobalt",
+    "city": "Orange Beach, AL",
+    "top_match": "McDonald's",
+    "similarity": "40.0%"
+  },
+  {
+    "venue_name": "CoastAL",
+    "city": "Orange Beach, AL",
+    "top_match": "Coastal Fitness",
+    "similarity": "46.7%"
+  },
+  {
+    "venue_name": "Tipsy Pelican Patio Bar",
+    "city": "Orange Beach, AL",
+    "top_match": "Tiki & Raw Bar",
+    "similarity": "39.1%"
+  },
+  {
+    "venue_name": "Tee Off at the Wharf @ Portside on Main",
+    "city": "Orange Beach, AL",
+    "top_match": "Tee Off at The Wharf",
+    "similarity": "51.3%"
+  },
+  {
+    "venue_name": "Tiki & Raw Bar by Barometer",
+    "city": "Orange Beach, AL",
+    "top_match": "Tiki & Raw Bar",
+    "similarity": "51.9%"
+  },
+  {
+    "venue_name": "Tacky Jacks",
+    "city": "Orange Beach, AL",
+    "top_match": "Tacky Jacks Gulf Shores",
+    "similarity": "47.8%"
+  },
+  {
+    "venue_name": "Lulu's",
+    "city": "Gulf Shores, AL",
+    "top_match": "LUX Customs",
+    "similarity": "36.4%"
+  },
+  {
+    "venue_name": "Big Beach Brewing Company",
+    "city": "Gulf Shores, AL",
+    "top_match": "Big Beach Brewing",
+    "similarity": "68.0%"
+  }
+]

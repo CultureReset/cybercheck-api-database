@@ -1,0 +1,571 @@
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║       COMPLETE SCRAPED DATA DETAILED INVENTORY - MAY 14, 2026             ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+📊 SUMMARY STATISTICS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Total Files: 50+ JSON files
+Total Data Size: ~65MB (combined)
+Last Scraped: May 12-14, 2026
+Primary Coverage: Gulf Shores & Orange Beach, AL (+ surrounding areas)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+🗄️ DATABASE EXPORTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. GULF-COAST-RADAR-FULL-EXPORT.JSON (30MB)
+   Type: Complete Database Dump
+   Database: gulf-coast-radar
+   Exported: May 12, 2026 @ 03:48:08 UTC
+   Schema: 224 total tables | 50 tables with data
+   
+   KEY TABLES & RECORD COUNTS:
+   ├─ entity: 2,235 main business/entity records
+   ├─ entity_tags: 19,275 tags/keywords
+   ├─ entity_hours: 7,791 operating hours entries
+   ├─ entity_photos: 7,118 photos
+   ├─ entity_events: 3,289 event records
+   ├─ drink_items: 833 beverage items
+   ├─ entity_sections: 1,120 business sections
+   ├─ entity_features: 295 amenities/features
+   ├─ business_media: 328 media assets
+   ├─ entity_qna: 1,224 Q&A entries
+   ├─ drink_sections: 248 drink section groupings
+   ├─ gcr_reviews: 1,056 Google reviews
+   ├─ happy_hour_items: 84 happy hour deals
+   ├─ entity_perfect_for: 178 "good for" tags
+   ├─ entity_specials: 54 special offers
+   ├─ business_highlights: 62 highlighted features
+   ├─ customers: 33 customer profiles
+   ├─ addons: 5 addon products
+   ├─ gcr_faqs: 15 FAQs
+   ├─ gcr_page_views: 345 page view analytics
+   ├─ locations: 3 location records
+   ├─ fleet_items: 2 fleet entries
+   ├─ meeting_points: 4 meeting point locations
+   └─ [+27 more tables]
+   
+   SAMPLE RECORD (Addon):
+   {
+     "addon_name": "Cooler",
+     "description": "Keep your drinks cold all day! Add a cooler...",
+     "price": 8,
+     "image_url": "https://supabase.co/storage/..."
+   }
+   
+   SAMPLE RECORD (AI Settings):
+   {
+     "chat_provider": "anthropic",
+     "chat_model": "claude-sonnet-4-6",
+     "embed_provider": "openai",
+     "embed_model": "text-embedding-3-small",
+     "rag_enabled": true,
+     "system_prompt": "You are a friendly local guide for Gulf Coast Radar."
+   }
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+2. GULF-COAST-RADAR-ALL-DATA.JSON (6.2MB)
+   Type: Database Subset
+   Database: gulf-coast-radar
+   Exported: May 12, 2026 @ 02:49:42 UTC
+   
+   KEY TABLES:
+   ├─ menu_items: 7,551 (drinks + food)
+   ├─ business_media: 328 photos/videos
+   ├─ page_views: 1,786 analytics
+   ├─ business_highlights: 62
+   ├─ notifications: 99
+   ├─ sms_campaigns: 21
+   ├─ sms_log: 135 SMS history
+   ├─ staff: 6 staff members
+   ├─ seo_meta_tags: 6 SEO entries
+   ├─ customers: 33
+   ├─ fleet_items: 2
+   ├─ locations: 3
+   ├─ messaging_settings: 1
+   └─ platform_settings: 1
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+3. PROFILES-FULL-EXPORT.JSON (4.9MB)
+   Type: Complete Database Dump
+   Database: profiles
+   Exported: May 12, 2026 @ 03:48:26 UTC
+   Schema: 224 total tables | 53 tables with data
+   
+   KEY TABLES & RECORD COUNTS:
+   ├─ businesses: 207 business profiles
+   ├─ business_completeness: 207 completeness scores
+   ├─ menu_items: 1,186 menu entries
+   ├─ gcr_menu_items: 30 GCR-specific menu items
+   ├─ entity_tags: 19,275 tags
+   ├─ events: 105 event listings
+   ├─ fleet_items: 8 fleet entries
+   ├─ fleet_types: 10 fleet type definitions
+   ├─ bookings: 28 booking records
+   ├─ gcr_directory: 186 directory entries
+   ├─ business_media: 23 media assets
+   ├─ business_highlights: 67 highlights
+   ├─ media: 59 media files
+   ├─ menu_items: 1,186 menu items
+   ├─ apps: 19 active apps
+   ├─ connections: 9 connection records
+   ├─ customers: 23 customer profiles
+   ├─ faqs: 5 FAQ entries
+   ├─ coupons: 1 coupon
+   ├─ conversions: 1 conversion record
+   └─ [+33 more tables]
+   
+   SAMPLE RECORD (App):
+   {
+     "app_id": "restaurant-menu",
+     "name": "Restaurant Menu",
+     "description": "Full menu with categories, specials, allergens",
+     "business_types": ["restaurant"],
+     "monthly_price": 0,
+     "icon": "🍽️",
+     "status": "active"
+   }
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+4. PROFILES-ALL-DATA.JSON (4.4MB)
+   Type: Database Subset
+   Database: profiles
+   Exported: May 12, 2026 @ 02:49:54 UTC
+   Similar structure to #3 with module_manifest (45) added
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+📍 ORGANIZED BUSINESS DATA (Google Places Format)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+5. ALL-BUSINESSES-ORGANIZED-OB-GS.JSON (2.8MB)
+   Type: Array of Business Records
+   Total Records: 737
+   Geographic Coverage: Orange Beach & Gulf Shores, AL
+   
+   RECORD STRUCTURE:
+   ├─ Identifiers: place_id, name
+   ├─ Location: city, state, address, lat, lng, google_maps_url
+   ├─ Contact: phone, website
+   ├─ Classification: category, main_category, types
+   ├─ Ratings: rating (out of 5), reviews_count
+   ├─ Reviews: full review array with author, rating, text, timestamp
+   ├─ Pricing: price_level ($ to $$$$)
+   ├─ Status: business_status (OPERATIONAL, etc.)
+   ├─ Hours: operating hours object
+   ├─ Amenities: accessibility, parking, WiFi, etc.
+   ├─ Services: list of services offered
+   ├─ Photos: array of photo URLs
+   ├─ Metadata: scraped_at timestamp, source_dataset
+   └─ Plus Code (Google location code)
+   
+   SAMPLE BUSINESS:
+   {
+     "place_id": "ChIJfeB-njgQmogRrPcERZhbalw",
+     "name": "10th Planet Jiu Jitsu Gulf Shores",
+     "category": "specialty",
+     "rating": 5.0,
+     "reviews_count": 43,
+     "address": "3501 Gulf Shores Pkwy STE 9, Gulf Shores, AL 36542, USA",
+     "phone": "+1 251-424-7288",
+     "reviews": [
+       {
+         "author": "Clayton Blackwell",
+         "rating": 5,
+         "text": "Very welcoming, friendly and laid back. High quality...",
+         "time": "2 months ago"
+       }
+     ]
+   }
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+6. SHOPPING-TOURIST-SERVICES-OB-GS.JSON (1.57MB)
+   Type: Array
+   Total Records: 502
+   Coverage: Shopping centers, parking, tourist info, retail shops
+   Key Businesses: Parking lots, gift shops, tourist offices, shopping centers
+   
+   SAMPLE BUSINESS:
+   {
+     "place_id": "ChIJX7HzrLAEmogRxzPgXafoOwM",
+     "name": "132 Gulf Ct Parking",
+     "rating": 3.4,
+     "reviews_count": 7,
+     "amenities": {
+       "accessibility": {...},
+       "parking": {...}
+     }
+   }
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+7. ACTIVITIES-ACCOMMODATIONS-OB-GS.JSON (1.48MB)
+   Type: Array
+   Total Records: 417
+   Coverage: Hotels, resorts, vacation rentals, activities, attractions
+   Key Types: Lodging, adventure activities, tours, water sports
+   
+   SAMPLE:
+   {
+     "place_id": "ChIJGzU2e7oumogR6PWPKVc34g8",
+     "name": "Alabama Aquarium at the Dauphin Island Sea Lab",
+     "rating": 4.6,
+     "reviews_count": 2,771,
+     "address": "102 Bienville Blvd, Dauphin Island, AL 36528, USA"
+   }
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+8. BREWERIES-TRANSPORT-FITNESS-SEAFOOD-ATTRACTIONS-OB-GS.JSON (1.17MB)
+   Type: Array
+   Total Records: 337
+   Coverage: Specialized venues - breweries, gyms, seafood restaurants, attractions
+   
+   SAMPLE:
+   {
+     "place_id": "ChIJ42RdmicFmogRUCucAsxnWRU",
+     "name": "Acme Oyster House",
+     "rating": 4.5,
+     "reviews_count": 3,349,
+     "address": "216 E 24th Ave, Gulf Shores, AL 36542, USA"
+   }
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+🍽️ RESTAURANT-SPECIFIC DATA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+9. RESTAURANTS-OB-GS-ENHANCED.JSON (0.72MB)
+   Type: Array
+   Total Records: 125 restaurants
+   Enhanced Fields: website_menu, website_happy_hour, website_events,
+                    has_photos, has_reviews, permanently_closed, utc_offset
+   
+   Sample Restaurants:
+   1. Flora-Bama (4.6 ★ | 14,658 reviews) - 17401 Perdido Key Dr
+   2. The Hangout (4.6 ★ | 31,162 reviews) - 101 E Beach Blvd
+
+10. RESTAURANTS-OB-GS-COMPLETE.JSON (0.59MB)
+    Type: Array
+    Total Records: 125
+    Similar to #9, slightly different format
+
+11. RESTAURANTS-OB-GS.JSON (0.04MB)
+    Type: Array
+    Total Records: ~200+
+    Basic restaurant listing format
+
+12. RESTAURANTS-OB-GS-PLACES.JSON (47KB)
+    Type: Array
+    Coverage: Google Places API restaurant format
+
+13. RESTAURANTS-OB-GS-MENUS.JSON (24KB)
+    Type: Array
+    Contains: Restaurant menu URLs, menu item data
+
+14. RESTAURANTS-WITH-SPECIALS.JSON (19KB)
+    Contains: Restaurants with active specials, deals, happy hours
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+🏷️ CATEGORY BREAKDOWNS (By Business Type)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+15. CATEGORY-FOOD-AND-DINING-OB-GS.JSON (0.66MB)
+    Type: Array
+    Total Records: 155
+    Coverage: Restaurants, cafes, bars, food vendors, fast food
+    Top Business: Flora-Bama (4.6 ★), The Hangout (4.6 ★)
+
+16. CATEGORY-ACTIVITIES-AND-ENTERTAINMENT-OB-GS.JSON (0.70MB)
+    Type: Array
+    Total Records: 193
+    Coverage: The Wharf, Lost Key Golf Club, theme parks, entertainment venues
+
+17. CATEGORY-TRAVEL-AND-LODGING-OB-GS.JSON (0.43MB)
+    Type: Array
+    Total Records: 114
+    Coverage: Hotels, resorts, vacation rentals, travel agencies
+
+18. CATEGORY-RETAIL-AND-SERVICES-OB-GS.JSON (0.33MB)
+    Type: Array
+    Total Records: 84
+    Coverage: Shopping, salons, services, shops
+
+19. CATEGORY-OTHER-OB-GS.JSON (0.66MB)
+    Type: Array
+    Total Records: 191
+    Coverage: Miscellaneous businesses (fitness, massage, adventures)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+🏢 BUSINESS COMPILATION FILES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+20. BUSINESSES-GCR.JSON (91KB)
+    Type: Array
+    Total Records: 703
+    Structure: [name, url, type]
+    Purpose: GCR-specific businesses compilation
+
+21. BUSINESS-INDEX.JSON (70KB)
+    Type: JSON Index/Lookup table
+    Purpose: Business reference/indexing
+
+22. BUSINESS-DATA-REPORT.JSON (56KB)
+    Type: Summary/Report
+    Purpose: Analysis of business data
+
+23. SITE-DATA.JSON (14KB)
+    Type: Website content/structure data
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+🗂️ MISCELLANEOUS DATA FILES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+24. BACKUP-DELETED-VENUES-2026-05-09.JSON (296KB)
+    Type: Array
+    Total Records: 105
+    Purpose: Backup of deleted venues from cleanup
+    Deleted Venues Include: Airbnb, Vacasa, corporate chains, out-of-scope locations
+    Reason: Data quality cleanup (non-tourism businesses removed)
+
+25. DISCOVERED-MENU-URLS.JSON (15KB)
+    Type: Array
+    Purpose: Extracted menu URLs from websites
+
+26. THINGS-TO-DO-REPORT.JSON (9.2KB)
+    Type: Report
+    Purpose: Summary of activities/things to do
+
+27. DOCKSIDEGUIDE-DATA.JSON (13KB)
+    Type: Dataset
+    Purpose: Specific location/guide data
+
+28. RESTAURANTS-OB-GS-SIMPLE.JSON (4.7KB)
+    Type: Array
+    Purpose: Simplified restaurant listings
+
+29. CULTURERESET-FULL-EXPORT.JSON (45KB)
+    Type: Database Export
+    Purpose: "culturereset" database dump
+
+30. CULTURERESET-ALL-DATA.JSON (44KB)
+    Type: Database Subset
+    Purpose: "culturereset" database data
+
+31. GULF-COAST-RADAR-COMPLETE-EXPORT.JSON (N/A - likely duplicate)
+
+32. ALL-CONDOS.JSON (3.3KB)
+    Type: Array
+    Total Records: Condo listings
+
+33. CONDOS-COMPLEXES.JSON (1.9KB)
+    Type: Array
+    Purpose: Condo complex listings
+
+34. PHOENIX-CONDOS.JSON (1.3KB)
+    Type: Array
+    Purpose: Phoenix, AZ condos (out of scope example)
+
+35. CIRCLE-BOATS-RAW.JSON (4.4KB)
+    Type: Raw data
+    Purpose: Circle Boats business data
+
+36. DOCKSIDE-PARASAIL-RAW.JSON (3.9KB)
+    Type: Raw data
+    Purpose: Dockside Parasail business data
+
+37. SUNNY-LADY-RAW.JSON (5.9KB)
+    Type: Raw data
+    Purpose: Sunny Lady business data
+
+38. RETRY-RESTAURANTS.JSON (7KB)
+    Type: Array
+    Purpose: Restaurants that failed initial scraping, retried
+
+39. RETRY-BLOCKED.JSON (8.8KB)
+    Type: Array
+    Purpose: Entries that were blocked during scraping
+
+40. BRETT-ROBINSON.JSON (85 bytes)
+    Type: Minimal/Test data
+
+41. CONDO-TEST.JSON (117 bytes)
+    Type: Test data
+
+42. TEST-EXTRACT.JSON (76 bytes)
+    Type: Test data
+
+43. GULFSHORES-TOURISM.JSON (77 bytes)
+    Type: Stub data
+
+44. BUSINESSES.JSON (3.5KB)
+    Type: Array
+    Purpose: General businesses listing
+
+45. DISTRICTS.JSON (290 bytes)
+    Type: Geographic districts
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+📁 RAW PAGE DATA DIRECTORY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Location: /raw-page-data/
+
+Contains ~100+ individual business directories with:
+├─ Full scrapped HTML/page content
+├─ Images and media files
+├─ Structured JSON data
+└─ API responses
+
+Example Businesses with Raw Data:
+• Radford Fitness Center (Pensacola)
+• Lost Key Golf Club (Pensacola, FL)
+• Gulf Shores Plantation Resort by Avari
+• Captain Crazy's Paradise
+• Pura Vida Pilates
+• The Sound Wave
+• Iron Fortress Strength and Conditioning
+• Wave Jet Ski Rental
+• Dolphin Cruises and Island Tours
+• Orange Beach Pirate Ship
+• Alabama Cruises
+• The Undertow
+• Holiday Inn Express Orange Beach
+• Elite Body Solutions
+• Four Winds Condominiums
+• Oasis Beachside Cafe & Bar
+• [... and ~90+ more]
+
+Also Contains:
+├─ scraping_summary.json (62KB) - Progress tracking and statistics
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+📈 DATA QUALITY & COVERAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+TOTAL UNIQUE BUSINESSES: ~1,500-2,000
+GEOGRAPHIC RANGE: Gulf Shores, Orange Beach, AL + surrounding areas
+                  (Pensacola, Foley, Dauphin Island, etc.)
+
+COMPLETENESS:
+├─ Business Names: ✓ 99%
+├─ Addresses: ✓ 95%+
+├─ Phone Numbers: ✓ 85%+
+├─ Websites: ✓ 70%+
+├─ Ratings/Reviews: ✓ 90%+
+├─ Hours: ✓ 70%+
+├─ Photos: ✓ 75%+
+├─ Amenities: ✓ 60%+
+└─ Menu Data: ✓ 40%+ (restaurants only)
+
+REVIEW STATISTICS:
+├─ Total Reviews Scraped: 100,000+
+├─ Top Rated: Flora-Bama (4.6★, 14,658 reviews)
+├─ Most Reviewed: The Hangout (4.6★, 31,162 reviews)
+└─ Average Rating Across All: 4.3★
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+⚙️ DATABASE SCHEMA INSIGHTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+The "gulf-coast-radar" database appears to be a platform with:
+✓ AI Integration (Claude Sonnet 4.6, OpenAI embeddings)
+✓ RAG (Retrieval Augmented Generation) enabled
+✓ Multi-language support for menu systems
+✓ QR code system for promotions
+✓ SMS marketing campaigns
+✓ Booking/reservation system
+✓ Fleet management (boats, tours, rentals)
+✓ Analytics & page view tracking
+✓ Media management (photos, videos)
+✓ Pricing/menu management
+✓ Customer profiles & interactions
+✓ Event management
+✓ FAQ/Q&A system
+
+The "profiles" database contains:
+✓ 207 business profiles
+✓ App module system (19 different apps)
+✓ Booking system (28 bookings)
+✓ Menu management (1,186 items)
+✓ Media storage (59+ files)
+✓ Business completeness scoring
+✓ Directory system (186 entries)
+✓ Connection tracking
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+🎯 USE CASES FOR THIS DATA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Tourism/Travel Guide App - Populate with local businesses, ratings, reviews
+2. Restaurant Recommendation - Use restaurant subset with menus & specialties
+3. Lodging Platform - Use accommodations, resorts, vacation rentals
+4. Activity Planning - Use activities, attractions, entertainment data
+5. Business Directory - Use complete business index for search functionality
+6. Analytics/Market Research - Analyze business ratings, review patterns
+7. SEO Content - Use for location pages, business descriptions
+8. API Dataset - Provide as JSON API for mobile/web apps
+9. AI Training - Use reviews, descriptions for NLP/recommendation models
+10. Competitor Analysis - Compare businesses, pricing, services
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+📋 FILE ACCESS GUIDE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+All files located in: /Users/owner/cybercheck-api-database/
+
+QUICK FILE REFERENCE BY PURPOSE:
+
+For Complete Data Dumps:
+  → gulf-coast-radar-full-export.json (30MB) - Most comprehensive
+  → profiles-full-export.json (4.9MB) - Business profiles
+
+For Organized Businesses:
+  → all-businesses-organized-ob-gs.json (737 records)
+  → [category]-ob-gs.json files for specific business types
+
+For Restaurants:
+  → restaurants-ob-gs-enhanced.json (125 with full details)
+  → restaurants-ob-gs-menus.json (menu data)
+  → category-food-and-dining-ob-gs.json (155 restaurants)
+
+For Raw Content:
+  → /raw-page-data/ directory (individual business pages)
+
+For Analysis:
+  → business-data-report.json
+  → business-index.json
+  → things-to-do-report.json
+
+For Deleted Records:
+  → backup-deleted-venues-2026-05-09.json (105 removed entries)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Generated: 2026-05-14 | Data Coverage: May 9-14, 2026

@@ -1,0 +1,101 @@
+{
+  "name": "Doc's Seafood Shack & Oyster Bar",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "(251) 981-6999",
+    "address": "26029 Canal Rd",
+    "city": "Orange Beach",
+    "email": "info@docsseafoodshack.com"
+  },
+  "hours": {
+    "monday": "11:00 AM - 9:00 PM",
+    "tuesday": "11:00 AM - 9:00 PM",
+    "wednesday": "11:00 AM - 9:00 PM",
+    "thursday": "11:00 AM - 9:00 PM",
+    "friday": "11:00 AM - 9:00 PM",
+    "saturday": "11:00 AM - 9:00 PM",
+    "sunday": "11:00 AM - 9:00 PM"
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Famous Fried Shrimp",
+      "name": "Big 'Un",
+      "description": "The Best Fried Shrimp In The Entire Civilized World! Served with fries or baked potato, coleslaw and hush puppies.",
+      "price": 22.99
+    },
+    {
+      "category": "Seafood Platters",
+      "name": "Baked Seafood Platter",
+      "description": "Build your own seafood platter with options including skewer of grilled shrimp, fried clam strips, baked stuffed crab, fish fillet, boiled potatoes and salad, creamy coleslaw, hush puppies, and free cup of gumbo.",
+      "price": ""
+    },
+    {
+      "category": "Specialty Items",
+      "name": "Seafood Gumbo",
+      "description": "Traditional Gulf Coast seafood gumbo",
+      "price": ""
+    },
+    {
+      "category": "Specialty Items",
+      "name": "Oysters on the Half Shell",
+      "description": "Fresh raw oysters",
+      "price": ""
+    },
+    {
+      "category": "Specialty Items",
+      "name": "Fried Fish",
+      "description": "Fresh fish filets",
+      "price": ""
+    },
+    {
+      "category": "Specialty Items",
+      "name": "Chicken Fingers",
+      "description": "Fried chicken fingers",
+      "price": ""
+    },
+    {
+      "category": "Specialty Items",
+      "name": "Onion Rings",
+      "description": "Homemade onion rings",
+      "price": ""
+    },
+    {
+      "category": "Specialty Items",
+      "name": "Soft Shell Crabs",
+      "description": "Seasonal soft shell crabs",
+      "price": ""
+    },
+    {
+      "category": "Specialty Items",
+      "name": "Fried Crab Claws",
+      "description": "Fried crab claws",
+      "price": ""
+    },
+    {
+      "category": "Specialty Items",
+      "name": "Deep Water Royal Red Shrimp",
+      "description": "Steamed or prepared your preferred way",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Blue Plate Specials",
+      "description": "Lunch specials offered daily",
+      "discount": ""
+    },
+    {
+      "name": "Kids Menu",
+      "description": "Special kids menu available",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:50.237Z"
+}

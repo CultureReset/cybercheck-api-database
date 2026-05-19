@@ -1,0 +1,249 @@
+{
+  "name": "Beach Girl Coffee",
+  "type": "Restaurant",
+  "website": "https://www.beachgirlcoffee.com/",
+  "contact": {
+    "phone": "251-948-0474",
+    "address": "3500 Gulf Shores Pkwy",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {
+    "monday": "6:00am-3:00pm",
+    "tuesday": "6:00am-3:00pm",
+    "wednesday": "6:00am-3:00pm",
+    "thursday": "6:00am-3:00pm",
+    "friday": "6:00am-3:00pm",
+    "saturday": "6:00am-3:00pm",
+    "sunday": "6:00am-3:00pm"
+  },
+  "about": {
+    "description": "Beach Girl Coffee offers truly great coffee with southern hospitality. They serve hot, cold, blended, and kids' drinks made fresh to your specifications in a drive-through setting.",
+    "cuisine_type": "coffee"
+  },
+  "social": {},
+  "menu": [
+    {
+      "category": "Holiday Menu - Seasonal Drinks",
+      "name": "Peppermint Mocha",
+      "description": "Chocolate & Peppermint",
+      "price": ""
+    },
+    {
+      "category": "Holiday Menu - Seasonal Drinks",
+      "name": "Christmas Cookie",
+      "description": "Vanilla, Cookie Dough, & Cane Sugar",
+      "price": ""
+    },
+    {
+      "category": "Holiday Menu - Seasonal Drinks",
+      "name": "Gingerbread House",
+      "description": "Gingerbread Cookie Dough & Vanilla",
+      "price": ""
+    },
+    {
+      "category": "Holiday Menu - Seasonal Drinks",
+      "name": "Rudolph",
+      "description": "Red Velvet & Vanilla",
+      "price": ""
+    },
+    {
+      "category": "Holiday Menu - Seasonal Drinks",
+      "name": "Polar Express Hot Coco",
+      "description": "Coco Mix & Toasted Marshmallow",
+      "price": ""
+    },
+    {
+      "category": "Holiday Menu - Seasonal Drinks",
+      "name": "Beach Girls Candy Cane",
+      "description": "White Chocolate & Peppermint Foam",
+      "price": ""
+    },
+    {
+      "category": "Holiday Menu - Seasonal Drinks",
+      "name": "Sweater Weather",
+      "description": "Spiced Brown Sugar & Vanilla",
+      "price": ""
+    },
+    {
+      "category": "Hot Drinks",
+      "name": "French Brewed Coffee",
+      "description": "",
+      "price": "$2.45-$3.00"
+    },
+    {
+      "category": "Hot Drinks",
+      "name": "Americano",
+      "description": "",
+      "price": "$3.25-$4.25"
+    },
+    {
+      "category": "Hot Drinks",
+      "name": "Cappuccino",
+      "description": "",
+      "price": "$4.50-$6.00"
+    },
+    {
+      "category": "Hot Drinks",
+      "name": "Macchiato",
+      "description": "",
+      "price": "$5.00-$7.00"
+    },
+    {
+      "category": "Hot Drinks",
+      "name": "Latte",
+      "description": "",
+      "price": "$4.50-$6.00"
+    },
+    {
+      "category": "Hot Drinks",
+      "name": "Chai Latte",
+      "description": "",
+      "price": "$4.25-$5.25"
+    },
+    {
+      "category": "Hot Drinks",
+      "name": "Assorted Hot Teas",
+      "description": "",
+      "price": "$3.00-$3.50"
+    },
+    {
+      "category": "Hot Drinks",
+      "name": "Hot Chocolate",
+      "description": "",
+      "price": "$3.00-$3.50"
+    },
+    {
+      "category": "Hot Drinks",
+      "name": "Matcha",
+      "description": "",
+      "price": "$4.00-$6.00"
+    },
+    {
+      "category": "Hot Drinks",
+      "name": "To-Go Coffee Box 96oz",
+      "description": "",
+      "price": "$22.00"
+    },
+    {
+      "category": "On The Rocks",
+      "name": "Ice Coffee",
+      "description": "",
+      "price": "$3.00-$5.75"
+    },
+    {
+      "category": "On The Rocks",
+      "name": "Ice Latte",
+      "description": "",
+      "price": "$4.25-$7.75"
+    },
+    {
+      "category": "On The Rocks",
+      "name": "Ice Macchiato",
+      "description": "",
+      "price": "$5.00-$8.75"
+    },
+    {
+      "category": "On The Rocks",
+      "name": "Ice Chai",
+      "description": "",
+      "price": "$4.25-$7.25"
+    },
+    {
+      "category": "On The Rocks",
+      "name": "Ice Tea",
+      "description": "",
+      "price": "$2.75-$5.25"
+    },
+    {
+      "category": "On The Rocks",
+      "name": "Lemonade",
+      "description": "",
+      "price": "$2.75-$5.25"
+    },
+    {
+      "category": "On The Rocks",
+      "name": "Energy",
+      "description": "",
+      "price": "$5.25-$8.50"
+    },
+    {
+      "category": "On The Rocks",
+      "name": "Tropical Bliss",
+      "description": "",
+      "price": "$4.25-$7.25"
+    },
+    {
+      "category": "On The Rocks",
+      "name": "Matcha",
+      "description": "",
+      "price": "$4.00-$7.75"
+    },
+    {
+      "category": "Blended Frozen",
+      "name": "Vanilla",
+      "description": "",
+      "price": "$5.25-$7.25"
+    },
+    {
+      "category": "Blended Frozen",
+      "name": "Caramel",
+      "description": "",
+      "price": "$5.25-$7.25"
+    },
+    {
+      "category": "Blended Frozen",
+      "name": "Chocolate",
+      "description": "",
+      "price": "$5.25-$7.25"
+    },
+    {
+      "category": "Blended Frozen",
+      "name": "White Chocolate",
+      "description": "",
+      "price": "$5.25-$7.25"
+    },
+    {
+      "category": "Blended Frozen",
+      "name": "Coffee",
+      "description": "",
+      "price": "$5.25-$7.25"
+    },
+    {
+      "category": "Blended Frozen",
+      "name": "Java Chip",
+      "description": "",
+      "price": "$5.25-$7.25"
+    },
+    {
+      "category": "Blended Frozen",
+      "name": "Cookies and Cream",
+      "description": "",
+      "price": "$5.25-$7.25"
+    },
+    {
+      "category": "Blended Frozen",
+      "name": "Choco Peanut butter",
+      "description": "",
+      "price": "$5.25-$7.25"
+    },
+    {
+      "category": "Customization",
+      "name": "Extra Shot of Espresso",
+      "description": "",
+      "price": "$2.00"
+    },
+    {
+      "category": "Customization",
+      "name": "The Whole Shebang",
+      "description": "Whip cream drizzle & sprinkles",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-03-21T15:04:21.631Z"
+}

@@ -1,0 +1,42 @@
+{
+  "name": "Treehouse",
+  "type": "Restaurant",
+  "website": "http://www.treehouse.gs",
+  "contact": {
+    "phone": "(251) 220-5263",
+    "address": "1538 Gulf Shores Parkway Unit 5, The Square Shopping Center",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {
+    "monday": "7:00am to 7:00pm",
+    "tuesday": "7:00am to 7:00pm",
+    "wednesday": "7:00am to 7:00pm",
+    "thursday": "7:00am to 7:00pm",
+    "friday": "7:00am to 7:00pm",
+    "saturday": "7:00am to 7:00pm",
+    "sunday": null,
+    "notes": "Closed Sunday"
+  },
+  "about": {
+    "description": null,
+    "elevator_pitch": null,
+    "vibe": null,
+    "best_for": [],
+    "established": null,
+    "reservations": null,
+    "insider_tip": null
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "website": "http://www.treehouse.gs"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 2,
+  "scraped_at": "2026-03-22T18:51:51.725Z"
+}

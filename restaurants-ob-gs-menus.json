@@ -1,0 +1,581 @@
+[
+  {
+    "place_id": "ChIJAcqjl0mokIgRnm2_K_q2x7U",
+    "name": "Flora-Bama",
+    "type": "restaurant",
+    "city": "Orange Beach",
+    "state": "AL",
+    "address": "17401 Perdido Key Dr, Pensacola, FL 32507, USA",
+    "phone": "+1 850-492-0611",
+    "website": "https://www.florabama.com/",
+    "google_maps_url": "https://maps.google.com/?cid=13098639226822421918",
+    "lat": 30.2813122,
+    "lng": -87.518213,
+    "plus_code": "7FJJ+GP Pensacola, FL, USA",
+    "rating": 4.6,
+    "reviews_count": 14658,
+    "reviews": [
+      {
+        "author": "Diva in the Woods",
+        "rating": 5,
+        "text": "Excellent tourist attraction for visitors from other countries who want to experience southern life (or people from other regions of the US who are curious)! I'm from GA and felt right at home.\n\nMy visit was Feb. 23, 2026 on a Monday afternoon around 3pm. The gift shop is at the entrance and busier than I expected for the day and time.\n\nWe made our way toward the back and this place is MUCH larger that it appears from the street. And my, oh my! So many stairs and so many levels! I'm not sure if ",
+        "time": "2 months ago"
+      },
+      {
+        "author": "Shannon Smith",
+        "rating": 5,
+        "text": "My girlfriends and I visited Florabama a few weeks ago and had an amazing time!!! We had great drinks and food, but the service was impeccable!! 5 ⭐️!  We had the best experience with Stacy! She is the best bartender and conversationalist we’ve ever had the pleasure of meeting! We can’t wait to go back! Hands down the best time we’ve ever had! Thanks Stacy for making our trip so memorable!",
+        "time": "2 months ago"
+      },
+      {
+        "author": "Cari Breckenridge",
+        "rating": 5,
+        "text": "Amazing atmosphere! Awesome variety of stuff in their gift shop! Was able to not only eat at the yacht club but also attend their Christmas Day potluck! So amazing what all they do for the community! Really good food and great staff! Great location!",
+        "time": "4 months ago"
+      },
+      {
+        "author": "Jackie Van Matre",
+        "rating": 5,
+        "text": "We just celebrated our sister’s 90th b’day at Florabama.  Florabama is this group of 6 sisters favorite “honky Tonk.”  Your awesome staff is incredibly nice from the time you come in the front door until you leave.  We want to give a special shout out to “Stephanie” in the Main Event Room.  She took such great care of us for 3 nights in a row making sure we found a place to sit and Serving us your famous Bushwackers!  We feel like one big family when we are there celebrating with your staff, mus",
+        "time": "3 months ago"
+      },
+      {
+        "author": "R Farmland",
+        "rating": 5,
+        "text": "There is so much going on here. Two different bands in two separate bar areas. They start early and it goes on into the night. Sometimes they have famous singer/songwriters performing. We come here every year while on vacation.",
+        "time": "2 months ago"
+      }
+    ],
+    "price_level": 2,
+    "business_status": "OPERATIONAL",
+    "types": [
+      "bar",
+      "establishment",
+      "food",
+      "point_of_interest",
+      "restaurant"
+    ],
+    "hours": {
+      "monday": "11:00 AM – 2:30 AM",
+      "tuesday": "11:00 AM – 2:30 AM",
+      "wednesday": "11:00 AM – 2:30 AM",
+      "thursday": "11:00 AM – 2:30 AM",
+      "friday": "11:00 AM – 2:30 AM",
+      "saturday": "11:00 AM – 2:30 AM",
+      "sunday": "11:00 AM – 2:30 AM"
+    },
+    "is_open_now": true,
+    "photos": [
+      "/Users/owner/cybercheck-api-database/restaurant-photos/ChIJAcqjl0mokIgRnm2_K_q2x7U/Flora-Bama_01.jpg",
+      "/Users/owner/cybercheck-api-database/restaurant-photos/ChIJAcqjl0mokIgRnm2_K_q2x7U/Flora-Bama_02.jpg",
+      "/Users/owner/cybercheck-api-database/restaurant-photos/ChIJAcqjl0mokIgRnm2_K_q2x7U/Flora-Bama_03.jpg",
+      "/Users/owner/cybercheck-api-database/restaurant-photos/ChIJAcqjl0mokIgRnm2_K_q2x7U/Flora-Bama_04.jpg",
+      "/Users/owner/cybercheck-api-database/restaurant-photos/ChIJAcqjl0mokIgRnm2_K_q2x7U/Flora-Bama_05.jpg",
+      "/Users/owner/cybercheck-api-database/restaurant-photos/ChIJAcqjl0mokIgRnm2_K_q2x7U/Flora-Bama_06.jpg",
+      "/Users/owner/cybercheck-api-database/restaurant-photos/ChIJAcqjl0mokIgRnm2_K_q2x7U/Flora-Bama_07.jpg",
+      "/Users/owner/cybercheck-api-database/restaurant-photos/ChIJAcqjl0mokIgRnm2_K_q2x7U/Flora-Bama_08.jpg",
+      "/Users/owner/cybercheck-api-database/restaurant-photos/ChIJAcqjl0mokIgRnm2_K_q2x7U/Flora-Bama_09.jpg",
+      "/Users/owner/cybercheck-api-database/restaurant-photos/ChIJAcqjl0mokIgRnm2_K_q2x7U/Flora-Bama_10.jpg"
+    ],
+    "has_photos": true,
+    "has_reviews": true,
+    "permanently_closed": false,
+    "utc_offset": -300,
+    "website_menu": [],
+    "website_happy_hour": null,
+    "website_events": [
+      "Events",
+      "Annual Events",
+      "Daily Events",
+      "Live Music",
+      "Events",
+      "Annual Events",
+      "Daily Events",
+      "Live Music",
+      "Live Music 365",
+      "Legendary Events"
+    ],
+    "website_scraped": true,
+    "scraped_at": "2026-05-13T23:42:30.645584",
+    "menu": [
+      {
+        "name": "About Us",
+        "description": null,
+        "price": null,
+        "full_text": "About Us"
+      },
+      {
+        "name": "Articles",
+        "description": null,
+        "price": null,
+        "full_text": "Articles"
+      },
+      {
+        "name": "Gallery",
+        "description": null,
+        "price": null,
+        "full_text": "Gallery"
+      },
+      {
+        "name": "Videos",
+        "description": null,
+        "price": null,
+        "full_text": "Videos"
+      },
+      {
+        "name": "Hey Y'all",
+        "description": null,
+        "price": null,
+        "full_text": "Hey Y'all"
+      },
+      {
+        "name": "Events",
+        "description": null,
+        "price": null,
+        "full_text": "Events"
+      },
+      {
+        "name": "Annual Events",
+        "description": null,
+        "price": null,
+        "full_text": "Annual Events"
+      },
+      {
+        "name": "Daily Events",
+        "description": null,
+        "price": null,
+        "full_text": "Daily Events"
+      },
+      {
+        "name": "Flora-Bama Church",
+        "description": null,
+        "price": null,
+        "full_text": "Flora-Bama Church"
+      },
+      {
+        "name": "Tickets",
+        "description": null,
+        "price": null,
+        "full_text": "Tickets"
+      },
+      {
+        "name": "Live Music",
+        "description": null,
+        "price": null,
+        "full_text": "Live Music"
+      },
+      {
+        "name": "Oyster Bar",
+        "description": null,
+        "price": null,
+        "full_text": "Oyster Bar"
+      },
+      {
+        "name": "Ole River Grill",
+        "description": null,
+        "price": null,
+        "full_text": "Ole River Grill"
+      },
+      {
+        "name": "Yacht Club",
+        "description": null,
+        "price": null,
+        "full_text": "Yacht Club"
+      },
+      {
+        "name": "Marina",
+        "description": null,
+        "price": null,
+        "full_text": "Marina"
+      },
+      {
+        "name": "Contact",
+        "description": null,
+        "price": null,
+        "full_text": "Contact"
+      },
+      {
+        "name": "Stories",
+        "description": null,
+        "price": null,
+        "full_text": "Stories"
+      },
+      {
+        "name": "Flora-Bama Marina",
+        "description": "Rent a jet ski or boat at the Flora-Bama marina. Located just across the street, the marina offers pontton boat rentals, jet ski rentals and even a custom charter. Visit our website  to book now. Lear",
+        "price": null,
+        "full_text": "Flora-Bama Marina \n  Rent a jet ski or boat at the Flora-Bama marina. Located just across the street, the marina offers pontton boat rentals, jet ski rentals and even a custom charter. Visit our website  to book now. \n \n   Learn More"
+      },
+      {
+        "name": "Flora-Bama Liquor",
+        "description": "Liquor & Lotto in one spot! Flora-Bama Liquor and Lotto is just across the street and offers a great selection in beer, wine, liquor and other adult beverages. Pick up a lottery ticket when you visit!",
+        "price": null,
+        "full_text": "Flora-Bama Liquor \n  Liquor & Lotto in one spot! Flora-Bama Liquor and Lotto is just across the street and offers a great selection in beer, wine, liquor and other adult beverages. Pick up a lottery ticket when you visit! \n \n   Learn More"
+      },
+      {
+        "name": "Flora-Bama Coastal Cruiser",
+        "description": "The Coastal Cruiser is the perfect boat for your group of family and friends. The vessel can carry up to 20 passengers and comes with a licensed Captain who knows the local waters. Read More",
+        "price": null,
+        "full_text": "Flora-Bama Coastal Cruiser \n  The Coastal Cruiser is the perfect boat for your group of family and friends. The vessel can carry up to 20 passengers and comes with a licensed Captain who knows the local waters. \n \n   Read More"
+      },
+      {
+        "name": "Door Policy",
+        "description": null,
+        "price": null,
+        "full_text": "Door Policy"
+      },
+      {
+        "name": "Privacy Policy",
+        "description": null,
+        "price": null,
+        "full_text": "Privacy Policy"
+      },
+      {
+        "name": "ADA Information",
+        "description": null,
+        "price": null,
+        "full_text": "ADA Information"
+      },
+      {
+        "name": "News Room",
+        "description": null,
+        "price": null,
+        "full_text": "News Room"
+      },
+      {
+        "name": "Join The Bamily",
+        "description": null,
+        "price": null,
+        "full_text": "Join The Bamily"
+      },
+      {
+        "name": "Flora-Bama Liquor & Lotto",
+        "description": null,
+        "price": null,
+        "full_text": "Flora-Bama Liquor & Lotto"
+      },
+      {
+        "name": "Flora-Bama Store",
+        "description": null,
+        "price": null,
+        "full_text": "Flora-Bama Store"
+      },
+      {
+        "name": "Flora-Bama Yacht Club",
+        "description": null,
+        "price": null,
+        "full_text": "Flora-Bama Yacht Club"
+      }
+    ],
+    "happy_hour_info": {
+      "description": null,
+      "times": [
+        "11:00 am \n- 2:30 am",
+        "9:00 am \n- 2:30 am"
+      ],
+      "drink_specials": [],
+      "food_specials": []
+    },
+    "specials": [],
+    "events_info": [
+      "Events",
+      "Annual Events",
+      "Daily Events",
+      "Live Music",
+      "Live Music 365",
+      "Music Schedule →",
+      "Legendary Events",
+      "Annual Events →"
+    ],
+    "menu_scraped": true
+  },
+  {
+    "place_id": "ChIJSU2qLbcEmogRsJwBQpAN04U",
+    "name": "The Hangout",
+    "type": "restaurant",
+    "city": "Orange Beach",
+    "state": "AL",
+    "address": "101 E Beach Blvd, Gulf Shores, AL 36542, USA",
+    "phone": "+1 251-948-3030",
+    "website": "https://www.thehangout.com/hangout-gulf-shores/",
+    "google_maps_url": "https://maps.google.com/?cid=9643066140364217520",
+    "lat": 30.2481175,
+    "lng": -87.68921519999999,
+    "plus_code": "68X6+68 Gulf Shores, AL, USA",
+    "rating": 4.6,
+    "reviews_count": 31162,
+    "reviews": [
+      {
+        "author": "Deidre Knapp",
+        "rating": 5,
+        "text": "What a cool place!  It uses unique items as part of their decor!  The way burger, fries & Gouda grits & sweet tea  were excellent.  My server, Shay was friendly, professional and attentive.  She recommended a signature sauce to use for my fries.  Delish!  I sat on their deck and was able to enjoy a little more of the beach from a different perspective!",
+        "time": "2 months ago"
+      },
+      {
+        "author": "R A",
+        "rating": 3,
+        "text": "My family and I ate here on a Friday evening, around 7 PM, November 28, 2025. They were not very busy. We were seated pretty quickly. Our server Ava was fairly quick to show up and take our order. We got our drinks quickly. After that, we didn't see her again until someone else delivered our food to us. She asked us how things looked, and kept on walking. I ordered the Redfish, my daughter ordered a double order of crab legs, and my wife got a hamburger (Boring!). We also had the BBQ Nachos, whi",
+        "time": "5 months ago"
+      },
+      {
+        "author": "Madison Neal",
+        "rating": 4,
+        "text": "Visited Hangout in the “off season” and had a great experience. Food came out quickly and was fabulous. I recommend the redfish and shrimp and grits. Our waitress Mauve was excellent. Restaurant was clean with a good atmosphere on the front patio.",
+        "time": "2 months ago"
+      },
+      {
+        "author": "Kimeisha C.",
+        "rating": 5,
+        "text": "I had such a great experience at The Hangout on the Beach in Gulf Shores! Our waiter, TJ, was absolutely amazing—friendly, kind, funny, and very informative. His menu suggestions were spot on, and he made the whole experience even better. I truly wish him and his fiancée nothing but the best in their future endeavors.\n\nThe overall vibe of the restaurant was awesome—fun, energetic, and welcoming. I loved seeing the staff and birthday guests dancing on the tables, which made the atmosphere feel li",
+        "time": "7 months ago"
+      },
+      {
+        "author": "Ashley Lawson",
+        "rating": 5,
+        "text": "First time going to the Hangout to have dinner yesterday evening and it was phenomenal! Ricky made our experience absolutely fantastic! Extremely tentative and kept us laughing the whole time just making sure we had everything we needed as well a great time! 100/10 rating! Will certainly go back every year we come to Orange Beach. Our kids loved being here and it was such a great experience.",
+        "time": "6 months ago"
+      }
+    ],
+    "price_level": 2,
+    "business_status": "OPERATIONAL",
+    "types": [
+      "establishment",
+      "food",
+      "point_of_interest",
+      "restaurant"
+    ],
+    "hours": {
+      "monday": "10:30 AM – 10:00 PM",
+      "tuesday": "10:30 AM – 10:00 PM",
+      "wednesday": "10:30 AM – 10:00 PM",
+      "thursday": "10:30 AM – 10:00 PM",
+      "friday": "10:30 AM – 11:00 PM",
+      "saturday": "10:30 AM – 11:00 PM",
+      "sunday": "10:30 AM – 10:00 PM"
+    },
+    "is_open_now": false,
+    "photos": [
+      "/Users/owner/cybercheck-api-database/restaurant-photos/ChIJSU2qLbcEmogRsJwBQpAN04U/The Hangout_01.jpg",
+      "/Users/owner/cybercheck-api-database/restaurant-photos/ChIJSU2qLbcEmogRsJwBQpAN04U/The Hangout_02.jpg",
+      "/Users/owner/cybercheck-api-database/restaurant-photos/ChIJSU2qLbcEmogRsJwBQpAN04U/The Hangout_03.jpg",
+      "/Users/owner/cybercheck-api-database/restaurant-photos/ChIJSU2qLbcEmogRsJwBQpAN04U/The Hangout_04.jpg",
+      "/Users/owner/cybercheck-api-database/restaurant-photos/ChIJSU2qLbcEmogRsJwBQpAN04U/The Hangout_05.jpg",
+      "/Users/owner/cybercheck-api-database/restaurant-photos/ChIJSU2qLbcEmogRsJwBQpAN04U/The Hangout_06.jpg",
+      "/Users/owner/cybercheck-api-database/restaurant-photos/ChIJSU2qLbcEmogRsJwBQpAN04U/The Hangout_07.jpg",
+      "/Users/owner/cybercheck-api-database/restaurant-photos/ChIJSU2qLbcEmogRsJwBQpAN04U/The Hangout_08.jpg",
+      "/Users/owner/cybercheck-api-database/restaurant-photos/ChIJSU2qLbcEmogRsJwBQpAN04U/The Hangout_09.jpg",
+      "/Users/owner/cybercheck-api-database/restaurant-photos/ChIJSU2qLbcEmogRsJwBQpAN04U/The Hangout_10.jpg"
+    ],
+    "has_photos": true,
+    "has_reviews": true,
+    "permanently_closed": false,
+    "utc_offset": -300,
+    "website_menu": [
+      "Events",
+      "Hourly Entertainment",
+      "About\n\n\tLearn More\n\tJobs\n\tContact Us",
+      "Learn More",
+      "Contact Us",
+      "Book Your Event Today!\n\n\tVenue\n\tMusicians",
+      "Musicians",
+      "Events",
+      "Hourly Entertainment",
+      "About\n\n\tLearn More\n\tJobs\n\tContact Us",
+      "Learn More",
+      "Contact Us",
+      "Book Your Event Today!\n\n\tVenue\n\tMusicians",
+      "Musicians",
+      "Events",
+      "Hourly Entertainment",
+      "About\n\n\tLearn More\n\tJobs\n\tContact Us",
+      "Learn More",
+      "Contact Us",
+      "Book Your Event Today!\n\n\tVenue\n\tMusicians"
+    ],
+    "website_happy_hour": null,
+    "website_events": [
+      "Events",
+      "Book Your Event Today!",
+      "Free Live Music",
+      "View All Events"
+    ],
+    "website_scraped": true,
+    "scraped_at": "2026-05-13T23:42:35.987148",
+    "menu": [
+      {
+        "name": "Events",
+        "description": null,
+        "price": null,
+        "full_text": "Events"
+      },
+      {
+        "name": "Hourly Entertainment",
+        "description": null,
+        "price": null,
+        "full_text": "Hourly Entertainment"
+      },
+      {
+        "name": "About",
+        "description": "Learn More Jobs Contact Us",
+        "price": null,
+        "full_text": "About\n\n\tLearn More\n\tJobs\n\tContact Us"
+      },
+      {
+        "name": "Learn More",
+        "description": null,
+        "price": null,
+        "full_text": "Learn More"
+      },
+      {
+        "name": "Contact Us",
+        "description": null,
+        "price": null,
+        "full_text": "Contact Us"
+      },
+      {
+        "name": "Book Your Event Today!",
+        "description": "Venue Musicians",
+        "price": null,
+        "full_text": "Book Your Event Today!\n\n\tVenue\n\tMusicians"
+      },
+      {
+        "name": "Musicians",
+        "description": null,
+        "price": null,
+        "full_text": "Musicians"
+      }
+    ],
+    "happy_hour_info": {
+      "description": null,
+      "times": [],
+      "drink_specials": [],
+      "food_specials": []
+    },
+    "specials": [],
+    "events_info": [
+      "var wfea_frontend = {\"ajaxurl\":\"https://thehangout.com/wp-admin/admin-ajax.php\",\"nonce\":\"a1a9771f3c\"};\n//# sourceURL=widget-for-eventbrite-api-js-extr",
+      "console.debug = function() {};\n//# sourceURL=widget-for-eventbrite-api-js-before",
+      "Events",
+      "Book Your Event Today!",
+      "Musicians",
+      "Family Friendly Foam Party",
+      "Free Live Music",
+      "View All Events"
+    ],
+    "menu_scraped": true
+  },
+  {
+    "place_id": "ChIJM7MIXvkGmogRK4YXCpzpS2g",
+    "name": "Subway",
+    "type": "restaurant",
+    "city": "Orange Beach",
+    "state": "AL",
+    "address": "25755 Perdido Beach Blvd, Orange Beach, AL 36561, USA",
+    "phone": "+1 251-981-6881",
+    "website": "https://restaurants.subway.com/united-states/al/orange-beach/25755-perdido-beach-blvd?utm_source=yxt-goog&utm_medium=local&utm_term=acq&utm_content=12619&utm_campaign=evergreen-2020&y_source=1_MTQ5MTUxNDItNzE1LWxvY2F0aW9uLndlYnNpdGU%3D",
+    "google_maps_url": "https://maps.google.com/?cid=7515357259591288363",
+    "lat": 30.2703614,
+    "lng": -87.5888935,
+    "plus_code": "7CC6+4C Orange Beach, AL, USA",
+    "rating": 3.4,
+    "reviews_count": 142,
+    "reviews": [
+      {
+        "author": "STLA_1020",
+        "rating": 3,
+        "text": "Typical subway experience. Nothing great, nothing bad. Cheap sandwiches that are quick. The workers didn’t seem to be happy to be working but made the sandwiches as asked. If you need a quick lunch and not spend over $20 you can count on Subway.",
+        "time": "7 months ago"
+      },
+      {
+        "author": "Tabitha McLaughlin",
+        "rating": 5,
+        "text": "The restaurant is right across from our hotel.  The staff was friendly and the business was very clean.  We ate there several times during our vacation.  The food was very good.   I highly recommend this business and we will definitely be returning on our next vacation.",
+        "time": "6 months ago"
+      },
+      {
+        "author": "Yes Hi",
+        "rating": 1,
+        "text": "ABSOLUTELY AWFUL. i went and got bacon i did not want my bread toasted and the women gave me UNCOOKED BACON then said it wasn’t her fault because of me not saying to cook the bacon i shouldn’t have to ask. will not go back .",
+        "time": "9 months ago"
+      },
+      {
+        "author": "Wolf Idk",
+        "rating": 1,
+        "text": "They don’t PUT any OR just a little thing of mayonnaise LIKE WTH",
+        "time": "3 months ago"
+      },
+      {
+        "author": "Stormi Brown",
+        "rating": 1,
+        "text": "They are over charging! Went into this subway today, I ordered a 6 inch tuna sub and added drinks and chips. I noticed my total was more than it should have been. After I paid the cashier took my receipt and crumbled it up and pushed it over to the side which was weird, so I asked for it to see what exactly he charged me for. When I asked he didn’t give me a receipt and immediately goes back to his computer and calculator. He charged me PURPOSELY for double meat. He then goes to his tip jar (not",
+        "time": "a year ago"
+      }
+    ],
+    "price_level": 1,
+    "business_status": "OPERATIONAL",
+    "types": [
+      "establishment",
+      "food",
+      "meal_takeaway",
+      "point_of_interest",
+      "restaurant"
+    ],
+    "hours": {
+      "monday": "8:00 AM – 9:00 PM",
+      "tuesday": "8:00 AM – 9:00 PM",
+      "wednesday": "8:00 AM – 9:00 PM",
+      "thursday": "8:00 AM – 9:00 PM",
+      "friday": "8:00 AM – 9:00 PM",
+      "saturday": "8:00 AM – 9:00 PM",
+      "sunday": "8:00 AM – 9:00 PM"
+    },
+    "is_open_now": false,
+    "photos": [
+      "/Users/owner/cybercheck-api-database/restaurant-photos/ChIJM7MIXvkGmogRK4YXCpzpS2g/Subway_01.jpg",
+      "/Users/owner/cybercheck-api-database/restaurant-photos/ChIJM7MIXvkGmogRK4YXCpzpS2g/Subway_02.jpg",
+      "/Users/owner/cybercheck-api-database/restaurant-photos/ChIJM7MIXvkGmogRK4YXCpzpS2g/Subway_03.jpg",
+      "/Users/owner/cybercheck-api-database/restaurant-photos/ChIJM7MIXvkGmogRK4YXCpzpS2g/Subway_04.jpg",
+      "/Users/owner/cybercheck-api-database/restaurant-photos/ChIJM7MIXvkGmogRK4YXCpzpS2g/Subway_05.jpg",
+      "/Users/owner/cybercheck-api-database/restaurant-photos/ChIJM7MIXvkGmogRK4YXCpzpS2g/Subway_06.jpg",
+      "/Users/owner/cybercheck-api-database/restaurant-photos/ChIJM7MIXvkGmogRK4YXCpzpS2g/Subway_07.jpg",
+      "/Users/owner/cybercheck-api-database/restaurant-photos/ChIJM7MIXvkGmogRK4YXCpzpS2g/Subway_08.jpg",
+      "/Users/owner/cybercheck-api-database/restaurant-photos/ChIJM7MIXvkGmogRK4YXCpzpS2g/Subway_09.jpg",
+      "/Users/owner/cybercheck-api-database/restaurant-photos/ChIJM7MIXvkGmogRK4YXCpzpS2g/Subway_10.jpg"
+    ],
+    "has_photos": true,
+    "has_reviews": true,
+    "permanently_closed": false,
+    "utc_offset": -300,
+    "website_menu": [],
+    "website_happy_hour": null,
+    "website_events": [],
+    "website_scraped": true,
+    "scraped_at": "2026-05-13T23:42:41.293437",
+    "menu": [],
+    "happy_hour_info": {
+      "description": "HoursStore Hours:{\"collapseDays\":null,\"dayOfWeekMap\":{\"FRIDAY\":\"Fri\",\"MONDAY\":\"Mon\",\"SATURDAY\":\"Sat\",\"SUNDAY\":\"Sun\",\"THURSDAY\":\"Thurs\",\"TUESDAY\":\"Tue\",\"WEDNESDAY\":\"Wed\"},\"disableOpenUntil\":null,\"disableTodayFirst\":null,\"hideSchema\":null,\"highlightToday\":null,\"highlightTodayBackground\":null,\"hours\":[{\"day\":\"THURSDAY\",\"intervals\":[{\"end\":2100,\"start\":800}]},{\"day\":\"FRIDAY\",\"intervals\":[{\"end\":2100,\"start\":800}]},{\"day\":\"SATURDAY\",\"intervals\":[{\"end\":2100,\"start\":800}]},{\"day\":\"SUNDAY\",\"intervals\":",
+      "times": [
+        "8:00 am - 9:00 pm",
+        "8:00 am - 9:00 pm",
+        "8:00 am - 9:00 pm",
+        "8:00 am - 9:00 pm",
+        "8:00 am - 9:00 pm",
+        "8:00 am - 9:00 pm",
+        "8:00 am - 9:00 pm",
+        "8:00 am - 9:00 pm",
+        "8:00 am - 9:00 pm",
+        "8:00 am - 9:00 pm"
+      ],
+      "drink_specials": [],
+      "food_specials": []
+    },
+    "specials": [
+      "Featured Menu at Bruster's Ice Cream"
+    ],
+    "events_info": [
+      "Order Delivery",
+      "Subway® Delivery"
+    ],
+    "menu_scraped": true
+  }
+]

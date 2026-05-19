@@ -1,0 +1,207 @@
+{
+  "generated_at": "2026-05-18T22:13:48.589Z",
+  "total_targets": 33,
+  "found_from_existing": 0,
+  "need_manual_lookup": 33,
+  "found_websites": [],
+  "manual_lookup_required": [
+    {
+      "restaurant": "Tackle Box",
+      "google_search": "Tackle Box Orange Beach Alabama website",
+      "yelp_search": "Tackle Box Orange Beach AL",
+      "type": "manual_lookup_required"
+    },
+    {
+      "restaurant": "The Packing Plant",
+      "google_search": "The Packing Plant Orange Beach Alabama website",
+      "yelp_search": "The Packing Plant Orange Beach AL",
+      "type": "manual_lookup_required"
+    },
+    {
+      "restaurant": "Fisher's Upstairs",
+      "google_search": "Fisher's Upstairs Orange Beach Alabama website",
+      "yelp_search": "Fisher's Upstairs Orange Beach AL",
+      "type": "manual_lookup_required"
+    },
+    {
+      "restaurant": "Shoney's",
+      "google_search": "Shoney's Orange Beach Alabama website",
+      "yelp_search": "Shoney's Orange Beach AL",
+      "type": "manual_lookup_required"
+    },
+    {
+      "restaurant": "Outback Steakhouse",
+      "google_search": "Outback Steakhouse Orange Beach Alabama website",
+      "yelp_search": "Outback Steakhouse Orange Beach AL",
+      "type": "manual_lookup_required"
+    },
+    {
+      "restaurant": "Margaritaville",
+      "google_search": "Margaritaville Orange Beach Alabama website",
+      "yelp_search": "Margaritaville Orange Beach AL",
+      "type": "manual_lookup_required"
+    },
+    {
+      "restaurant": "Barefoot Beach Bar & Grill",
+      "google_search": "Barefoot Beach Bar & Grill Orange Beach Alabama website",
+      "yelp_search": "Barefoot Beach Bar & Grill Orange Beach AL",
+      "type": "manual_lookup_required"
+    },
+    {
+      "restaurant": "Hot Spot Burgers",
+      "google_search": "Hot Spot Burgers Orange Beach Alabama website",
+      "yelp_search": "Hot Spot Burgers Orange Beach AL",
+      "type": "manual_lookup_required"
+    },
+    {
+      "restaurant": "Phoenix West Cafe",
+      "google_search": "Phoenix West Cafe Orange Beach Alabama website",
+      "yelp_search": "Phoenix West Cafe Orange Beach AL",
+      "type": "manual_lookup_required"
+    },
+    {
+      "restaurant": "Toucan's Restaurant",
+      "google_search": "Toucan's Restaurant Orange Beach Alabama website",
+      "yelp_search": "Toucan's Restaurant Orange Beach AL",
+      "type": "manual_lookup_required"
+    },
+    {
+      "restaurant": "The Original Oyster House",
+      "google_search": "The Original Oyster House Orange Beach Alabama website",
+      "yelp_search": "The Original Oyster House Orange Beach AL",
+      "type": "manual_lookup_required"
+    },
+    {
+      "restaurant": "Beasley's Steakhouse",
+      "google_search": "Beasley's Steakhouse Orange Beach Alabama website",
+      "yelp_search": "Beasley's Steakhouse Orange Beach AL",
+      "type": "manual_lookup_required"
+    },
+    {
+      "restaurant": "Toes on the Beach",
+      "google_search": "Toes on the Beach Orange Beach Alabama website",
+      "yelp_search": "Toes on the Beach Orange Beach AL",
+      "type": "manual_lookup_required"
+    },
+    {
+      "restaurant": "NOLA Eatery",
+      "google_search": "NOLA Eatery Orange Beach Alabama website",
+      "yelp_search": "NOLA Eatery Orange Beach AL",
+      "type": "manual_lookup_required"
+    },
+    {
+      "restaurant": "Fin Seafood Restaurant",
+      "google_search": "Fin Seafood Restaurant Orange Beach Alabama website",
+      "yelp_search": "Fin Seafood Restaurant Orange Beach AL",
+      "type": "manual_lookup_required"
+    },
+    {
+      "restaurant": "Oporto Restaurant",
+      "google_search": "Oporto Restaurant Orange Beach Alabama website",
+      "yelp_search": "Oporto Restaurant Orange Beach AL",
+      "type": "manual_lookup_required"
+    },
+    {
+      "restaurant": "Cactus Flower Cafe",
+      "google_search": "Cactus Flower Cafe Orange Beach Alabama website",
+      "yelp_search": "Cactus Flower Cafe Orange Beach AL",
+      "type": "manual_lookup_required"
+    },
+    {
+      "restaurant": "Mathers Social Gathering",
+      "google_search": "Mathers Social Gathering Orange Beach Alabama website",
+      "yelp_search": "Mathers Social Gathering Orange Beach AL",
+      "type": "manual_lookup_required"
+    },
+    {
+      "restaurant": "The Jolly Roger Pier Restaurant",
+      "google_search": "The Jolly Roger Pier Restaurant Orange Beach Alabama website",
+      "yelp_search": "The Jolly Roger Pier Restaurant Orange Beach AL",
+      "type": "manual_lookup_required"
+    },
+    {
+      "restaurant": "Gulf State Park Pavilion Restaurant",
+      "google_search": "Gulf State Park Pavilion Restaurant Orange Beach Alabama website",
+      "yelp_search": "Gulf State Park Pavilion Restaurant Orange Beach AL",
+      "type": "manual_lookup_required"
+    },
+    {
+      "restaurant": "SouthShoreman Restaurant & Bar",
+      "google_search": "SouthShoreman Restaurant & Bar Orange Beach Alabama website",
+      "yelp_search": "SouthShoreman Restaurant & Bar Orange Beach AL",
+      "type": "manual_lookup_required"
+    },
+    {
+      "restaurant": "DJax Cafe",
+      "google_search": "DJax Cafe Orange Beach Alabama website",
+      "yelp_search": "DJax Cafe Orange Beach AL",
+      "type": "manual_lookup_required"
+    },
+    {
+      "restaurant": "Sandshaker Lounge",
+      "google_search": "Sandshaker Lounge Orange Beach Alabama website",
+      "yelp_search": "Sandshaker Lounge Orange Beach AL",
+      "type": "manual_lookup_required"
+    },
+    {
+      "restaurant": "Coastal Grille",
+      "google_search": "Coastal Grille Orange Beach Alabama website",
+      "yelp_search": "Coastal Grille Orange Beach AL",
+      "type": "manual_lookup_required"
+    },
+    {
+      "restaurant": "Fried Green Tomatoes",
+      "google_search": "Fried Green Tomatoes Orange Beach Alabama website",
+      "yelp_search": "Fried Green Tomatoes Orange Beach AL",
+      "type": "manual_lookup_required"
+    },
+    {
+      "restaurant": "Donut Hole Bakery & Coffee",
+      "google_search": "Donut Hole Bakery & Coffee Orange Beach Alabama website",
+      "yelp_search": "Donut Hole Bakery & Coffee Orange Beach AL",
+      "type": "manual_lookup_required"
+    },
+    {
+      "restaurant": "Island Grill Restaurant",
+      "google_search": "Island Grill Restaurant Orange Beach Alabama website",
+      "yelp_search": "Island Grill Restaurant Orange Beach AL",
+      "type": "manual_lookup_required"
+    },
+    {
+      "restaurant": "Paradise Bar & Grill",
+      "google_search": "Paradise Bar & Grill Orange Beach Alabama website",
+      "yelp_search": "Paradise Bar & Grill Orange Beach AL",
+      "type": "manual_lookup_required"
+    },
+    {
+      "restaurant": "The Deck at Mary's",
+      "google_search": "The Deck at Mary's Orange Beach Alabama website",
+      "yelp_search": "The Deck at Mary's Orange Beach AL",
+      "type": "manual_lookup_required"
+    },
+    {
+      "restaurant": "Gulf Shores Beach Club",
+      "google_search": "Gulf Shores Beach Club Orange Beach Alabama website",
+      "yelp_search": "Gulf Shores Beach Club Orange Beach AL",
+      "type": "manual_lookup_required"
+    },
+    {
+      "restaurant": "Water Street Seafood",
+      "google_search": "Water Street Seafood Orange Beach Alabama website",
+      "yelp_search": "Water Street Seafood Orange Beach AL",
+      "type": "manual_lookup_required"
+    },
+    {
+      "restaurant": "Shrimp Shack",
+      "google_search": "Shrimp Shack Orange Beach Alabama website",
+      "yelp_search": "Shrimp Shack Orange Beach AL",
+      "type": "manual_lookup_required"
+    },
+    {
+      "restaurant": "Nicks Restaurant",
+      "google_search": "Nicks Restaurant Orange Beach Alabama website",
+      "yelp_search": "Nicks Restaurant Orange Beach AL",
+      "type": "manual_lookup_required"
+    }
+  ]
+}

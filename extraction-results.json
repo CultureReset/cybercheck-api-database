@@ -1,0 +1,1613 @@
+{
+  "generated_at": "2026-05-18T22:56:00.465Z",
+  "total_processed": 138,
+  "successful": 115,
+  "failed": 22,
+  "skipped": 1,
+  "elapsed_seconds": "1003.8",
+  "estimated_cost": "$2.76",
+  "results": [
+    {
+      "folder": "8-reale-obal",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "tagline",
+        "location",
+        "description",
+        "hours",
+        "contact",
+        "amenities",
+        "specialties",
+        "recent_press",
+        "notes"
+      ],
+      "screenshots": 2
+    },
+    {
+      "folder": "alabama-sweet-tea-company",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "products",
+        "special_offers",
+        "product_details",
+        "notes"
+      ],
+      "screenshots": 6
+    },
+    {
+      "folder": "angry-crab-shack",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "locations",
+        "restaurant_type",
+        "origin",
+        "services",
+        "notes"
+      ],
+      "screenshots": 6
+    },
+    {
+      "folder": "another-broken-egg-cafe",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "menu",
+        "contact",
+        "special_offers",
+        "amenities",
+        "notes"
+      ],
+      "screenshots": 6
+    },
+    {
+      "folder": "avenue-pub-orange-beach",
+      "status": "failed",
+      "reason": "json_parse_error",
+      "error": "Expected ',' or ']' after array element in JSON at position 6758 (line 170 column 12)"
+    },
+    {
+      "folder": "bahama-bob-s-beach-side-cafe",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "menu",
+        "contact",
+        "amenities",
+        "notes"
+      ],
+      "screenshots": 6
+    },
+    {
+      "folder": "barometer-waterfront-grille",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "menu",
+        "amenities",
+        "special_offers",
+        "notes"
+      ],
+      "screenshots": 2
+    },
+    {
+      "folder": "beach-girl-coffee",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "menu",
+        "contact"
+      ],
+      "screenshots": 4
+    },
+    {
+      "folder": "bier-shack-taproom-restaurant",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "menu",
+        "amenities",
+        "special_offers",
+        "notes"
+      ],
+      "screenshots": 2
+    },
+    {
+      "folder": "big-beach-brewing",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "hours",
+        "contact",
+        "amenities",
+        "special_offers",
+        "notes"
+      ],
+      "screenshots": 4
+    },
+    {
+      "folder": "big-fish-restaurant",
+      "status": "failed",
+      "reason": "no_screenshots"
+    },
+    {
+      "folder": "billy-s-seafood",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "tagline",
+        "contact",
+        "business_description",
+        "about",
+        "notes"
+      ],
+      "screenshots": 2
+    },
+    {
+      "folder": "blalock-seafood-orange-beach",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "menu",
+        "contact",
+        "amenities",
+        "special_offers",
+        "notes"
+      ],
+      "screenshots": 6
+    },
+    {
+      "folder": "blalock-seafood-specialty-gulf-shores",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "contact",
+        "menu",
+        "amenities",
+        "special_offers",
+        "notes"
+      ],
+      "screenshots": 6
+    },
+    {
+      "folder": "bleus-burger-restaurant-and-bar",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "menu",
+        "amenities",
+        "notes"
+      ],
+      "screenshots": 4
+    },
+    {
+      "folder": "braided-river-brewing-company",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "notes",
+        "menu",
+        "contact",
+        "amenities",
+        "special_offers"
+      ],
+      "screenshots": 2
+    },
+    {
+      "folder": "brick-spoon-orange-beach",
+      "status": "failed",
+      "reason": "json_parse_error",
+      "error": "Expected ',' or ']' after array element in JSON at position 7152 (line 294 column 8)"
+    },
+    {
+      "folder": "brookman-s-smokehouse",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "menu",
+        "special_offers",
+        "notes",
+        "website"
+      ],
+      "screenshots": 3
+    },
+    {
+      "folder": "c-est-le-vin",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "contact",
+        "amenities",
+        "notes"
+      ],
+      "screenshots": 2
+    },
+    {
+      "folder": "cactus-cantina-canal-road",
+      "status": "failed",
+      "reason": "json_parse_error",
+      "error": "Expected ',' or '}' after property value in JSON at position 6401 (line 158 column 4)"
+    },
+    {
+      "folder": "cactus-cantina-perdido-beach-blvd",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "menu",
+        "amenities",
+        "special_offers",
+        "notes"
+      ],
+      "screenshots": 6
+    },
+    {
+      "folder": "change-of-pace-at-turquoise-place-turquoise-place-guests-only",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "notes"
+      ],
+      "screenshots": 1
+    },
+    {
+      "folder": "chicken-salad-chick",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "menu",
+        "company_info",
+        "amenities",
+        "special_offers",
+        "notes"
+      ],
+      "screenshots": 6
+    },
+    {
+      "folder": "china-dragon",
+      "status": "success",
+      "extracted_keys": [
+        "notes"
+      ],
+      "screenshots": 6
+    },
+    {
+      "folder": "coast-restaurant-at-the-beach-club",
+      "status": "success",
+      "extracted_keys": [
+        "notes"
+      ],
+      "screenshots": 4
+    },
+    {
+      "folder": "cobalt-the-restaurant",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "location",
+        "description",
+        "hours",
+        "cuisine_type",
+        "amenities",
+        "menu_highlights",
+        "happy_hour",
+        "special_offers",
+        "services",
+        "notes"
+      ],
+      "screenshots": 3
+    },
+    {
+      "folder": "corbin-farms-winery",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "menu",
+        "hours",
+        "contact",
+        "amenities",
+        "special_offers",
+        "notes"
+      ],
+      "screenshots": 5
+    },
+    {
+      "folder": "cosmo-s-restaurant-bar",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "menu",
+        "amenities",
+        "special_offers",
+        "menu_sections_available",
+        "notes"
+      ],
+      "screenshots": 6
+    },
+    {
+      "folder": "crab-trap-perdido-key",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "location",
+        "menu",
+        "special_offers",
+        "amenities",
+        "notes"
+      ],
+      "screenshots": 6
+    },
+    {
+      "folder": "craft-farms-golf-club",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "contact",
+        "amenities",
+        "notes"
+      ],
+      "screenshots": 1
+    },
+    {
+      "folder": "de-soto-s-seafood-kitchen",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "contact",
+        "amenities",
+        "special_offers",
+        "awards",
+        "notes"
+      ],
+      "screenshots": 2
+    },
+    {
+      "folder": "doc-s-seafood-and-steaks",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "locations",
+        "contact",
+        "hours",
+        "menu",
+        "ordering",
+        "amenities",
+        "special_offers",
+        "establishment_info",
+        "notes"
+      ],
+      "screenshots": 6
+    },
+    {
+      "folder": "doc-s-seafood-shack-oyster-bar",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "contact",
+        "hours",
+        "menu",
+        "amenities",
+        "special_offers",
+        "notes"
+      ],
+      "screenshots": 6
+    },
+    {
+      "folder": "dolphin-sailing-tours-by-cetacean-cruises",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "contact",
+        "services",
+        "amenities",
+        "special_offers",
+        "notes",
+        "social_media"
+      ],
+      "screenshots": 4
+    },
+    {
+      "folder": "fairhope-brewing-company",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "notes"
+      ],
+      "screenshots": 2
+    },
+    {
+      "folder": "fish-river-grill",
+      "status": "success",
+      "extracted_keys": [
+        "notes"
+      ],
+      "screenshots": 1
+    },
+    {
+      "folder": "fisherman-s-corner",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "menu",
+        "contact",
+        "amenities",
+        "special_offers",
+        "notes"
+      ],
+      "screenshots": 6
+    },
+    {
+      "folder": "flora-bama",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "tagline",
+        "contact",
+        "amenities",
+        "policies",
+        "events",
+        "history",
+        "notes"
+      ],
+      "screenshots": 4
+    },
+    {
+      "folder": "flora-bama-ole-river-grill",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "menu",
+        "contact",
+        "amenities",
+        "special_offers",
+        "notes"
+      ],
+      "screenshots": 6
+    },
+    {
+      "folder": "florabama",
+      "status": "failed",
+      "reason": "no_screenshots"
+    },
+    {
+      "folder": "foodcraft",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "tagline",
+        "menu",
+        "hours",
+        "contact",
+        "location",
+        "amenities",
+        "cuisine_type",
+        "specialties",
+        "awards",
+        "special_offers",
+        "notes"
+      ],
+      "screenshots": 6
+    },
+    {
+      "folder": "fresh-market-seafood",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "contact",
+        "hours",
+        "menu",
+        "amenities",
+        "special_offers",
+        "notes"
+      ],
+      "screenshots": 6
+    },
+    {
+      "folder": "gary-s-brewery-biergarten",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "hours",
+        "contact",
+        "amenities",
+        "notes"
+      ],
+      "screenshots": 2
+    },
+    {
+      "folder": "ginny-lane-bar-and-grill",
+      "status": "failed",
+      "reason": "json_parse_error",
+      "error": "Expected ',' or ']' after array element in JSON at position 6342 (line 202 column 12)"
+    },
+    {
+      "folder": "glenlakes-golf-club",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "contact",
+        "amenities",
+        "special_offers",
+        "notes"
+      ],
+      "screenshots": 3
+    },
+    {
+      "folder": "groovy-goat",
+      "status": "failed",
+      "reason": "json_parse_error",
+      "error": "Expected ',' or '}' after property value in JSON at position 6030 (line 200 column 4)"
+    },
+    {
+      "folder": "gts-on-the-bay",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "location",
+        "menu",
+        "hours",
+        "amenities",
+        "special_offers",
+        "notes"
+      ],
+      "screenshots": 3
+    },
+    {
+      "folder": "gulf-babe-wine-boutique",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "hours",
+        "contact",
+        "amenities",
+        "notes"
+      ],
+      "screenshots": 3
+    },
+    {
+      "folder": "gulf-shores-seafood",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "hours",
+        "contact",
+        "menu",
+        "amenities",
+        "special_offers",
+        "notes"
+      ],
+      "screenshots": 6
+    },
+    {
+      "folder": "gulf-shores-steamer",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "notes"
+      ],
+      "screenshots": 3
+    },
+    {
+      "folder": "gulf-state-park-pavillion",
+      "status": "success",
+      "extracted_keys": [
+        "organization_name",
+        "contact",
+        "leadership",
+        "parks",
+        "mission",
+        "goals",
+        "overview",
+        "special_programs",
+        "notes"
+      ],
+      "screenshots": 4
+    },
+    {
+      "folder": "hammered-crab",
+      "status": "skipped",
+      "reason": "already_extracted"
+    },
+    {
+      "folder": "hub-stacey-s-at-the-point",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "menu",
+        "hours",
+        "amenities",
+        "special_offers"
+      ],
+      "screenshots": 6
+    },
+    {
+      "folder": "hurricane-grill-wings-orange-beach",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "menu",
+        "hours",
+        "contact",
+        "amenities",
+        "special_offers",
+        "notes"
+      ],
+      "screenshots": 3
+    },
+    {
+      "folder": "ice-house-taproom",
+      "status": "failed",
+      "reason": "json_parse_error",
+      "error": "Expected ',' or ']' after array element in JSON at position 6862 (line 158 column 12)"
+    },
+    {
+      "folder": "isla-wine",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "contact",
+        "amenities",
+        "special_offers",
+        "notes"
+      ],
+      "screenshots": 2
+    },
+    {
+      "folder": "island-pancake-house",
+      "status": "failed",
+      "reason": "json_parse_error",
+      "error": "Expected ',' or ']' after array element in JSON at position 6672 (line 167 column 12)"
+    },
+    {
+      "folder": "island-wing-company-grill-bar-gulf-shores",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "menu",
+        "amenities",
+        "special_offers",
+        "notes"
+      ],
+      "screenshots": 6
+    },
+    {
+      "folder": "junavelli-winery-llc",
+      "status": "success",
+      "extracted_keys": [
+        "notes"
+      ],
+      "screenshots": 1
+    },
+    {
+      "folder": "lake-point-vineyard-and-winery",
+      "status": "success",
+      "extracted_keys": [
+        "notes"
+      ],
+      "screenshots": 3
+    },
+    {
+      "folder": "lake-wedowee-winery-and-brewery",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "contact",
+        "amenities",
+        "products",
+        "special_offers",
+        "notes"
+      ],
+      "screenshots": 3
+    },
+    {
+      "folder": "lambert-s-cafe",
+      "status": "success",
+      "extracted_keys": [
+        "notes"
+      ],
+      "screenshots": 1
+    },
+    {
+      "folder": "lamberts-cafe",
+      "status": "failed",
+      "reason": "no_screenshots"
+    },
+    {
+      "folder": "lartigue-s-original-fresh-seafood-market",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "contact",
+        "hours",
+        "menu",
+        "amenities",
+        "special_offers",
+        "social_media",
+        "notes"
+      ],
+      "screenshots": 6
+    },
+    {
+      "folder": "latitude-30",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "menu",
+        "hours",
+        "contact",
+        "amenities",
+        "description"
+      ],
+      "screenshots": 2
+    },
+    {
+      "folder": "lillian-s-pizza",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "contact",
+        "hours",
+        "menu",
+        "special_offers",
+        "amenities",
+        "notes"
+      ],
+      "screenshots": 3
+    },
+    {
+      "folder": "louisiana-lagniappe-orange-beach-al",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "locations",
+        "menu",
+        "amenities",
+        "special_offers",
+        "social_media",
+        "parent_company",
+        "related_restaurants",
+        "notes"
+      ],
+      "screenshots": 6
+    },
+    {
+      "folder": "lulu-s-gulf-shores",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "hours",
+        "amenities",
+        "special_offers",
+        "notes"
+      ],
+      "screenshots": 6
+    },
+    {
+      "folder": "lulus-gulf-shores",
+      "status": "failed",
+      "reason": "no_screenshots"
+    },
+    {
+      "folder": "luna-s-eat-drink",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "menu",
+        "location",
+        "amenities",
+        "special_offers",
+        "services",
+        "cuisine_style",
+        "mission"
+      ],
+      "screenshots": 6
+    },
+    {
+      "folder": "mikato-japanese-restaurant",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "menu",
+        "hours",
+        "contact",
+        "amenities",
+        "special_offers",
+        "notes"
+      ],
+      "screenshots": 4
+    },
+    {
+      "folder": "mikee-s-seafood",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "hours",
+        "contact",
+        "amenities",
+        "menu_highlights",
+        "description",
+        "notes"
+      ],
+      "screenshots": 6
+    },
+    {
+      "folder": "mile-marker-158",
+      "status": "failed",
+      "reason": "json_parse_error",
+      "error": "Expected ',' or ']' after array element in JSON at position 6258 (line 212 column 12)"
+    },
+    {
+      "folder": "moe-s-original-bbq",
+      "status": "failed",
+      "reason": "image_read_failed"
+    },
+    {
+      "folder": "oasis-beachside-cafe-bar",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "hours",
+        "contact",
+        "notes"
+      ],
+      "screenshots": 2
+    },
+    {
+      "folder": "odd-colony-brewing-company",
+      "status": "failed",
+      "reason": "json_parse_error",
+      "error": "Unexpected token 'I', \"I apprecia\"... is not valid JSON"
+    },
+    {
+      "folder": "old-salt-tavern",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "menu",
+        "contact",
+        "amenities",
+        "notes"
+      ],
+      "screenshots": 3
+    },
+    {
+      "folder": "original-oyster-house-boardwalk",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "menu",
+        "contact",
+        "locations",
+        "special_offers",
+        "amenities",
+        "notes"
+      ],
+      "screenshots": 6
+    },
+    {
+      "folder": "original-romar-house-b-b-inn",
+      "status": "success",
+      "extracted_keys": [
+        "notes"
+      ],
+      "screenshots": 4
+    },
+    {
+      "folder": "oso-at-bear-point-harbor-orange-beach",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "contact",
+        "hours",
+        "menu",
+        "special_offers",
+        "amenities",
+        "notes"
+      ],
+      "screenshots": 6
+    },
+    {
+      "folder": "oyster-bar-restaurant-and-marina",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "menu",
+        "hours",
+        "contact",
+        "amenities",
+        "notes"
+      ],
+      "screenshots": 4
+    },
+    {
+      "folder": "ozan-winery-yh-distillery",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "hours",
+        "contact",
+        "amenities",
+        "special_offers",
+        "notes"
+      ],
+      "screenshots": 4
+    },
+    {
+      "folder": "papa-rocco-s",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "menu",
+        "amenities",
+        "special_offers",
+        "notes"
+      ],
+      "screenshots": 6
+    },
+    {
+      "folder": "pelican-grill-orange-beach",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "menu",
+        "hours",
+        "contact",
+        "amenities",
+        "special_offers",
+        "notes"
+      ],
+      "screenshots": 4
+    },
+    {
+      "folder": "peninsula-golf-racquet-club",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "contact",
+        "amenities",
+        "services",
+        "notes"
+      ],
+      "screenshots": 4
+    },
+    {
+      "folder": "perdido-key-sports-bar-restaurant",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "menu",
+        "contact",
+        "amenities",
+        "special_offers",
+        "notes"
+      ],
+      "screenshots": 4
+    },
+    {
+      "folder": "perfect-plain-brewing-co",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "locations",
+        "el_camino_tacos",
+        "services",
+        "private_events",
+        "merchandise",
+        "amenities",
+        "website_navigation"
+      ],
+      "screenshots": 3
+    },
+    {
+      "folder": "picnic-beach-bar-grill",
+      "status": "success",
+      "extracted_keys": [
+        "notes"
+      ],
+      "screenshots": 1
+    },
+    {
+      "folder": "pink-pony-pub",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "hours",
+        "contact",
+        "menu",
+        "amenities",
+        "special_offers",
+        "notes"
+      ],
+      "screenshots": 3
+    },
+    {
+      "folder": "pirates-cove",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "tagline",
+        "location",
+        "amenities",
+        "dining_features",
+        "awards",
+        "special_events",
+        "website_sections",
+        "call_to_action",
+        "established",
+        "tagline_motto",
+        "notes"
+      ],
+      "screenshots": 3
+    },
+    {
+      "folder": "pour-smart-bar",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "contact",
+        "amenities",
+        "special_offers",
+        "notes"
+      ],
+      "screenshots": 4
+    },
+    {
+      "folder": "pub-6",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "menu",
+        "amenities",
+        "special_offers",
+        "notes"
+      ],
+      "screenshots": 3
+    },
+    {
+      "folder": "purple-parrot-beach-bar-grill",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "contact",
+        "amenities",
+        "special_offers",
+        "notes"
+      ],
+      "screenshots": 3
+    },
+    {
+      "folder": "rotolo-s-pizzeria",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "special_offers",
+        "menu",
+        "brands",
+        "notable_events",
+        "digital_services",
+        "notes"
+      ],
+      "screenshots": 3
+    },
+    {
+      "folder": "ruby-slipper",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "menu",
+        "amenities",
+        "special_offers",
+        "notes"
+      ],
+      "screenshots": 3
+    },
+    {
+      "folder": "s-s-seafood-market-kitchen",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "menu",
+        "hours",
+        "contact",
+        "amenities",
+        "special_offers",
+        "notes"
+      ],
+      "screenshots": 6
+    },
+    {
+      "folder": "safari-and-vine",
+      "status": "failed",
+      "reason": "json_parse_error",
+      "error": "Expected ',' or ']' after array element in JSON at position 6602 (line 192 column 12)"
+    },
+    {
+      "folder": "salty-pearl-raw-bar-and-steamer",
+      "status": "success",
+      "extracted_keys": [
+        "notes"
+      ],
+      "screenshots": 1
+    },
+    {
+      "folder": "sandshaker-at-the-wharf",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "hours",
+        "contact",
+        "notes"
+      ],
+      "screenshots": 1
+    },
+    {
+      "folder": "scuttlebutt-pub",
+      "status": "failed",
+      "reason": "json_parse_error",
+      "error": "Expected ',' or ']' after array element in JSON at position 6356 (line 124 column 8)"
+    },
+    {
+      "folder": "sea-n-suds",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "location",
+        "established",
+        "amenities",
+        "dining_features",
+        "business_background",
+        "sections_visible",
+        "notes"
+      ],
+      "screenshots": 3
+    },
+    {
+      "folder": "shrimp-basket",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "menu",
+        "special_offers",
+        "amenities",
+        "notes"
+      ],
+      "screenshots": 6
+    },
+    {
+      "folder": "shrimpy-s-grill-and-golf",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "menu",
+        "hours",
+        "contact",
+        "amenities",
+        "special_offers",
+        "mini_golf_pricing",
+        "notes"
+      ],
+      "screenshots": 6
+    },
+    {
+      "folder": "sneaky-tiki-bar",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "menu",
+        "hours",
+        "amenities",
+        "special_offers",
+        "tagline",
+        "subtitle"
+      ],
+      "screenshots": 6
+    },
+    {
+      "folder": "southern-grove-vineyard",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "menu",
+        "notes"
+      ],
+      "screenshots": 2
+    },
+    {
+      "folder": "sunset-grille",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "menu",
+        "hours",
+        "amenities",
+        "menu_specialties",
+        "special_offers",
+        "awards",
+        "notes"
+      ],
+      "screenshots": 6
+    },
+    {
+      "folder": "tacky-jacks-gulf-shores",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "locations",
+        "notes"
+      ],
+      "screenshots": 2
+    },
+    {
+      "folder": "tacky-jacks-orange-beach",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "locations",
+        "notes"
+      ],
+      "screenshots": 2
+    },
+    {
+      "folder": "tee-off-at-the-wharf",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "menu",
+        "location",
+        "amenities",
+        "notes"
+      ],
+      "screenshots": 4
+    },
+    {
+      "folder": "the-beach-bun",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "menu",
+        "hours",
+        "contact",
+        "special_offers",
+        "notes"
+      ],
+      "screenshots": 6
+    },
+    {
+      "folder": "the-beach-house-kitchen-and-cocktails",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "menu",
+        "hours",
+        "contact",
+        "amenities",
+        "special_offers",
+        "notes"
+      ],
+      "screenshots": 4
+    },
+    {
+      "folder": "the-catch",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "location",
+        "hours",
+        "amenities",
+        "service_occasions",
+        "location_details",
+        "tagline",
+        "hiring",
+        "notes"
+      ],
+      "screenshots": 3
+    },
+    {
+      "folder": "the-clubhouse-bar-grill",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "contact",
+        "amenities",
+        "services",
+        "form_fields_available",
+        "notes"
+      ],
+      "screenshots": 2
+    },
+    {
+      "folder": "the-cove-bar-and-grill",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "menu",
+        "hours",
+        "contact",
+        "amenities",
+        "special_offers",
+        "notes"
+      ],
+      "screenshots": 6
+    },
+    {
+      "folder": "the-dragonfly-bar-grill",
+      "status": "success",
+      "extracted_keys": [
+        "restaurants",
+        "dining_locations_available",
+        "property_info"
+      ],
+      "screenshots": 2
+    },
+    {
+      "folder": "the-flora-bama-yacht-club",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "menu",
+        "contact",
+        "special_offers",
+        "notes"
+      ],
+      "screenshots": 6
+    },
+    {
+      "folder": "the-galway-irish-public-house",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "tagline",
+        "description",
+        "menu",
+        "contact",
+        "amenities",
+        "notes"
+      ],
+      "screenshots": 3
+    },
+    {
+      "folder": "the-grid-arcade-bar",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "menu",
+        "hours",
+        "contact",
+        "amenities",
+        "special_offers",
+        "notes"
+      ],
+      "screenshots": 4
+    },
+    {
+      "folder": "the-gulf",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "locations",
+        "contact",
+        "description",
+        "design_features",
+        "amenities",
+        "special_features",
+        "rating",
+        "social_media",
+        "notes"
+      ],
+      "screenshots": 3
+    },
+    {
+      "folder": "the-hangout",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "amenities",
+        "special_offers",
+        "events",
+        "signature_items",
+        "notes"
+      ],
+      "screenshots": 3
+    },
+    {
+      "folder": "the-jellyfish-seafood-restaurant-and-bar",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "menu",
+        "notes"
+      ],
+      "screenshots": 1
+    },
+    {
+      "folder": "the-point-restaurant",
+      "status": "failed",
+      "reason": "json_parse_error",
+      "error": "Expected ',' or ']' after array element in JSON at position 6892 (line 219 column 12)"
+    },
+    {
+      "folder": "the-red-haven-live",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "location",
+        "menu",
+        "amenities",
+        "special_offers",
+        "notes"
+      ],
+      "screenshots": 2
+    },
+    {
+      "folder": "the-sloop",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "menu",
+        "contact",
+        "amenities",
+        "special_offers",
+        "notes"
+      ],
+      "screenshots": 4
+    },
+    {
+      "folder": "the-sound-wave",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "location",
+        "tagline",
+        "menu",
+        "amenities",
+        "description",
+        "notes"
+      ],
+      "screenshots": 4
+    },
+    {
+      "folder": "the-steamer-baked-oyster-bar",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "menu",
+        "contact",
+        "amenities",
+        "special_offers",
+        "notes"
+      ],
+      "screenshots": 4
+    },
+    {
+      "folder": "the-tap-still-gulf-shores",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "tagline",
+        "menu",
+        "contact",
+        "hours",
+        "amenities",
+        "special_offers",
+        "warnings",
+        "notes"
+      ],
+      "screenshots": 6
+    },
+    {
+      "folder": "the-tin-top-restaurant-oyster-bar",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "tagline",
+        "description",
+        "hours",
+        "contact",
+        "cuisine",
+        "amenities",
+        "special_offers",
+        "dining_style",
+        "established",
+        "owner",
+        "notes"
+      ],
+      "screenshots": 3
+    },
+    {
+      "folder": "the-undertow",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "contact",
+        "price_range",
+        "rating",
+        "status",
+        "notes"
+      ],
+      "screenshots": 3
+    },
+    {
+      "folder": "the-wharf",
+      "status": "failed",
+      "reason": "no_index.json"
+    },
+    {
+      "folder": "tiki-raw-bar",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "location",
+        "menu",
+        "amenities",
+        "special_offers",
+        "events",
+        "highlights",
+        "notes"
+      ],
+      "screenshots": 3
+    },
+    {
+      "folder": "tuscany-pizza-and-grill",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "menu",
+        "hours",
+        "contact",
+        "notes"
+      ],
+      "screenshots": 6
+    },
+    {
+      "folder": "villaggio-grille",
+      "status": "failed",
+      "reason": "json_parse_error",
+      "error": "Expected ',' or ']' after array element in JSON at position 6691 (line 237 column 12)"
+    },
+    {
+      "folder": "wolf-bay-restaurant-at-orange-beach",
+      "status": "failed",
+      "reason": "json_parse_error",
+      "error": "Expected ',' or ']' after array element in JSON at position 7266 (line 208 column 16)"
+    },
+    {
+      "folder": "woodside-restaurant",
+      "status": "failed",
+      "reason": "json_parse_error",
+      "error": "Expected ',' or ']' after array element in JSON at position 6162 (line 195 column 12)"
+    },
+    {
+      "folder": "zeke-s-landing-and-marina",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "notes",
+        "contact",
+        "amenities",
+        "services",
+        "fishing_targets"
+      ],
+      "screenshots": 2
+    },
+    {
+      "folder": "zeke-s-restaurant",
+      "status": "success",
+      "extracted_keys": [
+        "restaurant_name",
+        "contact",
+        "hours",
+        "amenities",
+        "services",
+        "special_offers",
+        "notes"
+      ],
+      "screenshots": 2
+    },
+    {
+      "folder": "zekes-restaurant",
+      "status": "failed",
+      "reason": "no_screenshots"
+    }
+  ]
+}

@@ -1,0 +1,246 @@
+{
+  "name": "Shiso Japanese Restaurant",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "(251) 384-8080",
+    "address": "6945 Airport Blvd",
+    "city": "Mobile",
+    "email": "shiso.alabama@gmail.com"
+  },
+  "hours": {
+    "monday": "11:00am-10:00pm",
+    "tuesday": "11:00am-10:00pm",
+    "wednesday": "11:00am-10:00pm",
+    "thursday": "11:00am-10:00pm",
+    "friday": "11:00am-10:00pm",
+    "saturday": "11:00am-10:00pm",
+    "sunday": "11:00am-9:00pm"
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Appetizers",
+      "name": "Chicken on a Stick",
+      "description": "Three chicken skewers, topped with our famous teriyaki sauce",
+      "price": 11.95
+    },
+    {
+      "category": "Appetizers",
+      "name": "BBQ Salmon",
+      "description": "Grilled salmon filet topped with our famous teriyaki sauce",
+      "price": 13.95
+    },
+    {
+      "category": "Appetizers",
+      "name": "BBQ Squid",
+      "description": "Grilled calamari squid in teriyaki sauce. Your choice of mild or spicy",
+      "price": 16.95
+    },
+    {
+      "category": "Appetizers",
+      "name": "Tuna Tataki",
+      "description": "Lightly seared tuna served in a ponzu citrus sauce",
+      "price": 16.95
+    },
+    {
+      "category": "Appetizers",
+      "name": "Beef Tataki",
+      "description": "Lightly seared filet served in a ponzu citrus sauce",
+      "price": 15.95
+    },
+    {
+      "category": "Appetizers",
+      "name": "Gyoza Dumpling",
+      "description": "Pork and chicken dumplings pan-fried to perfection",
+      "price": 7.95
+    },
+    {
+      "category": "Appetizers",
+      "name": "Yellowtail Neck",
+      "description": "Yellowtail fish's most tender part grilled to perfection",
+      "price": 17.95
+    },
+    {
+      "category": "Appetizers",
+      "name": "Crispy Jumbo Shrimp",
+      "description": "Skewered jumbo prawns, onions and carrots fried in a Japanese batter",
+      "price": 12.95
+    },
+    {
+      "category": "Appetizers",
+      "name": "Vegetable Tempura",
+      "description": "An assortment of fresh vegetables fried in a Japanese batter",
+      "price": 9.95
+    },
+    {
+      "category": "Appetizers",
+      "name": "Shrimp Tempura",
+      "description": "Fried shrimp and an assortment of fresh vegetables fried in a Japanese batter",
+      "price": 13.95
+    },
+    {
+      "category": "Appetizers",
+      "name": "Soft-shell Crab",
+      "description": "Crispy soft-shell crab deep fried and served with a ponzu citrus sauce",
+      "price": 14.95
+    },
+    {
+      "category": "Appetizers",
+      "name": "Squid Tempura",
+      "description": "Fresh squid lightly fried with Japanese batter",
+      "price": 13.95
+    },
+    {
+      "category": "Appetizers",
+      "name": "Chicken Wings",
+      "description": "Chicken wings fried in Japanese batter",
+      "price": 8.95
+    },
+    {
+      "category": "Appetizers",
+      "name": "Agedashi Tofu",
+      "description": "Fried tofu smothered in a ponzu sauce, topped with bonito flakes",
+      "price": 10.95
+    },
+    {
+      "category": "Appetizers",
+      "name": "Cheese Wonton",
+      "description": "Lump crab meat and cream cheese, fried until golden and crispy",
+      "price": 6.95
+    },
+    {
+      "category": "Appetizers",
+      "name": "Pork Egg Rolls",
+      "description": "2 Pieces",
+      "price": 5.95
+    },
+    {
+      "category": "Appetizers",
+      "name": "Vegetable Egg Rolls",
+      "description": "2 Pieces",
+      "price": 5.95
+    },
+    {
+      "category": "Appetizers",
+      "name": "Edamame",
+      "description": "Lightly salted boiled soybeans",
+      "price": 5.95
+    },
+    {
+      "category": "Appetizers",
+      "name": "Shumai",
+      "description": "Steamed pork meat and vegetables wrapped in wonton skin",
+      "price": 7.87
+    },
+    {
+      "category": "Appetizers",
+      "name": "Black Pepper Scallops",
+      "description": "Fresh scallops grilled to perfection topped with our seasoning and black pepper",
+      "price": 15.95
+    },
+    {
+      "category": "Appetizers",
+      "name": "Chicken Nuggets with Fries",
+      "description": "Fried chicken nuggets served with French fries",
+      "price": 8.95
+    },
+    {
+      "category": "Appetizers",
+      "name": "Fries",
+      "description": "Our classic fries are seasoned to a perfection with just the right amount of salt.",
+      "price": 4.95
+    },
+    {
+      "category": "Appetizers",
+      "name": "Takoyaki",
+      "description": "Wheat flour base batter filled with octopus, deep-fried and drizzled with homemade sauce and topped with bonito flakes.",
+      "price": 7.95
+    },
+    {
+      "category": "Dinner Specials",
+      "name": "Shrimp Tempura",
+      "description": "Assortment of fresh vegetables fried in a Japanese batter",
+      "price": 19.95
+    },
+    {
+      "category": "Dinner Specials",
+      "name": "Chicken Teriyaki",
+      "description": "Sizzling chicken breast served over a bed of sauteed vegetables in teriyaki sauce",
+      "price": 23.95
+    },
+    {
+      "category": "Dinner Specials",
+      "name": "Beef Teriyaki",
+      "description": "New York striploin steak grilled to perfections served over a bed of sauteed vegetables in teriyaki sauce",
+      "price": 26.95
+    },
+    {
+      "category": "Dinner Specials",
+      "name": "Grilled Fish Teriyaki",
+      "description": "Grilled fish served over a bed of sauteed vegetables in teriyaki sauce. Your choice of tuna or salmon",
+      "price": 26.95
+    },
+    {
+      "category": "Dinner Specials",
+      "name": "Sushi & Tempura Combo",
+      "description": "A nigiri assortment of yellowfin tuna, fresh salmon, white fish and shrimp. Served with a California roll and shrimp/vegetable tempura",
+      "price": 26.95
+    },
+    {
+      "category": "Dinner Specials",
+      "name": "Sashimi & Tempura Combo",
+      "description": "Slices of yellowfin tuna, fresh salmon and white fish sashimi served alongside with shrimps and vegetable tempura",
+      "price": 26.95
+    },
+    {
+      "category": "Dinner Specials",
+      "name": "Tempura & Chicken Teriyaki Combo",
+      "description": "",
+      "price": 25.95
+    },
+    {
+      "category": "Dinner Specials",
+      "name": "Chicken Teriyaki & Sushi/sashimi Combo",
+      "description": "",
+      "price": 26.95
+    },
+    {
+      "category": "Dinner Specials",
+      "name": "Chicken & Beef Teriyaki Combo",
+      "description": "",
+      "price": 26.95
+    },
+    {
+      "category": "Kids Specials",
+      "name": "Kids Hibachi Chicken",
+      "description": "",
+      "price": 13.95
+    },
+    {
+      "category": "Kids Specials",
+      "name": "Kids Hibachi Steak",
+      "description": "",
+      "price": 16.95
+    },
+    {
+      "category": "Kids Specials",
+      "name": "Kids Hibachi Shrimp",
+      "description": "",
+      "price": 15.95
+    },
+    {
+      "category": "Beverages",
+      "name": "Beverages",
+      "description": "16 oz. Coke, Diet Coke, Coke Zero, Sprite, Dr Pepper, Root Beer, Lemonade, Shirley Temple, Fanta Orange, or Arnold Palmer.",
+      "price": 3.45
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:51.354Z"
+}

@@ -1,0 +1,167 @@
+{
+  "business_name": "Old Salt Tavern",
+  "cuisine_type": "American",
+  "price_range": null,
+  "description": "Old Salt Tavern is Orange Beach's neighborhood new hangout for made-from-scratch food, cold drinks, sports, and good times. Come hungry, stay awhile, and feel right at home. A Social Gathering Spot: Great Food, Great Service in an Upscale Environment. We are located in the Wal-Mart Shopping Center in Orange Beach. Formerly Stephi's, and Franco's Italian restaurant before that. We have made some big changes to the facility – come check it out!",
+  "atmosphere": "Upscale neighborhood hangout with sports viewing",
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": "251-228-5439",
+    "email": null,
+    "address": "25241 Perdido Beach Blvd, Orange Beach, AL (next to Wal-Mart)",
+    "website": "https://oldsalttavern.com",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": "https://www.facebook.com/oldsalttavern",
+      "instagram": "https://www.instagram.com/oldsalttavern",
+      "twitter": null,
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": true,
+    "takeout_available": null,
+    "delivery_available": null,
+    "curbside_available": null,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [],
+    "wine_list": null,
+    "beer_selection": null,
+    "cocktails": null,
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": null,
+      "vegan": null,
+      "gluten_free": null,
+      "dairy_free": null,
+      "nut_free": null,
+      "kosher": null,
+      "halal": null
+    }
+  },
+  "happy_hour": {
+    "available": null,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [],
+  "entertainment_and_events": [
+    {
+      "type": "sports",
+      "name": "Sports viewing",
+      "days": null,
+      "start_time": null,
+      "end_time": null,
+      "description": "Sports viewing available",
+      "cover_charge": null,
+      "featured_artist": null
+    }
+  ],
+  "private_events": {
+    "available": null,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": null,
+    "packages": null
+  },
+  "parking": "Free lot (Wal-Mart Shopping Center)",
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": null,
+    "pets_allowed": null
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": null,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": null,
+    "private_dining": null
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": null,
+    "email_signup": "Join Our Mailing List - form available on website",
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": null,
+    "farm_to_table": null,
+    "sustainable": null,
+    "organic": null,
+    "details": "Made-from-scratch food"
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [],
+    "common_praise": [],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "menu",
+      "url": "https://oldsalttavern.com/wp-content/uploads/2026/03/V3-Old-Salt-Tavern-Menu.jpg",
+      "description": "Old Salt Tavern Menu"
+    },
+    {
+      "type": "social_media",
+      "url": "https://oldsalttavern.com/wp-content/uploads/2025/11/Facebook-Logosu-150x150.png",
+      "description": "Facebook Logo"
+    },
+    {
+      "type": "social_media",
+      "url": "https://oldsalttavern.com/wp-content/uploads/2026/03/instagram-icon-150x150.png",
+      "description": "Instagram Icon"
+    },
+    {
+      "type": "restaurant",
+      "url": "https://oldsalttavern.com/wp-content/uploads/2026/02/DDE39EE8-AE85-4BAD-9F3F-4FFAAE499A76_1_201_a-scaled.jpeg",
+      "description": "Restaurant interior/exterior background image"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": "Email signup form available - 'Join Our Mailing List' with fields for Name, Email, Phone, and Comments",
+  "raw_text_content": "Old Salt Tavern Orange Beach AL New Restaurant. Old Salt Tavern is Orange Beach's neighborhood new hangout for made-from-scratch food, cold drinks, sports, and good times. Come hungry, stay awhile, and feel right at home. 251-228-5439. NOW OPEN in Orange Beach. Follow Us on Facebook to Keep Up With Us! Click Here for Facebook. A Social Gathering Spot: Great Food, Great Service in an Upscale Environment. NEW OWNERSHIP! We are located in the Wal-Mart Shopping Center in Orange Beach. Formerly Stephi's, and Franco's Italian restaurant before that. We have made some big changes to the facility – come check it out! Join Our Mailing List. 25241 Perdido Beach Blvd. Orange Beach, AL. (next to Wal-Mart). © 2026 Old Salt Tavern.",
+  "extraction_confidence": "medium",
+  "extraction_notes": "Website appears to be a new restaurant landing page with limited information. Menu image is displayed but not parsed into menu items. Hours of operation are not listed on the homepage. No specific details about delivery, takeout, catering, private events, or detailed policies. Website uses Gravity Forms for email signup. Location confirmed in Wal-Mart Shopping Center in Orange Beach, AL. Restaurant is newly opened with new ownership. Social media links present for Facebook and Instagram. No pricing information visible. The page contains mostly hero/landing page content rather than comprehensive business details.",
+  "folder": "ChIJhf_aWPsHmogRuKwI6Au_bR8_Old Salt Tavern",
+  "extracted_at": "2026-05-15T06:30:02.593Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJhf_aWPsHmogRuKwI6Au_bR8_Old Salt Tavern/01_raw_html.html"
+}

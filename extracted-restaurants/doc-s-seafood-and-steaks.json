@@ -1,0 +1,156 @@
+{
+  "name": "Doc's Seafood and Steaks",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "251-281-0888",
+    "address": "24221 Perdido Beach Blvd.",
+    "city": "Orange Beach",
+    "email": "info@docsseafoodandsteak.com"
+  },
+  "hours": {
+    "monday": "11:00am-9:00pm",
+    "tuesday": "11:00am-9:00pm",
+    "wednesday": "11:00am-9:00pm",
+    "thursday": "11:00am-9:00pm",
+    "friday": "11:00am-9:00pm",
+    "saturday": "11:00am-9:00pm",
+    "sunday": "11:00am-9:00pm"
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Steaks",
+      "name": "Filet Mignon",
+      "description": "The finest cut! Available in 8oz.",
+      "price": ""
+    },
+    {
+      "category": "Steaks",
+      "name": "16 OZ Rib Eye",
+      "description": "Certified Angus Beef aged 28 days with Grilled Gulf Shrimp.",
+      "price": ""
+    },
+    {
+      "category": "Steaks",
+      "name": "14 OZ New York Strip",
+      "description": "Tasty Certified Angus Beef Aged 28 Days.",
+      "price": ""
+    },
+    {
+      "category": "Seafood",
+      "name": "Famous Fried Shrimp",
+      "description": "The Best Fried Shrimp in the Entire Civilized World!",
+      "price": ""
+    },
+    {
+      "category": "Seafood",
+      "name": "Oysters on 1/2 Shell",
+      "description": "1/2 Doz'n and 1 Doz'n Oysters on the 1/2 Shell.",
+      "price": ""
+    },
+    {
+      "category": "Seafood",
+      "name": "Seafood Platter",
+      "description": "Shrimp, Oysters, Stuffed Crab, Fish Fillet, Creamy Cole Slaw",
+      "price": ""
+    },
+    {
+      "category": "Seafood",
+      "name": "Fried Fish Fillets",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Seafood",
+      "name": "Fried Stuffed Crab",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Seafood",
+      "name": "Fried Oysters",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Seafood",
+      "name": "Boiled Shrimp",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Seafood",
+      "name": "Grilled Shrimp",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Seafood",
+      "name": "Fried Clam Strips",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Specialty",
+      "name": "Create Your Own Seafood Platter",
+      "description": "Pile of fries or baked potato, creamy coleslaw and hushpuppies. Choose from a combination of fried shrimp, fried fish fillets, fried stuffed crab, fried oysters, boiled shrimp, grilled shrimp, fried clam strips, or chicken strips. Available to combine two, three, or four different items.",
+      "price": ""
+    },
+    {
+      "category": "Specialty",
+      "name": "Seafood Gumbo",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sides & Other",
+      "name": "Chicken Strips",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sides & Other",
+      "name": "Crab Claws",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sides & Other",
+      "name": "Redskin Potatoes",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sides & Other",
+      "name": "Cheese Grits",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sides & Other",
+      "name": "Onion Rings",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sides & Other",
+      "name": "Vegetables",
+      "description": "",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Blue Plate Specials Menu",
+      "description": "Lunch specials available",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:50.227Z"
+}

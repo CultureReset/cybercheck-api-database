@@ -1,0 +1,101 @@
+{
+  "name": "Peking Garden Restaurant",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "(251) 330-0207",
+    "address": "2316 St Stephens Rd",
+    "city": "Mobile",
+    "email": ""
+  },
+  "hours": {
+    "monday": "10:30 AM–9 PM",
+    "tuesday": "10:30 AM–9 PM",
+    "wednesday": "10:30 AM–9 PM",
+    "thursday": "10:30 AM–9 PM",
+    "friday": "10:30 AM–10:30 PM",
+    "saturday": "10:30 AM–10:30 PM",
+    "sunday": "10:30 AM–9:30 PM"
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Appetizers",
+      "name": "Appetizers Deluxe For 2",
+      "description": "Combination of fried prawns, egg roll and crab butterfly.",
+      "price": 6.55
+    },
+    {
+      "category": "Appetizers",
+      "name": "Egg Rolls",
+      "description": "",
+      "price": 4.25
+    },
+    {
+      "category": "Soup",
+      "name": "Hot And Sour Soup",
+      "description": "",
+      "price": 4.55
+    },
+    {
+      "category": "Soup",
+      "name": "Won Ton Soup",
+      "description": "Quick and easy wonton soup is super simple, loaded with veggies and takes under 15 minutes to make thanks to the frozen wontons.",
+      "price": 4.55
+    },
+    {
+      "category": "Egg Foo Young",
+      "name": "Vegetable Egg Foo Young",
+      "description": "",
+      "price": 6.95
+    },
+    {
+      "category": "Egg Foo Young",
+      "name": "Pork Egg Foo Young",
+      "description": "",
+      "price": 6.95
+    },
+    {
+      "category": "Noodles",
+      "name": "Beef Chow Mein",
+      "description": "",
+      "price": 4.95
+    },
+    {
+      "category": "Noodles",
+      "name": "Chicken Chow Mein",
+      "description": "",
+      "price": 4.95
+    },
+    {
+      "category": "Rice",
+      "name": "Beef Fried Rice",
+      "description": "",
+      "price": 4.95
+    },
+    {
+      "category": "Rice",
+      "name": "Chicken Fried Rice",
+      "description": "",
+      "price": 4.95
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Chef Special Seafood & Tofu Casserole",
+      "description": "This Seafood and Tofu Casserole is a comforting dish with an interesting combination of silken tofu and seafood cooked in an earthenware pot.",
+      "discount": ""
+    },
+    {
+      "name": "Beef In Savory Pot",
+      "description": "Ingredients: 1 beef Blade Chuck Roast Boneless (2-1/2 pounds); 1/2 teaspoon salt; 1/2 teaspoon black pepper; 1 can (14-1/2 ounces) reduced sodium beef",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:51.157Z"
+}

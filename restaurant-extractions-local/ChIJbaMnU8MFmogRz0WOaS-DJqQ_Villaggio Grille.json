@@ -1,0 +1,262 @@
+{
+  "business_name": "Villaggio Grille",
+  "cuisine_type": "Italian Fusion & Seafood",
+  "price_range": "$$",
+  "description": "Villaggio Grille is one of the Alabama Gulf Coast's best restaurants. Italian fusion at its tastiest, Villaggio wants to prove that they live up to their reputation. Join us for lunch or dinner, and leave satisfied. Italian Fusion has never tasted so good! Our talented chefs and pristine ingredients create a dining experience so enjoyable you won't want it to end!",
+  "atmosphere": "Fine dining with bar and dining room, located at the wharf",
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": "251.224.6510",
+    "email": "villaggiogrilleob@gmail.com",
+    "address": "4790 Main Street Suite F 108-B, Orange Beach, AL 36561",
+    "website": "https://villaggiogrilleob.com",
+    "hours_phone": "251.224.6510",
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": "https://www.facebook.com/villaggiogrille/",
+      "instagram": "https://www.instagram.com/villaggiogrilleob/",
+      "twitter": "https://twitter.com/VillaggioOBA",
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": "11am-9pm",
+    "tuesday": "11am-9pm",
+    "wednesday": "11am-9pm",
+    "thursday": "11am-10pm",
+    "friday": "11am-10pm",
+    "saturday": "11am-10pm",
+    "sunday": "11am-9pm",
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": true,
+    "takeout_available": true,
+    "delivery_available": true,
+    "curbside_available": false,
+    "delivery_partners": [
+      "Time to Eat the Beach",
+      "DoorDash"
+    ],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [
+      {
+        "name": "Family Meals",
+        "description": "Feeds 4 People. All Family Meals Served with a House or Caesar Salad, and House Made Focaccia Bread.",
+        "items": [
+          {
+            "name": "10 Layer Lasagna",
+            "description": "Beef and Pork Lasagna, Layered with Ricotta Béchamel, House Made Marinara and Mozzarella",
+            "price": "$42",
+            "dietary_flags": [],
+            "allergens": "Dairy, Gluten",
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Shrimp or Chicken Alfredo",
+            "description": "Grilled Chicken or Shrimp, House Made Alfredo, Spinach, Fettuccine Noodle",
+            "price": "$42",
+            "dietary_flags": [],
+            "allergens": "Dairy, Gluten",
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Grilled Salmon",
+            "description": "Served with Tomato Risotto, Green Beans, and Balsamic Glaze",
+            "price": "$56",
+            "dietary_flags": [],
+            "allergens": "Fish, Dairy",
+            "is_signature": false,
+            "is_seasonal": false,
+            "availability": null
+          }
+        ]
+      },
+      {
+        "name": "Signature Dishes (from reviews)",
+        "description": null,
+        "items": [
+          {
+            "name": "Oyster Trio",
+            "description": "Nine baked oysters including three of each: Prosciutto Rockefeller, Gorgonzola & Shallot, and Manchego & Jalapeno",
+            "price": null,
+            "dietary_flags": [],
+            "allergens": "Shellfish, Dairy",
+            "is_signature": true,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Seafood Pasta",
+            "description": "Shrimp, scallops, & crab salad served over fettuccini alfredo with fresh basil",
+            "price": null,
+            "dietary_flags": [],
+            "allergens": "Shellfish, Dairy, Gluten",
+            "is_signature": true,
+            "is_seasonal": false,
+            "availability": null
+          }
+        ]
+      }
+    ],
+    "wine_list": "Extensive wine selection available - see Wine List page",
+    "beer_selection": null,
+    "cocktails": null,
+    "kids_menu": null,
+    "catering_menu": "Available through Wharf Catering Group",
+    "dietary_accommodations": {
+      "vegetarian": true,
+      "vegan": false,
+      "gluten_free": false,
+      "dairy_free": false,
+      "nut_free": false,
+      "kosher": false,
+      "halal": false
+    }
+  },
+  "happy_hour": {
+    "available": true,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": "See Happy Hour page for details"
+  },
+  "specials_and_promotions": [
+    {
+      "type": "seasonal",
+      "day_of_week": null,
+      "name": "Wine Pairings",
+      "description": "Upcoming wine pairing events",
+      "discount": null,
+      "valid_until": null
+    }
+  ],
+  "entertainment_and_events": [
+    {
+      "type": "wine_pairing",
+      "name": "Wine Pairings",
+      "days": "Various",
+      "start_time": null,
+      "end_time": null,
+      "description": "Wine pairing events featured on website",
+      "cover_charge": null,
+      "featured_artist": null
+    }
+  ],
+  "private_events": {
+    "available": true,
+    "event_spaces": "Multiple venues available",
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": true,
+    "packages": "Different catering packages available through Wharf Catering Group with beautiful venues and great staff"
+  },
+  "parking": "Available at location",
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": null,
+    "pets_allowed": false
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": true,
+    "online_booking_platform": "Yelp Reservations",
+    "phone_reservations": "251.224.6510",
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": false,
+    "private_dining": true
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": false,
+    "email_signup": "Join Our Mailing List via Mailchimp",
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": false,
+    "farm_to_table": false,
+    "sustainable": false,
+    "organic": false,
+    "details": "Focus on pristine ingredients and talented chefs creating quality dining experiences"
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [
+      "Oyster Trio",
+      "Seafood Pasta",
+      "Shrimp Alfredo",
+      "Chicken Alfredo",
+      "Grilled Salmon"
+    ],
+    "common_praise": [
+      "Perfect cooking technique",
+      "Quality ingredients",
+      "Excellent service",
+      "Fresh basil flavor",
+      "Creative flavor combinations",
+      "No excess oil in dishes",
+      "Professional chefs",
+      "One of the best seafood pastas"
+    ],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "food",
+      "url": "/static/media/pizza.f049235ddd4f0158b84f.jpg",
+      "description": "Villaggio's wood fired pizza"
+    },
+    {
+      "type": "food",
+      "url": "/static/media/pizzaLong.ec9f57f8a4b32f5bcda5.jpg",
+      "description": "Villaggio's wood fired pizza (mobile version)"
+    },
+    {
+      "type": "event",
+      "url": "/static/media/slide-mayWine.b605fe535873c82ed8ec.png",
+      "description": "Villaggio's Upcoming Wine Pairing"
+    },
+    {
+      "type": "restaurant",
+      "url": "/static/media/family-bg.b741d299517f494ee752.jpg",
+      "description": "Villaggio Grille bar and dining room background"
+    },
+    {
+      "type": "food",
+      "url": "/static/media/family-meal-slide.5edb02ba04a8e3ac192d.jpg",
+      "description": "Takeout Family Meals in Orange Beach, AL"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": "Email signup available for Mailing List via Mailchimp form on website and footer",
+  "raw_text_content": "Villaggio Grille - Italian Fusion & Seafood Restaurant in Orange Beach, AL. Italian fusion has never tasted so good! Our talented chefs and pristine ingredients create a dining experience so enjoyable you won't want it to end. Contact: 251.224.6510, villaggiogrilleob@gmail.com, 4790 Main Street Suite F 108-B, Orange Beach, AL 36561. Hours: Sunday-Wednesday 11am-9pm, Thursday-Saturday 11am-10pm. Menus include Lunch, Dinner, Brunch, Happy Hour, Drink Menu, Family Meals. Family Meals feed 4 people and include salad and house made focaccia: 10 Layer Lasagna $42, Shrimp or Chicken Alfredo $42, Grilled Salmon $56. Takeout and delivery available via Time to Eat the Beach and DoorDash. Reservations available through Yelp. Wine pairings and catering available. Featured review from Alex Whitaker praising Oyster Trio and Seafood Pasta for perfect cooking and flavor. Sister restaurants: Ginny Lane Bar Grill, Yoho Rum and Tacos, Mile Marker 158 Dockside.",
+  "extraction_confidence": "high",
+  "extraction_notes": "Successfully extracted comprehensive restaurant data including name, contact info, hours, menu items with pricing from family meals section, delivery partners, social media, and review content. Limited menu details available on homepage - full menus are linked but not expanded. No wine list, drink menu, brunch menu, or lunch/dinner menu details visible in provided HTML as they are on separate pages. Happy hour details referenced but not detailed. No ratings, review counts, or specific dietary accommodation policies found. Catering information links to external Wharf Catering Group site. Private events information is general. No parking, accessibility, dress code, or payment method details provided. No loyalty program mentioned.",
+  "folder": "ChIJbaMnU8MFmogRz0WOaS-DJqQ_Villaggio Grille",
+  "extracted_at": "2026-05-15T06:27:15.775Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJbaMnU8MFmogRz0WOaS-DJqQ_Villaggio Grille/01_raw_html.html"
+}

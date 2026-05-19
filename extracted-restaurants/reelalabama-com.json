@@ -1,0 +1,42 @@
+{
+  "name": "reelalabama.com",
+  "type": "Not a Restaurant",
+  "website": "https://www.reelalabama.com",
+  "contact": {
+    "phone": "",
+    "address": "",
+    "city": "",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": null
+  },
+  "about": {
+    "description": "reelalabama.com is a parked domain courtesy of GoDaddy.com. The site contains a .Realty comprehensive search directory for finding resources across multiple industries and topics, including real estate legal guidance.",
+    "elevator_pitch": "A search directory platform providing real estate legal resources and information across multiple industries.",
+    "vibe": "Professional, informational",
+    "best_for": [],
+    "established": null,
+    "reservations": null,
+    "insider_tip": null
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://www.reelalabama.com"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-03-21T19:29:13.022Z"
+}

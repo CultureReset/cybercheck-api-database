@@ -1,0 +1,32 @@
+{
+  "name": "Hibas Karaoke & Arcade Bar",
+  "type": "Restaurant",
+  "website": "https://hibasgulfshores.com/",
+  "contact": {
+    "phone": "",
+    "address": "3800 Gulf Shores Pkwy, Unit 210",
+    "city": "Gulf Shores",
+    "email": ""
+  },
+  "hours": {
+    "monday": "8pm-midnight",
+    "tuesday": "8pm-midnight",
+    "wednesday": "8pm-midnight",
+    "thursday": "8pm-midnight",
+    "friday": "8pm-3am",
+    "saturday": "8pm-3am",
+    "sunday": "8pm-midnight"
+  },
+  "about": {
+    "description": "Hibas Karaoke & Arcade Bar is the best place in Gulf Shores for karaoke, arcade games, and late-night entertainment. Sing every night, challenge friends at the arcade, or dance with live DJs on weekends.",
+    "cuisine_type": "bar"
+  },
+  "social": {},
+  "menu": [],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-03-21T14:48:55.505Z"
+}

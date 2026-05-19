@@ -1,0 +1,54 @@
+{
+  "name": "Perdido Key Sports Bar & Restaurant",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "(850) 332-6403",
+    "address": "13583 Perdido Key Drive",
+    "city": "Pensacola",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Specialties",
+      "name": "Chicken Wings",
+      "description": "Voted best chicken wings on the key",
+      "price": ""
+    },
+    {
+      "category": "Specialties",
+      "name": "Burgers & Fries",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Specialties",
+      "name": "Shrimp & Fish",
+      "description": "",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Happy Hour",
+      "description": "Daily happy hour",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:51.192Z"
+}

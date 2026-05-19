@@ -1,0 +1,150 @@
+{
+  "name": "Blalock Seafood & Specialty Market",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "(251) 968-5811",
+    "address": "1911 Gulf Shores Pkwy",
+    "city": "Gulf Shores",
+    "email": "info@blalockseafoodgulfshores.com"
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Fresh Fish",
+      "name": "Salmon",
+      "description": "",
+      "price": 16.9
+    },
+    {
+      "category": "Fresh Fish",
+      "name": "Tuna",
+      "description": "",
+      "price": 18.9
+    },
+    {
+      "category": "Fresh Fish",
+      "name": "Grouper",
+      "description": "",
+      "price": 23.9
+    },
+    {
+      "category": "Fresh Fish",
+      "name": "Trigger",
+      "description": "",
+      "price": 17.9
+    },
+    {
+      "category": "Fresh Fish",
+      "name": "Mahi",
+      "description": "",
+      "price": 16.9
+    },
+    {
+      "category": "Fresh Fish",
+      "name": "Flounder",
+      "description": "",
+      "price": 13.9
+    },
+    {
+      "category": "Fresh Fish",
+      "name": "Triple tail",
+      "description": "",
+      "price": 17.9
+    },
+    {
+      "category": "Fresh Fish",
+      "name": "Cobia",
+      "description": "",
+      "price": 15.9
+    },
+    {
+      "category": "Shrimp",
+      "name": "Royal Red Shrimp",
+      "description": "Medium, large, and jumbo sizes available. Famous shrimp from fresh, fertile waters of Mexico's gulf.",
+      "price": ""
+    },
+    {
+      "category": "Shrimp",
+      "name": "Shrimp Bisque",
+      "description": "Famous shrimp bisque made with fresh shrimp",
+      "price": ""
+    },
+    {
+      "category": "Shellfish & Specialty Items",
+      "name": "Blue Crab Meat",
+      "description": "Four different types available",
+      "price": ""
+    },
+    {
+      "category": "Shellfish & Specialty Items",
+      "name": "Oysters",
+      "description": "Available by the dozen or freshly shucked",
+      "price": ""
+    },
+    {
+      "category": "Shellfish & Specialty Items",
+      "name": "Scallops",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Shellfish & Specialty Items",
+      "name": "Smoked Tuna Dip",
+      "description": "Famous specialty item",
+      "price": ""
+    },
+    {
+      "category": "Shellfish & Specialty Items",
+      "name": "Tuna Dip",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Shellfish & Specialty Items",
+      "name": "Frozen Hush Puppies",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Specialty Offerings",
+      "name": "Gourmet Spices",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Specialty Offerings",
+      "name": "Fine Cheeses",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Specialty Offerings",
+      "name": "Dips and Marinades",
+      "description": "",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Steamed Meal Solutions",
+      "description": "Steamed meal solutions with all your favorite seafood products. From shrimp and scallops to salmon and trout.",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:50.064Z"
+}

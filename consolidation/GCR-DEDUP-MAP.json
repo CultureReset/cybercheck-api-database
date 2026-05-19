@@ -1,0 +1,4774 @@
+{
+  "summary": {
+    "total_duplicates_found": 294,
+    "total_unique_kept": 268,
+    "total_entities_after_dedup": 268,
+    "reduction_percent": 52
+  },
+  "to_keep": [
+    {
+      "id": "1efcfaae-6327-416c-8b8f-48871fa76b9c",
+      "name": "Cobalt the Restaurant",
+      "score": 130,
+      "reviews": 6707
+    },
+    {
+      "id": "6dae3f3a-e93a-4885-955b-71b81069caa0",
+      "name": "Orange Beach",
+      "score": 95,
+      "reviews": 50
+    },
+    {
+      "id": "0b28a9ff-1fe7-4de4-9dc8-498a44822fdc",
+      "name": "Agave Bar & Grill",
+      "score": 110,
+      "reviews": 473
+    },
+    {
+      "id": "3122eeb3-4922-4731-9721-f4d86a17880c",
+      "name": "Crawford McWilliams Art",
+      "score": 90,
+      "reviews": 15
+    },
+    {
+      "id": "25cbe572-e630-4b23-9a42-a346e1902256",
+      "name": "Orange Beach Tritoon Rental",
+      "score": 85,
+      "reviews": 1
+    },
+    {
+      "id": "67916e95-b481-4c00-b49e-17ebdbfc0fd6",
+      "name": "Orange Beach: Daytime Dolphin Sightseeing Cruise",
+      "score": 90,
+      "reviews": 18
+    },
+    {
+      "id": "705578b7-b633-43cb-9315-f55778fd1ab1",
+      "name": "Orange Beach: 30ft Double Deck Pontoon with 2 Slides and 115HP",
+      "score": 90,
+      "reviews": 29
+    },
+    {
+      "id": "144824a1-1065-4023-bbd9-c976ce3bbcd0",
+      "name": "Woodside Restaurant",
+      "score": 130,
+      "reviews": 1093
+    },
+    {
+      "id": "34285574-3f41-4854-b568-de9ad4efc168",
+      "name": "Southern Shores Coffee",
+      "score": 110,
+      "reviews": 283
+    },
+    {
+      "id": "cb845e66-932d-4518-84b7-e43b94262a52",
+      "name": "Brett/Robinson Vacation Rentals",
+      "score": 110,
+      "reviews": 1884
+    },
+    {
+      "id": "f8a5a679-74c5-400a-ac55-b2da22ecdf59",
+      "name": "Buena Vista Motor Coach Resort",
+      "score": 130,
+      "reviews": 288
+    },
+    {
+      "id": "353a3e39-90e5-4c09-a29b-3a1ddea1d7e5",
+      "name": "Efes Greek Kitchen",
+      "score": 110,
+      "reviews": 513
+    },
+    {
+      "id": "0a5d6e83-e0f6-4163-a8c1-eef3291d72de",
+      "name": "AL’s Liquor Tobacco Wine",
+      "score": 110,
+      "reviews": 259
+    },
+    {
+      "id": "342df911-c9f5-4f3e-bb66-a35f69808598",
+      "name": "BuzzCatz Coffee & Sweets",
+      "score": 130,
+      "reviews": 1115
+    },
+    {
+      "id": "6e37b909-7ace-4b25-9fad-35ef1f2ce6f2",
+      "name": "Perdido Key: Banana Boat Ride Experience",
+      "score": 90,
+      "reviews": 45
+    },
+    {
+      "id": "3e48ca02-8877-49f0-9df6-8ae5efcd1aa7",
+      "name": "Perdido Key: Parasailing Adventure",
+      "score": 110,
+      "reviews": 141
+    },
+    {
+      "id": "5f78b808-cc20-439b-a359-a14975dfbbd6",
+      "name": "Orange Beach: Hourly Jet Ski Rentals departing from Happy Harbor Marina",
+      "score": 90,
+      "reviews": 14
+    },
+    {
+      "id": "8aeec77d-fca8-4695-a2c3-579c65d44125",
+      "name": "The Galway Irish Public House",
+      "score": 110,
+      "reviews": 472
+    },
+    {
+      "id": "e7d6e698-4e82-4bee-9e61-021ffae9cf3f",
+      "name": "Orange Beach: Private Blue Angels Airshow Boat Tour",
+      "score": 110,
+      "reviews": 181
+    },
+    {
+      "id": "eda7a6a6-994b-4f0c-aebd-bc1dec6b9f9d",
+      "name": "Chocolate Corner & Ice Cream",
+      "score": 110,
+      "reviews": 415
+    },
+    {
+      "id": "85a2d2d8-560f-4214-af56-4ff4eeb59314",
+      "name": "Joanna A. Boutique - Orange Beach",
+      "score": 90,
+      "reviews": 3
+    },
+    {
+      "id": "ddc739f4-6479-4b85-b43a-8e0380c41b99",
+      "name": "Tiki Island Boutique",
+      "score": 90,
+      "reviews": 17
+    },
+    {
+      "id": "e98e22e8-1707-440b-9d74-86cf03b42f17",
+      "name": "BP Gas Station",
+      "score": 65,
+      "reviews": 0
+    },
+    {
+      "id": "6accf95f-56fe-4a8e-b783-8a460e676329",
+      "name": "Orange Beach: 22-Foot Pontoon Rental",
+      "score": 70,
+      "reviews": 0
+    },
+    {
+      "id": "777a71ea-167e-410b-873d-d2082b967438",
+      "name": "Flora-Bama Ole River Grill",
+      "score": 75,
+      "reviews": 0
+    },
+    {
+      "id": "495a7669-6fcf-4fc5-86d5-3f68d444b8a5",
+      "name": "BB's Health Foods",
+      "score": 85,
+      "reviews": 0
+    },
+    {
+      "id": "2f9e2152-f768-4951-be66-dd318ccff088",
+      "name": "The Massage Office",
+      "score": 90,
+      "reviews": 25
+    },
+    {
+      "id": "f77d4a7d-415c-4579-aff6-92490eac0165",
+      "name": "Gulf Shores Paddleboarding Lesson & Tour",
+      "score": 85,
+      "reviews": 2
+    },
+    {
+      "id": "47176824-2225-4e91-baf2-0d11a91dae0c",
+      "name": "Bender Vacation Rentals",
+      "score": 110,
+      "reviews": 215
+    },
+    {
+      "id": "fb12b923-fa4e-44c0-b84a-43c8ff351fb5",
+      "name": "Bon Secour National Wildlife Refuge",
+      "score": 130,
+      "reviews": 201
+    },
+    {
+      "id": "5132f129-4b4e-4782-9a90-61f51af6a402",
+      "name": "Gulf State Park",
+      "score": 130,
+      "reviews": 11843
+    },
+    {
+      "id": "6380eca9-cf2d-495d-8e20-2e73c6614dc8",
+      "name": "Zeke's Restaurant",
+      "score": 135,
+      "reviews": 16201
+    },
+    {
+      "id": "57e5ee44-3a27-4aa5-b2df-e6e3ea55537f",
+      "name": "Caribe Resort",
+      "score": 130,
+      "reviews": 2638
+    },
+    {
+      "id": "e627d393-0e18-4904-8838-1dab9ae68032",
+      "name": "Carmelo",
+      "score": 75,
+      "reviews": 0
+    },
+    {
+      "id": "0c11f579-5533-4c37-a325-a7bedfe763cf",
+      "name": "China Dragon",
+      "score": 130,
+      "reviews": 479
+    },
+    {
+      "id": "2d009a2b-8eae-4763-b941-1a4d4ea3cf99",
+      "name": "Coastal Orange Beach",
+      "score": 110,
+      "reviews": 6605
+    },
+    {
+      "id": "ef2e5f72-960d-45d0-a4b9-0d211ec960e5",
+      "name": "Craft Farms Golf Club",
+      "score": 110,
+      "reviews": 1408
+    },
+    {
+      "id": "6c0405da-8fb7-4ea6-8cb1-3963b4caf643",
+      "name": "Wolf Bay Restaurant at Orange Beach",
+      "score": 135,
+      "reviews": 3291
+    },
+    {
+      "id": "1fa14f46-14a8-47b5-90f3-112428cf51bc",
+      "name": "The Beach House Kitchen & Cocktails",
+      "score": 85,
+      "reviews": 0
+    },
+    {
+      "id": "68570f6c-c4f5-4d90-a136-6497cb74d1dc",
+      "name": "Coastal Arts Center of Orange Beach",
+      "score": 130,
+      "reviews": 383
+    },
+    {
+      "id": "06bc108f-eed3-4cbc-a304-000747087168",
+      "name": "Frank & Co. Fine Jewelry",
+      "score": 90,
+      "reviews": 80
+    },
+    {
+      "id": "bb85a412-35ed-457a-8152-a30625bc4fb8",
+      "name": "Kitty's Kafe",
+      "score": 135,
+      "reviews": 1327
+    },
+    {
+      "id": "13333365-498c-4d1f-975b-4dea57bdaf09",
+      "name": "The Clubhouse Bar & Grill",
+      "score": 90,
+      "reviews": 4
+    },
+    {
+      "id": "47ba5725-835d-4fdd-95c6-83c9d2613785",
+      "name": "DeSoto's Seafood Kitchen",
+      "score": 115,
+      "reviews": 3
+    },
+    {
+      "id": "8d94e732-b633-4387-aed3-0f587f5bd30e",
+      "name": "Foam Coffee",
+      "score": 110,
+      "reviews": 424
+    },
+    {
+      "id": "e7f3e754-2522-42cd-9fa9-f23c110aae88",
+      "name": "The Gulf",
+      "score": 130,
+      "reviews": 14447
+    },
+    {
+      "id": "dc2036b4-3a49-48ff-9c80-1ff5f8eb175d",
+      "name": "Orange Beach: 24ft Double Deck Pontoon with Slide and 70HP",
+      "score": 85,
+      "reviews": 6
+    },
+    {
+      "id": "073d8f5a-6ede-4cb5-b0ce-c5f515202159",
+      "name": "Orange Beach: Sunset & Crab Grab Clear Kayak Tour",
+      "score": 85,
+      "reviews": 16
+    },
+    {
+      "id": "02f7e21e-3c09-46ee-b199-555599333645",
+      "name": "Nauti Fishing Charters",
+      "score": 90,
+      "reviews": 8
+    },
+    {
+      "id": "1532d551-5f4d-434b-adc0-eb9a05ecf364",
+      "name": "Anchored Coffee House",
+      "score": 90,
+      "reviews": 29
+    },
+    {
+      "id": "116d305e-a410-4911-8e1e-eb1ed5185dd8",
+      "name": "Phoenix All Suites Hotel",
+      "score": 130,
+      "reviews": 671
+    },
+    {
+      "id": "a7a5f71c-b0c1-4f54-96ed-2dafcdcc4971",
+      "name": "Tuscany Pizza and Grill",
+      "score": 130,
+      "reviews": 961
+    },
+    {
+      "id": "d06c31d2-aefc-4ff8-8ddd-ae055da0fa21",
+      "name": "Sugar Sands RV Resort",
+      "score": 130,
+      "reviews": 732
+    },
+    {
+      "id": "9d746dd5-a7c3-4c79-b038-a81984fcd92d",
+      "name": "Orange Beach: Sunset Dolphin Cruise with Captain",
+      "score": 90,
+      "reviews": 96
+    },
+    {
+      "id": "f2d2e115-eee8-4111-bd3f-0143b4ef09f2",
+      "name": "Sun Outdoors Orange Beach",
+      "score": 130,
+      "reviews": 688
+    },
+    {
+      "id": "c6e119e0-62f1-42bd-ac72-be14e8988127",
+      "name": "Doc's RV Park",
+      "score": 130,
+      "reviews": 202
+    },
+    {
+      "id": "7075b81c-2e2c-4a73-b32c-a34621e8e370",
+      "name": "Bear Point Harbor",
+      "score": 110,
+      "reviews": 625
+    },
+    {
+      "id": "67ab6554-4880-46f9-8f0f-a9e66aa8861c",
+      "name": "Alvins Island Outfitters - #37",
+      "score": 110,
+      "reviews": 998
+    },
+    {
+      "id": "9b79d2cc-500c-4c42-893a-aa48cfd0a461",
+      "name": "Angry Crab Shack",
+      "score": 110,
+      "reviews": 958
+    },
+    {
+      "id": "8d2cf780-4d06-4d4c-b967-61dfd5896c5a",
+      "name": "Pizza At The Pass",
+      "score": 110,
+      "reviews": 299
+    },
+    {
+      "id": "93a3f125-90d8-4357-b9bb-1865655a3694",
+      "name": "Voyagers",
+      "score": 130,
+      "reviews": 698
+    },
+    {
+      "id": "c52d1210-0a6e-41be-98c6-26536acfab27",
+      "name": "Gulf Coast Arts Alliance",
+      "score": 90,
+      "reviews": 70
+    },
+    {
+      "id": "39b6fa33-75e9-4f33-b699-4cad1a6fd8c0",
+      "name": "Fish River Grill",
+      "score": 110,
+      "reviews": 2673
+    },
+    {
+      "id": "21b96d14-52f8-409a-a1ca-331f3df71a94",
+      "name": "Southern Athletica",
+      "score": 75,
+      "reviews": 7
+    },
+    {
+      "id": "943ec94c-f4d5-48e6-993f-fe0e59817fe5",
+      "name": "Gulf Shores Massage Therapy",
+      "score": 90,
+      "reviews": 30
+    },
+    {
+      "id": "2058d7a2-ee32-4e75-b1bc-c12a05c8e1d1",
+      "name": "High Tide Daiquiris & Mimosas",
+      "score": 95,
+      "reviews": 52
+    },
+    {
+      "id": "5d33c255-8f6f-4183-b661-4881964004d0",
+      "name": "The Wharf Amphitheater",
+      "score": 130,
+      "reviews": 2160
+    },
+    {
+      "id": "357ef143-0ad7-4fba-bb6a-e16786e3bdce",
+      "name": "bealls",
+      "score": 90,
+      "reviews": 23
+    },
+    {
+      "id": "6da8eddb-1c13-438d-867e-3ce3657ed75b",
+      "name": "Serenity at The Beach Salon & Spa",
+      "score": 110,
+      "reviews": 183
+    },
+    {
+      "id": "7b622070-11e2-458f-a7a3-c206715d69a0",
+      "name": "Papa Rocco's",
+      "score": 135,
+      "reviews": 3077
+    },
+    {
+      "id": "fd4aaccf-0ee5-4eeb-a5a9-e4be1ef20ccd",
+      "name": "Gourmet World Market",
+      "score": 115,
+      "reviews": 335
+    },
+    {
+      "id": "3c410f82-1912-446d-bc29-4de635f4a287",
+      "name": "Gulf Shores Steamer",
+      "score": 135,
+      "reviews": 1554
+    },
+    {
+      "id": "d30f0fc6-a5f9-486a-b7d8-cf3f003213dc",
+      "name": "Tallulah's Treasures",
+      "score": 110,
+      "reviews": 123
+    },
+    {
+      "id": "d5216ed0-acc2-4709-a78c-61fd94ae0482",
+      "name": "Kiva Grill",
+      "score": 110,
+      "reviews": 276
+    },
+    {
+      "id": "88d2f1b4-5b53-4261-b131-98fb763f71f7",
+      "name": "Orange Beach: Chute Em Up Parasail Tours",
+      "score": 110,
+      "reviews": 916
+    },
+    {
+      "id": "df7e4454-6c09-4b08-9571-89c1fdf54664",
+      "name": "Moe's Original BBQ",
+      "score": 135,
+      "reviews": 1945
+    },
+    {
+      "id": "51790a91-179f-4fc1-9338-daa853d1eaf1",
+      "name": "Gulf Babe Wine Boutique",
+      "score": 110,
+      "reviews": 342
+    },
+    {
+      "id": "c0932d88-06fd-45e5-b5c0-2a38ee2ff0f8",
+      "name": "Luxury RV Resort",
+      "score": 130,
+      "reviews": 831
+    },
+    {
+      "id": "79216287-df78-4057-8745-1473056f1f26",
+      "name": "CC's Boutique Gulf Shores",
+      "score": 90,
+      "reviews": 1
+    },
+    {
+      "id": "bf6079bf-6c9a-418a-bd33-d944df372fb9",
+      "name": "Geez Louise Boutique",
+      "score": 110,
+      "reviews": 57
+    },
+    {
+      "id": "42f3860a-3c3e-4ceb-8a61-114c2af803bc",
+      "name": "Tiki & Raw Bar Orange Beach",
+      "score": 75,
+      "reviews": 0
+    },
+    {
+      "id": "a559301d-166a-49f0-bd10-193f29a4fc0b",
+      "name": "Island Girl Jewelry & Souvenirs",
+      "score": 100,
+      "reviews": 477
+    },
+    {
+      "id": "05a3a4c1-d8ac-4211-974f-75e4afee843a",
+      "name": "Down Under Dive Shop",
+      "score": 115,
+      "reviews": 124
+    },
+    {
+      "id": "3f17d25f-5cd6-4557-9969-898782eccda2",
+      "name": "Trading Co.Orange Beach",
+      "score": 80,
+      "reviews": 22
+    },
+    {
+      "id": "dfeaef24-4b90-4da4-a6af-d64378f63498",
+      "name": "Microtel Inn & Suites by Wyndham Gulf Shores",
+      "score": 130,
+      "reviews": 1180
+    },
+    {
+      "id": "f96c6bf0-7edb-4ddf-937e-9f5993842e14",
+      "name": "The Cove Bar and Grill",
+      "score": 130,
+      "reviews": 1372
+    },
+    {
+      "id": "1a23602e-48bd-4036-b269-f2d6c1d42640",
+      "name": "Palm Beach Resort",
+      "score": 110,
+      "reviews": 650
+    },
+    {
+      "id": "e1d7b6b8-ed75-4287-a5b3-a89b3d2c641e",
+      "name": "Treehouse Cafe",
+      "score": 90,
+      "reviews": 20
+    },
+    {
+      "id": "717185b3-34bc-48fe-97d2-754e1f7f7aeb",
+      "name": "Pink Pony Pub",
+      "score": 130,
+      "reviews": 4293
+    },
+    {
+      "id": "3593c5a9-0be6-48b8-af40-e1a2545e9247",
+      "name": "The Hangout Gulf Shores",
+      "score": 45,
+      "reviews": 0
+    },
+    {
+      "id": "5cfde70c-ae36-46d9-b884-e24047fb6c4e",
+      "name": "Summer House On Romar Beach",
+      "score": 110,
+      "reviews": 121
+    },
+    {
+      "id": "603bc07e-58b8-4a63-a144-69869979f3f1",
+      "name": "Orange Beach Waterfront Park",
+      "score": 135,
+      "reviews": 865
+    },
+    {
+      "id": "41897df2-38b2-4ca0-b69e-4f0f1fb6bac9",
+      "name": "Orange Beach: Bear Point Marina Jet Ski Rental",
+      "score": 110,
+      "reviews": 321
+    },
+    {
+      "id": "2f3a6a38-3ddd-4d77-a918-0d45382bd1e2",
+      "name": "Orange Beach: Dolphin & Sunset Cruises Aboard the Southern Rose",
+      "score": 110,
+      "reviews": 1779
+    },
+    {
+      "id": "3a9157a7-48e3-44fd-b105-0f0d2c769acb",
+      "name": "Gulf Shores Public Beach",
+      "score": 130,
+      "reviews": 11722
+    },
+    {
+      "id": "49801eeb-0593-4a35-be35-58b8746d3e1a",
+      "name": "Orange Beach: 24ft Bentley Pontoon with 90HP",
+      "score": 90,
+      "reviews": 70
+    },
+    {
+      "id": "2f7fdad3-13a9-48d8-831f-ce0145adaf84",
+      "name": "Gulf State Park Beach",
+      "score": 35,
+      "reviews": 0
+    },
+    {
+      "id": "07e36a08-dcf8-438c-abe7-ec4879d8fdc7",
+      "name": "Orange Beach: Gulf Shores Helicopter Tours",
+      "score": 110,
+      "reviews": 380
+    },
+    {
+      "id": "28c82e91-e72a-40fa-ba6e-45c1f669f625",
+      "name": "Pontoon Boat Rental with Slide in Orange Beach",
+      "score": 90,
+      "reviews": 20
+    },
+    {
+      "id": "b3e55bfd-7191-469a-9086-1041865ced25",
+      "name": "Gulf Shores: Launch from the Beach Jet Ski Rentals",
+      "score": 85,
+      "reviews": 53
+    },
+    {
+      "id": "6e6681bd-3728-4305-a430-9a645e609abf",
+      "name": "Gulf State Park Pier",
+      "score": 135,
+      "reviews": 3949
+    },
+    {
+      "id": "d1d7f01a-2fa7-44c8-ab6f-d00b46ff3955",
+      "name": "Barometer Waterfront Grille",
+      "score": 110,
+      "reviews": 238
+    },
+    {
+      "id": "e81e0c3f-f421-441c-8f60-a733e6f49910",
+      "name": "Niki's Seafood & Thai",
+      "score": 130,
+      "reviews": 646
+    },
+    {
+      "id": "9eb39e85-c6e4-4552-b037-d1a52d7d7d5a",
+      "name": "Orange Beach: Sunset Helicopter Tour",
+      "score": 90,
+      "reviews": 11
+    },
+    {
+      "id": "2b45fabf-e3ad-45cc-9a87-293d6e8578a4",
+      "name": "American Legacy Co, The Trump Store AL",
+      "score": 90,
+      "reviews": 50
+    },
+    {
+      "id": "f70a348f-42f9-46f3-99d2-b87412a9ae95",
+      "name": "Archipelago",
+      "score": 90,
+      "reviews": 45
+    },
+    {
+      "id": "b0d89764-04cd-4f80-a362-9304abe055ae",
+      "name": "Luna's Eat & Drink",
+      "score": 130,
+      "reviews": 2610
+    },
+    {
+      "id": "f521a762-9ff4-48d2-8777-182e6a1ab6c2",
+      "name": "City Donut",
+      "score": 130,
+      "reviews": 795
+    },
+    {
+      "id": "1dc4a443-084f-40c3-87d8-8698bb5c79be",
+      "name": "Gulf Shores Seafood",
+      "score": 110,
+      "reviews": 818
+    },
+    {
+      "id": "921963f5-db7b-4377-acaf-1d5812813ad8",
+      "name": "The Catch",
+      "score": 110,
+      "reviews": 7447
+    },
+    {
+      "id": "30b0fec0-7153-4f1d-9656-a714a92b99d7",
+      "name": "Perdido Beach Resort",
+      "score": 130,
+      "reviews": 6575
+    },
+    {
+      "id": "c31bad02-4667-45ed-a783-05920a529828",
+      "name": "The Hangout",
+      "score": 135,
+      "reviews": 30981
+    },
+    {
+      "id": "2bd063db-1936-413f-b14c-254997937ad3",
+      "name": "De Soto's Seafood Kitchen",
+      "score": 135,
+      "reviews": 5491
+    },
+    {
+      "id": "ee10eeb1-5041-4a0e-a8be-a85603cd5a36",
+      "name": "The Red Haven Live",
+      "score": 80,
+      "reviews": 4
+    },
+    {
+      "id": "5bb1057a-f5d6-4234-949a-34490911fb17",
+      "name": "8 Reale OBAL",
+      "score": 95,
+      "reviews": 88
+    },
+    {
+      "id": "3d9d44a1-6507-45b0-a5cf-d47cccfeb6e9",
+      "name": "Orange Beach: Swim, Grill, & Chill Excursion",
+      "score": 90,
+      "reviews": 25
+    },
+    {
+      "id": "7893f6f0-2a46-4286-af10-3ed9666afee3",
+      "name": "Cosmo's Restaurant & Bar",
+      "score": 130,
+      "reviews": 3006
+    },
+    {
+      "id": "00a72474-dc16-41ab-bf2f-d4246c29efd9",
+      "name": "Nail Boutique and Spa",
+      "score": 110,
+      "reviews": 570
+    },
+    {
+      "id": "68d6dc86-d6ed-4d97-b539-5d255548c63f",
+      "name": "The Point Restaurant",
+      "score": 80,
+      "reviews": 0
+    },
+    {
+      "id": "cb7555cd-ce24-42a7-90e4-b5009186e5bd",
+      "name": "The Galley on the River",
+      "score": 95,
+      "reviews": 5
+    },
+    {
+      "id": "dd301b54-b461-4c74-a402-de9c6946d1a8",
+      "name": "Pieces Boutique",
+      "score": 90,
+      "reviews": 23
+    },
+    {
+      "id": "5c7a5321-3c6d-4999-9409-36ae862790b4",
+      "name": "Turquoise Place",
+      "score": 135,
+      "reviews": 1890
+    },
+    {
+      "id": "0e04cbcd-e77b-4ea8-bcf4-19800170bfbc",
+      "name": "The Beach Bun",
+      "score": 90,
+      "reviews": 46
+    },
+    {
+      "id": "4a596c59-4e38-4b88-9b5e-00ec9c01c4c4",
+      "name": "Bird Dog Chicken Company",
+      "score": 110,
+      "reviews": 141
+    },
+    {
+      "id": "1159ccd5-c4a5-4602-93e0-d4e1542883fd",
+      "name": "Villaggio Grille",
+      "score": 135,
+      "reviews": 1332
+    },
+    {
+      "id": "3190ebd3-c549-41f8-aaff-8542ebd2ed91",
+      "name": "Pour Smart Bar",
+      "score": 110,
+      "reviews": 144
+    },
+    {
+      "id": "d2df815b-c82a-48cf-9409-3bbb7234dc3f",
+      "name": "Gulf Shores Beach Supply",
+      "score": 110,
+      "reviews": 108
+    },
+    {
+      "id": "cc71df4c-c004-492c-9879-83167c239d09",
+      "name": "The Sloop",
+      "score": 130,
+      "reviews": 1482
+    },
+    {
+      "id": "835d88fe-8251-4ab9-86f6-fe9a3be938ff",
+      "name": "Shrimp Basket",
+      "score": 135,
+      "reviews": 5429
+    },
+    {
+      "id": "b8bae3f1-ad4c-47b7-aa7f-6b4171788dd6",
+      "name": "Orange Beach: Full-Day Jet Ski Rentals departing from Happy Harbor Marina",
+      "score": 70,
+      "reviews": 0
+    },
+    {
+      "id": "3fc37c1a-386b-4896-a79c-fd4a147dc05f",
+      "name": "Zavros’s Boutique",
+      "score": 90,
+      "reviews": 85
+    },
+    {
+      "id": "f385ec5d-7135-4665-a502-42b42a4739e0",
+      "name": "Orange Beach: Dolphin Sunset Cruise on the Explorer",
+      "score": 110,
+      "reviews": 191
+    },
+    {
+      "id": "0922872c-ca91-4830-9f75-c0633ddf7cad",
+      "name": "Lagoon Tower",
+      "score": 80,
+      "reviews": 52
+    },
+    {
+      "id": "10a9e2e7-1879-476b-a920-cabda508b9a9",
+      "name": "The Salty Palm",
+      "score": 90,
+      "reviews": 67
+    },
+    {
+      "id": "20a75923-6e50-494d-8946-a83d23e469d2",
+      "name": "Swiger Studio",
+      "score": 90,
+      "reviews": 18
+    },
+    {
+      "id": "c7e619be-8ec4-4900-9330-5588e11c6e94",
+      "name": "Tanger Outlets Foley",
+      "score": 50,
+      "reviews": 0
+    },
+    {
+      "id": "31dfe08a-6352-4879-b3a5-020a7bd17f38",
+      "name": "Phoenix V",
+      "score": 50,
+      "reviews": 0
+    },
+    {
+      "id": "33847a19-b5bb-4911-800c-10651c650442",
+      "name": "SURF SIDE SHORES",
+      "score": 85,
+      "reviews": 4
+    },
+    {
+      "id": "fd5913b7-fbca-465f-9c2f-526887e4e081",
+      "name": "Orange Beach Tritoon with Slide",
+      "score": 90,
+      "reviews": 7
+    },
+    {
+      "id": "a5ddc44f-2609-43e1-b88e-8a6ff42b8238",
+      "name": "Sunliner Diner",
+      "score": 110,
+      "reviews": 2611
+    },
+    {
+      "id": "f4875d4c-c748-462e-b86c-9be2c7a0131e",
+      "name": "Wolf Bay Restaurant",
+      "score": 75,
+      "reviews": 0
+    },
+    {
+      "id": "544acf14-533e-408b-bd75-74081d50af33",
+      "name": "Archer's Gulf Serenity Spa",
+      "score": 90,
+      "reviews": 5
+    },
+    {
+      "id": "5dd87a9e-830d-4bb5-a63e-3c302a63f048",
+      "name": "OSO at Bear Point Harbor",
+      "score": 85,
+      "reviews": 0
+    },
+    {
+      "id": "6f9f317b-17d8-4690-b22e-48916a164e41",
+      "name": "The Wharf",
+      "score": 135,
+      "reviews": 9973
+    },
+    {
+      "id": "6a3dd458-65f6-4508-8bff-969e7d3e9bd7",
+      "name": "Pontoon Boat Rental in Orange Beach",
+      "score": 90,
+      "reviews": 49
+    },
+    {
+      "id": "e2178cd4-3fba-4a4b-b3fc-332ebb988b39",
+      "name": "Rotolo's Pizzeria",
+      "score": 130,
+      "reviews": 1980
+    },
+    {
+      "id": "704d38fd-2da1-4416-9963-38cf5a62e2e1",
+      "name": "Gulf Shores: Extreme Jet Ski Rental",
+      "score": 90,
+      "reviews": 9
+    },
+    {
+      "id": "16dc6e84-eedc-48b2-8b48-f72d0037726d",
+      "name": "Orange Beach: Dolphin Eco Cruise on The Explorer",
+      "score": 90,
+      "reviews": 26
+    },
+    {
+      "id": "f4f60668-4224-47e0-a560-1ad4c11a2359",
+      "name": "Orange Beach Tritoon Boat Rental",
+      "score": 85,
+      "reviews": 70
+    },
+    {
+      "id": "3730deb2-3264-4f02-9cf5-ab24fe763fbd",
+      "name": "Portside on Main",
+      "score": 65,
+      "reviews": 1
+    },
+    {
+      "id": "ec22e5de-5c9e-43c4-87bf-e670c9a38830",
+      "name": "Orange Beach: Gulf Coast Sweet Jeep Rental",
+      "score": 70,
+      "reviews": 0
+    },
+    {
+      "id": "8a02b83b-9c05-4a55-aafa-f6a7955d9d51",
+      "name": "Orange Beach: 24ft Bentley Sport Pontoon with 140 HP",
+      "score": 70,
+      "reviews": 0
+    },
+    {
+      "id": "b5458f86-aa8b-4a94-9dad-07e47d2a5592",
+      "name": "Yumm Twister & Ice Cream",
+      "score": 110,
+      "reviews": 403
+    },
+    {
+      "id": "8db7ec31-84ee-41bf-8f4a-551e8603f015",
+      "name": "Island Ice Cream & Treats",
+      "score": 110,
+      "reviews": 280
+    },
+    {
+      "id": "0ffbe77c-d855-4637-9c73-73905267c9aa",
+      "name": "Crico's Pizza & Subs",
+      "score": 130,
+      "reviews": 2160
+    },
+    {
+      "id": "650aee8b-70ab-4de5-8ff7-366b1b33d5fe",
+      "name": "BOLO Steak & Seafood",
+      "score": 115,
+      "reviews": 168
+    },
+    {
+      "id": "ff4322cd-335f-4172-bbb2-b6734c74d3db",
+      "name": "Orange Beach: Dockside Parasail",
+      "score": 85,
+      "reviews": 0
+    },
+    {
+      "id": "3e689df6-6b8d-4b6d-b945-5ca86336306f",
+      "name": "Waffle House",
+      "score": 135,
+      "reviews": 1400
+    },
+    {
+      "id": "7b6dc0ce-9f94-43b1-885c-cf20561b4358",
+      "name": "The Undertow",
+      "score": 130,
+      "reviews": 804
+    },
+    {
+      "id": "a45627bc-d023-485c-9ca6-812063e5efda",
+      "name": "Wacked Out Weiner Gulf Shores",
+      "score": 110,
+      "reviews": 402
+    },
+    {
+      "id": "d9e44283-fc3d-4c68-9ea9-e7db3b50cd21",
+      "name": "Fort Morgan Parasailing & Banana Boat Experience",
+      "score": 110,
+      "reviews": 134
+    },
+    {
+      "id": "1d2754ee-fe70-42ed-85cd-22af48894186",
+      "name": "Tiki & Raw Bar",
+      "score": 130,
+      "reviews": 1219
+    },
+    {
+      "id": "dbb04c7b-7d35-43c7-a923-08cd0c3d6a25",
+      "name": "A SHOP FOR WOMEN.COM",
+      "score": 85,
+      "reviews": 0
+    },
+    {
+      "id": "597570f0-3727-4ee5-9834-39cd296136fc",
+      "name": "Orange Beach: Dolphin Sailing Tour Aboard a 52-Foot Catamaran",
+      "score": 90,
+      "reviews": 68
+    },
+    {
+      "id": "04c52c88-99bb-46dd-98cf-f7d37fcc6afc",
+      "name": "Gulf Shores Kayak Rental",
+      "score": 70,
+      "reviews": 0
+    },
+    {
+      "id": "da7a0cf6-a44e-4fa9-98d8-21dee1007b7f",
+      "name": "Tee Off at The Wharf Powered by TOPGOLF Swing Suites",
+      "score": 105,
+      "reviews": 100
+    },
+    {
+      "id": "5b551840-19a3-4e59-afc6-96471a8240e4",
+      "name": "Paradise Boutiques",
+      "score": 70,
+      "reviews": 1
+    },
+    {
+      "id": "09b1668d-7256-4858-b144-61bc513b3d53",
+      "name": "Beachside Circle Boat Rentals and Sales",
+      "score": 90,
+      "reviews": 16
+    },
+    {
+      "id": "a324fff6-dbf1-4727-b320-18327de44c3b",
+      "name": "Adventure Island",
+      "score": 130,
+      "reviews": 2196
+    },
+    {
+      "id": "c6c9c065-caf9-43dd-84d7-b43baed0b974",
+      "name": "Barefoot Tours & Charters",
+      "score": 110,
+      "reviews": 127
+    },
+    {
+      "id": "edef837a-2b87-4e7c-9ff7-66a563f3e84e",
+      "name": "Bear Point Plaza",
+      "score": 65,
+      "reviews": 0
+    },
+    {
+      "id": "2f359dce-21d3-4e96-916e-4df52cfa452a",
+      "name": "Gulf Shores Beach Trading Company",
+      "score": 65,
+      "reviews": 7
+    },
+    {
+      "id": "dafaacab-0910-4455-b9a2-37c9debe83bd",
+      "name": "Books-A-Million",
+      "score": 135,
+      "reviews": 915
+    },
+    {
+      "id": "61cdf6c0-05f3-4a42-ae68-ea9b70de86c2",
+      "name": "Charm Boutique",
+      "score": 90,
+      "reviews": 21
+    },
+    {
+      "id": "e1194abc-da17-43d6-9a70-cf37137c28cc",
+      "name": "Beach House Boutique",
+      "score": 115,
+      "reviews": 82
+    },
+    {
+      "id": "85cef2df-0f9c-4523-8049-8dd6fac89058",
+      "name": "Infinity Bicycles",
+      "score": 110,
+      "reviews": 765
+    },
+    {
+      "id": "52729109-6d7a-40cf-b73f-93ba339ae116",
+      "name": "Pelican Place at Craft Farms",
+      "score": 80,
+      "reviews": 40
+    },
+    {
+      "id": "f465d6cf-bd28-4bdf-af68-4650314b952c",
+      "name": "Shop LuLu Buffett",
+      "score": 90,
+      "reviews": 23
+    },
+    {
+      "id": "ff26cbbb-db91-4057-88d8-7e187db24581",
+      "name": "Ron Jon Surf Shop - Orange Beach",
+      "score": 135,
+      "reviews": 1009
+    },
+    {
+      "id": "d68da984-6a9d-4199-9023-834cdd53d16a",
+      "name": "The Square Shopping Center",
+      "score": 80,
+      "reviews": 6
+    },
+    {
+      "id": "ab3bd1f5-d449-48fc-9ccc-e0af2057d77a",
+      "name": "Orange Beach: Dolphin Cruises aboard Cruise Orange Beach",
+      "score": 110,
+      "reviews": 340
+    },
+    {
+      "id": "82635929-419c-4ab1-8bff-bb86614d9b77",
+      "name": "The Office Lounge",
+      "score": 85,
+      "reviews": 0
+    },
+    {
+      "id": "de235b42-9855-40f4-a9f9-aed71d43de40",
+      "name": "Orange Beach: Private Sightseeing & Eco Boat Tour",
+      "score": 90,
+      "reviews": 1
+    },
+    {
+      "id": "ea435145-c913-40a6-a030-f5e22f13ef3d",
+      "name": "GTs On The Bay",
+      "score": 130,
+      "reviews": 4118
+    },
+    {
+      "id": "c5589793-3458-4e88-a50d-8e84566fe6fa",
+      "name": "Orange Beach: 24ft Double Deck Pontoon with Slide and 115 HP",
+      "score": 65,
+      "reviews": 0
+    },
+    {
+      "id": "7ba85160-f943-4e33-9d06-88d51f189949",
+      "name": "Orange Beach: Family-Friendly Dolphin Cruise",
+      "score": 90,
+      "reviews": 24
+    },
+    {
+      "id": "534e63fa-8bef-45a7-b597-49e56b146db5",
+      "name": "Vinny's Pizzeria",
+      "score": 110,
+      "reviews": 326
+    },
+    {
+      "id": "8371b617-3f84-4721-8f19-5206f5c16ef5",
+      "name": "Abide Boutique",
+      "score": 90,
+      "reviews": 30
+    },
+    {
+      "id": "399f4e21-3e9c-4035-911f-48b3a0eca7c1",
+      "name": "Bungalows",
+      "score": 105,
+      "reviews": 40
+    },
+    {
+      "id": "93db2e37-e95f-4989-bfe2-12db0bc71c2a",
+      "name": "Gifted. Orange Beach",
+      "score": 80,
+      "reviews": 1
+    },
+    {
+      "id": "38d7d196-ace9-4a8e-bda1-353725571a9d",
+      "name": "Gulf Shores City Store",
+      "score": 90,
+      "reviews": 22
+    },
+    {
+      "id": "b24a0f1d-4430-4eb5-9ecf-da840f841b75",
+      "name": "Blue Lagoon LLC",
+      "score": 90,
+      "reviews": 18
+    },
+    {
+      "id": "9fc20360-9659-4fed-b916-d171a577814c",
+      "name": "Emporium@C - Coastal Gifts & More - Orange Beach",
+      "score": 90,
+      "reviews": 22
+    },
+    {
+      "id": "fbc261ad-da49-415b-9bee-739e68340fe4",
+      "name": "Gulf Shores Souvenirs & Gifts",
+      "score": 80,
+      "reviews": 40
+    },
+    {
+      "id": "4ca5a8af-404b-457b-a7b5-d50d577bf65e",
+      "name": "Hertha's Seconds Boutique",
+      "score": 90,
+      "reviews": 56
+    },
+    {
+      "id": "0b236e1c-f1c3-4253-8a31-460fd4542e58",
+      "name": "Beach Planet - Nothing Over $14.99",
+      "score": 65,
+      "reviews": 34
+    },
+    {
+      "id": "1856b420-7d5d-4963-8a03-e2c729c1ff48",
+      "name": "Coastal Store",
+      "score": 90,
+      "reviews": 5
+    },
+    {
+      "id": "6116fead-d902-4aea-9bf7-65e6861cae2c",
+      "name": "Fish On A Dish",
+      "score": 80,
+      "reviews": 14
+    },
+    {
+      "id": "7873c35c-6231-43d8-b792-678563083a50",
+      "name": "Frank & Co @ The Wharf",
+      "score": 90,
+      "reviews": 5
+    },
+    {
+      "id": "684288f3-9f19-4a3a-ad3d-1f668aacfe93",
+      "name": "Island Market",
+      "score": 110,
+      "reviews": 129
+    },
+    {
+      "id": "26305471-451a-43ac-ac0d-8e31e497d6d9",
+      "name": "Love, JUDE Clothing Boutique",
+      "score": 90,
+      "reviews": 5
+    },
+    {
+      "id": "176c2baa-4abb-44fd-8ba0-c6f4c4737089",
+      "name": "Lucca",
+      "score": 90,
+      "reviews": 32
+    },
+    {
+      "id": "fc0d6d06-704e-437a-af08-00e304d0fdc9",
+      "name": "Purple Octopus",
+      "score": 100,
+      "reviews": 220
+    },
+    {
+      "id": "6de08a9c-a1dc-4985-a714-097ba807aedf",
+      "name": "Maggie's Gift Shop",
+      "score": 90,
+      "reviews": 37
+    },
+    {
+      "id": "2103f420-5011-4b4b-a294-35f3281ed738",
+      "name": "Palm Point Shopping Plaza",
+      "score": 85,
+      "reviews": 910
+    },
+    {
+      "id": "a8e43ea9-6329-415e-b6c1-e2d75dc35c06",
+      "name": "Sago Art Gallery at Beach Girl At Home",
+      "score": 90,
+      "reviews": 12
+    },
+    {
+      "id": "c36e2998-2fa8-4b85-82a2-fe7d5f5582fb",
+      "name": "Uptown Plaza",
+      "score": 80,
+      "reviews": 41
+    },
+    {
+      "id": "27c041ca-7a8b-45b7-b2e9-34634965de45",
+      "name": "Utopia",
+      "score": 80,
+      "reviews": 21
+    },
+    {
+      "id": "c7279640-4774-41aa-a8dc-0e89d0f418f1",
+      "name": "Salt Mercantile",
+      "score": 90,
+      "reviews": 69
+    },
+    {
+      "id": "95648e0a-b2cd-4e2e-b9b6-2c7dcff9b1c3",
+      "name": "Rouses Market",
+      "score": 135,
+      "reviews": 3255
+    },
+    {
+      "id": "e0d520a0-0d87-4dae-9343-c255b6a3ea4f",
+      "name": "The Royal Standard",
+      "score": 95,
+      "reviews": 84
+    },
+    {
+      "id": "88f6eb7a-43fc-4d04-bb9f-e10b5138deec",
+      "name": "Seaside Shoes & SWIM",
+      "score": 90,
+      "reviews": 24
+    },
+    {
+      "id": "6b22c69c-e21a-426b-ae8e-e03df8934c73",
+      "name": "Souvenir City",
+      "score": 110,
+      "reviews": 3821
+    },
+    {
+      "id": "4e0ff5ae-05e8-420e-9f73-584f6dd23d3d",
+      "name": "The Commons",
+      "score": 85,
+      "reviews": 208
+    },
+    {
+      "id": "3bed892f-f6bf-45e6-b1a3-f751e7c95898",
+      "name": "The Mercantile",
+      "score": 90,
+      "reviews": 8
+    },
+    {
+      "id": "a3f0b526-8b49-4aff-b06e-0e571b590891",
+      "name": "The Oasis at The Wharf",
+      "score": 65,
+      "reviews": 35
+    },
+    {
+      "id": "5ead1b5f-4524-4edd-a54d-da0fc09da675",
+      "name": "The Orange Beach Store",
+      "score": 110,
+      "reviews": 114
+    },
+    {
+      "id": "046a4f18-bb9d-4fe9-ba8d-965c4bf2e0bc",
+      "name": "The Wharf Store",
+      "score": 90,
+      "reviews": 18
+    },
+    {
+      "id": "5d3c6a68-526c-4ddd-b8dd-6db1e6ffda81",
+      "name": "Treasure Chest",
+      "score": 80,
+      "reviews": 16
+    },
+    {
+      "id": "123da394-1133-44da-bce9-e2bed6ee075f",
+      "name": "Wildflowers Boutique",
+      "score": 90,
+      "reviews": 26
+    },
+    {
+      "id": "58e177e5-3e11-4507-9707-e6fe8001b5dc",
+      "name": "Too Hot Mamas Boutique",
+      "score": 90,
+      "reviews": 78
+    },
+    {
+      "id": "88cc7acc-ebb1-4a19-95f1-919d6615f58f",
+      "name": "Gulf Island Grill",
+      "score": 130,
+      "reviews": 3664
+    },
+    {
+      "id": "de90cc04-67d2-483e-8cf1-102b57003ef6",
+      "name": "Orange Beach: Private ONO Island Sightseeing Cruise",
+      "score": 90,
+      "reviews": 5
+    },
+    {
+      "id": "f8033bd0-9650-45e2-82ec-47ba297e9238",
+      "name": "Orange Beach: Waverunner Dolphin Tour with Free Photos",
+      "score": 85,
+      "reviews": 27
+    },
+    {
+      "id": "2db3ddbb-86b7-4233-b2d6-1a4362adb6b6",
+      "name": "Bar 45",
+      "score": 110,
+      "reviews": 127
+    },
+    {
+      "id": "f16a4eff-33e1-4332-a29b-ed543f725047",
+      "name": "Doc's Seafood Shack & Oyster Bar",
+      "score": 130,
+      "reviews": 5479
+    },
+    {
+      "id": "aa682773-87e0-47a7-9929-8cf14f2c9b5b",
+      "name": "Orange Beach History Museum",
+      "score": 130,
+      "reviews": 191
+    },
+    {
+      "id": "d59e58b8-9479-4ffc-bfeb-1e41d3e9de7f",
+      "name": "Orange Beach: Private Island Grillin & Chillin Boat Cruise",
+      "score": 90,
+      "reviews": 3
+    },
+    {
+      "id": "5d6d550b-3ed3-4c9d-86c2-607dbf13fb12",
+      "name": "Domino's Pizza",
+      "score": 130,
+      "reviews": 250
+    },
+    {
+      "id": "2e6ba07f-bfde-48ae-a9c8-14ff454615a8",
+      "name": "Orange Beach: Gulf Coast 4-Seater Golf Cart Rental",
+      "score": 70,
+      "reviews": 0
+    },
+    {
+      "id": "56aa4d6c-fc3c-4a93-8e6e-9749f39764cb",
+      "name": "Orange Beach: Private Dolphin Sightseeing Tour",
+      "score": 110,
+      "reviews": 182
+    },
+    {
+      "id": "7a3c66e8-eb3a-4597-89f8-5cb600808917",
+      "name": "Orange Beach: Private Bushwacker & Restaurant Boat Tour",
+      "score": 90,
+      "reviews": 1
+    },
+    {
+      "id": "886e43f0-b31b-45ff-9760-716aa4c90745",
+      "name": "Orange Beach: Private Bachelor(ette) Boat Tour",
+      "score": 70,
+      "reviews": 0
+    },
+    {
+      "id": "ccd713e9-b917-4106-b083-8e02aca9b936",
+      "name": "Orange Beach: Private Islands Booze Cruise",
+      "score": 70,
+      "reviews": 0
+    },
+    {
+      "id": "7a351eb2-8600-44a3-af61-f04ae010d8ff",
+      "name": "Happy Pappys Coffeehouse",
+      "score": 110,
+      "reviews": 691
+    },
+    {
+      "id": "059db14e-2a08-4b30-adc7-987ae14faeae",
+      "name": "ZENSHI Handcrafted Sushi",
+      "score": 95,
+      "reviews": 1
+    },
+    {
+      "id": "085115fc-c367-4728-8d9b-d74ee73b524a",
+      "name": "The Southern Grind Coffee House at the WHARF",
+      "score": 130,
+      "reviews": 825
+    },
+    {
+      "id": "6cc9d574-c97c-448f-a345-60fe9ac7038a",
+      "name": "Del's Ice Cream",
+      "score": 115,
+      "reviews": 941
+    },
+    {
+      "id": "71d2f316-0973-4980-8d69-062b85cd34d6",
+      "name": "Beautiful Gulf Shores AL Beachfront Condo for Rent! Sleeps 4",
+      "score": 40,
+      "reviews": 0
+    },
+    {
+      "id": "1b9aaada-0201-4512-9ca6-6d5a1e9a3e98",
+      "name": "Dippin' Dots",
+      "score": 135,
+      "reviews": 162
+    },
+    {
+      "id": "35d6988c-e0a2-4553-9b06-bc3e7250e71f",
+      "name": "Best Western on the Beach",
+      "score": 130,
+      "reviews": 2115
+    },
+    {
+      "id": "b02d3237-a61d-49b1-88a6-13f9af8e7c84",
+      "name": "Orange Beach: Polaris Slingshot Rental",
+      "score": 90,
+      "reviews": 16
+    },
+    {
+      "id": "fa7681b8-9e04-4343-9338-8f727f381c58",
+      "name": "Orange Beach Sea Fox Center Console Boat Rental",
+      "score": 70,
+      "reviews": 0
+    },
+    {
+      "id": "6c071e90-de49-4670-866e-6b5314b88e27",
+      "name": "Vacasa",
+      "score": 95,
+      "reviews": 0
+    },
+    {
+      "id": "995b8a4c-3b6b-4bd4-b6c4-37a0980aaccd",
+      "name": "Alabama Point East",
+      "score": 115,
+      "reviews": 327
+    },
+    {
+      "id": "2f84f6a8-5180-41c3-a1cd-f459ea7c8cb3",
+      "name": "SWEET CONE ALABAMA ICE CREAM",
+      "score": 105,
+      "reviews": 907
+    },
+    {
+      "id": "58e9485b-da7f-4da6-8b74-035f17f60c18",
+      "name": "Bay Breeze RV on the Bay",
+      "score": 130,
+      "reviews": 182
+    },
+    {
+      "id": "65418dfb-1296-4cae-858a-f2a3b2ac5d1c",
+      "name": "Gulf State Park Campground",
+      "score": 115,
+      "reviews": 497
+    },
+    {
+      "id": "87fa034d-9979-4696-8c5b-00e1f42135ff",
+      "name": "Orange Beach: Guided Jet Ski Dolphin Tour",
+      "score": 105,
+      "reviews": 215
+    },
+    {
+      "id": "a16d118d-10fb-4e24-b7d5-a0842f892f1c",
+      "name": "El Toro Mexican Restaurant",
+      "score": 130,
+      "reviews": 1083
+    },
+    {
+      "id": "4c750af1-a91e-4db1-8150-30c7bcef4a09",
+      "name": "Gulf Coast Rental Co",
+      "score": 110,
+      "reviews": 1516
+    },
+    {
+      "id": "767cd5f8-5f35-420f-b6f3-78302fcebd88",
+      "name": "David's Gallery",
+      "score": 100,
+      "reviews": 590
+    },
+    {
+      "id": "71e77d0a-46e1-4b57-9a9b-28637c4f66cb",
+      "name": "Gulf Shores: Parasailing & Banana Boat Adventure",
+      "score": 110,
+      "reviews": 297
+    },
+    {
+      "id": "78769495-5b31-4401-8b9c-48aff42dd85e",
+      "name": "A Specialty Bakery and Party Shoppe",
+      "score": 85,
+      "reviews": 0
+    },
+    {
+      "id": "e43235ad-e612-446d-8173-a95a74c3ce1b",
+      "name": "Surfside Pizza",
+      "score": 85,
+      "reviews": 0
+    },
+    {
+      "id": "3f4b1e05-4ea2-4c5b-8c76-994461a72bc6",
+      "name": "Gulf Shores Museum",
+      "score": 130,
+      "reviews": 149
+    },
+    {
+      "id": "4b66cc52-e631-42ae-b81f-63be4f1540c8",
+      "name": "Souvenir City of Orange Beach",
+      "score": 115,
+      "reviews": 1940
+    },
+    {
+      "id": "cdf1fed6-35bc-4a27-a814-d647c2c59bc7",
+      "name": "Orange Beach 20-Foot Pontoon Rental",
+      "score": 90,
+      "reviews": 4
+    },
+    {
+      "id": "70e085e6-6110-451f-96d4-3f3fae9f1c0c",
+      "name": "Orange Beach: Half-Day Jet Ski Rentals departing from Happy Harbor Marina",
+      "score": 85,
+      "reviews": 1
+    },
+    {
+      "id": "233a0358-06dd-4143-b1f0-327397dda06c",
+      "name": "Gelato Joe's Italian Restaurant & Bar",
+      "score": 135,
+      "reviews": 1820
+    },
+    {
+      "id": "440b66fa-f8cc-4bd8-9a86-2f6363cb9b73",
+      "name": "Mikee's Seafood Restaurant",
+      "score": 75,
+      "reviews": 0
+    },
+    {
+      "id": "b12ab358-31ee-45d6-a02f-837858d1042a",
+      "name": "Orange Beach: Sunset Sailing Tour Aboard a 52-Foot Catamaran",
+      "score": 110,
+      "reviews": 368
+    },
+    {
+      "id": "37a66e10-ceb1-4cc0-8f28-c199b74e4ada",
+      "name": "Gulf Shores: Family Fun Banana Boat Rides",
+      "score": 110,
+      "reviews": 105
+    },
+    {
+      "id": "9098b5dd-1ce5-4e68-a35b-2009b48853a6",
+      "name": "Dolphins Down Under",
+      "score": 110,
+      "reviews": 2458
+    },
+    {
+      "id": "688ad997-6539-48e7-9fb7-885a0b6a1f8e",
+      "name": "Beachside Resort Hotel",
+      "score": 130,
+      "reviews": 1846
+    },
+    {
+      "id": "55693952-f812-4120-a293-c2c9c6e3bda1",
+      "name": "Alabama Gulf Coast Zoo",
+      "score": 130,
+      "reviews": 4653
+    },
+    {
+      "id": "e2811612-b9b3-4bc7-b1fc-afbb5451a63a",
+      "name": "Hope's Cheesecake",
+      "score": 130,
+      "reviews": 868
+    },
+    {
+      "id": "5e233301-f216-4126-a2b0-ebd8b5ecd19e",
+      "name": "Orange Beach 24-Foot Pontoon Rental",
+      "score": 85,
+      "reviews": 1
+    }
+  ],
+  "to_delete": [
+    {
+      "id": "16144f7f-8018-4da0-aa13-935e7f7d5c5c",
+      "name": "Cobalt The Restaurant",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "1efcfaae-6327-416c-8b8f-48871fa76b9c",
+      "reason": "Duplicate of: Cobalt the Restaurant (score: 130 vs 85)"
+    },
+    {
+      "id": "fdd230f3-e044-4ee8-9575-872007810f33",
+      "name": "Orange Beach",
+      "score": 75,
+      "reviews": 21,
+      "keepId": "6dae3f3a-e93a-4885-955b-71b81069caa0",
+      "reason": "Duplicate of: Orange Beach (score: 95 vs 75)"
+    },
+    {
+      "id": "42d02347-e192-4d17-a15f-fb1218574ead",
+      "name": "Orange Beach",
+      "score": 65,
+      "reviews": 16,
+      "keepId": "6dae3f3a-e93a-4885-955b-71b81069caa0",
+      "reason": "Duplicate of: Orange Beach (score: 95 vs 65)"
+    },
+    {
+      "id": "081a4457-9127-49cb-8583-96e9a093858e",
+      "name": "Orange Beach",
+      "score": 65,
+      "reviews": 17,
+      "keepId": "6dae3f3a-e93a-4885-955b-71b81069caa0",
+      "reason": "Duplicate of: Orange Beach (score: 95 vs 65)"
+    },
+    {
+      "id": "223b8a1a-790f-4da3-be2c-b2a15fff0b4f",
+      "name": "Orange Beach",
+      "score": 65,
+      "reviews": 14,
+      "keepId": "6dae3f3a-e93a-4885-955b-71b81069caa0",
+      "reason": "Duplicate of: Orange Beach (score: 95 vs 65)"
+    },
+    {
+      "id": "28ddaca6-c01f-479d-8310-9ec48e78a0f3",
+      "name": "Agave Bar & Grill",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "0b28a9ff-1fe7-4de4-9dc8-498a44822fdc",
+      "reason": "Duplicate of: Agave Bar & Grill (score: 110 vs 85)"
+    },
+    {
+      "id": "ab19a396-ac17-44f8-b957-141d6645e903",
+      "name": "Agave Bar & Grill",
+      "score": 50,
+      "reviews": 0,
+      "keepId": "0b28a9ff-1fe7-4de4-9dc8-498a44822fdc",
+      "reason": "Duplicate of: Agave Bar & Grill (score: 110 vs 50)"
+    },
+    {
+      "id": "5e3a3216-df5e-409a-a00c-d16aa53196b5",
+      "name": "Crawford McWilliams Art",
+      "score": 55,
+      "reviews": 0,
+      "keepId": "3122eeb3-4922-4731-9721-f4d86a17880c",
+      "reason": "Duplicate of: Crawford McWilliams Art (score: 90 vs 55)"
+    },
+    {
+      "id": "386ae926-2494-47b6-a8b3-22a8e1f305dc",
+      "name": "Orange Beach Tritoon Rental",
+      "score": 70,
+      "reviews": 1,
+      "keepId": "25cbe572-e630-4b23-9a42-a346e1902256",
+      "reason": "Duplicate of: Orange Beach Tritoon Rental (score: 85 vs 70)"
+    },
+    {
+      "id": "64998c84-7b52-4815-8fd8-f9195c3ce255",
+      "name": "Orange Beach: Daytime Dolphin Sightseeing Cruise",
+      "score": 65,
+      "reviews": 17,
+      "keepId": "67916e95-b481-4c00-b49e-17ebdbfc0fd6",
+      "reason": "Duplicate of: Orange Beach: Daytime Dolphin Sightseeing Cruise (score: 90 vs 65)"
+    },
+    {
+      "id": "b9a4229a-69e0-4470-9908-fa4c495ddfbf",
+      "name": "Orange Beach: 30ft Double Deck Pontoon with 2 Slides and 115HP",
+      "score": 65,
+      "reviews": 29,
+      "keepId": "705578b7-b633-43cb-9315-f55778fd1ab1",
+      "reason": "Duplicate of: Orange Beach: 30ft Double Deck Pontoon with 2 Slides and 115HP (score: 90 vs 65)"
+    },
+    {
+      "id": "7fa37c8b-9ee7-42c5-8582-f13c765137cf",
+      "name": "Woodside Restaurant",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "144824a1-1065-4023-bbd9-c976ce3bbcd0",
+      "reason": "Duplicate of: Woodside Restaurant (score: 130 vs 75)"
+    },
+    {
+      "id": "88c53945-a49d-42ec-aceb-6f069cf9e781",
+      "name": "Southern Shores Coffee",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "34285574-3f41-4854-b568-de9ad4efc168",
+      "reason": "Duplicate of: Southern Shores Coffee (score: 110 vs 75)"
+    },
+    {
+      "id": "2d8f8f0a-7006-4e1d-bafa-30a73b4ba82b",
+      "name": "Brett/Robinson Vacation Rentals",
+      "score": 95,
+      "reviews": 0,
+      "keepId": "cb845e66-932d-4518-84b7-e43b94262a52",
+      "reason": "Duplicate of: Brett/Robinson Vacation Rentals (score: 110 vs 95)"
+    },
+    {
+      "id": "cd612ea6-87a0-43af-82bb-df13521c3b4e",
+      "name": "Buena Vista Motor Coach Resort",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "f8a5a679-74c5-400a-ac55-b2da22ecdf59",
+      "reason": "Duplicate of: Buena Vista Motor Coach Resort (score: 130 vs 85)"
+    },
+    {
+      "id": "a3a16d8a-e53a-4e45-b4d4-6c13a9d5e446",
+      "name": "Efes Greek Kitchen",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "353a3e39-90e5-4c09-a29b-3a1ddea1d7e5",
+      "reason": "Duplicate of: Efes Greek Kitchen (score: 110 vs 85)"
+    },
+    {
+      "id": "43bb06d1-9f27-47a7-8b12-04c0cd6f39b4",
+      "name": "AL’s Liquor Tobacco Wine",
+      "score": 90,
+      "reviews": 6,
+      "keepId": "0a5d6e83-e0f6-4163-a8c1-eef3291d72de",
+      "reason": "Duplicate of: AL’s Liquor Tobacco Wine (score: 110 vs 90)"
+    },
+    {
+      "id": "d260046a-18bf-48d2-829b-a7cdc1a3d980",
+      "name": "AL’s Liquor Tobacco Wine",
+      "score": 65,
+      "reviews": 0,
+      "keepId": "0a5d6e83-e0f6-4163-a8c1-eef3291d72de",
+      "reason": "Duplicate of: AL’s Liquor Tobacco Wine (score: 110 vs 65)"
+    },
+    {
+      "id": "9886e02f-a96e-4724-82cb-d68adcb83029",
+      "name": "BuzzCatz Coffee & Sweets",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "342df911-c9f5-4f3e-bb66-a35f69808598",
+      "reason": "Duplicate of: BuzzCatz Coffee & Sweets (score: 130 vs 75)"
+    },
+    {
+      "id": "97a8046f-8e68-49a2-a36b-597435ab2629",
+      "name": "BuzzCatz Coffee & Sweets",
+      "score": 50,
+      "reviews": 0,
+      "keepId": "342df911-c9f5-4f3e-bb66-a35f69808598",
+      "reason": "Duplicate of: BuzzCatz Coffee & Sweets (score: 130 vs 50)"
+    },
+    {
+      "id": "00fafbc1-aab6-4a2f-b0e4-ab96bc52bfb3",
+      "name": "BuzzCatz Coffee & Sweets",
+      "score": 10,
+      "reviews": 0,
+      "keepId": "342df911-c9f5-4f3e-bb66-a35f69808598",
+      "reason": "Duplicate of: BuzzCatz Coffee & Sweets (score: 130 vs 10)"
+    },
+    {
+      "id": "7f674581-37df-45ec-ae00-00eb285464af",
+      "name": "Perdido Key: Banana Boat Ride Experience",
+      "score": 65,
+      "reviews": 45,
+      "keepId": "6e37b909-7ace-4b25-9fad-35ef1f2ce6f2",
+      "reason": "Duplicate of: Perdido Key: Banana Boat Ride Experience (score: 90 vs 65)"
+    },
+    {
+      "id": "7470c6c5-d4b0-4e4a-9331-4867776e02f4",
+      "name": "Perdido Key: Parasailing Adventure",
+      "score": 85,
+      "reviews": 141,
+      "keepId": "3e48ca02-8877-49f0-9df6-8ae5efcd1aa7",
+      "reason": "Duplicate of: Perdido Key: Parasailing Adventure (score: 110 vs 85)"
+    },
+    {
+      "id": "d1786bdb-fc6a-4fc8-8fb3-ddfec096bfbf",
+      "name": "Orange Beach: Hourly Jet Ski Rentals departing from Happy Harbor Marina",
+      "score": 65,
+      "reviews": 14,
+      "keepId": "5f78b808-cc20-439b-a359-a14975dfbbd6",
+      "reason": "Duplicate of: Orange Beach: Hourly Jet Ski Rentals departing from Happy Harbor Marina (score: 90 vs 65)"
+    },
+    {
+      "id": "f6cf768a-4716-4645-9fc3-db6128f135d1",
+      "name": "The Galway Irish Public House",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "8aeec77d-fca8-4695-a2c3-579c65d44125",
+      "reason": "Duplicate of: The Galway Irish Public House (score: 110 vs 85)"
+    },
+    {
+      "id": "17041b1d-dfb6-4abc-b525-23becae3b018",
+      "name": "Orange Beach: Private Blue Angels Airshow Boat Tour",
+      "score": 45,
+      "reviews": 0,
+      "keepId": "e7d6e698-4e82-4bee-9e61-021ffae9cf3f",
+      "reason": "Duplicate of: Orange Beach: Private Blue Angels Airshow Boat Tour (score: 110 vs 45)"
+    },
+    {
+      "id": "39060b31-5df0-4b85-815b-112635b3fc4d",
+      "name": "Chocolate Corner & Ice Cream",
+      "score": 95,
+      "reviews": 0,
+      "keepId": "eda7a6a6-994b-4f0c-aebd-bc1dec6b9f9d",
+      "reason": "Duplicate of: Chocolate Corner & Ice Cream (score: 110 vs 95)"
+    },
+    {
+      "id": "45904c00-2db7-4131-8f3a-4500674638e6",
+      "name": "Joanna A. Boutique - Orange Beach",
+      "score": 55,
+      "reviews": 0,
+      "keepId": "85a2d2d8-560f-4214-af56-4ff4eeb59314",
+      "reason": "Duplicate of: Joanna A. Boutique - Orange Beach (score: 90 vs 55)"
+    },
+    {
+      "id": "0dde8483-8e39-42bd-9d14-83bd53fb8d4b",
+      "name": "Tiki Island Boutique",
+      "score": 90,
+      "reviews": 17,
+      "keepId": "ddc739f4-6479-4b85-b43a-8e0380c41b99",
+      "reason": "Duplicate of: Tiki Island Boutique (score: 90 vs 90)"
+    },
+    {
+      "id": "02452afe-4411-49a8-953c-2d186fc7cf14",
+      "name": "Tiki Island Boutique",
+      "score": 55,
+      "reviews": 0,
+      "keepId": "ddc739f4-6479-4b85-b43a-8e0380c41b99",
+      "reason": "Duplicate of: Tiki Island Boutique (score: 90 vs 55)"
+    },
+    {
+      "id": "9fa493aa-e21f-40b5-b69b-1f8561e51757",
+      "name": "BP Gas Station",
+      "score": 60,
+      "reviews": 0,
+      "keepId": "e98e22e8-1707-440b-9d74-86cf03b42f17",
+      "reason": "Duplicate of: BP Gas Station (score: 65 vs 60)"
+    },
+    {
+      "id": "e00c105f-ad46-4916-bf13-e12f9d5081bf",
+      "name": "Orange Beach: 22-Foot Pontoon Rental",
+      "score": 45,
+      "reviews": 0,
+      "keepId": "6accf95f-56fe-4a8e-b783-8a460e676329",
+      "reason": "Duplicate of: Orange Beach: 22-Foot Pontoon Rental (score: 70 vs 45)"
+    },
+    {
+      "id": "b5aea8ab-39a7-48fa-aee0-1c5f7b079781",
+      "name": "Flora-Bama Ole River Grill",
+      "score": 60,
+      "reviews": 0,
+      "keepId": "777a71ea-167e-410b-873d-d2082b967438",
+      "reason": "Duplicate of: Flora-Bama Ole River Grill (score: 75 vs 60)"
+    },
+    {
+      "id": "2368bee8-55a2-4087-a4f6-3643b9fab8c5",
+      "name": "Flora-Bama Ole River Grill",
+      "score": 50,
+      "reviews": 0,
+      "keepId": "777a71ea-167e-410b-873d-d2082b967438",
+      "reason": "Duplicate of: Flora-Bama Ole River Grill (score: 75 vs 50)"
+    },
+    {
+      "id": "5f02b39b-0dff-43fb-a2fc-46d5adc96aa7",
+      "name": "Flora-Bama Ole River Grill",
+      "score": 10,
+      "reviews": 0,
+      "keepId": "777a71ea-167e-410b-873d-d2082b967438",
+      "reason": "Duplicate of: Flora-Bama Ole River Grill (score: 75 vs 10)"
+    },
+    {
+      "id": "c09519cd-d941-43f5-82b2-ba8d465463cd",
+      "name": "BB's Health Foods",
+      "score": 70,
+      "reviews": 0,
+      "keepId": "495a7669-6fcf-4fc5-86d5-3f68d444b8a5",
+      "reason": "Duplicate of: BB's Health Foods (score: 85 vs 70)"
+    },
+    {
+      "id": "0a696a86-c708-458e-8080-b3831d5546f9",
+      "name": "The Massage Office",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "2f9e2152-f768-4951-be66-dd318ccff088",
+      "reason": "Duplicate of: The Massage Office (score: 90 vs 75)"
+    },
+    {
+      "id": "30c1313b-aceb-4fa4-b4c2-65a9533c9c0d",
+      "name": "Gulf Shores Paddleboarding Lesson & Tour",
+      "score": 80,
+      "reviews": 2,
+      "keepId": "f77d4a7d-415c-4579-aff6-92490eac0165",
+      "reason": "Duplicate of: Gulf Shores Paddleboarding Lesson & Tour (score: 85 vs 80)"
+    },
+    {
+      "id": "3009c0bc-c79c-441b-9cf6-5435a7dccbc6",
+      "name": "Bender Vacation Rentals",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "47176824-2225-4e91-baf2-0d11a91dae0c",
+      "reason": "Duplicate of: Bender Vacation Rentals (score: 110 vs 85)"
+    },
+    {
+      "id": "71c8e25e-5eff-4f72-979a-491a9f835f25",
+      "name": "Bon Secour National Wildlife Refuge",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "fb12b923-fa4e-44c0-b84a-43c8ff351fb5",
+      "reason": "Duplicate of: Bon Secour National Wildlife Refuge (score: 130 vs 75)"
+    },
+    {
+      "id": "ca841f15-8764-42d2-9ea4-b6db50c00a74",
+      "name": "Bon Secour National Wildlife Refuge",
+      "score": 75,
+      "reviews": 79,
+      "keepId": "fb12b923-fa4e-44c0-b84a-43c8ff351fb5",
+      "reason": "Duplicate of: Bon Secour National Wildlife Refuge (score: 130 vs 75)"
+    },
+    {
+      "id": "df2a226a-3b7a-43af-8ef0-0eb9620748f6",
+      "name": "Gulf State Park",
+      "score": 110,
+      "reviews": 106,
+      "keepId": "5132f129-4b4e-4782-9a90-61f51af6a402",
+      "reason": "Duplicate of: Gulf State Park (score: 130 vs 110)"
+    },
+    {
+      "id": "a7eb1692-6f7b-496b-a5e7-57dba0e1eec0",
+      "name": "Gulf State Park",
+      "score": 95,
+      "reviews": 0,
+      "keepId": "5132f129-4b4e-4782-9a90-61f51af6a402",
+      "reason": "Duplicate of: Gulf State Park (score: 130 vs 95)"
+    },
+    {
+      "id": "695f3720-53c0-4cb7-bb16-4d5f6e9b3955",
+      "name": "Zeke's Restaurant",
+      "score": 40,
+      "reviews": 0,
+      "keepId": "6380eca9-cf2d-495d-8e20-2e73c6614dc8",
+      "reason": "Duplicate of: Zeke's Restaurant (score: 135 vs 40)"
+    },
+    {
+      "id": "b87df212-625a-44a5-8003-54cc9a12f314",
+      "name": "Zeke's Restaurant",
+      "score": 15,
+      "reviews": 0,
+      "keepId": "6380eca9-cf2d-495d-8e20-2e73c6614dc8",
+      "reason": "Duplicate of: Zeke's Restaurant (score: 135 vs 15)"
+    },
+    {
+      "id": "3b6763be-fd23-4173-b1fe-570d277ee9aa",
+      "name": "Caribe Resort",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "57e5ee44-3a27-4aa5-b2df-e6e3ea55537f",
+      "reason": "Duplicate of: Caribe Resort (score: 130 vs 75)"
+    },
+    {
+      "id": "6bbd03a1-b520-48e2-9942-3ec1dd266924",
+      "name": "Carmelo",
+      "score": 70,
+      "reviews": 0,
+      "keepId": "e627d393-0e18-4904-8838-1dab9ae68032",
+      "reason": "Duplicate of: Carmelo (score: 75 vs 70)"
+    },
+    {
+      "id": "1bb622c6-9569-4e4d-9e9b-10bf30874165",
+      "name": "China Dragon",
+      "score": 130,
+      "reviews": 434,
+      "keepId": "0c11f579-5533-4c37-a325-a7bedfe763cf",
+      "reason": "Duplicate of: China Dragon (score: 130 vs 130)"
+    },
+    {
+      "id": "66983fec-9f91-4403-92a4-07a6e8c0362d",
+      "name": "China Dragon",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "0c11f579-5533-4c37-a325-a7bedfe763cf",
+      "reason": "Duplicate of: China Dragon (score: 130 vs 85)"
+    },
+    {
+      "id": "07ad2eaa-b659-4e9f-ab27-05ae84f5fbe1",
+      "name": "COASTAL Orange Beach",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "2d009a2b-8eae-4763-b941-1a4d4ea3cf99",
+      "reason": "Duplicate of: Coastal Orange Beach (score: 110 vs 75)"
+    },
+    {
+      "id": "5458964e-0e0d-4c1e-ad16-34a46f023f40",
+      "name": "Craft Farms Golf Club",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "ef2e5f72-960d-45d0-a4b9-0d211ec960e5",
+      "reason": "Duplicate of: Craft Farms Golf Club (score: 110 vs 75)"
+    },
+    {
+      "id": "70c77e76-93a8-4883-b4d3-537fc203ea99",
+      "name": "Wolf Bay Restaurant at Orange Beach",
+      "score": 35,
+      "reviews": 0,
+      "keepId": "6c0405da-8fb7-4ea6-8cb1-3963b4caf643",
+      "reason": "Duplicate of: Wolf Bay Restaurant at Orange Beach (score: 135 vs 35)"
+    },
+    {
+      "id": "f7fff676-af1f-40b3-b9bb-2b19996c1985",
+      "name": "The Beach House Kitchen & Cocktails",
+      "score": 70,
+      "reviews": 0,
+      "keepId": "1fa14f46-14a8-47b5-90f3-112428cf51bc",
+      "reason": "Duplicate of: The Beach House Kitchen & Cocktails (score: 85 vs 70)"
+    },
+    {
+      "id": "aa11741d-f52a-4613-b4d6-3074c370b584",
+      "name": "Coastal Arts Center of Orange Beach",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "68570f6c-c4f5-4d90-a136-6497cb74d1dc",
+      "reason": "Duplicate of: Coastal Arts Center of Orange Beach (score: 130 vs 85)"
+    },
+    {
+      "id": "a523fb87-d518-4fbe-ba17-d10190a6d30c",
+      "name": "Frank & Co. Fine Jewelry",
+      "score": 55,
+      "reviews": 0,
+      "keepId": "06bc108f-eed3-4cbc-a304-000747087168",
+      "reason": "Duplicate of: Frank & Co. Fine Jewelry (score: 90 vs 55)"
+    },
+    {
+      "id": "9bde9813-03a7-4dd6-9f73-10fe1152fed3",
+      "name": "Kitty's Kafe",
+      "score": 40,
+      "reviews": 0,
+      "keepId": "bb85a412-35ed-457a-8152-a30625bc4fb8",
+      "reason": "Duplicate of: Kitty's Kafe (score: 135 vs 40)"
+    },
+    {
+      "id": "e9f3c6ff-4408-4be8-b4c7-780883834e1a",
+      "name": "The Clubhouse Bar & Grill",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "13333365-498c-4d1f-975b-4dea57bdaf09",
+      "reason": "Duplicate of: The Clubhouse Bar & Grill (score: 90 vs 75)"
+    },
+    {
+      "id": "e296ab87-a4bb-42b0-8fbe-41d22d9dd7e6",
+      "name": "DeSoto's Seafood Kitchen",
+      "score": 90,
+      "reviews": 3,
+      "keepId": "47ba5725-835d-4fdd-95c6-83c9d2613785",
+      "reason": "Duplicate of: DeSoto's Seafood Kitchen (score: 115 vs 90)"
+    },
+    {
+      "id": "d02e919f-dde8-420f-8473-4326c2fea5a1",
+      "name": "DeSoto's Seafood Kitchen",
+      "score": 70,
+      "reviews": 0,
+      "keepId": "47ba5725-835d-4fdd-95c6-83c9d2613785",
+      "reason": "Duplicate of: DeSoto's Seafood Kitchen (score: 115 vs 70)"
+    },
+    {
+      "id": "390b840a-b71d-4b42-aceb-7149b9d73be6",
+      "name": "Foam Coffee",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "8d94e732-b633-4387-aed3-0f587f5bd30e",
+      "reason": "Duplicate of: Foam Coffee (score: 110 vs 75)"
+    },
+    {
+      "id": "2c8e05a0-4e2c-4b17-aec7-5f1bd71a049b",
+      "name": "The Gulf",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "e7f3e754-2522-42cd-9fa9-f23c110aae88",
+      "reason": "Duplicate of: The Gulf (score: 130 vs 85)"
+    },
+    {
+      "id": "ca56e418-7bb3-4ca9-aecd-221b0106d387",
+      "name": "Orange Beach: 24ft Double Deck Pontoon with Slide and 70HP",
+      "score": 70,
+      "reviews": 6,
+      "keepId": "dc2036b4-3a49-48ff-9c80-1ff5f8eb175d",
+      "reason": "Duplicate of: Orange Beach: 24ft Double Deck Pontoon with Slide and 70HP (score: 85 vs 70)"
+    },
+    {
+      "id": "e578fb8d-bcc2-49ae-afe8-0709270683a8",
+      "name": "Orange Beach: Sunset & Crab Grab Clear Kayak Tour",
+      "score": 80,
+      "reviews": 16,
+      "keepId": "073d8f5a-6ede-4cb5-b0ce-c5f515202159",
+      "reason": "Duplicate of: Orange Beach: Sunset & Crab Grab Clear Kayak Tour (score: 85 vs 80)"
+    },
+    {
+      "id": "64e55c29-7869-444a-892c-e7349affa41e",
+      "name": "Nauti Fishing Charters",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "02f7e21e-3c09-46ee-b199-555599333645",
+      "reason": "Duplicate of: Nauti Fishing Charters (score: 90 vs 85)"
+    },
+    {
+      "id": "94fc61a8-766e-44a1-8fb9-3579e5374b96",
+      "name": "Anchored Coffee House",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "1532d551-5f4d-434b-adc0-eb9a05ecf364",
+      "reason": "Duplicate of: Anchored Coffee House (score: 90 vs 85)"
+    },
+    {
+      "id": "89335b51-fa3b-4a04-8d5d-bff7fdf32bc4",
+      "name": "Phoenix All Suites Hotel",
+      "score": 95,
+      "reviews": 0,
+      "keepId": "116d305e-a410-4911-8e1e-eb1ed5185dd8",
+      "reason": "Duplicate of: Phoenix All Suites Hotel (score: 130 vs 95)"
+    },
+    {
+      "id": "aa3df1e1-4100-449e-a45e-d3e505ee58ba",
+      "name": "Tuscany Pizza and Grill",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "a7a5f71c-b0c1-4f54-96ed-2dafcdcc4971",
+      "reason": "Duplicate of: Tuscany Pizza and Grill (score: 130 vs 75)"
+    },
+    {
+      "id": "6a5d48ae-eaca-49ff-a21a-1fe61b00a65c",
+      "name": "Sugar Sands RV Resort",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "d06c31d2-aefc-4ff8-8ddd-ae055da0fa21",
+      "reason": "Duplicate of: Sugar Sands RV Resort (score: 130 vs 85)"
+    },
+    {
+      "id": "56cb78c2-61d6-4361-8f58-8d8e0cabd844",
+      "name": "Orange Beach: Sunset Dolphin Cruise with Captain",
+      "score": 65,
+      "reviews": 95,
+      "keepId": "9d746dd5-a7c3-4c79-b038-a81984fcd92d",
+      "reason": "Duplicate of: Orange Beach: Sunset Dolphin Cruise with Captain (score: 90 vs 65)"
+    },
+    {
+      "id": "9616d3fc-f17a-4d2e-b113-050fd153ec37",
+      "name": "Sun Outdoors Orange Beach",
+      "score": 95,
+      "reviews": 0,
+      "keepId": "f2d2e115-eee8-4111-bd3f-0143b4ef09f2",
+      "reason": "Duplicate of: Sun Outdoors Orange Beach (score: 130 vs 95)"
+    },
+    {
+      "id": "7958d6c2-2eee-4803-8569-42715df5c031",
+      "name": "Doc's RV Park",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "c6e119e0-62f1-42bd-ac72-be14e8988127",
+      "reason": "Duplicate of: Doc's RV Park (score: 130 vs 75)"
+    },
+    {
+      "id": "3cfe562e-bb14-4a45-944f-ad9d42e2f281",
+      "name": "Bear Point Harbor",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "7075b81c-2e2c-4a73-b32c-a34621e8e370",
+      "reason": "Duplicate of: Bear Point Harbor (score: 110 vs 85)"
+    },
+    {
+      "id": "98c0c858-4383-4737-9086-fe58262f4a28",
+      "name": "Alvins Island Outfitters - #37",
+      "score": 65,
+      "reviews": 0,
+      "keepId": "67ab6554-4880-46f9-8f0f-a9e66aa8861c",
+      "reason": "Duplicate of: Alvins Island Outfitters - #37 (score: 110 vs 65)"
+    },
+    {
+      "id": "9aca48e6-018c-4ebd-aa1e-2832f347e8e1",
+      "name": "Angry Crab Shack",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "9b79d2cc-500c-4c42-893a-aa48cfd0a461",
+      "reason": "Duplicate of: Angry Crab Shack (score: 110 vs 75)"
+    },
+    {
+      "id": "9fec2a39-9171-472d-91a8-cfb9e46abdc5",
+      "name": "Pizza At The Pass",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "8d2cf780-4d06-4d4c-b967-61dfd5896c5a",
+      "reason": "Duplicate of: Pizza At The Pass (score: 110 vs 85)"
+    },
+    {
+      "id": "fb17f306-f8f9-4b9b-86eb-961296c3320e",
+      "name": "Voyagers",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "93a3f125-90d8-4357-b9bb-1865655a3694",
+      "reason": "Duplicate of: Voyagers (score: 130 vs 75)"
+    },
+    {
+      "id": "dc99ba57-5a22-4d90-ad4d-35524dc71e86",
+      "name": "Gulf Coast Arts Alliance",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "c52d1210-0a6e-41be-98c6-26536acfab27",
+      "reason": "Duplicate of: Gulf Coast Arts Alliance (score: 90 vs 85)"
+    },
+    {
+      "id": "d3cf6350-ce5a-4280-8bd7-7bd3d4b7e8cd",
+      "name": "Fish River Grill",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "39b6fa33-75e9-4f33-b699-4cad1a6fd8c0",
+      "reason": "Duplicate of: Fish River Grill (score: 110 vs 75)"
+    },
+    {
+      "id": "293bae99-ed36-4554-9260-69931881a6b7",
+      "name": "Southern Athletica",
+      "score": 40,
+      "reviews": 0,
+      "keepId": "21b96d14-52f8-409a-a1ca-331f3df71a94",
+      "reason": "Duplicate of: Southern Athletica (score: 75 vs 40)"
+    },
+    {
+      "id": "7968ba20-5d7b-47a2-829d-a8254993a5fe",
+      "name": "Gulf Shores Massage Therapy",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "943ec94c-f4d5-48e6-993f-fe0e59817fe5",
+      "reason": "Duplicate of: Gulf Shores Massage Therapy (score: 90 vs 75)"
+    },
+    {
+      "id": "a43a6e76-26ac-49fd-b2bc-5cd65e6860a6",
+      "name": "High Tide Daiquiris & Mimosas",
+      "score": 20,
+      "reviews": 0,
+      "keepId": "2058d7a2-ee32-4e75-b1bc-c12a05c8e1d1",
+      "reason": "Duplicate of: High Tide Daiquiris & Mimosas (score: 95 vs 20)"
+    },
+    {
+      "id": "95888556-15c0-409e-9fd0-1463f34339c3",
+      "name": "The Wharf Amphitheater",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "5d33c255-8f6f-4183-b661-4881964004d0",
+      "reason": "Duplicate of: The Wharf Amphitheater (score: 130 vs 85)"
+    },
+    {
+      "id": "86cae449-d7fa-4279-a46d-10e5fb4616e8",
+      "name": "bealls",
+      "score": 55,
+      "reviews": 0,
+      "keepId": "357ef143-0ad7-4fba-bb6a-e16786e3bdce",
+      "reason": "Duplicate of: bealls (score: 90 vs 55)"
+    },
+    {
+      "id": "050b630c-77ec-421a-b0d1-21d910ade681",
+      "name": "Serenity at The Beach Salon & Spa",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "6da8eddb-1c13-438d-867e-3ce3657ed75b",
+      "reason": "Duplicate of: Serenity at The Beach Salon & Spa (score: 110 vs 85)"
+    },
+    {
+      "id": "63224857-7753-45eb-ae82-783cc3bf7940",
+      "name": "Papa Rocco's",
+      "score": 70,
+      "reviews": 0,
+      "keepId": "7b622070-11e2-458f-a7a3-c206715d69a0",
+      "reason": "Duplicate of: Papa Rocco's (score: 135 vs 70)"
+    },
+    {
+      "id": "0d8872cc-d6b5-4dcb-ba40-a1a4b73349b6",
+      "name": "Papa Rocco's",
+      "score": 15,
+      "reviews": 0,
+      "keepId": "7b622070-11e2-458f-a7a3-c206715d69a0",
+      "reason": "Duplicate of: Papa Rocco's (score: 135 vs 15)"
+    },
+    {
+      "id": "bd941b31-c594-4778-a8b0-d8cf0bdc114e",
+      "name": "Gourmet World Market",
+      "score": 50,
+      "reviews": 0,
+      "keepId": "fd4aaccf-0ee5-4eeb-a5a9-e4be1ef20ccd",
+      "reason": "Duplicate of: Gourmet World Market (score: 115 vs 50)"
+    },
+    {
+      "id": "214fb387-c88f-4f2c-878f-5ac4f56f10d9",
+      "name": "Gulf Shores Steamer",
+      "score": 20,
+      "reviews": 0,
+      "keepId": "3c410f82-1912-446d-bc29-4de635f4a287",
+      "reason": "Duplicate of: Gulf Shores Steamer (score: 135 vs 20)"
+    },
+    {
+      "id": "b01f6e10-a259-430f-a471-0afed7dae1e5",
+      "name": "Tallulah's Treasures",
+      "score": 55,
+      "reviews": 0,
+      "keepId": "d30f0fc6-a5f9-486a-b7d8-cf3f003213dc",
+      "reason": "Duplicate of: Tallulah's Treasures (score: 110 vs 55)"
+    },
+    {
+      "id": "f1acba28-1707-485d-844e-3e4b2ce692e0",
+      "name": "Kiva Grill",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "d5216ed0-acc2-4709-a78c-61fd94ae0482",
+      "reason": "Duplicate of: Kiva Grill (score: 110 vs 85)"
+    },
+    {
+      "id": "b996d334-f2bc-439d-a34e-0d50fb9c5864",
+      "name": "Orange Beach: Chute Em Up Parasail Tours",
+      "score": 85,
+      "reviews": 910,
+      "keepId": "88d2f1b4-5b53-4261-b131-98fb763f71f7",
+      "reason": "Duplicate of: Orange Beach: Chute Em Up Parasail Tours (score: 110 vs 85)"
+    },
+    {
+      "id": "50d7a8bd-dad8-46a0-8f04-9f73dddcd1ba",
+      "name": "Moe's Original BBQ",
+      "score": 40,
+      "reviews": 0,
+      "keepId": "df7e4454-6c09-4b08-9571-89c1fdf54664",
+      "reason": "Duplicate of: Moe's Original BBQ (score: 135 vs 40)"
+    },
+    {
+      "id": "a0f66778-0a93-4ac0-be36-aad923f4fcb2",
+      "name": "Gulf Babe Wine Boutique",
+      "score": 65,
+      "reviews": 0,
+      "keepId": "51790a91-179f-4fc1-9338-daa853d1eaf1",
+      "reason": "Duplicate of: Gulf Babe Wine Boutique (score: 110 vs 65)"
+    },
+    {
+      "id": "7daa2283-0229-4668-9dc4-6dba670a98fa",
+      "name": "Luxury RV Resort",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "c0932d88-06fd-45e5-b5c0-2a38ee2ff0f8",
+      "reason": "Duplicate of: Luxury RV Resort (score: 130 vs 75)"
+    },
+    {
+      "id": "97ce5c56-c9f0-485a-a7e8-4ee1712ea49c",
+      "name": "CC's Boutique Gulf Shores",
+      "score": 55,
+      "reviews": 0,
+      "keepId": "79216287-df78-4057-8745-1473056f1f26",
+      "reason": "Duplicate of: CC's Boutique Gulf Shores (score: 90 vs 55)"
+    },
+    {
+      "id": "37a9f6f3-5775-4369-862c-16a191bdf4f7",
+      "name": "Geez Louise Boutique",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "bf6079bf-6c9a-418a-bd33-d944df372fb9",
+      "reason": "Duplicate of: Geez Louise Boutique (score: 110 vs 85)"
+    },
+    {
+      "id": "8f54a9e4-4bba-4ff3-bf0b-1a262e38a69e",
+      "name": "Tiki & Raw Bar Orange Beach",
+      "score": 70,
+      "reviews": 0,
+      "keepId": "42f3860a-3c3e-4ceb-8a61-114c2af803bc",
+      "reason": "Duplicate of: Tiki & Raw Bar Orange Beach (score: 75 vs 70)"
+    },
+    {
+      "id": "1e3b9106-d989-4958-a8d8-fc4572172108",
+      "name": "Island Girl Jewelry & Souvenirs",
+      "score": 45,
+      "reviews": 0,
+      "keepId": "a559301d-166a-49f0-bd10-193f29a4fc0b",
+      "reason": "Duplicate of: Island Girl Jewelry & Souvenirs (score: 100 vs 45)"
+    },
+    {
+      "id": "e0d9fe72-548e-4be7-a315-9ca45a21afbe",
+      "name": "Down Under Dive Shop",
+      "score": 60,
+      "reviews": 0,
+      "keepId": "05a3a4c1-d8ac-4211-974f-75e4afee843a",
+      "reason": "Duplicate of: Down Under Dive Shop (score: 115 vs 60)"
+    },
+    {
+      "id": "92afb790-6762-4ef7-9a07-6fc322d2f259",
+      "name": "Trading Co.Orange Beach",
+      "score": 45,
+      "reviews": 0,
+      "keepId": "3f17d25f-5cd6-4557-9969-898782eccda2",
+      "reason": "Duplicate of: Trading Co.Orange Beach (score: 80 vs 45)"
+    }
+  ],
+  "all_deletions": [
+    {
+      "id": "16144f7f-8018-4da0-aa13-935e7f7d5c5c",
+      "name": "Cobalt The Restaurant",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "1efcfaae-6327-416c-8b8f-48871fa76b9c",
+      "reason": "Duplicate of: Cobalt the Restaurant (score: 130 vs 85)"
+    },
+    {
+      "id": "fdd230f3-e044-4ee8-9575-872007810f33",
+      "name": "Orange Beach",
+      "score": 75,
+      "reviews": 21,
+      "keepId": "6dae3f3a-e93a-4885-955b-71b81069caa0",
+      "reason": "Duplicate of: Orange Beach (score: 95 vs 75)"
+    },
+    {
+      "id": "42d02347-e192-4d17-a15f-fb1218574ead",
+      "name": "Orange Beach",
+      "score": 65,
+      "reviews": 16,
+      "keepId": "6dae3f3a-e93a-4885-955b-71b81069caa0",
+      "reason": "Duplicate of: Orange Beach (score: 95 vs 65)"
+    },
+    {
+      "id": "081a4457-9127-49cb-8583-96e9a093858e",
+      "name": "Orange Beach",
+      "score": 65,
+      "reviews": 17,
+      "keepId": "6dae3f3a-e93a-4885-955b-71b81069caa0",
+      "reason": "Duplicate of: Orange Beach (score: 95 vs 65)"
+    },
+    {
+      "id": "223b8a1a-790f-4da3-be2c-b2a15fff0b4f",
+      "name": "Orange Beach",
+      "score": 65,
+      "reviews": 14,
+      "keepId": "6dae3f3a-e93a-4885-955b-71b81069caa0",
+      "reason": "Duplicate of: Orange Beach (score: 95 vs 65)"
+    },
+    {
+      "id": "28ddaca6-c01f-479d-8310-9ec48e78a0f3",
+      "name": "Agave Bar & Grill",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "0b28a9ff-1fe7-4de4-9dc8-498a44822fdc",
+      "reason": "Duplicate of: Agave Bar & Grill (score: 110 vs 85)"
+    },
+    {
+      "id": "ab19a396-ac17-44f8-b957-141d6645e903",
+      "name": "Agave Bar & Grill",
+      "score": 50,
+      "reviews": 0,
+      "keepId": "0b28a9ff-1fe7-4de4-9dc8-498a44822fdc",
+      "reason": "Duplicate of: Agave Bar & Grill (score: 110 vs 50)"
+    },
+    {
+      "id": "5e3a3216-df5e-409a-a00c-d16aa53196b5",
+      "name": "Crawford McWilliams Art",
+      "score": 55,
+      "reviews": 0,
+      "keepId": "3122eeb3-4922-4731-9721-f4d86a17880c",
+      "reason": "Duplicate of: Crawford McWilliams Art (score: 90 vs 55)"
+    },
+    {
+      "id": "386ae926-2494-47b6-a8b3-22a8e1f305dc",
+      "name": "Orange Beach Tritoon Rental",
+      "score": 70,
+      "reviews": 1,
+      "keepId": "25cbe572-e630-4b23-9a42-a346e1902256",
+      "reason": "Duplicate of: Orange Beach Tritoon Rental (score: 85 vs 70)"
+    },
+    {
+      "id": "64998c84-7b52-4815-8fd8-f9195c3ce255",
+      "name": "Orange Beach: Daytime Dolphin Sightseeing Cruise",
+      "score": 65,
+      "reviews": 17,
+      "keepId": "67916e95-b481-4c00-b49e-17ebdbfc0fd6",
+      "reason": "Duplicate of: Orange Beach: Daytime Dolphin Sightseeing Cruise (score: 90 vs 65)"
+    },
+    {
+      "id": "b9a4229a-69e0-4470-9908-fa4c495ddfbf",
+      "name": "Orange Beach: 30ft Double Deck Pontoon with 2 Slides and 115HP",
+      "score": 65,
+      "reviews": 29,
+      "keepId": "705578b7-b633-43cb-9315-f55778fd1ab1",
+      "reason": "Duplicate of: Orange Beach: 30ft Double Deck Pontoon with 2 Slides and 115HP (score: 90 vs 65)"
+    },
+    {
+      "id": "7fa37c8b-9ee7-42c5-8582-f13c765137cf",
+      "name": "Woodside Restaurant",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "144824a1-1065-4023-bbd9-c976ce3bbcd0",
+      "reason": "Duplicate of: Woodside Restaurant (score: 130 vs 75)"
+    },
+    {
+      "id": "88c53945-a49d-42ec-aceb-6f069cf9e781",
+      "name": "Southern Shores Coffee",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "34285574-3f41-4854-b568-de9ad4efc168",
+      "reason": "Duplicate of: Southern Shores Coffee (score: 110 vs 75)"
+    },
+    {
+      "id": "2d8f8f0a-7006-4e1d-bafa-30a73b4ba82b",
+      "name": "Brett/Robinson Vacation Rentals",
+      "score": 95,
+      "reviews": 0,
+      "keepId": "cb845e66-932d-4518-84b7-e43b94262a52",
+      "reason": "Duplicate of: Brett/Robinson Vacation Rentals (score: 110 vs 95)"
+    },
+    {
+      "id": "cd612ea6-87a0-43af-82bb-df13521c3b4e",
+      "name": "Buena Vista Motor Coach Resort",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "f8a5a679-74c5-400a-ac55-b2da22ecdf59",
+      "reason": "Duplicate of: Buena Vista Motor Coach Resort (score: 130 vs 85)"
+    },
+    {
+      "id": "a3a16d8a-e53a-4e45-b4d4-6c13a9d5e446",
+      "name": "Efes Greek Kitchen",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "353a3e39-90e5-4c09-a29b-3a1ddea1d7e5",
+      "reason": "Duplicate of: Efes Greek Kitchen (score: 110 vs 85)"
+    },
+    {
+      "id": "43bb06d1-9f27-47a7-8b12-04c0cd6f39b4",
+      "name": "AL’s Liquor Tobacco Wine",
+      "score": 90,
+      "reviews": 6,
+      "keepId": "0a5d6e83-e0f6-4163-a8c1-eef3291d72de",
+      "reason": "Duplicate of: AL’s Liquor Tobacco Wine (score: 110 vs 90)"
+    },
+    {
+      "id": "d260046a-18bf-48d2-829b-a7cdc1a3d980",
+      "name": "AL’s Liquor Tobacco Wine",
+      "score": 65,
+      "reviews": 0,
+      "keepId": "0a5d6e83-e0f6-4163-a8c1-eef3291d72de",
+      "reason": "Duplicate of: AL’s Liquor Tobacco Wine (score: 110 vs 65)"
+    },
+    {
+      "id": "9886e02f-a96e-4724-82cb-d68adcb83029",
+      "name": "BuzzCatz Coffee & Sweets",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "342df911-c9f5-4f3e-bb66-a35f69808598",
+      "reason": "Duplicate of: BuzzCatz Coffee & Sweets (score: 130 vs 75)"
+    },
+    {
+      "id": "97a8046f-8e68-49a2-a36b-597435ab2629",
+      "name": "BuzzCatz Coffee & Sweets",
+      "score": 50,
+      "reviews": 0,
+      "keepId": "342df911-c9f5-4f3e-bb66-a35f69808598",
+      "reason": "Duplicate of: BuzzCatz Coffee & Sweets (score: 130 vs 50)"
+    },
+    {
+      "id": "00fafbc1-aab6-4a2f-b0e4-ab96bc52bfb3",
+      "name": "BuzzCatz Coffee & Sweets",
+      "score": 10,
+      "reviews": 0,
+      "keepId": "342df911-c9f5-4f3e-bb66-a35f69808598",
+      "reason": "Duplicate of: BuzzCatz Coffee & Sweets (score: 130 vs 10)"
+    },
+    {
+      "id": "7f674581-37df-45ec-ae00-00eb285464af",
+      "name": "Perdido Key: Banana Boat Ride Experience",
+      "score": 65,
+      "reviews": 45,
+      "keepId": "6e37b909-7ace-4b25-9fad-35ef1f2ce6f2",
+      "reason": "Duplicate of: Perdido Key: Banana Boat Ride Experience (score: 90 vs 65)"
+    },
+    {
+      "id": "7470c6c5-d4b0-4e4a-9331-4867776e02f4",
+      "name": "Perdido Key: Parasailing Adventure",
+      "score": 85,
+      "reviews": 141,
+      "keepId": "3e48ca02-8877-49f0-9df6-8ae5efcd1aa7",
+      "reason": "Duplicate of: Perdido Key: Parasailing Adventure (score: 110 vs 85)"
+    },
+    {
+      "id": "d1786bdb-fc6a-4fc8-8fb3-ddfec096bfbf",
+      "name": "Orange Beach: Hourly Jet Ski Rentals departing from Happy Harbor Marina",
+      "score": 65,
+      "reviews": 14,
+      "keepId": "5f78b808-cc20-439b-a359-a14975dfbbd6",
+      "reason": "Duplicate of: Orange Beach: Hourly Jet Ski Rentals departing from Happy Harbor Marina (score: 90 vs 65)"
+    },
+    {
+      "id": "f6cf768a-4716-4645-9fc3-db6128f135d1",
+      "name": "The Galway Irish Public House",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "8aeec77d-fca8-4695-a2c3-579c65d44125",
+      "reason": "Duplicate of: The Galway Irish Public House (score: 110 vs 85)"
+    },
+    {
+      "id": "17041b1d-dfb6-4abc-b525-23becae3b018",
+      "name": "Orange Beach: Private Blue Angels Airshow Boat Tour",
+      "score": 45,
+      "reviews": 0,
+      "keepId": "e7d6e698-4e82-4bee-9e61-021ffae9cf3f",
+      "reason": "Duplicate of: Orange Beach: Private Blue Angels Airshow Boat Tour (score: 110 vs 45)"
+    },
+    {
+      "id": "39060b31-5df0-4b85-815b-112635b3fc4d",
+      "name": "Chocolate Corner & Ice Cream",
+      "score": 95,
+      "reviews": 0,
+      "keepId": "eda7a6a6-994b-4f0c-aebd-bc1dec6b9f9d",
+      "reason": "Duplicate of: Chocolate Corner & Ice Cream (score: 110 vs 95)"
+    },
+    {
+      "id": "45904c00-2db7-4131-8f3a-4500674638e6",
+      "name": "Joanna A. Boutique - Orange Beach",
+      "score": 55,
+      "reviews": 0,
+      "keepId": "85a2d2d8-560f-4214-af56-4ff4eeb59314",
+      "reason": "Duplicate of: Joanna A. Boutique - Orange Beach (score: 90 vs 55)"
+    },
+    {
+      "id": "0dde8483-8e39-42bd-9d14-83bd53fb8d4b",
+      "name": "Tiki Island Boutique",
+      "score": 90,
+      "reviews": 17,
+      "keepId": "ddc739f4-6479-4b85-b43a-8e0380c41b99",
+      "reason": "Duplicate of: Tiki Island Boutique (score: 90 vs 90)"
+    },
+    {
+      "id": "02452afe-4411-49a8-953c-2d186fc7cf14",
+      "name": "Tiki Island Boutique",
+      "score": 55,
+      "reviews": 0,
+      "keepId": "ddc739f4-6479-4b85-b43a-8e0380c41b99",
+      "reason": "Duplicate of: Tiki Island Boutique (score: 90 vs 55)"
+    },
+    {
+      "id": "9fa493aa-e21f-40b5-b69b-1f8561e51757",
+      "name": "BP Gas Station",
+      "score": 60,
+      "reviews": 0,
+      "keepId": "e98e22e8-1707-440b-9d74-86cf03b42f17",
+      "reason": "Duplicate of: BP Gas Station (score: 65 vs 60)"
+    },
+    {
+      "id": "e00c105f-ad46-4916-bf13-e12f9d5081bf",
+      "name": "Orange Beach: 22-Foot Pontoon Rental",
+      "score": 45,
+      "reviews": 0,
+      "keepId": "6accf95f-56fe-4a8e-b783-8a460e676329",
+      "reason": "Duplicate of: Orange Beach: 22-Foot Pontoon Rental (score: 70 vs 45)"
+    },
+    {
+      "id": "b5aea8ab-39a7-48fa-aee0-1c5f7b079781",
+      "name": "Flora-Bama Ole River Grill",
+      "score": 60,
+      "reviews": 0,
+      "keepId": "777a71ea-167e-410b-873d-d2082b967438",
+      "reason": "Duplicate of: Flora-Bama Ole River Grill (score: 75 vs 60)"
+    },
+    {
+      "id": "2368bee8-55a2-4087-a4f6-3643b9fab8c5",
+      "name": "Flora-Bama Ole River Grill",
+      "score": 50,
+      "reviews": 0,
+      "keepId": "777a71ea-167e-410b-873d-d2082b967438",
+      "reason": "Duplicate of: Flora-Bama Ole River Grill (score: 75 vs 50)"
+    },
+    {
+      "id": "5f02b39b-0dff-43fb-a2fc-46d5adc96aa7",
+      "name": "Flora-Bama Ole River Grill",
+      "score": 10,
+      "reviews": 0,
+      "keepId": "777a71ea-167e-410b-873d-d2082b967438",
+      "reason": "Duplicate of: Flora-Bama Ole River Grill (score: 75 vs 10)"
+    },
+    {
+      "id": "c09519cd-d941-43f5-82b2-ba8d465463cd",
+      "name": "BB's Health Foods",
+      "score": 70,
+      "reviews": 0,
+      "keepId": "495a7669-6fcf-4fc5-86d5-3f68d444b8a5",
+      "reason": "Duplicate of: BB's Health Foods (score: 85 vs 70)"
+    },
+    {
+      "id": "0a696a86-c708-458e-8080-b3831d5546f9",
+      "name": "The Massage Office",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "2f9e2152-f768-4951-be66-dd318ccff088",
+      "reason": "Duplicate of: The Massage Office (score: 90 vs 75)"
+    },
+    {
+      "id": "30c1313b-aceb-4fa4-b4c2-65a9533c9c0d",
+      "name": "Gulf Shores Paddleboarding Lesson & Tour",
+      "score": 80,
+      "reviews": 2,
+      "keepId": "f77d4a7d-415c-4579-aff6-92490eac0165",
+      "reason": "Duplicate of: Gulf Shores Paddleboarding Lesson & Tour (score: 85 vs 80)"
+    },
+    {
+      "id": "3009c0bc-c79c-441b-9cf6-5435a7dccbc6",
+      "name": "Bender Vacation Rentals",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "47176824-2225-4e91-baf2-0d11a91dae0c",
+      "reason": "Duplicate of: Bender Vacation Rentals (score: 110 vs 85)"
+    },
+    {
+      "id": "71c8e25e-5eff-4f72-979a-491a9f835f25",
+      "name": "Bon Secour National Wildlife Refuge",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "fb12b923-fa4e-44c0-b84a-43c8ff351fb5",
+      "reason": "Duplicate of: Bon Secour National Wildlife Refuge (score: 130 vs 75)"
+    },
+    {
+      "id": "ca841f15-8764-42d2-9ea4-b6db50c00a74",
+      "name": "Bon Secour National Wildlife Refuge",
+      "score": 75,
+      "reviews": 79,
+      "keepId": "fb12b923-fa4e-44c0-b84a-43c8ff351fb5",
+      "reason": "Duplicate of: Bon Secour National Wildlife Refuge (score: 130 vs 75)"
+    },
+    {
+      "id": "df2a226a-3b7a-43af-8ef0-0eb9620748f6",
+      "name": "Gulf State Park",
+      "score": 110,
+      "reviews": 106,
+      "keepId": "5132f129-4b4e-4782-9a90-61f51af6a402",
+      "reason": "Duplicate of: Gulf State Park (score: 130 vs 110)"
+    },
+    {
+      "id": "a7eb1692-6f7b-496b-a5e7-57dba0e1eec0",
+      "name": "Gulf State Park",
+      "score": 95,
+      "reviews": 0,
+      "keepId": "5132f129-4b4e-4782-9a90-61f51af6a402",
+      "reason": "Duplicate of: Gulf State Park (score: 130 vs 95)"
+    },
+    {
+      "id": "695f3720-53c0-4cb7-bb16-4d5f6e9b3955",
+      "name": "Zeke's Restaurant",
+      "score": 40,
+      "reviews": 0,
+      "keepId": "6380eca9-cf2d-495d-8e20-2e73c6614dc8",
+      "reason": "Duplicate of: Zeke's Restaurant (score: 135 vs 40)"
+    },
+    {
+      "id": "b87df212-625a-44a5-8003-54cc9a12f314",
+      "name": "Zeke's Restaurant",
+      "score": 15,
+      "reviews": 0,
+      "keepId": "6380eca9-cf2d-495d-8e20-2e73c6614dc8",
+      "reason": "Duplicate of: Zeke's Restaurant (score: 135 vs 15)"
+    },
+    {
+      "id": "3b6763be-fd23-4173-b1fe-570d277ee9aa",
+      "name": "Caribe Resort",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "57e5ee44-3a27-4aa5-b2df-e6e3ea55537f",
+      "reason": "Duplicate of: Caribe Resort (score: 130 vs 75)"
+    },
+    {
+      "id": "6bbd03a1-b520-48e2-9942-3ec1dd266924",
+      "name": "Carmelo",
+      "score": 70,
+      "reviews": 0,
+      "keepId": "e627d393-0e18-4904-8838-1dab9ae68032",
+      "reason": "Duplicate of: Carmelo (score: 75 vs 70)"
+    },
+    {
+      "id": "1bb622c6-9569-4e4d-9e9b-10bf30874165",
+      "name": "China Dragon",
+      "score": 130,
+      "reviews": 434,
+      "keepId": "0c11f579-5533-4c37-a325-a7bedfe763cf",
+      "reason": "Duplicate of: China Dragon (score: 130 vs 130)"
+    },
+    {
+      "id": "66983fec-9f91-4403-92a4-07a6e8c0362d",
+      "name": "China Dragon",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "0c11f579-5533-4c37-a325-a7bedfe763cf",
+      "reason": "Duplicate of: China Dragon (score: 130 vs 85)"
+    },
+    {
+      "id": "07ad2eaa-b659-4e9f-ab27-05ae84f5fbe1",
+      "name": "COASTAL Orange Beach",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "2d009a2b-8eae-4763-b941-1a4d4ea3cf99",
+      "reason": "Duplicate of: Coastal Orange Beach (score: 110 vs 75)"
+    },
+    {
+      "id": "5458964e-0e0d-4c1e-ad16-34a46f023f40",
+      "name": "Craft Farms Golf Club",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "ef2e5f72-960d-45d0-a4b9-0d211ec960e5",
+      "reason": "Duplicate of: Craft Farms Golf Club (score: 110 vs 75)"
+    },
+    {
+      "id": "70c77e76-93a8-4883-b4d3-537fc203ea99",
+      "name": "Wolf Bay Restaurant at Orange Beach",
+      "score": 35,
+      "reviews": 0,
+      "keepId": "6c0405da-8fb7-4ea6-8cb1-3963b4caf643",
+      "reason": "Duplicate of: Wolf Bay Restaurant at Orange Beach (score: 135 vs 35)"
+    },
+    {
+      "id": "f7fff676-af1f-40b3-b9bb-2b19996c1985",
+      "name": "The Beach House Kitchen & Cocktails",
+      "score": 70,
+      "reviews": 0,
+      "keepId": "1fa14f46-14a8-47b5-90f3-112428cf51bc",
+      "reason": "Duplicate of: The Beach House Kitchen & Cocktails (score: 85 vs 70)"
+    },
+    {
+      "id": "aa11741d-f52a-4613-b4d6-3074c370b584",
+      "name": "Coastal Arts Center of Orange Beach",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "68570f6c-c4f5-4d90-a136-6497cb74d1dc",
+      "reason": "Duplicate of: Coastal Arts Center of Orange Beach (score: 130 vs 85)"
+    },
+    {
+      "id": "a523fb87-d518-4fbe-ba17-d10190a6d30c",
+      "name": "Frank & Co. Fine Jewelry",
+      "score": 55,
+      "reviews": 0,
+      "keepId": "06bc108f-eed3-4cbc-a304-000747087168",
+      "reason": "Duplicate of: Frank & Co. Fine Jewelry (score: 90 vs 55)"
+    },
+    {
+      "id": "9bde9813-03a7-4dd6-9f73-10fe1152fed3",
+      "name": "Kitty's Kafe",
+      "score": 40,
+      "reviews": 0,
+      "keepId": "bb85a412-35ed-457a-8152-a30625bc4fb8",
+      "reason": "Duplicate of: Kitty's Kafe (score: 135 vs 40)"
+    },
+    {
+      "id": "e9f3c6ff-4408-4be8-b4c7-780883834e1a",
+      "name": "The Clubhouse Bar & Grill",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "13333365-498c-4d1f-975b-4dea57bdaf09",
+      "reason": "Duplicate of: The Clubhouse Bar & Grill (score: 90 vs 75)"
+    },
+    {
+      "id": "e296ab87-a4bb-42b0-8fbe-41d22d9dd7e6",
+      "name": "DeSoto's Seafood Kitchen",
+      "score": 90,
+      "reviews": 3,
+      "keepId": "47ba5725-835d-4fdd-95c6-83c9d2613785",
+      "reason": "Duplicate of: DeSoto's Seafood Kitchen (score: 115 vs 90)"
+    },
+    {
+      "id": "d02e919f-dde8-420f-8473-4326c2fea5a1",
+      "name": "DeSoto's Seafood Kitchen",
+      "score": 70,
+      "reviews": 0,
+      "keepId": "47ba5725-835d-4fdd-95c6-83c9d2613785",
+      "reason": "Duplicate of: DeSoto's Seafood Kitchen (score: 115 vs 70)"
+    },
+    {
+      "id": "390b840a-b71d-4b42-aceb-7149b9d73be6",
+      "name": "Foam Coffee",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "8d94e732-b633-4387-aed3-0f587f5bd30e",
+      "reason": "Duplicate of: Foam Coffee (score: 110 vs 75)"
+    },
+    {
+      "id": "2c8e05a0-4e2c-4b17-aec7-5f1bd71a049b",
+      "name": "The Gulf",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "e7f3e754-2522-42cd-9fa9-f23c110aae88",
+      "reason": "Duplicate of: The Gulf (score: 130 vs 85)"
+    },
+    {
+      "id": "ca56e418-7bb3-4ca9-aecd-221b0106d387",
+      "name": "Orange Beach: 24ft Double Deck Pontoon with Slide and 70HP",
+      "score": 70,
+      "reviews": 6,
+      "keepId": "dc2036b4-3a49-48ff-9c80-1ff5f8eb175d",
+      "reason": "Duplicate of: Orange Beach: 24ft Double Deck Pontoon with Slide and 70HP (score: 85 vs 70)"
+    },
+    {
+      "id": "e578fb8d-bcc2-49ae-afe8-0709270683a8",
+      "name": "Orange Beach: Sunset & Crab Grab Clear Kayak Tour",
+      "score": 80,
+      "reviews": 16,
+      "keepId": "073d8f5a-6ede-4cb5-b0ce-c5f515202159",
+      "reason": "Duplicate of: Orange Beach: Sunset & Crab Grab Clear Kayak Tour (score: 85 vs 80)"
+    },
+    {
+      "id": "64e55c29-7869-444a-892c-e7349affa41e",
+      "name": "Nauti Fishing Charters",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "02f7e21e-3c09-46ee-b199-555599333645",
+      "reason": "Duplicate of: Nauti Fishing Charters (score: 90 vs 85)"
+    },
+    {
+      "id": "94fc61a8-766e-44a1-8fb9-3579e5374b96",
+      "name": "Anchored Coffee House",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "1532d551-5f4d-434b-adc0-eb9a05ecf364",
+      "reason": "Duplicate of: Anchored Coffee House (score: 90 vs 85)"
+    },
+    {
+      "id": "89335b51-fa3b-4a04-8d5d-bff7fdf32bc4",
+      "name": "Phoenix All Suites Hotel",
+      "score": 95,
+      "reviews": 0,
+      "keepId": "116d305e-a410-4911-8e1e-eb1ed5185dd8",
+      "reason": "Duplicate of: Phoenix All Suites Hotel (score: 130 vs 95)"
+    },
+    {
+      "id": "aa3df1e1-4100-449e-a45e-d3e505ee58ba",
+      "name": "Tuscany Pizza and Grill",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "a7a5f71c-b0c1-4f54-96ed-2dafcdcc4971",
+      "reason": "Duplicate of: Tuscany Pizza and Grill (score: 130 vs 75)"
+    },
+    {
+      "id": "6a5d48ae-eaca-49ff-a21a-1fe61b00a65c",
+      "name": "Sugar Sands RV Resort",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "d06c31d2-aefc-4ff8-8ddd-ae055da0fa21",
+      "reason": "Duplicate of: Sugar Sands RV Resort (score: 130 vs 85)"
+    },
+    {
+      "id": "56cb78c2-61d6-4361-8f58-8d8e0cabd844",
+      "name": "Orange Beach: Sunset Dolphin Cruise with Captain",
+      "score": 65,
+      "reviews": 95,
+      "keepId": "9d746dd5-a7c3-4c79-b038-a81984fcd92d",
+      "reason": "Duplicate of: Orange Beach: Sunset Dolphin Cruise with Captain (score: 90 vs 65)"
+    },
+    {
+      "id": "9616d3fc-f17a-4d2e-b113-050fd153ec37",
+      "name": "Sun Outdoors Orange Beach",
+      "score": 95,
+      "reviews": 0,
+      "keepId": "f2d2e115-eee8-4111-bd3f-0143b4ef09f2",
+      "reason": "Duplicate of: Sun Outdoors Orange Beach (score: 130 vs 95)"
+    },
+    {
+      "id": "7958d6c2-2eee-4803-8569-42715df5c031",
+      "name": "Doc's RV Park",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "c6e119e0-62f1-42bd-ac72-be14e8988127",
+      "reason": "Duplicate of: Doc's RV Park (score: 130 vs 75)"
+    },
+    {
+      "id": "3cfe562e-bb14-4a45-944f-ad9d42e2f281",
+      "name": "Bear Point Harbor",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "7075b81c-2e2c-4a73-b32c-a34621e8e370",
+      "reason": "Duplicate of: Bear Point Harbor (score: 110 vs 85)"
+    },
+    {
+      "id": "98c0c858-4383-4737-9086-fe58262f4a28",
+      "name": "Alvins Island Outfitters - #37",
+      "score": 65,
+      "reviews": 0,
+      "keepId": "67ab6554-4880-46f9-8f0f-a9e66aa8861c",
+      "reason": "Duplicate of: Alvins Island Outfitters - #37 (score: 110 vs 65)"
+    },
+    {
+      "id": "9aca48e6-018c-4ebd-aa1e-2832f347e8e1",
+      "name": "Angry Crab Shack",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "9b79d2cc-500c-4c42-893a-aa48cfd0a461",
+      "reason": "Duplicate of: Angry Crab Shack (score: 110 vs 75)"
+    },
+    {
+      "id": "9fec2a39-9171-472d-91a8-cfb9e46abdc5",
+      "name": "Pizza At The Pass",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "8d2cf780-4d06-4d4c-b967-61dfd5896c5a",
+      "reason": "Duplicate of: Pizza At The Pass (score: 110 vs 85)"
+    },
+    {
+      "id": "fb17f306-f8f9-4b9b-86eb-961296c3320e",
+      "name": "Voyagers",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "93a3f125-90d8-4357-b9bb-1865655a3694",
+      "reason": "Duplicate of: Voyagers (score: 130 vs 75)"
+    },
+    {
+      "id": "dc99ba57-5a22-4d90-ad4d-35524dc71e86",
+      "name": "Gulf Coast Arts Alliance",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "c52d1210-0a6e-41be-98c6-26536acfab27",
+      "reason": "Duplicate of: Gulf Coast Arts Alliance (score: 90 vs 85)"
+    },
+    {
+      "id": "d3cf6350-ce5a-4280-8bd7-7bd3d4b7e8cd",
+      "name": "Fish River Grill",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "39b6fa33-75e9-4f33-b699-4cad1a6fd8c0",
+      "reason": "Duplicate of: Fish River Grill (score: 110 vs 75)"
+    },
+    {
+      "id": "293bae99-ed36-4554-9260-69931881a6b7",
+      "name": "Southern Athletica",
+      "score": 40,
+      "reviews": 0,
+      "keepId": "21b96d14-52f8-409a-a1ca-331f3df71a94",
+      "reason": "Duplicate of: Southern Athletica (score: 75 vs 40)"
+    },
+    {
+      "id": "7968ba20-5d7b-47a2-829d-a8254993a5fe",
+      "name": "Gulf Shores Massage Therapy",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "943ec94c-f4d5-48e6-993f-fe0e59817fe5",
+      "reason": "Duplicate of: Gulf Shores Massage Therapy (score: 90 vs 75)"
+    },
+    {
+      "id": "a43a6e76-26ac-49fd-b2bc-5cd65e6860a6",
+      "name": "High Tide Daiquiris & Mimosas",
+      "score": 20,
+      "reviews": 0,
+      "keepId": "2058d7a2-ee32-4e75-b1bc-c12a05c8e1d1",
+      "reason": "Duplicate of: High Tide Daiquiris & Mimosas (score: 95 vs 20)"
+    },
+    {
+      "id": "95888556-15c0-409e-9fd0-1463f34339c3",
+      "name": "The Wharf Amphitheater",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "5d33c255-8f6f-4183-b661-4881964004d0",
+      "reason": "Duplicate of: The Wharf Amphitheater (score: 130 vs 85)"
+    },
+    {
+      "id": "86cae449-d7fa-4279-a46d-10e5fb4616e8",
+      "name": "bealls",
+      "score": 55,
+      "reviews": 0,
+      "keepId": "357ef143-0ad7-4fba-bb6a-e16786e3bdce",
+      "reason": "Duplicate of: bealls (score: 90 vs 55)"
+    },
+    {
+      "id": "050b630c-77ec-421a-b0d1-21d910ade681",
+      "name": "Serenity at The Beach Salon & Spa",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "6da8eddb-1c13-438d-867e-3ce3657ed75b",
+      "reason": "Duplicate of: Serenity at The Beach Salon & Spa (score: 110 vs 85)"
+    },
+    {
+      "id": "63224857-7753-45eb-ae82-783cc3bf7940",
+      "name": "Papa Rocco's",
+      "score": 70,
+      "reviews": 0,
+      "keepId": "7b622070-11e2-458f-a7a3-c206715d69a0",
+      "reason": "Duplicate of: Papa Rocco's (score: 135 vs 70)"
+    },
+    {
+      "id": "0d8872cc-d6b5-4dcb-ba40-a1a4b73349b6",
+      "name": "Papa Rocco's",
+      "score": 15,
+      "reviews": 0,
+      "keepId": "7b622070-11e2-458f-a7a3-c206715d69a0",
+      "reason": "Duplicate of: Papa Rocco's (score: 135 vs 15)"
+    },
+    {
+      "id": "bd941b31-c594-4778-a8b0-d8cf0bdc114e",
+      "name": "Gourmet World Market",
+      "score": 50,
+      "reviews": 0,
+      "keepId": "fd4aaccf-0ee5-4eeb-a5a9-e4be1ef20ccd",
+      "reason": "Duplicate of: Gourmet World Market (score: 115 vs 50)"
+    },
+    {
+      "id": "214fb387-c88f-4f2c-878f-5ac4f56f10d9",
+      "name": "Gulf Shores Steamer",
+      "score": 20,
+      "reviews": 0,
+      "keepId": "3c410f82-1912-446d-bc29-4de635f4a287",
+      "reason": "Duplicate of: Gulf Shores Steamer (score: 135 vs 20)"
+    },
+    {
+      "id": "b01f6e10-a259-430f-a471-0afed7dae1e5",
+      "name": "Tallulah's Treasures",
+      "score": 55,
+      "reviews": 0,
+      "keepId": "d30f0fc6-a5f9-486a-b7d8-cf3f003213dc",
+      "reason": "Duplicate of: Tallulah's Treasures (score: 110 vs 55)"
+    },
+    {
+      "id": "f1acba28-1707-485d-844e-3e4b2ce692e0",
+      "name": "Kiva Grill",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "d5216ed0-acc2-4709-a78c-61fd94ae0482",
+      "reason": "Duplicate of: Kiva Grill (score: 110 vs 85)"
+    },
+    {
+      "id": "b996d334-f2bc-439d-a34e-0d50fb9c5864",
+      "name": "Orange Beach: Chute Em Up Parasail Tours",
+      "score": 85,
+      "reviews": 910,
+      "keepId": "88d2f1b4-5b53-4261-b131-98fb763f71f7",
+      "reason": "Duplicate of: Orange Beach: Chute Em Up Parasail Tours (score: 110 vs 85)"
+    },
+    {
+      "id": "50d7a8bd-dad8-46a0-8f04-9f73dddcd1ba",
+      "name": "Moe's Original BBQ",
+      "score": 40,
+      "reviews": 0,
+      "keepId": "df7e4454-6c09-4b08-9571-89c1fdf54664",
+      "reason": "Duplicate of: Moe's Original BBQ (score: 135 vs 40)"
+    },
+    {
+      "id": "a0f66778-0a93-4ac0-be36-aad923f4fcb2",
+      "name": "Gulf Babe Wine Boutique",
+      "score": 65,
+      "reviews": 0,
+      "keepId": "51790a91-179f-4fc1-9338-daa853d1eaf1",
+      "reason": "Duplicate of: Gulf Babe Wine Boutique (score: 110 vs 65)"
+    },
+    {
+      "id": "7daa2283-0229-4668-9dc4-6dba670a98fa",
+      "name": "Luxury RV Resort",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "c0932d88-06fd-45e5-b5c0-2a38ee2ff0f8",
+      "reason": "Duplicate of: Luxury RV Resort (score: 130 vs 75)"
+    },
+    {
+      "id": "97ce5c56-c9f0-485a-a7e8-4ee1712ea49c",
+      "name": "CC's Boutique Gulf Shores",
+      "score": 55,
+      "reviews": 0,
+      "keepId": "79216287-df78-4057-8745-1473056f1f26",
+      "reason": "Duplicate of: CC's Boutique Gulf Shores (score: 90 vs 55)"
+    },
+    {
+      "id": "37a9f6f3-5775-4369-862c-16a191bdf4f7",
+      "name": "Geez Louise Boutique",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "bf6079bf-6c9a-418a-bd33-d944df372fb9",
+      "reason": "Duplicate of: Geez Louise Boutique (score: 110 vs 85)"
+    },
+    {
+      "id": "8f54a9e4-4bba-4ff3-bf0b-1a262e38a69e",
+      "name": "Tiki & Raw Bar Orange Beach",
+      "score": 70,
+      "reviews": 0,
+      "keepId": "42f3860a-3c3e-4ceb-8a61-114c2af803bc",
+      "reason": "Duplicate of: Tiki & Raw Bar Orange Beach (score: 75 vs 70)"
+    },
+    {
+      "id": "1e3b9106-d989-4958-a8d8-fc4572172108",
+      "name": "Island Girl Jewelry & Souvenirs",
+      "score": 45,
+      "reviews": 0,
+      "keepId": "a559301d-166a-49f0-bd10-193f29a4fc0b",
+      "reason": "Duplicate of: Island Girl Jewelry & Souvenirs (score: 100 vs 45)"
+    },
+    {
+      "id": "e0d9fe72-548e-4be7-a315-9ca45a21afbe",
+      "name": "Down Under Dive Shop",
+      "score": 60,
+      "reviews": 0,
+      "keepId": "05a3a4c1-d8ac-4211-974f-75e4afee843a",
+      "reason": "Duplicate of: Down Under Dive Shop (score: 115 vs 60)"
+    },
+    {
+      "id": "92afb790-6762-4ef7-9a07-6fc322d2f259",
+      "name": "Trading Co.Orange Beach",
+      "score": 45,
+      "reviews": 0,
+      "keepId": "3f17d25f-5cd6-4557-9969-898782eccda2",
+      "reason": "Duplicate of: Trading Co.Orange Beach (score: 80 vs 45)"
+    },
+    {
+      "id": "0b8c2d51-9325-4974-b9b6-ce86ca44a2c6",
+      "name": "Microtel Inn & Suites by Wyndham Gulf Shores",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "dfeaef24-4b90-4da4-a6af-d64378f63498",
+      "reason": "Duplicate of: Microtel Inn & Suites by Wyndham Gulf Shores (score: 130 vs 85)"
+    },
+    {
+      "id": "475c9ad3-3b68-4296-898c-cd21a2203c95",
+      "name": "The Cove Bar and Grill",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "f96c6bf0-7edb-4ddf-937e-9f5993842e14",
+      "reason": "Duplicate of: The Cove Bar and Grill (score: 130 vs 75)"
+    },
+    {
+      "id": "54bd83e9-386a-4731-abd7-10f992e14881",
+      "name": "Palm Beach Resort",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "1a23602e-48bd-4036-b269-f2d6c1d42640",
+      "reason": "Duplicate of: Palm Beach Resort (score: 110 vs 75)"
+    },
+    {
+      "id": "3a3f7026-bd9d-4381-b471-b30f03891a92",
+      "name": "Treehouse Cafe",
+      "score": 55,
+      "reviews": 0,
+      "keepId": "e1d7b6b8-ed75-4287-a5b3-a89b3d2c641e",
+      "reason": "Duplicate of: Treehouse Cafe (score: 90 vs 55)"
+    },
+    {
+      "id": "3842ae86-2aad-4bc4-b024-7854dd714684",
+      "name": "Pink Pony Pub",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "717185b3-34bc-48fe-97d2-754e1f7f7aeb",
+      "reason": "Duplicate of: Pink Pony Pub (score: 130 vs 85)"
+    },
+    {
+      "id": "d5df9351-6f47-4ff9-af84-0262b32d56ff",
+      "name": "The Hangout Gulf Shores",
+      "score": 40,
+      "reviews": 0,
+      "keepId": "3593c5a9-0be6-48b8-af40-e1a2545e9247",
+      "reason": "Duplicate of: The Hangout Gulf Shores (score: 45 vs 40)"
+    },
+    {
+      "id": "11616e76-18f1-436d-a9d0-4952168d4611",
+      "name": "Summer House on Romar Beach",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "5cfde70c-ae36-46d9-b884-e24047fb6c4e",
+      "reason": "Duplicate of: Summer House On Romar Beach (score: 110 vs 85)"
+    },
+    {
+      "id": "9ab3173d-f99a-40ab-9a1e-acea491abfab",
+      "name": "Orange Beach Waterfront Park",
+      "score": 10,
+      "reviews": 0,
+      "keepId": "603bc07e-58b8-4a63-a144-69869979f3f1",
+      "reason": "Duplicate of: Orange Beach Waterfront Park (score: 135 vs 10)"
+    },
+    {
+      "id": "75956d21-c506-457c-9e12-4aa58b87758d",
+      "name": "Orange Beach: Bear Point Marina Jet Ski Rental",
+      "score": 85,
+      "reviews": 320,
+      "keepId": "41897df2-38b2-4ca0-b69e-4f0f1fb6bac9",
+      "reason": "Duplicate of: Orange Beach: Bear Point Marina Jet Ski Rental (score: 110 vs 85)"
+    },
+    {
+      "id": "5be724fb-5e22-464c-8ed5-0ad4e95186a6",
+      "name": "Orange Beach: Dolphin & Sunset Cruises Aboard the Southern Rose",
+      "score": 85,
+      "reviews": 1772,
+      "keepId": "2f3a6a38-3ddd-4d77-a918-0d45382bd1e2",
+      "reason": "Duplicate of: Orange Beach: Dolphin & Sunset Cruises Aboard the Southern Rose (score: 110 vs 85)"
+    },
+    {
+      "id": "6fca7564-6b6d-4c84-a51c-3cb9109ac122",
+      "name": "Gulf Shores Public Beach",
+      "score": 65,
+      "reviews": 0,
+      "keepId": "3a9157a7-48e3-44fd-b105-0f0d2c769acb",
+      "reason": "Duplicate of: Gulf Shores Public Beach (score: 130 vs 65)"
+    },
+    {
+      "id": "314ba528-6eba-429d-b097-5b247190e6be",
+      "name": "Orange Beach: 24ft Bentley Pontoon with 90HP",
+      "score": 65,
+      "reviews": 70,
+      "keepId": "49801eeb-0593-4a35-be35-58b8746d3e1a",
+      "reason": "Duplicate of: Orange Beach: 24ft Bentley Pontoon with 90HP (score: 90 vs 65)"
+    },
+    {
+      "id": "5f08968b-da81-4748-bc21-7eb83c1f66dc",
+      "name": "Gulf State Park Beach",
+      "score": 30,
+      "reviews": 0,
+      "keepId": "2f7fdad3-13a9-48d8-831f-ce0145adaf84",
+      "reason": "Duplicate of: Gulf State Park Beach (score: 35 vs 30)"
+    },
+    {
+      "id": "dbea4681-6edf-4858-9602-b4a40f4a03b7",
+      "name": "Orange Beach: Gulf Shores Helicopter Tours",
+      "score": 85,
+      "reviews": 378,
+      "keepId": "07e36a08-dcf8-438c-abe7-ec4879d8fdc7",
+      "reason": "Duplicate of: Orange Beach: Gulf Shores Helicopter Tours (score: 110 vs 85)"
+    },
+    {
+      "id": "6b700b0e-6206-4f99-b0a2-9d29b6ee99dd",
+      "name": "Pontoon Boat Rental with Slide in Orange Beach",
+      "score": 65,
+      "reviews": 20,
+      "keepId": "28c82e91-e72a-40fa-ba6e-45c1f669f625",
+      "reason": "Duplicate of: Pontoon Boat Rental with Slide in Orange Beach (score: 90 vs 65)"
+    },
+    {
+      "id": "d5badacf-b8ef-4260-b8b2-5f61b1f4887d",
+      "name": "Gulf Shores: Launch from the Beach Jet Ski Rentals",
+      "score": 70,
+      "reviews": 52,
+      "keepId": "b3e55bfd-7191-469a-9086-1041865ced25",
+      "reason": "Duplicate of: Gulf Shores: Launch from the Beach Jet Ski Rentals (score: 85 vs 70)"
+    },
+    {
+      "id": "a1766b2b-547e-47ae-a7ee-221bd876de0c",
+      "name": "Gulf State Park Pier",
+      "score": 10,
+      "reviews": 0,
+      "keepId": "6e6681bd-3728-4305-a430-9a645e609abf",
+      "reason": "Duplicate of: Gulf State Park Pier (score: 135 vs 10)"
+    },
+    {
+      "id": "d761f1f2-4abb-4326-813f-f56e1c4832c1",
+      "name": "Barometer Waterfront Grille",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "d1d7f01a-2fa7-44c8-ab6f-d00b46ff3955",
+      "reason": "Duplicate of: Barometer Waterfront Grille (score: 110 vs 85)"
+    },
+    {
+      "id": "19ce2aae-a970-4bee-bdf6-731394ce3465",
+      "name": "Niki's Seafood & Thai",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "e81e0c3f-f421-441c-8f60-a733e6f49910",
+      "reason": "Duplicate of: Niki's Seafood & Thai (score: 130 vs 85)"
+    },
+    {
+      "id": "1bf83947-c609-48d8-abff-c40e94e94c57",
+      "name": "Orange Beach: Sunset Helicopter Tour",
+      "score": 65,
+      "reviews": 11,
+      "keepId": "9eb39e85-c6e4-4552-b037-d1a52d7d7d5a",
+      "reason": "Duplicate of: Orange Beach: Sunset Helicopter Tour (score: 90 vs 65)"
+    },
+    {
+      "id": "9b60b17a-0041-4d1d-9b3a-05297ea893d4",
+      "name": "American Legacy Co, The Trump Store AL",
+      "score": 55,
+      "reviews": 0,
+      "keepId": "2b45fabf-e3ad-45cc-9a87-293d6e8578a4",
+      "reason": "Duplicate of: American Legacy Co, The Trump Store AL (score: 90 vs 55)"
+    },
+    {
+      "id": "1cdd6827-a5ab-429c-9e17-38889c00fab5",
+      "name": "Archipelago",
+      "score": 55,
+      "reviews": 0,
+      "keepId": "f70a348f-42f9-46f3-99d2-b87412a9ae95",
+      "reason": "Duplicate of: Archipelago (score: 90 vs 55)"
+    },
+    {
+      "id": "458db99e-75ad-403a-817a-9cfbcc57328c",
+      "name": "Luna's Eat & Drink",
+      "score": 15,
+      "reviews": 0,
+      "keepId": "b0d89764-04cd-4f80-a362-9304abe055ae",
+      "reason": "Duplicate of: Luna's Eat & Drink (score: 130 vs 15)"
+    },
+    {
+      "id": "dab996e9-0002-4db1-b37d-6e967b9a01cd",
+      "name": "City Donut",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "f521a762-9ff4-48d2-8777-182e6a1ab6c2",
+      "reason": "Duplicate of: City Donut (score: 130 vs 75)"
+    },
+    {
+      "id": "89fb954a-66ff-48d1-9969-6727d3f583bc",
+      "name": "Gulf Shores Seafood",
+      "score": 55,
+      "reviews": 0,
+      "keepId": "1dc4a443-084f-40c3-87d8-8698bb5c79be",
+      "reason": "Duplicate of: Gulf Shores Seafood (score: 110 vs 55)"
+    },
+    {
+      "id": "1c45b0c5-e52c-495c-908c-dc8ebf4c8692",
+      "name": "The Catch",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "921963f5-db7b-4377-acaf-1d5812813ad8",
+      "reason": "Duplicate of: The Catch (score: 110 vs 85)"
+    },
+    {
+      "id": "c7de14bd-7c4a-4fa5-966f-33c1a7088658",
+      "name": "Perdido Beach Resort",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "30b0fec0-7153-4f1d-9656-a714a92b99d7",
+      "reason": "Duplicate of: Perdido Beach Resort (score: 130 vs 85)"
+    },
+    {
+      "id": "2883e674-7543-4db6-8892-6213468497bc",
+      "name": "Perdido Beach Resort",
+      "score": 15,
+      "reviews": 0,
+      "keepId": "30b0fec0-7153-4f1d-9656-a714a92b99d7",
+      "reason": "Duplicate of: Perdido Beach Resort (score: 130 vs 15)"
+    },
+    {
+      "id": "cf04f660-e79e-411d-ac1b-5abd833e4e91",
+      "name": "The hangout",
+      "score": 35,
+      "reviews": 0,
+      "keepId": "c31bad02-4667-45ed-a783-05920a529828",
+      "reason": "Duplicate of: The Hangout (score: 135 vs 35)"
+    },
+    {
+      "id": "ce8cdd66-db97-4cec-99d2-ae8aa5aa3cb3",
+      "name": "De Soto's Seafood Kitchen",
+      "score": 15,
+      "reviews": 0,
+      "keepId": "2bd063db-1936-413f-b14c-254997937ad3",
+      "reason": "Duplicate of: De Soto's Seafood Kitchen (score: 135 vs 15)"
+    },
+    {
+      "id": "dd44bd10-7b9e-4a01-b00d-e5137f44e494",
+      "name": "The Red Haven Live",
+      "score": 15,
+      "reviews": 0,
+      "keepId": "ee10eeb1-5041-4a0e-a8be-a85603cd5a36",
+      "reason": "Duplicate of: The Red Haven Live (score: 80 vs 15)"
+    },
+    {
+      "id": "5393c9eb-1f86-4f8c-9cfc-171da366b1cf",
+      "name": "8 Reale OBAL",
+      "score": 15,
+      "reviews": 0,
+      "keepId": "5bb1057a-f5d6-4234-949a-34490911fb17",
+      "reason": "Duplicate of: 8 Reale OBAL (score: 95 vs 15)"
+    },
+    {
+      "id": "4d80565d-18b8-4532-8a1e-e5af69dcd29b",
+      "name": "Orange Beach: Swim, Grill, & Chill Excursion",
+      "score": 65,
+      "reviews": 25,
+      "keepId": "3d9d44a1-6507-45b0-a5cf-d47cccfeb6e9",
+      "reason": "Duplicate of: Orange Beach: Swim, Grill, & Chill Excursion (score: 90 vs 65)"
+    },
+    {
+      "id": "087738b6-8245-4802-9c2c-eb1a9dd6192a",
+      "name": "Cosmo's Restaurant & Bar",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "7893f6f0-2a46-4286-af10-3ed9666afee3",
+      "reason": "Duplicate of: Cosmo's Restaurant & Bar (score: 130 vs 85)"
+    },
+    {
+      "id": "05028c74-1f47-4e93-8fba-c02380013c6d",
+      "name": "Cosmo's Restaurant & Bar",
+      "score": 70,
+      "reviews": 0,
+      "keepId": "7893f6f0-2a46-4286-af10-3ed9666afee3",
+      "reason": "Duplicate of: Cosmo's Restaurant & Bar (score: 130 vs 70)"
+    },
+    {
+      "id": "5cfcdbbc-8826-4a6c-8893-0134f3a191ca",
+      "name": "Cosmo's Restaurant & Bar",
+      "score": 70,
+      "reviews": 0,
+      "keepId": "7893f6f0-2a46-4286-af10-3ed9666afee3",
+      "reason": "Duplicate of: Cosmo's Restaurant & Bar (score: 130 vs 70)"
+    },
+    {
+      "id": "2d298a97-72d3-4258-836d-23412f5424fe",
+      "name": "Cosmo's Restaurant & Bar",
+      "score": 15,
+      "reviews": 0,
+      "keepId": "7893f6f0-2a46-4286-af10-3ed9666afee3",
+      "reason": "Duplicate of: Cosmo's Restaurant & Bar (score: 130 vs 15)"
+    },
+    {
+      "id": "31348197-ed7d-4290-bccc-ff8d776f19cf",
+      "name": "Nail Boutique and Spa",
+      "score": 55,
+      "reviews": 0,
+      "keepId": "00a72474-dc16-41ab-bf2f-d4246c29efd9",
+      "reason": "Duplicate of: Nail Boutique and Spa (score: 110 vs 55)"
+    },
+    {
+      "id": "dc6a7435-05cb-4113-84b1-b555e953db97",
+      "name": "The Point Restaurant",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "68d6dc86-d6ed-4d97-b539-5d255548c63f",
+      "reason": "Duplicate of: The Point Restaurant (score: 80 vs 75)"
+    },
+    {
+      "id": "e9cdb0a0-7c94-4727-abf0-e4b1491788fb",
+      "name": "The Point Restaurant",
+      "score": 15,
+      "reviews": 0,
+      "keepId": "68d6dc86-d6ed-4d97-b539-5d255548c63f",
+      "reason": "Duplicate of: The Point Restaurant (score: 80 vs 15)"
+    },
+    {
+      "id": "9c38b6c8-0f1e-420d-bf46-0cd96a273118",
+      "name": "The Galley on the River",
+      "score": 15,
+      "reviews": 0,
+      "keepId": "cb7555cd-ce24-42a7-90e4-b5009186e5bd",
+      "reason": "Duplicate of: The Galley on the River (score: 95 vs 15)"
+    },
+    {
+      "id": "3459bd10-349f-4dbc-a941-b12fb90747a9",
+      "name": "Pieces Boutique",
+      "score": 55,
+      "reviews": 0,
+      "keepId": "dd301b54-b461-4c74-a402-de9c6946d1a8",
+      "reason": "Duplicate of: Pieces Boutique (score: 90 vs 55)"
+    },
+    {
+      "id": "291b5106-617c-4cbf-9643-4eb5497b2123",
+      "name": "Turquoise Place",
+      "score": 15,
+      "reviews": 0,
+      "keepId": "5c7a5321-3c6d-4999-9409-36ae862790b4",
+      "reason": "Duplicate of: Turquoise Place (score: 135 vs 15)"
+    },
+    {
+      "id": "5011208a-0a2f-4b46-a595-7aeaca7b6f28",
+      "name": "The Beach Bun",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "0e04cbcd-e77b-4ea8-bcf4-19800170bfbc",
+      "reason": "Duplicate of: The Beach Bun (score: 90 vs 85)"
+    },
+    {
+      "id": "db1add8e-629b-49e1-8e15-1194878a5fe6",
+      "name": "Bird Dog Chicken Company",
+      "score": 55,
+      "reviews": 0,
+      "keepId": "4a596c59-4e38-4b88-9b5e-00ec9c01c4c4",
+      "reason": "Duplicate of: Bird Dog Chicken Company (score: 110 vs 55)"
+    },
+    {
+      "id": "0957e99d-032b-47a2-ac62-3e2a65200368",
+      "name": "Villaggio Grille",
+      "score": 20,
+      "reviews": 0,
+      "keepId": "1159ccd5-c4a5-4602-93e0-d4e1542883fd",
+      "reason": "Duplicate of: Villaggio Grille (score: 135 vs 20)"
+    },
+    {
+      "id": "924738dc-8ac0-4726-a528-f4aabe75dc5a",
+      "name": "POUR Smart Bar",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "3190ebd3-c549-41f8-aaff-8542ebd2ed91",
+      "reason": "Duplicate of: Pour Smart Bar (score: 110 vs 75)"
+    },
+    {
+      "id": "ccb875ce-8dd8-4bb4-b2d5-fc75c82adad4",
+      "name": "Pour Smart Bar",
+      "score": 15,
+      "reviews": 0,
+      "keepId": "3190ebd3-c549-41f8-aaff-8542ebd2ed91",
+      "reason": "Duplicate of: Pour Smart Bar (score: 110 vs 15)"
+    },
+    {
+      "id": "0c5a06f0-3d63-4327-b19d-da25577e44b0",
+      "name": "Gulf Shores Beach Supply",
+      "score": 55,
+      "reviews": 0,
+      "keepId": "d2df815b-c82a-48cf-9409-3bbb7234dc3f",
+      "reason": "Duplicate of: Gulf Shores Beach Supply (score: 110 vs 55)"
+    },
+    {
+      "id": "7e25082f-e90e-4c89-9f9c-10471c12b628",
+      "name": "The Sloop",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "cc71df4c-c004-492c-9879-83167c239d09",
+      "reason": "Duplicate of: The Sloop (score: 130 vs 75)"
+    },
+    {
+      "id": "1390f70e-513a-46a4-8829-0d1e48d7b9f9",
+      "name": "Shrimp Basket",
+      "score": 130,
+      "reviews": 3545,
+      "keepId": "835d88fe-8251-4ab9-86f6-fe9a3be938ff",
+      "reason": "Duplicate of: Shrimp Basket (score: 135 vs 130)"
+    },
+    {
+      "id": "cd082a58-778c-4e61-a3ef-2d806535fef4",
+      "name": "Orange Beach: Full-Day Jet Ski Rentals departing from Happy Harbor Marina",
+      "score": 45,
+      "reviews": 0,
+      "keepId": "b8bae3f1-ad4c-47b7-aa7f-6b4171788dd6",
+      "reason": "Duplicate of: Orange Beach: Full-Day Jet Ski Rentals departing from Happy Harbor Marina (score: 70 vs 45)"
+    },
+    {
+      "id": "e9057ec8-f8f7-4a5d-8792-66f7eb95b178",
+      "name": "Zavros’s Boutique",
+      "score": 55,
+      "reviews": 0,
+      "keepId": "3fc37c1a-386b-4896-a79c-fd4a147dc05f",
+      "reason": "Duplicate of: Zavros’s Boutique (score: 90 vs 55)"
+    },
+    {
+      "id": "adab1edd-980b-4763-be42-4384e774ee0f",
+      "name": "Orange Beach: Dolphin Sunset Cruise on the Explorer",
+      "score": 85,
+      "reviews": 188,
+      "keepId": "f385ec5d-7135-4665-a502-42b42a4739e0",
+      "reason": "Duplicate of: Orange Beach: Dolphin Sunset Cruise on the Explorer (score: 110 vs 85)"
+    },
+    {
+      "id": "93ea8016-f004-4f48-a463-e50f9ed3ed93",
+      "name": "Lagoon Tower",
+      "score": 30,
+      "reviews": 0,
+      "keepId": "0922872c-ca91-4830-9f75-c0633ddf7cad",
+      "reason": "Duplicate of: Lagoon Tower (score: 80 vs 30)"
+    },
+    {
+      "id": "bc839930-5aba-4fbf-b83e-d9d674c1220b",
+      "name": "The Salty Palm",
+      "score": 55,
+      "reviews": 0,
+      "keepId": "10a9e2e7-1879-476b-a920-cabda508b9a9",
+      "reason": "Duplicate of: The Salty Palm (score: 90 vs 55)"
+    },
+    {
+      "id": "33db3c88-fd6d-4132-845d-459b78f2e89e",
+      "name": "Swiger Studio",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "20a75923-6e50-494d-8946-a83d23e469d2",
+      "reason": "Duplicate of: Swiger Studio (score: 90 vs 75)"
+    },
+    {
+      "id": "9731a218-0980-4a80-97b5-5f0d2271fb6a",
+      "name": "Tanger Outlets Foley",
+      "score": 20,
+      "reviews": 0,
+      "keepId": "c7e619be-8ec4-4900-9330-5588e11c6e94",
+      "reason": "Duplicate of: Tanger Outlets Foley (score: 50 vs 20)"
+    },
+    {
+      "id": "4c9e37f9-a8f0-4e5e-af2b-26be828030f6",
+      "name": "Phoenix V",
+      "score": 30,
+      "reviews": 0,
+      "keepId": "31dfe08a-6352-4879-b3a5-020a7bd17f38",
+      "reason": "Duplicate of: Phoenix V (score: 50 vs 30)"
+    },
+    {
+      "id": "1ae90a52-374f-44f3-a66e-b998afa32ca9",
+      "name": "Surf Side Shores",
+      "score": 30,
+      "reviews": 0,
+      "keepId": "33847a19-b5bb-4911-800c-10651c650442",
+      "reason": "Duplicate of: SURF SIDE SHORES (score: 85 vs 30)"
+    },
+    {
+      "id": "2299c82a-4e27-4de5-a66b-fe9c76131d43",
+      "name": "Orange Beach Tritoon with Slide",
+      "score": 65,
+      "reviews": 7,
+      "keepId": "fd5913b7-fbca-465f-9c2f-526887e4e081",
+      "reason": "Duplicate of: Orange Beach Tritoon with Slide (score: 90 vs 65)"
+    },
+    {
+      "id": "1497e095-89d3-4a64-8339-d0374c3ae4f9",
+      "name": "Sunliner Diner",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "a5ddc44f-2609-43e1-b88e-8a6ff42b8238",
+      "reason": "Duplicate of: Sunliner Diner (score: 110 vs 85)"
+    },
+    {
+      "id": "d1d157fc-c156-4d58-8e5d-26291a9bf49c",
+      "name": "Wolf Bay Restaurant",
+      "score": 50,
+      "reviews": 0,
+      "keepId": "f4875d4c-c748-462e-b86c-9be2c7a0131e",
+      "reason": "Duplicate of: Wolf Bay Restaurant (score: 75 vs 50)"
+    },
+    {
+      "id": "5041558b-f8c3-4919-bcaa-e3f234d614f5",
+      "name": "Archer's Gulf Serenity Spa",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "544acf14-533e-408b-bd75-74081d50af33",
+      "reason": "Duplicate of: Archer's Gulf Serenity Spa (score: 90 vs 75)"
+    },
+    {
+      "id": "0d15b5d5-f672-4556-a848-6f09cd902ee3",
+      "name": "OSO at Bear Point Harbor",
+      "score": 70,
+      "reviews": 0,
+      "keepId": "5dd87a9e-830d-4bb5-a63e-3c302a63f048",
+      "reason": "Duplicate of: OSO at Bear Point Harbor (score: 85 vs 70)"
+    },
+    {
+      "id": "6ad5be0e-567b-4690-9516-2f65adafbd54",
+      "name": "The Wharf",
+      "score": 90,
+      "reviews": 8,
+      "keepId": "6f9f317b-17d8-4690-b22e-48916a164e41",
+      "reason": "Duplicate of: The Wharf (score: 135 vs 90)"
+    },
+    {
+      "id": "3a61505d-dc30-4a30-8669-973767238736",
+      "name": "Pontoon Boat Rental in Orange Beach",
+      "score": 65,
+      "reviews": 49,
+      "keepId": "6a3dd458-65f6-4508-8bff-969e7d3e9bd7",
+      "reason": "Duplicate of: Pontoon Boat Rental in Orange Beach (score: 90 vs 65)"
+    },
+    {
+      "id": "42321aa5-4390-4e64-ad93-5b6b330dbf79",
+      "name": "Rotolo's Pizzeria",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "e2178cd4-3fba-4a4b-b3fc-332ebb988b39",
+      "reason": "Duplicate of: Rotolo's Pizzeria (score: 130 vs 75)"
+    },
+    {
+      "id": "51559c5d-b1d9-408b-b312-707f451e2c86",
+      "name": "Gulf Shores: Extreme Jet Ski Rental",
+      "score": 65,
+      "reviews": 9,
+      "keepId": "704d38fd-2da1-4416-9963-38cf5a62e2e1",
+      "reason": "Duplicate of: Gulf Shores: Extreme Jet Ski Rental (score: 90 vs 65)"
+    },
+    {
+      "id": "985f3f6d-ffdb-471c-ad34-caad4fd53345",
+      "name": "Orange Beach: Dolphin Eco Cruise on The Explorer",
+      "score": 65,
+      "reviews": 25,
+      "keepId": "16dc6e84-eedc-48b2-8b48-f72d0037726d",
+      "reason": "Duplicate of: Orange Beach: Dolphin Eco Cruise on The Explorer (score: 90 vs 65)"
+    },
+    {
+      "id": "0e3875a6-a463-4c61-863a-cc46bb3b59cf",
+      "name": "Orange Beach Tritoon Boat Rental",
+      "score": 70,
+      "reviews": 70,
+      "keepId": "f4f60668-4224-47e0-a560-1ad4c11a2359",
+      "reason": "Duplicate of: Orange Beach Tritoon Boat Rental (score: 85 vs 70)"
+    },
+    {
+      "id": "280f26d0-bf01-4b27-8db5-98c8aa78067a",
+      "name": "Portside on Main",
+      "score": 65,
+      "reviews": 0,
+      "keepId": "3730deb2-3264-4f02-9cf5-ab24fe763fbd",
+      "reason": "Duplicate of: Portside on Main (score: 65 vs 65)"
+    },
+    {
+      "id": "dd2baaf8-5719-416a-93f2-8f9493c17018",
+      "name": "Orange Beach: Gulf Coast Sweet Jeep Rental",
+      "score": 45,
+      "reviews": 0,
+      "keepId": "ec22e5de-5c9e-43c4-87bf-e670c9a38830",
+      "reason": "Duplicate of: Orange Beach: Gulf Coast Sweet Jeep Rental (score: 70 vs 45)"
+    },
+    {
+      "id": "4bf3f1c3-e4d0-4957-9b1c-3b68077333f3",
+      "name": "Orange Beach: 24ft Bentley Sport Pontoon with 140 HP",
+      "score": 45,
+      "reviews": 0,
+      "keepId": "8a02b83b-9c05-4a55-aafa-f6a7955d9d51",
+      "reason": "Duplicate of: Orange Beach: 24ft Bentley Sport Pontoon with 140 HP (score: 70 vs 45)"
+    },
+    {
+      "id": "8d3fede3-bf66-4b41-b56a-f1cdc60dffaf",
+      "name": "Yumm Twister & Ice Cream",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "b5458f86-aa8b-4a94-9dad-07e47d2a5592",
+      "reason": "Duplicate of: Yumm Twister & Ice Cream (score: 110 vs 85)"
+    },
+    {
+      "id": "1db81349-b5a2-4ce7-a26d-b5e2a3d37b7a",
+      "name": "Island Ice Cream & Treats",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "8db7ec31-84ee-41bf-8f4a-551e8603f015",
+      "reason": "Duplicate of: Island Ice Cream & Treats (score: 110 vs 75)"
+    },
+    {
+      "id": "b0b329e1-13be-4196-b851-6ea44732ab53",
+      "name": "Crico's Pizza & Subs",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "0ffbe77c-d855-4637-9c73-73905267c9aa",
+      "reason": "Duplicate of: Crico's Pizza & Subs (score: 130 vs 75)"
+    },
+    {
+      "id": "cebd39c7-c699-4b65-bce8-4499db350bb4",
+      "name": "Crico's Pizza & Subs",
+      "score": 70,
+      "reviews": 0,
+      "keepId": "0ffbe77c-d855-4637-9c73-73905267c9aa",
+      "reason": "Duplicate of: Crico's Pizza & Subs (score: 130 vs 70)"
+    },
+    {
+      "id": "34214a22-6f49-4ff2-84e3-e3364b1dfda4",
+      "name": "BOLO Steak & Seafood",
+      "score": 50,
+      "reviews": 0,
+      "keepId": "650aee8b-70ab-4de5-8ff7-366b1b33d5fe",
+      "reason": "Duplicate of: BOLO Steak & Seafood (score: 115 vs 50)"
+    },
+    {
+      "id": "2dd40050-0979-47e4-b3bb-fd4954eaf70d",
+      "name": "BOLO Steak & Seafood",
+      "score": 10,
+      "reviews": 0,
+      "keepId": "650aee8b-70ab-4de5-8ff7-366b1b33d5fe",
+      "reason": "Duplicate of: BOLO Steak & Seafood (score: 115 vs 10)"
+    },
+    {
+      "id": "e69a547f-6879-4911-9873-37a054819e20",
+      "name": "Orange Beach: Dockside Parasail",
+      "score": 45,
+      "reviews": 0,
+      "keepId": "ff4322cd-335f-4172-bbb2-b6734c74d3db",
+      "reason": "Duplicate of: Orange Beach: Dockside Parasail (score: 85 vs 45)"
+    },
+    {
+      "id": "7c78b99e-1ed8-4057-986a-b872d42d7f4a",
+      "name": "Waffle House",
+      "score": 130,
+      "reviews": 1881,
+      "keepId": "3e689df6-6b8d-4b6d-b945-5ca86336306f",
+      "reason": "Duplicate of: Waffle House (score: 135 vs 130)"
+    },
+    {
+      "id": "5bf06b74-f462-40f8-86c0-4432a78a9fbf",
+      "name": "The Undertow",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "7b6dc0ce-9f94-43b1-885c-cf20561b4358",
+      "reason": "Duplicate of: The Undertow (score: 130 vs 85)"
+    },
+    {
+      "id": "e32c518d-3e8c-4eb0-b204-94ff442b16bc",
+      "name": "Wacked Out Weiner Gulf Shores",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "a45627bc-d023-485c-9ca6-812063e5efda",
+      "reason": "Duplicate of: Wacked Out Weiner Gulf Shores (score: 110 vs 75)"
+    },
+    {
+      "id": "909537f9-0865-4575-ae37-4f1914618f63",
+      "name": "Fort Morgan Parasailing & Banana Boat Experience",
+      "score": 85,
+      "reviews": 133,
+      "keepId": "d9e44283-fc3d-4c68-9ea9-e7db3b50cd21",
+      "reason": "Duplicate of: Fort Morgan Parasailing & Banana Boat Experience (score: 110 vs 85)"
+    },
+    {
+      "id": "74d27435-466b-417c-ac90-ca0c383f6668",
+      "name": "TIKI & RAW BAR",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "1d2754ee-fe70-42ed-85cd-22af48894186",
+      "reason": "Duplicate of: Tiki & Raw Bar (score: 130 vs 85)"
+    },
+    {
+      "id": "e29401c1-46c8-40f4-b77d-eb830cd80494",
+      "name": "A SHOP FOR WOMEN.COM",
+      "score": 35,
+      "reviews": 0,
+      "keepId": "dbb04c7b-7d35-43c7-a923-08cd0c3d6a25",
+      "reason": "Duplicate of: A SHOP FOR WOMEN.COM (score: 85 vs 35)"
+    },
+    {
+      "id": "6ebe6e98-fe15-413a-ab5c-b8002a3093bd",
+      "name": "Orange Beach: Dolphin Sailing Tour Aboard a 52-Foot Catamaran",
+      "score": 65,
+      "reviews": 67,
+      "keepId": "597570f0-3727-4ee5-9834-39cd296136fc",
+      "reason": "Duplicate of: Orange Beach: Dolphin Sailing Tour Aboard a 52-Foot Catamaran (score: 90 vs 65)"
+    },
+    {
+      "id": "63d68cf4-f0f3-453d-8de9-3857efee8cb7",
+      "name": "Gulf Shores Kayak Rental",
+      "score": 45,
+      "reviews": 0,
+      "keepId": "04c52c88-99bb-46dd-98cf-f7d37fcc6afc",
+      "reason": "Duplicate of: Gulf Shores Kayak Rental (score: 70 vs 45)"
+    },
+    {
+      "id": "b1a05f7a-1401-4852-b760-a31b1308d28f",
+      "name": "Tee Off at The Wharf Powered by TOPGOLF Swing Suites",
+      "score": 70,
+      "reviews": 100,
+      "keepId": "da7a0cf6-a44e-4fa9-98d8-21dee1007b7f",
+      "reason": "Duplicate of: Tee Off at The Wharf Powered by TOPGOLF Swing Suites (score: 105 vs 70)"
+    },
+    {
+      "id": "5283c74b-84dd-473c-a70c-9f48ab1c1736",
+      "name": "Paradise Boutiques",
+      "score": 65,
+      "reviews": 0,
+      "keepId": "5b551840-19a3-4e59-afc6-96471a8240e4",
+      "reason": "Duplicate of: Paradise Boutiques (score: 70 vs 65)"
+    },
+    {
+      "id": "7e9e6bb4-84ac-4b1a-8abf-5e3371fff523",
+      "name": "Beachside Circle Boat Rentals and Sales",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "09b1668d-7256-4858-b144-61bc513b3d53",
+      "reason": "Duplicate of: Beachside Circle Boat Rentals and Sales (score: 90 vs 85)"
+    },
+    {
+      "id": "bcc4dc19-93aa-4b87-82f9-0f79cbda6c1c",
+      "name": "Adventure Island",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "a324fff6-dbf1-4727-b320-18327de44c3b",
+      "reason": "Duplicate of: Adventure Island (score: 130 vs 85)"
+    },
+    {
+      "id": "3cba8087-bb2d-422c-90e7-70527c44d2f8",
+      "name": "Barefoot Tours & Charters",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "c6c9c065-caf9-43dd-84d7-b43baed0b974",
+      "reason": "Duplicate of: Barefoot Tours & Charters (score: 110 vs 85)"
+    },
+    {
+      "id": "d984f88b-ee4e-4669-b910-09ffd52eb76e",
+      "name": "Bear Point Plaza",
+      "score": 55,
+      "reviews": 1,
+      "keepId": "edef837a-2b87-4e7c-9ff7-66a563f3e84e",
+      "reason": "Duplicate of: Bear Point Plaza (score: 65 vs 55)"
+    },
+    {
+      "id": "03e2d328-fc41-4f2e-9e69-70a11265d06e",
+      "name": "Gulf Shores Beach Trading Company",
+      "score": 45,
+      "reviews": 0,
+      "keepId": "2f359dce-21d3-4e96-916e-4df52cfa452a",
+      "reason": "Duplicate of: Gulf Shores Beach Trading Company (score: 65 vs 45)"
+    },
+    {
+      "id": "b7103e25-a717-4588-ab46-be782e7bb7ad",
+      "name": "Books-A-Million",
+      "score": 50,
+      "reviews": 0,
+      "keepId": "dafaacab-0910-4455-b9a2-37c9debe83bd",
+      "reason": "Duplicate of: Books-A-Million (score: 135 vs 50)"
+    },
+    {
+      "id": "d861840d-0b33-4913-9e20-dafcd68cef39",
+      "name": "Charm Boutique",
+      "score": 55,
+      "reviews": 0,
+      "keepId": "61cdf6c0-05f3-4a42-ae68-ea9b70de86c2",
+      "reason": "Duplicate of: Charm Boutique (score: 90 vs 55)"
+    },
+    {
+      "id": "1dc7ac60-c219-4184-90d5-c7b426e9e789",
+      "name": "Beach House Boutique",
+      "score": 50,
+      "reviews": 0,
+      "keepId": "e1194abc-da17-43d6-9a70-cf37137c28cc",
+      "reason": "Duplicate of: Beach House Boutique (score: 115 vs 50)"
+    },
+    {
+      "id": "69d69df3-b3f5-4b35-8f38-ecd16249e32d",
+      "name": "Infinity Bicycles",
+      "score": 55,
+      "reviews": 0,
+      "keepId": "85cef2df-0f9c-4523-8049-8dd6fac89058",
+      "reason": "Duplicate of: Infinity Bicycles (score: 110 vs 55)"
+    },
+    {
+      "id": "1eee05e1-4d06-437f-a671-2416b9a0b193",
+      "name": "Pelican Place at Craft Farms",
+      "score": 65,
+      "reviews": 0,
+      "keepId": "52729109-6d7a-40cf-b73f-93ba339ae116",
+      "reason": "Duplicate of: Pelican Place at Craft Farms (score: 80 vs 65)"
+    },
+    {
+      "id": "c3318491-3bc2-43f9-9585-ccda84062d6a",
+      "name": "Shop LuLu Buffett",
+      "score": 55,
+      "reviews": 0,
+      "keepId": "f465d6cf-bd28-4bdf-af68-4650314b952c",
+      "reason": "Duplicate of: Shop LuLu Buffett (score: 90 vs 55)"
+    },
+    {
+      "id": "ee22e4c8-1c4b-414f-a276-d182ff9a58fe",
+      "name": "Ron Jon Surf Shop - Orange Beach",
+      "score": 50,
+      "reviews": 0,
+      "keepId": "ff26cbbb-db91-4057-88d8-7e187db24581",
+      "reason": "Duplicate of: Ron Jon Surf Shop - Orange Beach (score: 135 vs 50)"
+    },
+    {
+      "id": "963a3cc7-708f-4f6e-af6d-26fc50f35860",
+      "name": "The Square Shopping Center",
+      "score": 55,
+      "reviews": 0,
+      "keepId": "d68da984-6a9d-4199-9023-834cdd53d16a",
+      "reason": "Duplicate of: The Square Shopping Center (score: 80 vs 55)"
+    },
+    {
+      "id": "68055611-6b2c-40d8-8017-d46c5c27d993",
+      "name": "Orange Beach: Dolphin Cruises aboard Cruise Orange Beach",
+      "score": 85,
+      "reviews": 340,
+      "keepId": "ab3bd1f5-d449-48fc-9ccc-e0af2057d77a",
+      "reason": "Duplicate of: Orange Beach: Dolphin Cruises aboard Cruise Orange Beach (score: 110 vs 85)"
+    },
+    {
+      "id": "599b2f90-c61a-4ef4-96e1-67224afdaadd",
+      "name": "The Office Lounge",
+      "score": 80,
+      "reviews": 0,
+      "keepId": "82635929-419c-4ab1-8bff-bb86614d9b77",
+      "reason": "Duplicate of: The Office Lounge (score: 85 vs 80)"
+    },
+    {
+      "id": "5cae05a4-9831-4cc0-8b5b-dce8c7415680",
+      "name": "Orange Beach: Private Sightseeing & Eco Boat Tour",
+      "score": 75,
+      "reviews": 1,
+      "keepId": "de235b42-9855-40f4-a9f9-aed71d43de40",
+      "reason": "Duplicate of: Orange Beach: Private Sightseeing & Eco Boat Tour (score: 90 vs 75)"
+    },
+    {
+      "id": "bb7ef2ce-7bbf-4e51-8b80-d822546af9ad",
+      "name": "GTs on the Bay",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "ea435145-c913-40a6-a030-f5e22f13ef3d",
+      "reason": "Duplicate of: GTs On The Bay (score: 130 vs 85)"
+    },
+    {
+      "id": "1788efc2-1d6c-4340-b4e7-a6d8aed3e2ee",
+      "name": "Orange Beach: 24ft Double Deck Pontoon with Slide and 115 HP",
+      "score": 50,
+      "reviews": 0,
+      "keepId": "c5589793-3458-4e88-a50d-8e84566fe6fa",
+      "reason": "Duplicate of: Orange Beach: 24ft Double Deck Pontoon with Slide and 115 HP (score: 65 vs 50)"
+    },
+    {
+      "id": "aeb82728-adc7-45e6-be6d-8f1a9caf44ea",
+      "name": "Orange Beach: Family-Friendly Dolphin Cruise",
+      "score": 65,
+      "reviews": 19,
+      "keepId": "7ba85160-f943-4e33-9d06-88d51f189949",
+      "reason": "Duplicate of: Orange Beach: Family-Friendly Dolphin Cruise (score: 90 vs 65)"
+    },
+    {
+      "id": "b2c559c6-938a-4d4c-8485-b841f11c4293",
+      "name": "Vinny's Pizzeria",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "534e63fa-8bef-45a7-b597-49e56b146db5",
+      "reason": "Duplicate of: Vinny's Pizzeria (score: 110 vs 75)"
+    },
+    {
+      "id": "9adabe0f-f6d0-4b67-89b3-9581ae891f2b",
+      "name": "Abide Boutique",
+      "score": 55,
+      "reviews": 0,
+      "keepId": "8371b617-3f84-4721-8f19-5206f5c16ef5",
+      "reason": "Duplicate of: Abide Boutique (score: 90 vs 55)"
+    },
+    {
+      "id": "dd308338-cd5b-48dc-b705-debf65e1d5e3",
+      "name": "Bungalows",
+      "score": 40,
+      "reviews": 0,
+      "keepId": "399f4e21-3e9c-4035-911f-48b3a0eca7c1",
+      "reason": "Duplicate of: Bungalows (score: 105 vs 40)"
+    },
+    {
+      "id": "f3206069-3bce-4b15-aa81-b5c3cc7b403e",
+      "name": "Gifted. Orange Beach",
+      "score": 45,
+      "reviews": 0,
+      "keepId": "93db2e37-e95f-4989-bfe2-12db0bc71c2a",
+      "reason": "Duplicate of: Gifted. Orange Beach (score: 80 vs 45)"
+    },
+    {
+      "id": "eb0d8285-5ac9-4fd7-92af-3022c774ef2a",
+      "name": "Gulf Shores City Store",
+      "score": 55,
+      "reviews": 0,
+      "keepId": "38d7d196-ace9-4a8e-bda1-353725571a9d",
+      "reason": "Duplicate of: Gulf Shores City Store (score: 90 vs 55)"
+    },
+    {
+      "id": "632cf61a-e536-4f04-b8b4-d5cea89ed3e3",
+      "name": "Blue Lagoon LLC",
+      "score": 65,
+      "reviews": 0,
+      "keepId": "b24a0f1d-4430-4eb5-9ecf-da840f841b75",
+      "reason": "Duplicate of: Blue Lagoon LLC (score: 90 vs 65)"
+    },
+    {
+      "id": "27f87fce-4f28-4904-a785-fa50ea2ad523",
+      "name": "Emporium@C - Coastal Gifts & More - Orange Beach",
+      "score": 55,
+      "reviews": 0,
+      "keepId": "9fc20360-9659-4fed-b916-d171a577814c",
+      "reason": "Duplicate of: Emporium@C - Coastal Gifts & More - Orange Beach (score: 90 vs 55)"
+    },
+    {
+      "id": "c18b5822-650d-4027-a11c-b1d0005f2b80",
+      "name": "Gulf Shores Souvenirs & Gifts",
+      "score": 45,
+      "reviews": 0,
+      "keepId": "fbc261ad-da49-415b-9bee-739e68340fe4",
+      "reason": "Duplicate of: Gulf Shores Souvenirs & Gifts (score: 80 vs 45)"
+    },
+    {
+      "id": "7a152d74-a535-4384-8052-19cf4eb77595",
+      "name": "Hertha's Seconds Boutique",
+      "score": 55,
+      "reviews": 0,
+      "keepId": "4ca5a8af-404b-457b-a7b5-d50d577bf65e",
+      "reason": "Duplicate of: Hertha's Seconds Boutique (score: 90 vs 55)"
+    },
+    {
+      "id": "3ce17342-b778-4606-b9b4-75ac627d157b",
+      "name": "Beach Planet - Nothing Over $14.99",
+      "score": 30,
+      "reviews": 0,
+      "keepId": "0b236e1c-f1c3-4253-8a31-460fd4542e58",
+      "reason": "Duplicate of: Beach Planet - Nothing Over $14.99 (score: 65 vs 30)"
+    },
+    {
+      "id": "47e4915d-523d-4a15-bc9e-8c6f3c6b60cf",
+      "name": "Coastal Store",
+      "score": 55,
+      "reviews": 0,
+      "keepId": "1856b420-7d5d-4963-8a03-e2c729c1ff48",
+      "reason": "Duplicate of: Coastal Store (score: 90 vs 55)"
+    },
+    {
+      "id": "4c0130d2-691d-4e85-9912-1842cb87905d",
+      "name": "Fish On A Dish",
+      "score": 45,
+      "reviews": 0,
+      "keepId": "6116fead-d902-4aea-9bf7-65e6861cae2c",
+      "reason": "Duplicate of: Fish On A Dish (score: 80 vs 45)"
+    },
+    {
+      "id": "3ad132e6-62e4-400b-948e-a87283acfff0",
+      "name": "Frank & Co @ The Wharf",
+      "score": 55,
+      "reviews": 0,
+      "keepId": "7873c35c-6231-43d8-b792-678563083a50",
+      "reason": "Duplicate of: Frank & Co @ The Wharf (score: 90 vs 55)"
+    },
+    {
+      "id": "f300d12c-bbc2-40df-85a0-65a27fd98ad2",
+      "name": "Island Market",
+      "score": 45,
+      "reviews": 0,
+      "keepId": "684288f3-9f19-4a3a-ad3d-1f668aacfe93",
+      "reason": "Duplicate of: Island Market (score: 110 vs 45)"
+    },
+    {
+      "id": "e3d86500-c075-4c74-81cb-2cc96b6d0650",
+      "name": "Love, JUDE Clothing Boutique",
+      "score": 55,
+      "reviews": 0,
+      "keepId": "26305471-451a-43ac-ac0d-8e31e497d6d9",
+      "reason": "Duplicate of: Love, JUDE Clothing Boutique (score: 90 vs 55)"
+    },
+    {
+      "id": "e9e2afc0-64cc-4c60-a825-47f5bff6c96f",
+      "name": "Lucca",
+      "score": 55,
+      "reviews": 0,
+      "keepId": "176c2baa-4abb-44fd-8ba0-c6f4c4737089",
+      "reason": "Duplicate of: Lucca (score: 90 vs 55)"
+    },
+    {
+      "id": "e3abfaae-eb93-4056-8501-0c9838d24b82",
+      "name": "Purple Octopus",
+      "score": 45,
+      "reviews": 0,
+      "keepId": "fc0d6d06-704e-437a-af08-00e304d0fdc9",
+      "reason": "Duplicate of: Purple Octopus (score: 100 vs 45)"
+    },
+    {
+      "id": "47c27a3e-6ca1-4b1c-8954-5282c41d3911",
+      "name": "Maggie's Gift Shop",
+      "score": 55,
+      "reviews": 0,
+      "keepId": "6de08a9c-a1dc-4985-a714-097ba807aedf",
+      "reason": "Duplicate of: Maggie's Gift Shop (score: 90 vs 55)"
+    },
+    {
+      "id": "60a0746b-af99-4770-adf0-5c2deb355bc9",
+      "name": "Palm Point Shopping Plaza",
+      "score": 40,
+      "reviews": 0,
+      "keepId": "2103f420-5011-4b4b-a294-35f3281ed738",
+      "reason": "Duplicate of: Palm Point Shopping Plaza (score: 85 vs 40)"
+    },
+    {
+      "id": "b9372782-73b1-41ae-8a4a-bbacc0d00c99",
+      "name": "Sago Art Gallery at Beach Girl At Home",
+      "score": 65,
+      "reviews": 0,
+      "keepId": "a8e43ea9-6329-415e-b6c1-e2d75dc35c06",
+      "reason": "Duplicate of: Sago Art Gallery at Beach Girl At Home (score: 90 vs 65)"
+    },
+    {
+      "id": "e74980d8-1607-46ab-af37-fffe18286283",
+      "name": "Uptown Plaza",
+      "score": 65,
+      "reviews": 0,
+      "keepId": "c36e2998-2fa8-4b85-82a2-fe7d5f5582fb",
+      "reason": "Duplicate of: Uptown Plaza (score: 80 vs 65)"
+    },
+    {
+      "id": "b051b2d1-0f2a-4d1f-860b-464f55c4c55e",
+      "name": "Utopia",
+      "score": 45,
+      "reviews": 0,
+      "keepId": "27c041ca-7a8b-45b7-b2e9-34634965de45",
+      "reason": "Duplicate of: Utopia (score: 80 vs 45)"
+    },
+    {
+      "id": "8eed8bac-be0a-47de-ab6e-a140bd0911d8",
+      "name": "Salt Mercantile",
+      "score": 55,
+      "reviews": 0,
+      "keepId": "c7279640-4774-41aa-a8dc-0e89d0f418f1",
+      "reason": "Duplicate of: Salt Mercantile (score: 90 vs 55)"
+    },
+    {
+      "id": "a6ceb638-6fc5-4bd5-b770-059944bf2f3d",
+      "name": "Rouses Market",
+      "score": 60,
+      "reviews": 0,
+      "keepId": "95648e0a-b2cd-4e2e-b9b6-2c7dcff9b1c3",
+      "reason": "Duplicate of: Rouses Market (score: 135 vs 60)"
+    },
+    {
+      "id": "49c3e8af-a3b9-47de-99cd-515ef14485cb",
+      "name": "The Royal Standard",
+      "score": 50,
+      "reviews": 0,
+      "keepId": "e0d520a0-0d87-4dae-9343-c255b6a3ea4f",
+      "reason": "Duplicate of: The Royal Standard (score: 95 vs 50)"
+    },
+    {
+      "id": "7ef97c08-c962-4a58-8d72-5ebfd4b1ade3",
+      "name": "Seaside Shoes & SWIM",
+      "score": 55,
+      "reviews": 0,
+      "keepId": "88f6eb7a-43fc-4d04-bb9f-e10b5138deec",
+      "reason": "Duplicate of: Seaside Shoes & SWIM (score: 90 vs 55)"
+    },
+    {
+      "id": "709f5a8b-fe19-4273-ae38-b3df4cc0e9ee",
+      "name": "Souvenir City",
+      "score": 55,
+      "reviews": 0,
+      "keepId": "6b22c69c-e21a-426b-ae8e-e03df8934c73",
+      "reason": "Duplicate of: Souvenir City (score: 110 vs 55)"
+    },
+    {
+      "id": "fc932c62-95f7-4976-b270-9a72538396bd",
+      "name": "The Commons",
+      "score": 50,
+      "reviews": 0,
+      "keepId": "4e0ff5ae-05e8-420e-9f73-584f6dd23d3d",
+      "reason": "Duplicate of: The Commons (score: 85 vs 50)"
+    },
+    {
+      "id": "44220c67-1721-4e28-8b69-1af7bbbe400e",
+      "name": "The Mercantile",
+      "score": 65,
+      "reviews": 0,
+      "keepId": "3bed892f-f6bf-45e6-b1a3-f751e7c95898",
+      "reason": "Duplicate of: The Mercantile (score: 90 vs 65)"
+    },
+    {
+      "id": "2b40df85-e7a1-4222-befc-0561bd8672dd",
+      "name": "The Oasis at The Wharf",
+      "score": 55,
+      "reviews": 0,
+      "keepId": "a3f0b526-8b49-4aff-b06e-0e571b590891",
+      "reason": "Duplicate of: The Oasis at The Wharf (score: 65 vs 55)"
+    },
+    {
+      "id": "5fa00222-a7af-48f4-9982-1ca2c3606ebd",
+      "name": "The Orange Beach Store",
+      "score": 55,
+      "reviews": 0,
+      "keepId": "5ead1b5f-4524-4edd-a54d-da0fc09da675",
+      "reason": "Duplicate of: The Orange Beach Store (score: 110 vs 55)"
+    },
+    {
+      "id": "6763d085-7764-441c-adad-7d4460d76555",
+      "name": "The Wharf Store",
+      "score": 55,
+      "reviews": 0,
+      "keepId": "046a4f18-bb9d-4fe9-ba8d-965c4bf2e0bc",
+      "reason": "Duplicate of: The Wharf Store (score: 90 vs 55)"
+    },
+    {
+      "id": "ded6d8b0-15e4-448e-a45a-50774ced415f",
+      "name": "Treasure Chest",
+      "score": 55,
+      "reviews": 0,
+      "keepId": "5d3c6a68-526c-4ddd-b8dd-6db1e6ffda81",
+      "reason": "Duplicate of: Treasure Chest (score: 80 vs 55)"
+    },
+    {
+      "id": "53628e27-7bcc-4ed3-8044-be95d4a5aff5",
+      "name": "Wildflowers Boutique",
+      "score": 55,
+      "reviews": 0,
+      "keepId": "123da394-1133-44da-bce9-e2bed6ee075f",
+      "reason": "Duplicate of: Wildflowers Boutique (score: 90 vs 55)"
+    },
+    {
+      "id": "0283106b-c145-40a7-85ac-211fd830e100",
+      "name": "Too Hot Mamas Boutique",
+      "score": 65,
+      "reviews": 0,
+      "keepId": "58e177e5-3e11-4507-9707-e6fe8001b5dc",
+      "reason": "Duplicate of: Too Hot Mamas Boutique (score: 90 vs 65)"
+    },
+    {
+      "id": "d933fd54-19f2-4c88-a6fe-2761ac9cab2d",
+      "name": "Gulf Island Grill",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "88cc7acc-ebb1-4a19-95f1-919d6615f58f",
+      "reason": "Duplicate of: Gulf Island Grill (score: 130 vs 85)"
+    },
+    {
+      "id": "8c4c61b1-efd2-466f-b8ac-01151ced3f0c",
+      "name": "Orange Beach: Private ONO Island Sightseeing Cruise",
+      "score": 65,
+      "reviews": 5,
+      "keepId": "de90cc04-67d2-483e-8cf1-102b57003ef6",
+      "reason": "Duplicate of: Orange Beach: Private ONO Island Sightseeing Cruise (score: 90 vs 65)"
+    },
+    {
+      "id": "674cb05e-8f9f-41f7-a247-c22ff226e961",
+      "name": "Orange Beach: Waverunner Dolphin Tour with Free Photos",
+      "score": 70,
+      "reviews": 27,
+      "keepId": "f8033bd0-9650-45e2-82ec-47ba297e9238",
+      "reason": "Duplicate of: Orange Beach: Waverunner Dolphin Tour with Free Photos (score: 85 vs 70)"
+    },
+    {
+      "id": "f21492a2-9de5-4c69-9a93-39060145ae20",
+      "name": "Bar 45",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "2db3ddbb-86b7-4233-b2d6-1a4362adb6b6",
+      "reason": "Duplicate of: Bar 45 (score: 110 vs 85)"
+    },
+    {
+      "id": "51fc0f5b-cf30-49b7-8118-c3da1ecc47d9",
+      "name": "Doc's Seafood Shack & Oyster Bar",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "f16a4eff-33e1-4332-a29b-ed543f725047",
+      "reason": "Duplicate of: Doc's Seafood Shack & Oyster Bar (score: 130 vs 85)"
+    },
+    {
+      "id": "84baddb8-9a5b-417d-a655-34c056867b45",
+      "name": "Orange Beach History Museum",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "aa682773-87e0-47a7-9929-8cf14f2c9b5b",
+      "reason": "Duplicate of: Orange Beach History Museum (score: 130 vs 75)"
+    },
+    {
+      "id": "75ee5e6a-e5fd-4415-849c-1b3c66d2c040",
+      "name": "Orange Beach: Private Island Grillin & Chillin Boat Cruise",
+      "score": 65,
+      "reviews": 3,
+      "keepId": "d59e58b8-9479-4ffc-bfeb-1e41d3e9de7f",
+      "reason": "Duplicate of: Orange Beach: Private Island Grillin & Chillin Boat Cruise (score: 90 vs 65)"
+    },
+    {
+      "id": "a358456d-30f7-4633-992b-b00d5ea88c68",
+      "name": "Domino's Pizza",
+      "score": 115,
+      "reviews": 97,
+      "keepId": "5d6d550b-3ed3-4c9d-86c2-607dbf13fb12",
+      "reason": "Duplicate of: Domino's Pizza (score: 130 vs 115)"
+    },
+    {
+      "id": "f0353f4e-888a-4855-a147-9365264079c1",
+      "name": "Orange Beach: Gulf Coast 4-Seater Golf Cart Rental",
+      "score": 45,
+      "reviews": 0,
+      "keepId": "2e6ba07f-bfde-48ae-a9c8-14ff454615a8",
+      "reason": "Duplicate of: Orange Beach: Gulf Coast 4-Seater Golf Cart Rental (score: 70 vs 45)"
+    },
+    {
+      "id": "fb7cbb8d-29b3-4497-bfcc-a5d84b3b8121",
+      "name": "Orange Beach: Private Dolphin Sightseeing Tour",
+      "score": 85,
+      "reviews": 181,
+      "keepId": "56aa4d6c-fc3c-4a93-8e6e-9749f39764cb",
+      "reason": "Duplicate of: Orange Beach: Private Dolphin Sightseeing Tour (score: 110 vs 85)"
+    },
+    {
+      "id": "9b19e150-b042-4a41-91b6-b9581948599d",
+      "name": "Orange Beach: Private Bushwacker & Restaurant Boat Tour",
+      "score": 65,
+      "reviews": 1,
+      "keepId": "7a3c66e8-eb3a-4597-89f8-5cb600808917",
+      "reason": "Duplicate of: Orange Beach: Private Bushwacker & Restaurant Boat Tour (score: 90 vs 65)"
+    },
+    {
+      "id": "98d401ab-097f-45a6-8025-94f3a0048b3e",
+      "name": "Orange Beach: Private Bachelor(ette) Boat Tour",
+      "score": 45,
+      "reviews": 0,
+      "keepId": "886e43f0-b31b-45ff-9760-716aa4c90745",
+      "reason": "Duplicate of: Orange Beach: Private Bachelor(ette) Boat Tour (score: 70 vs 45)"
+    },
+    {
+      "id": "4562738d-b661-4402-a0f6-3afb736fdd86",
+      "name": "Orange Beach: Private Islands Booze Cruise",
+      "score": 45,
+      "reviews": 0,
+      "keepId": "ccd713e9-b917-4106-b083-8e02aca9b936",
+      "reason": "Duplicate of: Orange Beach: Private Islands Booze Cruise (score: 70 vs 45)"
+    },
+    {
+      "id": "17586ff9-2c6a-47a2-b651-423712fc0916",
+      "name": "Happy Pappys Coffeehouse",
+      "score": 75,
+      "reviews": 0,
+      "keepId": "7a351eb2-8600-44a3-af61-f04ae010d8ff",
+      "reason": "Duplicate of: Happy Pappys Coffeehouse (score: 110 vs 75)"
+    },
+    {
+      "id": "6c28748f-3eec-4792-bc35-718a6805a00a",
+      "name": "ZENSHI Handcrafted Sushi",
+      "score": 90,
+      "reviews": 3,
+      "keepId": "059db14e-2a08-4b30-adc7-987ae14faeae",
+      "reason": "Duplicate of: ZENSHI Handcrafted Sushi (score: 95 vs 90)"
+    },
+    {
+      "id": "244499d8-5ad6-4b6b-9c6f-62de3d0bebe6",
+      "name": "ZENSHI Handcrafted Sushi",
+      "score": 70,
+      "reviews": 0,
+      "keepId": "059db14e-2a08-4b30-adc7-987ae14faeae",
+      "reason": "Duplicate of: ZENSHI Handcrafted Sushi (score: 95 vs 70)"
+    },
+    {
+      "id": "a977d5d3-256b-4d52-a670-3e9e1cdbd835",
+      "name": "The Southern Grind Coffee House at the WHARF",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "085115fc-c367-4728-8d9b-d74ee73b524a",
+      "reason": "Duplicate of: The Southern Grind Coffee House at the WHARF (score: 130 vs 85)"
+    },
+    {
+      "id": "b74c1e76-b7fa-4c73-9471-11aaac59417c",
+      "name": "Del's Ice Cream",
+      "score": 110,
+      "reviews": 482,
+      "keepId": "6cc9d574-c97c-448f-a345-60fe9ac7038a",
+      "reason": "Duplicate of: Del's Ice Cream (score: 115 vs 110)"
+    },
+    {
+      "id": "f3c475fc-6e0e-43f9-a8f1-00b5bc00b335",
+      "name": "Del's ice cream",
+      "score": 90,
+      "reviews": 27,
+      "keepId": "6cc9d574-c97c-448f-a345-60fe9ac7038a",
+      "reason": "Duplicate of: Del's Ice Cream (score: 115 vs 90)"
+    },
+    {
+      "id": "776706f9-32d2-42f5-8516-7cfb69278fd0",
+      "name": "Beautiful Gulf Shores AL Beachfront Condo for Rent! Sleeps 4",
+      "score": 35,
+      "reviews": 0,
+      "keepId": "71d2f316-0973-4980-8d69-062b85cd34d6",
+      "reason": "Duplicate of: Beautiful Gulf Shores AL Beachfront Condo for Rent! Sleeps 4 (score: 40 vs 35)"
+    },
+    {
+      "id": "e86e6ccc-2ee1-4cc8-880d-4236ba72f39b",
+      "name": "Dippin' Dots",
+      "score": 100,
+      "reviews": 70,
+      "keepId": "1b9aaada-0201-4512-9ca6-6d5a1e9a3e98",
+      "reason": "Duplicate of: Dippin' Dots (score: 135 vs 100)"
+    },
+    {
+      "id": "4994107f-bfc2-4840-a62d-080b015a977d",
+      "name": "Best Western on the Beach",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "35d6988c-e0a2-4553-9b06-bc3e7250e71f",
+      "reason": "Duplicate of: Best Western on the Beach (score: 130 vs 85)"
+    },
+    {
+      "id": "68b3ef0b-9e0c-4515-9e67-13442104fc10",
+      "name": "Orange Beach: Polaris Slingshot Rental",
+      "score": 65,
+      "reviews": 16,
+      "keepId": "b02d3237-a61d-49b1-88a6-13f9af8e7c84",
+      "reason": "Duplicate of: Orange Beach: Polaris Slingshot Rental (score: 90 vs 65)"
+    },
+    {
+      "id": "4782d55d-e57b-4cd3-9d90-e25844df066f",
+      "name": "Orange Beach Sea Fox Center Console Boat Rental",
+      "score": 45,
+      "reviews": 0,
+      "keepId": "fa7681b8-9e04-4343-9338-8f727f381c58",
+      "reason": "Duplicate of: Orange Beach Sea Fox Center Console Boat Rental (score: 70 vs 45)"
+    },
+    {
+      "id": "c82a2023-1053-43a3-ba2c-c80036a25079",
+      "name": "Vacasa",
+      "score": 80,
+      "reviews": 0,
+      "keepId": "6c071e90-de49-4670-866e-6b5314b88e27",
+      "reason": "Duplicate of: Vacasa (score: 95 vs 80)"
+    },
+    {
+      "id": "f4bc887c-9cd1-4efd-a019-f014360be4e1",
+      "name": "Alabama Point East",
+      "score": 95,
+      "reviews": 208,
+      "keepId": "995b8a4c-3b6b-4bd4-b6c4-37a0980aaccd",
+      "reason": "Duplicate of: Alabama Point East (score: 115 vs 95)"
+    },
+    {
+      "id": "e9c57238-cdbd-4ef6-9879-62159cc81b1f",
+      "name": "SWEET CONE ALABAMA ICE CREAM",
+      "score": 100,
+      "reviews": 123,
+      "keepId": "2f84f6a8-5180-41c3-a1cd-f459ea7c8cb3",
+      "reason": "Duplicate of: SWEET CONE ALABAMA ICE CREAM (score: 105 vs 100)"
+    },
+    {
+      "id": "ee26d1ed-21f8-430e-b38a-52c6f9cc02f7",
+      "name": "Bay Breeze RV on the Bay",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "58e9485b-da7f-4da6-8b74-035f17f60c18",
+      "reason": "Duplicate of: Bay Breeze RV on the Bay (score: 130 vs 85)"
+    },
+    {
+      "id": "4939f5ac-d418-47e1-b379-c0d775ac2738",
+      "name": "Gulf State Park Campground",
+      "score": 90,
+      "reviews": 39,
+      "keepId": "65418dfb-1296-4cae-858a-f2a3b2ac5d1c",
+      "reason": "Duplicate of: Gulf State Park Campground (score: 115 vs 90)"
+    },
+    {
+      "id": "fa3e6af6-7c81-4a83-af75-c7efd73dcf3f",
+      "name": "Orange Beach: Guided Jet Ski Dolphin Tour",
+      "score": 100,
+      "reviews": 215,
+      "keepId": "87fa034d-9979-4696-8c5b-00e1f42135ff",
+      "reason": "Duplicate of: Orange Beach: Guided Jet Ski Dolphin Tour (score: 105 vs 100)"
+    },
+    {
+      "id": "a053f777-d7cf-4a4c-86e4-53d62a3d00a4",
+      "name": "El Toro Mexican Restaurant",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "a16d118d-10fb-4e24-b7d5-a0842f892f1c",
+      "reason": "Duplicate of: El Toro Mexican Restaurant (score: 130 vs 85)"
+    },
+    {
+      "id": "2a514262-a6e6-43e1-964a-2889353851c4",
+      "name": "Gulf Coast Rental Co",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "4c750af1-a91e-4db1-8150-30c7bcef4a09",
+      "reason": "Duplicate of: Gulf Coast Rental Co (score: 110 vs 85)"
+    },
+    {
+      "id": "0bc522f6-2d6a-43e6-b7c3-686f060321cc",
+      "name": "David's Gallery",
+      "score": 55,
+      "reviews": 0,
+      "keepId": "767cd5f8-5f35-420f-b6f3-78302fcebd88",
+      "reason": "Duplicate of: David's Gallery (score: 100 vs 55)"
+    },
+    {
+      "id": "eb2b79ed-6f70-4796-914b-564c548dbfb2",
+      "name": "Gulf Shores: Parasailing & Banana Boat Adventure",
+      "score": 95,
+      "reviews": 296,
+      "keepId": "71e77d0a-46e1-4b57-9a9b-28637c4f66cb",
+      "reason": "Duplicate of: Gulf Shores: Parasailing & Banana Boat Adventure (score: 110 vs 95)"
+    },
+    {
+      "id": "9c797bbf-4df0-42c5-8871-89eb9eb63cb5",
+      "name": "A Specialty Bakery and Party Shoppe",
+      "score": 70,
+      "reviews": 0,
+      "keepId": "78769495-5b31-4401-8b9c-48aff42dd85e",
+      "reason": "Duplicate of: A Specialty Bakery and Party Shoppe (score: 85 vs 70)"
+    },
+    {
+      "id": "a5d9586b-2f18-4f89-a9e2-0a0d6fcfef48",
+      "name": "Surfside Pizza",
+      "score": 70,
+      "reviews": 0,
+      "keepId": "e43235ad-e612-446d-8173-a95a74c3ce1b",
+      "reason": "Duplicate of: Surfside Pizza (score: 85 vs 70)"
+    },
+    {
+      "id": "571b6d62-bba7-42c1-87ac-f2c19a3135a9",
+      "name": "Gulf Shores Museum",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "3f4b1e05-4ea2-4c5b-8c76-994461a72bc6",
+      "reason": "Duplicate of: Gulf Shores Museum (score: 130 vs 85)"
+    },
+    {
+      "id": "8f37f957-72a4-4096-80bc-be6f602f36c5",
+      "name": "Souvenir City of Orange Beach",
+      "score": 110,
+      "reviews": 215,
+      "keepId": "4b66cc52-e631-42ae-b81f-63be4f1540c8",
+      "reason": "Duplicate of: Souvenir City of Orange Beach (score: 115 vs 110)"
+    },
+    {
+      "id": "5849d1ee-bde8-4948-8948-229094f5630f",
+      "name": "Orange Beach 20-Foot Pontoon Rental",
+      "score": 65,
+      "reviews": 4,
+      "keepId": "cdf1fed6-35bc-4a27-a814-d647c2c59bc7",
+      "reason": "Duplicate of: Orange Beach 20-Foot Pontoon Rental (score: 90 vs 65)"
+    },
+    {
+      "id": "62ab7bc4-5fa0-4fa8-918b-43e66be17a87",
+      "name": "Orange Beach: Half-Day Jet Ski Rentals departing from Happy Harbor Marina",
+      "score": 70,
+      "reviews": 1,
+      "keepId": "70e085e6-6110-451f-96d4-3f3fae9f1c0c",
+      "reason": "Duplicate of: Orange Beach: Half-Day Jet Ski Rentals departing from Happy Harbor Marina (score: 85 vs 70)"
+    },
+    {
+      "id": "c9680078-04e6-4596-b829-1c1ce9d183ba",
+      "name": "Gelato Joe's Italian Restaurant & Bar",
+      "score": 110,
+      "reviews": 1820,
+      "keepId": "233a0358-06dd-4143-b1f0-327397dda06c",
+      "reason": "Duplicate of: Gelato Joe's Italian Restaurant & Bar (score: 135 vs 110)"
+    },
+    {
+      "id": "df65dbc3-9bd4-4136-94b5-6b5b679f0f31",
+      "name": "Mikee's Seafood Restaurant",
+      "score": 70,
+      "reviews": 0,
+      "keepId": "440b66fa-f8cc-4bd8-9a86-2f6363cb9b73",
+      "reason": "Duplicate of: Mikee's Seafood Restaurant (score: 75 vs 70)"
+    },
+    {
+      "id": "7dbff1df-c411-4448-9ee7-d0ea8a1fc7ed",
+      "name": "Orange Beach: Sunset Sailing Tour Aboard a 52-Foot Catamaran",
+      "score": 85,
+      "reviews": 366,
+      "keepId": "b12ab358-31ee-45d6-a02f-837858d1042a",
+      "reason": "Duplicate of: Orange Beach: Sunset Sailing Tour Aboard a 52-Foot Catamaran (score: 110 vs 85)"
+    },
+    {
+      "id": "9c08e357-3620-434c-a2ec-5c1fee3b2b8e",
+      "name": "Gulf Shores: Family Fun Banana Boat Rides",
+      "score": 85,
+      "reviews": 103,
+      "keepId": "37a66e10-ceb1-4cc0-8f28-c199b74e4ada",
+      "reason": "Duplicate of: Gulf Shores: Family Fun Banana Boat Rides (score: 110 vs 85)"
+    },
+    {
+      "id": "c3ddc0a4-8ce5-4fda-836e-15e4f16c0ef2",
+      "name": "Dolphins Down Under",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "9098b5dd-1ce5-4e68-a35b-2009b48853a6",
+      "reason": "Duplicate of: Dolphins Down Under (score: 110 vs 85)"
+    },
+    {
+      "id": "2e35d1f6-5a1d-4db3-96a4-568f4dc34798",
+      "name": "Beachside Resort Hotel",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "688ad997-6539-48e7-9fb7-885a0b6a1f8e",
+      "reason": "Duplicate of: Beachside Resort Hotel (score: 130 vs 85)"
+    },
+    {
+      "id": "e8636149-14d1-408b-bf75-9f08d744dab1",
+      "name": "Alabama Gulf Coast Zoo",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "55693952-f812-4120-a293-c2c9c6e3bda1",
+      "reason": "Duplicate of: Alabama Gulf Coast Zoo (score: 130 vs 85)"
+    },
+    {
+      "id": "c96cf184-ca6b-442c-a2cd-9c60fe03d2eb",
+      "name": "Hope's Cheesecake",
+      "score": 85,
+      "reviews": 0,
+      "keepId": "e2811612-b9b3-4bc7-b1fc-afbb5451a63a",
+      "reason": "Duplicate of: Hope's Cheesecake (score: 130 vs 85)"
+    },
+    {
+      "id": "d6b43c37-89b2-430b-985d-5438e6c4adb8",
+      "name": "Orange Beach 24-Foot Pontoon Rental",
+      "score": 70,
+      "reviews": 1,
+      "keepId": "5e233301-f216-4126-a2b0-ebd8b5ecd19e",
+      "reason": "Duplicate of: Orange Beach 24-Foot Pontoon Rental (score: 85 vs 70)"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "name": "Kitty's Kafe",
+  "type": "Restaurant",
+  "website": "https://kittyskafe.com",
+  "contact": {
+    "phone": "",
+    "address": "",
+    "city": "",
+    "email": ""
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "notes": null
+  },
+  "about": {
+    "description": "Upon entering Kitty's Kafe, locals and visitors alike are greeted by a warm, friendly, casual family atmosphere. Whether joining for a Southern Style Country Breakfast, enjoying one of many delicious lunch items, or scrumptious entrees, food is prepared daily from the freshest ingredients. Full service bar available.",
+    "elevator_pitch": "A casual family-style Southern restaurant serving home-cooked meals with genuine hospitality.",
+    "vibe": "Warm, friendly, casual family atmosphere",
+    "best_for": [
+      "families",
+      "locals",
+      "visitors",
+      "breakfast",
+      "lunch"
+    ],
+    "established": null,
+    "reservations": null,
+    "insider_tip": null
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://kittyskafe.com"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-03-22T09:19:08.265Z"
+}

@@ -1,0 +1,192 @@
+{
+  "business_name": "Bleus Burger Restaurant & Bar",
+  "cuisine_type": "Burgers, Craft Beer & Cocktails",
+  "price_range": "$10-20",
+  "description": "Bleus Burger in Gulf Shores, AL, elevates the humble burger to an art form. We specialize in gourmet craft smash burgers, alongside crispy wings, juicy tenders, and inventive sandwiches. Not just a burger joint, we offer vibrant veggie options and fresh salads. Pair your meal with a handcrafted cocktail or explore our selection of fifteen craft beers on tap. It's flavor, elevated.",
+  "atmosphere": "Modern casual dining with craft beer and cocktail focus, vibrant and elevated burger restaurant",
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": "251-219-8448",
+    "email": "info@bleusburger.com",
+    "address": "3800 Gulf Shores Parkway, Suite 240, Gulf Shores, AL 36542",
+    "website": "https://www.bleusburger.com",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": "https://facebook.com/bleusburger",
+      "instagram": "https://instagram.com/bleusburger/",
+      "twitter": null,
+      "tiktok": "https://tiktok.com/@bleusburger",
+      "youtube": "https://youtube.com/@bleusburger"
+    }
+  },
+  "hours": {
+    "monday": "11:00 am - 8:00 pm",
+    "tuesday": "11:00 am - 8:00 pm",
+    "wednesday": "11:00 am - 8:00 pm",
+    "thursday": "11:00 am - 8:00 pm",
+    "friday": "11:00 am - 9:00 pm",
+    "saturday": "11:00 am - 9:00 pm",
+    "sunday": "11:00 am - 8:00 pm",
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": true,
+    "takeout_available": true,
+    "delivery_available": true,
+    "curbside_available": null,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [
+      {
+        "name": "Burgers",
+        "description": "Craft smash burgers",
+        "items": []
+      },
+      {
+        "name": "Wings",
+        "description": "Crispy wings",
+        "items": []
+      },
+      {
+        "name": "Tenders",
+        "description": "Juicy tenders",
+        "items": []
+      },
+      {
+        "name": "Sandwiches",
+        "description": "Inventive sandwiches",
+        "items": []
+      },
+      {
+        "name": "Vegetarian",
+        "description": "Vibrant veggie options including house-made veggie burger",
+        "items": []
+      },
+      {
+        "name": "Salads",
+        "description": "Fresh salads",
+        "items": []
+      }
+    ],
+    "wine_list": null,
+    "beer_selection": "Fifteen craft beers on tap",
+    "cocktails": "Handcrafted cocktails available",
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": true,
+      "vegan": null,
+      "gluten_free": null,
+      "dairy_free": null,
+      "nut_free": null,
+      "kosher": null,
+      "halal": null
+    }
+  },
+  "happy_hour": {
+    "available": null,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [],
+  "entertainment_and_events": [],
+  "private_events": {
+    "available": null,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": null,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": null,
+    "pets_allowed": null
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": null,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": null,
+    "private_dining": null
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": null,
+    "email_signup": null,
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": null,
+    "farm_to_table": null,
+    "sustainable": null,
+    "organic": null,
+    "details": null
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [],
+    "common_praise": [],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "restaurant",
+      "url": "https://irp.cdn-website.com/358be895/dms3rep/multi/345929776_1643300182813138_8189093518638050763_n.jpg",
+      "description": "Restaurant logo/main image"
+    },
+    {
+      "type": "food",
+      "url": "https://irp.cdn-website.com/358be895/dms3rep/multi/IMG_0464.jpg",
+      "description": "Food item"
+    },
+    {
+      "type": "food",
+      "url": "https://irp.cdn-website.com/358be895/dms3rep/multi/IMG_0409.jpg",
+      "description": "Food item"
+    },
+    {
+      "type": "food",
+      "url": "https://irp.cdn-website.com/358be895/dms3rep/multi/IMG_0406.jpg",
+      "description": "Food item"
+    },
+    {
+      "type": "food",
+      "url": "https://irp.cdn-website.com/358be895/dms3rep/multi/IMG_0461.jpg",
+      "description": "Food item"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "Bleus Burger Restaurant & Bar. Burgers, Craft Beer & Cocktails. Serving the Gulf Shores, Foley, Orange Beach Area. Bleus Burger in Gulf Shores, AL, elevates the humble burger to an art form. We specialize in gourmet craft smash burgers, alongside crispy wings, juicy tenders, and inventive sandwiches. Not just a burger joint, we offer vibrant veggie options and fresh salads. Pair your meal with a handcrafted cocktail or explore our selection of fifteen craft beers on tap. It's flavor, elevated. Discover Gulf Shores' BEST BURGER. Hours: Sun - Thu 11:00 am - 8:00 pm, Fri - Sat 11:00 am - 9:00 pm. Address: 3800 Gulf Shores Pkwy. STE 240, Gulf Shores, AL 36542. Phone: 251-219-8448. Email: info@bleusburger.com. Navigation: Home, The Crew, Food Menu, Bar Menu, Order Online.",
+  "extraction_confidence": "high",
+  "extraction_notes": "Successfully extracted core business information from homepage including name, address, phone, email, hours, social media links, basic menu categories, and cuisine type. Menu item details and pricing not available on homepage. Happy hour, specials, events, private dining, and detailed dietary accommodations not found on this page. Additional data would need to be extracted from menu pages (/menu, /beer-wine-cocktail-menu) and other internal pages. Reviews and ratings data not present on the visible page content.",
+  "folder": "ChIJQ905j5IRmogRG4TocLT79mI_Bleus Burger Restaurant and Bar",
+  "extracted_at": "2026-05-15T06:19:46.239Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJQ905j5IRmogRG4TocLT79mI_Bleus Burger Restaurant and Bar/01_raw_html.html"
+}

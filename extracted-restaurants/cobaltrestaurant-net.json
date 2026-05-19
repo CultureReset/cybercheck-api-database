@@ -1,0 +1,208 @@
+{
+  "name": "Cobalt, The Restaurant",
+  "type": "Restaurant",
+  "website": "",
+  "contact": {
+    "phone": "251-923-5300",
+    "address": "28099 Perdido Beach Blvd",
+    "city": "Orange Beach",
+    "email": ""
+  },
+  "hours": {
+    "monday": "11am-9:30pm",
+    "tuesday": "11am-9:30pm",
+    "wednesday": "11am-9:30pm",
+    "thursday": "11am-9:30pm",
+    "friday": "11am-10pm",
+    "saturday": "11am-10pm",
+    "sunday": "11am-9:30pm, Brunch 11am-2pm"
+  },
+  "about": {},
+  "social": {},
+  "menu": [
+    {
+      "category": "Appetizers",
+      "name": "BBQ Gulf Shrimp",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Crab and Shrimp Dip",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Cobalt Caviar",
+      "description": "A refreshing blend of black beans, edamame, corn, red onion, Roma tomatoes, and cilantro tossed in a light vinaigrette and served with corn tortilla chips",
+      "price": ""
+    },
+    {
+      "category": "Appetizers",
+      "name": "Firecracker Shrimp",
+      "description": "Lightly dusted, fried, and tossed in spicy remoulade sauce",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Gulf Shrimp and Grits",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Pecan Catfish",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Bronze Gulf Grouper",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Shrimp Fra Diavolo",
+      "description": "Sautéed with roasted mushrooms, chargrilled lemon, fresh spinach and arugula",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Tuna and Avocado Stack",
+      "description": "Served in a sweet Asian sauce",
+      "price": ""
+    },
+    {
+      "category": "Entrees",
+      "name": "Blackened Mahi",
+      "description": "Topped with Spinach Florentine",
+      "price": ""
+    },
+    {
+      "category": "Sides",
+      "name": "Colcannon Mashed Potatoes",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sides",
+      "name": "Creamy Roasted Red Bell Pepper Baked Orzo",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sides",
+      "name": "Ratatouille over Herb Pilaf",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Sides",
+      "name": "Grits",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Desserts",
+      "name": "Crème Brûlée",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Desserts",
+      "name": "Brownies",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Desserts",
+      "name": "Blackberry Cobbler",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Desserts",
+      "name": "Key Lime Tarts",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Desserts",
+      "name": "Lemon Bars",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Desserts",
+      "name": "Ambrosia",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Easter Brunch Buffet Items",
+      "name": "Prime Rib",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Easter Brunch Buffet Items",
+      "name": "Omelet Bar",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Easter Brunch Buffet Items",
+      "name": "Eggs Benedict",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Easter Brunch Buffet Items",
+      "name": "Caramelized Fennel and Leek Strata",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Easter Brunch Buffet Items",
+      "name": "Ham and Sundried Tomato Strata",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Easter Brunch Buffet Items",
+      "name": "Roasted Pork Tenderloin",
+      "description": "Topped with Sautéed Lemon Kale, Spiced Pecans, and Pesto Aioli",
+      "price": ""
+    },
+    {
+      "category": "Easter Brunch Buffet Items",
+      "name": "French Toast",
+      "description": "",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [
+    {
+      "name": "Happy Hour",
+      "description": "Features specials on draft beer, house wines and awesome appetizers including Cobalt Caviar and Firecracker Shrimp",
+      "discount": ""
+    },
+    {
+      "name": "Easter Sunday Brunch Buffet",
+      "description": "Full buffet with prime rib, omelet bar, eggs benedict, seafood, and desserts. Reservations suggested.",
+      "discount": ""
+    },
+    {
+      "name": "Live Music",
+      "description": "Live music for Sunday Brunch beginning March 2026",
+      "discount": ""
+    }
+  ],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 0,
+  "scraped_at": "2026-05-19T05:22:50.163Z"
+}

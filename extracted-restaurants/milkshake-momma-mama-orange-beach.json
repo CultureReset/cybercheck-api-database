@@ -1,0 +1,210 @@
+{
+  "name": "Milkshake Momma",
+  "type": "Restaurant",
+  "website": "http://milkshakemomma.com/",
+  "contact": {
+    "phone": "(251) 228-4970",
+    "address": "25908 Canal Rd",
+    "city": "Orange Beach",
+    "email": "milkshakemommaenterprises@gmail.com"
+  },
+  "hours": {
+    "monday": "Closed",
+    "tuesday": "11AM - 7:00PM",
+    "wednesday": "11AM - 7:00PM",
+    "thursday": "11AM - 7:00PM",
+    "friday": "11AM - 8PM",
+    "saturday": "11AM - 8PM",
+    "sunday": "12PM - 5PM",
+    "notes": null
+  },
+  "about": {
+    "description": "Milkshake Momma was founded in 2019 in Crawford, Alabama as part of Southern Roots Country Store and Cafe. The business is known for Freak Shakes and Southern-style comfort foods. Founded by Sylvia Nolan, the concept has expanded to multiple locations including Columbus, GA and Orange Beach, AL. The company emphasizes community engagement, outstanding customer service, and a family-friendly atmosphere.",
+    "elevator_pitch": "A Southern-style milkshake bar and restaurant concept serving indulgent Freak Shakes and authentic comfort food in a fun, family-friendly environment.",
+    "vibe": "Fun, vibrant, community-focused, casual dining with a playful and larger-than-life atmosphere",
+    "best_for": [
+      "families",
+      "casual dining",
+      "comfort food lovers",
+      "milkshake enthusiasts"
+    ],
+    "established": "2019",
+    "reservations": null,
+    "insider_tip": "The Freak Shakes created such a buzz that they became the signature item, with the founder Sylvia Nolan earning the nickname 'Milkshake Momma'"
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "website": "http://milkshakemomma.com/"
+  },
+  "menu": [
+    {
+      "category": "Burgers",
+      "name": "Jacked Up Burger",
+      "description": "Two 4oz hand patted all beef burgers, grilled cheese sandwich center, jalapenos, mayo, mustard, ketchup, lettuce, tomato, onion, pickle on toasted bun. Served with fries.",
+      "price": ""
+    },
+    {
+      "category": "Burgers",
+      "name": "John Wayne Burger",
+      "description": "Two 4oz hand patted all beef burgers topped with cheese, mayo, mustard, ketchup, lettuce, tomato, onion, pickles on toasted bun. Served with fries.",
+      "price": ""
+    },
+    {
+      "category": "Burgers",
+      "name": "John Jr.",
+      "description": "One 4oz hand patted all beef burger topped with cheese, mayo, mustard, ketchup, lettuce, tomato, onion, pickles on toasted bun. Served with fries.",
+      "price": ""
+    },
+    {
+      "category": "Burgers",
+      "name": "Smashed & Hungover",
+      "description": "4oz smash burger topped with house made pimento cheese, bacon, mayo, pickles on toasted bun. Served with fries.",
+      "price": ""
+    },
+    {
+      "category": "Burgers",
+      "name": "Burnyard Burger",
+      "description": "Single 4oz patted beef burger, 2 chicken tenders, topped with cheese, lettuce, tomato, onions, pickles and choice of sauce. Served with fries.",
+      "price": ""
+    },
+    {
+      "category": "Burgers",
+      "name": "Hella Chili Burger",
+      "description": "4oz hand patted all beef burger topped with home made chili and shredded cheddar cheese on bun. Served with fries.",
+      "price": ""
+    },
+    {
+      "category": "Burgers",
+      "name": "Cowboy Up",
+      "description": "4oz hand patted all beef burger topped with thinly sliced philly, white American cheese, bell peppers and onions. Served with fries.",
+      "price": ""
+    },
+    {
+      "category": "Hot Dogs",
+      "name": "Scrambled Dog",
+      "description": "2 regular all beef hot dogs chopped up with bun, covered in house made chili, topped with onions, slaw, pickles and oyster crackers. Served with fries or tots.",
+      "price": ""
+    },
+    {
+      "category": "Hot Dogs",
+      "name": "Big Don",
+      "description": "1lb all beef hot dog, smothered in house made chili, topped with onions, slaw, pickles. Served with fries or tots.",
+      "price": ""
+    },
+    {
+      "category": "Hot Dogs",
+      "name": "Fiddle Stix Dog",
+      "description": "Footlong hot dog, topped with mustard, house made chili, shredded cheese, french fries on top. Served with fries or tots.",
+      "price": ""
+    },
+    {
+      "category": "Hot Dogs",
+      "name": "Good Ol' Boy",
+      "description": "6 inch plain all beef hot dog, topped with mustard, ketchup, onions, and pickles. Served with fries or tots.",
+      "price": ""
+    },
+    {
+      "category": "Hot Dogs",
+      "name": "Outlaw Chili Dog",
+      "description": "6 foot hot dog, topped with mustard, house made chili, onions, slaw, pickles. Served with fries or tots.",
+      "price": ""
+    },
+    {
+      "category": "Other Grub",
+      "name": "Chicken Coop Basket",
+      "description": "5 chicken tenders, fries and a slice of Texas toast. Can be made as wrap.",
+      "price": ""
+    },
+    {
+      "category": "Other Grub",
+      "name": "Cowboy Philly Sammy",
+      "description": "Thinly sliced steak blended with sauteed bell pepper and onions, topped with white American cheese, served on Texas toast. Can be made as quesadilla or wrap.",
+      "price": ""
+    },
+    {
+      "category": "Other Grub",
+      "name": "Beach Chic",
+      "description": "2 chicken tenders topped with lettuce, tomato and drizzled in house made ranch dressing. Choice of bun or wrap.",
+      "price": ""
+    },
+    {
+      "category": "Other Grub",
+      "name": "Hot Chic",
+      "description": "2 buffaloed chicken tenders topped with hot honey drizzle, lettuce, tomato, ranch and pickles. Choice of bun or wrap.",
+      "price": ""
+    },
+    {
+      "category": "Funkey Fries",
+      "name": "Loaded Fries",
+      "description": "Basket of fries topped with chili, cheese, jalapenos.",
+      "price": ""
+    },
+    {
+      "category": "Funkey Fries",
+      "name": "Cowboy Fries",
+      "description": "Basket of fries topped with philly steak, bell peppers, onions, and cheese.",
+      "price": ""
+    },
+    {
+      "category": "Funkey Fries",
+      "name": "Hot Chic Fries",
+      "description": "Basket of fries topped with cheese, battered chicken bites, buffalo sauce, and ranch dressing drizzle.",
+      "price": ""
+    },
+    {
+      "category": "Lil Tikes",
+      "name": "Hot Dog",
+      "description": "Served with fries and drink.",
+      "price": ""
+    },
+    {
+      "category": "Lil Tikes",
+      "name": "Tenders",
+      "description": "Served with fries and drink.",
+      "price": ""
+    },
+    {
+      "category": "Lil Tikes",
+      "name": "Grilled Cheese",
+      "description": "Served with fries and drink.",
+      "price": ""
+    },
+    {
+      "category": "Salads",
+      "name": "Coop Salad",
+      "description": "Grilled or fried chicken tenders, lettuce, tomato, shredded cheese.",
+      "price": ""
+    },
+    {
+      "category": "Drinks",
+      "name": "Fountain Drink",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Drinks",
+      "name": "Iced Tea",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Drinks",
+      "name": "Bottled Water",
+      "description": "",
+      "price": ""
+    },
+    {
+      "category": "Drinks",
+      "name": "Bottled Soda",
+      "description": "Dairy Free options available.",
+      "price": ""
+    }
+  ],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 50,
+  "scraped_at": "2026-03-22T16:42:06.761Z"
+}

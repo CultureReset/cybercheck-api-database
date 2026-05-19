@@ -1,0 +1,339 @@
+RESTAURANTS IN scraped-menus/
+Total: 59
+
+═══════════════════════════════════════════════════════════
+
+1. 8 Reale
+   Type: Speakeasy Bar
+   Cuisine: Cocktails, Craft Beverages
+   City: Orange Beach
+   Phone: 251-484-0712
+
+2. 8 Reale
+   Type: Speakeasy Bar
+   Cuisine: Cocktails, Craft Beverages
+   City: Orange Beach
+   Phone: 251-484-0712
+
+3. A Specialty Bakery and Party Shoppe
+   Type: Bakery
+   Cuisine: Bakery, Desserts, Pastry
+   City: Gulf Shores
+   Phone: 251-968-2253
+
+4. Agave Mexican Restaurants
+   Type: Restaurant
+   Cuisine: Mexican
+   City: Unknown
+
+5. Alabama Sweet Tea Co.
+   Type: Food & Beverage Brand / Retail
+   Cuisine: Southern, Beverages, Tea
+   City: Montgomery
+   Phone: 800-832-1989
+
+6. Amelia's Deli
+   Type: Deli
+   Cuisine: American, Deli, Sandwiches
+   City: Gulf Shores
+   Phone: (251) 968-8333
+
+7. Anchored Coffeehouse
+   Type: Cafe
+   Cuisine: Coffee, Cafe
+   City: Unknown
+
+8. Avenue Pub Gulf Shores
+   Type: Bar
+   Cuisine: American, Bar Food
+   City: Gulf Shores
+
+9. Bahama Bob's
+   Type: Restaurant
+   Cuisine: Seafood, American, Southern, Island-Inspired, Cajun
+   City: Gulf Shores
+   Phone: (251) 948-2100
+
+10. Bangkok Thai Cuisine
+   Type: Restaurant
+   Cuisine: Thai, Asian
+   City: Mobile
+   Phone: (251) 344-9995
+
+11. Bikini Blini Bakery
+   Type: Bakery
+   Cuisine: Various
+   City: Unknown
+
+12. Biryani Pot
+   Type: Restaurant
+   Cuisine: Various
+   City: Mobile
+   Phone: (251) 888-0999
+
+13. Cactus Cantina Mexican Grill
+   Type: Restaurant
+   Cuisine: Various
+   City: Gulf Shores
+
+14. Carmelo
+   Type: Restaurant
+   Cuisine: Various
+   City: Orange Beach
+   Phone: (251) 200-4375
+
+15. Cosmo's Restaurant & Bar
+   Type: Restaurant & Bar
+   Cuisine: Various
+   City: Orange Beach
+   Phone: 251-948-9663
+
+16. Cruisin' Tikis
+   Type: Boat Tour / Tiki Bar Experience
+   Cuisine: Various
+   City: Unknown
+
+17. Fish River Grill
+   Type: Restaurant
+   Cuisine: Seafood, American
+   City: Gulf Shores
+
+18. GTs on the Bay
+   Type: Restaurant
+   Cuisine: Various
+   City: Orange Beach
+   Phone: 251-980-8400
+
+19. Happy Pappys Coffeehouse
+   Type: Cafe
+   Cuisine: Various
+   City: Gulf Shores
+   Phone: (251) 967-2779
+
+20. Hattie's Soul Food Restaurant
+   Type: Restaurant
+   Cuisine: Various
+   City: Foley
+   Phone: (251) 202-4929
+
+21. HIMALAYAN NEPALI CUISINE
+   Type: Restaurant
+   Cuisine: Various
+   City: Unknown
+
+22. Icehouse Tap Room
+   Type: Bar/Restaurant
+   Cuisine: Various
+   City: Gulf Shores
+   Phone: (251) 200-0157
+
+23. Jim 'N Nick's BBQ Restaurant
+   Type: Restaurant
+   Cuisine: Various
+   City: Unknown
+
+24. Kayden's Homemade Candies & Ice Cream
+   Type: This is not a restaurant - the website content is unrelated
+   Cuisine: Various
+   City: Unknown
+
+25. Kitty's Kafe
+   Type: Restaurant
+   Cuisine: Various
+   City: Unknown
+
+26. Lartigue's Original Fresh Seafood Market
+   Type: Seafood Market
+   Cuisine: Various
+   City: Orange Beach
+   Phone: (251) 948-2644
+
+27. Milkshake Momma
+   Type: Restaurant
+   Cuisine: Various
+   City: Orange Beach
+   Phone: (251) 228-4970
+
+28. OSO at Bear Point Harbor
+   Type: Restaurant
+   Cuisine: Various
+   City: Orange Beach
+   Phone: (251) 345-6738
+
+29. Papa Rocco's
+   Type: Restaurant/Bar
+   Cuisine: Various
+   City: Gulf Shores
+   Phone: 251-948-7262
+
+30. Pho Mo Asian Kitchen
+   Type: Restaurant
+   Cuisine: Asian, Vietnamese, Poke, Japanese-inspired
+   City: Mobile
+
+31. reelalabama.com
+   Type: Not a Restaurant
+   Cuisine: Various
+   City: Unknown
+
+32. Rotolo's
+   Type: Restaurant
+   Cuisine: Various
+   City: Unknown
+
+33. Royal Eats LLC
+   Type: Restaurant
+   Cuisine: Various
+   City: Foley
+   Phone: 0000000000
+
+34. Ruby Brunch
+   Type: Restaurant
+   Cuisine: Various
+   City: Unknown
+
+35. Sakura Sushi & Hibachi
+   Type: Restaurant
+   Cuisine: Various
+   City: Semmes
+   Phone: 251-649-1689
+
+36. Sea-N-Suds
+   Type: Restaurant
+   Cuisine: Seafood, American, Gulf Coast
+   City: Gulf Shores
+   Phone: (251) 948-7894
+
+37. Shipp's Dockside Grill
+   Type: Restaurant
+   Cuisine: Various
+   City: Orange Beach
+   Phone: (251) 412-7447
+
+38. Shrimp Basket
+   Type: Restaurant
+   Cuisine: Various
+   City: Unknown
+
+39. Siam Thai Cuisine
+   Type: Restaurant
+   Cuisine: Various
+   City: Mobile
+   Phone: (251) 380-9111
+
+40. Sitar Indian Cuisine
+   Type: Restaurant
+   Cuisine: Various
+   City: Huntsville
+   Phone: (256) 536-3360
+
+41. Soul Bowlz
+   Type: Restaurant
+   Cuisine: Various
+   City: Unknown
+
+42. Tacky Jacks Seafood Restaurant and Tavern
+   Type: Seafood Restaurant & Tavern
+   Cuisine: Various
+   City: Unknown
+
+43. Teak House Thai Cuisine
+   Type: Restaurant
+   Cuisine: Various
+   City: Daphne
+   Phone: (251) 625-8680
+
+44. Tee Off at The Wharf Powered by Topgolf Swing Suite
+   Type: Entertainment Venue / Bar & Grill
+   Cuisine: Various
+   City: Orange Beach
+   Phone: 251.228.4899
+
+45. The Beach Bun
+   Type: Restaurant
+   Cuisine: American, Burgers, Hot Dogs
+   City: Orange Beach
+   Phone: (251) 398-2866
+
+46. The Crab Trap
+   Type: Restaurant
+   Cuisine: Various
+   City: Unknown
+
+47. The Curry Modern Indian
+   Type: Restaurant
+   Cuisine: Various
+   City: Huntsville
+
+48. The Gulf
+   Type: Restaurant & Bar
+   Cuisine: Various
+   City: Unknown
+
+49. The Hangout
+   Type: Restaurant & Bar
+   Cuisine: Various
+   City: Unknown
+
+50. The Point Restaurant
+   Type: Restaurant | Bar
+   Cuisine: Various
+   City: Pensacola
+   Phone: (850) 492-3577
+
+51. The Sandshaker
+   Type: Bar
+   Cuisine: Various
+   City: Pensacola Beach
+   Phone: 850-932-2211
+
+52. The Sloop
+   Type: Bar & Grill
+   Cuisine: American, Italian-American, Seafood, Cheesesteaks
+   City: Gulf Shores
+   Phone: 251-500-1007
+
+53. The Southern Grind Coffee House at the WHARF
+   Type: Cafe
+   Cuisine: Various
+   City: Orange Beach
+   Phone: (251) 923-3265
+
+54. The Tin Top Restaurant & Oyster Bar
+   Type: Restaurant
+   Cuisine: Various
+   City: Bon Secour
+   Phone: +1-251-949-5086
+
+55. Treehouse
+   Type: Restaurant
+   Cuisine: Various
+   City: Gulf Shores
+   Phone: (251) 220-5263
+
+56. Vinny's Pizzeria
+   Type: Restaurant
+   Cuisine: Various
+   City: Orange Beach
+   Phone: (866)-743-7669
+
+57. Wacked Out Weiner Gulf Shores
+   Type: Restaurant
+   Cuisine: Various
+   City: Gulf Shores
+   Phone: (251) 948-0988
+
+58. Waffles R Wild
+   Type: Restaurant | Bar
+   Cuisine: Various
+   City: Foley
+   Phone: (251) 943-2271
+
+59. Zeke's Landing Marina
+   Type: Marina & Restaurant
+   Cuisine: Various
+   City: Orange Beach
+   Phone: (251) 981-4044
+
+
+TOTAL RESTAURANTS: 59

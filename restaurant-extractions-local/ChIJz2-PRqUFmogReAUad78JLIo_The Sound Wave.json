@@ -1,0 +1,220 @@
+{
+  "business_name": "Soundwave (Peachtree Group)",
+  "cuisine_type": "Beach Bar, Cocktails, Seafood, Burgers, Sandwiches",
+  "price_range": "$$$$",
+  "description": "Perched above the shoreline, our beach bar in Gulf Shores brings together live music, coastal cocktails, and laid-back energy with unbeatable views. Whether you're here for sunset drinks, weekend bands, or a casual night out with friends, this is where the vibe turns up. Sip frozen favorites, signature craft cocktails, and local brews while the music sets the tone. From daytime chill to after-dark beats, every night feels like summer. Don't miss out on our open-air bar, 30 feet above the Gulf, offering stunning views, live music, and a state-of-the-art sound system. Enjoy craft cocktails, elevated bar bites, and a fun beach vibe.",
+  "atmosphere": "Open-air rooftop bar 30 feet above the Gulf with beachfront views, live music, state-of-the-art sound system, beach vibes, casual laid-back energy",
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": "112 W Beach Blvd, Gulf Shores, AL 36542",
+    "website": "https://www.soundwavegs.com",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": "https://www.facebook.com/soundwavegulfshores/",
+      "instagram": "https://www.instagram.com/soundwave.gs/",
+      "twitter": null,
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": true,
+    "takeout_available": null,
+    "delivery_available": null,
+    "curbside_available": null,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [
+      {
+        "name": "Beach Eats & Shareable Bites",
+        "description": "From ahi tuna nachos to seafood towers stacked with shrimp, grouper & lobster, our menu is built for sharing, snacking, and chilling by the water. Fresh, fun, and full of Gulf Coast flavor.",
+        "items": [
+          {
+            "name": "Ahi Tuna Nachos",
+            "description": null,
+            "price": null,
+            "dietary_flags": [],
+            "allergens": null,
+            "is_signature": true,
+            "is_seasonal": false,
+            "availability": null
+          },
+          {
+            "name": "Seafood Tower",
+            "description": "Stacked with shrimp, grouper & lobster",
+            "price": null,
+            "dietary_flags": [],
+            "allergens": "shellfish, fish",
+            "is_signature": true,
+            "is_seasonal": false,
+            "availability": null
+          }
+        ]
+      }
+    ],
+    "wine_list": null,
+    "beer_selection": "Local brews available",
+    "cocktails": "Frozen favorites and signature craft cocktails",
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": null,
+      "vegan": null,
+      "gluten_free": null,
+      "dairy_free": null,
+      "nut_free": null,
+      "kosher": null,
+      "halal": null
+    }
+  },
+  "happy_hour": {
+    "available": null,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [],
+  "entertainment_and_events": [
+    {
+      "type": "live_music",
+      "name": "Weekend Bands",
+      "days": "weekends",
+      "start_time": null,
+      "end_time": null,
+      "description": "Live music entertainment",
+      "cover_charge": null,
+      "featured_artist": null
+    }
+  ],
+  "private_events": {
+    "available": null,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": null,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": null,
+    "pets_allowed": null
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": false,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": null,
+    "private_dining": null
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": null,
+    "email_signup": "Available - First Name, Last Name, Email required",
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": null,
+    "farm_to_table": null,
+    "sustainable": null,
+    "organic": null,
+    "details": null
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [
+      "Ahi Tuna Nachos",
+      "Seafood Tower",
+      "Craft Cocktails",
+      "Frozen Drinks"
+    ],
+    "common_praise": [
+      "Beachfront views",
+      "Live music",
+      "Cocktails",
+      "Beach vibe",
+      "Sunset drinks"
+    ],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "restaurant",
+      "url": "https://images.getbento.com/accounts/b59fb88236261c3ab269bab76f5d01ba/media/images/25293Embassy_Suites_Gulf_Shores_Alabama__0915-1.jpg",
+      "description": "Rooftop beach bar in Gulf Shores with ocean views"
+    },
+    {
+      "type": "food",
+      "url": "accounts/b59fb88236261c3ab269bab76f5d01ba/media/images/65296IMG_2394.HEIC",
+      "description": "Frozen cocktails at Gulf Shores live music bar"
+    },
+    {
+      "type": "food",
+      "url": "https://images.getbento.com/accounts/b59fb88236261c3ab269bab76f5d01ba/media/images/83840Embassy_Suites_Gulf_Shores_Alabama_4G3A3057-Poke.jpg",
+      "description": "Fresh coastal bowl at Gulf Shores beach bar"
+    },
+    {
+      "type": "food",
+      "url": "accounts/b59fb88236261c3ab269bab76f5d01ba/media/images/74894IMG_2342.HEIC",
+      "description": "Signature cocktail at Soundwave rooftop bar in Gulf Shores"
+    },
+    {
+      "type": "restaurant",
+      "url": "https://images.getbento.com/accounts/b59fb88236261c3ab269bab76f5d01ba/media/images/65560IMG_2347.HEIC",
+      "description": "Soundwave rooftop cocktails overlooking Gulf Shores beach"
+    },
+    {
+      "type": "restaurant",
+      "url": "https://images.getbento.com/accounts/b59fb88236261c3ab269bab76f5d01ba/media/images/57216Embassy_Suites_Gulf_Shores_Alabama_4G3A2523-1.jpg",
+      "description": "Resort pool at Embassy Suites Gulf Shores near Soundwave rooftop bar"
+    },
+    {
+      "type": "logo",
+      "url": "https://images.getbento.com/accounts/b59fb88236261c3ab269bab76f5d01ba/media/images/54406soundwave_Logo.png",
+      "description": "Soundwave Logo"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": "Email signup available for newsletter and updates",
+  "raw_text_content": "Soundwave Rooftop Bar | Gulf Shores Beachfront Cocktails & Live Music. Where Gulf Shores Comes to Play. Upcoming Events. Welcome to Sound Wave. Perched above the shoreline, our beach bar in Gulf Shores brings together live music, coastal cocktails, and laid-back energy with unbeatable views. Whether you're here for sunset drinks, weekend bands, or a casual night out with friends, this is where the vibe turns up. Sip frozen favorites, signature craft cocktails, and local brews while the music sets the tone. From daytime chill to after-dark beats, every night feels like summer. No reservations required. Just good drinks, good music, and Gulf Shores energy. Beach Eats + Shareable Moments. From ahi tuna nachos to seafood towers stacked with shrimp, grouper & lobster, our menu is built for sharing, snacking, and chilling by the water. Fresh, fun, and full of Gulf Coast flavor. View Menus. What's On. Join us for our weekly entertainment and a variety of other exciting events, offering something fun for everyone to enjoy! Upcoming Events. Email Signup. First Name - Required. Last Name - Required. Email - Required. Submit. Facebook. Instagram. Accessibility. powered by BentoBox.",
+  "extraction_confidence": "medium",
+  "extraction_notes": "This is a rooftop beach bar website with limited detailed menu information visible on the homepage. Full menu details are available at /menus/ page but were not extracted here. No business phone number, hours of operation, or detailed pricing information found on homepage. No reservation system detected. Email signup form present. Location address extracted from schema markup. Social media links confirmed for Facebook and Instagram. Navigation indicates sections for Events/Lineup, Menu, About, Gallery, and Visit Us pages that would contain additional details. The website emphasizes beach bar atmosphere with live music and cocktails but specific event schedules, full menu items with prices, and operational hours are not visible in the provided HTML.",
+  "folder": "ChIJz2-PRqUFmogReAUad78JLIo_The Sound Wave",
+  "extracted_at": "2026-05-15T06:39:38.080Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJz2-PRqUFmogReAUad78JLIo_The Sound Wave/01_raw_html.html"
+}

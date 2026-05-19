@@ -1,0 +1,141 @@
+{
+  "business_name": "LuLu's Fun Food & Music",
+  "cuisine_type": "American, Casual Dining",
+  "price_range": null,
+  "description": "Welcome to LuLu's Fun Food & Music. With locations in Gulf Shores, Alabama, Destin, Florida, and North Myrtle Beach, SC.",
+  "atmosphere": null,
+  "chef_info": null,
+  "awards": [],
+  "contact": {
+    "phone": null,
+    "email": null,
+    "address": null,
+    "website": "https://lulusfunfoodmusic.com",
+    "hours_phone": null,
+    "reservations_phone": null,
+    "social_media": {
+      "facebook": "https://www.facebook.com/677852201099513",
+      "instagram": null,
+      "twitter": null,
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "hours": {
+    "monday": null,
+    "tuesday": null,
+    "wednesday": null,
+    "thursday": null,
+    "friday": null,
+    "saturday": null,
+    "sunday": null,
+    "seasonal_hours": null,
+    "holiday_hours": null,
+    "last_seating": null
+  },
+  "delivery_and_takeout": {
+    "dine_in": null,
+    "takeout_available": null,
+    "delivery_available": null,
+    "curbside_available": null,
+    "delivery_partners": [],
+    "delivery_fee": null,
+    "minimum_order": null,
+    "delivery_areas": null
+  },
+  "menu": {
+    "sections": [],
+    "wine_list": null,
+    "beer_selection": null,
+    "cocktails": null,
+    "kids_menu": null,
+    "catering_menu": null,
+    "dietary_accommodations": {
+      "vegetarian": null,
+      "vegan": null,
+      "gluten_free": null,
+      "dairy_free": null,
+      "nut_free": null,
+      "kosher": null,
+      "halal": null
+    }
+  },
+  "happy_hour": {
+    "available": null,
+    "days": null,
+    "start_time": null,
+    "end_time": null,
+    "drink_specials": null,
+    "food_specials": null,
+    "full_details": null
+  },
+  "specials_and_promotions": [],
+  "entertainment_and_events": [],
+  "private_events": {
+    "available": null,
+    "event_spaces": null,
+    "max_capacity": null,
+    "min_spend": null,
+    "catering_available": null,
+    "packages": null
+  },
+  "parking": null,
+  "accessibility": {
+    "wheelchair_accessible": null,
+    "accessible_restroom": null,
+    "parking_accessible": null,
+    "details": null
+  },
+  "policies": {
+    "dress_code": null,
+    "age_restrictions": null,
+    "cancellation_policy": null,
+    "payment_methods": [],
+    "kids_policy": null,
+    "pets_allowed": null
+  },
+  "reservations_and_groups": {
+    "accepts_reservations": null,
+    "online_booking_platform": null,
+    "phone_reservations": null,
+    "group_size_limit": null,
+    "advance_notice_required": null,
+    "group_rates": null,
+    "private_dining": null
+  },
+  "loyalty_and_rewards": {
+    "loyalty_program": null,
+    "gift_cards_available": null,
+    "email_signup": null,
+    "rewards_details": null
+  },
+  "sourcing_and_philosophy": {
+    "locally_sourced": null,
+    "farm_to_table": null,
+    "sustainable": null,
+    "organic": null,
+    "details": null
+  },
+  "reviews_and_ratings": {
+    "google_rating": null,
+    "google_review_count": null,
+    "popular_dishes_mentioned": [],
+    "common_praise": [],
+    "common_complaints": []
+  },
+  "photos_and_media": [
+    {
+      "type": "hero_image",
+      "url": "https://lulusfunfoodmusic.com/wp-content/uploads/2024/07/home-page-hero-scaled.jpg",
+      "description": "Home page hero image"
+    }
+  ],
+  "blog_and_articles": [],
+  "newsletters_and_updates": null,
+  "raw_text_content": "LuLu's Fun Food & Music. Welcome to LuLu's Fun Food & Music. With locations in Gulf Shores, Alabama, Destin, Florida, and North Myrtle Beach, SC.",
+  "extraction_confidence": "low",
+  "extraction_notes": "This HTML appears to be a WordPress theme header and CSS definitions only, without the actual page content body. The visible content is minimal - only the site title, description, meta tags, and extensive CSS styling. No menu items, hours, contact information, or detailed business details are present in the provided HTML. The actual page content would be loaded dynamically or is in a section not included in this HTML snippet. Multiple location references found (Gulf Shores AL, Destin FL, North Myrtle Beach SC) but no specific contact details. Facebook pixel/tracking code present but no other social media confirmed.",
+  "folder": "ChIJ4Y9S8SYFmogRke98zWRhCqg_LuLu's Gulf Shores",
+  "extracted_at": "2026-05-15T06:05:06.211Z",
+  "html_source": "/Users/owner/cybercheck-api-database/raw-page-data/ChIJ4Y9S8SYFmogRke98zWRhCqg_LuLu's Gulf Shores/01_raw_html.html"
+}

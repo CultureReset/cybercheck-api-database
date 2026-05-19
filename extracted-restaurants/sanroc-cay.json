@@ -1,0 +1,51 @@
+{
+  "name": "SanRoc Cay Marina",
+  "type": "Marina Entertainment District",
+  "website": "https://sanroccay.com",
+  "contact": {
+    "phone": "(251) 980-0016",
+    "address": "27267 Perdido Beach Blvd.",
+    "city": "Orange Beach",
+    "email": "info@SanRocCay.com"
+  },
+  "hours": {
+    "monday": "10 am - 6 pm (shopping); 7 am - 3 pm (marina/dock store)",
+    "tuesday": "10 am - 6 pm (shopping); 7 am - 3 pm (marina/dock store)",
+    "wednesday": "10 am - 6 pm (shopping); 7 am - 3 pm (marina/dock store)",
+    "thursday": "10 am - 6 pm (shopping); 7 am - 3 pm (marina/dock store)",
+    "friday": "10 am - 6 pm (shopping); 7 am - 4 pm (marina/dock store)",
+    "saturday": "10 am - 6 pm (shopping); 7 am - 4 pm (marina/dock store)",
+    "sunday": "12 pm - 6 pm (shopping); 7 am - 3 pm (marina/dock store)",
+    "notes": "Marina + Dock Store hours are seasonal. Call (251)981-6167 for details."
+  },
+  "about": {
+    "description": "SanRoc Cay Marina is a laid-back entertainment district featuring boutique shopping, fine dining restaurants, a full-service marina with deep sea fishing and water sports, spas and salons, and business offices, all centered around a courtyard gathering space with water views.",
+    "elevator_pitch": "A waterfront entertainment hub in Orange Beach offering shopping, dining, marina services, and relaxation with free sunrises and sunsets.",
+    "vibe": "Laid-back, upscale casual, waterfront setting with luxury boutiques and outdoor courtyard atmosphere",
+    "best_for": [
+      "shopping",
+      "fine dining",
+      "fishing trips",
+      "water sports",
+      "relaxation",
+      "families",
+      "couples",
+      "tourists"
+    ],
+    "established": null,
+    "reservations": null,
+    "insider_tip": "There's a sunrise and a sunset every single day, and they're absolutely free. Don't miss them."
+  },
+  "social": {
+    "instagram": null,
+    "facebook": null,
+    "website": "https://sanroccay.com"
+  },
+  "menu": [],
+  "drinks": [],
+  "specials": [],
+  "happy_hours": [],
+  "events": [],
+  "gallery": 16,
+  "scraped_at": "2026-03-21T19:53:09.601Z"
+}
