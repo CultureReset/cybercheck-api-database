@@ -1881,6 +1881,75 @@ router.get('/entity/:slug', async (req, res) => {
         sectionBullets = bulletsRes.data || [];
     }
 
+    // Build flat menu/drink/HH aliases from section_items (where imported data lives)
+    // so profile.html can find data regardless of which import path was used
+    const menuSectionsFromSections = sections.filter(s => s.section_type === 'menu' || s.section_type === 'grouped_items');
+    const drinkSectionsFromSections = sections.filter(s => s.section_type === 'drinks');
+    const hhSectionsFromSections = sections.filter(s => s.section_type === 'happy_hour');
+
+    const menuSectionIds2 = new Set(menuSectionsFromSections.map(s => s.id));
+    const drinkSectionIds2 = new Set(drinkSectionsFromSections.map(s => s.id));
+    const hhSectionIds2 = new Set(hhSectionsFromSections.map(s => s.id));
+
+    const mapSectionItem = (item) => ({
+        id: item.id,
+        item_name: item.item_name,
+        description: item.item_description || item.description || '',
+        price_text: item.price_text || (item.price_numeric != null ? '$' + item.price_numeric : ''),
+        price: item.price_numeric,
+        image_url: item.image_url || null,
+        allergens: item.allergens || '',
+        tags: item.tags || [],
+        sort_order: item.sort_order,
+    });
+
+    // Merge dedicated table data + section_items data, dedup by id
+    const mergedMenuSections = [
+        ...menuSections,
+        ...menuSectionsFromSections.filter(s => !menuSections.find(m => m.id === s.id)).map(s => ({
+            id: s.id, section_name: s.section_label, section_note: '', icon: null, entity_id: eid, sort_order: s.sort_order,
+        })),
+    ];
+    const mergedMenuItems = [
+        ...menuItems,
+        ...sectionItems.filter(i => menuSectionIds2.has(i.section_id)).map(i => ({
+            ...mapSectionItem(i), menu_section_id: i.section_id,
+        })),
+    ];
+    const mergedDrinkSections = [
+        ...drinkSections,
+        ...drinkSectionsFromSections.filter(s => !drinkSections.find(d => d.id === s.id)).map(s => ({
+            id: s.id, section_name: s.section_label, section_note: '', icon: null, entity_id: eid, sort_order: s.sort_order,
+        })),
+    ];
+    const mergedDrinkItems = [
+        ...drinkItems,
+        ...sectionItems.filter(i => drinkSectionIds2.has(i.section_id)).map(i => ({
+            ...mapSectionItem(i), drink_section_id: i.section_id,
+        })),
+    ];
+    const mergedHhSections = [
+        ...hhSections,
+        ...hhSectionsFromSections.filter(s => !hhSections.find(h => h.id === s.id)).map(s => ({
+            id: s.id, section_name: s.section_label, section_note: '', icon: null, entity_id: eid, sort_order: s.sort_order,
+        })),
+    ];
+    // HH items: from happy_hour_items table + from section_items with hh section type
+    const { data: entityHHData } = await gcrDb.from('entity_happy_hours').select('*').eq('entity_id', eid);
+    const mergedHhItems = [
+        ...hhItems,
+        ...sectionItems.filter(i => hhSectionIds2.has(i.section_id)).map(i => ({
+            ...mapSectionItem(i), hh_price: i.price_numeric,
+        })),
+        ...(entityHHData || []).map(h => ({
+            id: h.id,
+            item_name: h.days || h.description || 'Happy Hour',
+            description: [h.start_time, h.end_time].filter(Boolean).join('–') || h.description || '',
+            price_text: '',
+            hh_price: null,
+        })),
+    ];
+
     res.json({
         entity,
         features:      featuresRes.data   || [],
@@ -1899,18 +1968,26 @@ router.get('/entity/:slug', async (req, res) => {
         hours:         hoursRes.data      || [],
         about_bullets: bulletsRes.data    || [],
         photos:        photosRes.data     || [],
+        // Flat aliases expected by profile.html — merged from both storage paths
+        menuSections:  mergedMenuSections,
+        menuSubSections: menuSubSections,
+        menuItems:     mergedMenuItems,
+        drinkSections: mergedDrinkSections,
+        drinkItems:    mergedDrinkItems,
+        hhSections:    mergedHhSections,
+        hhItems:       mergedHhItems,
         menu: {
-            sections:     menuSections,
+            sections:     mergedMenuSections,
             sub_sections: menuSubSections,
-            items:        menuItems,
+            items:        mergedMenuItems,
         },
         drinks: {
-            sections: drinkSections,
-            items:    drinkItems,
+            sections: mergedDrinkSections,
+            items:    mergedDrinkItems,
         },
         happy_hour: {
-            sections: hhSections,
-            items:    hhItems,
+            sections: mergedHhSections,
+            items:    mergedHhItems,
         },
         events:       artistEvents,
         specials:     specialsRes.data    || [],

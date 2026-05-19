@@ -3079,20 +3079,66 @@ router.get('/gcr/business-data/:siteId', async (req, res) => {
         takeout:          tagSet.has('takeout'),
         alcohol:          tagSet.has('full_bar'),
         happy_hour: {
-            days:  entity.hh_days,
-            start: entity.hh_start,
-            end:   entity.hh_end,
-            items: hhItemsRes.data || [],
+            days:        entity.hh_days,
+            start:       entity.hh_start,
+            end:         entity.hh_end,
+            description: entity.hh_description,
+            items:       hhItemsRes.data || [],
         },
     };
+    // hh key: admin.html reads c.hh directly (not c.content.happy_hour)
+    const hh = {
+        days:        entity.hh_days,
+        start:       entity.hh_start,
+        end:         entity.hh_end,
+        description: entity.hh_description,
+        items:       hhItemsRes.data || [],
+    };
+
+    // Also pull section_items for section-based menu/drink data (where imports write to)
+    const allSections = sectionsRes.data || [];
+    const menuSecFromSections = allSections.filter(s => s.section_type === 'menu' || s.section_type === 'grouped_items');
+    const drinkSecFromSections = allSections.filter(s => s.section_type === 'drinks');
+    const menuSecIdsFromSections = menuSecFromSections.map(s => s.id);
+    const drinkSecIdsFromSections = drinkSecFromSections.map(s => s.id);
+    const allSecIds = allSections.map(s => s.id);
+    let sectionItemsForMenuDrinks = [];
+    if (allSecIds.length) {
+        const { data: siData } = await gcrDb.from('section_items').select('*').in('section_id', allSecIds).order('sort_order');
+        sectionItemsForMenuDrinks = siData || [];
+    }
+    const mapSI = i => ({
+        id: i.id, item_name: i.item_name,
+        description: i.item_description || i.description || '',
+        price_text: i.price_text || (i.price_numeric != null ? '$' + i.price_numeric : ''),
+        price: i.price_numeric, image_url: i.image_url || null,
+    });
+    const menuItemsMerged = [
+        ...(menuItemsRes.data || []),
+        ...sectionItemsForMenuDrinks.filter(i => menuSecIdsFromSections.includes(i.section_id)).map(mapSI),
+    ];
+    const drinkItemsMerged = [
+        ...(drinkItemsRes.data || []),
+        ...sectionItemsForMenuDrinks.filter(i => drinkSecIdsFromSections.includes(i.section_id)).map(mapSI),
+    ];
+    const menuSecsMerged = [
+        ...(menuSecRes.data || []),
+        ...menuSecFromSections.filter(s => !(menuSecRes.data || []).find(m => m.id === s.id))
+            .map(s => ({ id: s.id, section_name: s.section_label, entity_id: entityId, sort_order: s.sort_order })),
+    ];
+    const drinkSecsMerged = [
+        ...(drinkSecRes.data || []),
+        ...drinkSecFromSections.filter(s => !(drinkSecRes.data || []).find(d => d.id === s.id))
+            .map(s => ({ id: s.id, section_name: s.section_label, entity_id: entityId, sort_order: s.sort_order })),
+    ];
 
     res.json({
         business,
         content,
-        menu_sections: menuSecRes.data   || [],
-        menu:          menuItemsRes.data || [],
-        drink_sections:drinkSecRes.data  || [],
-        drinks:        drinkItemsRes.data|| [],
+        menu_sections: menuSecsMerged,
+        menu:   { sections: menuSecsMerged, items: menuItemsMerged },
+        drink_sections: drinkSecsMerged,
+        drinks: { sections: drinkSecsMerged, items: drinkItemsMerged },
         specials:      specialsRes.data  || [],
         events:        eventsRes.data    || [],
         reviews:       reviewsRes.data   || [],
@@ -3101,7 +3147,8 @@ router.get('/gcr/business-data/:siteId', async (req, res) => {
         tags:          tagsRes.data      || [],
         features:      featuresRes.data  || [],
         perfect_for:   pfRes.data        || [],
-        sections:      sectionsRes.data  || [],
+        sections:      allSections,
+        hh,
         hh_sections:   hhSecRes.data     || [],
         hh_items:      hhItemsRes.data   || [],
         highlights:    highlightsRes.data|| {},
