@@ -3479,10 +3479,16 @@ router.put('/gcr/entities/:id', authRequired, async (req, res) => {
     res.json({ success: true });
 });
 
-// PATCH /api/admin/gcr/entities/:id — partial update: entity fields, hours, happyHour, photos
+// PATCH /api/admin/gcr/entities/:id — unified update: all 18 standardized tables
 router.patch('/gcr/entities/:id', authRequired, async (req, res) => {
     const entityId = req.params.id;
-    const { entity, hours, happyHour, photos } = req.body;
+    const {
+        entity, hours, happyHour, happyHourItems,
+        menuSections, menuItems, drinkSections, drinkItems,
+        events, specials, tags, features, activities,
+        pricing, bookingSlots, sections, sectionItems, sectionBullets,
+        photos, policies, requirements, qna
+    } = req.body;
     const errors = [];
 
     // 1. Core entity fields
@@ -3503,20 +3509,250 @@ router.patch('/gcr/entities/:id', authRequired, async (req, res) => {
         }
     }
 
-    // 3. Happy hour scalar fields
+    // 3. Happy hours — times + items
     if (happyHour) {
-        const upd = {};
-        if (happyHour.days        !== undefined) upd.hh_days        = happyHour.days;
-        if (happyHour.start       !== undefined) upd.hh_start       = happyHour.start;
-        if (happyHour.end         !== undefined) upd.hh_end         = happyHour.end;
-        if (happyHour.description !== undefined) upd.hh_description = happyHour.description;
-        if (Object.keys(upd).length) {
-            const { error } = await gcrDb.from('entity').update(upd).eq('id', entityId);
-            if (error) errors.push('happy_hour: ' + error.message);
-        }
+        const hhId = happyHour.id || req.crypto.randomUUID?.() || require('crypto').randomUUID();
+        const hhData = {
+            id: hhId,
+            entity_id: entityId,
+            hh_days: happyHour.days || null,
+            hh_start: happyHour.start || null,
+            hh_end: happyHour.end || null,
+            hh_description: happyHour.description || null
+        };
+        const { error } = await gcrDb.from('entity_happy_hours').upsert(hhData);
+        if (error) errors.push('happy_hours: ' + error.message);
     }
 
-    // 4. Photos — add new, delete by id or image_url
+    if (happyHourItems?.length) {
+        const rows = happyHourItems.map(item => ({
+            id: item.id || require('crypto').randomUUID(),
+            entity_id: entityId,
+            item_name: item.name,
+            item_description: item.description || null,
+            hh_price: item.price || null,
+            item_type: item.type || null
+        }));
+        const { error } = await gcrDb.from('entity_happy_hour_items').upsert(rows);
+        if (error) errors.push('happy_hour_items: ' + error.message);
+    }
+
+    // 4. Menu sections and items
+    if (menuSections?.length) {
+        const rows = menuSections.map(s => ({
+            id: s.id || require('crypto').randomUUID(),
+            entity_id: entityId,
+            section_name: s.name,
+            section_note: s.note || null,
+            icon: s.icon || null,
+            sort_order: s.sort_order || 0
+        }));
+        const { error } = await gcrDb.from('entity_menu_sections').upsert(rows);
+        if (error) errors.push('menu_sections: ' + error.message);
+    }
+
+    if (menuItems?.length) {
+        const rows = menuItems.map(item => ({
+            id: item.id || require('crypto').randomUUID(),
+            entity_id: entityId,
+            menu_section_id: item.menu_section_id,
+            item_name: item.name,
+            description: item.description || null,
+            price: item.price || null,
+            price_text: item.price_text || null,
+            image_url: item.image_url || null,
+            allergens: item.allergens || null,
+            tags: item.tags || null
+        }));
+        const { error } = await gcrDb.from('entity_menu_items').upsert(rows);
+        if (error) errors.push('menu_items: ' + error.message);
+    }
+
+    // 5. Drink sections and items
+    if (drinkSections?.length) {
+        const rows = drinkSections.map(s => ({
+            id: s.id || require('crypto').randomUUID(),
+            entity_id: entityId,
+            section_name: s.name,
+            section_note: s.note || null,
+            icon: s.icon || null,
+            sort_order: s.sort_order || 0
+        }));
+        const { error } = await gcrDb.from('entity_drink_sections').upsert(rows);
+        if (error) errors.push('drink_sections: ' + error.message);
+    }
+
+    if (drinkItems?.length) {
+        const rows = drinkItems.map(item => ({
+            id: item.id || require('crypto').randomUUID(),
+            entity_id: entityId,
+            drink_section_id: item.drink_section_id,
+            item_name: item.name,
+            item_style: item.style || null,
+            abv: item.abv || null,
+            ibu: item.ibu || null,
+            brewery: item.brewery || null,
+            description: item.description || null,
+            price: item.price || null,
+            price_text: item.price_text || null
+        }));
+        const { error } = await gcrDb.from('entity_drink_items').upsert(rows);
+        if (error) errors.push('drink_items: ' + error.message);
+    }
+
+    // 6. Events
+    if (events?.length) {
+        const rows = events.map(e => ({
+            id: e.id || require('crypto').randomUUID(),
+            entity_id: entityId,
+            event_name: e.name,
+            event_type: e.type || null,
+            event_date: e.date || null,
+            start_time: e.start_time || null,
+            end_time: e.end_time || null,
+            day_of_week: e.day_of_week || null,
+            recurring: e.recurring || false,
+            recurring_start_date: e.recurring_start_date || null,
+            recurring_end_date: e.recurring_end_date || null,
+            description: e.description || null,
+            artist_name: e.artist_name || null,
+            venue_location: e.venue_location || null
+        }));
+        const { error } = await gcrDb.from('entity_events').upsert(rows);
+        if (error) errors.push('events: ' + error.message);
+    }
+
+    // 7. Specials
+    if (specials?.length) {
+        const rows = specials.map(s => ({
+            id: s.id || require('crypto').randomUUID(),
+            entity_id: entityId,
+            special_name: s.name,
+            description: s.description || null,
+            discount_text: s.discount_text || null,
+            start_date: s.start_date || null,
+            end_date: s.end_date || null,
+            days: s.days || null,
+            start_time: s.start_time || null,
+            end_time: s.end_time || null
+        }));
+        const { error } = await gcrDb.from('entity_specials').upsert(rows);
+        if (error) errors.push('specials: ' + error.message);
+    }
+
+    // 8. Tags
+    if (tags?.length) {
+        const rows = tags.map(t => ({
+            id: t.id || require('crypto').randomUUID(),
+            entity_id: entityId,
+            tag: t.name || t.tag,
+            tag_category: t.category || 'general'
+        }));
+        const { error } = await gcrDb.from('entity_tags').upsert(rows);
+        if (error) errors.push('tags: ' + error.message);
+    }
+
+    // 9. Features
+    if (features?.length) {
+        const rows = features.map(f => ({
+            id: f.id || require('crypto').randomUUID(),
+            entity_id: entityId,
+            feature_label: f.label || f.name
+        }));
+        const { error } = await gcrDb.from('entity_features').upsert(rows);
+        if (error) errors.push('features: ' + error.message);
+    }
+
+    // 10. Activities
+    if (activities?.length) {
+        const rows = activities.map(a => ({
+            id: a.id || require('crypto').randomUUID(),
+            entity_id: entityId,
+            activity_name: a.name,
+            description: a.description || null
+        }));
+        const { error } = await gcrDb.from('entity_activities').upsert(rows);
+        if (error) errors.push('activities: ' + error.message);
+    }
+
+    // 11. Pricing
+    if (pricing?.length) {
+        const rows = pricing.map(p => ({
+            id: p.id || require('crypto').randomUUID(),
+            entity_id: entityId,
+            package_name: p.name,
+            description: p.description || null,
+            price: p.price || null,
+            price_text: p.price_text || null,
+            time_slot_start: p.time_slot_start || null,
+            time_slot_end: p.time_slot_end || null,
+            price_unit: p.price_unit || null
+        }));
+        const { error } = await gcrDb.from('entity_pricing').upsert(rows);
+        if (error) errors.push('pricing: ' + error.message);
+    }
+
+    // 12. Booking slots
+    if (bookingSlots?.length) {
+        const rows = bookingSlots.map(b => ({
+            id: b.id || require('crypto').randomUUID(),
+            entity_id: entityId,
+            slot_date: b.date,
+            slot_time: b.time,
+            capacity: b.capacity,
+            booked: b.booked || 0
+        }));
+        const { error } = await gcrDb.from('entity_booking_slots').upsert(rows);
+        if (error) errors.push('booking_slots: ' + error.message);
+    }
+
+    // 13. Sections (CMS)
+    if (sections?.length) {
+        const rows = sections.map(s => ({
+            id: s.id || require('crypto').randomUUID(),
+            entity_id: entityId,
+            section_type: s.type,
+            section_key: s.key,
+            section_label: s.label || null,
+            section_name: s.name || null,
+            section_note: s.note || null,
+            content: s.content || null,
+            icon: s.icon || null,
+            sort_order: s.sort_order || 0
+        }));
+        const { error } = await gcrDb.from('entity_sections').upsert(rows);
+        if (error) errors.push('sections: ' + error.message);
+    }
+
+    // 14. Section items
+    if (sectionItems?.length) {
+        const rows = sectionItems.map(item => ({
+            id: item.id || require('crypto').randomUUID(),
+            entity_id: entityId,
+            section_id: item.section_id,
+            item_name: item.name,
+            item_description: item.description || null,
+            image_url: item.image_url || null,
+            price_text: item.price_text || null
+        }));
+        const { error } = await gcrDb.from('entity_section_items').upsert(rows);
+        if (error) errors.push('section_items: ' + error.message);
+    }
+
+    // 15. Section bullets
+    if (sectionBullets?.length) {
+        const rows = sectionBullets.map(b => ({
+            id: b.id || require('crypto').randomUUID(),
+            entity_id: entityId,
+            section_id: b.section_id,
+            bullet_text: b.text,
+            sort_order: b.sort_order || 0
+        }));
+        const { error } = await gcrDb.from('entity_section_bullets').upsert(rows);
+        if (error) errors.push('section_bullets: ' + error.message);
+    }
+
+    // 16. Photos
     if (photos?.add?.length) {
         const rows = photos.add.map((p, i) => ({ entity_id: entityId, image_url: p.image_url, caption: p.caption || null, sort_order: i }));
         const { error } = await gcrDb.from('entity_photos').insert(rows);
@@ -3527,6 +3763,40 @@ router.patch('/gcr/entities/:id', authRequired, async (req, res) => {
             if (p.id) await gcrDb.from('entity_photos').delete().eq('id', p.id);
             else if (p.image_url) await gcrDb.from('entity_photos').delete().eq('entity_id', entityId).eq('image_url', p.image_url);
         }
+    }
+
+    // 17. Policies
+    if (policies?.length) {
+        const rows = policies.map(p => ({
+            id: p.id || require('crypto').randomUUID(),
+            entity_id: entityId,
+            policy_text: p.text || p.policy_text
+        }));
+        const { error } = await gcrDb.from('entity_policies').upsert(rows);
+        if (error) errors.push('policies: ' + error.message);
+    }
+
+    // 18. Requirements
+    if (requirements?.length) {
+        const rows = requirements.map(r => ({
+            id: r.id || require('crypto').randomUUID(),
+            entity_id: entityId,
+            requirement_text: r.text || r.requirement_text
+        }));
+        const { error } = await gcrDb.from('entity_requirements').upsert(rows);
+        if (error) errors.push('requirements: ' + error.message);
+    }
+
+    // 19. Q&A
+    if (qna?.length) {
+        const rows = qna.map(q => ({
+            id: q.id || require('crypto').randomUUID(),
+            entity_id: entityId,
+            question: q.question,
+            answer: q.answer || null
+        }));
+        const { error } = await gcrDb.from('entity_qna').upsert(rows);
+        if (error) errors.push('qna: ' + error.message);
     }
 
     if (errors.length) return res.status(207).json({ success: true, errors });
