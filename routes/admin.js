@@ -7170,6 +7170,7 @@ router.post('/ai-chat-organizer', adminRequired, async (req, res) => {
 
     const tools = [
         {
+            type: 'function',
             function: {
                 name: 'save_menu_items',
                 description: 'Save menu items (food, drinks, happy hour) to the database',
@@ -7197,6 +7198,7 @@ router.post('/ai-chat-organizer', adminRequired, async (req, res) => {
             }
         },
         {
+            type: 'function',
             function: {
                 name: 'save_specials',
                 description: 'Save daily specials or deals',
@@ -7224,6 +7226,7 @@ router.post('/ai-chat-organizer', adminRequired, async (req, res) => {
             }
         },
         {
+            type: 'function',
             function: {
                 name: 'save_events',
                 description: 'Save upcoming events',
@@ -7250,6 +7253,7 @@ router.post('/ai-chat-organizer', adminRequired, async (req, res) => {
             }
         },
         {
+            type: 'function',
             function: {
                 name: 'update_business',
                 description: 'Update business profile info',
@@ -7267,6 +7271,7 @@ router.post('/ai-chat-organizer', adminRequired, async (req, res) => {
             }
         },
         {
+            type: 'function',
             function: {
                 name: 'save_hours',
                 description: 'Save business hours by day of week',
