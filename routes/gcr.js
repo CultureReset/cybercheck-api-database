@@ -3339,36 +3339,64 @@ router.post('/entity/:slug/daily-update', async (req, res) => {
 });
 
 // ============================================
-// GET /api/gcr/menu-items — all menu items for trip swipe
+// GET /api/gcr/menu-items — all menu items for trip swipe (uses same section_items as search)
 // ============================================
 router.get('/menu-items', async (req, res) => {
     try {
         const limit = Math.min(parseInt(req.query.limit) || 500, 1000);
-        const { data: menuItems, error: menuErr } = await gcrDb
-            .from('menu_items')
-            .select('id, item_name, description, price, image_url, entity_id, entity:entity_id(id, name, slug)')
-            .eq('is_active', true)
+
+        // Get all entities with sections
+        const { data: entities, error: entErr } = await gcrDb
+            .from('entity')
+            .select('id, name, slug')
+            .eq('is_active', true);
+        if (entErr) throw entErr;
+
+        const entityIds = (entities || []).map(e => e.id);
+        if (!entityIds.length) return res.json({ items: [], count: 0 });
+
+        // Get all sections (menu, drinks, happy_hour)
+        const { data: sections, error: secErr } = await gcrDb
+            .from('entity_sections')
+            .select('id, entity_id, section_type')
+            .in('entity_id', entityIds);
+        if (secErr) throw secErr;
+
+        const sectionMap = {};
+        (sections || []).forEach(s => {
+            sectionMap[s.id] = { entity_id: s.entity_id, section_type: s.section_type };
+        });
+
+        // Get all section items with descriptions (filters out empty rows)
+        const { data: sectionItems, error: itemErr } = await gcrDb
+            .from('section_items')
+            .select('id, section_id, item_name, item_description, price_numeric, price_text, image_url')
+            .in('section_id', Object.keys(sectionMap))
             .limit(limit);
-        if (menuErr) throw menuErr;
-        const { data: drinkItems, error: drinksErr } = await gcrDb
-            .from('drink_items')
-            .select('id, item_name, description, price, image_url, entity_id, entity:entity_id(id, name, slug)')
-            .eq('is_active', true)
-            .limit(limit);
-        if (drinksErr) throw drinksErr;
-        const items = [...(menuItems || []), ...(drinkItems || [])]
-            .filter(i => i.item_name && i.image_url && i.price)
-            .map(i => ({
-                id: i.id,
-                item_name: i.item_name,
-                name: i.item_name,
-                description: i.description,
-                price: i.price,
-                image_url: i.image_url,
-                entity_name: i.entity?.name,
-                entity_slug: i.entity?.slug
-            }))
+        if (itemErr) throw itemErr;
+
+        // Enrich with section type and entity info, filter for items with descriptions
+        const entityMap = Object.fromEntries(entities.map(e => [e.id, e]));
+        const items = (sectionItems || [])
+            .filter(item => item.item_name && (item.item_description || '').trim().length > 0 && item.image_url)
+            .map(item => {
+                const section = sectionMap[item.section_id];
+                const entity = entityMap[section.entity_id];
+                return {
+                    id: item.id,
+                    item_name: item.item_name,
+                    name: item.item_name,
+                    description: item.item_description,
+                    price: item.price_numeric,
+                    price_text: item.price_text,
+                    image_url: item.image_url,
+                    entity_name: entity?.name,
+                    entity_slug: entity?.slug,
+                    section_type: section.section_type
+                };
+            })
             .slice(0, limit);
+
         res.json({ items, count: items.length });
     } catch (e) {
         console.error('Error loading menu items:', e.message);
