@@ -2897,9 +2897,12 @@ router.get('/live-now', async (req, res) => {
     for (const ev of (eventsRes.data || [])) {
         const ent = ev.entity;
         if (!ent) continue;
+        const isLive = ev.start_time && ev.start_time <= timeStr && ev.end_time >= timeStr;
+        const statusLabel = isLive ? 'Live Now' : (ev.start_time ? `Starts at ${fmt12(ev.start_time)}` : 'Tonight');
         addSignal(ent, {
             type: 'event',
-            label: `🎵 ${ev.event_name || 'Live Tonight'}`,
+            label: `🎵 ${ev.event_name || 'Live Event'}`,
+            status: statusLabel,
             detail: ev.artist_name || null,
             start_time: ev.start_time || null,
         });
@@ -2908,9 +2911,12 @@ router.get('/live-now', async (req, res) => {
     for (const sp of (specialsRes.data || [])) {
         const ent = sp.entity;
         if (!ent) continue;
+        const isLive = sp.start_time && sp.start_time <= timeStr && sp.end_time >= timeStr;
+        const statusLabel = isLive ? 'Live Now' : (sp.start_time ? `Starts at ${fmt12(sp.start_time)}` : 'Active Today');
         addSignal(ent, {
             type: 'special',
             label: `🏷️ ${sp.special_name || 'Special'}`,
+            status: statusLabel,
             detail: sp.discount_text || sp.description || null,
         });
     }
