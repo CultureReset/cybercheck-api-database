@@ -7265,6 +7265,101 @@ router.post('/ai-chat-organizer', adminRequired, async (req, res) => {
                     }
                 }
             }
+        },
+        {
+            function: {
+                name: 'save_hours',
+                description: 'Save business hours by day of week',
+                parameters: {
+                    type: 'object',
+                    properties: {
+                        hours: {
+                            type: 'array',
+                            items: {
+                                type: 'object',
+                                properties: {
+                                    day_of_week: { type: 'string', enum: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'] },
+                                    open_time: { type: 'string' },
+                                    close_time: { type: 'string' },
+                                    is_closed: { type: 'boolean' }
+                                },
+                                required: ['day_of_week']
+                            }
+                        }
+                    },
+                    required: ['hours']
+                }
+            }
+        },
+        {
+            function: {
+                name: 'save_about',
+                description: 'Save about/description bullet points or sections',
+                parameters: {
+                    type: 'object',
+                    properties: {
+                        bullets: {
+                            type: 'array',
+                            items: {
+                                type: 'object',
+                                properties: {
+                                    bullet_text: { type: 'string' },
+                                    sort_order: { type: 'number' }
+                                },
+                                required: ['bullet_text']
+                            }
+                        }
+                    },
+                    required: ['bullets']
+                }
+            }
+        },
+        {
+            function: {
+                name: 'save_photos',
+                description: 'Save photo gallery URLs',
+                parameters: {
+                    type: 'object',
+                    properties: {
+                        photos: {
+                            type: 'array',
+                            items: {
+                                type: 'object',
+                                properties: {
+                                    image_url: { type: 'string' },
+                                    caption: { type: 'string' },
+                                    sort_order: { type: 'number' }
+                                },
+                                required: ['image_url']
+                            }
+                        }
+                    },
+                    required: ['photos']
+                }
+            }
+        },
+        {
+            function: {
+                name: 'save_tags',
+                description: 'Save amenity, feature, and category tags',
+                parameters: {
+                    type: 'object',
+                    properties: {
+                        tags: {
+                            type: 'array',
+                            items: {
+                                type: 'object',
+                                properties: {
+                                    tag: { type: 'string' },
+                                    tag_category: { type: 'string', enum: ['amenity','feature','category','perfect_for','search'] }
+                                },
+                                required: ['tag']
+                            }
+                        }
+                    },
+                    required: ['tags']
+                }
+            }
         }
     ];
 
@@ -7359,6 +7454,61 @@ router.post('/ai-chat-organizer', adminRequired, async (req, res) => {
             }
             saved.push({ type: 'business', fields: Object.keys(upd) });
             return `Updated business profile in GCR`;
+        }
+        if (name === 'save_hours') {
+            let count = 0;
+            for (const h of (args.hours || [])) {
+                const { error } = await gcrDb.from('entity_hours').upsert({
+                    entity_id: entityId,
+                    day_of_week: h.day_of_week,
+                    open_time: h.open_time || null,
+                    close_time: h.close_time || null,
+                    is_closed: h.is_closed || false
+                }, { onConflict: 'entity_id,day_of_week' });
+                if (!error) count++;
+            }
+            saved.push({ type: 'hours', count });
+            return `Saved ${count} hours to GCR`;
+        }
+        if (name === 'save_about') {
+            let count = 0;
+            for (const b of (args.bullets || [])) {
+                const { error } = await gcrDb.from('entity_about_bullets').insert({
+                    entity_id: entityId,
+                    bullet_text: b.bullet_text,
+                    sort_order: b.sort_order || 0
+                });
+                if (!error) count++;
+            }
+            saved.push({ type: 'about', count });
+            return `Saved ${count} about bullet points to GCR`;
+        }
+        if (name === 'save_photos') {
+            let count = 0;
+            for (const p of (args.photos || [])) {
+                const { error } = await gcrDb.from('entity_photos').insert({
+                    entity_id: entityId,
+                    image_url: p.image_url,
+                    caption: p.caption || null,
+                    sort_order: p.sort_order || 0
+                });
+                if (!error) count++;
+            }
+            saved.push({ type: 'photos', count });
+            return `Saved ${count} photos to GCR gallery`;
+        }
+        if (name === 'save_tags') {
+            let count = 0;
+            for (const t of (args.tags || [])) {
+                const { error } = await gcrDb.from('entity_tags').insert({
+                    entity_id: entityId,
+                    tag: t.tag,
+                    tag_category: t.tag_category || 'amenity'
+                });
+                if (!error) count++;
+            }
+            saved.push({ type: 'tags', count });
+            return `Saved ${count} tags to GCR`;
         }
         return 'Unknown tool';
     }
