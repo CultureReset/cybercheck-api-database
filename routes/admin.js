@@ -8692,6 +8692,96 @@ router.delete('/tourists/:id', adminRequired, async (req, res) => {
     }
 });
 
+// ============================================================
+// AI CHAT CONVERSATION HISTORY
+// ============================================================
+
+// POST /api/admin/ai-chat-history/save — auto-save conversation
+router.post('/ai-chat-history/save', adminRequired, async (req, res) => {
+    const { messages, title } = req.body;
+    const { data: { user } } = await supabase.auth.getUser(req.headers.authorization?.split(' ')[1]);
+    if (!user) return res.status(401).json({ error: 'Unauthorized' });
+
+    try {
+        const { data, error } = await supabase.from('ai_chat_conversations').insert({
+            user_id: user.id,
+            title: title || `Chat ${new Date().toLocaleDateString()}`,
+            messages: messages || []
+        }).select().single();
+        if (error) throw error;
+        res.json({ conversation_id: data.id });
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+// PUT /api/admin/ai-chat-history/:id — update conversation
+router.put('/ai-chat-history/:id', adminRequired, async (req, res) => {
+    const { id } = req.params;
+    const { messages, title } = req.body;
+    try {
+        await supabase.from('ai_chat_conversations').update({
+            messages: messages || [],
+            title: title || undefined,
+            updated_at: new Date().toISOString()
+        }).eq('id', id);
+        res.json({ ok: true });
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+// GET /api/admin/ai-chat-history — list all conversations
+router.get('/ai-chat-history', adminRequired, async (req, res) => {
+    const { data: { user } } = await supabase.auth.getUser(req.headers.authorization?.split(' ')[1]);
+    if (!user) return res.status(401).json({ error: 'Unauthorized' });
+
+    try {
+        const { data, error } = await supabase.from('ai_chat_conversations')
+            .select('id, title, created_at, updated_at')
+            .eq('user_id', user.id)
+            .order('updated_at', { ascending: false })
+            .limit(50);
+        if (error) throw error;
+        res.json({ conversations: data || [] });
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+// GET /api/admin/ai-chat-history/:id — load specific conversation
+router.get('/ai-chat-history/:id', adminRequired, async (req, res) => {
+    const { id } = req.params;
+    try {
+        const { data, error } = await supabase.from('ai_chat_conversations')
+            .select('*')
+            .eq('id', id)
+            .single();
+        if (error) throw error;
+        res.json({ conversation: data });
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+// DELETE /api/admin/ai-chat-history/:id — delete conversation
+router.delete('/ai-chat-history/:id', adminRequired, async (req, res) => {
+    const { id } = req.params;
+    try {
+        await supabase.from('ai_chat_conversations').delete().eq('id', id);
+        res.json({ ok: true });
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+// POST /api/admin/ai-chat-history/search — search past conversations
+router.post('/ai-chat-history/search', adminRequired, async (req, res) => {
+    const { query } = req.body;
+    const { data: { user } } = await supabase.auth.getUser(req.headers.authorization?.split(' ')[1]);
+    if (!user) return res.status(401).json({ error: 'Unauthorized' });
+
+    try {
+        const { data, error } = await supabase.from('ai_chat_conversations')
+            .select('id, title, messages, created_at')
+            .eq('user_id', user.id)
+            .textSearch('messages', query)
+            .limit(10);
+        if (error) throw error;
+        res.json({ results: data || [] });
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
 module.exports = router;
 
 
