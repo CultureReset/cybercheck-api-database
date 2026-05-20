@@ -7275,23 +7275,36 @@ router.post('/ai-chat-organizer', adminRequired, async (req, res) => {
             let foodCount = 0, drinkCount = 0, hhCount = 0;
             for (const item of (args.items || [])) {
                 const itype = item.item_type || 'food';
-                if (itype === 'drink') {
-                    const secName = item.category || 'Drinks';
-                    let { data: sec } = await gcrDb.from('drink_sections').select('id').eq('entity_id', entityId).eq('section_name', secName).maybeSingle();
-                    if (!sec) { const r = await gcrDb.from('drink_sections').insert({ entity_id: entityId, section_name: secName }).select('id').single(); sec = r.data; }
-                    const { error } = await gcrDb.from('drink_items').insert({ entity_id: entityId, drink_section_id: sec?.id || null, item_name: item.name, price: parseFloat(item.price) || null, description: item.description || null, is_available: true });
-                    if (!error) drinkCount++;
-                } else if (itype === 'happy_hour') {
-                    let { data: sec } = await gcrDb.from('happy_hour_sections').select('id').eq('entity_id', entityId).maybeSingle();
-                    if (!sec) { const r = await gcrDb.from('happy_hour_sections').insert({ entity_id: entityId, section_name: 'Happy Hour' }).select('id').single(); sec = r.data; }
-                    const { error } = await gcrDb.from('happy_hour_items').insert({ entity_id: entityId, hh_section_id: sec?.id || null, item_name: item.name, hh_price: parseFloat(item.price) || null, description: item.description || null });
-                    if (!error) hhCount++;
-                } else {
-                    const secName = item.category || 'Menu Items';
-                    let { data: sec } = await gcrDb.from('menu_sections').select('id').eq('entity_id', entityId).eq('section_name', secName).maybeSingle();
-                    if (!sec) { const r = await gcrDb.from('menu_sections').insert({ entity_id: entityId, section_name: secName }).select('id').single(); sec = r.data; }
-                    const { error } = await gcrDb.from('menu_items').insert({ entity_id: entityId, menu_section_id: sec?.id || null, item_name: item.name, price: parseFloat(item.price) || null, description: item.description || null, is_available: true });
-                    if (!error) foodCount++;
+                const secType = itype === 'drink' ? 'drinks' : itype === 'happy_hour' ? 'happy_hour' : 'menu';
+                const secLabel = item.category || (itype === 'drink' ? 'Drinks' : itype === 'happy_hour' ? 'Happy Hour' : 'Menu');
+
+                let { data: sec } = await gcrDb.from('entity_sections').select('id').eq('entity_id', entityId).eq('section_type', secType).eq('section_label', secLabel).maybeSingle();
+                if (!sec) {
+                    const r = await gcrDb.from('entity_sections').insert({
+                        entity_id: entityId,
+                        section_key: secLabel.toLowerCase().replace(/\s+/g, '_'),
+                        section_label: secLabel,
+                        section_type: secType,
+                        sort_order: 0
+                    }).select('id').single();
+                    sec = r.data;
+                }
+                if (!sec?.id) continue;
+
+                const { error } = await gcrDb.from('section_items').insert({
+                    entity_id: entityId,
+                    section_id: sec.id,
+                    item_name: item.name,
+                    item_description: item.description || null,
+                    price_numeric: parseFloat(item.price) || null,
+                    price_text: item.price ? '$' + parseFloat(item.price).toFixed(2) : null,
+                    item_type: itype,
+                    sort_order: 0
+                });
+                if (!error) {
+                    if (itype === 'drink') drinkCount++;
+                    else if (itype === 'happy_hour') hhCount++;
+                    else foodCount++;
                 }
             }
             const total = foodCount + drinkCount + hhCount;
