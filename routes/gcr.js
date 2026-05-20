@@ -3338,4 +3338,42 @@ router.post('/entity/:slug/daily-update', async (req, res) => {
     }
 });
 
+// ============================================
+// GET /api/gcr/menu-items — all menu items for trip swipe
+// ============================================
+router.get('/menu-items', async (req, res) => {
+    try {
+        const limit = Math.min(parseInt(req.query.limit) || 500, 1000);
+        const { data: menuItems, error: menuErr } = await gcrDb
+            .from('menu_items')
+            .select('id, item_name, description, price, image_url, entity_id, entity:entity_id(id, name, slug)')
+            .eq('is_active', true)
+            .limit(limit);
+        if (menuErr) throw menuErr;
+        const { data: drinkItems, error: drinksErr } = await gcrDb
+            .from('drink_items')
+            .select('id, item_name, description, price, image_url, entity_id, entity:entity_id(id, name, slug)')
+            .eq('is_active', true)
+            .limit(limit);
+        if (drinksErr) throw drinksErr;
+        const items = [...(menuItems || []), ...(drinkItems || [])]
+            .filter(i => i.item_name && i.image_url && i.price)
+            .map(i => ({
+                id: i.id,
+                item_name: i.item_name,
+                name: i.item_name,
+                description: i.description,
+                price: i.price,
+                image_url: i.image_url,
+                entity_name: i.entity?.name,
+                entity_slug: i.entity?.slug
+            }))
+            .slice(0, limit);
+        res.json({ items, count: items.length });
+    } catch (e) {
+        console.error('Error loading menu items:', e.message);
+        res.status(500).json({ error: e.message });
+    }
+});
+
 module.exports = router;
