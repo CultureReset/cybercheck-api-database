@@ -31,33 +31,65 @@ router.get('/:id/data', validatePasscode, async (req, res) => {
       return res.status(404).json({ error: 'Business not found' });
     }
 
-    // Get sections
-    const { data: sections, error: secErr } = await db
-      .from('entity_sections')
-      .select('*')
-      .eq('entity_id', id);
+    // Get LIVE menu sections (menu_sections, drink_sections, happy_hour_sections)
+    const [
+      { data: menuSecs },
+      { data: drinkSecs },
+      { data: hhSecs },
+      { data: menuItems },
+      { data: drinkItems },
+      { data: hhItems }
+    ] = await Promise.all([
+      db.from('menu_sections').select('*').eq('entity_id', id),
+      db.from('drink_sections').select('*').eq('entity_id', id),
+      db.from('happy_hour_sections').select('*').eq('entity_id', id),
+      db.from('menu_items').select('*').eq('entity_id', id),
+      db.from('drink_items').select('*').eq('entity_id', id),
+      db.from('happy_hour_items').select('*').eq('entity_id', id)
+    ]);
 
-    res.json({ entity, sections: sections || [] });
+    res.json({
+      entity,
+      sections: {
+        menu: (menuSecs || []).map(s => ({ ...s, type: 'menu' })),
+        drinks: (drinkSecs || []).map(s => ({ ...s, type: 'drink' })),
+        happy_hour: (hhSecs || []).map(s => ({ ...s, type: 'happy_hour' }))
+      },
+      items: {
+        menu: menuItems || [],
+        drinks: drinkItems || [],
+        happy_hour: hhItems || []
+      }
+    });
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
 });
 
-// POST /update/:id/menu-items - Add menu item
+// POST /update/:id/menu-items - Add menu item to LIVE tables
 router.post('/:id/menu-items', validatePasscode, async (req, res) => {
   try {
     const { id } = req.params;
-    const { section_id, name, description, price } = req.body;
+    const { section_id, section_type, name, description, price } = req.body;
 
-    const { data, error } = await db
-      .from('section_items')
-      .insert({
-        section_id,
-        item_name: name,
-        item_description: description,
-        item_price: price,
-      })
-      .select();
+    // Determine which table to write to based on section_type
+    const table =
+      section_type === 'drink' ? 'drink_items' :
+      section_type === 'happy_hour' ? 'happy_hour_items' :
+      'menu_items';
+
+    const itemData = {
+      entity_id: id,
+      ...(section_type === 'drink' ? { drink_section_id: section_id } :
+          section_type === 'happy_hour' ? { hh_section_id: section_id } :
+          { menu_section_id: section_id }),
+      item_name: name,
+      description: description || null,
+      price: price ? parseFloat(price) : null,
+      price_text: price ? '$' + price : null,
+    };
+
+    const { data, error } = await db.from(table).insert(itemData).select();
 
     if (error) return res.status(500).json({ error: error.message });
     res.json({ success: true, item: data[0] });
@@ -66,19 +98,28 @@ router.post('/:id/menu-items', validatePasscode, async (req, res) => {
   }
 });
 
-// PUT /update/:id/menu-items/:itemId - Update menu item
+// PUT /update/:id/menu-items/:itemId - Update menu item in LIVE tables
 router.put('/:id/menu-items/:itemId', validatePasscode, async (req, res) => {
   try {
     const { itemId } = req.params;
-    const { name, description, price } = req.body;
+    const { section_type, name, description, price } = req.body;
+
+    // Determine which table based on section_type
+    const table =
+      section_type === 'drink' ? 'drink_items' :
+      section_type === 'happy_hour' ? 'happy_hour_items' :
+      'menu_items';
+
+    const updateData = {
+      item_name: name,
+      description: description || null,
+      price: price ? parseFloat(price) : null,
+      price_text: price ? '$' + price : null,
+    };
 
     const { data, error } = await db
-      .from('section_items')
-      .update({
-        item_name: name,
-        item_description: description,
-        item_price: price,
-      })
+      .from(table)
+      .update(updateData)
       .eq('id', itemId)
       .select();
 
@@ -89,13 +130,20 @@ router.put('/:id/menu-items/:itemId', validatePasscode, async (req, res) => {
   }
 });
 
-// DELETE /update/:id/menu-items/:itemId - Delete menu item
+// DELETE /update/:id/menu-items/:itemId - Delete menu item from LIVE tables
 router.delete('/:id/menu-items/:itemId', validatePasscode, async (req, res) => {
   try {
     const { itemId } = req.params;
+    const { section_type } = req.body;
+
+    // Determine which table based on section_type
+    const table =
+      section_type === 'drink' ? 'drink_items' :
+      section_type === 'happy_hour' ? 'happy_hour_items' :
+      'menu_items';
 
     const { error } = await db
-      .from('section_items')
+      .from(table)
       .delete()
       .eq('id', itemId);
 
@@ -106,18 +154,24 @@ router.delete('/:id/menu-items/:itemId', validatePasscode, async (req, res) => {
   }
 });
 
-// POST /update/:id/menu-sections - Add section
+// POST /update/:id/menu-sections - Add section to LIVE tables
 router.post('/:id/menu-sections', validatePasscode, async (req, res) => {
   try {
     const { id } = req.params;
-    const { section_label, section_type } = req.body;
+    const { section_name, section_type } = req.body;
+
+    // Determine which table based on section_type
+    const table =
+      section_type === 'drink' ? 'drink_sections' :
+      section_type === 'happy_hour' ? 'happy_hour_sections' :
+      'menu_sections';
 
     const { data, error } = await db
-      .from('entity_sections')
+      .from(table)
       .insert({
         entity_id: id,
-        section_label,
-        section_type: section_type || 'items',
+        section_name: section_name,
+        sort_order: 0,
       })
       .select();
 
@@ -128,17 +182,34 @@ router.post('/:id/menu-sections', validatePasscode, async (req, res) => {
   }
 });
 
-// DELETE /update/:id/menu-sections/:sectionId - Delete section
+// DELETE /update/:id/menu-sections/:sectionId - Delete section from LIVE tables
 router.delete('/:id/menu-sections/:sectionId', validatePasscode, async (req, res) => {
   try {
     const { sectionId } = req.params;
+    const { section_type } = req.body;
+
+    // Determine which table based on section_type
+    const itemsTable =
+      section_type === 'drink' ? 'drink_items' :
+      section_type === 'happy_hour' ? 'happy_hour_items' :
+      'menu_items';
+
+    const sectionsTable =
+      section_type === 'drink' ? 'drink_sections' :
+      section_type === 'happy_hour' ? 'happy_hour_sections' :
+      'menu_sections';
 
     // Delete items first
-    await db.from('section_items').delete().eq('section_id', sectionId);
+    const itemIdField =
+      section_type === 'drink' ? 'drink_section_id' :
+      section_type === 'happy_hour' ? 'hh_section_id' :
+      'menu_section_id';
+
+    await db.from(itemsTable).delete().eq(itemIdField, sectionId);
 
     // Delete section
     const { error } = await db
-      .from('entity_sections')
+      .from(sectionsTable)
       .delete()
       .eq('id', sectionId);
 

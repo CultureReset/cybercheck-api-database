@@ -24,10 +24,24 @@ router.get('/:slug/data', async (req, res) => {
 
     const eid = entity.id;
 
-    // Get all menu data in parallel
-    const [sections, items, specials, events, photos] = await Promise.all([
-      db().from('entity_sections').select('*').eq('entity_id', eid),
-      db().from('section_items').select('*').eq('entity_id', eid),
+    // Get all menu data from LIVE tables in parallel
+    const [
+      { data: menuSections },
+      { data: menuItems },
+      { data: drinkSections },
+      { data: drinkItems },
+      { data: hhSections },
+      { data: hhItems },
+      { data: specials },
+      { data: events },
+      { data: photos }
+    ] = await Promise.all([
+      db().from('menu_sections').select('*').eq('entity_id', eid),
+      db().from('menu_items').select('*').eq('entity_id', eid),
+      db().from('drink_sections').select('*').eq('entity_id', eid),
+      db().from('drink_items').select('*').eq('entity_id', eid),
+      db().from('happy_hour_sections').select('*').eq('entity_id', eid),
+      db().from('happy_hour_items').select('*').eq('entity_id', eid),
       db().from('entity_specials').select('*').eq('entity_id', eid),
       db().from('entity_events').select('*').eq('entity_id', eid).eq('is_active', true),
       db().from('entity_photos').select('*').eq('entity_id', eid),
@@ -35,22 +49,30 @@ router.get('/:slug/data', async (req, res) => {
 
     res.json({
       entity,
-      sections: sections.data || [],
-      items: items.data || [],
-      specials: specials.data || [],
-      events: events.data || [],
-      photos: photos.data || [],
+      sections: {
+        menu: (menuSections || []).map(s => ({ ...s, type: 'menu' })),
+        drinks: (drinkSections || []).map(s => ({ ...s, type: 'drinks' })),
+        happy_hour: (hhSections || []).map(s => ({ ...s, type: 'happy_hour' }))
+      },
+      items: {
+        menu: menuItems || [],
+        drinks: drinkItems || [],
+        happy_hour: hhItems || []
+      },
+      specials: specials || [],
+      events: events || [],
+      photos: photos || [],
     });
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
 });
 
-// POST /simple/:slug/items - Add/update menu item
+// POST /simple/:slug/items - Add/update menu item to LIVE tables
 router.post('/:slug/items', async (req, res) => {
   try {
     const { slug } = req.params;
-    const { id, section_id, item_name, item_description, item_price } = req.body;
+    const { id, section_id, section_type, item_name, item_description, item_price } = req.body;
 
     const { data: entity } = await db()
       .from('entity')
@@ -60,12 +82,24 @@ router.post('/:slug/items', async (req, res) => {
 
     if (!entity) return res.status(404).json({ error: 'Business not found' });
 
+    // Determine which table to write to based on section_type
+    const table =
+      section_type === 'drinks' ? 'drink_items' :
+      section_type === 'happy_hour' ? 'happy_hour_items' :
+      'menu_items';
+
+    // Determine section ID column based on section_type
+    const sectionIdColumn =
+      section_type === 'drinks' ? 'drink_section_id' :
+      section_type === 'happy_hour' ? 'hh_section_id' :
+      'menu_section_id';
+
     let result;
     if (id) {
       // Update
       const { data, error } = await db()
-        .from('section_items')
-        .update({ item_name, item_description, item_price })
+        .from(table)
+        .update({ item_name, description: item_description, price: item_price })
         .eq('id', id)
         .eq('entity_id', entity.id)
         .select();
@@ -73,9 +107,16 @@ router.post('/:slug/items', async (req, res) => {
       result = data[0];
     } else {
       // Create
+      const itemData = {
+        entity_id: entity.id,
+        [sectionIdColumn]: section_id,
+        item_name,
+        description: item_description || null,
+        price: item_price ? parseFloat(item_price) : null,
+      };
       const { data, error } = await db()
-        .from('section_items')
-        .insert({ entity_id: entity.id, section_id, item_name, item_description, item_price })
+        .from(table)
+        .insert(itemData)
         .select();
       if (error) return res.status(500).json({ error: error.message });
       result = data[0];
@@ -87,10 +128,11 @@ router.post('/:slug/items', async (req, res) => {
   }
 });
 
-// DELETE /simple/:slug/items/:id
+// DELETE /simple/:slug/items/:id - Delete from LIVE tables
 router.delete('/:slug/items/:id', async (req, res) => {
   try {
     const { slug, id } = req.params;
+    const { section_type } = req.body || {};
 
     const { data: entity } = await db()
       .from('entity')
@@ -100,8 +142,14 @@ router.delete('/:slug/items/:id', async (req, res) => {
 
     if (!entity) return res.status(404).json({ error: 'Business not found' });
 
+    // Determine which table based on section_type
+    const table =
+      section_type === 'drinks' ? 'drink_items' :
+      section_type === 'happy_hour' ? 'happy_hour_items' :
+      'menu_items';
+
     const { error } = await db()
-      .from('section_items')
+      .from(table)
       .delete()
       .eq('id', id)
       .eq('entity_id', entity.id);
