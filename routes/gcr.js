@@ -2851,17 +2851,20 @@ router.get('/live-now', async (req, res) => {
             .gte('hh_end', timeStr)
             .limit(100),
 
-        // Events today: specific date OR recurring day_of_week match
+        // Events today that are happening RIGHT NOW (between start_time and end_time)
         gcrDb.from('entity_events')
             .select('entity_id, event_name, artist_name, start_time, end_time, event_type, event_date, day_of_week, recurring, entity(id, slug, name, hero_image_url, entity_subtype, city, rating, booking_url)')
             .eq('is_active', true)
             .or(`event_date.eq.${todayStr},day_of_week.eq.${todayInt}`)
+            .lte('start_time', timeStr)
+            .gte('end_time', timeStr)
             .limit(100),
 
-        // Active specials
+        // Active specials happening RIGHT NOW (between start_time and end_time, or all-day if no times)
         gcrDb.from('entity_specials')
-            .select('entity_id, special_name, description, discount_text, special_type, entity(id, slug, name, hero_image_url, entity_subtype, city, rating, booking_url)')
+            .select('entity_id, special_name, description, discount_text, special_type, start_time, end_time, entity(id, slug, name, hero_image_url, entity_subtype, city, rating, booking_url)')
             .eq('is_active', true)
+            .or(`and(start_time.lte.${timeStr},end_time.gte.${timeStr}),and(start_time.is.null,end_time.is.null)`)
             .limit(100),
     ]);
 
