@@ -3173,4 +3173,160 @@ function fmt12(t) {
     return `${h12}:${m} ${ampm}`;
 }
 
+// ============================================
+// DAILY MENU EDITOR - PIN MANAGEMENT & UPDATE
+// ============================================
+
+// SET PIN for business menu editing
+router.post('/entity/:slug/set-pin', async (req, res) => {
+    const { slug } = req.params;
+    const { pin } = req.body;
+
+    if (!slug || !pin) {
+        return res.status(400).json({ error: 'slug and pin required' });
+    }
+
+    try {
+        // Find entity by slug
+        const { data: entity, error: findError } = await gcrDb
+            .from('entity')
+            .select('id')
+            .eq('slug', slug)
+            .single();
+
+        if (findError || !entity) {
+            return res.status(404).json({ error: 'Entity not found' });
+        }
+
+        // Store PIN on entity
+        const { error: updateError } = await gcrDb
+            .from('entity')
+            .update({ menu_edit_pin: pin })
+            .eq('id', entity.id);
+
+        if (updateError) {
+            console.error('PIN update error:', updateError);
+            return res.status(500).json({ error: 'Failed to save PIN: ' + updateError.message });
+        }
+
+        res.json({ success: true, message: 'PIN saved' });
+    } catch (err) {
+        console.error('Set PIN error:', err);
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// DAILY UPDATE - Business menu updates with PIN validation
+router.post('/entity/:slug/daily-update', async (req, res) => {
+    const { slug } = req.params;
+    const { specials = [], menu = [], drinks = [], hh = [], events = [] } = req.body;
+    const pinHeader = req.headers['x-menu-pin'];
+
+    if (!slug) {
+        return res.status(400).json({ error: 'slug required' });
+    }
+
+    try {
+        // Find entity by slug
+        const { data: entity, error: findError } = await gcrDb
+            .from('entity')
+            .select('id, menu_edit_pin')
+            .eq('slug', slug)
+            .single();
+
+        if (findError || !entity) {
+            return res.status(404).json({ error: 'Entity not found' });
+        }
+
+        // VALIDATE PIN
+        if (!pinHeader || pinHeader !== entity.menu_edit_pin) {
+            return res.status(403).json({ error: 'Invalid PIN' });
+        }
+
+        let updated = 0;
+
+        // Update menu items
+        for (const item of menu) {
+            if (!item.id) continue;
+            const upd = {};
+            if (item.item_name !== undefined) upd.item_name = item.item_name;
+            if (item.price !== undefined) upd.price = item.price;
+            if (item.description !== undefined) upd.description = item.description;
+            if (item.image_url !== undefined) upd.image_url = item.image_url;
+            if (Object.keys(upd).length) {
+                await gcrDb.from('menu_items').update(upd).eq('id', item.id).eq('entity_id', entity.id);
+                updated++;
+            }
+        }
+
+        // Update drinks
+        for (const item of drinks) {
+            if (!item.id) continue;
+            const upd = {};
+            if (item.item_name !== undefined) upd.item_name = item.item_name;
+            if (item.price !== undefined) upd.price = item.price;
+            if (item.description !== undefined) upd.description = item.description;
+            if (item.image_url !== undefined) upd.image_url = item.image_url;
+            if (Object.keys(upd).length) {
+                await gcrDb.from('drink_items').update(upd).eq('id', item.id).eq('entity_id', entity.id);
+                updated++;
+            }
+        }
+
+        // Update specials
+        for (const item of specials) {
+            if (!item.id) continue;
+            const upd = {};
+            if (item.special_name !== undefined) upd.special_name = item.special_name;
+            if (item.description !== undefined) upd.description = item.description;
+            if (item.image_url !== undefined) upd.image_url = item.image_url;
+            if (item.discount_text !== undefined) upd.discount_text = item.discount_text;
+            if (Object.keys(upd).length) {
+                await gcrDb.from('entity_specials').update(upd).eq('id', item.id).eq('entity_id', entity.id);
+                updated++;
+            }
+        }
+
+        // Update happy hour items
+        for (const item of hh) {
+            if (!item.id) continue;
+            const upd = {};
+            if (item.item_name !== undefined) upd.item_name = item.item_name;
+            if (item.hh_price !== undefined) upd.hh_price = item.hh_price;
+            if (item.description !== undefined) upd.description = item.description;
+            if (item.image_url !== undefined) upd.image_url = item.image_url;
+            if (Object.keys(upd).length) {
+                await gcrDb.from('happy_hour_items').update(upd).eq('id', item.id).eq('entity_id', entity.id);
+                updated++;
+            }
+        }
+
+        // Update events
+        for (const item of events) {
+            if (!item.id) continue;
+            const upd = {};
+            if (item.event_name !== undefined) upd.event_name = item.event_name;
+            if (item.description !== undefined) upd.description = item.description;
+            if (item.image_url !== undefined) upd.image_url = item.image_url;
+            if (item.start_time !== undefined) upd.start_time = item.start_time;
+            if (Object.keys(upd).length) {
+                await gcrDb.from('entity_events').update(upd).eq('id', item.id).eq('entity_id', entity.id);
+                updated++;
+            }
+        }
+
+        // Update entity timestamp
+        await gcrDb.from('entity').update({ updated_at: new Date().toISOString() }).eq('id', entity.id);
+
+        res.json({
+            success: true,
+            message: `Menu updated - ${updated} items changed`,
+            updated_count: updated
+        });
+    } catch (err) {
+        console.error('Daily update error:', err);
+        res.status(500).json({ error: err.message });
+    }
+});
+
 module.exports = router;
