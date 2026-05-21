@@ -28,6 +28,32 @@ function makeCode() {
     return String(Math.floor(100000 + Math.random() * 900000));
 }
 
+// ─────────────────────────────────────────────────────────────────────────────
+// Backfill: Link all pre-signup activity to the new user (fire-and-forget)
+// ─────────────────────────────────────────────────────────────────────────────
+async function backfillAnonymousActivity(userId, visitorId) {
+    try {
+        // Update all tables where visitor_id matches with the new user_id
+        await Promise.all([
+            mainDb.from('gcr_page_views')
+                .update({ user_id: userId })
+                .eq('visitor_id', visitorId)
+                .is('user_id', null),
+            mainDb.from('session_events')
+                .update({ user_id: userId })
+                .eq('visitor_id', visitorId)
+                .is('user_id', null),
+            mainDb.from('qr_scans')
+                .update({ user_id: userId })
+                .eq('visitor_id', visitorId)
+                .is('user_id', null),
+        ]);
+        console.log('[Backfill] Linked anonymous activity for', userId, 'from visitor', visitorId);
+    } catch (err) {
+        console.error('[Backfill error]', err.message);
+    }
+}
+
 // Lookup user by email using admin API (scales to any number of users)
 async function getUserByEmail(email) {
     const sb = admin();
@@ -114,6 +140,9 @@ router.post('/signup', async (req, res) => {
 router.post('/verify', async (req, res) => {
     const code  = (req.body?.code  || '').trim();
     const email = (req.body?.email || '').trim().toLowerCase();
+    const first_app = req.body?.first_app || 'unknown'; // 'gcr', 'trip_swipe', or 'unknown'
+    const anonymous_visitor_id = req.body?.anonymous_visitor_id || null;
+
     if (!code || !email) return res.status(400).json({ error: 'Email and code required' });
 
     const sb = admin();
@@ -134,9 +163,21 @@ router.post('/verify', async (req, res) => {
     });
     if (error) return res.status(500).json({ error: error.message });
 
-    // Seed a minimal profile row so the account exists even if user drops off before setup
+    // Seed a minimal profile row with first_app + anonymous_visitor_id
     await mainDb.from('tourist_profiles')
-        .upsert({ user_id: user.id, setup_complete: false }, { onConflict: 'user_id', ignoreDuplicates: true });
+        .upsert({
+            user_id: user.id,
+            setup_complete: false,
+            first_app: first_app,
+            anonymous_visitor_id: anonymous_visitor_id
+        }, { onConflict: 'user_id', ignoreDuplicates: true });
+
+    // Fire-and-forget backfill: link all pre-signup activity to this user
+    if (anonymous_visitor_id) {
+        backfillAnonymousActivity(user.id, anonymous_visitor_id).catch(err => {
+            console.warn('Backfill failed for', user.id, ':', err.message);
+        });
+    }
 
     res.json({ success: true });
 });

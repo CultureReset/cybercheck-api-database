@@ -43,6 +43,48 @@ async function touristAuth(req, res, next) {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
+// Backfill anonymous activity to user (explicit endpoint for frontend)
+// ═══════════════════════════════════════════════════════════════════════════
+
+router.post('/backfill-anonymous', touristAuth, async (req, res) => {
+    const { anonymous_visitor_id } = req.body;
+    if (!anonymous_visitor_id) {
+        return res.status(400).json({ error: 'anonymous_visitor_id required' });
+    }
+
+    try {
+        const results = await Promise.all([
+            mainDb.from('gcr_page_views')
+                .update({ user_id: req.touristId })
+                .eq('visitor_id', anonymous_visitor_id)
+                .is('user_id', null)
+                .select('id', { count: 'exact' }),
+            mainDb.from('session_events')
+                .update({ user_id: req.touristId })
+                .eq('visitor_id', anonymous_visitor_id)
+                .is('user_id', null)
+                .select('id', { count: 'exact' }),
+            mainDb.from('qr_scans')
+                .update({ user_id: req.touristId })
+                .eq('visitor_id', anonymous_visitor_id)
+                .is('user_id', null)
+                .select('id', { count: 'exact' }),
+        ]);
+
+        res.json({
+            ok: true,
+            backfilled: {
+                page_views: results[0]?.length || 0,
+                session_events: results[1]?.length || 0,
+                qr_scans: results[2]?.length || 0,
+            }
+        });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// ═══════════════════════════════════════════════════════════════════════════
 // TOURIST — own data
 // ═══════════════════════════════════════════════════════════════════════════
 
@@ -95,7 +137,7 @@ router.get('/saves', touristAuth, async (req, res) => {
 });
 
 router.post('/saves', touristAuth, async (req, res) => {
-    const { entity_slug, entity_id, business_name, hero_image_url, subtitle, category, rating, price_range, is_super_like } = req.body || {};
+    const { entity_slug, entity_id, business_name, hero_image_url, subtitle, category, rating, price_range, is_super_like, source_app } = req.body || {};
     if (!entity_slug) return res.status(400).json({ error: 'entity_slug required' });
     const row = {
         user_id: req.touristId,
@@ -108,6 +150,7 @@ router.post('/saves', touristAuth, async (req, res) => {
         rating: rating ?? null,
         price_range: price_range || null,
         is_super_like: !!is_super_like,
+        source_app: source_app && ['gcr', 'trip_swipe'].includes(source_app) ? source_app : 'trip_swipe',
     };
     let { data, error } = await mainDb.from('tourist_saves')
         .upsert(row, { onConflict: 'user_id,entity_slug' })
@@ -389,6 +432,86 @@ router.post('/recompute-preferences', touristAuth, async (req, res) => {
     recomputeAllPreferences(req.touristId).catch(err =>
         console.error('[preference] recompute error:', err?.message)
     );
+});
+
+// GET /api/tourist/recommendations — personalized businesses based on swipe + save history
+router.get('/recommendations', touristAuth, async (req, res) => {
+    const limit = Math.min(parseInt(req.query.limit || '12'), 100);
+    const exclude_saved = req.query.exclude_saved !== 'false';
+
+    try {
+        // Get user's saves and swipes to build preference weights
+        const [{ data: saves }, { data: swipes }, { data: profile }] = await Promise.all([
+            mainDb.from('tourist_saves')
+                .select('category, entity_slug')
+                .eq('user_id', req.touristId),
+            mainDb.from('tourist_swipe_events')
+                .select('category, direction')
+                .eq('user_id', req.touristId),
+            mainDb.from('tourist_profiles')
+                .select('interests, seen_slugs:answers->seen_slugs')
+                .eq('user_id', req.touristId)
+                .maybeSingle(),
+        ]);
+
+        // Build category preference map (swipe:1 point, save:2 points)
+        const categoryScores = {};
+        for (const swipe of (swipes || [])) {
+            if (swipe.direction === 'like' && swipe.category) {
+                categoryScores[swipe.category] = (categoryScores[swipe.category] || 0) + 1;
+            }
+        }
+        for (const save of (saves || [])) {
+            if (save.category) {
+                categoryScores[save.category] = (categoryScores[save.category] || 0) + 2;
+            }
+        }
+
+        // Get seen slugs to exclude
+        const seenSlugs = (profile?.seen_slugs || []).concat(
+            (saves || []).map(s => s.entity_slug)
+        );
+
+        // Build query for recommended businesses
+        // Prefer categories they've shown interest in, exclude seen
+        let query = mainDb.from('entity')
+            .select('slug, name, icon, subtitle, category, hero_image_url, rating, price_range')
+            .eq('is_active', true)
+            .limit(limit * 2); // Fetch 2x to filter
+
+        if (exclude_saved && seenSlugs.length > 0) {
+            query = query.not('slug', 'in', `(${seenSlugs.map(s => `"${s}"`).join(',')})`);
+        }
+
+        const { data: candidates } = await query;
+
+        // Score and sort by preference match
+        const scored = (candidates || []).map(biz => {
+            const score = categoryScores[biz.category] || 0;
+            return { ...biz, _score: score };
+        });
+        scored.sort((a, b) => b._score - a._score || (b.rating || 0) - (a.rating || 0));
+
+        // Remove score field before returning
+        const recommendations = scored.slice(0, limit).map(({ _score, ...rest }) => rest);
+
+        // If no recommendations (new user), return featured businesses
+        if (recommendations.length === 0) {
+            const { data: featured } = await mainDb.from('entity')
+                .select('slug, name, icon, subtitle, category, hero_image_url, rating, price_range')
+                .eq('is_active', true)
+                .eq('is_featured', true)
+                .limit(limit);
+            return res.json({ recommendations: featured || [], based_on: { saves: saves?.length || 0, swipes: swipes?.length || 0 } });
+        }
+
+        res.json({
+            recommendations,
+            based_on: { saves: saves?.length || 0, swipes: swipes?.length || 0 }
+        });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
 });
 
 // POST /api/tourist/sms-optin — store phone + opt-in consent

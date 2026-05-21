@@ -2596,7 +2596,7 @@ router.post('/settings', async (req, res) => {
 router.post('/track', async (req, res) => {
     res.json({ ok: true });
     const {
-        page_path, page_title, referrer, session_id,
+        page_path, page_title, referrer, session_id, visitor_id,
         utm_source, utm_medium, utm_campaign, utm_term, utm_content,
         device_type, duration_secs, source
     } = req.body || {};
@@ -2618,6 +2618,7 @@ router.post('/track', async (req, res) => {
             page_title:   page_title   || null,
             referrer:     referrer     || null,
             session_id:   session_id   || null,
+            visitor_id:   visitor_id   || null,
             utm_source:   utm_source   || null,
             utm_medium:   utm_medium   || null,
             utm_campaign: utm_campaign || null,
