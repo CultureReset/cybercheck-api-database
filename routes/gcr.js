@@ -55,6 +55,7 @@ router.get('/events', async (req, res) => {
         }
 
         // Flatten and enrich events with entity details
+        // Clean response with slug as the primary identifier
         const allEvents = (events || []).map(ev => ({
             id: ev.id,
             event_name: ev.event_name,
@@ -65,13 +66,14 @@ router.get('/events', async (req, res) => {
             event_type: ev.event_type,
             venue_location: ev.venue_location,
             cover_charge: ev.cover_charge,
-            entity_name: ev.entity?.name,
-            entity_slug: ev.entity?.slug,
-            entity_hero_image_url: ev.entity?.hero_image_url,
-            city: ev.entity?.city,
-            entity_city: ev.entity?.city,
-            businessName: ev.entity?.name,
+
+            // Business details
             slug: ev.entity?.slug,
+            name: ev.entity?.name,
+            hero_image_url: ev.entity?.hero_image_url,
+            icon: ev.entity?.icon,
+            city: ev.entity?.city,
+            entity_id: ev.entity_id,
         }));
 
         // Filter by slug if requested
@@ -166,31 +168,32 @@ router.get('/happy-hours', async (req, res) => {
 
     const hoursMap = photosMap._hours || {};
 
+    // Clean response with slug as primary identifier
     const results = (data || []).map(e => ({
-        slug:        e.slug,
-        name:        e.name,
-        emoji:       e.icon || '🏪',
-        type:        e.entity_subtype || '',
+        id: e.id,
+        slug: e.slug,
+        name: e.name,
+        icon: e.icon || '🏪',
         entity_subtype: e.entity_subtype || '',
-        rating:      e.rating || null,
-        address:     e.address_line_1 || '',
+        rating: e.rating || null,
         address_line_1: e.address_line_1 || '',
-        city:        e.city || '',
-        phone:       e.phone || '',
-        call_url:    e.call_url || null,
-        google_maps: e.directions_url || '',
+        city: e.city || '',
+        phone: e.phone || '',
+        call_url: e.call_url || null,
         directions_url: e.directions_url || null,
         booking_url: e.booking_url || null,
         reservation_url: e.reservation_url || null,
-        cover:       e.hero_image_url || null,
         hero_image_url: e.hero_image_url || null,
-        photos:      photosMap[e.id] || [],
-        hours:       hoursMap[e.id] || [],
-        hh_days:     e.hh_days,
-        hh_start:    e.hh_start,
-        hh_end:      e.hh_end,
+
+        // Happy Hour specific
+        hh_days: e.hh_days,
+        hh_start: e.hh_start,
+        hh_end: e.hh_end,
         hh_description: e.hh_description,
-        happyHour:   `${e.hh_days} ${e.hh_start}–${e.hh_end}`,
+
+        // Batch-fetched data
+        photos: photosMap[e.id] || [],
+        hours: hoursMap[e.id] || [],
         hh_sections: hhSectionsMap[e.id] || [],
     }));
 
@@ -216,32 +219,33 @@ router.get('/specials', async (req, res) => {
     const { data, error } = await query;
     if (error) return res.status(500).json({ error: error.message });
 
+    // Clean response with slug as primary identifier, no duplicate fields
     const specials = (data || []).map(s => ({
-        ...s,
-        // Field aliases for backwards compatibility
-        name:           s.special_name,
-        active:         s.is_active,
-        type:           s.special_type,
-        discount:       s.discount_text,
-        businessName:   s.entity?.name || '',
-        businessEmoji:  s.entity?.icon || '🏪',
-        category:       s.entity?.entity_subtype || '',
-        slug:           s.entity?.slug || '',
-        subdomain:      s.entity?.slug || '',
+        // Special details
+        id: s.id,
+        special_name: s.special_name,
+        description: s.description,
+        discount_text: s.discount_text,
+        special_type: s.special_type,
+        is_active: s.is_active,
+        days_of_week: s.days_of_week,
+        created_at: s.created_at,
+        updated_at: s.updated_at,
+        entity_id: s.entity_id,
+
+        // Business details (from entity join)
+        slug: s.entity?.slug || '',
+        name: s.entity?.name || '',
+        icon: s.entity?.icon || '🏪',
+        entity_subtype: s.entity?.entity_subtype || '',
         hero_image_url: s.entity?.hero_image_url || null,
-        city:           s.entity?.city || '',
-        phone:          s.entity?.phone || '',
+        city: s.entity?.city || '',
+        phone: s.entity?.phone || '',
+        address_line_1: s.entity?.address_line_1 || '',
         directions_url: s.entity?.directions_url || '',
-        address:        s.entity?.address_line_1 || '',
-        // Explicit entity_ prefixed fields (same convention as /events)
-        entity_name:        s.entity?.name || '',
-        entity_city:        s.entity?.city || '',
-        entity_slug:        s.entity?.slug || '',
-        entity_hero_image_url: s.entity?.hero_image_url || null,
-        call_url:           s.entity?.call_url || null,
-        booking_url:        s.entity?.booking_url || null,
-        reservation_url:    s.entity?.reservation_url || null,
-        days:               s.days_of_week || s.days || null,
+        call_url: s.entity?.call_url || null,
+        booking_url: s.entity?.booking_url || null,
+        reservation_url: s.entity?.reservation_url || null,
     }));
 
     res.json(specials);
@@ -436,6 +440,7 @@ router.post('/search', async (req, res) => {
     );
 
     // Build results — sort by entity relevance score, then rating
+    // Clean response with slug as primary identifier, no duplicate fields
     const results = (entities || []).map(e => {
         const menuItems = sortItems([...(menuMatchMap[e.id] || []), ...(drinkMatchMap[e.id] || []), ...(hhMatchMap[e.id] || [])], q);
         const specials  = sortItems(specialMatchMap[e.id] || [], q);
@@ -448,14 +453,48 @@ router.post('/search', async (req, res) => {
         const hasRealMatch = nameScore > 0 || menuItems.length > 0 || specials.length > 0 || events.length > 0;
         if (!hasRealMatch) return null;
         return {
-            ...e,
-            site_id: e.id, subdomain: e.slug, emoji: e.icon,
-            type: e.entity_subtype, category: e.entity_subtype,
-            cover_url: e.hero_image_url, tagline: e.subtitle,
+            id: e.id,
+            slug: e.slug,
+            name: e.name,
+            subtitle: e.subtitle,
+            entity_type: e.entity_type,
+            entity_subtype: e.entity_subtype,
+            secondary_types: e.secondary_types,
+            icon: e.icon,
+            phone: e.phone,
+            rating: e.rating,
+            review_count: e.review_count,
+            city: e.city,
+            state: e.state,
+            zip: e.zip,
+            address_line_1: e.address_line_1,
+            hero_image_url: e.hero_image_url,
+            website_url: e.website_url,
+            directions_url: e.directions_url,
+            call_url: e.call_url,
+            price_range: e.price_range,
+            price_from: e.price_from,
+            price_to: e.price_to,
+            price_unit: e.price_unit,
+            featured: e.featured,
+            is_active: e.is_active,
+            booking_url: e.booking_url,
+            reservation_url: e.reservation_url,
+            order_url: e.order_url,
+            hh_days: e.hh_days,
+            hh_start: e.hh_start,
+            hh_end: e.hh_end,
+            hh_description: e.hh_description,
+            social_instagram: e.social_instagram,
+            social_facebook: e.social_facebook,
+            social_tiktok: e.social_tiktok,
+            email: e.email,
+
+            // Search-specific matched content
             photos: photosMap[e.id] || [],
             matched_menu_items: menuItems,
-            matched_specials:   specials,
-            matched_events:     events,
+            matched_specials: specials,
+            matched_events: events,
             _relevance: relevance,
         };
     }).filter(Boolean).sort((a, b) => b._relevance - a._relevance);
@@ -1761,43 +1800,72 @@ router.get('/entities', async (req, res) => {
         }
     }
 
-    // Map entity fields to match old business format so pages don't break
+    // Clean response with slug as the primary identifier
+    // No backwards compat aliases, no duplicate fields
     const mapped = entities.map(e => ({
-        ...e,
-        // Old field aliases
-        site_id:      e.id,
-        subdomain:    e.slug,
-        type:         e.entity_subtype,
-        category:     e.entity_subtype,
-        emoji:        e.icon,
-        cover_url:    e.hero_image_url,
-        logo_url:     e.hero_image_url,
-        tagline:      e.subtitle,
-        status:       e.is_active ? 'active' : 'hidden',
-        gcr_listed:   e.is_active,
-        featured:        e.featured || false,
-        address:         e.address_line_1 || '',
-        priceRange:      e.price_range || '',
-        reviewCount:     e.review_count || 0,
-        description:     e.description || sectionDescMap[e.id] || '',
-        booking_url:     e.booking_url || null,
+        // Identity
+        id: e.id,
+        slug: e.slug,
+        name: e.name,
+
+        // Location
+        city: e.city || '',
+        state: e.state || '',
+        zip: e.zip || '',
+        address_line_1: e.address_line_1 || '',
+
+        // Contact
+        phone: e.phone || '',
+        email: e.email || '',
+        website_url: e.website_url || '',
+        directions_url: e.directions_url || '',
+        call_url: e.call_url || '',
+
+        // Images
+        hero_image_url: e.hero_image_url || '',
+        icon: e.icon || '🏪',
+
+        // Categorization
+        entity_type: e.entity_type || '',
+        entity_subtype: e.entity_subtype || '',
+        secondary_types: e.secondary_types ? (Array.isArray(e.secondary_types) ? e.secondary_types : [e.secondary_types]) : [],
+
+        // Info
+        subtitle: e.subtitle || '',
+        description: e.description || sectionDescMap[e.id] || '',
+
+        // Business info
+        rating: e.rating || 4.0,
+        review_count: e.review_count || 0,
+        price_range: e.price_range || '$$',
+        price_from: e.price_from || null,
+        price_to: e.price_to || null,
+        price_unit: e.price_unit || '',
+
+        // Flags
+        featured: e.featured || false,
+        is_active: e.is_active !== false,
+
+        // Happy Hour
+        hh_days: e.hh_days || null,
+        hh_start: e.hh_start || null,
+        hh_end: e.hh_end || null,
+        hh_description: e.hh_description || null,
+
+        // Bookings
+        booking_url: e.booking_url || null,
         reservation_url: e.reservation_url || null,
-        order_url:       e.order_url || null,
-        hh_days:         e.hh_days || null,
-        hh_start:        e.hh_start || null,
-        hh_end:          e.hh_end || null,
-        hh_description:  e.hh_description || null,
-        social_instagram: e.social_instagram || null,
-        social_facebook:  e.social_facebook || null,
-        social_tiktok:    e.social_tiktok || null,
-        email:           e.email || null,
-        // Convert array fields to strings for frontend compatibility
-        secondary_types: Array.isArray(e.secondary_types) ? e.secondary_types.join(',') : (e.secondary_types || ''),
-        google_types:    Array.isArray(e.google_types) ? e.google_types.join(',') : (e.google_types || ''),
-        // New fields
-        tags:            tagMap[e.id] || [],
-        hours:           hoursMap[e.id] || [],
-        photos:          photosMap[e.id] || [],
+        order_url: e.order_url || null,
+
+        // Social
+        social_instagram: e.social_instagram || '',
+        social_facebook: e.social_facebook || '',
+        social_tiktok: e.social_tiktok || '',
+
+        // Batch-fetched nested data
+        tags: tagMap[e.id] || [],
+        hours: hoursMap[e.id] || [],
+        photos: photosMap[e.id] || [],
     }));
 
     res.json({ entities: mapped, businesses: mapped, total: mapped.length });
@@ -2030,14 +2098,7 @@ router.get('/entity/:slug', async (req, res) => {
         hours:         hoursRes.data      || [],
         about_bullets: bulletsRes.data    || [],
         photos:        photosRes.data     || [],
-        // Flat aliases expected by profile.html — merged from both storage paths
-        menuSections:  mergedMenuSections,
-        menuSubSections: menuSubSections,
-        menuItems:     mergedMenuItems,
-        drinkSections: mergedDrinkSections,
-        drinkItems:    mergedDrinkItems,
-        hhSections:    mergedHhSections,
-        hhItems:       mergedHhItems,
+        // Nested structure (no flat aliases)
         menu: {
             sections:     mergedMenuSections,
             sub_sections: menuSubSections,
