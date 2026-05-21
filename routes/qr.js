@@ -535,6 +535,95 @@ router.post('/alert-settings/global', authRequired, async (req, res) => {
 });
 
 // ─────────────────────────────────────────────────────────────────────────────
+// QR Location Mappings — trackable home page QR IDs
+// For GCR home page tracking (https://gulfcoastradar.com?id=1 → location name)
+// ─────────────────────────────────────────────────────────────────────────────
+
+// GET /api/qr/locations — get all location ID mappings (public)
+router.get('/locations', async (req, res) => {
+    try {
+        const { data } = await supabase.from('app_settings')
+            .select('value')
+            .eq('key', 'qr_locations')
+            .maybeSingle();
+
+        const locations = data?.value ? JSON.parse(data.value) : {};
+        res.json(locations);
+    } catch(e) {
+        res.json({});
+    }
+});
+
+// POST /api/qr/locations — save/update a location mapping (admin only)
+router.post('/locations', authRequired, async (req, res) => {
+    if (req.role !== 'admin') return res.status(403).json({ error: 'Admin only' });
+
+    const { id, name, notes } = req.body;
+    if (!id || id < 1 || id > 9999) return res.status(400).json({ error: 'Invalid ID (1-9999)' });
+    if (!name) return res.status(400).json({ error: 'Location name required' });
+
+    try {
+        // Get current locations
+        const { data } = await supabase.from('app_settings')
+            .select('value')
+            .eq('key', 'qr_locations')
+            .maybeSingle();
+
+        let locations = {};
+        if (data?.value) {
+            try { locations = JSON.parse(data.value); } catch(e) {}
+        }
+
+        // Update location
+        locations[id] = { name, notes: notes || '' };
+
+        // Save back
+        await supabase.from('app_settings').upsert({
+            key: 'qr_locations',
+            value: JSON.stringify(locations)
+        }, { onConflict: 'key' });
+
+        res.json({ ok: true, location: locations[id] });
+    } catch(e) {
+        res.status(500).json({ error: e.message });
+    }
+});
+
+// DELETE /api/qr/locations/:id — delete a location mapping (admin only)
+router.delete('/locations/:id', authRequired, async (req, res) => {
+    if (req.role !== 'admin') return res.status(403).json({ error: 'Admin only' });
+
+    const id = parseInt(req.params.id);
+    if (!id || id < 1 || id > 9999) return res.status(400).json({ error: 'Invalid ID' });
+
+    try {
+        // Get current locations
+        const { data } = await supabase.from('app_settings')
+            .select('value')
+            .eq('key', 'qr_locations')
+            .maybeSingle();
+
+        let locations = {};
+        if (data?.value) {
+            try { locations = JSON.parse(data.value); } catch(e) {}
+        }
+
+        // Delete location
+        delete locations[id];
+
+        // Save back
+        await supabase.from('app_settings').upsert({
+            key: 'qr_locations',
+            value: JSON.stringify(locations)
+        }, { onConflict: 'key' });
+
+        res.json({ ok: true });
+    } catch(e) {
+        res.status(500).json({ error: e.message });
+    }
+});
+
+// ─────────────────────────────────────────────────────────────────────────────
 // Digest cron — called by Vercel cron daily + weekly
 // GET /api/qr/digest/daily   → send daily SMS summary
 // GET /api/qr/digest/weekly  → send weekly SMS summary
