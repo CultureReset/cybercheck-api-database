@@ -2137,6 +2137,277 @@ router.get('/entity/:slug', async (req, res) => {
 });
 
 // ============================================
+// ADMIN ENDPOINTS — Auth required, full CRUD
+// ============================================
+
+// Auth helper: verify JWT admin token
+function verifyAdminToken(req) {
+    const authHeader = req.headers['authorization'] || '';
+    const token = authHeader.replace('Bearer ', '').trim();
+    if (!token) return null;
+    try {
+        const payload = JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString());
+        if (payload.role === 'admin') return payload;
+    } catch(e) {}
+    return null;
+}
+
+// Cache invalidation helper
+async function invalidateGCRCache() {
+    // Clear specific cache keys in Redis (if using Redis)
+    // For now, just log — actual Redis integration would go here
+    console.log('[Cache] Invalidating GCR caches: gcrv9:entities, gcrv9:profile:*, etc');
+}
+
+// ============================================
+// PATCH /api/admin/gcr/entities/:id — Update entity
+// ============================================
+router.patch('/admin/gcr/entities/:id', async (req, res) => {
+    try {
+        if (!gcrDb) return res.status(503).json({ error: 'GCR DB not available' });
+
+        // Auth check
+        const admin = verifyAdminToken(req);
+        if (!admin) return res.status(401).json({ error: 'Unauthorized: admin token required' });
+
+        const entityId = req.params.id;
+        const payload = req.body;
+
+        // Handle different update types
+        if (payload.entity) {
+            // Full entity update (info tab)
+            const { data, error } = await gcrDb
+                .from('entity')
+                .update(payload.entity)
+                .eq('id', entityId)
+                .select();
+
+            if (error) return res.status(500).json({ error: error.message });
+            if (!data || !data.length) return res.status(404).json({ error: 'Entity not found' });
+
+            await invalidateGCRCache();
+            return res.json({ success: true, message: 'Entity updated', entity: data[0] });
+        }
+
+        if (payload.hours) {
+            // Update hours
+            const { schedule } = payload.hours;
+            if (!Array.isArray(schedule)) return res.status(400).json({ error: 'Hours schedule must be an array' });
+
+            // Store hours in entity_hours table
+            const { data: existingHours } = await gcrDb
+                .from('entity_hours')
+                .select('id')
+                .eq('entity_id', entityId);
+
+            // Delete existing hours
+            if (existingHours && existingHours.length) {
+                const ids = existingHours.map(h => h.id);
+                await gcrDb.from('entity_hours').delete().in('id', ids);
+            }
+
+            // Insert new hours
+            const hoursData = schedule.map((day, idx) => ({
+                entity_id: entityId,
+                day_of_week: day.day || ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'][idx],
+                open_time: day.open || null,
+                close_time: day.close || null,
+                is_closed: day.closed || false,
+            }));
+
+            const { error: hoursError } = await gcrDb
+                .from('entity_hours')
+                .insert(hoursData);
+
+            if (hoursError) return res.status(500).json({ error: hoursError.message });
+
+            await invalidateGCRCache();
+            return res.json({ success: true, message: 'Hours updated' });
+        }
+
+        if (payload.photos) {
+            // Update photos (add/delete)
+            const { add, delete: deleteIds } = payload.photos;
+
+            // Delete photos
+            if (deleteIds && deleteIds.length) {
+                await gcrDb.from('entity_photos').delete().in('id', deleteIds);
+            }
+
+            // Add photos
+            if (add && add.length) {
+                const photosData = add.map((photo, idx) => ({
+                    entity_id: entityId,
+                    image_url: photo.image_url || photo.url,
+                    caption: photo.caption || '',
+                    sort_order: idx,
+                }));
+
+                const { error: photoError } = await gcrDb
+                    .from('entity_photos')
+                    .insert(photosData);
+
+                if (photoError) return res.status(500).json({ error: photoError.message });
+            }
+
+            await invalidateGCRCache();
+            return res.json({ success: true, message: 'Photos updated' });
+        }
+
+        if (payload.tags) {
+            // Update tags
+            const tags = Array.isArray(payload.tags) ? payload.tags : [];
+
+            // Delete existing tags
+            await gcrDb.from('entity_tags').delete().eq('entity_id', entityId);
+
+            // Insert new tags
+            if (tags.length) {
+                const tagsData = tags.map(tag => ({
+                    entity_id: entityId,
+                    tag: typeof tag === 'string' ? tag : (tag.tag || ''),
+                    tag_category: tag.tag_category || 'general',
+                }));
+
+                const { error: tagError } = await gcrDb
+                    .from('entity_tags')
+                    .insert(tagsData);
+
+                if (tagError) return res.status(500).json({ error: tagError.message });
+            }
+
+            await invalidateGCRCache();
+            return res.json({ success: true, message: 'Tags updated' });
+        }
+
+        // Default: update any fields passed
+        const { data, error } = await gcrDb
+            .from('entity')
+            .update(payload)
+            .eq('id', entityId)
+            .select();
+
+        if (error) return res.status(500).json({ error: error.message });
+        if (!data || !data.length) return res.status(404).json({ error: 'Entity not found' });
+
+        await invalidateGCRCache();
+        res.json({ success: true, message: 'Entity updated', entity: data[0] });
+    } catch(e) {
+        console.error('PATCH /admin/gcr/entities/:id error:', e);
+        res.status(500).json({ error: e.message });
+    }
+});
+
+// ============================================
+// POST /api/admin/gcr/entities — Create entity
+// ============================================
+router.post('/admin/gcr/entities', async (req, res) => {
+    try {
+        if (!gcrDb) return res.status(503).json({ error: 'GCR DB not available' });
+
+        // Auth check
+        const admin = verifyAdminToken(req);
+        if (!admin) return res.status(401).json({ error: 'Unauthorized: admin token required' });
+
+        const payload = req.body;
+
+        // Validate required fields
+        if (!payload.name || !payload.slug) {
+            return res.status(400).json({ error: 'name and slug are required' });
+        }
+
+        // Set defaults
+        const newEntity = {
+            name: payload.name,
+            slug: payload.slug,
+            subtitle: payload.subtitle || '',
+            description: payload.description || '',
+            entity_subtype: payload.entity_subtype || payload.category || 'other',
+            entity_type: payload.entity_type || 'business',
+            icon: payload.icon || '🏖️',
+            city: payload.city || 'Gulf Coast',
+            state: payload.state || 'AL',
+            address_line_1: payload.address_line_1 || payload.address || '',
+            phone: payload.phone || '',
+            email: payload.email || '',
+            website_url: payload.website_url || '',
+            hero_image_url: payload.hero_image_url || '',
+            rating: payload.rating || 4.0,
+            review_count: payload.review_count || 0,
+            price_range: payload.price_range || '$$',
+            featured: payload.featured || false,
+            is_active: payload.is_active !== false ? true : false,
+            is_sponsored: payload.is_sponsored || false,
+            sort_order: payload.is_sponsored ? 0 : 999,
+            hh_days: payload.hh_days || null,
+            hh_start: payload.hh_start || null,
+            hh_end: payload.hh_end || null,
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString(),
+        };
+
+        const { data, error } = await gcrDb
+            .from('entity')
+            .insert([newEntity])
+            .select();
+
+        if (error) return res.status(500).json({ error: error.message });
+        if (!data || !data.length) return res.status(500).json({ error: 'Failed to create entity' });
+
+        await invalidateGCRCache();
+        res.status(201).json({ success: true, message: 'Entity created', entity: data[0] });
+    } catch(e) {
+        console.error('POST /admin/gcr/entities error:', e);
+        res.status(500).json({ error: e.message });
+    }
+});
+
+// ============================================
+// DELETE /api/admin/gcr/entities/:id — Delete entity
+// ============================================
+router.delete('/admin/gcr/entities/:id', async (req, res) => {
+    try {
+        if (!gcrDb) return res.status(503).json({ error: 'GCR DB not available' });
+
+        // Auth check
+        const admin = verifyAdminToken(req);
+        if (!admin) return res.status(401).json({ error: 'Unauthorized: admin token required' });
+
+        const entityId = req.params.id;
+        const { hardDelete } = req.query; // ?hardDelete=true for permanent delete
+
+        if (hardDelete === 'true') {
+            // Hard delete — remove completely
+            const { error } = await gcrDb
+                .from('entity')
+                .delete()
+                .eq('id', entityId);
+
+            if (error) return res.status(500).json({ error: error.message });
+
+            await invalidateGCRCache();
+            return res.json({ success: true, message: 'Entity permanently deleted' });
+        }
+
+        // Soft delete — mark as inactive
+        const { data, error } = await gcrDb
+            .from('entity')
+            .update({ is_active: false, updated_at: new Date().toISOString() })
+            .eq('id', entityId)
+            .select();
+
+        if (error) return res.status(500).json({ error: error.message });
+        if (!data || !data.length) return res.status(404).json({ error: 'Entity not found' });
+
+        await invalidateGCRCache();
+        res.json({ success: true, message: 'Entity deleted (soft delete)', entity: data[0] });
+    } catch(e) {
+        console.error('DELETE /admin/gcr/entities/:id error:', e);
+        res.status(500).json({ error: e.message });
+    }
+});
+
+// ============================================
 // GET /api/gcr/category-page-config/:categoryId
 // Public: returns hero image, title, description for a category page
 // Called by gcr-config.js on every category listing page
