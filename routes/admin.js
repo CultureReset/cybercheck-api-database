@@ -8787,6 +8787,192 @@ router.post('/ai-chat-history/search', adminRequired, async (req, res) => {
     } catch (e) { res.status(500).json({ error: e.message }); }
 });
 
+// ============================================================
+// RAW DATA PARSING — AI-powered bulk data import
+// ============================================================
+
+// POST /api/admin/gcr/parse-raw-data — Parse raw data with AI
+router.post('/gcr/parse-raw-data', authRequired, async (req, res) => {
+    try {
+        const { entity_id, data_type, raw_data } = req.body;
+
+        if (!entity_id || !data_type || !raw_data) {
+            return res.status(400).json({ error: 'entity_id, data_type, and raw_data required' });
+        }
+
+        // Use AI to parse the raw data
+        const prompt = `Parse this raw ${data_type} data and extract structured items. Return as JSON array.
+
+Format: {
+  "items": [
+    { "name": "...", "price": 12.99, "description": "...", "category": "..." }
+  ]
+}
+
+Raw data:
+${raw_data}`;
+
+        const aiResponse = await callAIRound({
+            model: 'claude-3-5-sonnet-20241022',
+            system: 'You are a data parsing expert. Extract structured data from raw formats (CSV, text, JSON, etc). Be strict about data validation. Return ONLY valid JSON.',
+            messages: [{ role: 'user', content: prompt }]
+        });
+
+        // Extract JSON from response
+        const jsonMatch = aiResponse.match(/\{[\s\S]*\}/);
+        if (!jsonMatch) {
+            return res.status(400).json({ error: 'Could not extract JSON from AI response' });
+        }
+
+        const parsed = JSON.parse(jsonMatch[0]);
+        const items = parsed.items || [];
+
+        // Transform items based on data_type
+        const transformed = items.map(item => {
+            const base = {
+                item_name: item.name || item.item_name || 'Unnamed',
+                item_description: item.description || item.desc || '',
+                price: item.price || item.cost || 0
+            };
+
+            if (data_type === 'menu') {
+                return {
+                    ...base,
+                    category: item.category || item.section || 'General',
+                    allergens: item.allergens || ''
+                };
+            } else if (data_type === 'drinks') {
+                return {
+                    ...base,
+                    style: item.style || item.type || 'Other',
+                    brewery: item.brewery || item.brand || ''
+                };
+            } else if (data_type === 'happy_hour') {
+                return {
+                    ...base,
+                    hh_days: item.days || item.hh_days || 'Mon-Fri',
+                    hh_start: item.start || item.hh_start || '5:00 PM',
+                    hh_end: item.end || item.hh_end || '7:00 PM'
+                };
+            } else if (data_type === 'specials') {
+                return {
+                    ...base,
+                    discount_text: item.discount || item.discount_text || '',
+                    days_of_week: item.days || item.days_of_week || 'All Days'
+                };
+            } else if (data_type === 'events') {
+                return {
+                    item_name: item.name || item.event_name || 'Unnamed',
+                    item_description: item.description || '',
+                    event_date: item.date || item.event_date || new Date().toISOString().split('T')[0],
+                    start_time: item.time || item.start_time || '7:00 PM',
+                    venue_location: item.venue || item.location || ''
+                };
+            }
+
+            return base;
+        });
+
+        res.json({ parsed_items: transformed, count: transformed.length });
+    } catch (err) {
+        console.error('Parse error:', err);
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// POST /api/admin/gcr/save-parsed-items — Save parsed items to database
+router.post('/gcr/save-parsed-items', authRequired, async (req, res) => {
+    try {
+        const { entity_id, data_type, items } = req.body;
+
+        if (!entity_id || !data_type || !items || !items.length) {
+            return res.status(400).json({ error: 'entity_id, data_type, and items array required' });
+        }
+
+        const gcrDb = getGcrDb();
+        let saved = 0;
+        const errors = [];
+
+        for (const item of items) {
+            try {
+                let table, insertData;
+
+                if (data_type === 'menu') {
+                    table = 'entity_menu_items';
+                    insertData = {
+                        entity_id,
+                        item_name: item.item_name,
+                        item_description: item.item_description,
+                        price: parseFloat(item.price) || 0,
+                        category: item.category || 'General',
+                        allergens: item.allergens || null,
+                        is_active: true
+                    };
+                } else if (data_type === 'drinks') {
+                    table = 'entity_drink_items';
+                    insertData = {
+                        entity_id,
+                        item_name: item.item_name,
+                        item_description: item.item_description,
+                        price: parseFloat(item.price) || 0,
+                        style: item.style || 'Other',
+                        brewery: item.brewery || null,
+                        is_active: true
+                    };
+                } else if (data_type === 'happy_hour') {
+                    table = 'entity_happy_hour_items';
+                    insertData = {
+                        entity_id,
+                        item_name: item.item_name,
+                        item_description: item.item_description,
+                        hh_price: parseFloat(item.price) || 0,
+                        item_type: item.type || 'drink',
+                        is_active: true
+                    };
+                } else if (data_type === 'specials') {
+                    table = 'entity_specials';
+                    insertData = {
+                        entity_id,
+                        special_name: item.item_name,
+                        description: item.item_description,
+                        discount_text: item.discount_text || '',
+                        days_of_week: item.days_of_week || 'All Days',
+                        is_active: true
+                    };
+                } else if (data_type === 'events') {
+                    table = 'entity_events';
+                    insertData = {
+                        entity_id,
+                        event_name: item.item_name,
+                        description: item.item_description,
+                        event_date: item.event_date,
+                        start_time: item.start_time,
+                        venue_location: item.venue_location || '',
+                        is_active: true
+                    };
+                } else {
+                    errors.push(`Unknown data type: ${data_type}`);
+                    continue;
+                }
+
+                const { error } = await gcrDb.from(table).insert(insertData);
+                if (error) {
+                    errors.push(`${item.item_name}: ${error.message}`);
+                } else {
+                    saved++;
+                }
+            } catch (itemErr) {
+                errors.push(`${item.item_name}: ${itemErr.message}`);
+            }
+        }
+
+        res.json({ saved, errors, total: items.length });
+    } catch (err) {
+        console.error('Save error:', err);
+        res.status(500).json({ error: err.message });
+    }
+});
+
 module.exports = router;
 
 
