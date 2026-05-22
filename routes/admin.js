@@ -8813,7 +8813,6 @@ Raw data:
 ${raw_data}`;
 
         const aiResponse = await callAIRound({
-            model: 'claude-3-5-sonnet-20241022',
             system: 'You are a data parsing expert. Extract structured data from raw formats (CSV, text, JSON, etc). Be strict about data validation. Return ONLY valid JSON.',
             messages: [{ role: 'user', content: prompt }]
         });
