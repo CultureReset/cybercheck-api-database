@@ -8903,8 +8903,6 @@ router.post('/gcr/save-parsed-items', authRequired, async (req, res) => {
                         item_name: item.item_name,
                         item_description: item.item_description,
                         price: parseFloat(item.price) || 0,
-                        category: item.category || 'General',
-                        allergens: item.allergens || null,
                         is_active: true
                     };
                 } else if (data_type === 'drinks') {
