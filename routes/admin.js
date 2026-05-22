@@ -8812,13 +8812,13 @@ Format: {
 Raw data:
 ${raw_data}`;
 
-        const aiResponse = await callAIRound({
-            system: 'You are a data parsing expert. Extract structured data from raw formats (CSV, text, JSON, etc). Be strict about data validation. Return ONLY valid JSON.',
+        const aiResult = await callAIRound({
+            systemPrompt: 'You are a data parsing expert. Extract structured data from raw formats (CSV, text, JSON, etc). Be strict about data validation. Return ONLY valid JSON.',
             messages: [{ role: 'user', content: prompt }]
         });
 
         // Extract JSON from response
-        const jsonMatch = aiResponse.match(/\{[\s\S]*\}/);
+        const jsonMatch = aiResult.text.match(/\{[\s\S]*\}/);
         if (!jsonMatch) {
             return res.status(400).json({ error: 'Could not extract JSON from AI response' });
         }
