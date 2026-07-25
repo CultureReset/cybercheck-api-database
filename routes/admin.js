@@ -779,13 +779,9 @@ router.post('/save-api-key', async (req, res) => {
 // ============================================
 router.post('/test-oauth', async (req, res) => {
     const hasStripe = !!process.env.STRIPE_SECRET_KEY;
-    const hasTwilio = !!(process.env.TWILIO_ACCOUNT_SID && process.env.TWILIO_AUTH_TOKEN);
     res.json({
-        success: hasStripe && hasTwilio,
-        message: [
-            !hasStripe ? 'STRIPE_SECRET_KEY missing' : null,
-            !hasTwilio ? 'Twilio credentials missing' : null
-        ].filter(Boolean).join(', ') || 'All OAuth credentials configured'
+        success: hasStripe,
+        message: !hasStripe ? 'STRIPE_SECRET_KEY missing' : 'All OAuth credentials configured'
     });
 });
 
@@ -8416,10 +8412,10 @@ router.get('/sms-config', async (req, res) => {
 
 // PUT /api/admin/sms-config
 router.put('/sms-config', adminRequired, async (req, res) => {
-    const { provider, sendblue_key_id, sendblue_secret, twilio_sid, twilio_token, twilio_from,
+    const { provider, sendblue_key_id, sendblue_secret,
             popup_enabled, popup_trigger, popup_value, automations } = req.body;
-    if (!['sendblue', 'twilio'].includes(provider)) return res.status(400).json({ error: 'invalid provider' });
-    const value = { provider, sendblue_key_id, sendblue_secret, twilio_sid, twilio_token, twilio_from,
+    if (provider !== 'sendblue') return res.status(400).json({ error: 'invalid provider' });
+    const value = { provider, sendblue_key_id, sendblue_secret,
                     popup_enabled, popup_trigger, popup_value, automations };
     const { error } = await supabase.from('platform_settings')
         .upsert({ key: 'sms_config', value, updated_at: new Date().toISOString() }, { onConflict: 'key' });
@@ -8501,9 +8497,6 @@ router.post('/sms-blast', adminRequired, async (req, res) => {
                 },
                 body: JSON.stringify({ numbers, content: message })
             });
-        } else if (cfg.provider === 'twilio') {
-            const twilio = require('twilio')(cfg.twilio_sid, cfg.twilio_token);
-            await Promise.all(numbers.map(to => twilio.messages.create({ body: message, from: cfg.twilio_from, to })));
         }
 
         await supabase.from('sms_blasts').insert({ message, audience, sent_to: numbers.length, sent_at: new Date().toISOString() }).catch(() => {});

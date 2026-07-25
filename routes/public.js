@@ -2281,12 +2281,11 @@ router.post('/review', async (req, res) => {
     }
 
     // Send SMS to owner if they have a phone number (non-blocking)
-    if (ownerPhone && process.env.TWILIO_ACCOUNT_SID) {
+    if (ownerPhone) {
         try {
+            const { sendSms } = require('../utils/sms');
             const smsBody = `New review from ${customerName}! ⭐${rating} ${uploadedPhotos.length > 0 ? '+ photos' : ''} — Check dashboard to approve.`;
-            // TODO: Use internal SMS service or queue to avoid blocking response
-            // For now, fire-and-forget to Twilio (production should use async job queue)
-            sendSmsAsync(ownerPhone, smsBody).catch(e => console.warn('SMS send failed:', e.message));
+            sendSms(ownerPhone, smsBody, siteId, 'owner_notify_review').catch(e => console.warn('SMS send failed:', e.message));
         } catch (e) {
             console.warn('Could not send owner SMS:', e.message);
         }

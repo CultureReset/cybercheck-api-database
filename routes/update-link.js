@@ -72,13 +72,7 @@ async function syncToGcr(siteId, type, data) {
     } catch(e) { /* fire-and-forget */ }
 }
 
-function twilio() {
-    const sid = process.env.TWILIO_ACCOUNT_SID;
-    const tok = process.env.TWILIO_AUTH_TOKEN;
-    if (!sid || !tok) return null;
-    return require('twilio')(sid, tok);
-}
-function fromNumber() { return process.env.TWILIO_PHONE_NUMBER || process.env.TWILIO_FROM_NUMBER; }
+const { sendSms } = require('../utils/sms');
 function makeToken()  { return crypto.randomBytes(24).toString('hex'); }
 function slugify(s) {
     return String(s || '').toLowerCase().trim()
@@ -210,13 +204,8 @@ router.post('/send-sms', adminRequired, async (req, res) => {
     }
     const url = linkUrl(link.token, slug);
 
-    const tc = twilio();
-    if (!tc) return res.json({ success: false, error: 'Twilio not configured', url, token: link.token });
-
-    await tc.messages.create({
-        body: `Hi! Here's your daily update link for ${name}:\n\n${url}\n\nUpdate your menu, specials, photos and more. Expires tonight.`,
-        from: fromNumber(), to: phone,
-    });
+    const result = await sendSms(phone, `Hi! Here's your daily update link for ${name}:\n\n${url}\n\nUpdate your menu, specials, photos and more. Expires tonight.`, site_id || null, 'daily_update_link');
+    if (!result.success) return res.json({ success: false, error: result.reason, url, token: link.token });
 
     res.json({ success: true, url, token: link.token, sent_to: phone });
 });

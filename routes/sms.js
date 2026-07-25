@@ -1,14 +1,12 @@
 /**
  * SMS Inbox Routes
  *
- * POST /api/sms/inbound      — Twilio webhook: tourist texts the business number
+ * POST /api/sms/inbound      — Inbound SMS webhook: tourist texts the business number
  * POST /api/sms/reply        — Dashboard: owner replies to a customer
  * GET  /api/sms/inbox        — Dashboard: list conversation threads
  * GET  /api/sms/thread/:phone — Dashboard: full thread with one customer
  * POST /api/sms/send         — Send any outbound SMS (booking confirm, promo, etc.)
  * POST /api/sms/mark-read    — Mark messages as read
- *
- * Set Twilio webhook to: POST https://cybercheck-api-database.vercel.app/api/sms/inbound
  */
 
 const express = require('express');
@@ -17,18 +15,6 @@ const router  = express.Router();
 const { sendSms } = require('../utils/sms');
 const getGcrDb = require('../gcr-db');
 function _gcrDb() { try { return getGcrDb(); } catch(e) { return null; } }
-
-function getTwilio() {
-    const sid   = process.env.TWILIO_ACCOUNT_SID;
-    const token = process.env.TWILIO_AUTH_TOKEN;
-    if (!sid || !token) return null;
-    return require('twilio')(sid, token);
-}
-
-// Platform-wide shared Twilio number (one number for all businesses)
-function getFromNumber() {
-    return process.env.TWILIO_PHONE_NUMBER || process.env.TWILIO_FROM_NUMBER;
-}
 
 // ── Helper: route inbound message to correct business ─────────────────────────
 // Since one shared number serves all businesses, we identify the business by
@@ -163,12 +149,8 @@ async function handleOwnerUpdate(entity, body, ownerPhone) {
     }
 
     if (results.length) {
-        const twilio = getTwilio();
-        const fromNum = getFromNumber();
-        if (twilio && fromNum) {
-            twilio.messages.create({ body: results.join('\n'), from: fromNum, to: ownerPhone })
-                .catch(e => console.error('Owner reply SMS failed:', e.message));
-        }
+        sendSms(ownerPhone, results.join('\n'), null, 'owner_menu_update_reply')
+            .catch(e => console.error('Owner reply SMS failed:', e.message));
     }
 }
 
@@ -252,17 +234,10 @@ router.post('/inbound', express.urlencoded({ extended: false }), async (req, res
     // Forward to owner's cell so they know someone replied
     const notifyPhone = site.owner_phone || process.env.OWNER_PHONE;
     if (notifyPhone) {
-        const twilio = getTwilio();
-        const fromNum = getFromNumber();
-        if (twilio && fromNum) {
-            const displayName = customer?.name || from;
-            const preview = body.length > 120 ? body.substring(0, 120) + '...' : body;
-            twilio.messages.create({
-                body: `💬 INBOUND from ${displayName} (${from}):\n${preview}\n\nReply in your dashboard`,
-                from: fromNum,
-                to:   notifyPhone
-            }).catch(err => console.error('Forward to owner failed:', err.message));
-        }
+        const displayName = customer?.name || from;
+        const preview = body.length > 120 ? body.substring(0, 120) + '...' : body;
+        sendSms(notifyPhone, `💬 INBOUND from ${displayName} (${from}):\n${preview}\n\nReply in your dashboard`, site.site_id, 'owner_notify_inbound')
+            .catch(err => console.error('Forward to owner failed:', err.message));
     }
 });
 
@@ -277,16 +252,9 @@ router.post('/reply', async (req, res) => {
         return res.status(400).json({ error: 'customer_phone, body, site_id required' });
     }
 
-    const twilio = getTwilio();
-    const fromNum = getFromNumber();
-    if (!twilio || !fromNum) return res.status(503).json({ error: 'Twilio not configured' });
-
     try {
-        const msg = await twilio.messages.create({
-            body,
-            from: fromNum,
-            to:   customer_phone
-        });
+        const result = await sendSms(customer_phone, body, site_id, 'manual');
+        if (!result.success) return res.status(503).json({ error: result.reason });
 
         // Look up customer
         const customer = await customerByPhone(site_id, customer_phone);
@@ -299,12 +267,12 @@ router.post('/reply', async (req, res) => {
             customerId:    customer?.id   || null,
             direction:     'outbound',
             body,
-            twilioSid:     msg.sid,
-            twilioStatus:  msg.status,
+            twilioSid:     result.sid || null,
+            twilioStatus:  'sent',
             messageType:   'manual'
         });
 
-        res.json({ success: true, sid: msg.sid });
+        res.json({ success: true, sid: result.sid });
     } catch (err) {
         console.error('SMS reply error:', err.message);
         res.status(500).json({ error: err.message });

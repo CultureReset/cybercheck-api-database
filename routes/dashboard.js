@@ -5236,21 +5236,18 @@ router.post('/promotions/claim', async (req, res) => {
         await supabase.from('promotions').update({ total_claimed: (promo.total_claimed || 0) + 1 }).eq('id', promotion_id);
 
         // Send SMS with coupon
-        const sid  = process.env.TWILIO_ACCOUNT_SID;
-        const tok  = process.env.TWILIO_AUTH_TOKEN;
-        const from = process.env.TWILIO_PHONE_NUMBER || process.env.TWILIO_FROM_NUMBER;
-        if (sid && tok && from) {
-            const twilio = require('twilio')(sid, tok);
-            const msg = `${promo.title}\n\n${promo.description || ''}\n\nYour code: ${code}${promo.discount_text ? '\n' + promo.discount_text : ''}\n\nYour loyalty #: ${customer?.loyalty_number || ''}`.trim();
-            await twilio.messages.create({ body: msg, from, to: '+1' + cleanPhone }).catch(() => {});
-        }
+        const { sendSms } = require('../utils/sms');
+        const smsMsg = `${promo.title}\n\n${promo.description || ''}\n\nYour code: ${code}${promo.discount_text ? '\n' + promo.discount_text : ''}\n\nYour loyalty #: ${customer?.loyalty_number || ''}`.trim();
+        const smsResult = await sendSms('+1' + cleanPhone, smsMsg, site_id, 'coupon_claim').catch(() => ({ success: false }));
 
         res.json({
             ok: true,
             coupon_code: code,
             loyalty_number: customer?.loyalty_number,
             loyalty_points: customer?.loyalty_points || 0,
-            message: `Your code ${code} has been sent to your phone!`,
+            message: smsResult.success
+                ? `Your code ${code} has been sent to your phone!`
+                : `Your code is ${code} — save it now!`,
             is_new_customer: !customer?.last_visit,
         });
     } catch(err) {

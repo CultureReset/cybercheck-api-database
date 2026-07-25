@@ -1019,19 +1019,13 @@ router.post('/tourist/register', async (req, res) => {
 
     const chatUrl = `https://cybercheck-login.vercel.app/chat/${session.session_id}`;
 
-    // Send SMS via Twilio (if configured)
-    if (process.env.TWILIO_ACCOUNT_SID && process.env.TWILIO_AUTH_TOKEN && process.env.TWILIO_PHONE_NUMBER) {
-        try {
-            const twilio = require('twilio')(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
-            await twilio.messages.create({
-                to: phone,
-                from: process.env.TWILIO_PHONE_NUMBER,
-                body: `Hey ${name}! Your Gulf Coast trip guide is ready 🌊 Ask me about restaurants, boat rentals, and activities → ${chatUrl}`
-            });
-        } catch (smsErr) {
-            console.error('SMS send error:', smsErr.message);
-            // Don't fail the request if SMS fails
-        }
+    // Send SMS with trip guide link (if a provider is configured)
+    try {
+        const { sendSms } = require('../utils/sms');
+        await sendSms(phone, `Hey ${name}! Your Gulf Coast trip guide is ready 🌊 Ask me about restaurants, boat rentals, and activities → ${chatUrl}`, null, 'trip_guide_ready');
+    } catch (smsErr) {
+        console.error('SMS send error:', smsErr.message);
+        // Don't fail the request if SMS fails
     }
 
     res.json({

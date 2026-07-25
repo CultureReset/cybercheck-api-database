@@ -25,18 +25,7 @@ const gcrDb    = require('../../gcr-db')();
 const router   = express.Router();
 
 const { adminRequired } = require('../../middleware/auth');
-
-// ── Helper: get Twilio client ─────────────────────────────────
-function twilio() {
-    const sid   = process.env.TWILIO_ACCOUNT_SID;
-    const token = process.env.TWILIO_AUTH_TOKEN;
-    if (!sid || !token) return null;
-    return require('twilio')(sid, token);
-}
-
-function fromNumber() {
-    return process.env.TWILIO_PHONE_NUMBER || process.env.TWILIO_FROM_NUMBER;
-}
+const { sendSms } = require('../../utils/sms');
 
 // ── Generate a secure daily token ─────────────────────────────
 function generateToken() {
@@ -117,9 +106,6 @@ router.post('/automations/:id/run', adminRequired, async (req, res) => {
 
 // ── Run an automation ─────────────────────────────────────────
 async function runAutomation(automation, context = {}) {
-    const tc = twilio();
-    if (!tc) return { success: false, error: 'Twilio not configured' };
-
     try {
         // Build message by resolving template variables
         const message = await resolveTemplate(automation.message_template, automation, context);
@@ -127,7 +113,18 @@ async function runAutomation(automation, context = {}) {
 
         if (!to) return { success: false, error: 'No recipient phone number' };
 
-        const msg = await tc.messages.create({ body: message, from: fromNumber(), to });
+        const result = await sendSms(to, message, null, 'sms_automation', automation.entity_id || null);
+        if (!result.success) {
+            await supabase.from('sms_automation_logs').insert({
+                automation_id: automation.id,
+                entity_id: automation.entity_id,
+                recipient_phone: to,
+                message_sent: message,
+                status: 'failed',
+                error_message: result.reason,
+            });
+            return { success: false, error: result.reason };
+        }
 
         await supabase.from('sms_automation_logs').insert({
             automation_id: automation.id,
@@ -135,12 +132,12 @@ async function runAutomation(automation, context = {}) {
             recipient_phone: to,
             message_sent: message,
             status: 'sent',
-            twilio_sid: msg.sid,
+            twilio_sid: result.sid,
         });
 
         await supabase.from('sms_automations').update({ last_run_at: new Date().toISOString() }).eq('id', automation.id);
 
-        return { success: true, message_sent: message, to, twilio_sid: msg.sid };
+        return { success: true, message_sent: message, to, twilio_sid: result.sid };
     } catch (err) {
         await supabase.from('sms_automation_logs').insert({
             automation_id: automation.id,
@@ -256,8 +253,7 @@ router.post('/daily-link', adminRequired, async (req, res) => {
     if (existing && !existing.submitted_at) {
         const url = buildLinkUrl(existing.token);
         if (send_sms && existing.send_phone) {
-            const tc = twilio();
-            if (tc) await tc.messages.create({ body: `Your daily update link: ${url}`, from: fromNumber(), to: existing.send_phone });
+            await sendSms(existing.send_phone, `Your daily update link: ${url}`, null, 'daily_update_link', entity_id);
         }
         return res.json({ token: existing.token, url, created: false, link: existing });
     }
@@ -277,8 +273,7 @@ router.post('/daily-link', adminRequired, async (req, res) => {
 
     // Optionally SMS the link right now
     if (send_sms && req.body.send_phone) {
-        const tc = twilio();
-        if (tc) await tc.messages.create({ body: `Hi! Here's your daily update link:\n${url}\n\nExpires tonight at midnight.`, from: fromNumber(), to: req.body.send_phone });
+        await sendSms(req.body.send_phone, `Hi! Here's your daily update link:\n${url}\n\nExpires tonight at midnight.`, null, 'daily_update_link', entity_id);
     }
 
     res.json({ token, url, created: true, link });
