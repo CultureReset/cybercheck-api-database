@@ -19,12 +19,12 @@ function htmlToText(html) {
 // Send SMS relay to owner when OWNER_RELAY_MODE=true
 async function smsOwnerRelay(to, subject, textPreview) {
     const ownerPhone = process.env.OWNER_PHONE;
-    if (!ownerPhone || !process.env.TWILIO_ACCOUNT_SID || !process.env.TWILIO_AUTH_TOKEN) return;
+    if (!ownerPhone) return;
     try {
-        const twilio = require('twilio')(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
+        const { sendSms } = require('./sms');
         const toList = Array.isArray(to) ? to.join(', ') : String(to);
         const body = `📧 EMAIL RELAY\nTO: ${toList}\nSUBJ: ${subject}\n──────────\n${textPreview}\n──────────\nSend manually`;
-        await twilio.messages.create({ body, from: process.env.TWILIO_PHONE_NUMBER, to: ownerPhone });
+        await sendSms(ownerPhone, body, null, 'email_relay');
     } catch (err) {
         console.error('Email SMS relay failed:', err.message);
     }

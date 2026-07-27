@@ -1,17 +1,9 @@
 const supabase = require('../db');
 
-let twilioClient = null;
-
-function getClient() {
-    if (!twilioClient && process.env.TWILIO_ACCOUNT_SID && process.env.TWILIO_AUTH_TOKEN) {
-        const twilio = require('twilio');
-        twilioClient = twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
-    }
-    return twilioClient;
-}
-
 /**
- * Send SMS via Twilio and log to sms_log
+ * Send SMS and log to sms_log. SMS provider is Brevo (set BREVO_API_KEY and
+ * BREVO_SMS_ENABLED=true); without a configured provider, sends are logged
+ * as 'not_configured' rather than delivered.
  * @param {string} to - Phone number
  * @param {string} body - Message text
  * @param {string} siteId - Business site_id for logging
@@ -20,39 +12,6 @@ function getClient() {
  * @param {string} from - Optional custom from number (overrides default)
  */
 async function sendSms(to, body, siteId, type = 'outgoing', relatedId = null, from = null) {
-    const ownerPhone = process.env.OWNER_PHONE;
-    const relayMode = process.env.OWNER_RELAY_MODE === 'true' && ownerPhone;
-
-    // Owner relay mode: redirect all customer SMS to owner's number for manual forwarding
-    if (relayMode) {
-        const client = getClient();
-        if (!client) {
-            console.warn('Relay mode: Twilio not configured');
-            await logSms(siteId, to, body, type, 'relay_not_configured', relatedId);
-            return { success: false, reason: 'twilio_not_configured' };
-        }
-        const fromNumber = from || process.env.TWILIO_PHONE_NUMBER;
-        const preview = body.length > 280 ? body.substring(0, 280) + '...' : body;
-        const relayBody = `📬 RELAY [${type}]\nSEND TO: ${to}\n──────────\n${preview}\n──────────\nCopy # above → text customer`;
-        try {
-            const msg = await client.messages.create({ body: relayBody, from: fromNumber, to: ownerPhone });
-            await logSms(siteId, to, body, type, 'relayed_to_owner', relatedId, msg.sid);
-            return { success: true, relayed: true, sid: msg.sid };
-        } catch (err) {
-            console.error('Owner relay SMS failed:', err.message);
-            await logSms(siteId, to, body, type, 'relay_failed', relatedId);
-            return { success: false, reason: err.message };
-        }
-    }
-
-    const client = getClient();
-
-    if (!client) {
-        console.warn('Twilio not configured, SMS not sent:', { to, body: body.substring(0, 50) });
-        await logSms(siteId, to, body, type, 'not_configured', relatedId);
-        return { success: false, reason: 'twilio_not_configured' };
-    }
-
     const normalizedTo = normalizePhone(to);
     if (!normalizedTo) {
         await logSms(siteId, to, body, type, 'invalid_phone', relatedId);
@@ -72,8 +31,7 @@ async function sendSms(to, body, siteId, type = 'outgoing', relatedId = null, fr
         return { success: false, reason: 'opted_out' };
     }
 
-    // Route SMS via Twilio (Brevo handles email only, not SMS).
-    // To re-enable Brevo SMS, set BREVO_SMS_ENABLED=true in env.
+    // SMS provider: Brevo. Set BREVO_SMS_ENABLED=true in env to enable.
     if (process.env.BREVO_API_KEY && process.env.BREVO_SMS_ENABLED === 'true') {
         try {
             const res = await fetch('https://api.brevo.com/v3/transactionalSMS/sms', {
@@ -99,22 +57,9 @@ async function sendSms(to, body, siteId, type = 'outgoing', relatedId = null, fr
         }
     }
 
-    const fromNumber = from || process.env.TWILIO_PHONE_NUMBER;
-
-    try {
-        const message = await client.messages.create({
-            body: body,
-            from: fromNumber,
-            to: normalizedTo
-        });
-
-        await logSms(siteId, normalizedTo, body, type, 'sent', relatedId, message.sid);
-        return { success: true, sid: message.sid };
-    } catch (err) {
-        console.error('Twilio send error:', err.message);
-        await logSms(siteId, normalizedTo, body, type, 'failed', relatedId);
-        return { success: false, reason: err.message };
-    }
+    console.warn('No SMS provider configured, SMS not sent:', { to, body: body.substring(0, 50) });
+    await logSms(siteId, normalizedTo, body, type, 'not_configured', relatedId);
+    return { success: false, reason: 'sms_not_configured' };
 }
 
 /**

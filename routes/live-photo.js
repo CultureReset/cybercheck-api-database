@@ -19,6 +19,7 @@ const express = require('express');
 const multer  = require('multer');
 const supabase = require('../db');
 const getGcrDb = require('../gcr-db');
+const { sendSms } = require('../utils/sms');
 
 const router = express.Router();
 const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 8 * 1024 * 1024 } });
@@ -147,22 +148,16 @@ router.post('/', upload.single('photo'), async (req, res) => {
         // Fire-and-forget after delay. The photo proves they were there —
         // so this review is 100% verified before it's even written.
         if (send_review === 'true' || send_review === true) {
-            const sid  = process.env.TWILIO_ACCOUNT_SID;
-            const tok  = process.env.TWILIO_AUTH_TOKEN;
-            const from = process.env.TWILIO_PHONE_NUMBER || process.env.TWILIO_FROM_NUMBER;
-            if (sid && tok && from) {
-                const delayMs = Math.max(0, parseInt(review_delay_minutes) || 0) * 60 * 1000;
-                const bizName = business_name || 'us';
-                const reviewUrl = `https://cybercheck-links.vercel.app/review.html?site=${site_id}&phone=${cleanPhone}${photoRecord?.id ? '&photo=' + photoRecord.id : ''}`;
-                const smsBody = `Thanks for dining with ${bizName}! 🙏\n\nYour photo is live on our menu. Mind leaving a quick review? It only takes 30 seconds and helps other visitors:\n\n${reviewUrl}`;
+            const delayMs = Math.max(0, parseInt(review_delay_minutes) || 0) * 60 * 1000;
+            const bizName = business_name || 'us';
+            const reviewUrl = `https://cybercheck-links.vercel.app/review.html?site=${site_id}&phone=${cleanPhone}${photoRecord?.id ? '&photo=' + photoRecord.id : ''}`;
+            const smsBody = `Thanks for dining with ${bizName}! 🙏\n\nYour photo is live on our menu. Mind leaving a quick review? It only takes 30 seconds and helps other visitors:\n\n${reviewUrl}`;
 
-                setTimeout(async () => {
-                    try {
-                        const twilio = require('twilio')(sid, tok);
-                        await twilio.messages.create({ body: smsBody, from, to: '+1' + cleanPhone });
-                    } catch(e) { console.error('review SMS error:', e.message); }
-                }, delayMs);
-            }
+            setTimeout(async () => {
+                try {
+                    await sendSms('+1' + cleanPhone, smsBody, site_id, 'review_request');
+                } catch(e) { console.error('review SMS error:', e.message); }
+            }, delayMs);
         }
 
         res.json({

@@ -75,7 +75,7 @@ Used on `/api/public/*` routes. Resolves the incoming `Host` header to a `site_i
 
 - **Stripe** — Connect (per-business), standard payments, webhooks (`routes/stripe.js`, `routes/webhooks.js`)
 - **Square** — payments (`routes/square.js`)
-- **Twilio** — SMS inbox, booking confirmations, promo blasts (`routes/sms.js`, `modules/sms-automation/`)
+- **Brevo** — SMS inbox, booking confirmations, promo blasts (`routes/sms.js`, `modules/sms-automation/`, `utils/sms.js`) — set `BREVO_API_KEY` + `BREVO_SMS_ENABLED=true`. Twilio has been removed from this codebase; without a configured provider, `sendSms()` logs `not_configured` and does not deliver.
 - **Anthropic / OpenAI / Groq / xAI** — AI features routed through `routes/ai-provider.js`
 - **FareHarbor** — activity booking sync (`routes/fareharbor.js`)
 - **Google Business Profile** — OAuth + review sync (`routes/google-business.js`)
