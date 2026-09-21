@@ -8,11 +8,11 @@
  *  - Booking confirmation SMS (customer + business)
  *  - Review request SMS (after experience)
  *
- * Mount path: /api/modules/sms-automation
+ * Mount path: /api/m/sms-automation
  * Dashboard panel: sms-automation
  */
 
-const registry = require('../../module-registry');
+const registry = require('../../core/registry');
 const router   = require('./routes');
 
 registry.register({
@@ -21,11 +21,18 @@ registry.register({
     icon:        '📱',
     version:     '1.0.0',
     description: 'Automated SMS flows: daily briefings, booking confirmations, daily update links, review requests.',
-    mountPath:   '/api/modules/sms-automation',
+    mountPath:   '/api/m/sms-automation',
     accessLevel: 'admin',
     router,
     panelId:     'sms-automation',
+    enabled:     false,   // turn on once its migrations.sql has been applied
+    routeCount:  11,
+    requiredCore:['db', 'gcr-db', 'auth', 'sms'],
     requiredEnv: [],
+    ownsTables:  ['sms_automations', 'sms_automation_logs', 'sms_update_links',
+                  'webhook_registrations', 'webhook_events'],
+    sharedTables:['entity', 'entity_specials', 'menu_items', 'bookings', 'messages'],
+    migrations:  './migrations.sql',
     grokTools: [
         {
             type: 'function',

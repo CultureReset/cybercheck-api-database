@@ -1,0 +1,9239 @@
+const express = require('express');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const supabase = require('../../core/db');
+const getGcrDb = require('../../core/gcr-db');
+let gcrDb; try { gcrDb = getGcrDb(); } catch(e) { console.warn('GCR DB not initialized:', e.message); }
+const { runAgentLoop, callAIRound, getProviderInfo, extractJsonFromImage } = require('../../core/ai');
+const { adminRequired, authRequired } = require('../../core/auth');
+
+const router = express.Router();
+
+// ============================================
+// ADMIN LOGIN — must be BEFORE adminRequired middleware
+// ============================================
+
+router.post('/login', async (req, res) => {
+    const { username, password } = req.body;
+
+    if (!username || !password) {
+        return res.status(400).json({ error: 'Username and password required' });
+    }
+
+    // Admin can log in with email or username
+    const { data: user, error } = await supabase
+        .from('users')
+        .select('id, site_id, email, password_hash, name, role')
+        .eq('role', 'admin')
+        .or(`email.eq.${username.toLowerCase()},name.eq.${username}`)
+        .single();
+
+    if (error || !user) {
+        return res.status(401).json({ error: 'Invalid credentials' });
+    }
+
+    const valid = await bcrypt.compare(password, user.password_hash);
+    if (!valid) {
+        return res.status(401).json({ error: 'Invalid credentials' });
+    }
+
+    const token = jwt.sign(
+        { userId: user.id, siteId: user.site_id || 'admin', role: 'admin' },
+        process.env.JWT_SECRET,
+        { expiresIn: '24h' }
+    );
+
+    res.json({
+        success: true,
+        token,
+        name: user.name,
+        email: user.email
+    });
+});
+
+// Auth disabled — single admin dashboard, no auth system connected
+
+// ============================================
+// DASHBOARD HOME — Platform stats
+// ============================================
+
+router.get('/stats', adminRequired, async (req, res) => {
+    const [businesses, users, bookings, orders] = await Promise.all([
+        supabase.from('businesses').select('site_id, plan, status, created_at', { count: 'exact' }),
+        supabase.from('users').select('id', { count: 'exact' }),
+        supabase.from('bookings').select('id, total, status, created_at', { count: 'exact' }),
+        supabase.from('orders').select('id, total, status, created_at', { count: 'exact' })
+    ]);
+
+    const totalBusinesses = businesses.count || 0;
+    const activeBusinesses = (businesses.data || []).filter(b => b.status === 'active').length;
+    const totalBookings = bookings.count || 0;
+    const totalRevenue = (bookings.data || []).reduce((sum, b) => sum + (b.total || 0), 0)
+        + (orders.data || []).reduce((sum, o) => sum + (o.total || 0), 0);
+
+    // Recent signups (last 7 days)
+    const weekAgo = new Date(Date.now() - 7 * 86400000).toISOString();
+    const recentSignups = (businesses.data || []).filter(b => b.created_at > weekAgo).length;
+
+    res.json({
+        total_businesses: totalBusinesses,
+        active_businesses: activeBusinesses,
+        total_users: users.count || 0,
+        total_bookings: totalBookings,
+        total_revenue: totalRevenue,
+        recent_signups: recentSignups,
+        plans: {
+            free: (businesses.data || []).filter(b => b.plan === 'free').length,
+            starter: (businesses.data || []).filter(b => b.plan === 'starter').length,
+            pro: (businesses.data || []).filter(b => b.plan === 'pro').length,
+            enterprise: (businesses.data || []).filter(b => b.plan === 'enterprise').length
+        }
+    });
+});
+
+// ============================================
+// BUSINESSES — List, view, create, update, delete
+// ============================================
+
+router.get('/businesses', async (req, res) => {
+    let query = supabase
+        .from('businesses')
+        .select('*, users(id, email, name, role)')
+        .order('created_at', { ascending: false });
+
+    if (req.query.status) query = query.eq('status', req.query.status);
+    if (req.query.plan) query = query.eq('plan', req.query.plan);
+    if (req.query.type) query = query.eq('type', req.query.type);
+    if (req.query.search) {
+        query = query.or(`name.ilike.%${req.query.search}%,subdomain.ilike.%${req.query.search}%,domain.ilike.%${req.query.search}%`);
+    }
+
+    const { data, error } = await query;
+    if (error) return res.status(500).json({ success: false, error: error.message });
+    res.json({ success: true, businesses: data || [], count: (data || []).length });
+});
+
+router.get('/businesses/:id', async (req, res) => {
+    const { data, error } = await supabase
+        .from('businesses')
+        .select('*, users(id, email, name, role), site_content(*), site_apps(app_id, enabled, apps(name, monthly_price))')
+        .eq('site_id', req.params.id)
+        .single();
+
+    if (error) return res.status(404).json({ error: 'Business not found' });
+    res.json(data);
+});
+
+router.post('/businesses', async (req, res) => {
+    const { businessName, businessType, ownerName, ownerEmail, ownerPassword, plan, subdomain, domain, skipOnboarding } = req.body;
+
+    if (!businessName || !businessType || !ownerEmail) {
+        return res.status(400).json({ error: 'businessName, businessType, and ownerEmail required' });
+    }
+
+    const finalSubdomain = subdomain || businessName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
+    // Create business
+    const { data: business, error: bizError } = await supabase
+        .from('businesses')
+        .insert({
+            name: businessName,
+            type: businessType,
+            subdomain: finalSubdomain,
+            domain: domain || null,
+            plan: plan || 'free',
+            status: skipOnboarding ? 'active' : 'setup'
+        })
+        .select()
+        .single();
+
+    if (bizError) return res.status(500).json({ error: bizError.message });
+
+    // Create owner user
+    const passwordHash = await bcrypt.hash(ownerPassword || 'changeme123', 12);
+
+    const { data: user, error: userError } = await supabase
+        .from('users')
+        .insert({
+            site_id: business.site_id,
+            email: ownerEmail.toLowerCase(),
+            name: ownerName || businessName,
+            password_hash: passwordHash,
+            role: 'owner'
+        })
+        .select()
+        .single();
+
+    if (userError) {
+        await supabase.from('businesses').delete().eq('site_id', business.site_id);
+        return res.status(500).json({ error: userError.message });
+    }
+
+    // Create empty site_content
+    await supabase.from('site_content').insert({
+        site_id: business.site_id,
+        contact_email: ownerEmail.toLowerCase()
+    });
+
+    // Create GCR entity for launching-gcr display
+    try {
+        const slug = finalSubdomain;
+        const { data: entity, error: entityError } = await gcrDb.from('entity').insert({
+            name: businessName,
+            slug,
+            entity_type: 'business',
+            entity_subtype: businessType,
+            is_active: skipOnboarding ? true : false,
+            legacy_site_id: business.site_id,
+        }).select('id').single();
+
+        if (entity) {
+            // Store GCR entity_id in profiles DB metadata for sync
+            await supabase.from('businesses').update({
+                metadata: { gcr_entity_id: entity.id }
+            }).eq('site_id', business.site_id);
+            business.gcr_entity_id = entity.id;
+        } else if (entityError) {
+            console.error('GCR entity creation error:', entityError.message);
+        }
+    } catch(e) {
+        console.error('GCR entity creation failed:', e.message);
+    }
+
+    res.status(201).json({ business, user: { id: user.id, email: user.email, name: user.name } });
+});
+
+router.put('/businesses/:id', async (req, res) => {
+    const siteId = req.params.id;
+    const updates = { ...req.body, updated_at: new Date().toISOString() };
+    delete updates.site_id;
+
+    try {
+        // Get GCR entity_id from profiles DB metadata
+        const { data: biz } = await supabase
+            .from('businesses')
+            .select('metadata')
+            .eq('site_id', siteId)
+            .single();
+
+        if (biz?.metadata?.gcr_entity_id) {
+            // Map profiles DB fields to GCR entity fields
+            const gcrUpdates = {
+                name: updates.name,
+                subtitle: updates.tagline,
+                entity_subtype: updates.type,
+                description: updates.description,
+                phone: updates.phone,
+                email: updates.email,
+                website_url: updates.website,
+                address_line_1: updates.address,
+                city: updates.city,
+                state: updates.state,
+                zip: updates.zip,
+                icon: updates.emoji,
+                hh_days: updates.hh_days,
+                hh_start: updates.hh_start,
+                hh_end: updates.hh_end,
+                price_range: updates.price_range,
+                featured: updates.featured,
+                updated_at: new Date().toISOString()
+            };
+
+            // Update GCR entity
+            await gcrDb
+                .from('entity')
+                .update(gcrUpdates)
+                .eq('id', biz.metadata.gcr_entity_id);
+        }
+
+        // Also update profiles DB for account/billing data
+        const { data, error } = await supabase
+            .from('businesses')
+            .update(updates)
+            .eq('site_id', siteId)
+            .select()
+            .single();
+
+        if (error) return res.status(500).json({ error: error.message });
+        res.json(data);
+    } catch (err) {
+        console.error('Business update error:', err.message);
+        res.status(500).json({ error: err.message });
+    }
+});
+
+router.delete('/businesses/:id', adminRequired, async (req, res) => {
+    const siteId = req.params.id;
+    if (!siteId) return res.status(400).json({ error: 'site_id required' });
+
+    // Verify business exists
+    const { data: biz } = await supabase.from('businesses').select('site_id, name').eq('site_id', siteId).single();
+    if (!biz) return res.status(404).json({ error: 'Business not found' });
+
+    try {
+        // Delete all site data in parallel (no FK dependencies between these)
+        await Promise.all([
+            supabase.from('bookings').delete().eq('site_id', siteId),
+            supabase.from('orders').delete().eq('site_id', siteId),
+            supabase.from('customers').delete().eq('site_id', siteId),
+            supabase.from('reviews').delete().eq('site_id', siteId),
+            supabase.from('media').delete().eq('site_id', siteId),
+            supabase.from('business_memories').delete().eq('site_id', siteId),
+            supabase.from('connections').delete().eq('site_id', siteId),
+            supabase.from('faqs').delete().eq('site_id', siteId),
+            supabase.from('specials').delete().eq('site_id', siteId),
+            supabase.from('events').delete().eq('site_id', siteId),
+            supabase.from('menu_items').delete().eq('site_id', siteId),
+            supabase.from('menu_categories').delete().eq('site_id', siteId),
+            supabase.from('menu_sections').delete().eq('site_id', siteId),
+            supabase.from('menu_subcategories').delete().eq('site_id', siteId),
+            supabase.from('fleet_types').delete().eq('site_id', siteId),
+            supabase.from('rental_time_slots').delete().eq('site_id', siteId),
+            supabase.from('rental_pricing').delete().eq('site_id', siteId),
+            supabase.from('rental_addons').delete().eq('site_id', siteId),
+            supabase.from('rental_group_rates').delete().eq('site_id', siteId),
+            supabase.from('site_content').delete().eq('site_id', siteId),
+            supabase.from('site_pages').delete().eq('site_id', siteId),
+            supabase.from('site_apps').delete().eq('site_id', siteId),
+            supabase.from('ai_conversations').delete().eq('site_id', siteId),
+            supabase.from('ai_messages').delete().eq('site_id', siteId),
+            supabase.from('audit_log').delete().eq('site_id', siteId),
+            supabase.from('notifications').delete().eq('site_id', siteId),
+            supabase.from('onboarding_progress').delete().eq('site_id', siteId),
+            supabase.from('staff').delete().eq('site_id', siteId),
+            supabase.from('waivers').delete().eq('site_id', siteId),
+            supabase.from('availability').delete().eq('site_id', siteId),
+            supabase.from('availability_blocks').delete().eq('site_id', siteId),
+            supabase.from('booking_funnel').delete().eq('site_id', siteId),
+            supabase.from('booking_slots').delete().eq('site_id', siteId),
+            supabase.from('coupons').delete().eq('site_id', siteId),
+            supabase.from('sms_campaigns').delete().eq('site_id', siteId),
+            supabase.from('sms_log').delete().eq('site_id', siteId),
+            supabase.from('sms_opt_outs').delete().eq('site_id', siteId),
+            supabase.from('messaging_settings').delete().eq('site_id', siteId),
+            supabase.from('oauth_tokens').delete().eq('site_id', siteId),
+            supabase.from('update_links').delete().eq('site_id', siteId),
+            supabase.from('tripswipe_business_settings').delete().eq('site_id', siteId),
+            supabase.from('page_views').delete().eq('site_id', siteId),
+            supabase.from('session_events').delete().eq('site_id', siteId),
+            supabase.from('sales_leads').delete().eq('site_id', siteId),
+            supabase.from('seo_meta_tags').delete().eq('site_id', siteId),
+            supabase.from('social_media_analytics').delete().eq('site_id', siteId),
+        ]);
+
+        // Delete storage files for this site
+        try {
+            const { data: files } = await supabase.storage.from('media').list(siteId, { limit: 1000 });
+            if (files && files.length) {
+                const paths = files.map(f => `${siteId}/${f.name}`);
+                await supabase.storage.from('media').remove(paths);
+            }
+        } catch (storageErr) {
+            console.error('Storage cleanup error (non-fatal):', storageErr);
+        }
+
+        // Delete users, then the business record itself
+        await supabase.from('users').delete().eq('site_id', siteId);
+        const { error } = await supabase.from('businesses').delete().eq('site_id', siteId);
+        if (error) throw error;
+
+        console.log(`[admin] Deleted business ${siteId} (${biz.name}) by admin ${req.userId}`);
+        res.json({ success: true, deleted: biz.name });
+    } catch (err) {
+        console.error('Business delete failed:', err);
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// ============================================
+// IMPERSONATION — Login as a business
+// ============================================
+
+router.post('/businesses/:id/impersonate', async (req, res) => {
+    // Get the business owner
+    const { data: user } = await supabase
+        .from('users')
+        .select('id, site_id, email, name, role')
+        .eq('site_id', req.params.id)
+        .eq('role', 'owner')
+        .single();
+
+    if (!user) {
+        return res.status(404).json({ error: 'Business owner not found' });
+    }
+
+    const { data: business } = await supabase
+        .from('businesses')
+        .select('site_id, name, type, domain, subdomain, plan')
+        .eq('site_id', req.params.id)
+        .single();
+
+    // Generate impersonation token (short-lived, marked as admin)
+    const token = jwt.sign(
+        {
+            userId: user.id,
+            siteId: user.site_id,
+            role: user.role,
+            impersonatedBy: req.userId,
+            isImpersonation: true
+        },
+        process.env.JWT_SECRET,
+        { expiresIn: '4h' }
+    );
+
+    // Log impersonation in audit trail
+    await supabase.from('audit_log').insert({
+        admin_id: req.userId,
+        action: 'impersonate',
+        target_type: 'business',
+        target_id: req.params.id,
+        details: { business_name: business.name }
+    }).catch(() => {}); // Audit table may not exist yet
+
+    res.json({
+        token,
+        user: { id: user.id, name: user.name, email: user.email, role: user.role },
+        business
+    });
+});
+
+// ============================================
+// SUSPEND / UNSUSPEND
+// ============================================
+
+router.post('/businesses/:id/suspend', async (req, res) => {
+    const { data, error } = await supabase
+        .from('businesses')
+        .update({ status: 'suspended', updated_at: new Date().toISOString() })
+        .eq('site_id', req.params.id)
+        .select()
+        .single();
+
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
+router.post('/businesses/:id/unsuspend', async (req, res) => {
+    const { data, error } = await supabase
+        .from('businesses')
+        .update({ status: 'active', updated_at: new Date().toISOString() })
+        .eq('site_id', req.params.id)
+        .select()
+        .single();
+
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
+// ============================================
+// USERS — List, update
+// ============================================
+
+router.get('/users', adminRequired, async (req, res) => {
+    let query = supabase
+        .from('users')
+        .select('id, site_id, email, name, role, avatar_url, created_at, businesses(name, type)')
+        .order('created_at', { ascending: false });
+
+    if (req.query.search) {
+        query = query.or(`name.ilike.%${req.query.search}%,email.ilike.%${req.query.search}%`);
+    }
+
+    const { data, error } = await query;
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data || []);
+});
+
+router.put('/users/:id', async (req, res) => {
+    const updates = {};
+    if (req.body.name) updates.name = req.body.name;
+    if (req.body.role) updates.role = req.body.role;
+    if (req.body.email) updates.email = req.body.email;
+
+    if (req.body.password) {
+        updates.password_hash = await bcrypt.hash(req.body.password, 12);
+    }
+
+    const { data, error } = await supabase
+        .from('users')
+        .update(updates)
+        .eq('id', req.params.id)
+        .select('id, email, name, role')
+        .single();
+
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
+// ============================================
+// APPS — Marketplace app management
+// ============================================
+
+router.get('/apps', async (req, res) => {
+    const { data } = await supabase
+        .from('apps')
+        .select('*')
+        .order('name', { ascending: true });
+
+    // Get install counts
+    const { data: installs } = await supabase
+        .from('site_apps')
+        .select('app_id')
+        .eq('enabled', true);
+
+    const installCounts = {};
+    (installs || []).forEach(i => {
+        installCounts[i.app_id] = (installCounts[i.app_id] || 0) + 1;
+    });
+
+    const apps = (data || []).map(app => ({
+        ...app,
+        install_count: installCounts[app.app_id] || 0
+    }));
+
+    res.json(apps);
+});
+
+router.post('/apps', async (req, res) => {
+    const { data, error } = await supabase
+        .from('apps')
+        .insert(req.body)
+        .select()
+        .single();
+
+    if (error) return res.status(500).json({ error: error.message });
+    res.status(201).json(data);
+});
+
+router.put('/apps/:id', async (req, res) => {
+    const { data, error } = await supabase
+        .from('apps')
+        .update(req.body)
+        .eq('app_id', req.params.id)
+        .select()
+        .single();
+
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
+router.delete('/apps/:id', async (req, res) => {
+    const { error } = await supabase
+        .from('apps')
+        .update({ status: 'disabled' })
+        .eq('app_id', req.params.id);
+
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ============================================
+// PLANS
+// ============================================
+
+router.get('/plans', async (req, res) => {
+    // Plans are defined in config for now, not a DB table
+    res.json([
+        { id: 'free', name: 'Free', price: 0, features: ['Website', 'Linktree', 'Basic SEO', 'GCR Listing'] },
+        { id: 'starter', name: 'Starter', price: 29, features: ['Everything in Free', 'Custom Domain', '2 Apps', 'Email Support'] },
+        { id: 'pro', name: 'Pro', price: 79, features: ['Everything in Starter', 'Unlimited Apps', 'AI Assistant', 'Priority Support'] },
+        { id: 'enterprise', name: 'Enterprise', price: 199, features: ['Everything in Pro', 'Multi-location', 'Dedicated Support', 'Custom Integrations'] }
+    ]);
+});
+
+// ============================================
+// REVENUE
+// ============================================
+
+router.get('/revenue', async (req, res) => {
+    // Get all bookings with totals
+    const { data: bookings } = await supabase
+        .from('bookings')
+        .select('total, created_at, payment_status')
+        .eq('payment_status', 'paid');
+
+    const { data: orders } = await supabase
+        .from('orders')
+        .select('total, created_at, status')
+        .neq('status', 'cancelled');
+
+    const totalBookingRevenue = (bookings || []).reduce((sum, b) => sum + (b.total || 0), 0);
+    const totalOrderRevenue = (orders || []).reduce((sum, o) => sum + (o.total || 0), 0);
+
+    res.json({
+        total_revenue: totalBookingRevenue + totalOrderRevenue,
+        booking_revenue: totalBookingRevenue,
+        order_revenue: totalOrderRevenue,
+        total_transactions: (bookings || []).length + (orders || []).length
+    });
+});
+
+// ============================================
+// AUDIT LOG
+// ============================================
+
+router.get('/audit', async (req, res) => {
+    const { data } = await supabase
+        .from('audit_log')
+        .select('*')
+        .order('created_at', { ascending: false })
+        .limit(200);
+
+    res.json(data || []);
+});
+
+// ============================================
+// SYSTEM HEALTH
+// ============================================
+
+router.get('/system/health', async (req, res) => {
+    const checks = {};
+
+    // Supabase check
+    try {
+        const start = Date.now();
+        await supabase.from('businesses').select('site_id').limit(1);
+        checks.supabase = { status: 'ok', latency_ms: Date.now() - start };
+    } catch (e) {
+        checks.supabase = { status: 'error', error: e.message };
+    }
+
+    // Server info
+    checks.server = {
+        status: 'ok',
+        uptime_seconds: Math.floor(process.uptime()),
+        memory_mb: Math.floor(process.memoryUsage().rss / 1024 / 1024),
+        node_version: process.version
+    };
+
+    res.json({
+        status: Object.values(checks).every(c => c.status === 'ok') ? 'healthy' : 'degraded',
+        checks,
+        timestamp: new Date().toISOString()
+    });
+});
+
+// ============================================
+// TEMPLATES
+// ============================================
+
+router.get('/templates', async (req, res) => {
+    const { data } = await supabase
+        .from('templates')
+        .select('*')
+        .order('created_at', { ascending: false });
+
+    res.json(data || []);
+});
+
+router.post('/templates', async (req, res) => {
+    const { data, error } = await supabase
+        .from('templates')
+        .insert(req.body)
+        .select()
+        .single();
+
+    if (error) return res.status(500).json({ error: error.message });
+    res.status(201).json(data);
+});
+
+router.put('/templates/:id', async (req, res) => {
+    const { data, error } = await supabase
+        .from('templates')
+        .update(req.body)
+        .eq('id', req.params.id)
+        .select()
+        .single();
+
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
+// ============================================
+// SUPPORT TICKETS
+// ============================================
+
+router.get('/support/tickets', async (req, res) => {
+    const { data } = await supabase
+        .from('support_tickets')
+        .select('*, businesses(name)')
+        .order('created_at', { ascending: false });
+
+    res.json(data || []);
+});
+
+router.put('/support/tickets/:id', async (req, res) => {
+    const { data, error } = await supabase
+        .from('support_tickets')
+        .update(req.body)
+        .eq('id', req.params.id)
+        .select()
+        .single();
+
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
+// ============================================
+// TEST AI CONNECTION — POST /api/admin/test-ai
+// ============================================
+router.post('/test-ai', async (req, res) => {
+    const { provider, api_key } = req.body;
+    if (!provider || !api_key) {
+        return res.status(400).json({ success: false, error: 'provider and api_key required' });
+    }
+
+    try {
+        if (provider === 'anthropic') {
+            const response = await fetch('https://api.anthropic.com/v1/messages', {
+                method: 'POST',
+                headers: {
+                    'x-api-key': api_key,
+                    'anthropic-version': '2023-06-01',
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify({
+                    model: 'claude-haiku-4-5-20251001',
+                    max_tokens: 10,
+                    messages: [{ role: 'user', content: 'Say "ok"' }]
+                })
+            });
+            const data = await response.json();
+            if (data.error) return res.json({ success: false, error: data.error.message });
+            return res.json({ success: true, provider: 'anthropic', model: data.model });
+
+        } else if (provider === 'grok') {
+            const response = await fetch('https://api.x.ai/v1/chat/completions', {
+                method: 'POST',
+                headers: {
+                    'Authorization': 'Bearer ' + api_key,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    model: 'grok-beta',
+                    max_tokens: 10,
+                    messages: [{ role: 'user', content: 'Say "ok"' }]
+                })
+            });
+            const data = await response.json();
+            if (data.error) return res.json({ success: false, error: data.error.message });
+            return res.json({ success: true, provider: 'grok', model: data.model });
+
+        } else if (provider === 'openai') {
+            const response = await fetch('https://api.openai.com/v1/chat/completions', {
+                method: 'POST',
+                headers: {
+                    'Authorization': 'Bearer ' + api_key,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    model: 'gpt-3.5-turbo',
+                    max_tokens: 10,
+                    messages: [{ role: 'user', content: 'Say "ok"' }]
+                })
+            });
+            const data = await response.json();
+            if (data.error) return res.json({ success: false, error: data.error.message });
+            return res.json({ success: true, provider: 'openai', model: data.model });
+
+        } else {
+            return res.status(400).json({ success: false, error: 'Unknown provider: ' + provider });
+        }
+    } catch (err) {
+        return res.status(500).json({ success: false, error: err.message });
+    }
+});
+
+// ============================================
+// SET BUSINESS CONNECTION — POST /api/admin/set-connection
+// Manually set any connection row for a business
+// ============================================
+router.post('/set-connection', async (req, res) => {
+    const { site_id, provider, value } = req.body;
+    if (!site_id || !provider || !value) return res.status(400).json({ error: 'site_id, provider, value required' });
+    const now = new Date().toISOString();
+    await supabase.from('connections').delete().eq('site_id', site_id).eq('provider', provider);
+    const { error } = await supabase.from('connections').insert({ site_id, provider, account_name: value, status: 'connected', connected_at: now, updated_at: now });
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ============================================
+// SAVE API KEY — POST /api/admin/save-api-key
+// ============================================
+router.post('/save-api-key', async (req, res) => {
+    const { provider, ...keyData } = req.body;
+    if (!provider) return res.status(400).json({ error: 'provider required' });
+
+    // Store in Supabase platform_settings table
+    const { error } = await supabase
+        .from('platform_settings')
+        .upsert({ key: 'api_key_' + provider, value: keyData, updated_at: new Date().toISOString() }, { onConflict: 'key' });
+
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ============================================
+// TEST OAUTH — POST /api/admin/test-oauth
+// ============================================
+router.post('/test-oauth', async (req, res) => {
+    const hasStripe = !!process.env.STRIPE_SECRET_KEY;
+    res.json({
+        success: hasStripe,
+        message: !hasStripe ? 'STRIPE_SECRET_KEY missing' : 'All OAuth credentials configured'
+    });
+});
+
+// ============================================
+// GET /api/admin/businesses/:id/full — Full business data (CyberCheck legacy)
+// ============================================
+router.get('/businesses/:id/full', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const [bizRes, contentRes] = await Promise.all([
+            supabase.from('businesses').select('*').eq('site_id', id).single(),
+            supabase.from('site_content').select('*').eq('site_id', id).single(),
+        ]);
+        if (bizRes.error && bizRes.error.code !== 'PGRST116') return res.status(500).json({ error: bizRes.error.message });
+        if (!bizRes.data) return res.status(404).json({ error: 'Business not found' });
+        res.json({ business: bizRes.data, content: contentRes.data || {} });
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+// ============================================
+// PUT /api/admin/businesses/:id/full — Update ALL tables for a business
+// ============================================
+router.put('/businesses/:id/full', async (req, res) => {
+    const entityId = req.params.id;
+    // Support both admin editor format (basic/location/social) and bd-dashboard format (business/content)
+    const body = req.body;
+    const basic    = body.basic    || (body.business ? body.business : null);
+    const location = body.location || (body.content  ? { address: body.content.address, city: body.content.city, state: body.content.state, zip: body.content.zip, phone: body.content.contact_phone || body.content.phone, email: body.content.contact_email || body.content.email, website: body.content.website_url || body.content.website } : null);
+    const social   = body.social   || (body.business ? { instagram: body.business.instagram, facebook: body.business.facebook, tiktok: body.business.tiktok } : null);
+    const hours    = body.hours;
+    const happyHour= body.happyHour || (body.content?.happy_hour ? body.content.happy_hour : null);
+    const menu     = body.menu;
+    const drinks   = body.drinks;
+    const specials = body.specials;
+    const events   = body.events;
+    const packages = body.packages;
+    // bd-dashboard extras
+    const content  = body.content || {};
+    const errors = [];
+
+    // ── 1. entity core fields ─────────────────────────────────────────
+    if (basic || location || social) {
+        const upd = {};
+        if (basic) {
+            if (basic.name        !== undefined) upd.name         = basic.name;
+            if (basic.tagline     !== undefined) upd.subtitle     = basic.tagline;
+            if (basic.description !== undefined) upd.description  = basic.description;
+            if (basic.priceRange  !== undefined) upd.price_range  = basic.priceRange;
+            if (basic.price_from  !== undefined) upd.price_from   = basic.price_from  !== '' ? Number(basic.price_from)  : null;
+            if (basic.price_to    !== undefined) upd.price_to     = basic.price_to    !== '' ? Number(basic.price_to)    : null;
+            if (basic.price_unit  !== undefined) upd.price_unit   = basic.price_unit  || null;
+            if (basic.emoji       !== undefined) upd.icon         = basic.emoji;
+            if (basic.featured    !== undefined) upd.featured     = basic.featured;
+            if (basic.type        !== undefined) upd.entity_subtype = basic.type;
+            if (basic.status      !== undefined) upd.is_active    = basic.status === 'active';
+        }
+        if (location) {
+            if (location.address !== undefined) upd.address_line_1 = location.address;
+            if (location.city    !== undefined) upd.city           = location.city;
+            if (location.state   !== undefined) upd.state          = location.state;
+            if (location.zip     !== undefined) upd.zip            = location.zip;
+            if (location.phone   !== undefined) upd.phone          = location.phone;
+            if (location.email   !== undefined) upd.email          = location.email;
+            if (location.website !== undefined) upd.website_url    = location.website;
+            if (location.directions_url !== undefined) upd.directions_url = location.directions_url;
+            if (location.booking_url    !== undefined) upd.booking_url    = location.booking_url;
+            if (location.reservation_url !== undefined) upd.reservation_url = location.reservation_url;
+        }
+        if (social) {
+            if (social.instagram !== undefined) upd.social_instagram = social.instagram;
+            if (social.facebook  !== undefined) upd.social_facebook  = social.facebook;
+            if (social.tiktok    !== undefined) upd.social_tiktok    = social.tiktok;
+        }
+        upd.updated_at = new Date().toISOString();
+        const { error } = await gcrDb.from('entity').update(upd).eq('id', entityId);
+        if (error) errors.push('entity: ' + error.message);
+    }
+
+    // ── 2. Hours ─────────────────────────────────────────────────────
+    if (hours) {
+        // Format 1: hours.schedule = [{day, open, close, closed}]
+        if (Array.isArray(hours.schedule)) {
+            for (const h of hours.schedule) {
+                await gcrDb.from('entity_hours').upsert({ entity_id: entityId, day_of_week: h.day, open_time: h.open || null, close_time: h.close || null, is_closed: h.closed || false }, { onConflict: 'entity_id,day_of_week' });
+            }
+        }
+        // Format 2: hours_mon, hours_tue etc. as strings "9am-5pm" or object {open,close}
+        const dayMap = { hours_mon:'Monday', hours_tue:'Tuesday', hours_wed:'Wednesday', hours_thu:'Thursday', hours_fri:'Friday', hours_sat:'Saturday', hours_sun:'Sunday' };
+        for (const [key, dayName] of Object.entries(dayMap)) {
+            if (hours[key] === undefined) continue;
+            const val = hours[key];
+            let open = null, close = null, is_closed = false;
+            if (!val || val === 'closed') { is_closed = true; }
+            else if (typeof val === 'string' && val.includes('-')) {
+                const parts = val.split('-').map(s => s.trim());
+                open = parts[0]; close = parts[1];
+            } else if (typeof val === 'object') { open = val.open; close = val.close; is_closed = val.closed || false; }
+            await gcrDb.from('entity_hours').upsert({ entity_id: entityId, day_of_week: dayName, open_time: open, close_time: close, is_closed }, { onConflict: 'entity_id,day_of_week' });
+        }
+        // Format 3: content.hours object {mon, tue, ...}
+        if (content.hours && typeof content.hours === 'object') {
+            const cDayMap = { mon:'Monday', tue:'Tuesday', wed:'Wednesday', thu:'Thursday', fri:'Friday', sat:'Saturday', sun:'Sunday' };
+            for (const [k, dayName] of Object.entries(cDayMap)) {
+                const val = content.hours[k]; if (val === undefined) continue;
+                let open = null, close = null, is_closed = false;
+                if (!val || val === 'closed') { is_closed = true; }
+                else if (typeof val === 'string' && val.includes('-')) { const p = val.split('-'); open = p[0]?.trim(); close = p[1]?.trim(); }
+                else if (typeof val === 'object') { open = val.open; close = val.close; is_closed = val.closed || false; }
+                await gcrDb.from('entity_hours').upsert({ entity_id: entityId, day_of_week: dayName, open_time: open, close_time: close, is_closed }, { onConflict: 'entity_id,day_of_week' });
+            }
+        }
+    }
+
+    // ── 3. Custom tags — full replace of amenity tags from admin editor ──
+    if (Array.isArray(body.custom_tags)) {
+        const incoming = body.custom_tags.map(t => t.toLowerCase().replace(/[\s\-]+/g, '_')).filter(Boolean);
+        // Delete all existing amenity/search tags for this entity, then re-insert
+        await gcrDb.from('entity_tags').delete().eq('entity_id', entityId).in('tag_category', ['amenity', 'search']);
+        if (incoming.length) {
+            await gcrDb.from('entity_tags').insert(
+                incoming.map(tag => ({ entity_id: entityId, tag, tag_category: 'amenity' }))
+            );
+        }
+    }
+
+    // ── 4. Happy Hour ─────────────────────────────────────────────────
+    if (happyHour !== undefined) {
+        const upd = {};
+        if (happyHour.days  !== undefined) upd.hh_days        = happyHour.days;
+        if (happyHour.start !== undefined) upd.hh_start       = happyHour.start;
+        if (happyHour.end   !== undefined) upd.hh_end         = happyHour.end;
+        if (happyHour.description !== undefined) upd.hh_description = happyHour.description;
+        if (Object.keys(upd).length) {
+            const { error } = await gcrDb.from('entity').update(upd).eq('id', entityId);
+            if (error) errors.push('happy_hour entity: ' + error.message);
+        }
+        // HH items
+        if (Array.isArray(happyHour.items) && happyHour.items.length) {
+            await gcrDb.from('happy_hour_items').delete().eq('entity_id', entityId);
+            await gcrDb.from('happy_hour_sections').delete().eq('entity_id', entityId);
+            const { data: sec } = await gcrDb.from('happy_hour_sections').insert({ entity_id: entityId, section_name: 'Happy Hour', sort_order: 0 }).select('id').single();
+            if (sec?.id) {
+                await gcrDb.from('happy_hour_items').insert(happyHour.items.map((item, i) => ({
+                    entity_id: entityId, hh_section_id: sec.id,
+                    item_name: item.name, description: item.description || null,
+                    regular_price: item.regular_price || null, hh_price: item.price || item.hh_price || null,
+                    price_text: item.price_text || null, sort_order: i
+                })));
+            }
+        }
+    }
+
+    // ── 5. Specials ───────────────────────────────────────────────────
+    if (specials !== undefined) {
+        await gcrDb.from('entity_specials').delete().eq('entity_id', entityId);
+        if (specials.length > 0) {
+            const { error } = await gcrDb.from('entity_specials').insert(
+                specials.map(s => ({
+                    entity_id: entityId,
+                    special_name: s.name || s.special_name,
+                    description: s.description || null,
+                    special_type: s.type || s.special_type || 'special',
+                    days: Array.isArray(s.days) ? JSON.stringify(s.days) : (s.day || s.days || null),
+                    start_time: s.start_time || s.time || null,
+                    end_time: s.end_time || null,
+                    discount_text: s.discount_text || null,
+                    is_active: s.active !== false
+                }))
+            );
+            if (error) errors.push('specials: ' + error.message);
+        }
+    }
+
+    // ── 6. Events ─────────────────────────────────────────────────────
+    if (events !== undefined) {
+        // Delete only entity-linked events (not standalone CSV imports)
+        await gcrDb.from('entity_events').delete().eq('entity_id', entityId);
+        if (events.length > 0) {
+            const { error } = await gcrDb.from('entity_events').insert(
+                events.map(e => ({
+                    entity_id: entityId,
+                    event_name: e.name || e.event_name || e.title,
+                    event_type: e.category || e.event_type || 'event',
+                    description: e.description || null,
+                    artist_name: e.artist_name || null,
+                    day_of_week: e.recurring_day || e.day_of_week || null,
+                    event_date: e.date || e.event_date || null,
+                    start_time: e.time || e.start_time || null,
+                    end_time: e.end_time || null,
+                    recurring: e.recurring || false,
+                    cover_charge: e.cover_charge ? String(e.cover_charge) : null,
+                    is_active: e.active !== false
+                }))
+            );
+            if (error) errors.push('events: ' + error.message);
+        }
+    }
+
+    // ── 7. Menu items ─────────────────────────────────────────────────
+    if (menu !== undefined) {
+        // Split food vs drink if mixed in one array (admin editor sends item_type field)
+        const foodItems  = menu.filter(i => (i.item_type || 'food') !== 'drink');
+        const drinkItems = menu.filter(i => i.item_type === 'drink');
+        // If drinks mixed in, merge into drinks array for step 8
+        if (drinkItems.length && !drinks) { body.drinks_from_menu = drinkItems; }
+        const menuOnly = foodItems;
+        await gcrDb.from('menu_items').delete().eq('entity_id', entityId);
+        await gcrDb.from('menu_sections').delete().eq('entity_id', entityId);
+        if (menuOnly.length > 0) {
+            const sectionCache = {};
+            for (const [i, item] of menuOnly.entries()) {
+                const secName = item.category || 'Menu';
+                if (!sectionCache[secName]) {
+                    const { data: sec } = await gcrDb.from('menu_sections').insert({ entity_id: entityId, section_name: secName, sort_order: Object.keys(sectionCache).length }).select('id').single();
+                    sectionCache[secName] = sec?.id;
+                }
+                await gcrDb.from('menu_items').insert({
+                    entity_id: entityId,
+                    menu_section_id: sectionCache[secName] || null,
+                    item_name: item.name,
+                    description: item.description || null,
+                    price: item.price || null,
+                    allergens: Array.isArray(item.allergens) ? item.allergens.join(', ') : (item.allergens || null),
+                    is_available: item.available !== false,
+                    sort_order: i
+                });
+            }
+        }
+    }
+
+    // ── 8. Drink items ────────────────────────────────────────────────
+    const drinksToSave = drinks || body.drinks_from_menu;
+    if (drinksToSave !== undefined) {
+        await gcrDb.from('drink_items').delete().eq('entity_id', entityId);
+        await gcrDb.from('drink_sections').delete().eq('entity_id', entityId);
+        if (drinksToSave.length > 0) {
+            const secCache = {};
+            for (const [i, item] of drinksToSave.entries()) {
+                const secName = item.category || 'Drinks';
+                if (!secCache[secName]) {
+                    const { data: sec } = await gcrDb.from('drink_sections').insert({ entity_id: entityId, section_name: secName, sort_order: Object.keys(secCache).length }).select('id').single();
+                    secCache[secName] = sec?.id;
+                }
+                await gcrDb.from('drink_items').insert({
+                    entity_id: entityId,
+                    drink_section_id: secCache[secName] || null,
+                    item_name: item.name,
+                    description: item.description || null,
+                    price: item.price || null,
+                    item_style: item.style || null,
+                    abv: item.abv || null,
+                    brewery: item.brewery || null,
+                    is_available: item.available !== false,
+                    sort_order: i
+                });
+            }
+        }
+    }
+
+    // ── 9. Packages ───────────────────────────────────────────────────
+    if (packages !== undefined) {
+        await gcrDb.from('packages').delete().eq('entity_id', entityId);
+        if (packages.length > 0) {
+            const { error } = await gcrDb.from('packages').insert(
+                packages.filter(p => p.name).map((p, i) => ({
+                    entity_id: entityId,
+                    name: p.name,
+                    description: p.description || null,
+                    price: p.price || null,
+                    price_label: p.price_label || null,
+                    duration_minutes: p.duration_minutes || null,
+                    whats_included: p.whats_included || [],
+                    min_guests: p.min_guests || null,
+                    max_guests: p.max_guests || null,
+                    booking_url: p.booking_url || null,
+                    active: p.active !== false,
+                    sort_order: i
+                }))
+            );
+            if (error) errors.push('packages: ' + error.message);
+        }
+    }
+
+    // ── 10. bd-dashboard content fields (SEO, about, FAQ) ────────────
+    if (content && Object.keys(content).length) {
+        const entUpd = {};
+        if (content.about_text)    entUpd.description = content.about_text;
+        if (content.seo_description) entUpd.description = content.seo_description;
+        if (Object.keys(entUpd).length) await gcrDb.from('entity').update(entUpd).eq('id', entityId);
+
+        // SEO settings
+        if (content.seo_title || content.seo_description || content.seo_keywords) {
+            await gcrDb.from('gcr_seo_settings').upsert({
+                entity_id: entityId,
+                seo_title: content.seo_title || null,
+                seo_description: content.seo_description || null,
+                seo_keywords: content.seo_keywords || null,
+                updated_at: new Date().toISOString()
+            }, { onConflict: 'entity_id' });
+        }
+
+        // FAQ
+        if (Array.isArray(content.faq) && content.faq.length) {
+            await gcrDb.from('gcr_faqs').delete().eq('entity_id', entityId);
+            await gcrDb.from('gcr_faqs').insert(content.faq.map((f, i) => ({
+                entity_id: entityId,
+                question: f.q || f.question,
+                answer: f.a || f.answer,
+                sort_order: i
+            })));
+        }
+    }
+
+    // ── 11. Custom tags (from bd-dashboard custom tags input) ─────────
+    if (Array.isArray(body.custom_tags)) {
+        for (const tag of body.custom_tags) {
+            if (!tag) continue;
+            const norm = tag.toLowerCase().replace(/[\s\-]+/g, '_');
+            await gcrDb.from('entity_tags').upsert({ entity_id: entityId, tag: norm, tag_category: 'search' }, { onConflict: 'entity_id,tag' });
+        }
+    }
+
+    // ── 12. Custom sections (arbitrary key/label/type) ────────────────
+    if (Array.isArray(body.custom_sections)) {
+        for (const sec of body.custom_sections) {
+            if (!sec.key || !sec.label || !sec.type) continue;
+            const { data: existing } = await gcrDb.from('entity_sections').select('id').eq('entity_id', entityId).eq('section_key', sec.key).single();
+            if (!existing) {
+                await gcrDb.from('entity_sections').insert({ entity_id: entityId, section_key: sec.key, section_label: sec.label, section_type: sec.type, sort_order: sec.sort_order || 99 });
+            } else if (sec.label || sec.sort_order !== undefined) {
+                await gcrDb.from('entity_sections').update({ section_label: sec.label, section_type: sec.type, sort_order: sec.sort_order || 99 }).eq('id', existing.id);
+            }
+        }
+    }
+
+    if (errors.length > 0) return res.status(207).json({ success: false, errors });
+    res.json({ success: true });
+});
+
+// ============================================
+// POST /api/admin/businesses/create-full — Create new GCR business (no user account)
+// ============================================
+router.post('/businesses/create-full', async (req, res) => {
+    const { basic, location, hours, happyHour, menu, specials, events, social, packages } = req.body;
+
+    if (!basic || !basic.name) {
+        return res.status(400).json({ error: 'business name required' });
+    }
+
+    const slug = (basic.slug || basic.name)
+        .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
+    // Create business row
+    const { data: business, error: bizError } = await supabase
+        .from('businesses')
+        .insert({
+            name: basic.name,
+            type: basic.type || 'other',
+            subdomain: slug,
+            plan: 'free',
+            status: basic.status || 'active',
+            emoji: basic.emoji || null,
+            featured: basic.featured || false,
+            gcr_listed: basic.gcr_listed !== false,
+            instagram: social?.instagram || null,
+            facebook: social?.facebook || null,
+            tiktok: social?.tiktok || null,
+            spotify: social?.spotify || null
+        })
+        .select()
+        .single();
+
+    if (bizError) return res.status(500).json({ error: bizError.message });
+
+    const siteId = business.site_id;
+
+    // Create site_content
+    await supabase.from('site_content').insert({
+        site_id: siteId,
+        tagline: basic.tagline || null,
+        seo_description: basic.description || null,
+        price_range: basic.priceRange || null,
+        address: location?.address || null,
+        city: location?.city || null,
+        state: location?.state || null,
+        zip: location?.zip || null,
+        contact_phone: location?.phone || null,
+        contact_email: location?.email || null,
+        website_url: location?.website || null,
+        hours: hours?.hours_text || null,
+        hours_mon: hours?.hours_mon || null,
+        hours_tue: hours?.hours_tue || null,
+        hours_wed: hours?.hours_wed || null,
+        hours_thu: hours?.hours_thu || null,
+        hours_fri: hours?.hours_fri || null,
+        hours_sat: hours?.hours_sat || null,
+        hours_sun: hours?.hours_sun || null,
+        kids_friendly: hours?.kids_friendly || false,
+        pet_friendly: hours?.pet_friendly || false,
+        live_music: hours?.live_music || false,
+        outdoor_seating: hours?.outdoor_seating || false,
+        reservations: hours?.reservations || false,
+        delivery: hours?.delivery || false,
+        takeout: hours?.takeout || false,
+        alcohol: hours?.alcohol || false,
+        happy_hour: happyHour || null
+    });
+
+    // Forward to the full update handler to insert specials, events, menu, packages
+    if ((specials && specials.length) || (events && events.length) || (menu && menu.length) || (packages && packages.length)) {
+        req.params = { id: siteId };
+        req.body = { specials, events, menu, packages };
+        // Inline the inserts rather than re-routing
+        if (specials && specials.length) {
+            await supabase.from('specials').insert(
+                specials.map((s, i) => ({ site_id: siteId, name: s.name, description: s.description, discount_text: s.discount_text, day_of_week: s.day, time_range: s.time, active: true, sort_order: i }))
+            );
+        }
+        if (events && events.length) {
+            await supabase.from('events').insert(
+                events.map(e => ({ site_id: siteId, name: e.name, description: e.description, event_date: e.date || null, event_time: e.time || null, active: true }))
+            );
+        }
+        if (menu && menu.length) {
+            await supabase.from('menu_items').insert(
+                menu.map((item, i) => ({ site_id: siteId, name: item.name, description: item.description || null, price: item.price || null, category: item.category || 'Menu', available: true, sort_order: i }))
+            );
+        }
+        if (packages && packages.length) {
+            await supabase.from('services').insert(
+                packages.filter(p => p.name).map((p, i) => ({ site_id: siteId, name: p.name, description: p.description || null, price: p.price || null, capacity: p.max_guests || null, duration_minutes: p.duration_minutes || null, category: 'package', available: true, sort_order: i }))
+            );
+        }
+    }
+
+    res.status(201).json({ success: true, site_id: siteId, business });
+});
+
+// ============================================
+// GCR CSV IMPORT — All endpoints write to new GCR DB
+// ============================================
+
+// Shared helpers for import endpoints
+function gcrImportHelpers(gcrDb) {
+    async function getEntityId(slug) {
+        if (!slug) return null;
+        const { data } = await gcrDb.from('entity').select('id').eq('slug', slug).single();
+        return data?.id || null;
+    }
+    async function upsertTag(entityId, tag, tag_category) {
+        if (!tag || !entityId) return;
+        await gcrDb.from('entity_tags').upsert(
+            { entity_id: entityId, tag: tag.toLowerCase().trim(), tag_category },
+            { onConflict: 'entity_id,tag', ignoreDuplicates: true }
+        );
+    }
+    async function getOrCreate(table, match, insertData) {
+        const query = Object.entries(match).reduce((q, [k, v]) => q.eq(k, v), gcrDb.from(table).select('id'));
+        const { data: existing } = await query.single();
+        if (existing) return existing.id;
+        const { data: created } = await gcrDb.from(table).insert(insertData).select('id').single();
+        return created?.id || null;
+    }
+    return { getEntityId, upsertTag, getOrCreate };
+}
+
+// ── GET /api/admin/gcr/businesses — List all GCR entities (admin view, includes inactive)
+router.get('/gcr/businesses', adminRequired, async (req, res) => {
+    try {
+        const gcrDb = getGcrDb();
+        const { search, category, status } = req.query;
+
+        let query = gcrDb
+            .from('entity')
+            .select('id, slug, name, entity_subtype, is_active, icon, hero_image_url, phone, city, state, created_at, updated_at')
+            .order('name');
+
+        if (status === 'active') query = query.eq('is_active', true);
+        if (status === 'hidden') query = query.eq('is_active', false);
+        if (category) query = query.ilike('entity_subtype', `%${category}%`);
+        if (search) query = query.ilike('name', `%${search}%`);
+
+        const { data, error } = await query;
+
+        if (error) {
+            return res.status(500).json({ error: error.message });
+        }
+
+        res.json(data || []);
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
+});
+
+// ── POST /api/admin/gcr/import-entity — business row → GCR entity table
+router.post('/gcr/import-entity', adminRequired, async (req, res) => {
+    const gcrDb = getGcrDb();
+    const row = req.body;
+    if (!row.name) return res.status(400).json({ error: 'name required' });
+    const { upsertTag } = gcrImportHelpers(gcrDb);
+
+    const slug = (row.slug || row.name).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    const entityData = {
+        slug, name: row.name, entity_subtype: row.entity_subtype || null,
+        icon: row.icon || null, subtitle: row.subtitle || null,
+        description: row.business_description || null,
+        phone: row.phone || null, email: row.email || null,
+        website_url: row.website_url || null, directions_url: row.directions_url || null,
+        call_url: row.call_url || null, booking_url: row.booking_url || null,
+        reservation_url: row.reservation_url || null, order_url: row.order_url || null,
+        address_line_1: row.address_line_1 || null, city: row.city || null,
+        state: row.state || null, zip: row.zip || null,
+        latitude: row.latitude ? parseFloat(row.latitude) : null,
+        longitude: row.longitude ? parseFloat(row.longitude) : null,
+        price_range: row.price_range || null,
+        rating: row.rating ? parseFloat(row.rating) : null,
+        review_count: row.review_count ? parseInt(row.review_count) : null,
+        hero_image_url: row.hero_image_url || null,
+        featured: row.featured === 'true' || row.featured === true,
+        hh_days: row.hh_days || null, hh_start: row.hh_start || null,
+        hh_end: row.hh_end || null, hh_description: row.hh_description || null,
+        social_instagram: row.social_instagram || null,
+        social_facebook: row.social_facebook || null,
+        social_tiktok: row.social_tiktok || null, is_active: true,
+    };
+
+    const { data: existing } = await gcrDb.from('entity').select('id').eq('slug', slug).single();
+    let entityId, action;
+
+    if (existing) {
+        await gcrDb.from('entity').update(entityData).eq('id', existing.id);
+        entityId = existing.id; action = 'updated';
+    } else {
+        const { data: created, error } = await gcrDb.from('entity').insert(entityData).select('id').single();
+        if (error) return res.status(500).json({ error: error.message });
+        entityId = created.id; action = 'created';
+    }
+
+    // Hours
+    const fullDay = { mon:'monday', tue:'tuesday', wed:'wednesday', thu:'thursday', fri:'friday', sat:'saturday', sun:'sunday' };
+    for (const [d, full] of Object.entries(fullDay)) {
+        const open = row[`${d}_open`], close = row[`${d}_close`];
+        if (open || close) {
+            await gcrDb.from('entity_hours').upsert(
+                { entity_id: entityId, day_of_week: full, open_time: open || null, close_time: close || null, is_closed: !open },
+                { onConflict: 'entity_id,day_of_week' }
+            );
+        }
+    }
+
+    // About bullets
+    if (row.bullet_text) {
+        await gcrDb.from('entity_about_bullets').insert({ entity_id: entityId, icon: row.bullet_icon || null, text: row.bullet_text });
+    }
+
+    // Tags
+    if (row.tags) {
+        for (const tag of row.tags.split(',').map(t => t.trim()).filter(Boolean))
+            await upsertTag(entityId, tag, 'feature');
+    }
+
+    res.json({ success: true, entity_id: entityId, action });
+});
+
+// Alias: old endpoint name still works
+router.post('/gcr/import-csv', adminRequired, async (req, res) => {
+    req.url = '/gcr/import-entity';
+    router.handle(req, res, () => {});
+});
+
+// ── Grok AI normalization helper — cleans up messy CSV data before saving
+async function normalizeRowsWithAI(rows, type, skipAI = false) {
+    const apiKey = process.env.XAI_API_KEY || process.env.GROK_API_KEY;
+    if (!apiKey || !rows.length || skipAI) {
+        return { rows, questions: [], skipped: skipAI ? 'skip_ai requested' : 'no API key' };
+    }
+
+    const prompts = {
+        menu: `You are normalizing restaurant menu CSV import rows. Fix each row:
+- menu_item_price: strip "$", commas, words like "each" → numeric string (e.g. "12.99"). Free/complimentary → "0". Unclear price → null.
+- menu_item_name: proper title case, fix obvious typos.
+- menu_section_name: normalize (e.g. "Apps" → "Appetizers", "Mains" → "Entrees", "Drinks" → "Beverages").
+- If a row has no menu_item_name AND no menu_section_name, flag it in questions.
+Return ONLY valid JSON: { "rows": [...normalized rows], "questions": ["any clarification questions"] }`,
+
+        drinks: `You are normalizing drink menu CSV import rows. Fix:
+- drink_item_price: strip "$", text → numeric (e.g. "7 dollars" → "7"). Free → "0".
+- drink_item_style: normalize (IPA, Lager, Pale Ale, Stout, Sour, Cider, Wine, Cocktail, Mocktail, NA Beer, etc.)
+- drink_section_name: normalize (e.g. "Beers on Tap" → "Draft Beer", "Wines" → "Wine", "Cocktails").
+- drink_item_abv: strip "%" → numeric string.
+Return ONLY valid JSON: { "rows": [...normalized rows], "questions": ["any clarification questions"] }`,
+
+        events: `You are normalizing event CSV import rows. Fix:
+- event_date: convert to YYYY-MM-DD. Use year ${new Date().getFullYear()} if not specified and date hasn't passed, ${new Date().getFullYear() + 1} if it has.
+- event_start_time / event_end_time: normalize to "H:MM AM/PM" (e.g. "7pm" → "7:00 PM", "19:00" → "7:00 PM").
+- event_name: proper title case.
+- If days like "Every Friday" appear in name/description, set event_recurring="true" and event_day_of_week to that day name.
+Return ONLY valid JSON: { "rows": [...normalized rows], "questions": ["any clarification questions"] }`,
+
+        specials: `You are normalizing daily specials CSV import rows. Fix:
+- special_days: normalize to comma-separated full day names (e.g. "Mon-Fri" → "Monday,Tuesday,Wednesday,Thursday,Friday", "every day" → "Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday").
+- special_start_time / special_end_time: normalize to "H:MM AM/PM".
+- discount_text: if price/deal is in special_name or description but discount_text is empty, extract it (e.g. "$5 Long Islands" → "$5").
+- special_type: classify as "food", "drink", "combo", or "event".
+Return ONLY valid JSON: { "rows": [...normalized rows], "questions": ["any clarification questions"] }`,
+
+        happyhour: `You are normalizing happy hour CSV import rows. Fix:
+- hh_start / hh_end: normalize times to "H:MM AM/PM" (e.g. "4pm" → "4:00 PM", "16:00" → "4:00 PM").
+- hh_days: comma-separated full day names (e.g. "Mon-Fri" → "Monday,Tuesday,Wednesday,Thursday,Friday", "weekdays" → "Monday,Tuesday,Wednesday,Thursday,Friday").
+- hh_hh_price: strip "$" → numeric string. If it's a percentage discount, put in hh_price_text instead.
+- hh_item_name: proper title case.
+Return ONLY valid JSON: { "rows": [...normalized rows], "questions": ["any clarification questions"] }`,
+
+        section_based: `You are normalizing section-based business data CSV import rows. Fix:
+- section_type: must be one of: profile, tags, menu, drinks, special, event, service, dietary. Infer from content if missing (food item with price → "menu", has days + deal → "special", drink item → "drinks").
+- item_name: proper title case.
+- price: strip "$" and text → numeric string.
+- For events: date → YYYY-MM-DD, time → "H:MM AM/PM".
+- For specials: days → comma-separated full day names.
+Return ONLY valid JSON: { "rows": [...normalized rows], "questions": ["any clarification questions"] }`,
+    };
+
+    const systemPrompt = prompts[type] || prompts.menu;
+    const sample = rows.slice(0, 20);
+
+    try {
+        const controller = new AbortController();
+        const aiTimeout = setTimeout(() => controller.abort(), 15000); // 15s timeout
+        const resp = await fetch('https://api.x.ai/v1/chat/completions', {
+            method: 'POST',
+            signal: controller.signal,
+            headers: { 'Authorization': `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                model: 'grok-3-mini',
+                messages: [
+                    { role: 'system', content: systemPrompt },
+                    { role: 'user', content: `Normalize these rows:\n${JSON.stringify(sample, null, 2)}\n\nReturn ONLY valid JSON.` },
+                ],
+                temperature: 0.1,
+                max_tokens: 4000,
+            }),
+        });
+        clearTimeout(aiTimeout);
+        if (!resp.ok) {
+            const errData = await resp.json().catch(() => ({}));
+            throw new Error(`Grok API ${resp.status}: ${errData.error?.message || 'unknown error'}`);
+        }
+        const data = await resp.json();
+        const content = data.choices?.[0]?.message?.content || '';
+        const jsonMatch = content.match(/```(?:json)?\n?([\s\S]*?)\n?```/) || content.match(/(\{[\s\S]*\})/);
+        const parsed = JSON.parse(jsonMatch ? jsonMatch[1] : content);
+        const normalizedRows = [...(parsed.rows || sample), ...rows.slice(20)];
+        return { rows: normalizedRows, questions: parsed.questions?.filter(Boolean) || [], normalized: true };
+    } catch (err) {
+        // Gracefully fall back to original rows if Grok fails
+        console.warn(`[normalizeRowsWithAI] Grok failed (${type}), using original rows:`, err.message);
+        return { rows, questions: [], normalized: false, grok_error: err.message };
+    }
+}
+
+// ── POST /api/admin/gcr/import-menu
+// Query params: skip_ai=true to skip Grok normalization
+router.post('/gcr/import-menu', adminRequired, async (req, res) => {
+    const gcrDb = getGcrDb();
+    let rows = Array.isArray(req.body) ? req.body : [req.body];
+    if (!rows.length || rows.every(r => !r || (!r.slug && !r.menu_item_name && !r.menu_section_name)))
+        return res.status(400).json({ error: 'No valid rows — required: slug, menu_item_name' });
+    const aiResult = await normalizeRowsWithAI(rows, 'menu', !!req.query.skip_ai);
+    if (aiResult.skipped) console.log(`[import-menu] Skipped AI normalization: ${aiResult.skipped}`);
+    if (!aiResult.normalized && aiResult.grok_error) console.log(`[import-menu] Grok failed, proceeding with original rows: ${aiResult.grok_error}`);
+    if (aiResult.questions.length) return res.json({ needs_clarification: true, questions: aiResult.questions, preview: aiResult.rows });
+    rows = aiResult.rows;
+    const { getEntityId, upsertTag, getOrCreate } = gcrImportHelpers(gcrDb);
+    let inserted = 0; const errors = [];
+
+    for (const row of rows) {
+        const entityId = await getEntityId(row.slug);
+        if (!entityId) { errors.push(`entity not found: ${row.slug}`); continue; }
+
+        const sectionId = row.menu_section_name ? await getOrCreate('menu_sections',
+            { entity_id: entityId, section_name: row.menu_section_name },
+            { entity_id: entityId, section_name: row.menu_section_name, icon: row.menu_section_icon || null, section_description: row.menu_section_description || null, section_note: row.menu_section_note || null, image_url: row.menu_section_image_url || null, available_days: row.menu_available_days || null, available_start: row.menu_available_start || null, available_end: row.menu_available_end || null, show_on_links_page: row.menu_show_on_links_page !== 'false' }
+        ) : null;
+        if (sectionId) await upsertTag(entityId, row.menu_section_name, 'menu_section');
+
+        const subSectionId = (sectionId && row.menu_sub_section_name) ? await getOrCreate('menu_sub_sections',
+            { entity_id: entityId, menu_section_id: sectionId, sub_section_name: row.menu_sub_section_name },
+            { entity_id: entityId, menu_section_id: sectionId, sub_section_name: row.menu_sub_section_name, section_note: row.menu_sub_section_note || null }
+        ) : null;
+        if (subSectionId) await upsertTag(entityId, row.menu_sub_section_name, 'menu_sub_section');
+
+        if (row.menu_item_name) {
+            const { data: existing } = await gcrDb.from('menu_items').select('id')
+                .eq('entity_id', entityId).eq('item_name', row.menu_item_name)
+                .eq('menu_section_id', sectionId || null).maybeSingle();
+            if (existing) { errors.push(`skipped duplicate menu item: ${row.menu_item_name}`); continue; }
+            await gcrDb.from('menu_items').insert({
+                entity_id: entityId, menu_section_id: sectionId, menu_sub_section_id: subSectionId,
+                item_name: row.menu_item_name, description: row.menu_item_description || null,
+                price: row.menu_item_price ? parseFloat(row.menu_item_price) : null,
+                price_text: row.menu_item_price_text || null, allergens: row.menu_item_allergens || null,
+                is_available: row.menu_item_is_available !== 'false', image_url: row.menu_item_image_url || null,
+            });
+            if (row.menu_item_allergens) {
+                for (const a of row.menu_item_allergens.split(',').map(x => x.trim()).filter(Boolean))
+                    await upsertTag(entityId, a, 'allergen');
+            }
+            inserted++;
+        }
+    }
+    res.json({ success: true, inserted, errors });
+});
+
+// ── POST /api/admin/gcr/import-drinks
+router.post('/gcr/import-drinks', adminRequired, async (req, res) => {
+    const gcrDb = getGcrDb();
+    let rows = Array.isArray(req.body) ? req.body : [req.body];
+    if (!rows.length || rows.every(r => !r || (!r.slug && !r.drink_item_name)))
+        return res.status(400).json({ error: 'No valid rows — required: slug, drink_item_name' });
+    const aiResult = await normalizeRowsWithAI(rows, 'drinks', !!req.query.skip_ai);
+    if (aiResult.questions.length) return res.json({ needs_clarification: true, questions: aiResult.questions, preview: aiResult.rows });
+    rows = aiResult.rows;
+    const { getEntityId, upsertTag, getOrCreate } = gcrImportHelpers(gcrDb);
+    let inserted = 0; const errors = [];
+
+    for (const row of rows) {
+        const entityId = await getEntityId(row.slug);
+        if (!entityId) { errors.push(`entity not found: ${row.slug}`); continue; }
+
+        const sectionId = row.drink_section_name ? await getOrCreate('drink_sections',
+            { entity_id: entityId, section_name: row.drink_section_name },
+            { entity_id: entityId, section_name: row.drink_section_name, section_note: row.drink_section_note || null, image_url: row.drink_section_image_url || null, available_days: row.drink_available_days || null, available_start: row.drink_available_start || null, available_end: row.drink_available_end || null }
+        ) : null;
+        if (sectionId) await upsertTag(entityId, row.drink_section_name, 'drink_type');
+
+        if (row.drink_item_name) {
+            const { data: existing } = await gcrDb.from('drink_items').select('id')
+                .eq('entity_id', entityId).eq('item_name', row.drink_item_name)
+                .eq('drink_section_id', sectionId || null).maybeSingle();
+            if (existing) { errors.push(`skipped duplicate drink item: ${row.drink_item_name}`); continue; }
+            await gcrDb.from('drink_items').insert({
+                entity_id: entityId, drink_section_id: sectionId,
+                item_name: row.drink_item_name, description: row.drink_item_description || null,
+                price: row.drink_item_price ? parseFloat(row.drink_item_price) : null,
+                price_text: row.drink_item_price_text || null,
+                item_style: row.drink_item_style || null, abv: row.drink_item_abv || null,
+                ibu: row.drink_item_ibu || null, brewery: row.drink_item_brewery || null,
+                is_available: row.drink_item_is_available !== 'false', image_url: row.drink_item_image_url || null,
+            });
+            if (row.drink_item_style) await upsertTag(entityId, row.drink_item_style, 'beer_style');
+            if (row.drink_item_brewery) await upsertTag(entityId, row.drink_item_brewery, 'brewery');
+            inserted++;
+        }
+    }
+    res.json({ success: true, inserted, errors });
+});
+
+// ── POST /api/admin/gcr/import-happyhour
+router.post('/gcr/import-happyhour', adminRequired, async (req, res) => {
+    const gcrDb = getGcrDb();
+    let rows = Array.isArray(req.body) ? req.body : [req.body];
+    if (!rows.length || rows.every(r => !r || !r.slug))
+        return res.status(400).json({ error: 'No valid rows — required: slug' });
+    const aiResult = await normalizeRowsWithAI(rows, 'happyhour', !!req.query.skip_ai);
+    if (aiResult.questions.length) return res.json({ needs_clarification: true, questions: aiResult.questions, preview: aiResult.rows });
+    rows = aiResult.rows;
+    const { getEntityId, getOrCreate } = gcrImportHelpers(gcrDb);
+    let inserted = 0; const errors = [];
+
+    for (const row of rows) {
+        const entityId = await getEntityId(row.slug);
+        if (!entityId) { errors.push(`entity not found: ${row.slug}`); continue; }
+
+        if (row.hh_days || row.hh_start || row.hh_end) {
+            await gcrDb.from('entity').update({ hh_days: row.hh_days || null, hh_start: row.hh_start || null, hh_end: row.hh_end || null, hh_description: row.hh_description || null }).eq('id', entityId);
+        }
+
+        const hhSectionId = row.hh_section_name ? await getOrCreate('happy_hour_sections',
+            { entity_id: entityId, section_name: row.hh_section_name },
+            { entity_id: entityId, section_name: row.hh_section_name }
+        ) : null;
+
+        if (row.hh_item_name) {
+            await gcrDb.from('happy_hour_items').insert({
+                entity_id: entityId, hh_section_id: hhSectionId,
+                item_name: row.hh_item_name, description: row.hh_item_description || null,
+                regular_price: row.hh_regular_price ? parseFloat(row.hh_regular_price) : null,
+                hh_price: row.hh_hh_price ? parseFloat(row.hh_hh_price) : null,
+                price_text: row.hh_price_text || null, image_url: row.hh_item_image_url || null,
+            });
+            inserted++;
+        }
+    }
+    res.json({ success: true, inserted, errors });
+});
+
+// ── POST /api/admin/gcr/import-events
+router.post('/gcr/import-events', adminRequired, async (req, res) => {
+    const gcrDb = getGcrDb();
+    let rows = Array.isArray(req.body) ? req.body : [req.body];
+    if (!rows.length || rows.every(r => !r || (!r.slug && !r.event_name)))
+        return res.status(400).json({ error: 'No valid rows — required: slug, event_name' });
+    const aiResult = await normalizeRowsWithAI(rows, 'events', !!req.query.skip_ai);
+    if (aiResult.questions.length) return res.json({ needs_clarification: true, questions: aiResult.questions, preview: aiResult.rows });
+    rows = aiResult.rows;
+    const { getEntityId, upsertTag } = gcrImportHelpers(gcrDb);
+    let inserted = 0; const errors = [];
+
+    for (const row of rows) {
+        const entityId = await getEntityId(row.slug);
+        if (!entityId) { errors.push(`entity not found: ${row.slug}`); continue; }
+        const { data: existingEvent } = await gcrDb.from('entity_events').select('id')
+            .eq('entity_id', entityId).eq('event_name', row.event_name)
+            .eq('event_date', row.event_date || null).maybeSingle();
+        if (existingEvent) { errors.push(`skipped duplicate event: ${row.event_name}`); continue; }
+        await gcrDb.from('entity_events').insert({
+            entity_id: entityId, event_name: row.event_name, event_type: row.event_type || null,
+            description: row.event_description || null, artist_name: row.event_artist_name || null,
+            artist_about: row.event_artist_about || null, music_style: row.event_music_style || null,
+            venue_location: row.event_venue_location || null, day_of_week: row.event_day_of_week || null,
+            event_date: row.event_date || null, start_time: row.event_start_time || null,
+            end_time: row.event_end_time || null,
+            recurring: row.event_recurring === 'true' || row.event_recurring === true,
+            recurring_start_date: row.event_recurring_start_date || null,
+            recurring_end_date: row.event_recurring_end_date || null,
+            cover_charge: row.event_cover_charge || null, image_url: row.event_image_url || null, is_active: true,
+        });
+        if (row.event_music_style) await upsertTag(entityId, row.event_music_style, 'music_style');
+        if (row.event_type) await upsertTag(entityId, row.event_type, 'event_type');
+        inserted++;
+    }
+    res.json({ success: true, inserted, errors });
+});
+
+// ── POST /api/admin/gcr/import-specials
+router.post('/gcr/import-specials', adminRequired, async (req, res) => {
+    const gcrDb = getGcrDb();
+    let rows = Array.isArray(req.body) ? req.body : [req.body];
+    if (!rows.length || rows.every(r => !r || (!r.slug && !r.special_name)))
+        return res.status(400).json({ error: 'No valid rows — required: slug, special_name' });
+    const aiResult = await normalizeRowsWithAI(rows, 'specials', !!req.query.skip_ai);
+    if (aiResult.questions.length) return res.json({ needs_clarification: true, questions: aiResult.questions, preview: aiResult.rows });
+    rows = aiResult.rows;
+    const { getEntityId } = gcrImportHelpers(gcrDb);
+    let inserted = 0; const errors = [];
+
+    for (const row of rows) {
+        const entityId = await getEntityId(row.slug);
+        if (!entityId) { errors.push(`entity not found: ${row.slug}`); continue; }
+        const { data: existingSpecial } = await gcrDb.from('entity_specials').select('id')
+            .eq('entity_id', entityId).eq('special_name', row.special_name).maybeSingle();
+        if (existingSpecial) { errors.push(`skipped duplicate special: ${row.special_name}`); continue; }
+        await gcrDb.from('entity_specials').insert({
+            entity_id: entityId, special_name: row.special_name,
+            description: row.special_description || null, special_type: row.special_type || null,
+            days: row.special_days || null, start_time: row.special_start_time || null,
+            end_time: row.special_end_time || null, discount_text: row.special_discount_text || null,
+            image_url: row.special_image_url || null, is_active: true,
+        });
+        inserted++;
+    }
+    res.json({ success: true, inserted, errors });
+});
+
+// ── POST /api/admin/gcr/import-photos
+router.post('/gcr/import-photos', adminRequired, async (req, res) => {
+    const gcrDb = getGcrDb();
+    const rows = Array.isArray(req.body) ? req.body : [req.body];
+    const { getEntityId } = gcrImportHelpers(gcrDb);
+    let inserted = 0; const errors = [];
+
+    for (const row of rows) {
+        const entityId = await getEntityId(row.slug);
+        if (!entityId) { errors.push(`entity not found: ${row.slug}`); continue; }
+        if (row.photo_image_url) {
+            await gcrDb.from('entity_photos').insert({
+                entity_id: entityId, image_url: row.photo_image_url,
+                caption: row.photo_caption || null,
+                is_cover: row.photo_is_cover === 'true' || row.photo_is_cover === true,
+                sort_order: row.photo_sort_order ? parseInt(row.photo_sort_order) : 0,
+            });
+            inserted++;
+        }
+    }
+    res.json({ success: true, inserted, errors });
+});
+
+// ── POST /api/admin/gcr/import-activities
+router.post('/gcr/import-activities', adminRequired, async (req, res) => {
+    const gcrDb = getGcrDb();
+    const rows = Array.isArray(req.body) ? req.body : [req.body];
+    const { getEntityId, upsertTag } = gcrImportHelpers(gcrDb);
+    let inserted = 0; const errors = [];
+
+    for (const row of rows) {
+        const entityId = await getEntityId(row.slug);
+        if (!entityId) { errors.push(`entity not found: ${row.slug}`); continue; }
+        await gcrDb.from('activities').insert({
+            entity_id: entityId, activity_name: row.activity_name,
+            activity_type: row.activity_type || null, description: row.activity_description || null,
+            duration: row.activity_duration || null,
+            min_age: row.activity_min_age ? parseInt(row.activity_min_age) : null,
+            max_capacity: row.activity_max_capacity ? parseInt(row.activity_max_capacity) : null,
+            image_url: row.activity_image_url || null,
+            sort_order: row.activity_sort_order ? parseInt(row.activity_sort_order) : 0,
+        });
+        if (row.activity_type) await upsertTag(entityId, row.activity_type, 'activity_type');
+        inserted++;
+    }
+    res.json({ success: true, inserted, errors });
+});
+
+// ── POST /api/admin/gcr/import-section-based
+// Accepts rows with columns: restaurant_name, section_type, section, item_name, description, price, tags, ...
+// section_type values: profile | tags | menu | special | event | service | dietary
+// Routes each row to the correct table automatically. Looks up entity by name or creates it.
+router.post('/gcr/import-section-based', adminRequired, async (req, res) => {
+    const gcrDb = getGcrDb();
+    let rows = Array.isArray(req.body) ? req.body : [req.body];
+    const aiResult = await normalizeRowsWithAI(rows, 'section_based', !!req.query.skip_ai);
+    if (aiResult.questions.length) return res.json({ needs_clarification: true, questions: aiResult.questions, preview: aiResult.rows });
+    rows = aiResult.rows;
+    const { upsertTag } = gcrImportHelpers(gcrDb);
+
+    // Group rows by entity_slug (if provided) or restaurant_name or slug
+    const byRestaurant = {};
+    for (const row of rows) {
+        // Prefer entity_slug as the grouping key if explicitly provided
+        const key = (row.entity_slug || row.restaurant_name || row.slug || '').trim();
+        if (!key) continue;
+        if (!byRestaurant[key]) byRestaurant[key] = [];
+        byRestaurant[key].push(row);
+    }
+
+    let totalInserted = 0;
+    const errors = [];
+
+    for (const [key, rRows] of Object.entries(byRestaurant)) {
+        const rname = key;
+        // If key looks like a slug (no spaces), use directly; otherwise derive from name
+        const slug = rname.includes(' ')
+            ? rname.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+            : rname;
+
+        // If entity_slug provided, try it directly first (exact slug, no derivation)
+        const directSlug = rRows[0]?.entity_slug?.trim();
+
+        // Find entity: prefer direct entity_slug → derived slug → name match
+        let entity = null;
+        if (directSlug) {
+            const { data } = await gcrDb.from('entity').select('id, slug').eq('slug', directSlug).maybeSingle();
+            entity = data;
+        }
+        if (!entity) {
+            const { data } = await gcrDb.from('entity').select('id, slug').eq('slug', slug).maybeSingle();
+            entity = data;
+        }
+        if (!entity) {
+            // Try name match
+            const { data: byName } = await gcrDb.from('entity').select('id, slug').ilike('name', rname).limit(1).maybeSingle();
+            entity = byName;
+        }
+
+        // If still not found, create from profile row
+        if (!entity) {
+            const profileRow = rRows.find(r => r.section_type === 'profile');
+            const addr = profileRow?.address || null;
+            const { data: created, error: createErr } = await gcrDb.from('entity').insert({
+                name: rname, slug,
+                phone: profileRow?.phone || null,
+                address_line_1: addr, city: profileRow?.city || null,
+                state: profileRow?.state || null,
+                entity_subtype: 'restaurant', is_active: false,
+            }).select('id, slug').single();
+            if (createErr || !created) { errors.push(`Failed to create entity: ${rname} — ${createErr?.message}`); continue; }
+            entity = created;
+        }
+
+        const entityId = entity.id;
+        const entitySlug = entity.slug;
+
+        // Track created sections to avoid duplicate creates
+        const sectionCache = {};
+        async function getOrCreateSection(key, label, type, order) {
+            if (sectionCache[key]) return sectionCache[key];
+            const { data: existing } = await gcrDb.from('entity_sections').select('id').eq('entity_id', entityId).eq('section_key', key).maybeSingle();
+            if (existing) { sectionCache[key] = existing.id; return existing.id; }
+            const { data: created } = await gcrDb.from('entity_sections').insert({ entity_id: entityId, section_key: key, section_label: label, section_type: type, sort_order: order }).select('id').single();
+            sectionCache[key] = created?.id;
+            return created?.id;
+        }
+
+        // Track groups per section
+        const groupCache = {};
+        async function getOrCreateGroup(sectionId, title) {
+            const cacheKey = `${sectionId}|${title}`;
+            if (groupCache[cacheKey]) return groupCache[cacheKey];
+            const { data: existing } = await gcrDb.from('section_groups').select('id').eq('section_id', sectionId).eq('title', title).maybeSingle();
+            if (existing) { groupCache[cacheKey] = existing.id; return existing.id; }
+            const { data: created } = await gcrDb.from('section_groups').insert({ section_id: sectionId, title, sort_order: 0 }).select('id').single();
+            groupCache[cacheKey] = created?.id;
+            return created?.id;
+        }
+
+        let menuOrder = 1;
+
+        for (const row of rRows) {
+            const stype = (row.section_type || '').toLowerCase().trim();
+
+            try {
+                if (stype === 'profile') {
+                    // Update entity with profile fields if they're empty
+                    const updates = {};
+                    if (row.phone) updates.phone = row.phone;
+                    if (row.city) updates.city = row.city;
+                    if (row.state) updates.state = row.state;
+                    if (row.address) updates.address_line_1 = row.address;
+                    if (row.description) updates.description = row.description;
+                    if (Object.keys(updates).length) await gcrDb.from('entity').update(updates).eq('id', entityId);
+                    totalInserted++;
+
+                } else if (stype === 'tags') {
+                    // Tags from item_name column (comma-separated) or tags column
+                    const tagStr = row.item_name || row.tags || '';
+                    const tagList = tagStr.split(',').map(t => t.trim()).filter(Boolean);
+                    for (const tag of tagList) await upsertTag(entityId, tag, 'feature');
+                    totalInserted += tagList.length;
+
+                } else if (stype === 'menu') {
+                    const sectionName = (row.section || 'Menu').trim();
+                    const sectionKey = sectionName.toLowerCase().replace(/[^a-z0-9]+/g, '_');
+                    const sectionId = await getOrCreateSection(sectionKey, sectionName, 'grouped_items', menuOrder++);
+                    if (!sectionId) { errors.push(`Section create failed: ${sectionName}`); continue; }
+
+                    const groupId = await getOrCreateGroup(sectionId, sectionName);
+
+                    const priceNum = parseFloat(row.price) || null;
+                    const priceText = row.price ? '$' + row.price : null;
+                    await gcrDb.from('section_items').insert({
+                        section_id: sectionId, group_id: groupId || null,
+                        item_name: row.item_name, item_description: row.description || null,
+                        price_text: priceText, price_numeric: priceNum,
+                        item_type: 'menu_item', sort_order: 0,
+                    });
+                    totalInserted++;
+
+                } else if (stype === 'drinks') {
+                    // Drinks: save to drink_sections + drink_items (dedicated tables)
+                    const { getOrCreate: getOrCreateDrink } = gcrImportHelpers(gcrDb);
+                    const drinkSectionName = (row.section || 'Drinks').trim();
+                    const drinkSectionId = await (async () => {
+                        const { data: ex } = await gcrDb.from('drink_sections').select('id').eq('entity_id', entityId).eq('section_name', drinkSectionName).maybeSingle();
+                        if (ex) return ex.id;
+                        const { data: cr } = await gcrDb.from('drink_sections').insert({ entity_id: entityId, section_name: drinkSectionName }).select('id').single();
+                        return cr?.id;
+                    })();
+                    if (drinkSectionId && row.item_name) {
+                        await gcrDb.from('drink_items').insert({
+                            entity_id: entityId, drink_section_id: drinkSectionId,
+                            item_name: row.item_name, description: row.description || null,
+                            price: row.price ? parseFloat(row.price) : null,
+                            price_text: row.price ? '$' + row.price : null,
+                            is_available: true,
+                        });
+                        totalInserted++;
+                    }
+
+                } else if (stype === 'special') {
+                    if (row.item_name) {
+                        await gcrDb.from('entity_specials').insert({
+                            entity_id: entityId, special_name: row.item_name,
+                            description: row.description || null, is_active: true,
+                        });
+                        totalInserted++;
+                    }
+
+                } else if (stype === 'event') {
+                    if (row.item_name) {
+                        await gcrDb.from('entity_events').insert({
+                            entity_id: entityId, event_name: row.item_name,
+                            description: row.description || null,
+                            recurring: true, is_active: true,
+                        });
+                        totalInserted++;
+                    }
+
+                } else if (stype === 'service') {
+                    // Happy hour or other service notes — save as about bullet
+                    if (row.item_name && row.description) {
+                        await gcrDb.from('entity_about_bullets').insert({
+                            entity_id: entityId, text: row.item_name + ': ' + row.description, icon: '🍺',
+                        });
+                        totalInserted++;
+                    }
+
+                } else if (stype === 'dietary') {
+                    if (row.description) {
+                        await gcrDb.from('entity_about_bullets').insert({
+                            entity_id: entityId, text: row.description, icon: '🥗',
+                        });
+                        totalInserted++;
+                    }
+                }
+            } catch (e) {
+                errors.push(`[${rname}] ${stype}/${row.item_name}: ${e.message}`);
+            }
+        }
+    }
+
+    res.json({ success: true, inserted: totalInserted, errors, restaurants: Object.keys(byRestaurant).length });
+});
+
+// ── POST /api/admin/gcr/import-pricing
+router.post('/gcr/import-pricing', adminRequired, async (req, res) => {
+    const gcrDb = getGcrDb();
+    const rows = Array.isArray(req.body) ? req.body : [req.body];
+    const { getEntityId } = gcrImportHelpers(gcrDb);
+    let inserted = 0; const errors = [];
+
+    for (const row of rows) {
+        const entityId = await getEntityId(row.slug);
+        if (!entityId) { errors.push(`entity not found: ${row.slug}`); continue; }
+        await gcrDb.from('pricing_items').insert({
+            entity_id: entityId, package_name: row.pricing_package_name,
+            description: row.pricing_description || null,
+            price: row.pricing_price ? parseFloat(row.pricing_price) : null,
+            price_text: row.pricing_price_text || null, price_unit: row.pricing_price_unit || null,
+            time_slot_start: row.pricing_time_slot_start || null, time_slot_end: row.pricing_time_slot_end || null,
+            available_days: row.pricing_available_days || null,
+            min_people: row.pricing_min_people ? parseInt(row.pricing_min_people) : null,
+            max_people: row.pricing_max_people ? parseInt(row.pricing_max_people) : null,
+            duration: row.pricing_duration || null, image_url: row.pricing_image_url || null,
+            sort_order: row.pricing_sort_order ? parseInt(row.pricing_sort_order) : 0,
+        });
+        inserted++;
+    }
+    res.json({ success: true, inserted, errors });
+});
+
+// ── POST /api/admin/gcr/import-slots
+router.post('/gcr/import-slots', adminRequired, async (req, res) => {
+    const gcrDb = getGcrDb();
+    const rows = Array.isArray(req.body) ? req.body : [req.body];
+    const { getEntityId } = gcrImportHelpers(gcrDb);
+    let inserted = 0; const errors = [];
+
+    for (const row of rows) {
+        const entityId = await getEntityId(row.slug);
+        if (!entityId) { errors.push(`entity not found: ${row.slug}`); continue; }
+        await gcrDb.from('booking_slots').insert({
+            entity_id: entityId, slot_name: row.slot_name,
+            start_time: row.slot_start_time || null, end_time: row.slot_end_time || null,
+            available_days: row.slot_available_days || null,
+            sort_order: row.slot_sort_order ? parseInt(row.slot_sort_order) : 0,
+        });
+        inserted++;
+    }
+    res.json({ success: true, inserted, errors });
+});
+
+// ── POST /api/admin/gcr/import-fleet
+router.post('/gcr/import-fleet', adminRequired, async (req, res) => {
+    const gcrDb = getGcrDb();
+    const rows = Array.isArray(req.body) ? req.body : [req.body];
+    const { getEntityId } = gcrImportHelpers(gcrDb);
+    let inserted = 0; const errors = [];
+
+    for (const row of rows) {
+        const entityId = await getEntityId(row.slug);
+        if (!entityId) { errors.push(`entity not found: ${row.slug}`); continue; }
+        await gcrDb.from('fleet_items').insert({
+            entity_id: entityId, item_name: row.fleet_item_name,
+            description: row.fleet_description || null,
+            capacity: row.fleet_capacity ? parseInt(row.fleet_capacity) : null,
+            weight: row.fleet_weight || null, dimensions: row.fleet_dimensions || null,
+            max_capacity_text: row.fleet_max_capacity_text || null,
+            image_url: row.fleet_image_url || null,
+            sort_order: row.fleet_sort_order ? parseInt(row.fleet_sort_order) : 0,
+        });
+        inserted++;
+    }
+    res.json({ success: true, inserted, errors });
+});
+
+// ── POST /api/admin/gcr/import-addons
+router.post('/gcr/import-addons', adminRequired, async (req, res) => {
+    const gcrDb = getGcrDb();
+    const rows = Array.isArray(req.body) ? req.body : [req.body];
+    const { getEntityId } = gcrImportHelpers(gcrDb);
+    let inserted = 0; const errors = [];
+
+    for (const row of rows) {
+        const entityId = await getEntityId(row.slug);
+        if (!entityId) { errors.push(`entity not found: ${row.slug}`); continue; }
+        await gcrDb.from('addons').insert({
+            entity_id: entityId, addon_name: row.addon_name,
+            description: row.addon_description || null,
+            price: row.addon_price ? parseFloat(row.addon_price) : null,
+            price_min: row.addon_price_min ? parseFloat(row.addon_price_min) : null,
+            price_max: row.addon_price_max ? parseFloat(row.addon_price_max) : null,
+            price_type: row.addon_price_type || 'add_on',
+            dimensions: row.addon_dimensions || null, capacity_text: row.addon_capacity_text || null,
+            image_url: row.addon_image_url || null,
+            sort_order: row.addon_sort_order ? parseInt(row.addon_sort_order) : 0,
+        });
+        inserted++;
+    }
+    res.json({ success: true, inserted, errors });
+});
+
+// ── POST /api/admin/gcr/import-included
+router.post('/gcr/import-included', adminRequired, async (req, res) => {
+    const gcrDb = getGcrDb();
+    const rows = Array.isArray(req.body) ? req.body : [req.body];
+    const { getEntityId } = gcrImportHelpers(gcrDb);
+    let inserted = 0; const errors = [];
+
+    for (const row of rows) {
+        const entityId = await getEntityId(row.slug);
+        if (!entityId) { errors.push(`entity not found: ${row.slug}`); continue; }
+        await gcrDb.from('whats_included').insert({
+            entity_id: entityId, item_name: row.included_item_name,
+            description: row.included_description || null, image_url: row.included_image_url || null,
+            sort_order: row.included_sort_order ? parseInt(row.included_sort_order) : 0,
+        });
+        inserted++;
+    }
+    res.json({ success: true, inserted, errors });
+});
+
+// ── POST /api/admin/gcr/import-requirements
+router.post('/gcr/import-requirements', adminRequired, async (req, res) => {
+    const gcrDb = getGcrDb();
+    const rows = Array.isArray(req.body) ? req.body : [req.body];
+    const { getEntityId } = gcrImportHelpers(gcrDb);
+    let inserted = 0; const errors = [];
+
+    for (const row of rows) {
+        const entityId = await getEntityId(row.slug);
+        if (!entityId) { errors.push(`entity not found: ${row.slug}`); continue; }
+        await gcrDb.from('requirements').insert({
+            entity_id: entityId, requirement_text: row.requirement_text,
+            sort_order: row.requirement_sort_order ? parseInt(row.requirement_sort_order) : 0,
+        });
+        inserted++;
+    }
+    res.json({ success: true, inserted, errors });
+});
+
+// ── POST /api/admin/gcr/import-policies
+router.post('/gcr/import-policies', adminRequired, async (req, res) => {
+    const gcrDb = getGcrDb();
+    const rows = Array.isArray(req.body) ? req.body : [req.body];
+    const { getEntityId } = gcrImportHelpers(gcrDb);
+    let inserted = 0; const errors = [];
+
+    for (const row of rows) {
+        const entityId = await getEntityId(row.slug);
+        if (!entityId) { errors.push(`entity not found: ${row.slug}`); continue; }
+        await gcrDb.from('policies').insert({
+            entity_id: entityId, policy_type: row.policy_type || null,
+            policy_text: row.policy_text,
+            sort_order: row.policy_sort_order ? parseInt(row.policy_sort_order) : 0,
+        });
+        inserted++;
+    }
+    res.json({ success: true, inserted, errors });
+});
+
+// ── POST /api/admin/gcr/import-meetingpoint
+router.post('/gcr/import-meetingpoint', adminRequired, async (req, res) => {
+    const gcrDb = getGcrDb();
+    const rows = Array.isArray(req.body) ? req.body : [req.body];
+    const { getEntityId } = gcrImportHelpers(gcrDb);
+    let inserted = 0; const errors = [];
+
+    for (const row of rows) {
+        const entityId = await getEntityId(row.slug);
+        if (!entityId) { errors.push(`entity not found: ${row.slug}`); continue; }
+        await gcrDb.from('meeting_points').insert({
+            entity_id: entityId, location_name: row.meetup_location_name || null,
+            address: row.meetup_address || null, parking_info: row.meetup_parking_info || null,
+            checkin_instructions: row.meetup_checkin_instructions || null,
+            what_to_bring: row.meetup_what_to_bring || null, image_url: row.meetup_image_url || null,
+        });
+        inserted++;
+    }
+    res.json({ success: true, inserted, errors });
+});
+
+// ── POST /api/admin/gcr/import-qna
+router.post('/gcr/import-qna', adminRequired, async (req, res) => {
+    const gcrDb = getGcrDb();
+    const rows = Array.isArray(req.body) ? req.body : [req.body];
+    const { getEntityId } = gcrImportHelpers(gcrDb);
+    let inserted = 0; const errors = [];
+
+    for (const row of rows) {
+        const entityId = await getEntityId(row.slug);
+        if (!entityId) { errors.push(`entity not found: ${row.slug}`); continue; }
+        await gcrDb.from('entity_qna').insert({
+            entity_id: entityId, section_label: row.qna_section_label || null,
+            question: row.qna_question, answer: row.qna_answer || null,
+            sort_order: row.qna_sort_order ? parseInt(row.qna_sort_order) : 0,
+        });
+        inserted++;
+    }
+    res.json({ success: true, inserted, errors });
+});
+
+// ── POST /api/admin/gcr/import-shopping
+router.post('/gcr/import-shopping', adminRequired, async (req, res) => {
+    const gcrDb = getGcrDb();
+    const rows = Array.isArray(req.body) ? req.body : [req.body];
+    const { getEntityId, upsertTag, getOrCreate } = gcrImportHelpers(gcrDb);
+    let inserted = 0; const errors = [];
+
+    for (const row of rows) {
+        const entityId = await getEntityId(row.slug);
+        if (!entityId) { errors.push(`entity not found: ${row.slug}`); continue; }
+
+        const sectionId = row.product_section_name ? await getOrCreate('product_sections',
+            { entity_id: entityId, section_name: row.product_section_name },
+            { entity_id: entityId, section_name: row.product_section_name, available_days: row.product_section_available_days || null, available_start: row.product_section_available_start || null, available_end: row.product_section_available_end || null }
+        ) : null;
+        if (sectionId) await upsertTag(entityId, row.product_section_name, 'product_section');
+
+        const subSectionId = (sectionId && row.product_sub_section_name) ? await getOrCreate('product_sub_sections',
+            { entity_id: entityId, product_section_id: sectionId, sub_section_name: row.product_sub_section_name },
+            { entity_id: entityId, product_section_id: sectionId, sub_section_name: row.product_sub_section_name }
+        ) : null;
+        if (subSectionId) await upsertTag(entityId, row.product_sub_section_name, 'product_sub_section');
+
+        if (row.product_item_name) {
+            await gcrDb.from('product_items').insert({
+                entity_id: entityId, product_section_id: sectionId, product_sub_section_id: subSectionId,
+                item_name: row.product_item_name, description: row.product_item_description || null,
+                price: row.product_item_price ? parseFloat(row.product_item_price) : null,
+                price_max: row.product_item_price_max ? parseFloat(row.product_item_price_max) : null,
+                image_url: row.product_item_image_url || null,
+                is_available: row.product_item_is_available !== 'false',
+                sort_order: row.product_item_sort_order ? parseInt(row.product_item_sort_order) : 0,
+            });
+            inserted++;
+        }
+    }
+    res.json({ success: true, inserted, errors });
+});
+
+// ── POST /api/admin/gcr/import-master — routes all record_types from master CSV
+router.post('/gcr/import-master', adminRequired, async (req, res) => {
+    const rows = Array.isArray(req.body) ? req.body : [req.body];
+    const grouped = {};
+    const typeToEndpoint = {
+        business: 'import-entity', bullet: 'import-entity',
+        menu: 'import-menu', drink: 'import-drinks',
+        happy_hour: 'import-happyhour', event: 'import-events',
+        special: 'import-specials', photo: 'import-photos',
+        activity: 'import-activities', pricing: 'import-pricing',
+        slot: 'import-slots', fleet: 'import-fleet',
+        addon: 'import-addons', included: 'import-included',
+        requirement: 'import-requirements', policy: 'import-policies',
+        meetup: 'import-meetingpoint', qna: 'import-qna',
+        shopping: 'import-shopping',
+    };
+
+    for (const row of rows) {
+        const t = (row.record_type || '').toLowerCase().trim();
+        if (!grouped[t]) grouped[t] = [];
+        grouped[t].push(row);
+    }
+
+    const allResults = {};
+    for (const [type, typeRows] of Object.entries(grouped)) {
+        const endpoint = typeToEndpoint[type];
+        if (!endpoint) { allResults[type] = { skipped: typeRows.length }; continue; }
+
+        const mockReq = { body: typeRows };
+        const mockRes = { json: (data) => { allResults[type] = data; } };
+        // Call the matching sub-router handler inline
+        await new Promise(resolve => {
+            mockRes.json = (data) => { allResults[type] = data; resolve(); };
+            router.handle({ ...mockReq, method: 'POST', url: `/gcr/${endpoint}`, path: `/gcr/${endpoint}` }, mockRes, resolve);
+        });
+    }
+
+    res.json({ success: true, results: allResults });
+});
+
+// ============================================
+// GCR BUSINESSES — list all gcr-listed businesses
+// ============================================
+
+// ── POST /api/admin/gcr/auto-activate-top5
+// Score every entity by data completeness, activate top 5 per GCR category, deactivate rest
+router.post('/gcr/auto-activate-top5', async (req, res) => {
+    const db = getGcrDb();
+    const topN = parseInt(req.body?.top_n) || 5;
+
+    // Load all entities with the fields we score on
+    const { data: entities, error } = await db.from('entity')
+        .select('id, slug, name, entity_subtype, hero_image_url, description, phone, address_line_1, city, website_url, subtitle, rating, review_count, hh_days');
+    if (error) return res.status(500).json({ error: error.message });
+
+    // Load tag counts per entity
+    const { data: tagRows } = await db.from('entity_tags').select('entity_id');
+    const tagCounts = {};
+    (tagRows || []).forEach(t => { tagCounts[t.entity_id] = (tagCounts[t.entity_id] || 0) + 1; });
+
+    // Load hours counts per entity
+    const { data: hourRows } = await db.from('entity_hours').select('entity_id');
+    const hourCounts = {};
+    (hourRows || []).forEach(h => { hourCounts[h.entity_id] = (hourCounts[h.entity_id] || 0) + 1; });
+
+    // Map entity_subtype → GCR category
+    const SUBTYPE_CAT = {
+        restaurant:'restaurants', restaurants:'restaurants', bar:'restaurants', bar_grill:'restaurants',
+        seafood:'restaurants', seafood_restaurant:'restaurants', casual_dining:'restaurants',
+        steakhouse:'restaurants', pizza:'restaurants', mexican:'restaurants', breakfast_spot:'restaurants',
+        beach_bar:'restaurants', hybrid_venue:'restaurants', southern:'restaurants',
+        coffee_shop:'coffee-sweets', cafe:'coffee-sweets', bakery:'coffee-sweets',
+        ice_cream:'coffee-sweets', dessert_bar:'coffee-sweets', smoothie:'coffee-sweets',
+        boutique:'shopping', souvenir:'shopping', retail:'shopping', shopping:'shopping',
+        surf_shop:'shopping', gift_shop:'shopping', clothing:'shopping', art_gallery:'shopping',
+        parasailing:'things-to-do', dolphin_cruise:'things-to-do', boat_rental:'things-to-do',
+        fishing_charter:'things-to-do', kayak_rental:'things-to-do', snorkeling:'things-to-do',
+        tour:'things-to-do', attraction:'things-to-do', jet_ski:'things-to-do',
+        nightlife:'nightlife', bar_club:'nightlife', nightclub:'nightlife',
+        sports_bar:'nightlife', rooftop_bar:'nightlife', lounge:'nightlife',
+    };
+
+    // Score each entity
+    const scored = entities.map(e => {
+        const sub = (e.entity_subtype || '').toLowerCase().replace(/-/g, '_');
+        const category = SUBTYPE_CAT[sub] || 'other';
+        let score = 0;
+        if (e.hero_image_url)   score += 4;
+        if (e.description)      score += 3;
+        if (e.phone)            score += 2;
+        if (e.address_line_1)   score += 2;
+        if (e.city)             score += 1;
+        if (e.website_url)      score += 1;
+        if (e.subtitle)         score += 1;
+        if (e.rating)           score += 2;
+        if (e.hh_days)          score += 1;
+        score += Math.min(tagCounts[e.id] || 0, 8);   // up to 8pts for tags
+        score += Math.min(hourCounts[e.id] || 0, 7);  // up to 7pts for hours
+        return { id: e.id, name: e.name, category, score };
+    });
+
+    // Group by category, pick top N
+    const byCategory = {};
+    scored.forEach(e => {
+        if (!byCategory[e.category]) byCategory[e.category] = [];
+        byCategory[e.category].push(e);
+    });
+
+    const activateIds = new Set();
+    const summary = {};
+    for (const [cat, list] of Object.entries(byCategory)) {
+        const top = list.sort((a, b) => b.score - a.score).slice(0, topN);
+        top.forEach(e => activateIds.add(e.id));
+        summary[cat] = top.map(e => ({ name: e.name, score: e.score }));
+    }
+
+    // Batch update: activate top, deactivate rest
+    const allIds = entities.map(e => e.id);
+    const deactivateIds = allIds.filter(id => !activateIds.has(id));
+
+    if (activateIds.size)   await db.from('entity').update({ is_active: true  }).in('id', [...activateIds]);
+    if (deactivateIds.length) await db.from('entity').update({ is_active: false }).in('id', deactivateIds);
+
+    res.json({
+        success: true,
+        activated: activateIds.size,
+        deactivated: deactivateIds.length,
+        top_n: topN,
+        summary,
+    });
+});
+
+// ============================================
+// GCR EVENTS — new entity_events table
+// ============================================
+
+router.get('/gcr/events', async (req, res) => {
+    const db = getGcrDb();
+    let query = db.from('entity_events')
+        .select('*, entity(name, slug)')
+        .order('event_date', { ascending: true });
+    if (req.query.entity_id) query = query.eq('entity_id', req.query.entity_id);
+    const { data, error } = await query;
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data || []);
+});
+
+router.post('/gcr/events', authRequired, async (req, res) => {
+    const db = getGcrDb();
+    const { entity_id, event_name, description, event_type, artist_name, artist_about, music_style, venue_location, day_of_week, event_date, start_time, end_time, recurring, recurring_start_date, recurring_end_date, cover_charge, image_url } = req.body;
+    if (!entity_id || !event_name) return res.status(400).json({ error: 'entity_id and event_name required' });
+    const { data, error } = await db.from('entity_events').insert({
+        entity_id, event_name, description: description || null, event_type: event_type || null,
+        artist_name: artist_name || null, artist_about: artist_about || null, music_style: music_style || null,
+        venue_location: venue_location || null, day_of_week: day_of_week || null,
+        event_date: event_date || null, start_time: start_time || null, end_time: end_time || null,
+        recurring: recurring || false, recurring_start_date: recurring_start_date || null,
+        recurring_end_date: recurring_end_date || null, cover_charge: cover_charge || null,
+        image_url: image_url || null, is_active: true,
+    }).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.status(201).json(data);
+});
+
+router.put('/gcr/events/:id', authRequired, async (req, res) => {
+    const db = getGcrDb();
+    const { event_name, description, event_type, artist_name, artist_about, music_style, venue_location, day_of_week, event_date, start_time, end_time, recurring, recurring_start_date, recurring_end_date, cover_charge, image_url, is_active } = req.body;
+    const { data, error } = await db.from('entity_events').update({
+        event_name, description: description || null, event_type: event_type || null,
+        artist_name: artist_name || null, artist_about: artist_about || null, music_style: music_style || null,
+        venue_location: venue_location || null, day_of_week: day_of_week || null,
+        event_date: event_date || null, start_time: start_time || null, end_time: end_time || null,
+        recurring: recurring || false, recurring_start_date: recurring_start_date || null,
+        recurring_end_date: recurring_end_date || null, cover_charge: cover_charge || null,
+        image_url: image_url || null, is_active: is_active !== false,
+    }).eq('id', req.params.id).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
+router.delete('/gcr/events/:id', authRequired, async (req, res) => {
+    const db = getGcrDb();
+    const { error } = await db.from('entity_events').delete().eq('id', req.params.id);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ============================================
+// GCR SPECIALS — new entity_specials table
+// ============================================
+
+router.get('/gcr/specials', async (req, res) => {
+    const db = getGcrDb();
+    let query = db.from('entity_specials')
+        .select('*, entity(name, slug)')
+        .not('special_name', 'ilike', '%happy hour%')
+        .order('id', { ascending: false });
+    if (req.query.entity_id) query = query.eq('entity_id', req.query.entity_id);
+    if (req.query.type) query = query.eq('special_type', req.query.type);
+    const { data, error } = await query;
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data || []);
+});
+
+router.post('/gcr/specials', authRequired, async (req, res) => {
+    const db = getGcrDb();
+    const { entity_id, special_name, description, special_type, days, start_time, end_time, discount_text, image_url } = req.body;
+    if (!entity_id || !special_name) return res.status(400).json({ error: 'entity_id and special_name required' });
+    const { data, error } = await db.from('entity_specials').insert({
+        entity_id, special_name, description: description || null, special_type: special_type || null,
+        days: days || null, start_time: start_time || null, end_time: end_time || null,
+        discount_text: discount_text || null, image_url: image_url || null, is_active: true,
+    }).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.status(201).json(data);
+});
+
+router.put('/gcr/specials/:id', authRequired, async (req, res) => {
+    const db = getGcrDb();
+    const { special_name, description, special_type, days, start_time, end_time, discount_text, image_url, is_active } = req.body;
+    const { data, error } = await db.from('entity_specials').update({
+        special_name, description: description || null, special_type: special_type || null,
+        days: days || null, start_time: start_time || null, end_time: end_time || null,
+        discount_text: discount_text || null, image_url: image_url || null,
+        is_active: is_active !== false,
+    }).eq('id', req.params.id).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
+router.delete('/gcr/specials/:id', authRequired, async (req, res) => {
+    const db = getGcrDb();
+    const { error } = await db.from('entity_specials').delete().eq('id', req.params.id);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ============================================
+// GCR MENU ITEMS — direct CRUD
+// ============================================
+
+router.put('/gcr/menu-sections/:sectionId', authRequired, async (req, res) => {
+    const db = getGcrDb();
+    const { section_name, icon, section_description, sort_order } = req.body;
+    const { data, error } = await db.from('menu_sections').update({
+        section_name, icon: icon||null, section_description: section_description||null, sort_order: sort_order||0,
+    }).eq('id', req.params.sectionId).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
+router.delete('/gcr/menu-sections/:sectionId', authRequired, async (req, res) => {
+    const db = getGcrDb();
+    await db.from('menu_items').delete().eq('menu_section_id', req.params.sectionId);
+    const { error } = await db.from('menu_sections').delete().eq('id', req.params.sectionId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+router.post('/gcr/entities/:id/menu-sections', async (req, res) => {
+    const db = getGcrDb();
+    const { section_name, icon, section_description, sort_order } = req.body;
+    if (!section_name) return res.status(400).json({ error: 'section_name required' });
+    const { data, error } = await db.from('menu_sections').insert({
+        entity_id: req.params.id, section_name, icon: icon||null,
+        section_description: section_description||null, sort_order: sort_order||0,
+    }).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.status(201).json(data);
+});
+
+router.post('/gcr/entities/:id/menu-items', async (req, res) => {
+    const db = getGcrDb();
+    const { item_name, description, price, price_text, menu_section_id, allergens, image_url } = req.body;
+    if (!item_name) return res.status(400).json({ error: 'item_name required' });
+    const { data, error } = await db.from('menu_items').insert({
+        entity_id: req.params.id, menu_section_id: menu_section_id||null,
+        item_name, description: description||null,
+        price: price != null ? parseFloat(price) : null, price_text: price_text||null,
+        allergens: allergens||null, image_url: image_url||null, is_available: true,
+    }).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.status(201).json(data);
+});
+
+router.put('/gcr/menu-items/:itemId', async (req, res) => {
+    const db = getGcrDb();
+    const { item_name, description, price, price_text, menu_section_id, allergens, image_url, is_available } = req.body;
+    const { data, error } = await db.from('menu_items').update({
+        item_name, description: description||null,
+        price: price != null ? parseFloat(price) : null, price_text: price_text||null,
+        menu_section_id: menu_section_id||null, allergens: allergens||null,
+        image_url: image_url||null, is_available: is_available !== false,
+    }).eq('id', req.params.itemId).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
+router.patch('/gcr/menu-items/:itemId', async (req, res) => {
+    const db = getGcrDb();
+    const allowed = ['item_name','description','price','price_text','menu_section_id','allergens','image_url','is_available'];
+    const updates = {};
+    for (const k of allowed) { if (req.body[k] !== undefined) updates[k] = req.body[k]; }
+    if (!Object.keys(updates).length) return res.status(400).json({ error: 'No fields to update' });
+    if (updates.price !== undefined) updates.price = updates.price ? parseFloat(updates.price) : null;
+    const { data, error } = await db.from('menu_items').update(updates).eq('id', req.params.itemId).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
+router.delete('/gcr/menu-items/:itemId', async (req, res) => {
+    const db = getGcrDb();
+    const { error } = await db.from('menu_items').delete().eq('id', req.params.itemId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ============================================
+// GCR DRINK ITEMS — direct CRUD
+// ============================================
+
+router.post('/gcr/entities/:id/drink-sections', async (req, res) => {
+    const db = getGcrDb();
+    const { section_name, section_note, sort_order } = req.body;
+    if (!section_name) return res.status(400).json({ error: 'section_name required' });
+    const { data, error } = await db.from('drink_sections').insert({
+        entity_id: req.params.id, section_name, section_note: section_note||null, sort_order: sort_order||0,
+    }).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.status(201).json(data);
+});
+
+router.post('/gcr/entities/:id/drink-items', async (req, res) => {
+    const db = getGcrDb();
+    const { item_name, description, price, price_text, drink_section_id, item_style, image_url } = req.body;
+    if (!item_name) return res.status(400).json({ error: 'item_name required' });
+    const { data, error } = await db.from('drink_items').insert({
+        entity_id: req.params.id, drink_section_id: drink_section_id||null,
+        item_name, description: description||null,
+        price: price != null ? parseFloat(price) : null, price_text: price_text||null,
+        item_style: item_style||null, image_url: image_url||null, is_available: true,
+    }).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.status(201).json(data);
+});
+
+router.put('/gcr/drink-items/:itemId', async (req, res) => {
+    const db = getGcrDb();
+    const { item_name, description, price, price_text, drink_section_id, item_style, image_url, is_available } = req.body;
+    const { data, error } = await db.from('drink_items').update({
+        item_name, description: description||null,
+        price: price != null ? parseFloat(price) : null, price_text: price_text||null,
+        drink_section_id: drink_section_id||null, item_style: item_style||null,
+        image_url: image_url||null, is_available: is_available !== false,
+    }).eq('id', req.params.itemId).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
+router.patch('/gcr/drink-items/:itemId', async (req, res) => {
+    const db = getGcrDb();
+    const allowed = ['item_name','description','price','price_text','drink_section_id','item_style','image_url','is_available'];
+    const updates = {};
+    for (const k of allowed) { if (req.body[k] !== undefined) updates[k] = req.body[k]; }
+    if (!Object.keys(updates).length) return res.status(400).json({ error: 'No fields to update' });
+    if (updates.price !== undefined) updates.price = updates.price ? parseFloat(updates.price) : null;
+    const { data, error } = await db.from('drink_items').update(updates).eq('id', req.params.itemId).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
+router.delete('/gcr/drink-items/:itemId', async (req, res) => {
+    const db = getGcrDb();
+    const { error } = await db.from('drink_items').delete().eq('id', req.params.itemId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ============================================
+// GCR HAPPY HOUR ITEMS — direct CRUD
+// ============================================
+
+router.post('/gcr/entities/:id/hh-sections', async (req, res) => {
+    const db = getGcrDb();
+    const { section_name, sort_order } = req.body;
+    if (!section_name) return res.status(400).json({ error: 'section_name required' });
+    const { data, error } = await db.from('happy_hour_sections').insert({
+        entity_id: req.params.id, section_name, sort_order: sort_order||0,
+    }).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.status(201).json(data);
+});
+
+router.post('/gcr/entities/:id/hh-items', async (req, res) => {
+    const db = getGcrDb();
+    const { item_name, description, price, price_text, hh_section_id } = req.body;
+    if (!item_name) return res.status(400).json({ error: 'item_name required' });
+    const { data, error } = await db.from('happy_hour_items').insert({
+        entity_id: req.params.id, hh_section_id: hh_section_id||null,
+        item_name, description: description||null,
+        price: price != null ? parseFloat(price) : null, price_text: price_text||null,
+    }).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.status(201).json(data);
+});
+
+router.put('/gcr/hh-items/:itemId', async (req, res) => {
+    const db = getGcrDb();
+    const { item_name, description, price, price_text } = req.body;
+    const { data, error } = await db.from('happy_hour_items').update({
+        item_name, description: description||null,
+        price: price != null ? parseFloat(price) : null, price_text: price_text||null,
+    }).eq('id', req.params.itemId).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
+router.delete('/gcr/hh-items/:itemId', async (req, res) => {
+    const db = getGcrDb();
+    const { error } = await db.from('happy_hour_items').delete().eq('id', req.params.itemId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// PUT /api/admin/gcr/entities/:id/happy-hour — update HH schedule on entity
+router.put('/gcr/entities/:id/happy-hour', async (req, res) => {
+    const db = getGcrDb();
+    const { hh_days, hh_start, hh_end, hh_description } = req.body;
+    const { data, error } = await db.from('entity').update({
+        hh_days: hh_days||null, hh_start: hh_start||null,
+        hh_end: hh_end||null, hh_description: hh_description||null,
+    }).eq('id', req.params.id).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
+// ============================================
+// GET /api/admin/gcr/business-data/:siteId — fetch all data for full editor
+// ============================================
+// Duplicate removed — see GCR version below
+
+// ============================================
+// POST /api/admin/upload-photo — upload photo to Supabase Storage
+// ============================================
+const multer = require('multer');
+const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 10 * 1024 * 1024 } });
+
+// ============================================
+// POST /api/admin/scrape-url — Fetch and extract text from any URL
+// ============================================
+
+router.post('/scrape-url', async (req, res) => {
+    const { url } = req.body;
+    if (!url) return res.status(400).json({ error: 'URL required' });
+
+    try {
+        const r = await fetch(url, {
+            headers: {
+                'User-Agent': 'Mozilla/5.0 (compatible; GCR-Admin-Bot/1.0)',
+                'Accept': 'text/html,application/xhtml+xml',
+            },
+            redirect: 'follow',
+            signal: AbortSignal.timeout(15000),
+        });
+        if (!r.ok) throw new Error(`HTTP ${r.status} from ${url}`);
+        const html = await r.text();
+
+        // Strip HTML tags and extract readable text
+        const text = html
+            .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+            .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+            .replace(/<nav[\s\S]*?<\/nav>/gi, ' ')
+            .replace(/<footer[\s\S]*?<\/footer>/gi, ' ')
+            .replace(/<header[\s\S]*?<\/header>/gi, ' ')
+            .replace(/<[^>]+>/g, ' ')
+            .replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&nbsp;/g, ' ').replace(/&#39;/g, "'").replace(/&quot;/g, '"')
+            .replace(/\s{3,}/g, '\n\n')
+            .trim()
+            .slice(0, 15000);  // Cap at 15k chars to keep AI prompt manageable
+
+        res.json({ url, text, length: text.length });
+    } catch (err) {
+        res.status(500).json({ error: 'Scrape failed: ' + err.message });
+    }
+});
+
+// ============================================
+// POST /api/admin/ai-save-business — Save AI-organized business data to Supabase
+// Body: { business: {...structured data from ai-organize...} }
+// ============================================
+
+router.post('/ai-save-business', async (req, res) => {
+    const { business: d } = req.body;
+    if (!d || !d.name) return res.status(400).json({ error: 'business.name is required' });
+
+    const slug = (d.subdomain || d.name).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    const social = d.social || {};
+
+    // Map admin's short `type` to GCR entity_subtype (and keep flexibility)
+    const entitySubtype = (d.type || 'other').replace(/-/g, '_');
+
+    const entityRow = {
+        name:              d.name,
+        slug,
+        entity_type:       'business',
+        entity_subtype:    entitySubtype,
+        icon:              d.emoji || null,
+        subtitle:          d.tagline || null,
+        description:       d.description || null,
+        phone:             d.phone || null,
+        address_line_1:    d.address || null,
+        city:              d.city || null,
+        state:             d.state || null,
+        zip:               d.zip || null,
+        website_url:       d.website || null,
+        price_range:       d.price_range || null,
+        email:             d.email || null,
+        social_facebook:   social.facebook || null,
+        social_instagram:  social.instagram || null,
+        social_tiktok:     social.tiktok || null,
+        directions_url:    social.google_maps || null,
+        hh_description:    typeof d.happy_hour === 'string' ? d.happy_hour : (d.happy_hour && d.happy_hour.schedule) || null,
+        is_active:         true,
+    };
+
+    try {
+        // Upsert entity by slug
+        const { data: existing } = await gcrDb.from('entity').select('id').eq('slug', slug).maybeSingle();
+        let entityId;
+        if (existing) {
+            entityId = existing.id;
+            const { error } = await gcrDb.from('entity').update(entityRow).eq('id', entityId);
+            if (error) throw new Error('entity update: ' + error.message);
+        } else {
+            const { data: inserted, error } = await gcrDb.from('entity').insert(entityRow).select('id').single();
+            if (error) throw new Error('entity insert: ' + error.message);
+            entityId = inserted.id;
+        }
+
+        // Feature chips
+        if (Array.isArray(d.features) && d.features.length) {
+            await gcrDb.from('entity_features').delete().eq('entity_id', entityId);
+            await gcrDb.from('entity_features').insert(d.features.map((label, i) => ({ entity_id: entityId, label, sort_order: i })));
+        }
+        if (Array.isArray(d.perfect_for) && d.perfect_for.length) {
+            await gcrDb.from('entity_perfect_for').delete().eq('entity_id', entityId);
+            await gcrDb.from('entity_perfect_for').insert(d.perfect_for.map((label, i) => ({ entity_id: entityId, label, sort_order: i })));
+        }
+        if (Array.isArray(d.tags) && d.tags.length) {
+            await gcrDb.from('entity_tags').delete().eq('entity_id', entityId);
+            await gcrDb.from('entity_tags').insert(d.tags.map((tag, i) => ({ entity_id: entityId, tag, sort_order: i })));
+        }
+
+        // Hours — GCR stores per-day rows
+        if (d.hours && typeof d.hours === 'object') {
+            await gcrDb.from('entity_hours').delete().eq('entity_id', entityId);
+            const hourRows = Object.entries(d.hours).map(([day, val]) => {
+                const closed = !val || /closed/i.test(String(val));
+                let open_time = null, close_time = null;
+                if (!closed && typeof val === 'string') {
+                    const m = val.match(/([0-9:apmAPM\s]+)\s*[–-]\s*([0-9:apmAPM\s]+)/);
+                    if (m) { open_time = m[1].trim(); close_time = m[2].trim(); }
+                }
+                return { entity_id: entityId, day_of_week: day, open_time, close_time, is_closed: closed };
+            });
+            if (hourRows.length) await gcrDb.from('entity_hours').insert(hourRows);
+        }
+
+        // Menu items — group by category into menu_sections + menu_items
+        if (Array.isArray(d.menu_items) && d.menu_items.length) {
+            await gcrDb.from('menu_items').delete().eq('entity_id', entityId);
+            await gcrDb.from('menu_sections').delete().eq('entity_id', entityId);
+
+            const sectionMap = {};
+            for (const item of d.menu_items) {
+                const catName = (item.category || 'Menu').trim();
+                if (!sectionMap[catName]) {
+                    const { data: sec } = await gcrDb.from('menu_sections').insert({ entity_id: entityId, section_name: catName, sort_order: Object.keys(sectionMap).length }).select('id').single();
+                    sectionMap[catName] = sec.id;
+                }
+            }
+            const menuRows = d.menu_items.map((item, i) => ({
+                entity_id:       entityId,
+                menu_section_id: sectionMap[(item.category || 'Menu').trim()],
+                item_name:       item.item_name || item.name,
+                description:     item.description || null,
+                price:           item.price ? parseFloat(String(item.price).replace(/[^0-9.]/g,'')) : null,
+                price_text:      item.price ? String(item.price) : null,
+                is_available:    true,
+                sort_order:      i,
+            }));
+            const { error } = await gcrDb.from('menu_items').insert(menuRows);
+            if (error) throw new Error('menu_items insert: ' + error.message);
+        }
+
+        // Specials → entity_specials
+        if (Array.isArray(d.specials) && d.specials.length) {
+            await gcrDb.from('entity_specials').delete().eq('entity_id', entityId);
+            await gcrDb.from('entity_specials').insert(d.specials.map(s => ({
+                entity_id:     entityId,
+                special_name:  s.special_name || s.name,
+                description:   s.description || null,
+                special_type:  s.type || 'daily_special',
+                days:          Array.isArray(s.days) ? s.days.join(',') : (s.days || null),
+                start_time:    s.start_time || null,
+                end_time:      s.end_time || null,
+                discount_text: s.discount_text || null,
+                is_active:     true,
+            })));
+        }
+
+        // Events → entity_events
+        if (Array.isArray(d.events) && d.events.length) {
+            await gcrDb.from('entity_events').delete().eq('entity_id', entityId);
+            await gcrDb.from('entity_events').insert(d.events.map(e => ({
+                entity_id:  entityId,
+                event_name: e.event_name || e.title || e.name,
+                description: e.description || null,
+                event_date: e.event_date || null,
+                start_time: e.start_time || e.event_time || null,
+                end_time:   e.end_time || null,
+                is_active:  true,
+            })));
+        }
+
+        // Fleet → fleet_types
+        if (Array.isArray(d.fleet) && d.fleet.length) {
+            await gcrDb.from('fleet_types').delete().eq('entity_id', entityId);
+            await gcrDb.from('fleet_types').insert(d.fleet.map((f, i) => ({
+                entity_id:   entityId,
+                name:        f.name,
+                description: f.description || null,
+                specs:       {
+                    capacity: f.capacity || null,
+                    price_per_hour: f.price_per_hour || null,
+                },
+                sort_order:  i,
+                active:      true,
+            })));
+        }
+
+        res.json({
+            success:   true,
+            entity_id: entityId,
+            slug,
+            message:   `${d.name} saved to GCR (${existing ? 'updated' : 'created'}).`,
+        });
+
+    } catch (err) {
+        console.error('ai-save-business error:', err.message);
+        res.status(500).json({ error: err.message });
+    }
+});
+
+router.post('/upload-photo', upload.single('file'), async (req, res) => {
+    if (!req.file) return res.status(400).json({ error: 'No file uploaded' });
+    const { site_id, folder } = req.body;
+    const ext = req.file.originalname.split('.').pop();
+    const fileName = `${site_id || 'admin'}/${Date.now()}.${ext}`;
+    const bucket = 'media';
+    const { data, error } = await supabase.storage.from(bucket).upload(fileName, req.file.buffer, { contentType: req.file.mimetype, upsert: false });
+    if (error) return res.status(500).json({ error: error.message });
+    const { data: { publicUrl } } = supabase.storage.from(bucket).getPublicUrl(fileName);
+    // Save to media table if site_id provided
+    if (site_id) {
+        await supabase.from('media').insert({ site_id, url: publicUrl, filename: req.file.originalname, file_type: 'image', folder: folder || 'gallery', file_size: req.file.size });
+    }
+    res.json({ url: publicUrl });
+});
+
+// ============================================
+// GET /api/admin/ai-settings — Get AI config
+// PUT /api/admin/ai-settings — Save AI config
+// ============================================
+
+router.get('/ai-settings', async (req, res) => {
+    const { data, error } = await gcrDb.from('ai_settings').select('*').eq('id', 1).single();
+    if (error) return res.status(500).json({ error: error.message });
+    // Mask API keys in response — show enough to confirm they exist
+    const masked = { ...data };
+    const maskKey = k => { if (masked[k]) masked[k] = masked[k].slice(0, 8) + '••••••••'; };
+    maskKey('chat_api_key');
+    maskKey('embed_api_key');
+    maskKey('api_key_anthropic');
+    maskKey('api_key_openai');
+    maskKey('api_key_grok');
+    res.json(masked);
+});
+
+router.put('/ai-settings', async (req, res) => {
+    const allowed = ['chat_provider','chat_model','chat_api_key','embed_provider','embed_model','embed_api_key','embed_dimensions','rag_enabled','voice_enabled','system_prompt','api_key_anthropic','api_key_openai','api_key_grok'];
+    const update = {};
+    allowed.forEach(k => { if (req.body[k] !== undefined) update[k] = req.body[k]; });
+    // Don't overwrite keys if they're masked (client sent back a masked value)
+    ['chat_api_key','embed_api_key','api_key_anthropic','api_key_openai','api_key_grok'].forEach(k => {
+        if (update[k] && update[k].includes('••••')) delete update[k];
+    });
+    update.updated_at = new Date().toISOString();
+
+    const { data, error } = await gcrDb.from('ai_settings').upsert({ id: 1, ...update }).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true, data });
+});
+
+// ============================================
+// GET /api/admin/rag-status — Index status
+// ============================================
+
+router.get('/rag-status', async (req, res) => {
+    const { data: indexed, error } = await gcrDb
+        .from('business_embeddings')
+        .select('*')
+        .order('created_at', { ascending: false });
+
+    if (error) return res.status(500).json({ error: error.message });
+
+    // Summarize by business
+    const bySlug = {};
+    (indexed || []).forEach(row => {
+        if (!bySlug[row.slug]) bySlug[row.slug] = { name: row.business_name, slug: row.slug, chunks: 0, last_indexed: row.updated_at };
+        bySlug[row.slug].chunks++;
+        if (row.updated_at > bySlug[row.slug].last_indexed) bySlug[row.slug].last_indexed = row.updated_at;
+    });
+
+    // Total businesses in GCR
+    const { count: totalBiz } = await supabase.from('businesses').select('site_id', { count: 'exact' }).eq('gcr_listed', true).eq('status', 'active');
+
+    res.json({
+        indexed_businesses: Object.keys(bySlug).length,
+        total_gcr_businesses: totalBiz || 0,
+        total_chunks: (indexed || []).length,
+        businesses: Object.values(bySlug).sort((a, b) => b.last_indexed.localeCompare(a.last_indexed)),
+    });
+});
+
+// ============================================
+// POST /api/admin/ai-organize — Parse raw business text into structured data
+// Body: { raw_text, business_type? }
+// Returns: structured JSON matching the DB schema for admin to review + approve
+// ============================================
+
+router.post('/ai-organize', async (req, res) => {
+    const { raw_text, business_type } = req.body;
+    if (!raw_text || raw_text.trim().length < 20) {
+        return res.status(400).json({ error: 'raw_text is required (at least 20 characters)' });
+    }
+
+    // Load AI settings
+    const { data: settings } = await gcrDb.from('ai_settings').select('*').eq('id', 1).single();
+    const cfg = settings || {};
+
+    const provider  = cfg.chat_provider || 'grok';
+    const model     = cfg.chat_model    || 'grok-3';
+
+    // Pick the right API key for the active provider
+    let apiKey;
+    if (provider === 'anthropic') {
+        apiKey = cfg.api_key_anthropic || cfg.chat_api_key || process.env.ANTHROPIC_API_KEY || process.env.CLAUDE_API_KEY;
+    } else if (provider === 'openai') {
+        apiKey = cfg.api_key_openai || cfg.chat_api_key || process.env.OPENAI_API_KEY;
+    } else if (provider === 'grok') {
+        apiKey = cfg.api_key_grok || cfg.chat_api_key || process.env.GROK_API_KEY || process.env.XAI_API_KEY;
+    } else if (provider === 'groq') {
+        apiKey = cfg.chat_api_key || process.env.GROQ_API_KEY;
+    } else {
+        apiKey = cfg.chat_api_key;
+    }
+
+    if (!apiKey) {
+        return res.status(503).json({ error: `No API key configured for ${provider}. Go to AI Settings and add your ${provider} key.` });
+    }
+
+    const systemPrompt = `You are a data extraction assistant for Gulf Coast Radar, a tourism directory for Orange Beach and Gulf Shores, Alabama.
+
+Your job is to extract structured business information from raw text (website copy, scraped HTML, PDFs, or pasted content) and output ONLY valid JSON matching the exact schema below. No explanation, no markdown — just the raw JSON object.
+
+SCHEMA:
+{
+  "name": "string — business display name",
+  "type": "one of: restaurants | things-to-do | nightlife | coffee-sweets | shopping | hotels | services | other",
+  "subdomain": "string — lowercase slug (e.g. cobalt-the-restaurant)",
+  "tagline": "string — short one-liner",
+  "emoji": "single emoji that fits the business",
+  "description": "string — 2-3 sentence about section",
+  "phone": "string — phone number",
+  "address": "string — street address",
+  "city": "string",
+  "state": "string — 2 letter abbreviation",
+  "zip": "string",
+  "website": "string — website URL",
+  "price_range": "$ | $$ | $$$ | $$$$",
+  "hours": { "Monday": "open–close or Closed", "Tuesday": "...", "Wednesday": "...", "Thursday": "...", "Friday": "...", "Saturday": "...", "Sunday": "..." },
+  "social": { "instagram": "url", "facebook": "url", "google_maps": "url" },
+  "features": ["array of feature strings like 'Waterfront', 'Pet Friendly', 'Live Music'"],
+  "perfect_for": ["array like 'Date night', 'Families', 'Groups'"],
+  "happy_hour": "string time range OR { schedule: 'string', deals: [{name, desc, price}] } OR null",
+  "menu_items": [{ "item_name": "string", "description": "string", "price": "number or null", "category": "section name like 'Starters' or 'Lunch' or 'Cocktails'", "item_type": "food | drink | happy_hour — use drink for any beverages/cocktails/beer/wine, happy_hour for HH deals, food for everything else" }],
+  "bar_menu": [{ "category": "string", "items": [{ "item_name": "string", "desc": "string", "price": "string" }] }] or null,
+  "specials": [{ "special_name": "string", "description": "string", "type": "daily_special|happy_hour|weekly", "days": ["Monday","Friday"], "start_time": "HH:MM", "end_time": "HH:MM", "discount_text": "string" }],
+  "events": [{ "event_name": "string", "description": "string", "event_date": "YYYY-MM-DD or null", "start_time": "HH:MM or null" }],
+  "fleet": [{ "name": "string", "description": "string", "capacity": number_or_null, "price_per_hour": number_or_null }],
+  "schedules": [{ "name": "slot name", "time": "departure time", "tickets": [{ "name": "Adult|Child|Senior", "price": "dollar amount" }] }],
+  "highlights": ["array of included items or experience highlights"],
+  "restrictions": ["array of guest info or restriction strings"],
+  "what_to_bring": ["array of items guests should bring"],
+  "tags": ["array of relevant tags for search"],
+  "kids_friendly": true or false,
+  "pet_friendly": true or false,
+  "live_music": true or false,
+  "waterfront": true or false,
+  "outdoor": true or false,
+  "alcohol": true or false,
+  "booking_required": true or false
+}
+
+Only include fields that have actual data in the source. Use null for unknown fields. Never invent data that isn't present.${business_type ? `\n\nThis business is type: ${business_type}` : ''}`;
+
+    const userMessage = `Extract all structured data from the following business information:\n\n${raw_text.slice(0, 12000)}`;
+
+    try {
+        let answer = '';
+
+        if (provider === 'anthropic') {
+            const r = await fetch('https://api.anthropic.com/v1/messages', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'x-api-key': apiKey, 'anthropic-version': '2023-06-01' },
+                body: JSON.stringify({ model, max_tokens: 4096, system: systemPrompt, messages: [{ role: 'user', content: userMessage }] }),
+            });
+            if (!r.ok) { const e = await r.text(); throw new Error(`Anthropic ${r.status}: ${e}`); }
+            const d = await r.json();
+            answer = d.content?.[0]?.text || '';
+        } else if (provider === 'openai' || provider === 'groq' || provider === 'grok') {
+            const baseUrl = provider === 'groq' ? 'https://api.groq.com/openai/v1'
+                         : provider === 'grok'  ? 'https://api.x.ai/v1'
+                         : 'https://api.openai.com/v1';
+            const r = await fetch(`${baseUrl}/chat/completions`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` },
+                body: JSON.stringify({ model: model || 'gpt-4o', messages: [{ role: 'system', content: systemPrompt }, { role: 'user', content: userMessage }], max_tokens: 4096, response_format: { type: 'json_object' } }),
+            });
+            if (!r.ok) { const e = await r.text(); throw new Error(`${provider} ${r.status}: ${e}`); }
+            const d = await r.json();
+            answer = d.choices?.[0]?.message?.content || '';
+        } else {
+            return res.status(400).json({ error: `Unsupported provider: ${provider}` });
+        }
+
+        // Parse the JSON response
+        let structured;
+        try {
+            // Strip markdown code fences if present
+            const cleaned = answer.replace(/^```(?:json)?\s*/i, '').replace(/\s*```\s*$/, '').trim();
+            structured = JSON.parse(cleaned);
+        } catch (parseErr) {
+            return res.status(422).json({ error: 'AI returned invalid JSON', raw: answer.slice(0, 500) });
+        }
+
+        res.json({ success: true, structured });
+
+    } catch (err) {
+        console.error('ai-organize error:', err.message);
+        res.status(500).json({ error: err.message });
+    }
+});
+
+
+// ============================================
+// GCR BUSINESS EDITOR — Full data loader
+// ============================================
+
+router.get('/gcr/business-data/:siteId', async (req, res) => {
+    const { siteId } = req.params;
+    // siteId is entity_id in GCR DB
+    const entityId = siteId;
+    const [
+        entityRes, menuSecRes, menuItemsRes, drinkSecRes, drinkItemsRes,
+        specialsRes, eventsRes, reviewsRes, photosRes, hoursRes,
+        tagsRes, featuresRes, pfRes, sectionsRes, hhSecRes, hhItemsRes,
+        highlightsRes, detailsRes, atmosphereRes, filtersRes, logisticsRes,
+        packagesRes, staffRes, faqsRes, qaRes, mediaRes
+    ] = await Promise.all([
+        gcrDb.from('entity').select('*').eq('id', entityId).single(),
+        gcrDb.from('menu_sections').select('*').eq('entity_id', entityId).order('sort_order'),
+        gcrDb.from('menu_items').select('*').eq('entity_id', entityId).order('sort_order'),
+        gcrDb.from('drink_sections').select('*').eq('entity_id', entityId).order('sort_order'),
+        gcrDb.from('drink_items').select('*').eq('entity_id', entityId).order('sort_order'),
+        gcrDb.from('entity_specials').select('*').eq('entity_id', entityId),
+        gcrDb.from('entity_events').select('*').eq('entity_id', entityId).order('event_date'),
+        gcrDb.from('gcr_reviews').select('*').eq('entity_id', entityId).order('created_at', { ascending: false }),
+        gcrDb.from('entity_photos').select('*').eq('entity_id', entityId).order('sort_order'),
+        gcrDb.from('entity_hours').select('*').eq('entity_id', entityId),
+        gcrDb.from('entity_tags').select('*').eq('entity_id', entityId),
+        gcrDb.from('entity_features').select('*').eq('entity_id', entityId).order('sort_order'),
+        gcrDb.from('entity_perfect_for').select('*').eq('entity_id', entityId).order('sort_order'),
+        gcrDb.from('entity_sections').select('*').eq('entity_id', entityId).order('sort_order'),
+        gcrDb.from('happy_hour_sections').select('*').eq('entity_id', entityId),
+        gcrDb.from('happy_hour_items').select('*').eq('entity_id', entityId).order('sort_order'),
+        gcrDb.from('business_highlights').select('*').eq('site_id', entityId).single(),
+        gcrDb.from('business_details').select('*').eq('site_id', entityId).single(),
+        gcrDb.from('business_atmosphere').select('*').eq('site_id', entityId).single(),
+        gcrDb.from('business_filters').select('*').eq('site_id', entityId).single(),
+        gcrDb.from('business_logistics').select('*').eq('site_id', entityId).single(),
+        gcrDb.from('packages').select('*').eq('entity_id', entityId).order('sort_order'),
+        gcrDb.from('staff').select('*').eq('entity_id', entityId),
+        gcrDb.from('gcr_faqs').select('*').eq('entity_id', entityId).order('sort_order'),
+        gcrDb.from('qa_pairs').select('*').eq('entity_id', entityId),
+        gcrDb.from('business_media').select('*').eq('entity_id', entityId).order('sort_order'),
+    ]);
+
+    const entity = entityRes.data || {};
+    const tagSet = new Set((tagsRes.data || []).map(t => t.tag));
+
+    // Map entity_hours rows to content.hours_mon/tue/... format for frontend form fields
+    const hoursMap = {};
+    const dayAbbr = { monday:'mon', tuesday:'tue', wednesday:'wed', thursday:'thu', friday:'fri', saturday:'sat', sunday:'sun' };
+    for (const h of (hoursRes.data || [])) {
+        const abbr = dayAbbr[(h.day_of_week || '').toLowerCase()];
+        if (abbr) hoursMap['hours_' + abbr] = h.is_closed ? 'closed' : `${h.open_time || ''}-${h.close_time || ''}`.replace(/^-$/, '');
+    }
+
+    // business object: GCR entity fields mapped to legacy field names the frontend expects
+    const business = {
+        ...entity,
+        type:       entity.entity_subtype,
+        status:     entity.is_active ? 'active' : 'inactive',
+        emoji:      entity.icon,
+        subdomain:  entity.slug,
+        instagram:  entity.social_instagram,
+        facebook:   entity.social_facebook,
+        tiktok:     entity.social_tiktok,
+        gcr_listed: entity.is_active,
+    };
+
+    // content object: GCR fields mapped to legacy site_content field names the frontend reads
+    const content = {
+        tagline:       entity.subtitle,
+        price_range:   entity.price_range,
+        seo_description: entity.description,
+        address:       entity.address_line_1,
+        city:          entity.city,
+        state:         entity.state,
+        zip:           entity.zip,
+        contact_phone: entity.phone,
+        contact_email: entity.email,
+        website_url:   entity.website_url,
+        ...hoursMap,
+        kids_friendly:    tagSet.has('kids_friendly'),
+        pet_friendly:     tagSet.has('pet_friendly'),
+        live_music:       tagSet.has('live_music'),
+        outdoor_seating:  tagSet.has('outdoor_seating'),
+        reservations:     tagSet.has('reservations'),
+        delivery:         tagSet.has('delivery'),
+        takeout:          tagSet.has('takeout'),
+        alcohol:          tagSet.has('full_bar'),
+        happy_hour: {
+            days:        entity.hh_days,
+            start:       entity.hh_start,
+            end:         entity.hh_end,
+            description: entity.hh_description,
+            items:       hhItemsRes.data || [],
+        },
+    };
+    // hh key: admin.html reads c.hh directly (not c.content.happy_hour)
+    const hh = {
+        days:        entity.hh_days,
+        start:       entity.hh_start,
+        end:         entity.hh_end,
+        description: entity.hh_description,
+        items:       hhItemsRes.data || [],
+    };
+
+    // Also pull section_items for section-based menu/drink data (where imports write to)
+    const allSections = sectionsRes.data || [];
+    const menuSecFromSections = allSections.filter(s => s.section_type === 'menu' || s.section_type === 'grouped_items');
+    const drinkSecFromSections = allSections.filter(s => s.section_type === 'drinks');
+    const menuSecIdsFromSections = menuSecFromSections.map(s => s.id);
+    const drinkSecIdsFromSections = drinkSecFromSections.map(s => s.id);
+    const allSecIds = allSections.map(s => s.id);
+    let sectionItemsForMenuDrinks = [];
+    if (allSecIds.length) {
+        const { data: siData } = await gcrDb.from('section_items').select('*').in('section_id', allSecIds).order('sort_order');
+        sectionItemsForMenuDrinks = siData || [];
+    }
+    const mapSI = i => ({
+        id: i.id, item_name: i.item_name,
+        description: i.item_description || i.description || '',
+        price_text: i.price_text || (i.price_numeric != null ? '$' + i.price_numeric : ''),
+        price: i.price_numeric, image_url: i.image_url || null,
+    });
+    const menuItemsMerged = [
+        ...(menuItemsRes.data || []),
+        ...sectionItemsForMenuDrinks.filter(i => menuSecIdsFromSections.includes(i.section_id)).map(mapSI),
+    ];
+    const drinkItemsMerged = [
+        ...(drinkItemsRes.data || []),
+        ...sectionItemsForMenuDrinks.filter(i => drinkSecIdsFromSections.includes(i.section_id)).map(mapSI),
+    ];
+    const menuSecsMerged = [
+        ...(menuSecRes.data || []),
+        ...menuSecFromSections.filter(s => !(menuSecRes.data || []).find(m => m.id === s.id))
+            .map(s => ({ id: s.id, section_name: s.section_label, entity_id: entityId, sort_order: s.sort_order })),
+    ];
+    const drinkSecsMerged = [
+        ...(drinkSecRes.data || []),
+        ...drinkSecFromSections.filter(s => !(drinkSecRes.data || []).find(d => d.id === s.id))
+            .map(s => ({ id: s.id, section_name: s.section_label, entity_id: entityId, sort_order: s.sort_order })),
+    ];
+
+    res.json({
+        business,
+        content,
+        menu_sections: menuSecsMerged,
+        menu:   { sections: menuSecsMerged, items: menuItemsMerged },
+        drink_sections: drinkSecsMerged,
+        drinks: { sections: drinkSecsMerged, items: drinkItemsMerged },
+        specials:      specialsRes.data  || [],
+        events:        eventsRes.data    || [],
+        reviews:       reviewsRes.data   || [],
+        photos:        photosRes.data    || [],
+        hours:         hoursRes.data     || [],
+        tags:          tagsRes.data      || [],
+        features:      featuresRes.data  || [],
+        perfect_for:   pfRes.data        || [],
+        sections:      allSections,
+        hh,
+        hh_sections:   hhSecRes.data     || [],
+        hh_items:      hhItemsRes.data   || [],
+        highlights:    highlightsRes.data|| {},
+        details:       detailsRes.data   || {},
+        atmosphere:    atmosphereRes.data|| {},
+        filters:       filtersRes.data   || {},
+        logistics:     logisticsRes.data || {},
+        packages:      packagesRes.data  || [],
+        staff:         staffRes.data     || [],
+        faqs:          faqsRes.data      || [],
+        qa_pairs:      qaRes.data        || [],
+        media:         mediaRes.data     || [],
+    });
+});
+
+// Fleet — Circle Boats only, stays on old DB
+router.post('/businesses/:siteId/fleet', async (req, res) => {
+    const { siteId } = req.params;
+    const { items } = req.body;
+    await supabase.from('fleet_types').delete().eq('site_id', siteId);
+    if (items && items.length) {
+        const rows = items.map((it, i) => ({ ...it, site_id: siteId, sort_order: i, active: it.active !== false }));
+        const { error } = await supabase.from('fleet_types').insert(rows);
+        if (error) return res.status(500).json({ error: error.message });
+    }
+    res.json({ success: true });
+});
+
+// Addons — Circle Boats only, stays on old DB
+router.post('/businesses/:siteId/addons', async (req, res) => {
+    const { siteId } = req.params;
+    const { items } = req.body;
+    await supabase.from('rental_addons').delete().eq('site_id', siteId);
+    if (items && items.length) {
+        const rows = items.map((it, i) => ({ ...it, site_id: siteId, sort_order: i, active: it.active !== false }));
+        const { error } = await supabase.from('rental_addons').insert(rows);
+        if (error) return res.status(500).json({ error: error.message });
+    }
+    res.json({ success: true });
+});
+
+// Schedule → GCR DB entity_sections (grouped_items)
+router.put('/businesses/:siteId/schedule', async (req, res) => {
+    const entityId = req.params.siteId;
+    const { schedules } = req.body;
+    // Upsert the schedules section
+    const { data: sec } = await gcrDb.from('entity_sections').upsert({ entity_id: entityId, section_key: 'schedules', section_label: 'Schedules', section_type: 'grouped_items', sort_order: 5 }, { onConflict: 'entity_id,section_key' }).select('id').single();
+    if (sec?.id) {
+        await gcrDb.from('section_groups').delete().eq('section_id', sec.id);
+        for (const [i, sched] of (schedules || []).entries()) {
+            const { data: grp } = await gcrDb.from('section_groups').insert({ section_id: sec.id, title: sched.name, subtitle: sched.time, sort_order: i }).select('id').single();
+            if (grp?.id) {
+                for (const [j, t] of (sched.tickets || []).entries()) {
+                    await gcrDb.from('section_items').insert({ section_id: sec.id, group_id: grp.id, item_name: t.name || 'Ticket', price_numeric: t.price || null, item_type: 'ticket', sort_order: j });
+                }
+            }
+        }
+    }
+    res.json({ success: true });
+});
+
+// Highlights / restrictions / what_to_bring → GCR DB sections
+router.put('/businesses/:siteId/highlights', async (req, res) => {
+    const entityId = req.params.siteId;
+    const { highlights, restrictions, what_to_bring } = req.body;
+    const sections = [
+        { key: 'highlights', label: 'Highlights', items: highlights, sort: 2 },
+        { key: 'restrictions', label: 'Requirements', items: restrictions, sort: 20 },
+        { key: 'what_to_bring', label: 'What to Bring', items: what_to_bring, sort: 21 },
+    ];
+    for (const s of sections) {
+        if (!s.items?.length) continue;
+        const { data: sec } = await gcrDb.from('entity_sections').upsert({ entity_id: entityId, section_key: s.key, section_label: s.label, section_type: 'bullets', sort_order: s.sort }, { onConflict: 'entity_id,section_key' }).select('id').single();
+        if (sec?.id) {
+            await gcrDb.from('section_bullets').delete().eq('section_id', sec.id);
+            await gcrDb.from('section_bullets').insert(s.items.map((t, i) => ({ section_id: sec.id, bullet_text: String(t), sort_order: i })));
+        }
+    }
+    res.json({ success: true });
+});
+
+// Photos → GCR DB entity_photos
+router.post('/businesses/:siteId/photos', async (req, res) => {
+    const entityId = req.params.siteId;
+    const { url, caption, section } = req.body;
+    if (!url) return res.status(400).json({ error: 'url required' });
+    const { data, error } = await gcrDb.from('entity_photos').insert({ entity_id: entityId, image_url: url, caption: caption || '', sort_order: 0 }).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true, photo: data });
+});
+
+router.delete('/businesses/:siteId/photos/:photoId', async (req, res) => {
+    const { photoId } = req.params;
+    const { error } = await gcrDb.from('entity_photos').delete().eq('id', photoId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// Reviews → GCR DB gcr_reviews
+router.put('/businesses/:siteId/reviews/:reviewId', async (req, res) => {
+    const { reviewId } = req.params;
+    const { active, status } = req.body;
+    const upd = {};
+    if (active !== undefined) upd.status = active ? 'approved' : 'pending';
+    if (status) upd.status = status;
+    const { error } = await gcrDb.from('gcr_reviews').update(upd).eq('id', reviewId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+router.delete('/businesses/:siteId/reviews/:reviewId', async (req, res) => {
+    const { reviewId } = req.params;
+    const { error } = await gcrDb.from('gcr_reviews').delete().eq('id', reviewId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// Menu → GCR DB menu_items
+router.post('/businesses/:siteId/menu', async (req, res) => {
+    const entityId = req.params.siteId;
+    const item = req.body;
+    // Find or create the section
+    const sectionName = item.category || 'General';
+    let sectionId = item.menu_section_id;
+    if (!sectionId) {
+        const { data: sec } = await gcrDb.from('menu_sections').insert({ entity_id: entityId, section_name: sectionName, sort_order: 0 }).select('id').single();
+        sectionId = sec?.id;
+    }
+    const row = { entity_id: entityId, menu_section_id: sectionId, item_name: item.name || item.item_name, description: item.description || null, price: item.price || null, allergens: item.allergens || null, is_available: item.available !== false, image_url: item.image_url || null, sort_order: item.sort_order || 0 };
+    const { data, error } = item.id
+        ? await gcrDb.from('menu_items').update(row).eq('id', item.id).select().single()
+        : await gcrDb.from('menu_items').insert(row).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true, item: data });
+});
+
+router.delete('/businesses/:siteId/menu/:itemId', async (req, res) => {
+    const { itemId } = req.params;
+    const { error } = await gcrDb.from('menu_items').delete().eq('id', itemId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// Specials → GCR DB entity_specials
+router.post('/businesses/:siteId/specials', async (req, res) => {
+    const entityId = req.params.siteId;
+    const item = { ...req.body, entity_id: entityId };
+    delete item.site_id;
+    if (!item.special_name) item.special_name = item.name || 'Special';
+    const { data, error } = item.id
+        ? await gcrDb.from('entity_specials').update(item).eq('id', item.id).select().single()
+        : await gcrDb.from('entity_specials').insert(item).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true, item: data });
+});
+
+router.delete('/businesses/:siteId/specials/:itemId', async (req, res) => {
+    const { itemId } = req.params;
+    const { error } = await gcrDb.from('entity_specials').delete().eq('id', itemId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// Events → GCR DB entity_events
+router.post('/businesses/:siteId/events', async (req, res) => {
+    const entityId = req.params.siteId;
+    const item = { ...req.body, entity_id: entityId };
+    delete item.site_id;
+    if (!item.event_name) item.event_name = item.name || item.title || 'Event';
+    const { data, error } = item.id
+        ? await gcrDb.from('entity_events').update(item).eq('id', item.id).select().single()
+        : await gcrDb.from('entity_events').insert(item).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true, item: data });
+});
+
+router.delete('/businesses/:siteId/events/:itemId', async (req, res) => {
+    const { itemId } = req.params;
+    const { error } = await gcrDb.from('entity_events').delete().eq('id', itemId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ============================================================
+// GCR ENTITY ADMIN — Full CRUD for new entity/section schema
+// ============================================================
+
+// ── Entity CRUD ──────────────────────────────────────────────
+
+// GET /api/admin/gcr/entities
+router.get('/gcr/entities', adminRequired, async (req, res) => {
+    const { search, limit } = req.query;
+    const pageLimit = Math.min(parseInt(limit) || 1000, 1000);
+    // Try with sponsored column first, fall back without it
+    let data, error;
+    let q = gcrDb
+        .from('entity')
+        .select('id, slug, name, subtitle, entity_type, entity_subtype, icon, rating, review_count, city, state, is_active, is_sponsored, hero_image_url, phone, address_line_1, directions_url, website_url, created_at')
+        .order('name')
+        .range(0, pageLimit - 1);
+    if (search) q = q.ilike('name', `%${search}%`);
+    ({ data, error } = await q);
+
+    if (error) {
+        // Retry without is_sponsored in case column doesn't exist
+        let q2 = gcrDb
+            .from('entity')
+            .select('id, slug, name, subtitle, entity_type, entity_subtype, icon, rating, review_count, city, state, is_active, hero_image_url, phone, address_line_1, directions_url, website_url, created_at')
+            .order('name')
+            .range(0, pageLimit - 1);
+        if (search) q2 = q2.ilike('name', `%${search}%`);
+        ({ data, error } = await q2);
+    }
+    if (error) return res.status(500).json({ error: error.message });
+
+    // Batch-fetch tags for all entities (graceful if table doesn't exist)
+    const entityIds = (data || []).map(e => e.id);
+    let tagMap = {};
+    if (entityIds.length) {
+        try {
+            const { data: tagRows } = await gcrDb.from('entity_tags').select('entity_id, id, tag, tag_category').in('entity_id', entityIds);
+            (tagRows || []).forEach(r => {
+                if (!tagMap[r.entity_id]) tagMap[r.entity_id] = [];
+                tagMap[r.entity_id].push({ id: r.id, tag: r.tag, tag_category: r.tag_category });
+            });
+        } catch(e) { /* entity_tags table may not exist yet */ }
+    }
+
+    const entities = (data || []).map(e => ({ ...e, _tags: tagMap[e.id] || [] }));
+    res.json({ entities });
+});
+
+// POST /api/admin/gcr/entities
+router.post('/gcr/entities', async (req, res) => {
+    const { entity, features, perfect_for, tags } = req.body;
+    if (!entity || !entity.slug || !entity.name) {
+        return res.status(400).json({ error: 'slug and name are required' });
+    }
+
+    const { data: created, error } = await gcrDb.from('entity').insert({ ...entity, is_active: true }).select('id').single();
+    if (error) return res.status(500).json({ error: error.message });
+
+    const entityId = created.id;
+
+    // Insert features, perfect_for, tags if provided
+    if (features?.length) {
+        await gcrDb.from('entity_features').insert(features.map((f, i) => ({ entity_id: entityId, label: f.label || f, sort_order: f.sort_order || i })));
+    }
+    if (perfect_for?.length) {
+        await gcrDb.from('entity_perfect_for').insert(perfect_for.map((p, i) => ({ entity_id: entityId, label: p.label || p, sort_order: p.sort_order || i })));
+    }
+    if (tags?.length) {
+        await gcrDb.from('entity_tags').insert(tags.map((t, i) => ({ entity_id: entityId, tag: t.tag || t, tag_category: t.tag_category || null, sort_order: i })));
+    }
+
+    // Auto-create location + hours sections
+    const defaultSections = [
+        { entity_id: entityId, section_key: 'location', section_label: 'Location', section_type: 'location', sort_order: 99 },
+        { entity_id: entityId, section_key: 'hours', section_label: 'Hours', section_type: 'hours', sort_order: 98 },
+    ];
+    await gcrDb.from('entity_sections').insert(defaultSections);
+
+    res.json({ success: true, id: entityId });
+});
+
+// GET /api/admin/gcr/entities/:id — single entity with all related data
+router.get('/gcr/entities/:id', async (req, res) => {
+    try {
+        const gcrDb = getGcrDb();
+        const { id } = req.params;
+        const uuidRe = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+        if (!uuidRe.test(id)) return res.status(400).json({ error: 'Invalid entity ID format' });
+        const [entRes, hoursRes, featRes, tagsRes, pfRes] = await Promise.all([
+            gcrDb.from('entity').select('*').eq('id', id).single(),
+            gcrDb.from('entity_hours').select('*').eq('entity_id', id).order('id'),
+            gcrDb.from('entity_features').select('*').eq('entity_id', id).order('sort_order'),
+            gcrDb.from('entity_tags').select('*').eq('entity_id', id),
+            gcrDb.from('entity_perfect_for').select('*').eq('entity_id', id).order('sort_order'),
+        ]);
+        if (entRes.error && entRes.error.code !== 'PGRST116') return res.status(500).json({ error: entRes.error.message });
+        if (!entRes.data) return res.status(404).json({ error: 'Entity not found' });
+        res.json({
+            entity:      entRes.data,
+            hours:       hoursRes.data || [],
+            features:    featRes.data || [],
+            tags:        tagsRes.data || [],
+            perfect_for: pfRes.data || [],
+        });
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+// GET /api/admin/gcr/entities/:id/features
+router.get('/gcr/entities/:id/features', async (req, res) => {
+    try {
+        const gcrDb = getGcrDb();
+        const { id } = req.params;
+        const { data, error } = await gcrDb.from('entity_features').select('*').eq('entity_id', id).order('sort_order');
+        if (error) return res.status(500).json({ error: error.message });
+        res.json(data || []);
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+// GET /api/gcr/entities/:id/children — Get all child rental units for a parent property
+// Public endpoint: filters by bed/bath/price ranges
+router.get('/gcr/entities/:id/children', async (req, res) => {
+    try {
+        const gcrDb = getGcrDb();
+        const { id } = req.params;
+        const { beds, baths, price_min, price_max } = req.query;
+
+        let q = gcrDb
+            .from('entity')
+            .select('id, slug, name, subtitle, entity_type, entity_subtype, icon, rating, review_count, city, state, is_active, hero_image_url, phone, address_line_1, directions_url, website_url, bedrooms, bathrooms, price_range, rental_company')
+            .eq('parent_entity_id', id)
+            .eq('is_active', true)
+            .order('name');
+
+        // Apply filters
+        if (beds) q = q.eq('bedrooms', parseInt(beds));
+        if (baths) q = q.eq('bathrooms', parseInt(baths));
+
+        const { data, error } = await q;
+        if (error) return res.status(500).json({ error: error.message });
+
+        // Filter by price range on client side (price_range is text like "$50-150")
+        let children = data || [];
+        if (price_min || price_max) {
+            children = children.filter(c => {
+                if (!c.price_range) return false;
+                const match = c.price_range.match(/\$(\d+)/);
+                const price = match ? parseInt(match[1]) : null;
+                if (!price) return false;
+                if (price_min && price < parseInt(price_min)) return false;
+                if (price_max && price > parseInt(price_max)) return false;
+                return true;
+            });
+        }
+
+        res.json({ children });
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+// PUT /api/admin/gcr/entities/:id
+router.put('/gcr/entities/:id', authRequired, async (req, res) => {
+    const { id } = req.params;
+    const { entity } = req.body;
+    const { error } = await gcrDb.from('entity').update({ ...entity, updated_at: new Date().toISOString() }).eq('id', id);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// PATCH /api/admin/gcr/entities/:id — unified update: all 18 standardized tables
+router.patch('/gcr/entities/:id', authRequired, async (req, res) => {
+    const entityId = req.params.id;
+    const {
+        entity, hours, happyHour, happyHourItems,
+        menuSections, menuItems, drinkSections, drinkItems,
+        events, specials, tags, features, activities,
+        pricing, bookingSlots, sections, sectionItems, sectionBullets,
+        photos, policies, requirements, qna
+    } = req.body;
+    const errors = [];
+
+    // 1. Core entity fields
+    if (entity) {
+        const upd = { ...entity, updated_at: new Date().toISOString() };
+        const { error } = await gcrDb.from('entity').update(upd).eq('id', entityId);
+        if (error) errors.push('entity: ' + error.message);
+    }
+
+    // 2. Hours — schedule: [{day, open, close, closed}]
+    if (hours?.schedule) {
+        for (const h of hours.schedule) {
+            const { error } = await gcrDb.from('entity_hours').upsert(
+                { entity_id: entityId, day_of_week: h.day, open_time: h.open || null, close_time: h.close || null, is_closed: !!h.closed },
+                { onConflict: 'entity_id,day_of_week' }
+            );
+            if (error) errors.push('hours ' + h.day + ': ' + error.message);
+        }
+    }
+
+    // 3. Happy hours — times + items
+    if (happyHour) {
+        const hhId = happyHour.id || req.crypto.randomUUID?.() || require('crypto').randomUUID();
+        const hhData = {
+            id: hhId,
+            entity_id: entityId,
+            hh_days: happyHour.days || null,
+            hh_start: happyHour.start || null,
+            hh_end: happyHour.end || null,
+            hh_description: happyHour.description || null
+        };
+        const { error } = await gcrDb.from('entity_happy_hours').upsert(hhData);
+        if (error) errors.push('happy_hours: ' + error.message);
+    }
+
+    if (happyHourItems?.length) {
+        const rows = happyHourItems.map(item => ({
+            id: item.id || require('crypto').randomUUID(),
+            entity_id: entityId,
+            item_name: item.name,
+            item_description: item.description || null,
+            hh_price: item.price || null,
+            item_type: item.type || null
+        }));
+        const { error } = await gcrDb.from('entity_happy_hour_items').upsert(rows);
+        if (error) errors.push('happy_hour_items: ' + error.message);
+    }
+
+    // 4. Menu sections and items
+    if (menuSections?.length) {
+        const rows = menuSections.map(s => ({
+            id: s.id || require('crypto').randomUUID(),
+            entity_id: entityId,
+            section_name: s.name,
+            section_note: s.note || null,
+            icon: s.icon || null,
+            sort_order: s.sort_order || 0
+        }));
+        const { error } = await gcrDb.from('entity_menu_sections').upsert(rows);
+        if (error) errors.push('menu_sections: ' + error.message);
+    }
+
+    if (menuItems?.length) {
+        const rows = menuItems.map(item => ({
+            id: item.id || require('crypto').randomUUID(),
+            entity_id: entityId,
+            menu_section_id: item.menu_section_id,
+            item_name: item.name,
+            description: item.description || null,
+            price: item.price || null,
+            price_text: item.price_text || null,
+            image_url: item.image_url || null,
+            allergens: item.allergens || null,
+            tags: item.tags || null
+        }));
+        const { error } = await gcrDb.from('entity_menu_items').upsert(rows);
+        if (error) errors.push('menu_items: ' + error.message);
+    }
+
+    // 5. Drink sections and items
+    if (drinkSections?.length) {
+        const rows = drinkSections.map(s => ({
+            id: s.id || require('crypto').randomUUID(),
+            entity_id: entityId,
+            section_name: s.name,
+            section_note: s.note || null,
+            icon: s.icon || null,
+            sort_order: s.sort_order || 0
+        }));
+        const { error } = await gcrDb.from('entity_drink_sections').upsert(rows);
+        if (error) errors.push('drink_sections: ' + error.message);
+    }
+
+    if (drinkItems?.length) {
+        const rows = drinkItems.map(item => ({
+            id: item.id || require('crypto').randomUUID(),
+            entity_id: entityId,
+            drink_section_id: item.drink_section_id,
+            item_name: item.name,
+            item_style: item.style || null,
+            abv: item.abv || null,
+            ibu: item.ibu || null,
+            brewery: item.brewery || null,
+            description: item.description || null,
+            price: item.price || null,
+            price_text: item.price_text || null
+        }));
+        const { error } = await gcrDb.from('entity_drink_items').upsert(rows);
+        if (error) errors.push('drink_items: ' + error.message);
+    }
+
+    // 6. Events
+    if (events?.length) {
+        const rows = events.map(e => ({
+            id: e.id || require('crypto').randomUUID(),
+            entity_id: entityId,
+            event_name: e.name,
+            event_type: e.type || null,
+            event_date: e.date || null,
+            start_time: e.start_time || null,
+            end_time: e.end_time || null,
+            day_of_week: e.day_of_week || null,
+            recurring: e.recurring || false,
+            recurring_start_date: e.recurring_start_date || null,
+            recurring_end_date: e.recurring_end_date || null,
+            description: e.description || null,
+            artist_name: e.artist_name || null,
+            venue_location: e.venue_location || null
+        }));
+        const { error } = await gcrDb.from('entity_events').upsert(rows);
+        if (error) errors.push('events: ' + error.message);
+    }
+
+    // 7. Specials
+    if (specials?.length) {
+        const rows = specials.map(s => ({
+            id: s.id || require('crypto').randomUUID(),
+            entity_id: entityId,
+            special_name: s.name,
+            description: s.description || null,
+            discount_text: s.discount_text || null,
+            start_date: s.start_date || null,
+            end_date: s.end_date || null,
+            days: s.days || null,
+            start_time: s.start_time || null,
+            end_time: s.end_time || null
+        }));
+        const { error } = await gcrDb.from('entity_specials').upsert(rows);
+        if (error) errors.push('specials: ' + error.message);
+    }
+
+    // 8. Tags
+    if (tags?.length) {
+        const rows = tags.map(t => ({
+            id: t.id || require('crypto').randomUUID(),
+            entity_id: entityId,
+            tag: t.name || t.tag,
+            tag_category: t.category || 'general'
+        }));
+        const { error } = await gcrDb.from('entity_tags').upsert(rows);
+        if (error) errors.push('tags: ' + error.message);
+    }
+
+    // 9. Features
+    if (features?.length) {
+        const rows = features.map(f => ({
+            id: f.id || require('crypto').randomUUID(),
+            entity_id: entityId,
+            feature_label: f.label || f.name
+        }));
+        const { error } = await gcrDb.from('entity_features').upsert(rows);
+        if (error) errors.push('features: ' + error.message);
+    }
+
+    // 10. Activities
+    if (activities?.length) {
+        const rows = activities.map(a => ({
+            id: a.id || require('crypto').randomUUID(),
+            entity_id: entityId,
+            activity_name: a.name,
+            description: a.description || null
+        }));
+        const { error } = await gcrDb.from('entity_activities').upsert(rows);
+        if (error) errors.push('activities: ' + error.message);
+    }
+
+    // 11. Pricing
+    if (pricing?.length) {
+        const rows = pricing.map(p => ({
+            id: p.id || require('crypto').randomUUID(),
+            entity_id: entityId,
+            package_name: p.name,
+            description: p.description || null,
+            price: p.price || null,
+            price_text: p.price_text || null,
+            time_slot_start: p.time_slot_start || null,
+            time_slot_end: p.time_slot_end || null,
+            price_unit: p.price_unit || null
+        }));
+        const { error } = await gcrDb.from('entity_pricing').upsert(rows);
+        if (error) errors.push('pricing: ' + error.message);
+    }
+
+    // 12. Booking slots
+    if (bookingSlots?.length) {
+        const rows = bookingSlots.map(b => ({
+            id: b.id || require('crypto').randomUUID(),
+            entity_id: entityId,
+            slot_date: b.date,
+            slot_time: b.time,
+            capacity: b.capacity,
+            booked: b.booked || 0
+        }));
+        const { error } = await gcrDb.from('entity_booking_slots').upsert(rows);
+        if (error) errors.push('booking_slots: ' + error.message);
+    }
+
+    // 13. Sections (CMS)
+    if (sections?.length) {
+        const rows = sections.map(s => ({
+            id: s.id || require('crypto').randomUUID(),
+            entity_id: entityId,
+            section_type: s.type,
+            section_key: s.key,
+            section_label: s.label || null,
+            section_name: s.name || null,
+            section_note: s.note || null,
+            content: s.content || null,
+            icon: s.icon || null,
+            sort_order: s.sort_order || 0
+        }));
+        const { error } = await gcrDb.from('entity_sections').upsert(rows);
+        if (error) errors.push('sections: ' + error.message);
+    }
+
+    // 14. Section items
+    if (sectionItems?.length) {
+        const rows = sectionItems.map(item => ({
+            id: item.id || require('crypto').randomUUID(),
+            entity_id: entityId,
+            section_id: item.section_id,
+            item_name: item.name,
+            item_description: item.description || null,
+            image_url: item.image_url || null,
+            price_text: item.price_text || null
+        }));
+        const { error } = await gcrDb.from('entity_section_items').upsert(rows);
+        if (error) errors.push('section_items: ' + error.message);
+    }
+
+    // 15. Section bullets
+    if (sectionBullets?.length) {
+        const rows = sectionBullets.map(b => ({
+            id: b.id || require('crypto').randomUUID(),
+            entity_id: entityId,
+            section_id: b.section_id,
+            bullet_text: b.text,
+            sort_order: b.sort_order || 0
+        }));
+        const { error } = await gcrDb.from('entity_section_bullets').upsert(rows);
+        if (error) errors.push('section_bullets: ' + error.message);
+    }
+
+    // 16. Photos
+    if (photos?.add?.length) {
+        const rows = photos.add.map((p, i) => ({ entity_id: entityId, image_url: p.image_url, caption: p.caption || null, sort_order: i }));
+        const { error } = await gcrDb.from('entity_photos').insert(rows);
+        if (error) errors.push('photos add: ' + error.message);
+    }
+    if (photos?.delete?.length) {
+        for (const p of photos.delete) {
+            if (p.id) await gcrDb.from('entity_photos').delete().eq('id', p.id);
+            else if (p.image_url) await gcrDb.from('entity_photos').delete().eq('entity_id', entityId).eq('image_url', p.image_url);
+        }
+    }
+
+    // 17. Policies
+    if (policies?.length) {
+        const rows = policies.map(p => ({
+            id: p.id || require('crypto').randomUUID(),
+            entity_id: entityId,
+            policy_text: p.text || p.policy_text
+        }));
+        const { error } = await gcrDb.from('entity_policies').upsert(rows);
+        if (error) errors.push('policies: ' + error.message);
+    }
+
+    // 18. Requirements
+    if (requirements?.length) {
+        const rows = requirements.map(r => ({
+            id: r.id || require('crypto').randomUUID(),
+            entity_id: entityId,
+            requirement_text: r.text || r.requirement_text
+        }));
+        const { error } = await gcrDb.from('entity_requirements').upsert(rows);
+        if (error) errors.push('requirements: ' + error.message);
+    }
+
+    // 19. Q&A
+    if (qna?.length) {
+        const rows = qna.map(q => ({
+            id: q.id || require('crypto').randomUUID(),
+            entity_id: entityId,
+            question: q.question,
+            answer: q.answer || null
+        }));
+        const { error } = await gcrDb.from('entity_qna').upsert(rows);
+        if (error) errors.push('qna: ' + error.message);
+    }
+
+    if (errors.length) return res.status(207).json({ success: true, errors });
+    res.json({ success: true });
+});
+
+// DELETE /api/admin/gcr/entities/:id — permanently removes entity + all related rows
+// Deletes from all 22 standardized entity tables (children first, parent last)
+router.delete('/gcr/entities/:id', async (req, res) => {
+    const { id } = req.params;
+    // Child tables (delete first to avoid FK constraints)
+    await gcrDb.from('entity_section_bullets').delete().eq('entity_id', id);
+    await gcrDb.from('entity_section_items').delete().eq('entity_id', id);
+    await gcrDb.from('entity_happy_hour_items').delete().eq('entity_id', id);
+    await gcrDb.from('entity_menu_items').delete().eq('entity_id', id);
+    await gcrDb.from('entity_drink_items').delete().eq('entity_id', id);
+    // Parent/standalone tables
+    await gcrDb.from('entity_sections').delete().eq('entity_id', id);
+    await gcrDb.from('entity_happy_hours').delete().eq('entity_id', id);
+    await gcrDb.from('entity_menu_sections').delete().eq('entity_id', id);
+    await gcrDb.from('entity_drink_sections').delete().eq('entity_id', id);
+    await gcrDb.from('entity_hours').delete().eq('entity_id', id);
+    await gcrDb.from('entity_tags').delete().eq('entity_id', id);
+    await gcrDb.from('entity_features').delete().eq('entity_id', id);
+    await gcrDb.from('entity_perfect_for').delete().eq('entity_id', id);
+    await gcrDb.from('entity_photos').delete().eq('entity_id', id);
+    await gcrDb.from('entity_specials').delete().eq('entity_id', id);
+    await gcrDb.from('entity_events').delete().eq('entity_id', id);
+    await gcrDb.from('entity_activities').delete().eq('entity_id', id);
+    await gcrDb.from('entity_pricing').delete().eq('entity_id', id);
+    await gcrDb.from('entity_booking_slots').delete().eq('entity_id', id);
+    await gcrDb.from('entity_policies').delete().eq('entity_id', id);
+    await gcrDb.from('entity_requirements').delete().eq('entity_id', id);
+    await gcrDb.from('entity_qna').delete().eq('entity_id', id);
+    // Parent entity table (delete last)
+    const { error } = await gcrDb.from('entity').delete().eq('id', id);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ── Features / Perfect For / Tags ─────────────────────────────
+
+// POST /api/admin/gcr/entities/:id/features
+router.post('/gcr/entities/:id/features', async (req, res) => {
+    const { id } = req.params;
+    const { label, sort_order } = req.body;
+    const { data, error } = await gcrDb.from('entity_features').insert({ entity_id: id, label, sort_order: sort_order || 0 }).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true, feature: data });
+});
+
+router.delete('/gcr/entities/:id/features/:featureId', async (req, res) => {
+    const { id, featureId } = req.params;
+    const { error } = await gcrDb.from('entity_features').delete().eq('id', featureId).eq('entity_id', id);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// POST /api/admin/gcr/entities/:id/perfect-for
+router.post('/gcr/entities/:id/perfect-for', async (req, res) => {
+    const { id } = req.params;
+    const { label, sort_order } = req.body;
+    const { data, error } = await gcrDb.from('entity_perfect_for').insert({ entity_id: id, label, sort_order: sort_order || 0 }).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true, item: data });
+});
+
+router.delete('/gcr/entities/:id/perfect-for/:itemId', async (req, res) => {
+    const { id, itemId } = req.params;
+    const { error } = await gcrDb.from('entity_perfect_for').delete().eq('id', itemId).eq('entity_id', id);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// POST /api/admin/gcr/entities/:id/tags — Add a tag
+router.post('/gcr/entities/:id/tags', async (req, res) => {
+    const { id } = req.params;
+    const { tag, tag_category } = req.body;
+    if (!tag) return res.status(400).json({ error: 'tag is required' });
+    const { data, error } = await gcrDb.from('entity_tags').insert({ entity_id: id, tag: tag.toLowerCase().trim(), tag_category: tag_category || null }).select().single();
+    if (error && error.code === '23505') return res.status(409).json({ error: 'Tag already exists' });
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true, tag: data });
+});
+
+router.delete('/gcr/entities/:id/tags/:tagId', async (req, res) => {
+    const { id, tagId } = req.params;
+    const { error } = await gcrDb.from('entity_tags').delete().eq('id', tagId).eq('entity_id', id);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ── Sections CRUD ────────────────────────────────────────────
+
+// GET /api/admin/gcr/entities/:id/sections — all sections + content
+router.get('/gcr/entities/:id/sections', async (req, res) => {
+    const { id } = req.params;
+    const { data: sections, error } = await gcrDb
+        .from('entity_sections')
+        .select('id, section_key, section_label, section_type, sort_order')
+        .eq('entity_id', id)
+        .order('sort_order');
+
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ sections: sections || [] });
+});
+
+// POST /api/admin/gcr/entities/:id/sections — add section
+router.post('/gcr/entities/:id/sections', async (req, res) => {
+    const { id } = req.params;
+    const { section_key, section_label, section_type, sort_order } = req.body;
+    const { data, error } = await gcrDb.from('entity_sections').insert({
+        entity_id: id, section_key, section_label, section_type, sort_order: sort_order || 0,
+    }).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true, section: data });
+});
+
+// PUT /api/admin/gcr/entities/:id/sections/:sectionId — update section meta
+router.put('/gcr/entities/:id/sections/:sectionId', async (req, res) => {
+    const { sectionId } = req.params;
+    const { section_label, sort_order } = req.body;
+    const { error } = await gcrDb.from('entity_sections').update({ section_label, sort_order }).eq('id', sectionId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// DELETE /api/admin/gcr/entities/:id/sections/:sectionId
+router.delete('/gcr/entities/:id/sections/:sectionId', async (req, res) => {
+    const { sectionId } = req.params;
+    // Cascade deletes all content rows via FK
+    const { error } = await gcrDb.from('entity_sections').delete().eq('id', sectionId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ── Section Content: Rich Text ────────────────────────────────
+
+// GET /api/admin/gcr/sections/:sectionId/rich-text-get
+router.get('/gcr/sections/:sectionId/rich-text-get', async (req, res) => {
+    const { sectionId } = req.params;
+    const { data, error } = await gcrDb.from('section_rich_text').select('body_text').eq('section_id', sectionId).single();
+    if (error && error.code !== 'PGRST116') return res.status(500).json({ error: error.message });
+    res.json({ body_text: data?.body_text || '' });
+});
+
+// PUT /api/admin/gcr/sections/:sectionId/rich-text
+router.put('/gcr/sections/:sectionId/rich-text', async (req, res) => {
+    const { sectionId } = req.params;
+    const { body_text } = req.body;
+    const { error } = await gcrDb.from('section_rich_text').upsert({ section_id: sectionId, body_text }, { onConflict: 'section_id' });
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ── Section Content: Bullets ──────────────────────────────────
+
+// GET /api/admin/gcr/sections/:sectionId/bullets
+router.get('/gcr/sections/:sectionId/bullets', async (req, res) => {
+    const { sectionId } = req.params;
+    const { data, error } = await gcrDb.from('section_bullets').select('*').eq('section_id', sectionId).order('sort_order');
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ bullets: data || [] });
+});
+
+// POST /api/admin/gcr/sections/:sectionId/bullets
+router.post('/gcr/sections/:sectionId/bullets', async (req, res) => {
+    const { sectionId } = req.params;
+    const { bullet_text, sort_order } = req.body;
+    const { data, error } = await gcrDb.from('section_bullets').insert({ section_id: sectionId, bullet_text, sort_order: sort_order || 0 }).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true, bullet: data });
+});
+
+// PUT /api/admin/gcr/sections/:sectionId/bullets/:bulletId
+router.put('/gcr/sections/:sectionId/bullets/:bulletId', async (req, res) => {
+    const { bulletId } = req.params;
+    const { bullet_text, sort_order } = req.body;
+    const { error } = await gcrDb.from('section_bullets').update({ bullet_text, sort_order }).eq('id', bulletId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+router.delete('/gcr/sections/:sectionId/bullets/:bulletId', async (req, res) => {
+    const { bulletId } = req.params;
+    const { error } = await gcrDb.from('section_bullets').delete().eq('id', bulletId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ── Section Content: Groups + Items ──────────────────────────
+
+// GET /api/admin/gcr/sections/:sectionId/groups
+router.get('/gcr/sections/:sectionId/groups', async (req, res) => {
+    const { sectionId } = req.params;
+    const [groupsRes, itemsRes] = await Promise.all([
+        gcrDb.from('section_groups').select('*').eq('section_id', sectionId).order('sort_order'),
+        gcrDb.from('section_items').select('*').eq('section_id', sectionId).order('sort_order'),
+    ]);
+    const groups = (groupsRes.data || []).map(g => ({
+        ...g,
+        items: (itemsRes.data || []).filter(i => i.group_id === g.id),
+    }));
+    res.json({ groups, ungrouped: (itemsRes.data || []).filter(i => !i.group_id) });
+});
+
+// POST /api/admin/gcr/sections/:sectionId/groups
+router.post('/gcr/sections/:sectionId/groups', async (req, res) => {
+    const { sectionId } = req.params;
+    const { title, subtitle, note_text, sort_order } = req.body;
+    const { data, error } = await gcrDb.from('section_groups').insert({ section_id: sectionId, title, subtitle, note_text, sort_order: sort_order || 0 }).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true, group: data });
+});
+
+// PUT /api/admin/gcr/sections/:sectionId/groups/:groupId
+router.put('/gcr/sections/:sectionId/groups/:groupId', async (req, res) => {
+    const { groupId } = req.params;
+    const { title, subtitle, note_text, sort_order } = req.body;
+    const { error } = await gcrDb.from('section_groups').update({ title, subtitle, note_text, sort_order }).eq('id', groupId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+router.delete('/gcr/sections/:sectionId/groups/:groupId', async (req, res) => {
+    const { groupId } = req.params;
+    const { error } = await gcrDb.from('section_groups').delete().eq('id', groupId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// POST /api/admin/gcr/sections/:sectionId/items
+router.post('/gcr/sections/:sectionId/items', async (req, res) => {
+    const { sectionId } = req.params;
+    const item = { ...req.body, section_id: sectionId };
+    // Dedup: skip insert if identical item_name already exists in this section
+    if (item.item_name) {
+        const { data: existing } = await gcrDb.from('section_items')
+            .select('id').eq('section_id', sectionId).ilike('item_name', item.item_name).maybeSingle();
+        if (existing) return res.json({ success: true, item: existing, duplicate: true });
+    }
+    const { data, error } = await gcrDb.from('section_items').insert(item).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true, item: data });
+});
+
+// PUT /api/admin/gcr/sections/:sectionId/items/:itemId
+router.put('/gcr/sections/:sectionId/items/:itemId', async (req, res) => {
+    const { itemId } = req.params;
+    const { error } = await gcrDb.from('section_items').update(req.body).eq('id', itemId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+router.delete('/gcr/sections/:sectionId/items/:itemId', async (req, res) => {
+    const { itemId } = req.params;
+    const { error } = await gcrDb.from('section_items').delete().eq('id', itemId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ── Section Content: Cards ────────────────────────────────────
+
+router.get('/gcr/sections/:sectionId/cards', async (req, res) => {
+    const { sectionId } = req.params;
+    const { data, error } = await gcrDb.from('section_cards').select('*').eq('section_id', sectionId).order('sort_order');
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ cards: data || [] });
+});
+
+router.post('/gcr/sections/:sectionId/cards', async (req, res) => {
+    const { sectionId } = req.params;
+    const { data, error } = await gcrDb.from('section_cards').insert({ ...req.body, section_id: sectionId }).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true, card: data });
+});
+
+router.put('/gcr/sections/:sectionId/cards/:cardId', async (req, res) => {
+    const { cardId } = req.params;
+    const { error } = await gcrDb.from('section_cards').update(req.body).eq('id', cardId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+router.delete('/gcr/sections/:sectionId/cards/:cardId', async (req, res) => {
+    const { cardId } = req.params;
+    const { error } = await gcrDb.from('section_cards').delete().eq('id', cardId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ── Section Content: Photos ───────────────────────────────────
+
+router.get('/gcr/sections/:sectionId/photos', async (req, res) => {
+    const { sectionId } = req.params;
+    const { data, error } = await gcrDb.from('section_photos').select('*').eq('section_id', sectionId).order('sort_order');
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ photos: data || [] });
+});
+
+router.post('/gcr/sections/:sectionId/photos', async (req, res) => {
+    const { sectionId } = req.params;
+    const { image_url, caption, alt_text, sort_order } = req.body;
+    if (!image_url) return res.status(400).json({ error: 'image_url required' });
+    const { data, error } = await gcrDb.from('section_photos').insert({ section_id: sectionId, image_url, caption, alt_text, sort_order: sort_order || 0 }).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true, photo: data });
+});
+
+router.delete('/gcr/sections/:sectionId/photos/:photoId', async (req, res) => {
+    const { photoId } = req.params;
+    const { error } = await gcrDb.from('section_photos').delete().eq('id', photoId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ── Section Content: Location ─────────────────────────────────
+
+router.put('/gcr/sections/:sectionId/location', async (req, res) => {
+    const { sectionId } = req.params;
+    const { error } = await gcrDb.from('section_location').upsert({ ...req.body, section_id: sectionId }, { onConflict: 'section_id' });
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ── Image Upload ──────────────────────────────────────────────
+// POST /api/admin/gcr/upload-image — upload file to Supabase Storage, return public URL
+// Also supports adding image via URL directly to a section's photos
+
+router.post('/gcr/upload-image', upload.single('file'), async (req, res) => {
+    if (!req.file) return res.status(400).json({ error: 'No file provided' });
+    const ext = req.file.originalname.split('.').pop().toLowerCase();
+    const fileName = `gcr/${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
+    const { data, error } = await gcrDb.storage.from('entity-media').upload(fileName, req.file.buffer, { contentType: req.file.mimetype, upsert: false });
+    if (error) return res.status(500).json({ error: error.message });
+    const { data: { publicUrl } } = gcrDb.storage.from('entity-media').getPublicUrl(fileName);
+    res.json({ success: true, url: publicUrl });
+});
+
+// ── Section Content: Hours ────────────────────────────────────
+
+// PUT /api/admin/gcr/sections/:sectionId/hours — replace all hours rows
+router.put('/gcr/sections/:sectionId/hours', async (req, res) => {
+    const { sectionId } = req.params;
+    const { hours } = req.body; // array of { day_of_week, open_time, close_time, is_closed, note_text }
+    if (!Array.isArray(hours)) return res.status(400).json({ error: 'hours must be an array' });
+
+    await gcrDb.from('section_hours').delete().eq('section_id', sectionId);
+
+    const rows = hours.map((h, i) => ({ section_id: sectionId, day_of_week: h.day_of_week, open_time: h.open_time || null, close_time: h.close_time || null, is_closed: h.is_closed || false, note_text: h.note_text || null, sort_order: i }));
+    const { error } = await gcrDb.from('section_hours').insert(rows);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ══════════════════════════════════════════════════════════
+// GCR Dashboard — Reviews, Customers
+// ══════════════════════════════════════════════════════════
+
+// GET /api/admin/gcr/reviews
+router.get('/gcr/reviews', async (req, res) => {
+    let query = gcrDb.from('gcr_reviews').select('*').order('created_at', { ascending: false }).range(0, 499);
+    if (req.query.status && req.query.status !== 'all') query = query.eq('status', req.query.status);
+    const { data, error } = await query;
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ reviews: data || [] });
+});
+
+// PUT /api/admin/gcr/reviews/:id
+router.put('/gcr/reviews/:id', async (req, res) => {
+    const { id } = req.params;
+    const updates = req.body;
+    updates.updated_at = new Date().toISOString();
+    const { error } = await gcrDb.from('gcr_reviews').update(updates).eq('id', id);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// DELETE /api/admin/gcr/reviews/:id
+router.delete('/gcr/reviews/:id', async (req, res) => {
+    const { id } = req.params;
+    const { error } = await gcrDb.from('gcr_reviews').delete().eq('id', id);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// GET /api/admin/gcr/customers
+router.get('/gcr/customers', async (req, res) => {
+    const { data, error } = await gcrDb.from('gcr_customers').select('*').order('created_at', { ascending: false }).range(0, 499);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ customers: data || [] });
+});
+
+// POST /api/admin/gcr/customers
+router.post('/gcr/customers', async (req, res) => {
+    const customer = req.body;
+    const { data, error } = await gcrDb.from('gcr_customers').insert(customer).select('id').single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true, id: data.id });
+});
+
+// PUT /api/admin/gcr/customers/:id
+router.put('/gcr/customers/:id', async (req, res) => {
+    const { id } = req.params;
+    const updates = req.body;
+    updates.updated_at = new Date().toISOString();
+    const { error } = await gcrDb.from('gcr_customers').update(updates).eq('id', id);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ── Analytics ──────────────────────────────────────────────
+// GET /api/admin/gcr/analytics
+router.get('/gcr/analytics', async (req, res) => {
+    const today = new Date().toISOString().split('T')[0];
+    const monthStart = today.slice(0, 7) + '-01';
+
+    const [pvToday, pvMonth, convToday, topEntities] = await Promise.all([
+        gcrDb.from('gcr_page_views').select('id, visitor_id', { count: 'exact' }).gte('created_at', today + 'T00:00:00Z'),
+        gcrDb.from('gcr_page_views').select('id', { count: 'exact' }).gte('created_at', monthStart + 'T00:00:00Z'),
+        gcrDb.from('gcr_conversions').select('id, conversion_type', { count: 'exact' }).gte('created_at', today + 'T00:00:00Z'),
+        gcrDb.from('gcr_page_views').select('entity_id, entity(name, slug, icon)').gte('created_at', monthStart + 'T00:00:00Z').limit(1000),
+    ]);
+
+    // Count unique visitors today
+    const todayVisitors = new Set((pvToday.data || []).map(r => r.visitor_id).filter(Boolean)).size;
+
+    // Tally top entities by page views
+    const entityCounts = {};
+    (topEntities.data || []).forEach(r => {
+        const key = r.entity_id;
+        if (!key) return;
+        if (!entityCounts[key]) entityCounts[key] = { entity: r.entity, count: 0 };
+        entityCounts[key].count++;
+    });
+    const top = Object.values(entityCounts).sort((a, b) => b.count - a.count).slice(0, 10);
+
+    res.json({
+        today_visitors: todayVisitors,
+        today_views: pvToday.count || 0,
+        today_conversions: convToday.count || 0,
+        month_views: pvMonth.count || 0,
+        top_entities: top,
+    });
+});
+
+// POST /api/admin/gcr/analytics/track — record a page view
+router.post('/gcr/analytics/track', async (req, res) => {
+    const { entity_id, page_path, referrer, utm_source, utm_medium, device_type, session_id, visitor_id } = req.body;
+    const { error } = await gcrDb.from('gcr_page_views').insert({ entity_id, page_path, referrer, utm_source, utm_medium, device_type, session_id, visitor_id });
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// POST /api/admin/gcr/analytics/convert — record a conversion
+router.post('/gcr/analytics/convert', async (req, res) => {
+    const { entity_id, conversion_type, source } = req.body;
+    const { error } = await gcrDb.from('gcr_conversions').insert({ entity_id, conversion_type, source });
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ============================================
+// GET /api/admin/platform-analytics — Aggregated platform analytics
+// Queries the main supabase DB (gcr_page_views, booking_funnel, tourist data)
+// ============================================
+router.get('/platform-analytics', async (req, res) => {
+    const days = Math.min(parseInt(req.query.days) || 30, 90);
+    const since = new Date(Date.now() - days * 86400000).toISOString();
+    const today = new Date().toISOString().split('T')[0];
+
+    const [pvAll, pvToday, funnelAll, touristCount, saveCount] = await Promise.all([
+        supabase.from('platform_page_views').select('page_path, utm_source, utm_medium, utm_campaign, device_type, session_id, source, created_at').gte('created_at', since).limit(5000),
+        supabase.from('platform_page_views').select('session_id, source', { count: 'exact' }).gte('created_at', today + 'T00:00:00Z'),
+        supabase.from('booking_funnel').select('step, step_name, session_id').gte('created_at', since),
+        supabase.from('tourist_profiles').select('user_id', { count: 'exact' }).eq('setup_complete', true),
+        supabase.from('tourist_saves').select('id', { count: 'exact' }),
+    ]);
+
+    const rows = pvAll.data || [];
+
+    // Totals
+    const totalViews    = rows.length;
+    const uniqueSess    = new Set(rows.map(r => r.session_id).filter(Boolean)).size;
+    const todayViews    = pvToday.count || 0;
+    const gcrViews      = rows.filter(r => r.source === 'gcr').length;
+    const tsViews       = rows.filter(r => r.source === 'tripswipe').length;
+
+    // Top pages
+    const pageCounts = {};
+    rows.forEach(r => { const p = r.page_path || '/'; pageCounts[p] = (pageCounts[p] || 0) + 1; });
+    const topPages = Object.entries(pageCounts).sort((a,b)=>b[1]-a[1]).slice(0,10).map(([p,c])=>({page:p,views:c}));
+
+    // Traffic sources (UTM)
+    const srcCounts = {};
+    rows.forEach(r => {
+        const src = r.utm_source || (r.utm_medium ? r.utm_medium : 'direct');
+        srcCounts[src] = (srcCounts[src] || 0) + 1;
+    });
+    const topSources = Object.entries(srcCounts).sort((a,b)=>b[1]-a[1]).slice(0,8).map(([s,c])=>({source:s,views:c}));
+
+    // Device split
+    const deviceCounts = { mobile: 0, desktop: 0, other: 0 };
+    rows.forEach(r => { const d = r.device_type || 'other'; deviceCounts[d in deviceCounts ? d : 'other']++; });
+
+    // Daily views (last 14 days)
+    const dailyCounts = {};
+    rows.forEach(r => {
+        const day = (r.created_at || '').slice(0, 10);
+        if (day) dailyCounts[day] = (dailyCounts[day] || 0) + 1;
+    });
+    const now = new Date();
+    const daily = Array.from({ length: 14 }, (_, i) => {
+        const d = new Date(now); d.setDate(d.getDate() - (13 - i));
+        const key = d.toISOString().slice(0, 10);
+        return { date: key, views: dailyCounts[key] || 0 };
+    });
+
+    // Booking funnel
+    const funnelSteps = {};
+    (funnelAll.data || []).forEach(r => {
+        const key = r.step_name || ('step_' + r.step);
+        if (!funnelSteps[key]) funnelSteps[key] = { step_name: key, step: r.step, sessions: new Set() };
+        funnelSteps[key].sessions.add(r.session_id);
+    });
+    const funnel = Object.values(funnelSteps)
+        .sort((a, b) => (a.step || 0) - (b.step || 0))
+        .map(s => ({ step_name: s.step_name, count: s.sessions.size }));
+
+    res.json({
+        period_days: days,
+        total_views: totalViews,
+        unique_sessions: uniqueSess,
+        today_views: todayViews,
+        gcr_views: gcrViews,
+        tripswipe_views: tsViews,
+        top_pages: topPages,
+        top_sources: topSources,
+        devices: deviceCounts,
+        daily: daily,
+        funnel: funnel,
+        tourists: touristCount.count || 0,
+        total_saves: saveCount.count || 0,
+    });
+});
+
+// ============================================
+// GET /api/admin/tripswipe-analytics — Real TripSwipe swipe + save data
+// ============================================
+router.get('/tripswipe-analytics', async (req, res) => {
+    const period = req.query.period || 'month';
+    const since = {
+        today: new Date().toISOString().split('T')[0] + 'T00:00:00Z',
+        week:  new Date(Date.now() - 7  * 86400000).toISOString(),
+        month: new Date(Date.now() - 30 * 86400000).toISOString(),
+        all:   '2000-01-01T00:00:00Z',
+    }[period] || new Date(Date.now() - 30 * 86400000).toISOString();
+
+    const [savesRes, profilesRes] = await Promise.all([
+        supabase.from('tourist_saves')
+            .select('entity_slug, business_name, category, rating, hero_image_url, saved_at')
+            .gte('saved_at', since)
+            .limit(5000),
+        supabase.from('tourist_profiles')
+            .select('answers, user_id'),
+    ]);
+
+    const saves = savesRes.data || [];
+    const profiles = profilesRes.data || [];
+
+    // Total likes = saves in period
+    const totalLikes = saves.length;
+
+    // Total seen across all users (no date filter available on seen_slugs)
+    const totalSeen = profiles.reduce((sum, p) => sum + ((p.answers?.seen_slugs || []).length), 0);
+    const totalNopes = Math.max(0, totalSeen - totalLikes);
+    const likeRate = totalSeen > 0 ? Math.round((totalLikes / totalSeen) * 100) : 0;
+
+    // Active tourists = profiles with setup_complete
+    const { count: activeTourists } = await supabase
+        .from('tourist_profiles').select('user_id', { count: 'exact' }).eq('setup_complete', true);
+
+    // Category breakdown from saves
+    const catCounts = {};
+    saves.forEach(s => {
+        const cat = s.category || 'Other';
+        catCounts[cat] = (catCounts[cat] || 0) + 1;
+    });
+    const categories = Object.entries(catCounts)
+        .sort((a, b) => b[1] - a[1])
+        .map(([cat, count]) => ({ cat, count, pct: totalLikes > 0 ? Math.round((count / totalLikes) * 100) : 0 }));
+
+    // Top liked: most saved entity_slugs
+    const slugCounts = {};
+    const slugNames  = {};
+    const slugImages = {};
+    saves.forEach(s => {
+        if (!s.entity_slug) return;
+        slugCounts[s.entity_slug] = (slugCounts[s.entity_slug] || 0) + 1;
+        slugNames[s.entity_slug]  = s.business_name || s.entity_slug;
+        slugImages[s.entity_slug] = s.hero_image_url || null;
+    });
+    const topLiked = Object.entries(slugCounts)
+        .sort((a, b) => b[1] - a[1]).slice(0, 10)
+        .map(([slug, count]) => ({ slug, name: slugNames[slug], count, image: slugImages[slug] }));
+
+    // Most skipped: active entities in gcrDb with fewest saves
+    const { data: activeEntities } = await gcrDb.from('entity')
+        .select('slug, name, type').eq('is_active', true).limit(200);
+    const mostSkipped = (activeEntities || [])
+        .map(e => ({ slug: e.slug, name: e.name, type: e.type, saves: slugCounts[e.slug] || 0 }))
+        .sort((a, b) => a.saves - b.saves)
+        .slice(0, 8);
+
+    // Saves per day (last 14 days)
+    const dailySaves = {};
+    const now = new Date();
+    for (let i = 0; i < 14; i++) {
+        const d = new Date(now); d.setDate(d.getDate() - (13 - i));
+        dailySaves[d.toISOString().slice(0, 10)] = 0;
+    }
+    saves.forEach(s => {
+        const day = (s.saved_at || '').slice(0, 10);
+        if (day in dailySaves) dailySaves[day]++;
+    });
+    const daily = Object.entries(dailySaves).map(([date, count]) => ({ date, count }));
+
+    res.json({
+        period,
+        total_likes:   totalLikes,
+        total_seen:    totalSeen,
+        total_nopes:   totalNopes,
+        like_rate:     likeRate,
+        active_tourists: activeTourists || 0,
+        categories,
+        top_liked:     topLiked,
+        most_skipped:  mostSkipped,
+        daily,
+    });
+});
+
+// ── Messaging Settings ─────────────────────────────────────
+// GET /api/admin/gcr/messaging/:entity_id
+router.get('/gcr/messaging/:entity_id', async (req, res) => {
+    const { data, error } = await gcrDb.from('gcr_messaging_settings').select('*').eq('entity_id', req.params.entity_id).single();
+    if (error && error.code !== 'PGRST116') return res.status(500).json({ error: error.message });
+    res.json({ settings: data || null });
+});
+
+// PUT /api/admin/gcr/messaging/:entity_id
+router.put('/gcr/messaging/:entity_id', async (req, res) => {
+    const updates = { ...req.body, entity_id: req.params.entity_id, updated_at: new Date().toISOString() };
+    const { error } = await gcrDb.from('gcr_messaging_settings').upsert(updates, { onConflict: 'entity_id' });
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ── Coupons ────────────────────────────────────────────────
+// GET /api/admin/gcr/coupons
+router.get('/gcr/coupons', async (req, res) => {
+    let query = gcrDb.from('gcr_coupons').select('*, entity(name, slug)').order('created_at', { ascending: false }).range(0, 499);
+    if (req.query.entity_id) query = query.eq('entity_id', req.query.entity_id);
+    const { data, error } = await query;
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ coupons: data || [] });
+});
+
+// POST /api/admin/gcr/coupons
+router.post('/gcr/coupons', async (req, res) => {
+    const { data, error } = await gcrDb.from('gcr_coupons').insert(req.body).select('id').single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true, id: data.id });
+});
+
+// PUT /api/admin/gcr/coupons/:id
+router.put('/gcr/coupons/:id', async (req, res) => {
+    const { error } = await gcrDb.from('gcr_coupons').update(req.body).eq('id', req.params.id);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// DELETE /api/admin/gcr/coupons/:id
+router.delete('/gcr/coupons/:id', async (req, res) => {
+    const { error } = await gcrDb.from('gcr_coupons').delete().eq('id', req.params.id);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ── SEO Settings ───────────────────────────────────────────
+// GET /api/admin/gcr/seo/:entity_id
+router.get('/gcr/seo/:entity_id', async (req, res) => {
+    const { data, error } = await gcrDb.from('gcr_seo_settings').select('*').eq('entity_id', req.params.entity_id).single();
+    if (error && error.code !== 'PGRST116') return res.status(500).json({ error: error.message });
+    res.json({ seo: data || null });
+});
+
+// PUT /api/admin/gcr/seo/:entity_id
+router.put('/gcr/seo/:entity_id', async (req, res) => {
+    const updates = { ...req.body, entity_id: req.params.entity_id, updated_at: new Date().toISOString() };
+    const { error } = await gcrDb.from('gcr_seo_settings').upsert(updates, { onConflict: 'entity_id' });
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ── Bookings Management ────────────────────────────────────
+// GET /api/admin/bookings?site_id=xxx
+router.get('/bookings', async (req, res) => {
+    const { site_id, status, from, to } = req.query;
+    let query = supabase
+        .from('bookings')
+        .select('id, customer_name, customer_email, customer_phone, booking_date, time_slot_id, total, status, payment_status, notes, created_at, site_id')
+        .order('booking_date', { ascending: false });
+    if (site_id) query = query.eq('site_id', site_id);
+    if (status) query = query.eq('status', status);
+    if (from) query = query.gte('booking_date', from);
+    if (to) query = query.lte('booking_date', to);
+    const { data, error } = await query;
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data || []);
+});
+
+// DELETE /api/admin/bookings/:id
+router.delete('/bookings/:id', async (req, res) => {
+    const { error } = await supabase.from('bookings').delete().eq('id', req.params.id);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// PATCH /api/admin/bookings/:id/cancel
+router.patch('/bookings/:id/cancel', async (req, res) => {
+    const { error } = await supabase
+        .from('bookings')
+        .update({ status: 'cancelled', updated_at: new Date().toISOString() })
+        .eq('id', req.params.id);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// POST /api/admin/gcr/entities/:id/invite
+// Creates a GCR Supabase auth user for the business and sends invite email
+router.post('/gcr/entities/:id/invite', async (req, res) => {
+    try {
+        const gcrDb = getGcrDb();
+        const entityId = req.params.id;
+
+        // Get entity email + slug
+        const { data: entity, error: entErr } = await gcrDb
+            .from('entity')
+            .select('id, slug, name, email')
+            .eq('id', entityId)
+            .single();
+
+        if (entErr || !entity) return res.status(404).json({ error: 'Entity not found' });
+        if (!entity.email) return res.status(400).json({ error: 'Entity has no email address' });
+
+        const redirectTo = 'https://cybercheck-links.vercel.app/reset-password.html';
+
+        // Invite user via Supabase auth — sends email with magic link
+        const { data: authData, error: authErr } = await gcrDb.auth.admin.inviteUserByEmail(entity.email, {
+            redirectTo,
+            data: { business_name: entity.name, entity_slug: entity.slug }
+        });
+
+        if (authErr) return res.status(400).json({ error: authErr.message });
+
+        const userId = authData.user.id;
+
+        // Upsert profiles row linking auth user to entity slug
+        await gcrDb.from('profiles').upsert({
+            id: userId,
+            business_name: entity.name,
+            slug: entity.slug,
+        }, { onConflict: 'id' });
+
+        res.json({ success: true, email: entity.email, userId });
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
+});
+
+// ============================================
+// SITE CONFIG — Site Editor Home Hero tab
+// ============================================
+
+router.get('/gcr/site-config', async (req, res) => {
+    try {
+        const gcrDb = getGcrDb();
+        const { data, error } = await gcrDb
+            .from('gcr_site_config')
+            .select('*')
+            .order('id')
+            .limit(1)
+            .single();
+        if (error && error.code !== 'PGRST116') return res.status(500).json({ error: error.message });
+        res.json(data || {});
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+router.put('/gcr/site-config/hero', async (req, res) => {
+    try {
+        const gcrDb = getGcrDb();
+        const { hero_title, hero_subtitle, hero_image_url, hero_cta_text, hero_cta_url } = req.body;
+        const payload = { hero_title, hero_subtitle, hero_image_url, hero_cta_text, hero_cta_url, updated_at: new Date().toISOString() };
+        // Upsert — only one row
+        const { data: existing } = await gcrDb.from('gcr_site_config').select('id').limit(1).single();
+        let result;
+        if (existing?.id) {
+            result = await gcrDb.from('gcr_site_config').update(payload).eq('id', existing.id).select().single();
+        } else {
+            result = await gcrDb.from('gcr_site_config').insert(payload).select().single();
+        }
+        if (result.error) return res.status(500).json({ error: result.error.message });
+        res.json({ success: true, data: result.data });
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+// ============================================
+// CATEGORY CARDS — Site Editor Category Cards tab
+// ============================================
+
+router.get('/gcr/category-cards', async (req, res) => {
+    try {
+        const gcrDb = getGcrDb();
+        const { data, error } = await gcrDb
+            .from('gcr_category_cards')
+            .select('*')
+            .order('sort_order', { ascending: true });
+        if (error && error.code !== 'PGRST116') return res.status(500).json({ error: error.message });
+        res.json(data || []);
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+router.put('/gcr/category-cards/:id', async (req, res) => {
+    try {
+        const gcrDb = getGcrDb();
+        const { id } = req.params;
+        const { label, emoji, image_url, href, sort_order } = req.body;
+        const { data, error } = await gcrDb
+            .from('gcr_category_cards')
+            .upsert({ id, label, emoji, image_url, href, sort_order, updated_at: new Date().toISOString() }, { onConflict: 'id' })
+            .select().single();
+        if (error) return res.status(500).json({ error: error.message });
+        res.json({ success: true, data });
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+// ============================================
+// PAGE ASSIGNMENTS — Site Editor Page Assignments tab
+// Controls which sections show on each category listing page
+// ============================================
+
+router.get('/gcr/page-assignments/:catId', async (req, res) => {
+    try {
+        const gcrDb = getGcrDb();
+        const { catId } = req.params;
+        const { data, error } = await gcrDb
+            .from('gcr_page_assignments')
+            .select('*')
+            .eq('category_id', catId)
+            .order('sort_order', { ascending: true });
+        if (error && error.code !== 'PGRST116') return res.status(500).json({ error: error.message });
+        const rows = data || [];
+        // Join entity details for each assignment
+        const entityIds = rows.map(r => r.entity_id).filter(Boolean);
+        let entityMap = {};
+        if (entityIds.length) {
+            const { data: entities } = await gcrDb
+                .from('entity')
+                .select('id, name, slug, icon, entity_type, entity_subtype, city, state, hero_image_url, is_active')
+                .in('id', entityIds);
+            (entities || []).forEach(e => { entityMap[e.id] = e; });
+        }
+        const assignments = rows.map(r => ({ ...r, entity: entityMap[r.entity_id] || null }));
+        res.json({ assignments });
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+router.put('/gcr/page-assignments/:catId/order', async (req, res) => {
+    try {
+        const gcrDb = getGcrDb();
+        const { catId } = req.params;
+        const { assignments } = req.body; // [{entity_id, sort_order}]
+        if (!Array.isArray(assignments)) return res.status(400).json({ error: 'assignments array required' });
+        for (const a of assignments) {
+            await gcrDb.from('gcr_page_assignments')
+                .upsert({ category_id: catId, entity_id: a.entity_id, sort_order: a.sort_order }, { onConflict: 'category_id,entity_id' });
+        }
+        res.json({ success: true });
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+// ============================================
+// ENTITY PAGES — Site Editor Entity Pages tab
+// Custom page layout / section order per entity
+// ============================================
+
+router.get('/gcr/entity-pages/:entityId', async (req, res) => {
+    try {
+        const gcrDb = getGcrDb();
+        const { entityId } = req.params;
+        const { data, error } = await gcrDb
+            .from('gcr_entity_pages')
+            .select('*')
+            .eq('entity_id', entityId)
+            .order('sort_order', { ascending: true });
+        if (error && error.code !== 'PGRST116') return res.status(500).json({ error: error.message });
+        res.json(data || []);
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+router.post('/gcr/entity-pages/:entityId', async (req, res) => {
+    try {
+        const gcrDb = getGcrDb();
+        const { entityId } = req.params;
+        const { section_key, section_label, sort_order, is_visible } = req.body;
+        const { data, error } = await gcrDb
+            .from('gcr_entity_pages')
+            .upsert({ entity_id: entityId, section_key, section_label, sort_order: sort_order || 0, is_visible: is_visible !== false }, { onConflict: 'entity_id,section_key' })
+            .select().single();
+        if (error) return res.status(500).json({ error: error.message });
+        res.json({ success: true, data });
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+router.put('/gcr/entity-pages/:entityId/:pageId', async (req, res) => {
+    try {
+        const gcrDb = getGcrDb();
+        const { pageId } = req.params;
+        const { sort_order, is_visible, section_label } = req.body;
+        const { data, error } = await gcrDb
+            .from('gcr_entity_pages')
+            .update({ sort_order, is_visible, section_label, updated_at: new Date().toISOString() })
+            .eq('id', pageId)
+            .select().single();
+        if (error) return res.status(500).json({ error: error.message });
+        res.json({ success: true, data });
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+// ============================================
+// CATEGORY PAGE CONFIG — Site Editor / Page Headers
+// ============================================
+
+router.get('/gcr/category-page-config/:catId', async (req, res) => {
+    try {
+        const gcrDb = getGcrDb();
+        const { catId } = req.params;
+        const { data, error } = await gcrDb
+            .from('gcr_category_page_config')
+            .select('category_id, page_title, page_description, hero_image_url')
+            .eq('category_id', catId)
+            .single();
+        if (error && error.code !== 'PGRST116') return res.status(500).json({ error: error.message });
+        res.json(data || { category_id: catId });
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
+});
+
+router.put('/gcr/category-page-config/:catId', async (req, res) => {
+    try {
+        const gcrDb = getGcrDb();
+        const { catId } = req.params;
+        const { page_title, page_description, hero_image_url } = req.body;
+        const { data, error } = await gcrDb
+            .from('gcr_category_page_config')
+            .upsert({
+                category_id: catId,
+                page_title: page_title || null,
+                page_description: page_description || null,
+                hero_image_url: hero_image_url || null,
+                updated_at: new Date().toISOString(),
+            }, { onConflict: 'category_id' })
+            .select()
+            .single();
+        if (error) return res.status(500).json({ error: error.message });
+        res.json({ success: true, data });
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
+});
+
+// ============================================
+// POST /api/admin/ai-scrape-url
+// Body: { url }
+// Fetches the page, cleans HTML to text, sends to Grok, returns structured preview JSON
+// ============================================
+async function scrapeUrlToStructured(url) {
+    if (!url || !url.startsWith('http')) throw new Error('Valid URL required');
+
+    // Fetch the page
+    let rawHtml;
+    try {
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 12000);
+        const r = await fetch(url, {
+            signal: controller.signal,
+            headers: { 'User-Agent': 'Mozilla/5.0 (compatible; GCRBot/1.0; +https://gulfcoastradar.com)' }
+        });
+        clearTimeout(timeout);
+        if (!r.ok) throw new Error(`Site returned ${r.status}`);
+        rawHtml = await r.text();
+    } catch (e) {
+        throw new Error(`Could not fetch URL: ${e.message}`);
+    }
+
+    // Strip HTML to clean text — keep structure hints
+    const cleanText = rawHtml
+        .replace(/<script[\s\S]*?<\/script>/gi, '')
+        .replace(/<style[\s\S]*?<\/style>/gi, '')
+        .replace(/<nav[\s\S]*?<\/nav>/gi, '')
+        .replace(/<footer[\s\S]*?<\/footer>/gi, '')
+        .replace(/<header[\s\S]*?<\/header>/gi, '')
+        .replace(/<!--[\s\S]*?-->/g, '')
+        .replace(/<br\s*\/?>/gi, '\n')
+        .replace(/<\/p>/gi, '\n')
+        .replace(/<\/div>/gi, '\n')
+        .replace(/<\/li>/gi, '\n')
+        .replace(/<\/h[1-6]>/gi, '\n')
+        .replace(/<[^>]+>/g, ' ')
+        .replace(/&amp;/g, '&').replace(/&nbsp;/g, ' ').replace(/&quot;/g, '"')
+        .replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&#\d+;/g, '')
+        .replace(/[ \t]{2,}/g, ' ')
+        .replace(/\n{3,}/g, '\n\n')
+        .trim()
+        .slice(0, 14000);
+
+    const systemPrompt = `You are a data extraction assistant for Gulf Coast Radar, a tourism & dining directory for Orange Beach and Gulf Shores, Alabama.
+
+Extract ALL structured business data from the page text. Output ONLY a single valid JSON object — no markdown, no explanation.
+
+Use this exact schema:
+{
+  "name": "business display name",
+  "entity_type": "gcr_business",
+  "entity_subtype": "restaurant | bar | nightlife | coffee_sweets | shopping | hotel | activity | rental | service | attraction",
+  "slug": "lowercase-hyphenated-slug",
+  "subtitle": "short one-line tagline",
+  "description": "2-3 sentence about section",
+  "icon": "single emoji",
+  "phone": "phone number",
+  "address_line_1": "street address",
+  "city": "city name",
+  "state": "AL",
+  "zip": "zip code",
+  "website_url": "website URL",
+  "email": "email if found",
+  "price_range": "$ | $$ | $$$ | $$$$",
+  "social_instagram": "instagram URL or handle",
+  "social_facebook": "facebook URL",
+  "social_tiktok": "tiktok URL or handle",
+  "hh_days": "Mon-Fri or similar",
+  "hh_start": "3:00 PM",
+  "hh_end": "6:00 PM",
+  "hours": [
+    { "day_of_week": 0, "day_name": "Sunday", "open_time": "11:00", "close_time": "21:00", "is_closed": false }
+  ],
+  "tags": ["tag1", "tag2"],
+  "features": ["Waterfront", "Pet Friendly", "Live Music"],
+  "perfect_for": ["Date night", "Families", "Groups"],
+  "menu_sections": [
+    {
+      "section_name": "Starters",
+      "items": [
+        { "item_name": "Gulf Shrimp Cocktail", "description": "Chilled shrimp with cocktail sauce", "price": 14.00, "price_text": "$14" }
+      ]
+    }
+  ],
+  "drink_sections": [
+    {
+      "section_name": "Cocktails",
+      "items": [
+        { "item_name": "Gulf Sunset", "description": "Vodka, OJ, grenadine", "price": 10.00, "price_text": "$10" }
+      ]
+    }
+  ],
+  "happy_hour_items": [
+    { "item_name": "House Draft", "description": "Any draft beer", "hh_price": 3.00, "regular_price": 6.00 }
+  ],
+  "specials": [
+    { "special_name": "Taco Tuesday", "description": "$2 tacos all day", "days": "Tuesday", "discount_text": "$2 tacos", "start_time": null, "end_time": null }
+  ],
+  "events": [
+    { "event_name": "Live Music Friday", "description": "Local bands every Friday night", "event_date": null, "start_time": "19:00" }
+  ],
+  "fleet": [
+    { "name": "Pontoon Boat", "description": "6-person pontoon rental", "capacity": 6, "price_per_hour": 150 }
+  ],
+  "pricing": [
+    { "package_name": "Adult Ticket", "price": 45.00, "price_text": "$45/person", "description": "Full tour experience" }
+  ],
+  "activities": [
+    { "title": "Dolphin Cruise", "description": "2-hour dolphin watching tour", "duration_minutes": 120 }
+  ],
+  "about_bullets": [
+    { "text": "Family owned since 1987", "icon": "🏠" }
+  ],
+  "kids_friendly": true,
+  "pet_friendly": false,
+  "live_music": false,
+  "waterfront": false,
+  "outdoor_seating": false,
+  "alcohol": true,
+  "booking_required": false
+}
+
+Only include fields with actual data found on the page. Use null for unknown fields. Never invent data.`;
+
+    try {
+        const result = await callAIRound({
+            systemPrompt,
+            messages: [{ role: 'user', content: `Extract all data from this business page (URL: ${url}):\n\n${cleanText}` }],
+            maxTokens: 4096,
+            temperature: 0.1,
+        });
+        const raw = result.text || '{}';
+        const cleaned = raw.replace(/^```(?:json)?\s*/i, '').replace(/\s*```\s*$/, '').trim();
+        const structured = JSON.parse(cleaned);
+        return { success: true, url, structured, provider: result.provider };
+    } catch (e) {
+        console.error('ai-scrape-url error:', e.message);
+        throw e;
+    }
+}
+
+router.post('/ai-scrape-url', adminRequired, async (req, res) => {
+    try {
+        const out = await scrapeUrlToStructured(req.body?.url);
+        res.json(out);
+    } catch (e) {
+        res.status(/required|fetch|returned/i.test(e.message) ? 400 : 500).json({ error: e.message });
+    }
+});
+
+// ============================================
+// POST /api/admin/ai-scrape-approve
+// Body: { structured } — the reviewed/edited JSON from ai-scrape-url
+// Saves everything to the correct GCR tables in one shot
+// ============================================
+async function saveScrapedBusiness(structured, gcrDb) {
+    if (!structured?.name) return { error: 'structured.name required' };
+
+    const { upsertTag } = gcrImportHelpers(gcrDb);
+    const saved = {};
+    const errors = [];
+
+    // Derive slug if missing
+    if (!structured.slug) {
+        structured.slug = structured.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    }
+
+    // ── Upsert entity ──
+    const entityFields = {
+        name: structured.name,
+        slug: structured.slug,
+        entity_type: structured.entity_type || 'gcr_business',
+        entity_subtype: structured.entity_subtype || 'restaurant',
+        subtitle: structured.subtitle || null,
+        description: structured.description || null,
+        icon: structured.icon || null,
+        phone: structured.phone || null,
+        email: structured.email || null,
+        address_line_1: structured.address_line_1 || null,
+        city: structured.city || null,
+        state: structured.state || 'AL',
+        zip: structured.zip || null,
+        website_url: structured.website_url || null,
+        price_range: structured.price_range || null,
+        social_instagram: structured.social_instagram || null,
+        social_facebook: structured.social_facebook || null,
+        social_tiktok: structured.social_tiktok || null,
+        hh_days: structured.hh_days || null,
+        hh_start: structured.hh_start || null,
+        hh_end: structured.hh_end || null,
+        is_active: false, // admin activates manually after review
+    };
+
+    const { data: entity, error: entErr } = await gcrDb
+        .from('entity')
+        .upsert(entityFields, { onConflict: 'slug' })
+        .select('id, slug')
+        .single();
+    if (entErr || !entity) return { error: `Entity save failed: ${entErr?.message}` };
+
+    const eid = entity.id;
+    saved.entity = { id: eid, slug: entity.slug };
+
+    // ── Feature flags → tags ──
+    const featureFlags = { kids_friendly: 'kids_friendly', pet_friendly: 'pet_friendly', live_music: 'live_music', waterfront: 'waterfront', outdoor_seating: 'outdoor_seating', alcohol: 'full_bar', booking_required: 'booking_required' };
+    for (const [key, tag] of Object.entries(featureFlags)) {
+        if (structured[key]) await gcrDb.from('entity_tags').upsert({ entity_id: eid, tag, tag_category: 'amenity' }, { onConflict: 'entity_id,tag' });
+    }
+
+    // ── Hours ──
+    if (structured.hours?.length) {
+        await gcrDb.from('entity_hours').delete().eq('entity_id', eid);
+        const { error } = await gcrDb.from('entity_hours').insert(
+            structured.hours.map(h => ({ entity_id: eid, ...h }))
+        );
+        if (error) errors.push(`hours: ${error.message}`);
+        else saved.hours = structured.hours.length;
+    }
+
+    // ── Tags ──
+    if (structured.tags?.length) {
+        for (const tag of structured.tags) await upsertTag(eid, tag, 'tag');
+        saved.tags = structured.tags.length;
+    }
+
+    // ── Features ──
+    if (structured.features?.length) {
+        await gcrDb.from('entity_features').delete().eq('entity_id', eid);
+        const { error } = await gcrDb.from('entity_features').insert(
+            structured.features.map((f, i) => ({ entity_id: eid, label: f, sort_order: i }))
+        );
+        if (error) errors.push(`features: ${error.message}`);
+        else saved.features = structured.features.length;
+    }
+
+    // ── Perfect For ──
+    if (structured.perfect_for?.length) {
+        await gcrDb.from('entity_perfect_for').delete().eq('entity_id', eid);
+        const { error } = await gcrDb.from('entity_perfect_for').insert(
+            structured.perfect_for.map((p, i) => ({ entity_id: eid, label: p, sort_order: i }))
+        );
+        if (error) errors.push(`perfect_for: ${error.message}`);
+        else saved.perfect_for = structured.perfect_for.length;
+    }
+
+    // ── About bullets ──
+    if (structured.about_bullets?.length) {
+        const { error } = await gcrDb.from('entity_about_bullets').insert(
+            structured.about_bullets.map((b, i) => ({ entity_id: eid, text: b.text, icon: b.icon || '•', sort_order: i }))
+        );
+        if (error) errors.push(`about_bullets: ${error.message}`);
+        else saved.about_bullets = structured.about_bullets.length;
+    }
+
+    // ── Menu sections + items ──
+    if (structured.menu_sections?.length) {
+        let menuItemCount = 0;
+        for (let i = 0; i < structured.menu_sections.length; i++) {
+            const sec = structured.menu_sections[i];
+            const { data: ms, error: msErr } = await gcrDb.from('menu_sections')
+                .insert({ entity_id: eid, section_name: sec.section_name, sort_order: i })
+                .select('id').single();
+            if (msErr || !ms) { errors.push(`menu_section ${sec.section_name}: ${msErr?.message}`); continue; }
+            if (sec.items?.length) {
+                const { error: miErr } = await gcrDb.from('menu_items').insert(
+                    sec.items.map((item, j) => ({
+                        entity_id: eid, menu_section_id: ms.id,
+                        item_name: item.item_name, description: item.description || null,
+                        price: item.price || null, price_text: item.price_text || null,
+                        sort_order: j
+                    }))
+                );
+                if (miErr) errors.push(`menu_items in ${sec.section_name}: ${miErr.message}`);
+                else menuItemCount += sec.items.length;
+            }
+        }
+        saved.menu_items = menuItemCount;
+    }
+
+    // ── Drink sections + items ──
+    if (structured.drink_sections?.length) {
+        let drinkItemCount = 0;
+        for (let i = 0; i < structured.drink_sections.length; i++) {
+            const sec = structured.drink_sections[i];
+            const { data: ds, error: dsErr } = await gcrDb.from('drink_sections')
+                .insert({ entity_id: eid, section_name: sec.section_name, sort_order: i })
+                .select('id').single();
+            if (dsErr || !ds) { errors.push(`drink_section ${sec.section_name}: ${dsErr?.message}`); continue; }
+            if (sec.items?.length) {
+                const { error: diErr } = await gcrDb.from('drink_items').insert(
+                    sec.items.map((item, j) => ({
+                        entity_id: eid, drink_section_id: ds.id,
+                        item_name: item.item_name, description: item.description || null,
+                        price: item.price || null, price_text: item.price_text || null,
+                        sort_order: j
+                    }))
+                );
+                if (diErr) errors.push(`drink_items in ${sec.section_name}: ${diErr.message}`);
+                else drinkItemCount += sec.items.length;
+            }
+        }
+        saved.drink_items = drinkItemCount;
+    }
+
+    // ── Happy hour items ──
+    if (structured.happy_hour_items?.length) {
+        const { data: hhSec } = await gcrDb.from('happy_hour_sections')
+            .insert({ entity_id: eid, section_name: 'Happy Hour', sort_order: 0 })
+            .select('id').single();
+        if (hhSec) {
+            const { error } = await gcrDb.from('happy_hour_items').insert(
+                structured.happy_hour_items.map((item, i) => ({
+                    entity_id: eid, hh_section_id: hhSec.id,
+                    item_name: item.item_name, description: item.description || null,
+                    hh_price: item.hh_price || null, regular_price: item.regular_price || null,
+                    sort_order: i
+                }))
+            );
+            if (error) errors.push(`hh_items: ${error.message}`);
+            else saved.happy_hour_items = structured.happy_hour_items.length;
+        }
+    }
+
+    // ── Specials ──
+    if (structured.specials?.length) {
+        const { error } = await gcrDb.from('entity_specials').insert(
+            structured.specials.map(s => ({
+                entity_id: eid,
+                special_name: s.special_name,
+                description: s.description || null,
+                days: s.days || null,
+                discount_text: s.discount_text || null,
+                start_time: s.start_time || null,
+                end_time: s.end_time || null,
+                is_active: true
+            }))
+        );
+        if (error) errors.push(`specials: ${error.message}`);
+        else saved.specials = structured.specials.length;
+    }
+
+    // ── Events ──
+    if (structured.events?.length) {
+        const { error } = await gcrDb.from('entity_events').insert(
+            structured.events.map(e => ({
+                entity_id: eid,
+                event_name: e.event_name,
+                description: e.description || null,
+                event_date: e.event_date || null,
+                start_time: e.start_time || null,
+                is_active: true, recurring: !e.event_date
+            }))
+        );
+        if (error) errors.push(`events: ${error.message}`);
+        else saved.events = structured.events.length;
+    }
+
+    // ── Fleet (rentals/boats) ──
+    if (structured.fleet?.length) {
+        const { error } = await gcrDb.from('fleet_items').insert(
+            structured.fleet.map((f, i) => ({
+                entity_id: eid,
+                name: f.name, description: f.description || null,
+                capacity: f.capacity || null, price_per_hour: f.price_per_hour || null,
+                sort_order: i
+            }))
+        );
+        if (error) errors.push(`fleet: ${error.message}`);
+        else saved.fleet = structured.fleet.length;
+    }
+
+    // ── Pricing ──
+    if (structured.pricing?.length) {
+        const { error } = await gcrDb.from('pricing_items').insert(
+            structured.pricing.map((p, i) => ({
+                entity_id: eid,
+                package_name: p.package_name, description: p.description || null,
+                price: p.price || null, price_text: p.price_text || null,
+                sort_order: i
+            }))
+        );
+        if (error) errors.push(`pricing: ${error.message}`);
+        else saved.pricing = structured.pricing.length;
+    }
+
+    // ── Activities ──
+    if (structured.activities?.length) {
+        const { error } = await gcrDb.from('activities').insert(
+            structured.activities.map((a, i) => ({
+                entity_id: eid,
+                title: a.title, description: a.description || null,
+                duration_minutes: a.duration_minutes || null,
+                sort_order: i
+            }))
+        );
+        if (error) errors.push(`activities: ${error.message}`);
+        else saved.activities = structured.activities.length;
+    }
+
+    // Auto-create sections for whatever data was saved
+    const autoSections = [
+        { entity_id: eid, section_key: 'location', section_label: 'Location', section_type: 'location', sort_order: 99 },
+        { entity_id: eid, section_key: 'hours', section_label: 'Hours', section_type: 'hours', sort_order: 98 },
+    ];
+    if (saved.menu_items)   autoSections.push({ entity_id: eid, section_key: 'menu',      section_label: 'Menu',       section_type: 'menu',      sort_order: 1 });
+    if (saved.drink_items)  autoSections.push({ entity_id: eid, section_key: 'drinks',    section_label: 'Drinks',     section_type: 'drinks',    sort_order: 2 });
+    if (saved.happy_hour)   autoSections.push({ entity_id: eid, section_key: 'happy_hour',section_label: 'Happy Hour', section_type: 'happy_hour',sort_order: 3 });
+    if (saved.specials)     autoSections.push({ entity_id: eid, section_key: 'specials',  section_label: 'Specials',   section_type: 'specials',  sort_order: 4 });
+    if (saved.events)       autoSections.push({ entity_id: eid, section_key: 'events',    section_label: 'Events',     section_type: 'events',    sort_order: 5 });
+    if (saved.activities)   autoSections.push({ entity_id: eid, section_key: 'activities',section_label: 'Activities', section_type: 'activities',sort_order: 6 });
+    if (saved.fleet)        autoSections.push({ entity_id: eid, section_key: 'fleet',     section_label: 'Fleet',      section_type: 'fleet',     sort_order: 7 });
+    if (saved.about_bullets)autoSections.push({ entity_id: eid, section_key: 'about',     section_label: 'About',      section_type: 'bullets',   sort_order: 0 });
+    await gcrDb.from('entity_sections').insert(autoSections).then(() => {}).catch(() => {});
+
+    return { success: true, entity_id: eid, slug: entity.slug, saved, errors };
+}
+
+router.post('/ai-scrape-approve', adminRequired, async (req, res) => {
+    try {
+        const out = await saveScrapedBusiness(req.body?.structured, gcrDb);
+        if (out.error) return res.status(400).json(out);
+        res.json(out);
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
+});
+
+const AGENT_MENU_EXTRACT_PROMPT = `Extract ALL visible menu items from this image into JSON:
+{
+  "categories": [
+    { "name": "Section name", "item_type": "food|drink|happy_hour", "items": [
+        { "name": "Item", "price": 12.99, "description": "", "tags": [], "modifiers": [{ "name": "Add X", "price": 2 }] }
+    ], "section_modifiers": [] }
+  ]
+}
+Rules: extract every item across all columns, price as number (0 if not shown), item_type per section, tags only when clearly indicated, return ONLY JSON.`;
+
+async function extractMenuFromImageHelper({ image_base64, image_mime, provider, model }) {
+    if (!image_base64) return { error: 'image_base64 required' };
+    try {
+        const { result, provider: used } = await extractJsonFromImage({
+            imageBase64: image_base64,
+            mimeType: image_mime,
+            systemPrompt: 'You extract structured menu data from images. Return ONLY valid JSON — no markdown, no commentary.',
+            userPrompt: AGENT_MENU_EXTRACT_PROMPT,
+            provider, model,
+            maxTokens: 4096,
+        });
+        if (!result.categories || !Array.isArray(result.categories)) {
+            return { error: 'No menu items found in image' };
+        }
+        const totalItems = result.categories.reduce((s, c) => s + (c.items?.length || 0), 0);
+        return { ...result, total_items: totalItems, provider: used };
+    } catch (e) {
+        return { error: e.message };
+    }
+}
+
+// Save extracted menu categories+items into GCR menu_sections / menu_items
+async function saveMenuToEntity({ entityId, categories }, gcrDb) {
+    if (!entityId) return { error: 'entity_id required' };
+    if (!categories?.length) return { error: 'categories required' };
+    let totalItems = 0;
+    const errors = [];
+    for (let i = 0; i < categories.length; i++) {
+        const cat = categories[i];
+        const itemType = cat.item_type || 'food';
+        if (itemType === 'drink') {
+            const { data: ds, error: dsErr } = await gcrDb.from('drink_sections')
+                .insert({ entity_id: entityId, section_name: cat.name || 'Drinks', sort_order: i })
+                .select('id').single();
+            if (dsErr || !ds) { errors.push(`drink_section ${cat.name}: ${dsErr?.message}`); continue; }
+            if (cat.items?.length) {
+                const { error } = await gcrDb.from('drink_items').insert(
+                    cat.items.map((it, j) => ({
+                        entity_id: entityId, drink_section_id: ds.id,
+                        item_name: it.name, description: it.description || null,
+                        price: it.price || null, sort_order: j,
+                    }))
+                );
+                if (error) errors.push(`drink_items ${cat.name}: ${error.message}`);
+                else totalItems += cat.items.length;
+            }
+        } else if (itemType === 'happy_hour') {
+            const { data: hs } = await gcrDb.from('happy_hour_sections')
+                .insert({ entity_id: entityId, section_name: cat.name || 'Happy Hour', sort_order: i })
+                .select('id').single();
+            if (hs && cat.items?.length) {
+                const { error } = await gcrDb.from('happy_hour_items').insert(
+                    cat.items.map((it, j) => ({
+                        entity_id: entityId, hh_section_id: hs.id,
+                        item_name: it.name, description: it.description || null,
+                        hh_price: it.price || null, sort_order: j,
+                    }))
+                );
+                if (error) errors.push(`hh_items ${cat.name}: ${error.message}`);
+                else totalItems += cat.items.length;
+            }
+        } else {
+            const { data: ms, error: msErr } = await gcrDb.from('menu_sections')
+                .insert({ entity_id: entityId, section_name: cat.name || 'Menu', sort_order: i })
+                .select('id').single();
+            if (msErr || !ms) { errors.push(`menu_section ${cat.name}: ${msErr?.message}`); continue; }
+            if (cat.items?.length) {
+                const { error } = await gcrDb.from('menu_items').insert(
+                    cat.items.map((it, j) => ({
+                        entity_id: entityId, menu_section_id: ms.id,
+                        item_name: it.name, description: it.description || null,
+                        price: it.price || null, sort_order: j,
+                    }))
+                );
+                if (error) errors.push(`menu_items ${cat.name}: ${error.message}`);
+                else totalItems += cat.items.length;
+            }
+        }
+    }
+    return { success: true, entity_id: entityId, sections: categories.length, items: totalItems, errors };
+}
+
+// ── Upload base64 image to GCR's entity-media bucket and return public URL
+async function uploadEntityMedia(base64, mime, gcrDb) {
+    const ext = (mime || 'image/jpeg').split('/')[1] || 'jpg';
+    const fileName = `chat-uploads/${Date.now()}-${Math.random().toString(36).slice(2,9)}.${ext}`;
+    const buffer = Buffer.from(base64, 'base64');
+    const { error } = await gcrDb.storage.from('entity-media').upload(fileName, buffer, { contentType: mime || 'image/jpeg', upsert: false });
+    if (error) throw new Error(`Upload failed: ${error.message}`);
+    const { data } = gcrDb.storage.from('entity-media').getPublicUrl(fileName);
+    return data.publicUrl;
+}
+
+// ── Resolve a business by any identifier (id, slug, google_place_id, fuzzy name)
+async function lookupBusinessId(args, gcrDb) {
+    if (!args) return null;
+    if (args.id) {
+        const { data } = await gcrDb.from('entity').select('id,name,slug').eq('id', args.id).maybeSingle();
+        return data || null;
+    }
+    if (args.slug) {
+        const { data } = await gcrDb.from('entity').select('id,name,slug').eq('slug', args.slug).maybeSingle();
+        if (data) return data;
+    }
+    if (args.google_place_id) {
+        const { data } = await gcrDb.from('entity').select('id,name,slug').eq('google_place_id', args.google_place_id).maybeSingle();
+        if (data) return data;
+    }
+    if (args.name) {
+        const { data } = await gcrDb.from('entity').select('id,name,slug').ilike('name', `%${args.name}%`).limit(5);
+        if (data && data.length === 1) return data[0];
+        if (data && data.length > 1) return { ambiguous: true, matches: data };
+    }
+    return null;
+}
+
+// ══════════════════════════════════════════════════════════════
+// GROK AGENTIC AI — tool definitions + executor + agent loop
+// ══════════════════════════════════════════════════════════════
+
+const GCR_AGENT_TOOLS = [
+    {
+        type: 'function',
+        function: {
+            name: 'get_business_profile',
+            description: 'Get the full profile of the current business: name, type, address, contact, social links, hours, pricing, active flags.',
+            parameters: { type: 'object', properties: {} },
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'get_menu',
+            description: 'Get all menu sections and items for this business including prices, descriptions, availability.',
+            parameters: { type: 'object', properties: {} },
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'get_drinks',
+            description: 'Get all drink sections and drink items for this business.',
+            parameters: { type: 'object', properties: {} },
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'get_events',
+            description: 'Get events for this business. Can filter to only upcoming events.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    upcoming_only: { type: 'boolean', description: 'If true, only return future events' }
+                }
+            },
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'get_specials',
+            description: 'Get all active daily specials and deals for this business.',
+            parameters: { type: 'object', properties: {} },
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'get_happy_hours',
+            description: 'Get happy hour schedule (days, start/end times) and all happy hour items with prices for this business.',
+            parameters: { type: 'object', properties: {} },
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'get_analytics',
+            description: 'Get GCR analytics: page views and link clicks for this business profile.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    days: { type: 'number', description: 'How many days back to look (default 30)' }
+                }
+            },
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'get_reviews',
+            description: 'Get customer reviews, ratings and feedback for this business.',
+            parameters: { type: 'object', properties: {} },
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'get_connected_platforms',
+            description: 'Check which external platforms are connected (Google Business, Facebook, Instagram, Square, Stripe). Returns connection status and what data each provides.',
+            parameters: { type: 'object', properties: {} },
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'get_platform_data',
+            description: 'Pull live data from a connected external platform (Google Business, Facebook, Instagram). Returns error if platform not connected yet.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    platform: {
+                        type: 'string',
+                        enum: ['google_business', 'facebook', 'instagram'],
+                        description: 'Which platform to query'
+                    },
+                    metric: {
+                        type: 'string',
+                        description: 'What to retrieve: views, clicks, followers, reach, impressions, reviews, posts'
+                    }
+                },
+                required: ['platform']
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'get_all_gcr_businesses',
+            description: 'Get a summary of all businesses in the GCR directory — useful for platform-wide questions about counts, categories, missing data.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    entity_type: { type: 'string', description: 'Filter by type (restaurants, things-to-do, etc.) — optional' }
+                }
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'get_website_analytics',
+            description: 'Get real website analytics from the main CyberCheck database: page views, unique visitors, conversions, revenue, top pages, traffic sources, device breakdown. Works across all sites or for a specific site.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    site_id: { type: 'string', description: 'Specific site/business ID — omit for all sites' },
+                    days: { type: 'number', description: 'Days to look back (default 30)' },
+                    breakdown: { type: 'string', enum: ['pages', 'sources', 'devices', 'conversions', 'funnel', 'summary'], description: 'What breakdown to return' }
+                }
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'get_leads',
+            description: 'Get leads and customer data from the CRM. Shows total leads, new leads today/this week, lead details, and conversion stats.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    site_id: { type: 'string', description: 'Filter by site — omit for all' },
+                    status: { type: 'string', description: 'Filter by status: lead, customer, vip, inactive' },
+                    limit: { type: 'number', description: 'Max records to return (default 20)' }
+                }
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'get_social_analytics',
+            description: 'Get social media analytics from connected accounts: followers, reach, impressions, engagement rate, post count. Covers Facebook, Instagram, TikTok.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    site_id: { type: 'string', description: 'Site/entity ID — omit for all' },
+                    platform: { type: 'string', description: 'Filter by platform: facebook, instagram, tiktok — omit for all' },
+                    days: { type: 'number', description: 'Days to look back (default 30)' }
+                }
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'get_google_business_data',
+            description: 'Get Google Business Profile data for a site: reviews, star rating, location details, and review response status. Uses the existing Google Business OAuth connection.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    site_id: { type: 'string', description: 'Site ID to query' }
+                }
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'get_seo_data',
+            description: 'Get SEO settings and keyword rankings for a site: meta titles, descriptions, GA4 ID, pixel IDs, tracked keywords and their current rankings.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    site_id: { type: 'string', description: 'Site/entity ID' }
+                }
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'get_session_events',
+            description: 'Get detailed user interaction events: clicks, scroll depth, section views, phone clicks, map clicks, gallery views — shows exactly what visitors are doing on a page.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    site_id: { type: 'string', description: 'Site ID' },
+                    event_type: { type: 'string', description: 'Filter by event type: click, scroll, section_view, phone_click, map_click, gallery_view' },
+                    days: { type: 'number', description: 'Days to look back (default 7)' }
+                }
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'get_platform_inventory',
+            description: 'Get a full inventory of the GCR platform: total entities, breakdown by category/subtype, and menu item counts per business. Use when asked how many businesses are in each section, how many menu items each business has, or for a full platform overview.',
+            parameters: { type: 'object', properties: {} }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'get_cybercheck_businesses',
+            description: 'Get all CyberCheck platform businesses — the main business accounts with dashboards, logins, plans, and status. Use this when asked about businesses on the platform, how many businesses exist, or to look up a specific business by name.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    search: { type: 'string', description: 'Search by name (optional)' },
+                    status: { type: 'string', description: 'Filter by status: active, inactive, trial (optional)' },
+                }
+            }
+        }
+    },
+    // ── Write tools ────────────────────────────────────────────────────────────
+    {
+        type: 'function',
+        function: {
+            name: 'update_business',
+            description: 'Update fields on the current business profile: name, phone, address, city, state, zip, website, email, description, price_range, hero_image_url, logo_url, hh_days/hh_start/hh_end/hh_description for happy hour schedule, featured (boolean), hidden (boolean).',
+            parameters: {
+                type: 'object',
+                properties: {
+                    name: { type: 'string' }, phone: { type: 'string' }, address: { type: 'string' },
+                    city: { type: 'string' }, state: { type: 'string' }, zip: { type: 'string' },
+                    website: { type: 'string' }, email: { type: 'string' }, description: { type: 'string' },
+                    price_range: { type: 'number', description: '1-4' },
+                    hero_image_url: { type: 'string' }, logo_url: { type: 'string' },
+                    hh_days: { type: 'string' }, hh_start: { type: 'string' }, hh_end: { type: 'string' },
+                    hh_description: { type: 'string' },
+                    featured: { type: 'boolean' }, hidden: { type: 'boolean' },
+                }
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'set_hero_image',
+            description: 'Set the hero/cover image for the current business. Pass the image URL.',
+            parameters: {
+                type: 'object',
+                properties: { url: { type: 'string', description: 'Public image URL' } },
+                required: ['url']
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'add_menu_item',
+            description: 'Add a food item to a business menu. Use entity_id from search_entity if no business was pre-selected.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    entity_id: { type: 'string', description: 'Entity UUID — required if no business was pre-selected. Get it from search_entity first.' },
+                    name: { type: 'string' }, description: { type: 'string' }, price: { type: 'string' },
+                    image_url: { type: 'string', description: 'Public URL of a photo for this specific menu item' },
+                    section_name: { type: 'string', description: 'Menu section name (e.g. "Appetizers")' },
+                    section_id: { type: 'string', description: 'Existing section UUID (use instead of section_name if known)' },
+                    sort_order: { type: 'number' },
+                },
+                required: ['name']
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'add_drink_item',
+            description: 'Add a drink to a business drink menu. Use entity_id from search_entity if no business was pre-selected.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    entity_id: { type: 'string', description: 'Entity UUID — required if no business was pre-selected.' },
+                    name: { type: 'string' }, description: { type: 'string' }, price: { type: 'string' },
+                    section_name: { type: 'string', description: 'Drink section name (e.g. "Cocktails")' },
+                    section_id: { type: 'string', description: 'Existing section UUID' },
+                    sort_order: { type: 'number' },
+                },
+                required: ['name']
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'add_event',
+            description: 'Add an upcoming event to a business. Use entity_id from search_entity if no business was pre-selected.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    entity_id: { type: 'string', description: 'Entity UUID — required if no business was pre-selected.' },
+                    title: { type: 'string' }, description: { type: 'string' },
+                    event_date: { type: 'string', description: 'YYYY-MM-DD' },
+                    start_time: { type: 'string', description: 'HH:MM' },
+                    end_time: { type: 'string', description: 'HH:MM' },
+                    image_url: { type: 'string' }, ticket_url: { type: 'string' },
+                },
+                required: ['title', 'event_date']
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'set_business_status',
+            description: 'Show, hide, or feature/unfeature the current business on GCR.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    hidden: { type: 'boolean', description: 'true = hidden from public directory' },
+                    featured: { type: 'boolean', description: 'true = shown in featured sections' },
+                }
+            }
+        }
+    },
+    // ── Universal entity tools ─────────────────────────────────────────────────
+    {
+        type: 'function',
+        function: {
+            name: 'search_entity',
+            description: 'Search for any GCR entity/business by name. Returns matching entities with their IDs so you can then read or update them.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    name: { type: 'string', description: 'Business name to search for' },
+                },
+                required: ['name']
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'get_entity_full',
+            description: 'Get ALL data for any GCR entity by name or ID: profile, tags, features, menu items, drink items, events, specials, happy hour, images, sections.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    name: { type: 'string', description: 'Business name (fuzzy match)' },
+                    entity_id: { type: 'string', description: 'Entity UUID (use if known)' },
+                }
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'update_entity',
+            description: 'Update any field on any GCR entity by name or ID. Can update name, slug, subtitle, phone, address, city, state, zip, website_url, directions_url, booking_url, hero_image_url, icon, entity_subtype, rating, review_count, is_active, featured.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    name: { type: 'string', description: 'Business name to find (fuzzy)' },
+                    entity_id: { type: 'string', description: 'Entity UUID (use if known)' },
+                    fields: { type: 'object', description: 'Key/value pairs to update e.g. {"phone":"251-xxx","city":"Gulf Shores"}' },
+                },
+                required: ['fields']
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'delete_menu_item',
+            description: 'Delete a menu or drink item from any GCR entity by item name and business name.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    business_name: { type: 'string', description: 'Business name' },
+                    entity_id: { type: 'string', description: 'Entity UUID (use if known)' },
+                    item_name: { type: 'string', description: 'Name of the menu item to delete' },
+                    item_type: { type: 'string', enum: ['food', 'drink'], description: 'food or drink (default food)' },
+                },
+                required: ['item_name']
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'update_menu_item',
+            description: 'Update a menu or drink item on any GCR entity.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    business_name: { type: 'string', description: 'Business name' },
+                    entity_id: { type: 'string', description: 'Entity UUID' },
+                    item_name: { type: 'string', description: 'Current name of item to update' },
+                    item_type: { type: 'string', enum: ['food', 'drink'] },
+                    fields: { type: 'object', description: 'Fields to update: name, price, description, section_name' },
+                },
+                required: ['item_name', 'fields']
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'add_special',
+            description: 'Add a special/deal to any GCR entity.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    business_name: { type: 'string', description: 'Business name' },
+                    entity_id: { type: 'string', description: 'Entity UUID' },
+                    special_name: { type: 'string' },
+                    description: { type: 'string' },
+                    special_type: { type: 'string', description: 'e.g. happy_hour, daily, weekly' },
+                    discount_text: { type: 'string', description: 'e.g. $2 off drafts' },
+                    days: { type: 'string', description: 'e.g. Mon-Fri' },
+                    start_time: { type: 'string' },
+                    end_time: { type: 'string' },
+                },
+                required: ['special_name']
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'delete_event',
+            description: 'Delete an event from any GCR entity by event title and business name.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    business_name: { type: 'string', description: 'Business name' },
+                    entity_id: { type: 'string', description: 'Entity UUID' },
+                    event_title: { type: 'string', description: 'Title of the event to delete' },
+                },
+                required: ['event_title']
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'delete_special',
+            description: 'Delete a special from any GCR entity.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    business_name: { type: 'string', description: 'Business name' },
+                    entity_id: { type: 'string', description: 'Entity UUID' },
+                    special_name: { type: 'string', description: 'Name of the special to delete' },
+                },
+                required: ['special_name']
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'add_tag',
+            description: 'Add a tag to any GCR entity.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    business_name: { type: 'string', description: 'Business name' },
+                    entity_id: { type: 'string', description: 'Entity UUID' },
+                    tag: { type: 'string', description: 'Tag value e.g. happy_hour, nightlife, seafood' },
+                    tag_category: { type: 'string', description: 'Category e.g. cuisine, vibe, amenity' },
+                },
+                required: ['tag']
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'remove_tag',
+            description: 'Remove a tag from any GCR entity.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    business_name: { type: 'string', description: 'Business name' },
+                    entity_id: { type: 'string', description: 'Entity UUID' },
+                    tag: { type: 'string', description: 'Tag to remove' },
+                },
+                required: ['tag']
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'add_feature',
+            description: 'Add a feature bullet point to any GCR entity e.g. "Live music every Friday".',
+            parameters: {
+                type: 'object',
+                properties: {
+                    business_name: { type: 'string', description: 'Business name' },
+                    entity_id: { type: 'string', description: 'Entity UUID' },
+                    label: { type: 'string', description: 'Feature text' },
+                },
+                required: ['label']
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'remove_feature',
+            description: 'Remove a feature bullet from any GCR entity.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    business_name: { type: 'string', description: 'Business name' },
+                    entity_id: { type: 'string', description: 'Entity UUID' },
+                    label: { type: 'string', description: 'Feature text to remove (partial match ok)' },
+                },
+                required: ['label']
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'add_gallery_image',
+            description: 'Add an image URL to any GCR entity gallery section.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    business_name: { type: 'string', description: 'Business name' },
+                    entity_id: { type: 'string', description: 'Entity UUID' },
+                    image_url: { type: 'string', description: 'Public image URL' },
+                    caption: { type: 'string', description: 'Optional caption' },
+                },
+                required: ['image_url']
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'create_entity',
+            description: 'Create a brand new GCR entity/business from scratch.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    name: { type: 'string' },
+                    entity_subtype: { type: 'string', description: 'e.g. restaurant, bar, activity, hotel' },
+                    phone: { type: 'string' },
+                    address_line_1: { type: 'string' },
+                    city: { type: 'string' },
+                    state: { type: 'string' },
+                    website_url: { type: 'string' },
+                    hero_image_url: { type: 'string' },
+                    subtitle: { type: 'string' },
+                    description: { type: 'string' },
+                },
+                required: ['name']
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'update_hours',
+            description: 'Set or update business hours for one or more days. Use 24h time strings like "09:00" and "20:00". To mark a day closed set is_closed:true.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    entity_id: { type: 'string', description: 'GCR entity UUID' },
+                    hours: {
+                        type: 'array',
+                        description: 'Array of day hours to upsert',
+                        items: {
+                            type: 'object',
+                            properties: {
+                                day_of_week: { type: 'string', description: 'e.g. Monday, Tuesday, Wednesday...' },
+                                open_time: { type: 'string', description: '24h format e.g. 11:00' },
+                                close_time: { type: 'string', description: '24h format e.g. 20:00' },
+                                is_closed: { type: 'boolean' },
+                            },
+                            required: ['day_of_week']
+                        }
+                    }
+                },
+                required: ['entity_id', 'hours']
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'get_hours',
+            description: 'Get the current business hours for a GCR entity.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    entity_id: { type: 'string' }
+                },
+                required: ['entity_id']
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'get_edit_link',
+            description: 'Get or generate the editable daily menu link (token URL) for a GCR entity. Use this to get the link to push menu data to a business.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    entity_id: { type: 'string', description: 'GCR entity UUID' },
+                },
+                required: ['entity_id']
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'push_menu_to_business',
+            description: 'Push extracted menu items directly to a business editable menu via their update token. Use after extracting menu items from a photo or text.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    entity_id: { type: 'string', description: 'GCR entity UUID' },
+                    items: {
+                        type: 'array',
+                        description: 'Menu items to push',
+                        items: {
+                            type: 'object',
+                            properties: {
+                                name: { type: 'string' },
+                                price: { type: 'number' },
+                                description: { type: 'string' },
+                                section: { type: 'string', description: 'Menu section/category name' },
+                            },
+                            required: ['name']
+                        }
+                    },
+                    specials: {
+                        type: 'array',
+                        description: 'Daily specials to push',
+                        items: {
+                            type: 'object',
+                            properties: {
+                                name: { type: 'string' },
+                                description: { type: 'string' },
+                                discount_text: { type: 'string' },
+                                days: { type: 'string' },
+                                start_time: { type: 'string' },
+                                end_time: { type: 'string' },
+                            },
+                            required: ['name']
+                        }
+                    }
+                },
+                required: ['entity_id']
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'set_qr_theme',
+            description: 'Customize the QR menu layout and colors for a business. Use this when the user describes how they want the menu to look — colors, fonts, which sections to show, their order. Generate a qr_theme JSON object and save it.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    entity_id: { type: 'string', description: 'GCR entity UUID to apply theme to' },
+                    theme: {
+                        type: 'object',
+                        description: 'Theme config object',
+                        properties: {
+                            bg:           { type: 'string', description: 'Background color e.g. #0a0a0a' },
+                            surface:      { type: 'string', description: 'Card/surface color' },
+                            surface2:     { type: 'string', description: 'Secondary surface color' },
+                            primary:      { type: 'string', description: 'Primary accent color (buttons, tabs, borders)' },
+                            primary_dark: { type: 'string', description: 'Darker shade of primary' },
+                            accent:       { type: 'string', description: 'Accent/highlight color' },
+                            accent_light: { type: 'string', description: 'Light accent background' },
+                            text:         { type: 'string', description: 'Main text color' },
+                            text_muted:   { type: 'string', description: 'Muted/secondary text color' },
+                            text_light:   { type: 'string', description: 'Light/tertiary text color' },
+                            border:       { type: 'string', description: 'Border color' },
+                            radius:       { type: 'string', description: 'Border radius e.g. 12px' },
+                            font:         { type: 'string', description: 'Font family name' },
+                            modules: {
+                                type: 'object',
+                                description: 'Which sections to show (true/false)',
+                                properties: {
+                                    menu:        { type: 'boolean' },
+                                    drinks:      { type: 'boolean' },
+                                    specials:    { type: 'boolean' },
+                                    happy_hour:  { type: 'boolean' },
+                                    events:      { type: 'boolean' },
+                                    catch_of_day:{ type: 'boolean' },
+                                    live_music:  { type: 'boolean' },
+                                }
+                            },
+                            module_order: {
+                                type: 'array',
+                                description: 'Order of sections e.g. ["specials","menu","drinks","happy_hour","events"]',
+                                items: { type: 'string' }
+                            },
+                        }
+                    }
+                },
+                required: ['theme']
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'scrape_url',
+            description: 'Fetch a business website URL and AI-extract all structured data (name, address, hours, menu, drinks, events, specials, happy hour, etc.). Returns a structured object you can review or pass to save_scraped_business.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    url: { type: 'string', description: 'Full http(s) URL of the business website' }
+                },
+                required: ['url']
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'save_scraped_business',
+            description: 'Save a structured business object (from scrape_url or assembled from chat) to the GCR database. Upserts entity by slug and inserts hours, menu, drinks, happy hour, specials, events, fleet, pricing, activities, tags, features, perfect-for, about bullets.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    structured: { type: 'object', description: 'Structured business object matching the scrape_url schema' }
+                },
+                required: ['structured']
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'extract_menu_from_image',
+            description: 'Run open-source / multi-provider vision OCR on an image to extract a structured menu (categories + items + prices + modifiers). If the user attached an image to the chat, leave image_base64 empty and the tool will use that. If entity_id (or use_attached_business=true with a selected business) is provided, the extracted menu is also SAVED directly to that entity\'s menu_sections / menu_items / drink_items / happy_hour_items.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    image_base64: { type: 'string', description: 'Optional — base64-encoded image. If omitted, uses the image attached to this chat turn.' },
+                    image_mime: { type: 'string', description: 'e.g. image/jpeg' },
+                    entity_id: { type: 'string', description: 'If provided, save extracted items to this business' },
+                    use_attached_business: { type: 'boolean', description: 'If true and the chat has a selected business, save to that entity' },
+                    provider: { type: 'string', enum: ['gemini','xai','openai','anthropic','ollama'], description: 'Vision provider override (defaults to env AI_PROVIDER, with auto-fallback)' }
+                }
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'add_business_image',
+            description: 'Upload an image attached to the chat (or passed as base64) to permanent storage and either (a) set it as the business hero image (powers BOTH the GCR profile hero AND the Trip Swipe card), or (b) add it to the photo gallery. If image_base64 is omitted, the tool uses the image attached to the current chat turn.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    entity_id: { type: 'string' },
+                    slug: { type: 'string', description: 'Alternative to entity_id' },
+                    as: { type: 'string', enum: ['hero', 'gallery'], description: "Default 'gallery'. Use 'hero' to make this the main GCR + Trip Swipe card image." },
+                    caption: { type: 'string', description: 'Optional caption for gallery photos' },
+                    image_base64: { type: 'string', description: 'Optional — uses attached chat image if omitted' },
+                    image_mime: { type: 'string', description: 'e.g. image/jpeg' }
+                }
+            }
+        }
+    },
+    {
+        type: 'function',
+        function: {
+            name: 'lookup_business',
+            description: 'Resolve a business by any identifier. Provide one of: id (uuid), slug, google_place_id, or name (fuzzy). Returns the entity_id you can use with all other tools.',
+            parameters: {
+                type: 'object',
+                properties: {
+                    id: { type: 'string' },
+                    slug: { type: 'string' },
+                    google_place_id: { type: 'string' },
+                    name: { type: 'string', description: 'Fuzzy match on business name' }
+                }
+            }
+        }
+    },
+];
+
+async function executeGCRTool(name, args, { gcrDb, entityId, mainDb, attachedImage }) {
+    try {
+        switch (name) {
+            case 'get_business_profile': {
+                if (!entityId) return { error: 'No business selected' };
+                const { data } = await gcrDb.from('entity').select('*').eq('id', entityId).single();
+                return data || { error: 'Entity not found' };
+            }
+            case 'get_menu': {
+                if (!entityId) return { error: 'No business selected' };
+                const [s, i] = await Promise.all([
+                    gcrDb.from('menu_sections').select('*').eq('entity_id', entityId).order('sort_order'),
+                    gcrDb.from('menu_items').select('*').eq('entity_id', entityId).order('sort_order'),
+                ]);
+                return { sections: s.data || [], items: i.data || [], total_items: (i.data || []).length };
+            }
+            case 'get_drinks': {
+                if (!entityId) return { error: 'No business selected' };
+                const [s, i] = await Promise.all([
+                    gcrDb.from('drink_sections').select('*').eq('entity_id', entityId),
+                    gcrDb.from('drink_items').select('*').eq('entity_id', entityId),
+                ]);
+                return { sections: s.data || [], items: i.data || [], total_items: (i.data || []).length };
+            }
+            case 'get_events': {
+                if (!entityId) return { error: 'No business selected' };
+                let q = gcrDb.from('entity_events').select('*').eq('entity_id', entityId).eq('is_active', true).order('event_date', { ascending: true });
+                if (args.upcoming_only) q = q.gte('event_date', new Date().toISOString().split('T')[0]);
+                const { data } = await q;
+                return { events: data || [], count: (data || []).length };
+            }
+            case 'get_specials': {
+                if (!entityId) return { error: 'No business selected' };
+                const { data } = await gcrDb.from('entity_specials').select('*').eq('entity_id', entityId).eq('is_active', true);
+                return { specials: data || [], count: (data || []).length };
+            }
+            case 'get_happy_hours': {
+                if (!entityId) return { error: 'No business selected' };
+                const [ent, sec, items] = await Promise.all([
+                    gcrDb.from('entity').select('hh_days,hh_start,hh_end,hh_description').eq('id', entityId).single(),
+                    gcrDb.from('happy_hour_sections').select('*').eq('entity_id', entityId),
+                    gcrDb.from('happy_hour_items').select('*').eq('entity_id', entityId),
+                ]);
+                return { schedule: ent.data || {}, sections: sec.data || [], items: items.data || [] };
+            }
+            case 'get_analytics': {
+                if (!entityId) return { error: 'No business selected' };
+                const days = args.days || 30;
+                const since = new Date(Date.now() - days * 86400000).toISOString();
+                const { data } = await gcrDb.from('entity_analytics').select('*').eq('entity_id', entityId).gte('created_at', since).order('created_at', { ascending: false });
+                if (!data || !data.length) return { views: 0, clicks: 0, days, note: 'Analytics tracked when visitors view this profile on GCR.' };
+                const totals = (data || []).reduce((acc, r) => {
+                    acc.views += (r.page_views || 0); acc.clicks += (r.link_clicks || 0); return acc;
+                }, { views: 0, clicks: 0 });
+                return { ...totals, records: data.length, days, recent: data.slice(0, 5) };
+            }
+            case 'get_reviews': {
+                if (!entityId) return { error: 'No business selected' };
+                const { data } = await gcrDb.from('entity_reviews').select('*').eq('entity_id', entityId).order('created_at', { ascending: false }).limit(20);
+                const avg = (data || []).reduce((s, r) => s + (r.rating || 0), 0) / Math.max(1, (data || []).length);
+                return { reviews: data || [], count: (data || []).length, avg_rating: Math.round(avg * 10) / 10 };
+            }
+            case 'get_connected_platforms': {
+                if (!entityId) return { connected: [], note: 'No business selected' };
+                const { data } = await gcrDb.from('entity_integrations').select('platform,connected_at,platform_user,scope').eq('entity_id', entityId);
+                const connected = (data || []).map(i => ({ platform: i.platform, connected_at: i.connected_at, user: i.platform_user }));
+                return {
+                    connected,
+                    available: ['google_business', 'facebook', 'instagram', 'square', 'stripe'],
+                    what_each_provides: {
+                        google_business: 'Search impressions, direction requests, phone clicks, review count',
+                        facebook: 'Page followers, post reach, engagement, reviews',
+                        instagram: 'Followers, story/post reach, impressions, profile visits',
+                        square: 'Transaction count, revenue, top items sold',
+                        stripe: 'Booking revenue, payment counts',
+                    }
+                };
+            }
+            case 'get_platform_data': {
+                if (!entityId) return { error: 'No business selected' };
+                const { data: integ } = await gcrDb.from('entity_integrations')
+                    .select('access_token,platform_id,scope,token_expires_at').eq('entity_id', entityId).eq('platform', args.platform).single();
+                if (!integ || !integ.access_token) return { error: `${args.platform} is not connected. Go to the Integrations tab to connect it.` };
+
+                if (args.platform === 'facebook' || args.platform === 'instagram') {
+                    const pageId = integ.platform_id;
+                    const fields = args.metric === 'followers' ? 'followers_count,fan_count,name'
+                        : args.metric === 'reach' || args.metric === 'impressions' ? 'name'  // insights need separate call
+                        : 'followers_count,name,posts{message,created_time,full_picture}';
+                    const r = await fetch(`https://graph.facebook.com/v19.0/${pageId}?fields=${fields}&access_token=${integ.access_token}`);
+                    const d = await r.json();
+                    if (d.error) return { error: `Facebook API: ${d.error.message}` };
+                    return d;
+                }
+                if (args.platform === 'google_business') {
+                    return { note: 'Google Business Insights API requires server-side OAuth refresh. Integration coming soon.', connected: true };
+                }
+                return { error: `No API handler for ${args.platform}` };
+            }
+            case 'get_all_gcr_businesses': {
+                let q = gcrDb.from('entity').select('id,name,entity_type,entity_subtype,is_active,featured,hero_image_url,description,phone').eq('is_active', true);
+                if (args.entity_type) q = q.eq('entity_type', args.entity_type);
+                const { data } = await q.limit(200);
+                const byType = {};
+                (data || []).forEach(b => { const t = b.entity_type || 'unknown'; byType[t] = (byType[t] || 0) + 1; });
+                return {
+                    total: (data || []).length,
+                    by_type: byType,
+                    missing_photo: (data || []).filter(b => !b.hero_image_url).length,
+                    missing_description: (data || []).filter(b => !b.description).length,
+                    missing_phone: (data || []).filter(b => !b.phone).length,
+                    featured_count: (data || []).filter(b => b.featured).length,
+                };
+            }
+            case 'get_platform_inventory': {
+                const [entRes, menuRes, drinkRes, eventRes, specialRes, hhSecRes] = await Promise.all([
+                    gcrDb.from('entity').select('id,name,entity_type,entity_subtype,is_active,hero_image_url,description,phone,hh_days,hh_start,hh_end'),
+                    gcrDb.from('menu_items').select('entity_id'),
+                    gcrDb.from('drink_items').select('entity_id'),
+                    gcrDb.from('events').select('entity_id'),
+                    gcrDb.from('specials').select('entity_id'),
+                    gcrDb.from('happy_hour_sections').select('entity_id'),
+                ]);
+                const entities = entRes.data || [];
+                const menuCounts = {};
+                (menuRes.data || []).forEach(r => { menuCounts[r.entity_id] = (menuCounts[r.entity_id] || 0) + 1; });
+                const drinkCounts = {};
+                (drinkRes.data || []).forEach(r => { drinkCounts[r.entity_id] = (drinkCounts[r.entity_id] || 0) + 1; });
+                const eventCounts = {};
+                (eventRes.data || []).forEach(r => { eventCounts[r.entity_id] = (eventCounts[r.entity_id] || 0) + 1; });
+                const specialCounts = {};
+                (specialRes.data || []).forEach(r => { specialCounts[r.entity_id] = (specialCounts[r.entity_id] || 0) + 1; });
+                const hhSet = new Set((hhSecRes.data || []).map(r => r.entity_id));
+
+                const bySubtype = {};
+                entities.forEach(e => {
+                    const key = e.entity_subtype || e.entity_type || 'other';
+                    if (!bySubtype[key]) bySubtype[key] = 0;
+                    bySubtype[key]++;
+                });
+
+                const withHH = entities.filter(e => hhSet.has(e.id) || e.hh_days);
+                return {
+                    total_entities: entities.length,
+                    active: entities.filter(e => e.is_active).length,
+                    inactive: entities.filter(e => !e.is_active).length,
+                    missing_photo: entities.filter(e => !e.hero_image_url).length,
+                    missing_description: entities.filter(e => !e.description).length,
+                    missing_phone: entities.filter(e => !e.phone).length,
+                    with_happy_hour: withHH.length,
+                    missing_happy_hour: entities.filter(e => e.is_active).length - withHH.filter(e => e.is_active).length,
+                    by_subtype: bySubtype,
+                    per_business: entities.map(e => ({
+                        name: e.name,
+                        subtype: e.entity_subtype || e.entity_type,
+                        active: e.is_active,
+                        menu_items: menuCounts[e.id] || 0,
+                        drink_items: drinkCounts[e.id] || 0,
+                        events: eventCounts[e.id] || 0,
+                        specials: specialCounts[e.id] || 0,
+                        happy_hour: hhSet.has(e.id) || !!e.hh_days,
+                    })).sort((a, b) => (b.menu_items + b.drink_items) - (a.menu_items + a.drink_items)),
+                };
+            }
+            case 'get_cybercheck_businesses': {
+                let q = mainDb.from('businesses').select('site_id,name,type,status,plan,subdomain,domain,created_at,metadata');
+                if (args.search) q = q.ilike('name', `%${args.search}%`);
+                if (args.status) q = q.eq('status', args.status);
+                const { data, error } = await q.order('created_at', { ascending: false }).limit(200);
+                if (error) return { error: error.message };
+                return {
+                    total: (data || []).length,
+                    businesses: (data || []).map(b => ({
+                        site_id: b.site_id,
+                        name: b.name,
+                        type: b.type,
+                        status: b.status,
+                        plan: b.plan,
+                        domain: b.domain || b.subdomain,
+                        gcr_entity_id: b.metadata?.gcr_entity_id || null,
+                        created_at: b.created_at,
+                    }))
+                };
+            }
+            // ── GCR Entity Tools ──────────────────────────────
+            case 'search_entity': {
+                let q = gcrDb.from('entity').select('id,name,entity_type,entity_subtype,is_active,phone,address,city,hero_image_url,description,website');
+                if (args.query) q = q.ilike('name', `%${args.query}%`);
+                if (args.entity_type) q = q.eq('entity_type', args.entity_type);
+                if (args.city) q = q.ilike('city', `%${args.city}%`);
+                if (args.active_only) q = q.eq('is_active', true);
+                const { data, error } = await q.order('name').limit(args.limit || 20);
+                if (error) return { error: error.message };
+                return { count: (data || []).length, entities: data || [] };
+            }
+            case 'get_entity_full': {
+                const id = args.entity_id;
+                const [entRes, menuRes, drinkRes, evtRes, specRes, tagRes, featRes, imgRes, hoursRes] = await Promise.all([
+                    gcrDb.from('entity').select('*').eq('id', id).single(),
+                    gcrDb.from('menu_items').select('*').eq('entity_id', id).order('sort_order'),
+                    gcrDb.from('drink_items').select('*').eq('entity_id', id).order('sort_order'),
+                    gcrDb.from('entity_events').select('*').eq('entity_id', id).eq('is_active', true).order('event_date'),
+                    gcrDb.from('entity_specials').select('*').eq('entity_id', id).eq('is_active', true),
+                    gcrDb.from('entity_tags').select('tag,tag_category').eq('entity_id', id),
+                    gcrDb.from('entity_features').select('label').eq('entity_id', id),
+                    gcrDb.from('entity_photos').select('*').eq('entity_id', id).order('sort_order'),
+                    gcrDb.from('entity_hours').select('*').eq('entity_id', id),
+                ]);
+                if (entRes.error) return { error: entRes.error.message };
+                return {
+                    entity: entRes.data,
+                    menu_items: menuRes.data || [],
+                    drink_items: drinkRes.data || [],
+                    events: evtRes.data || [],
+                    specials: specRes.data || [],
+                    tags: (tagRes.data || []).map(t => t.tag),
+                    features: (featRes.data || []).map(f => f.label),
+                    photos: imgRes.data || [],
+                    hours: hoursRes.data || [],
+                };
+            }
+            case 'update_entity': {
+                const { entity_id, fields } = args;
+                if (!entity_id || !fields || !Object.keys(fields).length) return { error: 'entity_id and fields required' };
+                const { data, error } = await gcrDb.from('entity').update(fields).eq('id', entity_id).select('id,name').single();
+                if (error) return { error: error.message };
+                return { updated: true, entity: data };
+            }
+            case 'delete_menu_item': {
+                const { error } = await gcrDb.from('menu_items').delete().eq('id', args.item_id);
+                if (error) return { error: error.message };
+                return { deleted: true, item_id: args.item_id };
+            }
+            case 'update_menu_item': {
+                const { item_id, fields } = args;
+                const { data, error } = await gcrDb.from('menu_items').update(fields).eq('id', item_id).select('id,item_name').single();
+                if (error) return { error: error.message };
+                return { updated: true, item: data };
+            }
+            case 'add_special': {
+                const eid = args.entity_id || entityId;
+                if (!eid) return { error: 'No business selected — use search_entity first' };
+                const { data, error } = await gcrDb.from('entity_specials').insert({
+                    entity_id: eid,
+                    special_name: args.title || args.name,
+                    discount_text: args.discount_text || args.discount_value || null,
+                    description: args.description || null,
+                    days: args.days_of_week || args.days || null,
+                    start_time: args.start_time || null,
+                    end_time: args.end_time || null,
+                    is_active: true,
+                }).select('id,special_name').single();
+                if (error) return { error: error.message };
+                return { added: true, special: data };
+            }
+            case 'delete_event': {
+                const { error } = await gcrDb.from('entity_events').delete().eq('id', args.event_id);
+                if (error) return { error: error.message };
+                return { deleted: true, event_id: args.event_id };
+            }
+            case 'delete_special': {
+                const { error } = await gcrDb.from('entity_specials').delete().eq('id', args.special_id);
+                if (error) return { error: error.message };
+                return { deleted: true, special_id: args.special_id };
+            }
+            case 'add_tag': {
+                const { error } = await gcrDb.from('entity_tags').insert({ entity_id: args.entity_id, tag: args.tag });
+                if (error) return { error: error.message };
+                return { added: true, tag: args.tag };
+            }
+            case 'remove_tag': {
+                const { error } = await gcrDb.from('entity_tags').delete().eq('entity_id', args.entity_id).eq('tag', args.tag);
+                if (error) return { error: error.message };
+                return { removed: true, tag: args.tag };
+            }
+            case 'add_feature': {
+                const { error } = await gcrDb.from('entity_features').insert({ entity_id: args.entity_id, feature: args.feature });
+                if (error) return { error: error.message };
+                return { added: true, feature: args.feature };
+            }
+            case 'remove_feature': {
+                const { error } = await gcrDb.from('entity_features').delete().eq('entity_id', args.entity_id).eq('feature', args.feature);
+                if (error) return { error: error.message };
+                return { removed: true, feature: args.feature };
+            }
+            case 'add_gallery_image': {
+                const eid = args.entity_id || entityId;
+                if (!eid) return { error: 'No business selected — use search_entity first' };
+                const { image_url, caption, sort_order } = args;
+                if (!image_url) return { error: 'image_url required' };
+                const { data, error } = await gcrDb.from('entity_photos').insert({
+                    entity_id: eid, image_url, caption: caption || null, sort_order: sort_order || 99
+                }).select('id').single();
+                if (error) return { error: error.message };
+                return { added: true, photo_id: data.id };
+            }
+            case 'create_entity': {
+                const { name, entity_type, entity_subtype, address, city, state, zip, phone, website, description, hero_image_url } = args;
+                if (!name || !entity_type) return { error: 'name and entity_type required' };
+                const { data, error } = await gcrDb.from('entity').insert({
+                    name, entity_type, entity_subtype, address, city, state: state || 'AL', zip, phone, website, description, hero_image_url, is_active: false
+                }).select('id,name').single();
+                if (error) return { error: error.message };
+                return { created: true, entity: data };
+            }
+            case 'get_hours': {
+                const { data, error } = await gcrDb.from('entity_hours').select('*').eq('entity_id', args.entity_id).order('id');
+                if (error) return { error: error.message };
+                return { hours: data || [] };
+            }
+            case 'get_edit_link': {
+                const eid = args.entity_id;
+                const today = new Date().toISOString().split('T')[0];
+                // Check for existing link today
+                const { data: existing } = await gcrDb.from('update_links').select('token,link_type,expires_at').eq('entity_id', eid).eq('link_date', today).maybeSingle();
+                if (existing) {
+                    const base = (process.env.LINKS_BASE_URL || 'https://cybercheck-links.vercel.app').replace(/\/$/, '');
+                    return { token: existing.token, url: `${base}/menu-editor.html?token=${existing.token}`, existing: true };
+                }
+                // Generate new token
+                const crypto = require('crypto');
+                const token = crypto.randomBytes(24).toString('hex');
+                const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString();
+                const { error } = await gcrDb.from('update_links').insert({ entity_id: eid, token, link_type: 'full', link_date: today, expires_at: expiresAt });
+                if (error) return { error: error.message };
+                const base = (process.env.LINKS_BASE_URL || 'https://cybercheck-links.vercel.app').replace(/\/$/, '');
+                return { token, url: `${base}/menu-editor.html?token=${token}`, created: true };
+            }
+            case 'push_menu_to_business': {
+                const eid = args.entity_id;
+                const results = { items_added: 0, specials_added: 0, errors: [] };
+
+                if (args.items && args.items.length) {
+                    for (const item of args.items) {
+                        let sectionId = null;
+                        if (item.section) {
+                            const { data: sec } = await gcrDb.from('menu_sections').select('id').eq('entity_id', eid).eq('section_name', item.section).maybeSingle();
+                            if (sec) {
+                                sectionId = sec.id;
+                            } else {
+                                const { data: newSec } = await gcrDb.from('menu_sections').insert({ entity_id: eid, section_name: item.section, sort_order: 99 }).select('id').single();
+                                sectionId = newSec?.id || null;
+                            }
+                        }
+                        const { error } = await gcrDb.from('menu_items').insert({
+                            entity_id: eid,
+                            menu_section_id: sectionId,
+                            item_name: item.name,
+                            price: item.price || null,
+                            description: item.description || null,
+                            is_available: true,
+                            sort_order: 99,
+                        });
+                        if (error) results.errors.push(item.name + ': ' + error.message);
+                        else results.items_added++;
+                    }
+                }
+
+                if (args.specials && args.specials.length) {
+                    for (const s of args.specials) {
+                        const { error } = await gcrDb.from('specials').insert({
+                            entity_id: eid,
+                            title: s.name,
+                            description: s.description || null,
+                            discount_text: s.discount_text || null,
+                            days_of_week: s.days || null,
+                            start_time: s.start_time || null,
+                            end_time: s.end_time || null,
+                            is_active: true,
+                        });
+                        if (error) results.errors.push(s.name + ': ' + error.message);
+                        else results.specials_added++;
+                    }
+                }
+
+                // Also get the edit link so user can view it
+                const today = new Date().toISOString().split('T')[0];
+                const { data: link } = await gcrDb.from('update_links').select('token').eq('entity_id', eid).eq('link_date', today).maybeSingle();
+                const base = (process.env.LINKS_BASE_URL || 'https://cybercheck-links.vercel.app').replace(/\/$/, '');
+                if (link) results.edit_url = `${base}/menu-editor.html?token=${link.token}`;
+
+                return results;
+            }
+            case 'update_hours': {
+                const { entity_id, hours } = args;
+                if (!entity_id || !hours?.length) return { error: 'entity_id and hours required' };
+                const rows = hours.map(h => ({
+                    entity_id,
+                    day_of_week: h.day_of_week,
+                    open_time: h.open_time || null,
+                    close_time: h.close_time || null,
+                    is_closed: h.is_closed || false,
+                }));
+                const { error } = await gcrDb.from('entity_hours').upsert(rows, { onConflict: 'entity_id,day_of_week' });
+                if (error) return { error: error.message };
+                return { updated: true, days_set: rows.map(r => r.day_of_week) };
+            }
+            // ── Main CyberCheck DB tools ──────────────────────
+            case 'get_website_analytics': {
+                const db = mainDb;
+                const days = args.days || 30;
+                const since = new Date(Date.now() - days * 86400000).toISOString();
+                let pvQ = db.from('page_views').select('page_path,referrer,utm_source,utm_medium,device_type,created_at').gte('created_at', since);
+                let convQ = db.from('conversions').select('conversion_type,revenue,utm_source,created_at').gte('created_at', since);
+                if (args.site_id) { pvQ = pvQ.eq('entity_id', args.site_id); convQ = convQ.eq('entity_id', args.site_id); }
+
+                const [pvRes, convRes] = await Promise.all([pvQ.limit(5000), convQ.limit(2000)]);
+                const pvs = pvRes.data || [];
+                const convs = convRes.data || [];
+
+                const breakdown = args.breakdown || 'summary';
+                if (breakdown === 'pages') {
+                    const pages = {};
+                    pvs.forEach(p => { pages[p.page_path] = (pages[p.page_path] || 0) + 1; });
+                    return { top_pages: Object.entries(pages).sort((a,b) => b[1]-a[1]).slice(0,15).map(([p,c]) => ({ page: p, views: c })), total_views: pvs.length, days };
+                }
+                if (breakdown === 'sources') {
+                    const src = {};
+                    pvs.forEach(p => { const s = p.utm_source || (p.referrer ? new URL(p.referrer).hostname : 'direct') || 'direct'; src[s] = (src[s] || 0) + 1; });
+                    return { traffic_sources: Object.entries(src).sort((a,b) => b[1]-a[1]).slice(0,10).map(([s,c]) => ({ source: s, visits: c })), days };
+                }
+                if (breakdown === 'devices') {
+                    const dev = {};
+                    pvs.forEach(p => { dev[p.device_type || 'unknown'] = (dev[p.device_type || 'unknown'] || 0) + 1; });
+                    return { devices: dev, total: pvs.length, days };
+                }
+                if (breakdown === 'conversions') {
+                    const types = {};
+                    let revenue = 0;
+                    convs.forEach(c => { types[c.conversion_type || 'unknown'] = (types[c.conversion_type || 'unknown'] || 0) + 1; revenue += (c.revenue || 0); });
+                    return { conversion_types: types, total_conversions: convs.length, total_revenue: revenue, days };
+                }
+                // summary
+                const uniqueSessions = new Set(pvs.map(p => p.session_id || p.created_at?.slice(0,10))).size;
+                const revenue = convs.reduce((s, c) => s + (c.revenue || 0), 0);
+                return { total_views: pvs.length, unique_sessions: uniqueSessions, total_conversions: convs.length, revenue: revenue.toFixed(2), days };
+            }
+            case 'get_leads': {
+                const db = mainDb;
+                // Check both gcr_customers and conversions table for leads
+                const [custRes, convRes] = await Promise.all([
+                    gcrDb.from('gcr_customers').select('id,name,email,phone,status,total_visits,total_spent,last_visit,created_at').order('created_at', { ascending: false }).limit(args.limit || 20),
+                    db.from('conversions').select('customer_name,customer_email,conversion_type,revenue,created_at').order('created_at', { ascending: false }).limit(50),
+                ]);
+                const today = new Date().toISOString().split('T')[0];
+                const weekAgo = new Date(Date.now() - 7 * 86400000).toISOString();
+                const custs = custRes.data || [];
+                const convLeads = (convRes.data || []).filter(c => c.customer_email);
+                return {
+                    crm_customers: custs,
+                    crm_total: custs.length,
+                    new_today: custs.filter(c => c.created_at?.startsWith(today)).length,
+                    new_this_week: custs.filter(c => c.created_at >= weekAgo).length,
+                    conversion_leads: convLeads.slice(0, 10),
+                    total_conversion_leads: convLeads.length,
+                };
+            }
+            case 'get_social_analytics': {
+                const db = mainDb;
+                const days = args.days || 30;
+                const since = new Date(Date.now() - days * 86400000).toISOString().split('T')[0];
+                let q = db.from('social_media_analytics').select('platform,date,followers,reach,impressions,engagement_rate,likes,comments,shares').gte('date', since).order('date', { ascending: false });
+                if (args.site_id) q = q.eq('entity_id', args.site_id);
+                if (args.platform) q = q.eq('platform', args.platform);
+                const { data } = await q.limit(500);
+                if (!data || !data.length) {
+                    // Also check gcr_social_accounts for connection status
+                    const { data: accts } = await gcrDb.from('gcr_social_accounts').select('platform,account_name,is_connected,connected_at');
+                    return { message: 'No analytics data yet.', connected_accounts: accts || [], note: 'Social analytics populate once accounts are connected and syncing.' };
+                }
+                // Aggregate by platform
+                const byPlatform = {};
+                data.forEach(r => {
+                    if (!byPlatform[r.platform]) byPlatform[r.platform] = { platform: r.platform, followers: 0, reach: 0, impressions: 0, posts: 0 };
+                    byPlatform[r.platform].followers = Math.max(byPlatform[r.platform].followers, r.followers || 0);
+                    byPlatform[r.platform].reach += (r.reach || 0);
+                    byPlatform[r.platform].impressions += (r.impressions || 0);
+                    byPlatform[r.platform].posts++;
+                });
+                return { platforms: Object.values(byPlatform), days, records: data.length };
+            }
+            case 'get_google_business_data': {
+                const db = mainDb;
+                const siteId = args.site_id || entityId;
+                if (!siteId) return { error: 'site_id required' };
+                const [tokenRes, reviewRes] = await Promise.all([
+                    db.from('oauth_tokens').select('provider,account_name,account_email,created_at').eq('site_id', siteId).eq('provider', 'google_business').maybeSingle(),
+                    db.from('reviews').select('customer_name,rating,text,source,owner_reply,status,created_at').eq('site_id', siteId).order('created_at', { ascending: false }).limit(20),
+                ]);
+                const reviews = reviewRes.data || [];
+                const avgRating = reviews.length ? (reviews.reduce((s, r) => s + (r.rating || 0), 0) / reviews.length).toFixed(1) : null;
+                return {
+                    connected: !!tokenRes.data,
+                    account: tokenRes.data ? { name: tokenRes.data.account_name, email: tokenRes.data.account_email, connected: tokenRes.data.created_at } : null,
+                    reviews_total: reviews.length,
+                    avg_rating: avgRating,
+                    unanswered: reviews.filter(r => !r.owner_reply).length,
+                    recent_reviews: reviews.slice(0, 5),
+                };
+            }
+            case 'get_seo_data': {
+                const db = mainDb;
+                const siteId = args.site_id || entityId;
+                if (!siteId) return { error: 'site_id required' };
+                const [metaRes, kwRes, gcrSeoRes] = await Promise.all([
+                    db.from('seo_meta_tags').select('*').eq('entity_id', siteId).order('created_at').limit(20),
+                    db.from('seo_keywords').select('keyword,current_ranking,search_volume,last_checked_at').eq('entity_id', siteId).limit(20),
+                    gcrDb.from('gcr_seo_settings').select('seo_title,seo_description,seo_keywords,ga4_id,facebook_pixel_id').eq('entity_id', siteId).maybeSingle(),
+                ]);
+                return {
+                    meta_pages: metaRes.data || [],
+                    tracked_keywords: kwRes.data || [],
+                    gcr_seo: gcrSeoRes.data || null,
+                    has_ga4: !!(gcrSeoRes.data?.ga4_id),
+                    has_pixel: !!(gcrSeoRes.data?.facebook_pixel_id),
+                };
+            }
+            case 'get_session_events': {
+                const db = mainDb;
+                const days = args.days || 7;
+                const since = new Date(Date.now() - days * 86400000).toISOString();
+                let q = db.from('session_events').select('event_type,event_label,page_path,device_type,created_at').gte('created_at', since).order('created_at', { ascending: false });
+                if (args.site_id) q = q.eq('entity_id', args.site_id);
+                if (args.event_type) q = q.eq('event_type', args.event_type);
+                const { data } = await q.limit(1000);
+                const byType = {};
+                (data || []).forEach(e => { byType[e.event_type] = (byType[e.event_type] || 0) + 1; });
+                return { event_counts: byType, total: (data || []).length, sample: (data || []).slice(0, 10), days };
+            }
+            // ── Write tools ───────────────────────────────────────────────────
+            case 'update_business': {
+                if (!entityId) return { error: 'No business selected' };
+                const allowed = ['name','phone','address','city','state','zip','website','email','description','price_range','hh_days','hh_start','hh_end','hh_description','hero_image_url','logo_url','featured','hidden'];
+                const update = {};
+                for (const k of allowed) { if (args[k] !== undefined) update[k] = args[k]; }
+                if (!Object.keys(update).length) return { error: 'No valid fields provided' };
+                update.updated_at = new Date().toISOString();
+                const { data, error } = await gcrDb.from('entity').update(update).eq('id', entityId).select('id,name').single();
+                if (error) return { error: error.message };
+                return { success: true, updated: Object.keys(update).filter(k => k !== 'updated_at'), entity: data };
+            }
+            case 'set_hero_image': {
+                if (!entityId) return { error: 'No business selected' };
+                if (!args.url) return { error: 'url required' };
+                const { error } = await gcrDb.from('entity').update({ hero_image_url: args.url, updated_at: new Date().toISOString() }).eq('id', entityId);
+                if (error) return { error: error.message };
+                return { success: true, hero_image_url: args.url };
+            }
+            case 'add_menu_item': {
+                const eid = args.entity_id || entityId;
+                if (!eid) return { error: 'No business selected — use search_entity first to find the entity_id' };
+                if (!args.name) return { error: 'name required' };
+                let sectionId = args.section_id || null;
+                if (!sectionId && args.section_name) {
+                    const { data: existing } = await gcrDb.from('menu_sections').select('id').eq('entity_id', eid).ilike('name', args.section_name).maybeSingle();
+                    if (existing) {
+                        sectionId = existing.id;
+                    } else {
+                        const { data: created } = await gcrDb.from('menu_sections').insert({ entity_id: eid, name: args.section_name, sort_order: 99 }).select('id').single();
+                        sectionId = created?.id;
+                    }
+                }
+                const { data, error } = await gcrDb.from('menu_items').insert({
+                    entity_id: eid, menu_section_id: sectionId || null,
+                    item_name: args.name, description: args.description || null,
+                    price: args.price || null, image_url: args.image_url || null,
+                    is_available: true, sort_order: args.sort_order || 99,
+                }).select('id,item_name').single();
+                if (error) return { error: error.message };
+                return { success: true, item: data };
+            }
+            case 'add_drink_item': {
+                const eid = args.entity_id || entityId;
+                if (!eid) return { error: 'No business selected — use search_entity first to find the entity_id' };
+                if (!args.name) return { error: 'name required' };
+                let sectionId = args.section_id || null;
+                if (!sectionId && args.section_name) {
+                    const { data: existing } = await gcrDb.from('drink_sections').select('id').eq('entity_id', eid).ilike('name', args.section_name).maybeSingle();
+                    if (existing) {
+                        sectionId = existing.id;
+                    } else {
+                        const { data: created } = await gcrDb.from('drink_sections').insert({ entity_id: eid, name: args.section_name, sort_order: 99 }).select('id').single();
+                        sectionId = created?.id;
+                    }
+                }
+                const { data, error } = await gcrDb.from('drink_items').insert({
+                    entity_id: eid, drink_section_id: sectionId || null,
+                    item_name: args.name, description: args.description || null,
+                    price: args.price || null, sort_order: args.sort_order || 99,
+                }).select('id,item_name').single();
+                if (error) return { error: error.message };
+                return { success: true, item: data };
+            }
+            case 'add_event': {
+                const eid = args.entity_id || entityId;
+                if (!eid) return { error: 'No business selected — use search_entity first to find the entity_id' };
+                if (!args.title || !args.event_date) return { error: 'title and event_date required' };
+                const { data, error } = await gcrDb.from('entity_events').insert({
+                    entity_id: eid, event_name: args.title, description: args.description || null,
+                    event_date: args.event_date, start_time: args.start_time || null,
+                    end_time: args.end_time || null, image_url: args.image_url || null,
+                    ticket_url: args.ticket_url || null, is_active: true,
+                }).select('id,event_name').single();
+                if (error) return { error: error.message };
+                return { success: true, event: data };
+            }
+            case 'set_business_status': {
+                if (!entityId) return { error: 'No business selected' };
+                const update = { updated_at: new Date().toISOString() };
+                if (args.hidden !== undefined) update.hidden = args.hidden;
+                if (args.featured !== undefined) update.featured = args.featured;
+                const { error } = await gcrDb.from('entity').update(update).eq('id', entityId);
+                if (error) return { error: error.message };
+                return { success: true, status: update };
+            }
+            case 'set_qr_theme': {
+                const eid = args.entity_id || entityId;
+                if (!eid) return { error: 'No entity selected' };
+                const theme = args.theme;
+                if (!theme || typeof theme !== 'object') return { error: 'theme object required' };
+                const { error } = await gcrDb.from('entity').update({ qr_theme: theme }).eq('id', eid);
+                if (error) return { error: error.message };
+                return { success: true, saved: theme };
+            }
+            case 'scrape_url': {
+                if (!args.url) return { error: 'url required' };
+                try {
+                    return await scrapeUrlToStructured(args.url);
+                } catch (e) {
+                    return { error: e.message };
+                }
+            }
+            case 'save_scraped_business': {
+                if (!args.structured) return { error: 'structured object required' };
+                return await saveScrapedBusiness(args.structured, gcrDb);
+            }
+            case 'extract_menu_from_image': {
+                const b64 = args.image_base64 || attachedImage?.base64;
+                const mime = args.image_mime || attachedImage?.mime;
+                if (!b64) return { error: 'No image provided. Either attach an image to the chat or pass image_base64.' };
+                const extracted = await extractMenuFromImageHelper({
+                    image_base64: b64, image_mime: mime,
+                    provider: args.provider, model: args.model,
+                });
+                if (extracted.error) return extracted;
+                let saveTarget = args.entity_id || (args.use_attached_business ? entityId : null);
+                if (!saveTarget) {
+                    return { ...extracted, note: 'Preview only — pass entity_id to save these items to a business.' };
+                }
+                const saved = await saveMenuToEntity({ entityId: saveTarget, categories: extracted.categories }, gcrDb);
+                return { extracted_categories: extracted.categories.length, extracted_items: extracted.total_items, saved };
+            }
+            case 'add_business_image': {
+                const b64 = args.image_base64 || attachedImage?.base64;
+                const mime = args.image_mime || attachedImage?.mime || 'image/jpeg';
+                if (!b64) return { error: 'No image. Attach an image to the chat or pass image_base64.' };
+                let eid = args.entity_id || entityId;
+                if (!eid && args.slug) {
+                    const { data } = await gcrDb.from('entity').select('id').eq('slug', args.slug).maybeSingle();
+                    eid = data?.id;
+                }
+                if (!eid) return { error: 'No business selected. Provide entity_id or slug, or select a business in the chat first.' };
+                let publicUrl;
+                try { publicUrl = await uploadEntityMedia(b64, mime, gcrDb); }
+                catch (e) { return { error: e.message }; }
+                const as = args.as === 'hero' ? 'hero' : 'gallery';
+                if (as === 'hero') {
+                    const { error } = await gcrDb.from('entity').update({ hero_image_url: publicUrl }).eq('id', eid);
+                    if (error) return { error: error.message };
+                    return { success: true, as: 'hero', entity_id: eid, hero_image_url: publicUrl, note: 'Now showing on GCR profile and Trip Swipe card.' };
+                }
+                const { data, error } = await gcrDb.from('entity_photos').insert({ entity_id: eid, image_url: publicUrl, caption: args.caption || '', sort_order: 0 }).select('id').single();
+                if (error) return { error: error.message };
+                return { success: true, as: 'gallery', entity_id: eid, photo_id: data.id, image_url: publicUrl };
+            }
+            case 'lookup_business': {
+                const found = await lookupBusinessId(args, gcrDb);
+                if (!found) return { error: 'No business matched the given identifiers' };
+                return found;
+            }
+            default:
+                return { error: `Unknown tool: ${name}` };
+        }
+    } catch (err) {
+        return { error: `Tool ${name} error: ${err.message}` };
+    }
+}
+
+// ── GET /api/admin/ai-provider — returns active AI provider info
+router.get('/ai-provider', (req, res) => {
+    res.json(getProviderInfo());
+});
+
+// ── POST /api/admin/gcr/ai-chat — Agentic AI with tool use (provider-agnostic)
+router.post('/gcr/grok-chat', async (req, res) => {
+    const { message, history = [], slug, entity_id, google_place_id, name, image_url, image_base64, image_mime, provider, model } = req.body;
+    if (!message && !image_url && !image_base64) return res.status(400).json({ error: 'message required' });
+
+    const db = getGcrDb();
+
+    // Resolve entity ID from any identifier (id, slug, google_place_id, fuzzy name)
+    let entityId = entity_id || null;
+    if (!entityId) {
+        const found = await lookupBusinessId({ slug, google_place_id, name }, db);
+        if (found && found.id) entityId = found.id;
+    }
+
+    const systemPrompt = `You are a GCR (Gulf Coast Radar) database agent for Orange Beach and Gulf Shores, Alabama.
+GCR is a local business directory. All business data lives in the GCR database.
+
+TOOLS TO USE:
+- For platform-wide counts, stats, inventory: use get_platform_inventory (queries GCR entity table — this is the real GCR data)
+- For searching a specific business: use search_entity
+- For full details on one business: use get_entity_full
+- get_cybercheck_businesses queries a DIFFERENT database (CyberCheck main DB) — only use it if asked about CyberCheck platform customers specifically, NOT for GCR business counts
+
+CRITICAL — DATA ACCURACY:
+- Show ALL values EXACTLY as they appear in the database. Never rename, relabel, reformat, or add emojis to field values.
+- Never invent, estimate, or fill in data. If null, say missing.
+- Show exact numbers from tool results. Never round or adjust.
+
+WRITE:
+- You can update any entity field, hours, menu, drinks, events, specials, tags, features, gallery.
+- When given a menu image, extract every item with name, price, and description, then ask which business to add them to.
+- Apply changes immediately without confirmation unless deleting more than 10 records at once.
+
+IDENTIFIERS — every business tool accepts the entity_id, but you can also resolve a business by slug, google_place_id, or fuzzy name first via lookup_business, then pass the returned id to the action tool.
+
+URL SCRAPING & FULL-PROFILE CREATION:
+- When the user pastes a website URL or asks you to "go get data from <site>", call scrape_url with that URL. It returns a complete structured object (name, address, hours, menu, drinks, events, specials, happy hour, fleet, pricing, etc.).
+- To save the scraped data to GCR, call save_scraped_business with that structured object. It will upsert the entity and insert all child rows in one shot.
+- You can also assemble a structured object yourself from chat conversation and pass it to save_scraped_business to create a full profile from text.
+
+BUSINESS IMAGES (hero + gallery, drives GCR profile and Trip Swipe cards):
+- When the user attaches a photo and says "make this the hero" / "set as cover" / "use for trip swipe" → call add_business_image with as='hero'.
+- When they say "add to gallery" / "add a photo" / just attach a photo without specifying → call add_business_image with as='gallery'.
+- The image is auto-pulled from the chat attachment; you don't need to pass image_base64.
+- Resolve the business via the selected one or call lookup_business first if they name it.
+
+MENU IMAGE EXTRACTION:
+- When the user attaches an image to the chat (a menu photo, drinks list, happy hour board, specials chalkboard, etc.), call extract_menu_from_image. The image is automatically attached — you do not need to pass image_base64.
+- If a business is currently selected (or the user names one), pass entity_id (or use_attached_business=true) so the items save directly into that business's menu/drinks/happy_hour tables.
+- If no business is selected, the tool returns a preview only — ask the user which business to save to, then call again with entity_id.
+
+POST-SAVE REVIEW — MANDATORY:
+- After ANY tool that creates or modifies business data (save_scraped_business, extract_menu_from_image with save, update_business, update_entity, add_menu_item, add_event, add_special, save_menu_items, save_specials, save_events, set_hero_image, update_hours, etc.), you MUST immediately call get_entity_full for the affected entity_id.
+- Then present a COMPLETE dashboard-format summary that mirrors the admin business editor tabs:
+  📋 Basic Info — name, slug, type/subtype, tagline, phone, email, address, website, price range, social links, status (active/hidden)
+  🕒 Hours — every day_of_week with open/close
+  🍽️ Menu — sections with item counts and a sample
+  🍹 Drinks — sections with counts
+  🎉 Happy Hour — schedule (hh_days/start/end) + items
+  ⭐ Specials — count + names + days
+  📅 Events — count + names + dates
+  🖼️ Hero image / gallery — URLs or "missing"
+  🏷️ Tags / Features / Perfect For — lists
+- End the summary with a single line: "ENTITY_REF:<entity_id>" so the dashboard can render a one-click "Open in Admin Dashboard" button for the user.
+
+- Be concise. Use bullets. Bold key numbers.
+- Today: ${new Date().toISOString().split('T')[0]}
+${entityId ? `Currently viewing entity_id: ${entityId}` : 'Platform-wide view — no single business selected.'}`;
+
+    // Build initial messages — include image in user content if provided
+    let userContent = message || '';
+    let userMsgContent;
+
+    if (image_base64) {
+        // Vision: send image inline as base64
+        const base64Data = image_base64.replace(/^data:[^;]+;base64,/, '');
+        const mimeType = image_mime || 'image/jpeg';
+        userMsgContent = [
+            { type: 'image', source: { type: 'base64', media_type: mimeType, data: base64Data } },
+            { type: 'text', text: userContent || 'Please extract all menu items from this image with names, prices, and descriptions.' },
+        ];
+    } else {
+        if (image_url) userContent = userContent ? `${userContent}\n\n[Image: ${image_url}]` : `[Image: ${image_url}]`;
+        userMsgContent = userContent;
+    }
+
+    const messages = [
+        ...history.slice(-8).map(h => ({ role: h.role, content: h.content })),
+        { role: 'user', content: userMsgContent },
+    ];
+
+    try {
+        const result = await runAgentLoop({
+            systemPrompt,
+            messages,
+            tools: GCR_AGENT_TOOLS,
+            executeTool: (toolName, toolArgs) => executeGCRTool(toolName, toolArgs, {
+                gcrDb: db, entityId, mainDb: supabase,
+                attachedImage: image_base64 ? { base64: image_base64.replace(/^data:[^;]+;base64,/, ''), mime: image_mime || 'image/jpeg' } : null,
+            }),
+            maxRounds: 6,
+            temperature: 0.3,
+            maxTokens: 1500,
+            ...(provider && { provider }),
+            ...(model && { model }),
+        });
+        res.json({ reply: result.reply, tools_called: result.tools_called, provider: result.provider });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// ============================================
+// GET /api/admin/gcr/claims — list all claim requests (admin)
+// ============================================
+router.get('/gcr/claims', adminRequired, async (req, res) => {
+    let query = gcrDb.from('gcr_claims').select('*').order('created_at', { ascending: false });
+    if (req.query.status) query = query.eq('status', req.query.status);
+    const { data, error } = await query;
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data || []);
+});
+
+// ============================================
+// PATCH /api/admin/gcr/claims/:id — update status / admin_notes
+// ============================================
+router.patch('/gcr/claims/:id', adminRequired, async (req, res) => {
+    const { status, admin_notes } = req.body || {};
+    const update = { updated_at: new Date().toISOString() };
+    if (status !== undefined)      update.status      = status;
+    if (admin_notes !== undefined)  update.admin_notes = admin_notes;
+    const { data, error } = await gcrDb.from('gcr_claims').update(update).eq('id', req.params.id).select('*').single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
+// ============================================
+// DAILY ROTATING SECTIONS — admin CRUD
+// Sections + their preset options are defined by admin. Owners pick
+// from these via the daily update link. Picks are in a separate table.
+// ============================================
+
+// GET /admin/gcr/entities/:entityId/daily-rotation
+// Returns all sections (with their options) for a given entity.
+router.get('/gcr/entities/:entityId/daily-rotation', adminRequired, async (req, res) => {
+    const entityId = req.params.entityId;
+    const { data: sections, error: sErr } = await gcrDb
+        .from('daily_rotation_sections')
+        .select('*')
+        .eq('entity_id', entityId)
+        .order('sort_order', { ascending: true });
+    if (sErr) return res.status(500).json({ error: sErr.message });
+
+    if (!sections.length) return res.json({ sections: [] });
+
+    const ids = sections.map(s => s.id);
+    const { data: options, error: oErr } = await gcrDb
+        .from('daily_rotation_options')
+        .select('*')
+        .in('section_id', ids)
+        .order('sort_order', { ascending: true });
+    if (oErr) return res.status(500).json({ error: oErr.message });
+
+    const bySection = {};
+    options.forEach(o => { (bySection[o.section_id] ||= []).push(o); });
+    const out = sections.map(s => ({ ...s, options: bySection[s.id] || [] }));
+    res.json({ sections: out });
+});
+
+// POST /admin/gcr/entities/:entityId/daily-rotation/sections
+router.post('/gcr/entities/:entityId/daily-rotation/sections', adminRequired, async (req, res) => {
+    const { name, emoji, description, sort_order } = req.body || {};
+    if (!name) return res.status(400).json({ error: 'name required' });
+    const { data, error } = await gcrDb
+        .from('daily_rotation_sections')
+        .insert({
+            entity_id: req.params.entityId,
+            name, emoji: emoji || null, description: description || null,
+            sort_order: sort_order != null ? sort_order : 0
+        })
+        .select('*').single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
+// PATCH /admin/daily-rotation/sections/:id
+router.patch('/daily-rotation/sections/:id', adminRequired, async (req, res) => {
+    const { name, emoji, description, sort_order } = req.body || {};
+    const update = { updated_at: new Date().toISOString() };
+    if (name !== undefined)        update.name = name;
+    if (emoji !== undefined)       update.emoji = emoji;
+    if (description !== undefined) update.description = description;
+    if (sort_order !== undefined)  update.sort_order = sort_order;
+    const { data, error } = await gcrDb
+        .from('daily_rotation_sections')
+        .update(update).eq('id', req.params.id)
+        .select('*').single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
+// DELETE /admin/daily-rotation/sections/:id (cascades options + picks)
+router.delete('/daily-rotation/sections/:id', adminRequired, async (req, res) => {
+    const { error } = await gcrDb.from('daily_rotation_sections').delete().eq('id', req.params.id);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ ok: true });
+});
+
+// POST /admin/daily-rotation/sections/:id/options
+router.post('/daily-rotation/sections/:id/options', adminRequired, async (req, res) => {
+    const { name, default_price, default_description, sort_order } = req.body || {};
+    if (!name) return res.status(400).json({ error: 'name required' });
+    const { data, error } = await gcrDb
+        .from('daily_rotation_options')
+        .insert({
+            section_id: req.params.id,
+            name,
+            default_price: default_price != null ? Number(default_price) : null,
+            default_description: default_description || null,
+            sort_order: sort_order != null ? sort_order : 0
+        })
+        .select('*').single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
+// PATCH /admin/daily-rotation/options/:id
+router.patch('/daily-rotation/options/:id', adminRequired, async (req, res) => {
+    const { name, default_price, default_description, sort_order } = req.body || {};
+    const update = {};
+    if (name !== undefined)                update.name = name;
+    if (default_price !== undefined)       update.default_price = default_price != null ? Number(default_price) : null;
+    if (default_description !== undefined) update.default_description = default_description;
+    if (sort_order !== undefined)          update.sort_order = sort_order;
+    const { data, error } = await gcrDb
+        .from('daily_rotation_options')
+        .update(update).eq('id', req.params.id)
+        .select('*').single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
+// DELETE /admin/daily-rotation/options/:id
+router.delete('/daily-rotation/options/:id', adminRequired, async (req, res) => {
+    const { error } = await gcrDb.from('daily_rotation_options').delete().eq('id', req.params.id);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ ok: true });
+});
+
+// ── Sales Leads ──────────────────────────────────────────────────────────────
+router.get('/sales-leads', adminRequired, async (req, res) => {
+    const { source, status } = req.query;
+    let q = supabase.from('sales_leads').select('*').order('created_at', { ascending: false }).limit(200);
+    if (source) q = q.ilike('source', '%' + source + '%');
+    if (status) q = q.eq('status', status);
+    const { data, error } = await q;
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data || []);
+});
+
+router.patch('/sales-leads/:id', adminRequired, async (req, res) => {
+    const { error } = await supabase.from('sales_leads')
+        .update({ ...req.body, updated_at: new Date().toISOString() })
+        .eq('id', req.params.id);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ ok: true });
+});
+
+// ── Conversational AI Data Organizer ─────────────────────────────────────────
+// POST /api/admin/ai-chat-organizer
+// Body: { messages: [{role,content}], site_id }
+// Runs an agent loop. When AI has enough info it calls save tools directly.
+// Returns { reply, saved } where saved lists what was written to the DB.
+
+const AI_CHAT_SYSTEM = `You are a restaurant data assistant. The user will give you any kind of restaurant information — menus, specials, events, happy hour deals, business details — in any format (text, copied from a website, photos descriptions, etc.).
+
+Your job:
+1. Extract and ORGANIZE the data into structured categories
+2. Ask ONE clarifying question at a time when something is ambiguous (e.g. "Is this the happy hour menu or the regular menu?")
+3. Once you have enough info, call the appropriate save tool to store it
+
+Available save tools:
+- save_menu_items: food, drink, or happy_hour items with name/price/description/category/item_type/modifiers
+- save_specials: daily specials or deals with name, discount_text, days, times
+- save_events: upcoming events with name, date, time, description
+- update_business: name, address, phone, hours, description, website
+
+Rules:
+- Always confirm what you're saving before calling a save tool
+- If item_type is unclear, ask: food, drink, or happy_hour?
+- Keep questions short and specific
+- After saving, tell the user what was saved and ask if there's anything else`;
+
+router.post('/ai-chat-organizer', adminRequired, async (req, res) => {
+    const { messages = [], site_id, entity_id } = req.body;
+    if (!site_id && !entity_id) return res.status(400).json({ error: 'entity_id required' });
+
+    // Resolve GCR entity_id — prefer explicit entity_id, fallback to legacy_site_id lookup
+    let entityId = entity_id;
+    if (!entityId && site_id) {
+        const { data: ent } = await gcrDb.from('entity').select('id').eq('legacy_site_id', site_id).maybeSingle();
+        entityId = ent?.id || null;
+    }
+    if (!entityId) return res.status(400).json({ error: 'No GCR entity found for this business. Link it first.' });
+
+    const tools = [
+        {
+            type: 'function',
+            function: {
+                name: 'save_menu_items',
+                description: 'Save menu items (food, drinks, happy hour) to the database',
+                parameters: {
+                    type: 'object',
+                    properties: {
+                        items: {
+                            type: 'array',
+                            items: {
+                                type: 'object',
+                                properties: {
+                                    name: { type: 'string' },
+                                    price: { type: 'number' },
+                                    description: { type: 'string' },
+                                    category: { type: 'string' },
+                                    item_type: { type: 'string', enum: ['food','drink','happy_hour'] },
+                                    modifiers: { type: 'array', items: { type: 'object', properties: { name: { type: 'string' }, price: { type: 'number' } } } }
+                                },
+                                required: ['name']
+                            }
+                        }
+                    },
+                    required: ['items']
+                }
+            }
+        },
+        {
+            type: 'function',
+            function: {
+                name: 'save_specials',
+                description: 'Save daily specials or deals',
+                parameters: {
+                    type: 'object',
+                    properties: {
+                        specials: {
+                            type: 'array',
+                            items: {
+                                type: 'object',
+                                properties: {
+                                    special_name: { type: 'string' },
+                                    discount_text: { type: 'string' },
+                                    description: { type: 'string' },
+                                    days: { type: 'string' },
+                                    start_time: { type: 'string' },
+                                    end_time: { type: 'string' }
+                                },
+                                required: ['special_name']
+                            }
+                        }
+                    },
+                    required: ['specials']
+                }
+            }
+        },
+        {
+            type: 'function',
+            function: {
+                name: 'save_events',
+                description: 'Save upcoming events',
+                parameters: {
+                    type: 'object',
+                    properties: {
+                        events: {
+                            type: 'array',
+                            items: {
+                                type: 'object',
+                                properties: {
+                                    name: { type: 'string' },
+                                    description: { type: 'string' },
+                                    event_date: { type: 'string' },
+                                    start_time: { type: 'string' },
+                                    end_time: { type: 'string' }
+                                },
+                                required: ['name']
+                            }
+                        }
+                    },
+                    required: ['events']
+                }
+            }
+        },
+        {
+            type: 'function',
+            function: {
+                name: 'update_business',
+                description: 'Update business profile info',
+                parameters: {
+                    type: 'object',
+                    properties: {
+                        name: { type: 'string' },
+                        address: { type: 'string' },
+                        phone: { type: 'string' },
+                        hours: { type: 'string' },
+                        description: { type: 'string' },
+                        tagline: { type: 'string' }
+                    }
+                }
+            }
+        },
+        {
+            type: 'function',
+            function: {
+                name: 'save_hours',
+                description: 'Save business hours by day of week',
+                parameters: {
+                    type: 'object',
+                    properties: {
+                        hours: {
+                            type: 'array',
+                            items: {
+                                type: 'object',
+                                properties: {
+                                    day_of_week: { type: 'string', enum: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'] },
+                                    open_time: { type: 'string' },
+                                    close_time: { type: 'string' },
+                                    is_closed: { type: 'boolean' }
+                                },
+                                required: ['day_of_week']
+                            }
+                        }
+                    },
+                    required: ['hours']
+                }
+            }
+        },
+        {
+            function: {
+                name: 'save_about',
+                description: 'Save about/description bullet points or sections',
+                parameters: {
+                    type: 'object',
+                    properties: {
+                        bullets: {
+                            type: 'array',
+                            items: {
+                                type: 'object',
+                                properties: {
+                                    bullet_text: { type: 'string' },
+                                    sort_order: { type: 'number' }
+                                },
+                                required: ['bullet_text']
+                            }
+                        }
+                    },
+                    required: ['bullets']
+                }
+            }
+        },
+        {
+            function: {
+                name: 'save_photos',
+                description: 'Save photo gallery URLs',
+                parameters: {
+                    type: 'object',
+                    properties: {
+                        photos: {
+                            type: 'array',
+                            items: {
+                                type: 'object',
+                                properties: {
+                                    image_url: { type: 'string' },
+                                    caption: { type: 'string' },
+                                    sort_order: { type: 'number' }
+                                },
+                                required: ['image_url']
+                            }
+                        }
+                    },
+                    required: ['photos']
+                }
+            }
+        },
+        {
+            function: {
+                name: 'save_tags',
+                description: 'Save amenity, feature, and category tags',
+                parameters: {
+                    type: 'object',
+                    properties: {
+                        tags: {
+                            type: 'array',
+                            items: {
+                                type: 'object',
+                                properties: {
+                                    tag: { type: 'string' },
+                                    tag_category: { type: 'string', enum: ['amenity','feature','category','perfect_for','search'] }
+                                },
+                                required: ['tag']
+                            }
+                        }
+                    },
+                    required: ['tags']
+                }
+            }
+        }
+    ];
+
+    const saved = [];
+
+    async function executeTool(name, args) {
+        if (name === 'save_menu_items') {
+            let foodCount = 0, drinkCount = 0, hhCount = 0;
+            for (const item of (args.items || [])) {
+                const itype = item.item_type || 'food';
+                const secType = itype === 'drink' ? 'drinks' : itype === 'happy_hour' ? 'happy_hour' : 'menu';
+                const secLabel = item.category || (itype === 'drink' ? 'Drinks' : itype === 'happy_hour' ? 'Happy Hour' : 'Menu');
+
+                let { data: sec } = await gcrDb.from('entity_sections').select('id').eq('entity_id', entityId).eq('section_type', secType).eq('section_label', secLabel).maybeSingle();
+                if (!sec) {
+                    const r = await gcrDb.from('entity_sections').insert({
+                        entity_id: entityId,
+                        section_key: secLabel.toLowerCase().replace(/\s+/g, '_'),
+                        section_label: secLabel,
+                        section_type: secType,
+                        sort_order: 0
+                    }).select('id').single();
+                    sec = r.data;
+                }
+                if (!sec?.id) continue;
+
+                const { error } = await gcrDb.from('section_items').insert({
+                    entity_id: entityId,
+                    section_id: sec.id,
+                    item_name: item.name,
+                    item_description: item.description || null,
+                    price_numeric: parseFloat(item.price) || null,
+                    price_text: item.price ? '$' + parseFloat(item.price).toFixed(2) : null,
+                    item_type: itype,
+                    sort_order: 0
+                });
+                if (!error) {
+                    if (itype === 'drink') drinkCount++;
+                    else if (itype === 'happy_hour') hhCount++;
+                    else foodCount++;
+                }
+            }
+            const total = foodCount + drinkCount + hhCount;
+            saved.push({ type: 'menu_items', count: total });
+            return `Saved ${total} items to GCR (${foodCount} food, ${drinkCount} drinks, ${hhCount} happy hour)`;
+        }
+        if (name === 'save_specials') {
+            let count = 0;
+            for (const s of (args.specials || [])) {
+                const { error } = await gcrDb.from('entity_specials').insert({
+                    entity_id: entityId,
+                    special_name: s.special_name,
+                    discount_text: s.discount_text || null,
+                    description: s.description || null,
+                    days: s.days || null,
+                    start_time: s.start_time || null,
+                    end_time: s.end_time || null,
+                    is_active: true
+                });
+                if (!error) count++;
+            }
+            saved.push({ type: 'specials', count });
+            return `Saved ${count} specials to GCR`;
+        }
+        if (name === 'save_events') {
+            let count = 0;
+            for (const e of (args.events || [])) {
+                const { error } = await gcrDb.from('entity_events').insert({
+                    entity_id: entityId,
+                    event_name: e.name,
+                    description: e.description || null,
+                    event_date: e.event_date || null,
+                    start_time: e.start_time || null,
+                    end_time: e.end_time || null,
+                    is_active: true
+                });
+                if (!error) count++;
+            }
+            saved.push({ type: 'events', count });
+            return `Saved ${count} events to GCR`;
+        }
+        if (name === 'update_business') {
+            const upd = {};
+            if (args.name)        upd.name          = args.name;
+            if (args.tagline)     upd.subtitle       = args.tagline;
+            if (args.description) upd.description    = args.description;
+            if (args.phone)       upd.phone          = args.phone;
+            if (args.address)     upd.address_line_1 = args.address;
+            if (Object.keys(upd).length) {
+                upd.updated_at = new Date().toISOString();
+                await gcrDb.from('entity').update(upd).eq('id', entityId);
+            }
+            saved.push({ type: 'business', fields: Object.keys(upd) });
+            return `Updated business profile in GCR`;
+        }
+        if (name === 'save_hours') {
+            let count = 0;
+            for (const h of (args.hours || [])) {
+                const { error } = await gcrDb.from('entity_hours').upsert({
+                    entity_id: entityId,
+                    day_of_week: h.day_of_week,
+                    open_time: h.open_time || null,
+                    close_time: h.close_time || null,
+                    is_closed: h.is_closed || false
+                }, { onConflict: 'entity_id,day_of_week' });
+                if (!error) count++;
+            }
+            saved.push({ type: 'hours', count });
+            return `Saved ${count} hours to GCR`;
+        }
+        if (name === 'save_about') {
+            let count = 0;
+            for (const b of (args.bullets || [])) {
+                const { error } = await gcrDb.from('entity_about_bullets').insert({
+                    entity_id: entityId,
+                    bullet_text: b.bullet_text,
+                    sort_order: b.sort_order || 0
+                });
+                if (!error) count++;
+            }
+            saved.push({ type: 'about', count });
+            return `Saved ${count} about bullet points to GCR`;
+        }
+        if (name === 'save_photos') {
+            let count = 0;
+            for (const p of (args.photos || [])) {
+                const { error } = await gcrDb.from('entity_photos').insert({
+                    entity_id: entityId,
+                    image_url: p.image_url,
+                    caption: p.caption || null,
+                    sort_order: p.sort_order || 0
+                });
+                if (!error) count++;
+            }
+            saved.push({ type: 'photos', count });
+            return `Saved ${count} photos to GCR gallery`;
+        }
+        if (name === 'save_tags') {
+            let count = 0;
+            for (const t of (args.tags || [])) {
+                const { error } = await gcrDb.from('entity_tags').insert({
+                    entity_id: entityId,
+                    tag: t.tag,
+                    tag_category: t.tag_category || 'amenity'
+                });
+                if (!error) count++;
+            }
+            saved.push({ type: 'tags', count });
+            return `Saved ${count} tags to GCR`;
+        }
+        return 'Unknown tool';
+    }
+
+    try {
+        const { reply } = await runAgentLoop({
+            systemPrompt: AI_CHAT_SYSTEM,
+            messages,
+            tools,
+            executeTool,
+            maxRounds: 8,
+            temperature: 0.3,
+            maxTokens: 2000,
+        });
+        res.json({ reply, saved });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// POST /api/admin/businesses/:site_id/link-gcr
+// Links an existing business to GCR (creates entity if none exists, or finds by name/slug)
+router.post('/businesses/:site_id/link-gcr', adminRequired, async (req, res) => {
+    const { site_id } = req.params;
+    try {
+        // Get business details
+        const { data: biz } = await supabase.from('businesses').select('*').eq('site_id', site_id).maybeSingle();
+        if (!biz) return res.status(404).json({ error: 'Business not found' });
+
+        // Check if already linked
+        const { data: existing } = await gcrDb.from('entity').select('id,name').eq('legacy_site_id', site_id).maybeSingle();
+        if (existing) return res.json({ ok: true, entity_id: existing.id, message: 'Already linked to ' + existing.name });
+
+        // Try to find by subdomain/slug
+        const slug = biz.subdomain || biz.name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+        const { data: bySlug } = await gcrDb.from('entity').select('id').eq('slug', slug).maybeSingle();
+        if (bySlug) {
+            await gcrDb.from('entity').update({ legacy_site_id: site_id }).eq('id', bySlug.id);
+            return res.json({ ok: true, entity_id: bySlug.id, message: 'Linked existing GCR entity' });
+        }
+
+        // Create new GCR entity
+        const { data: newEntity } = await gcrDb.from('entity').insert({
+            name: biz.name, slug, entity_type: 'business',
+            entity_subtype: biz.type || 'restaurant', legacy_site_id: site_id,
+        }).select('id').single();
+
+        res.json({ ok: true, entity_id: newEntity.id, message: 'Created and linked new GCR entity' });
+    } catch(e) {
+        res.status(500).json({ error: e.message });
+    }
+});
+
+// POST /api/admin/businesses/link-gcr-all
+// Bulk-links all unlinked businesses to GCR
+router.post('/businesses/link-gcr-all', adminRequired, async (req, res) => {
+    const { data: businesses } = await supabase.from('businesses').select('site_id, name, subdomain, type');
+    let linked = 0, skipped = 0, created = 0;
+    for (const biz of (businesses || [])) {
+        const { data: existing } = await gcrDb.from('entity').select('id').eq('legacy_site_id', biz.site_id).maybeSingle();
+        if (existing) { skipped++; continue; }
+        const slug = biz.subdomain || (biz.name||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+        const { data: bySlug } = await gcrDb.from('entity').select('id').eq('slug', slug).maybeSingle();
+        if (bySlug) {
+            await gcrDb.from('entity').update({ legacy_site_id: biz.site_id }).eq('id', bySlug.id);
+            linked++;
+        } else {
+            await gcrDb.from('entity').insert({ name: biz.name, slug, entity_type: 'business', entity_subtype: biz.type || 'restaurant', legacy_site_id: biz.site_id });
+            created++;
+        }
+    }
+    res.json({ ok: true, linked, created, skipped });
+});
+
+// GET /api/admin/run-migrations — creates missing tables using service key
+// Hit this once to fix ai_settings and business_embeddings tables
+router.get('/run-migrations', adminRequired, async (req, res) => {
+    const results = [];
+    const queries = [
+        {
+            name: 'ai_settings',
+            sql: `CREATE TABLE IF NOT EXISTS ai_settings (
+                id INTEGER PRIMARY KEY DEFAULT 1,
+                chat_provider TEXT DEFAULT 'anthropic',
+                chat_model TEXT DEFAULT 'claude-sonnet-4-6',
+                chat_api_key TEXT, embed_provider TEXT DEFAULT 'openai',
+                embed_model TEXT DEFAULT 'text-embedding-3-small',
+                embed_api_key TEXT, embed_dimensions INTEGER DEFAULT 1536,
+                rag_enabled BOOLEAN DEFAULT false, voice_enabled BOOLEAN DEFAULT false,
+                system_prompt TEXT, api_key_anthropic TEXT, api_key_openai TEXT,
+                api_key_grok TEXT, updated_at TIMESTAMPTZ DEFAULT NOW()
+            ); INSERT INTO ai_settings (id) VALUES (1) ON CONFLICT (id) DO NOTHING;`
+        },
+        {
+            name: 'business_embeddings',
+            sql: `CREATE TABLE IF NOT EXISTS business_embeddings (
+                id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+                site_id UUID, entity_id UUID, content TEXT,
+                chunk_index INT DEFAULT 0, created_at TIMESTAMPTZ DEFAULT NOW()
+            );`
+        },
+    ];
+
+    for (const q of queries) {
+        try {
+            const { error } = await supabase.rpc('exec_sql', { sql: q.sql }).catch(() => ({ error: { message: 'rpc not available' } }));
+            if (error) {
+                // Try direct insert to verify table exists
+                const { error: chk } = await supabase.from(q.name).select('id').limit(1);
+                results.push({ table: q.name, status: chk ? 'needs manual creation' : 'already exists' });
+            } else {
+                results.push({ table: q.name, status: 'created' });
+            }
+        } catch(e) {
+            results.push({ table: q.name, status: 'error: ' + e.message });
+        }
+    }
+    res.json({ results, note: 'If status is "needs manual creation", run the SQL in your Supabase SQL editor' });
+});
+
+// ═══════════════════════════════════════════════════════════════════════
+// SMART IMPORT — AI-powered structured data import
+// Paste raw text of any format → AI parses → human reviews → saves to DB
+// Never creates entities. Matches venues by name against existing entity table.
+// ═══════════════════════════════════════════════════════════════════════
+
+// Extracts JSON from AI response text, tolerating markdown fences and prose.
+function extractJsonFromText(text) {
+    if (!text) throw new Error('Empty AI response');
+    const t = text.trim();
+    // Try direct parse first
+    try { return JSON.parse(t); } catch {}
+    // Strip markdown fences
+    const fenced = t.match(/```(?:json)?\s*([\s\S]*?)\s*```/);
+    if (fenced) {
+        try { return JSON.parse(fenced[1].trim()); } catch {}
+    }
+    // Find first { or [ and last } or ]
+    const firstObj = t.indexOf('{');
+    const firstArr = t.indexOf('[');
+    const start = firstArr === -1 ? firstObj : (firstObj === -1 ? firstArr : Math.min(firstObj, firstArr));
+    if (start === -1) throw new Error('No JSON in AI response');
+    const lastObj = t.lastIndexOf('}');
+    const lastArr = t.lastIndexOf(']');
+    const end = Math.max(lastObj, lastArr);
+    if (end < start) throw new Error('Malformed JSON in AI response');
+    return JSON.parse(t.slice(start, end + 1));
+}
+
+// ── POST /api/admin/smart-import/parse-events
+//    Body: { raw_text }
+//    Returns: { events: [{ venue_name, event_name, event_type, description, event_date,
+//               day_of_week, start_time, end_time, recurring, cover_charge }, ...] }
+router.post('/smart-import/parse-events', async (req, res) => {
+    const { raw_text } = req.body;
+    if (!raw_text || raw_text.trim().length < 10) {
+        return res.status(400).json({ error: 'raw_text is required (min 10 chars)' });
+    }
+
+    const today = new Date().toISOString().split('T')[0];
+    const systemPrompt = `You extract live event data from messy text into strict JSON.
+
+Today is ${today}. The site covers Orange Beach / Gulf Shores, Alabama.
+
+Return ONLY a JSON object with this exact shape, no prose, no markdown:
+{
+  "events": [
+    {
+      "venue_name": "string — name of the business/venue hosting the event",
+      "event_name": "string — title or artist name of the event",
+      "event_type": "live_music" | "trivia" | "karaoke" | "bingo" | "dj" | "festival" | "other",
+      "description": "string or null",
+      "event_date": "YYYY-MM-DD or null if recurring or unknown",
+      "day_of_week": "Monday|Tuesday|...|Sunday or null for one-time events",
+      "start_time": "HH:MM (24h) or null",
+      "end_time": "HH:MM (24h) or null",
+      "recurring": true | false,
+      "cover_charge": "string like '$10' or 'Free' or null"
+    }
+  ]
+}
+
+Rules:
+- If text says "Thursday" with a specific date, use event_date AND day_of_week.
+- If text says "Every Thursday" or "Weekly", set recurring=true, set day_of_week, leave event_date null.
+- Multi-set entries like "3-6pm Willie | 6-9pm Funky" → TWO separate events, one per set.
+- Events that run multiple days (e.g. Car Show Thu-Sat) → ONE event per day with the correct event_date.
+- Convert times to 24-hour HH:MM. "5pm" → "17:00", "6:30 PM" → "18:30".
+- venue_name should be EXACTLY as written in the source, do not guess.
+- Skip any row that isn't clearly an event.`;
+
+    try {
+        const result = await callAIRound({
+            messages: [{ role: 'user', content: raw_text }],
+            systemPrompt,
+            temperature: 0.1,
+            maxTokens: 4000,
+        });
+        const parsed = extractJsonFromText(result.text || '');
+        const events = Array.isArray(parsed) ? parsed : (parsed.events || []);
+
+        // Attempt to match each venue_name to an existing entity
+        const venueNames = [...new Set(events.map(e => (e.venue_name || '').trim()).filter(Boolean))];
+        const matches = {};
+        if (venueNames.length) {
+            const { data: ents } = await gcrDb
+                .from('entity')
+                .select('id, slug, name')
+                .eq('is_active', true)
+                .limit(2000);
+            const all = ents || [];
+            for (const vn of venueNames) {
+                const low = vn.toLowerCase();
+                const match = all.find(e => e.name && e.name.toLowerCase() === low)
+                    || all.find(e => e.name && (e.name.toLowerCase().includes(low) || low.includes(e.name.toLowerCase())));
+                matches[vn] = match ? { id: match.id, slug: match.slug, name: match.name } : null;
+            }
+        }
+
+        const enriched = events.map(e => ({
+            ...e,
+            matched_entity: matches[(e.venue_name || '').trim()] || null,
+        }));
+
+        res.json({ events: enriched, count: enriched.length });
+    } catch (err) {
+        console.error('smart-import/parse-events error:', err.message);
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// ── POST /api/admin/smart-import/save-events
+//    Body: { events: [{ entity_id, event_name, event_type, description, event_date,
+//             day_of_week, start_time, end_time, recurring, cover_charge }, ...] }
+//    Only inserts events for rows with a valid entity_id. Skips orphans.
+router.post('/smart-import/save-events', async (req, res) => {
+    const { events } = req.body;
+    if (!Array.isArray(events) || events.length === 0) {
+        return res.status(400).json({ error: 'events array required' });
+    }
+
+    const rows = events
+        .filter(e => e && e.entity_id && e.event_name)
+        .map(e => ({
+            entity_id: e.entity_id,
+            event_name: e.event_name,
+            event_type: e.event_type || 'other',
+            description: e.description || null,
+            event_date: e.event_date || null,
+            day_of_week: e.day_of_week || null,
+            start_time: e.start_time || null,
+            end_time: e.end_time || null,
+            recurring: !!e.recurring,
+            cover_charge: e.cover_charge || null,
+            is_active: true,
+        }));
+
+    if (rows.length === 0) {
+        return res.status(400).json({ error: 'No events with valid entity_id + event_name' });
+    }
+
+    try {
+        const { data, error } = await gcrDb.from('entity_events').insert(rows).select('id');
+        if (error) return res.status(500).json({ error: error.message });
+        res.json({ inserted: (data || []).length, skipped: events.length - rows.length });
+    } catch (err) {
+        console.error('smart-import/save-events error:', err.message);
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// ═══════════════════════════════════════════════════════════════════════
+// UNIFIED SMART IMPORT — one paste, AI classifies into events / menu /
+// specials / happy_hours, returns everything with venue matches.
+// Save endpoint handles all four types in one call.
+// ═══════════════════════════════════════════════════════════════════════
+
+// Resolve venue_name strings to matched entities.
+async function matchVenueNames(names) {
+    const unique = [...new Set((names || []).map(n => (n || '').trim()).filter(Boolean))];
+    if (!unique.length) return {};
+    const { data: ents } = await gcrDb
+        .from('entity')
+        .select('id, slug, name')
+        .eq('is_active', true)
+        .limit(2000);
+    const all = ents || [];
+    const matches = {};
+    for (const vn of unique) {
+        const low = vn.toLowerCase();
+        const m = all.find(e => e.name && e.name.toLowerCase() === low)
+            || all.find(e => e.name && (e.name.toLowerCase().includes(low) || low.includes(e.name.toLowerCase())));
+        matches[vn] = m ? { id: m.id, slug: m.slug, name: m.name } : null;
+    }
+    return matches;
+}
+
+// ── POST /api/admin/smart-import/parse
+//    Body: { raw_text }
+//    Returns: { events, menu_items, specials, happy_hours } — each with matched_entity attached
+router.post('/smart-import/parse', async (req, res) => {
+    const { raw_text } = req.body;
+    if (!raw_text || raw_text.trim().length < 10) {
+        return res.status(400).json({ error: 'raw_text is required (min 10 chars)' });
+    }
+
+    const today = new Date().toISOString().split('T')[0];
+    const systemPrompt = `You extract structured data from messy text for a local directory (Orange Beach / Gulf Shores, AL). Today is ${today}.
+
+Classify each item as ONE of: event, menu_item, special, happy_hour.
+
+Return ONLY this JSON shape (no prose, no markdown):
+{
+  "events": [{"venue_name":"string","event_name":"string","event_type":"live_music|trivia|karaoke|bingo|dj|festival|other","description":"string|null","event_date":"YYYY-MM-DD|null","day_of_week":"Monday|...|Sunday|null","start_time":"HH:MM|null","end_time":"HH:MM|null","recurring":false,"cover_charge":"string|null"}],
+  "menu_items": [{"venue_name":"string","section":"string (e.g. Appetizers, Entrees, Drinks)","item_name":"string","description":"string|null","price_text":"string|null","price":number_or_null}],
+  "specials": [{"venue_name":"string","special_name":"string","description":"string|null","special_type":"string|null","days":"string|null","start_time":"HH:MM|null","end_time":"HH:MM|null","discount_text":"string|null"}],
+  "happy_hours": [{"venue_name":"string","section":"Drinks|Food|other","item_name":"string","description":"string|null","price_text":"string|null","regular_price":number_or_null,"hh_price":number_or_null}]
+}
+
+Rules:
+- Multi-set lines like "3-6pm Artist A | 6-9pm Artist B" → separate events.
+- Multi-day events (e.g. Thu-Sat Car Show) → one event per day with correct event_date.
+- "Every Thursday" → recurring=true, day_of_week set, event_date null.
+- Times: convert to 24h HH:MM. "5pm" → "17:00". "6:30 PM" → "18:30".
+- venue_name EXACTLY as written in source.
+- Any of the four arrays can be empty [].
+- Skip unclear/ambiguous rows rather than guessing.`;
+
+    try {
+        const result = await callAIRound({
+            messages: [{ role: 'user', content: raw_text }],
+            systemPrompt,
+            temperature: 0.1,
+            maxTokens: 6000,
+        });
+        const parsed = extractJsonFromText(result.text || '');
+        const events      = Array.isArray(parsed.events)      ? parsed.events      : [];
+        const menuItems   = Array.isArray(parsed.menu_items)  ? parsed.menu_items  : [];
+        const specials    = Array.isArray(parsed.specials)    ? parsed.specials    : [];
+        const happyHours  = Array.isArray(parsed.happy_hours) ? parsed.happy_hours : [];
+
+        // Match venues for every item at once
+        const allNames = [
+            ...events.map(e => e.venue_name),
+            ...menuItems.map(m => m.venue_name),
+            ...specials.map(s => s.venue_name),
+            ...happyHours.map(h => h.venue_name),
+        ];
+        const matches = await matchVenueNames(allNames);
+        const attachMatch = x => ({ ...x, matched_entity: matches[(x.venue_name || '').trim()] || null });
+
+        res.json({
+            events:     events.map(attachMatch),
+            menu_items: menuItems.map(attachMatch),
+            specials:   specials.map(attachMatch),
+            happy_hours: happyHours.map(attachMatch),
+            counts: {
+                events: events.length,
+                menu_items: menuItems.length,
+                specials: specials.length,
+                happy_hours: happyHours.length,
+            },
+        });
+    } catch (err) {
+        console.error('smart-import/parse error:', err.message);
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// ── POST /api/admin/smart-import/save
+//    Body: { events: [...], menu_items: [...], specials: [...], happy_hours: [...] }
+//    Each array row requires entity_id. Sections for menu/happy_hour are upserted by name.
+router.post('/smart-import/save', async (req, res) => {
+    const events      = Array.isArray(req.body.events)      ? req.body.events      : [];
+    const menuItems   = Array.isArray(req.body.menu_items)  ? req.body.menu_items  : [];
+    const specials    = Array.isArray(req.body.specials)    ? req.body.specials    : [];
+    const happyHours  = Array.isArray(req.body.happy_hours) ? req.body.happy_hours : [];
+
+    const result = { events: 0, menu_items: 0, specials: 0, happy_hours: 0, skipped: 0, errors: [] };
+
+    // ─ Events ─
+    const eventRows = events
+        .filter(e => e && e.entity_id && e.event_name)
+        .map(e => ({
+            entity_id: e.entity_id,
+            event_name: e.event_name,
+            event_type: e.event_type || 'other',
+            description: e.description || null,
+            event_date: e.event_date || null,
+            day_of_week: e.day_of_week || null,
+            start_time: e.start_time || null,
+            end_time: e.end_time || null,
+            recurring: !!e.recurring,
+            cover_charge: e.cover_charge || null,
+            is_active: true,
+        }));
+    result.skipped += events.length - eventRows.length;
+    if (eventRows.length) {
+        const { data, error } = await gcrDb.from('entity_events').insert(eventRows).select('id');
+        if (error) result.errors.push('events: ' + error.message);
+        else result.events = (data || []).length;
+    }
+
+    // ─ Specials ─
+    const specialRows = specials
+        .filter(s => s && s.entity_id && s.special_name)
+        .map(s => ({
+            entity_id: s.entity_id,
+            special_name: s.special_name,
+            description: s.description || null,
+            special_type: s.special_type || null,
+            days: s.days || null,
+            start_time: s.start_time || null,
+            end_time: s.end_time || null,
+            discount_text: s.discount_text || null,
+            is_active: true,
+        }));
+    result.skipped += specials.length - specialRows.length;
+    if (specialRows.length) {
+        const { data, error } = await gcrDb.from('entity_specials').insert(specialRows).select('id');
+        if (error) result.errors.push('specials: ' + error.message);
+        else result.specials = (data || []).length;
+    }
+
+    // ─ Menu items (need section upsert by entity + name) ─
+    const menuValid = menuItems.filter(m => m && m.entity_id && m.item_name);
+    result.skipped += menuItems.length - menuValid.length;
+    if (menuValid.length) {
+        // Group by (entity_id, section)
+        const sectionCache = {}; // key `${entity_id}|${section}` → section_id
+        for (const m of menuValid) {
+            const section = (m.section || 'Menu').trim();
+            const key = `${m.entity_id}|${section.toLowerCase()}`;
+            if (sectionCache[key]) continue;
+            const { data: existing } = await gcrDb
+                .from('menu_sections')
+                .select('id')
+                .eq('entity_id', m.entity_id)
+                .ilike('section_name', section)
+                .limit(1);
+            if (existing && existing[0]) { sectionCache[key] = existing[0].id; continue; }
+            const { data: created, error: secErr } = await gcrDb
+                .from('menu_sections')
+                .insert({ entity_id: m.entity_id, section_name: section })
+                .select('id')
+                .single();
+            if (secErr) { result.errors.push('menu_section (' + section + '): ' + secErr.message); continue; }
+            sectionCache[key] = created.id;
+        }
+        const menuRows = menuValid
+            .map(m => {
+                const section = (m.section || 'Menu').trim();
+                const sectionId = sectionCache[`${m.entity_id}|${section.toLowerCase()}`];
+                if (!sectionId) return null;
+                return {
+                    entity_id: m.entity_id,
+                    menu_section_id: sectionId,
+                    item_name: m.item_name,
+                    description: m.description || null,
+                    price: m.price != null ? Number(m.price) : null,
+                    price_text: m.price_text || null,
+                    is_available: true,
+                };
+            })
+            .filter(Boolean);
+        if (menuRows.length) {
+            const { data, error } = await gcrDb.from('menu_items').insert(menuRows).select('id');
+            if (error) result.errors.push('menu_items: ' + error.message);
+            else result.menu_items = (data || []).length;
+        }
+    }
+
+    // ─ Happy hours (also need section upsert) ─
+    const hhValid = happyHours.filter(h => h && h.entity_id && h.item_name);
+    result.skipped += happyHours.length - hhValid.length;
+    if (hhValid.length) {
+        const sectionCache = {};
+        for (const h of hhValid) {
+            const section = (h.section || 'Happy Hour').trim();
+            const key = `${h.entity_id}|${section.toLowerCase()}`;
+            if (sectionCache[key]) continue;
+            const { data: existing } = await gcrDb
+                .from('happy_hour_sections')
+                .select('id')
+                .eq('entity_id', h.entity_id)
+                .ilike('section_name', section)
+                .limit(1);
+            if (existing && existing[0]) { sectionCache[key] = existing[0].id; continue; }
+            const { data: created, error: secErr } = await gcrDb
+                .from('happy_hour_sections')
+                .insert({ entity_id: h.entity_id, section_name: section })
+                .select('id')
+                .single();
+            if (secErr) { result.errors.push('hh_section (' + section + '): ' + secErr.message); continue; }
+            sectionCache[key] = created.id;
+        }
+        const hhRows = hhValid
+            .map(h => {
+                const section = (h.section || 'Happy Hour').trim();
+                const sectionId = sectionCache[`${h.entity_id}|${section.toLowerCase()}`];
+                if (!sectionId) return null;
+                return {
+                    entity_id: h.entity_id,
+                    hh_section_id: sectionId,
+                    item_name: h.item_name,
+                    description: h.description || null,
+                    regular_price: h.regular_price != null ? Number(h.regular_price) : null,
+                    hh_price: h.hh_price != null ? Number(h.hh_price) : null,
+                    price_text: h.price_text || null,
+                };
+            })
+            .filter(Boolean);
+        if (hhRows.length) {
+            const { data, error } = await gcrDb.from('happy_hour_items').insert(hhRows).select('id');
+            if (error) result.errors.push('happy_hour_items: ' + error.message);
+            else result.happy_hours = (data || []).length;
+        }
+    }
+
+    res.json(result);
+});
+
+// ── APP CATALOG MANAGEMENT ────────────────────────────────────
+
+router.get('/apps', adminRequired, async (req, res) => {
+    const { data, error } = await supabase.from('apps').select('*').order('category').order('name');
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data || []);
+});
+
+router.post('/apps', adminRequired, async (req, res) => {
+    const { data, error } = await supabase.from('apps').insert(req.body).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.status(201).json(data);
+});
+
+router.put('/apps/:appId', adminRequired, async (req, res) => {
+    const { data, error } = await supabase.from('apps').update(req.body).eq('app_id', req.params.appId).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
+router.delete('/apps/:appId', adminRequired, async (req, res) => {
+    await supabase.from('site_apps').delete().eq('app_id', req.params.appId);
+    const { error } = await supabase.from('apps').delete().eq('app_id', req.params.appId);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ── BUSINESS APPS MANAGEMENT ──────────────────────────────────
+
+router.get('/businesses', adminRequired, async (req, res) => {
+    const { data: businesses, error } = await supabase.from('businesses').select('site_id, name, type, subdomain, plan, status').order('name');
+    if (error) return res.status(500).json({ error: error.message });
+
+    if (req.query.include_apps === 'true') {
+        const { data: siteApps } = await supabase.from('site_apps').select('site_id, app_id').eq('enabled', true);
+        const appsMap = {};
+        (siteApps || []).forEach(function(a) {
+            if (!appsMap[a.site_id]) appsMap[a.site_id] = [];
+            appsMap[a.site_id].push({ app_id: a.app_id });
+        });
+        const result = (businesses || []).map(function(b) {
+            return Object.assign({}, b, { installed_apps: appsMap[b.site_id] || [] });
+        });
+        return res.json(result);
+    }
+
+    res.json(businesses || []);
+});
+
+router.post('/site-apps', adminRequired, async (req, res) => {
+    const { site_id, app_id } = req.body;
+    const { data, error } = await supabase.from('site_apps')
+        .upsert({ site_id, app_id, enabled: true }, { onConflict: 'site_id,app_id' })
+        .select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json(data);
+});
+
+router.delete('/site-apps', adminRequired, async (req, res) => {
+    const { site_id, app_id } = req.body;
+    const { error } = await supabase.from('site_apps').update({ enabled: false }).eq('site_id', site_id).eq('app_id', app_id);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ============================================================
+// TRIPSWIPE BUSINESS SETTINGS
+// Stores per-business TripSwipe overrides (enabled, images)
+// Completely separate from GCR — does not modify GCR data
+// ============================================================
+
+// GET /api/admin/tripswipe/settings — public read so TripSwipe frontend can fetch
+router.get('/tripswipe/settings', async (req, res) => {
+    try {
+        const { data, error } = await gcrDb
+            .from('tripswipe_business_settings')
+            .select('slug, enabled, hero_image, extra_images, updated_at');
+        if (error) {
+            // Table may not exist yet — return empty so app still works
+            if (error.code === '42P01') return res.json({ settings: [] });
+            return res.status(500).json({ error: error.message });
+        }
+        res.json({ settings: data || [] });
+    } catch (e) {
+        res.json({ settings: [] });
+    }
+});
+
+// PUT /api/admin/tripswipe/settings/:slug — save settings for one business
+router.put('/tripswipe/settings/:slug', adminRequired, async (req, res) => {
+    const { slug } = req.params;
+    const { enabled, hero_image, extra_images } = req.body;
+    try {
+        const payload = {
+            slug,
+            enabled: enabled !== false,
+            hero_image: hero_image || null,
+            extra_images: Array.isArray(extra_images) ? extra_images : [],
+            updated_at: new Date().toISOString(),
+        };
+        const { data, error } = await gcrDb
+            .from('tripswipe_business_settings')
+            .upsert(payload, { onConflict: 'slug' })
+            .select()
+            .single();
+        if (error) {
+            // Table missing — auto-create and retry
+            if (error.code === '42P01') {
+                await gcrDb.rpc('exec_sql', { sql: `
+                    CREATE TABLE IF NOT EXISTS tripswipe_business_settings (
+                        slug TEXT PRIMARY KEY,
+                        enabled BOOLEAN DEFAULT true,
+                        hero_image TEXT,
+                        extra_images TEXT[] DEFAULT '{}',
+                        updated_at TIMESTAMPTZ DEFAULT NOW()
+                    );
+                ` }).catch(() => {});
+                const { data: d2, error: e2 } = await gcrDb
+                    .from('tripswipe_business_settings')
+                    .upsert(payload, { onConflict: 'slug' })
+                    .select().single();
+                if (e2) return res.status(500).json({ error: e2.message });
+                return res.json({ setting: d2 });
+            }
+            return res.status(500).json({ error: error.message });
+        }
+        res.json({ setting: data });
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
+});
+
+// ============================================================
+// TRIPSWIPE PROMO / TONIGHT CARDS
+// Time-limited promotional cards injected into the swipe deck
+// ============================================================
+
+const PROMO_TABLE = 'tripswipe_promo_cards';
+
+async function ensurePromoTable() {
+    await gcrDb.rpc('exec_sql', { sql: `
+        CREATE TABLE IF NOT EXISTS tripswipe_promo_cards (
+            id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+            title TEXT NOT NULL,
+            image_url TEXT,
+            description TEXT,
+            show_date DATE,
+            cta_label TEXT DEFAULT 'Learn More',
+            cta_url TEXT,
+            linked_slug TEXT,
+            city TEXT,
+            category TEXT DEFAULT 'all',
+            active BOOLEAN DEFAULT true,
+            created_at TIMESTAMPTZ DEFAULT NOW(),
+            updated_at TIMESTAMPTZ DEFAULT NOW()
+        );
+    ` }).catch(() => {});
+}
+
+// GET /api/admin/tripswipe/promo-cards — public read (frontend needs this)
+router.get('/tripswipe/promo-cards', async (req, res) => {
+    try {
+        const { data, error } = await gcrDb.from(PROMO_TABLE)
+            .select('*').order('show_date', { ascending: false });
+        if (error) {
+            if (error.code === '42P01') return res.json({ cards: [] });
+            return res.status(500).json({ error: error.message });
+        }
+        res.json({ cards: data || [] });
+    } catch (e) { res.json({ cards: [] }); }
+});
+
+// POST /api/admin/tripswipe/promo-cards — create new card
+router.post('/tripswipe/promo-cards', adminRequired, async (req, res) => {
+    const { title, image_url, description, show_date, cta_label, cta_url, linked_slug, city, category, active } = req.body;
+    if (!title) return res.status(400).json({ error: 'title required' });
+    try {
+        await ensurePromoTable();
+        const { data, error } = await gcrDb.from(PROMO_TABLE).insert({
+            title, image_url: image_url || null, description: description || null,
+            show_date: show_date || null, cta_label: cta_label || 'Learn More',
+            cta_url: cta_url || null, linked_slug: linked_slug || null,
+            city: city || null, category: category || 'all',
+            active: active !== false,
+        }).select().single();
+        if (error) return res.status(500).json({ error: error.message });
+        res.json({ card: data });
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+// PUT /api/admin/tripswipe/promo-cards/:id — update card
+router.put('/tripswipe/promo-cards/:id', adminRequired, async (req, res) => {
+    const { id } = req.params;
+    const { title, image_url, description, show_date, cta_label, cta_url, linked_slug, city, category, active } = req.body;
+    try {
+        const { data, error } = await gcrDb.from(PROMO_TABLE).update({
+            title, image_url: image_url || null, description: description || null,
+            show_date: show_date || null, cta_label: cta_label || 'Learn More',
+            cta_url: cta_url || null, linked_slug: linked_slug || null,
+            city: city || null, category: category || 'all',
+            active: active !== false,
+            updated_at: new Date().toISOString(),
+        }).eq('id', id).select().single();
+        if (error) return res.status(500).json({ error: error.message });
+        res.json({ card: data });
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+// DELETE /api/admin/tripswipe/promo-cards/:id
+router.delete('/tripswipe/promo-cards/:id', adminRequired, async (req, res) => {
+    const { id } = req.params;
+    try {
+        const { error } = await gcrDb.from(PROMO_TABLE).delete().eq('id', id);
+        if (error) return res.status(500).json({ error: error.message });
+        res.json({ success: true });
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+
+// ============================================================
+// TRIPSWIPE SPONSORED CARDS
+// Businesses that inject every N cards with rotating promo images
+// Always link back to the real business profile
+// ============================================================
+
+const SPONSORED_TABLE = 'tripswipe_sponsored';
+
+async function ensureSponsoredTable() {
+    await gcrDb.rpc('exec_sql', { sql: `
+        CREATE TABLE IF NOT EXISTS tripswipe_sponsored (
+            id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+            slug TEXT NOT NULL,
+            business_name TEXT,
+            images TEXT[] DEFAULT '{}',
+            frequency INT DEFAULT 10,
+            priority INT DEFAULT 0,
+            active BOOLEAN DEFAULT true,
+            created_at TIMESTAMPTZ DEFAULT NOW(),
+            updated_at TIMESTAMPTZ DEFAULT NOW()
+        );
+    ` }).catch(() => {});
+}
+
+// GET /api/admin/tripswipe/sponsored — public read (frontend injects these)
+router.get('/tripswipe/sponsored', async (req, res) => {
+    try {
+        const { data, error } = await gcrDb.from(SPONSORED_TABLE)
+            .select('*').order('priority', { ascending: false });
+        if (error) {
+            if (error.code === '42P01') return res.json({ sponsored: [] });
+            return res.status(500).json({ error: error.message });
+        }
+        res.json({ sponsored: data || [] });
+    } catch (e) { res.json({ sponsored: [] }); }
+});
+
+// POST /api/admin/tripswipe/sponsored
+router.post('/tripswipe/sponsored', adminRequired, async (req, res) => {
+    const { slug, business_name, images, frequency, priority, active } = req.body;
+    if (!slug) return res.status(400).json({ error: 'slug required' });
+    try {
+        await ensureSponsoredTable();
+        const { data, error } = await gcrDb.from(SPONSORED_TABLE).insert({
+            slug, business_name: business_name || null,
+            images: Array.isArray(images) ? images : [],
+            frequency: parseInt(frequency) || 10,
+            priority: parseInt(priority) || 0,
+            active: active !== false,
+        }).select().single();
+        if (error) return res.status(500).json({ error: error.message });
+        res.json({ sponsored: data });
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+// PUT /api/admin/tripswipe/sponsored/:id
+router.put('/tripswipe/sponsored/:id', adminRequired, async (req, res) => {
+    const { slug, business_name, images, frequency, priority, active } = req.body;
+    try {
+        const { data, error } = await gcrDb.from(SPONSORED_TABLE).update({
+            slug, business_name: business_name || null,
+            images: Array.isArray(images) ? images : [],
+            frequency: parseInt(frequency) || 10,
+            priority: parseInt(priority) || 0,
+            active: active !== false,
+            updated_at: new Date().toISOString(),
+        }).eq('id', req.params.id).select().single();
+        if (error) return res.status(500).json({ error: error.message });
+        res.json({ sponsored: data });
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+// DELETE /api/admin/tripswipe/sponsored/:id
+router.delete('/tripswipe/sponsored/:id', adminRequired, async (req, res) => {
+    try {
+        const { error } = await gcrDb.from(SPONSORED_TABLE).delete().eq('id', req.params.id);
+        if (error) return res.status(500).json({ error: error.message });
+        res.json({ success: true });
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+// ── Auth Config — controls which sign-in methods are shown on GCR/TripSwipe ──
+
+// GET /api/admin/auth-config — public so frontend can read it
+router.get('/auth-config', async (req, res) => {
+    try {
+        const { data } = await supabase.from('platform_settings').select('value').eq('key', 'auth_config').maybeSingle();
+        res.json(data?.value || { mode: 'phone_google' });
+    } catch { res.json({ mode: 'email' }); }
+});
+
+// PUT /api/admin/auth-config
+router.put('/auth-config', adminRequired, async (req, res) => {
+    const { mode } = req.body; // 'email' | 'phone_google' | 'all'
+    if (!['email', 'phone_google', 'all'].includes(mode)) return res.status(400).json({ error: 'invalid mode' });
+    const { error } = await supabase.from('platform_settings')
+        .upsert({ key: 'auth_config', value: { mode }, updated_at: new Date().toISOString() }, { onConflict: 'key' });
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true, mode });
+});
+
+// GET /api/admin/trip-swipe-button — public so GCR home can read it
+router.get('/trip-swipe-button', async (req, res) => {
+    try {
+        const { data } = await supabase.from('platform_settings').select('value').eq('key', 'trip_swipe_button').maybeSingle();
+        res.json(data?.value || { type: 'iframe', url: 'https://gcr-trip-swipe.vercel.app/swipe/all' });
+    } catch { res.json({ type: 'iframe', url: 'https://gcr-trip-swipe.vercel.app/swipe/all' }); }
+});
+
+// PUT /api/admin/trip-swipe-button
+router.put('/trip-swipe-button', adminRequired, async (req, res) => {
+    const { type, label, url, app_store_url, play_store_url, title, description } = req.body;
+    if (!['iframe', 'link', 'app_download'].includes(type)) return res.status(400).json({ error: 'invalid type' });
+    const value = { type, label, url, app_store_url, play_store_url, title, description };
+    const { error } = await supabase.from('platform_settings')
+        .upsert({ key: 'trip_swipe_button', value, updated_at: new Date().toISOString() }, { onConflict: 'key' });
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true, ...value });
+});
+
+// ── SMS Config ───────────────────────────────────────────────────────────────
+
+// ── Business Leads ────────────────────────────────────────────────────────────
+
+router.get('/business-leads', adminRequired, async (req, res) => {
+    try {
+        const { data } = await supabase.from('business_leads').select('*').order('submitted_at', { ascending: false });
+        res.json(data || []);
+    } catch(e) { res.status(500).json({ error: e.message }); }
+});
+
+router.patch('/business-leads/:id', adminRequired, async (req, res) => {
+    const { status, notes } = req.body;
+    try {
+        await supabase.from('business_leads').update({ status, notes, updated_at: new Date().toISOString() }).eq('id', req.params.id);
+        res.json({ success: true });
+    } catch(e) { res.status(500).json({ error: e.message }); }
+});
+
+// ── SMS Config ───────────────────────────────────────────────────────────────
+
+// GET /api/admin/sms-config — public so Trip Swipe can read popup settings
+router.get('/sms-config', async (req, res) => {
+    try {
+        const { data } = await supabase.from('platform_settings').select('value').eq('key', 'sms_config').maybeSingle();
+        res.json(data?.value || {
+            provider: 'sendblue',
+            popup_enabled: true,
+            popup_trigger: 'time',   // 'time' | 'swipes'
+            popup_value: 5,          // minutes or swipe count
+            automations: {
+                welcome: false,
+                deal_blast: true,
+                event_alert: false,
+            }
+        });
+    } catch { res.json({ provider: 'sendblue', popup_enabled: true, popup_trigger: 'time', popup_value: 5 }); }
+});
+
+// PUT /api/admin/sms-config
+router.put('/sms-config', adminRequired, async (req, res) => {
+    const { provider, sendblue_key_id, sendblue_secret,
+            popup_enabled, popup_trigger, popup_value, automations } = req.body;
+    if (provider !== 'sendblue') return res.status(400).json({ error: 'invalid provider' });
+    const value = { provider, sendblue_key_id, sendblue_secret,
+                    popup_enabled, popup_trigger, popup_value, automations };
+    const { error } = await supabase.from('platform_settings')
+        .upsert({ key: 'sms_config', value, updated_at: new Date().toISOString() }, { onConflict: 'key' });
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// Helper: Get tourists matching preference targets
+async function getTouristsMatchingPrefs(tags, min_score, match_type) {
+    const { data: scores } = await supabase
+        .from('user_preference_scores')
+        .select('tourist_id, tag, score')
+        .in('tag', tags)
+        .gte('score', min_score);
+
+    const matchedIds = new Set();
+    const tagCounts = {};
+
+    for (const score of (scores || [])) {
+        tagCounts[score.tourist_id] = (tagCounts[score.tourist_id] || 0) + 1;
+    }
+
+    if (match_type === 'all') {
+        for (const [id, count] of Object.entries(tagCounts)) {
+            if (count === tags.length) matchedIds.add(id);
+        }
+    } else {
+        for (const id of Object.keys(tagCounts)) {
+            matchedIds.add(id);
+        }
+    }
+
+    if (matchedIds.size === 0) return [];
+
+    const { data: profiles } = await supabase
+        .from('tourist_profiles')
+        .select('phone')
+        .in('user_id', Array.from(matchedIds))
+        .eq('sms_opt_in', true)
+        .not('phone', 'is', null);
+
+    return (profiles || []).map(p => p.phone);
+}
+
+// POST /api/admin/sms-blast — send SMS to opted-in tourists (all or by preference)
+router.post('/sms-blast', adminRequired, async (req, res) => {
+    const { message, tags, min_score, match_type } = req.body;
+    if (!message) return res.status(400).json({ error: 'message required' });
+    try {
+        const { data: cfgRow } = await supabase.from('platform_settings').select('value').eq('key', 'sms_config').maybeSingle();
+        const cfg = cfgRow?.value || {};
+
+        let numbers;
+        let audience = 'all';
+
+        if (tags && tags.length) {
+            // Preference-targeted campaign
+            numbers = await getTouristsMatchingPrefs(tags, min_score || 0, match_type || 'any');
+            audience = `tags: ${tags.join(', ')} (${match_type || 'any'})`;
+        } else {
+            // Mass blast to all opted-in
+            const { data: tourists } = await supabase
+                .from('tourist_profiles')
+                .select('phone')
+                .eq('sms_opt_in', true)
+                .not('phone', 'is', null);
+            numbers = (tourists || []).map(t => t.phone).filter(Boolean);
+        }
+
+        if (!numbers.length) return res.json({ success: true, sent: 0 });
+
+        if (cfg.provider === 'sendblue') {
+            await fetch('https://api.sendblue.com/api/send-group-message', {
+                method: 'POST',
+                headers: {
+                    'sb-api-key-id': cfg.sendblue_key_id,
+                    'sb-api-secret-key': cfg.sendblue_secret,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ numbers, content: message })
+            });
+        }
+
+        await supabase.from('sms_blasts').insert({ message, audience, sent_to: numbers.length, sent_at: new Date().toISOString() }).catch(() => {});
+
+        res.json({ success: true, sent: numbers.length });
+    } catch(e) { res.status(500).json({ error: e.message }); }
+});
+
+// POST /api/admin/sms-campaign-preview — preview how many users match preference targets
+router.post('/sms-campaign-preview', adminRequired, async (req, res) => {
+    const { tags, min_score, match_type } = req.body;
+    if (!tags || !tags.length) return res.status(400).json({ error: 'tags required' });
+    try {
+        const numbers = await getTouristsMatchingPrefs(tags, min_score || 0, match_type || 'any');
+        res.json({ count: numbers.length });
+    } catch(e) { res.status(500).json({ error: e.message }); }
+});
+
+// GET /api/admin/sms-blasts — blast history
+router.get('/sms-blasts', adminRequired, async (req, res) => {
+    try {
+        const { data } = await supabase.from('sms_blasts').select('*').order('sent_at', { ascending: false }).limit(50);
+        res.json(data || []);
+    } catch(e) { res.status(500).json({ error: e.message }); }
+});
+
+// ── Community Photos (submitted by TripSwipe users, approved by admin) ──────
+
+// GET /api/admin/community-photos — list photos filtered by status
+router.get('/community-photos', adminRequired, async (req, res) => {
+    const { status = 'pending', slug } = req.query;
+    let q = supabase.from('tourist_photos')
+        .select('id, user_id, entity_slug, image_url, caption, uploader_name, category, status, submitted_at, reviewed_at')
+        .order('submitted_at', { ascending: false })
+        .limit(300);
+    if (status !== 'all') q = q.eq('status', status);
+    if (slug) q = q.eq('entity_slug', slug);
+    const { data, error } = await q;
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ photos: data || [] });
+});
+
+// PUT /api/admin/community-photos/:id — approve or reject
+router.put('/community-photos/:id', adminRequired, async (req, res) => {
+    const { status } = req.body;
+    if (!['approved', 'rejected'].includes(status)) return res.status(400).json({ error: 'Invalid status' });
+    const { data, error } = await supabase.from('tourist_photos')
+        .update({ status, reviewed_at: new Date().toISOString(), reviewed_by: 'admin' })
+        .eq('id', req.params.id)
+        .select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ photo: data });
+});
+
+// DELETE /api/admin/community-photos/:id — remove a photo
+router.delete('/community-photos/:id', adminRequired, async (req, res) => {
+    const { error } = await supabase.from('tourist_photos').delete().eq('id', req.params.id);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
+});
+
+// ============================================
+// TRIP SWIPE TOURISTS ADMIN
+// ============================================
+
+// GET /api/admin/tourists — list all tourists with their activity
+router.get('/tourists', adminRequired, async (req, res) => {
+    try {
+        const { data: tourists, error } = await supabase
+            .from('tourist_profiles')
+            .select(`
+                id, name, email, phone,
+                setup_complete, created_at, updated_at,
+                destination, travel_dates_from, travel_dates_to
+            `)
+            .order('created_at', { ascending: false })
+            .limit(500);
+
+        if (error) return res.status(500).json({ error: error.message });
+
+        // Get swipes and saves for each tourist
+        const tourismWithStats = await Promise.all((tourists || []).map(async (t) => {
+            const [{ count: swipes }, { count: saves }, { count: itineraries }] = await Promise.all([
+                supabase.from('item_swipes').select('id', { count: 'exact' }).eq('user_id', t.id),
+                supabase.from('tourist_saves').select('id', { count: 'exact' }).eq('user_id', t.id),
+                supabase.from('itineraries').select('id', { count: 'exact' }).eq('user_id', t.id)
+            ]);
+
+            return {
+                user_id: t.id,
+                name: t.name || (t.email || '').split('@')[0] || 'Tourist',
+                email: t.email,
+                phone: t.phone,
+                destination: t.destination,
+                travel_dates: t.travel_dates_from ? `${t.travel_dates_from} to ${t.travel_dates_to}` : null,
+                setup_complete: t.setup_complete,
+                created_at: t.created_at,
+                swipes: swipes || 0,
+                saves: saves || 0,
+                itineraries_count: itineraries || 0,
+            };
+        }));
+
+        res.json({ tourists: tourismWithStats });
+    } catch (e) {
+        console.error('GET /tourists error:', e);
+        res.status(500).json({ error: e.message });
+    }
+});
+
+// GET /api/admin/tourists/:id — detailed tourist profile
+router.get('/tourists/:id', adminRequired, async (req, res) => {
+    try {
+        const { data: tourist, error } = await supabase
+            .from('tourist_profiles')
+            .select('*')
+            .eq('id', req.params.id)
+            .single();
+
+        if (error || !tourist) return res.status(404).json({ error: 'Tourist not found' });
+
+        // Get preferences
+        const { data: prefs } = await supabase
+            .from('tourist_preferences')
+            .select('*')
+            .eq('user_id', req.params.id);
+
+        // Get saves
+        const { data: saves } = await supabase
+            .from('tourist_saves')
+            .select('entity_id, entity:entity_id(slug, name, icon), saved_at')
+            .eq('user_id', req.params.id)
+            .order('saved_at', { ascending: false });
+
+        res.json({
+            tourist: { ...tourist, id: tourist.id, user_id: tourist.id },
+            preferences: prefs || [],
+            saves: saves || [],
+        });
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
+});
+
+// GET /api/admin/tourists/:id/preferences — read tourist preferences
+router.get('/tourists/:id/preferences', adminRequired, async (req, res) => {
+    try {
+        const { data, error } = await supabase
+            .from('tourist_preferences')
+            .select('*')
+            .eq('user_id', req.params.id);
+
+        if (error) return res.status(500).json({ error: error.message });
+        res.json({ preferences: data || [] });
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
+});
+
+// PUT /api/admin/tourists/:id/preferences — update preferences
+router.put('/tourists/:id/preferences', adminRequired, async (req, res) => {
+    try {
+        const { preferences } = req.body;
+        const { data, error } = await supabase
+            .from('tourist_preferences')
+            .upsert(
+                { user_id: req.params.id, ...preferences, updated_at: new Date().toISOString() },
+                { onConflict: 'user_id' }
+            )
+            .select();
+
+        if (error) return res.status(500).json({ error: error.message });
+        res.json({ preferences: data || [] });
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
+});
+
+// DELETE /api/admin/tourists/:id — remove a tourist (GDPR delete)
+router.delete('/tourists/:id', adminRequired, async (req, res) => {
+    try {
+        await Promise.all([
+            supabase.from('tourist_profiles').delete().eq('id', req.params.id),
+            supabase.from('item_swipes').delete().eq('user_id', req.params.id),
+            supabase.from('tourist_saves').delete().eq('user_id', req.params.id),
+            supabase.from('tourist_preferences').delete().eq('user_id', req.params.id),
+        ]);
+        res.json({ success: true });
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
+});
+
+// ============================================================
+// AI CHAT CONVERSATION HISTORY
+// ============================================================
+
+// POST /api/admin/ai-chat-history/save — auto-save conversation
+router.post('/ai-chat-history/save', adminRequired, async (req, res) => {
+    const { messages, title } = req.body;
+    const { data: { user } } = await supabase.auth.getUser(req.headers.authorization?.split(' ')[1]);
+    if (!user) return res.status(401).json({ error: 'Unauthorized' });
+
+    try {
+        const { data, error } = await supabase.from('ai_chat_conversations').insert({
+            user_id: user.id,
+            title: title || `Chat ${new Date().toLocaleDateString()}`,
+            messages: messages || []
+        }).select().single();
+        if (error) throw error;
+        res.json({ conversation_id: data.id });
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+// PUT /api/admin/ai-chat-history/:id — update conversation
+router.put('/ai-chat-history/:id', adminRequired, async (req, res) => {
+    const { id } = req.params;
+    const { messages, title } = req.body;
+    try {
+        await supabase.from('ai_chat_conversations').update({
+            messages: messages || [],
+            title: title || undefined,
+            updated_at: new Date().toISOString()
+        }).eq('id', id);
+        res.json({ ok: true });
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+// GET /api/admin/ai-chat-history — list all conversations
+router.get('/ai-chat-history', adminRequired, async (req, res) => {
+    const { data: { user } } = await supabase.auth.getUser(req.headers.authorization?.split(' ')[1]);
+    if (!user) return res.status(401).json({ error: 'Unauthorized' });
+
+    try {
+        const { data, error } = await supabase.from('ai_chat_conversations')
+            .select('id, title, created_at, updated_at')
+            .eq('user_id', user.id)
+            .order('updated_at', { ascending: false })
+            .limit(50);
+        if (error) throw error;
+        res.json({ conversations: data || [] });
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+// GET /api/admin/ai-chat-history/:id — load specific conversation
+router.get('/ai-chat-history/:id', adminRequired, async (req, res) => {
+    const { id } = req.params;
+    try {
+        const { data, error } = await supabase.from('ai_chat_conversations')
+            .select('*')
+            .eq('id', id)
+            .single();
+        if (error) throw error;
+        res.json({ conversation: data });
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+// DELETE /api/admin/ai-chat-history/:id — delete conversation
+router.delete('/ai-chat-history/:id', adminRequired, async (req, res) => {
+    const { id } = req.params;
+    try {
+        await supabase.from('ai_chat_conversations').delete().eq('id', id);
+        res.json({ ok: true });
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+// POST /api/admin/ai-chat-history/search — search past conversations
+router.post('/ai-chat-history/search', adminRequired, async (req, res) => {
+    const { query } = req.body;
+    const { data: { user } } = await supabase.auth.getUser(req.headers.authorization?.split(' ')[1]);
+    if (!user) return res.status(401).json({ error: 'Unauthorized' });
+
+    try {
+        const { data, error } = await supabase.from('ai_chat_conversations')
+            .select('id, title, messages, created_at')
+            .eq('user_id', user.id)
+            .textSearch('messages', query)
+            .limit(10);
+        if (error) throw error;
+        res.json({ results: data || [] });
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+// ============================================================
+// RAW DATA PARSING — AI-powered bulk data import
+// ============================================================
+
+// POST /api/admin/gcr/parse-raw-data — Parse raw data with AI
+router.post('/gcr/parse-raw-data', authRequired, async (req, res) => {
+    try {
+        const { entity_id, data_type, raw_data } = req.body;
+
+        if (!entity_id || !data_type || !raw_data) {
+            return res.status(400).json({ error: 'entity_id, data_type, and raw_data required' });
+        }
+
+        // Use AI to parse the raw data
+        const prompt = `Parse this raw ${data_type} data and extract structured items. Return as JSON array.
+
+Format: {
+  "items": [
+    { "name": "...", "price": 12.99, "description": "...", "category": "..." }
+  ]
+}
+
+Raw data:
+${raw_data}`;
+
+        const aiResult = await callAIRound({
+            systemPrompt: 'You are a data parsing expert. Extract structured data from raw formats (CSV, text, JSON, etc). Be strict about data validation. Return ONLY valid JSON.',
+            messages: [{ role: 'user', content: prompt }]
+        });
+
+        // Extract JSON from response
+        const jsonMatch = aiResult.text.match(/\{[\s\S]*\}/);
+        if (!jsonMatch) {
+            return res.status(400).json({ error: 'Could not extract JSON from AI response' });
+        }
+
+        const parsed = JSON.parse(jsonMatch[0]);
+        const items = parsed.items || [];
+
+        // Transform items based on data_type
+        const transformed = items.map(item => {
+            const base = {
+                item_name: item.name || item.item_name || 'Unnamed',
+                item_description: item.description || item.desc || '',
+                price: item.price || item.cost || 0
+            };
+
+            if (data_type === 'menu') {
+                return {
+                    ...base,
+                    category: item.category || item.section || 'General',
+                    allergens: item.allergens || ''
+                };
+            } else if (data_type === 'drinks') {
+                return {
+                    ...base,
+                    style: item.style || item.type || 'Other',
+                    brewery: item.brewery || item.brand || ''
+                };
+            } else if (data_type === 'happy_hour') {
+                return {
+                    ...base,
+                    hh_days: item.days || item.hh_days || 'Mon-Fri',
+                    hh_start: item.start || item.hh_start || '5:00 PM',
+                    hh_end: item.end || item.hh_end || '7:00 PM'
+                };
+            } else if (data_type === 'specials') {
+                return {
+                    ...base,
+                    discount_text: item.discount || item.discount_text || '',
+                    days_of_week: item.days || item.days_of_week || 'All Days'
+                };
+            } else if (data_type === 'events') {
+                return {
+                    item_name: item.name || item.event_name || 'Unnamed',
+                    item_description: item.description || '',
+                    event_date: item.date || item.event_date || new Date().toISOString().split('T')[0],
+                    start_time: item.time || item.start_time || '7:00 PM',
+                    venue_location: item.venue || item.location || ''
+                };
+            }
+
+            return base;
+        });
+
+        res.json({ parsed_items: transformed, count: transformed.length });
+    } catch (err) {
+        console.error('Parse error:', err);
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// POST /api/admin/gcr/save-parsed-items — Save parsed items to database
+router.post('/gcr/save-parsed-items', authRequired, async (req, res) => {
+    try {
+        const { entity_id, data_type, items } = req.body;
+
+        if (!entity_id || !data_type || !items || !items.length) {
+            return res.status(400).json({ error: 'entity_id, data_type, and items array required' });
+        }
+
+        const gcrDb = getGcrDb();
+        let saved = 0;
+        const errors = [];
+
+        for (const item of items) {
+            try {
+                let table, insertData;
+
+                if (data_type === 'menu') {
+                    table = 'entity_menu_items';
+                    insertData = {
+                        entity_id,
+                        item_name: item.item_name,
+                        item_description: item.item_description,
+                        price: parseFloat(item.price) || 0,
+                        is_active: true
+                    };
+                } else if (data_type === 'drinks') {
+                    table = 'entity_drink_items';
+                    insertData = {
+                        entity_id,
+                        item_name: item.item_name,
+                        item_description: item.item_description,
+                        price: parseFloat(item.price) || 0,
+                        style: item.style || 'Other',
+                        brewery: item.brewery || null,
+                        is_active: true
+                    };
+                } else if (data_type === 'happy_hour') {
+                    table = 'entity_happy_hour_items';
+                    insertData = {
+                        entity_id,
+                        item_name: item.item_name,
+                        item_description: item.item_description,
+                        hh_price: parseFloat(item.price) || 0,
+                        item_type: item.type || 'drink',
+                        is_active: true
+                    };
+                } else if (data_type === 'specials') {
+                    table = 'entity_specials';
+                    insertData = {
+                        entity_id,
+                        special_name: item.item_name,
+                        description: item.item_description,
+                        discount_text: item.discount_text || '',
+                        days_of_week: item.days_of_week || 'All Days',
+                        is_active: true
+                    };
+                } else if (data_type === 'events') {
+                    table = 'entity_events';
+                    insertData = {
+                        entity_id,
+                        event_name: item.item_name,
+                        description: item.item_description,
+                        event_date: item.event_date,
+                        start_time: item.start_time,
+                        venue_location: item.venue_location || '',
+                        is_active: true
+                    };
+                } else {
+                    errors.push(`Unknown data type: ${data_type}`);
+                    continue;
+                }
+
+                const { error } = await gcrDb.from(table).insert(insertData);
+                if (error) {
+                    errors.push(`${item.item_name}: ${error.message}`);
+                } else {
+                    saved++;
+                }
+            } catch (itemErr) {
+                errors.push(`${item.item_name}: ${itemErr.message}`);
+            }
+        }
+
+        res.json({ saved, errors, total: items.length });
+    } catch (err) {
+        console.error('Save error:', err);
+        res.status(500).json({ error: err.message });
+    }
+});
+
+module.exports = router;
+
+
+// ============================================================
+// GEOFENCING SYSTEM — Location-based SMS marketing
+// ============================================================
+
+// POST /api/tourist/location — Tourist sends current location
+router.post('/tourist/location', async (req, res) => {
+  const token = req.headers.authorization?.split(' ')[1];
+  if (!token) return res.status(401).json({ error: 'Unauthorized' });
+
+  try {
+    const { data: { user }, error: authErr } = await supabase.auth.getUser(token);
+    if (authErr || !user) return res.status(401).json({ error: 'Invalid token' });
+
+    const { lat, lng, accuracy_meters } = req.body;
+    if (!lat || !lng) return res.status(400).json({ error: 'lat and lng required' });
+
+    const gcrDb = getGcrDb();
+
+    // 1. Store location
+    const { data: locData, error: locErr } = await gcrDb
+      .from('tourist_locations')
+      .insert({
+        tourist_id: user.id,
+        lat,
+        lng,
+        accuracy_meters: accuracy_meters || 30
+      })
+      .select()
+      .single();
+
+    if (locErr) return res.status(500).json({ error: locErr.message });
+
+    // 2. Check for nearby geofences (within 2 miles)
+    const nearbyGeofences = await gcrDb.rpc('find_nearby_geofences', {
+      user_lat: lat,
+      user_lng: lng,
+      max_distance_miles: 2.0
+    }).catch(() => ({ data: [] }));
+
+    // 3. Check which geofences they entered
+    const triggers = [];
+    for (const geofence of (nearbyGeofences?.data || [])) {
+      // Calculate actual distance
+      const earthRadius = 3958.8; // miles
+      const dLat = (geofence.center_lat - lat) * Math.PI / 180;
+      const dLng = (geofence.center_lng - lng) * Math.PI / 180;
+      const a = Math.sin(dLat / 2) ** 2 +
+        Math.cos(lat * Math.PI / 180) * Math.cos(geofence.center_lat * Math.PI / 180) * Math.sin(dLng / 2) ** 2;
+      const distance = earthRadius * 2 * Math.asin(Math.sqrt(a));
+
+      if (distance <= geofence.radius_miles) {
+        // They're IN this geofence
+        // Check if already triggered today
+        const { data: existing } = await gcrDb
+          .from('geofence_triggers')
+          .select('id')
+          .eq('tourist_id', user.id)
+          .eq('geofence_id', geofence.id)
+          .gte('triggered_at', new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString())
+          .single()
+          .catch(() => ({ data: null }));
+
+        if (!existing) {
+          // New trigger!
+          const { data: trigger } = await gcrDb
+            .from('geofence_triggers')
+            .insert({
+              tourist_id: user.id,
+              geofence_id: geofence.id,
+              entity_id: geofence.entity_id
+            })
+            .select()
+            .single();
+
+          if (trigger) triggers.push(trigger);
+        }
+      }
+    }
+
+    res.json({
+      location: locData,
+      nearby_geofences: nearbyGeofences?.data || [],
+      new_triggers: triggers
+    });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// PUT /api/tourist/location-settings — Enable/disable location sharing
+router.put('/tourist/location-settings', authRequired, async (req, res) => {
+  try {
+    const { userId } = req.user;
+    const {
+      location_sharing_enabled,
+      geofence_radius_miles,
+      sms_frequency,
+      sms_quiet_hours_start,
+      sms_quiet_hours_end,
+      sms_categories
+    } = req.body;
+
+    const gcrDb = getGcrDb();
+    const { data, error } = await gcrDb
+      .from('tourist_location_settings')
+      .upsert({
+        tourist_id: userId,
+        location_sharing_enabled: location_sharing_enabled !== false,
+        geofence_radius_miles: geofence_radius_miles || 1.0,
+        sms_frequency: sms_frequency || 'once_per_day',
+        sms_quiet_hours_start,
+        sms_quiet_hours_end,
+        sms_categories: sms_categories || ['food', 'nightlife'],
+        updated_at: new Date().toISOString()
+      }, { onConflict: 'tourist_id' })
+      .select()
+      .single();
+
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ settings: data });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// GET /api/admin/geofences — List all geofences
+router.get('/geofences', adminRequired, async (req, res) => {
+  try {
+    const gcrDb = getGcrDb();
+    const { data, error } = await gcrDb
+      .from('geofences')
+      .select('*, entity:entity_id(name, slug, category)')
+      .order('created_at', { ascending: false });
+
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ geofences: data });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// POST /api/admin/geofences — Create geofence for business
+router.post('/geofences', adminRequired, async (req, res) => {
+  try {
+    const {
+      entity_id,
+      center_lat,
+      center_lng,
+      radius_miles,
+      peak_hours,
+      current_offer
+    } = req.body;
+
+    if (!entity_id || !center_lat || !center_lng) {
+      return res.status(400).json({ error: 'entity_id, center_lat, center_lng required' });
+    }
+
+    const gcrDb = getGcrDb();
+    const { data, error } = await gcrDb
+      .from('geofences')
+      .insert({
+        entity_id,
+        center_lat,
+        center_lng,
+        radius_miles: radius_miles || 0.5,
+        peak_hours: peak_hours || {},
+        current_offer,
+        active: true
+      })
+      .select()
+      .single();
+
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ geofence: data });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// PUT /api/admin/geofences/:id — Update geofence
+router.put('/geofences/:id', adminRequired, async (req, res) => {
+  try {
+    const { id } = req.params;
+    const {
+      radius_miles,
+      peak_hours,
+      current_offer,
+      offer_valid_until,
+      min_match_score,
+      active
+    } = req.body;
+
+    const gcrDb = getGcrDb();
+    const { data, error } = await gcrDb
+      .from('geofences')
+      .update({
+        radius_miles,
+        peak_hours,
+        current_offer,
+        offer_valid_until,
+        min_match_score,
+        active,
+        updated_at: new Date().toISOString()
+      })
+      .eq('id', id)
+      .select()
+      .single();
+
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ geofence: data });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// GET /api/admin/geofence-analytics — Analytics on geofence performance
+router.get('/geofence-analytics', adminRequired, async (req, res) => {
+  try {
+    const gcrDb = getGcrDb();
+    const { data, error } = await gcrDb.rpc('get_geofence_analytics');
+
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ analytics: data });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// ============================================
+// GCR ADS MANAGEMENT
+// ============================================
+
+// GET /api/admin/gcr/ads — list all ads
+router.get('/gcr/ads', async (req, res) => {
+    const { data, error } = await getGcrDb().from('gcr_ads').select('*').order('created_at', { ascending: false });
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ ads: data || [] });
+});
+
+// POST /api/admin/gcr/ads — create ad
+router.post('/gcr/ads', async (req, res) => {
+    const { advertiser_name, tagline, image_url, logo_url, cta_text, cta_url, badge_text, weight } = req.body;
+    if (!advertiser_name) return res.status(400).json({ error: 'advertiser_name required' });
+    const { data, error } = await getGcrDb().from('gcr_ads').insert({
+        advertiser_name, tagline, image_url, logo_url,
+        cta_text: cta_text || 'Learn More',
+        cta_url, badge_text,
+        weight: weight || 1,
+        is_active: true,
+    }).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ ad: data });
+});
+
+// PUT /api/admin/gcr/ads/:id — update ad
+router.put('/gcr/ads/:id', async (req, res) => {
+    const { advertiser_name, tagline, image_url, logo_url, cta_text, cta_url, badge_text, weight, is_active } = req.body;
+    const { data, error } = await getGcrDb().from('gcr_ads').update({
+        advertiser_name, tagline, image_url, logo_url, cta_text, cta_url, badge_text,
+        weight: weight || 1, is_active,
+    }).eq('id', req.params.id).select().single();
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ ad: data });
+});
+
+// DELETE /api/admin/gcr/ads/:id — delete ad
+router.delete('/gcr/ads/:id', async (req, res) => {
+    const { error } = await getGcrDb().from('gcr_ads').delete().eq('id', req.params.id);
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ ok: true });
+});

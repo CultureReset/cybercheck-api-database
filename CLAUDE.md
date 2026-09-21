@@ -13,6 +13,13 @@ node agents/check-db.js         # DB connectivity check
 
 No test suite or linter configured. Restart the server after any route change.
 
+Smoke check after changing modules or mounts:
+
+```bash
+node -e "require('./modules/manifest'); console.log(require('./core/registry').getManifest().length)"
+curl localhost:3000/api/_modules   # live module manifest
+```
+
 ## Architecture
 
 This is an Express API server (`server.js`) that acts as the middleware layer for three separate products:
@@ -25,27 +32,88 @@ This is an Express API server (`server.js`) that acts as the middleware layer fo
 
 Everything splits on which DB is used:
 
-- **Main Supabase** (`db.js` → `SUPABASE_URL` + `SUPABASE_SERVICE_KEY`) — CyberCheck businesses, users, bookings, sites, media
-- **GCR Supabase** (`gcr-db.js` → `GCR_SUPABASE_URL` + `GCR_SUPABASE_KEY`) — GCR entities, sections, menus, events, specials, photos, tourists
+- **Main Supabase** (`core/db.js` → `SUPABASE_URL` + `SUPABASE_SERVICE_KEY`) — CyberCheck businesses, users, bookings, sites, media
+- **GCR Supabase** (`core/gcr-db.js` → `GCR_SUPABASE_URL` + `GCR_SUPABASE_KEY`) — GCR entities, sections, menus, events, specials, photos, tourists
 
-`gcr-db.js` is a lazy singleton — call `getGcrDb()` to get the client; it throws if env vars are missing.
+`core/gcr-db.js` is a lazy singleton — call `getGcrDb()` to get the client; it throws if env vars are missing.
+Root `db.js` / `gcr-db.js` are one-line shims re-exporting `core/`, kept so the standalone
+scripts in `agents/` and `scripts/` keep working.
 
-### Route Map
+**Careful:** several table names exist in *both* projects with different columns
+(`menu_items`, `drink_items`, `customers`, `connections`, `entity_*`). Check which client a
+module declares (`requiredCore: ['db']` vs `['gcr-db']`) before adding a query.
 
-| Prefix | File | DB | Purpose |
-|---|---|---|---|
-| `/api/auth` | `routes/auth.js` | main | Login/signup/reset for business owners |
-| `/api/dashboard` | `routes/dashboard.js` | main | Authenticated business owner actions |
-| `/api/public` | `routes/public.js` | main | Customer-facing per-domain routes (domain middleware resolves site_id) |
-| `/api/admin` | `routes/admin.js` | both | Platform admin + all GCR entity CRUD (`/api/admin/gcr/*`) |
-| `/api/gcr` | `routes/gcr.js` | GCR | Public GCR discovery (search, browse, entity detail, AI chat) |
-| `/api/simple` | `routes/simple-menu-edit.js` | GCR | Slug-based menu/specials editor (no auth) |
-| `/api/tourist` | `routes/tourist*.js` | GCR | Trip Swipe saves, profile, groups |
-| `/api/reviews` | `routes/reviews.js` | main | POS webhooks, SMS review requests |
-| `/api/rides` | `routes/rides.js` | main | SMS dispatch, driver rotation |
-| `/update/:token` | `routes/update-link.js` | main | Mobile form for daily menu/specials updates |
+### Module Architecture
 
-### Auth System (`middleware/auth.js`)
+Every route surface is a **module**: one folder under `modules/<id>/` holding
+`index.js` (the manifest), `routes.js` (the Express router) and optionally
+`migrations.sql` (the tables it owns). `index.js` self-registers with
+`core/registry` when required.
+
+```
+core/       db · gcr-db · auth · domain · sms · email · ai · crypto · registry
+            entity-resolver · menu-gcr        ← the only thing modules may import
+modules/    <id>/index.js  manifest + registration
+            <id>/routes.js the router
+            <id>/migrations.sql the tables it owns
+            manifest.js    the install list — ORDER IS MOUNT ORDER
+server.js   cors → registry.mountAll(app, {preBodyParser:true}) → express.json()
+            → registry.mountAll(app) → 404 → error handler
+```
+
+Rules:
+- A module imports from `core/` and its own folder. **Never from another module.**
+- To add a route surface: create `modules/<id>/`, add one line to `modules/manifest.js`.
+  Do not touch `server.js`.
+- Order in `modules/manifest.js` is Express mount order and therefore behaviour.
+  `tourist` must precede `tourist-groups` and `setup-questions` (all answer under
+  `/api/tourist`, first match wins).
+- `preBodyParser: true` mounts a module before `express.json()` (raw body for
+  signature verification — `stripe-webhooks` needs it).
+- `enabled: false` keeps a module registered and listed but unmounted. Four are in that
+  state: `menu-edit`, `admin-tourists` (were never mounted), `sms-automation` (needs its
+  migrations applied), `social-manager` (routes return 501 until built).
+- `GET /api/_modules` returns the live manifest: what each module owns, needs and mounts.
+
+### Module Map
+
+| Mount | Module | DB | Routes | Purpose |
+|---|---|---|---|---|
+| `/api/webhooks` | `stripe-webhooks` | main | 4 | Stripe events, pre-body-parser |
+| `/api/auth` | `owner-auth` | main | 9 | Business owner login/signup/reset |
+| `/api/dashboard` | `dashboard` | both | 189 | Authenticated business owner actions |
+| `/api/public` | `public-site` | both | 51 | Customer-facing, domain → site_id |
+| `/api/admin` | `admin` | both | 254 | Platform admin + GCR CRUD/import |
+| `/api/gcr` | `gcr-discovery` | GCR | 53 | Public discovery, RAG chat, ads |
+| `/api/links` | `links` | — | 1 | Links-page menu loader |
+| `/api/user` | `gcr-owner` | GCR | 34 | GCR owner self-service |
+| `/api/stripe` | `stripe-payments` | main | 15 | Connect, checkout, per-business keys |
+| `/api/square` | `square-payments` | main | 8 | Square via REST |
+| `/api/google-business` + `/api/dashboard/google-business` | `google-business` | main | 10 | GBP OAuth + review sync |
+| `/api/analytics` | `analytics` | main | 5 | Pageviews, conversions |
+| `/api/apps` | `apps-catalog` | main | 3 | App catalog |
+| `/api/site` | `site-api` | main | 41 | Site content/pages/theme |
+| `/api/sms` | `sms-inbox` | both | 9 | Two-way SMS, blasts, crons |
+| `/api/send-email` | `transactional-email` | — | 1 | One-off email send |
+| `/api/update` + `/update` | `update-link` | both | 36 | Token-based mobile editor |
+| `/api/simple` | `simple-menu-edit` | GCR | 6 | Slug-based menu editor, no auth |
+| `/api/qr` | `qr-tracking` | both | 25 | Scan intelligence, geofences |
+| `/api/reviews` | `review-funnel` | both | 15 | POS webhook → review SMS |
+| `/api/rides` | `rides-dispatch` | main | 11 | SMS dispatch, driver rotation |
+| `/api/integrations/fareharbor` | `fareharbor` | main | 7 | FareHarbor sync |
+| `/api/photographer` | `photographer-booking` | main | 17 | Sessions, deposit, model release |
+| `/api/modules` | `app-store` | main | 7 | Per-site module install |
+| `/api/charter` | `charter-booking` | main | 13 | Charter booking + waiver |
+| `/api/boat-rental` | `boat-rental` | main | 11 | Boat rentals |
+| `/api/availability` | `availability-search` | main | 3 | Cross-platform search |
+| `/api/live-photo` | `live-photo` | both | 4 | Verified customer photos |
+| `/api/tourist` | `tourist` | both | 30 | Trip Swipe saves, AI concierge |
+| `/api/tourist/groups` | `tourist-groups` | main | 9 | Group trip planning |
+| `/api/tourist-auth` | `tourist-auth` | main | 8 | Tourist signup + email code |
+| `/api/tourist` + `/api/admin/setup-questions` | `setup-questions` | main | 6 | Signup questionnaire |
+| *(disabled)* | `menu-edit`, `admin-tourists`, `sms-automation`, `social-manager` | — | 30 | Registered, not mounted |
+
+### Auth System (`core/auth.js`)
 
 Two middleware functions:
 - `authRequired` — accepts three token types in order: (1) Express JWT signed with `JWT_SECRET`, (2) old Supabase JWT for Circle Boats, (3) GCR Supabase JWT for Trip Swipe users. Sets `req.userId`, `req.siteId`, `req.role`, or `req.gcrUserId`/`req.isGCR`.
@@ -67,19 +135,19 @@ All GCR data lives in the GCR Supabase under these core tables:
 
 GCR image uploads go to the `entity-media` Supabase storage bucket via `POST /api/admin/gcr/upload-image`. Main CyberCheck media goes to the `media` bucket via `POST /api/admin/upload-photo`.
 
-### Domain Middleware (`middleware/domain.js`)
+### Domain Middleware (`core/domain.js`)
 
-Used on `/api/public/*` routes. Resolves the incoming `Host` header to a `site_id` in the main DB so public routes are scoped to the correct business without requiring a site_id in the URL.
+Declared as the `public-site` module's `middleware`. Used on `/api/public/*` routes. Resolves the incoming `Host` header to a `site_id` in the main DB so public routes are scoped to the correct business without requiring a site_id in the URL.
 
 ### Key External Integrations
 
-- **Stripe** — Connect (per-business), standard payments, webhooks (`routes/stripe.js`, `routes/webhooks.js`)
-- **Square** — payments (`routes/square.js`)
-- **Brevo** — SMS inbox, booking confirmations, promo blasts (`routes/sms.js`, `modules/sms-automation/`, `utils/sms.js`) — set `BREVO_API_KEY` + `BREVO_SMS_ENABLED=true`. Twilio has been removed from this codebase; without a configured provider, `sendSms()` logs `not_configured` and does not deliver.
-- **Anthropic / OpenAI / Groq / xAI** — AI features routed through `routes/ai-provider.js`
-- **FareHarbor** — activity booking sync (`routes/fareharbor.js`)
-- **Google Business Profile** — OAuth + review sync (`routes/google-business.js`)
-- **Nodemailer / Resend / SendGrid** — email via `utils/email.js`
+- **Stripe** — Connect (per-business), standard payments, webhooks (`modules/stripe-payments/`, `modules/stripe-webhooks/`)
+- **Square** — payments (`modules/square-payments/`)
+- **Brevo** — SMS inbox, booking confirmations, promo blasts (`modules/sms-inbox/`, `modules/sms-automation/`, `core/sms.js`) — set `BREVO_API_KEY` + `BREVO_SMS_ENABLED=true`. Twilio has been removed from this codebase; without a configured provider, `sendSms()` logs `not_configured` and does not deliver.
+- **Anthropic / OpenAI / Groq / xAI** — AI features routed through `core/ai.js`
+- **FareHarbor** — activity booking sync (`modules/fareharbor/`)
+- **Google Business Profile** — OAuth + review sync (`modules/google-business/`)
+- **Nodemailer / Resend / SendGrid** — email via `core/email.js`
 
 ### Deployment
 

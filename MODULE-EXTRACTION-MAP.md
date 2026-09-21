@@ -7,6 +7,19 @@ to make it standalone.
 Companion to `REPO-CAPABILITIES.md` (which says *what exists*). This one says
 *how to take it apart*.
 
+> **Status: the mechanical pass is done.** Every route file is now a registered module
+> under `modules/<id>/`, the kernel lives in `core/`, `core/crypto.js` replaced the four
+> copied AES helpers (fixing the FareHarbor decrypt bug), five modules ship their own
+> `migrations.sql`, and `server.js` mounts everything through `core/registry`.
+> Verified: the mounted route table is byte-identical to before the split (946 routes,
+> plus the new `GET /api/_modules`), and 36 probes across every module return identical
+> status codes on both trees.
+>
+> What is **not** done: §4's monolith splits. `admin`, `dashboard`, `gcr-discovery`,
+> `public-site`, `tourist`, `update-link`, `gcr-owner` and `site-api` are each still one
+> module holding many features. §4 is the map for cutting those, and the section
+> boundaries it lists are still accurate.
+
 ---
 
 ## 0. The module contract

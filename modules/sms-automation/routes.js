@@ -20,12 +20,12 @@
  */
 
 const express  = require('express');
-const supabase = require('../../db');
-const gcrDb    = require('../../gcr-db')();
+const supabase = require('../../core/db');
+const gcrDb    = require('../../core/gcr-db')();
 const router   = express.Router();
 
-const { adminRequired } = require('../../middleware/auth');
-const { sendSms } = require('../../utils/sms');
+const { adminRequired } = require('../../core/auth');
+const { sendSms } = require('../../core/sms');
 
 // ── Generate a secure daily token ─────────────────────────────
 function generateToken() {
@@ -177,7 +177,12 @@ async function resolveTemplate(template, automation, context) {
     // Weather — if template uses {{weather_*}}
     if (msg.includes('{{weather') && automation.entity_id) {
         try {
-            const weather = await require('../weather-connector/api').getWeatherForEntity(automation.entity_id);
+            // Optional sibling module — absent in this repo, so the placeholders
+            // are simply left unfilled rather than blowing up the whole module.
+            let weatherApi = null;
+            try { weatherApi = require('../weather-connector/api'); } catch { weatherApi = null; }
+            if (!weatherApi) throw new Error('weather-connector module not installed');
+            const weather = await weatherApi.getWeatherForEntity(automation.entity_id);
             msg = msg.replace(/\{\{weather_temp\}\}/g, weather.temp || '');
             msg = msg.replace(/\{\{weather_desc\}\}/g, weather.description || '');
             msg = msg.replace(/\{\{weather_wind\}\}/g, weather.wind || '');

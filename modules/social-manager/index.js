@@ -8,11 +8,11 @@
  *  - Story and reel stats
  *  - Comment monitoring
  *
- * Mount path: /api/modules/social
+ * Mount path: /api/m/social
  * OAuth: Facebook Login with pages_manage_posts, ads_read, instagram_basic scopes
  */
 
-const registry = require('../../module-registry');
+const registry = require('../../core/registry');
 const router   = require('./routes');
 
 registry.register({
@@ -21,11 +21,16 @@ registry.register({
     icon:        '📱',
     version:     '1.0.0',
     description: 'Manage Facebook & Instagram: posts, insights, ads performance, comments. One place for all social.',
-    mountPath:   '/api/modules/social',
+    mountPath:   '/api/m/social',
     accessLevel: 'client',  // clients can access their own social data
     router,
     panelId:     'social-manager',
+    enabled:     false,   // routes return 501 until the Graph integration is built
+    routeCount:  7,
+    requiredCore:['auth'],
     requiredEnv: ['FACEBOOK_APP_ID', 'FACEBOOK_APP_SECRET'],
+    ownsTables:  ['social_media_accounts', 'social_media_posts', 'social_media_analytics'],
+    sharedTables:[],
     grokTools: [
         {
             accessLevel: 'client',

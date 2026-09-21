@@ -43,8 +43,19 @@ app.use(cors({
     credentials: true
 }));
 
-// Webhooks need raw body for signature verification — must be before express.json()
-app.use('/api/webhooks', require('./routes/webhooks'));
+// ============================================
+// MODULES
+// ============================================
+// Every route file in this repo is a module under modules/<id>/ that declares
+// itself to core/registry (id, mount path, tables it owns, core services and env
+// it needs). Requiring a module registers it; registration order is mount order.
+// See MODULE-EXTRACTION-MAP.md for the contract.
+const registry = require('./core/registry');
+require('./modules/manifest');
+
+// Modules that need the raw request body (signature verification) mount first,
+// before express.json() is installed.
+registry.mountAll(app, { preBodyParser: true });
 
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
@@ -57,123 +68,15 @@ if (process.env.NODE_ENV !== 'production') {
     });
 }
 
-// Domain resolution - resolves hostname to site_id for public routes
-const { resolveDomain } = require('./middleware/domain');
-
 // ============================================
 // API ROUTES
 // ============================================
+// All remaining modules mount here, in registration order. To add, remove or
+// reorder a route surface, edit modules/manifest.js — not this file.
+registry.mountAll(app);
 
-// Auth (login, signup, logout, refresh, reset)
-app.use('/api/auth', require('./routes/auth'));
-
-// Dashboard routes (authenticated business owner)
-app.use('/api/dashboard', require('./routes/dashboard'));
-
-// Public API (customer-facing, per domain)
-app.use('/api/public', resolveDomain, require('./routes/public'));
-
-// Admin routes (platform admin only)
-app.use('/api/admin', require('./routes/admin'));
-
-// GCR routes (platform-wide search & discovery)
-app.use('/api/gcr', require('./routes/gcr'));
-
-// Links routes (CyberCheck Links pages)
-app.use('/api/links', require('./routes/links'));
-
-// User routes — GCR multi-tenant platform (new businesses)
-app.use('/api/user', require('./routes/user'));
-
-// Stripe Connect + Payments
-app.use('/api/stripe', require('./routes/stripe'));
-
-// Square Payments
-app.use('/api/square', require('./routes/square'));
-
-// Google Business Profile — OAuth flow (public) + dashboard API (auth-gated inside route)
-const googleBusinessRouter = require('./routes/google-business');
-app.use('/api/google-business',          googleBusinessRouter);   // /auth + /callback (public)
-app.use('/api/dashboard/google-business', googleBusinessRouter);  // /status, /reviews, etc.
-
-// Analytics (page views, conversions, tracking)
-app.use('/api/analytics', require('./routes/analytics'));
-
-// App catalog + install/uninstall
-app.use('/api/apps', require('./routes/apps'));
-app.use('/api/site', require('./routes/site'));
-
-
-// SMS Inbox — two-way messaging, booking confirmations, promo blasts
-app.use('/api/sms', require('./routes/sms'));
-
-// Generic transactional email — used by Trip Swipe OTP and other lightweight senders
-app.post('/api/send-email', async (req, res) => {
-    try {
-        const { to, subject, html } = req.body;
-        if (!to || !subject || !html) return res.status(400).json({ error: 'to, subject, html required' });
-        const { sendEmail } = require('./utils/email');
-        const result = await sendEmail({ to, subject, html });
-        if (result.success) return res.json({ ok: true, id: result.id });
-        return res.status(500).json({ error: result.reason });
-    } catch (err) {
-        return res.status(500).json({ error: err.message });
-    }
-});
-
-// Daily Update Links — business owner taps link to update menu/specials/catch of day
-const updateLinkRouter = require('./routes/update-link');
-app.use('/api/update', updateLinkRouter);   // admin: generate, send, check status
-app.use('/update',     updateLinkRouter);   // public: /:token serves the mobile form
-
-// Simple Menu Editor — slug-based (no tokens needed)
-app.use('/api/simple', require('./routes/simple-menu-edit'));
-
-// QR Code Tracking — universal numbered scan tracking (tables, cards, ads, stickers)
-app.use('/api/qr', require('./routes/qr'));
-
-// Authentic Review Platform — POS webhooks, SMS review requests, review inbox
-app.use('/api/reviews', require('./routes/reviews'));
-
-// GCR Rides — SMS dispatch, driver management, lead rotation
-app.use('/api/rides', require('./routes/rides'));
-
-// FareHarbor integration — API key connect, availability sync, webhook
-app.use('/api/integrations/fareharbor', require('./routes/fareharbor'));
-
-// Photographer booking — sessions, schedule, slots, deposit, model release, gallery delivery
-app.use('/api/photographer', require('./routes/photographer'));
-
-// Module / App Store — install, uninstall, list available and installed apps
-app.use('/api/modules', require('./routes/modules'));
-
-// Fishing charter booking — listings, departure times, deposit, waiver, gallery delivery
-app.use('/api/charter', require('./routes/charter'));
-
-// Boat rental booking — boats, hourly/half-day/full-day/multi-day, deposit, waiver
-app.use('/api/boat-rental', require('./routes/boat-rental'));
-
-// Availability search engine — queries across all connected platforms
-app.use('/api/availability', require('./routes/availability'));
-
-// Verified Live Food Photos — standalone module, no auth required
-app.use('/api/live-photo', require('./routes/live-photo'));
-
-// Trip Swipe — tourist saves/profile/itinerary (uses Supabase JWT from trip-swipe frontend)
-app.use('/api/tourist', require('./routes/tourist'));
-
-// Trip Swipe — group trip planning (shared saves, overlap view)
-app.use('/api/tourist/groups', require('./routes/tourist-groups'));
-
-// Trip Swipe — tourist auth (signup + email verify via Brevo, signin, resend)
-app.use('/api/tourist-auth', require('./routes/tourist-auth'));
-
-// Trip Swipe — editable signup/setup questions (public GET + admin CRUD)
-const setupQuestions = require('./routes/setup-questions');
-app.use('/api/tourist', setupQuestions.publicRouter);
-app.use('/api/admin/setup-questions', setupQuestions.adminRouter);
-
-// Webhooks registered above (before express.json for raw body access)
+// Module manifest — what is installed, what each module owns and needs.
+app.get('/api/_modules', (req, res) => res.json(registry.getManifest()));
 
 // Root — API status
 app.get('/', (req, res) => res.json({ status: 'CyberCheck API running', version: '1.0.0' }));
@@ -437,7 +340,7 @@ app.use((err, req, res, next) => {
 // ============================================
 
 // Clean up expired booking holds every 2 minutes
-const supabase = require('./db');
+const supabase = require('./core/db');
 setInterval(async () => {
     try {
         const { count } = await supabase
