@@ -1,115 +1,58 @@
-# CyberCheck Backend API
+# cybercheck-api-database
 
-**Multi-tenant backend API** for business management platform. Serves dashboard and customer websites.
+The legacy Express API behind the CyberCheck business dashboards, the Gulf Coast Radar directory and the Trip Swipe tourist app, plus a large pile of data-cleanup scripts and exports.
 
-## Features
+## What it is
 
-- 🔐 **Supabase Auth** - Secure authentication
-- 🏢 **Multi-Tenant** - Supports unlimited businesses with data isolation
-- 🌐 **Domain Resolution** - Routes custom domains to correct business
-- 💳 **Stripe Connect** - Payment processing for businesses
-- 📊 **Analytics** - Page view and conversion tracking
-- 🔌 **OAuth** - Integrations with Google, Facebook, Square, Clover
-- 📧 **Webhooks** - Event-driven automation
+One Node/Express server that many front ends call: business dashboards (bookings, menus, reviews, texts, payments), a public local-business directory, a tourist app API and an admin API. The rest of the repo is not server code: hundreds of one-off `check-*`, `import-*`, `find-*`, `dedupe-*` scripts, scraped menus, photos, and JSON/CSV/XLSX exports used to build the directory data.
 
-## API Routes
+## How it works
 
-### Auth
-- `POST /api/auth/signup` - Create account
-- `POST /api/auth/login` - Login
-- `POST /api/auth/logout` - Logout
+- `server.js` is the entry point (Express 4, exported for Vercel). It mounts the files in `routes/` (36 files, about 900 handlers), for example:
+  - `/api/auth`, `/api/dashboard`, `/api/admin`, `/api/user`, `/api/links`
+  - `/api/public` (resolved per domain by `middleware/domain.js`)
+  - `/api/gcr` (public directory search, detail, AI chat)
+  - `/api/tourist`, `/api/tourist/groups`, `/api/tourist-auth`
+  - `/api/stripe`, `/api/square`, `/api/sms`, `/api/qr`, `/api/reviews`, `/api/rides`
+  - `/api/integrations/fareharbor`, `/api/google-business`, `/api/charter`, `/api/boat-rental`, `/api/photographer`
+  - `/api/simple` (slug-based menu editor) and `/api/update` plus `/update` (mobile update links)
+- Two Supabase clients: `db.js` (business data) and `gcr-db.js` (directory data: entity, menu, photo, event and tourist tables).
+- `middleware/auth.js` verifies JWTs for protected routes.
+- `vercel.json` deploys `server.js` with `@vercel/node` and defines 8 cron jobs (SMS reminders, waiver reminders, daily menu prompts, QR digests, review sends, and more).
+- SQL lives in `supabase/` (numbered files), `migrations/`, and several overlapping "master schema" files at the repo root, whose run order is not documented.
+- `agents/`, `tools/` and `lib/` hold health-check, scraping and helper code. `CLAUDE.md` has a route map.
 
-### Dashboard (Authenticated)
-- `GET /api/dashboard/profile` - Get business profile
-- `PUT /api/dashboard/profile` - Update profile
-- `GET /api/dashboard/analytics` - Get analytics data
-- `GET /api/dashboard/seo` - Get SEO settings
-- `GET /api/dashboard/social` - Get social media data
-- [100+ more endpoints...]
+## Run it
 
-### Public (Customer-Facing)
-- `GET /api/public/profile?subdomain=xxx` - Business info
-- `GET /api/public/fleet?subdomain=xxx` - Products/inventory
-- `POST /api/public/bookings?subdomain=xxx` - Create booking/order
-- `GET /api/public/reviews?subdomain=xxx` - Reviews
-- `GET /api/public/availability?subdomain=xxx` - Availability
-
-### Analytics
-- `POST /api/analytics/pageview` - Track page view
-- `POST /api/analytics/conversion` - Track conversion
-- `POST /api/analytics/event` - Track custom event
-
-## Setup
-
-### 1. Install Dependencies
 ```bash
 npm install
+npm start        # node server.js
 ```
 
-### 2. Environment Variables
-Create `.env` file:
-```env
-SUPABASE_URL=https://your-project.supabase.co
-SUPABASE_SERVICE_KEY=your-service-role-key
-SUPABASE_ANON_KEY=your-anon-key
-PORT=3000
-NODE_ENV=development
-STRIPE_SECRET_KEY=sk_test_xxx
-CORS_ORIGINS=http://localhost:3000,https://yourdomain.com
+Required environment variable names: `SUPABASE_URL`, `SUPABASE_SERVICE_KEY`, `JWT_SECRET`, and for the directory routes `GCR_SUPABASE_URL`, `GCR_SUPABASE_KEY`. Payments, SMS, email, Google Business, FareHarbor and AI routes need their own provider variables (see `.env.example`, which is incomplete). Not started or tested as part of writing this README.
+
+## Status
+
+In use: the big legacy production API that other repos call, bundled with a lot of one-off data scripts and exports.
+
+## Where it fits
+
+```mermaid
+flowchart LR
+  TS[gcr-trip-swipe] -->|/api/tourist, /api/gcr, /api/admin/tripswipe| API[cybercheck-api-database<br/>cybercheck-api-database.vercel.app]
+  AD[admin-dashboard-] -->|dashboard/admin routes| API
+  RM[restaurant-menu-editor-MAIN-] -->|menu edit routes| API
+  LG[launching-GCR pages] -.->|same /api/gcr paths, other host| API
+  API --> DB1[(Supabase: business data)]
+  API --> DB2[(Supabase: GCR directory)]
+  API --> EXT[Stripe, Square, SMS, Google Business, FareHarbor, AI providers]
+  CLEAN[gcr-api-clean] -.->|apparent cleaned successor| API
 ```
 
-### 3. Deploy Database Schema
-Run SQL files in Supabase SQL Editor in order:
-```bash
-01-tables.sql
-02-security.sql
-03-seed-data.sql
-04-ai-webhook.sql
-05-storage-policies.sql
-06-analytics-seo-social.sql
-```
+## Related repos
 
-### 4. Start Server
-```bash
-npm start
-# or
-node server.js
-```
-
-Server runs on `http://localhost:3000`
-
-## Database Schema
-
-- **businesses** - Business accounts (one per customer)
-- **users** - User accounts (linked to businesses via site_id)
-- **bookings** - Reservations/orders
-- **customers** - Customer database
-- **fleet_types** - Inventory items (boats, products, services)
-- **reviews** - Customer reviews
-- **page_views** - Analytics tracking
-- **conversions** - Conversion tracking
-- **seo_meta_tags** - SEO settings per page
-- **social_media_posts** - Social media scheduling
-- [40+ more tables...]
-
-## Multi-Tenant Security
-
-- Row Level Security (RLS) on all tables
-- Users can only access their own site_id data
-- Domain middleware resolves custom domains
-- Auth middleware protects dashboard routes
-
-## Dependencies
-
-```json
-{
-  "express": "^4.22.1",
-  "cors": "^2.8.6",
-  "dotenv": "^16.6.1",
-  "@supabase/supabase-js": "^2.x"
-}
-```
-
-## License
-
-Proprietary - CyberCheck Platform
+- gcr-trip-swipe: uses this API as its default base URL.
+- launching-GCR: calls the same `/api/gcr/*` paths on a different deployment; older docs still name this host.
+- Api-layer-: a smaller copy of the entity endpoints on a different database.
+- restaurant-menu-editor-MAIN- and admin-dashboard-: replacement front ends for parts of `routes/menu-edit.js`, `simple-menu-edit.js`, `update-link.js`, `dashboard.js` and `admin.js`.
+- gcr-api-clean: appears to be the cleaned successor (inferred from its own notes).
