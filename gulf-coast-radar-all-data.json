@@ -184068,8 +184068,8 @@
         "key": "api_key_square",
         "value": {
           "mode": "production",
-          "appId": "sq0idp-T2LU7grFu2gVkbuuepmr9w",
-          "secret": "sq0csp-AWOPDA1-f8i6q7SBmCDNdPhtft_qXO17J4re10rsCcM"
+          "appId": "REDACTED",
+          "secret": "REDACTED"
         },
         "updated_at": "2026-03-27T18:02:59.962+00:00"
       }

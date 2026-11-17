@@ -17655,7 +17655,7 @@
         "id": "32cebaf6-2991-4120-a290-894f3260e512",
         "site_id": "22222222-2222-2222-2222-222222222222",
         "provider": "stripe",
-        "access_token": "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",
+        "access_token": "REDACTED",
         "refresh_token": "rt_U9ZfYnHkOoqQ1ap4yfqi5gfY2FV6IOOMKRpHl3cqSlLCAGLd",
         "token_expires_at": null,
         "account_id": "acct_1TBGVA21jKUNrjvK",
@@ -17719,7 +17719,7 @@
         "refresh_token": null,
         "token_expires_at": null,
         "account_id": null,
-        "account_name": "sq0idp-T2LU7grFu2gVkbuuepmr9w",
+        "account_name": "REDACTED",
         "status": "connected",
         "metadata": {},
         "connected_at": "2026-03-27T18:54:17.187745+00:00",
@@ -98671,8 +98671,8 @@
         "key": "api_key_square",
         "value": {
           "mode": "production",
-          "appId": "sq0idp-T2LU7grFu2gVkbuuepmr9w",
-          "secret": "sq0csp-AWOPDA1-f8i6q7SBmCDNdPhtft_qXO17J4re10rsCcM"
+          "appId": "REDACTED",
+          "secret": "REDACTED"
         },
         "updated_at": "2026-03-27T18:02:59.962+00:00"
       }
@@ -132713,7 +132713,7 @@
         "entity_id": "3081ffaa-53bd-414e-8787-da5c43eeb673",
         "entity_slug": "perdido-marine-supply",
         "business_name": "Perdido Marine Supply",
-        "hero_image_url": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photo_reference=ATCDNfU-zi1fL1vDdzDAugox0bn1DEs1H96lwvyXwLlZTgQKcMD9JiJ_qWq98-wTzpSTgToOujNPg56fFTb-G_rRjWpbUdVYzjyjiCE1NWSyT7ndKxg-2Mvcsv2oycxzme9fxVlO41J8YQes1E6afo9D_P-zBojqC_YkZ_vCUcWcO08PI88EmFvbaFv-7YljaEl-NNlg7DHJXXI6JRrVOU1FVfvLy8Fw8ckhEnb9SEXtU2suLag3j-QOH-gluz1rnBUHg7BpLknJYSAi-Tk3lsDceIjg3lqZF8WIx1omhrGohTp1sg&key=AIzaSyCckxbsKP9mQmQMWkRv6UUdLVaGTrHFxMo",
+        "hero_image_url": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photo_reference=ATCDNfU-zi1fL1vDdzDAugox0bn1DEs1H96lwvyXwLlZTgQKcMD9JiJ_qWq98-wTzpSTgToOujNPg56fFTb-G_rRjWpbUdVYzjyjiCE1NWSyT7ndKxg-2Mvcsv2oycxzme9fxVlO41J8YQes1E6afo9D_P-zBojqC_YkZ_vCUcWcO08PI88EmFvbaFv-7YljaEl-NNlg7DHJXXI6JRrVOU1FVfvLy8Fw8ckhEnb9SEXtU2suLag3j-QOH-gluz1rnBUHg7BpLknJYSAi-Tk3lsDceIjg3lqZF8WIx1omhrGohTp1sg&key=REDACTED",
         "subtitle": "Family-owned marine supply shop specializing in trolling motors, marine electronics, and boat accessories",
         "category": "activities",
         "rating": 4.9,
