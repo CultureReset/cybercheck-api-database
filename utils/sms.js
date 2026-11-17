@@ -217,16 +217,32 @@ function normalizePhone(phone) {
 }
 
 async function logSms(siteId, to, message, type, status, relatedId, sid) {
+    // sms_log.site_id is NOT NULL (and references businesses.site_id), so
+    // platform-level sends with no business (daily menu prompts, digests,
+    // invites) cannot be stored there. Skip the insert instead of sending a
+    // request that always fails with a 400.
+    if (!siteId) {
+        console.log('sms_log skipped (no site_id):', { type, status, related_id: relatedId || null });
+        return;
+    }
+    const row = {
+        site_id: siteId,
+        to_phone: to,
+        message: message,
+        type: type,
+        status: status,
+        related_id: relatedId || null,
+        metadata: sid ? { twilio_sid: sid } : {}
+    };
     try {
-        await supabase.from('sms_log').insert({
-            site_id: siteId,
-            to_phone: to,
-            message: message,
-            type: type,
-            status: status,
-            related_id: relatedId || null,
-            metadata: sid ? { twilio_sid: sid } : {}
-        });
+        // supabase-js returns errors instead of throwing them; check both.
+        let { error } = await supabase.from('sms_log').insert(row);
+        if (error && error.code === 'PGRST204' && /metadata/.test(error.message || '')) {
+            // Some databases have no sms_log.metadata column; retry without it.
+            delete row.metadata;
+            ({ error } = await supabase.from('sms_log').insert(row));
+        }
+        if (error) console.error('SMS log error:', error.code, error.message);
     } catch (err) {
         console.error('SMS log error:', err.message);
     }
